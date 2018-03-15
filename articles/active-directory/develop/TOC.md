@@ -14,7 +14,8 @@
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Web apps
 ### [Overview](active-directory-authentication-scenarios.md#web-browser-to-web-application)
-### [ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)
+### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
+### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
 ### [Java](active-directory-devquickstarts-webapp-java.md)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -56,11 +57,15 @@
 ## [Azure AD app gallery](active-directory-app-gallery-listing.md)
 ## [Office 365 Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 ## Working with Visual Studio
-### [Get started with Visual Studio connected services](vs-active-directory-dotnet-getting-started.md)
+### [Use the Active Directory connected service](vs-active-directory-add-connected-service.md)
+### [Get started with .NET MVC projects](vs-active-directory-dotnet-getting-started.md)
+### [What happened to my .NET MVC project?](vs-active-directory-dotnet-what-happened.md)
+### [Get started with WebAPI projects](vs-active-directory-webapi-getting-started.md)
+### [What happened to my WebAPI project?](vs-active-directory-webapi-what-happened.md)
 ### [Error during authentication detection](vs-active-directory-error.md)
-### [Get started with WebApi](vs-active-directory-webapi-getting-started.md)
-### [What happened to my web API project](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
+## [ACS Migration](active-directory-acs-migration.md)
+## [Error handling best practices for ADAL](active-directory-devhowto-adal-error-handling.md)
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Auth libraries (ADAL)](active-directory-authentication-libraries.md)

@@ -4,8 +4,8 @@ title: Add an Azure Active Directory B2B collaboration user to a role | Microsof
 description: Add a guest user to a role in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: sasubram
-manager: femila
+author: twooley
+manager: mtillman
 editor: ''
 tags: ''
 
@@ -16,7 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 
 ms.custom: H1Hack27Feb2017                          
 

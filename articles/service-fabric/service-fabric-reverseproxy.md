@@ -36,11 +36,13 @@ Reverse proxy exposes one or more endpoints on local node for client services to
 
 ![Internal communication][1]
 
+> [!NOTE]
 > **Supported Platforms**
 >
 > Reverse proxy in Service Fabric currently supports the following platforms
 > * *Windows Cluster*: Windows 8 and later or Windows Server 2012 and later
 > * *Linux Cluster*: Reverse Proxy is not currently available for Linux clusters
+>
 
 ## Reaching microservices from outside the cluster
 The default external communication model for microservices is an opt-in model where each service cannot be accessed directly from external clients. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), which is a network boundary between microservices and external clients, performs network address translation and forwards external requests to internal IP:port endpoints. To make a microservice's endpoint directly accessible to external clients, you must first configure Load Balancer to forward traffic to each port that the service uses in the cluster. Furthermore, most microservices, especially stateful microservices, don't live on all nodes of the cluster. The microservices can move between nodes on failover. In such cases, Load Balancer cannot effectively determine the location of the target node of the replicas to which it should forward traffic.

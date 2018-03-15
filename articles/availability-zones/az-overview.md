@@ -7,14 +7,13 @@ author: markgalioto
 manager: carmonm
 editor:
 tags:
-
 ms.assetid:
-ms.service:
+ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 03/05/2018
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
@@ -28,7 +27,9 @@ Availability Zones help to protect you from datacenter-level failures. They are 
 ## Regions that support Availability Zones
 
 - East US 2
+- US Central
 - West Europe
+- France Central
 
 ## Services that support Availability Zones
 
@@ -36,27 +37,23 @@ The Azure services that support Availability Zones are:
 
 - Linux Virtual Machines
 - Windows Virtual Machines
-- Zonal Virtual Machine Scale Sets
+- Virtual Machine Scale Sets
 - Managed Disks
 - Load Balancer
-
-## Supported virtual machine size families
-
-- Av2
-- Dv2
-- DSv2
-
+- Public IP address
+- Zone-Redundant Storage
+- SQL Database
 
 ## Get started with the Availability Zones preview
 
-The Availability Zones preview is available in the East US 2 and West Europe regions for specific Azure services. 
+The Availability Zones preview is available in the East US 2, US Central, West Europe, and France Central regions for specific Azure services. 
 
 1. [Sign up for the Availability Zones preview](http://aka.ms/azenroll). 
 2. Sign in to your Azure subscription.
 3. Choose a region that supports Availability Zones.
 4. Use one of the following links to start using Availability Zones with your service. 
     - [Create a virtual machine](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Create a zonal virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [Create a virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Add a Managed Disk using PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Load balancer](../load-balancer/load-balancer-standard-overview.md)
 

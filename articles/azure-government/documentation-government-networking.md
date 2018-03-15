@@ -51,7 +51,7 @@ For network services to support Azure Government customer applications and solut
 All customers who utilize a private connectivity architecture should validate that an appropriate implementation is established and maintained for the customer connection to the Gateway Network/Internet (GN/I) edge router demarcation point for Azure Government. Similarly, your organization must establish network connectivity between your on-premises environment and Gateway Network/Customer (GN/C) edge router demarcation point for Azure Government.
 
 ### Data Considerations
-The following information identifies the Azure Government boundary for Azure ExpressRoute:
+The following information identifies the Azure Government International Traffic in Arms Regulations (ITAR) boundary for Azure ExpressRoute:
 
 | **Regulated/controlled data permitted**| **Regulated/controlled data not permitted** |
 | --- | --- |
@@ -98,8 +98,13 @@ Virtual Network is generally available in Azure Government. For more information
 ## Support for Load Balancer
 Load Balancer is generally available in Azure Government. For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
 
+## Support for DNS
+DNS is generally available in Azure Government. For more information, see the [DNS public documentation](../dns/dns-overview.md). 
+
 ## Support for Traffic Manager
-Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md). 
+Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md).
+
+The **IP addresses for Azure Government from which Traffic Manager health checks can originate are [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure-gov/probe-ip-ranges.json)**. Review the IPs listed in the JSON file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 ## Support for VNet Peering 
 VNet Peering is generally available in Azure Government. For more information, see the [VNet Peering public documentation](../virtual-network/virtual-network-peering-overview.md). 
@@ -111,7 +116,7 @@ VPN Gateway is generally available in Azure Government. For more information, se
 Application Gateway is generally available in Azure Government. For more information, see the [Application Gateway public documentation](../application-gateway/application-gateway-introduction.md). 
 
 ## Support for Network Watcher
-Network Watcher is available through Preview in Azure Government. For more information, see the [Network Watcher public documentation](../network-watcher/index.md). 
+Network Watcher is generally available in Azure Government. For more information, see the [Network Watcher public documentation](../network-watcher/index.md). 
 
 ## Support for Service Bus
 Service Bus is generally available in Azure Government. For more information, see the [Service Bus public documentation](../service-bus/index.md).

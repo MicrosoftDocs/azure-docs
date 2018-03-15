@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 02/14/2018
 ms.author: owend
 
 ---
@@ -35,6 +35,7 @@ To perform more in-depth diagnostics, track performance, and identify trends acr
 
     ![Monitor chart](./media/analysis-services-monitor/aas-monitor-chart.png)
 
+<a id="#server-metrics"></a>
 ## Server metrics
 Use this table to determine which metrics are best for your monitoring scenario. Only metrics of the same unit can be shown on the same chart.
 

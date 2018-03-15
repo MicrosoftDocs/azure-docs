@@ -3,7 +3,7 @@ title: 'Data Factory tutorial: First data pipeline | Microsoft Docs'
 description: This Azure Data Factory tutorial shows you how to create and schedule a data factory that processes data using Hive script on a Hadoop cluster.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
-ms.author: spelluru
+ms.date: 01/22/2018
+ms.author: shlo
 
 robots: noindex
 ---

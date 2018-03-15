@@ -1,3 +1,5 @@
+# [Azure Network Watcher Documentation](index.md)
+
 # Overview
 ## [What is Network Watcher?](network-watcher-monitoring-overview.md)
 ## [Topology](network-watcher-topology-overview.md)
@@ -7,8 +9,9 @@
 ## [Security group view](network-watcher-security-group-view-overview.md)
 ## [Next hop](network-watcher-next-hop-overview.md)
 ## [VPN connectivity troubleshooting](network-watcher-troubleshoot-overview.md)
-## [Connectivity check](network-watcher-connectivity-overview.md)
+## [Connection troubleshoot](network-watcher-connectivity-overview.md)
 ## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
+
 # Get Started
 ## [Configure Network Watcher](network-watcher-create.md)
 ## Manage packet capture
@@ -45,7 +48,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## Test connectivity
+## Troubleshoot connections
 ### [Azure portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)
@@ -56,9 +59,11 @@
 ### [Azure CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # How to
 ## [Monitor VPN Gateway with Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnose On-Premises connectivity via VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
+## [Monitor network connections](connection-monitor.md)
 ## [Perform compliance and audit on your network using PowerShell](network-watcher-nsg-auditing-powershell.md)
 ## [Analyze Application gateway logs in Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Packet capture
@@ -68,13 +73,22 @@
 ### [Visualize network traffic patterns using open source tools](network-watcher-using-open-source-tools.md)
 ## Analyze NSG flow logs
 ### [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md)
+### Traffic Analytics
+#### [Use Traffic Analytics](traffic-analytics.md)
+#### [Frequently asked questions](traffic-analytics-faq.md)
 ### [Use Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Use Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Use Grafana](network-watcher-nsg-grafana.md)
 ### [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [Determine relative latency between a location and Azure region](view-relative-latencies.md)
 
 # Reference
-## [Azure PowerShell](/powershell/azure/overview)
+## [Azure CLI](/cli/azure/network/watcher)
+## [Azure PowerShell](/powershell/module/azurerm.network/#network_watcher)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher) 
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html#azure.mgmt.network.NetworkManagementClient.network_watchers)
+
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)
 # Related

@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
 
 ---
@@ -37,14 +37,14 @@ For clusters that have one or more instances of the Infrastructure Service confi
         API provides a way to send infrastructure-specific commands to a particular instance of the
         Infrastructure Service. Available commands and their corresponding response formats vary
         depending upon the infrastructure on which the cluster is running. This API supports the
-        Service Fabric platform; it is not meant to be used directly from your code. .
+        Service Fabric platform; it is not meant to be used directly from your code. 
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
-| --command [Required]| The text of the command to be invoked. The content of the command is      infrastructure-specific.  Default: is command.|
-| --service-id     | The identity of the infrastructure service. This is  the full name of the      infrastructure service without the 'fabric:' URI scheme. This parameter      required only for clusters that have more than one instance of      infrastructure service running.|
+| --command [Required]| The text of the command to be invoked. The content of the command is      infrastructure-specific. |
+| --service-id     | The identity of the infrastructure service. The ID is  the full name of the      infrastructure service without the 'fabric:' URI scheme. This parameter      required only for clusters that have more than one instance of      infrastructure service running.|
 | --timeout -t     | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -70,8 +70,8 @@ For clusters that have one or more instances of the Infrastructure Service confi
 
 |Argument|Description|
 | --- | --- |
-| --command [Required]| The text of the command to be invoked. The content of the command is      infrastructure-specific.  Default: is query.|
-| --service-id     | The identity of the infrastructure service. This is  the full name of the      infrastructure service without the 'fabric:' URI scheme. This parameter is     required only for clusters that have more than one instance of      infrastructure service running.|
+| --command [Required]| The text of the command to be invoked. The content of the command is      infrastructure-specific.|
+| --service-id     | The identity of the infrastructure service. The ID is  the full name of the      infrastructure service without the 'fabric:' URI scheme. This parameter is     required only for clusters that have more than one instance of      infrastructure service running.|
 | --timeout -t     | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments

@@ -48,7 +48,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 1. Replace the location in `client.AzureRegion` (currently `AzureRegions.Westus`) to the region you signed up for.
 1. Run the program.
 
-```c#
+```csharp
 using System;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;

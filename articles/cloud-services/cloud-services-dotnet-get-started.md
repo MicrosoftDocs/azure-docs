@@ -113,7 +113,7 @@ You'll do the following steps to run the application in the cloud:
 An Azure cloud service is the environment the application will run in.
 
 1. In your browser, open the [Azure portal](https://portal.azure.com).
-2. Click **New > Compute > Cloud Service**.
+2. Click **Create a resource > Compute > Cloud Service**.
 
 3. In the DNS name input box, enter a URL prefix for the cloud service.
 
@@ -132,7 +132,7 @@ An Azure cloud service is the environment the application will run in.
 ### Create an Azure SQL database
 When the app runs in the cloud, it will use a cloud-based database.
 
-1. In the [Azure portal](https://portal.azure.com), click **New > Databases > SQL Database**.
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource > Databases > SQL Database**.
 2. In the **Database Name** box, enter *contosoads*.
 3. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
 4. In the following image, click **Server - Configure required settings** and **Create a new server**.
@@ -159,7 +159,7 @@ An Azure storage account provides resources for storing queue and blob data in t
 
 In a real-world application, you would typically create separate accounts for application data versus logging data, and separate accounts for test data versus production data. For this tutorial, you'll use just one account.
 
-1. In the [Azure portal](https://portal.azure.com), click **New > Storage > Storage account - blob, file, table, queue**.
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource > Storage > Storage account - blob, file, table, queue**.
 2. In the **Name** box, enter a URL prefix.
 
     This prefix plus the text you see under the box will be the unique URL to your storage account. If the prefix you enter has already been used by someone else, you'll have to choose a different prefix.
@@ -774,6 +774,6 @@ For a video introduction to Azure Storage best practices and patterns, see [Micr
 For more information, see the following resources:
 
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [How to manage Cloud Services](cloud-services-how-to-manage.md)
+* [How to manage Cloud Services](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](/documentation/services/storage/)
 * [How to choose a cloud service provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

@@ -4,8 +4,8 @@ description: Learn how to work with the .NET backend server SDK for Azure App Se
 keywords: app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -277,6 +277,10 @@ to step 3.
 To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>How to: Use custom authentication for your application
+> [!IMPORTANT]
+> In order to enable custom authentication, you must first enable App Service Authentication without selecting a provider for your App Service in the Azure portal. This will enable the WEBSITE_AUTH_SIGNING_KEY environment variable when hosted.
+> 
+> 
 If you do not wish to use one of the App Service Authentication/Authorization providers, you can implement your own login system. Install
 the [Microsoft.Azure.Mobile.Server.Login] package to assist with authentication token generation.  Provide your own code for validating
 user credentials. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()`

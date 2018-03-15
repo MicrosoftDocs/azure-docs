@@ -19,8 +19,12 @@ ms.author: msfussell
 ---
 # Service Fabric and containers
 > [!NOTE]
-> Deploying containers to a Service Fabric cluster in Windows 10 isn't supported yet. 
+> Deploying containers to a Service Fabric cluster in Windows 10 or with Docker CE isn't supported. 
 >   
+
+> [!NOTE]
+> Service Fabric version 6.1 has preview support for Windows Server version 1709. Open networking and Service Fabric DNS Service do not work with Windows Server version 1709. 
+> 
 
 ## Introduction
 Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines, with years of usage and optimization in massive scale services at Microsoft. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application.   
@@ -58,7 +62,7 @@ The following figure shows the different types of virtualization and isolation l
 ## Scenarios for using containers
 Here are typical examples where a container is a good choice:
 
-* **IIS lift and shift**: If you have existing [ASP.NET MVC](https://www.asp.net/mvc) apps that you want to continue to use, put them in a container instead of migrating them to ASP.NET Core. These ASP.NET MVC apps depend on Internet Information Services (IIS). You can package these applications into container images from the precreated IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server) for information about Windows containers.
+* **IIS lift and shift**: If you have existing [ASP.NET MVC](https://www.asp.net/mvc) apps that you want to continue to use, put them in a container instead of migrating them to ASP.NET Core. These ASP.NET MVC apps depend on Internet Information Services (IIS). You can package these applications into container images from the precreated IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) for information about Windows containers.
 * **Mix containers and Service Fabric microservices**: Use an existing container image for part of your application. For example, you might use the [NGINX container](https://hub.docker.com/_/nginx/) for the web front end of your application and stateful services for the more intensive back-end computation.
 * **Reduce impact of "noisy neighbors" services**: You can use the resource governance ability of containers to restrict the resources that a service uses on a host. If services might consume many resources and affect the performance of others (such as a long-running, query-like operation), consider putting these services into containers that have resource governance.
 
@@ -87,6 +91,6 @@ In this article, you learned about containers, that Service Fabric is a containe
 
 [Create your first Service Fabric container application on Linux](service-fabric-get-started-containers-linux.md)
 
-[Learn more about Windows Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
+[Learn more about Windows Containers](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

@@ -4,7 +4,7 @@ description: Learn how to create a virtual network using a network configuration
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -25,7 +25,7 @@ ms.author: jdial
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This document covers creating a VNet by using the classic deployment model. You can also [create a virtual network in the Resource Manager deployment model](virtual-networks-create-vnet-arm-ps.md).
+This document covers creating a VNet by using the classic deployment model. You can also [create a virtual network in the Resource Manager deployment model](quick-create-powershell.md).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 

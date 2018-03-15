@@ -1,4 +1,4 @@
-- name: Azure Databricks documentation
+- name: Azure Databricks Documentation
   href: index.yml
 - name: Overview
   items:
@@ -9,16 +9,24 @@
   items:
   - name: Create Databricks workspace
     href: quickstart-create-databricks-workspace-portal.md
+- name: How-to guides
+  items:
+  - name: Connect with Excel, R, and Python 
+    href: connect-databricks-excel-python-r.md
+  - name: Use Databricks CLI from Azure Cloud Shell
+    href: databricks-cli-from-azure-cloud-shell.md
 - name: Resources
   items:
   - name: Common questions
     href: frequently-asked-questions-databricks.md
+  - name: Release notes
+    href: https://docs.azuredatabricks.net/release-notes/index.html
   - name: Databricks documentation
     href: https://docs.azuredatabricks.net/user-guide/index.html
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=analytics
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/
+    href: https://azure.microsoft.com/pricing/details/databricks/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-databricks
   - name: Region availability

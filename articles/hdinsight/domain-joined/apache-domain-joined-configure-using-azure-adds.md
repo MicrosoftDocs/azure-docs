@@ -3,7 +3,7 @@ title: Configure Domain-joined HDInsight clusters using Azure Active Directory D
 description: Learn how to set up and configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services
 services: hdinsight
 documentationcenter: ''
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: ''
@@ -15,17 +15,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
-ms.author: saurinsh
+ms.author: bhanupr
 
 ---
 # Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services
 
 Domain-joined clusters provide the multi-user enterprise security capabilities on HDInsight. Domain-joined HDInsight clusters are connected to active directory domains, so that domain users can use their domain credentials to authenticate with the clusters and run big data jobs. 
 
-There are three ways to set up a domain controller so that a domain-joined HDInsight cluster can connect to:
+There are two ways to set up a domain controller so that a domain-joined HDInsight cluster can connect to:
 
 - Azure Active Directory Domain Services (Azure AD DS)
-- On-premises Active Directory
 - Active Directory Domain controller on Azure IaaS VMs
 
 In this article, you learn how to configure a Domain-joined HDInsight cluster using Azure Active Directory Domain Services.
@@ -35,9 +34,11 @@ In this article, you learn how to configure a Domain-joined HDInsight cluster us
 You need to create an Azure AD DS before you can create an HDInsight cluster. To create an Azure ADDS, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Only the tenant administrators have the privileges to create domain services. 
+> Only the tenant administrators have the privileges to create domain services. If you use Azure Data Lake Storage (ADLS) as the default storage for HDInsight, then make sure the default Azure AD tenant for ADLS is same as the domain for the HDInsight cluster. For this set up to work with Azure Data Lake Store, multi-factor authentication needs to be disabled for users that will have access to the cluster.
 
-After the domain service has been provisioned, you need to create a service account in the **Azure AD DC Administrators** group to create the HDInsight cluster. The serice account must be a global administrator on the Azure AD.
+After the domain service has been provisioned, you need to create a service account in the **Azure AD DC Administrators** group to create the HDInsight cluster. The service account must be a global administrator on the Azure AD.
+
+You must enable Secure LDAP for Azure AD Domain Services Managed Domain. To enable Secure LDAP, see [Configure secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 ## Create a Domain-joined HDInsight cluster
 

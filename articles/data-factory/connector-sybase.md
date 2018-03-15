@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -32,7 +32,7 @@ You can copy data from Sybase database to any supported sink data store. For a l
 
 Specifically, this Sybase connector supports:
 
-- Sybase **version 16 and above**.
+- SAP Sybase SQL Anywhere (ASA) **version 16 and above**; IQ and ASE are not supported.
 - Copying data using **Basic** or **Windows** authentication.
 
 ## Prerequisites
@@ -43,7 +43,8 @@ To use this Sybase connector, you need to:
 - Install the [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 or above on the Integration Runtime machine.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Sybase connector.
 
@@ -56,10 +57,9 @@ The following properties are supported for Sybase linked service:
 | type | The type property must be set to: **Sybase** | Yes |
 | server | Name of the Sybase server. |Yes |
 | database | Name of the Sybase database. |Yes |
-| schema | Name of the schema in the database. |No |
 | authenticationType | Type of authentication used to connect to the Sybase database.<br/>Allowed values are: **Basic**, and **Windows**. |Yes |
 | username | Specify user name to connect to the Sybase database. |Yes |
-| password | Specify password for the user account you specified for the username. Mark this field as a SecureString. |Yes |
+| password | Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**

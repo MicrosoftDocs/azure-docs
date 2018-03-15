@@ -3,8 +3,8 @@ title: Troubleshooting Azure Active Directory B2B collaboration | Microsoft Docs
 description: Remedies for common problems with Azure Active Directory B2B collaboration
 services: active-directory
 documentationcenter: ''
-author: sasubram
-manager: femila
+author: twooley
+manager: mtillman
 editor: ''
 tags: ''
 
@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 
 ---
 

@@ -47,9 +47,13 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Select the **GitHub WebHook** template for your desired language. **Name your function**, then select **Create**.
+2. In the search field, type `github` and then choose your desired language for the GitHub webhook trigger template. 
 
-     ![Create a GitHub webhook triggered function in the Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![Choose the GitHub webhook trigger template](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+2. Type a **Name** for your function, then select **Create**. 
+
+     ![Configure the GitHub webhook triggered function in the Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger-2.png) 
 
 3. In your new function, click **</> Get function URL**, then copy and save the values. Do the same thing for **</> Get GitHub secret**. You use these values to configure the webhook in GitHub.
 
@@ -72,8 +76,8 @@ Next, you create a webhook in your GitHub repository.
 | Setting | Suggested value | Description |
 |---|---|---|
 | **Payload URL** | Copied value | Use the value returned by  **</> Get function URL**. |
-| **Secret**   | Copied value | Use the value returned by  **</> Get GitHub secret**. |
 | **Content type** | application/json | The function expects a JSON payload. |
+| **Secret**   | Copied value | Use the value returned by  **</> Get GitHub secret**. |
 | Event triggers | Let me select individual events | We only want to trigger on issue comment events.  |
 | | Issue comment |  |
 
@@ -99,7 +103,7 @@ Now, the webhook is configured to trigger your function when a new issue comment
 
 ## Next steps
 
-You have created a function that runs when a request is received from a GitHub webhook.
+You have created a function that is triggered when a request is received from a GitHub webhook.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: 'Copy data from SQL Server to BLob Storage using Azure Data Factory | Microsoft Docs'
-description: 'Learn how to copy data from an on-premises data store to Azure cloud by using self-hosted integration runtime in Azure Data Factory.'
+title: Copy data from SQL Server to Blob storage by using Azure Data Factory | Microsoft Docs
+description: Learn how to copy data from an on-premises data store to the Azure cloud by using a self-hosted integration runtime in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 ---
-# Tutorial: Copy data from on-premises SQL Server to Azure Blob Storage
-In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that copies data from an on-premises SQL Server database to an Azure Blob storage. You create and use a self-hosted integration runtime (IR) of Azure Data Factory/ It allows integration of on-premises data stores and cloud data stores.  To learn about using other tools/SDKs to create data factory, see [Quickstarts](quickstart-create-data-factory-dot-net.md).
-
-This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md). 
+# Tutorial: Copy data from an on-premises SQL Server database to Azure Blob storage
+In this tutorial, you use Azure PowerShell to create a data-factory pipeline that copies data from an on-premises SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores. 
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> 
+> This article does not provide a detailed introduction to the Data Factory service. For more information, see [Introduction to Azure Data Factory](introduction.md). 
 
-You perform the following steps in this tutorial:
+In this tutorial, you perform the following steps:
 
 > [!div class="checklist"]
 > * Create a data factory.
@@ -34,94 +34,105 @@ You perform the following steps in this tutorial:
 > * Start a pipeline run.
 > * Monitor the pipeline run.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-
 ## Prerequisites
+### Azure subscription
+Before you begin, if you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
-### SQL Server 2014 or 2016. 
-You use an on-premises SQL Server database as a **source** data store in this tutorial. Create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table.
+### Azure roles
+To create data factory instances, the user account you use to log in to Azure must be assigned a *contributor* or *owner* role or must be an *administrator* of the Azure subscription. 
 
-1. Launch **SQL Server Management Studio**. If you are using SQL Server 2016, you may need to install the SQL Server Management Studio separately from the [download center](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
-2. Connect to your SQL server by using your credentials. 
-3. Create a sample database. In the tree view, right-click **Databases**, and click **New Database**. In the **New Database** dialog box, enter a **name** for the database, and click **OK**. 
-4. Run the following query script against the database, which creates the **emp** table. In the tree view, right-click the **database** you created, and click **New Query**. 
+To view the permissions you have in the subscription, go to the Azure portal, select your username at the top-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Add roles](../billing/billing-add-change-azure-subscription-administrator.md) article.
 
-    ```sql   
-    CREATE TABLE dbo.emp
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50),
-        CONSTRAINT PK_emp PRIMARY KEY (ID)
-    )
-    GO
-    ```
-2. Run the following commands against the database that insert some sample data into the table:
+### SQL Server 2014, 2016, and 2017
+In this tutorial, you use an on-premises SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this on-premises SQL Server database (source) to Azure Blob storage (sink). You then create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table. 
 
-    ```sql
-    INSERT INTO emp VALUES ('John', 'Doe')
-    INSERT INTO emp VALUES ('Jane', 'Doe')
-    ```
+1. Start SQL Server Management Studio. If it is not already installed on your machine, go to [Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
+
+2. Connect to your SQL Server instance by using your credentials. 
+
+3. Create a sample database. In the tree view, right-click **Databases**, and then select **New Database**. 
+ 
+4. In the **New Database** window, enter a name for the database, and then select **OK**. 
+
+5. To create the **emp** table and insert some sample data into it, run the following query script against the database:
+
+   ```
+       INSERT INTO emp VALUES ('John', 'Doe')
+       INSERT INTO emp VALUES ('Jane', 'Doe')
+       GO
+   ```
+
+6. In the tree view, right-click the database that you created, and then select **New Query**.
 
 ### Azure Storage account
-You use a general-purpose Azure Storage Account (specifically Blob Storage) as a **destination/sink** data store in this tutorial. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one.
+In this tutorial, you use a general-purpose Azure storage account (specifically, Azure Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). The pipeline in the data factory you that create in this tutorial copies data from the on-premises SQL Server database (source) to this Azure Blob storage (sink). 
 
 #### Get storage account name and account key
-You use the name and key of your Azure storage account name in this quickstart. The following procedure provides steps to get the name and key of your storage account. 
+You use the name and key of your Azure storage account in this tutorial. Get the name and key of your storage account by doing the following: 
 
-1. Launch a Web browser and navigate to [Azure portal](https://portal.azure.com). Log in using your Azure user name and password. 
-2. Click **More services >** in the left menu, and filter with **Storage** keyword, and select **Storage accounts**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure username and password. 
+
+2. In the left pane, select **More services**, filter by using the **Storage** keyword, and then select **Storage accounts**.
 
     ![Search for storage account](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
-3. In the list of storage accounts, filter for your storage account (if needed), and then select **your storage account**. 
-4. In the **Storage account** page, select **Access keys** on the menu.
+
+3. In the list of storage accounts, filter for your storage account (if needed), and then select your storage account. 
+
+4. In the **Storage account** window, select **Access keys**.
 
     ![Get storage account name and key](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
-5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it. You use the storage account name and the key in the tutorial. 
+
+5. In the **Storage account name** and **key1** boxes, copy the values, and then paste them into Notepad or another editor for later use in the tutorial. 
 
 #### Create the adftutorial container 
-In this section, you create a blob container named: adftutorial in your Azure blob storage. 
+In this section, you create a blob container named **adftutorial** in your Azure Blob storage. 
 
-1. Install [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) if you do not have it on your machine. 
-2. Launch **Microsoft Azure Storage Explorer** on your machine.   
-3. In the **Connect to Azure Storage** window, select **Use a storage account name and key**, and click **Next**. If you don't see the **Connect to Azure Storage** window, right-click **Storage Accounts** in the tree view, and click **Connect to Azure storage**. 
+1. In the **Storage account** window, switch to **Overview**, and then select **Blobs**. 
 
-    ![Connect to Azure storage](media/tutorial-hybrid-copy-powershell/storage-explorer-connect-azure-storage.png)
-4. In the **Attach using Name and Key** window, paste the **Account name** and **Account key** you have saved in the previous step. Then, click **Next**. 
-5. In the **Connection Summary** window, click **Connect**.
-6. Confirm that you see your storage account in the tree view under **(Local and Attached)** -> **Storage Accounts**. 
-7. Expand **Blob Containers** and confirm that a blob container named **adftutorial** does not exist. If it already exists, skip the next steps for creating the container. 
-8. Right-click **Blob Containers**, and select **Create Blob Container**.
+    ![Select Blobs option](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-    ![Create blob container](media/tutorial-hybrid-copy-powershell/stroage-explorer-create-blob-container-menu.png)
-9. Enter **adftutorial** for the name and press **ENTER**. 
-10. Confirm that the **adftutorial** container is selected in the tree view. Data Factory automatically creates the output folder in this container, so you don't need to create one. 
+2. In the **Blob service** window, select **Container**. 
 
-### Azure PowerShell
+    ![Add container button](media/tutorial-hybrid-copy-powershell/add-container-button.png)
+
+3. In the **New container** window, in the **Name** box, enter **adftutorial**, and then select **OK**. 
+
+    ![Enter container name](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+
+4. In the list of containers, select **adftutorial**.  
+
+    ![Select the container](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+
+5. Keep the **container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
+
+    ![Container window](media/tutorial-hybrid-copy-powershell/container-page.png)
+
+### Windows PowerShell
 
 #### Install Azure PowerShell
-Install the latest Azure PowerShell if you don't have it already on your machine. 
+Install the latest version of Azure PowerShell if you don't already have it on your machine. 
 
-1. In your web browser, navigate to [Azure SDK Downloads and SDKS](https://azure.microsoft.com/downloads/) page. 
-2. Click **Windows install** in the **Command-line tools** -> **PowerShell** section. 
-3. To install Azure PowerShell, run the **MSI** file. 
+1. Go to [Azure SDK Downloads](https://azure.microsoft.com/downloads/). 
+
+2. Under **Command-line tools**, in the **PowerShell** section, select **Windows install**. 
+
+3. To install Azure PowerShell, run the MSI file. 
 
 For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-#### Log in to Azure PowerShell
-Launch **PowerShell** on your machine. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
+#### Log in to PowerShell
 
-1. Run the following command, and enter the Azure user name and password that you use to sign in to the Azure portal:
+1. Start PowerShell on your machine, and keep it open through completion of this quickstart tutorial. If you close and reopen it, you'll need to run these commands again.
+
+    ![Start PowerShell](media/tutorial-hybrid-copy-powershell/search-powershell.png)
+
+2. Run the following command, and then enter the Azure username and password that you use to sign in to the Azure portal:
        
     ```powershell
     Login-AzureRmAccount
     ```        
-2. If you have multiple Azure subscriptions, run the following command to view all the subscriptions for this account:
 
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-3. Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
+3. If you have multiple Azure subscriptions, run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
@@ -129,146 +140,191 @@ Launch **PowerShell** on your machine. Keep Azure PowerShell open until the end 
 
 ## Create a data factory
 
-1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. 
+1. Define a variable for the resource group name that you'll use later in PowerShell commands. Copy the following command to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) (enclosed in double quotation marks; for example, `"adfrg"`), and then run the command. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>";
+    $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-2. Define a variable for the data factory name that you can use in PowerShell commands later. 
 
-    ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
-    ```
-1. Define a variable for the location of the data factory: 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. To create the Azure resource group, run the following command: 
+2. To create the Azure resource group, run the following command: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and try it again. If you want to share the resource group with other, proceed to the next step.  
-5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
-    
-    ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
-    ```
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again.
 
-Note the following points:
+3. Define a variable for the data factory name that you can use in PowerShell commands later. The name must start with a letter or a number, and it can contain only letters, numbers, and the dash (-) character.
 
-* The name of the Azure data factory must be globally unique. If you receive the following error, change the name and try again.
-
-    ```
-    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
-    ```
-
-* To create Data Factory instances, you must be a **contributor** or **administrator** of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
-
-## Create a self-hosted IR
-
-In this section, you can create a Self-hosted integration runtime and associate it with an on-prem node (machine).
-
-1. Create a variable for the name of integration runtime. 
+    > [!IMPORTANT]
+    >  Update the data factory name with a globally unique name. An example is ADFTutorialFactorySP1127. 
 
     ```powershell
-   $integrationRuntimeName = "<your integration runtime name>"
+    $dataFactoryName = "ADFTutorialFactory"
     ```
-1. Create a self-hosted integration runtime. Use a unique name in case if another integration runtime with the same name exists.
 
-   ```powershell
-   Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
-   ```
+4. Define a variable for the location of the data factory: 
 
-   Here is the sample output:
+    ```powershell
+    $location = "East US"
+    ```  
 
-   ```json
+5. To create the data factory, run the following `Set-AzureRmDataFactoryV2` cmdlet: 
+    
+    ```powershell       
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    ```
+
+> [!NOTE]
+> 
+> * The name of the data factory must be globally unique. If you receive the following error, change the name and try again.
+>    ```
+>    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
+>    ```
+> * To create data-factory instances, the user account that you use to sign in to Azure must be assigned a *contributor* or *owner* role or must be an *administrator* of the Azure subscription.
+> * Currently, by using Data Factory version 2, you can create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, and so on) and computes (Azure HDInsight and so on) used by the data factory can be in other regions.
+> 
+> 
+
+## Create a self-hosted integration runtime
+
+In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from the SQL Server database on your machine to Azure Blob storage. 
+
+1. Create a variable for the name of integration runtime. Use a unique name, and note the name. You use it later in this tutorial. 
+
+    ```powershell
+   $integrationRuntimeName = "ADFTutorialIR"
+    ```
+
+2. Create a self-hosted integration runtime. 
+
+    ```powershell
+	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ```	
+    Here is the sample output:
+
+    ```json
     Id                : /subscriptions/<subscription ID>/resourceGroups/ADFTutorialResourceGroup/providers/Microsoft.DataFactory/factories/onpremdf0914/integrationruntimes/myonpremirsp0914
     Type              : SelfHosted
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : onpremdf0914
     Name              : myonpremirsp0914
-    Description       :
+    Description       : selfhosted IR description
     ```
- ​
 
-2. Run the following command to retrieve status of the created integration runtime.
+3. To retrieve the status of the created integration runtime, run the following command:
 
-   ```powershell
+    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
-   ```
+    ```
 
-   Here is the sample output:
+    Here is the sample output:
+    
+    ```json
+    Nodes                     : {}
+    CreateTime                : 9/14/2017 10:01:21 AM
+    InternalChannelEncryption :
+    Version                   :
+    Capabilities              : {}
+    ScheduledUpdateDate       :
+    UpdateDelayOffset         :
+    LocalTimeZoneOffset       :
+    AutoUpdate                :
+    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
+    ResourceGroupName         : <ResourceGroup name>
+    DataFactoryName           : <DataFactory name>
+    Name                      : <Integration Runtime name>
+    State                     : NeedRegistration
+    ```
 
-   ```json
-   Nodes                     : {}
-   CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption :
-   Version                   :
-   Capabilities              : {}
-   ScheduledUpdateDate       :
-   UpdateDelayOffset         :
-   LocalTimeZoneOffset       :
-   AutoUpdate                :
-   ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
-   ResourceGroupName         : <ResourceGroup name>
-   DataFactoryName           : <DataFactory name>
-   Name                      : <Integration Runtime name>
-   State                     : NeedRegistration
-   ```
+4. To retrieve the *authentication keys* for registering the self-hosted integration runtime with the Data Factory service in the cloud, run the following command. Copy one of the keys (excluding the quotation marks) for registering the self-hosted integration runtime that you install on your machine in the next step. 
 
-3. Run the following command to retrieve authentication keys to register the self-hosted integration runtime with Data Factory service in the cloud. Copy one of the keys for registering the self-hosted integration runtime.
+    ```powershell
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
+    ```
+    
+    Here is the sample output:
+    
+    ```json
+    {
+        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
+        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
+    }
+    ```
 
-   ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
-   ```
+## Install the integration runtime
+1. Download [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) on a local Windows machine, and then run the installation. 
 
-   Here is the sample output:
+2. In the **Welcome to Microsoft Integration Runtime Setup** wizard, select **Next**.  
 
-   ```json
-   {
-       "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@ab1@eu@VDnzgySwUfaj3pfSUxpvfsXXXXXXx4GHiyF4wboad0Y=",
-       "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@ab1@eu@sh+k/QNJGBltXL46vXXXXXXXXOf/M1Gne5aVqPtbweI="
-   }
-   ```
+3. In the **End-User License Agreement** window, accept the terms and license agreement, and select **Next**. 
 
-## Install integration runtime
-1. [Download](https://www.microsoft.com/download/details.aspx?id=39717) the Self-hosted integration runtime on a local windows machine, and run the installation. 
-2. On the **Welcome to Microsoft Integration Runtime Setup Wizard**, click **Next**.  
-3. On the **End-User License Agreement** page, accept the terms and license agreement, and click **Next**. 
-4. On the **Destination Folder** page, click **Next**. 
-5. On the **Ready to install Microsoft Integration Runtime**, click **Install**. 
-6. If you see a warning message about the computer being configured to enter sleep or hibernate mode when not in use, click **OK**. 
-7. On the **Completed the Microsoft Integration Runtime Setup Wizard** page, click **Finish**.
-8. On the **Register Integration Runtime (Self-hosted)** page, paste the key you saved in the previous section, and click **Register**. 
+4. In the **Destination Folder** window, select **Next**. 
 
-   ![Register integration runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
-2. You see the following message when the self-hosted integration runtime is registered successfully:
+5. In the **Ready to install Microsoft Integration Runtime** window, select **Install**. 
 
-   ![Registered successfully](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
+6. If you see a warning message about the computer being configured to enter sleep or hibernate mode when not in use, select **OK**. 
 
-3. On the **New Integration Runtime (Self-hosted) Node** page, click **Next**. 
+7. If a **Power Options** window is displayed, close it, and switch to the setup window. 
 
-    ![New Integration Runtime Node page](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
-4. On the **Intranet Communication Channel**, click **Skip**. You can select a TLS/SSL certification for securing intra-node communication in a multi-node integration runtime environment. 
+8. In the **Completed the Microsoft Integration Runtime Setup** wizard, select **Finish**.
 
-    ![Intranet communication channel page](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
-5. On the **Register Integration Runtime (Self-hosted)** page, click **Launch Configuration Manager**. 
-6. You see the following page when the node is connected to the cloud service:
+9. In the **Register Integration Runtime (Self-hosted)** window, paste the key you saved in the previous section, and then select **Register**. 
 
-   ![Node is connected](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
+    ![Register integration runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
+    When the self-hosted integration runtime is registered successfully, the following message is displayed: 
+
+    ![Registered successfully](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
+
+10. In the **New Integration Runtime (Self-hosted) Node** window, select **Next**. 
+
+    ![New Integration Runtime Node window](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
+
+11. In the **Intranet Communication Channel** window, select **Skip**.  
+    You can select a TLS/SSL certification for securing intra-node communication in a multi-node integration runtime environment.
+
+    ![Intranet communication channel window](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
+
+12. In the **Register Integration Runtime (Self-hosted)** window, select **Launch Configuration Manager**. 
+
+13. When the node is connected to the cloud service, the following message is displayed:
+
+    ![Node is connected](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
+
+14. Test the connectivity to your SQL Server database by doing the following:
+
+    ![Diagnostics tab](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)   
+
+    a. In the **Configuration Manager** window, switch to the **Diagnostics** tab.
+
+    b. In the **Data source type** box, select **SqlServer**.
+
+    c. Enter the server name.
+
+    d. Enter the database name. 
+
+    e. Select the authentication mode. 
+
+    f. Enter the username. 
+
+    g. Enter the password that's associated with the username.
+
+    h. To confirm that integration runtime can connect to the SQL Server, select **Test**.  
+    If the connection is successful, a green checkmark icon is displayed. Otherwise, you'll receive an error message associated with the failure. Fix any issues, and ensure that the integration runtime can connect to your SQL Server instance.
+
+    Note all the preceding values for later use in this tutorial.
+    
 ## Create linked services
+To link your data stores and compute services to the data factory, create linked services in the data factory. In this tutorial, you link your Azure storage account and on-premises SQL Server instance to the data store. The linked services have the connection information that the Data Factory service uses at runtime to connect to them. 
 
 ### Create an Azure Storage linked service (destination/sink)
+In this step, you link your Azure storage account to the data factory.
 
-1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Create the folder ADFv2Tutorial if it does not already exist.  
+1. Create a JSON file named *AzureStorageLinkedService.json* in the *C:\ADFv2Tutorial* folder with the following code. If the *ADFv2Tutorial* folder does not already exist, create it.  
 
     > [!IMPORTANT]
-    > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
+    > Before you save the file, replace \<accountName> and \<accountKey> with the name and key of your Azure storage account. You noted them in the [Prerequisites](#get-storage-account-name-and-account-key) section.
 
    ```json
 	{
@@ -277,16 +333,17 @@ In this section, you can create a Self-hosted integration runtime and associate 
 			"typeProperties": {
 				"connectionString": {
 					"type": "SecureString",
-					"value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+					"value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>;EndpointSuffix=core.windows.net"
 				}
 			}
 		},
 		"name": "AzureStorageLinkedService"
 	}
    ```
-2. In **Azure PowerShell**, switch to the **ADFv2Tutorial** folder.
 
-   Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. The cmdlets used in this tutorial take values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can pass the **DataFactory** object returned by the Set-AzureRmDataFactoryV2 cmdlet without typing ResourceGroupName and DataFactoryName each time you run a cmdlet.
+2. In PowerShell, switch to the *C:\ADFv2Tutorial* folder.
+
+3. To create the linked service, AzureStorageLinkedService, run the following `Set-AzureRmDataFactoryV2LinkedService` cmdlet: 
 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -301,12 +358,17 @@ In this section, you can create a Self-hosted integration runtime and associate 
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
 
-### Create and encrypt a SQL Server linked service (source)
+    If you receive a "file not found" error, confirm that the file exists by running the `dir` command. If the file name has a *.txt* extension (for example, AzureStorageLinkedService.json.txt), remove it, and then run the PowerShell command again. 
 
-1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>**, and **&lt;password>** with values of your SQL Server before saving the file. 
+### Create and encrypt a SQL Server linked service (source)
+In this step, you link your on-premises SQL Server instance to the data factory.
+
+1. Create a JSON file named *SqlServerLinkedService.json* in the *C:\ADFv2Tutorial* folder by using the following code:
 
     > [!IMPORTANT]
-    > Replace  **&lt;integration** **runtime** **name>** with the name of your integration runtime.
+    > Select the section that's based on the authentication that you use to connect to SQL Server.
+
+    **Using SQL authentication (sa):**
 
 	```json
 	{
@@ -325,14 +387,48 @@ In this section, you can create a Self-hosted integration runtime and associate 
 		},
 		"name": "SqlServerLinkedService"
 	}
-   ```
-2. To encrypt the sensitive data from the JSON payload on the on-premise self-hosted integration runtime, run **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** and pass on the above JSON payload. This encryption ensures  that the credentials are encrypted using Data Protection Application Programming Interface (DPAPI). The encrypted credentials are stored on the self-hosted integration runtime node locally (local machine). The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials.
+   ```    
+
+    **Using Windows authentication:**
+
+    ```json
+    {
+        "properties": {
+            "type": "SqlServer",
+            "typeProperties": {
+                "connectionString": {
+                    "type": "SecureString",
+                    "value": "Server=<server>;Database=<database>;Integrated Security=True"
+                },
+                "userName": "<user> or <domain>\\<user>",
+                "password": {
+                    "type": "SecureString",
+                    "value": "<password>"
+                }
+            },
+            "connectVia": {
+                "type": "integrationRuntimeReference",
+                "referenceName": "<integration runtime name>"
+            }
+        },
+        "name": "SqlServerLinkedService"
+    }    
+    ```
+
+    > [!IMPORTANT]
+    > - Select the section that's based on the authentication you use to connect to your SQL Server instance.
+    > - Replace  **\<integration runtime name>** with the name of your integration runtime.
+    > - Before you save the file, replace **\<servername>**, **\<databasename>**, **\<username>**, and **\<password>** with the values of your SQL Server instance.
+    > - If you need to use a backslash (\\) in your user account or server name, precede it with the escape character (\\). For example, use *mydomain\\\\myuser*. 
+
+2. To encrypt the sensitive data (username, password, and so on), run the `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential` cmdlet.  
+    This encryption ensures that the credentials are encrypted using Data Protection Application Programming Interface (DPAPI). The encrypted credentials are stored locally on the self-hosted integration runtime node (local machine). The output payload can be redirected to another JSON file (in this case, *encryptedLinkedService.json*) that contains encrypted credentials.
     
    ```powershell
    New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
-3. Run the following command by using JSON from the previous step to create the **SqlServerLinkedService**:
+3. Run the following command, which creates EncryptedSqlServerLinkedService:
 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
@@ -340,11 +436,12 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 
 ## Create datasets
-In this step, you create input and output datasets that represent input and output data for the copy operation (On-premises SQL Server database => Azure blob storage).
+In this step, you create input and output datasets. They represent input and output data for the copy operation, which copies data from the on-premises SQL Server database to Azure Blob storage.
 
-### Create a dataset for source SQL Database
+### Create a dataset for the source SQL Server database
+In this step, you define a dataset that represents data in the SQL Server database instance. The dataset is of type SqlServerTable. It refers to the SQL Server linked service that you created in the preceding step. The linked service has the connection information that the Data Factory service uses to connect to your SQL Server instance at runtime. This dataset specifies the SQL table in the database that contains the data. In this tutorial, the **emp** table contains the source data. 
 
-1. Create a JSON file named **SqlServerDataset.json** in the **C:\ADFv2Tutorial** folder, with the following content:  
+1. Create a JSON file named *SqlServerDataset.json* in the *C:\ADFv2Tutorial* folder, with the following code:  
 
     ```json
     {
@@ -376,7 +473,7 @@ In this step, you create input and output datasets that represent input and outp
     }
     ```
 
-2. To create the dataset: **SqlServerDataset**, run the **Set-AzureRmDataFactoryV2Dataset** cmdlet.
+2. To create the dataset SqlServerDataset, run the `Set-AzureRmDataFactoryV2Dataset` cmdlet.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
@@ -392,12 +489,12 @@ In this step, you create input and output datasets that represent input and outp
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
     ```
 
-### Create a dataset for sink Azure Blob Storage
+### Create a dataset for Azure Blob storage (sink)
+In this step, you define a dataset that represents data that will be copied to Azure Blob storage. The dataset is of the type AzureBlob. It refers to the Azure Storage linked service that you created earlier in this tutorial. 
 
-1. Create a JSON file named **AzureBlobDataset.json** in the **C:\ADFv2Tutorial** folder, with the following content:
+The linked service has the connection information that the data factory uses at runtime to connect to your Azure storage account. This dataset specifies the folder in the Azure storage to which the data is copied from the SQL Server database. In this tutorial, the folder is *adftutorial/fromonprem*, where `adftutorial` is the blob container and `fromonprem` is the folder. 
 
-    > [!IMPORTANT]
-    > This sample code assumes that you have a container named **adftutorial** in the Azure Blob Storage.
+1. Create a JSON file named *AzureBlobDataset.json* in the *C:\ADFv2Tutorial* folder, with the following code:
 
     ```json
     {
@@ -418,7 +515,7 @@ In this step, you create input and output datasets that represent input and outp
     }
     ```
 
-2. To create the dataset: **AzureBlobDataset**, run the **Set-AzureRmDataFactoryV2Dataset** cmdlet.
+2. To create the dataset AzureBlobDataset, run the `Set-AzureRmDataFactoryV2Dataset` cmdlet.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
@@ -434,11 +531,10 @@ In this step, you create input and output datasets that represent input and outp
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset
     ```
 
-## Create pipelines
+## Create a pipeline
+In this tutorial, you create a pipeline with a copy activity. The copy activity uses SqlServerDataset as the input dataset and AzureBlobDataset as the output dataset. The source type is set to *SqlSource* and the sink type is set to *BlobSink*.
 
-### Create the pipeline "SqlServerToBlobPipeline"
-
-1. Create a JSON file named **SqlServerToBlobPipeline.json** in the **C:\ADFv2Tutorial** folder, with the following content:
+1. Create a JSON file named *SqlServerToBlobPipeline.json* in the *C:\ADFv2Tutorial* folder, with the following code:
 
     ```json
     {
@@ -474,7 +570,7 @@ In this step, you create input and output datasets that represent input and outp
     }
     ```
 
-2. To create the pipeline: **SQLServerToBlobPipeline**, Run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
+2. To create the pipeline SQLServerToBlobPipeline, run the `Set-AzureRmDataFactoryV2Pipeline` cmdlet.
 
     ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
@@ -490,17 +586,16 @@ In this step, you create input and output datasets that represent input and outp
     Parameters        :  
     ```
 
+## Create a pipeline run
+Start a pipeline run for the SQLServerToBlobPipeline pipeline, and capture the pipeline run ID for future monitoring.
 
+```powershell
+$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
+```
 
-## Start and monitor a pipeline run
+## Monitor the pipeline run
 
-1. Start a pipeline run for "SQLServerToBlobPipeline" pipeline and capture the pipeline run ID for future monitoring.  
-
-    ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
-    ```
-
-2. Run the following script to continuously check the run status of pipeline "**SQLServerToBlobPipeline**", and print out the final result.
+1. To continuously check the run status of pipeline SQLServerToBlobPipeline, run the following script in PowerShell, and print the final result:
 
     ```powershell
     while ($True) {
@@ -536,7 +631,7 @@ In this step, you create input and output datasets that represent input and outp
     Error             : {errorCode, message, failureType, target}
     ```
 
-3. You can get the run ID of pipeline "**SQLServerToBlobPipeline**", and check the detailed activity run result as the following.
+2. You can get the run ID of pipeline SQLServerToBlobPipeline and check the detailed activity run result by running the following command: 
 
     ```powershell
     Write-Host "Pipeline 'SQLServerToBlobPipeline' run result:" -foregroundcolor "Yellow"
@@ -557,11 +652,21 @@ In this step, you create input and output datasets that represent input and outp
       "billedDuration": 3
     }
     ```
+
 ## Verify the output
-The pipeline automatically creates the output folder named `fromonprem` in the `adftutorial` blob container. Confirm that you see the **dbo.emp.txt** file in the output folder. Use [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to verify that the output is created. 
+The pipeline automatically creates the output folder named *fromonprem* in the `adftutorial` blob container. Confirm that you see the *dbo.emp.txt* file in the output folder. 
+
+1. In the Azure portal, in the **adftutorial** container window, select **Refresh** to see the output folder.
+
+    ![Output folder created](media/tutorial-hybrid-copy-powershell/fromonprem-folder.png)
+2. Select `fromonprem` in the list of folders. 
+3. Confirm that you see a file named `dbo.emp.txt`.
+
+    ![Output file](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
+
 
 ## Next steps
-The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to:
+The pipeline in this sample copies data from one location to another in Azure Blob storage. You learned how to:
 
 > [!div class="checklist"]
 > * Create a data factory.
@@ -572,9 +677,9 @@ The pipeline in this sample copies data from one location to another location in
 > * Start a pipeline run.
 > * Monitor the pipeline run.
 
-For a list of data stores supported by Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that are supported by Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Advance to the following tutorial to learn about copy data in bulk from a source to a destination:
+To learn about copying data in bulk from a source to a destination, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 >[Copy data in bulk](tutorial-bulk-copy.md)

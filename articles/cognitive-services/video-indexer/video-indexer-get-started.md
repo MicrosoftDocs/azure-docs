@@ -14,7 +14,7 @@ ms.author: juliako;
 ---
 # How to sign up and upload your first video
 
-This short getting started tutorial shows how to sign in to Visual Indexer and how to upload your first video.
+This short getting started tutorial shows how to sign in to Video Indexer and how to upload your first video.
 
 To read a detailed overview of the Video Indexer service, see the [overview](video-indexer-overview.md) article.
 

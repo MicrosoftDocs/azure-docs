@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
 
 ---
@@ -102,25 +102,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. On the **GoToMeeting Domain and URLs** section, click **Show advanced URL settings** and perform following actions -
+3. On the **GoToMeeting Domain and URLs** section, perform the following steps:
 
-	![GoToMeeting Domain and URLs single sign-on information](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+	![GoToMeeting Domain and URLs single sign-on information](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. In the **Identifier** textbox, type the URL:
-	`https://authentication.logmeininc.com/saml/sp`
-
-	b. In the **Reply URL** textbox, type the URL:	`https://authentication.logmeininc.com/saml/acs`
-
-	c. In the **Relay State** textbox, type one of the following URLs:
-
-	**For GoToMeeting**: `https://global.gotomeeting.com`
-	
-	**For GoToTraining**: `https://global.gototraining.com`
-
-	**For GoToWebinar**: `https://global.gotowebinar.com`
-
-	**For GoToAssist**: `https://app.gotoassist.com`
-
+    In the **Identifier** textbox, type the URL: `https://login.citrixonline.com/saml/sp`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -154,7 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![GoToMeeting Configuration](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. In a different browser window, log in to your [GoToMeeting Organization Center](https://account.citrixonline.com/organization/administration/)
+8. In a different browser window, log in to your [GoToMeeting Organization Center](https://organization.logmeininc.com/)
 
 9. Under **identity provider** tab, you can configure the Azure settings either by providing the generated **Metadata URL** or the downloaded **Metadata file** or **Manual**.
 
@@ -278,7 +264,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configure User Provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+* [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
 
 
 <!--Image references-->

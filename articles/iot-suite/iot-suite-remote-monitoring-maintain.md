@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -42,11 +42,7 @@ To investigate the issue further, choose the **Explore Alarm** option next to th
 
 ![Explore alarm from the dashboard](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-You can now see a list of alarms on the **Maintenance** page:
-
-![List of alarms on the maintenance page](media/iot-suite-remote-monitoring-maintain/maintenancealarms.png)
-
-To display details of the alarm, choose the alarm in the **Alarms** list. The detail view shows:
+The detail view of the alarm shows:
 
 * When the alarm was triggered
 * Status information about the devices associated with the alarm
@@ -58,6 +54,8 @@ To acknowledge the alarm, select the **Alarm occurrences** and choose **Acknowle
 
 ![Acknowledge the alarms](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+When you acknowledge the alarm, the status of the occurrence changes to **Acknowledged**.
+
 In the list, you can see the **Prototype** device responsible for firing the temperature alarm:
 
 ![List the devices causing the alarm](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -66,7 +64,7 @@ In the list, you can see the **Prototype** device responsible for firing the tem
 
 To remediate the issue with the **Prototype** device, you need to call the **DecreaseTemperature** method on the device.
 
-To act on a device, select it in the list of devices and then choose **Schedule**. The **Engine** device model specifies three methods a device must support:
+To act on a device, select it in the list of devices and then choose **Schedule**. The **Prototype** device model specifies four methods a device must support:
 
 ![View the methods the device supports](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -74,17 +72,17 @@ Choose **DecreaseTemperature** and set the job name to **DecreaseTemperature**. 
 
 ![Create the job to decrease the temperature](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-To track the status of the job on the **Maintenance** page, choose **System Status**. Use the **System Status** view to track all the jobs and method calls in the solution:
+To track the status of the job on the **Maintenance** page, choose **Jobs**. Use the **Jobs** view to track all the jobs and method calls in the solution:
 
 ![Monitor the job to decrease the temperature](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-To view the details of a specific job or method call, choose it in the list in the **System Status** view:
+To view the details of a specific job or method call, choose it in the list in the **Jobs** view:
 
 ![View job details](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 
 ## Next steps
 
-In this tutorial, we showed you how to:
+In this tutorial, you saw how to:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

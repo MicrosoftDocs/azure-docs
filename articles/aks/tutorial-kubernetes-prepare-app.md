@@ -1,21 +1,13 @@
 ---
-title: Kubernetes on Azure tutorial  - Prepare App | Microsoft Docs
+title: Kubernetes on Azure tutorial  - Prepare App
 description: AKS tutorial - Prepare App 
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -37,9 +29,9 @@ In subsequent tutorials, the container image is uploaded to an Azure Container R
 
 ## Before you begin
 
-This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) for a primer on container basics. 
+This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker][docker-get-started] for a primer on container basics. 
 
-To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
 
 Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. Therefore, we recommend using a full Docker development environment.
 
@@ -63,15 +55,15 @@ Inside the directory is the application source code, a pre-created Docker compos
 
 ## Create container images
 
-[Docker Compose](https://docs.docker.com/compose/) can be used to automate the build out of container images and the deployment of multi-container applications.
+[Docker Compose][docker-compose] can be used to automate the build out of container images and the deployment of multi-container applications.
 
-Run the `docker-compose.yml` file to create the container image, download the Redis image, and start the application.
+Run the `docker-compose.yaml` file to create the container image, download the Redis image, and start the application.
 
 ```console
 docker-compose up -d
 ```
 
-When completed, use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to see the created images.
+When completed, use the [docker images][docker-images] command to see the created images.
 
 ```console
 docker images
@@ -86,7 +78,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Run the [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) command to see the running containers.
+Run the [docker ps][docker-ps] command to see the running containers.
 
 ```console
 docker ps
@@ -136,4 +128,16 @@ In this tutorial, an application was tested and container images created for the
 Advance to the next tutorial to learn about storing container images in an Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push images to Azure Container Registry](./tutorial-kubernetes-prepare-acr.md)
+> [Push images to Azure Container Registry][aks-tutorial-prepare-acr]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-for-mac]: https://docs.docker.com/docker-for-mac/
+[docker-for-windows]: https://docs.docker.com/docker-for-windows/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

@@ -4,7 +4,7 @@ description: Join a Windows Server virtual machine to a managed domain using Azu
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5

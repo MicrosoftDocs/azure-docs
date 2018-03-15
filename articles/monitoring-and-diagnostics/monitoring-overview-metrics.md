@@ -86,11 +86,11 @@ Azure Monitor also has a new metrics charting experience available in preview. T
 ## Access metrics via the REST API
 Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs that help you discover and access metrics:
 
-* Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) to access the list of metrics, and any dimensions, that are available for a service.
-* Use the [Azure Monitor Metrics REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) to segment, filter, and access the actual metrics data.
+* Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) to access the list of metrics, and any dimensions, that are available for a service.
+* Use the [Azure Monitor Metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics) to segment, filter, and access the actual metrics data.
 
 > [!NOTE]
-> This article covers the metrics via the [new API for metrics](https://docs.microsoft.com/en-us/rest/api/monitor/) for Azure resources. The API version for the new metric definitions and metrics APIs is 2017-05-01-preview. The legacy metric definitions and metrics can be accessed with the API version 2014-04-01.
+> This article covers the metrics via the [new API for metrics](https://docs.microsoft.com/rest/api/monitor/) for Azure resources. The API version for the new metric definitions and metrics APIs is 2017-05-01-preview. The legacy metric definitions and metrics can be accessed with the API version 2014-04-01.
 >
 >
 
@@ -113,7 +113,7 @@ Metric alerts: They can then notify you via email or fire a webhook that can be 
 
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Near real time alerts (preview): These have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md). Leran more about [near real time metric alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
+Near real time alerts (preview): These have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md). Learn more about [near real time metric alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### Autoscale your Azure resources

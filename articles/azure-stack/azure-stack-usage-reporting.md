@@ -3,18 +3,18 @@ title: Report Azure Stack usage data to Azure | Microsoft Docs
 description: Learn how to set up usage data reporting in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: sngun;AlfredoPizzirani
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
 
 ---
 
@@ -22,7 +22,7 @@ ms.author: sngun;AlfredoPizzirani
 
 Usage data, also called consumption data, represents the amount of resources used. 
 
-Azure Stack multinode systems that use consumption based billing model should report usage data to Azure for billing purpose.  Azure Stack operators should configure their Azure Stack instance to report usage data to Azure.
+Azure Stack multinode systems that use consumption-based billing model should report usage data to Azure for billing purpose.  Azure Stack operators should configure their Azure Stack instance to report usage data to Azure.
 
 > [!NOTE]
 > Usage data reporting is required for the Azure Stack multi-node users who license under the Pay-as-you-use model. It is optional for customers who license under the Capacity model (see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). For Azure Stack Development Kit users, Azure Stack operators can report usage data and test the feature. However, users will not be charged for any usage they incur. 
@@ -34,7 +34,7 @@ Usage data is sent from Azure Stack to Azure through the Azure Bridge. In Azure,
 
 ## Set up usage data reporting
 
-To set up usage data reporting, you must [register your Azure Stack instance with Azure](azure-stack-register.md). As a part of the registration process, the Azure Bridge component of Azure Stack , which connects Azure Stack to Azure and sends the usage data, is configured. The following usage data is sent from Azure Stack to Azure:
+To set up usage data reporting, you must [register your Azure Stack instance with Azure](azure-stack-register.md). As a part of the registration process, the Azure Bridge component of Azure Stack, which connects Azure Stack to Azure and sends the usage data, is configured. The following usage data is sent from Azure Stack to Azure:
 
 - **Meter ID** – Unique ID for the resource that was consumed.
 - **Quantity** – Amount of resource usage.
@@ -51,7 +51,7 @@ To set up usage data reporting, you must [register your Azure Stack instance wit
 
 ## View usage - CSP subscriptions
 
-If you registered your Azure Stack using a CSP subscription, you can view your usage and charges in the same way in which you view Azure consumption. Azure Stack usage will be included in your invoice and in the reconciliation file, available through [Partner Center](https://partnercenter.microsoft.com/en-us/partner/home). The reconciliation file is updated monthly. If you need to access recent Azure Stack usage information, you can use the Partner Center APIs.
+If you registered your Azure Stack using a CSP subscription, you can view your usage and charges in the same way in which you view Azure consumption. Azure Stack usage will be included in your invoice and in the reconciliation file, available through [Partner Center](https://partnercenter.microsoft.com/partner/home). The reconciliation file is updated monthly. If you need to access recent Azure Stack usage information, you can use the Partner Center APIs.
 
    ![partner center](media/azure-stack-usage-reporting/partner-center.png)
 
@@ -80,7 +80,7 @@ Users are only charged for VMs that run under tenant subscriptions. All workload
 
 ## I have a Windows Server license I want to use on Azure Stack, how do I do it?
 
-Using the existing licenses avoids generating usage meters. Existing Windows Server licenses can be used in Azure Stack, as described in the “Using existing software with Azure Stack” section of [the Azure Stack Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Customers need to deploy their Windows Server virtual machines as described in the [Hybrid benefit for Windows Server license](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) topic in order to use their existing licenses.
+Using the existing licenses avoids generating usage meters. Existing Windows Server licenses can be used in Azure Stack, as described in the “Using existing software with Azure Stack” section of [the Azure Stack Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Customers need to deploy their Windows Server virtual machines as described in the [Hybrid benefit for Windows Server license](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) topic in order to use their existing licenses.
 
 ## Which subscription is charged for the resources consumed?
 The subscription that is provided when [registering Azure Stack with Azure](azure-stack-register.md) is charged.
@@ -95,7 +95,7 @@ In the Azure Stack Development Kit, usage data reporting requires subscriptions 
 
 ## How can users identify Azure Stack usage data in the Azure billing portal?
 
-Users can see the Azure Stack usage data in the usage details file. To know about how to get the usage details file, refer to the [download usage file from the Azure Account Center article](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). The usage details file contains the Azure Stack meters that identify Azure Stack storage and VMs. All resources used in Azure Stack are reported under the region named “Azure Stack.”
+Users can see the Azure Stack usage data in the usage details file. To know about how to get the usage details file, refer to the [download usage file from the Azure Account Center article](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). The usage details file contains the Azure Stack meters that identify Azure Stack storage and VMs. All resources used in Azure Stack are reported under the region named “Azure Stack.”
 
 ## Why doesn’t the usage reported in Azure Stack match the report generated from Azure Account Center?
 
@@ -106,3 +106,4 @@ There is always a delaybetween the usage data reported by the Azure Stack usage 
 * [Provider usage API](azure-stack-provider-resource-api.md)  
 * [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
 * [Usage FAQ](azure-stack-usage-related-faq.md)
+* [Manage usage and billing as a Cloud Service Provider](azure-stack-add-manage-billing-as-a-csp.md)

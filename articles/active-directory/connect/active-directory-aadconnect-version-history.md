@@ -1,10 +1,12 @@
+
+
 ---
 title: 'Azure AD Connect: Version release history | Microsoft Docs'
 description: This article lists all releases of Azure AD Connect and Azure AD Sync
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -12,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 02/16/2018
 ms.author: billmath
 
 ---
@@ -24,12 +26,157 @@ This article is designed to help you keep track of the versions that have been r
 This is a list of related topics:
 
 
+
 Topic |  Details
 --------- | --------- |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
+
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.750.0
+Status: Released to select customers
+This release is currently distributed to a small and random selection of AADConnect tenants that have enabled auto-upgrade. We will expand this group of tenants in the coming weeks until 100% of our auto-upgrade customers have received this release. After that we will post the build for general download on the above download link.
+>[!NOTE]
+>When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
+
+### Azure AD Connect
+#### Fixed issues
+
+* Set-ADSyncAutoUpgrade cmdlet would previously block Autoupgrade if auto-upgrade state is set to Suspended. This is now changed so it does not block AutoUpgrade of future builds.
+
+## 1.1.749.0
+Status: Released to select customers
+
+>[!NOTE]
+>When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, please make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
+
+### Azure AD Connect
+#### Fixed issues
+* Fix timing window on background tasks for Partition Filtering page when switching to next page.
+
+* Fixed a bug that caused Access violation during the ConfigDB custom action.
+
+* Fixed a bug to recover from SQL connection timeout.
+
+* Fixed a bug where certificates with SAN wildcards failed a prerequisite check.
+
+* Fixed a bug which causes miiserver.exe to crash during an Azure AD connector export.
+
+* Fixed a bug which bad password attempt logged on DC when running the Azure AD Connect wizard to change configuration.
+
+
+#### New features and improvements
+
+* Adding Privacy Settings for the General Data Protection Regulation (GDPR).  For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
+
+
+	- Data sharing and privacy notification on the clean install EULA page.
+	- Data sharing and privacy notification on the upgrade page.
+	- A new additional task "Privacy Settings" where the user can change their preferences.
+
+* application telemetry - admin can switch this class of data on/off at will
+
+* Azure AD Health data - admin must visit the health portal to control their health settings.
+   Once the service policy has been changed, the agents will read and enforce it.
+
+* Added device write-back configuration actions and a progress bar for page initialization
+
+* Improved General Diagnostics with HTML report and full data collection in a ZIP-Text / HTML Report
+
+* Improved the reliability of auto upgrade and added additional telemetry to ensure the health of the server can be determined
+
+* Restrict permissions available to privileged accounts on AD Connector account
+
+  * For new installations, the wizard will restrict the permissions that privileged accounts have on the MSOL account after creating the MSOL account.
+
+The changes will take care of following:
+1. Express Installations
+2. Custom Installations with Auto-Create account
+
+* Changed the installer so it doesn't require SA privilege on clean install of Azure AD Connect
+
+* Added a new utility to troubleshoot synchronization issues for a specific object. It is available under 'Troubleshoot Object Synchronization' option of Azure AD Connect Wizard Troubleshoot Additional Task. Currently, the utility checks for the following:
+
+  * UserPrincipalName mismatch between synchronized user object and the user account in Azure AD Tenant.
+  * If the object is filtered from synchronization due to domain filtering
+  * If the object is filtered from synchronization due to organizational unit (OU) filtering
+
+* Added a new utility to synchronize the current password hash stored in the on-premises Active Directory for a specific user account.
+
+The utility does not require a password change. It is available under 'Troubleshoot Password Hash Synchronization' option of Azure AD Connect Wizard Troubleshoot Additional Task.
+
+
+
+
+
+
+## 1.1.654.0
+Status: December 12th, 2017
+
+>[!NOTE]
+>This is a security related hotfix for Azure AD Connect
+
+### Azure AD Connect
+An improvement has been added to Azure AD Connect version 1.1.654.0 (and after) to ensure that the recommended permission changes described under section [Lock down access to the AD DS account](#lock) are automatically applied when Azure AD Connect creates the AD DS account. 
+
+- When setting up Azure AD Connect, the installing administrator can either provide an existing AD DS account, or let Azure AD Connect automatically create the account. The permission changes are automatically applied to the AD DS account that is created by Azure AD Connect during setup. They are not applied to existing AD DS account provided by the installing administrator.
+- For customers who have upgraded from an older version of Azure AD Connect to 1.1.654.0 (or after), the permission changes will not be retroactively applied to existing AD DS accounts created prior to the upgrade. They will only be applied to new AD DS accounts created after the upgrade. This occurs when you are adding new AD forests to be synchronized to Azure AD.
+
+>[!NOTE]
+>This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For existing installations, or in cases where you provide the account yourself, you should ensure that this vulnerability does not exist.
+
+#### <a name="lock"></a> Lock down access to the AD DS account
+Lock down access to the AD DS account by implementing the following permission changes in the on-premises AD:  
+
+*	Disable inheritance on the specified object
+*	Remove all ACEs on the specific object, except ACEs specific to SELF. We want to keep the default permissions intact when it comes to SELF.
+*	Assign these specific permissions:
+
+Type     | Name                          | Access               | Applies To
+---------|-------------------------------|----------------------|--------------|
+Allow    | SYSTEM                        | Full Control         | This object  |
+Allow    | Enterprise Admins             | Full Control         | This object  |
+Allow    | Domain Admins                 | Full Control         | This object  |
+Allow    | Administrators                | Full Control         | This object  |
+Allow    | Enterprise Domain Controllers | List Contents        | This object  |
+Allow    | Enterprise Domain Controllers | Read All Properties  | This object  |
+Allow    | Enterprise Domain Controllers | Read Permissions     | This object  |
+Allow    | Authenticated Users           | List Contents        | This object  |
+Allow    | Authenticated Users           | Read All Properties  | This object  |
+Allow    | Authenticated Users           | Read Permissions     | This object  |
+
+To tighten the settings for the AD DS account you can run [this PowerShell script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). The PowerShell script will assign the permissions mentioned above to the AD DS account.
+
+#### PowerShell script to tighten a pre-existing service account
+
+To use the PowerShell script, to apply these settings, to a pre-existing AD DS account, (ether provided by your organization or created by a previous installation of Azure AD Connect, please download the script from the provided link above.
+
+##### Usage:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Where 
+
+**$ObjectDN** = The Active Directory account whose permissions need to be tightened.
+
+**$Credential** = Administrator credential that has the necessary privileges to restrict the permissions on $ObjectDN account. This is typically the Enterprise or Domain administrator. Use the fully qualified domain name of the administrator account to avoid account lookup failures. Example: contoso.com\admin.
+
+>[!NOTE] 
+>$credential.UserName should be in FQDN\username format. Example: contoso.com\admin 
+
+##### Example:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### Was this vulnerability used to gain unauthorized access?
+
+To see if this vulnerability was used to compromise your Azure AD Connect configuration you should verify the last password reset date of the service account.  If the timestamp in unexpected, further investigation, via the event log, for that password reset event, should be undertaken.
+
+For more information, see [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## 1.1.649.0
 Status: October 27 2017
@@ -402,7 +549,7 @@ Azure AD Connect sync
   * Updated default sync rule set to not export attributes **userCertificate** and **userSMIMECertificate** if the attributes have more than 15 values.
   * AD attributes **employeeID** and **msExchBypassModerationLink** are now included in the default sync rule set.
   * AD attribute **photo** has been removed from default sync rule set.
-  * Added **preferredDataLocation** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so. To find out more about the attribute, refer to article section [Azure AD Connect sync: How to make a change to the default configuration - Enable synchronization of PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Added **preferredDataLocation** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so. 
   * Added **userType** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so.
 
 * Azure AD Connect now automatically enables the use of ConsistencyGuid attribute as the Source Anchor attribute for on-premises AD objects. Further, Azure AD Connect populates the ConsistencyGuid attribute with the objectGuid attribute value if it is empty. This feature is applicable to new deployment only. To find out more about this feature, refer to article section [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

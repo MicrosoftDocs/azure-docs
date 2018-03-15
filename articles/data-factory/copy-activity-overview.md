@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 02/26/2018
 ms.author: jingwang
 
 ---
@@ -36,7 +36,7 @@ Copy Activity is executed on an [Integration Runtime](concepts-integration-runti
 * When copying data between data stores that both are publicly accessible, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
 * When copying data from/to data stores located on-premises or in a network with access control (for example, Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
 
-Integration Runtime need to be associated with each source and sink data store. Learn details on how copy activity [determines which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
+Integration Runtime needs to be associated with each source and sink data store. Learn details on how copy activity [determines which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
 
 Copy Activity goes through the following stages to copy data from a source to a sink. The service that powers Copy Activity:
 
@@ -143,38 +143,80 @@ The following template of a copy activity contains an exhaustive list of support
 
 ## Monitoring
 
-Copy activity execution details and performance characteristics are returned in Copy Activity run result -> Output section. Below is an exhausted list. Learn how to monitor activity run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). You can compare the performance and configuration of your scenario to Copy Activity's [performance reference](copy-activity-performance.md#performance-reference) from in-house testing.
+You can monitor the copy activity run on Azure Data Factory "Author & Monitor" UI or programmatically. You can then compare the performance and configuration of your scenario to Copy Activity's [performance reference](copy-activity-performance.md#performance-reference) from in-house testing.
+
+### Monitor visually
+
+To visually monitor the copy activity run, go to your data factory -> **Author & Monitor** -> **Monitor tab**, you see a list of pipeline runs with a "View Activity Runs" link in the **Actions** column. 
+
+![Monitor pipeline runs](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+
+Click to see the list of activities in this pipeline run. In the **Actions** column, you have links to the copy activity input, output, errors (if copy activity run fails), and details.
+
+![Monitor activity runs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+
+Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario.
+
+**Example: copy from Amazon S3 to Azure Data Lake Store**
+![Monitor activity run details](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+
+**Example: copy from Azure SQL Database to Azure SQL Data Warehouse using staged copy**
+![Monitor activity run details](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+
+### Monitor programmatically
+
+Copy activity execution details and performance characteristics are also returned in Copy Activity run result -> Output section. Below is an exhaustive list; only the applicable ones to your copy scenario will show up. Learn how to monitor activity run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Property name  | Description | Unit |
 |:--- |:--- |:--- |
-| dataRead | Data size read from source | Int64 value in bytes |
-| dataWritten | Data size written to sink | Int64 value in bytes |
+| dataRead | Data size read from source | Int64 value in **bytes** |
+| dataWritten | Data size written to sink | Int64 value in **bytes** |
+| filesRead | Number of files being copied when copying data from file storage. | Int64 value (no unit) |
+| filesWritten | Number of files being copied when copying data to file storage. | Int64 value (no unit) |
 | rowsCopied | Number of rows being copied (not applicable for binary copy). | Int64 value (no unit) |
 | rowsSkipped | Number of incompatible rows being skipped. You can turn on the feature by set "enableSkipIncompatibleRow" to true. | Int64 value (no unit) |
-| throughput | Ratio at which data are transferred | Floating point number in KB/s |
+| throughput | Ratio at which data are transferred | Floating point number in **KB/s** |
 | copyDuration | The duration of the copy | Int32 value in seconds |
 | sqlDwPolyBase | If PolyBase is used when copying data into SQL Data Warehouse. | Boolean |
 | redshiftUnload | If UNLOAD is used when copying data from Redshift. | Boolean |
 | hdfsDistcp | If DistCp is used when copying data from HDFS. | Boolean |
 | effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of `<IR name> (<region if it's Azure IR>)`. | Text (string) |
 | usedCloudDataMovementUnits | The effective cloud data movement units during copy. | Int32 value |
+| usedParallelCopies | The effective parallelCopies during copy. | Int32 value|
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure under "redirectIncompatibleRowSettings". See below example. | Text (string) |
-| billedDuration | The duration being billed for data movement. | Int32 value in seconds |
+| executionDetails | More details on the stages copy activity goes through, and the corresponding steps, duration, used configurations, etc. It's not recommended to parse this section as it may change. | Array |
 
 ```json
 "output": {
-    "dataRead": 1024,
-    "dataWritten": 2048,
-    "rowsCopies": 100,
-    "rowsSkipped": 2,
-    "throughput": 1024.0,
-    "copyDuration": 3600,
-    "redirectRowPath": "https://<account>.blob.core.windows.net/<path>/<pipelineRunID>/",
-    "redshiftUnload": true,
-    "sqlDwPolyBase": true,
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedCloudDataMovementUnits": 8,
-    "billedDuration": 28800
+    "dataRead": 107280845500,
+    "dataWritten": 107280845500,
+    "filesRead": 10,
+    "filesWritten": 10,
+    "copyDuration": 224,
+    "throughput": 467707.344,
+    "errors": [],
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
+    "usedCloudDataMovementUnits": 32,
+    "usedParallelCopies": 8,
+    "executionDetails": [
+        {
+            "source": {
+                "type": "AmazonS3"
+            },
+            "sink": {
+                "type": "AzureDataLakeStore"
+            },
+            "status": "Succeeded",
+            "start": "2018-01-17T15:13:00.3515165Z",
+            "duration": 221,
+            "usedCloudDataMovementUnits": 32,
+            "usedParallelCopies": 8,
+            "detailedDurations": {
+                "queuingDuration": 2,
+                "transferDuration": 219
+            }
+        }
+    ]
 }
 ```
 
@@ -189,6 +231,12 @@ By default, copy activity stops copying data and returns failure when it encount
 ## Performance and tuning
 
 See the [Copy Activity performance and tuning guide](copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
+
+## Incremental copy 
+Data Factory version 2 supports scenarios for incrementally copying delta data from a source data store to a destination data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md). 
+
+## Read and write partitioned data
+In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In version 2, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:

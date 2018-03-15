@@ -3,7 +3,7 @@ title: Configure Authentication with Amazon Web Services  | Microsoft Docs
 description: This article describes how to create and validate an AWS credential for runbooks in Azure Automation managing AWS resources.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: aws authentication, configure aws
@@ -13,7 +13,7 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/29/2017
 ms.author: magoedte
 

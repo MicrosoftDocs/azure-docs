@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -86,9 +86,6 @@ The map highlights the devices in the current filter with **Alarms** and **Warni
 You can use the **System alarms** filter to adjust the time span for recent alarms. By default, the panel displays alarms from the last hour:
 
 ![Filter the alarms by time](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
-
-> [!NOTE]
-> Scroll to the right to see the time span filter.
 
 ## View the system KPIs
 

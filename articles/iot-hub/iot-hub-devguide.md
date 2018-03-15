@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
 
 ---
@@ -39,10 +39,10 @@ This IoT Hub developer guide includes the following articles:
   * [Send cloud-to-device messages from IoT Hub][devguide-messages-c2d].
   * [Create and read IoT Hub messages][devguide-format].
 * [Upload files from a device][devguide-upload] describes how you can upload files from a device. The article also includes information about topics such as the notifications the upload process can send.
-* [Manage device identities in IoT Hub][devguide-identities] describes what information each IoT hub's identity registry stores, and how you can access and modify it.
+* [Manage device identities in IoT Hub][devguide-identities] describes what information each IoT hub's identity registry stores. The article also describes how you can access and modify it.
 * [Control access to IoT Hub][devguide-security] describes the security model used to grant access to IoT Hub functionality for both devices and cloud components. The article includes information about using tokens and X.509 certificates, and details of the permissions you can grant.
-* [Use device twins to synchronize state and configurations][devguide-device-twins] describes the *device twin* concept and the functionality it exposes such as synchronizing a device with its device twin. The article includes information about the data stored in a device twin.
-* [Invoke a direct method on a device][devguide-directmethods] describes the lifecycle of a direct method, information about how to invoke methods on a device from your back-end app and handle the direct method on your device.
+* [Use device twins to synchronize state and configurations][devguide-device-twins] describes the *device twin* concept. The article also descibes the functionality device twins expose, such as synchronizing a device with its device twin. The article includes information about the data stored in a device twin.
+* [Invoke a direct method on a device][devguide-directmethods] describes the lifecycle of a direct method. The article describes how to invoke methods on a device from your back-end app and handle the direct method on your device.
 * [Schedule jobs on multiple devices][devguide-jobs] describes how you can schedule jobs on multiple devices. The article describes how to submit jobs that perform tasks as executing a direct method, updating a device using a device twin. It also describes how to query the status of a job.
 * [Reference - choose a communication protocol][devguide-protocol] describes the communication protocols that IoT Hub supports for device communication and lists the ports that should be open.
 * [Reference - IoT Hub endpoints][devguide-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations. The article also describes how you can create additional endpoints in your IoT hub, and how to use a field gateway to enable connectivity to your IoT Hub endpoints in non-standard scenarios.

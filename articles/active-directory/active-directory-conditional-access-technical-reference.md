@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory conditional access technical reference | Microsoft Docs
-description: Learn how to use conditional access control in Azure Active Directory. Specify the conditions for authenticating users and controlling access to your application. When the specified conditions are met, users are authenticated and granted access to your application.
+title: Azure Active Directory conditional access settings reference | Microsoft Docs
+description: Get an overview of the supported settings in an Azure Active Directory conditional access policy.
 services: active-directory.
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/11/2017
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 
 ---
-# Azure Active Directory conditional access technical reference
+# Azure Active Directory conditional access settings reference
 
-You can use [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md) to fine-tune how authorized users can access your resources.  
+You can use [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md) to control how authorized users can access your resources.   
 
-This topic provides support information for the following configuration options for a conditional access policy: 
+This article provides you with support information for the following configuration options in a conditional access policy: 
 
 - Cloud applications assignments
 
@@ -32,10 +32,11 @@ This topic provides support information for the following configuration options 
 - Approved client application requirement
 
 
+If this is not the information you are looking for, please leave a comment at the end of this article.
 
 ## Cloud apps assignments
 
-When you configure a conditional access policy, you need to [select the cloud apps that use your policy](active-directory-conditional-access-azure-portal.md#who). 
+With conditional access policies, you control how your users access your [cloud apps](active-directory-conditional-access-conditions.md#cloud-apps). When you configure a conditional access policy, you need to select at least one cloud app. 
 
 ![Select the cloud apps for your policy](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -45,6 +46,7 @@ When you configure a conditional access policy, you need to [select the cloud ap
 You can assign a conditional access policy to the following cloud apps from Microsoft:
 
 - Azure Information Protection - [Learn more](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -53,7 +55,7 @@ You can assign a conditional access policy to the following cloud apps from Micr
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (includes OneDrive for Business)
+- Microsoft Office 365 SharePoint Online (includes OneDrive for Business and Project Online)
 
 - Microsoft Power BI 
 
@@ -100,7 +102,7 @@ In a conditional access policy, you can configure the device platform condition 
 
 ## Client apps condition 
 
-When you configure a conditional access policy, you can [select client apps](active-directory-conditional-access-azure-portal.md#client-apps) for the client app condition. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
+In your conditional access policy, you can configure the [client apps](active-directory-conditional-access-conditions.md#client-apps) condition to tie the policy to the client app that has initiated an access attempt. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
 
 - Browser
 - Mobile apps and desktop apps
@@ -109,11 +111,11 @@ When you configure a conditional access policy, you can [select client apps](act
 
 ### Supported browsers 
 
-Control browser access by using the **Browser** option in your conditional access policy. Access is granted only when the access attempt is made by a supported browser. When an access attempt is made by an unsupported browser, the attempt is blocked.
+In your conditional access policy, you can select **Browsers** as client app.
 
 ![Control access for supported browsers](./media/active-directory-conditional-access-technical-reference/05.png)
 
-In your conditional access policy, the following browsers are supported: 
+This setting works with all browsers. However, to satisfy a device policy, like a compliant device requirement, the following operating systems and browsers are supported:
 
 
 | OS                     | Browsers                            | Support     |
@@ -131,17 +133,32 @@ In your conditional access policy, the following browsers are supported:
 | macOS                  | Chrome, Safari                      | ![Check][1] |
 
 
-> [!NOTE]
-> For Chrome support, you must use Windows 10 Creators Update (version 1703) or later.<br>
-> You can install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+#### Chrome support
+
+For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+For Chrome support in **Windows 8.1 and 7**, create the following registry key:
+
+|    |    |
+|--- | ---|
+|Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Name | 1 |
+|Type | REG_SZ (String) |
+|Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
+
+These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode. 
+
 
 ### Supported mobile applications and desktop clients
 
-Control app and client access by using the **Mobile apps and desktop clients** option in your conditional access policy. Access is granted only when the access attempt is made by a supported mobile app or desktop client. When an access attempt is made by an unsupported app or client, the attempt is blocked.
+In your conditional access policy, you can select **Mobile apps and desktop clients** as client app.
+
 
 ![Control access for supported mobile apps or desktop clients](./media/active-directory-conditional-access-technical-reference/06.png)
 
-The following mobile apps and desktop clients support conditional access for Office 365 and other Azure AD-connected service applications:
+
+This setting has an impact on access attempts made from the following mobile apps and desktop clients: 
 
 
 | Client apps| Target Service| Platform |
@@ -154,45 +171,45 @@ The following mobile apps and desktop clients support conditional access for Off
 | Office 2016 apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
 | Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office Groups support is planned for the future, SharePoint app support is planned for the future| Office 365 SharePoint Online| Windows 10|
 | Office 2016 for macOS (Word, Excel, PowerPoint, OneNote only). OneDrive for Business support planned for the future| Office 365 SharePoint Online| Mac OS X|
-| Office mobile apps| Office 365 SharePoint Online| iOS, Android|
+| Office mobile apps| Office 365 SharePoint Online| Android, iOS|
 | Office Yammer app| Office 365 Yammer| Windows 10, iOS, Android|
 | Outlook 2016 (Office for macOS)| Office 365 Exchange Online| Mac OS X|
 | Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)| Office 365 Exchange Online| Windows 8.1, Windows 7|
-| Outlook mobile app| Office 365 Exchange Online| iOS|
-| PowerBI app. The Power BI app for Android does not currently support device-based conditional access.| PowerBI service| Windows 10, Windows 8.1, Windows 7, and iOS|
+| Outlook mobile app| Office 365 Exchange Online| Android, iOS|
+| PowerBI app| PowerBI service| Windows 10, Windows 8.1, Windows 7, Android and iOS|
 | Skype for Business| Office 365 Exchange Online| Android, IOS|
 | Visual Studio Team Services app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, and Android|
 
 
 
-
 ## Approved client app requirement 
 
-Control client connections by using the **Require approved client app** option in your conditional access policy. Access is granted only when a connection attempt is made by an approved client app.
+In your conditional access policy, you can require that an access attempt to the selected cloud apps needs to be made from an approved client app. 
 
 ![Control access for approved client apps](./media/active-directory-conditional-access-technical-reference/21.png)
 
-The following client apps can be used with the approved client application requirement:
+This setting applies to the following client apps:
 
+
+- Microsoft Intune Managed Browser
+- Microsoft PowerBI
+- Microsoft Invoicing
+- Microsoft Launcher
+- Microsoft Azure Information Protection
 - Microsoft Excel
-
+- Microsoft Kaizala 
 - Microsoft OneDrive
-
-- Microsoft Outlook
-
 - Microsoft OneNote
-
+- Microsoft Outlook
+- Microsoft Planner
 - Microsoft PowerPoint
-
 - Microsoft SharePoint
-
 - Microsoft Skype for Business
-
+- Microsoft StaffHub
 - Microsoft Teams
-
 - Microsoft Visio
-
 - Microsoft Word
+
 
 
 **Remarks**
@@ -202,10 +219,6 @@ The following client apps can be used with the approved client application requi
 - The **Require approved client app** requirement:
 
     - Only supports the iOS and Android for [device platform condition](#device-platforms-condition).
-
-    - Does not support the **Browser** option for the [client apps condition](#supported-browsers).
-    
-    - Supersedes the **Mobile apps and desktop clients** option for the [client apps condition](#supported-mobile-apps-and-desktop-clients) when that option is selected.
 
 
 ## Next steps

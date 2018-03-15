@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: c1917375-08aa-445c-a444-e22e23fa19e0
 ms.service: active-directory
@@ -125,7 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
 	| Attribute Name | Attribute Value |
 	| ---------------| --------------- |    
-	| username | *user.displayname* |
+	| username | *user.mailnickname* |
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 

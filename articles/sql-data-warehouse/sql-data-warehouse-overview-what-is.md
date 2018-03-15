@@ -4,7 +4,7 @@ description: Enterprise-class distributed database capable of processing petabyt
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: bjhubbard
+manager: jenniehubbard
 editor: ''
 
 ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 ms.date: 10/23/2017
-ms.author: jrj;barbkess
+ms.author: jrj
 
 ---
 # What is Azure SQL Data Warehouse?
@@ -32,7 +32,7 @@ In a cloud data solution, data is ingested into big data stores from a variety o
  
 SQL Data Warehouse stores data into relational tables with columnar storage. This format significantly reduces the data storage costs, and improves query performance. Once data is stored in SQL Data Warehouse, you can run analytics at massive scale. Compared to traditional database systems, analysis queries finish in seconds instead of minutes, or hours instead of days. 
 
-The analysis results can go to worldwide reporting databases or applications. Busineses analysts can then gain insights to make well-informed business decisions.
+The analysis results can go to worldwide reporting databases or applications. Business analysts can then gain insights to make well-informed business decisions.
 
 ## Optimization choices
 
