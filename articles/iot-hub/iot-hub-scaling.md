@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Choose the right IoT Hub tier for your solution
 
-Every IoT solution is different, so Azure IoT Hub offers several options based on pricing and scale. This article is meant to help you evaluate your organizations's IoT Hub needs. For the most up-to-date information about IoT Hub tiers, always refer to [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
+Every IoT solution is different, so Azure IoT Hub offers several options based on pricing and scale. This article is meant to help you evaluate your IoT Hub needs. For pricing information about IoT Hub tiers, always refer to [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
 
 To decide which IoT Hub tier is right for your solution, ask yourself two questions. What features do I plan do use, and how much data do I plan to move daily?
 
@@ -28,7 +28,7 @@ To decide which IoT Hub tier is right for your solution, ask yourself two questi
 Azure IoT Hub offers two tiers, basic and standard, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally then the basic tier is probably right for you. If you want to use more advanced configurations to control IoT devices remotely or distribute some of your workloads onto the devices themselves then you should consider the standard tier. For a detailed breakdown of which features are included in each tier, continue to [Basic and standard tiers](#basic-and-standard-tiers).
 
 **How much data do I plan to move daily?**
-Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3. Each unit of a level 1 IoT hub can handle 400,000 messages a day, while a level 3 unit can handle 300,000,000. For more details about the data guidelines, continue to [Message throughput](#message-throughput).
+Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3. For example, each unit of a level 1 IoT hub can handle 400,000 messages a day, while a level 3 unit can handle 300,000,000. For more details about the data guidelines, continue to [Message throughput](#message-throughput).
 
 
 ## Basic and standard tiers
