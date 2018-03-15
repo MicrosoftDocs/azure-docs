@@ -5,6 +5,11 @@
             "redirect_document_id": true
         },     
         {
+            "source_path": "articles/machine-learning/studio/live-chat.md",
+            "redirect_url": "https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning",
+            "redirect_document_id": true
+        },
+	{
             "source_path": "articles/machine-learning/studio/datamarket-deprecation.md",
             "redirect_url": "https://microsoft.com/cognitive",
             "redirect_document_id": true
@@ -1757,6 +1762,16 @@
             "source_path": "articles/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates.md",
             "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-manage-from-vs.md",
+            "redirect_url": "/azure/logic-apps/manage-logic-apps-with-visual-studio",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-deploy-from-vs.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-template",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
@@ -17501,6 +17516,36 @@
 	{
         "source_path": "articles/active-directory/active-directory-apps-permissions-consent.md",
         "redirect_url": "/azure/active-directory/develop/active-directory-integrating-applications",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-searches.md",
+        "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-search-new.md",
+        "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-search-reference.md",
+        "redirect_url": "https://docs.loganalytics.io/docs/Language-Reference",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-searches-regex.md",
+        "redirect_url": "https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-search-api.md",
+        "redirect_url": "https://dev.loganalytics.io/",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-search-api-python.md",
+        "redirect_url": "https://dev.loganalytics.io/",
         "redirect_document_id": false
      }
    ]
