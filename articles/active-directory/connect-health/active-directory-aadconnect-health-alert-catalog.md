@@ -20,30 +20,19 @@ ms.author: zhiweiw
 
 ## Connect Health for Sync
 
-### Azure AD Connect Sync Service is not running
-#### Description	
-Microsoft Azure AD Sync Windows service is not running or could not start. As a result, objects will not synchronize with Azure Active Directory.
-#### Remediation	
-	Start Microsoft Azure Active Directory Sync Services</b> <ol> <li>Click <b>Start</b>, click <b>Run</b>, type <b>Services.msc</b>, and then click <b>OK</b>.</li> <li>Locate the <b>Microsoft Azure AD Sync service</b>, and then check whether the service is started. If the service isn't started, right-click it, and then click <b>Start</b>
-	
-### Import from Azure Active Directory failed
-#### Description
-	The import operation from Azure Active Directory Connector has failed.	
-#### Remediation
-	Please investigate the event log errors of import operation for further details.
+| Alert Name | Description | Remediation |
+| --- | --- | ----- |
+| Azure AD Connect Sync Service is not running 
+| Microsoft Azure AD Sync Windows service is not running or could not start. As a result, objects will not synchronize with Azure Active Directory. 
+| Start Microsoft Azure Active Directory Sync Services</b> <ol> <li>Click <b>Start</b>, click <b>Run</b>, type <b>Services.msc</b>, and then click <b>OK</b>.</li> <li>Locate the <b>Microsoft Azure AD Sync service</b>, and then check whether the service is started. If the service isn't started, right-click it, and then click <b>Start</b> | 
 
-### Connection to Azure Active Directory failed due to authentication failure
-#### Description
-Connection to Azure Active Directory failed due to authentication failure. As a result objects will not be synchronized with Azure Active Directory.	
-#### Remediation
-Please investigate the event log errors for further details. If problem persists, please contact Microsoft Support for further assistance. 
-	
-### Export to Active Directory failed
-#### Description
-	The export operation to Active Directory Connector has failed.	
-#### Remediation
-	Please investigate the event log errors of export operation for further details.
+| Import from Azure Active Directory failed 
+| The import operation from Azure Active Directory Connector has failed.	
+| Please investigate the event log errors of import operation for further details.  |
 
+| Connection to Azure Active Directory failed due to authentication failure  |
+| Connection to Azure Active Directory failed due to authentication failure. As a result objects will not be synchronized with Azure Active Directory.	|
+| Please investigate the event log errors for further details. If problem persists, please contact Microsoft Support for further assistance. |
 
 
 
