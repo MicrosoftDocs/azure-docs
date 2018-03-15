@@ -42,7 +42,7 @@ The bot responds to intents from the HomeAutomation domain that are in the LUIS 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
     * Select the **Language understanding (Node.js)** template for the **Bot template** field.
-    * Select the **LUIS App Location**. This is the authoring region the app is created in.
+    * Select the **LUIS App Location**. This is the authoring [region][LUIS] the app is created in.
     * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
 
     ![Bot Service blade](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
@@ -421,5 +421,5 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-
+[LUIS]:luis-reference-regions.md
 

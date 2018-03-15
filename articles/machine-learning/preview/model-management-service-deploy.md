@@ -59,20 +59,20 @@ Next, define the input variables such as a Spark dataframe, Pandas dataframe, or
 
 ```python
 inputs = {"input_array": SampleDefinition(DataTypes.NUMPY, yourinputarray)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 The following example uses a Spark dataframe:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.SPARK, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 The following example uses a PANDAS dataframe:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
-generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
 ### 3. Create a score.py file
@@ -131,7 +131,7 @@ az ml model register --model [path to model file] --name [model name]
 Following command helps create a manifest for the model,
 
 ```
-az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]
+az ml manifest create --manifest-name [your new manifest name] -f [path to score file] -r [runtime for the image, e.g. spark-py]
 ```
 You can add a previously registered model to the manifest by using argument `--model-id` or `-i` in the command shown above. Multiple models can be specified with additional -i arguments.
 
