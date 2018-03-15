@@ -29,6 +29,8 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
+* [VBA](https://www.vbatelemetry.com/full-guide-setup-vba-telemetry-azure-application-insights-track-usage-excel-workbooks) (VBA Telemetry)
+* [VB6 (Visual Basic 6)](https://www.vbatelemetry.com/full-guide-setup-vba-telemetry-azure-application-insights-track-usage-excel-workbooks) (VBA Telemetry)
 * [Anything else](#projects)
 
 ## Platforms and frameworks
