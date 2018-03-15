@@ -40,7 +40,9 @@ Azure provides three different methods to achieve outbound connectivity Classic 
 | [2. public load-balanced endpoint](#publiclbendpoint) | SNAT with port masquerading (PAT) to the public endpoint |Azure shares the public IP address public endpoint with multiple private endpoints. Azure uses ephemeral ports of the public endpoint for PAT. | Yes | Yes |
 | [3. Standalone VM ](#defaultsnat) | SNAT with port masquerading (PAT) | Azure automatically designates a public IP address for SNAT, shares this public IP address with the entire deployment, and uses ephemeral ports of the public endpoint IP address for PAT. This is a fallback scenario for the preceding scenarios. We don't recommend it if you need visibility and control. | Yes | Yes|
 
-This is a subset of outbound connection functionality available for Resource Manager deployments in Azure.  Different deployments in Classic have different functionality.
+This is a subset of outbound connection functionality available for Resource Manager deployments in Azure.  
+
+Different deployments in Classic have different functionality:
 
 | Classic deployment | Functionality available | 
 | --- | --- |
@@ -149,10 +151,6 @@ Assigning an ILPIP changes your scenario to [Instance Level Public IP to a VM](#
 
 >[!NOTE] 
 >This option is not available for web worker roles.
-
-#### <a name="multifesnat"></a>Use multiple frontends
-
-When using public Standard Load Balancer, you assign [multiple frontend IP addresses for outbound connections](#multife) and [multiply the number of SNAT ports available](#preallocatedports).  You need to create a frontend IP configuration, rule, and backend pool to trigger the programming of SNAT to the public IP of the frontend.  The rule does not need to function and a health probe does not need to succeed.  If you do use multiple frontends for inbound as well (rather than just for outbound), you should use custom health probes well to insure reliability.
 
 ### <a name="idletimeout"></a>Use keepalives to reset the outbound idle timeout
 
