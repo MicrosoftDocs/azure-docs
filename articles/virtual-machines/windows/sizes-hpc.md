@@ -32,6 +32,9 @@ A subset of the compute-intensive instances (H16r, H16mr, A8, and A9) feature a 
   
 This interface allows the RDMA-capable instances to communicate over an InfiniBand network, operating at FDR rates for H16r and H16mr virtual machines, and QDR rates for A8 and A9 virtual machines. These RDMA capabilities can boost the scalability and performance of Message Passing Interface (MPI) applications.
 
+> [!NOTE]
+> Currently, Infiniband does not support IP over InfiniBand (IPoIB)
+
 Following are requirements for RDMA-capable Windows VMs to access the Azure RDMA network: 
 
 * **Operating system** - Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
