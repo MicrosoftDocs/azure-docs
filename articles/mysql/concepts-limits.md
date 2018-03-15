@@ -24,16 +24,16 @@ There is a maximum number of connections, Compute Units, and storage in each ser
 |Basic| Gen 4| 2| 100|
 |Basic| Gen 5| 1| 50|
 |Basic| Gen 5| 2| 100|
-|General Purpose| Gen 4| 2| 200|
-|General Purpose| Gen 4| 4| 400|
-|General Purpose| Gen 4| 8| 800|
-|General Purpose| Gen 4| 16| 1600|
-|General Purpose| Gen 4| 32| 3200|
-|General Purpose| Gen 5| 2| 200|
-|General Purpose| Gen 5| 4| 400|
-|General Purpose| Gen 5| 8| 800|
-|General Purpose| Gen 5| 16| 1600|
-|General Purpose| Gen 5| 32| 3200|
+|General Purpose| Gen 4| 2| 300|
+|General Purpose| Gen 4| 4| 625|
+|General Purpose| Gen 4| 8| 1250|
+|General Purpose| Gen 4| 16| 2500|
+|General Purpose| Gen 4| 32| 5000|
+|General Purpose| Gen 5| 2| 300|
+|General Purpose| Gen 5| 4| 625|
+|General Purpose| Gen 5| 8| 1250|
+|General Purpose| Gen 5| 16| 2500|
+|General Purpose| Gen 5| 32| 5000|
 |Memory Optimized| Gen 5| 2| 600|
 |Memory Optimized| Gen 5| 4| 1250|
 |Memory Optimized| Gen 5| 8| 2500|
