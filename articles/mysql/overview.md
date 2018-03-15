@@ -14,7 +14,7 @@ ms.custom: mvc
 
 
 # What is Azure Database for MySQL?
-Azure Database for MySQL is a relational database service in the Microsoft cloud based on the [MySQL Community Edition](https://www.mysql.com/products/community/) database engine. This service is in public preview. Azure Database for MySQL delivers:
+Azure Database for MySQL is a relational database service in the Microsoft cloud based on the [MySQL Community Edition](https://www.mysql.com/products/community/) database engine. Azure Database for MySQL delivers:
 
 - Built-in high availability with no additional cost.
 - Predictable performance, using inclusive pay-as-you-go pricing.
@@ -35,7 +35,7 @@ For a set of Azure CLI samples, see:
 - [Azure CLI samples for Azure Database for MySQL](sample-scripts-azure-cli.md)
 
 ## Adjust performance and scale within seconds
-In preview, the Azure Database for MySQL service offers several service tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](concepts-service-tiers.md) for details.
+The Azure Database for MySQL service offers several service tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](concepts-service-tiers.md) for details.
 
 ## Monitoring and alerting
 How do you decide when to dial up and down? You use the built-in performance monitoring and alerting features, combined with the performance ratings based on vCores. Using these tools, you can quickly assess the impact of scaling vCores up or down based on your current or projected performance needs. See [Alerts](howto-alert-on-metric.md) for details.
