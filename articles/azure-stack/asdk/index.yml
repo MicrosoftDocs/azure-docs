@@ -24,6 +24,7 @@ sections:
   - type: list
     style: ordered
     items:
+    - html: <a href="/azure/azure-stack/asdk/asdk-deploy">Deploy the ASDK</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-marketplace-item">Add an Azure Stack marketplace item</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-offer-services">Offer IaaS services</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-subscribe-services">Subscribe to an offer</a>
