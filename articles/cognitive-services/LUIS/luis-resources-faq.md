@@ -148,7 +148,8 @@ Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the b
 ## How do I create and assign a LUIS endpoint key?
 [Create the endpoint key](azureibizasubscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action.
 
-
+## What LUIS regions support Bot Framework speech priming?
+[Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) is only supported for LUIS apps in the central (US) instance. 
 
 ## Next steps
 
