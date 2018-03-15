@@ -19,8 +19,8 @@ This article describes common issues that you might encounter when replicating o
 
 If you encounter issues when you enable protection for Hyper-V VMs, check the following:
 
--	Make sure that your deployment complies with the requirements and prerequisites for Hyper-V hosts and VMs, descibed in the [support matrix](hyper-v-azure-support-matrix.md)
--	If our Hyper-V servers are located in System Center Virtual Machine Manager (VMM) clouds, verify that you've prepared the [SVMM server](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
+-	Check your Hyper-V hosts and VMs comply with all [requirements and prerequisites](hyper-v-azure-support-matrix.md).
+-	If Hyper-V servers are located in System Center Virtual Machine Manager (VMM) clouds, verify that you've prepared the [VMM server](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
 -	Check that the Hyper-V Virtual Machine Management service is running.
 -	Check the Hyper-V-VMMS\Admin log on the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
 -	Ensure That WMI is enabled and accessible.
