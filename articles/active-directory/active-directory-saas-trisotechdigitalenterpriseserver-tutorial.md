@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/15/2018
 ms.author: jeedes
 
 ---
@@ -111,15 +111,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Trisotech Digital Enterprise Server Client support team](mailto:support@trisotech.com) to get these values. 
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![The Certificate download link](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_certificate.png) 
-
-5. Click **Save** button.
+4. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
 
-6. To generate the **Metadata** url, perform the following steps:
+5. To generate the **Metadata** url, perform the following steps:
 
     a. Click **App registrations**.
     
@@ -139,32 +135,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-7. On the **Trisotech Digital Enterprise Server Configuration** section, click **Configure Trisotech Digital Enterprise Server** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.**
+6. In a different web browser window, log in to your Trisotech Digital Enterprise Server Configuration company site as an administrator.
 
-	![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_configure.png)
-8. In a different web browser window, log in to your Trisotech Digital Enterprise Server Configuration company site as an administrator.
-
-9. Click on the **Menu icon** and then select **Administration**.
+7. Click on the **Menu icon** and then select **Administration**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/user1.png)
 
-10. Select **User Provider**.
+8. Select **User Provider**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/user2.png)
 
-11. In the **User Provider Configurations** Section, perform the following steps:
+9. In the **User Provider Configurations** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/user3.png)
 
-	a. Select **WS-Federation (Azure Active Directory, ADFS2.0,...)** from the dropdown in the **Authentication Method**.
+	a. Select **Secured Assertion Markup Language 2 (SAML 2)** from the dropdown in the **Authentication Method**.
 
 	b. In the **Metadata URL** textbox, paste the **Metadata URL** value, which you have copied form the Azure portal.
 
-	c. In the **Application ID** textbox, paste the **SAML Entity ID** value, which you have copied form the Azure portal.
+	c. In the **Application ID** textbox, enter the URL using the following pattern: `https://<companyname>.trisotech.com`.
 
 	d. Click **Save**
 
-	e. Enter the domain name in the **Allowed Domains (empty means everyone)** textbox, it automatically assign licenses for users matching the Allowed Domains
+	e. Enter the domain name in the **Allowed Domains (empty means everyone)** textbox, it automatically assigns licenses for users matching the Allowed Domains
 
 	f. Click **Save**
 
