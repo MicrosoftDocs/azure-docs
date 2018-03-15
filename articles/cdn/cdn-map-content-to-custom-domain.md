@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Add a new custom domain to your CDN endpoint | Microsoft Docs
-description: This tutorial shows how to map Azure CDN content to a new custom domain.
+description: In this tutorial, you map Azure CDN endpoint content to a new custom domain.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -16,10 +16,11 @@ ms.topic: tutorial
 ms.date: 03/09/2018
 ms.author: mazha
 ms.custom: mvc
+# As a website owner, I want to add a new custom domain to my CDN endpoint so that my users can use my custom domain to access my content.
 
 ---
 # Tutorial: Add a new custom domain to your CDN endpoint
-This tutorial shows how to add a new custom domain to a CDN endpoint. When you use a CDN endpoint to deliver content, a custom domain is necessary if you would like your own domain name to be visible in your CDN URL. Having a visible domain name can be convenient for your customers and useful for branding purposes. 
+This tutorial shows how to add a new custom domain to an Azure CDN endpoint. When you use a CDN endpoint to deliver content, a custom domain is necessary if you would like your own domain name to be visible in your CDN URL. Having a visible domain name can be convenient for your customers and useful for branding purposes. 
 
 After you create a CDN endpoint in your profile, the endpoint name, which is a subdomain of azureedge.net, is included in the URL for delivering CDN content by default (for example, https:\//contoso.azureedge.net/photo.png). For your convenience, Azure CDN provides the option of associating a custom domain with a CDN endpoint. With this option, you deliver your content with a custom domain in your URL instead of an endpoint name (for example, https:\//www.contoso.com/photo.png). 
 
@@ -76,9 +77,11 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
 3. For **Domain Name**, enter your custom domain, then select **Search**.
 
-3. From the **DNS Management** page, select **Add**, then select **CNAME** in the **Type** list.
+4. From the **DNS Management** page, select **Add**, then select **CNAME** in the **Type** list.
 
-3. Complete the following fields of the CNAME entry:
+5. Complete the fields of the CNAME entry:
+
+    ![CNAME entry](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
     - Type: Leave *CNAME* selected.
 
@@ -88,9 +91,8 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
     - TTL: Leave *1 Hour* selected.
 
-    ![CNAME entry](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
-4. Select **Save**.
+6. Select **Save**.
  
     The CNAME entry is added to the DNS records table.
 
@@ -99,7 +101,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
 ## Associate the custom domain with your CDN endpoint
 
-AAfter you've registered your custom domain, you can then add it to your CDN endpoint. 
+After you've registered your custom domain, you can then add it to your CDN endpoint. 
 
 1. Log in to the [Azure portal](https://portal.azure.com/) and browse to the CDN profile containing the endpoint that you want to map to a custom domain.
     
