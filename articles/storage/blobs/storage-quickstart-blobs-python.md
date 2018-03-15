@@ -158,6 +158,18 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+## Resources for developing Python applications with blobs
+
+See these additional resources for Python development with Blob storage:
+
+### Binaries and source code
+
+- View, download, and install the [Python client library source code](https://github.com/Azure/azure-storage-python) for Azure Storage on GitHub.
+
+### Client library reference and samples
+
+- See the [Python API reference](https://docs.microsoft.com/python/api/overview/azure/storage) for more information about the Python client library.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) written using the Python client library.
 
 ## Next steps
  

@@ -194,6 +194,13 @@ If you no longer need the blobs uploaded in this quickstart, you can delete the 
     unlink($fileToUpload);   
 ```
 
+## Resources for developing PHP applications with blobs
+
+See these additional resources for PHP development with Blob storage:
+
+- View, download, and install the [PHP client library source code](https://github.com/Azure/azure-storage-php) for Azure Storage on GitHub.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob) written using the PHP client library.
+
 ## Next steps
  
 In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using PHP. To learn more about working with blob storage, continue to the Blob storage How-to.
