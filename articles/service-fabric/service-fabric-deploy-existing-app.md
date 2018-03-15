@@ -18,7 +18,7 @@ ms.author: mfussell;mikhegn
 
 ---
 # Package and deploy an existing executable to Service Fabric
-When packaging an existing executable as a guest executable, you can choose either to use a Visual Studio project template or to [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project template for you.
+When packaging an existing executable as a [guest executable](service-fabric-guest-executables-introduction.md), you can choose either to use a Visual Studio project template or to [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project template for you.
 
 > [!TIP]
 > The easiest way to package an existing Windows executable into a service is to use Visual Studio and on Linux to use Yeoman
@@ -40,7 +40,9 @@ Visual Studio provides a Service Fabric service template to help you deploy a gu
 4. Give your service a name, and click **OK**.
 5. If your service needs an endpoint for communication, you can now add the protocol, port, and type to the ServiceManifest.xml file. For example: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. You can now use the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready, you can publish the application to a remote cluster or check in the solution to source control.
-7. Go to the end of this article to see how to view your guest executable service running in Service Fabric Explorer.
+7. Read [check your running application](#check-your-running-application) see how to view your guest executable service running in Service Fabric Explorer.
+
+For an example walkthrough, see [Create your first guest executable application using Visual Studio](quickstart-guest-app.md).
 
 ## Use Yeoman to package and deploy an existing executable on Linux
 
