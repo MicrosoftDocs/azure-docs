@@ -62,7 +62,7 @@ Detailed next is step-by-step guide to using Azure Alerts (Preview).
 
     > Unified Alerts (Preview) also supports Activity Log alerts. [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Metric Alerts*: Ensure **Resource Type** is selected platform  or monitor service (other than *Log Analytics*), then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
+5. *Metric Alerts*: Ensure **Resource Type** is selected with signal type as **Metric**, then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
 
     ![Select a resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -78,7 +78,7 @@ Detailed next is step-by-step guide to using Azure Alerts (Preview).
 
     ![Configure signal logic for multi-dimensional metric](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Log Alerts*: Ensure **Resource Type** is an analytics source like *Log Analytics* or *Application Insights*, then once appropriate **resource** is chosen, click *Done*. Next use the **Add criteria** button to view list of signal options available for the resource and from the signal list **Custom log search** option for chosen log monitor service like *Log Analytics* or *Application Insights*.
+8. *Log Alerts*: Ensure **Resource Type** is an analytics source like *Log Analytics* or *Application Insights* and signal type as **Log**, then once appropriate **resource** is chosen, click *Done*. Next use the **Add criteria** button to view list of signal options available for the resource and from the signal list **Custom log search** option for chosen log monitor service like *Log Analytics* or *Application Insights*.
 
    ![Select a resource - custom log search](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -118,8 +118,8 @@ For **Log Alerts** alerts can be based on:
 
     For **Log Alerts** some additional functionality is available to override the default Actions:
 
-    - **Email Notification**: Overrides subject in the email, sent via Action Group. You cannot modify the body of the mail.
-    - **Include custom Json payload**: Overrides the webhook Json used by Action Groups and instead replace the default payload with a custom payload. For more information on webhook formats, see [webhook action for Log Alerts](monitor-alerts-unified-log-webhook.md)
+    - **Email Notification**: Overrides *e-mail subject* in the email, sent via Action Group; if one or more email action exist in the said Action Group. You cannot modify the body of the mail and this field is **not** for email address.
+    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups; if one or more webhook action exist in the said Action Group. User can specificy format of JSON to be used for all webhooks configured in associated Action Group; for more information on webhook formats, see [webhook action for Log Alerts](monitor-alerts-unified-log-webhook.md). Test Webhook option is provided to check format and processing by destination using sample JSON and this option as labelled meant only for **testing** purposes.
 
         ![Action Overrides for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

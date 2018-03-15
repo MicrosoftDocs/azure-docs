@@ -7,8 +7,9 @@ keywords:
 author: kgremban
 manager: timlt
 
-ms.author: v-jamebr
-ms.date: 03/18/2018
+
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -53,7 +54,7 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 3. Select **Create**.
 4. Once your container registry is created, navigate to it and select **Access keys**. 
 5. Toggle **Admin user** to **Enable**.
-6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
+6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial when you publish the Docker image to your registry, and when you add the registry credentials to the Edge runtime. 
 
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge module based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension.
@@ -226,10 +227,8 @@ The following steps show you how to create an IoT Edge module based on .NET core
 1. Sign in to Docker by entering the following command in the VS Code integrated terminal: 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   Use the user name, password, and login server that you copied from your Azure container registry when you created it.
 
 2. In VS Code explorer, Right-click the **module.json** file and click **Build and Push IoT Edge module Docker image**. In the pop-up dropdown box at the top of the VS Code window, select your container platform, either **amd64** for Linux container or **windows-amd64** for Windows container. VS Code then builds your code, containerize the `FilterModule.dll` and push it to the container registry you specified.
 
