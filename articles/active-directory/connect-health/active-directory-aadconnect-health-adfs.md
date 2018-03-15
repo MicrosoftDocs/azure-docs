@@ -198,9 +198,9 @@ You should add identified malicious IP address to the firewall or block in Excha
 For AD FS 2016 + 1803.C+ QFE, you can block the IP address directly at AD FS. 
 
 3. Why am I not seeing any items in this report? <br />
-- Failed sign-in activities are not exceeding the threshold settings. 
-- Ensure no “Health service is not up to date” alert active in your AD FS server list.  Read more about [how to troubleshoot this alert](active-directory-aadconnect-health-data-freshness.md).
-- Audits is not enabled is AD FS farm
+   - Failed sign-in activities are not exceeding the threshold settings. 
+   - Ensure no “Health service is not up to date” alert active in your AD FS server list.  Read more about [how to troubleshoot this alert](active-directory-aadconnect-health-data-freshness.md).
+   - Audits is not enabled is AD FS farm.
 
 
 ## Related links
