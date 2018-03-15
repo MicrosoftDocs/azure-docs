@@ -38,7 +38,7 @@ The identity provider that you choose can limit your options, including support 
 |Create service principals with certificates      |Yes |Yes|
 |Create service principals with secrets (keys)    |Yes |No|
 |Applications can use the Graph service           |Yes |No|
-|Applications can use identity provider for sign-in |Yes |Yes. Requires applications to federate with your on-premises AD FS. |
+|Applications can use identity provider for sign-in |Yes |Yes. Requires applications to federate with on-premises AD FS instances. |
 
 ## Topologies
 The following sections discus the various identity topologies that you can use.
@@ -80,15 +80,15 @@ The AD FS topology is required when either of the following conditions is true:
 
 This topology features the following characteristics:
 - To support the use of this topology in production, you must integrate the built-in Azure Stack AD FS instance with an existing AD FS instance that's backed by Active Directory, through a federation trust. 
-- You can integrate the Graph service in Azure Stack with your existing Active Directory. You can also use the OData-based Graph API service that supports APIs that are consistent with the Azure AD Graph API. 
+- You can integrate the Graph service in Azure Stack with your existing Active Directory instance. You can also use the OData-based Graph API service that supports APIs that are consistent with the Azure AD Graph API. 
 
-  To interact with your Active Directory, the Graph API requires user credentials from your Active Directory that have read-only permissions. 
-  - The built-in AD FS is based on Windows Server 2016. 
-  - Your AD FS and Active Directory must be based on Windows Server 2012 or later. 
+  To interact with your Active Directory instance, the Graph API requires user credentials from your Active Directory instance that have read-only permissions. 
+  - The built-in AD FS instance is based on Windows Server 2016. 
+  - Your AD FS and Active Directory instances must be based on Windows Server 2012 or later. 
   
-  Between your Active Directory and the built-in AD FS, interactions aren't restricted to OpenID Connect, and they can use any mutually supported protocol. 
-  - User accounts are created and managed in your on-premises Active Directory.
-  - Service principals and registrations for applications are managed in the built-in Active Directory.
+  Between your Active Directory instance and the built-in AD FS instance, interactions aren't restricted to OpenID Connect, and they can use any mutually supported protocol. 
+  - User accounts are created and managed in your on-premises Active Directory instance.
+  - Service principals and registrations for applications are managed in the built-in Active Directory instance.
 
 
 
