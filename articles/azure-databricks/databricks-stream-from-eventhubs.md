@@ -376,5 +376,7 @@ In this tutorial, you learned how to:
 > * Send tweets to Event Hubs
 > * Read tweets from Event Hubs
 
+Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
+
 > [!div class="nextstepaction"]
->[Get started with Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+>[Sentiment analyis on streaming data using Azure Databricks ](databricks-stream-from-eventhubs.md)

@@ -40,8 +40,8 @@ This tutorial covers the following tasks:
 > * Attach libraries for Event Hubs and Twitter API
 > * Create a Microsoft Cognitive Services account and retrieve the access key
 > * Send tweets to Event Hubs
-> * Receive messages from Event Hubs
-> * Run sentiment analysis on received messages
+> * Read tweets from Event Hubs
+> * Run sentiment analysis on tweets
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -593,8 +593,8 @@ In this tutorial, you learned how to use Azure Databricks to stream data into Az
 > * Add and attach libraries for Event Hubs and Twitter API
 > * Create a Microsoft Cognitive Services account and retrieve the access key
 > * Send tweets to Event Hubs
-> * Receive messages from Event Hubs
-> * Run sentiment analysis on received messages
+> * Read tweets from Event Hubs
+> * Run sentiment analysis on tweets
 
 Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
