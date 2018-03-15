@@ -249,7 +249,7 @@ The two primary factors that contribute to container startup time in Azure Conta
 * [Image size](#image-size)
 * [Image location](#image-location)
 
-Windows images have [additional considerations](#windows-images).
+Windows images have [additional considerations](#use-recent-windows-images).
 
 ### Image size
 
