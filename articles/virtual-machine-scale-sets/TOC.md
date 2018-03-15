@@ -61,6 +61,7 @@
 #### [Use the Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Work with large scale sets](virtual-machine-scale-sets-placement-groups.md)
 ### [Convert a scale set template to use managed disk](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Use low-priority](virtual-machine-scale-sets-use-low-priority.md)
 
 ## Manage
 ### Common management tasks
