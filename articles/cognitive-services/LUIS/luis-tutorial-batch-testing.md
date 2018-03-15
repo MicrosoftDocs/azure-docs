@@ -9,7 +9,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/01/2018
 ms.author: v-geberr;
 ---
 
@@ -56,12 +56,6 @@ This article uses the prebuilt domain HomeAutomation. The prebuilt domain has in
 5. Select **Train** in the top right navigation bar.
 
     ![Select Train button](./media/luis-tutorial-batch-testing/train-button.png)
-
-6. Select **Publish** in the top right navigation bar.
-
-7. Select **Publish to production slot**. 
-
-    ![Publish the app](./media/luis-tutorial-batch-testing/publish.png)
 
 ## Batch test criteria
 Batch testing can test up to 1000 utterances at a time. The batch should not have duplicates. [Export](create-new-app.md#export-app) the app in order to see the list of current utterances.  
@@ -253,8 +247,6 @@ Move the four utterances to the `HomeAutomation.TurnOn` intent.
 7. Because none of these utterances should have a HomeAutomation.Device ("light", "camera"), HomeAutomation.Operation("on","off") or HomeAutomation.Room ("living room"), remove any labels by selecting the blue label in the utterance and select **Remove label**.
 
 8. Select **Train** in the top right navigation bar.
-
-9. Select **Publish** in the top right navigation bar. 
 
 ## Verify the fix
 In order to verify that the utterances in the batch test are correctly predicted for the **None** intent, run the batch test again.

@@ -45,7 +45,7 @@ In-memory and DirectQuery models connecting to Azure data sources use .NET Frame
 
 ## On-premises data sources
 
-Connecting to on-premises data sources require an On-premises gateway. When using a gateway, ensure 64-bit providers are installed.
+Connecting to on-premises data sources from and Azure AS server require an On-premises gateway. When using a gateway, 64-bit providers are required.
 
 ### In-memory and DirectQuery
 
@@ -57,31 +57,26 @@ Connecting to on-premises data sources require an On-premises gateway. When usin
 | Teradata |OLE DB Provider for Teradata, Teradata Data Provider for .NET |Teradata Data Provider for .NET | |
 | | | |
 
-\* Tabular 1400 models only.
-
 ### In-memory only
-
-> [!IMPORTANT]
-> Testing providers for the following data sources is ongoing. 
 
 |Datasource  |  
 |---------|---------|
 |Access Database     |  
 |Active Directory*     |  
-|Analysis Services     | 
+|Analysis Services     |  
 |Analytics Platform System     |  
 |Dynamics CRM*     |  
-|Excel workbook     | 
+|Excel workbook     |  
 |Exchange*     |  
 |Folder*     | 
 |JSON document*     |  
 |Lines from binary*     | 
 |MySQL Database     | 
-|OData Feed*     | 
+|OData Feed*     |  
 |ODBC query     | 
-|OLE DB     |  
+|OLE DB     |   
 |Postgre SQL Database*    | 
-|SAP HANA*    |   
+|SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   
 |Sybase Database     |  

@@ -45,7 +45,7 @@ Both Windows and Linux containers on x64 processor architectures work for this t
 
 ## Deploy a SQL Server container
 
-In this section, you add an MS-SQL database to your simulated IoT Edge device. Use the SQL Server 2017 docker container image, available on [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) and [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/). 
+In this section, you add an MS-SQL database to your simulated IoT Edge device. Use the SQL Server 2017 docker container image, available as a [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) container and as a [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) container. 
 
 ### Deploy SQL Server 2017
 
@@ -97,14 +97,14 @@ In step 3, you add create options to the SQL Server container, which are importa
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
       ```
 
    * Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"MSSQL_SA_PASSWORD=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "/var/opt/mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
 4. Save the file. 
@@ -122,31 +122,31 @@ This section guides you through setting up the SQL database to store the tempera
 
 In a command-line tool, connect to your database: 
 
-* Windows
+* Windows container
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Linux container
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 Open the SQL command tool: 
 
-* Windows
+* Windows container
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Linux container
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 Create your database: 
 
-* Windows
+* Windows container
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -154,7 +154,7 @@ Create your database:
    GO
    ```
 
-* Linux
+* Linux container
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -299,24 +299,24 @@ Once your containers restart, the data received from the temperature sensors is 
 
 In a command-line tool, connect to your database: 
 
-* Windows
+* Windows container
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Linux container
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 Open the SQL command tool: 
 
-* Windows
+* Windows container
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Linux container
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
@@ -324,7 +324,7 @@ Open the SQL command tool:
 View your data: 
 
    ```sql
-   Select * FROM MeasurementsDB.dbo.TemperatureMeasurements
+   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
    GO
    ```
 

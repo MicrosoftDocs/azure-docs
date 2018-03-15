@@ -252,7 +252,7 @@ You can also use the [Azure SDKs](https://azure.microsoft.com/downloads/) to do 
 > Service Fabric clusters can only use Automatic mode, but the update is handled differently. For more information on service fabric updates, see [the Service Fabric documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
 
 >[!NOTE]
-> There is one type of modification to global scale set properties that does not follow the upgrade policy. These are changes to the scale set OS Profile (for example, admin username and password). These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage via:
+> There is one type of modification to global scale set properties that does not follow the upgrade policy. These are changes to the scale set OS Profile (for example, admin username and password). These properties can only be changed in API version 2017-12-01 or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage via:
 
 REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: aelnably;wesmc
+ms.author: aelnably;msangapu
 
 ---
 # Continuous deployment with Web App for Containers
@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com)
 You can enable the continuous deployment feature using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command
 
 ```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
+az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
 In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** option on the left of the page.
@@ -47,7 +47,7 @@ In **Docker Container**, select 'On' then press Save to enable Continuous Deploy
 You can obtain the Webhook URL using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 For the Webhook URL, you need to have the following endpoint:

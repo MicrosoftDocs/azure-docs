@@ -91,8 +91,10 @@
           maintainContext: true
     - name: Spark streaming
       items:
-        - name: Overview
+        - name: Streaming overview
           href: apache-spark-streaming-overview.md
+        - name: Structured Streaming overview
+          href: apache-spark-structured-streaming-overview.md
         - name: Create highly available Spark streaming jobs in YARN
           href: apache-spark-streaming-high-availability.md
         - name: Structured streaming using Event Hubs

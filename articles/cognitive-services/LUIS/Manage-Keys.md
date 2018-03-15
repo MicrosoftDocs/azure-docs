@@ -9,7 +9,7 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/02/2018
 ms.author: v-geberr
 ---
 
@@ -57,7 +57,8 @@ Publishing regions are different from authoring regions. Make sure you create an
 ## Key limit errors
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. 
 
-## Create and use an endpoint key
+<a name="create-and-use-an-endpoint-key"></a>
+## Assign endpoint key
 On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the authoring (starter) key. 
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).

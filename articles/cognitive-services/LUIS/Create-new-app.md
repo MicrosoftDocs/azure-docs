@@ -2,14 +2,14 @@
 title: Create a new app with LUIS | Microsoft Docs
 description: Create and manage your applications on the Language Understanding (LUIS) webpage. 
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/26/2017
-ms.author: cahann;v-geberr
+ms.date: 02/26/2018
+ms.author: v-geberr
 ---
 
 # Create an app

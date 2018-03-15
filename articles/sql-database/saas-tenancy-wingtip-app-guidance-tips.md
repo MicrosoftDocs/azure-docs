@@ -82,7 +82,7 @@ The deployment initially has tenants and catalog SQL Database servers to connect
 To ensure a successful demo connection, all servers have a [firewall rule](sql-database-firewall-configure.md) allowing all IPs through.
 
 
-1. Open *SSMS* and connect to the the tenants. The server name depends on the database tenancy pattern you've selected (see below for specifics):
+1. Open *SSMS* and connect to the tenants. The server name depends on the database tenancy pattern you've selected (see below for specifics):
     - **Standalone application:** servers of individual tenants (ex. *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **Database per tenant:** *tenants1-dpt-&lt;User&gt;.database.windows.net*
     - **Multi-tenant database:** *tenants1-mt-&lt;User&gt;.database.windows.net* 

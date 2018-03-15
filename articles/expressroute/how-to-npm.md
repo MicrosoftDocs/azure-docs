@@ -99,11 +99,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 
 1. Go to the **Common Settings** tab of the **Network Performance Monitor Configuration** page for your resource. Click the agent that corresponds to your server's processor from the **Install OMS Agents** section and download the setup file.
 
-  >[!NOTE]
-  >The agent must be installed on a Windows Server (2008 SP1 or later). 
-  >Monitoring of ExpressRoute circuits using Windows Desktop OS and Linux OS is not supported. 
-  >
-  >
+ 
 2. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
 3. From the **Configure OMS Agents for monitoring using TCP protocol** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
 
@@ -112,6 +108,17 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 ### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server (on each VNET that you want to monitor)
 
 We recommend that you install at least two agents on each side of the ExpressRoute connection (i.e., on-premises, Azure VNETs) for redundancy. Use the following steps to install agents:
+  
+  >[!NOTE]
+  >The agent must be installed on a Windows Server (2008 SP1 or later). 
+  >Monitoring of ExpressRoute circuits using Windows Desktop OS and Linux OS is not supported. 
+  >
+  >
+  
+  >[!NOTE]
+  >SCOM agents may not be able to consistently detect if they are hosted in Azure.  We recommend that you do not use SCOM agents in Azure VNETs to monitor ExpressRoute.
+  >
+  >
 
 1. Run **Setup** to install the agent on each server that you want to use for monitoring ExpressRoute. The server you use for monitoring can either be a VM, or on-premises and must have Internet access. You need to install at least one agent on-premises, and one agent on each network segment that you want to monitor in Azure.
 2. On the **Welcome** page, click **Next**.

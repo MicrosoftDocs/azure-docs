@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -133,9 +133,19 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | macOS                  | Chrome, Safari                      | ![Check][1] |
 
 
-> [!NOTE]
-> For Chrome support, you must use Windows 10 Creators Update (version 1703) or later.<br>
-> You can install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+#### Chrome support
+
+For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+For Chrome support in **Windows 8.1 and 7**, create the following registry key:
+
+|    |    |
+|--- | ---|
+|Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Name | 1 |
+|Type | REG_SZ (String) |
+|Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode. 
 
@@ -180,6 +190,10 @@ In your conditional access policy, you can require that an access attempt to the
 This setting applies to the following client apps:
 
 
+- Microsoft Intune Managed Browser
+- Microsoft PowerBI
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

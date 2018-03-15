@@ -47,7 +47,14 @@ Container registry password:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-To deploy your container image from the container registry with a resource request of 1 CPU core and 1 GB of memory, run the following command. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands. Replace `<acrName>` with the name of your container registry.
+Your application will need to have
+been [prepared in advance][prepare-app]; to deploy your container image from the container registry with a
+resource request of 1 CPU core and 1 GB of memory, run the following
+ [az container create][az-container-create] command. Replace
+`<acrLoginServer>` and `<acrPassword>` with the values you obtained
+from the previous two commands. Replace `<acrName>` with the name of
+your container registry; you can also replace `aci-tutorial-app` with
+the name you want to give the new application.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
@@ -120,6 +127,7 @@ In this tutorial, you completed the process of deploying your containers to Azur
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
+[az-container-create]: /cli/azure/container#az_container_create
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

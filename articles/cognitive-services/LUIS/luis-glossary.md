@@ -8,7 +8,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: v-geberr
 ---
 
@@ -56,7 +56,7 @@ The batch file is a JSON array. Each element in the array has 3 properties: `tex
 
 ## <a name="collaborator"></a>Collaborator
 
-A collaborator is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances, and app.
+A collaborator is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances.
 
 ## <a name="currently-editing"></a>Currently editing
 
@@ -115,7 +115,7 @@ A LUIS app is a trained data model for natural language processing including [in
 
 ## <a name="owner"></a>Owner
 
-Each app has one owner who is the person that created the app. The owner can add [collaborators](#collaborator) that have the same permissions as the owner.
+Each app has one owner who is the person that created the app. The owner can add [collaborators](#collaborator).
 
 ## <a name="phrase-list"></a>Phrase list
 

@@ -28,7 +28,7 @@ To quickly scan the sections in this article, use the links to the right, under 
 ## Recovery services vault
 
 ### Is there any limit on the number of vaults that can be created in each Azure subscription? <br/>
-Yes. As of September 2016, you can create 25 Recovery Services vaults per subscription. You can create up to 25 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
+Yes. As of January 2018, you can create up to 25 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
 
 ### Are there limits on the number of servers/machines that can be registered against each vault? <br/>
 You can register upto 200 Azure Virtual machines per vault. If you are using MAB Agent you can register upto 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.

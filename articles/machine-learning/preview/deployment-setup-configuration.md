@@ -5,7 +5,7 @@ services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
 manager: hjerez
-ms.reviewer: jasonwhowell, mldocs
+ms.reviewer: jmartens,jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article

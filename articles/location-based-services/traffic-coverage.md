@@ -3,8 +3,8 @@ title: Traffic Coverage in Azure Location Based Services | Microsoft Docs
 description: Learn about Traffic Coverage in Azure Location Based Services
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
+author: kgremban
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services

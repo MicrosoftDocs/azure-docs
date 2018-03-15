@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
 ---
 
@@ -27,18 +27,18 @@ The following scenarios are fully supported:
 
 - User sign-ins to all web browser-based applications
 - User sign-ins to Office applications that support [modern authentication](https://aka.ms/modernauthga): Office 2016, and Office 2013 _with_ modern authentication
+- User sign-ins to Outlook clients using legacy protocols such as Exchange ActiveSync, SMTP, POP and IMAP.
 - User sign-ins to Skype for Business that support modern authentication, including Online & Hybrid topologies. Learn more about supported topologies [here](https://technet.microsoft.com/library/mt803262.aspx).
 - Azure AD domain joins for Windows 10 devices
-- Exchange ActiveSync support
+- App passwords for Multi-Factor Authentication.
 
 ## Unsupported scenarios
 
 The following scenarios are _not_ supported:
 
-- User sign-ins to legacy Office client applications: Office 2010, and Office 2013 _without_ modern authentication. Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support. It also helps you secure your user accounts by using [conditional access](../active-directory-conditional-access-azure-portal.md) features, such as Azure Multi-Factor Authentication.
+- User sign-ins to legacy Office client applications, excluding Outlook: Office 2010, and Office 2013 _without_ modern authentication. Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support. It also helps you secure your user accounts by using [conditional access](../active-directory-conditional-access-azure-portal.md) features, such as Azure Multi-Factor Authentication.
 - User sign-ins to Skype for Business client applications _without_ modern authentication.
 - User sign-ins to PowerShell version 1.0. We recommended that you use PowerShell version 2.0.
-- App passwords for Multi-Factor Authentication.
 - Detection of users with [leaked credentials](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services needs Password Hash Synchronization to be enabled on the tenant. Therefore tenants that use Pass-through Authentication _only_ don't work for scenarios that need Azure AD Domain Services.
 - Pass-through Authentication is not integrated with [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
@@ -59,4 +59,3 @@ Enabling password hash synchronization gives you the option to failover authenti
 - [Security deep dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
 - [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): Learn more about this complementary feature.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
-

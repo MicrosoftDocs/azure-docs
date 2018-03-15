@@ -46,6 +46,25 @@ Add the updated Azure Database for PostgreSQL management extension using the fol
 az extension add --name rdbms
 ``` 
 
+Check you have the correct extension version installed. 
+```azurecli-interactive
+az extension list
+```
+
+The return JSON should include the following: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+If version 0.0.3 is not returned, run the following to update the extension: 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
 ## Create an Azure Database for PostgreSQL server
 Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command. A server contains a group of databases managed as a group. 
 

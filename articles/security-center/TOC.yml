@@ -125,6 +125,12 @@
     items:
     - name: Connected solutions
       href: security-center-partner-solutions.md
+    - name: Discovered solutions
+      href: security-center-partner-integration.md#discovered-solutions
+    - name: Connect external solutions
+      href: quick-security-solutions.md
+    - name: Connect Application Gateway
+      href: security-center-connect-application-gateway.md
     - name: Connect Microsoft ATA
       href: security-center-ata-integration.md
     - name: Connect Azure AD Identity Protection

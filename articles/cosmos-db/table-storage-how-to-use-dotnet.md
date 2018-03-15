@@ -160,7 +160,7 @@ Add the following **using** directives to the top of the `Program.cs` file:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.Azure.Storage.Common; // Namespace for StorageAccounts
+using Microsoft.Azure.Storage; // Namespace for StorageAccounts
 using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
 ```
 

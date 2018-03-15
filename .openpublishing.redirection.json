@@ -15,6 +15,141 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/msi-overview.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-howto-assign-access-cli.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-howto-assign-access-portal.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-howto-assign-access-powershell.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-how-to-use-vm-sdk.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-sdk",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-how-to-use-vm-token.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-token",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-known-issues.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/known-issues",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-qs-configure-cli-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-cli-windows-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-how-to-use-vm-sign-in.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-sign-in",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-qs-configure-cli-windows-vmss.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-cli-windows-vmss",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-qs-configure-portal-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-qs-configure-portal-windows-vmss.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vmss",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-qs-configure-powershell-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-powershell-windows-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-qs-configure-sdk-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-sdk-windows-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-qs-configure-template-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-template-windows-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-qs-configure-template-windows-vmss.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-template-windows-vmss",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-arm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-datalake.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-nonaad.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-storage-sas.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-storage.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-arm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-datalake.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-nonaad.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-sql.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-storage-sas.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage-sas",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/msi-tutorial-windows-vm-access-storage.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-self-service-application-access.md",
             "redirect_url": "/azure/active-directory/application-access-self-service-how-to",
             "redirect_document_id": true
@@ -153,6 +288,16 @@
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
         },
+		{
+            "source_path": "articles/virtual-machines/linux/accelerated-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/linux/mitigate-se",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/windows/accelerated-maintenance.md",
+            "redirect_url": "/azure/virtual-machines/windows/mitigate-se",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc",
@@ -261,6 +406,11 @@
         {
             "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-tips.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-common-deployment-errors",
             "redirect_document_id": false
         },
         {
@@ -919,6 +1069,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/vs-azure-tools-remote-desktop-roles.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-visual-studio",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/xplat-cli-azure-resource-manager.md",
             "redirect_url": "/azure/azure-resource-manager/xplat-cli-azure-resource-manager",
             "redirect_document_id": false
@@ -1574,6 +1729,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/logic-apps/logic-apps-use-logic-app-features.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-examples-and-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-switch-case.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-switch-statement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-loops-and-scopes.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-control-flow-loops",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates.md",
             "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates",
             "redirect_document_id": false
@@ -1716,6 +1886,11 @@
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
             "redirect_url": "/azure/automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-vm-change-tracking.md",
+            "redirect_url": "/azure/automation/automation-change-tracking",
             "redirect_document_id": false
         },
         {
@@ -3044,6 +3219,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-manage-vm-backup.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-manage-vm-protect",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-faq.md",
             "redirect_url": "/azure/azure-stack/azure-stack-asdk-release-notes",
             "redirect_document_id": false
@@ -3231,6 +3411,11 @@
         {
             "source_path": "articles/aks/azure-files.md",
             "redirect_url": "/azure/aks/azure-files-dynamic-pv",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-jenkins.md",
+            "redirect_url": "/azure/aks/jenkins-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -4819,6 +5004,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/log-analytics/log-analytics-change-tracking.md",
+            "redirect_url": "/azure/automation/automation-change-tracking",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-configuration-assessment.md",
             "redirect_url": "/azure/log-analytics/log-analytics-add-solutions",
             "redirect_document_id": false
@@ -4850,7 +5040,12 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-system-update.md",
-            "redirect_url": "/azure/operations-management-suite/oms-solution-update-management",
+            "redirect_url": "/azure/automation/automation-update-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-solution-update-management.md",
+            "redirect_url": "/azure/automation/automation-update-management",
             "redirect_document_id": false
         },
         {
@@ -8375,6 +8570,11 @@
             "redirect_document_id": false
         },
 		    {
+            "source_path": "articles/site-recovery/site-recovery-support-matrix-to-sec-site.md",
+            "redirect_url": "vmware-physical-secondary-support-matrix",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/tutorial-dr-drill-secondary.md",
             "redirect_url": "hyper-v-vmm-test-failover",
             "redirect_document_id": false
@@ -8640,11 +8840,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/site-recovery-migrate-to-azure.md",
+            "redirect_url": "migrate-overview",
+            "redirect_document_id": false
+        },
+	{	     
             "source_path": "articles/site-recovery/site-recovery-physical-servers-to-azure.md",
             "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
         },
-		    {
+	{
             "source_path": "articles/site-recovery/tutorial-physical-to-azure.md",
             "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
@@ -8666,50 +8871,60 @@
         },
         {
             "source_path": "articles/site-recovery/physical-walkthrough-create-vault.md",
-            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/physical-walkthrough-enable-replication.md",
-            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/physical-walkthrough-install-mobility.md",
-            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/physical-walkthrough-network.md",
-            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/physical-walkthrough-overview.md",
-            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/physical-walkthrough-prepare-azure.md",
-            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/physical-walkthrough-prerequisites.md",
-            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/physical-walkthrough-replication.md",
-            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_url": "physical-azure-disaster-recovery",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/physical-walkthrough-source-target.md",
-            "redirect_url": "tutorial-physical-to-azure",
+            "redirect_url": "physical-azure-disaster-recovery",											   
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/site-recovery-set-up-physical-to-azure.md",
+            "redirect_url": "physical-azure-set-up-source",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-prepare-target-physical-to-azure.md",
+            "redirect_url": "physical-azure-set-up-target",
+            "redirect_document_id": false
+        },
+	{
             "source_path": "articles/site-recovery/vmware-walkthrough-architecture.md",
             "redirect_url": "vmware-azure-architecture",
             "redirect_document_id": false
@@ -8776,7 +8991,7 @@
         },
         {
             "source_path": "articles/site-recovery/vmware-walkthrough-prerequisites.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -8801,27 +9016,37 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware.md",
-            "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_url": "vmware-azure-failback",																				
             "redirect_document_id": false
         },
-        {
+         {
+            "source_path": "articles/site-recovery/site-recovery-how-to-failback-azure-to-vmware.md",
+            "redirect_url": "vmware-azure-failback",
+            "redirect_document_id": false
+        },
+	{
             "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware-classic.md",
-            "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_url": "vmware-azure-failback",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-failback-azure-to-vmware-classic-legacy.md",
-            "redirect_url": "site-recovery-how-to-failback-azure-to-vmware",
+            "redirect_url": "vmware-azure-failback",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-vmware-setup-azure-ps-classic.md",
-            "redirect_url": "site-recovery-vmware-setup-azure-ps-resource-manager",
+            "redirect_url": "vmware-azure-set-up-process-server",
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/site-recovery-vmware-setup-azure-ps-resource-manager.md",
+            "redirect_url": "vmware-azure-set-up-process-server-azure",
+            "redirect_document_id": false
+        },
+	{	     
             "source_path": "articles/site-recovery/site-recovery-architecture-vmware-to-azure.md",
-            "redirect_url": "concepts-vmware-to-azure-architecture",
+            "redirect_url": "vmware-azure-architecture",
             "redirect_document_id": false
         },
         {
@@ -8840,11 +9065,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/physical-walkthrough-test-failover.md",
-            "redirect_url": "tutorial-dr-drill-azure",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/site-recovery/vmware-to-azure-failover-failback.md",
             "redirect_url": "vmware-azure-tutorial-failover-failback",
             "redirect_document_id": false
@@ -8855,6 +9075,111 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-protection-troubleshoot.md",
+            "redirect_url": "vmware-azure-troubleshoot-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-push-install-error-codes.md",
+            "redirect_url": "vmware-azure-troubleshoot-push-install",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-powershell.md",
+            "redirect_url": "vmware-azure-disaster-recovery-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/how-to-deploy-configuration-server.md",
+            "redirect_url": "vmware-azure-deploy-configuration-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-automate-mobility-service-install.md",
+            "redirect_url": "vmware-azure-mobility-deploy-automation-dsc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-exclude-disk.md",
+            "redirect_url": "vmware-azure-exclude-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-how-to-install-linux-master-target.md",
+            "redirect_url": "vmware-azure-install-linux-master-target",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-how-to-reprotect.md",
+            "redirect_url": "vmware-azure-reprotect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/support-matrix-vmware-to-azure.md",
+            "redirect_url": "vmware-physical-azure-support-matrix",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-support-matrix-to-azure.md",
+            "redirect_url": "vmware-physical-azure-support-matrix",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md",
+            "redirect_url": "vmware-azure-install-mobility-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-install-mobility-service-using-sccm.md",
+            "redirect_url": "vmware-azure-mobility-install-configuration-mgr",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-multi-tenant-support-vmware-using-csp.md",
+            "redirect_url": "vmware-azure-multi-tenant-csp-disaster-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-prepare-target-vmware-to-azure.md",
+            "redirect_url": "vmware-azure-set-up-target",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-setup-replication-settings-vmware.md",
+            "redirect_url": "vmware-azure-set-up-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-replicate-vmware-to-azure.md",
+            "redirect_url": "vmware-azure-enable-replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-set-up-vmware-to-azure.md",
+            "redirect_url": "vmware-azure-set-up-source",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-manage-configuration-server.md",
+            "redirect_url": "vmware-azure-manage-configuration-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-manage-scaleout-process-server.md",
+            "redirect_url": "vmware-azure-set-up-process-server-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-vwmare-to-azure-manage-vCenter.md",
+            "redirect_url": "vmware-azure-manage-vcenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-manage-multi-tenancy-with-csp.md",
+            "redirect_url": "vmware-azure-multi-tenant-csp-disaster-recovery",
+            "redirect_document_id": false
+        },
+	{
             "source_path": "articles/site-recovery/site-recovery-runbook-automation-classic.md",
             "redirect_url": "site-recovery-runbook-automation",
             "redirect_document_id": false
@@ -8871,7 +9196,7 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-support-matrix.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -8881,12 +9206,17 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-prereq.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/physical-walkthrough-test-failover.md",
+            "redirect_url": "tutorial-dr-drill-azure",
+            "redirect_document_id": false
+        },
+	{
             "source_path": "articles/site-recovery/site-recovery-best-practices.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -9474,6 +9804,11 @@
             "redirect_url": "/azure/active-directory/develop/active-directory-integrating-applications",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/active-directory/active-directory-app-registration.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-integrating-applications",
+            "redirect_document_id": false
+        },                     
         {
             "source_path": "articles/active-directory/active-directory-java-authenticate-users-access-control-eclipse.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-java-authenticate-users-access-control-eclipse",
@@ -12555,6 +12890,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
+            "redirect_url": "/azure/storage/common/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-dotnet-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-government/documentation-government-services-intelligenceandanalytics.md",
             "redirect_url": "/azure/azure-government/documentation-government-services-dataandanalytics",
             "redirect_document_id": false
@@ -13957,11 +14307,6 @@
         {
             "source_path": "articles/storage/storage-require-secure-transfer.md",
             "redirect_url": "/azure/storage/common/storage-require-secure-transfer",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
-            "redirect_url": "/azure/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd",
             "redirect_document_id": true
         },
         {
@@ -17032,6 +17377,76 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-index-all-articles.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
             "redirect_document_id": false
-    }
+    },
+    {
+        "source_path": "articles/virtual-network/create-user-defined-route-portal.md",
+        "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-udr-arm-ps.md",
+        "redirect_url": "/azure/virtual-network/tutorial-create-route-table-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-peering.md",
+        "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-udr-arm-cli.md",
+        "redirect_url": "/azure/virtual-network/tutorial-create-route-table-cli",
+        "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/python-how-to-install.md",
+            "redirect_url": "/python/azure/python-sdk-azure-install",
+            "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-manage-network.md",
+        "redirect_url": "/azure/virtual-network/manage-virtual-network",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-cli.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-portal.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-powershell.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-cli.md",
+        "redirect_url": "/azure/virtual-network/quick-create-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md",
+        "redirect_url": "/azure/virtual-network/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-ps.md",
+        "redirect_url": "/azure/virtual-network/quick-create-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md",
+        "redirect_url": "/azure/virtual-network/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-common-troubleshooting-issues",
+        "redirect_document_id": false
+   }
    ]
 }

@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. Azure CLI 2.0 is optimized for managing and administering Azure resources from the command line. You can use the Azure CLI to manage your Azure Batch accounts and to manage resources such as pools, jobs, and tasks. With the Azure CLI, you can script many of the same tasks you carry out with the Batch APIs, Azure portal, and Batch PowerShell cmdlets.
 
-This article provides an overview of using [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure/overview) with Batch. See [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) for an overview of using the CLI with Azure.
+This article provides an overview of using [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure) with Batch. See [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) for an overview of using the CLI with Azure.
 
 Microsoft recommends using the latest version of the Azure CLI, version 2.0. For more information about version 2.0, see [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
 
@@ -66,7 +66,7 @@ There are a few different ways to log into Azure, described in detail in [Log in
 1. [Log in interactively](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Log in interactively when you are running Azure CLI commands yourself from the command line.
 2. [Log in with a service principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Log in with a service principal when you are running Azure CLI commands from a script or an application.
 
-For the purposes of this article, we show how to log into Azure interactively. Type [az login](https://docs.microsoft.com/cli/azure/#az_login) on the command line:
+For the purposes of this article, we show how to log into Azure interactively. Type [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) on the command line:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -175,7 +175,7 @@ The following tips may help when you are troubleshooting Azure CLI issues:
 
 ## Next steps
 
-* For more information about the Azure CLI, see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+* For more information about the Azure CLI, see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 * For more information about Batch resources, see [Overview of Azure Batch for developers](batch-api-basics.md).
 * For more information about using Batch templates to create pools, jobs, and tasks without writing code, see [Use Azure Batch CLI Templates and File Transfer (Preview)](batch-cli-templates.md).
 

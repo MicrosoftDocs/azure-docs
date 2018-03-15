@@ -34,7 +34,7 @@ This document details how to use Bash in Azure Cloud Shell in the [Azure portal]
 > You are automatically authenticated for Azure CLI 2.0 in every sesssion.
 
 ### Select the Bash environment
-1. Select the environment drop down from the the left hand side of shell window <br>
+1. Select the environment drop down from the left hand side of shell window <br>
 ![](media/quickstart/env-selector.png)
 2. Select Bash
 
@@ -53,7 +53,7 @@ Create a new resource group in WestUS named "MyRG": <br>
 
 ### Create a Linux VM
 Create an Ubuntu VM in your new resource group. The Azure CLI 2.0 will create SSH keys and setup the VM with them. <br>
-`az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
+`az vm create -n MyVmName -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
 > The public and private keys used to authenticate your VM are placed in `/home/<user>/.ssh/id_rsa` and `/home/<user>/.ssh/id_rsa.pub` by Azure CLI 2.0 by default. Your .ssh folder is persisted in your attached Azure Files share's 5-GB image.

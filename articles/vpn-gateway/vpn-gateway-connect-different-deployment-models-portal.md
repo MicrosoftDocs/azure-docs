@@ -148,7 +148,7 @@ In this section, you create the virtual network gateway and the local network ga
 * Address range = 192.168.1.0/24 <br>
 
 
-If you don't have a Resource Manager VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) and the Example values.
+If you don't have a Resource Manager VNet and are running these steps as an exercise, create a virtual network with the steps in [Create a virtual network](../virtual-network/quick-create-portal.md), using the example values.
 
 ### 2. Create a gateway subnet
 

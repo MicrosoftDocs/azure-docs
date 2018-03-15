@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: eamono
 ms.custom: mvc
 
@@ -40,7 +40,7 @@ To complete this tutorial, the following are required:
 
 ## Onboard an Azure VM
 
-To onboard Azure Virtual Machines automatically, an existing VM must be onboarded with the Change tracking or Update management solution. In this step, you onboard a virtual machine with Update management, and Change tracking.
+There are multiple ways to onboard machines, you can onboard the solution [from a virtual machine](automation-onboard-solutions-from-vm.md), [from your Automation account](automation-onboard-solutions-from-automation-account.md), or by runbook. This tutorial walks through through enabling Update Management through a runbook. To onboard Azure Virtual Machines at scale, an existing VM must be onboarded with the Change tracking or Update management solution. In this step, you onboard a virtual machine with Update management, and Change tracking.
 
 ### Enable Change Tracking and Inventory
 
