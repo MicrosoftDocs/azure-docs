@@ -43,8 +43,8 @@ An example batch file follows:
 ## Common errors importing a batch
 Common errors include: 
 
-> * more than 1,000 utterances
-> * an utterance JSON object that doesn't have an entities property
+> * More than 1,000 utterances
+> * An utterance JSON object that doesn't have an entities property
 
 ## Batch test state
 LUIS tracks the state of each dataset's last test. This includes the size (number of utterances in the batch), last run date, and last result (number of successfully predicted utterances).
