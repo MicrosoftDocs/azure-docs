@@ -13,15 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2018
+ms.date: 04/01/2018
 ms.author: elioda
 
 ---
 # Comparison of Azure IoT Hub and Azure Event Hubs
 
+Both Azure IoT Hub and Azure Event Hubs are cloud servics that can ingest large amounts of data and process or store that data for business insights. From that perspective, it may seem like the two services are similar. However, only IoT Hub was developed with the specific capabilities needed to support at-scale internet of things scenarios in mind. 
+
+One of the key differentiators between the two services is that IoT Hub 
+
 Azure IoT Hub is the cloud gateway that connects devices and gathers data for business insights and automation. It makes it easy to stream data to the cloud and manage your devices at scale. IoT Hub also offers rich bi-directional communication capabilities, device-level security, and distributed computing on edge devices.
 
-[Azure Event Hubs][Azure Event Hubs] is a similar service that enables event and telemetry ingestion in the cloud, but implements different capabilities than IoT Hub.
+[Azure Event Hubs][Azure Event Hubs] is an event ingestion service that can process and store large amounts of data and telemetry. From that perspective, but implements different capabilities than IoT Hub.
 
 Some of the key differences between the two services are detailed in the following table:
 
