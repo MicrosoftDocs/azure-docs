@@ -80,6 +80,7 @@ An example endpoint looks like:
 |appID | LUIS app ID |
 |subscriptionID | LUIS subscription key created in Azure portal |
 |q | utterance |
+|timezoneOffset| minutes|
 
 ## <a name="entity"></a>Entity
 

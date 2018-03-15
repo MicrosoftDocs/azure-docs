@@ -51,7 +51,7 @@ You can then add your communication listener implementation by returning it in a
 For stateless services:
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -82,7 +82,7 @@ For stateful services:
 ```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -272,7 +272,7 @@ The communication factory library implements a typical fault-handling retry patt
 The communication client just receives an address and uses it to connect to a service. The client can use whatever protocol it wants.
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 
