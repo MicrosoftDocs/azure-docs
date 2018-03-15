@@ -1,12 +1,31 @@
-# Optional Claims in Azure Active Directory (public preview)
+---
+title: Learn how to provide optional claims to your AAD application | Microsoft Docs
+description: A guide for adding custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure AD (AAD)
+documentationcenter: na
+author: hirsin
+services: active-directory
+manager: mtillman
+editor: ''
 
-This feature is used by application developers to specify which claims they want in tokens sent to their application. You can use Optional Claims to:
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 03/15/2018
+ms.author: hirsin
+ms.custom: aaddev
+
+---
+# optional claims in Azure AD (preview)
+
+This feature is used by application developers to specify which claims they want in tokens sent to their application. You can use optional claims to:
 -	Select additional claims to include in tokens for your application.
 -	Change the behavior of certain claims that Azure AD returns in tokens.
 -	Add and access custom claims for your application. 
 
 > [!Note]
-> This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory premium subscription.
+> This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure AD subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure AD premium subscription.
 
 For the list of standard claims and how they are used in tokens, see the [basics of tokens issued by Azure AD](active-directory-token-and-claims.md). 
 
@@ -16,11 +35,11 @@ One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-ov
 
 | Account Type | V1.0 Endpoint                      | V2.0 Endpoint  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/A - RPS Tickets are used instead | Support Coming |
+| MSA          | N/A - RPS Tickets are used instead | Support coming |
 | AAD          | Supported                          | Supported      |
 
 ## Standard optional claims set
-The set of Optional Claims available by default for applications to use are listed below.  To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. 
+The set of optional claims available by default for applications to use are listed below.  To add custom optional claims for your application, see [Directory Extensions](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), below. 
 
 > [!Note]
 >The majority of these claims can be included in JWTs, but not SAML tokens, except where noted in the Token Type column.  Additionally, while optional claims are only supported for AAD users currently, MSA support is being added.  When MSA has optional claims support on the v2.0 endpoint, the User Type column will denote if a claim is available for an AAD or MSA user.  
@@ -50,25 +69,25 @@ The set of Optional Claims available by default for applications to use are list
 | `upn`                      | UserPrincipalName claim.  Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case. | JWT, SAML  |           | Additional properties: <br> include_externally_authenticated_upn <br> include_externally_authenticated_upn_without_hash                                                                                                                                                                 |
 | `groups`                   | The groups a user is a member of.                                                                                                                                                               | JWT, SAML  |           | Additional properties: <br> Sam_account_name<br> Dns_domain_and_sam_account_name<br> Netbios_domain_and_sam_account<br> Max_size_limit<br> Emit_as_roles<br>                                                                                                                            |
 
-### V2.0 Optional Claims
+### V2.0 optional claims
 These claims are always included in v1.0 tokens, but are removed from v2.0 tokens unless requested.  These claims are only applicable for  JWTs (ID tokens and Access Tokens).  
 
-**Table 3: V2.0-Only Optional Claims**
+**Table 3: V2.0-only optional claims**
 
-| JWT Claim   | Name                            | Description                                                                                                                    | Notes |
-|-------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+| JWT Claim     | Name                            | Description                                                                                                                    | Notes |
+|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
 | `ipaddr`      | IP Address                      | The IP address the client logged in from.                                                                                      |       |
 | `onprem_sid`  | On-Premises Security Identifier |                                                                                                                                |       |
 | `pwd_exp`     | Password Expiration Time        | The datetime at which the password expires.                                                                                    |       |
 | `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.                                                                        |       |
-| `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they are not, the claim is not included                         |       |
-| `nickname`    | An additional name for the user, separate from first or last name. |                                                                                                                                |       |
+| `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they are not, the claim is not included                     |       |
+| `nickname`    | Nickname                        | An additional name for the user, separate from first or last name.                                                             |       |                                                                                                                |       |
 | `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the Azure AD user object. <br>"family_name":"Miller" |       |
 | `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the Azure AD user object.<br>"given_name": "Frank"                   |       |
 
-### Additional Properties of Optional Claims
+### Additional properties of optional claims
 
-Some Optional Claims can be configured to change the way the claim is returned.  These additional properties ranges from formatting changes (for example, `include_externally_authenticated_upn_without_hash`) to changing the set of data returned (`Dns_domain_and_sam_account_name`).
+Some optional claims can be configured to change the way the claim is returned.  These additional properties ranges from formatting changes (for example, `include_externally_authenticated_upn_without_hash`) to changing the set of data returned (`Dns_domain_and_sam_account_name`).
 
 **Table 4: Values for configuring standard optional claims**
 
@@ -87,9 +106,9 @@ Some Optional Claims can be configured to change the way the claim is returned. 
 > [!Note]
 >Specifying the upn optional claim without an additional property does not change any behavior – in order to see a new claim issued in the token, at least one of the additional properties must be added. 
 >
->The `*account_name` additional properties for groups are not interoperable, and ordering of the additional properties matters – only the first account name Additional Property listed will be used. 
+>The `account_name` additional properties for groups are not interoperable, and ordering of the additional properties matters – only the first account name Additional Property listed will be used. 
 
-#### Additional Properties Example:
+#### Additional properties example:
 
 ```json
  "optionalClaims": 
@@ -106,11 +125,11 @@ Some Optional Claims can be configured to change the way the claim is returned. 
 
 This OptionalClaims object will return the same `groups` claim as if `sam_account_name` were not included – because it is after `netbios_domain_and_sam_account_name`, it is ignored. 
 
-## Configuring Optional Claims
+## Configuring optional claims
 
-You can configure optional claims for your application by modifying the application manifest (See example below). For more information, see the [Understanding the Azure Active Directory application manifest article](active-directory-application-manifest.md).
+You can configure optional claims for your application by modifying the application manifest (See example below). For more information, see the [Understanding the Azure AD application manifest article](active-directory-application-manifest.md).
 
-**Sample Schema:**
+**Sample schema:**
 
 ```json
 "optionalClaims":  
@@ -157,7 +176,7 @@ Declares the optional claims requested by an application. An application can con
 
 ### OptionalClaim Type
 
-Contains an optional claim associated with an application or a service principal. The idToken, accessToken, and saml2Token properties of the [OptionalClaims](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) type is a collection of OptionalClaim.
+Contains an optional claim associated with an application or a service principal. The idToken, accessToken, and saml2Token properties of the [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) type is a collection of OptionalClaim.
 If supported by a specific claim, you can also modify the behavior of the OptionalClaim using the AdditionalProperties field.
 
 **Table 6: OptionalClaim Type Properties**
@@ -188,46 +207,47 @@ Within the SAML tokens, these claims will be emitted with the following URI form
 
 In this section, you can walk through a scenario to see how you can use the optional claims feature for your application.
 There are multiple options available for updating the properties on an application’s identity configuration to enable and configure optional claims:
--	You can modify the application manifest. The example below will use this method to perform the configuration. Read the [Understanding the Azure Active Directory application manifest document](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) first for an introduction to the manifest.
--	It's also possible to write an application that uses the [Graph API](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api) to update your application. The [Entity and complex type reference](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) in the Graph API reference guide can help you with configuring the optional claims.
+-	You can modify the application manifest. The example below will use this method to perform the configuration. Read the [Understanding the Azure AD application manifest document](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) first for an introduction to the manifest.
+-	It's also possible to write an application that uses the [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) to update your application. The [Entity and complex type reference](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) in the Graph API reference guide can help you with configuring the optional claims.
 
 **Example:** 
 In the example below, you will modify an application’s manifest to add claims to access, ID, and SAML tokens intended for the application.
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	After you've authenticated, choose your Azure AD tenant by selecting it from the top right corner of the page.
-3.	Select **Azure Active Directory extension** from the left navigation panel and click on **App Registrations**.
+3.	Select **Azure AD extension** from the left navigation panel and click on **App Registrations**.
 4.	Find the application you want to configure optional claims for in the list and click on it.
 5.	From the application page, click **Manifest** to open the inline manifest editor. 
 6.	You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elemets will be added to the `OptionalClaims` property.
 
-```json
-"optionalClaims": 
-   {
-       "idToken": [ 
-             { 
-                   "name": "upn", 
-                   "essential": false, 
-                   "additionalProperties": [ "include_externally_authenticated_upn"]  
-              }
-        ],
- "accessToken": [ 
-             {
-                    "name": "auth_time", 
-                    "essential": false
-              }
-        ],
-"saml2Token": [ 
-               { 
-                    "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
-                    "source": "user", 
-                    "essential": true
-               }
-       ]
-   }
-   ```
-In this case, different optional claims were added to each type of token that the application can receive. The ID tokens will now contain the UPN for federated users in the full form (`<upn>_<homedomain>#EXT#@<resourcedomain>`). The access tokens will now receive the auth_time claim. The SAML tokens will now contain the skypeId directory schema extension (in this example, the app ID for this app is ab603c56068041afb2f6832e2a17e237).  The SAML tokens will expose the Skype ID as `extension_skypeId`.
+      ```json
+      "optionalClaims": 
+      {
+            "idToken": [ 
+                  { 
+                        "name": "upn", 
+                        "essential": false, 
+                        "additionalProperties": [ "include_externally_authenticated_upn"]  
+                  }
+            ],
+      "accessToken": [ 
+                  {
+                        "name": "auth_time", 
+                        "essential": false
+                  }
+            ],
+      "saml2Token": [ 
+                  { 
+                        "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
+                        "source": "user", 
+                        "essential": true
+                  }
+            ]
+      }
+      ```
+      In this case, different optional claims were added to each type of token that the application can receive. The ID tokens will now contain the UPN for federated users in the full form (`<upn>_<homedomain>#EXT#@<resourcedomain>`). The access tokens will now receive the auth_time claim. The SAML tokens will now contain the skypeId directory schema extension (in this example, the app ID for this app is ab603c56068041afb2f6832e2a17e237).  The SAML tokens will expose the Skype ID as `extension_skypeId`.
 
 7.	When you're finished updating the manifest, click **Save** to save the manifest
 
 
-
+## Related content
+* Learn more about the [standard claims](active-directory-token-and-claims.md) provided by Azure AD. 

@@ -75,7 +75,7 @@
 ### [Service to service calls](active-directory-protocols-oauth-service-to-service.md)
 ### [On-behalf-of flow](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Supported token and claim types](active-directory-token-and-claims.md)
-### [Configuring application optional and custom claims](active-directory-optional-claims.md)
+### [Configure application optional and custom claims](active-directory-optional-claims.md)
 ### [Signing key rollover](active-directory-signing-key-rollover.md)
 ### [Federation metadata](active-directory-federation-metadata.md)
 ### [Certificate credentials](active-directory-certificate-credentials.md)
