@@ -14,7 +14,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 03/15/2018
 ms.author: jehollan; LADocs
 ---
 
@@ -80,7 +80,7 @@ so that you can better understand the sentiments expressed.
 To detect the sentiment behind some text, 
 you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
 
-1. In Logic App Designer, under the trigger, choose **New step**
+1. In Logic App Designer, under the trigger, choose **New step**.
 
 2. Find the **Text Analytics** connector.
 
@@ -113,7 +113,7 @@ create a function app in your Azure subscription.
 Also, for your logic app to directly call a function, 
 the function must have an HTTP trigger binding, 
 for example, use the **HttpTrigger** template. 
-Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function-azure-portal.md)
+Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
 
 For this scenario, use the tweet text as 
 the request body for your Azure Function. 
@@ -137,7 +137,7 @@ in the logic app that you're building.
 
 ## Add Azure function to logic app
 
-1. In Logic App Designer, under the **Detect Sentiment## action, 
+1. In Logic App Designer, under the **Detect Sentiment** action, 
 choose **New step**.
 
 2. Find and select the **Azure Functions** connector.

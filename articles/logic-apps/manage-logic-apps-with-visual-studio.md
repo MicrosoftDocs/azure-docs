@@ -105,9 +105,9 @@ or **Resource Types**, follow these steps:
 
 ## Open in Visual Studio
 
-In Visual Studio, you can open logic apps that were 
-created and deployed either directly from the Azure portal 
-or as Azure Resource Manager projects from Visual Studio.
+In Visual Studio, you can open logic apps previously created 
+and deployed either directly through the Azure portal 
+or as Azure Resource Manager projects with Visual Studio.
 
 1. Open Cloud Explorer, and find your logic app. 
 
@@ -134,8 +134,8 @@ select **Open With Logic App Editor**.
 You can download logic apps from the 
 <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 and save them as [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
-templates, which you can work on locally with Visual Studio 
-and customize for different deployment environments. 
+templates. You can then locally edit the templates with Visual Studio 
+and customize logic apps for different deployment environments. 
 Downloading logic apps automatically *parameterizes* their 
 definitions inside [Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment), 
 which also use JavaScript Object Notation (JSON).
@@ -226,19 +226,17 @@ For example:
 
 ## Disable or enable logic app
 
-Without deleting your logic app, 
-you can stop the trigger from firing 
-the next time when the trigger condition is met. 
-Disabling your logic app prevents creating 
-and running future workflow instances for your logic app.
+Without deleting your logic app, you can stop the trigger from 
+firing the next time when the trigger condition is met. 
+Disabling your logic app prevents the Logic Apps engine 
+from creating and running future workflow instances for your logic app.
 In Cloud Explorer, open your logic app's shortcut menu, 
 and select **Disable**.
 
 ![Disable your logic app](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
-To let your logic app resume firing ger fire again 
-enable your logic app so that the trigger fires again when 
-the trigger criteria, in Cloud Explorer, 
+When you're ready for your logic app to resume operation, 
+you can reactivate your logic app. In Cloud Explorer, 
 open your logic app's shortcut menu, and select **Enable**.
 
 ![Enable your logic app](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
@@ -253,8 +251,8 @@ and select **Delete**.
 
 ## Next steps
 
-In this article, you learned how to edit and manage deployed logic apps with Visual Studio. 
-Next, learn about advanced deployment for logic apps with Visual Studio:
+In this article, you learned how to manage deployed logic apps with Visual Studio. 
+Next, learn about customizing logic app definitions for deployment:
 
 > [!div class="nextstepaction"]
 > [Author logic app definitions in JSON](../logic-apps/logic-apps-author-definitions.md)
