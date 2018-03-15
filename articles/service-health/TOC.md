@@ -2,7 +2,7 @@
 
 # Overview
 ## [What is Azure status?](azure-status-overview.md)
-## [What is Personalized Service Health?](service-health-overview.md)
+## [What is Service Health?](service-health-overview.md)
 ## [What is Resource Health?](resource-health-overview.md)
 # How To
 ## [Configure alerts for service health events](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)

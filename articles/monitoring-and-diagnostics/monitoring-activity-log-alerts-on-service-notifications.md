@@ -36,9 +36,9 @@ To learn more about action groups, see [Create and manage action groups](monitor
 For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
 
 ## Create an alert on a service health notification for a new action group by using the Azure portal
-1. In the [portal](https://portal.azure.com), select **Personalized Service Health**.
+1. In the [portal](https://portal.azure.com), select **Service Health**.
 
-    ![The "Personalized Service Health" service](./media/monitoring-activity-log-alerts-on-service-notifications/home-servicehealth.png)
+    ![The "Service Health" service](./media/monitoring-activity-log-alerts-on-service-notifications/home-servicehealth.png)
 
 2. In the **Alerts** section, select **Health alerts**.
 
