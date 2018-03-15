@@ -42,6 +42,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
 * [Docker](https://docs.docker.com/engine/installation/) on the same computer that has Visual Studio Code. The Community Edition (CE) is sufficient for this tutorial. 
 * [Python](https://www.python.org/downloads/).
+* [Pip]().
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
@@ -58,181 +59,87 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge Python module using Visual Studio Code and the Azure IoT Edge extension.
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
-3. In the integrated terminal, enter the following command to install (or update) the **AzureIoTEdgeModule** template in dotnet:
+2. In the integrated terminal, enter the following command to install (or update) the **cookiecutter**:
 
     ```cmd/sh
-    dotnet new -i Microsoft.Azure.IoT.Edge.Module
+    pip install -U cookiecutter
     ```
 
-2. Create a project for the new module. The following command creates the project folder, **FilterModule**, in the current working folder:
+3. Create a project for the new module. The following command creates the project folder, **FilterModule**, with your container repository. The parameter of 'image_repository' should be in the form of `<your container registry name>.azurecr.io` if you are using Azure container registry. Enter the following command in the current working folder:
 
     ```cmd/sh
-    dotnet new aziotedgemodule -n FilterModule
+    cookiecutter --no-input https://github.com/Azure/cookiecutter-azure-iot-edge-module module_name=FilterModule image_repository=<your container registry address>/filtermodule
     ```
  
-3. Select  **File** > **Open Folder**.
-4. Browse to the **FilterModule**  folder and click **Select Folder** to open the project in VS Code.
-5. In VS Code explorer, click **Program.cs** to open it.
+4. Select  **File** > **Open Folder**.
+5. Browse to the **FilterModule**  folder and click **Select Folder** to open the project in VS Code.
+6. In VS Code explorer, click **main.py** to open it.
+7. At the top of the **FilterModule** namespace, import the `json` library:
 
-   ![Open Program.cs][1]
-
-6. At the top of the **FilterModule** namespace, add three `using` statements for types used later on:
-
-    ```csharp
-    using System.Collections.Generic;     // for KeyValuePair<>
-    using Microsoft.Azure.Devices.Shared; // for TwinCollection
-    using Newtonsoft.Json;                // for JsonConvert
+    ```python
+    import json
     ```
 
-6. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
+8. Add the `TEMPERATURE_THRESHOLD` and `TWIN_CALLBACKS` under the global counters. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```csharp
-    static int temperatureThreshold { get; set; } = 25;
+    TEMPERATURE_THRESHOLD = 25
+    TWIN_CALLBACKS = 0
     ```
 
-7. Add the `MessageBody`, `Machine`, and `Ambient` classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
+9. Update the function `receive_message_callback` with below content.
 
-    ```csharp
-    class MessageBody
-    {
-        public Machine machine {get;set;}
-        public Ambient ambient {get; set;}
-        public string timeCreated {get; set;}
-    }
-    class Machine
-    {
-       public double temperature {get; set;}
-       public double pressure {get; set;}         
-    }
-    class Ambient
-    {
-       public double temperature {get; set;}
-       public int humidity {get; set;}         
-    }
+    ```python
+    def receive_message_callback(message, hubManager):
+        global RECEIVE_CALLBACKS
+        global TEMPERATURE_THRESHOLD
+        message_buffer = message.get_bytearray()
+        size = len(message_buffer)
+        message_text = message_buffer[:size].decode('utf-8')
+        print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
+        map_properties = message.properties()
+        key_value_pair = map_properties.get_internals()
+        print ( "    Properties: %s" % key_value_pair )
+        RECEIVE_CALLBACKS += 1
+        print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
+        data = json.loads(message_text)
+        if data.has_key("machine") and data["machine"].has_key("temperature") and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
+            map_properties.add("MessageType", "Alert")
+            print("Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
+        hubManager.forward_event_to_output("output1", message, 0)
+        return IoTHubMessageDispositionResult.ACCEPTED
     ```
 
-8. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **DeviceClient**, the code reads the TemperatureThreshold from the Module Twin's desired properties and registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
+10. Add a new function `device_twin_callback`. This function will be invoked when the desired properties are updated.
 
-    ```csharp
-    // Register callback to be called when a message is received by the module
-    // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
-
-    // Read TemperatureThreshold from Module Twin Desired Properties
-    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-    var moduleTwinCollection = moduleTwin.Properties.Desired;
-    if (moduleTwinCollection["TemperatureThreshold"] != null)
-    {
-        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
-    }
-
-    // Attach callback for Twin desired properties updates
-    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
-
-    // Register callback to be called when a message is received by the module
-    await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
+    ```python
+    # device_twin_callback is invoked when twin's desired properties are updated.
+    def device_twin_callback(update_state, payload, user_context):
+        global TWIN_CALLBACKS
+        global TEMPERATURE_THRESHOLD
+        print ( "\nTwin callback called with:\nupdateStatus = %s\npayload = %s\ncontext = %s" % (update_state, payload, user_context) )
+        data = json.loads(payload)
+        if data.has_key("desired") and data["desired"].has_key("TemperatureThreshold"):
+            TEMPERATURE_THRESHOLD = data["desired"]["TemperatureThreshold"]
+        if data.has_key("TemperatureThreshold"):
+            TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
+        TWIN_CALLBACKS += 1
+        print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
     ```
 
-9. Add the `onDesiredPropertiesUpdate` method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code running inside a module directly from the cloud.
+11. In class `HubManager`, add a new line to the `__init__` method to initialize the `device_twin_callback` function you just added.
 
-    ```csharp
-    static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
-    {
-        try
-        {
-            Console.WriteLine("Desired property change:");
-            Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
-
-            if (desiredProperties["TemperatureThreshold"]!=null)
-                temperatureThreshold = desiredProperties["TemperatureThreshold"];
-
-        }
-        catch (AggregateException ex)
-        {
-            foreach (Exception exception in ex.InnerExceptions)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Error when receiving desired property: {0}", exception);
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Error when receiving desired property: {0}", ex.Message);
-        }
-        return Task.CompletedTask;
-    }
+    ```python
+    # sets the callback when a twin's desired properties are updated.
+    self.client.set_device_twin_callback(device_twin_callback, self)
     ```
 
-10. Replace the `PipeMessage` method with the `FilterMessages` method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**. 
 
-    ```csharp
-    static async Task<MessageResponse> FilterMessages(Message message, object userContext)
-    {
-        var counterValue = Interlocked.Increment(ref counter);
-
-        try {
-            DeviceClient deviceClient = (DeviceClient)userContext;
-
-            var messageBytes = message.GetBytes();
-            var messageString = Encoding.UTF8.GetString(messageBytes);
-            Console.WriteLine($"Received message {counterValue}: [{messageString}]");
-
-            // Get message body
-            var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
-
-            if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
-            {
-                Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
-                    $"exceeds threshold {temperatureThreshold}");
-                var filteredMessage = new Message(messageBytes);
-                foreach (KeyValuePair<string, string> prop in message.Properties)
-                {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
-
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                await deviceClient.SendEventAsync("output1", filteredMessage);
-            }
-
-            // Indicate that the message treatment is completed
-            return MessageResponse.Completed;
-        }
-        catch (AggregateException ex)
-        {
-            foreach (Exception exception in ex.InnerExceptions)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Error in sample: {0}", exception);
-            }
-            // Indicate that the message treatment is not completed
-            var deviceClient = (DeviceClient)userContext;
-            return MessageResponse.Abandoned;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Error in sample: {0}", ex.Message);
-            // Indicate that the message treatment is not completed
-            DeviceClient deviceClient = (DeviceClient)userContext;
-            return MessageResponse.Abandoned;
-        }
-    }
-    ```
-
-11. To build the project, right-click the **FilterModule.csproj** file in the Explorer and click **Build IoT Edge module**. This process compiles the module and exports the binary and its dependencies into a folder that is used to create a Docker image.
-
-   ![Build IoT Edge module][2]
+12. Save this file.
 
 ## Create a Docker image and publish it to your registry
 
-1. In VS Code explorer, expand the **Docker** folder. Then expand the folder for your container platform, either **linux-x64** or **windows-nano**.
-
-   ![Select Docker container platform][3]
-
-2. Right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
-3. In the **Select Folder** window, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
-4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filtermodule:latest`. The container registry address is the same as the login server that you copied from your registry. It should be in the form of `<your container registry name>.azurecr.io`.
-5. Sign in to Docker by entering the following command in the VS Code integrated terminal: 
+1. Sign in to Docker by entering the following command in the VS Code integrated terminal: 
      
    ```csh/sh
    docker login -u <username> -p <password> <Login server>
@@ -240,7 +147,9 @@ The following steps show you how to create an IoT Edge Python module using Visua
         
    Use the user name, password, and login server that you copied from your Azure container registry when you created it.
 
-3. Push the image to your Docker repository. Select **View** > **Command Palette** and search for the **Edge: Push IoT Edge module Docker image** menu command. Enter the image name in the pop-up text box at the top of the VS Code window. Use the same image name you used in step 4.
+2. In VS Code explorer, Right-click the **module.json** file and click **Build and Push IoT Edge module Docker image**. In the pop-up dropdown box at the top of the VS Code window, select your container platform, for example, **amd64** for Linux container. VS Code containerize the `main.py` and required dependencies, then push it to the container registry you specified.
+
+3. You can get the full container image address with tag in the VS Code integrated terminal. For more infomation about the build and push definition, you can refer to the `module.json` file.
 
 ## Add registry credentials to Edge runtime
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. These credentials give the runtime access to pull the container. 
@@ -283,8 +192,8 @@ Add the credentials for your registry to the Edge runtime on the computer where 
         ```
  
     6. Click **Save**.
-12. Click **Next**.
-13. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where the messages flow. In this tutorial, you need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that you configured with the  **FilterMessages** handler. The second route transports messages from the filter module to IoT Hub. In this route, `upstream` is a special destination that tells Edge Hub to send messages to IoT Hub. 
+10. Click **Next**.
+11. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where the messages flow. In this tutorial, you need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that you configured with the  **FilterMessages** handler. The second route transports messages from the filter module to IoT Hub. In this route, `upstream` is a special destination that tells Edge Hub to send messages to IoT Hub. 
 
     ```json
     {
