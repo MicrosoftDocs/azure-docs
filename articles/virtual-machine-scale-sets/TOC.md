@@ -1,4 +1,4 @@
-# [Virtual Machines Scale Sets Documentation](index.md)
+# [Virtual Machines Scale Sets Documentation](index.yml)
 
 # Overview
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
