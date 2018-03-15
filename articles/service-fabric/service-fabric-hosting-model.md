@@ -187,7 +187,7 @@ In the above example, you might think if 'MyCodePackageA' registers both 'MyServ
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [a1]: service-fabric-application-model.md
-[a2]: service-fabric-deploy-existing-app.md
+[a2]: service-fabric-guest-executables-introduction.md
 [a3]: service-fabric-containers-overview.md
 [a4]: service-fabric-package-apps.md
 [a5]: service-fabric-deploy-remove-applications.md
