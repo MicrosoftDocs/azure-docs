@@ -48,6 +48,12 @@ When a LUIS app uses the prebuilt datetimeV2 entity, a datetime value can be ret
 
 The timezone is corrected by adding the user's timezone to the [endpoint](https://aka.ms/luis-endpoint-apis) using the `timezoneOffset` param. The value of `timezoneOffset` should be the positive or negative number, in minutes, to alter the time. It is not the UTC timezone. 
 
+|Param|Value|
+|--|--|
+|`timezoneOffset`|positive or negative number, in minutes|
+
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
