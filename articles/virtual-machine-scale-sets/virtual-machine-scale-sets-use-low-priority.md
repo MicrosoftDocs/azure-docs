@@ -1,6 +1,6 @@
 ---
-title: Create an Azure scale set that uses Low Priority VMs (Preview) | Microsoft Docs
-description: Learn how to create Azure virtual machine scale sets that use Low Priority VMs to save on costs
+title: Create an Azure scale set that uses low-priority VMs (Preview) | Microsoft Docs
+description: Learn how to create Azure virtual machine scale sets that use low-priority VMs to save on costs
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mmccrory
@@ -11,20 +11,20 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 03/15/2018
 ms.author: memccror
 
 ---
 
 
-# Low-priority VMs on scale sets (Preview)
+# Low-priority VMs on scale sets (preview)
 
-Low-priority VMs on scale sets are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more. The low-priority offering enables users to deploy scale sets on any excess capacity at a significant cost savings with the acknowledgment that Azure will reclaim this capacity when needed.
+Using low-priority VMs on scale sets allows you to take advantage of our unutilized capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict low-priority VMs. Therefore, low-priority VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-The availability of low-priority VMs is not guaranteed and these VMs can be evicted at any time. You may try a different size, a different region, a different time, or a regular, full priced scale set if needed. In addition, a low-priority scale set is deployed in a single fault domain and offers no high availability guarantees.
+The amount of available unutilized capacity can vary based on size, region, time of day, and more. When deploying low-priority VMs on scale sets, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. A low-priority scale set is deployed in a single fault domain and offers no high availability guarantees.
 
 > [!NOTE]
 > Low-priority scale sets are in preview and ready for your development and test scenarios. 
