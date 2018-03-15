@@ -31,6 +31,12 @@ This article explains how to work with Azure Blob storage bindings in Azure Func
 > [!NOTE]
 > [Blob-only storage accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) are not supported for blob triggers. Blob storage triggers require a general-purpose storage account. For input and output bindings you can use blob-only storage accounts.
 
+## Packages
+
+The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub repository.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
 ## Trigger
 
 Use a Blob storage trigger to start a function when a new or updated blob is detected. The blob contents are provided as input to the function.
@@ -149,7 +155,7 @@ module.exports = function(context) {
 
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a blob trigger:
 
-* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)
 
   The attribute's constructor takes a path string that indicates the container to watch and optionally a [blob name pattern](#trigger---blob-name-patterns). Here's an example:
 
@@ -177,7 +183,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
 
   For a complete example, see [Trigger - C# example](#trigger---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Provides another way to specify the storage account to use. The constructor takes the name of an app setting that contains a storage connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
 
@@ -473,7 +479,7 @@ module.exports = function(context) {
 
 ## Input - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
 
 The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
 
@@ -685,7 +691,7 @@ module.exports = function(context) {
 
 ## Output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
 
 The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
 
