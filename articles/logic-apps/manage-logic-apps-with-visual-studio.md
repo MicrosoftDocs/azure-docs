@@ -257,4 +257,4 @@ In this article, you learned how to edit and manage deployed logic apps with Vis
 Next, learn about advanced deployment for logic apps with Visual Studio:
 
 > [!div class="nextstepaction"]
-> [Perform advanced deployment with Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+> [Author logic app definitions in JSON](../logic-apps/logic-apps-author-definitions.md)

@@ -1765,7 +1765,7 @@
         },
         {
             "source_path": "articles/logic-apps/logic-apps-deploy-from-vs.md",
-            "redirect_url": "/azure/logic-apps/quickstart-create-logic-apps-with-visual-studio",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-template",
             "redirect_document_id": true
         },
         {

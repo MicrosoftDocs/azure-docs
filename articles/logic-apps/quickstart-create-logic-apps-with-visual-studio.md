@@ -265,7 +265,3 @@ for logic apps with Visual Studio, see these articles:
 
 > [!div class="nextstepaction"]
 > [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
->
-> -or-
->
-> [Perform advanced deployment with Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)

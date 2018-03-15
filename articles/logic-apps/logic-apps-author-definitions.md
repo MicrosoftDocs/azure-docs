@@ -1,6 +1,6 @@
 ---
 title: Create, edit, or extend JSON for logic app definitions - Azure Logic Apps | Microsoft Docs
-description: Add parameters, process strings, create parameter maps, and get data with Date functions
+description: Author and customize logic app definitions in JSON
 author: ecfan
 manager: SyntaxC4
 editor: ''

@@ -55,7 +55,7 @@
       href: logic-apps-http-endpoint.md
     - name: Batch process messages
       href: logic-apps-batch-process-send-receive-messages.md
-    - name: Create or edit JSON definitions
+    - name: Author JSON definitions
       href: logic-apps-author-definitions.md
     - name: Handle content types
       href: logic-apps-content-type.md
@@ -256,12 +256,10 @@
       href: logic-apps-enterprise-integration-accounts.md
   - name: Deploy
     items:
-      - name: Define logic apps for deployment
+      - name: Define and deploy logic apps
         href: logic-apps-create-deploy-azure-resource-manager-templates.md
-      - name: Create automated deployment templates
+      - name: Create deployment templates - Visual Studio
         href: logic-apps-create-deploy-template.md
-      - name: Deploy logic apps - Visual Studio
-        href: logic-apps-deploy-from-vs.md        
   - name: Monitor
     items: 
       - name: Monitor logic app status
