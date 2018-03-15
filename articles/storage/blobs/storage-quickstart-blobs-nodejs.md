@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/13/2018
+ms.date: 03/15/2018
 ms.author: cshoe
 ---
 
