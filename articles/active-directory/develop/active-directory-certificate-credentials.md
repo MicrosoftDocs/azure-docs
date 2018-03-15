@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
 ---
@@ -24,7 +24,7 @@ Azure Active Directory allows an application to use its own credentials for auth
 One form of credential that can be used is a JSON Web Token(JWT) assertion signed with a certificate that the application owns.
 
 ## Format of the assertion
-To compute the assertion, you probably want to use one of the many [JSON Web Token](https://jwt.io/) libraries in the language of your choice. The information carried by the token is:
+To compute the assertion, you probably want to use one of the many [JSON Web Token](https://jwt.ms/) libraries in the language of your choice. The information carried by the token is:
 
 #### Header
 
