@@ -3,7 +3,7 @@ title: Azure IoT Hub scaling | Microsoft Docs
 description: How to scale your IoT hub to support your anticipated message throughput and desired features. Includes a summary of the supported throughput for each tier and options for sharding.
 services: iot-hub
 documentationcenter: ''
-author: fsautomata
+author: kgremban
 manager: timlt
 editor: ''
 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
-ms.author: elioda
+ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 
 ---
 # Choose the right IoT Hub tier for your solution
 
-Because every IoT solution is different, Azure IoT Hub offers several options based on pricing and scale. This article is meant to help you evaluate your organizations's IoT Hub needs. For the most up-to-date information about IoT Hub tiers, always refer to [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
+Every IoT solution is different, so Azure IoT Hub offers several options based on pricing and scale. This article is meant to help you evaluate your IoT Hub needs. For pricing information about IoT Hub tiers, always refer to [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
 
 To decide which IoT Hub tier is right for your solution, ask yourself two questions. What features do I plan do use, and how much data do I plan to move daily?
 
@@ -28,11 +28,14 @@ To decide which IoT Hub tier is right for your solution, ask yourself two questi
 Azure IoT Hub offers two tiers, basic and standard, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally then the basic tier is probably right for you. If you want to use more advanced configurations to control IoT devices remotely or distribute some of your workloads onto the devices themselves then you should consider the standard tier. For a detailed breakdown of which features are included in each tier, continue to [Basic and standard tiers](#basic-and-standard-tiers).
 
 **How much data do I plan to move daily?**
-Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3. Each unit of a level 1 IoT hub can handle 400,000 messages a day, while a level 3 unit can handle 300,000,000. For more details about the data guidelines, continue to [Message throughput](#message-throughput).
+Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3. For example, each unit of a level 1 IoT hub can handle 400,000 messages a day, while a level 3 unit can handle 300,000,000. For more details about the data guidelines, continue to [Message throughput](#message-throughput).
+
 
 ## Basic and standard tiers
 
 The standard tier of IoT Hub enables all features, and is required for any IoT solutions that want to make use of the bi-directional communication capabilities. The basic tier enables a subset of the featuers, and is intended for IoT solutions that only need uni-directional communication from devices to the cloud. Both tiers offer the same security and authentication features.
+
+Once you create your IoT hub, you can upgrade from the basic tier to the standard tier without interrupting your existing operations. For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).
 
 | Capability | Basic tier | Standard tier |
 | ---------- | ---------- | ------------- |
@@ -82,6 +85,8 @@ The best way to size an IoT Hub solution is to evaluate the traffic on a per-uni
 * Cloud-to-device messages
 * Identity registry operations
 
+Once you create your IoT Hub, you can change the number of units or move between the 1, 2, and 3 sizes within a specific tier without interrupting your existing operations. For more information, see [How to upgrade your IoT Hub](iot-hub-upgrade.md).
+
 For example, device-to-cloud messages follow these sustained throughput guidelines:
 
 | Tier | Sustained throughput | Sustained send rate |
@@ -101,10 +106,9 @@ For specific burst performance numbers, see [IoT Hub quotas and throttles][IoT H
 While a single IoT hub can scale to millions of devices, sometimes your solution requires specific performance characteristics that a single IoT hub cannot guarantee. In that case, it is recommended that you partition your devices into multiple IoT hubs. Multiple IoT hubs smooth traffic bursts and obtain the required throughput or operation rates that are required.
 
 ## Next steps
-To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub developer guide][lnk-devguide]
-* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
+* For additional information about IoT Hub capabilities and performance details, see [IoT Hub pricing][link-pricing] or [IoT Hub quotas and throttles][IoT Hub quotas and throttles].
+* To change your IoT Hub tier, follow the steps in [Upgrade your IoT hub](iot-hub-upgrade.md).
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
