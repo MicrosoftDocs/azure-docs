@@ -25,7 +25,7 @@ Azure Container Instances is available in the following regions with the specifi
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
 | West Europe, West US, West US 2, East US | Linux | 4 | 14 |
-| Southeast Asia  | Linux | 1 | 1.5 |
+| Southeast Asia  | Linux | 2 | 7 |
 | West Europe, West US, East US | Windows | 4 | 14 |
 | West US 2, Southeast Asia  | Windows | 2 | 3.5 |
 

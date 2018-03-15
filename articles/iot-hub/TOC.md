@@ -47,7 +47,7 @@
 # How-to guides
 ## Plan
 ### [Compare IoT Hub and Event Hubs](iot-hub-compare-event-hubs.md)
-### [Scale your solution](iot-hub-scaling.md)
+### [Choose the right tier](iot-hub-scaling.md)
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
 ### [Compare message and event routing](iot-hub-event-grid-routing-comparison.md)
@@ -147,6 +147,7 @@
 ### [Monitor with diagnostics](iot-hub-monitor-resource-health.md)
 #### [Migrate to diagnostics settings](iot-hub-migrate-to-diagnostics-settings.md)
 #### [Operations monitoring](iot-hub-operations-monitoring.md)
+### [Upgrade an IoT hub](iot-hub-upgrade.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Configure IP filtering](iot-hub-ip-filtering.md)
