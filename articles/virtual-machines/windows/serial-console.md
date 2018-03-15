@@ -3,8 +3,8 @@ title: Azure Virtual Machine Serial Console | Microsoft Docs
 description: Bi-Directional Serial console for Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: harijayms
-manager: timlt
+author: harijay
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,37 +14,40 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2017
-ms.author: harijayms
+ms.author: harijay
 ---
 
 # Azure's Virtual Machine Serial Console -- Preview 
 
-> [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)
-> ACCESS VIA SERIAL CONSOLE SHOULD BE LIMITED TO DEV-TEST VIRTUAL MACHINES. PREVIEW FUNCTIONALITY IS SUPPORTED ON A AS IS BASIS. WE STRONGLY RECOMMEND NOT TO USE THIS FOR ANY PRODUCTION VIRTUAL MACHINE.
->
 
 Azure's Virtual Machine Serial Console provides access to a text-based console for Linux and Windows Virtual Machines on Azure. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine and are not related to virtual machine's network / operating system state. Access to serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
 
-### Important information
+> [!Note] 
+> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)
+> ACCESS VIA SERIAL CONSOLE SHOULD BE LIMITED TO DEV-TEST VIRTUAL MACHINES. PREVIEW FUNCTIONALITY IS SUPPORTED ON A AS IS BASIS. WE STRONGLY RECOMMEND NOT TO USE THIS FOR ANY PRODUCTION VIRTUAL MACHINE.
+
 Currently this service is in **preview** and access to serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
+>
 
-### Requirements for accessing serial console 
+## Prerequisites 
 
-1. Virtual Machine that requires access to serial console MUST have [boot diagnostics](boot-diagnostics.md) enabled 
-2. User Accessing Serial console MUST have [Contributor role](../../active-directory/role-based-access-built-in-roles.md) for Virtual Machine and its [boot diagnostics](boot-diagnostics.md) storage account. 
+1. Virtual Machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
+2. The account using serial console must have [Contributor role](../../active-directory/role-based-access-built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 
-## Accessing Serial Console
+## Open the serial console
 Serial Console for Virtual Machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access Serial Console for Virtual Machines via portal 
 
-1. Open the Virtual Machine that you want to access in Azure portal 
-2. Scroll down onto the Support + Troubleshooting section 
-3. Click on Serial Console (Preview) option to access serial console 
+  1. Open the Azure portal
+  2. In the left menu, select Virtual machines.
+  3. Click on the VM in the list. The overview page for the VM will open.
+  4. Scroll down to the Support + Troubleshooting section and llick on Serial Console (Preview) option. A new pane with the serial console will open and start the connection.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
+### Disable feature
+The serial console functionality can be deactivated for specific VMs by disabling that VM's boot diagnostics setting.
 
-## Serial Console  Security 
+## Serial Console Security 
 
 ### Access Security 
 Access to Serial console is limited to users who have [VM Contributors](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) or above access to the Virtual Machine. If your AAD tenant requires Multi-Factor Authentication then access to serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
@@ -64,8 +67,6 @@ If a user is connected to Serial Console and another user successfully requests 
 >[!CAUTION] 
 This means that the user who gets disconnected will not be logged out! The ability to enforce a logout upon disconnect (via SIGHUP or similar mechanism) is still in the roadmap.For Windows there is an automatic timeout enabled in SAC, however for Linux you can configure terminal timeout setting. 
 
-### Disable feature
-The serial console functionality can be deactivated for specific VMs by disabling that VM's boot diagnostics setting.
 
 ## Accessing Serial Console for Windows 
 Newer Windows Server images on Azure  have [Special Administrative Console](https://technet.microsoft.com/en-us/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. To enable Serial console for Windows Virtual Machines created with using Feb2018 or lower images please the following steps: 
@@ -130,9 +131,6 @@ There is no option with virtual machine scale set instance Serial Console | At t
 Hitting enter after the connection banner does not show a log in prompt | [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
 Only health information is shown when connecting to a Windows VM| [Windows Health Signals](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)
 
-## Availability 
-The current preview is available in global Azure regions. At this point serial console is not available in Azure Germany, Azure Government, and Azure China. 
-
 ## FAQ
 1. How can I send feedback?
   * Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively(less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com 
@@ -142,5 +140,5 @@ The current preview is available in global Azure regions. At this point serial c
   * This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
 
 ## Next Steps
-1. Learn more about [Linux serial console](../linux/serial-console.md)
-2. Learn more about [bootdiagnostics](boot-diagnostics.md)
+* The serial console is also available for [Linux](../linux/serial-console.md) VMs
+* Learn more about [bootdiagnostics](boot-diagnostics.md)
