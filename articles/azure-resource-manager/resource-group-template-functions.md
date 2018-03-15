@@ -34,6 +34,7 @@ Template functions and their parameters are case-insensitive. For example, Resou
 <a id="empty" />
 <a id="first" />
 <a id="intersection" />
+<a id="json" />
 <a id="last" />
 <a id="length" />
 <a id="min" />
@@ -90,6 +91,21 @@ Resource Manager provides the following functions for getting values from sectio
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
+<a id="and" />
+<a id="bool" />
+<a id="if" />
+<a id="not" />
+<a id="or" />
+
+## Logical functions
+Resource Manager provides the following functions for working with logical conditions:
+
+* [and](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [if](resource-group-template-functions-logical.md#if)
+* [not](resource-group-template-functions-logical.md#not)
+* [or](resource-group-template-functions-logical.md#or)
+
 <a id="add" />
 <a id="copyindex" />
 <a id="div" />
@@ -100,15 +116,6 @@ Resource Manager provides the following functions for getting values from sectio
 <a id="mod" />
 <a id="mul" />
 <a id="sub" />
-
-## Logical functions
-Resource Manager provides the following functions for working with logical conditions:
-
-* [and](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
-* [if](resource-group-template-functions-logical.md#if)
-* [not](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
 
 ## Numeric functions
 Resource Manager provides the following functions for working with integers:
@@ -152,6 +159,7 @@ Resource Manager provides the following functions for getting resource values:
 <a id="emptystring" />
 <a id="endswith" />
 <a id="firststring" />
+<a id="guid" />
 <a id="indexof" />
 <a id="laststring" />
 <a id="lastindexof" />
