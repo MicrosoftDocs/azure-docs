@@ -374,7 +374,7 @@ In this tutorial, you learned how to:
 > * Create notebooks in Azure Databricks
 > * Add libraries for Event Hubs and Twitter API
 > * Send tweets to Event Hubs
-> * Read messages from Event Hubs
+> * Read tweets from Event Hubs
 
 > [!div class="nextstepaction"]
 >[Get started with Azure Databricks](quickstart-create-databricks-workspace-portal.md)
