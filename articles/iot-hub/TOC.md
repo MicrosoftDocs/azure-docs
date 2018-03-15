@@ -147,6 +147,7 @@
 ### [Monitor with diagnostics](iot-hub-monitor-resource-health.md)
 #### [Migrate to diagnostics settings](iot-hub-migrate-to-diagnostics-settings.md)
 #### [Operations monitoring](iot-hub-operations-monitoring.md)
+### [Upgrade an IoT hub](iot-hub-upgrade.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Configure IP filtering](iot-hub-ip-filtering.md)
