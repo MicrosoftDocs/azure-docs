@@ -56,7 +56,7 @@
 ### [Resource classes](resource-classes-for-workload-management.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 
-[Monitor](sql-data-warehouse-manage-monitor.md)
+## [Monitor](sql-data-warehouse-manage-monitor.md)
 
 
 ## Develop data warehouses
