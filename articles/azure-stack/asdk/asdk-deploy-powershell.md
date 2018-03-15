@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Stack - PowerShell | Microsoft Docs
-description: In this article, you install the ASDK from the command line.
+description: In this tutorial, you install the ASDK from the command line.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,17 +12,25 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.custom: 
+ms.topic: tutorial
+ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Deploy the ASDK - PowerShell
-In this article, you deploy the Azure Stack Development Kit (ASDK) from the command line in a non-production environment. 
+# Tutorial: deploy the ASDK from the command line
+In this tutorial, you deploy the Azure Stack Development Kit (ASDK) from the command line in a non-production environment. 
 
 The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Download and extract the deployment package
+> * Prepare the development kit host computer 
+> * Perform post-deployment configurations
+> * Register with Azure
 
 ## Prerequisites 
 Prepare the development kit host computer. Plan your hardware, software, and network. The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS). Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
@@ -41,7 +49,7 @@ You can download the deployment package to the development kit host or to anothe
 
 **[Download and extract the Azure Stack Development Kit (ASDK)](asdk-download.md)**
 
-## Prepare the development kit host
+## Prepare the development kit host computer
 Before you can install the ASDK on the host computer, the environment must be prepared and the system configured to boot from VHD. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack installation files).
 
 Use PowerShell to configure the ASDK host computer to boot from CloudBuilder.vhdx. These commands configure your ASDK host computer to boot from the downloaded and extracted Azure Stack virtual harddisk (CloudBuilder.vhdx). After completing these steps, restart the ASDK host computer.
@@ -147,7 +155,7 @@ If your environment does not have DHCP enabled, then you must include the follow
 |Rerun|Optional|Use this flag to rerun deployment. All previous input is used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment.|
 
 
-## Post-deployment configurations
+## Perform post-deployment configurations
 After installing the ASDK, there are a few recommended post-installation checks and configuration changes that should be made. You can validate your installation was installed successfully using the test-AzureStack cmdlet, and install Azure Stack PowerShell and GitHub tools. 
 
 You should also reset the password expiration policy to make sure that the password for the development kit host doesn't expire before your evaluation period ends.
@@ -157,10 +165,24 @@ You should also reset the password expiration policy to make sure that the passw
 
 **[Post ASDK deployment tasks](asdk-post-deploy.md)**
 
+## Register with Azure
+You must register Azure Stack with Azure so that you can [download Azure marketplace items](asdk-marketplace-item.md) to Azure Stack.
+
+**[Register Azure Stack with Azure](asdk-register.md)**
 
 ## Next steps
 Congratulations! After completing these steps, you’ll have a development kit environment with both [administrator](https://adminportal.local.azurestack.external) and [user](https://portal.local.azurestack.external) portals. 
 
-In this article, you deployed the ASDK from the command line. To start evaluating the ASDK, continue on to the tutorial for [adding an Azure Stack marketplace item](asdk-marketplace-item.md).
+In this tutorial, you learned how to:
 
+> [!div class="checklist"]
+> * Download and extract the deployment package
+> * Prepare the development kit host computer 
+> * Perform post-deployment configurations
+> * Register with Azure
+
+Advance to the next tutorial to learn how to add an Azure Stack marketplace item.
+
+> [!div class="nextstepaction"]
+> [Add an Azure Stack marketplace item](asdk-marketplace-item.md)
 
