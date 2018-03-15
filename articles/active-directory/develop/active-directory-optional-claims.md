@@ -2,7 +2,7 @@
 title: Learn how to provide optional claims to your AAD application | Microsoft Docs
 description: A guide for adding custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure AD (AAD)
 documentationcenter: na
-author: hirsin
+author: hpsin
 services: active-directory
 manager: mtillman
 editor: ''
