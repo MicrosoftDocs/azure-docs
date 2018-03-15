@@ -40,7 +40,7 @@ As part of the Vehicle Telemetry Analytics Solution Template, the following Cort
 * **Azure HDInsight** transforms data at scale.
 * **Azure Data Factory** handles orchestration, scheduling, resource management, and monitoring of the batch processing pipeline.
 
-**Power BI** gives this solution a rich dashboard for real-time data and predictive analytics visualizations. 
+**Power BI** gives this solution a rich dashboard for data and predictive analytics visualizations. 
 
 The solution uses two different data sources:
 
@@ -99,7 +99,7 @@ Three real-time reports are in this solution:
 * Vehicles Requiring Maintenance
 * Vehicle Health Statistics
 
-You can configure all three of the real-time reports, or you can stop after any stage. You then can proceed to the next section on how to configure batch reports. We recommend that you create all three reports to visualize the full insights of the real-time path of the solution.  
+You can configure all three of the reports, or you can stop after any stage. You then can proceed to the next section on how to configure batch reports. We recommend that you create all three reports to visualize the full insights of the real-time path of the solution.  
 
 ### Vehicles in Operation report
 1. Double-click **Page 1**, and rename it **Vehicles in Operation**.
@@ -158,7 +158,7 @@ You can configure all three of the real-time reports, or you can stop after any 
 
     ![Dashboard with visualizations](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-You successfully configured the "Vehicles in Operation" real-time report. You can create the next real-time report, or you can stop here and configure the dashboard. 
+You successfully configured the "Vehicles in Operation" report. You can create the next real-time report, or you can stop here and configure the dashboard. 
 
 ### Vehicles Requiring Maintenance report
 
