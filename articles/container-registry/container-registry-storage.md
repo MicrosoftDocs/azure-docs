@@ -33,13 +33,13 @@ The following table describes the container image and storage limits in place fo
 
 | Resource | Limit |
 | -------- | :---- |
-| Repostories | No limit |
+| Repositories | No limit |
 | Images | No limit |
 | Layers | No limit |
 | Tags | No limit|
 | Storage | 5 TB |
 
-Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry maintenance routine. Deleted registry resources like repositories, images, and tags can *not* be recovered after deletion.
+Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry maintenance routine. Deleted registry resources like repositories, images, and tags *cannot* be recovered after deletion.
 
 ## Backup
 
