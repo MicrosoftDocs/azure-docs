@@ -381,15 +381,17 @@ Optionally, you can experiment with running scripts against a local Docker conta
 
 1. In the CLI window, run the Python script, **iris_sklearn.py**, again using a Docker execution environment (if you have Docker installed on your machine).
 
-   + If you have a Python execution environment in your container: 
-     ```azurecli
-     az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
-     ```
+   + If your container is on Windows: 
+     |Execution<br/>environment|Command on Windows|
+     |---------------------|------------------|
+     |Python|`az ml experiment submit -c docker-python .\iris_sklearn.py 0.01`|
+     |Spark|`az ml experiment submit -c docker-spark .\iris_spark.py 0.1`|
 
-   + If you have a Spark execution environment in your container: 
-     ```azurecli
-     az ml experiment submit -c docker-spark .\iris_spark.py 0.1
-     ```
+   + If your container is on MacOS: 
+     |Execution<br/>environment|Command on Windows|
+     |---------------------|------------------|
+     |Python|`az ml experiment submit -c docker-python iris_sklearn.py 0.01`|
+     |Spark|`az ml experiment submit -c docker-spark iris_spark.py 0.1`|
 
 1. Go back to the Workbench, and:
    1. Select the folder icon on the left pane to list the project files.
