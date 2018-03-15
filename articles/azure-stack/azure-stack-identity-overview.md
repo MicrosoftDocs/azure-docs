@@ -20,7 +20,7 @@ ms.reviewer:
 
 # Overview of identity for Azure Stack
 
-Azure Stack requires Azure Active Directory (Azure AD) or Active Directory Federated Services (AD FS), backed by Active Directory as an identity provider. The choice of a provider is a one-time decision you make when you first deploy Azure Stack. The concepts and authorization details in this article can help you choose between identity providers. 
+Azure Stack requires Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS), backed by Active Directory as an identity provider. The choice of a provider is a one-time decision that you make when you first deploy Azure Stack. The concepts and authorization details in this article can help you choose between identity providers. 
 
 Your choice of either Azure AD or AD FS might be determined by the mode in which you deploy Azure Stack: 
 - When you deploy it in a connected mode, you can use either Azure AD or AD FS. 
@@ -49,10 +49,10 @@ User accounts (identities) are standard accounts that authenticate individuals b
 How you create and manage users and groups depends on the identity solution you use. 
 
 In Azure Stack, user accounts: 
-- Are created in the *username@domain* format. Although AD FS maps user accounts to an Active Directory, AD FS does not support the use of the *\<domain>\<alias>* format. 
+- Are created in the *username@domain* format. Although AD FS maps user accounts to an Active Directory instance, AD FS does not support the use of the *\<domain>\<alias>* format. 
 - Can be set up to use multi-factor authentication. 
 - Are restricted to the directory where they first register, which is their organization's directory.
-- Can be imported from your on-premises directories. For more information, see  [Integrate your on-premises directories with Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect) in the Azure documentation. 
+- Can be imported from your on-premises directories. For more information, see  [Integrate your on-premises directories with Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect). 
 
 When you sign in to your organization's tenant portal, you use the *https://portal.local.azurestack.external* URL. 
 
@@ -88,7 +88,7 @@ When you register an application, you create two objects:
 
 - **Service principal object**: A credential that is created for an application in the directory where the application is first registered. A service principal is also created in the directory of each additional tenant where that application is used. This relationship can be one-to-many with the software application. 
 
-To learn more about application and service principal objects, see [Application and service principal objects in Azure Active Directory (Azure AD)](/azure/active-directory/develop/active-directory-application-objects). 
+To learn more about application and service principal objects, see [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects). 
 
 ### Service principals 
 A service principal is a set of *credentials* for an application or service that grant access to resources in Azure Stack. The use of a service principal separates the application permissions from the permissions of the user of the application.
@@ -110,7 +110,7 @@ To learn about service principals for Azure Stack, see [Create service principal
 ### Services
 Services in Azure Stack that interact with the identity provider are registered as applications with the identity provider. Like applications, registration enables a service to authenticate with the identity system. 
 
-All Azure services use [OpenID Connect](/azure/active-directory/develop/active-directory-protocols-openid-connect-code) protocols and [JSON Web Tokens](/azure/active-directory/develop/active-directory-token-and-claims) to establish their identity. Because Azure AD and AD FS use protocols consistently, you can use Azure [Active Directory Authentication Library](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) to authenticate on-premises or to Azure (in a connected scenario). With ADAL, you can also use tools such as Azure PowerShell and Azure CLI for cross-cloud and on-premises resource management. 
+All Azure services use [OpenID Connect](/azure/active-directory/develop/active-directory-protocols-openid-connect-code) protocols and [JSON Web Tokens](/azure/active-directory/develop/active-directory-token-and-claims) to establish their identity. Because Azure AD and AD FS use protocols consistently, you can use [Azure Active Directory Authentication Library](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) to authenticate on-premises or to Azure (in a connected scenario). With ADAL, you can also use tools such as Azure PowerShell and Azure CLI for cross-cloud and on-premises resource management. 
 
 
 ### Identities and your identity system 
