@@ -62,14 +62,8 @@ The **None** intent is created but left empty on purpose. You must fill it with 
 ## None is a required intent
 The **None** intent is a required intent and can't be deleted or renamed.
 
-## Best practice - only required, specific intents
-It is a best practice to use only as many intents as you need to perform the functions of your app. The general rule is to create an intent when this intent would trigger an action in calling application or bot. 
-
-The intents should be specific while being generic enough not to be overlapping. If multiple intents are semantically close, consider merging them.
-
-If you define too many intents, it becomes harder for LUIS to classify utterances correctly. If you define too few, they may be so general as to be overlapping. <!-- You add and manage your intents from the **Intents** page that is accessed by clicking **Intents** in your application's left panel.-->
-
 ## Next steps
 
 * Learn more about [entities](luis-concept-entity-types.md), which are important words relevant to intents
 * Learn how to [add and manage intents](Add-intents.md) in your LUIS app.
+* Review intent [best practices](luis-concept-best-practices.md#intents)
