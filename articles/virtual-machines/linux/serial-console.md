@@ -33,6 +33,7 @@ Currently this service is in **preview** and access to serial console for virtua
 
 1. Virtual Machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
 2. The account using serial console must have [Contributor role](../../active-directory/role-based-access-built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
+3. For linux distro specific settings see [here](#accessing-serial-console-for-linux)
 
 
 ## Open the serial console
@@ -85,7 +86,7 @@ SSH/RDP configuration issues | Access Serial Console and change settings | Linux
 Network lock down system| Access Serial Console via portal to manage system | Linux/Windows 
 Interacting with bootloader | Access GRUB/BCD via serial console | Linux/Windows 
 
-## Accessing Serial Console for Linux (Distro Specific Scenarios) 
+## Accessing Serial Console for Linux
 In order for Serial Console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros) have serial console configured by default. Just by clicking in the portal on the Serial console section will provide access to the console. 
 
 ### Access for RedHat 
@@ -129,8 +130,8 @@ Error                            |   Mitigation
 :---------------------------------|:--------------------------------------------|
 Unable to retrieve boot diagnostics settings for '<VMNAME>'. To use serial console, ensure that boot diagnostics is enabled for this VM. | Ensure that the VM has [boot diagnostics](boot-diagnostics.md) enabled. 
 The VM is in a stopped deallocated state. Start the VM and retry the serial console connection. | Virtual machine must be in a started state to access serial console
-You do not have the required permissions to use this VM serial console. Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access. See [access requirements](#requirements-for-accessing-serial-console) for details
-Unable to determine the resource group for the boot diagnostics storage account '<STORAGEACCOUNTNAME>'. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access.See [access requirements](#requirements-for-accessing-serial-console) for details
+You do not have the required permissions to use this VM serial console. Ensure you have at least VM Contributor role permissions.| Serial console access requires certain permission to access. See [access requirements](#prerequisites) for details
+Unable to determine the resource group for the boot diagnostics storage account '<STORAGEACCOUNTNAME>'. Verify that boot diagnostics is enabled for this VM and you have access to this storage account. | Serial console access requires certain permission to access.See [access requirements](#prerequisites) for details
 
 ## Known Issues 
 As we are still in the preview stages for Serial Console access, we are working through some known issues, below is the list of these with possible workarounds 
