@@ -153,7 +153,7 @@ The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable
 
 The monitor pattern refers to a flexible *recurring* process in a workflow - for example, pattern of polling some status and taking action if certain conditions are met. A regular timer-trigger can address a simple scenario, such as a periodic cleanup job, but its interval is static and managing instance lifetimes becomes complex. Durable Functions enables flexible recurrence intervals, task lifetime management, and the ability to create multiple monitor processes from a single orchestration.
 
-An example would be reversing the earlier async HTTP API scenario. Instead of providing an endpoint for an external client to monitor a long-running operation, the operation is performed by the external client and must be monitored for completion.
+An example would be reversing the earlier async HTTP API scenario. Instead of exposing an endpoint for an external client to monitor a long-running operation, the long-running monitor consumes an external endpoint, waiting for some state change.
 
 ![Monitor diagram](media/durable-functions-overview/monitor.png)
 
