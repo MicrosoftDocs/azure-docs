@@ -179,6 +179,8 @@
       href: durable-functions-counter.md
     - name: Human interaction 
       href: durable-functions-phone-verification.md
+    - name: Unit testing
+      href: durable-functions-unit-testing.md
 - name: Reference
   items:
   - name: Bindings
