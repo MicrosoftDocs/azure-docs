@@ -141,6 +141,8 @@
         href: service-fabric-reliable-actors-reentrancy.md
       - name: Type serialization
         href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
+    - name: Guest executables
+      href: service-fabric-guest-executables-introduction.md
   - name: Applications and services
     items:
     - name: Application model

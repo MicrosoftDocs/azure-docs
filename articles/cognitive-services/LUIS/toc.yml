@@ -91,14 +91,30 @@
       href: luis-concept-entity-types.md
     - name: Utterances
       href: luis-concept-utterance.md
-  - name: Features
-    href: luis-concept-feature.md
-  - name: Prediction score
-    href: luis-concept-prediction-score.md
-  - name: Data extraction
-    href: luis-concept-data-extraction.md
-  - name: Testing
-    href: luis-concept-test.md
+  - name: Predictions
+    items:
+    - name: Prediction score
+      href: luis-concept-prediction-score.md
+    - name: Features
+      href: luis-concept-feature.md
+  - name: Data management
+    items: 
+    - name: Altering data
+      href: luis-concept-data-alteration.md
+    - name: Extracting data
+      href: luis-concept-data-extraction.md
+  - name: Test
+    items: 
+    - name: Interactive testing
+      href: luis-concept-test.md
+    - name: Batch testing
+      href: luis-concept-batch-test.md
+  - name: Enterprise
+    items:
+    - name: Design strategies
+      href: luis-concept-enterprise.md
+  - name: Best practices
+    href: luis-concept-best-practices.md
 - name: How-to guides
   items: 
   - name: Plan your app
@@ -115,8 +131,14 @@
       href: Add-entities.md
   - name: Improve prediction accuracy using features
     href: Add-Features.md
-  - name: Train and test the app
-    href: Train-Test.md
+  - name: Train
+    href: luis-how-to-train.md
+  - name: Test
+    items:
+    - name: Interactive testing
+      href: Train-Test.md
+    - name: Batch testing
+      href: luis-how-to-batch-test.md
   - name: Use active learning
     href: Label-Suggested-Utterances.md
   - name: Publish your app
