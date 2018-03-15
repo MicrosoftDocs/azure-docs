@@ -11,6 +11,7 @@
 ## [IPv6 support](load-balancer-ipv6-overview.md)
 ## [Multiple VIPs](load-balancer-multivip-overview.md)
 ## [Understanding outbound connections](load-balancer-outbound-connections.md)
+## [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)
 
 # Get Started
 
@@ -49,6 +50,7 @@
 ### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
 
 ## Classic deployment model articles
+### [Outbound connections (classic)](load-balancer-outbound-connections-classic.md)
 ### [Configure internal Load Balancer for Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Configure internal Load Balancer for Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Configure internal Load Balancer for Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)
