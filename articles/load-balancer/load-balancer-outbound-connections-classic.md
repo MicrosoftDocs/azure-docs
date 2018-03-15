@@ -22,7 +22,7 @@ ms.author: kumud
 Azure provides outbound connectivity for customer deployments through several different mechanisms. This article describes what the scenarios are, when they apply, how they work, and how to manage them.
 
 >[!NOTE]
->This article covers Classic deployments only.  Review [Outbound connections](load-balancer-outbound-connections.md) for all Azure Resource Manager (ARM)scenarios.
+>This article covers Classic deployments only.  Review [Outbound connections](load-balancer-outbound-connections.md) for all Resource Manager deployment scenarios in Azure.
 
 A deployment in Azure can communicate with endpoints outside Azure in the public IP address space. When an instance initiates an outbound flow to a destination in the public IP address space, Azure dynamically maps the private IP address to a public IP address. After this mapping is created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated.
 
@@ -40,9 +40,10 @@ Azure provides three different methods to achieve outbound connectivity Classic 
 | [2. public load-balanced endpoint](#publiclbendpoint) | SNAT with port masquerading (PAT) to the public endpoint |Azure shares the public IP address public endpoint with multiple private endpoints. Azure uses ephemeral ports of the public endpoint for PAT. | Yes | Yes |
 | [3. Standalone VM ](#defaultsnat) | SNAT with port masquerading (PAT) | Azure automatically designates a public IP address for SNAT, shares this public IP address with the entire deployment, and uses ephemeral ports of the public endpoint IP address for PAT. This is a fallback scenario for the preceding scenarios. We don't recommend it if you need visibility and control. | Yes | Yes|
 
-This is a subset of outbound connection functionality available for ARM deployments.  Different deployments in Classic have different functionality.
+This is a subset of outbound connection functionality available for Resource Manager deployments in Azure.  Different deployments in Classic have different functionality.
 
 | Classic deployment | Functionality available | 
+| --- | --- |
 | Virtual Machine | scenario [1](#ilpip), [2](#publiclbendpoint), or [3](#defaultsnat) |
 | Web Worker Role | only scenario [2](#publiclbendpoint), [3](#defaultsnat) | 
 
@@ -70,7 +71,7 @@ SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#sn
 
 When [multiple public load-balanced endpoints](load-balancer-multivip.md) exist, any of these public IP addresses are a [candidate for outbound flows](#multivipsnat), and one is selected at random.  
 
-### <a name="defaultsnat"></a>Scenario 3: no public IP address associated
+### <a name="defaultsnat"></a>Scenario 3: No public IP address associated
 
 In this scenario, the VM or Web Worker ROle is not part of a public load-balanced endpoint.  And in the case of VM, it does not have an ILPIP address assigned to it. When the VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to a public source IP address. The public IP address used for this outbound flow is not configurable and does not count against the subscription's public IP resource limit.  Azure automatically allocates this address.
 
@@ -167,4 +168,4 @@ By using the nslookup command, you can send a DNS query for the name myip.opendn
 
 ## Next steps
 
-- Learn more about [Load Balancer](load-balancer-overview.md) used in ARM deployments.
+- Learn more about [Load Balancer](load-balancer-overview.md) used in Resource Manager deployments.
