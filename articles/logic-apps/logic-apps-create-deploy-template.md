@@ -1,6 +1,6 @@
 ---
 title: Create deployment templates for Azure Logic Apps | Microsoft Docs
-description: Create Azure Resource Manager templates for logic apps deployment and release management
+description: Create Azure Resource Manager templates for deploying logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
@@ -16,9 +16,9 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; estfan
-
 ---
-# Create templates for logic apps deployment and release management
+
+# Create Azure Resource Manager templates for deploying logic apps
 
 After a logic app has been created, you might want 
 to create it as an Azure Resource Manager template.
@@ -196,12 +196,12 @@ click **Add Resource** at the top of the JSON Outline window.
 Or in the JSON Outline window, 
 right-click **resources**, and select **Add New Resource**.
 
-	![JSON Outline window](./media/logic-apps-deploy-from-vs/jsonoutline.png)
+	![JSON Outline window](./media/logic-apps-create-deploy-template/jsonoutline.png)
     
 4. In the **Add Resource** dialog box, find and select **Logic App**. 
 Name your logic app, and choose **Add**.
 
-	![Add resource](./media/logic-apps-deploy-from-vs/addresource.png)
+	![Add resource](./media/logic-apps-create-deploy-template/addresource.png)
 
 
 ## Deploy a logic app template

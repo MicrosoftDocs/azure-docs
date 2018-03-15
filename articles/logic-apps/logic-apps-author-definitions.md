@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 01/01/2018
 ms.author: estfan; LADocs
 ---
 
@@ -69,9 +69,9 @@ select **Logic App Code View**.
 
 Before you can work on your logic app definition 
 in Visual Studio, make sure that you've 
-[installed the required tools](../logic-apps/logic-apps-manage-from-vs.md#requirements). 
+[installed the required tools](../logic-apps/quickstart-create-logic-apps-with-visual-studio#prerequisites). 
 To create a logic app with Visual Studio, review 
-[Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-app-from-visual-studio.md).
+[Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 In Visual Studio, you can open logic apps that were 
 created and deployed either directly from the Azure portal 
@@ -92,7 +92,7 @@ deployment to different environments.
 logic app definition and template. 
 Select **Open With Logic App Designer**.
 
-   ![Open logic app in a Visual Studio solution](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+   ![Open logic app in a Visual Studio solution](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
 4. At the bottom of the designer, choose **Code View**. 
 
