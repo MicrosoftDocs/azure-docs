@@ -30,17 +30,17 @@ If you encounter issues when you enable protection for Hyper-V VMs, check the fo
 -	Ensure that the latest version of Integration Services is running.
     - [Check](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) that you have the latest version.
     - [Keep]](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.
-    - 
+    
 ## Replication issues
 
 Troubleshoot issues with initial and ongoing replication as follows:
 
-- Make sure you're running the [latest version](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) of Site Recovery services.
-- Verify whether replication is paused:
+1. Make sure you're running the [latest version](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) of Site Recovery services.
+2. Verify whether replication is paused:
   - Check the VM health status in the Hyper-V Manager console.
   - If it's critical, right-click the VM > **Replication** > **View Replication Health**.
   - If replication is paused, click **Resume Replication**.
-- Check that required service are running. If they aren't, restart them.
+3. Check that required service are running. If they aren't, restart them.
     - If you're replicating Hyper-V without VMM, check that these services are running on the Hyper-V host:
         - Virtual Machine Management service
         - Microsoft Azure Recovery Services Agent service
@@ -48,23 +48,22 @@ Troubleshoot issues with initial and ongoing replication as follows:
         - WMI Provider Host service
     - If you're replicating with VMM in the environment, check that these services are running:
         - On the Hyper-V host, check that the Virtual Machine Management service, the Microsoft Azure Recovery Services Agent, and the WMI Provider Host service are running.
-        - On the VMM srver, ensure that the System Center Virtual Machine Manager Service is running.
-    - Check connectivity between the Hyper-V server and Azure. To do this, open Task Manager on the Hyper V host. On the **Performance** tab, click **Open Resource Monitor**. On the **Network** tab > **Processess with Network Activity**, check whether cbengine.exe is actively sending large volumes (Mbs) of data.
-    - Check if the Hyper-V hosts can connect to the Azure storage blob URL. To do this, select and check **cbengine.exe**. View **TCP Connections** to verify connectivity from the process server, to the Azure storage blob.
-    - Check performance issues, as described below.
-    - 
+        - On the VMM server, ensure that the System Center Virtual Machine Manager Service is running.
+4. Check connectivity between the Hyper-V server and Azure. To do this, open Task Manager on the Hyper V host. On the **Performance** tab, click **Open Resource Monitor**. On the **Network** tab > **Processess with Network Activity**, check whether cbengine.exe is actively sending large volumes (Mbs) of data.
+5. Check if the Hyper-V hosts can connect to the Azure storage blob URL. To do this, select and check **cbengine.exe**. View **TCP Connections** to verify connectivity from the process server, to the Azure storage blob.
+6. Check performance issues, as described below.
+    
 ### Performance issues
 
 Network bandwidth limitations can impact replication. Troubleshoot issues as follows:
 
-  -  [Check](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) if there are bandwidth or throttling constraints in your environment.
-  - [Run the Deployment Planner profiler](hyper-v-deployment-planner-run.md).
-  - After running the profiler, follow the [bandwidth](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input), and [storage](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) recommendations.
-  - In addition, [check](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits) data churn limitations.
-  - If you see high data churn on a VM, do the following:
-      - Check if your VM is marked for resynchronization. 
-      - To investigate the source of the churn, follow [these steps](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/).
-      - One of the reasons this can happen is that HRL files exceed 50% of the available disk space. If this is the issue, provision more storage space for all VMs experiencing the HRL file growth.
+1. [Check](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) if there are bandwidth or throttling constraints in your environment.
+2. [Run the Deployment Planner profiler](hyper-v-deployment-planner-run.md).
+3. After running the profiler, follow the [bandwidth](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input), and [storage](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) recommendations.
+4. In addition, [check](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits) data churn limitations. If you see high data churn on a VM, do the following:
+  - Check if your VM is marked for resynchronization.
+  - To investigate the source of the churn, follow [these steps](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/).
+  - One of the reasons this can happen is that HRL files exceed 50% of the available disk space. If this is the issue, provision more storage space for all VMs experiencing the HRL file growth.
   - Check that replication isn't paused. If it is, it continues writing the changes to the hrl file, which can contribute to its increased size.
  
 
