@@ -25,7 +25,7 @@ This menu links to the chapters in this playbook:
 ## Overview
 Supercomputers have moved out of the lab and are now parked in garages. These cutting-edge automobiles contain myriad sensors, which give them the ability to track and monitor millions of events every second. By 2020, most of these vehicles will be connected to the Internet. Tapping into this wealth of data can provide greater safety, reliability, and a better driving experience. Microsoft makes this dream a reality with Cortana Intelligence.
 
-Cortana Intelligence is a fully managed big data and advanced analytics suite that you can use to transform your data into intelligent action. The Cortana Intelligence Vehicle Telemetry Analytics Solution Template demonstrates how car dealerships, automobile manufacturers, and insurance companies can gain real-time and predictive insights on vehicle health and driving habits. 
+Cortana Intelligence is a fully managed big data and advanced analytics suite that you can use to transform your data into intelligent action. The Cortana Intelligence Vehicle Telemetry Analytics Solution Template demonstrates how car dealerships, automobile manufacturers, and insurance companies can gain real-time and predictive insights on vehicle health and driving habits.
 
 The solution is implemented as a [lambda architecture pattern](https://en.wikipedia.org/wiki/Lambda_architecture), which shows the full potential of the Cortana Intelligence platform for real-time and batch processing.
 
