@@ -13,16 +13,16 @@ ms.author: v-geberr;
 ---
 # Intents in LUIS
 
-An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. 
+An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's [utterance](luis-concept-utterance.md). 
 
-In your LUIS app, you define a set of intents that correspond to actions that users want to take in your application. A travel app may define an intent named `BookFlight`, that LUIS extracts from the utterance "Book me a ticket to Paris."
+Define a set of intents that correspond to actions users want to take in your application. For example, a travel app defines an intent named `BookFlight`.
 
 Example intent   |   Example utterances   | 
 ------|------|
- BookFlight     |   Book me a flight to Rio next week <br/> Fly me to Rio on the 24th <br/> I need a plane ticket next Sunday to Rio de Janeiro    |
- Greeting     |   Hi <br/>Hello <br/>Good morning  |
- CheckWeather | What's the weather like in Boston? <br/> Show me the forecast for this weekend |
- None         | Get me a cookie recipe |
+ BookFlight     |   "Book me a flight to Rio next week" <br/> "Fly me to Rio on the 24th" <br/> "I need a plane ticket next Sunday to Rio de Janeiro"    |
+ Greeting     |   "Hi" <br/>"Hello" <br/>"Good morning"  |
+ CheckWeather | "What's the weather like in Boston?" <br/> "Show me the forecast for this weekend" |
+ None         | "Get me a cookie recipe" |
 
 All applications come with the predefined intent, **"[None](#none-intent-is-fallback-for-app)"**. 
 
