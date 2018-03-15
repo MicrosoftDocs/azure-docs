@@ -1,6 +1,6 @@
 ---
-title: Enable or disable LinkedIn integration for Microsoft apps and services in Azure Active Directory | Microsoft Docs
-description: Explains how to enable or disable LinkedIn integration for Microsoft apps in Azure Active Directory
+title: Enable or disable LinkedIn account connections integration for Microsoft apps and services in Azure Active Directory | Microsoft Docs
+description: Explains how to enable or disable LinkedIn account connections for Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
 manager: mtillman
@@ -23,7 +23,7 @@ In this article, you can learn how to manage LinkedIn account connections for yo
 > LinkedIn account connections functionality is currently being rolled out to Azure AD tenants. When it is rolled out to your tenant, it is enabled by default. It is not available for United States government customers, and organizations with Exchange Online mailboxes hosted in Australia, Canada, China, France, Germany, India, South Korea, United Kingdom, Japan, and South Africa. Support for these mailbox locations is coming soon.  For an up-to-date view of rollout information, see the [Office 365 Roadmap](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) page.
 
 ## How LinkedIn account connections appear to the user
-The LinkedIn integration allows users to see public LinkedIn profile information within some of their Microsoft apps. Users in your tenant can choose to connect their LinkedIn and Microsoft work or school accounts to see additional LinkedIn profile information. For more information, see [LinkedIn information and features in Microsoft apps and services](https://go.microsoft.com/fwlink/?linkid=850740).
+LinkedIn account connections allow users to see public LinkedIn profile information within some of their Microsoft apps. Users in your tenant can choose to connect their LinkedIn and Microsoft work or school accounts to see additional LinkedIn profile information. For more information, see [LinkedIn information and features in Microsoft apps and services](https://go.microsoft.com/fwlink/?linkid=850740).
 
 When users in your organization connect their LinkedIn and Microsoft work or school accounts, they have two options: 
 * Give permission to share data between both accounts. This means that they give permission for their LinkedIn account to share data with their Microsoft work or school account, as well as their Microsoft work or school account to share data with their LinkedIn account. Data that is shared with LinkedIn leaves the online services. 
@@ -46,7 +46,7 @@ LinkedIn account connections functionality is on by default for your entire tena
 3. On the **Users** blade, select **User settings**.
 4. Under **LinkedIn account connections**:
   * Select **Yes** to enable LinkedIn account connections for all users in your tenant
-  * Select **Selected** to enable LinkedIn integration for only selected tenant users
+  * Select **Selected** to enable LinkedIn account connections for only selected tenant users
   * Select **No** to disable LinkedIn account connections for all users
   ![Enabling LinkedIn account connections](./media/linkedin-integration/LinkedIn-integration.png)
 5. Save your settings when you're done by selecting **Save**.
