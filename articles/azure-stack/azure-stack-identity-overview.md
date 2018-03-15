@@ -27,7 +27,7 @@ Your choice of either Azure AD or AD FS might be determined by the mode in which
 - When you deploy it in a disconnected mode, without a connection to the internet, only AD FS is supported.
 
 For more information about your options, which depend on your Azure Stack environment, see the following articles:
-- Azure Stack Deployment Kit: [identity considerations](azure-stack-datacenter-integration.md#identity-considerations).
+- Azure Stack deployment kit: [Identity considerations](azure-stack-datacenter-integration.md#identity-considerations).
 - Azure Stack integrated systems: [Deployment planning decisions for Azure Stack integrated systems](azure-stack-deployment-decisions.md).
 
  
