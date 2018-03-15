@@ -7,8 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a logic app
+  - name: Create logic apps - Azure portal
     href: quickstart-create-first-logic-app-workflow.md
+  - name: Create logic apps - Visual Studio
+    href: quickstart-create-logic-apps-with-visual-studio.md
 - name: Tutorials
   items:
   - name: Check traffic regularly
@@ -29,14 +31,8 @@
   items:
   - name: Develop
     items:
-    - name: Build from prebuilt templates
+    - name: Create from prebuilt templates
       href: logic-apps-create-logic-apps-from-templates.md
-    - name: Create custom templates
-      href: logic-apps-create-deploy-azure-resource-manager-templates.md
-    - name: Build a logic app - Visual Studio
-      href: logic-apps-deploy-from-vs.md
-    - name: Build a serverless app - Visual Studio
-      href: logic-apps-serverless-get-started-vs.md
     - name: Migrate from BizTalk Services
       href: logic-apps-move-from-mabs.md
     - name: Control workflow execution
@@ -55,12 +51,12 @@
       href: logic-apps-azure-functions.md
     - name: Call logic apps with Azure Functions
       href: logic-apps-scenario-function-sb-trigger.md
-    - name: Batch process messages
-      href: logic-apps-batch-process-send-receive-messages.md
-    - name: Build on logic app definitions
-      href: logic-apps-author-definitions.md
     - name: Call, trigger, or nest logic apps
       href: logic-apps-http-endpoint.md
+    - name: Batch process messages
+      href: logic-apps-batch-process-send-receive-messages.md
+    - name: Author JSON definitions
+      href: logic-apps-author-definitions.md
     - name: Handle content types
       href: logic-apps-content-type.md
     - name: Handle errors and exceptions
@@ -255,15 +251,15 @@
   - name: Manage
     items: 
     - name: Manage logic apps - Visual Studio
-      href: logic-apps-manage-from-vs.md
+      href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-accounts.md
   - name: Deploy
-    items: 
-      - name: Create automated deployment templates
+    items:
+      - name: Define and deploy logic apps
+        href: logic-apps-create-deploy-azure-resource-manager-templates.md
+      - name: Create deployment templates - Visual Studio
         href: logic-apps-create-deploy-template.md
-      - name: Publish from Visual Studio
-        href: logic-apps-deploy-from-vs.md
   - name: Monitor
     items: 
       - name: Monitor logic app status
@@ -282,6 +278,8 @@
     items: 
       - name: Monitor social media
         href: logic-apps-scenario-social-serverless.md
+      - name: Build a serverless app - Visual Studio
+        href: logic-apps-serverless-get-started-vs.md        
       - name: Add error and exception handling
         href: logic-apps-scenario-error-and-exception-handling.md
       - name: B2B processing
@@ -315,6 +313,8 @@
         href: logic-apps-track-integration-account-custom-tracking-schema.md      
 - name: Resources
   items:
+  - name: Azure Logic Apps roadmap
+    href: https://aka.ms/logicappsroadmap/  
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
