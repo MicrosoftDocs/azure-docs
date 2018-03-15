@@ -84,7 +84,7 @@ listening on port 80
 
 ## Attach output streams
 
-In addition to tailing the logs, you can attach your local standard out (STDOUT) and standard error (STDERR) streams to that of the container.
+In addition to tailing the logs, you can attach your local standard out and standard error streams to that of the container.
 
 First, execute the [az container attach][az-container-attach] command to attach your local console the container's output streams:
 
@@ -92,7 +92,7 @@ First, execute the [az container attach][az-container-attach] command to attach 
 az container attach --resource-group myResourceGroup -n mycontainer
 ```
 
-Refresh your browser a few times to generate some additional output, and then detach your console with `Control+C`. You should see output similar to the following:
+Once attached, refresh your browser a few times to generate some additional output. Finally, detach your console with `Control+C`. You should see output similar to the following:
 
 ```console
 $ az container attach --resource-group myResourceGroup -n mycontainer
