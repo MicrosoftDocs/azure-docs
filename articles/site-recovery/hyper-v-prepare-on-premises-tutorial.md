@@ -86,7 +86,7 @@ To connect to Windows VMs using RDP after failover, allow access as follows:
    VM. If you can't connect, check that the VM is running and review these
    [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
-After failover, you can access Azure VMs using the same IP address as the replicated on-premises VM, or a different IP address. [Learn more](concepts-on-premises-to-azure-networking) about setting up IP addressing for failover.
+After failover, you can access Azure VMs using the same IP address as the replicated on-premises VM, or a different IP address. [Learn more](concepts-on-premises-to-azure-networking.md) about setting up IP addressing for failover.
 
 ## Next steps
 
