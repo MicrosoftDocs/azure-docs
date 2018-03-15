@@ -17,7 +17,7 @@ ms.author: douglasl
 ---
 # Transform data by running a Databricks Notebook
 
-The Azure Databricks Notebook Activity in a Data Factory [Data Factory pipeline](concepts-pipelines-activities.md) runs a Databricks Notebook in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
+The Azure Databricks Notebook Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Databricks Notebook in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
 ## Databricks Notebook activity properties
 
