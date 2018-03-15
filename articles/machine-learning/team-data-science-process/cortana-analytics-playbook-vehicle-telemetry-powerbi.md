@@ -22,8 +22,8 @@ This menu links to the chapters in this playbook:
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-The Vehicle Telemetry Analytics Solution showcases how car dealerships, automobile manufacturers, and insurance companies can use the capabilities of Cortana Intelligence. They can gain real-time and predictive insights on vehicle health and driving habits to improve customer experience, research and development, and marketing campaigns. 
-These step-by-step instructions show how you can configure the Power BI reports and dashboard after you deploy the solution in your subscription. 
+The Vehicle Telemetry Analytics Solution showcases how car dealerships, automobile manufacturers, and insurance companies are able use the capabilities of Cortana Intelligence. They can obtain real-time and predictive insights on vehicle health and driving habits to improve customer experience, research and development, and marketing campaigns. 
+These step-by-step instructions show how to configure the Power BI reports and dashboard after you deploy the solution in your subscription. 
 
 ## Prerequisites
 * Deploy the [Vehicle Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) Solution. 
@@ -196,7 +196,7 @@ You successfully configured the "Vehicles in Operation" real-time report. You ca
 
 6. On the **Fields** tab, drag **Model** to the **Axis** area. Drag **vin** to the **Value** area. Then sort the visualization by **Count of vin**. Change the chart **Title** to **Vehicles requiring maintenance by model**. 
 
-7. On the **Fields** ![Fields](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) section of the **Visualizations** tab, drag **vin** to **Color Saturation**.
+7. On the **Fields** ![Fields-image](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) section of the **Visualizations** tab, drag **vin** to **Color Saturation**.
 
     ![Color Saturation](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
@@ -266,7 +266,7 @@ You successfully configured the "Vehicles Requiring Maintenance" real-time repor
 
     ![Column and Line Values](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4aa.png)
 
-12. Change the chart **Title** to **Average speed, tire pressure, engine oil and engine temperature**.  
+12. Change the chart **Title** to **Average speed, tire pressure, engine oil, and engine temperature**.  
 
     ![Line and Clustered Column Chart title](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4bb.png)
 
@@ -296,13 +296,13 @@ You successfully configured the "Vehicles Requiring Maintenance" real-time repor
 
     ![Aggregation type](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ff.png)
 
-22. Change the chart **Title** to **Average engine oil, tire pressure, speed and maintenance probability by model**.
+22. Change the chart **Title** to **Average engine oil, tire pressure, speed, and maintenance probability by model**.
 
     ![Area Chart title](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4gg.png)
 
 23. Select the blank area to add a new visualization.
 
-24. On the **Visualizations** tab, select the **Scatter Chart** visualization. Drag **Model** to the **Details** and **Legend** areas. Drag **fuel** to the **X Axis** area. Change the aggregation to **Average**. Drag **engineTemperature** to the **Y Axis** area. Change the aggregation to **Average**. Drag **vin** to the **Size** area.
+24. On the **Visualizations** tab, select the **Scatter Chart** visualization. Drag **Model** to the **Details** and **Legend** areas. Drag **fuel** to the **X-Axis** area. Change the aggregation to **Average**. Drag **engineTemperature** to the **Y-Axis** area. Change the aggregation to **Average**. Drag **vin** to the **Size** area.
 
     ![Details, Legend, Axis, and Size areas](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
@@ -332,7 +332,7 @@ The following steps take about 10 to 15 minutes to complete.
 
 ## Set up the Power BI batch processing dashboard
 > [!NOTE]
-> It takes about two hours (from the successful completion of the deployment) for the end-to-end batch processing pipeline to finish execution and process a year's worth of generated data. Wait for the processing to finish before you proceed with the following steps. 
+> It takes about two hours (from the successful completion of the deployment) for the end-to-end batch processing pipeline to finish execution and process a year's worth of generated data. Wait for the processing to finish before you proceed with the following steps:
 > 
 > 
 
