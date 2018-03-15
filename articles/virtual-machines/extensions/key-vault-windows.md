@@ -20,7 +20,7 @@ ms.author: dragosav
 
 ## Overview
 
-The Key Vault VM extension provides automatic refresh of secrets stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults, and, upon detecting a change, retrieves, and installs the corresponding certificates. The Key Vault VM extension is published and supported by Microsoft, currently on Windows VMs, with Linux support to follow shortly. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Windows. 
+The Key Vault VM extension provides automatic refresh of secrets stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults, and, upon detecting a change, retrieves, and installs the corresponding certificates. The Key Vault VM extension is published and supported by Microsoft, currently on Windows VMs. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Windows. 
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ The Key Vault VM extension depends on the Managed Service Identity VM extension,
 
 ### Operating system
 
-The Key Vault VM extension supports currently all Windows versions, with support for select Linux distributions and versions to follow up shortly.
+The Key Vault VM extension supports currently all Windows versions.
 
 | Distribution | Version |
 |---|---|
