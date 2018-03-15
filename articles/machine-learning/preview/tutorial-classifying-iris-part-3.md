@@ -26,17 +26,15 @@ This tutorial is **part three of a three-part series**. In this part of the tuto
 > * Run the real-time web service.
 > * Examine the output blob data. 
 
-This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/iris_flower_data_set). The screenshots are Windows-specific, but the Mac OS experience is almost identical.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This tutorial uses the timeless [Iris flower data set](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
 ## Prerequisites
-Complete the first two parts of this tutorial series:
 
-   * Follow the [Prepare data tutorial](tutorial-classifying-iris-part-1.md) to create Machine Learning resources and install the Azure Machine Learning Workbench application.
-   * Follow the [Build a model tutorial](tutorial-classifying-iris-part-2.md) to create a logistic regression model in Machine Learning.
-
-You need a Docker engine installed and running locally. Alternatively, you can deploy to an Azure Container Service cluster in Azure.
+To complete this tutorial, you need:
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+- An experimentation account and Azure Machine Learning Workbench installed as described in this [quickstart](quickstart-installation.md)
+- The classification model from [Tutorial part 2](tutorial-classifying-iris-part-2.md)
+- A Docker engine installed and running locally
 
 ## Download the model pickle file
 In the previous part of the tutorial, the **iris_sklearn.py** script was run in the Machine Learning Workbench locally. This action serialized the logistic regression model by using the popular Python object-serialization package [pickle](https://docs.python.org/3/library/pickle.html). 
