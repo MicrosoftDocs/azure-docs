@@ -1,5 +1,5 @@
 ---
-title: Understand data manipulation concepts in LUIS - Azure | Microsoft Docs
+title: Understand data alteration concepts in LUIS - Azure | Microsoft Docs
 description: Learn how data can be changed before predictions in Language Understanding (LUIS)
 services: cognitive-services
 author: v-geberr
@@ -12,7 +12,7 @@ ms.date: 03/15/2018
 ms.author: v-geberr;
 ---
 
-# Data manipulation
+# Data alterations
 LUIS provides ways to manipulate the utterance before or during the prediction. 
 
 ## Correct spelling errors in utterance
@@ -50,6 +50,7 @@ The timezone is corrected by adding the user's timezone to the [endpoint](https:
 
 ## Next steps
 
-See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
+> [!div class="nextstepaction"]
+> [Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)
 
 [LUIS]:luis-reference-regions.md

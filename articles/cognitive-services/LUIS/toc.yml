@@ -98,7 +98,7 @@
   - name: Data management
     items: 
     - name: Altering data
-      href: luis-concept-data-manipulation.md
+      href: luis-concept-data-alteration.md
     - name: Extracting data
       href: luis-concept-data-extraction.md
   - name: Test
