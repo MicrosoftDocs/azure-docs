@@ -55,6 +55,8 @@ Prepare Azure Backup to back up DPM data as follows:
 3. **Install the Azure Backup Agent** — From Azure Backup, install the agent on each DPM server.
 4. **Register the server** — Register the DPM server to Recovery Services vault.
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## Key Definitions
 Here are some key definitions for backup to Azure for DPM:
 
