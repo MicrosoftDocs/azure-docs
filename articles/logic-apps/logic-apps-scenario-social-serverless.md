@@ -1,6 +1,6 @@
 ---
-title: Scenario - Create a customer insights dashboard with Azure Serverless | Microsoft Docs
-description: An example of how you can build a dashboard to manage customer feedback, social data, and more with Azure Logic Apps and Azure Functions.
+title: Serverless scenario - Create a customer insights dashboard with Azure | Microsoft Docs
+description: Learn how you can manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
 keywords: ''
 services: logic-apps
 author: jeffhollan
@@ -15,21 +15,39 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: jehollan
+ms.author: jehollan; LADocs
 ---
-# Create a real-time customer insights dashboard with Azure Logic Apps and Azure Functions
 
-Azure Serverless tools provide powerful capabilities to quickly build and host applications in the cloud, without having to think about infrastructure.  In this scenario, we will create a dashboard to trigger on customer feedback, analyze feedback with machine learning, and publish insights a source like Power BI or Azure Data Lake.
+# Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions
 
-## Overview of the scenario and tools used
+Azure offers serverless tools that help you quickly build 
+and host apps in the cloud, without having to think about infrastructure. 
+In this tutorial, you can create a dashboard that triggers on customer feedback, 
+analyzes feedback with machine learning, and publishes insights to a source, 
+such as Power BI or Azure Data Lake.
 
-In order to implement this solution, we will leverage the two key components of serverless apps in Azure: [Azure Functions](https://azure.microsoft.com/services/functions/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+For this solution, you use these key Azure components for serverless apps: 
+[Azure Functions](https://azure.microsoft.com/services/functions/) and 
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+Azure Logic Apps provides a serverless workflow engine 
+in the cloud so that you can create orchestrations across 
+serverless components and connect to 200+ services and APIs. 
+Azure Functions provides serverless computing in the cloud. 
+This solution uses Azure Functions for flagging customer 
+tweets based on predefined keyswords.
 
-Logic Apps is a serverless workflow engine in the cloud.  It provides orchestration across serverless components, and also connects to over 100 services and APIs.  For this scenario, we will create a logic app to trigger on feedback from customers.  Some of the connectors that can assist in reacting to customer feedback include Outlook.com, Office 365, Survey Monkey, Twitter, and an HTTP Request [from a web form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/).  For the workflow below, we will monitor a hashtag on Twitter.
+In this scenario, you create a logic app 
+that triggers on finding feedback from customers. 
+Some connectors that help you respond to 
+customer feedback include Outlook.com, 
+Office 365, Survey Monkey, Twitter, and an 
+[HTTP request from a web form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). 
+The workflow that you create monitors 
+a hashtag on Twitter.
 
-Functions provide serverless compute in the cloud.  In this scenario, we will use Azure Functions to flag tweets from customers based on a series of pre-defined key words.
-
-The entire solution can be [build in Visual Studio](logic-apps-deploy-from-vs.md) and [deployed as part of a resource template](logic-apps-create-deploy-template.md).  There is also video walkthrough of the scenario [on Channel 9](http://aka.ms/logicappsdemo).
+You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
+and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-create-deploy-template.md). 
+For a video walkthrough, watch [this Channel 9 video](http://aka.ms/logicappsdemo).
 
 ## Build the logic app to trigger on customer data
 

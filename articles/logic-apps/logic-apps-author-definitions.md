@@ -69,7 +69,7 @@ select **Logic App Code View**.
 
 Before you can work on your logic app definition 
 in Visual Studio, make sure that you've 
-[installed the required tools](../logic-apps/quickstart-create-logic-apps-with-visual-studio#prerequisites). 
+[installed the required tools](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). 
 To create a logic app with Visual Studio, review 
 [Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
