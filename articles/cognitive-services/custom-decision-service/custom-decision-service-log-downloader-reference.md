@@ -35,7 +35,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | Input | Description | Default |
 | --- | --- | --- |
 | `-h`, `--help` | Show the help message and exit. | |
-| `-a APP_ID`, `--app_id APP_ID` | The app ID (that is, the Azure Blob storage container name). | Required |  
+| `-a APP_ID`, `--app_id APP_ID` | The app ID (that is, the Azure Storage blob container name). | Required |  
 | `-l LOG_DIR`, `--log_dir LOG_DIR` | The base directory for downloading data (a subfolder is created).  | Required |  
 | `-s START_DATE`, `--start_date START_DATE` | The downloading start date (included), in *YYYY-MM-DD* format. | `None` |  
 | `-e END_DATE`, `--end_date END_DATE` | The downloading end date (included), in *YYYY-MM-DD* format. | `None` |  
@@ -56,7 +56,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 
 ### Examples
 
-For a dry run of downloading all the data in your Azure Storage Blob container, use the following code:
+For a dry run of downloading all the data in your Azure Storage blob container, use the following code:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data --dry_run
 ```
