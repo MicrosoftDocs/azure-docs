@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: jeedes
 ms.custom: aaddev
 
@@ -86,7 +86,7 @@ If your application expects custom roles to be passed in SAML response, you need
 	Copy the content by clicking **Copy Content**
 
 	> [!NOTE] 
-	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role. If you have more **msiam_access** roles for the Service Principal then you should add/replace them in the same sequence in the tool generated roles.
+	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role.
 
 	g. Go back to your Graph Explorer. Change the method from **GET** to **PATCH**. Patch the service principal object to have desired appRoles by updating appRoles property with the copied values. Click **Run Query**.
 
@@ -234,7 +234,7 @@ If your application expects custom roles to be passed in SAML response, you need
 	Click **Run Query**.
 	
 	> [!NOTE] 
-	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role. If you have more **msiam_access** roles for the Service Principal then you should add/replace them in the same sequence in the tool generated roles.
+	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role.
 	
 	g. After doing the above process, keep the method as **PATCH** and paste the remianing role content in the **Request Body** and click **Run Query**.
 	
@@ -244,6 +244,10 @@ If your application expects custom roles to be passed in SAML response, you need
 
 > [!NOTE]
 > The role needs to be disabled first before it can be removed. 
+
+## Next Steps
+
+Refer [App documentation ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) for the additional steps.
 
 <!--Image references-->
 <!--Image references-->
