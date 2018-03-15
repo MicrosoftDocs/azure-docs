@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/15/2018
 ms.author: kumud
 ---
 
@@ -159,5 +159,5 @@ The Basic Load Balancer is free of charge. For Standard Load Balancer pricing in
 
 ## Next steps
 
-- Learn how to create a [basic public load balancer](load-balancer-create-internet-portal.md)
+- Learn how to create a [basic public load balancer](load-balancer-get-started-internet-portal.md)
 
