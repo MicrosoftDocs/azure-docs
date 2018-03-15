@@ -34,7 +34,7 @@ Follow the below steps if the data on the disk is to be imported into Azure Stor
 10.	Copy the following command line to a text editor and edit it to create a command line:
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     These command line options are described in the following table:
@@ -47,7 +47,7 @@ Follow the below steps if the data on the disk is to be imported into Azure Stor
     |/bk:     |The BitLocker key for the drive.         |
     |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
     |/dstdir:     |The name of the destination container in Azure Storage         |
-
+    |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared         |
 1. Repeat step 10 for each of disk that needs to be shipped.
 2. A journal file with name provided with /j: parameter is created for every run of the command line.
 

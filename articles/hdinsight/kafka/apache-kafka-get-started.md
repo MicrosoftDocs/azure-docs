@@ -35,6 +35,15 @@ To create a Kafka on HDInsight cluster, use the following steps:
 
     * **Cluster Name**: The name of the HDInsight cluster. This name must be unique.
     * **Subscription**: Select the subscription to use.
+    * **Cluster Type**: Select this entry, and then set the following values from **Cluster configuration**:
+
+        * **Cluster Type**: Kafka
+        * **Version**: Kafka 0.10.0 (HDI 3.6)
+
+        Use the **Select** button to save the cluster type settings.
+
+        ![Select cluster type](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+
     * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Ambari Web UI or REST API.
     * **Secure Shell (SSH) username**: The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password.
     * **Resource Group**: The resource group to create the cluster in.
@@ -45,24 +54,15 @@ To create a Kafka on HDInsight cluster, use the following steps:
    
  ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. Select **Cluster type**, and then set the following values from **Cluster configuration**:
-   
-    * **Cluster Type**: Kafka
-    * **Version**: Kafka 0.10.0 (HDI 3.6)
+3. Use the __Next__ button to finish basic configuration.
 
-    Finally, use the **Select** button to save settings.
-     
- ![Select cluster type](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
-
-4. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
-
-5. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration.
+4. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration.
 
     ![Set the storage account settings for HDInsight](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. From __Applications (optional)__, select __Next__ to continue. No applications are required for this example.
+5. From __Applications (optional)__, select __Next__ to continue. No applications are required for this example.
 
-7. From __Cluster size__, select __Next__ to continue.
+6. From __Cluster size__, select __Next__ to continue.
 
     > [!WARNING]
     > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. For more information, see the [Data high availability](#data-high-availability) section.
@@ -72,9 +72,9 @@ To create a Kafka on HDInsight cluster, use the following steps:
     > [!IMPORTANT]
     > The **disks per worker node** entry configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and provide more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
-8. From __Advanced settings__, select __Next__ to continue.
+7. From __Advanced settings__, select __Next__ to continue.
 
-9. From the **Summary**, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Create__ button to create the cluster.
+8. From the **Summary**, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Create__ button to create the cluster.
    
     ![Cluster configuration summary](./media/apache-kafka-get-started/hdinsight-configuration-summary.png)
    
