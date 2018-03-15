@@ -101,10 +101,9 @@
         href: azure-stack-connect-cli.md
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
-      - name: API version profiles
-        items: 
-        - name: Using API version profiles
-          href: azure-stack-version-profiles.md
+      - name: Using API version profiles
+        href: azure-stack-version-profiles.md
+        items:
         - name: PowerShell
           href: azure-stack-version-profiles-powershell.md
         - name: Azure CLI 2.0

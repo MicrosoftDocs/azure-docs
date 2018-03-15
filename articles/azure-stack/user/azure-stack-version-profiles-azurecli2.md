@@ -28,4 +28,4 @@ ms.author: mabrigg
 
 ## Next steps
 * [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
-* [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md)  
+* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)  
