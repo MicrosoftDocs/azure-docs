@@ -1,5 +1,5 @@
 ---
-title: 'Common questions - VMware to Azure replication | Microsoft Docs'
+title: 'Common questions - VMware to Azure replication with Azure Site Recovery | Microsoft Docs'
 description: This article summarizes common questions when you replicate on-premises VMware VMs to Azure using Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
@@ -110,9 +110,6 @@ No. To do this, you need to set up a configuration server in each region.
 ### Can I host a configuration server in Azure?
 While possible, the Azure VM running the configuration server would need to communicate with your on-premises VMware infrastructure and VMs. The overhead probably isn't viable.
 
-### Can I register a configuration server with a different vault?
-
-RAYNE - Someone asked this, please confirm whether it's supported?
 
 ### Where can I get the latest version of the configuration server template?
 Download the latest version from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
