@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: jeffgilb
-ms.reviewer:  misainat
+ms.reviewer: misainat
 ---
 
 # ASDK administration basics 

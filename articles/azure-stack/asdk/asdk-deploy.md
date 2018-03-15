@@ -1,6 +1,6 @@
 ---
 title: Deploy the Azure Stack Development Kit | Microsoft Docs
-description: In this article, you install the ASDK.
+description: In this tutorial, you install the ASDK using the installer scripts.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,17 +12,26 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.custom: 
+ms.topic: tutorial
+ms.custom: mvc
 ms.date: 03/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Deploy the ASDK
-In this article, you deploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
+# Tutorial: deploy the ASDK using the installer
+In this tutorial, you deploy the Azure Stack Development Kit (ASDK) in a non-production environment. 
 
 The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get started with the ASDK, you need to prepare the host computer hardware and then run some scripts (installation takes several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Download and extract the deployment package
+> * Prepare the development kit host computer 
+> * Install the ASDK on the host computer
+> * Perform post-deployment configurations
+> * Register with Azure
 
 ## Prerequisites 
 Before installing the ASDK, you need to prepare the computer that will host the development kit (the development kit host). The development kit host computer must meet minimum hardware, software, and network requirements. 
@@ -57,7 +66,7 @@ After preparing the development kit host computer, the ASDK can be deployed into
 
 **[Install the Azure Stack Development Kit (ASDK)](asdk-install.md)**
 
-## Post-deployment configurations
+## Perform post-deployment configurations
 After installing the ASDK, there are a few recommended post-installation checks and configuration changes that should be made. You can validate your installation was installed successfully using the test-AzureStack cmdlet, and install Azure Stack PowerShell and GitHub tools. 
 
 After deployments that use Azure AD, you must activate both the Azure Stack administrator and tenant portals. This activation consents to giving the Azure Stack portal and Azure Resource Manager the correct permissions (listed on the consent page) for all users of the directory.
@@ -70,15 +79,26 @@ You should also reset the password expiration policy to make sure that the passw
 **[Post-ASDK deployment tasks](asdk-post-deploy.md)**
 
 ## Register with Azure
-If your Azure Stack deployment uses Azure AD as the identity provider, you must register Azure Stack with Azure so that you can [download Azure marketplace items](asdk-marketplace-item.md) to Azure Stack.
+You must register Azure Stack with Azure so that you can [download Azure marketplace items](asdk-marketplace-item.md) to Azure Stack.
 
 **[Register Azure Stack with Azure](asdk-register.md)**
 
 ## Next steps
 Congratulations! After completing these steps, you’ll have a development kit environment with both [administrator](https://adminportal.local.azurestack.external) and [user](https://portal.local.azurestack.external) portals. 
 
-In this article, you deployed the ASDK. To start evaluating the ASDK, continue on to the tutorial for [adding an Azure Stack marketplace item](asdk-marketplace-item.md).
+In this tutorial, you learned how to:
 
+> [!div class="checklist"]
+> * Download and extract the deployment package
+> * Prepare the development kit host computer 
+> * Install the ASDK on the host computer
+> * Perform post-deployment configurations
+> * Register with Azure
+
+Advance to the next tutorial to learn how to add an Azure Stack marketplace item.
+
+> [!div class="nextstepaction"]
+> [Add an Azure Stack marketplace item](asdk-marketplace-item.md)
 
 
 
