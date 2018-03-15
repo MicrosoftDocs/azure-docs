@@ -18,7 +18,7 @@ ms.author: tomfitz
 
 ---
 # Azure Resource Manager template functions
-This topic describes all the functions you can use in an Azure Resource Manager template.
+This article describes all the functions you can use in an Azure Resource Manager template.
 
 You add functions in your templates by enclosing them within brackets: `[` and `]`, respectively. The expression is evaluated during deployment. While written as a string literal, the result of evaluating the expression can be of a different JSON type, such as an array, object, or integer. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. You reference properties by using the dot and [index] operators.
 
