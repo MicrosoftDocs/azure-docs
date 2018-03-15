@@ -26,7 +26,7 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 * Download [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
 ## Define your Kubernetes cluster configuration
-1. Download the [sample acs-engine apimodel.json` for Kubernetes 1.8](https://raw.githubusercontent.com/Azure/acs-engine/master/examples/kubernetes-releases/kubernetes1.8.json).
+1. Download the sample acs-engine `apimodel.json` [for Kubernetes 1.8](https://raw.githubusercontent.com/Azure/acs-engine/master/examples/kubernetes-releases/kubernetes1.8.json).
 
     > [!NOTE]
     > Only use Kubernetes version 1.8 or greater to if you intend to use Azure Files with Azure Government.

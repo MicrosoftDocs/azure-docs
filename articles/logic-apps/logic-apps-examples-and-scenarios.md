@@ -120,7 +120,7 @@ logic apps use Azure resource deployment templates.
 Visual Studio tools automatically generate these templates, 
 which you can check in to source control for versioning.
 
-* [Build and deploy logic apps from Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Create and deploy logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Turn on monitoring, logging, and alerts for existing logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Create an automated deployment template](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -136,7 +136,7 @@ content transfer in a lossless manner between services.
 * [How workflow expressions work in logic apps](../logic-apps/logic-apps-author-definitions.md)
 * [Handle non-JSON content types](../logic-apps/logic-apps-content-type.md), 
 like `application/xml`, `application/octet-stream`, and `multipart/formdata`
-* [Reference: Azure Logic Apps workflow definition language](http://aka.ms/logicappsdocs)
+* [Workflow Definition Language schema for Azure Logic Apps](http://aka.ms/logicappsdocs)
 
 ## Other integrations and capabilities
 

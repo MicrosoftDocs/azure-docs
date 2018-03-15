@@ -7,13 +7,10 @@ author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: "Active"
-ms.tgt_pltfrm: portal
-ms.devlang: 
 ms.topic: tutorial
 ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
+manager: craigg
 
 ---
 # Create an Azure SQL Database Managed Instance in the Azure portal
