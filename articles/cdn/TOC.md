@@ -7,8 +7,8 @@
 ## [Create a profile and endpoint](cdn-create-new-endpoint.md)
 
 # Tutorials
-## [Add a new custom domain](cdn-map-content-to-custom-domain.md)
 ## [Add an existing custom domain](cdn-map-content-to-existing-custom-domain.md)
+## [Add a new custom domain](cdn-map-content-to-custom-domain.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)

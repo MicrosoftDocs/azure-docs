@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
 
@@ -22,6 +22,9 @@ ms.custom: mvc
 In this quickstart, you enable Azure Content Delivery Network (CDN) by creating a new CDN profile and CDN endpoint. After you have created a profile and an endpoint, you can start delivering content to your customers.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## Prerequisites
+For the purposes of this quickstart, you must have created a storage account named *mystorageacct123*, which you use for the origin hostname. For more information, see [Integrate an Azure storage account with Azure CDN](cdn-create-a-storage-account-with-cdn.md)
 
 ## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
@@ -32,7 +35,7 @@ Log in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 After you've created a CDN profile, you can use it to create an endpoint.
 
-1. In the Azure portal, select in your dashboard the CDN profile that you just created. If you can't find it, select **All services**, then select **CDN profiles**. In the **CDN profiles** page, select the profile that you want to use. 
+1. In the Azure portal, select in your dashboard the CDN profile that you created. If you can't find it, select **All services**, then select **CDN profiles**. In the **CDN profiles** page, select the profile that you want to use. 
    
     The CDN profile page appears.
 
@@ -46,11 +49,12 @@ After you've created a CDN profile, you can use it to create an endpoint.
    
     ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
+
     | Setting | Value |
     | ------- | ----- |
     | **Name** | Enter *my-endpoint-123* for your endpoint name. This name must be globally unique; if it is already in use, you may enter a different one. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.|
-    | **Origin type** | Select **Custom origin**. | 
-    | **Origin hostname** | Enter *my-hostname-123.net* for your hostname. This name must be globally unique; if it is already in use, you may enter a different one |
+    | **Origin type** | Select **Storage**. | 
+    | **Origin hostname** | Enter *mystorageacct123.blob.core.windows.net* for your hostname. This name must be globally unique; if it is already in use, you may enter a different one |
     | **Origin path** | Leave blank. |
     | **Origin host header** | Leave the default generated value. |  
     | **Protocol** | Leave the default **HTTP** and **HTTPS** options selected. |
