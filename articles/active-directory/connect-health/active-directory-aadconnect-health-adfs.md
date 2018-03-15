@@ -158,12 +158,13 @@ For example, the below report item indicates from the 6pm to 7pm hour window on 
 Using the **Download** functionality, the whole risky IP address list in the past 30 days can be exported from the Connect Health Portal
 The export result will include all the failed AD FS sign-in activities in each detection time window, so you can customize the filtering after the export. 
 Besides the highlighted aggregations in the portal, the export result also shows more details about failed sign-in activities per IP address:
-| Report Item | Description |
-| --- | --- |
-| firstAuditTimestamp | Shows the first timestamp when the failed activities started during the detection time window. |
-| lastAuditTimestamp |Shows the last timestamp when the failed activities ended during the detection time window. |
-| attemptCountThresholdIsExceeded | The flag if the current activities is exceeding the alerting threshold. |
-| isWhitelistedIpAddress | The flag if the IP address is filtered from alerting and reporting. Private IP addresses (10.x.x.x, 172.x.x.x & 192.168.x.x) and Exchange IP addresses are filtered and marked as True. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. |
+
+|  Report Item  |  Description  | 
+| ------- | ----------- | 
+| firstAuditTimestamp | Shows the first timestamp when the failed activities started during the detection time window.  | 
+| lastAuditTimestamp | Shows the last timestamp when the failed activities ended during the detection time window.  | 
+| attemptCountThresholdIsExceeded | The flag if the current activities is exceeding the alerting threshold.  | 
+| isWhitelistedIpAddress | The flag if the IP address is filtered from alerting and reporting. Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.  | 
 
 #### Configure Notification Settings
 Admin contacts of the report can be updated through the **Notification Settings**. By default, the risky IP alert email notification is in off state. You can enable the notification by toggle the button under “Get email notifications for IP addresses exceeding failed activity threshold report”
@@ -190,7 +191,7 @@ Alerting threshold can be updated through Threshold Settings. To start with, sys
 
 #### FAQ
 1. Why am I seeing private IP address ranges in the report?  <br />
-Private IP addresses (10.x.x.x, 172.x.x.x & 192.168.x.x) and Exchange IP addresses are filtered and marked as True in the IP whitelist. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.
+Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True in the IP whitelist. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.
 
 2. What do I do to block the IP address?  <br />
 You should add identified malicious IP address to the firewall or block in Exchange.   <br />
