@@ -51,7 +51,7 @@ The preceding command uses the following information:
 To view the resources that aren't compliant under this new assignment, get the policy assignment ID by running the following commands:
 
 ```
-policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Virtual Machines without Managed Disks"}
+$policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Virtual Machines without Managed Disks"}
 ```
 
 ```
