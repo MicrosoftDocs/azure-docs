@@ -91,12 +91,18 @@
       href: luis-concept-entity-types.md
     - name: Utterances
       href: luis-concept-utterance.md
-  - name: Features
-    href: luis-concept-feature.md
-  - name: Prediction score
-    href: luis-concept-prediction-score.md
-  - name: Data extraction
-    href: luis-concept-data-extraction.md
+  - name: Predictions
+    items:
+    - name: Prediction score
+      href: luis-concept-prediction-score.md
+    - name: Features
+      href: luis-concept-feature.md
+  - name: Data management
+    items: 
+    - name: Altering data
+      href: luis-concept-data-alteration.md
+    - name: Extracting data
+      href: luis-concept-data-extraction.md
   - name: Test
     items: 
     - name: Interactive testing
