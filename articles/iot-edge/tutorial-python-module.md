@@ -65,7 +65,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
     pip install -U cookiecutter
     ```
 
-3. Create a project for the new module. The following command creates the project folder, **FilterModule**, with your container repository. The parameter of 'image_repository' should be in the form of `<your container registry name>.azurecr.io` if you are using Azure container registry. Enter the following command in the current working folder:
+3. Create a project for the new module. The following command creates the project folder, **FilterModule**, with your container repository. The parameter of `image_repository` should be in the form of `<your container registry name>.azurecr.io/filtermodule` if you are using Azure container registry. Enter the following command in the current working folder:
 
     ```cmd/sh
     cookiecutter --no-input https://github.com/Azure/cookiecutter-azure-iot-edge-module module_name=FilterModule image_repository=<your container registry address>/filtermodule
