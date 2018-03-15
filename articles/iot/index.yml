@@ -19,10 +19,10 @@ abstract:
     image:
       alt: 
       height: 110
-      src: /media/index/contoso-hvac-iot-part1.png
+      src: media/index/contoso-hvac-iot-part1.png
       width: 250  
     title: Introduction to Azure IoT services and solutions. (4:07)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions?ocid=player
+    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player
     width: 250
 sections:
 - title: 5-Minute Quickstarts
