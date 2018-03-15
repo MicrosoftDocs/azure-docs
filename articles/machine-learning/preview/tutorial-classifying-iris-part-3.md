@@ -85,7 +85,7 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 4. To get the schema file, run the script. Select the **local** environment and the **score_iris.py** script in the command bar, and then select **Run**. 
 
-5. This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
+   This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
 
 6. Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **score_iris.py** job to display the green **Completed** status. Then select the hyperlink **score_iris.py** for the latest job run to see the run details. 
 
