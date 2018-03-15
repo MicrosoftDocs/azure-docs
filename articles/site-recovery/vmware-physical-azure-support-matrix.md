@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 
 ---
@@ -21,12 +21,12 @@ This article summarizes supported components and settings for disaster recovery 
 VMware VMs | You can perform disaster recovery to Azure for on-premises VMware VMs. You can deploy this scenario in the Azure portal or by using PowerShell.
 Physical servers | You can perform disaster recovery to Azure for on-premises Windows/Linux physical servers. You can deploy this scenario in the Azure portal.
 
-## On-premises virtualization/host servers
+## On-premises virtualization servers
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
 VMware | vCenter Server 6.5, 6.0, or 5.5 or vSphere 6.5, 6.0, or 5.5 | We recommend that you use a vCenter server.
-Physical servers | N/A
+Physical | N/A
 
 
 ## Replicated machines
@@ -35,7 +35,7 @@ The following table summarizes replication support for VMware VMs and physical s
 
 **Component** | **Details**
 --- | ---
-Machine settings | Machines that replicate to Azure must meet [Azure requirements](#failed-over-azure-vm-requirements).
+Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Windows operating system | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. Windows 2016 Nano Server isn't supported.
 Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>CentOS: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7/Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Upgrading replicated machines from SP3 to SP4 isn't supported. To upgrade, disable replication and enable it again after the upgrade.
 
@@ -136,7 +136,7 @@ Guest/server multipath (MPIO) | N/A
 > - Requires Mobility Service version 9.13 or later.
 > - Not supported for physical servers.
 
-## Azure Storage
+## Azure storage
 
 **Component** | **Supported**
 --- | ---
@@ -175,11 +175,9 @@ Data disk VHD size | Up to 4,095 GB | Check fails if unsupported.
 Network adapters | Multiple adapters are supported. | 
 Shared VHD | Not supported. | Check fails if unsupported. 
 FC disk | Not supported. | Check fails if unsupported. 
-Hard disk format | VHD <br/><br/> VHDX | VHDX isn't currently supported in Azure, but Site Recovery automatically converts VHDX to VHD after failover. When you fail back to on-premises, the VMs continue to use the VHDX format.
 BitLocker | Not supported. | BitLocker must be disabled before you enable replication for a machine. | 
 VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. |  Update the value in the machine properties in Site Recovery.
-VM type | Generation 1, Generation 2 (Windows only). |  Generation 2 VMs must have a basic OS disk (including two data volumes formatted as VHDX) and less than 300 GB of disk space.
-Linux Generation 2 VMs aren't supported. 
+
 
 ## Vault tasks
 
