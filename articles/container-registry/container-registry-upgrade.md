@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: marsma
 ---
 
@@ -30,8 +30,8 @@ Most of all, a Classic registry depends on the storage account that Azure automa
 
 Managed registry storage provides the following benefits:
 
-* Container images are [encrypted at rest](../storage/common/storage-service-encryption.md).
-* Images are stored using [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage), assuring backup of your images with multi-region replication.
+* Container images are [encrypted at rest](container-registry-storage.md#encryption-at-rest).
+* Images are stored using [geo-redundant storage](container-registry-storage.md#geo-redundant-storage), assuring backup of your images with multi-region replication.
 * Ability to freely [move between SKUs](container-registry-skus.md#changing-skus), enabling higher throughput when you choose a higher-level SKU. With each SKU, ACR can meet your throughput requirements as your needs increase.
 * Unified security model for the registry and its storage provides simplified rights management. You manage permissions only for the container registry, without having to also manage permissions for a separate storage account.
 

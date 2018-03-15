@@ -13,15 +13,19 @@ ms.author: marsma
 
 # Container image storage in Azure Container Registry
 
-Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container registry benefits from advanced Azure storage features like encryption-at-rest for image data security and geo-redundancy for high availability. The following sections describe both the features and limits of image storage in Azure Container Registry (ACR).
+Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container registry benefits from advanced Azure storage features like encryption-at-rest for image data security and geo-redundancy for image data protection. The following sections describe both the features and limits of image storage in Azure Container Registry (ACR).
 
 ## Encryption-at-rest
 
-All container images in your registry are encrypted at rest. Azure automatically encrypts your image data before storing it, and decrypts it on-the-fly when you or your applications and services pull an image.
+All container images in your registry are encrypted at rest. Azure automatically encrypts an image before storing it, and decrypts it on-the-fly when you or your applications and services pull the image.
 
 ## Geo-redundant storage
 
-Azure uses a geo-redundant storage scheme to guard against loss of your container images. Azure Container Registry automatically replicates all images to multiple geographically distant data centers, preventing image loss in the event of a regional storage failure.
+Azure uses a geo-redundant storage scheme to guard against loss of your container images. Azure Container Registry automatically replicates your container images to multiple geographically distant data centers, preventing their loss in the event of a regional storage failure.
+
+## Geo-replication
+
+For scenarios requiring even more high-availability assurance, consider using the [geo-replication](container-registry-geo-replication.md) feature of Premium registries. Geo-replication helps guard against losing access to your registry in the event of a *total* regional failure, not just a storage failure. Geo-replication provides other benefits, too, like network-close image storage for faster pushes and pulls in distributed development or deployment scenarios.
 
 ## Image limits
 
@@ -37,13 +41,13 @@ The following table describes the container image and storage limits in place fo
 
 Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry maintenance routine. Deleted registry resources like repositories, images, and tags can *not* be recovered after deletion.
 
-## Storage cost
-
-For full details about pricing, see [Azure Container Registry pricing][pricing].
-
 ## Backup
 
 By using geo-redundant storage, Azure Container Registry automatically distributes your images across multiple regional data centers. ACR doesn't currently provide an automated export feature for backing up images to another storage account or platform. For a manual backup solution, you can iterate through the list of images in your registry, pull each image locally, then transfer them to an alternate storage platform.
+
+## Storage cost
+
+For full details about pricing, see [Azure Container Registry pricing][pricing].
 
 ## Next steps
 

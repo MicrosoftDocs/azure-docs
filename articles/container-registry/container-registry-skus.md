@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: marsma
 ---
 
@@ -38,7 +38,7 @@ Managed registries benefit from image storage managed entirely by Azure. That is
 
 ### Unmanaged (Classic)
 
-Classic registries are "unmanaged" in the sense that the storage account that backs a Classic registry resides within *your* Azure subscription. As such, you are responsible for the management of the storage account in which your container images are stored. With unmanaged registries, you can't switch between SKUs as your needs change (other than [upgrading][container-registry-upgrade] to a managed registry), and several features of managed registries are unavailable (for example, container image deletion, [geo-replication][container-registry-geo-replication] and [webhooks][container-registry-webhook]).
+Classic registries are "unmanaged" in the sense that the storage account that backs a Classic registry resides within *your* Azure subscription. As such, you are responsible for the management of the storage account in which your container images are stored. With unmanaged registries, you can't switch between SKUs as your needs change (other than [upgrading][container-registry-upgrade] to a managed registry), and several features of managed registries are unavailable (for example, container image deletion, [geo-replication][container-registry-geo-replication], and [webhooks][container-registry-webhook]).
 
 For more information about upgrading a Classic registry to one of the managed SKUs, see [Upgrade a Classic registry][container-registry-upgrade].
 
