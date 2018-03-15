@@ -23,7 +23,7 @@ If you encounter issues when you enable protection for Hyper-V VMs, check the fo
 2. If Hyper-V servers are located in System Center Virtual Machine Manager (VMM) clouds, verify that you've prepared the [VMM server](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
 3. Check that the Hyper-V Virtual Machine Management service is running.
 4. Check the Hyper-V-VMMS\Admin log on the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
-5. Ensure That WMI is enabled and accessible.
+5. Ensure that WMI is enabled and accessible.
   - [Learn about](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) basic WMI testing.
   - [Troubleshoot](https://aka.ms/WMiTshooting) WMI.
   - [Troubleshoot ](https://technet.microsoft.com/library/ff406382.aspx#H22) problems with WMI scripts and services.
@@ -67,7 +67,7 @@ Network bandwidth limitations can impact replication. Troubleshoot issues as fol
   - Check that replication isn't paused. If it is, it continues writing the changes to the hrl file, which can contribute to its increased size.
  
 
-## Critical replicate state issues
+## Critical replication state issues
 
 1. To check replication health, connect to the on-premises Hyper-V Manager console, select the VM, and verify health.
 
