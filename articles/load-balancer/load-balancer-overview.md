@@ -108,7 +108,7 @@ You can use Load Balancer Standard either in a public or internal configuration 
 - Port forward inbound traffic to a single back-end instance.
 - Translate outbound traffic from a private IP address within the virtual network to a Public IP address.
 
-## Load Balancer features
+## Load Balancer resources
 
 Load Balancer contains the following child resources that you can configure to address your load balancing requirements:
 
