@@ -20,7 +20,7 @@ ms.reviewer:
 
 
 # Identity architecture for Azure Stack
-Before you choose an identity provider to use with Azure Stack, understand the important differences between the options of Azure Active Directory (Azure AD) and Active Directory Federated Services (AD FS). 
+Before you choose an identity provider to use with Azure Stack, understand the important differences between the options of Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS). 
 
 ## Capabilities and limitations 
 The identity provider that you choose can limit your options, including support for multi-tenancy. 
