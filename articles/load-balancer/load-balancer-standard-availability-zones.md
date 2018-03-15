@@ -148,7 +148,7 @@ If you're using existing Resource Manager templates in your configuration, add t
 
 Cross-zone load balancing is the ability of Load Balancer to reach a backend endpoint in any zone and is independent of frontend and its zonality.
 
-If you wish to align and guarantee your deployment with a single zone, align zonal frontend and zonal backend resources to the same zone. No further action is required.
+If you wish to align and guarantee your deployment within a single zone, align zonal frontend and zonal backend resources to the same zone. No further action is required.
 
 ### Backend
 
