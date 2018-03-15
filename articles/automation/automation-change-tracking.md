@@ -2,18 +2,14 @@
 title: Track changes with Azure Automation | Microsoft Docs
 description: The Change Tracking solution helps you identify software and Windows Service changes that occur in your environment.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: ''
-ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: automation
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 
 ---
