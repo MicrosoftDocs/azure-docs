@@ -110,11 +110,11 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **SampleDW** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **sample-svr.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then click on the server name to open server settings.
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. To open the server settings, click the server name.
 
     ![find server name](media/load-data-wideworldimportersdw/find-server-name.png) 
 
-3. Click the server name to open server settings.
+3. To open the server settings, click the server name.
 
     ![server settings](media/load-data-wideworldimportersdw/server-settings.png) 
 
@@ -122,7 +122,7 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 
     ![server firewall rule](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 
-4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+4.  To add your current IP address to a new firewall rule, click **Add client IP** on the toolbar. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
 5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
@@ -154,8 +154,8 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
     | Setting      | Suggested value | Description | 
     | ------------ | --------------- | ----------- | 
     | Server type | Database engine | This value is required |
-    | Server name | The fully qualified server name | The name should be something like this: **sample-svr.database.windows.net**. |
-    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
+    | Server name | The fully qualified server name | For example, **sample-svr.database.windows.net** is a fully qualified server name. |
+    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
     | Login | The server admin account | This is the account that you specified when you created the server. |
     | Password | The password for your server admin account | This is the password that you specified when you created the server. |
 
@@ -173,30 +173,30 @@ The server admin account is meant to perform management operations, and is not s
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
-Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC20**. Then assign the user to the **staticrc20** resource class. 
+Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC60**. Then assign the user to the **staticrc60** resource class. 
 
 1.  In SSMS, right-click **master** to show a drop-down menu, and choose **New Query**. A new query window opens.
 
     ![New query in master](media/load-data-wideworldimportersdw/create-loader-login.png)
 
-2. In the query window, enter these T-SQL commands to create a login and user named LoaderRC20, substituting your own password for 'a123STRONGpassword!'. 
+2. In the query window, enter these T-SQL commands to create a login and user named LoaderRC60, substituting your own password for 'a123STRONGpassword!'. 
 
     ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+    CREATE LOGIN LoaderRC60 WITH PASSWORD = 'a123STRONGpassword!';
+    CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
     ```
 
 3. Click **Execute**.
 
-4. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.  
+4. Right-click **SampleDW**, and choose **New Query**. A new query Window opens.  
 
     ![New query on sample data warehouse](media/load-data-wideworldimportersdw/create-loading-user.png)
  
-5. Enter the following T-SQL commands to create a database user named LoaderRC20 for the LoaderRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](resource-classes-for-workload-management.md).
+5. Enter the following T-SQL commands to create a database user named LoaderRC60 for the LoaderRC60 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc60 [resource class](resource-classes-for-workload-management.md).
 
     ```sql
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC60;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC60;
+    CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
+    GRANT CONTROL ON DATABASE::[SampleDW] to LoaderRC60;
     EXEC sp_addrolemember 'staticrc60', 'LoaderRC60';
     ```
 
@@ -204,27 +204,27 @@ Since you are currently connected as the server admin, you can create logins and
 
 ## Connect to the server as the loading user
 
-The first step toward loading data is to login as LoaderRC20.  
+The first step toward loading data is to login as LoaderRC60.  
 
 1. In Object Explorer, click the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
 
     ![Connect with new login](media/load-data-wideworldimportersdw/connect-as-loading-user.png)
 
-2. Enter the fully qualified server name, and enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
+2. Enter the fully qualified server name, and enter **LoaderRC60** as the Login.  Enter your password for LoaderRC60.
 
 3. Click **Connect**.
 
-4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as MedRCLogin.
+4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as LoaderRC60.
 
     ![Connection is successful](media/load-data-wideworldimportersdw/connected-as-new-login.png)
 
 ## Create external tables and objects
 
-You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
+You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
 
-Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a public Azure blob.
+Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a public Azure Blob.
 
-1. In the previous section, you logged into your data warehouse as LoaderRC60. In SSMS, right-click your LoaderRC60 connection and select **New Query**.  A new query window appears. 
+1. In the previous section, you logged into your data warehouse as LoaderRC60. In SSMS, right-click **SampleDW** under your LoaderRC60 connection and select **New Query**.  A new query window appears. 
 
     ![New loading query window](media/load-data-wideworldimportersdw/new-loading-query.png)
 
@@ -266,6 +266,7 @@ Run the following SQL scripts to specify information about the data you wish to 
 
     ```sql
     CREATE SCHEMA ext;
+    GO
     CREATE SCHEMA wwi;
     ```
 
@@ -548,70 +549,9 @@ Run the following SQL scripts to specify information about the data you wish to 
 
     ![View external tables](media/load-data-wideworldimportersdw/view-external-tables.png)
 
-9. Create the date dimension table. 
-
-    ```sql
-    CREATE TABLE [wwi].[dimension_Date]
-    (
-	    [Date] [datetime] NOT NULL,
-	    [Day Number] [int] NOT NULL,
-	    [Day] [nvarchar](10) NOT NULL,
-	    [Month] [nvarchar](10) NOT NULL,
-	    [Short Month] [nvarchar](3) NOT NULL,
-	    [Calendar Month Number] [int] NOT NULL,
-	    [Calendar Month Label] [nvarchar](20) NOT NULL,
-	    [Calendar Year] [int] NOT NULL,
-	    [Calendar Year Label] [nvarchar](10) NOT NULL,
-	    [Fiscal Month Number] [int] NOT NULL,
-	    [Fiscal Month Label] [nvarchar](20) NOT NULL,
-	    [Fiscal Year] [int] NOT NULL,
-	    [Fiscal Year Label] [nvarchar](10) NOT NULL,
-	    [ISO Week Number] [int] NOT NULL
-    )
-    WITH 
-    (
-        DISTRIBUTION = REPLICATE,
-        CLUSTERED INDEX ([Date])
-    );
-    ```
-
-10. Create the Sale fact table.
-   
-    ```sql
-    CREATE TABLE [wwi].[fact_Sale]
-    (
-	    [Sale Key] [bigint] IDENTITY(1,1) NOT NULL,
-	    [City Key] [int] NOT NULL,
-	    [Customer Key] [int] NOT NULL,
-	    [Bill To Customer Key] [int] NOT NULL,
-	    [Stock Item Key] [int] NOT NULL,
-	    [Invoice Date Key] [date] NOT NULL,
-	    [Delivery Date Key] [date] NULL,
-	    [Salesperson Key] [int] NOT NULL,
-	    [WWI Invoice ID] [int] NOT NULL,
-	    [Description] [nvarchar](100) NOT NULL,
-	    [Package] [nvarchar](50) NOT NULL,
-	    [Quantity] [int] NOT NULL,
-	    [Unit Price] [decimal](18, 2) NOT NULL,
-	    [Tax Rate] [decimal](18, 3) NOT NULL,
-	    [Total Excluding Tax] [decimal](18, 2) NOT NULL,
-	    [Tax Amount] [decimal](18, 2) NOT NULL,
-	    [Profit] [decimal](18, 2) NOT NULL,
-	    [Total Including Tax] [decimal](18, 2) NOT NULL,
-	    [Total Dry Items] [int] NOT NULL,
-	    [Total Chiller Items] [int] NOT NULL,
-	    [Lineage Key] [int] NOT NULL
-    )
-    WITH
-    (
-	    DISTRIBUTION = HASH ( [WWI Invoice ID] ),
-	    CLUSTERED COLUMNSTORE INDEX
-    )
-    ```
-
 ## Load the data into your data warehouse
 
-This section uses the external tables you just defined to load the sample data from Azure Storage Blob to SQL Data Warehouse.  
+This section uses the external tables you just defined to load the sample data from Azure Blob to SQL Data Warehouse.  
 
 > [!NOTE]
 > This tutorial loads the data directly into the final table. In a production environment, you will usually use CREATE TABLE AS SELECT to load into a staging table. While data is in the staging table you can perform any necessary transformations. To append the data in the staging table to a production table, you can use the INSERT...SELECT statement. For more information, see [Inserting data into a production table](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -768,7 +708,7 @@ This script does not load data into the wwi.dimension_Date and wwi.fact_Sales ta
     ;
     ```
 
-2. View your data as it loads. You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+2. View your data as it loads. You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Open a new query window on SampleDW, and run the following query to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
 
     ```sql
     SELECT

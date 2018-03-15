@@ -77,8 +77,12 @@
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
-  - name: Authoring cycle
-    href: luis-concept-app-iteration.md 
+  - name: Author App
+    items: 
+    - name: Authoring cycle
+      href: luis-concept-app-iteration.md 
+    - name: Versioning
+      href: luis-concept-version.md
   - name: Design Model 
     items:
     - name: Intents
@@ -93,8 +97,12 @@
     href: luis-concept-prediction-score.md
   - name: Data extraction
     href: luis-concept-data-extraction.md
-  - name: Testing
-    href: luis-concept-test.md
+  - name: Test
+    items: 
+    - name: Interactive testing
+      href: luis-concept-test.md
+    - name: Batch testing
+      href: luis-concept-batch-test.md
 - name: How-to guides
   items: 
   - name: Plan your app
@@ -111,8 +119,14 @@
       href: Add-entities.md
   - name: Improve prediction accuracy using features
     href: Add-Features.md
-  - name: Train and test the app
-    href: Train-Test.md
+  - name: Train
+    href: luis-how-to-train.md
+  - name: Test
+    items:
+    - name: Interactive testing
+      href: Train-Test.md
+    - name: Batch testing
+      href: luis-how-to-batch-test.md
   - name: Use active learning
     href: Label-Suggested-Utterances.md
   - name: Publish your app
@@ -154,7 +168,11 @@
   - name: Authoring V2 APIs
     href: https://aka.ms/luis-authoring-apis
   - name: Endpoint V2 API
-    href: https://aka.ms/luis-endpoint-apis         
+    href: https://aka.ms/luis-endpoint-apis
+  - name: Azure CLI 2.0
+    href: https://aka.ms/az-cli-cognitiveservices
+  - name: Azure RM PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDKs
     items:
     - name: Android

@@ -5,12 +5,8 @@ keywords: sql database tutorial
 services: sql-database
 author: stevestein
 manager: craigg
-
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein

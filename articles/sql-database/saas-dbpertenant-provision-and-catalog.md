@@ -3,17 +3,10 @@ title: Provision new tenants in a multi-tenant app that uses Azure SQL Database 
 description: "Learn how to provision and catalog new tenants in an Azure SQL Database multi-tenant SaaS app"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: craigg
-editor: ''
-
-ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
