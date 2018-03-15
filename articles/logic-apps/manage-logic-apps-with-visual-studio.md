@@ -147,12 +147,11 @@ that you want to download from Azure.
 2. On that app's shortcut menu, 
 select **Open With Logic App Editor**.
 
-   After the logic app opens in Logic App Designer, 
-   you can chooose **Code View** so that you can 
-   inspect the structure for the underlying logic app definition. 
+   The Logic App Designer opens and shows the logic app. 
+   To review logic app's underlying definition and structure, 
+   at the bottom of the designer, choose **Code View**. 
 
-3. After the logic app appears in Logic App Designer, 
-on the designer's toolbar, choose **Download**.
+3. On the designer toolbar, choose **Download**.
 
    ![Choose "Download"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
 

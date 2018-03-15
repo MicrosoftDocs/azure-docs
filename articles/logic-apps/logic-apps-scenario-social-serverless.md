@@ -121,7 +121,7 @@ In your function code, define the logic
 that determines whether the tweet 
 text contains a keyword or phrase. 
 Keep the function as simple or complex 
-as neccessary for the scenario.
+as necessary for the scenario.
 At the end of the function, return a 
 response to the logic app with some data, 
 for example, a simple boolean value such 
@@ -140,11 +140,10 @@ in the logic app that you're building.
 1. In Logic App Designer, under the **Detect Sentiment** action, 
 choose **New step**.
 
-2. Find and select the **Azure Functions** connector.
+2. Find the **Azure Functions** connector, 
+and then select the function that you created.
 
-3. Find and select the function that you created.
-
-4. Under **Request Body**, select **Tweet Text**.
+3. Under **Request Body**, select **Tweet Text**.
 
 ![Configured Azure Function step][2]
 
@@ -161,10 +160,14 @@ based on your specified schedule until a tweet that
 meets your criteria is found. While the run progresses, 
 the designer shows a live view for that run.
 
-To view previous run histories, in Visual Studio, 
-find and select your app by using Cloud Explorer. 
-In the Azure portal, on your logic app's menu, 
-choose **Overview**. 
+To view previous run histories in Visual Studio or the Azure portal: 
+
+* Open Visual Studio Cloud Explorer. 
+Find your logic app, open the app's shortcut menu. 
+Select **Open run history**.
+
+* In the Azure portal, find your logic app. 
+On your logic app's menu, choose **Overview**. 
 
 ## Create automated deployment templates
 
