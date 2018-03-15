@@ -81,7 +81,7 @@ Configure the container port-to-host port mapping so that incoming requests to t
 A full ApplicationManifest.xml example file is provided at the end of this article.
 
 ## Create a cluster
-To deploy the application to a cluster in Azure, you can either join a party cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. 
+To deploy the application to a cluster in Azure, you can either join a party cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform.  The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. Party clusters support containers. If you setup your own cluster, however, the cluster must be running on Windows Server 2016 with Containers in order to run containers.
 
 Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
 
