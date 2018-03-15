@@ -19,11 +19,12 @@ ms.reviewer: misainat
 
 ---
 # Microsoft Azure Stack Development Kit (ASDK) troubleshooting
-This document provides common troubleshooting information for the ASDK. 
+This document provides common troubleshooting information for the ASDK. If you are experiencing an issue that is not documented, make sure to check the [Azure Stack MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) for further assistance and information.  
 
-Because the ASDK is offered as an evaluation environment, there is no official support from Microsoft Customer Support Services. If you are experiencing an issue not documented, make sure to check the [Azure Stack MSDN Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) for further assistance and information.  
+> [!IMPORTANT]
+> Because the ASDK is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
 
-The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
+The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided "as is" and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Deployment
 ### Deployment failure
@@ -59,13 +60,6 @@ You can read more about configuring the retention threshold and on-demand reclam
 ## Storage
 ### Storage reclamation
 It may take up to 14 hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed when garbage collector runs.
-
-## Windows Azure Pack Connector
-* If you change the password of the azurestackadmin account after you deploy Azure Stack development kit, you can no longer configure multi-cloud mode. Therefore, it won't be possible to connect to the target Windows Azure Pack environment.
-* After you set up multi-cloud mode:
-    * A user can see the dashboard only after they reset the portal settings. (In the user portal, click the portal settings icon (gear icon in the top-right corner). Under **Restore default settings**, click **Apply**.)
-    * The dashboard titles may not appear. If this issue occurs, you must manually add them back.
-    * Some tiles may not show correctly when you first add them to the dashboard. To fix this issue, refresh the browser.
 
 ## Next steps
 [Visit the Azure Stack support forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)

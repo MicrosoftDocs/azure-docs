@@ -69,7 +69,7 @@ The steps in this article show you how to deploy the ASDK using a graphical user
     ![](media/asdk-install/6.PNG)
 
     > [!TIP]
-    > Here you can also copy the PowerShell setup commands that will be used to install the development kit. This is helpful if you ever need to [redeploy the ASDK on the host computer using PowerShell](asdk-deploy-powershell-qs.md).
+    > Here you can also copy the PowerShell setup commands that will be used to install the development kit. This is helpful if you ever need to [redeploy the ASDK on the host computer using PowerShell](asdk-deploy-powershell.md).
 
 10. If you're performing an Azure AD deployment, you'll be prompted to enter your Azure AD global administrator account credentials a few minutes after setup starts.
 
@@ -83,7 +83,7 @@ The steps in this article show you how to deploy the ASDK using a graphical user
 
 Congratulations, you've successfully installed the ASDK!
 
-If the deployment fails for some reason, you can [redeploy](asdk-redeploy-qs.md) from scratch or use the following PowerShell commands, from the same elevated PowerShell window, to restart the deployment from the last successful step:
+If the deployment fails for some reason, you can [redeploy](asdk-redeploy.md) from scratch or use the following PowerShell commands, from the same elevated PowerShell window, to restart the deployment from the last successful step:
 
     ```powershell
     cd C:\CloudDeployment\Setup

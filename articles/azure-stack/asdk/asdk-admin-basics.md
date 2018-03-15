@@ -23,32 +23,7 @@ There are several things you need to know if you're new to Azure Stack Developme
 
 First, you should review the [What is Azure Stack Development Kit?](asdk-what-is.md) article to make sure you understand the purpose of the ASDK and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack to develop and test your apps in a non-production environment. 
 
-Like Azure, Azure Stack innovates rapidly so we'll regularly release new builds of the ASDK. However, you cannot upgrade the ASDK like you can Azure Stack integrated systems deployments. So, if you want to move to the latest build, you must completely [redeploy the ASDK](asdk-redeploy-qs.md). You cannot apply update packages. This process takes time, but the benefit is that you can try out the latest features as soon as they become available. 
-
-## Learn about available services
-You need to know which services you can make available to your users. Azure Stack supports a subset of Azure services. The list of supported services will continue to evolve over time.
-
-### Foundational services
-By default, Azure Stack includes the following "foundational services" when you deploy the ASDK:
-- Compute
-- Storage
-- Networking
-- Key Vault
-
-With these foundational services, you can offer Infrastructure-as-a-Service (IaaS) to your users with minimal configuration.
-
-### Additional services
-Currently, the following additional Platform-as-a-Service (PaaS) services are supported:
-- App Service
-- Azure Functions
-- SQL and MySQL databases
-
-> [!NOTE]
-> These services require additional configuration before you can make them available to your users and are not available by default when you install the ASDK.
-
-## Service roadmap
-Azure Stack will continue to add support for additional Azure services. To learn about what's coming next with Azure Stack, see the [Azure Stack roadmap](https://azure.microsoft.com/roadmap/?tag=azure-stack). 
-
+Like Azure, Azure Stack innovates rapidly so we'll regularly release new builds of the ASDK. However, you cannot upgrade the ASDK like you can Azure Stack integrated systems deployments. So, if you want to move to the latest build, you must completely [redeploy the ASDK](asdk-redeploy.md). You cannot apply update packages. This process takes time, but the benefit is that you can try out the latest features as soon as they become available. 
 
 ## What tools do I use to manage?
 You can use the [Azure Stack Administrator Portal](https://adminportal.local.azurestack.external) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, you need to install [PowerShell for Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) and [download the Azure Stack tools from GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).
@@ -72,8 +47,8 @@ In addition to providing services, you must perform all the regular duties of an
 For the development kit, your only support option is to ask support-related questions in the [Microsoft Azure Stack forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). If you click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **New support request**, this opens the forums site directly. These forums are regularly monitored. 
 
 > [!IMPORTANT]
-> Because the development kit is an evaluation environment, there is no official support offered through Microsoft CSS.
+> Because the ASDK is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
 
 ## Next steps
-[Deploy the ASDK](asdk-deploy-qs.md)
+[Deploy the ASDK](asdk-deploy.md)
 

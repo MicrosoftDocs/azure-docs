@@ -20,40 +20,60 @@ ms.reviewer: misainat
 ---
 
 # What is the Azure Stack Development Kit?
-The Microsoft Azure Stack Development Kit (ASDK) is a single-node deployment of Azure Stack with all components installed in virtual machines running on a single host computer. The ASDK is meant to provide an environment in which you can evaluate and learn about Azure Stack. You can also use the ASDK in a developer environment, to develop modern applications using APIs and tooling consistent with Azure. 
+[Microsoft Azure Stack integrated systems](.\.\azure-stack-poc.md) range in size from 4-12 nodes, and are jointly supported by a hardware partner and Microsoft. Use Azure Stack integrated systems to enable new scenarios for your production workloads. If you're an Azure Stack operator who manages the integrated systems infrastructure and offers services, see our [operator documentation](https://docs.microsoft.com/azure/azure-stack).
+
+The Azure Stack Development Kit (ASDK) is a single-node deployment of Azure Stack that you can download and use **for free**. All ASDK components are installed in virtual machines running on a single host server computer that must meet or exceed the [minimum hardware requirements](asdk-deploy-considerations.md#hardware). The ASDK is meant to provide an environment in which you can evaluate Azure Stack and develop modern applications using APIs and tooling consistent with Azure in a *non-production* environment. 
 
 > [!IMPORTANT]
 > The ASDK is not intended to be used or supported in a production environment.
 
-To get the ASDK up and running, you need to prepare the environment hardware and run some scripts (the installation takes several hours). After that, you can sign in to the admin and user portals to manage Azure Stack and test offers.
+Because all of the ASDK components are deployed to a single development kit host computer, there are limited physical resources available. With ASDK deployments, both the Azure Stack infrastructure VMs and tenant VMs coexist on the same server computer. This configuration is not intended for scale or performance evaluation.
+
+The ASDK is designed to provide an Azure-consistent hybrid cloud experience for:
+- **Administrators** (Azure Stack Operators). The ASDK is a great resource to evaluate and learn about the available Azure Stack services.
+- **Developers**. The ASDK can be used to develop hybrid or modern applications on-premises (dev/test environments). This offers repeatability of development experience prior to, or alongside, Azure Stack production deployments. 
 
 Watch this short video to learn more about the ASDK:
 
 > [!VIDEO https://www.youtube.com/embed/dbVWDrl00MM]
 
-### Who should be interested in the ASDK?
-The ASDK is designed to provide:
-- An Azure-consistent hybrid cloud experience
-- Administrators (Azure Stack Operators) a way to evaluate and demonstrate Azure Stack services
-- Developers a way to develop hybrid or modern applications on-premises (dev/test environments)
-
-### Why is the ASDK important?
-The ASDK provides the following benefits to Azure Stack Operators:
-- **Minimum scale**. The ASDK environment is similar to the production Azure Stack integrated systems environment. This offers repeatability of development experience prior to, or alongside, Azure Stack production deployments. 
-- **Simplicity**. The ASDK provides ease and speed of (re)deployment, management, operations, and the reuse of existing collateral.
-- **Flexibility, low cost, low overhead**. The minimum requirements to host the ASDK can be easily procured to enable multiple deployment options from minimum requirements to large-scale single development kit host computers.
 
 ## ASDK and multi-node Azure Stack differences
-The ASDK differs from multi-node Azure Stack deployments in a few ways.
+Single-node ASDK deployments differ from multi-node Azure Stack deployments in a few important ways that you should be aware of.
 
-- **Scale**. The ASDK is deployed to a single development kit host computer. With all components deployed on the single machine, there are limited physical resources available for user resources. With ASDK deployments, both the Azure Stack infrastructure VMs and tenant VMs coexist on the same computer. This configuration is not intended for scale or performance evaluation. Additionally, the ASDK can only be associated with a single Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) identity provider. 
+|Description|ASDK|Multi-node Azure Stack|
+|-----|-----|-----|
+|**Scale**|All components are installed on a single-node server computer.|Can range in size from 4-12 nodes.|
+|**Resilience**|Single-node configuration does not provide high availability|[High availablity](.\.\azure-stack-key-features.md#high-availability-for-azure-stack) capabilities are supported.|
+|**Networking**|The ASDK uses a VM named AzS-BGPNAT01 to route all ASDK network traffic. There are no additional switch requirements.|The AzS-BGPNAT01 VM does not exist in multi-node deployments. More complex [network routing infrastructure](.\.\azure-stack-network.md#network-infrastructure) is necessary including Top-Of-Rack (TOR), Baseboard Management Controller (BMC), and border (datacenter network) switches.|
+|**Patch and update process**|To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer.|[Patch and update](.\.\azure-stack-updates.md) process used to update the installed Azure Stack version.|
+|**Support**|MSDN Azure Stack forum. Microsoft Customer Service and Support (CSS) support is *not* available for non-production environments.|[MSDN Azure Stack forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) and full CSS support.|
+| | |
 
-- **Resilience**. While the ASDK can be configured with mirrored storage (if the hardware meets certain requirements), the ASDK is usually configured as a simple space. In this basic configuration, each hard disk becomes a single point of failure for the entire cluster. 
+## Learn about available services
+As an Azure Stack Operator, you need to know which services you can make available to your users. Azure Stack supports a subset of Azure services and the list of supported services will continue to evolve over time.
 
-- **Networking**. The ASDK uses a BGPNAT VM (which does not exist in multi-node deployments) to route ASDK network traffic. THe BGPNAT VM acts as an edge router and provides NAT and VPN capabilities for Azure Stack. So, with the ASDK, there are no switch requirements because all network traffic goes through the development kit host computer network interface card (NIC) and network or domain-specific VMs installed as part of the ASDK.  
+### Foundational services
+By default, Azure Stack includes the following "foundational services" when you deploy the ASDK:
+- Compute
+- Storage
+- Networking
+- Key Vault
 
-- **Patch and update process**. ASDK deployments do not have a patch and update process like production, multi-node Azure Stack deployments. To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer. Perform proper backup of development workloads and infrastructure-as-code artifacts
+With these foundational services, you can offer Infrastructure-as-a-Service (IaaS) to your users with minimal configuration.
+
+### Additional services
+Currently, the following additional Platform-as-a-Service (PaaS) services are supported:
+- App Service
+- Azure Functions
+- SQL and MySQL databases
+
+> [!NOTE]
+> These services require additional configuration before you can make them available to your users and are not available by default when you install the ASDK.
+
+## Service roadmap
+Azure Stack will continue to add support for additional Azure services. To learn about what's coming next with Azure Stack, see the [Azure Stack roadmap](https://azure.microsoft.com/roadmap/?tag=azure-stack). 
+
 
 ## Next steps
-
-[Deploy the ASDK](asdk-deploy-qs.md)
+To get started evaluating Azure Stack, you need to prepare the development kit host server computer and then [install the ASDK](asdk-deploy.md). After that, you can sign in to the administrator and user portals to start using Azure Stack.

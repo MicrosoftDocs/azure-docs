@@ -58,7 +58,7 @@ We do not recommend that you turn off telemetry in your organization as telemetr
 
 In these instances, you can configure the telemetry level sent to Microsoft by using registry settings pre- deployment or using the Telemetry Endpoints post deployment.
 
-### ASDK: set telemetry level in the Windows registry
+### Set telemetry level in the Windows registry
 The Windows Registry Editor is used to manually set the telemetry level on the physical host computer prior to deploying Azure Stack. If a management policy already exists, such as Group Policy, it overrides this registry setting. 
 
 Before deploying Azure Stack on the development kit host, boot into the CloudBuilder.vhdx and run the following script in an elevated PowerShell window:
@@ -101,7 +101,7 @@ Turning off Windows and Azure Stack telemetry disables SQL telemetry. For additi
 > [!IMPORTANT]
 > These telemetry levels only apply to Microsoft Azure Stack components. Non-Microsoft software components and services that are running in the Hardware Lifecycle Host from Azure Stack hardware partners may communicate with their cloud services outside of these telemetry levels. You should work with your Azure Stack hardware solution provider to understand their telemetry policy, and how you can opt in or opt out. 
 
-### ASDK and MultiNode: enable or disable telemetry after deployment
+### Enable or disable telemetry after deployment
 
 To enable or disable telemetry after deployment, you need to have access to the Privileged End Point (PEP) which is exposed on the ERCS VMs.
 1.	To Enable: `Set-Telemetry -Enable`

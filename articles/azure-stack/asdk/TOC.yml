@@ -1,31 +1,27 @@
 - name: Azure Stack Development Kit Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
-  - name: What is the Azure Stack Development Kit (ASDK)?
+  - name: What is the ASDK?
     href: asdk-what-is.md
   - name: ASDK release notes
     href: asdk-release-notes.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Deploy the ASDK
-    href: asdk-deploy-qs.md 
-  - name: Deploy the ASDK - PowerShell
-    href: asdk-deploy-powershell-qs.md
-  - name: Redeploy the ASDK
-    href: asdk-redeploy-qs.md  
 - name: Tutorials
   items:
   - name: 1. Add a marketplace item
-    href: asdk-marketplace-item.md
+    items:
+    - name: Download from Azure
+      href: asdk-marketplace-item.md
+    - name: Add from a local source
+      href: asdk-marketplace-item-offline.md
   - name: 2. Offer IaaS services
     href: asdk-offer-services.md
   - name: 3. Subscribe to an offer
     href: asdk-subscribe-services.md
   - name: 4. Update offers and plans
     href: asdk-update-offers.md 
-  - name: 5. Create a virtual machine from a template
+  - name: 5. Create a VM from a template
     href: asdk-create-vm-template.md 
 - name: Concepts
   items:
@@ -39,8 +35,16 @@
     href: asdk-advanced-eval.md
 - name: How to
   items:
-  - name: Deploy the ASDK
+  - name: Setup the ASDK
     items:
+    - name: Deploy the ASDK
+      items:
+       - name: Deploy the ASDK - Installer
+         href: asdk-deploy.md 
+       - name: Deploy the ASDK - PowerShell
+         href: asdk-deploy-powershell.md
+       - name: Redeploy the ASDK
+         href: asdk-redeploy.md 
     - name: Download and extract the development kit
       href: asdk-download.md
     - name: Prepare the ASDK host computer
