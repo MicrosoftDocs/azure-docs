@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 03/15/2018
 ms.author: marsma
 ---
 
@@ -21,7 +21,7 @@ All container images in your registry are encrypted at rest. Azure automatically
 
 ## Geo-redundant storage
 
-Azure uses a geo-redundant storage scheme to help ensure high availability of your container registry. Your images are automatically replicated to data centers that are geographically distant from your registry's primary location. In the event of a regional failure, Azure Container Registry automatically and transparently routes requests to a healthy region for continued access to your images.
+Azure uses a geo-redundant storage scheme to guard against loss of your container images. Azure Container Registry automatically replicates all images to multiple geographically distant data centers, preventing image loss in the event of a regional storage failure.
 
 ## Image limits
 
@@ -35,17 +35,15 @@ The following table describes the container image and storage limits in place fo
 | Tags | No limit|
 | Storage | 5 TB |
 
-Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry management routine. Deleted registry resources like repositories, images, and tags can *not* be recovered after deletion.
+Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry maintenance routine. Deleted registry resources like repositories, images, and tags can *not* be recovered after deletion.
 
 ## Storage cost
-
-The Basic, Standard, and Premium service tiers are priced at a daily rate that aligns with their performance capabilities and feature set, up to a certain storage threshold. The Standard and Premium tiers enable storage above these thresholds, and the overage (the amount above the threshold) is charged at the same per-day rate for both tiers.
 
 For full details about pricing, see [Azure Container Registry pricing][pricing].
 
 ## Backup
 
-By using geo-redundant storage, Azure Container Registry distributes images across multiple regional data centers for high availability. ACR doesn't currently provide an automated export feature for backing up images to another storage account or platform. For a manual backup solution, you can iterate through the list of images in your registry, pull each image locally, then transfer them to an alternate storage platform.
+By using geo-redundant storage, Azure Container Registry automatically distributes your images across multiple regional data centers. ACR doesn't currently provide an automated export feature for backing up images to another storage account or platform. For a manual backup solution, you can iterate through the list of images in your registry, pull each image locally, then transfer them to an alternate storage platform.
 
 ## Next steps
 
