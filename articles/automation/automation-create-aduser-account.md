@@ -1,5 +1,5 @@
 ---
-title: Create Azure AD User Account | Microsoft Docs
+title: Create Azure AD User Account
 description: This article describes how to create an Azure AD User account credential for runbooks in Azure Automation to authenticate in Azure.
 services: automation
 documentationcenter: ''
