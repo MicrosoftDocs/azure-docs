@@ -163,9 +163,10 @@ Using Durable Functions, multiple monitors that observe arbitrary endpoints can 
 public static async Task Run(DurableOrchestrationContext ctx)
 {
     int jobId = ctx.GetInput<int>();
-    int pollingInterval = (int)GetEnvironmentVariable("JOB_POLLING_INTERVAL_SECONDS");
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
     
-    while (true) 
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
         var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
         if (jobStatus == "Completed")
@@ -184,7 +185,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
-When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the for-loop is exited. A durable timer is used to control the polling interval. Further work can then be performed, or the orchestration can end. To add a timeout, replace the for-loop's `true` condition with a comparison of `ctx.CurrentUtcDateTime` and the timeout date.
+When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the loop is exited. A durable timer is used to control the polling interval. Further work can then be performed, or the orchestration can end. When the `ctx.CurrentUtcDateTime` exceeds the `expiryTime`, the monitor ends.
 
 ## Pattern #5: Human interaction
 

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/28/2017
+ms.date: 03/16/2017
 ms.author: azfuncdf
 ---
 
 # Monitor scenario in Durable Functions - Weather watcher sample
 
-The monitor pattern refers to a flexible *recurring* process in a workflow - for example, pattern of polling some status and taking action when certain conditions are met. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement monitoring.
+The monitor pattern refers to a flexible *recurring* process in a workflow - for example, polling until certain conditions are met. This article explains a sample that uses [Durable Functions](durable-functions-overview.md) to implement monitoring.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ The following sections explain the configuration and code that are used for Azur
  
 ## The weather monitoring orchestration (Visual Studio Code and Azure portal sample code)
 
-The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.
+The **E3_Monitor** function uses the standard *function.json* for orchestrator functions.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Monitor/function.json)]
 
@@ -113,7 +113,7 @@ And here is the code that sends the SMS message:
 Using the HTTP-triggered functions included in the sample, you can start the orchestration by sending the following HTTP POST request:
 
 ```
-POST http://{host}/orchestrators/E3_Monitor
+POST https://{host}/orchestrators/E3_Monitor
 Content-Length: 77
 Content-Type: application/json
 
@@ -122,10 +122,10 @@ Content-Type: application/json
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
-Location: http://localhost:7071/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={SystemKey}
+Location: https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={SystemKey}
 RetryAfter: 10
 
-{"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "http://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "http://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "http://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
+{"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
 
 The **E3_Monitor** instance starts and queries the current weather conditions for the requested location. If the weather is clear, it calls an activity function to send an alert; otherwise, it sets a timer. When the timer expires, the orchestration will resume.
@@ -151,7 +151,7 @@ You can see the orchestration's activity by looking at the function logs in the 
 The orchestration will [terminate](durable-functions-instance-management.md#terminating-instances) once its timeout is reached or clear skies are detected. You can also use `TerminateAsync` inside another function or invoke the **terminatePostUri** HTTP POST webhook referenced in the 202 response above, replacing `{text}` with the reason for termination:
 
 ```
-POST http://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
+POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
 ```
 
 ## Visual Studio sample code
