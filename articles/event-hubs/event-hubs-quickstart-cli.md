@@ -39,7 +39,7 @@ Once CLI is installed, perform the following steps to install the Event Hubs CLI
    az extension add --name eventhubs
    ```
 
-2. Run the following command to log in to Azure:
+2. Run the following command to log on to Azure:
 
    ```azurecli-interactive
    az login
@@ -67,19 +67,19 @@ After logging in to Azure, issue the following commands to provision Event Hubs 
 az group create --name eventhubsResourceGroup --location eastus
 
 # Create an Event Hubs namespace
-az eventhubs namespace create --name <namespace_name> --resource-group eventhubsResourceGroup -l eastus2
+az eventhubs namespace create --name <namespace_name> --resource-group <my_resourceGroup> -l eastus2
 
 # Create an event hub
-az eventhubs eventhub create --name <event_hub_name> --resource-group eventhubsResourceGroup --namespace-name <namespace_name>
+az eventhubs eventhub create --name <event_hub_name> --resource-group <my_resourceGroup> --namespace-name <namespace_name>
 
 # Create a general purpose standard storage account
-az storage account create --name <storage_account_name> --resource-group eventhubsResourceGroup --location eastus2 --sku Standard_RAGRS --encryption blob
+az storage account create --name <storage_account_name> --resource-group <my_resourceGroup> --location eastus2 --sku Standard_RAGRS --encryption blob
 
 # List the storage account access keys
-az storage account keys list --resource-group eventhubsResourceGroup --account-name <storage_account_name>
+az storage account keys list --resource-group <my_resourceGroup> --account-name <storage_account_name>
 
 # Get namespace connection string
-az eventhubs namespace authorizationrule keys list --resource-group eventhubsResourceGroup --namespace-name <namespace_name> --name RootManageSharedAccessKey
+az eventhubs namespace authorizationrule keys list --resource-group <my_resourceGroup> --namespace-name <namespace_name> --name RootManageSharedAccessKey
 ```
 
 Copy and paste the connection string to a temporary location, such as Notepad, to use later.
@@ -121,7 +121,7 @@ First, run the **Send** application and observe an event being sent. Then, run t
 Run the following command to remove the resource group, namespace, storage account, and all related resources:
 
 ```azurecli-interactive
-az group delete --name eventhubsResourceGroup
+az group delete --name <my_resourceGroup>
 ```
 
 ## Next steps
