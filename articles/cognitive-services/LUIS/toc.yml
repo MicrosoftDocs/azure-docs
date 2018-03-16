@@ -159,7 +159,7 @@
       href: App-Dashboard.md
     - name: Manage LUIS keys
       href: Manage-Keys.md
-    - name: Manage Azure keys
+    - name: Manage Azure endpoint keys
       href: AzureIbizaSubscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
