@@ -29,7 +29,7 @@ In this article, you can learn how to use Storage Explorer to manage Azure Cosmo
 
 ## Prerequisites
 
-An Azure Cosmos DB account for the SQL API <!--or MongoDB API-->. If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-sql-api-dotnet.md).
+An Azure Cosmos DB account for the SQL API<!--or MongoDB API-->. If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-sql-api-dotnet.md).
 
 ## Installation
 
@@ -37,7 +37,7 @@ Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](ht
 
 ## Connect to an Azure subscription
 
-1. After installing the **Azure Storage Explorer**, click the **plug-in** icon on the left as shown in the following image.
+1. After installing the **Azure Storage Explorer**, click the **plug-in** icon on the left as shown in the following image:
        
    ![Plug in icon](./media/storage-explorer/plug-in-icon.png)
  
@@ -67,7 +67,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
     ![Connect to Azure Cosmos DB by connection string](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Choose the appropriate **Default Experience** for your account type, <!--either--> **DocumentDB** <!--or **MongoDB**-->, paste in your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Choose the appropriate **Default Experience** for your account type, <!--either--> **DocumentDB**<!--or **MongoDB**-->, paste in your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![Connection-string](./media/storage-explorer/connection-string.png)
 
@@ -169,8 +169,8 @@ Edit the graph filter by entering a [gremlin query](gremlin-support.md) and then
 ![Table](./media/storage-explorer/table.png)
 
 #### Import and Export table
-Click **Import** button and choose an existing table to import.
-Click **Export** button and choose a destination to export table.
++ To import, click **Import** button and choose an existing table.
++ To export, click **Export** button and choose a destination.
 
 
 ![Table Import and Export](./media/storage-explorer/table-import-export.png)
@@ -193,8 +193,7 @@ Click **Query** button, input query condition, then click **Execute Query** butt
 * You can also edit existing stored procedures by double-clicking, making the update, and then clicking **Update** to save, or click **Discard** to cancel the change.
 
 ![Stored procedure](./media/storage-explorer/stored-procedure.png)
-
-* The operations for **Triggers** and **UDF** are similar to those for **Stored Procedures**.
+* The operations for **Triggers** and **UDF** are similar with **Stored Procedures**.
 
 ## Next steps
 
