@@ -12,7 +12,7 @@ ms.date: 03/16/2018
 ms.author: v-geberr;
 ---
 
-# Data Storage and removal
+# Data storage and removal
 LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. This data is stored for 30 days. 
 
 ## Export and delete app
