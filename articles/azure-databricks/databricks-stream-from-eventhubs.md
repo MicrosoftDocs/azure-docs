@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Stream events into Azure Databricks using Event Hubs | Microsoft Docs'
+title: 'Tutorial: Stream data into Azure Databricks using Event Hubs | Microsoft Docs'
 description: Learn to use Azure Databricks with Event Hubs to ingest streaming data from Twitter and read the data in real time. 
 services: azure-databricks
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: nitinme
 
 ---
 
-# Tutorial: Stream events into Azure Databricks using Event Hubs
+# Tutorial: Stream data into Azure Databricks using Event Hubs
 
 In this tutorial, you connect a data ingestion system with Azure Databricks to stream real-time data into an Apache Spark cluster. You set up real-time data ingestion system using Azure Event Hubs and then connect it to Azure Databricks to process the messages coming through. To access a real-time stream of data, you use Twitter APIs to ingest tweets into Event Hubs. Once you have the data in Azure Databricks, you can run analytical jobs to further analyze the data. In this tutorial, you extract the tweets that have the term "Azure" in them.
 
@@ -35,7 +35,7 @@ This tutorial covers the following tasks:
 > * Create notebooks in Azure Databricks
 > * Attach libraries for Event Hubs and Twitter API
 > * Send tweets to Event Hubs
-> * Receive tweets from Event Hubs
+> * Read tweets from Event Hubs
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -374,9 +374,9 @@ In this tutorial, you learned how to:
 > * Create notebooks in Azure Databricks
 > * Add libraries for Event Hubs and Twitter API
 > * Send tweets to Event Hubs
-> * Receive messages from Event Hubs
+> * Read tweets from Event Hubs
 
-Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Azure Cognitive Services API](../cognitive-services/text-analytics/overview.md).
+Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Sentiment analyis on streaming data using Azure Databricks ](quickstart-create-databricks-workspace-portal.md)
+>[Sentiment analyis on streaming data using Azure Databricks ](databricks-stream-from-eventhubs.md)
