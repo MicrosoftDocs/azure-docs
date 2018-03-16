@@ -40,14 +40,43 @@
         - name: Access Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
         - name: Access Azure Resource Manager with a user-assigned MSI
-          href: msi-tutorial-linux-vm-access-arm
+          href: /azure/active-directory/pp/msi-tutorial-linux-vm-access-arm
         - name: Azure Service Bus
           href: /azure/service-bus-messaging/service-bus-managed-service-identity
         - name: Azure App Service and Functions
           href: /azure/app-service/app-service-managed-service-identity
         - name: Azure Event Hubs
-          href: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-managed-service-identity
-
+          href: /azure/event-hubs/event-hubs-managed-service-identity
+    - name: How To Guides
+      items:
+      - name: Configure MSI for Azure VM
+        items:
+        - name: Portal
+        items:
+          - name: System Assigned
+            href: qs-configure-portal-windows-vm.md
+          - name: User Assigned
+        - name: CLI
+        items:
+          - name: System Assigned
+          - name: User Assigned
+        - name: PowerShell
+        items:
+          - name: System Assigned
+          - name: User Assigned
+        - name: Azure Resource Manager Template
+        items:
+          - name: System Assigned
+          - name: User Assigned
+        - name: Azure SDK
+        items:
+          - name: System Assigned
+          - name: User Assigned
+      - name: Configure MSI for Azure VMSS
+        items:
+        -name: Portal
+        items:
+        - name: System 
     - name: Configure MSI for an Azure VM
       items:
       - name: Using Azure Portal
