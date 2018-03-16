@@ -73,10 +73,7 @@ Azure AD Connect Health Performance Monitoring provides monitoring information o
 
 By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metric, right-click on the monitoring chart under the monitoring blade and select Edit Chart (or select the Edit Chart button). From the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
 
-## Reports for AD FS
-Azure AD Connect Health provides reports about activity and performance of AD FS. These reports help administrators gain insight into activities on their AD FS servers.
-
-### Top 50 Users with failed Username/Password logins
+## Top 50 Users with failed Username/Password logins
 One of the common reasons for a failed authentication request on an AD FS server is a request with invalid credentials, that is, a wrong username or password. Usually happens to users due to complex passwords, forgotten passwords, or typos.
 
 But there are other reasons that can result in an unexpected number of requests being handled by your AD FS servers, such as: An application that caches user credentials and the credentials expire or a malicious user attempting to sign into an account with a series of well-known passwords. These two examples are valid reasons that could lead to a surge in requests.
@@ -90,7 +87,7 @@ Within this report you have easy access to the following pieces of information:
 * Total # of failed requests with wrong username/password in the last 30 days
 * Average # of users that failed with a bad username/password login per day.
 
-Clicking this part takes you to the main report blade that provides additional details. This blade includes a graph with trending information to help establish a baseline about requests with wrong username or password. Additionally, it provides the list of top 50 users with the number of failed attempts during the past week.
+Clicking this part takes you to the main report blade that provides additional details. This blade includes a graph with trending information to help establish a baseline about requests with wrong username or password. Additionally, it provides the list of top 50 users with the number of failed attempts during the past week. Notice top 50 users from the past week could help identify bad password spikes.  
 
 The graph provides the following information:
 
@@ -114,7 +111,7 @@ The report provides the following information:
 >
 >
 
-### Risky IP Report 
+## Risky IP Report 
 AD FS customers may expose password authentication endpoints to the internet to provide authentication services for end users to access SaaS applications such as Office 365. In this case, it is possible for a bad actor to attempt logins against your AD FS system to guess and end user’s password and get access to application resources. AD FS provides the extranet account lockout functionality to prevent these types of attacks since AD FS in Windows Server 2012 R2. If you are on a lower version, we strongly recommend that you upgrade your AD FS system to Windows Server 2016. <br />
 Additionally, it is possible for a single IP address to attempt multiple logins against multiple users. In these cases, the number of attempts per user may be under the threshold for account lockout protection in AD FS. Azure AD Connect Health now provides the “Risky IP report” that detects this condition and notifies administrators when this occurs. The following are the key benefits for this report: 
 - Detection of IP addresses that exceed a threshold of failed password-based logins
@@ -128,7 +125,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 >
 >
 
-#### What is in the report
+### What is in the report
 Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceeds designated threshold. It provides the following information:
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report4a.png)
 
@@ -154,7 +151,7 @@ For example, the below report item indicates from the 6pm to 7pm hour window on 
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-#### Download Risky IP report
+### Download Risky IP report
 Using the **Download** functionality, the whole risky IP address list in the past 30 days can be exported from the Connect Health Portal
 The export result will include all the failed AD FS sign-in activities in each detection time window, so you can customize the filtering after the export. 
 Besides the highlighted aggregations in the portal, the export result also shows more details about failed sign-in activities per IP address:
@@ -166,11 +163,11 @@ Besides the highlighted aggregations in the portal, the export result also shows
 | attemptCountThresholdIsExceeded | The flag if the current activities is exceeding the alerting threshold.  | 
 | isWhitelistedIpAddress | The flag if the IP address is filtered from alerting and reporting. Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.  | 
 
-#### Configure Notification Settings
+### Configure Notification Settings
 Admin contacts of the report can be updated through the **Notification Settings**. By default, the risky IP alert email notification is in off state. You can enable the notification by toggle the button under “Get email notifications for IP addresses exceeding failed activity threshold report”
 Like generic alert notification settings in Connect Health, it allows you to customize designated notification recipient list about risky IP report from here. You can also notify all global admins while making the change. 
 
-#### Configure Threshold settings
+### Configure Threshold settings
 Alerting threshold can be updated through Threshold Settings. To start with, system has threshold set by default. There are four categories in the risk IP report threshold settings:
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report4d.png)
@@ -189,7 +186,7 @@ Alerting threshold can be updated through Threshold Settings. To start with, sys
 >
 >
 
-#### FAQ
+### FAQ
 1. Why am I seeing private IP address ranges in the report?  <br />
 Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True in the IP whitelist. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.
 
