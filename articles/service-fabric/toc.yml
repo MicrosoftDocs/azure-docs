@@ -26,12 +26,10 @@
     - name: 1- Build a .NET application
       href: service-fabric-tutorial-create-dotnet-app.md
     - name: 2- Deploy the application
-      href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-    - name: 3- Add an HTTPS endpoint to an ASP.NET Core Web API front-end service
-      href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
-    - name: 4- Configure CI/CD
+      href: service-fabric-tutorial-deploy-app-to-party-cluster.md    
+    - name: 3- Configure CI/CD
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-    - name: 5- Monitor and Diagnose
+    - name: 4- Monitor and Diagnose
       href: service-fabric-tutorial-monitoring-aspnet.md
   - name: Deploy a Java app
     items:
@@ -95,7 +93,7 @@
     href: service-fabric-architecture.md
   - name: Terminology
     href: service-fabric-technical-overview.md
-  - name: Supported programming models
+  - name: Building applications
     href: service-fabric-choose-framework.md
     items:
     - name: Containers
@@ -165,6 +163,8 @@
       href: service-fabric-concepts-replica-lifecycle.md
     - name: Reconfiguration
       href: service-fabric-concepts-reconfiguration.md
+    - name: Application security
+      href: service-fabric-application-and-service-security.md
     - name: Service communication
       href: service-fabric-connect-and-communicate-with-services.md
       items:
@@ -418,11 +418,7 @@
       - name: Run a service startup script as a local user or system account
         href: service-fabric-run-script-at-service-startup.md
       - name: Run a service as a local user or system account
-        href: service-fabric-application-runas-security.md
-      - name: Run a service as an AD user or group
-        href: service-fabric-run-service-as-ad-user-or-group.md
-      - name: Run a service as a group Managed Service Account
-        href: service-fabric-run-service-as-gmsa.md
+        href: service-fabric-application-runas-security.md      
       - name: Assign a security access policy for endpoints
         href: service-fabric-assign-policy-to-endpoint.md
   - name: Work in a Windows/VS dev environment
@@ -549,8 +545,14 @@
           href: service-fabric-cluster-standalone-package-contents.md
       - name: Scale
         href: service-fabric-cluster-windows-server-add-remove-nodes.md
-      - name: Set access control
-        href: service-fabric-cluster-security-roles.md
+      - name: Configure security
+        items:
+        - name: Set access control
+          href: service-fabric-cluster-security-roles.md
+        - name: Run a service as an AD user or group
+          href: service-fabric-run-service-as-ad-user-or-group.md
+        - name: Run a service as a group Managed Service Account
+          href: service-fabric-run-service-as-gmsa.md
       - name: Configure
         href: service-fabric-cluster-manifest.md
       - name: Upgrade
