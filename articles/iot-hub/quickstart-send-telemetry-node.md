@@ -51,7 +51,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 1. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
 
-    ![Select to install IoT Hub](media/quickstart-d2c-node/selectiothub.png)
+    ![Select to install IoT Hub](media/quickstart-send-telemetry-node/selectiothub.png)
 
 1. To create your IoT hub, use the values in the following table:
 
@@ -68,7 +68,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 1. Click **Create**.
 
-    ![Hub settings](media/quickstart-d2c-node/hubdefinition.png)
+    ![Hub settings](media/quickstart-send-telemetry-node/hubdefinition.png)
 
 1. Make a note of your IoT hub and resource group names. You use these values later in this quickstart.
 
@@ -122,7 +122,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows some example output as the application sends simulated telemetry to your IoT hub:
 
-    ![Run the simulated device](media/quickstart-d2c-node/SimulatedDevice.png)
+    ![Run the simulated device](media/quickstart-send-telemetry-node/SimulatedDevice.png)
 
 ## Run the back-end application
 
@@ -143,7 +143,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     The following screenshot shows some example output as the application receives telemetry from your simulated device:
 
-    ![Run the back-end application](media/quickstart-d2c-node/ReadDeviceToCloud.png)
+    ![Run the back-end application](media/quickstart-send-telemetry-node/ReadDeviceToCloud.png)
 
 ## Clean up resources
 
