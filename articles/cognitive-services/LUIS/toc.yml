@@ -103,6 +103,8 @@
       href: luis-concept-data-alteration.md
     - name: Extracting data
       href: luis-concept-data-extraction.md
+    - name: Data Storage
+      href: luis-concept-data-storage.md
   - name: Test
     items: 
     - name: Interactive testing
