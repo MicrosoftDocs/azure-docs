@@ -1,6 +1,6 @@
 ---
-title: Learn how to provide optional claims to your AAD application | Microsoft Docs
-description: A guide for adding custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure AD (AAD)
+title: Learn how to provide optional claims to your Azure AD application | Microsoft Docs
+description: A guide for adding custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory. 
 documentationcenter: na
 author: hpsin
 services: active-directory
@@ -17,7 +17,7 @@ ms.author: hirsin
 ms.custom: aaddev
 
 ---
-# optional claims in Azure AD (preview)
+# Optional claims in Azure AD (preview)
 
 This feature is used by application developers to specify which claims they want in tokens sent to their application. You can use optional claims to:
 -	Select additional claims to include in tokens for your application.
