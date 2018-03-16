@@ -137,7 +137,7 @@ To create and manage Azure SQL server, databases, and firewalls with the [Azure 
 |[az group create](/cli/azure/group#az_group_create)|Creates a resource group|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Creates a server|
 |[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Lists servers|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Returns  server usages|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Returns  server usages|
 |[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Gets a server|
 |[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Updates a server|
 |[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Deletes a server|
@@ -193,7 +193,6 @@ To create and manage Azure SQL server, databases, and firewalls, use these REST 
 |[Servers - List](/rest/api/sql/servers/list)|Returns a list of servers.|
 |[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|Returns a list of servers in a resource group.|
 |[Servers - Update](/rest/api/sql/servers/update)|Updates an existing server.|
-|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|Determines whether a resource can be created with the specified name.|
 |[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
 |[Databases - Get](/rest/api/sql/databases/get)|Gets a database.|
 |[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|Gets a database inside of an elastic pool.|
