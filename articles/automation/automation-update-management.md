@@ -158,7 +158,7 @@ Click on the **Update Management** on your automation account to view the status
 
 This view provides information on your machines, missing updates, update deployments, and scheduled update deployments.
 
-You can run a log search that returns information the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
+You can run a log search that returns information on the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
 
 ## Installing updates
 
