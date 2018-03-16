@@ -1,13 +1,20 @@
 ---
-title: Azure Automation Source Control Integration with GitHub Enterprise
+title: Azure Automation Source Control Integration with GitHub Enterprise | Microsoft Docs
 description: Describes the details of how to configure integration with GitHub Enterprise  for source control of Automation runbooks.
 services: automation
+documentationCenter: ''
+authors: georgewallace
+manager: jwhit
+editor: ''
+
+ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-manager: carmonm
+ms.date: 07/26/2017
+ms.author: magoedte
 ---
 
 # Azure Automation scenario - Automation source control integration with GitHub Enterprise
