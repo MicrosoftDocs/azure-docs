@@ -44,7 +44,8 @@ Build a chat bot with integrated language understanding.
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
     * Select the **Language understanding (C#)** template for the **Bot template** field.
-    * Select the **LUIS App Location**. This is the authoring region the app is created in.
+
+* Select the **LUIS App Location**. This is the authoring region the app is created in.
     * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
 
     ![Bot Service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
@@ -81,6 +82,7 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
+    > Regional LUIS portals are not supported at this time. LUIS applications must be registered to [LUIS](https://www.luis.ai/).
 
 ## Modify the bot code
 
