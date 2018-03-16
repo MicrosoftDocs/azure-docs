@@ -17547,6 +17547,11 @@
         "source_path": "articles/log-analytics/log-analytics-log-search-api-python.md",
         "redirect_url": "https://dev.loganalytics.io/",
         "redirect_document_id": false
+     },
+	      {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-concurrency.md",
+        "redirect_url": "/azure/sql-data-warehouse/resource-classes-for-workload-management",
+        "redirect_document_id": false
      }
    ]
 }
