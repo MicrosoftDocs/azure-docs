@@ -225,6 +225,12 @@ This section illustrates how you can use the [Azure portal][http-azure-portal-li
 
 A PowerShell script can also create virtual network rules. The crucial cmdlet **New-AzureRmSqlServerVirtualNetworkRule**. If interested, see [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
+#### REST API alternative
+
+Internally, the PowerShell cmdlets for SQL VNet actions call REST APIs. You can call the REST APIs directly.
+
+- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r]
+
 #### Prerequisites
 
 You must already have a subnet that is tagged with the particular Virtual Network service endpoint *type name* relevant to Azure SQL Database.
@@ -284,6 +290,8 @@ The virtual network rule feature for Azure SQL Database became available in late
 ## Next steps
 
 - [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r]
+
 
 
 <!-- Link references, to images. -->
@@ -324,6 +332,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
+[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
 
 
 
