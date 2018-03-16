@@ -20,7 +20,7 @@ ms.author: dobett
 
 # Quickstart: Control a device connected to an IoT hub
 
-In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You run two sample applications:
+In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub. You run two sample applications in this quickstart:
 
 * A simulated device application that responds to direct methods called from a back-end application. To receive the direct method calls, this application connects to a device-specific endpoint on your IoT hub.
 * A back-end application that calls the direct methods on the simulated device. To call a direct method on a device, this application connects to service-side endpoint on your IoT hub.
@@ -49,7 +49,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 1. In a new browser window, sign in to the [Azure portal](http://portal.azure.com).
 
-1. Click **+ Create a resource**, then select **Internet of Things**, and then select **IoT Hub**:
+1. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
 
     ![Select to install IoT Hub](media/quickstart-c2d-node/selectiothub.png)
 
@@ -66,7 +66,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
     | Location | The location closest to you. |
     | Pin to dashboard | Yes |
 
-    Then click **Create**.
+1. Click **Create**.
 
     ![Hub settings](media/quickstart-c2d-node/hubdefinition.png)
 
@@ -74,26 +74,24 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 ## Register a device
 
-1. Add the the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with the name of your IoT hub:
+If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-d2c-node.md), you can skip this step.
+
+A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure CLI to register a simulated device.
+
+1. Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with the name of your IoT hub:
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyNodeDevice
     ```
 
-1. You need the *device connection string* for your simulated device later in this tutorial. The device connection string enables the device to authenticate with your IoT hub. The following command retrieves the device connection string for the device you just registered:
+1. Run the following command to get the _device connection string_ for the device you just registered:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
     ```
 
     Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
-
-    You can list all the devices registered with your IoT hub. Replace `{YourIoTHubName}` with the name of your IoT hub:
-
-    ```azurecli-interactive
-    az iot hub device-identity list --hub-name {YourIoTHubName} --output table
-    ```
 
 1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
@@ -126,9 +124,9 @@ The simulated device application connects to a device-specific endpoint on your 
     node SimulatedDevice.js
     ```
 
-    The following screenshot shows some example output as the application sends simulated telemetry to your IoT hub and receives direct method calls:
+    The following screenshot shows some example output as the application sends simulated telemetry to your IoT hub:
 
-    ![Run the simulated device](media/quickstart-c2d-node/SimulatedDevice.png)
+    ![Run the simulated device](media/quickstart-c2d-node/SimulatedDevice-1.png)
 
 ## Run the back-end application
 
@@ -147,9 +145,13 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
     node BackEndApplication.js
     ```
 
-    The following screenshot shows some example output as the application makes a direct method calll to the device and receives an acknowledgemnt:
+    The following screenshot shows some example output as the application makes a direct method call to the device and receives an acknowledgemnt:
 
     ![Run the back-end application](media/quickstart-c2d-node/BackEndApplication.png)
+
+    After you run the back-end application, you see a message in the console window running the simulated device, and the rate at which it sends messages changes:
+
+    ![Change in simulated client](media/quickstart-c2d-node/SimulatedDevice-2.png)
 
 ## Clean up resources
 

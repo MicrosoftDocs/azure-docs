@@ -49,7 +49,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 1. In a new browser window, sign in to the [Azure portal](http://portal.azure.com).
 
-1. Click **+ Create a resource**, then select **Internet of Things**, and then select **IoT Hub**:
+1. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
 
     ![Select to install IoT Hub](media/quickstart-d2c-node/selectiothub.png)
 
@@ -66,7 +66,7 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
     | Location | The location closest to you. |
     | Pin to dashboard | Yes |
 
-    Then click **Create**.
+1. Click **Create**.
 
     ![Hub settings](media/quickstart-d2c-node/hubdefinition.png)
 
@@ -74,28 +74,22 @@ The first step is to use the Azure portal to create an IoT hub in your subscript
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure CLI to register a device.
+A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure CLI to register a simulated device.
 
-1. Add the the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with the name of your IoT hub:
+1. Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with the name of your IoT hub:
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyNodeDevice
     ```
 
-1. You need the *device connection string* for your simulated device later in this tutorial. The device connection string enables the device to authenticate with your IoT hub. The following command retrieves the device connection string for the device you just registered:
+1. Run the following command to get the _device connection string_ for the device you just registered:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
     ```
 
     Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the quickstart.
-
-    You can list all the devices registered with your IoT hub. Replace `{YourIoTHubName}` with the name of your IoT hub:
-
-    ```azurecli-interactive
-    az iot hub device-identity list --hub-name {YourIoTHubName} --output table
-    ```
 
 1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
@@ -147,7 +141,7 @@ The back-end application connects to the service-side **Events** endpoint on you
     node ReadDeviceToCloudMessages.js
     ```
 
-    The following screenshot shows some example output as the application receives telemtry from your simulated device:
+    The following screenshot shows some example output as the application receives telemetry from your simulated device:
 
     ![Run the back-end application](media/quickstart-d2c-node/ReadDeviceToCloud.png)
 
