@@ -175,7 +175,7 @@ When the provided measurement JavaScript is used, Traffic Manager will have visi
 No, it doesn’t need to use Traffic Manager. The routing side of Traffic Manager operates separately from the Real User Measurement part and although it is a great idea to have them both in the same web property, they don’t need to be.
 
 ### Do I need to host any service on Azure regions to use with Real User Measurements?
-No, you don’t need to host any server side component on Azure for real User Measurements to work. The single pixel image downloaded by the measurement JavaScript and the service running it in different Azure regions is hosted and managed by Azure. 
+No, you don’t need to host any server side component on Azure for Real User Measurements to work. The single pixel image downloaded by the measurement JavaScript and the service running it in different Azure regions is hosted and managed by Azure. 
 
 ### Will my Azure bandwidth usage increase when I use Real User Measurements?
 As mentioned in the previous answer, the server-side components of Real User Measurements are owned and managed by Azure. This means your Azure bandwidth usage will not increase because you use Real User Measurements. Please note that, this does not include any bandwidth usage outside of what Azure charges. We minimize the bandwidth used by downloading only a single pixel image to measurement the latency to an Azure region. 
@@ -189,7 +189,7 @@ Traffic View is a feature of Traffic Manager that helps you understand more abou
 - The Azure regions  to which they are getting routed to.
 - Their latency experience to these Azure regions.
 
-This information is available for you to consume through a tabular view in the portal in addition to being available as raw data for you to download.
+This information is available for you to consume through geographical map overlay and tabular views in the portal in addition to being available as raw data for you to download.
 
 ### How can I benefit from using Traffic View?
 
@@ -201,7 +201,7 @@ Azure Monitor can be used to understand at an aggregate level the traffic receiv
 
 ### Does Traffic View use EDNS Client Subnet information?
 
-Traffic View does not consider the EDNS Client Subnet information when creating its output. It uses the IP address of your users’ local DNS resolver to group them.
+The DNS queries served by Azure Traffic Manager do consider ECS information to increase the accuracy of the routing. But when creating the data set that shows where the users are connecting from, Traffic View is using only the IP address of the DNS resolver.
 
 ### How many days of data does Traffic View use?
 
@@ -216,6 +216,14 @@ During the preview period, Traffic View is enabled at a subscription level and i
 
 ### How can I turn off Traffic View?
 During the preview period, we request that you create a support ticket to disable Traffic View for your subscription.
+
+### Do I need to enable Traffic View for each profile in my subscription?
+
+During the preview period, Traffic View was enabled at a subscription level. As part of the improvements we made before the general availability, you can now enable Traffic View at a profile level, allowing you to have more granular enabling of this feature. By default, Traffic View will be disabled for a profile. 
+Note: if you had enabled Traffic View at a subscription level during the preview time, you will now need to re-enable it for each of the profile under that subscription 
+ 
+### How can I turn off Traffic View? 
+You can turn off Traffic View for any profile using the Portal or REST API. 
 
 ### How does Traffic View billing work?
 
