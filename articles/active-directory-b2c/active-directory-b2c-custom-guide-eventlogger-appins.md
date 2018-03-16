@@ -100,7 +100,7 @@ Application Insights is a powerful tool. When using it with Azure AD B2C, the on
 
 ## Step 3. Add new technical profiles that use the Application Insights provider
 
-Technical profiles may be considerd functions in Azure AD B2C's Identity Experience Framework.  Five technical profiles are defined in this example.
+Technical profiles may be considered functions in Azure AD B2C's Identity Experience Framework.  Five technical profiles are defined in this example to open a session and post events.
 
 | Technical Profile       | Task |
 | ----------------------------- |:---------------------------------------------|
