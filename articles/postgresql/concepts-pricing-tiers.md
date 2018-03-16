@@ -18,7 +18,7 @@ An Azure Database for PostgreSQL server can be created in one of three different
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memory per vCore | 1x | 2x Basic | 2x General Purpose |
 | Storage Size | 5 GB to 1 TB | 5 GB to 1 TB | 5 GB to 1 TB |
 | Storage Type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -36,7 +36,36 @@ After you create a server, the number of vCores can be changed up or down within
 
 ## Compute generations, vCores, and memory
 
-Compute resources are provided as vCores, representing the logical CPU of the underlying hardware. Currently, two compute generations, Gen 4 and Gen 5, are offered for you to choose from. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.
+Compute resources are provided as vCores, representing the logical CPU of the underlying hardware. Currently, two compute generations, Gen 4 and Gen 5, are offered for you to choose from. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. Gen 4 and Gen 5 are available in the regions below: 
+
+| **Azure Region** | **Generation 4** | **Generation 5** |
+|:---|:----------|:--------------------|:---------------------|
+| Central US |  | [x] |
+| East US | [x] | [x] |
+| East US 2 | [x] |  |
+| North Central US | [x] |  |
+| South Central US | [x] |  |
+| West US | [x] | [x] |
+| West US 2 |  | [x] |
+| Canada Central | [x] | [x] |
+| Canada East | [x] | [x] |
+| Brazil South | [x] |  |
+| North Europe | [x] | [x] |
+| West Europe | [x] | [x] |
+| UK West |  | [x] |
+| UK South |  | [x] |
+| East Asia | [x] |  |
+| Southeast Asia | [x] |  |
+| Australia East |  | [x] |
+| Australia SE |  |  |
+| China East | [x] |  |
+| China North | [x] |  |
+| Central India | [x] |  |
+| South India |  |  |
+| West India | [x] |  |
+| Japan East | [x] |  |
+| Japan West | [x] |  |
+| Korea South |  | [x] |
 
 Depending on the pricing tier, each vCore is provisioned with a specific amount of memory. When you increase or decrease the number of vCores for your server, the memory increases or decreases proportionally. The General Purpose tier provides double the amount of memory per vCore compared to the Basic tier. The Memory Optimized tier provides double the amount of memory compared to the General Purpose tier.
 
