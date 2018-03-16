@@ -23,6 +23,8 @@ These steps show how to create a simulated device on your development machine ru
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+
 <a id="setupdevbox"></a>
 
 ## Prepare the development environment 
