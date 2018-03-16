@@ -140,7 +140,7 @@ The Storage object retry function is set to a linear retry policy. The retry fun
 Prior to the download, the Service object [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.  
 
 # [Java] (#tab/java)
-To run the application on a terminal or command prompt, open one which is scoped to the directory that you downloaded the code at earlier. Then enter `mvn compile java`. The application uploads the **HelloWorld.png** image from the directory to your storage account. The application checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Then it begins downloading the image. Outputting which endpoint it is reading from with each download.
+To run the application on a terminal or command prompt, open one that is scoped to the directory that you downloaded the code at earlier. Then enter `mvn compile java`. The application uploads the **HelloWorld.png** image from the directory to your storage account. The application checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Then it begins downloading the image. Outputting which endpoint it is reading from with each download.
 
 The Storage object retry function is set to use a linear retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. The application will automatically switch between secondary and primary as it fails or succeeds since the **LocationMode** is set to **PRIMARY\_THEN\_SECONDARY**.
 
@@ -202,7 +202,7 @@ def retry_callback(retry_context):
 
 # [Java] (#tab/java)
 
-With Java defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. Since it will automatically switch back to Primary for you when it is reachable
+With Java defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. This is because it will automatically switch back to Primary for you when it is reachable.
 
 ---
 
@@ -248,7 +248,7 @@ def response_callback(response):
 ```
 # [Java] (#tab/java)
 
-With Java defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. Since it will automatically switch back to Primary when it is reachable.
+With Java defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. This is because it will automatically switch back to Primary for you when it is reachable.
 
 ---
 
