@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 03/16/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
 ---
 # Troubleshooting Azure role-based access control 
 
-This document article answers common questions about the specific access rights that are granted with roles, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems. These three roles cover all resource types:
+This article answers common questions about the specific access rights that are granted with roles, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems. These three roles cover all resource types:
 
 * Owner  
 * Contributor  
@@ -86,7 +86,7 @@ These require **write** access to both the **Virtual machine**, and the **Resour
 If you can't access any of these tiles, ask your administrator for Contributor access to the Resource group.
 
 ## Azure Functions
-Some features of [Azure Functions](../azure-functions/index.yml) require write access. For example, if a user is assigned the Reader role, they will not be able to view the functions within a function app. The portal will display **(No access)**.
+Some features of [Azure Functions](../azure-functions/functions-overview.md) require write access. For example, if a user is assigned the Reader role, they will not be able to view the functions within a function app. The portal will display **(No access)**.
 
 ![Function apps no access](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
 
