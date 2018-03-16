@@ -84,7 +84,7 @@ You can learn more on how to create following alert types [here](monitor-alerts-
 
 | **Signal Type** | **Monitor Source** | **Description** | 
 |-------------|----------------|-------------|
-| Metric | Azure monitor | Called [**Near-Real-Time Metric alerts**](monitoring-near-real-time-metric-alerts.md), these metric alerts support evaluating metric conditions as frequently as 1 min and allow for multi-metric rules. A list of supported resource types is available [here](monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for). Older metric alerts as defined [here](monitoring-overview-alerts.md#alerts-in-different-azure-services) are not supported in the new Alerts experience. You can find them under Alerts (Classic)|
+| Metric | Azure monitor | Called [**Near-Real-Time Metric alerts**](monitoring-near-real-time-metric-alerts.md), these metric alerts support evaluating metric conditions as frequently as 1 min and allow for multi-metric rules. A list of supported resource types is available [here](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). Older metric alerts as defined [here](monitoring-overview-alerts.md#alerts-in-different-azure-services) are not supported in the new Alerts experience. You can find them under Alerts (Classic)|
 | Logs  | Log Analytics | Receive notifications or run automated actions when a Log search query over metric and/or event data meets certain criteria.|
 | Activity Log | Activity Logs | This category contains the records of all Create, Update, and Delete actions performed through the selected target (resource/resource group/subscription). |
 | Logs  | Service Health Logs | Not supported in Alerts experience.   |
