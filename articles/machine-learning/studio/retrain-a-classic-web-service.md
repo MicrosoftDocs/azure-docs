@@ -3,8 +3,9 @@ title: Retrain a Classic web service | Microsoft Docs
 description: Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: raymondlaghaeian
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: ''
 
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
 
 ---
 # Retrain a Classic web service
