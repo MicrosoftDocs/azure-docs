@@ -35,7 +35,7 @@ This tutorial covers the following tasks:
 > * Create notebooks in Azure Databricks
 > * Attach libraries for Event Hubs and Twitter API
 > * Send tweets to Event Hubs
-> * Receive tweets from Event Hubs
+> * Read tweets from Event Hubs
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -374,9 +374,7 @@ In this tutorial, you learned how to:
 > * Create notebooks in Azure Databricks
 > * Add libraries for Event Hubs and Twitter API
 > * Send tweets to Event Hubs
-> * Receive messages from Event Hubs
-
-Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Azure Cognitive Services API](../cognitive-services/text-analytics/overview.md).
+> * Read tweets from Event Hubs
 
 > [!div class="nextstepaction"]
->[Sentiment analyis on streaming data using Azure Databricks ](quickstart-create-databricks-workspace-portal.md)
+>[Get started with Azure Databricks](quickstart-create-databricks-workspace-portal.md)

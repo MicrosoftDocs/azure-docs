@@ -1,6 +1,6 @@
 ---
 title: Create an Azure data factory using .NET | Microsoft Docs
-description: Create an Azure data factory to copy data from one location in in an Azure Blob Storage to another location in the same Blob Storage. 
+description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location. 
 services: data-factory
 documentationcenter: ''
 author: linda33wj

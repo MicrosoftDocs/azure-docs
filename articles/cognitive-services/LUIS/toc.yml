@@ -109,6 +109,12 @@
       href: luis-concept-test.md
     - name: Batch testing
       href: luis-concept-batch-test.md
+  - name: Enterprise
+    items:
+    - name: Design strategies
+      href: luis-concept-enterprise.md
+  - name: Best practices
+    href: luis-concept-best-practices.md
 - name: How-to guides
   items: 
   - name: Plan your app
