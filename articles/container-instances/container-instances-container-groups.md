@@ -20,7 +20,7 @@ The top-level resource in Azure Container Instances is the *container group*. Th
 
 A container group is a collection of containers that get scheduled on the same host machine. The containers in a container group share a lifecycle, local network, and storage volumes. It is similar to the concept of a *pod* in [Kubernetes][kubernetes-pod] and [DC/OS][dcos-pod].
 
-The following diagram shows an example of a container group that includes multiple containers.
+The following diagram shows an example of a container group that includes multiple containers:
 
 ![Container groups diagram][container-groups-example]
 
