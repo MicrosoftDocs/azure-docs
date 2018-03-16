@@ -841,6 +841,13 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |QpsByEndpoint|Queries by Endpoint Returned|Count|Total|Number of times a Traffic Manager endpoint was returned in the given time frame|EndpointName|
 |ProbeAgentCurrentEndpointStateByProfileResourceId|Endpoint Status by Endpoint|Count|Maximum|1 if an endpoint's probe status is "Enabled", 0 otherwise.|EndpointName|
 
+## Microsoft.Network/networkWatchers/connectionMonitors
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|ProbesFailedPercent|% Probes Failed|Percent|Average|% of connectivity monitoring probes failed|No Dimensions|
+|AverageRoundtripMs|Avg. Round-trip Time (ms)|MilliSeconds|Average|Average network round-trip time (ms) for connectivity monitoring probes sent between source and destination|No Dimensions|
+
 ## Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
