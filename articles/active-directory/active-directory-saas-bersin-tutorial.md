@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Bersin, you need the following items:
 
 - An Azure AD subscription
-- A Bersin single-sign on enabled subscription
+- A Bersin single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -161,7 +161,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Bersin test user
 
-In this section, you create a user called Britta Simon in Bersin. Work with [Bersin support team](mailto:USBersinServiceClient@deloitte.com) to add the users in the Bersin platform or the domain which is needed to be whitelisted in the Bersin platform. If the domain is added by the team, users will get automatically provisioned to the Bersin platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Bersin. Work with the [Bersin support team](mailto:USBersinServiceClient@deloitte.com) to add the users in the Bersin platform or the domain which is needed to be whitelisted in the Bersin platform. If the domain is added by the team, users will get automatically provisioned to the Bersin platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
