@@ -127,6 +127,12 @@ Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download t
 
 ![PFX and connection endpoint](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
+> [!Note]
+> There are a limited number of Party clusters available per hour. If you get an error when you try to sign up for a Party cluster, you can wait for a period and try again, or you can follow the steps in [Deploy the sample application](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) to create a Service Fabric cluster in your Azure subscription and deploy the application to it. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). After you have deployed and verified the application in your cluster, you can skip ahead to [Scale applications and services in a cluster](#scale-applications-and-services-in-a-cluster) in this quick start.
+
+>
+
+
 On your Windows machine, install the PFX in *CurrentUser\My* certificate store.
 
 ```powershell
