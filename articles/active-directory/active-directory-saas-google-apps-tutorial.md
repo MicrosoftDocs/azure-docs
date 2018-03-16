@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 03/16/2018
 ms.author: jeedes
 
 ---
@@ -130,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Single sign-on dialog box](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_samlbase.png)
 
-3. On the **G Suite Domain and URLs** section, if you want to configure for the Gmail perform the following steps:
+3. On the **G Suite Domain and URLs** section, if you want to configure for the **Gmail** perform the following steps:
 
     ![G Suite Domain and URLs single sign-on information](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_urlgmail.png)
 
@@ -148,7 +148,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     > [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
 
-4. On the **G Suite Domain and URLs** section, if you want to configure for the Google Cloud Platform perform the following steps:
+4. On the **G Suite Domain and URLs** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
 
     ![G Suite Domain and URLs single sign-on information](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_url1.png)
 
