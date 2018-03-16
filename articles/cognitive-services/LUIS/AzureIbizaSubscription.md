@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 # Manage Azure endpoint subscription keys
 
-For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. When using the paid tier, LUIS scales to the number of endpoint transactions your application needs.
+For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. 
 
 <a name="create-luis-service"></a>
 ## Create LUIS endpoint key
