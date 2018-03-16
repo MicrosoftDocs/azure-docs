@@ -117,7 +117,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 - Detection of IP addresses that exceed a threshold of failed password-based logins
 - Supports failed logins due to bad password or due to extranet lockout state
 - Email notification to alert administrators as soon as this occurs with customizable email settings
-- Customizable threshold settings that matches with the security policy of an organization
+- Customizable threshold settings that match with the security policy of an organization
 - Downloadable reports for offline analysis and integration with other systems via automation
 
 > [!NOTE]
@@ -126,7 +126,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 >
 
 ### What is in the report
-Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceeds designated threshold. It provides the following information:
+Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceed designated threshold. It provides the following information:
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report4a.png)
 
 | Report Item | Description |
@@ -160,7 +160,7 @@ Besides the highlighted aggregations in the portal, the export result also shows
 | ------- | ----------- | 
 | firstAuditTimestamp | Shows the first timestamp when the failed activities started during the detection time window.  | 
 | lastAuditTimestamp | Shows the last timestamp when the failed activities ended during the detection time window.  | 
-| attemptCountThresholdIsExceeded | The flag if the current activities is exceeding the alerting threshold.  | 
+| attemptCountThresholdIsExceeded | The flag if the current activities are exceeding the alerting threshold.  | 
 | isWhitelistedIpAddress | The flag if the IP address is filtered from alerting and reporting. Private IP addresses (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) and Exchange IP addresses are filtered and marked as True. If you are seeing private IP address ranges, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server.  | 
 
 ### Configure Notification Settings
@@ -197,7 +197,7 @@ For AD FS 2016 + 1803.C+ QFE, you can block the IP address directly at AD FS.
 3. Why am I not seeing any items in this report? <br />
    - Failed sign-in activities are not exceeding the threshold settings. 
    - Ensure no “Health service is not up to date” alert active in your AD FS server list.  Read more about [how to troubleshoot this alert](active-directory-aadconnect-health-data-freshness.md).
-   - Audits is not enabled is AD FS farm.
+   - Audits is not enabled in AD FS farms.
 
 
 ## Related links
