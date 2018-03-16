@@ -94,9 +94,11 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 ```
 
 # [Java] (#tab/java)
-[Download the sample project](linkhere) and extract the storage-java-ragrs.zip file.
+[Download the sample project](https://github.com/Azure-Samples/storage-java-ha-ra-grs) and extract the storage-java-ragrs.zip file.
 
-
+```bash
+git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
+```
 ---
 
 
