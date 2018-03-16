@@ -2,8 +2,8 @@
 title: Azure Machine Learning Model Management command-line interface reference | Microsoft Docs
 description: Azure Machine Learning Model Management command-line interface reference.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
