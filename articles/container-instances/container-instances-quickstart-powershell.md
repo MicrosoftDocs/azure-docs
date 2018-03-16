@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Quickstart: Create your first container in Azure Container Instances
 
-Azure Container Instances makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines or adopt a higher-level service. In this quickstart, you create a Windows container in Azure and expose it to the internet with a DNS name label. This operation is completed in a single command. Within just a few moments, you can see the running application in your browser:
+Azure Container Instances makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines or adopt a higher-level service. In this quickstart, you create a Windows container in Azure and expose it to the internet with a fully qualified domain name (FQDN). This operation is completed in a single command. Within just a few moments, you can see the running application in your browser:
 
 ![App deployed using Azure Container Instances viewed in browser][qs-powershell-01]
 
@@ -36,7 +36,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 You can create a container by providing a name, a Docker image, and an Azure resource group to the [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet. You can optionally expose the container to the internet with a DNS name label.
 
-Execute the following command launch a Nano Server container running Internet Information Services (IIS). The `-DnsNameLabel` value must be unique within the Azure region you create the instance, so you might need to modify this value to ensure uniqueness.
+Execute the following command to launch a Nano Server container running Internet Information Services (IIS). The `-DnsNameLabel` value must be unique within the Azure region you create the instance, so you might need to modify this value to ensure uniqueness.
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win

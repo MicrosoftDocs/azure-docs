@@ -144,13 +144,13 @@ To try out options for running containers in an orchestration system on Azure, s
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-group-create]: /cli/azure/group#az_group_create
 [az-container-attach]: /cli/azure/container#az_container_attach
 [az-container-create]: /cli/azure/container#az_container_create
 [az-container-delete]: /cli/azure/container#az_container_delete
 [az-container-list]: /cli/azure/container#az_container_list
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
 [service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md
