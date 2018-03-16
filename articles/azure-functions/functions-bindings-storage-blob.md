@@ -738,19 +738,19 @@ The following table explains the binding configuration properties that you set i
 
 ## Output - usage
 
-In C# and C# script, you can use the following parameter types for the blob output binding:
+In C# and C# script, you can bind to the following types to write blobs:
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
+* `CloudBlobContainer` (use an input binding to get a reference to a container, then you can use that reference to write blobs)
 * `CloudBlobDirectory`
 * `ICloudBlob` (requires "inout" binding direction in *function.json*)
 * `CloudBlockBlob` (requires "inout" binding direction in *function.json*)
 * `CloudPageBlob` (requires "inout" binding direction in *function.json*)
 * `CloudAppendBlob` (requires "inout" binding direction in *function.json*)
-* `CloudBlobContainer` (use an input binding to get a reference to a container, then you can use that reference to write blobs.)
 
 As noted, some of these types require an `inout` binding direction in *function.json*. This direction is not supported by the standard editor in the Azure portal, so you must use the advanced editor.
 
