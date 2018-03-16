@@ -6,7 +6,7 @@ author: MightyPen
 manager: craigg
 ms.custom: "VNet Service endpoints"
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
 ---
@@ -290,7 +290,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 ## Next steps
 
 - [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r]
+- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r] with REST APIs
 
 
 
