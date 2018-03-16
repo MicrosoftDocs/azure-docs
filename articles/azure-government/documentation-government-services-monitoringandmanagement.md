@@ -76,7 +76,7 @@ Activity Log Alerts are generally available in Azure Government with no differen
 Autoscale via the portal is not currently available. This feature is coming soon.  
 </aside>
 
-In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the Autoscale to USGov Virginia or USGov Iowa. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
+In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the Autoscale to USGov Virginia. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1" 
@@ -100,7 +100,7 @@ Metrics are generally available in Azure Government with no differences from com
 #### Metric Alerts
 Metrics Alerts are generally available in Azure Government.
 
-When using PowerShell/ARM/Rest calls to create Metric Alerts, you will need to set the "Location" of the metric alert to USGov Virginia or USGov Iowa. An example of the setting is below:
+When using PowerShell/ARM/Rest calls to create Metric Alerts, you will need to set the "Location" of the metric alert to USGov Virginia. An example of the setting is below:
 
 ```PowerShell
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 
