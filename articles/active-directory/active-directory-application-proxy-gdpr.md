@@ -69,9 +69,9 @@ You can then collect these fields and share them with the user.
 To process delete requests, you need to delete the relevant logs. You can restart the connector service (Microsoft Azure AD Application Proxy Connector) to generate a new log file. The new log file enables you to delete the old log files. You can then follow the process for view / export to find all relevant logs, and selectively delete those fields or files. You can also always just delete all old log files if you don’t need them anymore.
 
 
-## Turn connector logs off
+## Turn off connector logs
 
-To turn connector logs off, you need to adjust `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config` by removing the highlighted line below: 
+To turn off connector logs, you need to adjust `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config` by removing the highlighted line: 
 
 
 ![Configuration](./media/active-directory-application-proxy-gdpr/01.png)
