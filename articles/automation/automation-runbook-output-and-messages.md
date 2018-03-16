@@ -1,21 +1,13 @@
 ---
-title: Runbook Output and Messages in Azure Automation | Microsoft Docs
+title: Runbook Output and Messages in Azure Automation
 description: Desribes how to create and retrieve output and error messages from runbooks in Azure Automation.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: tysonn
-
-ms.assetid: 13a414f5-0e2c-4be2-9558-a3e3ec84b6b2
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/11/2016
-ms.author: magoedte;bwren
-
+manager: carmonm
 ---
 # Runbook output and messages in Azure Automation
 Most Azure Automation runbooks have some form of output such as an error message to the user or a complex object intended to be consumed by another workflow. Windows PowerShell provides [multiple streams](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) to send output from a script or workflow. Azure Automation works with each of these streams differently, and you should follow best practices for how to use each when you are creating a runbook.
