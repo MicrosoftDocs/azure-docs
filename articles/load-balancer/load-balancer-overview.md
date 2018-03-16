@@ -121,9 +121,9 @@ Load Balancer contains the following child resources that you can configure to a
 ## Load Balancer types
 Azure Load Balancer supports two types of load balancing - public and internal.
 
-### <a name = "publicloadbalancer"></a>Why use public Load Balancer?
+### <a name = "publicloadbalancer"></a>Public Load Balancer
 
-Azure Load Balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the virtual machine and vice versa for the response traffic from the virtual machine. Load balancing rules allow you to distribute specific types of traffic between multiple virtual machines or services. For example, you can spread the load of web request traffic across multiple web servers.
+Public Load Balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the virtual machine and vice versa for the response traffic from the virtual machine. Load balancing rules allow you to distribute specific types of traffic between multiple virtual machines or services. For example, you can spread the load of web request traffic across multiple web servers.
 
 The following figure shows a load-balanced endpoint for web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
 
@@ -135,7 +135,7 @@ When Internet clients send web page requests to the public IP address of a web a
 
 By default, Azure Load Balancer distributes network traffic equally among multiple virtual machine instances. You can also configure session affinity, For more information, see [load balancer distribution mode](load-balancer-distribution-mode.md).
 
-### <a name = "internalloadbalancer"></a> Why use an internal Load Balancer?
+### <a name = "internalloadbalancer"></a> Internal Load Balancer?
 
 Internal Load Balancer only directs traffic to resources that are inside a virtual network or that use a VPN to access Azure infrastructure. In this respect, internal Load Balancer differs from a public Load Balancer. Azure infrastructure restricts access to the load-balanced frontend IP addresses of a virtual network. Frontend IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
 
@@ -150,12 +150,8 @@ Internal Load Balancer enables the following types of load balancing:
 
 **Figure 2 - Load balancing multi-tier applications using both public and internal load balancers**
 
-## Limitations
-
-Load Balancer backend pools can contain any VM SKU except Basic tier.
-
 ## Pricing
-The Basic Load Balancer is free of charge. For Standard Load Balancer pricing information, visit [Load Balancer Pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
+The Basic Load Balancer is free of charge. For Standard Load Balancer pricing information, visit the [Load Balancer Pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
 
 ## Next steps
 
