@@ -27,6 +27,8 @@
     href: tutorial-deploy-machine-learning.md
   - name: Deploy Azure Functions
     href: tutorial-deploy-function.md
+  - name: Work with multiple modules in VS Code
+    href: tutorial-multiple-modules-in-vscode.md
 - name: How-to guides
   items:
   - name: Create gateways
