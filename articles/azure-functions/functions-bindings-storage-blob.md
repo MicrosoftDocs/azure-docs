@@ -745,12 +745,12 @@ In C# and C# script, you can use the following parameter types for the blob outp
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `ICloudBlob` (requires "inout" binding direction in *function.json*)
 * `CloudBlockBlob` (requires "inout" binding direction in *function.json*)
 * `CloudPageBlob` (requires "inout" binding direction in *function.json*)
 * `CloudAppendBlob` (requires "inout" binding direction in *function.json*)
+* `CloudBlobContainer` (use an input binding to get a reference to a container, then you can use that reference to write blobs.)
 
 As noted, some of these types require an `inout` binding direction in *function.json*. This direction is not supported by the standard editor in the Azure portal, so you must use the advanced editor.
 
