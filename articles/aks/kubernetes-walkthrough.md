@@ -24,10 +24,14 @@ This quickstart assumes a basic understanding of Kubernetes concepts, for detail
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Enabling AKS preview for your Azure subscription
-While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the `az provider register` command to register the AKS provider:
+## Enabling AKS preview
+
+Ensure that the needed Azure service providers are enable with the `az provider register` command. 
 
 ```azurecli-interactive
+az provider register -n Microsoft.Network
+az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Compute
 az provider register -n Microsoft.ContainerService
 ```
 
