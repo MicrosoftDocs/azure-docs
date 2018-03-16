@@ -24,7 +24,6 @@ This article provides various code and script examples for token acquisition, as
 
 ## Prerequisites
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 > [!IMPORTANT]
@@ -65,7 +64,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 | `http://localhost:50342/oauth2/token` | The MSI endpoint for the VM extension, where 50342 is the default port and is configurable. |
 | `api-version`  | A query string parameter, indicating the API version for the IMDS endpoint.  |
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
-| `client_id` | A query string parameter, indicating the client ID (also known as App ID) of the service principal representing the user-assigned MSI. This value is returned in the `clientId` property during creation of a user-assigned MSI. This example requests a token for client ID "712eac09-e943-418c-9be6-9fd5c91078bl". |
+| `client_id` |  An *optional* query string parameter, indicating the client ID (also known as App ID) of the service principal representing a user-assigned MSI. If you are using system-assigned MSI, this parameter is not required. This value is returned in the `clientId` property during creation of a user-assigned MSI. This example requests a token for client ID "712eac09-e943-418c-9be6-9fd5c91078bl". |
 | `Metadata` | An HTTP request header field, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
 
 Sample response:
