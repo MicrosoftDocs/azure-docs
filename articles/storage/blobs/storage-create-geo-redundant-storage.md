@@ -43,6 +43,11 @@ To complete this tutorial:
 * Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
 * (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
 
+# [Java] (#tab/java)
+
+* Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
+* Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
 ---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
