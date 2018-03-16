@@ -3,7 +3,7 @@ title: Understand Azure AD Application Proxy connectors | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: billmath
 manager: mtillman
 
 ms.assetid: 
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2018
-ms.author: markvi
+ms.date: 10/12/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -29,8 +29,6 @@ Connectors are lightweight agents that sit on-premises and facilitate the outbou
 ## Requirements and deployment
 
 To deploy Application Proxy successfully, you need at least one connector, but we recommend two or more for greater resiliency. Install the connector on a Windows Server 2012 R2 or 2016 machine. The connector needs to be able to communicate with the Application Proxy service as well as the on-premises applications that you publish. 
-
-If you want to use applications with websockets, you should consider testing them using the public preview of the [connectors with websocket support](https://aka.ms/appproxywebsocketsconnector).
 
 For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](active-directory-application-proxy-enable.md).
 
