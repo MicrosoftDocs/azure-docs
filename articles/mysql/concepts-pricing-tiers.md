@@ -36,7 +36,7 @@ After you create a server, the number of vCores can be changed up or down within
 
 ## Compute generations, vCores, and memory
 
-Compute resources are provided as vCores, representing the logical CPU of the underlying hardware. Currently, two compute generations, Gen 4 and Gen 5, are offered for you to choose from. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. Gen 4 and Gen 5 are available in the following regions: 
+Compute resources are provided as vCores, representing the logical CPU of the underlying hardware. Currently, two compute generations, Gen 4 and Gen 5, are offered for you to choose from. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available): 
 
 | **Azure Region** | **Generation 4** | **Generation 5** |
 |:---|:----------:|:--------------------:|
@@ -57,8 +57,6 @@ Compute resources are provided as vCores, representing the logical CPU of the un
 | East Asia | X |  |
 | Southeast Asia | X |  |
 | Australia East |  | X |
-| China East | X |  |
-| China North | X |  |
 | Central India | X |  |
 | West India | X |  |
 | Japan East | X |  |
