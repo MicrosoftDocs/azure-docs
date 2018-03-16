@@ -36,11 +36,11 @@ Complete the steps in the [Getting started with custom policies](active-director
 
 ## Step 1. Create an Application Insights resource and get the Instrumentation Key
 
-Application Insights is a powerful tool. When using it with Azure AD B2C, the only requirement is to create a resource and obtain an Instrumentation Key.  Application Insights must be created in the [Azure Portal.](https://portal.azure.com)
+Application Insights is a powerful tool. When using it with Azure AD B2C, the only requirement is to create a resource and obtain an Instrumentation Key.  Application Insights must be created in the [Azure portal.](https://portal.azure.com)
 
 [Full documentation for Application Insights](https://docs.microsoft.com/azure/application-insights/)
 
-1. Click on `+ Create a resource` in the Azure Portal, within your subscription tenant.  This tenant is not your Azure AD B2C tenant.  
+1. Click on `+ Create a resource` in the Azure portal, within your subscription tenant.  This tenant is not your Azure AD B2C tenant.  
 2. Search for and select `Application Insights`  
 3. Create a resource of `Application Type` `ASP.NET web application` under a subscription of your preference.
 4. Once created, open your Application Insights resource and note the  `Instrumentation Key` 
@@ -49,7 +49,7 @@ Application Insights is a powerful tool. When using it with Azure AD B2C, the on
 
 ## Step 2. Add new ClaimType definitions to your Trust Framework extension file
 
-### Open the extension file from the starterpack and add the following elements to the `<BuildingBlocks>` node.  The extensions filename is typically `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
+### Open the extension file from the starter pack and add the following elements to the `<BuildingBlocks>` node.  The extensions filename is typically `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
 
 ```xml
 
@@ -105,12 +105,12 @@ Technical profiles may be considerd functions in Azure AD B2C's Identity Experie
 | Technical Profile       | Task |
 | ----------------------------- |:---------------------------------------------|
 | AzureInsights-Common | common set of parameters to be included in  all Azure-Insights Technical Profiles     | 
-| JourneyContextForInsights   | opens up the session in App Insights and sends a correlation Id |
-| AzureInsights-SignInRequest     | creates a SignIn Event with a set of claims when a signin request has been received      | 
+| JourneyContextForInsights   | opens up the session in App Insights and sends a correlation ID |
+| AzureInsights-SignInRequest     | creates a "SignIn" Event with a set of claims when a sign-in request has been received      | 
 | AzureInsights-UserSignup | creates an Event called "UserSignup" when the signup option has been triggered by the user in a signup/signin journey     | 
 | AzureInsights-SignInComplete | records the successful completion of an authentication when a token has been sent to the relying party application     | 
 
-Add the profiles to the extension file from the starterpack by adding these elements to the `<ClaimsProviders>` node.  The extensions filename is typically `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
+Add the profiles to the extension file from the starter pack by adding these elements to the `<ClaimsProviders>` node.  The extensions filename is typically `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
 
 >!IMPORTANT
 Change the `Instrumentation Key` in the `ApplicationInsights-Common` technical profile to the GUID provided by your Application Insights resource.
@@ -186,7 +186,7 @@ Change the `Instrumentation Key` in the `ApplicationInsights-Common` technical p
 
 ```
 
-## Step 4. Add the technical profiles for Application-Insights as orchestraion steps in an existing User Journey.
+## Step 4. Add the technical profiles for Application-Insights as orchestration steps in an existing User Journey.
 
 1. Call `JournyeContextForInsights` as orchestration step 1
 
@@ -199,7 +199,7 @@ Change the `Instrumentation Key` in the `ApplicationInsights-Common` technical p
         </OrchestrationStep>
 ```
 
-2. Call `Azure-Insights-SignInRequest` as orchestration step 2 to track that a signin/signup request has been received.
+2. Call `Azure-Insights-SignInRequest` as orchestration step 2 to track that a sign-in/sign-up request has been received.
 
 ```xml
 <!-- Track that we have received a sign in request -->
@@ -249,10 +249,10 @@ Change the `Instrumentation Key` in the `ApplicationInsights-Common` technical p
 
 ## Step 5. Upload your modified extensions file, run the policy, and view events in Application Insights
 
-Save and upload the new trust framework extensions file.  Then, call the Relying Party policy from your application or use `Run Now` in the Azure AD B2C interface.  Within seconds your events will be available in Application Insights.
+Save and upload the new trust framework extensions file.  Then, call the Relying Party policy from your application or use `Run Now` in the Azure AD B2C interface.  Within seconds, your events will be available in Application Insights.
 
 1. Open the Application Insights resource in your Azure Active Directory tenant.
-2. Click on `Events` in the `USAGE` sub-menu.
+2. Click on `Events` in the `USAGE` submenu.
 3. Set `During` to `Last hour` and `By` to `3 minutes`.  You may need to click `Refresh` to view results
 
 ![Application Insights USAGE-Events Blase](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
@@ -265,10 +265,10 @@ Save and upload the new trust framework extensions file.  Then, call the Relying
 
 Add additional claim types and events to your user journey to fit your needs.  Here is a list of possible claims using additional claims resolvers.
 
-### Culture specific claims
+### Culture-specific claims
 
 ```xml
-Culture specific Claims
+Culture-specific Claims
             Referenced using {Culture:One of the property names below}
  
         /// An enumeration of the claims supported by the <see cref="JourneyCultureDefaultClaimProcessor"/>
@@ -289,10 +289,10 @@ Culture specific Claims
 
 ```
 
-### Policy specific claims
+### Policy-specific claims
 
 ```xml
-Policy Specific Claims
+Policy-specific Claims
 Referenced using {Policy:One of the property names below}
  
         /// An enumeration of the claims supported by the <see cref="PolicyDefaultClaimProcessor"/> 
@@ -360,7 +360,7 @@ Referenced using {OIDC:One of the property names below}
 Referenced using { OAUTH-KV:Querystring parameter name }
 ```
 
-Any parameter name included as part of an OIDC or OAuth2 request can be mapped to a claim in the user journey.  It can thenbe recorded in the event. For example, the request from the application may include a query string parameter with a name of `app_session` or `loyalty_number`.
+Any parameter name included as part of an OIDC or OAuth2 request can be mapped to a claim in the user journey.  It can then be recorded in the event. For example, the request from the application may include a query string parameter with a name of `app_session` or `loyalty_number`.
 
 Sample Request from the application:
 ```
