@@ -37,6 +37,6 @@ To request an increase, create a Quota support case for vCPUs in the Azure porta
 
    ![Request increase](./media/resource-manager-core-quotas-request/request-increase.png)
 
-5. Fill in the forms for the type of quota you need to increase.
+5. Select **Cores** as the quote type. 
 
    ![Fill in form](./media/resource-manager-core-quotas-request/forms.png)
