@@ -3,7 +3,7 @@ title: Microsoft Dynamics CRM and Azure Application Insights | Microsoft Docs
 description: Get telemetry from Microsoft Dynamics CRM Online using Application Insights. Walkthrough of setup, getting data, visualization and export.
 services: application-insights
 documentationcenter: ''
-author: mazharmicrosoft;mrbullwinkle
+author: mazharmicrosoft
 manager: carmonm
 
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
