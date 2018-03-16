@@ -59,7 +59,7 @@ This tutorial uses an HTTP triggered function that takes two parameters: the est
 
 1. Replace the contents of the run.csx file with the following code, then click **Save**:
 
-    ```c#
+    ```csharp
     using System.Net;
 
     const double revenuePerkW = 0.12; 

@@ -1,3 +1,4 @@
+
 ---
 title: Azure Stack Public Key Infrastructure certificate requirements for Azure Stack integrated systems | Microsoft Docs
 description: Describes the Azure Stack PKI certificate deployment requirements for Azure Stack integrated systems.
@@ -13,9 +14,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/20/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.reviewer: ppacent
 ---
 
 # Azure Stack Public Key Infrastructure certificate requirements
@@ -25,13 +26,17 @@ Azure Stack has a public infrastructure network using externally accessible publ
 - The process of obtaining certificates matching those specifications
 - How to prepare, validate, and use those certificates during deployment
 
+> [!NOTE]
+> During deployment you must copy certificates to the deployment folder that matches the identity provider you are deploying against (Azure AD or AD FS). If you use a single certificate for all endpoints, you must copy that certificate file into each deployment folder as outlined in the tables below. The folder structure is pre-built in the deployment virtual machine and can be found at: C:\CloudDeployment\Setup\Certificates. 
+
 ## Certificate requirements
 The following list describes the certificate requirements that are needed to deploy Azure Stack: 
 - Certificates must be issued from either an internal Certificate Authority or a Public Certificate Authority. If a public certificate authority is used, it must be included in the base operating system image as part of the Microsoft Trusted Root Authority Program. You can find the full list here: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- The certificate can be a single wild card certificate covering all name spaces in the Subject Alternative Name (SAN) field. Alternatively, you can use individual certificates using wild cards for endpoints such as storage and Key Vault where they are required. 
+- The certificate can be a single wild card certificate covering all name spaces in the Subject Alternative Name (SAN) field. Alternatively, you can use individual certificates using wild cards for endpoints such as acs and Key Vault where they are required. 
 - The certificate signature algorithm cannot be SHA1, as it must be stronger. 
 - The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. 
 - The certificate pfx files must have a value "Digital Signature" and "KeyEncipherment" in its “Key Usage" field.
+- The certificate pfx files must have the values “Server Authentication (1.3.6.1.5.5.7.3.1)” and “Client Authentication (1.3.6.1.5.5.7.3.2)” in the "Enhanced Key Usage" field.
 - The passwords to all certificate pfx files must be the same at the time of deployment
 - Ensure that the Subject Names and Subject Alternative Names of all certificates match the specifications described in this article to avoid failed deployments.
 
@@ -88,8 +93,9 @@ The following table describes the endpoints and certificates required for the SQ
 
 <sup>2</sup> A &#42;.appservice.*&lt;region>.&lt;fqdn>* wild card certificate cannot be used in place of these three certificates (api.appservice.*&lt;region>.&lt;fqdn>*, ftp.appservice.*&lt;region>.&lt;fqdn>*, and sso.appservice.*&lt;region>.&lt;fqdn>*. Appservice explicitly requires the use of separate certificates for these endpoints. 
 
+## Learn more
+Learn how to [generate PKI certificates for Azure Stack deployment](azure-stack-get-pki-certs.md). 
 
 ## Next steps
-[Generate PKI certificates for Azure Stack deployment](azure-stack-get-pki-certs.md) 
-
+[Identity integration](azure-stack-integrate-identity.md)
 

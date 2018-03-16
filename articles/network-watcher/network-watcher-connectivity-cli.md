@@ -1,10 +1,10 @@
 ---
-title: Check connectivity with Azure Network Watcher - Azure CLI 2.0 | Microsoft Docs
-description: This page explains how to use connectivity check with Network Watcher using Azure CLI 2.0
+title: Troubleshoot connections with Azure Network Watcher - Azure CLI 2.0 | Microsoft Docs
+description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure CLI 2.0.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 
 ms.service: network-watcher
@@ -16,25 +16,24 @@ ms.date: 07/11/2017
 ms.author: jdial
 ---
 
-# Check connectivity with Azure Network Watcher using Azure CLI 2.0
+# Troubleshoot connections with Azure Network Watcher using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
+Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
 
 ## Before you begin
 
 This article assumes you have the following resources:
 
-* An instance of Network Watcher in the region you want to check connectivity.
-
-* Virtual machines to check connectivity with.
+* An instance of Network Watcher in the region you want to troubleshoot a connection.
+* Virtual machines to troubleshoot connections with.
 
 > [!IMPORTANT]
-> Connectivity check requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+> Connection troubleshoot requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## Check connectivity to a virtual machine
 
@@ -119,7 +118,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 ## Validate routing issues
 
-The example checks connectivity between a virtual machine and a remote endpoint.
+This example checks connectivity between a virtual machine and a remote endpoint.
 
 ### Example
 

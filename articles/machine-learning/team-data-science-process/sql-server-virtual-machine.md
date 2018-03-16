@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: fashah;garye;bradsev
+ms.author: garye;bradsev
 
 ---
 # <a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure

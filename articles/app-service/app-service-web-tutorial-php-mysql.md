@@ -37,6 +37,8 @@ In this tutorial, you learn how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -46,8 +48,6 @@ To complete this tutorial:
 * [Install Composer](https://getcomposer.org/doc/00-intro.md)
 * Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prepare local MySQL
 
@@ -158,7 +158,7 @@ In this step, you create a MySQL database in [Azure Database for MySQL (Preview)
 
 ### Create a MySQL server
 
-In the Cloud Shell, create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) command.
+In the Cloud Shell, create a server in Azure Database for MySQL (Preview) with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) command.
 
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique.
 
@@ -188,7 +188,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 
 ### Configure server firewall
 
-In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) command.
+In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) command.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -261,25 +261,21 @@ Save the changes.
 
 ### Configure SSL certificate
 
-By default, Azure Database for MySQL enforces SSL connections from clients. To connect to your MySQL database in Azure, you must use a _.pem_ SSL certificate.
+By default, Azure Database for MySQL enforces SSL connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL](../mysql/howto-configure-ssl.md).
 
-Open _config/database.php_ and add the _sslmode_ and _options_ parameters to `connections.mysql`, as shown in the following code.
+Open _config/database.php_ and add the `sslmode` and `options` parameters to `connections.mysql`, as shown in the following code.
 
 ```php
 'mysql' => [
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => (env('MYSQL_SSL')) ? [
-        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/certificate.pem', 
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem', 
     ] : []
 ],
 ```
 
-To learn how to generate this _certificate.pem_, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../mysql/howto-configure-ssl.md).
-
-> [!TIP]
-> The path _/ssl/certificate.pem_ points to an existing _certificate.pem_ file in the Git repository. This file is provided for convenience in this tutorial. For best practice, you should not commit your _.pem_ certificates into source control. 
->
+The certificate `BaltimoreCyberTrustRoot.crt.pem` is provided in the repository for convenience in this tutorial. 
 
 ### Test the application locally
 
@@ -341,7 +337,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 As pointed out previously, you can connect to your Azure MySQL database using environment variables in App Service.
 
-In the Cloud Shell, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command.
+In the Cloud Shell, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command.
 
 The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;mysql_server_name>_.
 
@@ -372,7 +368,7 @@ In the local terminal window, use `php artisan` to generate a new application ke
 php artisan key:generate --show
 ```
 
-In the Cloud Shell, set the application key in the App Service web app by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command. Replace the placeholders _&lt;appname>_ and _&lt;outputofphpartisankey:generate>_.
+In the Cloud Shell, set the application key in the App Service web app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command. Replace the placeholders _&lt;appname>_ and _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -384,7 +380,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Set the virtual application path for the web app. This step is required because the [Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. Other PHP frameworks whose lifecycle start in the root directory can work without manual configuration of the virtual application path.
 
-In the Cloud Shell, set the virtual application path by using the [az resource update](/cli/azure/resource#update) command. Replace the _&lt;appname>_ placeholder.
+In the Cloud Shell, set the virtual application path by using the [`az resource update`](/cli/azure/resource#az_resource_update) command. Replace the _&lt;appname>_ placeholder.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -394,19 +390,7 @@ By default, Azure App Service points the root virtual application path (_/_) to 
 
 ### Push to Azure from Git
 
-In the local terminal window, add an Azure remote to your local Git repository. Replace _&lt;paste\_copied\_url\_here>_ with the URL of the Git remote that you saved from [Create a web app](#create).
-
-```bash
-git remote add azure <paste_copied_url_here>
-```
-
-Push to the Azure remote to deploy the PHP application. You are prompted for the password you supplied earlier as part of the creation of the deployment user.
-
-```bash
-git push azure master
-```
-
-During deployment, Azure App Service communicates its progress with Git.
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash
 Counting objects: 3, done.
@@ -587,7 +571,7 @@ If you added any tasks, they are retained in the database. Updates to the data s
 
 While the PHP application runs in Azure App Service, you can get the console logs piped to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) command in the Cloud Shell.
+To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) command in the Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

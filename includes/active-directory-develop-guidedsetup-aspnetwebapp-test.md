@@ -64,4 +64,4 @@ You can restrict sign-in access to only user accounts that are in an Azure AD or
 #### Use a custom method to validate issuers
 You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, read about the [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) on MSDN.
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

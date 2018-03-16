@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
 

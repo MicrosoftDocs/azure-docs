@@ -3,7 +3,7 @@ title: Use a user assigned MSI on a Linux VM to access Azure Storage
 description: A tutorial that walks you through the process of using a User Assigned Managed Service Identity (MSI) on a Linux VM to access Azure Storage.
 services: active-directory
 documentationcenter: ''
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: arluca
 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -132,10 +132,10 @@ Because files require blob storage, you need to create a blob container in which
 
 By using an MSI, your code can get access tokens to authenticate to resources that support Azure AD authentication. In this tutorial, you use Azure Storage.
 
-First you grant the MSI identity access to an Azure Storage container. In this case, you use the container created earlier. Update the values for `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, and `<CONTAINER NAME>` as appropriate for your environment. Replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command in [Create a user-assigned MSI](#create-a-user-assigned-msi):
+First you grant the MSI identity access to an Azure Storage container. In this case, you use the container created earlier. Update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, and `<CONTAINER NAME>` as appropriate for your environment. Additionally, replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az identity create` command in [Create a user-assigned MSI](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 The response includes the details for the role assignment created:
@@ -165,9 +165,9 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 3. In the terminal window, using CURL, make a request to the local MSI endpoint to get an access token for Azure Storage.
 
    The CURL request to acquire an access token is shown in the following example. Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command in [Create a user-assigned MSI](#create-a-user-assigned-msi):
-
+   
    ```bash
-   curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fstorage.azure.com/&client_id=<CLIENT ID>"
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fstorage.azure.com/&client_id=<MSI CLIENT ID>" 
    ```
 
    > [!NOTE]

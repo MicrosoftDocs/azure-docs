@@ -208,7 +208,7 @@ For example, how many unique makes of cars passed through the toll booth in a 2-
 
 **Output:**
 
-| Count | Time |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -511,6 +511,84 @@ For example, generate an event every 5 seconds that reports the most recently se
 
 **Explanation**:
 This query generates events every 5 seconds and outputs the last event that was received previously. The [Hopping window](https://msdn.microsoft.com/library/dn835041.aspx "Hopping window--Azure Stream Analytics") duration determines how far back the query looks to find the latest event (300 seconds in this example).
+
+
+## Query example: Correlate two event types within the same stream
+**Description**: Sometimes we need to generate alerts based on multiple event types that occurred in a certain time range.
+For example, in IoT scenario for home ovens, we want to raise an alert when fan temperature is less than 40 and maximum power during the last 3 minutes was less than 10.
+
+**Input**:
+
+| time | deviceId | sensorName | value |
+| --- | --- | --- | --- |
+| "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
+| "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:02:00" | "Oven1" | "temp" |100 |
+| "2018-01-01T16:02:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:03:00" | "Oven1" | "temp" |70 |
+| "2018-01-01T16:03:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:04:00" | "Oven1" | "temp" |50 |
+| "2018-01-01T16:04:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
+| "2018-01-01T16:05:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:06:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:07:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:08:00" | "Oven1" | "power" |8 |
+
+**Output**:
+
+| eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
+| --- | --- | --- | --- | --- | 
+| "2018-01-01T16:05:00" | "Oven1" |30 | "Short circuit heating elements" |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 | "Short circuit heating elements" |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 | "Short circuit heating elements" |15 |
+
+**Solution**:
+
+````
+WITH max_power_during_last_3_mins AS (
+    SELECT 
+        System.TimeStamp AS windowTime,
+        deviceId,
+        max(value) as maxPower
+    FROM
+        input TIMESTAMP BY t
+    WHERE 
+        sensorName = 'power' 
+    GROUP BY 
+        deviceId, 
+        SlidingWindow(minute, 3) 
+)
+
+SELECT 
+    t1.t AS eventTime,
+    t1.deviceId, 
+    t1.value AS temp,
+    'Short circuit heating elements' as alertMessage,
+	t2.maxPower AS maxPowerDuringLast3mins
+    
+INTO resultsr
+
+FROM input t1 TIMESTAMP BY t
+JOIN max_power_during_last_3_mins t2
+    ON t1.deviceId = t2.deviceId 
+    AND t1.t = t2.windowTime
+    AND DATEDIFF(minute,t1,t2) between 0 and 3
+    
+WHERE
+    t1.sensorName = 'temp'
+    AND t1.value <= 40
+    AND t2.maxPower > 10
+````
+
+**Explanation**:
+The first query `max_power_during_last_3_mins`, uses the [Sliding window](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) to find the max value of the power sensor for every device, during the last 3 minutes. 
+The second query is joined to the first query to find the power value in the most recent window relevant for the current event. 
+And then, provided the conditions are met, an alert is generated for the device.
+
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

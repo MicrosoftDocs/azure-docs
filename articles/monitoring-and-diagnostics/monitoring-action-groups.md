@@ -1,8 +1,8 @@
 ---
 title: Create and manage action groups in the Azure portal | Microsoft Docs
 description: Learn how to create and manage action groups in the Azure portal.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: ancav
+ms.date: 02/16/2018
+ms.author: dukek
 
 ---
 # Create and manage action groups in the Azure portal
 ## Overview ##
 This article shows you how to create and manage action groups in the Azure portal.
 
-You can configure a list of actions with action groups. These groups then can be used when you define activity log alerts. These groups can then be reused by each activity log alert you define, ensuring that the same actions are taken each time the activity log alert is triggered.
+You can configure a list of actions with action groups. These groups can then be used by each alert you define, ensuring that the same actions are taken each time an alert is triggered.
 
 An action group can have up to 10 of each action type. Each action is made up of the following properties:
 
@@ -53,12 +53,12 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     a. **Name**: Enter a unique identifier for this action.
 
-    b. **Action Type**: Select SMS, email, webhook, Azure app, ITSM, or Automation Runbook.
+    b. **Action Type**: Select Email/SMS/Azure app, Webhook, ITSM, or Automation Runbook.
 
-    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires. 
+    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
 
    > [!NOTE]
-   > ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). ITSM Action currently works only for Activity Log Alerts. For other alert types, this action currently is a no-op.
+   > ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md). 
 
 8. Select **OK** to create the action group.
 
@@ -72,6 +72,6 @@ After you create an action group, it's visible in the **Action groups** section 
 * Learn more about [SMS alert behavior](monitoring-sms-alert-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).  
 * Learn more about [ITSM Connector](../log-analytics/log-analytics-itsmc-overview.md)
-* Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts. 
+* Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).

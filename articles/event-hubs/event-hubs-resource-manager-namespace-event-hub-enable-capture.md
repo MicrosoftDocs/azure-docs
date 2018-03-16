@@ -13,14 +13,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/30/2018
 ms.author: sethm
 
 ---
 
 # Create a namespace with event hub and enable Capture using a template
 
-This article shows how to use an Azure Resource Manager template that creates an Event Hubs namespace, with one event hub instance, and also enables the [Capture feature](event-hubs-capture-overview.md) on the event hub. The article describes how to define which resources are deployed, and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+This article shows how to use an Azure Resource Manager template that creates an [Event Hubs](event-hubs-what-is-event-hubs.md) namespace, with one event hub instance, and also enables the [Capture feature](event-hubs-capture-overview.md) on the event hub. The article describes how to define which resources are deployed, and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 This article also shows how to specify that events are captured into either Azure Storage Blobs or an Azure Data Lake Store, based on the destination you choose.
 
@@ -40,11 +40,7 @@ For the complete templates, click the following GitHub links:
 
 ## What will you deploy?
 
-With this template, you deploy an Event Hubs namespace with an event hub, and also enable [Event Hubs Capture](event-hubs-capture-overview.md).
-
-[Event Hubs](event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Capture enables you to automatically deliver the streaming data in Event Hubs to Azure Blob storage or Azure Data Lake Store, within a specified time or size interval of your choosing.
-
-Click the following button to enable Event Hubs Capture into Azure Storage:
+With this template, you deploy an Event Hubs namespace with an event hub, and also enable [Event Hubs Capture](event-hubs-capture-overview.md). Event Hubs Capture enables you to automatically deliver the streaming data in Event Hubs to Azure Blob storage or Azure Data Lake Store, within a specified time or size interval of your choosing. Click the following button to enable Event Hubs Capture into Azure Storage:
 
 [![Deploy to Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
@@ -60,7 +56,7 @@ The template defines the following parameters.
 
 ### eventHubNamespaceName
 
-The name of the [Event Hubs namespace](event-hubs-create.md) to create.
+The name of the Event Hubs namespace to create.
 
 ```json
 "eventHubNamespaceName":{  
@@ -73,7 +69,7 @@ The name of the [Event Hubs namespace](event-hubs-create.md) to create.
 
 ### eventHubName
 
-The name of the event hub created in the [Event Hubs namespace](event-hubs-create.md).
+The name of the event hub created in the Event Hubs namespace.
 
 ```json
 "eventHubName":{  

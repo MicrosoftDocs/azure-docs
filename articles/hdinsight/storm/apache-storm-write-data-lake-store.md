@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 02/27/2018
 ms.author: larryfr
 
 ---
@@ -158,7 +158,7 @@ For information on using this script with your cluster, see the [Customize HDIns
 
 1. Use the following command to copy the topology to the HDInsight cluster. Replace **USER** with the SSH user name you used when creating the cluster. Replace **CLUSTERNAME** with the name of the cluster.
    
-        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs1.0-SNAPSHOT.jar
+        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs-1.0-SNAPSHOT.jar
    
     When prompted, enter the password used when creating the SSH user for the cluster. If you used a public key instead of a password, you may need to use the `-i` parameter to specify the path to the matching private key.
    

@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Storage Firewalls and Virtual Networks (preview) | Microsoft Docs
+title: Configure Azure Storage Firewalls and Virtual Networks | Microsoft Docs
 description: Configure layered network security for your storage account.
 services: storage
 documentationcenter: ''
@@ -16,14 +16,11 @@ ms.date: 10/25/2017
 ms.author: cbrooks
 
 ---
-# Configure Azure Storage Firewalls and Virtual Networks (preview)
+# Configure Azure Storage Firewalls and Virtual Networks
 Azure Storage provides a layered security model allowing you to secure your storage accounts to a specific set of allowed networks​.  When network rules are configured, only applications from allowed networks can access a storage account.  When calling from an allowed network, applications continue to require proper authorization (a valid access key or SAS token) to access the storage account.
 
-## Preview availability and support
-Storage Firewalls and Virtual Networks are in preview.  This capability is currently available for new or existing storage accounts in all Azure public cloud regions.
-
-> [!NOTE]
-> Production workloads are not supported during preview.
+> [!IMPORTANT]
+> Turning on Firewall rules for your Storage account will block access to incoming requests for data, including from other Azure services.  This includes using the Portal, writing logs, etc.  For participating services you can re-enable functionality through the [Exceptions](#Exceptions) section below.  To access the Portal you would need to do so from a machine within the trusted boundary (either IP or VNet) that you have set up.
 >
 
 ## Scenarios
@@ -52,9 +49,6 @@ By default, storage accounts accept connections from clients on any network.  To
 
 #### Azure portal
 1. Navigate to the storage account you want to secure.  
-> [!NOTE]
-> Make sure your storage account is in one of the supported regions for the public preview.
->
 
 2. Click on the settings menu called **Firewalls and virtual networks**.
 3. To deny access by default, choose to allow access from 'Selected networks'.  To allow traffic from all networks, choose to allow access from 'All networks'.
@@ -297,7 +291,6 @@ When the "Trusted Microsoft Services" exception is enabled, the following servic
 |Azure DevTest Labs|Microsoft.DevTestLab|Custom image creation and artifact installation.  [Learn more](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing.  [Learn more](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture.  [Learn More](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|Cluster provisioning and installation.  [Learn more](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure Networking|Microsoft.Networking|Store and analyze network traffic logs.  [Learn more](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
 ||||
 

@@ -14,14 +14,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/14/2018
 ms.author: mimig
 
 ---
 # Azure Cosmos DB FAQ
 ## Azure Cosmos DB fundamentals
 ### What is Azure Cosmos DB?
-Azure Cosmos DB is a globally replicated, multi-model database service that that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development. It's all achieved through a managed platform that's backed by the power and reach of Microsoft Azure. 
+Azure Cosmos DB is a globally replicated, multi-model database service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development. It's all achieved through a managed platform that's backed by the power and reach of Microsoft Azure. 
 
 Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applications when predictable throughput, high availability, low latency, and a schema-free data model are key requirements. It delivers schema flexibility and rich indexing, and it includes multi-document transactional support with integrated JavaScript. 
 
@@ -208,6 +208,7 @@ There are some behavior differences that users coming from Azure Table storage w
 * CORS is not currently supported
 * Table names in Azure Table storage are not case-sensitive, but they are in Azure Cosmos DB Table API
 * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full 1 Meg of a table entity to store binary data because the encoding increases the data's size.
+* Entity property name “Id” currently not supported
 
 In terms of the REST API there are a number of endpoints/query options that are not supported by Azure Cosmos DB Table API:
 | Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation |

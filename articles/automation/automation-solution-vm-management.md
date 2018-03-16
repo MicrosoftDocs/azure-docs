@@ -1,20 +1,13 @@
 ---
-title: Start/Stop VMs during off-hours solution (preview) | Microsoft Docs
+title: Start/Stop VMs during off-hours solution (preview)
 description: This VM management solution starts and stops your Azure Resource Manager virtual machines on a schedule and proactively monitors from Log Analytics.
 services: automation
-documentationCenter: ''
-authors: eslesar
-manager: carmonm
-editor: ''
-
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883 
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/18/2017
-ms.author: magoedte
+manager: carmonm
 ---
 
 # Start/Stop VMs during off-hours solution (preview) in Azure Automation
@@ -126,7 +119,7 @@ You should not enable all schedules, because this might create overlapping sched
 
 Perform the following steps to add the Start/Stop VMs during off-hours solution to your Automation account, and then configure the variables to customize the solution.
 
-1. In the Azure portal, click **New**.<br> ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. In the Azure portal, click **Create a resource**.<br> ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. In the Marketplace pane, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press Enter.  Select **Start/Stop VMs during off-hours [Preview]** from the search results.  
 3. In the **Start/Stop VMs during off-hours [Preview]** pane for the selected solution, review the summary information and then click **Create**.  
 4. The **Add Solution** pane appears. You are prompted to configure the solution before you can import it into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>

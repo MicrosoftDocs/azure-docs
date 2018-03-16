@@ -73,5 +73,5 @@ For example, consider the account shown in the **Connection String** blade. A va
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## Next steps
-* Learn how to [use MongoChef](mongodb-mongochef.md) with an Azure Cosmos DB API for MongoDB account.
+* Learn how to [use Studio 3T (MongoChef)](mongodb-mongochef.md) with an Azure Cosmos DB API for MongoDB account.
 * Explore the Azure Cosmos DB API for MongoDB by viewing [samples](mongodb-samples.md).

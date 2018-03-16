@@ -106,7 +106,7 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 
 **Source for the API app**
 
-```C#
+```csharp
 
 	using System.Collections.Generic;
 	using System.Linq;

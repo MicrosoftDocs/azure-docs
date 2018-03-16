@@ -2,18 +2,12 @@
 title: Azure SQL Database connectivity architecture | Microsoft Docs
 description: This document explains the Azure SQLDB connectivity architecture from within Azure or from outside of Azure.
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: monicar
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 01/16/2018
+ms.date: 01/24/2018
 ms.author: carlrab
 ---
 # Azure SQL Database Connectivity Architecture 
@@ -88,7 +82,7 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | West US 2 | 13.66.226.202	 | |
 ||||
 
-\* **NOTE:** *East US 2* has also a tertiary IP address of `2.167.104.0`.
+\* **NOTE:** *East US 2* has also a tertiary IP address of `52.167.104.0`.
 
 ## Change Azure SQL Database connection policy
 

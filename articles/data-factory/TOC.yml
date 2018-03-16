@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create data factory - User Interface (UI)
+  - name: Create data factory - User interface (UI)
     href: quickstart-create-data-factory-portal.md      
   - name: Create data factory - Copy Data tool   
     href: quickstart-create-data-factory-copy-data-tool.md            
@@ -27,7 +27,7 @@
   items:
   - name: 1 - Deploy SSIS packages to Azure
     items:
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-create-azure-ssis-runtime-portal.md
     - name: Azure PowerShell
       href: tutorial-deploy-ssis-packages-azure.md    
@@ -35,21 +35,21 @@
     items:
     - name: Copy Data tool
       href: tutorial-copy-data-tool.md
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-copy-data-portal.md    
-    - name: Azure PowerShell
+    - name: .NET
       href: tutorial-copy-data-dot-net.md
   - name: 3 - Copy on-premises data to cloud
     items:
     - name: Copy Data tool
       href: tutorial-hybrid-copy-data-tool.md    
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-hybrid-copy-portal.md          
     - name: Azure PowerShell
       href: tutorial-hybrid-copy-powershell.md
   - name: 4 - Copy data in bulk
     items:
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-bulk-copy-portal.md    
     - name: Azure PowerShell
       href: tutorial-bulk-copy.md
@@ -58,37 +58,45 @@
     items:
     - name: 5.1 - Copy from one table
       items: 
-      - name: User Interface (UI)
+      - name: User interface (UI)
         href: tutorial-incremental-copy-portal.md      
       - name: Azure PowerShell
         href: tutorial-incremental-copy-powershell.md
     - name: 5.2 - Copy from multiple tables 
       items:
+      - name: User interface (UI)
+        href: tutorial-incremental-copy-multiple-tables-portal.md     
       - name: Azure PowerShell
         href: tutorial-incremental-copy-multiple-tables-powershell.md
     - name: 5.3 - Use change tracking feature 
       items:
-      - name: User Interface (UI)
+      - name: User interface (UI)
         href: tutorial-incremental-copy-change-tracking-feature-portal.md      
       - name: Azure PowerShell
         href: tutorial-incremental-copy-change-tracking-feature-powershell.md
   - name: 6 - Transform data in cloud
-    items: 
-    - name: User Interface (UI)
-      href: tutorial-transform-data-spark-portal.md   
-    - name: Azure PowerShell
-      href: tutorial-transform-data-spark-powershell.md
+    items:
+    - name: HDInsight Spark
+      items: 
+      - name: User interface (UI)
+        href: tutorial-transform-data-spark-portal.md   
+      - name: Azure PowerShell
+        href: tutorial-transform-data-spark-powershell.md
+    - name: Databricks Notebook
+      items:
+      - name: User interface (UI)
+        href: transform-data-using-databricks-notebook.md
   - name: 7 - Transform data in virtual network
     items: 
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-transform-data-hive-virtual-network-portal.md          
     - name: Azure PowerShell
       href: tutorial-transform-data-hive-virtual-network.md       
   - name: 8 - Control flow
     items:
-    - name: User Interface (UI)
+    - name: User interface (UI)
       href: tutorial-control-flow-portal.md    
-    - name: Azure PowerShell
+    - name: .NET
       href: tutorial-control-flow.md    
 - name: Samples
   items:
@@ -203,6 +211,8 @@
         href: connector-mongodb.md
       - name: MySQL
         href: connector-mysql.md
+      - name: Netezza
+        href: connector-netezza.md
       - name: OData
         href: connector-odata.md
       - name: ODBC
@@ -229,6 +239,8 @@
         href: connector-sap-business-warehouse.md
       - name: SAP Cloud for Customer
         href: connector-sap-cloud-for-customer.md
+      - name: SAP ECC
+        href: connector-sap-ecc.md
       - name: SAP HANA
         href: connector-sap-hana.md
       - name: ServiceNow
@@ -247,6 +259,8 @@
         href: connector-sybase.md
       - name: Teradata
         href: connector-teradata.md
+      - name: Vertica
+        href: connector-vertica.md
       - name: Web Table
         href: connector-web-table.md
       - name: Xero
@@ -282,6 +296,8 @@
       href: transform-data-using-stored-procedure.md
     - name: Data Lake U-SQL Activity
       href: transform-data-using-data-lake-analytics.md
+    - name: Databricks Notebook Activity
+      href: transform-data-databricks-notebook.md
     - name: Custom activity
       href: transform-data-using-dotnet-custom-activity.md
     - name: Compute linked services
@@ -348,6 +364,8 @@
       href: configure-azure-ssis-integration-runtime-performance.md
     - name: Invoke SSIS packages using stored procedure activity
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
+    - name: Schedule Azure-SSIS integration runtime
+      href: how-to-schedule-azure-ssis-integration-runtime.md
   - name: Create triggers
     items:
     - name: Create a schedule trigger

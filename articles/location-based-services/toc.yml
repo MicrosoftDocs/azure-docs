@@ -19,10 +19,16 @@
     href: tutorial-prioritized-routes.md
 - name: Concepts
   items:
+  - name: Zoom Levels and Tile Grid
+    href: zoom-levels-and-tile-grid.md
   - name: Geocoding Coverage
     href: geocoding-coverage.md
   - name: Traffic Coverage
     href: traffic-coverage.md
+  - name: Render Coverage
+    href: render-coverage.md
+  - name: Routing Coverage
+    href: routing-coverage.md
 - name: How-to guides
   items:
   - name: Manage account and keys
@@ -46,7 +52,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=internet-of-things
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/location-based-services
   - name: Pricing calculator

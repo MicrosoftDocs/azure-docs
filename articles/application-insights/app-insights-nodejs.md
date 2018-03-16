@@ -45,7 +45,7 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 
 
 1. Sign in to the [Azure portal][portal].
-2. Select **New** > **Developer tools** > **Application Insights**. The resource includes an endpoint for receiving telemetry data, storage for this data, saved reports and dashboards, rule and alert configuration, and more.
+2. Select **Create a resource** > **Developer tools** > **Application Insights**. The resource includes an endpoint for receiving telemetry data, storage for this data, saved reports and dashboards, rule and alert configuration, and more.
 
   ![Create an Application Insights resource](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 

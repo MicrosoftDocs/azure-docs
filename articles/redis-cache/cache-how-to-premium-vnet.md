@@ -35,7 +35,7 @@ Virtual Network (VNet) support is configured on the **New Redis Cache** blade du
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Once you have selected a premium pricing tier, you can configure Redis VNet integration by selecting a VNet that is in the same subscription and location as your cache. To use a new VNet, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and then return to the **New Redis Cache** blade to create and configure your premium cache.
+Once you have selected a premium pricing tier, you can configure Redis VNet integration by selecting a VNet that is in the same subscription and location as your cache. To use a new VNet, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and then return to the **New Redis Cache** blade to create and configure your premium cache.
 
 To configure the VNet for your new cache, click **Virtual Network** on the **New Redis Cache** blade, and select the desired VNet from the drop-down list.
 
@@ -114,6 +114,7 @@ There are seven outbound port requirements.
 | 20226 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 | 13000-13999 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 | 15000-15999 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
+| 6379-6380 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 
 
 ### Inbound port requirements
@@ -122,7 +123,7 @@ There are eight inbound port range requirements. Inbound requests in these range
 
 | Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
+| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) | (Redis subnet), Virtual Network, Azure Load Balancer |
 | 8443 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 | 8500 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) |Azure Load Balancer |
 | 10221-10231 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet), Azure Load Balancer |
@@ -143,7 +144,7 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 ### How can I verify that my cache is working in a VNET?
 
 >[!IMPORTANT]
->When connecting to an Azure Redis Cache instance that is hosted in a VNET, your cache clients must be in the same VNET, including any test applications or diagnostic pinging tools.
+>When connecting to an Azure Redis Cache instance that is hosted in a VNET, your cache clients must be in the same VNET or in a VNET with VNET peering enabled. This includes any test applications or diagnostic pinging tools. Regardless of where the client application is hosted, Network security groups must be configured such that the client's network traffic is allowed to reach the Redis instance.
 >
 >
 

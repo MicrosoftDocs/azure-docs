@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: roopalik;garye
+ms.author: garye
 
 ---
 # Discover custom machine learning modules in Azure AI Gallery

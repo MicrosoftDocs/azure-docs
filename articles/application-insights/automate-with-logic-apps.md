@@ -28,7 +28,7 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 ### Step 1: Create a logic app
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the **New** pane, select **Web + Mobile**, and then select **Logic App**.
+2. Click **Create a resource**, select **Web + Mobile**, and then select **Logic App**.
 
     ![New logic app window](./media/automate-with-logic-apps/logicapp1.png)
 

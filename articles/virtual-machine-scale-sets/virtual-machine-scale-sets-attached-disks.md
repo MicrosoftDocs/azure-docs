@@ -25,14 +25,14 @@ Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now suppo
 >  When you create a scale set with attached data disks defined, you still need to mount and format the disks from within a VM to use them (just like for standalone Azure VMs). A convenient way to complete this process is to use a custom script extension that calls a standard script to partition and format all the data disks on a VM.
 
 ## Create a scale set with attached data disks
-A simple way to create a scale set with attached disks is to use the [az vmss create](/cli/azure/vmss#create) command. The following example creates an Azure resource group, and a virtual machine scale set of 10 Ubuntu VMs, each with 2 attached data disks, of 50 GB and 100 GB respectively.
+A simple way to create a scale set with attached disks is to use the [az vmss create](/cli/azure/vmss#az_vmss_create) command. The following example creates an Azure resource group, and a virtual machine scale set of 10 Ubuntu VMs, each with 2 attached data disks, of 50 GB and 100 GB respectively.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-The [az vmss create](/cli/azure/vmss#create) command defaults certain configuration values if you do not specify them. To see the available options that you can override try:
+The [az vmss create](/cli/azure/vmss#az_vmss_create) command defaults certain configuration values if you do not specify them. To see the available options that you can override try:
 
 ```bash
 az vmss create --help
@@ -58,6 +58,59 @@ Another way to create a scale set with attached data disks is to define a scale 
 ```
 
 You can see a complete, ready to deploy example of a scale set template with an attached disk defined here: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
+
+## Create a Service Fabric cluster with attached data disks
+Each [node type](../service-fabric/service-fabric-cluster-nodetypes.md) in a [Service Fabric](/azure/service-fabric) cluster running in Azure is backed by a virtual machine scale set.  Using a Azure Resource Manager template, you can attach data disks to the scale set(s) that make up the Service Fabric cluster. You can use an [existing template](https://github.com/Azure-Samples/service-fabric-cluster-templates) as a starting point. In the template, include a _dataDisks_ section in the _storageProfile_ of the _Microsoft.Compute/virtualMachineScaleSets_ resource(s) and deploy the template. The following example attaches a 128 GB data disk:
+
+```json
+"dataDisks": [
+    {
+    "diskSizeGB": 128,
+    "lun": 0,
+    "createOption": "Empty"
+    }
+]
+```
+
+You can automatically partition, format, and mount the data disks when the cluster is deployed.  Add a custom script extension to the _extensionProfile_ of the _virtualMachineProfile_ of the scale set(s).
+
+To automatically prepare the data disk(s) in a Windows cluster, add the following:
+
+```json
+{
+    "name": "customScript",    
+    "properties": {    
+        "publisher": "Microsoft.Compute",    
+        "type": "CustomScriptExtension",    
+        "typeHandlerVersion": "1.8",    
+        "autoUpgradeMinorVersion": true,    
+        "settings": {    
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1"
+        ],
+        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
+        }
+    }
+}
+```
+To automatically prepare the data disk(s) in a Linux cluster, add the following:
+```json
+{
+    "name": "lapextension",
+    "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"
+        ],
+        "commandToExecute": "bash prepare_vm_disks.sh"
+        }
+    }
+}
+```
 
 ## Adding a data disk to an existing scale set
 > [!NOTE]

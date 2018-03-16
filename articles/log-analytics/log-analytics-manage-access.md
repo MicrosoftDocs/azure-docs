@@ -30,7 +30,7 @@ To create a workspace, you need to:
 ## Determine the number of workspaces you need
 A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the Azure portal.
 
-You can have multiple workspaces per Azure subscription and you can have access to more than one workspace. Minimizing the number of workspaces allows you to query and correlate across the most data, since it is not possible to query across multiple workspaces. This section describes when it can be helpful to create more than one workspace.
+You can have multiple workspaces per Azure subscription and you can have access to more than one workspace. Previously you could only analyze data from within the current workspace and this limited your ability to query across multiple workspaces defined in your subscription. Now you can [query across multiple workspaces](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), providing a system-wide view of your data. This section describes when it can be helpful to create more than one workspace.
 
 Today, a workspace provides:
 
@@ -58,10 +58,10 @@ You can view details about your workspace in the Azure portal.
 #### View workspace information in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **More services** found on the lower left-hand corner of the Azure portal.  In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
-    ![Azure hub](./media/log-analytics-manage-access/hub.png)  
-3. In the Log Analytics subscriptions blade, select a workspace.
-4. The workspace blade displays details about the workspace and links for additional information.  
+2. Click **All services**.  In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
+    ![Screenshot that shows the Azure left menu](./media/log-analytics-manage-access/hub.png)  
+3. In the Log Analytics subscriptions page, select a workspace.
+4. The workspace page displays details about the workspace and links for additional information.  
     ![workspace details](./media/log-analytics-manage-access/workspace-details.png)  
 
 
@@ -243,7 +243,7 @@ Use the following steps to remove a user from a workspace. Removing the user doe
 4. Select the group in the list results and then click **Add**.
 
 ## Link an existing workspace to an Azure subscription
-All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a workspace when you sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
+All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a subscription when you sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
 
 ### To link a workspace to an Azure subscription in the OMS portal
 

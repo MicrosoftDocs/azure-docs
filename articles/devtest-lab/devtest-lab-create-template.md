@@ -55,7 +55,16 @@ The following steps walk you through creating a custom image from a VHD file usi
 
 1. Select a **VHD** from the drop-down menu. This is the VHD that will be used to create the new custom image. If necessary, select to **Upload a VHD using PowerShell**.
 
-1. You can also enter a plan name, plan offer, and plan publisher if the image used to create the custom image is not published by Microsoft.
+1. You can also enter a plan name, plan offer, and plan publisher if the image used to create the custom image is not a licensed image (published by Microsoft).
+
+   - **Plan name:** Enter the name of the Marketplace image (SKU) from which this custom image is created 
+   - **Plan offer:** Enter the product (offer) of the Marketplace image from which this custom image is created 
+   - **Plan publisher:** Enter the publisher of the Marketplace image from which this custom image is created
+
+   > [!NOTE]
+   > If the image you are using to create a custom image is **not** a licensed image, then these fields are empty and can be filled in if you choose. If the image **is** a licensed image, then the fields are auto populated with the plan information. If you try to change them in this case, a warning message is displayed.
+   >
+   >
 
 1. Select **OK** to create the custom image.
 

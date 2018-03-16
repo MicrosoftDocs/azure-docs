@@ -155,7 +155,7 @@ To send a single metric value:
 
 *C#, Java*
 
-```C#
+```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
@@ -175,7 +175,7 @@ Here is an example of aggregating code:
 
 *C#*
 
-```C#
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -419,7 +419,7 @@ When tracking telemetry manually, the easiest way to ensure telemetry correlatio
 
 *C#*
 
-```C#
+```csharp
 // Establish an operation context and associated telemetry item:
 using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
@@ -573,7 +573,7 @@ If [sampling](app-insights-sampling.md) is in operation, the itemCount property 
 ## TrackDependency
 Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal.
 
-```C#
+```csharp
 var success = false;
 var startTime = DateTime.UtcNow;
 var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -910,7 +910,7 @@ To *dynamically stop and start* the collection and transmission of telemetry:
 
 *C#*
 
-```C#
+```csharp
 
     using  Microsoft.ApplicationInsights.Extensibility;
 

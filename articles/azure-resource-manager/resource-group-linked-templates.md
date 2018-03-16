@@ -24,8 +24,6 @@ For small to medium solutions, a single template is easier to understand and mai
 
 When using linked template, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
 
-![linked templates](./media/resource-group-linked-templates/nestedTemplateDesign.png)
-
 ## Link or nest a template
 
 To link to another template, add a **deployments** resource to your main template.
@@ -80,6 +78,8 @@ To nest the template within the main template, use the **template** property and
 
 > [!NOTE]
 > For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
+>
+> You cannot use the `reference` function in the outputs section of a nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 ### External template and external parameters
 

@@ -85,7 +85,7 @@ Create a model that represents input claims by doing the following:
 
 3. Name the class `InputClaimsModel`, and then add the following properties to the `InputClaimsModel` class:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -99,7 +99,7 @@ Create a model that represents input claims by doing the following:
 
 4. Create a new model, `OutputClaimsModel`, and then add the following properties to the `OutputClaimsModel` class:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -111,7 +111,7 @@ Create a model that represents input claims by doing the following:
 
 5. Create one more model, `B2CResponseContent`, which you use to throw input-validation error messages. Add the following properties to the `B2CResponseContent` class, provide the missing references, and then save the file:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -149,7 +149,7 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
 
 4. If the *IdentityController.cs* file is not open already, double-click it, and then replace the code in the file with the following code:
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;

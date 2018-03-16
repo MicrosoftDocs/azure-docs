@@ -19,9 +19,6 @@ ms.author: sngun
 ---
 
 # Run Azure Functions with Azure Stream Analytics jobs 
- 
-> [!IMPORTANT]
-> This functionality is in preview.
 
 You can run Azure Functions with Azure Stream Analytics by configuring Functions as one of the output sinks to the Stream Analytics job. Functions is an event-driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Functions to respond to triggers makes it a natural output to Stream Analytics jobs.
 
@@ -60,7 +57,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 2. Browse to the **run.csx** function. Update it with the following code. (Make sure to replace “\<your redis cache connection string goes here\>” with the Azure Redis Cache primary connection string that you retrieved in the previous section.)  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -111,7 +108,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
    When Stream Analytics receives the "HTTP Request Entity Too Large" exception from the function, it reduces the size of the batches it sends to Functions. In your function, use the following code to check that Stream Analytics doesn’t send oversized batches. Make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);

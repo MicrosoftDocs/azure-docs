@@ -27,6 +27,9 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
+## Storage Sync Service object management
+If you do a resource move from one subscription to another subscription, file sync (Storage Sync Service) resources will be blocked from being moved. 
+
 ## Agent installation and server registration
 <a id="agent-installation-failures"></a>**Troubleshoot agent installation failures**  
 If the Azure File Sync agent installation fails, at an elevated command prompt, run the following command to turn on logging during agent installation:
@@ -40,14 +43,21 @@ Review installer.log to determine the cause of the installation failure.
 > [!Note]  
 > The agent installation will fail if your machine is set up to use Microsoft Update and the Windows Update service is not running.
 
+<a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller** 
+If you try and install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008R2 or below OS version, you may hit the issue where the sync agent will fail to install.
+
+To resolve, transfer the PDC role to another domain controller running Windows Server 2012R2 or more recent, then install sync.
+
 <a id="agent-installation-websitename-failure"></a>**Agent installation fails with this error: "Storage Sync Agent Wizard ended prematurely"**  
-This issue can occur if the IIS website default name is changed. To work around this issue, rename the IIS default website as "Default Web Site" and retry installation. The issue will be fixed in a future update of the agent. 
+This issue can occur with version 1.x agent and if the IIS website default name is changed. To work around this issue, use our 2.0.11+ agent.
 
 <a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
 If a server is not listed under **Registered servers** for a Storage Sync Service:
 1. Log in to the server that you want to register.
 2. Open File Explorer, and then go to the Storage Sync Agent installation directory (the default location is C:\Program Files\Azure\StorageSyncAgent). 
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
+
+
 
 <a id="server-already-registered"></a>**Server Registration displays the following message during Azure File Sync agent installation: "This server is already registered"** 
 
@@ -93,7 +103,6 @@ To create a cloud endpoint, your user account must have the following Microsoft 
 The following built-in roles have the required Microsoft Authorization permissions:  
 * Owner
 * User Access Administrator
-
 To determine whether your user account role has the required permissions:  
 1. In the Azure portal, select **Resource Groups**.
 2. Select the resource group where the storage account is located, and then select **Access control (IAM)**.
@@ -102,11 +111,24 @@ To determine whether your user account role has the required permissions:
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
-<a id="server-endpoint-createjobfailed"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898)**                                                                                                                    
 This issue occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
 
 <a id="server-endpoint-deletejobexpired"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired"**                
 This issue occurs if the server is offline or doesn’t have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**
+
+This issue can occur if a management operation on the server endpoint fails. If the server endpoint properties page does not open in the Azure portal, updating server endpoint using PowerShell commands from the server may fix this issue. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## Sync
 <a id="afs-change-detection"></a>**If I created a file directly in my Azure file share over SMB or through the portal, how long does it take for the file to sync to servers in the sync group?**  
@@ -125,15 +147,14 @@ If sync fails on a server:
 <a id="replica-not-ready"></a>**Sync fails, with this error: "0x80c8300f - The replica is not ready to perform the required operation"**  
 This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. When the change detection job finishes running on the Azure file share (it might take up to 24 hours), sync should start working correctly.
 
-<a id="broken-sync-files"></a>**Troubleshoot individual files that fail to sync**  
-If individual files fail to sync:
-1. In Event Viewer, review the operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
-2. Verify that there are no open handles on the file.
 
     > [!NOTE]
     > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 We currently do not support resource move to another subscription or, moving to a different Azure AD tenant.  If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be re-used) and recreate the sync group.
+
+<a id="doesnt-have-enough-free-space"></a>**This PC doesn't have enough free space error**  
+If the portal shows the status "This PC doesn't have enough free space" the issue could be that less than 1 GB of free space remains on the volume.  For example, if there is a 1.5GB volume, sync will only be able to utilize .5GB   If you hit this issue, please expand the size of the volume being used for the server endpoint.
 
 ## Cloud tiering 
 There are two paths for failures in cloud tiering:

@@ -3,7 +3,7 @@ title: How to use an Azure VM Managed Service Identity for sign in
 description: Step by step instructions and examples for using an Azure VM MSI service principal for script client sign in and resource access.
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/05/2018
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

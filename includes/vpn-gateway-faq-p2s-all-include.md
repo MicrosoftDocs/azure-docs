@@ -51,9 +51,23 @@ No. You can only use the native VPN client on Windows for SSTP, and the native V
 
 ### Does Azure support IKEv2 VPN with Windows?
 
-Users can connect to Azure using the built-in Windows VPN client, which does support IKEv2. But, IKEv2 connections from a Windows device won't work in the following scenario:
+IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP.
 
-  When the user's device contains a large number of trusted root certificates, the message payload size during IKE exchange is large and causes IP layer fragmentation. The fragments are rejected at the Azure end, which results in the connection failing. The exact certificate count at which this problem occurs is difficult to estimate. As a result, IKEv2 connections from Windows devices are not guaranteed to work. When you configure both SSTP and IKEv2 in a mixed environment (consisting of Windows and Mac devices), the Windows VPN profile always tries IKEv2 tunnel first. If it fails due to the issue described here, it falls back to SSTP.
+To prepare Windows 10 or Server 2016 for IKEv2:
+
+1. Install the update.
+
+  | OS version | Date | Number/Link |
+  |---|---|---|---|
+  | Windows Server 2016<br>Windows 10 Version 1607 | January 17, 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Windows 10 Version 1703 | January 17, 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  |  |  |  |  |
+
+2. Set the registry key value. Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
+
+### What happens when I configure both SSTP and IKEv2 for P2S VPN connections?
+
+When you configure both SSTP and IKEv2 in a mixed environment (consisting of Windows and Mac devices), the Windows VPN client will always try IKEv2 tunnel first, but will fall back to SSTP if the IKEv2 connection is not successful. MacOSX will only connect via IKEv2.
 
 ### Other than Windows and Mac, which other platforms does Azure support for P2S VPN?
 

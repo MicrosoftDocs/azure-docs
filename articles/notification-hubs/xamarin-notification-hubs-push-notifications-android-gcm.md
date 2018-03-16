@@ -205,7 +205,7 @@ First, you create a new project.
     ```csharp
         [Service]
         [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
-        public class MyFirebaseIIDService : FirebaseMessagingService
+        public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
     
 14. Add the following code to **MyFirebaseMessagingService.cs**:
