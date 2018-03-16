@@ -7,12 +7,12 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
 
-# Deploy and use Azure Container Registry
+# Tutorial: Deploy and use Azure Container Registry
 
 This is part two of a three-part tutorial. In the [previous step](container-instances-tutorial-prepare-app.md), a container image was created for a simple web application written in [Node.js][nodejs]. In this tutorial, you push the image to an Azure Container Registry. If you have not created the container image, return to [Tutorial 1 – Create container image](container-instances-tutorial-prepare-app.md).
 
@@ -29,11 +29,7 @@ In the next article, the final tutorial in the series, you deploy the container 
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.23 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
-
-To complete this tutorial, you need a Docker development environment installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
-
-Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. You must install the Azure CLI and Docker development environment on your local computer to complete this tutorial.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## Deploy Azure Container Registry
 

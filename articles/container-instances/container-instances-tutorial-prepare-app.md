@@ -7,12 +7,12 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
 
-# Create container for deployment to Azure Container Instances
+# Tutorial: Create container for deployment to Azure Container Instances
 
 Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting any higher-level service. In this tutorial, you build a small web application in Node.js and package it in a container that can be run using Azure Container Instances.
 
@@ -27,13 +27,7 @@ In subsequent tutorials, you upload your image to an Azure Container Registry, a
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.23 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
-
-This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic `docker` commands. If needed, see [Get started with Docker][docker-get-started] for a primer on container basics.
-
-To complete this tutorial, you need a Docker development environment installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
-
-Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. You must install the Azure CLI and Docker development environment on your local computer to complete this tutorial.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## Get application code
 

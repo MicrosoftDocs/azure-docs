@@ -7,12 +7,12 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
 
-# Deploy a container to Azure Container Instances
+# Tutorial: Deploy a container to Azure Container Instances
 
 This is the final tutorial in a three-part series. Earlier in the series, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to an Azure Container Registry](container-instances-tutorial-prepare-acr.md). This article completes the tutorial series by deploying the container to Azure Container Instances.
 
@@ -25,11 +25,7 @@ In this tutorial, you:
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
-
-To complete this tutorial, you need a Docker development environment installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
-
-Azure Cloud Shell does not include the Docker components required to complete every step this tutorial. You must install the Azure CLI and Docker development environment on your local computer to complete this tutorial.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## Deploy the container using the Azure CLI
 
