@@ -77,44 +77,72 @@
     href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items:
-  - name: Authoring cycle
-    href: luis-concept-app-iteration.md 
-  - name: Intents
-    href: luis-concept-intent.md
-  - name: Prediction score
-    href: luis-concept-prediction-score.md
-  - name: Entities
-    href: luis-concept-entity-types.md
-  - name: Data extraction
-    href: luis-concept-data-extraction.md
-  - name: Utterances
-    href: luis-concept-utterance.md
-  - name: Features
-    href: luis-concept-feature.md
-  - name: Testing
-    href: luis-concept-test.md
+  - name: Author App
+    items: 
+    - name: Authoring cycle
+      href: luis-concept-app-iteration.md 
+    - name: Versioning
+      href: luis-concept-version.md
+  - name: Design Model 
+    items:
+    - name: Intents
+      href: luis-concept-intent.md
+    - name: Entities
+      href: luis-concept-entity-types.md
+    - name: Utterances
+      href: luis-concept-utterance.md
+  - name: Predictions
+    items:
+    - name: Prediction score
+      href: luis-concept-prediction-score.md
+    - name: Features
+      href: luis-concept-feature.md
+  - name: Data management
+    items: 
+    - name: Altering data
+      href: luis-concept-data-alteration.md
+    - name: Extracting data
+      href: luis-concept-data-extraction.md
+  - name: Test
+    items: 
+    - name: Interactive testing
+      href: luis-concept-test.md
+    - name: Batch testing
+      href: luis-concept-batch-test.md
+  - name: Enterprise
+    items:
+    - name: Design strategies
+      href: luis-concept-enterprise.md
+  - name: Best practices
+    href: luis-concept-best-practices.md
 - name: How-to guides
   items: 
   - name: Plan your app
     href: Plan-your-app.md
-  - name: Build a LUIS app
+  - name: Start a new app
+    href: Create-new-app.md
+  - name: Build Model
     items: 
-    - name: Start a new app
-      href: Create-new-app.md
     - name: Add intents
       href: Add-intents.md
     - name: Add utterances
       href: Add-example-utterances.md
     - name: Add entities
       href: Add-entities.md
-    - name: Improve performance using features
-      href: Add-Features.md
-    - name: Train and test the app
+  - name: Improve prediction accuracy using features
+    href: Add-Features.md
+  - name: Train
+    href: luis-how-to-train.md
+  - name: Test
+    items:
+    - name: Interactive testing
       href: Train-Test.md
-    - name: Use active learning
-      href: Label-Suggested-Utterances.md
-    - name: Publish your app
-      href: PublishApp.md
+    - name: Batch testing
+      href: luis-how-to-batch-test.md
+  - name: Use active learning
+    href: Label-Suggested-Utterances.md
+  - name: Publish your app
+    href: PublishApp.md
   - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
@@ -149,10 +177,14 @@
     href: luis-reference-prebuilt-domains.md
   - name: Cortana prebuilt app reference
     href: luis-reference-cortana-prebuilt.md
-  - name: Authoring APIs
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: Endpoint API
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78         
+  - name: Authoring V2 APIs
+    href: https://aka.ms/luis-authoring-apis
+  - name: Endpoint V2 API
+    href: https://aka.ms/luis-endpoint-apis
+  - name: Azure CLI 2.0
+    href: https://aka.ms/az-cli-cognitiveservices
+  - name: Azure RM PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDKs
     items:
     - name: Android
@@ -161,8 +193,10 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
     - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
-    - name: Windows
-      href: https://github.com/Microsoft/Cognitive-LUIS-Windows
+    - name: .Net Endpoint
+      href: https://aka.ms/luis-endpoint-sdk
+    - name: .Net Authoring
+      href: https://aka.ms/luis-authoring-sdk
 - name: Resources
   items: 
   - name: Azure Roadmap
