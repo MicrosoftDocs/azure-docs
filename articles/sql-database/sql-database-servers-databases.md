@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
 
 ---
@@ -137,7 +137,7 @@ To create and manage Azure SQL server, databases, and firewalls with the [Azure 
 |[az group create](/cli/azure/group#az_group_create)|Creates a resource group|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Creates a server|
 |[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Lists servers|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Returns  server usages|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Returns  server usages|
 |[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Gets a server|
 |[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Updates a server|
 |[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Deletes a server|
