@@ -188,7 +188,7 @@ Change the `Instrumentation Key` in the `ApplicationInsights-Common` technical p
 
 ## Step 4. Add the technical profiles for Application-Insights as orchestration steps in an existing User Journey.
 
-1. Call `JournyeContextForInsights` as orchestration step 1
+Call `JournyeContextForInsights` as orchestration step 1
 
 ```xml
 <!-- Initialize a session with Application Insights -->
@@ -199,7 +199,7 @@ Change the `Instrumentation Key` in the `ApplicationInsights-Common` technical p
         </OrchestrationStep>
 ```
 
-2. Call `Azure-Insights-SignInRequest` as orchestration step 2 to track that a sign-in/sign-up request has been received.
+Call `Azure-Insights-SignInRequest` as orchestration step 2 to track that a sign-in/sign-up request has been received.
 
 ```xml
 <!-- Track that we have received a sign in request -->
@@ -210,7 +210,7 @@ Change the `Instrumentation Key` in the `ApplicationInsights-Common` technical p
         </OrchestrationStep>
 ```
 
-3. Immediately **before** the `SendClaims` orchestration step, add a new step that calls `Azure-Insights-UserSignup`. It is triggered when the signup button has been clicked in a signup/signin journey.
+Immediately **before** the `SendClaims` orchestration step, add a new step that calls `Azure-Insights-UserSignup`. It is triggered when the signup button has been clicked in a signup/signin journey.
 
 ```xml
         <!-- Handles the user clicking the sign up link in the local account sign in page -->
@@ -231,7 +231,7 @@ Change the `Instrumentation Key` in the `ApplicationInsights-Common` technical p
           </ClaimsExchanges>
 ```
 
-4. Immediately after the `SendClaims` orchestration step, call `Azure-Insights-SignInComplete`.   This step will reflect a successfully completed journey.
+Immediately after the `SendClaims` orchestration step, call `Azure-Insights-SignInComplete`.   This step will reflect a successfully completed journey.
 
 ```xml
         <!-- Track that we have successfully sent a token -->
@@ -360,7 +360,7 @@ Referenced using {OIDC:One of the property names below}
 Referenced using { OAUTH-KV:Querystring parameter name }
 ```
 
-Any parameter name included as part of an OIDC or OAuth2 request can be mapped to a claim in the user journey.  It can then be recorded in the event. For example, the request from the application may include a query string parameter with a name of `app_session` or `loyalty_number`.
+Any parameter name included as part of an OIDC or OAuth2 request can be mapped to a claim in the user journey.  It can then be recorded in the event. For example, the request from the application may include a query string parameter with a name of `app_session`, `loyalty_number` or `any_string`.
 
 Sample Request from the application:
 ```
