@@ -1,6 +1,6 @@
 ---
 title: Learn about Azure Service Fabric application security | Microsoft Docs
-description: An overview of how to securely run microservices applications on Service Fabric. Learn how to run services and startup script under different security accounts, manage application secrets, secure service communications, use an API gateway, and secure application data at rest. 
+description: An overview of how to securely run microservices applications on Service Fabric. Learn how to run services and startup script under different security accounts, authenticate and authorize users, manage application secrets, secure service communications, use an API gateway, and secure application data at rest. 
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -13,24 +13,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: mfussell
 
 ---
 # Service Fabric application and service security
 
-## Secure the hosting environment
-By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
+## Authentication and authorization
+It is often necessary for resources and APIs exposed by a service to be limited to certain trusted users or clients. 
 
-The application manifest declares the security principals (users and groups) required run the service(s) and secure resources.  These security principals are referenced in policies, for example the RunAs, endpoint binding, package sharing, or security access policies.  Policies are then applied to service resources in the **ServiceManifestImport** section of the application manifest.
+### Authentication
+The first step to making API-level trust decisions is authentication. Authentication is the process of reliably ascertaining a user’s identity.  In microservice scenarios, authentication is typically handled centrally. If you are using an [API Gateway](#restrict-and-secure-access-using-an-api-gateway), the gateway is a good place to authenticate. If you use this approach, make sure that the individual services cannot be reached directly (without the API Gateway) unless additional security is in place to authenticate messages whether they come from the gateway or not.
 
-When declaring principals, you can also define and create user groups so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
+If services can be accessed directly, an authentication service like Azure Active Directory or a dedicated authentication microservice acting as a security token service (STS) can be used to authenticate users. Trust decisions are shared between services with security tokens or cookies. 
 
-By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which is specified within the application manifest. For more information, see [Run a service as a local user account or local system account](service-fabric-application-runas-security.md).  You can also [Run a service startup script as a local user or system account](service-fabric-run-script-at-service-startup.md).
+For ASP.NET Core, the primary mechanism for [authenticating users](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) is the ASP.NET Core Identity membership system. ASP.NET Core Identity stores user information (including sign-in information, roles, and claims) in a data store configured by the developer. ASP.NET Core Identity supports two-factor authentication.  External authentication providers are also supported, so users can log in using existing authentication processes from providers like Microsoft, Google, Facebook, or Twitter. 
 
-When you're running Service Fabric on a Windows standalone cluster, you can run a service under [Active Directory domain accounts](service-fabric-run-service-as-ad-user-or-group.md) or [group managed service accounts](service-fabric-run-service-as-gmsa.md).
+### Authorization
+After authentication, services need to authorize user access or determine what a user is able to do. This process allows a service to make APIs available to some authenticated users, but not to all. Authorization is orthogonal and independent from authentication, which is the process of ascertaining who a user is. Authentication may create one or more identities for the current user.
 
-## Manage secrets
+[ASP.NET Core authorization](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) can be done based on users’ roles or based on custom policy, which might include inspecting claims or other heuristics.
+
+## Manage application secrets
 Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. This article uses Azure Key Vault to manage keys and secrets. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere.
 
 The recommended way to manage service configuration settings is through [service configuration packages][config-package]. Configuration packages are versioned and updatable through managed rolling upgrades with health-validation and auto rollback. This is preferred to global configuration as it reduces the chances of a global service outage. Encrypted secrets are no exception. Service Fabric has built-in features for encrypting and decrypting values in a configuration package Settings.xml file using certificate encryption.
@@ -50,6 +54,17 @@ There are four main steps in this flow:
 
 For an example, see [Manage application secrets](service-fabric-application-secret-management.md).
 
+## Secure the hosting environment
+By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
+
+The application manifest declares the security principals (users and groups) required run the service(s) and secure resources.  These security principals are referenced in policies, for example the RunAs, endpoint binding, package sharing, or security access policies.  Policies are then applied to service resources in the **ServiceManifestImport** section of the application manifest.
+
+When declaring principals, you can also define and create user groups so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
+
+By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, which is specified within the application manifest. For more information, see [Run a service as a local user account or local system account](service-fabric-application-runas-security.md).  You can also [Run a service startup script as a local user or system account](service-fabric-run-script-at-service-startup.md).
+
+When you're running Service Fabric on a Windows standalone cluster, you can run a service under [Active Directory domain accounts](service-fabric-run-service-as-ad-user-or-group.md) or [group managed service accounts](service-fabric-run-service-as-gmsa.md).
+
 ## Secure containers
 Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). This PFX certificate can be used for authenticating the application or service or secure communication with other services. For more information, see [Import a certificate into a container](service-fabric-securing-containers.md).
 
@@ -62,7 +77,7 @@ You can establish secure connection between the reverse proxy and services, thus
 
 The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. Learn how to improve security when you're using service remoting (in [C#](service-fabric-reliable-services-secure-communication.md) or [Java](service-fabric-reliable-services-secure-communication-java.md)) or using [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
-## Restrict and secure access to your services using an API gateway
+## Restrict and secure access using an API gateway
 Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. An [API gateway](/azure/architecture/microservices/gateway) sits between clients and services. It acts as a reverse proxy, routing requests from clients to services. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. If you don't deploy a gateway, clients must send requests directly to front-end services.
 
 In Service Fabric, a gateway can be any stateless service such as an [ASP.NET Core application](service-fabric-reliable-services-communication-aspnetcore.md), or another service designed for traffic ingress, such as [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), or [Azure API Management](https://docs.microsoft.com/azure/api-management).
@@ -75,17 +90,13 @@ Each [node type](service-fabric-cluster-nodetypes.md) in a Service Fabric cluste
 TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?
 
-## To DO: Authentication and authorization
-
-## TO DO: Service-to-service authentication and authorization
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 * [Run a setup script at service startup](service-fabric-run-script-at-service-startup.md)
-
 * [Specify resources in a service manifest](service-fabric-service-manifest-resources.md)
 * [Deploy an application](service-fabric-deploy-remove-applications.md)
-
+* [Learn about cluster security](service-fabric-cluster-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
