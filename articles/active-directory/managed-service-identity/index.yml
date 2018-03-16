@@ -34,7 +34,7 @@ sections:
     style: unordered
     items:
     - name: Windows VM
-      - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Access Azure Resource Manager</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Access Azure Resource Manager</a>
 
 - title: Step-by-Step Tutorials
   items:
