@@ -193,7 +193,6 @@ To create and manage Azure SQL server, databases, and firewalls, use these REST 
 |[Servers - List](/rest/api/sql/servers/list)|Returns a list of servers.|
 |[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|Returns a list of servers in a resource group.|
 |[Servers - Update](/rest/api/sql/servers/update)|Updates an existing server.|
-|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|Determines whether a resource can be created with the specified name.|
 |[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
 |[Databases - Get](/rest/api/sql/databases/get)|Gets a database.|
 |[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|Gets a database inside of an elastic pool.|
