@@ -85,6 +85,13 @@ These require **write** access to both the **Virtual machine**, and the **Resour
 
 If you can't access any of these tiles, ask your administrator for Contributor access to the Resource group.
 
+## Azure Functions
+Some features of [Azure Functions](../azure-functions/index.yml) require write access. For example, if a user is assigned the Reader role, they will not be able to view the functions within a function app. The portal will display **(No access)**.
+
+![Function apps no access](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+A reader can click the **Platform features** tab and then click **All settings** to view some settings related to a function app (similar to a web app), but they can't modify any of these settings.
+
 ## See more
 * [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
 * [Built-in roles](role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
