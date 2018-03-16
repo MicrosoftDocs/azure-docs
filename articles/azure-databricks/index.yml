@@ -43,7 +43,8 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Stream data from Event Hubs using Azure Databricks</a>    
+    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Stream data from Event Hubs using Azure Databricks</a>
+    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Sentiment analysis using Azure Databricks and Cognitive Services</a>    
     - html: <a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Import data from Azure Storage</a>
     - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
     - html: <a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Work with notebooks</a>

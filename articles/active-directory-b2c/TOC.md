@@ -50,6 +50,7 @@
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
 ## [Use the reporting API](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Migrate users](active-directory-b2c-user-migration.md)
+## [Migrate social identities](active-directory-b2c-social-migration.md)
 
 # Code samples
 ## Mobile and desktop apps
