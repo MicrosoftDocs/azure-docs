@@ -55,8 +55,8 @@ When you create a domain-joined HDInsight cluster, you must supply the following
 - **LDAPS URL**: For example, ldaps://contoso.onmicrosoft.com:636
 - **Access user group**: The security groups whose users you want to sync to the cluster. For example, HiveUsers. If you want to specify multiple user groups, separate them by comma ‘,’.
  
-[!NOTE]
-Since Apache Zeppelin uses the domain name to authenticate the administrative service account, the service account MUST have the same domain name as its UPN suffix for Apache Zeppelin to function properly.
+> [!NOTE]
+> Since Apache Zeppelin uses the domain name to authenticate the administrative service account, the service account MUST have the same domain name as its UPN suffix for Apache Zeppelin to function properly.
  
 The following screenshot shows the configurations in the Azure portal:
 
