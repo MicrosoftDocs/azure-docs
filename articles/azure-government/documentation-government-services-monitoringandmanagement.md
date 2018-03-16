@@ -66,7 +66,7 @@ For more information, see [Monitor commercial documentation](https://docs.micros
 The following sections detail differences and workarounds for features of Azure Monitor in Azure Government:
 
 #### Action Groups 
-Action Groups do not support SMS at this time but will in a coming update.    
+Action Groups are generally available in Azure Government with no differences from commercial Azure.   
 
 #### Activity Log Alerts
 Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure.
@@ -76,7 +76,7 @@ Activity Log Alerts are generally available in Azure Government with no differen
 Autoscale via the portal is not currently available. This feature is coming soon.  
 </aside>
 
-In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the Autoscale to USGov Virginia or USGov Iowa. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
+In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the Autoscale to USGov Virginia. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1" 
@@ -95,18 +95,12 @@ For more information on using PowerShell, please see [public documentation](http
 Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.
 
 #### Metrics
-Metrics are supported in all regions, but only for services which are available in Azure Government; a few exceptions are below:
+Metrics are generally available in Azure Government with no differences from commercial Azure. 
 
-* Coming Soon: Azure IoT Hub
+#### Metric Alerts
+Metrics Alerts are generally available in Azure Government.
 
-The same methods for viewing the metrics that are used in commercial Azure are used in Azure Government. 
-
-#### Metric Alerts 
-<aside class="warning">
-Creating Metric Alerts for resources outside of USGov Virginia and USGov Iowa in the portal will fail. A fix for this issue is in progress. 
-</aside>
-
-In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the metric alert to USGov Virginia or USGov Iowa. The resource targetted by the alert can exist in any region. An example of the setting is below:
+When using PowerShell/ARM/Rest calls to create Metric Alerts, you will need to set the "Location" of the metric alert to USGov Virginia. An example of the setting is below:
 
 ```PowerShell
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com 

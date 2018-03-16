@@ -17513,7 +17513,7 @@
         "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
         "redirect_document_id": false
     },
-	{
+	  {
         "source_path": "articles/active-directory/active-directory-apps-permissions-consent.md",
         "redirect_url": "/azure/active-directory/develop/active-directory-integrating-applications",
         "redirect_document_id": false
@@ -17548,7 +17548,12 @@
         "redirect_url": "https://dev.loganalytics.io/",
         "redirect_document_id": false
      },
-	      {
+     {
+            "source_path": "articles/azure-functions/durable-functions-counter.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-monitor.md",
+            "redirect_document_id": true
+     },
+	   {
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-concurrency.md",
         "redirect_url": "/azure/sql-data-warehouse/resource-classes-for-workload-management",
         "redirect_document_id": false
