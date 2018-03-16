@@ -25,7 +25,8 @@ This article lists current point-of-presence (POP) locations for **Azure CDN fro
 > 
 > Both providers have distinct ways of building their CDN infrastructures.  We recommend against using POP locations to decide which Azure CDN product to use, and instead consider features and end-user performance.  Test the performance with both providers to choose the right Azure CDN product for your users. 
 > 
-> 
+
+
 The following table lists POP locations by region for **Azure CDN from Verizon** and **Azure CDN from Akamai**:
 
 | Region | Verizon | Akamai |
@@ -40,6 +41,8 @@ The following table lists POP locations by region for **Azure CDN from Verizon**
 | Asia | Hong Kong<br />Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />New Delhi, India<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong<br />India<br />Indonesia<br />Japan<br />Malaysia<br />Philippines<br />Singapore<br />Taiwan<br />Thailand<br />Vietnam |
 | Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
+
+<br />
 The following table lists POP locations by abbreviation for **Azure CDN from Verizon**:
 
 Abbreviation | Location | Region
