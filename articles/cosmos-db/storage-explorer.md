@@ -22,7 +22,7 @@ ms.author: Jejiang
 ---
 # Manage Azure Cosmos DB in Azure Storage Explorer (Preview)
 
-Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues. Now you can use the same tool to manage your different Azure entities in one place. At this time, Azure Storage Explorer supports SQL <!--and MongoDB--> accounts. The Azure Storage Explorer does not work with the Azure Cosmos DB Local Emulator. 
+Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues. Now you can use the same tool to manage your different Azure entities in one place. At this time, Azure Storage Explorer supports SQL, MongoDB, Graph, and Table accounts.
 
 In this article, you can learn how to use Storage Explorer to manage Azure Cosmos DB.
 
@@ -133,10 +133,60 @@ To create a new document, open **Documents** in the left window, click **New Doc
 
 #### Delete a document
 Click the **Delete** button to delete the selected document.
+
 #### Query for documents
 Edit the document filter by entering a [SQL query](sql-api-sql-query.md) and then click **Apply**.
 
-![Filter](./media/storage-explorer/filter.png)
+![Document Filter](./media/storage-explorer/document-filter.png)
+
+
+
+### Graph management
+
+#### Create and modify vertex
++ To create a new vertex, open **Graph** from the left window, click **New Vertex**, edit the contents, then click **OK**.    
++ To modify an existing vertex, click the pen icon in the right pane.    
+
+
+![Graph](./media/storage-explorer/vertex.png)
+
+
+#### Delete a graph
+To delete a vertex, click the recycle bin icon beside the vertex name.
+
+#### Filter for graph
+Edit the graph filter by entering a [gremlin query](gremlin-support.md) and then click **Apply Filter**.
+
+![Graph Filter](./media/storage-explorer/graph-filter.png)
+
+
+### Table management
+
+#### Create and modify table
++ To create a new table, open **Entities** from the left window, click **Add**, edit the content in **Add Entity** dialog, add property by clicking button **Add Property**, then click **Insert**.
++ To modify a table, click **Edit**, modify the content, then click **Update**.
+
+![Table](./media/storage-explorer/table.png)
+
+#### Import and Export table
+Click **Import** button and choose an existing table to import.
+Click **Export** button and choose a destination to export table.
+
+
+![Table Import and Export](./media/storage-explorer/table-import-export.png)
+
+
+#### Delete Entities
+Select the entities and click button **Delete**.
+
+
+![Table delete](./media/storage-explorer/table-delete.png)
+
+
+#### Query table
+Click **Query** button, input query condition, then click **Execute Query** button. Close Query pane by clicking **Close Query** button.
+
+![Table Query](./media/storage-explorer/table-query.png)
 
 ### Manage stored procedures, triggers, and UDFs
 * To create a stored procedure, in the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter a name in the left, type the stored procedure scripts in the right window, and then click **Create**. 
