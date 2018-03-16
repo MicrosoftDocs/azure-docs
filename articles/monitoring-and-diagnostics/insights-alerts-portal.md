@@ -28,7 +28,7 @@ ms.author: robb
 ## Overview
 
 > [!NOTE]
-> This article describes how to create older metric alerts. Azure Monitor now supports newer, better metric alerts. These can monitor multiple metrics and allow for alerting dimensional metrics. Learn more about [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md).
+> This article describes how to create older metric alerts. Azure Monitor now supports newer, better metric alerts. These alerts can monitor multiple metrics and allow for alerting on dimensional metrics. Learn more about [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md).
 >
 >
 
@@ -37,7 +37,7 @@ This article shows you how to set up Azure metric alerts using the Azure portal.
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
 * **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
-* **Activity log events** - An alert can trigger on *every* event, or, only when certain events occurs. Learn more about [activity log alerts](monitoring-activity-log-alerts.md).
+* **Activity log events** - An alert can trigger on *every* event, or, only when certain event occurs. Learn more about [activity log alerts](monitoring-activity-log-alerts.md).
 
 You can configure a metric alert to do the following when it triggers:
 
