@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/10/2017
+ms.date: 03/16/2018
 ms.author: mimig
 ms.custom: mvc
 
@@ -117,7 +117,7 @@ The next query returns all the children in the family.
 
 **Query**
     
-    db.familes.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: “WakefieldFamily” }, { children: true } )
 
 **Results**
 
