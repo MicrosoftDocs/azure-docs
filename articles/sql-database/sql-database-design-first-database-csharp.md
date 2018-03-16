@@ -9,7 +9,6 @@ ms.service: sql-database
 ms.custom: develop databases, mvc, devcenter
 ms.topic: tutorial
 ms.date: 03/15/2018
-ms.author: genemi
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET
 
