@@ -1,6 +1,8 @@
 - name: Managed Service Identity
-  href: overview.md
+  href: index.yml
   items:
+    - name: Overview
+      items: overview.md
     - name: Configure MSI for an Azure VM
       items:
       - name: Using Azure Portal
