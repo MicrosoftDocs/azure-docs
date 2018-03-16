@@ -53,7 +53,10 @@ To communicate with the Graph API, you first must have a service account with ad
 The following list shows the properties that are required when you create a user.
 * **accountEnabled** - true
 * **displayName** - The name to display in the address book for the user.
-* **passwordProfile** - The password profile for the user. Note: For social account only (without local account credentials), you still must specify the password. Azure AD B2C ignores the password you specify for social accounts.
+* **passwordProfile** - The password profile for the user. 
+
+> [!NOTE] For social account only (without local account credentials), you still must specify the password. Azure AD B2C ignores the password you specify for social accounts.
+
 * **userPrincipalName** - The user principal name (someuser@contoso.com). The user principal name must contain one of the verified domains for the tenant. To specify the UPN, generate new GUID value, concatenate with `@` and your tenant name.
 * **mailNickname** - The mail alias for the user. This value can be the same ID that you use for the userPrincipalName. 
 * **signInNames** - One or more SignInName records that specify the sign-in names for the user. Each sign-in name must be unique across the company/tenant. For social account only, this property can be left empty.
@@ -136,10 +139,12 @@ The issuer name, or the identity provider name, is configured in your policy. If
 1. Sign in with one of the social accounts
 2. From the JWT token, copy the `sub` value. The `sub` usually contains the user's object ID in Azure AD B2C. Or from Azure portal, open the user's properties and copy the object ID.
 3. Open [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net)
-4. Sign in with your administrator. Note: Use a B2C tenant administrator account that is local to the B2C tenant. The account name syntax is admin@tenant-name.onmicrosoft.com.
+4. Sign in with your administrator. N
 5. Run following GET request. Replace the userObjectId with the user ID you copied. **GET** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. Locate the `userIdentities` element inside the JSON return from Azure AD B2C.
 7. [Optional] You may also want to decode the `issuerUserId` value.
+
+> [!NOTE] Use a B2C tenant administrator account that is local to the B2C tenant. The account name syntax is admin@tenant-name.onmicrosoft.com.
 
 ### Is it possible to add social identity to an existing local account?
 Yes. You can add the social identity after the local account has been created. Run HTTPS PATCH request. Replace the userObjectId with the user ID you want to update. 
