@@ -106,7 +106,7 @@ Look for the sizes specified as "RDMA capable" in the following articles:
 > [!NOTE]
 > To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. 
 >
-> Batch [limits](batch-quota-limits.md#other-limits) the number of RDMA-connected nodes in a pool that can run MPI jobs.
+> Batch [limits](batch-quota-limit.md#other-limits) the number of RDMA-connected nodes in a pool that can run MPI jobs.
 
 
 ## Create a multi-instance task with Batch .NET
