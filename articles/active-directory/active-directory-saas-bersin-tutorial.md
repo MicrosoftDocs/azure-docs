@@ -106,7 +106,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, type a URL: `https://www.bersin.com/shibboleth`
 
-	b. Check **Show advanced URL settings**, in the **Relay State** textbox, type a URL: `https://www.bersin.com/secure/`:
+	b. Check **Show advanced URL settings** and in **Relay State** textbox, type a URL: `https://www.bersin.com/secure/`
 
 4. If you wish to configure the application in **SP** initiated mode, perform the following step:
 
@@ -161,7 +161,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Bersin test user
 
-In this section, you create a user called Britta Simon in Bersin. Bersin supports just-in-time provisioning, which is by default enabled or the domain which is needed to be whitelisted in the Bersin platform. If the domain is added by the team, users will get automatically provisioned to the Bersin platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Bersin. Work with [Bersin support team](mailto:USBersinServiceClient@deloitte.com) to add the users in the Bersin platform or the domain which is needed to be whitelisted in the Bersin platform. If the domain is added by the team, users will get automatically provisioned to the Bersin platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
