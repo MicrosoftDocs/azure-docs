@@ -112,7 +112,7 @@ Technical profiles may be considered functions in Azure AD B2C's Identity Experi
 
 Add the profiles to the extension file from the starter pack by adding these elements to the `<ClaimsProviders>` node.  The extensions filename is typically `yourtenant.onmicrosoft.com-B2C_1A_TrustFrameworkExtensions.xml`
 
-> !IMPORTANT
+> [!IMPORTANT]
 > Change the `Instrumentation Key` in the `ApplicationInsights-Common` technical profile to the GUID provided by your Application Insights resource.
 
 ```xml
