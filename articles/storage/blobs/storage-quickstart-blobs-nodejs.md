@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/13/2018
+ms.date: 03/15/2018
 ms.author: cshoe
 ---
 
@@ -269,6 +269,18 @@ try {
 ## Clean up resources
 If you do not plan on using the data or accounts created in this article, you may want to delete them in order to avoid any undesired billing. To delete the blob and containers, you can use the [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) and [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_) methods. You can also delete the storage account [through the portal](../common/storage-create-storage-account.md).
 
+## Resources for developing Node.js applications with blobs
+
+See these additional resources for Node.js development with Blob storage:
+
+### Binaries and source code
+
+- View and install the [Node.js client library source code](https://github.com/Azure/azure-storage-node) for Azure Storage on GitHub.
+
+### Client library reference and samples
+
+- See the [Node.js API reference](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage) for more information about the Node.js client library.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob) written using the Node.js client library.
 
 ## Next steps
 
