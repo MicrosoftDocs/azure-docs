@@ -66,7 +66,7 @@ This section walks you through setting the Jenkins URL.
 ## Update Jenkins to allow Java Network Launch Protocol (JNLP)
 
 > [!NOTE]
-> This tutorial illustrates how to configure a JNLP agent. From version 0.4.x onwards, the [Jenkins Azure Container Agents plugin](https://plugins.jenkins.io/azure-container-agents) also support SSH.
+> This tutorial illustrates how to configure a JNLP agent. From version 0.4.x onwards, the [Jenkins Azure Container Agents plugin](https://plugins.jenkins.io/azure-container-agents) also supports SSH.
 >
 >
 
