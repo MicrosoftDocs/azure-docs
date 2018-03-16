@@ -38,7 +38,7 @@ By the end of this guide, you'll learn more about each of these topics and know 
 - How to optimize a listing and use go-to-market resources to drive impact
 - Where to get help and support
 
-For questions about the Azure Marketplace, AppSource, or this publishing guide, [contact the Marketplace team](mailto:cloudmarketplace@microsoft.com). 
+For questions about the Azure Marketplace, AppSource, or this publishing guide, contact the Marketplace team at cloudmarketplace@microsoft.com. 
 
 ## Benefits of participating in the Marketplace
 
@@ -116,7 +116,7 @@ This section walks you through the options available to you in both storefronts.
 
 |**Publishing option**  | **Offer type** | **Storefront**  |
 |---------|---------|---------|
-|**List**    |    Contact Me, Consulting Service     |  Azure Marketplace, AppSource       |
+|**List**    |    Contact Me, Consulting Services     |  Azure Marketplace, AppSource       |
 |**Trial**   |     Free Trial, SaaS Trial, Interactive Demo, Test Drive    |  Azure Marketplace, AppSource       |
 |**Transaction**     |   Virtual Machine, Solution Template, Managed Application      |    Azure Marketplace     |
 
@@ -188,7 +188,7 @@ All virtual machines published in the Azure Marketplace are tested for the *Azur
 
 #### Marketplace commercial considerations
 
-There are no fees for participating in the Marketplace. There is no revenue share for participating in the Marketplace when publishing using the List, Trial, and BYOL Transact options. For more details, see our [Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+There are no fees for participating in the Marketplace. There is no revenue share for participating in the Marketplace when you're publishing by using the list, trial, and BYOL transaction options. For more details, see the [Marketplace participation policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
 #### Pay-As-You-Go and Bring Your Own License billing options
 
@@ -257,7 +257,7 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 
 |**Requirement**  | **Details**  |**Publishing option**  |
 |---------|---------|---------|
-|**Free trial period and trial experience**     |  A customer must be able to use your app for free for a limited time.<br>This means that the customer will not be subject to license or subscription fees for your product, nor the cost of the underlying Microsoft first-party product or service. Since all Trial options are deployed to the publisher's Microsoft product subscription, Trial cost optimization and management is controlled solely by the publisher.<br>You can choose a free trial, interactive demo, or Test Drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try out the app for no additional cost.<br> Reach out to cloudmarketplace@microsoft.com to begin the process of creating a Test Drive. Note: Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more.](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences) |   Trial      | 
+|**Free trial period and trial experience**     |  A customer must be able to use your app for free for a limited time.<br>This means that the customer will not be subject to license or subscription fees for your product, nor the cost of the underlying Microsoft first-party product or service. Because all trial options are deployed to the publisher's Microsoft product subscription, trial cost optimization and management are controlled solely by the publisher.<br>You can choose a free trial, interactive demo, or test drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try the app for no additional cost.<br> Reach out to cloudmarketplace@microsoft.com to begin the process of creating a test drive. <br>Note: Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Trial      | 
 | **Easily configurable, turnkey solution**    |  Your app must be easy and quick to configure and set up.       |  Trial       |
 |**Availability/Uptime**    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |    Trial     |
 |**Azure Active Directory**    |    Your offer must allow Azure Active Directory federated single sign-on (Azure AD federated SSO) with consent enabled.      |  Trial|
@@ -267,96 +267,96 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 
 |**Requirement**  |**Details** |**Publishing option**  |
 |---------|---------|---------|
-|**Billing and Metering**    |  Your virtual machine must support either Bring Your Own License or usage-based, monthly-billing.       |    Transact    |
-|**Azure-compatible virtual hard disk (VHD)**     |   Virtual machines must be built on [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) or [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
+|**Billing and metering**    |  Your virtual machine must support either Bring Your Own License or usage-based, monthly-billing.       |    Transaction    |
+|**Azure-compatible virtual hard disk (VHD)**     |   Virtual machines must be built on [Windows](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) or [Linux](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaction      |
 
 ### Prerequisites specific to Consulting Services publishing
 
 
 |**Requirements** |**Details**  |**Publishing option**  |
 |---------|---------|---------|
-|**Services Offer Characteristics**     | Your Consulting Service must be delivered as a fixed scope, fixed duration, fixed price (or free) engagement, primarily pre-sales oriented, limited to a single customer, and conducted on-site        |    List     |
-|**Partner Requirements for Consulting Services**    |   **AppSource only.**  Dynamics 365 for Customer Engagement  [Silver or Gold Cloud Customer Relationship Management Competency](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 for Finance and Operations Enterprise edition: Silver or Gold [Enterprise Resource Planning] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) competency, and a minimum revenue of $25K in Cloud Operations in the trailing 12 months. Dynamics 365 for Finance and Operations, Business edition: Serve as [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) or [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) for at least one customer. Power BI: Meet the [Solution Partner](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf) criteria. PowerApps: Have a [Partner Showcase] (https://powerapps.microsoft.com/en-us/partner-showcase/) solution |    List     |
+|**Services Offer Characteristics**     | Your consulting service must be: <br>- Delivered as a fixed-scope, fixed-duration, fixed-price (or free) engagement. <br>- Primarily pre-sales oriented. <br>- Limited to a single customer. <br>- Conducted on site.        |    List     |
+|**Partner Requirements for Consulting Services**    |   *AppSource only*:  <br>- **Dynamics 365 for Customer Engagement**: Silver or Gold [Cloud Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency) competency. <br>- **Dynamics 365 for Finance and Operations Enterprise edition**: Silver or Gold [Enterprise Resource Planning](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) competency, and a minimum revenue of $25,000 in cloud operations in the trailing 12 months. <br>- **Dynamics 365 for Finance and Operations, Business edition**: Serve as [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) or [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) for at least one customer. <br>- **Power BI**: Meet the [Solution Partner](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf) criteria. <br>- **PowerApps**: Have a [Partner Showcase](https://powerapps.microsoft.com/en-us/partner-showcase/) solution. |    List     |
 
 ## Using Azure Active Directory to enable trials
-Azure Active Directory (Azure AD) is a cloud identity service that enables authentication with a Microsoft work or school account using the industry standard protocols: OAuth and OpenID Connect. Learn more about Azure AD on the [product webpage](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
+Azure Active Directory is a cloud identity service that enables authentication with a Microsoft work or school account by using the industry-standard protocols: OAuth and OpenID Connect. Learn more about Azure AD on the [product webpage](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft authenticates all Marketplace users with Azure AD, hence when an authenticated user clicks through your Trial listing in the Marketplace and is re-directed to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The [token that your app receives from Azure AD during authentication](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. 
+Microsoft authenticates all Marketplace users with Azure AD. When an authenticated user clicks through your trial listing in the Marketplace and is redirected to your trial environment, you can provision the user directly into a trial without requiring an additional sign-in step. The [token that your app receives from Azure AD during authentication](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) includes valuable user information that you can use to create a user account in your app. You can then automate the provisioning experience and increase the likelihood of conversion. 
 
-Using Azure AD to enable 1-click authentication to your app or Trial:
+Using Azure AD to enable one-click authentication to your app or trial:
 
-- Streamlines the customer experience from Marketplace to Trial 
-- Maintains the feel of an 'in-product experience' even when the user is redirected from the Marketplace to your domain or Trial environment
-- Decreases the likelihood of abandonment on redirect because there is not an additional sign-in step
-- Reduces deployment barriers for the large population of Azure AD users
+- Streamlines the customer experience from Marketplace to trial. 
+- Maintains the feel of an in-product experience, even when the user is redirected from the Marketplace to your domain or trial environment.
+- Decreases the likelihood of abandonment on redirect because there's no additional sign-in step.
+- Reduces deployment barriers for the large population of Azure AD users.
 
-### Certifying your Azure Active Directory integration for the Marketplace
+### Certify your Azure AD integration for the Marketplace: multitenant applications
 
-For multi-tenant applications:
+If you support Azure AD today:
 
-If you support Azure AD today
+- Register your application in the Azure portal.
+- Enable the multitenancy support feature in Azure AD to get a one-click trial experience.
 
-- Register your application in the Azure portal
-- Enable multi-tenancy support feature in Azure AD to get 'one-click' trial experience
-- [Learn more here](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+[Learn more](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).
 
-If you are new to Azure AD Federated SSO
+If you are new to Azure AD Federated SSO:
 
-- Register your application in the Azure portal
-- Develop SSO with Azure AD using [OpenID Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) or [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)
-- Enable multi-tenancy support feature in Azure AD to get 'one-click' trial experience
-- [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified)
+- Register your application in the Azure portal.
+- Develop SSO with Azure AD by using [OpenID Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) or [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+- Enable the multitenancy support feature in Azure AD to get a one-click trial experience.
 
-For single-tenant applications:
+[Learn more](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
 
-There are multiple options for single tenant applications:
+### Certify your Azure AD integration for the Marketplace: single-tenant applications
 
-- Add users to your directory as guest users using [Azure B2B] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
-- Manually provision trials for customers via 'Contact Me'
-- Develop a per customer 'Test Drive'
-- Build a multi-tenant sample demo app with SSO
+There are multiple options for single-tenant applications:
 
-##Publishing processes by product for Office, Dynamics, and Power BI
-For AppSource apps that extend Office, Dynamics, and Power BI, you can learn more about the specific requirements in the product specific documentation in this section. 
+- Add users to your directory as guest users by using [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Manually provision trials for customers via Contact Me.
+- Develop a per-customer test drive.
+- Build a multitenant sample demo app with SSO.
+
+## Publishing processes by product for Office, Dynamics, and Power BI
+For AppSource apps that extend Office, Dynamics, and Power BI, you can learn more about the specific requirements in the product-specific documentation in this section. 
 
 
 |Product |Publishing information  |
 |---------|---------|
 |Office 365     |    Review the [publishing process and guidelines]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
 |Dynamics 365   for Finance and Operations  |   When building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)      |
-|Dynamics 365 for Customer Engagement |Review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource) |
-|Power BI   |     Review the [publishing process and guidelines.]( https://docs.microsoft.com/en-us/power-bi/developer/office-store)    |
-|Cortana Intelligence     |    Learn about [Cortana in AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)     |
-|AppSource Consulting Offers     |  Review the [guidelines and learn how to submit your offer.]( https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)    |
+|Dynamics 365 for Customer Engagement |Review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource). |
+|Power BI   |     Review the [publishing process and guidelines]( https://docs.microsoft.com/en-us/power-bi/developer/office-store).    |
+|Cortana Intelligence     |    Learn about [Cortana in AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
+|AppSource Consulting Offers     |  Review the [guidelines and learn how to submit your offer](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
 
 
 
 ## Cloud Partner Portal pre-publishing checklist for the Azure Marketplace
 
-Before you start the publishing process, it's helpful to understand the components required to build an Offer. The following artifacts are required to complete the Create Offer publishing workflow in the Cloud Partner Portal. 
+Before you start the publishing process, it's helpful to understand the components required to build an offer. The following artifacts are required to complete the Create Offer publishing workflow in the Cloud Partner Portal. 
 
 ### Storefront details
 
 
-|You'll Need this Publishing Artifact  |For this Offer Type  |
+|You'll need this publishing artifact  |For this offer type  |
 |---------|---------|
-|**Offer Name (200 char) and Description (2000 char)**    |  All        |
-|**MPN ID and Competencies**   |  Consulting Services       |
-|**Country/Region availability**   | All        |
+|**Offer name (200 characters) and description (2,000 characters)**    |  All        |
+|**MPN ID and competencies**   |  Consulting Services       |
+|**Country/region availability**   | All        |
 |**Duration of engagement**     |   Consulting Services      |
-|**Applicable Industries, Categories, and search keywords**     |  All       |
-|**Company Logos (48x48, 216x216)**     |  Consulting Services       |
-|**Product Overview Video (optional)**  |  All       |
-|**Screenshots (Max 5, 1280x720)**   |    All     |
-|**Marketing Documents (Max3)**    |  All       |
-|**Lead Destination**    |   All      |
+|**Applicable industries, categories, and search keywords**     |  All       |
+|**Company logos (48x48, 216x216)**     |  Consulting Services       |
+|**Product overview video (optional)**  |  All       |
+|**Screenshots (maximum 5, 1280x720)**   |    All     |
+|**Marketing documents (maximum 3)**    |  All       |
+|**Lead destination**    |   All      |
 
 ### Contacts
 
 
-|You'll Need this Publishing Artifact  |For this Offer Type  |
+|You'll need this publishing artifact  |For this offer type  |
 |---------|---------|
-|**Contact Information (Support, Engineering, Commercial)**    |    All     |
+|**Contact information (support, engineering, commercial)**    |    All     |
 
 ### Technical info
 
@@ -364,67 +364,72 @@ Before you start the publishing process, it's helpful to understand the componen
 |You'll need this publishing artifact  |For this offer type |
 |---------|---------|
 |**Trial URL**     |  All trial offer types       |
-|**Supported Languages**    |   All trial offer types      |
-|**App Version Number and Release Date**    |   All trial offer types      |
+|**Supported languages**    |   All trial offer types      |
+|**App version number and release date**    |   All trial offer types      |
 |**Support URL**    |   All trial offer types, virtual machines      |
-|**Terms of Use and Privacy Policy URL**     |    All     |
+|**Terms of use and privacy policy URL**     |    All     |
 
 ### Test drive
 
 
 |You'll need this publishing artifact  |For this offer type  |
 |---------|---------|
-|**Description and Duration**     |  Test drive only       |
-|**User Manual**     |   Test drive only      |
-|**Test Drive Video (Max 1)**     |  Test drive only       |
-|**Test Drive Country/Region Availability**    |   Test drive only      |
-|**Azure Resource Group Name**   |         |
-|**Azure Subscription ID**     |  Test drive only       |
-|**Azure AD Tenant ID**   |    Test drive only     |
-|**Azure AD App ID**  |  Test drive only       |
-|**Azure AD App Key**     |   Test drive only      |
+|**Description and duration**     |  Test drive only       |
+|**User manual**     |   Test drive only      |
+|**Test drive video (maximum 1)**     |  Test drive only       |
+|**Test drive country/region availability**    |   Test drive only      |
+|**Azure resource group name**   |         |
+|**Azure subscription ID**     |  Test drive only       |
+|**Azure AD tenant ID**   |    Test drive only     |
+|**Azure AD app ID**  |  Test drive only       |
+|**Azure AD app key**     |   Test drive only      |
 
 ### Storefront/Marketplace
 
 
 |You'll need this publishing artifact  |For this offer type  |
 |---------|---------|
-|**Title (Max 50 char)**    |  Transact ' Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
-|**Summary (Max 200 char)**    |  Transact ' Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
-|**Long Summary (Max 256 char)**     |   Transact ' Virtual Machines, Azure Apps (Solution Templates and Managed Apps)      |
-|**HTML-based Description (Max 3000 char)**    |  Transact ' Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
-|**Company Logos (40x40, 90x90, 115x115, 255x115, 815x290)**    |  Transact ' Virtual Machines, Azure Apps (Solution Templates and Managed Apps)       |
+|**Title (maximum 50 characters)**    |  Transaction: virtual machines, Azure apps (solution templates and managed apps)       |
+|**Summary (maximum 200 characters)**    |  Transaction: virtual machines, Azure apps (solution templates and managed apps)       |
+|**Long summary (maximum 256 characters)**     |   Transaction: virtual machines, Azure apps (solution templates and managed apps)      |
+|**HTML-based description (maximum 3,000 characters)**    |  Transaction: virtual machines, Azure apps (solution templates and managed apps)       |
+|**Company logos (40x40, 90x90, 115x115, 255x115, 815x290)**    |  Transaction: virtual machines, Azure apps (solution templates and managed apps)       |
 
 ### SKU
 
 
 |You'll need this publishing artifact  |For this offer type  |
 |---------|---------|
-|**Version Number**     |    Transact ' Azure Apps (Solution Templates and Managed Apps)     |
-|**Package file containing all the template files and createUIDefinitionFile**   |Transact ' Azure Apps (Solution Templates and Managed Apps)         |
-|**Operating System Details**    |   Transact ' Virtual Machines      |
-|**Ports and Protocols in Use**    |  Transact ' Virtual Machines       |
-|**Disk Version and SAS URL for each VHD in use**   |  Transact ' Virtual Machines       |
+|**Version number**     |    Transaction: Azure apps (solution templates and managed apps)     |
+|**Package file that contains all the template files and createUIDefinitionFile**   |Transaction: Azure apps (solution templates and managed apps)         |
+|**Operating system details**    |   Transaction: virtual machines      |
+|**Ports and protocols in Use**    |  Transaction: virtual machines       |
+|**Disk version and SAS URL for each VHD in use**   |  Transaction: virtual machines       |
 
 ## Become a publisher
 
-In this section, we explain the steps: to become a publisher in the Azure Marketplace and AppSource; and, to gain access to the Cloud Partner Portal, which you will use to build, publish, and maintain your offer. 
+In this section, we explain the steps to:
+
+- Become a publisher in the Azure Marketplace and AppSource.
+- Gain access to the Cloud Partner Portal. You'll use that portal to build, publish, and maintain your offer. 
 
 ### Process overview
 
 
 |Marketplace registration steps  |Time  |Description  |
 |---------|---------|---------|
-|Create a Microsoft ID     |   15 min      |   Partners need to have a Microsoft ID that is used to identify the Partner. This Microsoft ID will be used to access Cloud Partner Portal.       |
-|Marketplace Nomination Form     |  1-3 Days       |  Partners need to submit the Nomination Form to start the approval process for the Marketplace. Once the form is submitted the Marketplace Onboarding team will review the application and validate the request.       |
-|Register in Developer Center     |    5-10 Days     | Registration with the Microsoft Developer Center is required for Microsoft to validate that the Partner is a valid legal entity with a valid TAX ID for the country in which it is registered. Developer Center will enable the Partner to be a registered Microsoft Developer and provide them with access to the Azure developer program. <br><br>*Note: If you have not completed the Marketplace Nomination Form, you will be asked to pay a $99 registration fee. To have this fee waived, complete the Marketplace Nomination Form and you will receive a promotional code via email.*  |
-|Log in to the Cloud Partner Portal     |  15 min       |   Once the Partner receives the approval from the Marketplace Team that their Nomination has been approved, Partner access to the [Cloud Partner Portal](https://cloudpartner.azure.com/) is enabled. Partner should use their Microsoft ID used in the Nomination form to login into their publisher profile in the Cloud Partner Portal. Once registered with Developer Center, the Partner will need to associate the Developer Center account with their Azure Marketplace Publisher Profile to publish.      |
+|Create a Microsoft ID     |   15 minutes      |   Partners need to have a Microsoft ID. This Microsoft ID will be used to access the Cloud Partner Portal.       |
+|Submit the Marketplace nomination form     |  1-3 days       |  Partners need to submit the Nomination Form to start the approval process for the Marketplace. Once the form is submitted the Marketplace Onboarding team will review the application and validate the request.       |
+|Register in the Developer Center     |    5-10 days     | Registration with the Microsoft Developer Center is required for Microsoft to validate that the partner is a valid legal entity with a valid tax ID for the country in which it is registered. The Developer Center will enable the partner to be a registered Microsoft developer and provide them with access to the Azure developer program. <br><br>Note: If you haven't completed the Marketplace nomination form, you'll be asked to pay a $99 registration fee. To have this fee waived, complete the Marketplace nomination form and you'll receive a promotional code via email.  |
+|Sign in to the Cloud Partner Portal     |  15 minutes       |   After the partner receives the approval from the Marketplace team that their nomination has been approved, partner access to the [Cloud Partner Portal](https://cloudpartner.azure.com/) is enabled. The partner should use the Microsoft ID from the nomination form to sign in to their publisher profile in the Cloud Partner Portal. After registration with the Developer Center, the partner needs to associate the Developer Center account with their Azure Marketplace publisher profile to publish.      |
 
 #### Create a Microsoft ID
 
-Through the entire Marketplace publishing process, you will use an email address that identifies the Marketplace account. This email address needs to be registered as a Microsoft ID and will be used for both the [Microsoft Developer Center](https://developer.microsoft.com/) and [Cloud Partner Portal](https://cloudpartner.azure.com/). You should have only one Microsoft ID account for your Azure Marketplace and AppSource offerings, and we highly recommend that it is not shared with other services or offers.
+Through the entire Marketplace publishing process, you use an email address that identifies the Marketplace account. This email address needs to be registered as a Microsoft ID and will be used for both the [Microsoft Developer Center](https://developer.microsoft.com/) and the [Cloud Partner Portal](https://cloudpartner.azure.com/). 
 
-The email address selected should preferably be in your corporate domain and controlled by your IT team. Please review the sections in [Guidelines and How Tos](#Guidelines-and-How-Tos) including Guidelines for creating a Microsoft ID to Manage Marketplace Account and Guidance for Microsoft IDs in Azure AD Federated Domains for guidelines prior creating an ID. 
+You should have only one Microsoft ID account for your Azure Marketplace and AppSource offerings. We highly recommend that you don't share it with other services or offers.
+
+The selected email address should preferably be in your corporate domain and controlled by your IT team. Please review the sections in [Guidelines and How Tos](#Guidelines-and-How-Tos) including Guidelines for creating a Microsoft ID to Manage Marketplace Account and Guidance for Microsoft IDs in Azure AD Federated Domains for guidelines prior creating an ID. 
 
 #### Submit the Marketplace nomination form
 As part of the Marketplace onboarding process, you will need to submit a nomination form, submitting information about your application or service offer, your company's information, and the level of support that you will be providing. 
