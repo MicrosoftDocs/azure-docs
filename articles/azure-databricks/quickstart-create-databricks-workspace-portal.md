@@ -173,15 +173,15 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
 ## Clean up resources
 
-While creating the Spark cluster, if you selected the checkbox **Terminate after __ minutes of inactivity**, the cluster will automatically terminate if it has been inactive for the specified time.
+After you have finished the article, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
 
-If you did not select the checkbox, you must manually terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, click **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and click the **Terminate** icon.
+![Stop a Databricks cluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-![Terminate Databricks cluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Terminate Databricks cluster")
+If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to use Azure Data Lake Store with Azure Databricks.
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to stream data into Azure Databricks using Event Hubs.
 
 > [!div class="nextstepaction"]
->[Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)
+>[Stream data into Azure Databricks using Event Hubs](databricks-stream-from-eventhubs.md)

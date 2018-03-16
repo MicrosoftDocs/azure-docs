@@ -34,6 +34,10 @@ This example container group:
 > [!NOTE]
 > Multi-container groups are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
 
+### Deployment
+
+**Container groups** have a minimum resource allocation of 1 vCPU and 1 GB memory. Individual **containers** can be provisioned using less than 1 vCPU and 1 GB memory. Within a container group the distribution of resources can be customized to multiple containers within the limits established at the container group level. For example, two containers each with 0.5 vCPU residing within a container group allocated 1 vCPU.
+
 ### Networking
 
 Container groups share an IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping is not supported. Containers within a group can reach each other via localhost on the ports that they have exposed, even if those ports are not exposed externally on the group's IP address.

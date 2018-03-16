@@ -2,14 +2,13 @@
 title: Azure SQL Database feature comparison | Microsoft Docs
 description: This article compares the features of Azure SQL Database and Managed Instances with each other and with SQL Server.
 services: sql-database
-documentationcenter: 
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: jovanpop
-manager: cguyer
+manager: craigg
 ---
 
 # Feature comparison: Azure SQL Database versus SQL Server 
