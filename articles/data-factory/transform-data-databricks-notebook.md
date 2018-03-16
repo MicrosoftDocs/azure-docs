@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/152018
+ms.date: 03/15/2018
 ms.author: douglasl
 ---
 # Transform data by running a Databricks Notebook
