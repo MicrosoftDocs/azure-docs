@@ -44,15 +44,8 @@ Once CLI is installed, perform the following steps to install the Event Hubs CLI
    ```azurecli-interactive
    az login
    ```
-   This command displays the following text:
 
-   ```Output
-   To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code ######## to authenticate.
-   ```
-
-3. Open the https://aka.ms/devicelogin link in the browser and enter the code to authenticate your Azure login.
-
-4. Set the current subscription context:
+3. Set the current subscription context:
 
    ```azurecli
    az account set --subscription <Azure_subscription_name>
@@ -84,9 +77,9 @@ az eventhubs namespace authorizationrule keys list --resource-group <my_resource
 
 Copy and paste the connection string to a temporary location, such as Notepad, to use later.
 
-## Download and run the samples
+## Stream into Event Hubs
 
-The next step is to download the sample code that sends events to an event hub, and receives those events using the Event Processor Host. 
+The next step is to download the sample code that streams events to an event hub, and receives those events using the Event Processor Host. 
 
 1. Clone the [Event Hubs GitHub repo](https://github.com/Azure/azure-event-hubs).
 2. Navigate to the [Send sample folder](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/Send).
@@ -114,7 +107,7 @@ The next step is to download the sample code that sends events to an event hub, 
 
 ### Run the apps
 
-First, run the **Send** application and observe an event being sent. Then, run the **ReceiveByDateTime** app, and observe the event being received into the Event Processor Host.
+First, run the **Send** application and observe an event being sent. Then, run the **ReceiveByDateTime** app, and observe the event being received.
 
 ## Clean up deployment
 
