@@ -246,7 +246,7 @@
         href: azure-stack-app-service-add-worker-roles.md
       - name: Configure deployment sources
         href: azure-stack-app-service-configure-deployment-sources.md
-      - name: App Service Update One Release Notes
+      - name: App Service on Azure Stack update 1 release notes
         href: azure-stack-app-service-release-notes-update-one.md
     - name: Populate the marketplace
       items:
