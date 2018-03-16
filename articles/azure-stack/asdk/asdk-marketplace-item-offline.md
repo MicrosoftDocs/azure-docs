@@ -1,5 +1,5 @@
 ---
-title: In this tutorial, you add an Azure Stack marketplace item from a local source| Microsoft Docs
+title: Add an Azure Stack marketplace item from a local source| Microsoft Docs
 description: Describes how to add a local operating system image to the Azure Stack Marketplace.
 services: azure-stack
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Tutorial: add an Azure Stack marketplace item 
+# Tutorial: add an Azure Stack marketplace item from a local source
 
 As an Azure Stack Operator, the first thing you need to do to enable users to deploy a Virtual Machine (VM) is to add a VM image to the Azure Stack marketplace. By default, nothing is published to the Azure Stack marketplace, but you can upload VM ISO images to make them available to your users. Use this option if you have deployed Azure Stack in a disconnected scenario or in scenarios with limited connectivity.
 
