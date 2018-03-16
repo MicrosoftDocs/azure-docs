@@ -12,7 +12,7 @@ ms.date: 03/16/2018
 ms.author: anroth
 ---
 
-# Limits and Quotas
+# Limits and quotas
 
 There are three tiers of keys for Custom Vision Service. F0 and S0 resources are obtained via the Azure Portal. Details on pricing and transactions definitions are on the [pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-vision-service/).  F0 projects can be upgraded to S0 projects.
 
