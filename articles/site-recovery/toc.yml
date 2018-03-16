@@ -67,6 +67,8 @@
     items:
     - name: Replication to Azure
       items:
+      - name: Common questions for VMware to Azure replication
+        href: vmware-azure-common-questions.md
       - name: VMware/physical to Azure support matrix
         href: vmware-physical-azure-support-matrix.md
       - name: VMware to Azure architecture
@@ -119,7 +121,7 @@
         href: azure-to-azure-about-networking.md
       - name: Prepare network mapping in Azure VM disaster recovery
         href: azure-to-azure-network-mapping.md
-      - name: Set up IP addressing after Azure VM failover
+      - name: Set up IP addressing for failover
         href: site-recovery-retain-ip-azure-vm-failover.md
     - name: Disaster recovery
       items:
@@ -141,7 +143,7 @@
       items:
       - name: Manage network interfaces for on-premises to Azure replication
         href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-      - name: Set up IP addressing after failover to Azure
+      - name: Set up IP addressing for failover
         href: concepts-on-premises-to-azure-networking.md
     - name: Capacity planning
       items:
@@ -243,7 +245,7 @@
       items:
       - name: Manage network interfaces for on-premises to Azure replication
         href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-      - name: Set up IP addressing after failover to Azure
+      - name: Set up IP addressing for failover
         href: concepts-on-premises-to-azure-networking.md
     - name: Capacity planning
       items:
@@ -295,7 +297,7 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: Run a disaster recovery drill for Hyper-V VMs to a secondary site
       href: hyper-v-vmm-test-failover.md
-    - name: Set up IP addressing after failover to a secondary site
+    - name: Set up IP addressing for failover
       href: hyper-v-vmm-networking.md
     - name: Add VMM scripts to recovery plans
       href: hyper-v-vmm-recovery-script.md

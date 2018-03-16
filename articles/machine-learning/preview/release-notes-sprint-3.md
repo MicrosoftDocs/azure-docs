@@ -3,8 +3,8 @@
 title: Azure ML Workbench release notes for sprint 3 January 2018
 description: This document details the updates for the sprint 3 release of Azure ML 
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
