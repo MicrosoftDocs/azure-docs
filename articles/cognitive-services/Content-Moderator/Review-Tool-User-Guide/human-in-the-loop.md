@@ -1,6 +1,6 @@
 ---
-title: How humans improve automated content moderation for Content Moderator | Microsoft Docs
-description: Humans work with automated content moderation to add real-world context that machine learning can't provide.
+title: Machine-assisted content moderation and human reviews in Content Moderator | Microsoft Docs
+description: How machines and humans together provide the best results for content moderation
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -11,13 +11,9 @@ ms.topic: article
 ms.author: sajagtap
 ---
 
-# Human-in-the-Loop #
+# Human-in-the-Loop
 
-Why do we need a human review tool with automated content moderation powered by machine learning and AI? 
-
-We think you get the best results when humans and machines work together on harder cases. Humans can effectively augment machine learning models in situations where the prediction confidence has to be assisted or tempered within a real world context. 
-
-Humans can focus on the edge cases and help the models learn and get better over time. The result is a hybrid, automated content moderation process that performs better than if the humans or machines were working alone.
+You get the best results when humans and machines work together on content moderation. Machines effectively augment human reviews where the prediction confidence has to be assisted or tempered within a real world context. The result is a hybrid content moderation process that performs better than if the humans or machines were working alone.
 
 ## How the Review tool helps ##
 
