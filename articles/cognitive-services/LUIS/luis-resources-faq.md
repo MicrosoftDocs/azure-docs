@@ -143,7 +143,7 @@ Example apps illustrating specific data extraction are:
 No. 
 
 ## What are the LUIS best practices? 
-Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the best practices for [Intents](luis-concept-intent.md#best-practice---only-required-specific-intents), [Entities](luis-concept-entity-types.md#best-practices), and [Utterances](luis-concept-utterance.md#best-practices). 
+Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the [best practices](luis-concept-best-practices.md). 
 
 ## How do I create and assign a LUIS endpoint key?
 [Create the endpoint key](azureibizasubscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action.
