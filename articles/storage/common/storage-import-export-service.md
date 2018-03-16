@@ -34,7 +34,7 @@ Follow the below steps if the data on the disk is to be imported into Azure Stor
 10.	Copy the following command line to a text editor and edit it to create a command line:
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     These command line options are described in the following table:
@@ -44,10 +44,10 @@ Follow the below steps if the data on the disk is to be imported into Azure Stor
     |/j:     |The name of the journal file, with the .jrn extension. A journal file is generated per drive. Using the disk serial number as the journal file name is recommended.         |
     |/sk:     |The Azure Storage account key.         |
     |/t:     |The drive letter of the disk to be shipped. For example, drive `D`.         |
-    |/bk:     |The BitLocker key for the drive.         |
+    |/bk:     |The BitLocker key for the drive. Its numerical password from output of ` manage-bde -protectors -get D: `      |
     |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
     |/dstdir:     |The name of the destination container in Azure Storage         |
-
+    |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared         |
 1. Repeat step 10 for each of disk that needs to be shipped.
 2. A journal file with name provided with /j: parameter is created for every run of the command line.
 
@@ -300,7 +300,7 @@ The following table describes the drive failure states and the actions taken for
 | N/A | A drive that is not part of any job arrives at the data center as part of another job. | The drive will be marked as an extra drive and will be returned to the customer when the job associated with the original package is completed. |
 
 ### Time to process job
-The amount of time it takes to process an import/export job varies depending on different factors such as shipping time, job type, type and size of the data being copied, and the size of the disks provided. The Import/Export service does not have an SLA but after the disks are received the service strives to complete the copy in 7 to 10 days. You can use the REST API to track the job progress more closely. There is a percent complete parameter in the List Jobs operation which gives an indication of copy progress. Reach out to us if you need an estimate to complete a time critical import/export job.
+The amount of time it takes to process an import/export job varies based on a number of factors such as shipping time, the load at the DataCenter, the job type and size of the data being copied, and number of disks in a job. Import/Export service does not have an SLA but the service strives to complete the copy in 7 to 10 days after the disks are received. In addition to the status posted on Azure Portal, REST APIs can be used to track the job progress. The percent complete parameter in the List Jobs operation API call provides the percentage copy progress.
 
 ### Pricing
 **Drive handling fee**

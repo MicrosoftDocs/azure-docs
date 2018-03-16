@@ -210,4 +210,4 @@ You can enter the CRON expression in the portal or include a `settings.job` file
    
 ## <a name="NextSteps"></a> Next steps
 
-The Azure WebJobs SDK can be used with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) and the [WebJobs SDK Quick Reference](./media/web-sites-create-web-jobs/webjobs-sdk-quick-reference.png).
+The Azure WebJobs SDK can be used with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

@@ -1,20 +1,15 @@
 ---
 title: Build a project in Azure using Jenkins and Azure Container Instances
 description:  Learn how to use the Azure Container Agent plugin for Jenkins to build a project in Azure with Azure Container Instances
-services: multiple
-documentationcenter: ''
 author: tomarcher
 manager: rloutlaw
-editor: ''
-
 ms.service: multiple
+ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 02/28/2018
+ms.date: 03/12/2018
 ms.author: tarcher
-ms.custom: jenkins
+ms.custom: Jenkins
 ---
 
 # Build a project in Azure using Jenkins and Azure Container Instances

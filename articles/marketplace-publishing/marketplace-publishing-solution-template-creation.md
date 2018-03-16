@@ -3,8 +3,8 @@ title: Guide to creating a solution template for the  Marketplace | Microsoft Do
 description: Detailed instructions of how to create, certify and deploy a Multi-VM Image Solution Template for purchase on the Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: ''
 
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio; v-divte
+ms.author: mbaldwin
 
 ---
 # Guide to create a solution template for Azure Marketplace

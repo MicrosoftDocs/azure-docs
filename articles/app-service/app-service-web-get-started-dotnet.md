@@ -13,19 +13,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/05/2018
+ms.date: 03/18/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ---
 # Create an ASP.NET Core web app in Azure
 
 > [!NOTE]
-> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md).
+> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md). 
 >
 > If you're looking for steps for an ASP.NET Framework app, see [Create an ASP.NET Framework web app in Azure](app-service-web-get-started-dotnet-framework.md). 
 >
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
+[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application. You can [watch a video](#video) that demonstrates how to perform these steps entirely from within Visual Studio 2017.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -182,6 +182,10 @@ You see your web app's Overview page. Here, you can perform basic management tas
 The left menu provides different pages for configuring your app. 
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
+
+## Video
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/AEfG9PWPAxg]
 
 ## Next steps
 

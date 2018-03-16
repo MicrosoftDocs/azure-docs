@@ -87,7 +87,7 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 
 |**Category**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure tools     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.26)](https://docs.microsoft.com/cli/azure/overview)|
+|Azure tools     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.26)](https://docs.microsoft.com/cli/azure)|
 |Text editors    |vim<br> nano                             |
 |Package Manager |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Source control  |git                                      |
@@ -100,7 +100,7 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 |------------|-----------|
 |.NET        |4.6        |
 |Node.js     |6.10       |
-|PowerShell  |5.1 and [6.0.0](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell  |5.1 and [6.0.1](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## Next steps

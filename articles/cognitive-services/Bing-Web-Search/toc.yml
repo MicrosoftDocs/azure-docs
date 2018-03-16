@@ -12,6 +12,8 @@
   items:
   - name: First query in C#
     href: quickstarts/csharp.md
+  - name: First query in Go
+    href: quickstarts/go.md
   - name: First query in Java
     href: quickstarts/java.md
   - name: First query for Node.js
@@ -76,3 +78,5 @@
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: User Voice
     href: https://cognitive.uservoice.com/forums/555907-bing-search
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest

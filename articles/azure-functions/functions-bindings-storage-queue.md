@@ -24,6 +24,12 @@ This article explains how to work with Azure Queue storage bindings in Azure Fun
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## Packages
+
+The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub repository.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
 ## Trigger
 
 Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.
@@ -55,7 +61,7 @@ public static class QueueFunctions
 
 ### Trigger - C# script example
 
-The following example shows a blob trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
+The following example shows a queue trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
 Here's the *function.json* file:
 
@@ -109,7 +115,7 @@ The [usage](#trigger---usage) section explains `myQueueItem`, which is named by 
 
 ### Trigger - JavaScript example
 
-The following example shows a blob trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
+The following example shows a queue trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
 Here's the *function.json* file:
 
@@ -152,7 +158,7 @@ The [usage](#trigger---usage) section explains `myQueueItem`, which is named by 
  
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a queue trigger:
 
-* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
 
   The attribute's constructor takes the name of the queue to monitor, as shown in the following example:
 
@@ -180,7 +186,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
  
   For a complete example, see [Trigger - C# example](#trigger---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Provides another way to specify the storage account to use. The constructor takes the name of an app setting that contains a storage connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
 
@@ -220,9 +226,9 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - usage
  
-In C# and C# script, access the blob data by using a method parameter such as `Stream paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
+In C# and C# script, access the message data by using a method parameter such as `string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
 
-* POCO object - The Functions runtime deserializes a JSON payload into a POCO object. 
+* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -299,7 +305,7 @@ public static class QueueFunctions
 
 ### Output - C# script example
 
-The following example shows a blob trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function creates a queue item with a POCO payload for each HTTP request received.
+The following example shows an HTTP trigger binding in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the binding. The function creates a queue item with a **CustomQueueMessage** object payload for each HTTP request received.
 
 Here's the *function.json* file:
 
@@ -350,17 +356,17 @@ You can send multiple messages at once by using an `ICollector` or `IAsyncCollec
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### Output - JavaScript example
 
-The following example shows a blob trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function creates a queue item for each HTTP request received.
+The following example shows an HTTP trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function creates a queue item for each HTTP request received.
 
 Here's the *function.json* file:
 
@@ -410,7 +416,7 @@ module.exports = function(context) {
 
 ## Output - attributes
  
-In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
 The attribute applies to an `out` parameter or the return value of the function. The attribute's constructor takes the name of the queue, as shown in the following example:
 
@@ -456,7 +462,7 @@ The following table explains the binding configuration properties that you set i
  
 In C# and C# script, write a single queue message by using a method parameter such as `out T paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
-* A POCO serializable as JSON
+* An object serializable as JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 

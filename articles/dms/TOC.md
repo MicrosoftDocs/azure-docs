@@ -13,11 +13,11 @@
 
 # Resources
 ## [User Voice Feedback](https://feedback.azure.com/forums/906100-azure-database-migration-service)
-## [Azure Roadmap](https://azure.microsoft.com/en-us/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Database Migration Guide](https://aka.ms/datamigration)
 ## [Data Migration Assistant](https://aka.ms/dma)
 ## [Pricing](https://aka.ms/dms-pricing)
 ## [Overview of prerequisites](pre-reqs.md)
 ## [FAQ](faq.md)
-## [Service updates](https://azure.microsoft.com/en-us/updates/?product=database-migration)
+## [Service updates](https://azure.microsoft.com/updates/?product=database-migration)
 ## [Network topologies for Azure SQL DB Managed Instance migrations](resource-network-topologies.md)

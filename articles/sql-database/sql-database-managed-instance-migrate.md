@@ -3,16 +3,17 @@ title: Migrate SQL Server instance to Azure SQL Database Managed Instance | Micr
 description: Learn how to migrate a SQL Server instance to Azure SQL Database Managed Instance. 
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
-author: CarlRabeler
-manager: Craig.Guyer
+author: bonova
+ms.reviewer: carlrab
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: carlrab
+ms.author: bonova
 
 ---
-# SQL Server instance migration to Azure SQL Database Managed Instance (preview)
+# SQL Server instance migration to Azure SQL Database Managed Instance
 
 In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to Azure SQL Database Managed Instance (preview). 
 
@@ -46,7 +47,7 @@ Managed Instance is fully contained in your virtual network, so it provides the 
 
 Any of the selected options allow connectivity to a SQL endpoint only through private IP addresses, which guarantees the optimal level of isolation for your data. <!--- For more information, see How to connect your application to Managed Instance.--->
 
-## Deploy to an optimally-sized Managed Instance
+## Deploy to an optimally sized Managed Instance
 
 Managed Instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a new purchasing model that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores. The new purchasing model for Managed Instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. THis new model enables you to right-size your destination environment in the cloud.
 
@@ -57,7 +58,7 @@ You can select compute and storage resources at deployment time and then change 
 To learn how to create the VNet infrastructure and Managed Instance - and restore a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
 
 > [!IMPORTANT]
-> It’s very important to keep your destination VNet and subnet always in accordance with Managed Instance requirements (link to “Requirements” section above) . Any incompatibility can prevent you from creating new instances or using those that you already created.
+> It is important to keep your destination VNet and subnet always in accordance with [Managed Instance VNET requirements](sql-database-managed-instance-vnet-configuration.md#requirements). Any incompatibility can prevent you from creating new instances or using those that you already created.
 
 ## Select migration method and migrate
 
@@ -70,15 +71,15 @@ To move SQL instances, you need to plan carefully:
 
 Managed Instance is a fully managed service that allows you to delegate some of the regular DBA activities to the platform as they are built in. Therefore, some instance level data does not need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as [high availability](sql-database-high-availability.md) is built in.
 
-Managed Instance supports the following several database migration options:
+Managed Instance supports the following database migration options (currently these are the only supported migration methods):
 
 ### Azure Database Migration Service
 
-The [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options at Public Preview include Azure SQL Database, Azure SQL Database Managed Instance, and SQL Server in an Azure Virtual Machine. DMS is the recommended method of migration for your enterprise workloads. 
+The [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options at Public Preview include Azure SQL Database, Managed Instance, and SQL Server in an Azure Virtual Machine. DMS is the recommended method of migration for your enterprise workloads. 
 
 ![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
-To learn more about this scenario and configuration steps for DMS, see [Migrate your on-premises database to Azure SQL Database Managed Instance using DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
+To learn more about this scenario and configuration steps for DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
 ### Native RESTORE from URL
 
@@ -88,14 +89,14 @@ The following diagram explains the process at the high level:
 
 ![migration-flow](./media/sql-database-managed-instance-migration/migration-flow.png)
 
-The following table provides more details regarding the method you can use depending on source SQL Server version you are running:
+The following table provides more information regarding the method you can use depending on source SQL Server version you are running:
 
 |Step|SQL Engine and version|Backup / Restore method|
 |---|---|---|
 |Put backup to Azure Storage|Prior SQL 2012 SP1 CU2|Upload .bak file directly to Azure storage|
 ||2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) syntax|
 ||2016 and above|Direct backup using [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Restore from Azure Storage	SQL Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
+|Restore from Azure Storage	to Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
 
 > [!IMPORTANT]
 > PRestore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
@@ -108,7 +109,7 @@ You can import to Azure SQL Database and  Managed Instance from a create a copy 
 
 ## Monitor applications
 
-Track application behavior and performance after migration. In Managed Instance, some changes are only enabled once the [database compatibility level has been changed](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database). Database migration to Azure SQL Database will keep original compatibility level in majority of cases. If the compatibility level of a user database was 100 or higher before the migration, it remains the same after migration. If the compatibility level of a user database was 90 before migration, in the upgraded database, the compatibility level is set to 100, which is the lowest supported compatibility level in Managed Instance. Compatibility level of system databases is 140.
+Track application behavior and performance after migration. In Managed Instance, some changes are only enabled once the [database compatibility level has been changed](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database). Database migration to Azure SQL Database keeps its original compatibility level in majority of cases. If the compatibility level of a user database was 100 or higher before the migration, it remains the same after migration. If the compatibility level of a user database was 90 before migration, in the upgraded database, the compatibility level is set to 100, which is the lowest supported compatibility level in Managed Instance. Compatibility level of system databases is 140.
 
 To reduce migration risks, change the database compatibility level only after performance monitoring. Use Query Store as optimal tool for getting information about workload performance before and after database compatibility level change, as explained in [Keep performance stability during the upgrade to newer SQL Server version](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 
@@ -124,4 +125,4 @@ To strengthen security, consider using some of the features that are available:
 
 - For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a tutorial that includes a restore from backup, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
-- For tutorial showing migration using DMS, see [Migrate your on-premises database to Azure SQL Database Managed Instance using DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
+- For tutorial showing migration using DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md).  

@@ -521,7 +521,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 // PII or OII will be logged
 Logger.getInstance().setEnablePII(true);
 
-// PII or OII will NOT be logged
+// To STOP logging PII or OII, use the following setter
 Logger.getInstance().setEnablePII(false);
 
 

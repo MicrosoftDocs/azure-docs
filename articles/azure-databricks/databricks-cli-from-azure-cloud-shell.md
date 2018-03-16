@@ -83,7 +83,7 @@ For a complete reference on commands, see [Databricks CLI](https://docs.azuredat
 ## Next steps
 
 * To learn more about Azure CLI, see [Azure CLI overview](../cloud-shell/overview.md)
-* To see a list of commands for Azure CLI, see [Azure CLI reference](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+* To see a list of commands for Azure CLI, see [Azure CLI reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
 * To see a list of commands for Databricks CLI, see [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
 
 

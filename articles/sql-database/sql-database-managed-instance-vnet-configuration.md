@@ -2,60 +2,60 @@
 title: Azure SQL Database Managed Instance VNet Configuration | Microsoft Docs
 description: This topic describes configuration options for a virtual network (VNet) with an Azure SQL Database Managed Instance.
 services: sql-database
-author: CarlRabeler
-manager: cguyer
+author: srdjan-bozovic
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
-ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: carlrab
+ms.author: srbozovi
+ms.reviewer: bonova, carlrab
 ---
 
 # Configure a VNet for Azure SQL Database Managed Instance
 
-Azure SQL Managed Instance has to be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). This deployment enables the following scenarios: 
+Azure SQL Database Managed Instance (preview) must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). This deployment enables the following scenarios: 
 - Connecting to a Managed Instance directly form an on-premises network 
 - Connecting a Managed Instance to linked server or another on-premises data store 
 - Connecting a Managed Instance to Azure resources  
 
 ## Plan
 
-Use your answers to the following questions to plan how you deploy a Managed Instance in virtual network: 
+Plan how you deploy a Managed Instance in virtual network using your answers to the following questions: 
 - Do you plan to deploy single or multiple Managed Instances? 
 
-  The number of Managed Instances determines the minimum size of the subnet to allocate for your Managed Instances. For more information, see [Determine the size of subnet for SQL Managed Instance](#create-a-new-virtual-network-for-managed-instances). 
+  The number of Managed Instances determines the minimum size of the subnet to allocate for your Managed Instances. For more information, see [Determine the size of subnet for Managed Instance](#create-a-new-virtual-network-for-managed-instances). 
 - Do you need to deploy your Managed Instance into an existing virtual network or you are creating a new network? 
 
-   If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify existing virtual network for SQL Managed Instance](#modify-an-existing-virtual-network-for-managed-instances). 
+   If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify existing virtual network for Managed Instance](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   If you plan to create new virtual network, see [Create new virtual network for SQL Managed Instance](#create-new-virtual-network-for-managed-instances).
+   If you plan to create new virtual network, see [Create new virtual network for Managed Instance](#create-new-virtual-network-for-managed-instances).
 
 ## Requirements
 
-For SQL Managed Instance creation you need dedicate subnet inside the VNet that conforms to the following requirements:
-- **Be empty**: The subnet must not contain any other cloud service associated to it, and it must not be Gateway subnet. You won’t be able to create SQL Managed Instance in subnet that contains resources other than managed instance or add other resources inside the subnet later.
+For Managed Instance creation you need dedicate subnet inside the VNet that conforms to the following requirements:
+- **Be empty**: The subnet must not contain any other cloud service associated to it, and it must not be Gateway subnet. You won’t be able to create Managed Instance in subnet that contains resources other than managed instance or add other resources inside the subnet later.
 - **No NSG**: The subnet must not have a Network Security Group associated with it.
-- **Have specific route table**: The subnet must have a User Route Table (UDR) with 0.0.0.0/0 Next Hop Internet as the only route assigned to it. For more information see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
-3. **Optional custom DNS**: If custom DNS is specified on the VNet, Azure's recursive resolvers IP address (such as 168.63.129.16) must be added to the list. For more information see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md).
+- **Have specific route table**: The subnet must have a User Route Table (UDR) with 0.0.0.0/0 Next Hop Internet as the only route assigned to it. For more information, see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
+3. **Optional custom DNS**: If custom DNS is specified on the VNet, Azure's recursive resolvers IP address (such as 168.63.129.16) must be added to the list. For more information, see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md).
 4. **No Service endpoint**: The subnet must not have a Service endpoint (Storage or Sql) associated to it. Make sure that Service Endpoints option is Disabled when creating VNet.
-5. **Sufficient IP addresses**: The subnet must have minimum of 16 IP addresses. For more information see [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances)
+5. **Sufficient IP addresses**: The subnet must have minimum of 16 IP addresses. For more information, see [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances)
 
 > [!IMPORTANT]
-> You won’t be able to deploy new Managed Instance if the destination subnet is not compatible with all of the preceding requirements. The destination Vnet and the subnet must always be kept in accordance with these Managed Instance requirements (before and after deployment), as any violation may cause instance to enter faulty state and become unavailable. Recovering from that state will require you to create new instance in a VNet with the compliant networking policies, recreate instance level data, and restore your databases which will introduce significant downtime for your applications.
+> You won’t be able to deploy new Managed Instance if the destination subnet is not compatible with all of the preceding requirements. The destination Vnet and the subnet must be kept in accordance with these Managed Instance requirements (before and after deployment), as any violation may cause instance to enter faulty state and become unavailable. Recovering from that state requires you to create new instance in a VNet with the compliant networking policies, recreate instance level data, and restore your databases. This introduces significant downtime for your applications.
 
 ##  Determine the size of subnet for Managed Instances
 
-When you create a Managed Instance, Azure allocates a number of virtual machines depending on the tier size you select during provisioning. Because these virtual machines are associated with your subnet, they require IP addresses. To ensure high availability during regular operations an service maintenance, Azure may allocate additional virtual machines. As a result, the number of required IP addresses in a subnet is larger than the number of Managed Instances in that subnet. 
+When you create a Managed Instance, Azure allocates a number of virtual machines depending on the tier size you select during provisioning. Because these virtual machines are associated with your subnet, they require IP addresses. To ensure high availability during regular operations and service maintenance, Azure may allocate additional virtual machines. As a result, the number of required IP addresses in a subnet is larger than the number of Managed Instances in that subnet. 
 
 By design, a Managed Instance needs a minimum of 16 IP addresses in a subnet and may use up to 256 IP addresses. As a result, you can use subnet masks /28 to /24 when defining your subnet IP ranges. 
 
 If you plan to deploy multiple Managed Instances inside the subnet and need to optimize on subnet size, use these parameters to form a calculation: 
 
-- Azure uses 5 IP addresses in the subnet for its own needs 
-- Each General Purpose instance needs 2 addresses 
+- Azure uses five IP addresses in the subnet for its own needs 
+- Each General Purpose instance needs two addresses 
 
-**Example**: You plan to have 8 Managed Instances. That means you need 5 + 8 * 2 = 21 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27. 
+**Example**: You plan to have eight Managed Instances. That means you need 5 + 8 * 2 = 21 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27. 
 
 ## Create a new virtual network for Managed Instances 
 
@@ -66,7 +66,7 @@ Creating an Azure virtual network is a prerequisite for creating a Managed Insta
 
    ![virtual network create](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
-3. Fill out the virtual network form with the requested information, in a manner like the following screenshot.
+3. Fill out the virtual network form with the requested information, in a manner like the following screenshot:
 
    ![virtual network create form](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
@@ -75,10 +75,10 @@ Creating an Azure virtual network is a prerequisite for creating a Managed Insta
    The address space and subnet are specified in CIDR notation. 
 
    > [!IMPORTANT]
-   > The default values will create subnet that will take all the VNet address space. If you choose this option you will not be able to create any other resources inside the virtual network other than SQL Managed Instance. 
+   > The default values create subnet that takes all the VNet address space. If you choose this option, you can not create any other resources inside the virtual network other than Managed Instance. 
 
    The recommended approach would be the following: 
-   - Calculate subnet size by following [Determine the size of subnet for SQL Managed Instance](#determine-the-size-of-subnet-for-managed-instances) section  
+   - Calculate subnet size by following [Determine the size of subnet for Managed Instance](#determine-the-size-of-subnet-for-managed-instances) section  
    - Assess the needs for the rest of VNet 
    - Fill in VNet and subnet address ranges accordingly 
 
@@ -93,13 +93,13 @@ Creating an Azure virtual network is a prerequisite for creating a Managed Insta
 
    ![route table create form](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
-3. Create a 0.0.0.0/0 Next Hop Internet route, in a manner like the following screenshots.
+3. Create a 0.0.0.0/0 Next Hop Internet route, in a manner like the following screenshots:
 
    ![route table add](./media/sql-database-managed-instance-tutorial/route-table-add.png)
 
    ![route](./media/sql-database-managed-instance-tutorial/route.png)
 
-4. Associate this route with the subnet for the Managed Instance, in a manner like the following screenshots.
+4. Associate this route with the subnet for the Managed Instance, in a manner like the following screenshots:
 
     ![subnet](./media/sql-database-managed-instance-tutorial/subnet.png)
 
@@ -124,7 +124,7 @@ If you would like to create new one:
 
 - Calculate subnet size by following the guidelines in the [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances) section.
 - Follow steps in [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md). 
-- Create a route table that contains single entry, 0.0.0.0/0 as the next hop Internet and associate it with the subnet for the Managed Instance.  
+- Create a route table that contains single entry, **0.0.0.0/0**, as the next hop Internet and associate it with the subnet for the Managed Instance.  
 
 In case you would like to create a Managed Instance inside an existing subnet: 
 - Check if the subnet is empty - a Managed Instance cannot be created in a subnet that contains other resources including the Gateway subnet 
@@ -136,7 +136,7 @@ In case you would like to create a Managed Instance inside an existing subnet:
 
 If yes, see [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.md). 
 
-- Create the create the required route table and associate it: see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
+- Create the required route table and associate it: see [Create the required route table and associate it](#create-the-required-route-table-and-associate-it)
 
 ## Next steps
 
