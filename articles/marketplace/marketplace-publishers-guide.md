@@ -173,7 +173,7 @@ Use an **Azure Solution Template** when a solution requires additional deploymen
 Use an **Azure Managed App** when deploying either a Virtual Machine or an entire IaaS-based solution to a customer's subscription when the publisher or customer wishes the solution to be managed by a 3rd party, for example an SI or MSP. Learn more about [building Managed Apps here](https://docs.microsoft.com/azure/managed-applications/overview). For a list of commonly asked questions, see the [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
 
 >[!NOTE]
-> Managed Apps must be deployable through the marketplace. If customer communciation is a concern, note that you will be able to reach out to interested customers if you have lead sharing enabled.
+> Managed Apps must be deployable through the marketplace. If customer communication is a concern, note that you will be able to reach out to interested customers if you have lead sharing enabled.
 
 ### Azure Certified
 

@@ -4,7 +4,7 @@ description: Overview of the Bing Search connector with REST API parameters
 services: ''
 suite: ''
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the Bing Search connector
@@ -33,4 +33,3 @@ View any triggers and actions defined in the swagger, and also see any limits in
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).
-
