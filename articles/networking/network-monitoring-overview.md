@@ -31,7 +31,7 @@ Network Performance Monitor (NPM) is a suite of capabilities, each of which is g
 * Mission critical multi-tier applications/micro-services
 * User locations and web-based applications (HTTP/HTTPs) 
 
-Performance Monitor, ExpressRoute Monitor and Service Endpoint Monitor are monitoring capabilities within NPM and are described below.
+Performance Monitor, ExpressRoute Monitor, and Service Endpoint Monitor are monitoring capabilities within NPM and are described below.
 
 ## Performance Monitor
 
@@ -83,9 +83,9 @@ For more information, see the following articles:
 * [Blog post](https://aka.ms/svcendptmonitor)
 
 ## Traffic Analytics
-Traffic Analytics is a cloud based solution that provides  visibility into user and application activity on your cloud networks. NSG Flow logs are analyzed to provide insights into:
+Traffic Analytics is a cloud-based solution that provides  visibility into user and application activity on your cloud networks. NSG Flow logs are analyzed to provide insights into:
 
-* Traffic flows across your networks between Azure and Internet,  public cloud regions, VNETs and subnets
+* Traffic flows across your networks between Azure and Internet,  public cloud regions, VNETs, and subnets
 * Applications and protocols on your network, without the need for sniffers or dedicated flow collector appliances
 * Top talkers, chatty applications, VM conversations in the cloud, traffic hotspots
 * Sources and destinations of traffic across VNETs, inter-relationships between critical business services and applications
@@ -99,7 +99,7 @@ Related links:
 * [Blog post](https://aka.ms/trafficanalytics), [Documentation](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
 ## DNS Analytics
-Built for DNS Administrators, this solution collects, analyzes and correlates DNS logs to provide security, operations and performance related insights.  Some of the capabilities are:
+Built for DNS Administrators, this solution collects, analyzes, and correlates DNS logs to provide security, operations, and performance-related insights.  Some of the capabilities are:
 
 * Identification of clients that try to resolve to malicious domains
 * Identification of stale resource records
@@ -110,7 +110,7 @@ Built for DNS Administrators, this solution collects, analyzes and correlates DN
 ![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Related links:
-* [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](../log-analytics/log-analytics-dns)
+* [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
 ## Next steps
 
