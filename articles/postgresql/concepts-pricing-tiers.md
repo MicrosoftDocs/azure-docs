@@ -18,7 +18,7 @@ An Azure Database for PostgreSQL server can be created in one of three different
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memory per vCore | 1x | 2x Basic | 2x General Purpose |
 | Storage Size | 5 GB to 1 TB | 5 GB to 1 TB | 5 GB to 1 TB |
 | Storage Type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -36,7 +36,32 @@ After you create a server, the number of vCores can be changed up or down within
 
 ## Compute generations, vCores, and memory
 
-Compute resources are provided as vCores, representing the logical CPU of the underlying hardware. Currently, two compute generations, Gen 4 and Gen 5, are offered for you to choose from. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.
+Compute resources are provided as vCores, representing the logical CPU of the underlying hardware. Currently, two compute generations, Gen 4 and Gen 5, are offered for you to choose from. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available): 
+
+| **Azure Region** | **Generation 4** | **Generation 5** |
+|:---|:----------:|:--------------------:|
+| Central US |  | X |
+| East US | X | X |
+| East US 2 | X |  |
+| North Central US | X |  |
+| South Central US | X |  |
+| West US | X | X |
+| West US 2 |  | X |
+| Canada Central | X | X |
+| Canada East | X | X |
+| Brazil South | X |  |
+| North Europe | X | X |
+| West Europe | X | X |
+| UK West |  | X |
+| UK South |  | X |
+| East Asia | X |  |
+| Southeast Asia | X |  |
+| Australia East |  | X |
+| Central India | X |  |
+| West India | X |  |
+| Japan East | X |  |
+| Japan West | X |  |
+| Korea South |  | X |
 
 Depending on the pricing tier, each vCore is provisioned with a specific amount of memory. When you increase or decrease the number of vCores for your server, the memory increases or decreases proportionally. The General Purpose tier provides double the amount of memory per vCore compared to the Basic tier. The Memory Optimized tier provides double the amount of memory compared to the General Purpose tier.
 
@@ -61,7 +86,7 @@ The service automatically takes backups of your server. The minimum retention pe
 
 ## Scale resources
 
-After creating your server, you can independently change the vCores, amount of storage, and backup retention period. You cannot change the pricing tier or the backup storage type after a server is created. vCores and the backup retention period can be scaled up or down. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. An example for scaling using CLI can be found [here](scripts/sample-scale-server-up-or-down.md).
+After creating your server, you can independently change the vCores, amount of storage, and backup retention period. You cannot change the pricing tier or the backup storage type after a server is created. vCores and the backup retention period can be scaled up or down. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. An eXample for scaling using CLI can be found [here](scripts/sample-scale-server-up-or-down.md).
 
 When changing the number of vCores, a copy of the original server is created with the new compute allocation. Once the new server is up and running, connections are switched over to the new server. During the brief moment when the system switches over to the new server, no new connections can be established and all uncommitted transactions are rolled back. This window varies, but in most cases is less than a minute.
 
