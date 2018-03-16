@@ -18,13 +18,13 @@ There are three tiers of keys for Custom Vision Service. F0 and S0 resources are
 
 Limited Trial project resources are attached to your Custom Vision login (ie an AAD account or MSA account.) They are intended to be used for short trials of the service.  Accounts created during early free preview, prior to the introduction of Azure previews (March 1, 2018) will retain their previous quotas for Limited Trials. 
 
- |**Limited Trial**|**F0 (Azure)**|**S0 (Azure)**
------|-----|-----|-----
-# Projects|2|2|100
-# Training images per project|5,000|5,000|25k 
-# Predictions/ month|10,000 |10,000|Unlimited
-# Tags/ project|50|50|100 
-# Iterations |10|10|10
-How long prediction images stored|30 days|30 days|30 days
+||**Limited Trial**|**F0 (Azure)**|**S0 (Azure)**|
+|-----|-----|-----|-----|
+|Projects|2|2|100|
+|Training images per project|5,000|5,000|25k|
+|Predictions/ month|10,000 |10,000|Unlimited|
+|Tags/ project|50|50|100|
+|Iterations |10|10|10|
+|How long prediction images stored|30 days|30 days|30 days|
 
 Note, the *# training images per project* and *# Tags/project* will be increased over time for S0 projects. 
