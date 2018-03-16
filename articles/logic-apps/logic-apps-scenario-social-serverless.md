@@ -14,7 +14,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 03/15/2018
 ms.author: jehollan; LADocs
 ---
 
@@ -80,7 +80,7 @@ so that you can better understand the sentiments expressed.
 To detect the sentiment behind some text, 
 you can use [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
 
-1. In Logic App Designer, under the trigger, choose **New step**
+1. In Logic App Designer, under the trigger, choose **New step**.
 
 2. Find the **Text Analytics** connector.
 
@@ -113,7 +113,7 @@ create a function app in your Azure subscription.
 Also, for your logic app to directly call a function, 
 the function must have an HTTP trigger binding, 
 for example, use the **HttpTrigger** template. 
-Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function-azure-portal.md)
+Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
 
 For this scenario, use the tweet text as 
 the request body for your Azure Function. 
@@ -121,7 +121,7 @@ In your function code, define the logic
 that determines whether the tweet 
 text contains a keyword or phrase. 
 Keep the function as simple or complex 
-as neccessary for the scenario.
+as necessary for the scenario.
 At the end of the function, return a 
 response to the logic app with some data, 
 for example, a simple boolean value such 
@@ -137,14 +137,13 @@ in the logic app that you're building.
 
 ## Add Azure function to logic app
 
-1. In Logic App Designer, under the **Detect Sentiment## action, 
+1. In Logic App Designer, under the **Detect Sentiment** action, 
 choose **New step**.
 
-2. Find and select the **Azure Functions** connector.
+2. Find the **Azure Functions** connector, 
+and then select the function that you created.
 
-3. Find and select the function that you created.
-
-4. Under **Request Body**, select **Tweet Text**.
+3. Under **Request Body**, select **Tweet Text**.
 
 ![Configured Azure Function step][2]
 
@@ -161,10 +160,14 @@ based on your specified schedule until a tweet that
 meets your criteria is found. While the run progresses, 
 the designer shows a live view for that run.
 
-To view previous run histories, in Visual Studio, 
-find and select your app by using Cloud Explorer. 
-In the Azure portal, on your logic app's menu, 
-choose **Overview**. 
+To view previous run histories in Visual Studio or the Azure portal: 
+
+* Open Visual Studio Cloud Explorer. 
+Find your logic app, open the app's shortcut menu. 
+Select **Open run history**.
+
+* In the Azure portal, find your logic app. 
+On your logic app's menu, choose **Overview**. 
 
 ## Create automated deployment templates
 

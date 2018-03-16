@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 11/29/2016
+ms.date: 03/15/2018
 ms.author: elbutter;barbkess
 
 ---
@@ -127,7 +127,7 @@ If you encounter any issues with your data warehouse, [create a support ticket][
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: quickstart-scale-compute-portal.md
-[mediumrc role]: sql-data-warehouse-develop-concurrency.md
+[mediumrc role]: resource-classes-for-workload-management.md
 
 <!--MSDN references-->
 
