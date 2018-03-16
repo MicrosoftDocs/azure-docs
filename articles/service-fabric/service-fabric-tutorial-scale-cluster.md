@@ -1,6 +1,6 @@
 ---
 title: Scale an Azure Service Fabric cluster | Microsoft Docs
-description: Learn how to quickly scale a Service Fabric cluster.
+description: In this tutorial, you learn how to quickly scale a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -13,12 +13,12 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2017
+ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
 ---
 
-# Scale a Service Fabric cluster
+# Tutorial: scale a Service Fabric cluster
 
 This tutorial is part two of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
 
@@ -82,7 +82,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Now that you're connected, you can use a command to get the status of each node in the cluster. For PowerShell, use the `Get-ServiceFabricClusterHealth` command, and for **sfctl** use the `` command.
+Now that you're connected, you can use a command to get the status of each node in the cluster. For PowerShell, use the `Get-ServiceFabricClusterHealth` command, and for **sfctl** use the `sfctl cluster select` command.
 
 ## Scale out
 
@@ -92,7 +92,7 @@ When you scale out, you add more virtual machine instances to the scale set. The
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 This code sets the capacity to 6.
@@ -117,11 +117,11 @@ Scaling in is the same as scaling out, except you use a lower **capacity** value
 When you scale in a virtual machine scale set, the scale set (in most cases) removes the virtual machine instance that was last created. So you need to find the matching, last created, service fabric node. You can find this last node by checking the biggest `NodeInstanceId` property value on the service fabric nodes. The code examples below sort by the node instance and return the details about the instance with the largest id value. 
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 ```
 
 ```azurecli
-`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
 The service fabric cluster needs to know that this node is going to be removed. There are three steps you need to take:
@@ -143,8 +143,9 @@ Once these three steps have been applied to the node, it can be removed from the
 The following code block gets the last created node, disables, stops, and removes the node from the cluster.
 
 ```powershell
+#### After you've connected.....
 # Get the node that was created last
-$node = Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
+$node = Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
 
 # Node details for the disable/stop process
 $nodename = $node.NodeName
@@ -199,7 +200,7 @@ else
 }
 ```
 
-In the **sfctl** code below, the following command is used to get the **node-name** and **node-instance-id** values of the last-created node: `sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+In the **sfctl** code below, the following command is used to get the **node-name** value of the last-created node: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -216,10 +217,10 @@ sfctl node remove-state --node-name _nt1vm_5
 > Use the following **sfctl** queries to check the status of each step
 >
 > **Check deactivation status**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
 > **Check stop status**  
-> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+> `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
 

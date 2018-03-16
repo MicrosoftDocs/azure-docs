@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery tutorials | Microsoft Docs
-description: Discover and share tutorials in Cortana Intelligence Gallery.
+title: Azure AI Gallery tutorials | Microsoft Docs
+description: Discover and share tutorials in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
+ms.author: garye
 
 ---
-# Discover and share tutorials in Cortana Intelligence Gallery
+# Discover and share tutorials in Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## Tutorials
-Cortana Intelligence Gallery offers several [tutorials](https://gallery.cortanaintelligence.com/tutorials) that can walk you through machine learning technologies and concepts. Tutorials also might describe advanced methods for solving machine learning problems.
+Azure AI Gallery offers several [tutorials](https://gallery.cortanaintelligence.com/tutorials) that can walk you through machine learning technologies and concepts. Tutorials also might describe advanced methods for solving machine learning problems.
 
 ## Discover
 To browse tutorials [in the Gallery](http://gallery.cortanaintelligence.com), under **More**, select **Tutorials**.
@@ -69,7 +69,7 @@ You can add a tutorial to the Gallery to help other users solve a problem or lea
 
 7. Select **Create**.
 
-Your tutorial is now in Cortana Intelligence Gallery. Your tutorials are listed on your account page, on the **Items** tab.
+Your tutorial is now in Azure AI Gallery. Your tutorials are listed on your account page, on the **Items** tab.
 
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 

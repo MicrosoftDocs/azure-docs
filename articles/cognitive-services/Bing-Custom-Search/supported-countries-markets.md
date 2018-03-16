@@ -13,11 +13,13 @@ ms.author: v-gedod
 ---
 # Bing Custom Search countries and languages
 
-The Bing Custom Search API supports more than three dozen countries, many with more than one language. Specifying a country with a query serves primarily to refine search results based on interests in that country. Additionally, the results may contain links to Bing, and these links may localize the Bing user experience according to the specified country or language.
+The Bing Custom Search API supports more than three dozen countries, many with more than one language. 
 
-You can specify a country using the `cc` query parameter. If you specify a country, you must also specify one or more language codes using the `Accept-Language` HTTP header. The supported languages vary by country; they are given for each country in the Markets table.
+You can specify a country using the `cc` query parameter. If you specify a country, you must also specify one or more language codes using the `Accept-Language` header. The supported languages vary by country; they are given for each country in the **Markets** table.
 
-Alternatively, you may specify the market using the `mkt` query parameter and a code from the **Markets** table. Specifying a market simultaneously specifies a country and a preferred language. The `setLang` query parameter may be set to a language code in this case; usually this is the same language specified by `mkt` unless the user prefers to see Bing in another language.
+Alternatively, you can specify the market by the `mkt` query parameter with a code from the **Markets** table. Use the country code `cc` and the `Accept-Language header` if you specify multiple languages. Otherwise, you should use the `mkt` and `setLang query` parameters.
+
+The `Accept-Language` header and the `setLang` query parameter are mutually exclusive—do not specify both. For details, see [Accept-Language](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## Countries
 

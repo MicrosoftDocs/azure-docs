@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Build a web app with .NET and the SQL API | Microsoft Docs'
-description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB SQL API
+title: 'Build a .NET web app with Azure Cosmos DB using the SQL API | Microsoft Docs'
+description: In this quickstart, use the Azure Cosmos DB SQL API and the Azure portal to create a .NET web app
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -14,11 +14,11 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 12/15/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal
+# Quickstart: Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
@@ -94,19 +94,19 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 
 Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized on line 78.
+* The DocumentClient is initialized on line 76.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* A new database is created on line 93.
+* A new database is created on line 91.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* A new collection is created on line 112.
+* A new collection is created on line 110.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
@@ -114,10 +114,9 @@ Let's make a quick review of what's happening in the app. Open the DocumentDBRep
         new DocumentCollection { Id = CollectionId },
         new DocumentCollection
             {
-               Id = CollectionId,
-               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+               Id = CollectionId
             },
-        new RequestOptions { OfferThroughput = 1000 });
+        new RequestOptions { OfferThroughput = 400 });
     ```
 
 ## Update your connection string

@@ -3,9 +3,9 @@ title: Azure Disk Encryption for Windows and Linux IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: TomSh
+author: DevTiw
+manager: avibm
+editor: barclayn
 
 ms.assetid: d3fac8bb-4829-405e-8701-fa7229fb1725
 ms.service: security
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
-ms.author: kakhan
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
 
 ---
 # Azure Disk Encryption for Windows and Linux IaaS VMs
@@ -138,34 +138,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 > [!NOTE]
 > For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before you enable encryption in Azure. You can install it from Windows Update by installing the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption is supported on the following Azure Gallery based Linux server distributions and versions:
-
-| Linux Distribution | Version | Volume Type Supported for Encryption|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | OS and Data disk |
-| Ubuntu | 14.04.5-DAILY-LTS | OS and Data disk |
-| Ubuntu | 12.10 | Data disk |
-| Ubuntu | 12.04 | Data disk |
-| RHEL | 7.4 | OS and Data disk |
-| RHEL | 7.3 | OS and Data disk |
-| RHEL | LVM 7.3 | OS and Data disk |
-| RHEL | 7.2 | OS and Data disk |
-| RHEL | 6.8 | OS and Data disk |
-| RHEL | 6.7 | Data disk |
-| CentOS | 7.3 | OS and Data disk |
-| CentOS | 7.2n | OS and Data disk |
-| CentOS | 6.8 | OS and Data disk |
-| CentOS | 7.1 | Data disk |
-| CentOS | 7.0 | Data disk |
-| CentOS | 6.7 | Data disk |
-| CentOS | 6.6 | Data disk |
-| CentOS | 6.5 | Data disk |
-| openSUSE | 13.2 | Data disk |
-| SLES | 12 SP1 | Data disk |
-| SLES | 12-SP1 (Premium) | Data disk |
-| SLES | HPC 12 | Data disk |
-| SLES | 11-SP4 (Premium) | Data disk |
-| SLES | 11 SP4 | Data disk |
+* Azure Disk Encryption is only supported on specific Azure Gallery based Linux server distributions and versions.  For the list of currently supported versions, please refer to the [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription.
 
@@ -854,7 +827,7 @@ Encryption of an OS drive on a running Linux VM is supported on the following di
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-Before you reboot, we recommend that you save [boot diagnostics](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/) of the VM.
+Before you reboot, we recommend that you save [boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) of the VM.
 
 #### Monitoring OS encryption progress
 You can monitor OS encryption progress in three ways:
@@ -888,7 +861,7 @@ You can monitor OS encryption progress in three ways:
 
  ![VM Instance View](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-* Look at [boot diagnostics](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/). Messages from the ADE extension should be prefixed with `[AzureDiskEncryption]`.
+* Look at [boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Messages from the ADE extension should be prefixed with `[AzureDiskEncryption]`.
 
 * Sign in to the VM via SSH, and get the extension log from:
 
@@ -920,7 +893,7 @@ Configure encryption during the distribution installation by doing the following
 
  ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Prepare the VM for uploading into Azure using [these instructions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Do not run the last step (deprovisioning the VM) yet.
+6. Prepare the VM for uploading into Azure using [these instructions](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Do not run the last step (deprovisioning the VM) yet.
 
 Configure encryption to work with Azure by doing the following:
 
@@ -998,7 +971,7 @@ To configure encryption during the distribution installation, do the following:
 
  ![openSUSE 13.2 Setup](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Do not run the last step (deprovisioning the VM) yet.
+3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Do not run the last step (deprovisioning the VM) yet.
 
 To configure encryption to work with Azure, do the following:
 1. Edit the /etc/dracut.conf, and add the following line:
@@ -1074,7 +1047,7 @@ To configure encryption during the distribution installation, do the following:
 
  ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5. Prepare the VM for uploading into Azure by using the "CentOS 7.0+" instructions in [Prepare a CentOS-based virtual machine for Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Do not run the last step (deprovisioning the VM) yet.
+5. Prepare the VM for uploading into Azure by using the "CentOS 7.0+" instructions in [Prepare a CentOS-based virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Do not run the last step (deprovisioning the VM) yet.
 
 6. Now you can deprovision the VM and [upload your VHD](#upload-encrypted-vhd-to-an-azure-storage-account) into Azure.
 
@@ -1287,9 +1260,6 @@ When you attach the OS disk, pass `$KeyEncryptionKey` and `$secretUrl`. The URL 
             -DiskEncryptionKeyUrl $SecretUrl `
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
-
-## Download this guide
-You can download this guide from the [TechNet Gallery](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
 ## For more information
 [Explore Azure Disk Encryption with Azure PowerShell - Part 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  

@@ -1,15 +1,15 @@
 ---
-title: Use Cortana pre-built app from LUIS | Microsoft Docs
-description: Use Cortana personal assistant, a pre-built application from Language Understanding Intelligent Services (LUIS).
+title: Use Cortana prebuilt app from LUIS | Microsoft Docs
+description: Use Cortana personal assistant, a prebuilt application from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: cahann
+ms.author: v-geberr
 ---
 
 # Cortana Prebuilt App
@@ -24,7 +24,7 @@ ms.author: cahann
 
 In addition to allowing you to build your own applications, LUIS also provides intents and entities from the Microsoft Cortana personal assistant as a prebuilt app. The behavior of this publicly available LUIS app cannot be changed. The intents and entities in this application cannot be edited or integrated into other LUIS apps. If you’d like your client aplication to have access to both this prebuilt application and your own LUIS application, then your client application has to reference both LUIS apps.
 
-The pre-built personal assistant app is available in these cultures (locales): English, French, Italian, Spanish, and Chinese.
+The prebuilt personal assistant app is available in these cultures (locales): English, French, Italian, Spanish, and Chinese.
 
 ## Get the endpoint for the Cortana prebuilt app
 

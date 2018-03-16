@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 02/12/2018
 ms.author: tdykstra
 ---
 
@@ -45,6 +45,13 @@ The following sample *host.json* file has all possible options specified.
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -104,7 +111,7 @@ Specifies how many function invocations are aggregated when [calculating metrics
 }
 ```
 
-|Property  |Default | Description |
+|Property |Default  | Description |
 |---------|---------|---------| 
 |batchSize|1000|Maximum number of requests to aggregate.| 
 |flushTimeout|00:00:30|Maximum time period to aggregate.| 
@@ -157,6 +164,30 @@ Indicates the timeout duration for all functions. In Consumption plans, the vali
 }
 ```
 
+## healthMonitor
+
+Configuration settings for [Host health monitor](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+
+```
+{
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|enabled|true|Whether the feature is enabled. | 
+|healthCheckInterval|10 seconds|The time interval between the periodic background health checks. | 
+|healthCheckWindow|2 minutes|A sliding time window used in conjunction with the `healthCheckThreshold` setting.| 
+|healthCheckThreshold|6|Maximum number of times the health check can fail before a host recycle is initiated.| 
+|counterThreshold|0.80|The threshold at which a performance counter will be considered unhealthy.| 
+
 ## http
 
 Configuration settings for [http triggers and bindings](functions-bindings-http-webhook.md).
@@ -202,25 +233,7 @@ Controls filtering for logs written by an [ILogger object](functions-monitoring.
 
 Configuration settings for [Storage queue triggers and bindings](functions-bindings-storage-queue.md).
 
-```json
-{
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|maxPollingInterval|60000|The maximum interval in milliseconds between queue polls.| 
-|visibilityTimeout|0|The time interval between retries when processing of a message fails.| 
-|batchSize|16|The number of queue messages to retrieve and process in parallel. The maximum is 32.| 
-|maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.| 
-|newBatchThreshold|batchSize/2|The threshold at which a new batch of messages are fetched.| 
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## serviceBus
 
@@ -233,6 +246,7 @@ Configuration setting for [Service Bus triggers and bindings](functions-bindings
 Configuration settings for Singleton lock behavior. For more information, see [GitHub issue about singleton support](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
+{
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",

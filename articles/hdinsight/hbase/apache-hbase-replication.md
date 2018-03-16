@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 01/03/2018
 ms.author: jgao
 
 ---
@@ -280,4 +280,4 @@ In this tutorial, you learned how to set up HBase replication within a virtual n
 * [Get started with Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight HBase overview](./apache-hbase-overview.md)
 * [Create HBase clusters in Azure Virtual Network](./apache-hbase-provision-vnet.md)
-* [Analyze sensor data with Storm and HBase in HDInsight (Hadoop)](../storm/apache-storm-sensor-data-analysis.md)
+

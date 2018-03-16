@@ -5,11 +5,11 @@ services: machine-learning
 author: svankam
 ms.author: svankam
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 02/01/2018
 ---
 
 # How to configure Azure Machine Learning Workbench to work with an IDE 

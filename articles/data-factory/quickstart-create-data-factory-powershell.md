@@ -1,6 +1,6 @@
 ---
 title: Copy data in Blob Storage using Azure Data Factory | Microsoft Docs
-description: Create an Azure data factory to copy data from one folder to another folder in an Azure Blob Storage to another location in the same Blob Storage.
+description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 
 ---

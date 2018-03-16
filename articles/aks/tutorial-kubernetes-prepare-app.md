@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -57,7 +57,7 @@ Inside the directory is the application source code, a pre-created Docker compos
 
 [Docker Compose][docker-compose] can be used to automate the build out of container images and the deployment of multi-container applications.
 
-Run the `docker-compose.yml` file to create the container image, download the Redis image, and start the application.
+Run the `docker-compose.yaml` file to create the container image, download the Redis image, and start the application.
 
 ```console
 docker-compose up -d

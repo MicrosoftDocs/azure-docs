@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
 
 ---
@@ -25,7 +25,7 @@ A single initial [Receive](/dotnet/api/microsoft.servicebus.messaging.queueclien
 
 ## Enable prefetch
 
-In .NET, you enable the Prefetch feature by setting the [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) property of a **MessageReceiver**, **QueueClient**, or **SubscriptionClient** to a number greater than zero. Setting the value to zero turns off prefetch.
+With .NET, you enable the Prefetch feature by setting the [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) property of a **MessageReceiver**, **QueueClient**, or **SubscriptionClient** to a number greater than zero. Setting the value to zero turns off prefetch.
 
 You can easily add this setting to the receive-side of the [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) or [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) samples' settings to see the effect in those contexts.
 
@@ -35,7 +35,7 @@ Prefetch also works in the same way with the [OnMessage](/dotnet/api/microsoft.s
 
 ## If it is faster, why is Prefetch not the default option?
 
-Prefetch speeds up the message flow by having a message readily available for local retrieval when and before the application asks for one. This throughput gain is the result of a trade-off decision that the application author must make explicitly:
+Prefetch speeds up the message flow by having a message readily available for local retrieval when and before the application asks for one. This throughput gain is the result of a trade-off that the application author must make explicitly:
 
 With the [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete) receive mode, all messages that are acquired into the prefetch buffer are no longer available in the queue, and only reside in the in-memory prefetch buffer until they are received into the application through the **Receive**/**ReceiveAsync** or **OnMessage**/**OnMessageAsync** APIs. If the application terminates before the messages are received into the application, those messages are irrecoverably lost.
 

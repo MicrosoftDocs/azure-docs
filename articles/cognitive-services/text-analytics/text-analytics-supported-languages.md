@@ -3,12 +3,12 @@ title: Supported languages in Text Analytics API (Microsoft Cognitive Services o
 description: List of generally available and preview language support for Text Analytics API operations. Applies to sentiment analysis, key phrase extraction, and language detection.
 services: cognitive-services
 author: luiscabrer
-manager: jhubbard
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 12/12/2017
 ms.author: luisca
 ---
 
@@ -31,7 +31,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 | Language    | Language code | Sentiment | Key phrases | Notes       |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|
-| Danish      | `da`          | ✔ \*     |             |             |
+| Danish      | `da`          | ✔ \*     | ✔           |             |
 | Dutch       | `nl`          | ✔ \*     | ✔          |             |
 | English     | `en`          | ✔        | ✔           |             | 
 | Finnish     | `fi`          | ✔ \*     | ✔           |             |
@@ -40,11 +40,12 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Greek       | `el`          | ✔ \*     |             |            |
 | Italian     | `it`          | ✔ \*     | ✔           |             |
 | Japanese    | `ja`          |          | ✔           |            |
-| Norwegian   | `no`          | ✔ \*     |             |             |
+| Korean      | `ko`          |          | ✔           |            |
+| Norwegian  (Bokmål) | `no`          | ✔ \*     |  ✔          |             |
 | Polish      | `pl`          | ✔ \*     |  ✔          |             |
 | Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          |`pt` also accepted |
 | Portuguese (Brazil)   | `pt-BR`|          |  ✔   |         |
-| Russian     | `ru`          | ✔ \*     |             |             |
+| Russian     | `ru`          | ✔ \*     | ✔           |             |
 | Spanish     | `es`          | ✔        | ✔           |             |
 | Swedish     | `sv`          | ✔ \*     | ✔           |             |
 | Turkish     | `tr`          | ✔ \*     |             |             |

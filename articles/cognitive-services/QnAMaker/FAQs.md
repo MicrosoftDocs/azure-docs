@@ -17,10 +17,10 @@ ms.author: pchoudh
 QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.
 
 ### How do I sign in to the QnA Maker portal?
-You can sign in with your [Microsoft account](https://www.microsoft.com/account/).
+You can sign in with your [Microsoft account](https://account.microsoft.com/account).
 
 ### Is the QnA Maker Service free?
-Yes, currently the QnA Maker tool is free to use. However, usage is metered for each account. For more information, see [Authentication and subscription keys](subscriptionkeys.md).
+Yes, currently the QnA Maker tool is free to use. However, usage is metered for each account. For more information, see [Authentication and subscription keys](https://qnamaker.ai/Documentation/Authentication).
 
 ### My URLs have valid FAQ content, but the tool cannot extract them. Why not?
 It’s possible that the tool can't auto-extract some question-and-answer (QnA) content from valid FAQ URLs. In such cases, you can paste the QnA content in a .txt file and see if the tool can ingest it. Alternately, you can editorially add content to your knowledge base.
@@ -37,11 +37,17 @@ No, you don’t. However, QnA Maker is offered as one of several templates in [A
 
 Bots scale based on demand. You pay for only the resources that you consume.
 
+### How can I create a bot with QnAMaker?
+QnAMaker provides a REST endpoint that you can call from any bot code. However, if you'd like a quick way to set up a QnAMaker bot, you can use the [Azure Bot Service](https://docs.microsoft.com/bot-framework/bot-service-overview-introduction). Follow the instructions [here](https://docs.microsoft.com/bot-framework/bot-service-quickstart) and choose the "Question and Answer" bot template. Once the bot is created, you will need to do the following steps to complete setup.
+1. In Azure portal, open the newly created Web App Bot resource.
+2. Click on "Application Settings" and in the App Settings list, add QnASubscriptionKey and QnAKnowledgebaseId. The corresponding values can be obtained from the KB Settings page in http://qnamaker.ai.
+3. The QnAMaker-enabled Azure bot service app is now ready to use. To try it out click on "Test in Web Chat" to chat with your QnA bot.
+
 ### How do I embed the QnA Maker service in my website?
 Follow these steps to embed the QnA Maker service as a web-chat control in your website:
 1. Create your knowledge base from the [QnA Maker webpage](https://qnamaker.ai).
 2. Create your bot as shown in [Create a bot with the Azure Bot Service](https://docs.botframework.com/en-us/azure-bots/build/first-bot/#navtitle). 
-3. Look for the Question and Answer bot template. Select the knowledge base ID that you created in step 1.
+3. Look for the Question and Answer bot template.
 4. Enable the bot on the Web Chat channel. Get the embed keys.
 5. Embed the web chat as shown in [Connect a bot to Web Chat](https://docs.botframework.com/en-us/support/embed-chat-control2/#navtitle).
 
@@ -92,4 +98,7 @@ The tool parses only public URLs and does not support authenticated data sources
 
 ### How can I integrate LUIS with QnA Maker?
 There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. 
-[View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/blob/master/Node/samples/QnAWithLUIS/).
+[View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS).
+
+### How can I report issues or contact support for QnAMaker?
+QnAMaker is currently in free Preview and does not have support SLAs. If you want to report an issue or provide feedback, you do so on UserVoice through the "Feedback" button in the top navigation bar.

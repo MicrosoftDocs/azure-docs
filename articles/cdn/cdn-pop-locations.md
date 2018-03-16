@@ -21,7 +21,7 @@ ms.author: mazha
 This article lists current point-of-presence (POP) locations for **Azure CDN from Verizon** and **Azure CDN from Akamai**.
 
 > [!IMPORTANT]
-> **Azure CDN from Akamai** POP city locations are not individually disclosed.  
+> POP city locations for **Azure CDN from Akamai** are not individually disclosed.  
 > 
 > Both providers have distinct ways of building their CDN infrastructures.  We recommend against using POP locations to decide which Azure CDN product to use, and instead consider features and end-user performance.  Test the performance with both providers to choose the right Azure CDN product for your users. 
 > 
@@ -29,13 +29,14 @@ This article lists current point-of-presence (POP) locations for **Azure CDN fro
 
 | Region | Verizon | Akamai |
 | --- | --- | --- |
-| North America | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />New York, NY<br />Philadelphia, PA<br />San Jose, CA<br />Seattle, WA<br />Washington, DC | Canada<br />Mexico<br />United States |
+| North America | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />New York, NY<br />Philadelphia, PA<br />San Jose, CA<br />Seattle, WA<br />Washington, DC<br />Puebla, Mexico<br />Querétaro, Mexico | Canada<br />Mexico<br />United States |
 | South America | Buenos Aires, Argentina<br />Rio de Janeiro, Brazil<br />São Paulo, Brazil<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Brazil<br />Peru |
-| Northern and Eastern Europe | Copenhagen, Denmark<br />Helsinki, Finland<br />Warsaw, Poland<br />Stockholm, Sweden | Denmark<br />Poland<br />Sweden<br /> |
+| Northern and Eastern Europe | Copenhagen, Denmark<br />Helsinki, Finland<br />Riga, Latvia<br />Warsaw, Poland<br />Stockholm, Sweden | Denmark<br />Poland<br />Sweden<br /> |
 | Western Europe | Vienna, Austria<br />Paris, France<br />Frankfurt, Germany<br />Amsterdam, Netherlands<br />London, UK | Austria<br />France<br />Germany<br />Ireland<br />Netherlands<br />Switzerland<br />United Kingdom |
 | Southern Europe | Milan, Italy<br />Madrid, Spain | Italy<br />Spain |
-| Asia | Hong Kong<br />Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />New Delhi, India<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong<br />India<br />Indonesia<br />Japan<br />Malaysia<br />Philippines<br />Singapore<br />Taiwan<br />Thailand<br />Vietnam |
+| Africa | Johannesburg, South Africa | |
 | Middle East | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar |
+| Asia | Hong Kong<br />Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />New Delhi, India<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong<br />India<br />Indonesia<br />Japan<br />Malaysia<br />Philippines<br />Singapore<br />Taiwan<br />Thailand<br />Vietnam |
 | Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
 ## See Also

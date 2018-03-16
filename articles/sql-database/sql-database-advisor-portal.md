@@ -2,21 +2,13 @@
 title: Apply performance recommendations - Azure SQL Database | Microsoft Docs
 description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: jhubbard
-editor: monicar
-
-ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
 ms.date: 07/05/2017
 ms.author: sstein
-
 
 ---
 # Find and apply performance recommendations
@@ -30,7 +22,7 @@ To view and apply performance recommendations, you need the correct [role-based 
 Use the following steps to find performance recommendations on Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Go to **More services** > **SQL databases**, and select your database.
+2. Go to **All services** > **SQL databases**, and select your database.
 3. Navigate to **Performance recommendation** to view available recommendations for the selected database.
 
 Performance recommendations are shown in the table similar to the one shown on the following figure:
@@ -50,7 +42,7 @@ Recommendations are sorted by their potential impact on performance into the fol
 > Azure SQL Database needs to monitor activities at least for a day in order to identify some recommendations. The Azure SQL Database can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not currently available, the **Performance recommendation** page provides a message explaining why.
 > 
 
-You can also view the status of the historical operations. Select a recommendation or status to see  more details.
+You can also view the status of the historical operations. Select a recommendation or status to see  more information.
 
 Here is an example of "Create index" recommendation in the Azure portal.
 
@@ -89,6 +81,10 @@ If desired, you can add discarded items back to the **Recommendations** list:
 2. Select a discarded item from the list to view its details.
 3. Optionally, click **Undo Discard** to add the index back to the main list of **Recommendations**.
 
+> [!NOTE]
+> Please note that if SQL Database [Automatic tuning](sql-database-automatic-tuning.md) is enabled, and if you have manually discarded a recommendation from the list, such recommendation will never be applied automatically. Discarding a recommendation is a handy way for users to have Automatic tuning enabled in cases when requiring that a specific recommendation shouldn’t be applied.
+> You can revert this behavior by adding discarded recommendations back to the Recommendations list by selecting the Undo Discard option.
+> 
 
 ### Enable automatic tuning
 You can set the Azure SQL Database to implement recommendations automatically. As recommendations become available, they are automatically applied. As with all recommendations managed by the service, if the performance impact is negative, the recommendation is reverted.
@@ -124,7 +120,7 @@ Applying a recommendation might not happen instantaneously. The portal provides 
 | Reverting |The recommendation was applied, but has been deemed non-performant and is being automatically reverted. |
 | Reverted |The recommendation was reverted. |
 
-Click an in-process recommendation from the list to see more details:
+Click an in-process recommendation from the list to see more information:
 
 ![Recommended Indexes](./media/sql-database-advisor-portal/operations.png)
 

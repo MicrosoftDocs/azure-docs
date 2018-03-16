@@ -1,3 +1,5 @@
+# [Azure Service Health](index.md)
+
 # Overview
 ## [What is Azure Service Health?](service-health-overview.md)
 ## [What is Azure Resource Health?](resource-health-overview.md)

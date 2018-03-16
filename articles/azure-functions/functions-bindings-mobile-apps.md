@@ -26,6 +26,12 @@ The Mobile Apps bindings let you read and update data tables in mobile apps.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## Packages
+
+Mobile Apps bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet package. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub repository.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
+
 ## Input
 
 The Mobile Apps input binding loads a record from a mobile table endpoint and passes it into your function. In C# and F# functions, any changes made to the record are automatically sent back to the table when the function exits successfully.
@@ -34,8 +40,7 @@ The Mobile Apps input binding loads a record from a mobile table endpoint and pa
 
 See the language-specific example:
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [C# script](#input---c-script-example)
+* [C# script (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### Input - C# script example
@@ -126,7 +131,7 @@ module.exports = function (context, myQueueItem) {
 
 ## Input - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+In [C# class libraries](functions-dotnet-class-library.md), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
 
 For information about attribute properties that you can configure, see [the following configuration section](#input---configuration).
 
@@ -166,13 +171,13 @@ Use the Mobile Apps output binding to write a new record to a Mobile Apps table.
 
 See the language-specific example:
 
-* [Precompiled C#](#output---c-example)
-* [C# script](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### Output - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that is triggered by a queue message and creates a record in a mobile app table.
+The following example shows a [C# function](functions-dotnet-class-library.md) that is triggered by a queue message and creates a record in a mobile app table.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -273,7 +278,7 @@ module.exports = function (context, myQueueItem) {
 
 ## Output - attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+In [C# class libraries](functions-dotnet-class-library.md), use the [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribute.
 
 For information about attribute properties that you can configure, see [Output - configuration](#output---configuration). Here's a `MobileTable` attribute example in a method signature:
 
@@ -288,7 +293,7 @@ public static object Run(
 }
 ```
 
-For a complete example, see [Output - precompiled C# example](#output---c-example).
+For a complete example, see [Output - C# example](#output---c-example).
 
 ## Output - configuration
 
@@ -310,7 +315,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Output - usage
 
-In C# script functions, use a named output parameter of type `out object` to access the output record. In precompiled C# functions, the `MobileTable` attribute can be used with any of the following types:
+In C# script functions, use a named output parameter of type `out object` to access the output record. In C# class libraries, the `MobileTable` attribute can be used with any of the following types:
 
 * `ICollector<T>` or `IAsyncCollector<T>`, where `T` is either `JObject` or any type with a `public string Id` property.
 * `out JObject`

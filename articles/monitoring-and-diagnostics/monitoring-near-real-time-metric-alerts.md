@@ -1,6 +1,6 @@
 ---
-title: Near Real-Time Metric Alerts in Azure Monitor | Microsoft Docs
-description: Near real-time metric alerts enable you to monitor Azure resource metrics as frequently as 1 min.
+title: Near real-time metric alerts in Azure Monitor | Microsoft Docs
+description: Learn how to use near real-time metric alerts to monitor Azure resource metrics with a frequency as small as 1 minute.
 author: snehithm
 manager: kmadnani1
 editor: ''
@@ -13,85 +13,200 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
-ms.author: snmuvva
+ms.date: 02/26/2018
+ms.author: snmuvva, vinagara
 ms.custom: 
 
 ---
 
-# Near Real-Time Metric Alerts (Preview)
-Azure Monitor now supports a new type of metric alerts called Near Real-Time Metric Alerts (Preview). This feature is currently in public preview.
-These alerts differ from regular metric alerts in few ways
+# Near real-time metric alerts (preview)
+Azure Monitor supports a new alert type called near real-time metric alerts (preview). This feature currently is in public preview.
 
-- **Improved Latency** - Near real-time metric alerts can monitor changes in metric values as soon as 1 min.
-- **More control over metric conditions** - Near real-time metric alerts allow users to define richer alert rules. The alerts now support monitoring the maximum, minimum, average, and total values of the metrics.
-- **Combined monitoring of multiple metrics** - Near real-time metric alerts can monitor multiple metrics(currently two) with a single rule. Alert gets triggered if both the metrics breach their respective thresholds for the specified time period.
-- **Modular notification system** - Near real-time metric alerts use [action groups](monitoring-action-groups.md). This functionality allows users to create actions in a modular fashion and reuse them for many alert rules.
+Near real-time metric alerts differ from regular metric alerts in a few ways:
+
+- **Improved latency**: Near real-time metric alerts can monitor changes in metric values with a frequency as small as one minute.
+- **More control over metric conditions**: You can define richer alert rules in near real-time metric alerts. The alerts support monitoring the maximum, minimum, average, and total values of metrics.
+- **Metrics from Logs**: From popular log data coming into [Log Analytics](../log-analytics/log-analytics-overview.md), metrics can be extracted into Azure Monitor and be alerted at near real-time basis
+- **Combined monitoring of multiple metrics**: Near real-time metric alerts can monitor multiple metrics (currently, up to two metrics) with a single rule. An alert is triggered if both metrics breach their respective thresholds for the specified time period.
+- **Modular notification system**: Near real-time metric alerts use [action groups](monitoring-action-groups.md). You can use action groups to create modular actions. You can reuse action groups for multiple alert rules.
 
 > [!NOTE]
-> Near real-time metric alerts feature is currently in public preview. The functionality and user experience is subject to change.
+> The near real-time metric alert is currently is in public preview. And metrics from logs features are in *limited* public preview. The functionality and user experience is subject to change.
 >
 
-## What resources can I create near real-time metric alerts for?
-Full list of resource types that are supported by near real-time metric alerts:
+## Metrics and Dimensions Supported
+Near real-time metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
 
-* Microsoft.ApiManagement/service
-* Microsoft.Batch/batchAccounts
-* Microsoft.Cache/Redis
-* Microsoft.Compute/virtualMachines
-* Microsoft.Compute/virtualMachineScaleSets
-* Microsoft.DataFactory/factories
-* Microsoft.DBforMySQL/servers
-* Microsoft.DBforPostgreSQL/servers
-* Microsoft.EventHub/namespaces
-* Microsoft.Logic/workflows
-* Microsoft.Network/applicationGateways
-* Microsoft.Network/publicipaddresses
-* Microsoft.Search/searchServices
-* Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/elasticpools
-* Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.Timeseriesinsights
-* Microsoft.CognitiveServices/accounts
+Here's the full list of Azure monitor based metric sources that are supported for near real-time metric alerts:
 
-
-## Create a Near Real-Time Metric Alert
-Currently, near real-time metric alerts can only be created through the Azure portal. Support for configuring near real-time metric alerts through PowerShell, command-line interface (CLI), and Azure Monitor REST API is coming soon.
-
-1. In the [portal](https://portal.azure.com/), locate the resource you are interested in monitoring and select it. This resource should be of one of the resource types listed in the [previous section](#what-resources-can-i-create-near-real-time-metric-alerts-for). You can also do the same for all supported resources types centrally from Monitor>Alerts.
-
-2. Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.
-   ![Monitoring](./media/insights-alerts-portal/AlertRulesButton.png)
-
-3. Click the **Add near real time metrics alert (preview)** command. If the command is grayed out, ensure the resource is selected in the filter.
-
-    ![Add Near Real-Time Metrics Alert Button](./media/monitoring-near-real-time-metric-alerts/AddNRTAlertButton.png)
-
-4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
-5. Select the **Metric** you want to monitor, then choose a **Condition**, **Time Aggregation**, and **Threshold** value for the metric. Optionally select another **Metric** you want to monitor, then choose a **Condition**, **Time Aggregation**, and **Threshold** value for the second metric. 
-
-    ![Add Near Real-Time Metrics Alert1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png)
-    ![Add Near Real-Time Metrics Alert2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
-6. Choose the **Period** of time that the metric rules must be satisfied before the alert triggers. So for example, if you use the period "Over the last 5 minutes" and your alert looks for CPU above 80% (and NetworkIn above 500 MB), the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The alert is evaluated according to the **Evaluation Frequency**
+|Metric Name/Details  |Dimensions Supported  |
+|---------|---------|
+|Microsoft.ApiManagement/service     | Yes        |
+|Microsoft.Automation/automationAccounts     |     N/A    |
+|Microsoft.Automation/automationAccounts     |   N/A      |
+|Microsoft.Cache/Redis     |    N/A     |
+|Microsoft.Compute/virtualMachines     |    N/A     |
+|Microsoft.Compute/virtualMachineScaleSets     |   N/A      |
+|Microsoft.DataFactory/factories     |   N/A      |
+|Microsoft.DBforMySQL/servers     |   N/A      |
+|Microsoft.DBforPostgreSQL/servers     |    N/A     |
+|Microsoft.EventHub/namespaces     |   N/A      |
+|Microsoft.Logic/workflows     |     N/A    |
+|Microsoft.Network/applicationGateways     |    N/A     |
+|Microsoft.Network/publicipaddresses     |  N/A       |
+|Microsoft.Search/searchServices     |   N/A      |
+|Microsoft.ServiceBus/namespaces     |  N/A       |
+|Microsoft.Storage/storageAccounts     |    Yes     |
+|Microsoft.Storage/storageAccounts/services     |     Yes    |
+|Microsoft.StreamAnalytics/streamingjobs     |  N/A       |
+|Microsoft.CognitiveServices/accounts     |    N/A     |
 
 
-6. Pick an appropriate **Severity** from the drop down.
+Metrics from Logs, currently supports the following popular OMS logs:
+- [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
+- Heartbeat records for machines
+- [Update management](../operations-management-suite/oms-solution-update-management.md) records
 
-7. Specify if you want to use a New or Existing **Action Group**.
+Here's the full list of OMS log based metric sources that are supported for near real-time metric alerts:
 
-8. If you choose to create **New** Action Group,  give the action group a name and a short name, specify actions(SMS, Email, Webhook) and fill respective details.
+Metric Name/Details  |Dimensions Supported  | Type of Log  |
+|---------|---------|---------|
+|Average_Avg. Disk sec/Read     |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+| Average_Avg. Disk sec/Write     |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+| Average_Current Disk Queue Length   |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+| Average_Disk Reads/sec    |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+| Average_Disk Transfers/sec    |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+|   Average_% Free Space    |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+| Average_Available MBytes     |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+| Average_% Committed Bytes In Use    |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+| Average_Bytes Received/sec    |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+|  Average_Bytes Sent/sec    |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+|  Average_Bytes Total/sec    |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+|  Average_% Processor Time    |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+|   Average_Processor Queue Length    |     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Windows Performance Counter      |
+|	Average_% Free Inodes	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Free Space	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Used Inodes	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Used Space	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Disk Read Bytes/sec	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Disk Reads/sec	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Disk Transfers/sec	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Disk Write Bytes/sec	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Disk Writes/sec	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Free Megabytes	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Logical Disk Bytes/sec	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Available Memory	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Available Swap Space	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Used Memory	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Used Swap Space	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Available MBytes Memory	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Available MBytes Swap	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Page Reads/sec	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Page Writes/sec	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Pages/sec	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Used MBytes Swap Space	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Used Memory MBytes	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Total Bytes Transmitted	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Total Bytes Received	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Total Bytes	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Total Packets Transmitted	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Total Packets Received	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Total Rx Errors	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Total Tx Errors	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Total Collisions	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Avg. Disk sec/Read	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Avg. Disk sec/Transfer	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Avg. Disk sec/Write	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Physical Disk Bytes/sec	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Pct Privileged Time	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Pct User Time	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Used Memory kBytes	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Virtual Shared Memory	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% DPC Time	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Idle Time	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Interrupt Time	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% IO Wait Time	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Nice Time	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Privileged Time	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% Processor Time	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_% User Time	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Free Physical Memory	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Free Space in Paging Files	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Free Virtual Memory	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Processes	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Size Stored In Paging Files	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Uptime	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Average_Users	|     Yes - Computer, ObjectName, InstanceName, CounterPath & SourceSystem    |   Linux Performance Counter      |
+|	 Heartbeat	|     Yes - Computer, OSType, Version & SourceComputerId    |   Heartbeat Records |
+|	 Update	|     Yes - Computer, Product, Classification, UpdateState, Optional & Approved    |   Update Management |
 
+> [!NOTE]
+> Specific metric and/or dimension will only be shown if data for it exists in chosen period
 
-8. Select **OK** when done to create the alert.   
+## Create a near real-time metric alert
+Currently, you can create near real-time metric alerts only in the Azure portal. Support for configuring near real-time metric alerts by using PowerShell, the Azure command-line interface (Azure CLI), and Azure Monitor REST APIs is coming soon.
 
-Within a few minutes, the alert is active and triggers as previously described.
+The experience for creating a near real-time metric alert has moved to the new **Alerts (Preview)** page. Even if the current alerts page displays **Add Near Real-Time Metric alert**, you are redirected to the **Alerts (Preview)** page.
 
-## Managing near real-time metric alerts
-Once you have created an alert, you can select it and:
+To learn how to create a near real-time metric alert, see [Create an alert rule in the Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
-* View a graph showing the metric threshold and the actual values from the previous day.
-* Edit or delete it.
-* **Disable** or **Enable** it if you want to temporarily stop or resume receiving notifications for that alert.
+## Manage near real-time metric alerts
+After you create a near real-time metric alert, you can manage the alert by using the steps described in [Manage your alerts in the Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
+## Payload schema
 
+The POST operation contains the following JSON payload and schema for all near real-time metric alerts when appropriately configured [action group](monitoring-action-groups.md) is used:
 
+```json
+{"schemaId":"AzureMonitorMetricAlert","data":
+    {
+    "version": "2.0",
+    "status": "Activated",
+    "context": {
+    "timestamp": "2018-02-28T10:44:10.1714014Z",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/microsoft.insights/metricAlerts/StorageCheck",
+    "name": "StorageCheck",
+    "description": "",
+    "conditionType": "SingleResourceMultipleMetricCriteria",
+    "condition": {
+      "windowSize": "PT5M",
+      "allOf": [
+        {
+          "metricName": "Transactions",
+          "dimensions": [
+            {
+              "name": "AccountResourceId",
+              "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
+            },
+            {
+              "name": "GeoType",
+              "value": "Primary"
+            }
+          ],
+          "operator": "GreaterThan",
+          "threshold": "0",
+          "timeAggregation": "PT5M",
+          "metricValue": 1.0
+        },
+      ]
+    },
+    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+    "resourceGroupName": "Contoso",
+    "resourceName": "diag500",
+    "resourceType": "Microsoft.Storage/storageAccounts",
+    "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
+    "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
+  },
+        "properties": {
+                "key1": "value1",
+                "key2": "value2"
+        }
+    }
+}
+```
+
+## Next steps
+
+* Learn more about the new [Alerts (Preview) experience](monitoring-overview-unified-alerts.md).
+* Learn about [log alerts in Azure Alerts (Preview)](monitor-alerts-unified-log.md).
+* Learn about [alerts in Azure](monitoring-overview-alerts.md).

@@ -398,7 +398,7 @@ return result;
 | **Steps** | <p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p><p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p>
 
 ### Example
-```C#
+```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
 {
@@ -429,7 +429,7 @@ public bool ValidateRoles(actionContext)
 }
 ```
 All the controllers and action methods which needs to protected should be decorated with above attribute.
-```C#
+```csharp
 [ApiAuthorize]
 public class CustomController : ApiController
 {

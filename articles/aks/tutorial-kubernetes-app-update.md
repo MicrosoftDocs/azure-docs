@@ -1,4 +1,4 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial - Update application
 description: AKS tutorial - Update Application
 services: container-service
@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -30,7 +30,7 @@ In subsequent tutorials, Operations Management Suite is configured to monitor th
 
 In previous tutorials, an application was packaged into a container image, the image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. 
 
-An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. Inside is a directory named `azure-vote` and a file named `docker-compose.yml`.
+An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. Inside is a directory named `azure-vote` and a file named `docker-compose.yaml`.
 
 If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app]. 
 
@@ -74,22 +74,22 @@ Browse to http://localhost:8080 to see the updated application.
 
 Tag the `azure-vote-front` image with the loginServer of the container registry. 
 
-Get the login server name with the [az acr list](/cli/azure/acr#list) command.
+Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with your Azure Container Registry login server name or public registry hostname. Also notice that the image version is updated to `redis-v2`.
+Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with your Azure Container Registry login server name or public registry hostname. Also notice that the image version is updated to `v2`.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
 Use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your Azure Container Registry login server name.
 
 ```console
-docker push <acrLoginServer>/azure-vote-front:redis-v2
+docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
 ## Deploy update application
@@ -120,7 +120,7 @@ kubectl scale --replicas=3 deployment/azure-vote-front
 To update the application, use the [kubectl set][kubectl-set] command. Update `<acrLoginServer>` with the login server or host name of your container registry.
 
 ```azurecli
-kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
 To monitor the deployment, use the [kubectl get pod][kubectl-get] command. As the updated application is deployed, your pods are terminated and re-created with the new container image.
@@ -132,11 +132,11 @@ kubectl get pod
 Output:
 
 ```
-NAME                               READY     STATUS    RESTARTS   AGE
-azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
-azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
-azure-vote-front-1297194256-tptnx   1/1       Running   0         5m
-azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
+NAME                               READY     STATUS        RESTARTS   AGE
+azure-vote-back-2978095810-gq9g0   1/1       Running       0          5m
+azure-vote-front-1297194256-tpjlg  1/1       Running       0          1m
+azure-vote-front-1297194256-tptnx  1/1       Running       0          5m
+azure-vote-front-1297194256-zktw9  1/1       Terminating   0          1m
 ```
 
 ## Test updated application

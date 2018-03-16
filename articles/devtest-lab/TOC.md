@@ -1,3 +1,5 @@
+# [Devtest Labs Documentation](index.md)
+
 # Overview
 ## [About Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepts](devtest-lab-concepts.md)
@@ -16,6 +18,7 @@
 ### [Create VMs](devtest-lab-add-vm.md)
 ### [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md)
 ### [Create and manage VMs with Azure CLI](devtest-lab-vmcli.md)
+### [Create a VM from a resource manager template](devtest-lab-use-resource-manager-template.md)
 ### [Restart a VM](devtest-lab-restart-vm.md)
 
 ## Use environments in a lab
@@ -32,6 +35,7 @@
 ### [Enable a licensed image](devtest-lab-enable-licensed-images.md)
 ### [Add tags to a lab](devtest-lab-add-tag.md)
 ### [Post announcement in a lab](devtest-lab-announcements.md)
+### [Add support info to a lab](devtest-lab-internal-support-message.md)
 
 ## [Select custom image or formula](devtest-lab-comparing-vm-base-image-types.md)
 
@@ -45,7 +49,6 @@
 
 ## Manage reusable templates
 ### [Add a Git repository for artifacts and templates](devtest-lab-add-artifact-repo.md)
-### [Use a resource manager template](devtest-lab-use-resource-manager-template.md)
 ### [Manage formulas](devtest-lab-manage-formulas.md)
 
 ## Manage artifacts
@@ -60,6 +63,9 @@
 ### [Attach and detach data disks](devtest-lab-attach-detach-data-disk.md)
 
 ## [Scale your lab](devtest-lab-scale-lab.md)
+
+## Integrate with CI/CD
+### [Integrate labs into your VSTS CI/CD pipeline](devtest-lab-integrate-ci-cd-vsts.md)
 
 # Reference
 ## [CLI 2.0](/cli/azure/lab)

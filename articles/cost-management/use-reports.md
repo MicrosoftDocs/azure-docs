@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
@@ -148,7 +148,7 @@ Use the Cost Over Time report to:
 3. Add groups.
 4. Choose a cost model that you created previously.
 5. Select actual costs or amortized costs.
-6. Choose whether to apply allocation rules to view raw billing data view or to recalculated cost by Cloudyn view.
+6. Choose whether to apply allocation rules to view raw billing data view or to recalculated cost view.
 
 Here's an example of the report.
 

@@ -63,6 +63,7 @@ You can create an Azure AD application and obtain the preceding configuration va
 
 The code also relies on a locally stored video file. You must edit the code to provide your own local file to upload.
 
+```java
     import java.io.*;
     import java.net.URI;
     import java.security.NoSuchAlgorithmException;
@@ -295,7 +296,7 @@ The code also relies on a locally stored video file. You must edit the code to p
             }
         }
     }
-
+```
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

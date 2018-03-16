@@ -19,10 +19,16 @@
     href: tutorial-prioritized-routes.md
 - name: Concepts
   items:
+  - name: Zoom Levels and Tile Grid
+    href: zoom-levels-and-tile-grid.md
   - name: Geocoding Coverage
     href: geocoding-coverage.md
   - name: Traffic Coverage
     href: traffic-coverage.md
+  - name: Render Coverage
+    href: render-coverage.md
+  - name: Routing Coverage
+    href: routing-coverage.md
 - name: How-to guides
   items:
   - name: Manage account and keys
@@ -33,12 +39,12 @@
     href: how-to-search-for-address.md
 - name: Reference
   items:
-  - name: Functional API - REST
-    href: https://docs.microsoft.com/en-us/rest/api/location-based-services/
-  - name: Management API - REST
-    href: https://docs.microsoft.com/en-us/rest/api/location-based-services-management/
+  - name: Functional API
+    href: https://docs.microsoft.com/rest/api/location-based-services/
+  - name: Management API
+    href: https://docs.microsoft.com/rest/api/location-based-services-management/
   - name: Map Control API - Javascript
-    href: https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/
+    href: https://docs.microsoft.com/javascript/api/location-based-services-javascript/
 - name: Resources
   items:
   - name: Azure IoT Developer Center
@@ -46,16 +52,16 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=internet-of-things
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/iot-hub/
+    href: https://azure.microsoft.com/pricing/details/location-based-services
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=iot-hub
+    href: https://azure.microsoft.com/updates
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-iot-hub
+    href: http://stackoverflow.com/questions/tagged/azure-location-based-services
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
+    href: https://azure.microsoft.com/documentation/videos

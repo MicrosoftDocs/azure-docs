@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
 ---
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 Azure Container Instances makes it easy to create and manage containers in Azure. In this quickstart, you create a container in Azure and expose it to the internet with a public IP address. This operation is completed by using the Azure portal. With just a few clicks, you will see this in your browser:
 
-![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
+![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
 
 ## Log in to Azure
 
@@ -24,7 +24,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a container instance
 
-Select the **New** > **Containers** > **Azure Container Instances (preview)**.
+Select the **Create a resource** > **Containers** > **Azure Container Instances (preview)**.
 
 ![Begin creating a new container instance in the Azure portal][aci-portal-01]
 
@@ -56,7 +56,16 @@ Select the **mycontainer-myc1** container group to display the container group p
 
 Once the container moves to the **Running** state, navigate to the IP address you noted in the previous step to display the application hosted in your new container.
 
-![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
+![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
+
+## Delete the container
+When you are done with the container, select the **mycontainer-myc1** container group and then click **Delete**.
+
+![Deleting the container instance in the Azure portal][aci-portal-09]
+
+This will launch a confirmation dialog box, select **Yes** when prompted.
+
+![Delete confirmation of a container instance in the Azure portal][aci-portal-10]
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
@@ -65,8 +74,10 @@ Once the container moves to the **Running** state, navigate to the IP address yo
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
-[aci-app-browser]: ./media/container-instances-quickstart-portal/qs-portal-07.png
+[aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
+[aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
+[aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
 
 ## Next steps
 

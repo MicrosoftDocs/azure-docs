@@ -3,8 +3,8 @@ title: What is Azure Stack? | Microsoft Docs
 description: Azure Stack allows you to run Azure services in your datacenter.  
 services: azure-stack
 documentationcenter: ''
-author: HeathL17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 ms.custom: mvc
 
 ---

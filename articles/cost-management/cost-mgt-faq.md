@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
@@ -14,7 +14,7 @@ ms.custom:
 
 # Frequently asked questions for Azure Cost Management
 
-This article addresses some common questions about Azure Cost Management (also known as Cloudyn). If you have questions about Cost Management, you can ask them at [FAQs for Azure Cost Management by Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+This article addresses some common questions about Azure Cost Management (also known as Cloudyn). If you have questions about Cost Management, you can ask them at [FAQs for Azure Cost Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
 ## How can I resolve common indirect enterprise setup problems?
 
@@ -42,6 +42,29 @@ Before you can generate the Azure Enterprise Agreement API key to set up Cloudyn
 
 You also might need to give department administrators, account owners, and enterprise administrators permissions to _view charges_ with the Billing API.
 
+## Why don’t I see Optimizer recommendations?
+
+Recommendation information is only available for accounts that are activated. You will not see any recommendation information in **Optimizer** report categories for accounts that are *unactivated*, including:
+
+- Optimization Manager
+- Sizing Optimization
+- Inefficiencies
+
+If you cannot view any Optimizer recommendation data, then most likely, you have accounts that are unactivated. To activate an account, you need to register it with your Azure credentials.
+
+To activate an account:
+
+1.	In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**.
+2.	On the Microsoft Azure Accounts tab, look for accounts that have an **unactivated** subscription.
+3.	To the right of an unactivated account, click the **edit** symbol that resembles a pencil.
+4.	Your tenant ID and rate ID is automatically detected. Click **Next**.
+5.	You’re redirected to the Azure portal. Sign in to the portal and authorize Cloudyn Collector to access your Azure data.
+6.	Next, you’re redirected to the Cloudyn Accounts management page and your subscription is updated with **active** Account Status. It shows a green check mark symbol.
+7.	If you don’t see a green checkmark symbol for one or more of the subscriptions, it means that you do not have permissions to create a reader app (the CloudynCollector) for the subscription. A user with higher permissions for the subscription needs to repeat steps 3 and 4.  
+
+After you complete the preceding steps, you can view Optimizer recommendations within one to two days. However, it can take up to five days before full optimization data is available.
+
+
 ## How do I enable suspended or locked-out users?
 
 If you receive an alert with a request to allow access for a user, you need to activate the user account.
@@ -62,10 +85,7 @@ If you change your e-mail address in Cloudyn from the default address in Azure, 
 
 We recommend that you create at least two Cloudyn administrator accounts in case one of the accounts gets locked out.
 
-If you can't sign in to the Cloudyn portal, ensure that you're using the correct Azure Cost Management URL to sign in to Cloudyn. Use one of the following URLs:
-
-- https://azure.cloudyn.com
-- https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+If you can't sign in to the Cloudyn portal, ensure that you're using the correct Azure Cost Management URL to sign in to Cloudyn. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Avoid using the Cloudyn direct URL https://app.cloudyn.com.
 
@@ -92,9 +112,9 @@ To add additional CSP accounts to an entity, select **MSP Access** instead of **
 
 You might have multiple Azure accounts using different currencies. However, cost reports in Cloudyn do not show more than one currency type per report.
 
-If you have multiple subscriptions using different currencies, a parent entity and its child entity currencies are displayed with the **$** symbol. Our suggested best practice is to avoid using different currencies in the same entity hierarchy. In other words, all your subscriptions organized in an entity structure should use the same currency.
+If you have multiple subscriptions using different currencies, a parent entity and its child entity currencies are displayed in USD **$**. Our suggested best practice is to avoid using different currencies in the same entity hierarchy. In other words, all your subscriptions organized in an entity structure should use the same currency.
 
-Cloudyn automatically detects your Enterprise Agreement subscription currency and presents it properly in reports.  However, Cloudyn only displays the **$** symbol for CSP and web-direct Azure accounts.
+Cloudyn automatically detects your Enterprise Agreement subscription currency and presents it properly in reports.  However, Cloudyn only displays USD **$** for CSP and web-direct Azure accounts.
 
 ## What are Cloudyn data refresh timelines?
 

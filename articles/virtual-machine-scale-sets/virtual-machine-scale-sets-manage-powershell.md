@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Virtual Machine Scale Sets with Azure PowerShell | Microsoft Docs
 description: Common Azure PowerShell cmdlets to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
@@ -21,7 +21,7 @@ ms.author: iainfou
 # Manage a virtual machine scale set with Azure PowerShell
 Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure PowerShell cmdlets that let you perform these tasks.
 
-To complete these management tasks, you need the latest Azure PowerShell module. For information on how to install and use the latest version, see [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps). If you need to create a virtual machine scale set, you can [create a scale set in the Azure portal](virtual-machine-scale-sets-portal-create.md).
+To complete these management tasks, you need the latest Azure PowerShell module. For information on how to install and use the latest version, see [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps). If you need to create a virtual machine scale set, you can [create a scale set in the Azure portal](virtual-machine-scale-sets-create-portal.md).
 
 
 ## View information about a scale set
@@ -57,7 +57,7 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
 ```
 
 If takes a few minutes to update the capacity of your scale set. If you decrease the capacity of a scale set, the VMs with the highest instance IDs are removed first.

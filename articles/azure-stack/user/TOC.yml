@@ -43,6 +43,12 @@
         href: azure-stack-compute-overview.md
       - name: VM considerations
         href: azure-stack-vm-considerations.md
+      - name: VM sizes
+        href: azure-stack-vm-sizes.md
+      - name: Manage VM disks
+        href: azure-stack-manage-vm-disks.md
+      - name: Protect VMs
+        href: azure-stack-manage-vm-protect.md
     - name: Storage
       items:
       - name: Overview
@@ -113,23 +119,29 @@
         href: azure-stack-deploy-template-powershell.md
       - name: Deploy with Visual Studio
         href: azure-stack-deploy-template-visual-studio.md
+  - name: Enable a Cloud Service Provider
+    href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
     href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
   - name: Azure Stack CLI
-    href: /cli/azure/?view=azure-cli-2017-03-09-profile
+    href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: Related
   items:
   - name: Azure Stack Operator Documentation
     href: /azure/azure-stack/
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack
+  - name: Azure Stack roadmap
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Azure Stack MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
+  - name: Azure Stack Documentation feedback
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
   - name: Pricing information
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Training and certification
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert

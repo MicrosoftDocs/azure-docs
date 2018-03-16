@@ -3,26 +3,18 @@ title: Azure SQL logins and users | Microsoft Docs
 description: Learn about SQL Database security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
-documentationcenter: ''
-author: BYHAM
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Active"
 ms.date: 01/23/2017
-ms.author: rickbyh
+ms.author: carlrab
 
 ---
 # Controlling and granting database access
 
-When firewall rules have been configured, people can connect to a SQL Database as one of the administrator accounts, as the database owner, or as a database user in the database.  
+After firewall rules have been configured, people can connect to a SQL Database as one of the administrator accounts, as the database owner, or as a database user in the database.  
 
 >  [!NOTE]  
 >  This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 

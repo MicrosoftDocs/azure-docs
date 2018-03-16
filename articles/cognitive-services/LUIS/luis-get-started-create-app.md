@@ -2,14 +2,14 @@
 title: Create your first Language Understanding (LUIS) app in 10 minutes in Azure | Microsoft Docs 
 description: Get started quickly by creating and managing a LUIS application on the Language Understanding (LUIS) webpage. 
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: v-demak
+ms.date: 01/18/2018
+ms.author: v-geberr;
 ---
 
 # Create your first LUIS app
@@ -20,10 +20,10 @@ This article shows you how to create a LUIS app that uses the `HomeAutomation` p
 > [!div class="checklist"]
 > * To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-> * For this article, you also need a [LUIS.ai][luis.ai] account in order to author your LUIS application.
+> * For this article, you also need a [LUIS.][LUIS] account in order to author your LUIS application.
 
 ## Create a new app
-You can create and manage your applications on **My Apps** page of [Luis.ai](https://www.luis.ai). 
+You can create and manage your applications on **My Apps** page of [LUIS][LUIS]. 
 1. Click **Create new app**.
 
 2. In the dialog box, name your application "Home Automation".
@@ -112,4 +112,4 @@ You can call the endpoint from code:
 > [Call a LUIS endpoint using code](luis-get-started-cs-get-intent.md)
 
 
-[luis.ai]:https://www.luis.ai
+[LUIS]: luis-reference-regions.md

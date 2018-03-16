@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB: SQL syntax query reference | Microsoft Docs"
 description: Reference documentation for the Azure Cosmos DB SQL query language.
 services: cosmos-db
-author: mimig1
+author: LalithaMV
 manager: jhubbard
 editor: mimig
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na 
 ms.topic: reference
 ms.date: 10/18/2017
-ms.author: mimig
+ms.author: laviswa
 
 ---
 

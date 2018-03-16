@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 01/22/2018
 ms.author: lbosq
 
 ---
@@ -25,7 +25,7 @@ This quickstart shows how to use Python and the Azure Cosmos DB [Graph API](grap
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.  
 
 > [!NOTE]
-> This quickstart requires a graph database account created after November 27th, 2017. Existing accounts will support Python once they’re migrated to general availability.
+> This quickstart requires a graph database account created after December 20th, 2017. Existing accounts will support Python once they’re migrated to general availability.
 
 ## Prerequisites
 
@@ -132,28 +132,30 @@ Now go back to the Azure portal to get your connection information and copy it i
         password="<YOUR_PASSWORD>")
     ```
 
-3. Change the second parameter of the `client` object to replace the `<YOUR_DATABASE>` and `<YOUR_COLLECTION_OR_GRAPH>` strings. If you used the suggested values, the parameter should look like this code:
+3. Change `graphs.azure.com` in the client name to `gremlin.cosmosdb.azure.com`. (If your graph database account was created before December 20th, 2017, make no change and go to the next step.)
+
+4. Change the second parameter of the `client` object to replace the `<YOUR_DATABASE>` and `<YOUR_COLLECTION_OR_GRAPH>` strings. If you used the suggested values, the parameter should look like this code:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
     The entire `client` object should now look like this code:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="<YOUR_PASSWORD>")
     ```
 
-4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `<YOUR_PASSWORD>` in the `password=<YOUR_PASSWORD>` parameter.
+5. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `<YOUR_PASSWORD>` in the `password=<YOUR_PASSWORD>` parameter.
 
     The entire `client` object definition should now look like this code:
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-5. Save the `connect.py` file.
+6. Save the `connect.py` file.
 
 ## Run the console app
 

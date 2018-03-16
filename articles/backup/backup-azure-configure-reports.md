@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Configure Azure Backup reports
-This article talks about steps to configure reports for Azure Backup using Recovery Services vault, and  to access these reports using Power BI. After performing these steps, you can directly go to Power BI to view all the reports, customize and create reports. 
+This article talks about steps to configure reports for Azure Backup using Recovery Services vault, and to access these reports using Power BI. After performing these steps, you can directly go to Power BI to view all the reports, customize and create reports. 
 
 ## Supported scenarios
 1. Azure Backup reports are supported for Azure virtual machine backup and file/folder backup to cloud using Azure Recovery Services Agent.
@@ -35,7 +35,7 @@ This article talks about steps to configure reports for Azure Backup using Recov
 
 ## Configure storage account for reports
 Use the following steps to configure the storage account for recovery services vault using Azure portal. This is a one-time configuration and once storage account is configured, you can go to Power BI directly to view content pack and leverage reports.
-1. If you already have a Recovery Services vault open, proceed to next step. If you do not have a Recovery Services vault open, but are in the Azure portal, on the Hub menu, click **Browse**.
+1. If you already have a Recovery Services vault open, proceed to next step. If you do not have a Recovery Services vault open, but are in the Azure portal, click **All services**.
 
    * In the list of resources, type **Recovery Services**.
    * As you begin typing, the list filters based on your input. When you see **Recovery Services vaults**, click it.
@@ -77,7 +77,7 @@ Use the following steps to configure the storage account for recovery services v
 ## View reports in Power BI 
 After configuring storage account for reports using recovery services vault, it takes around 24 hours for reporting data to start flowing in. After 24 hours of setting up storage account, use the following steps to view reports in Power BI:
 1. [Sign in](https://powerbi.microsoft.com/landing/signin/) to Power BI.
-2. Click **Get Data** and click Get under **Services** in Content Pack Library. Use steps mentioned in [Power BI documentation to access content pack](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Click **Get Data** and click **Get** under **Services** in Content Pack Library. Use steps mentioned in [Power BI documentation to access content pack](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
 
      ![Import content pack](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Type **Azure Backup** in Search bar and click **Get it now**.
@@ -120,7 +120,7 @@ After configuring storage account for reports using recovery services vault, it 
 
 2. **What is the frequency of data push to storage account and Azure Backup content pack in Power BI?**
 
-   For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is compelete, data is refreshed with the following frequency shown in the figure below. 
+   For Day 0 users, it would take around 24 hours to push data to storage account. Once this initial push is complete, data is refreshed with the following frequency shown in the figure below. 
       * Data related to **Jobs, Alerts, Backup Items, Vaults, Protected Servers and Policies** is pushed to customer storage account as and when it is logged.
       * Data related to **Storage** is pushed to customer storage account every 24 hours.
    
@@ -147,7 +147,7 @@ After configuring storage account for reports using recovery services vault, it 
 ## Troubleshooting errors
 | Error details | Resolution |
 | --- | --- |
-| After setting up the storage account for Backup Reports, **Storage Account** still shows **Not Configured**. | If you configured storage account successfully, your reporting data will flow in despite this issue. To resolve this issue, go to Azure portal > More Services > Diagnostic settings > RS vault > Edit Setting. Delete the previously configured setting and create a new setting from the same blade. This time set the field **Name** to **service**. This should show the configured storage account. |
+| After setting up the storage account for Backup Reports, **Storage Account** still shows **Not Configured**. | If you configured storage account successfully, your reporting data will flow in despite this issue. To resolve this issue, go to Azure portal > All services > Diagnostic settings > RS vault > Edit Setting. Delete the previously configured setting and create a new setting from the same blade. This time set the field **Name** to **service**. This should show the configured storage account. |
 |After importing Azure Backup content pack in Power BI, the error **404- container is not found** comes up. | As suggested in this document, you must wait for 24 hours after configuring reports in Recovery Services vault to see them correctly in Power BI. If you try to access the reports before 24 hours, you will get this error since complete data is not yet present to show valid reports. |
 
 ## Next steps

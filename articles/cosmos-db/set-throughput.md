@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: mimig
 
 ---
@@ -47,7 +47,7 @@ The following table lists the throughput available for containers:
 ## To set the throughput by using the Azure portal
 
 1. In a new window, open the [Azure portal](https://portal.azure.com).
-2. On the left bar, click **Azure Cosmos DB**, or click **More Services** at the bottom, then scroll to **Databases**, and then click **Azure Cosmos DB**.
+2. On the left bar, click **Azure Cosmos DB**, or click **All services** at the bottom, then scroll to **Databases**, and then click **Azure Cosmos DB**.
 3. Select your Cosmos DB account.
 4. In the new window, click **Data Explorer** in the navigation menu.
 5. In the new window, expand your database and container and then click **Scale & Settings**.
@@ -57,7 +57,7 @@ The following table lists the throughput available for containers:
 
 ## To set the throughput by using the SQL API for .NET
 
-```C#
+```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -69,6 +69,28 @@ offer = new OfferV2(offer, 12000);
 
 // Now persist these changes to the collection by replacing the original offer resource
 await client.ReplaceOfferAsync(offer);
+```
+
+<a id="set-throughput-java"></a>
+
+## To set the throughput by using the SQL API for Java
+
+This snippet is taken from the OfferCrudSamples.java file in the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) repo. 
+
+```Java
+// find offer associated with this collection
+Iterator < Offer > it = client.queryOffers(
+    String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
+assertThat(it.hasNext(), equalTo(true));
+
+Offer offer = it.next();
+assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
+assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
+
+// update the offer
+int newThroughput = 10300;
+offer.getContent().put("offerThroughput", newThroughput);
+client.replaceOffer(offer);
 ```
 
 ## Throughput FAQ

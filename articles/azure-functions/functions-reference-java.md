@@ -272,7 +272,7 @@ Sometimes a function must have detailed control over inputs and outputs. Special
 | `HttpResponseMessage<T>` | HTTP Output Binding | Return status other than 200   |
 
 > [!NOTE] 
-> You can also use `@BindingName` annotation to get HTTP headers and queries. For example, `@Bind("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
+> You can also use `@BindingName` annotation to get HTTP headers and queries. For example, `@BindingName("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
 
 ### Metadata
 

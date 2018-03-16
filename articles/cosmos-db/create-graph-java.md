@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/20/2017
+ms.date: 01/08/2018
 ms.author: lbosq
 
 ---
@@ -22,7 +22,7 @@ ms.author: lbosq
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, and graph databases. 
 
-This quickstart creates a simple graph database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using a graph database using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver. The instructions in this quickstart can be followed on any operating system that is capable of running Java. This quickstart familiarizes you with creating and modifying graphs in either the UI or programmatically, whichever is your preference. 
+This quickstart creates a simple graph database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using a graph database using the OSS [Apache TinkerPop](http://tinkerpop.apache.org/) driver. The instructions in this quickstart can be followed on any operating system that is capable of running Java. This quickstart familiarizes you with creating and modifying graphs in either the UI or programmatically, whichever is your preference. 
 
 ## Prerequisites
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -61,7 +61,6 @@ You can now use the Data Explorer tool in the Azure portal to create a graph dat
     Graph ID|sample-graph|Enter *sample-graph* as the name for your new collection. Graph names have the same character requirements as database IDs.
     Storage Capacity|Fixed (10 GB)|Change the value to **Fixed (10 GB)**. This value is the storage capacity of the database.
     Throughput|400 RUs|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.
-    Partition key|Leave blank|For the purpose of this quickstart, leave the partition key blank.
 
 3. Once the form is filled out, click **OK**.
 
@@ -127,13 +126,19 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `$masterKey$` in `password: $masterKey$`.
+3. Change `graphs` to `gremlin.cosmosdb` in the `endpoint` value. (If you created your graph database account before December 20th, 2017, make no changes to the endpoint value and continue to the next step.)
+
+    The endpoint value should now look like this:
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `$masterKey$` in `password: $masterKey$`.
 
     Line 4 of remote.yaml should now look similar to 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. Change line 3 of remote.yaml from
+5. Change line 3 of remote.yaml from
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -141,7 +146,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. Save the remote.yaml file.
+6. Save the remote.yaml file.
 
 ## Run the console app
 

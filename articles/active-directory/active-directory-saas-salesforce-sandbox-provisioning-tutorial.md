@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Salesforce Sandbox | Microsoft Docs'
+title: 'Tutorial: Configure Salesforce Sandbox for automatic user provisioning with Azure Active Directory| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Salesforce Sandbox.
 services: active-directory
 documentationCenter: na
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Configuring Salesforce Sandbox for automatic user provisioning
+# Tutorial: Configure Salesforce Sandbox for automatic user provisioning
 
 The objective of this tutorial is to show you the steps you need to perform in Salesforce Sandbox and Azure AD to automatically provision and de-provision user accounts from Azure AD to Salesforce Sandbox.
 
@@ -100,9 +100,9 @@ The objective of this section is to outline how to enable user provisioning of A
 
 17. Click **Save.**
 
-It starts the initial synchronization of any users and/or groups assigned to Salesforce Sandbox in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service on Salesforce Sandbox app.
+It starts the initial synchronization of any users and/or groups assigned to Salesforce Sandbox in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on Salesforce Sandbox app.
 
-You can now create a test account. Wait for up to 20 minutes to verify that the account has been synchronized to salesforce.
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 ## Additional resources
 

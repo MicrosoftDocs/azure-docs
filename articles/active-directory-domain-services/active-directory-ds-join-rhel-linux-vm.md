@@ -66,7 +66,7 @@ Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-r
 Next, install packages required for domain join on the virtual machine. In your SSH terminal, type the following command to install the required packages:
 
     ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs
+    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     ```
 
 

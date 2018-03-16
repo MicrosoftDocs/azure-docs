@@ -29,7 +29,7 @@ The Data Science Virtual Machine (DSVM) provides a productive environment for yo
 | What is it?   | General Purpose IDE      |
 | Supported DSVM Versions      | Windows      |
 | Typical Uses      | Software Development    |
-| How is it configured / installed on the DSVM?      | Data Science Workload (Python and R tools), Azure workload (Hadoop, Data Lake), Node.js, SQL Server tools    |
+| How is it configured / installed on the DSVM?      | Data Science Workload (Python and R tools), Azure workload (Hadoop, Data Lake), Node.js, SQL Server tools, [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai)    |
 | How to use / run it?      | Desktop Shortcut (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Related Tools on the DSVM      |     Visual Studio Code, RStudio, Juno  |
 
@@ -45,11 +45,20 @@ The Data Science Virtual Machine (DSVM) provides a productive environment for yo
 ## RStudio  Desktop 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Client IDE for language R    |
+| What is it?   | Client IDE for R    |
 | Supported DSVM Versions      | Windows, Linux      |
 | Typical Uses      |  R development     |
 | How to use / run it?      | Desktop Shortcut (`C:\Program Files\RStudio\bin\rstudio.exe`) on Windows, Desktop Shortcut (`/usr/bin/rstudio`) on Linux      |
 | Related Tools on the DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+
+## RStudio  Server 
+|    |           |
+| ------------- | ------------- |
+| What is it?   | Web-based IDE for R    |
+| Supported DSVM Versions      | Linux      |
+| Typical Uses      |  R development     |
+| How to use / run it?      | Enable the service with _systemctl enable rstudio-server_, then start the service with _systemctl start rstudio-server_. You can then log in to RStudio Server at http://your-vm-ip:8787.       |
+| Related Tools on the DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## Juno 
 |    |           |

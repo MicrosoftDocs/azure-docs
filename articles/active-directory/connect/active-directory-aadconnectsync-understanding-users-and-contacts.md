@@ -3,7 +3,7 @@ title: 'Azure AD Connect sync: Understanding Users, Groups, and Contacts | Micro
 description: Explains users, groups, and contacts in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: billmath
 manager: mtillman
 
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi;andkjell
 
 ---

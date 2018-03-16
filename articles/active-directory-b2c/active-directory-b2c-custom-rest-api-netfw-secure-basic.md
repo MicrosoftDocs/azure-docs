@@ -73,7 +73,7 @@ Add the `ClientAuthMiddleware.cs` class under the *App_Start* folder. To do so:
 
 3. Open the *App_Start\ClientAuthMiddleware.cs* file, and replace the file content with following code:
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -191,7 +191,7 @@ Add an OWIN startup class named `Startup.cs` to the API. To do so:
 
 2. Open the *Startup.cs* file, and replace the file content with following code:
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     

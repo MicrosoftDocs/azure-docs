@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/09/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
 ---
@@ -59,7 +59,7 @@ This tutorial uses an HTTP triggered function that takes two parameters: the est
 
 1. Replace the contents of the run.csx file with the following code, then click **Save**:
 
-    ```c#
+    ```csharp
     using System.Net;
 
     const double revenuePerkW = 0.12; 
@@ -122,7 +122,7 @@ Now you're ready to generate the OpenAPI definition. This definition can be used
 
     1. On the **Integrate** tab of your new HTTP Trigger function, change **Allowed HTTP methods** to **Selected methods**
 
-    1. In **Selected HTTP methods**, clear every option except **POST**.
+    1. In **Selected HTTP methods**, clear every option except **POST**, then click **Save**.
 
         ![Selected HTTP methods](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -269,7 +269,7 @@ Before you use the API definition, it's a good idea to test it in the Azure Func
 
 1. Go back to the API definition: **function-demo-energy** > **Platform features** > **API definition**.
 
-1. In the right pane, click **Change Authentication**, enter the API key that you copied, and click **Authenticate**.
+1. In the right pane, click **Authenticate**, enter the API key that you copied, and click **Authenticate**.
 
     ![Authenticate with API key](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -283,7 +283,7 @@ Before you use the API definition, it's a good idea to test it in the Azure Func
 
     Notice how the UI uses the descriptions from the API definition.
 
-1. Click **Send a request**, then click the **Pretty** tab to see the output.
+1. Click **Send Request**, then click the **Pretty** tab to see the output.
 
     ![Send a request](media/functions-openapi-definition/send-request.png)
 

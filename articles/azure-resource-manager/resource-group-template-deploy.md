@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy resources with PowerShell and template | Microsoft Docs
 description: Use Azure Resource Manager and Azure PowerShell to deploy a resources to Azure. The resources are defined in a Resource Manager template.
 services: azure-resource-manager
@@ -23,7 +23,7 @@ This article explains how to use Azure PowerShell with Resource Manager template
 
 The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub. The template you deploy in this article is available in the [Sample template](#sample-template) section, or as [storage account template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-[!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
+If needed, install the Azure PowerShell module using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
 <a id="deploy-local-template" />
 
@@ -77,6 +77,12 @@ In the Cloud Shell, use the following commands:
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile "C:\users\ContainerAdministrator\CloudDrive\templates\azuredeploy.json" -storageAccountType Standard_GRS
 ```
+
+## Deploy to more than one resource group or subscription
+
+Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. You can deploy to only five resource groups in a single deployment. For more information, see [Deploy Azure resources to more than one subscription or resource group](resource-manager-cross-resource-group-deployment.md).
+
+<a id="parameter-file" />
 
 ## Parameter files
 

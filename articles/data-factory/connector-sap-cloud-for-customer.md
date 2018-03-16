@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -31,7 +31,7 @@ Specifically, this connector enables Azure Data Factory to copy data from/to SAP
 
 ## Getting started
 
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP Cloud for Customer connector.
 
@@ -44,7 +44,7 @@ The following properties are supported for SAP Cloud for Customer linked service
 | type | The type property must be set to: **SapCloudForCustomer**. | Yes |
 | url | The URL of the SAP C4C OData service. | Yes |
 | username | Specify the user name to connect to the SAP C4C. | Yes |
-| password | Specify the password for the user account you specified for the username. Mark this field as a SecureString. | Yes |
+| password | Specify the password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
 
 >[!IMPORTANT]

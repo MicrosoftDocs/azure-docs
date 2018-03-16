@@ -7,8 +7,8 @@ keywords:
 author: kgremban
 manager: timlt
 
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -53,7 +53,7 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 3. Select **Create**.
 4. Once your container registry is created, navigate to it and select **Access keys**. 
 5. Toggle **Admin user** to **Enable**.
-6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
+6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial when you publish the Docker image to your registry, and when you add the registry credentials to the Edge runtime. 
 
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge module based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension.
@@ -75,6 +75,14 @@ The following steps show you how to create an IoT Edge module based on .NET core
 5. In VS Code explorer, click **Program.cs** to open it.
 
    ![Open Program.cs][1]
+
+6. At the top of the **FilterModule** namespace, add three `using` statements for types used later on:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
 
 6. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
 
@@ -103,11 +111,19 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-8. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **DeviceClient**, the code registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
+8. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string used in the **Init** method is supplied to the module by IoT Edge runtime. After creating the **DeviceClient**, the code reads the TemperatureThreshold from the Module Twin's desired properties and registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the `SetInputMessageHandlerAsync` method with a new one, and add a `SetDesiredPropertyUpdateCallbackAsync` method for desired properties updates. To make this change, replace the last line of the **Init** method with the following code:
 
     ```csharp
     // Register callback to be called when a message is received by the module
     // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+
+    // Read TemperatureThreshold from Module Twin Desired Properties
+    var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+    var moduleTwinCollection = moduleTwin.Properties.Desired;
+    if (moduleTwinCollection["TemperatureThreshold"] != null)
+    {
+        temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+    }
 
     // Attach callback for Twin desired properties updates
     await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
@@ -152,13 +168,13 @@ The following steps show you how to create an IoT Edge module based on .NET core
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
     {
-        int counterValue = Interlocked.Increment(ref counter);
+        var counterValue = Interlocked.Increment(ref counter);
 
         try {
             DeviceClient deviceClient = (DeviceClient)userContext;
 
-            byte[] messageBytes = message.GetBytes();
-            string messageString = Encoding.UTF8.GetString(messageBytes);
+            var messageBytes = message.GetBytes();
+            var messageString = Encoding.UTF8.GetString(messageBytes);
             Console.WriteLine($"Received message {counterValue}: [{messageString}]");
 
             // Get message body
@@ -189,7 +205,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
                 Console.WriteLine("Error in sample: {0}", exception);
             }
             // Indicate that the message treatment is not completed
-            DeviceClient deviceClient = (DeviceClient)userContext;
+            var deviceClient = (DeviceClient)userContext;
             return MessageResponse.Abandoned;
         }
         catch (Exception ex)
@@ -216,15 +232,14 @@ The following steps show you how to create an IoT Edge module based on .NET core
 2. Right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
 3. In the **Select Folder** window, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
 4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filtermodule:latest`. The container registry address is the same as the login server that you copied from your registry. It should be in the form of `<your container registry name>.azurecr.io`.
-5. Sign in to Docker by entering the following command in the VS Code integrated terminal: 
+5. Sign in to Docker using the username, password, and login server that you copied from your Azure container registry when you created it. Enter the following command in the VS Code integrated terminal: 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   Use the user name, password, and login server that you copied from your Azure container registry when you created it.
 
-3. Push the image to your Docker repository. Select **View** > **Command Palette** and search for the **Edge: Push IoT Edge module Docker image** menu command. Enter the image name in the pop-up text box at the top of the VS Code window. Use the same image name you used in step 4.
+6. Push the image to your container registry. Select **View** > **Command Palette** and search for the **Edge: Push IoT Edge module Docker image** menu command. Enter the image name in the pop-up text box at the top of the VS Code window. Use the same image name you used in step 4.
+7. To view your image in the Azure portal, navigate to your Azure container registry and select **Repositories**. You should see **filtermodule** listed.
 
 ## Add registry credentials to Edge runtime
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. These credentials give the runtime access to pull the container. 

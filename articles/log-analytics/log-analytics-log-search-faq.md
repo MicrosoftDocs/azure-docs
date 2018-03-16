@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
 
 ---
@@ -158,11 +158,10 @@ The legacy log search will be deprecated in the coming months. Workspaces that a
 Prior to general availability, you could revert your workspace after upgrading.  Now that the new language has reached general availability, this capability has been removed as we start to retire the legacy platform.
 
 
-
 ## Views
 
 ### Question: How do I create a new view with View Designer?
-Prior to upgrade, you could create a new view with View Designer from a tile on the main dashboard.  When your workspace is upgraded, this tile is removed.  You can create a new view with View Designer in the OMS portal by clicking on the green + button in the left menu.
+Prior to upgrade, you could create a new view with View Designer from a tile on the main dashboard in the OMS portal.  When your workspace is upgraded, this tile is removed.  You can create a new view with View Designer in the OMS portal by clicking on the green + button in the left menu.  You continue to create a new view with the Azure portal by clicking the View Designer tile.
 
 
 ## Next steps

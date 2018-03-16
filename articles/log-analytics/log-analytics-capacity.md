@@ -3,7 +3,7 @@ title: Capacity and Performance solution in Azure Log Analytics | Microsoft Docs
 description: Use the Capacity and Performance solution in Log Analytics to help you understand the capacity of your Hyper-V servers.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: banders
+ms.author: magoedte
 
 ---
 # Plan Hyper-V virtual machine capacity with the Capacity and Performance solution (Preview)
@@ -43,7 +43,7 @@ The following table describes the connected sources that are supported by this s
 |---|---|---|
 | [Windows agents](log-analytics-windows-agent.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
 | [Linux agents](log-analytics-linux-agents.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
-| [SCOM management group](log-analytics-om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to OMS is not required. Data is forwarded from the management group to the OMS repository.|
+| [SCOM management group](log-analytics-om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to Log Analytics is not required.|
 | [Azure storage account](log-analytics-azure-storage.md) | No | Azure storage does not include capacity and performance data.|
 
 ## Prerequisites
@@ -55,11 +55,11 @@ The following table describes the connected sources that are supported by this s
 
 Perform the following step to add the Capacity and Performance solution to your workspace.
 
-- Add the Capacity and Performance solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+- Add the Capacity and Performance solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 ## Management packs
 
-If your SCOM management group is connected to your OMS workspace, then the following management packs will be installed in SCOM when you add this solution. There is no configuration or maintenance of these management packs required.
+If your SCOM management group is connected to your Log Analytics workspace, then the following management packs will be installed in SCOM when you add this solution. There is no configuration or maintenance of these management packs required.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 
