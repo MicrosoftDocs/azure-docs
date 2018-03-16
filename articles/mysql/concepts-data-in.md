@@ -2,7 +2,7 @@
 title: 'Replicate data from multiple cloud or on-premises databases to Azure Database for MySQL | Microsoft Docs'
 description: 'This topic introduce the concept about what MySQL Data-in Replication is, as well as suitable scenarios, limitations, etc.'
 services: mysql
-author: wuta
+author: mswutao
 ms.author: wuta
 manager: Jason.M.Anderson
 editor: jasonwhowell

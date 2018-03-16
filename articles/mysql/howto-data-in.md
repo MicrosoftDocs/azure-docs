@@ -2,7 +2,7 @@
 title: 'Getting Started with Azure Database for MySQL Data-in Replication | Microsoft Docs'
 description: 'This topic introduces how to set up data-in replication step by step.'
 services: mysql
-author: wuta
+author: mswutao
 ms.author: wuta
 manager: Jason.M.Anderson
 editor: jasonwhowell

@@ -2,7 +2,7 @@
 title: 'Azure Database for MySQL Data-in Replication Store Procedures | Microsoft Docs'
 description: 'This topic introduce all store procedures relates to Data-in Replication.'
 services: mysql
-author: wuta
+author: mswutao
 ms.author: wuta
 manager: Jason.M.Anderson
 editor: jasonwhowell
@@ -18,8 +18,7 @@ User should use below store procedure to set up or remove Data-in Replication be
 > [!div class="mx-tableFixed"]
 |**Store Procedure Name**|**Input Parameters**|**Output Parameters**|**Usage Note**|
 |-----|-----|-----|-----|
-|*MySql.az_replication_change_primary*|master_host  master_user  master_password  master_port  master_log_file  master_log_pos  master_ssl_ca|Void|If parameter *master_ssl_ca* is 0, it replicas without SSL. If it  
-is not empty, the replication will transfer data in SSL mode.|
+|*MySql.az_replication_change_primary*|master_host  master_user  master_password  master_port  master_log_file  master_log_pos  master_ssl_ca|Void|If parameter *master_ssl_ca* is 0, it replicas without SSL. If it is not empty, the replication will transfer data in SSL mode.|
 |*MySql.az_replication _start*|Void|Void|Starts both IO-Tread and SQL Thread.|
 |*MySql.az_replication _stop*|Void|Void|Stops both IO-Tread and SQL Thread.|
 |*MySql.az_replication _remove_primary*|Void|Void||
