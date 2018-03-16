@@ -26,6 +26,11 @@ ms.author: robb
 >
 
 ## Overview
+> [!NOTE]
+> This article describes how to create older metric alerts. Azure Monitor now supports [newer, better metric alerts](monitoring-near-real-time-metric-alerts.md). These can monitor multiple metrics and allow for alerting dimensional metrics. CLI support for newer metric alerts is coming soon.
+>
+>
+
 This article shows you how to set up Azure metric alerts using the cross-platform Command Line Interface (CLI).
 
 > [!NOTE]

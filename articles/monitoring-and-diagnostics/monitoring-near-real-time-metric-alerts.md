@@ -19,20 +19,18 @@ ms.custom:
 
 ---
 
-# Near real-time metric alerts (preview)
-Azure Monitor supports a new alert type called near real-time metric alerts (preview). This feature currently is in public preview.
+# Near real-time metric alerts
+Azure Monitor supports a new alert type called near real-time metric alerts. 
 
-Near real-time metric alerts differ from regular metric alerts in a few ways:
+Near real-time metric alerts differ from [older metric alerts](insights-alerts-portal.md) in a few ways:
 
-- **Improved latency**: Near real-time metric alerts can monitor changes in metric values with a frequency as small as one minute.
+- **Improved latency**: Near real-time metric alerts can run as frequently as every one minute. Older metric alerts always run at a frequency of 5 minutes.
+- **Support for multi-dimensional metrics**: You can alert on dimensional metrics allowing you to monitor an interesting segment of the metric.
 - **More control over metric conditions**: You can define richer alert rules in near real-time metric alerts. The alerts support monitoring the maximum, minimum, average, and total values of metrics.
-- **Metrics from Logs**: From popular log data coming into [Log Analytics](../log-analytics/log-analytics-overview.md), metrics can be extracted into Azure Monitor and be alerted at near real-time basis
 - **Combined monitoring of multiple metrics**: Near real-time metric alerts can monitor multiple metrics (currently, up to two metrics) with a single rule. An alert is triggered if both metrics breach their respective thresholds for the specified time period.
 - **Modular notification system**: Near real-time metric alerts use [action groups](monitoring-action-groups.md). You can use action groups to create modular actions. You can reuse action groups for multiple alert rules.
+- **Metrics from Logs**: From popular log data coming into [Log Analytics](../log-analytics/log-analytics-overview.md), metrics can be extracted into Azure Monitor and be alerted at near real-time basis.
 
-> [!NOTE]
-> The near real-time metric alert is currently is in public preview. And metrics from logs features are in *limited* public preview. The functionality and user experience is subject to change.
->
 
 ## Metrics and Dimensions Supported
 Near real-time metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
@@ -42,27 +40,38 @@ Here's the full list of Azure monitor based metric sources that are supported fo
 |Metric Name/Details  |Dimensions Supported  |
 |---------|---------|
 |Microsoft.ApiManagement/service     | Yes        |
-|Microsoft.Automation/automationAccounts     |     N/A    |
-|Microsoft.Automation/automationAccounts     |   N/A      |
+|Microsoft.Automation/automationAccounts     |     Yes   |
+|Microsoft.Batch/batchAccounts | N/A|
 |Microsoft.Cache/Redis     |    N/A     |
 |Microsoft.Compute/virtualMachines     |    N/A     |
 |Microsoft.Compute/virtualMachineScaleSets     |   N/A      |
-|Microsoft.DataFactory/factories     |   N/A      |
+|Microsoft.DataFactory/factories     |   Yes     |
 |Microsoft.DBforMySQL/servers     |   N/A      |
 |Microsoft.DBforPostgreSQL/servers     |    N/A     |
-|Microsoft.EventHub/namespaces     |   N/A      |
+|Microsoft.EventHub/namespaces     |  Yes      |
 |Microsoft.Logic/workflows     |     N/A    |
 |Microsoft.Network/applicationGateways     |    N/A     |
 |Microsoft.Network/publicipaddresses     |  N/A       |
 |Microsoft.Search/searchServices     |   N/A      |
-|Microsoft.ServiceBus/namespaces     |  N/A       |
+|Microsoft.ServiceBus/namespaces     |  Yes       |
 |Microsoft.Storage/storageAccounts     |    Yes     |
 |Microsoft.Storage/storageAccounts/services     |     Yes    |
 |Microsoft.StreamAnalytics/streamingjobs     |  N/A       |
 |Microsoft.CognitiveServices/accounts     |    N/A     |
+|Microsoft.OperationalInsights/workspaces (Preview) | Yes|
 
 
-Metrics from Logs, currently supports the following popular OMS logs:
+## Create a near real-time metric alert
+Currently, you can create near real-time metric alerts only in the Azure portal or REST API. Support for configuring near real-time metric alerts by using PowerShell, the Azure command-line interface (Azure CLI) is coming soon.
+
+To learn how to create a near real-time metric alert in Azure portal, see [Create an alert rule in the Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
+
+## Manage near real-time metric alerts
+After you create a near real-time metric alert, you can manage the alert by using the steps described in [Manage your alerts in the Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+
+## Support for OMS logs as metrics for alerting
+
+You can also use near real-time metric alerts on popular OMS logs extracted as metrics as part of Metrics from Logs Preview.  
 - [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
 - Heartbeat records for machines
 - [Update management](../operations-management-suite/oms-solution-update-management.md) records
@@ -141,17 +150,8 @@ Metric Name/Details  |Dimensions Supported  | Type of Log  |
 |	 Update	|     Yes - Computer, Product, Classification, UpdateState, Optional & Approved    |   Update Management |
 
 > [!NOTE]
-> Specific metric and/or dimension will only be shown if data for it exists in chosen period
+> Specific metric and/or dimension will only be shown if data for it exists in chosen period. These metrics are available for customers with workspaces in East US, West Central US and West Europe who have opted in to the preview. If you would like to be a part of this preview, sign up using [the survey](https://aka.ms/MetricLogPreview).
 
-## Create a near real-time metric alert
-Currently, you can create near real-time metric alerts only in the Azure portal. Support for configuring near real-time metric alerts by using PowerShell, the Azure command-line interface (Azure CLI), and Azure Monitor REST APIs is coming soon.
-
-The experience for creating a near real-time metric alert has moved to the new **Alerts (Preview)** page. Even if the current alerts page displays **Add Near Real-Time Metric alert**, you are redirected to the **Alerts (Preview)** page.
-
-To learn how to create a near real-time metric alert, see [Create an alert rule in the Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## Manage near real-time metric alerts
-After you create a near real-time metric alert, you can manage the alert by using the steps described in [Manage your alerts in the Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## Payload schema
 

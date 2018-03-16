@@ -26,6 +26,12 @@ ms.author: robb
 >
 
 ## Overview
+
+> [!NOTE]
+> This article describes how to create older metric alerts. Azure Monitor now supports [newer, better metric alerts](monitoring-near-real-time-metric-alerts.md). These can monitor multiple metrics and allow for alerting dimensional metrics. Powershell support for newer metric alerts is coming soon.
+>
+>
+
 This article shows you how to set up Azure metric alerts using PowerShell.  
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.

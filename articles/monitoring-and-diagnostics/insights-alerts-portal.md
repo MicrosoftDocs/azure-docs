@@ -26,6 +26,12 @@ ms.author: robb
 >
 
 ## Overview
+
+> [!NOTE]
+> This article describes how to create older metric alerts. Azure Monitor now supports newer, better metric alerts. These can monitor multiple metrics and allow for alerting dimensional metrics. Learn more about [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md).
+>
+>
+
 This article shows you how to set up Azure metric alerts using the Azure portal. 
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
@@ -40,11 +46,6 @@ You can configure a metric alert to do the following when it triggers:
 * call a webhook
 * start execution of an Azure runbook (only from the Azure portal)
 
-> [!NOTE]
-> Azure Monitor now supports Near Real-Time Metric Alerts in public preview. These use Action Groups. Learn more about [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md).
->
->
-
 You can configure and get information about metric alert rules using
 
 * [Azure portal](insights-alerts-portal.md)
@@ -55,11 +56,11 @@ You can configure and get information about metric alert rules using
 ## Create an alert rule on a metric with the Azure portal
 1. In the [portal](https://portal.azure.com/), locate the resource you are interested in monitoring and select it.
 
-2. Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
+2. Select **Alerts (Classic)** under the MONITORING section. The text and icon may vary slightly for different resources. If you do not find **Alerts (Classic)**, you might find them under **Alerts** or **Alert Rules**
 
     ![Monitoring](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Select the **Add alert** command and fill in the fields.
+3. Select the **Add metric alert** command and fill in the fields.
 
     ![Add Alert](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
@@ -88,7 +89,7 @@ Once you have created an alert, you can select it and:
 
 ## Next steps
 * [Get an overview of Azure monitoring](monitoring-overview.md) including the types of information you can collect and monitor.
-* Learn more about the new [near real-time metric alerts (preview)](monitoring-near-real-time-metric-alerts.md)
+* Learn more about the new [near real-time metric alerts](monitoring-near-real-time-metric-alerts.md)
 * Learn more about [configuring webhooks in alerts](insights-webhooks-alerts.md).
 * Learn more about [configuring alerts on Activity log events](monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
