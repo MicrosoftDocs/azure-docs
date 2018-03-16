@@ -1,15 +1,21 @@
 ---
-title: Managing Azure Automation data
+title: Managing Azure Automation data | Microsoft Docs
 description: This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation.
 services: automation
-ms.service: automation
+documentationcenter: ''
 author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: article
-manager: carmonm
+manager: stevenka
+editor: tysonn
+
+ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
+ms.service: automation
 ms.devlang: na
+ms.topic: article
 ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 06/02/201
+ms.author: magoedte;bwren;sngun
+
 ---
 # Managing Azure Automation data
 This article contains multiple topics for managing an Azure Automation environment.
