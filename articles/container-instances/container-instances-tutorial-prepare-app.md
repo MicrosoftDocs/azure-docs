@@ -2,13 +2,13 @@
 title: Azure Container Instances tutorial - Prepare your app
 description: Azure Container Instances tutorial part 1 of 3 - Prepare an app for deployment to Azure Container Instances
 services: container-instances
-author: seanmck
+author: mmacy
 manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/19/2018
-ms.author: seanmck
+ms.author: marsma
 ms.custom: mvc
 ---
 
