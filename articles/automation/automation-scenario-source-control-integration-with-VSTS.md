@@ -1,19 +1,14 @@
 ---
-title: Integrate Azure Automation with Visual Stuido Team Services source control | Microsoft Docs
+title: Integrate Azure Automation with Visual Stuido Team Services source control
 description: Scenario walks you through setting up integration with an Azure Automation account and Visual Stuido Team Services source control.
-services: automation
-documentationcenter: ''
-author: eamono
-manager: 
-editor: ''
 keywords: azure powershell, VSTS, source control, automation
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
+services: automation
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 01/24/2017 
+manager: carmonm
 ---
 # Azure Automation scenario - Automation source control integration with Visual Studio Team Services
 
