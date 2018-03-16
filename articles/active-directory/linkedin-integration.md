@@ -1,5 +1,5 @@
 ---
-title: Enable or disable LinkedIn account connections integration for Microsoft apps and services in Azure Active Directory | Microsoft Docs
+title: Enable LinkedIn connections for Microsoft apps and services in Azure Active Directory | Microsoft Docs
 description: Explains how to enable or disable LinkedIn account connections for Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
