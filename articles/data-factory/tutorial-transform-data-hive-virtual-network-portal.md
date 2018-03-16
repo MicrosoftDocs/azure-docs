@@ -108,8 +108,7 @@ As the Hadoop cluster is inside a virtual network, you need to install a self-ho
 2. In the **Integration Runtime Setup** window, Select **Perform data movement and dispatch activities to external computes** option, and click **Next**. 
 
    ![Select perform data movement and dispatch activities option](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. Select **Public Network**, and click **Next**.
-<!---Loc Comment: The instruction "Select Public Network..." is followed by a screenshot which clearly shows selecting the Private Network option. Also, the text for the screenshot says "Select private network"---> 
+3. Select **Private Network**, and click **Next**.
     
    ![Select private network](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. Enter **MySelfHostedIR** for **Name**, and click **Next**. 
