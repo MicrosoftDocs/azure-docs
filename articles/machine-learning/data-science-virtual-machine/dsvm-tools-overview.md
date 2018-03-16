@@ -20,11 +20,11 @@ ms.author: gokuma;bradsev
 ---
 # Get to know your Data Science Virtual Machine
 
-The Data Science Virtual Machine (**DSVM**) includes an extensive list of popular Data Science, Machine Learning / AI Tools, and Data Platforms. These platform and tools have been set up in configurations that are rigorously tested by Data Scientists and Developers at Microsoft, as well as by the broader Data Science community to ensure stability and general viability.
+The Data Science Virtual Machine (**DSVM**) includes an extensive list of popular Data Science, Machine Learning / AI Tools, and Data Platforms. The tool configurations are rigorously tested by Data Scientists and Developers at Microsoft and by the broader Data Science community to ensure stability and general viability.
 
 The DSVM also includes multiple code samples and walkthroughs in the form of Jupyter notebooks that can be executed locally. There is also documentation for these samples to aid comprehension. 
 
-The tools, platforms, utilities, and samples included in the DSVM have been organized into the following sections:
+The tools, platforms, utilities, and samples that are included in the Data Science VM are organized into the following sections:
 
 1. **[Deep Learning & AI Frameworks](dsvm-deep-learning-ai-frameworks.md)**
 2. **[ML & Data Science Tools](dsvm-ml-data-science-tools.md)**
