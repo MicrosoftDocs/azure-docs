@@ -145,7 +145,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
     node BackEndApplication.js
     ```
 
-    The following screenshot shows some example output as the application makes a direct method call to the device and receives an acknowledgemnt:
+    The following screenshot shows some example output as the application makes a direct method call to the device and receives an acknowledgement:
 
     ![Run the back-end application](media/quickstart-c2d-node/BackEndApplication.png)
 
@@ -161,7 +161,7 @@ If you don't need the IoT hub any longer, delete it and the resource group in th
 
 ## Next steps
 
-In this quickstart, you've setup an IoT hub, registered a device, called a direct method on a device from a back-end application, and responded to the direct method call in a simulated device application. To learn how to route device-to-cloud messages to different destinations in the cloud, continue to the next tutorial.
+In this quickstart, you've called a direct method on a device from a back-end application, and responded to the direct method call in a simulated device application. To learn how to route device-to-cloud messages to different destinations in the cloud, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Route telemetry to different endpoints for processing](iot-hub-node-node-process-d2c.md)
