@@ -17,7 +17,7 @@ You get the best results when humans and machines work together on content moder
 
 ## How the Review tool helps ##
 
-The human review tool when used in conjunction with our automated moderation APIs allows you to accomplish these important tasks in relation to the content moderation life cycle.
+The human review tool when used in conjunction with the machine-assisted moderation APIs allows you to accomplish these important tasks in relation to the content moderation life cycle.
 
 1. Automate the creation of human reviews from the underlying moderation API results
 2. Use one tool (Review Tool and API) to moderate multiple formats (text, image, and video - coming soon)
