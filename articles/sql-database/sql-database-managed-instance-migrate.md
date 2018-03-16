@@ -5,7 +5,7 @@ keywords: database migration,sql server database migration,database migration to
 services: sql-database
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article

@@ -188,7 +188,7 @@ Since you are currently connected as the server admin, you can create logins and
 
 3. Click **Execute**.
 
-4. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.  
+4. Right-click **SampleDW**, and choose **New Query**. A new query Window opens.  
 
     ![New query on sample data warehouse](media/load-data-wideworldimportersdw/create-loading-user.png)
  
@@ -196,7 +196,7 @@ Since you are currently connected as the server admin, you can create logins and
 
     ```sql
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC60;
+    GRANT CONTROL ON DATABASE::[SampleDW] to LoaderRC60;
     EXEC sp_addrolemember 'staticrc60', 'LoaderRC60';
     ```
 
@@ -214,17 +214,17 @@ The first step toward loading data is to login as LoaderRC60.
 
 3. Click **Connect**.
 
-4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as MedRCLogin.
+4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as LoaderRC60.
 
     ![Connection is successful](media/load-data-wideworldimportersdw/connected-as-new-login.png)
 
 ## Create external tables and objects
 
-You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
+You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
 
-Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a public Azure blob.
+Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a public Azure Blob.
 
-1. In the previous section, you logged into your data warehouse as LoaderRC60. In SSMS, right-click your LoaderRC60 connection and select **New Query**.  A new query window appears. 
+1. In the previous section, you logged into your data warehouse as LoaderRC60. In SSMS, right-click **SampleDW** under your LoaderRC60 connection and select **New Query**.  A new query window appears. 
 
     ![New loading query window](media/load-data-wideworldimportersdw/new-loading-query.png)
 
@@ -266,6 +266,7 @@ Run the following SQL scripts to specify information about the data you wish to 
 
     ```sql
     CREATE SCHEMA ext;
+    GO
     CREATE SCHEMA wwi;
     ```
 
@@ -548,70 +549,9 @@ Run the following SQL scripts to specify information about the data you wish to 
 
     ![View external tables](media/load-data-wideworldimportersdw/view-external-tables.png)
 
-9. Create the date dimension table. 
-
-    ```sql
-    CREATE TABLE [wwi].[dimension_Date]
-    (
-	    [Date] [datetime] NOT NULL,
-	    [Day Number] [int] NOT NULL,
-	    [Day] [nvarchar](10) NOT NULL,
-	    [Month] [nvarchar](10) NOT NULL,
-	    [Short Month] [nvarchar](3) NOT NULL,
-	    [Calendar Month Number] [int] NOT NULL,
-	    [Calendar Month Label] [nvarchar](20) NOT NULL,
-	    [Calendar Year] [int] NOT NULL,
-	    [Calendar Year Label] [nvarchar](10) NOT NULL,
-	    [Fiscal Month Number] [int] NOT NULL,
-	    [Fiscal Month Label] [nvarchar](20) NOT NULL,
-	    [Fiscal Year] [int] NOT NULL,
-	    [Fiscal Year Label] [nvarchar](10) NOT NULL,
-	    [ISO Week Number] [int] NOT NULL
-    )
-    WITH 
-    (
-        DISTRIBUTION = REPLICATE,
-        CLUSTERED INDEX ([Date])
-    );
-    ```
-
-10. Create the Sale fact table.
-   
-    ```sql
-    CREATE TABLE [wwi].[fact_Sale]
-    (
-	    [Sale Key] [bigint] IDENTITY(1,1) NOT NULL,
-	    [City Key] [int] NOT NULL,
-	    [Customer Key] [int] NOT NULL,
-	    [Bill To Customer Key] [int] NOT NULL,
-	    [Stock Item Key] [int] NOT NULL,
-	    [Invoice Date Key] [date] NOT NULL,
-	    [Delivery Date Key] [date] NULL,
-	    [Salesperson Key] [int] NOT NULL,
-	    [WWI Invoice ID] [int] NOT NULL,
-	    [Description] [nvarchar](100) NOT NULL,
-	    [Package] [nvarchar](50) NOT NULL,
-	    [Quantity] [int] NOT NULL,
-	    [Unit Price] [decimal](18, 2) NOT NULL,
-	    [Tax Rate] [decimal](18, 3) NOT NULL,
-	    [Total Excluding Tax] [decimal](18, 2) NOT NULL,
-	    [Tax Amount] [decimal](18, 2) NOT NULL,
-	    [Profit] [decimal](18, 2) NOT NULL,
-	    [Total Including Tax] [decimal](18, 2) NOT NULL,
-	    [Total Dry Items] [int] NOT NULL,
-	    [Total Chiller Items] [int] NOT NULL,
-	    [Lineage Key] [int] NOT NULL
-    )
-    WITH
-    (
-	    DISTRIBUTION = HASH ( [WWI Invoice ID] ),
-	    CLUSTERED COLUMNSTORE INDEX
-    )
-    ```
-
 ## Load the data into your data warehouse
 
-This section uses the external tables you just defined to load the sample data from Azure Storage Blob to SQL Data Warehouse.  
+This section uses the external tables you just defined to load the sample data from Azure Blob to SQL Data Warehouse.  
 
 > [!NOTE]
 > This tutorial loads the data directly into the final table. In a production environment, you will usually use CREATE TABLE AS SELECT to load into a staging table. While data is in the staging table you can perform any necessary transformations. To append the data in the staging table to a production table, you can use the INSERT...SELECT statement. For more information, see [Inserting data into a production table](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -768,7 +708,7 @@ This script does not load data into the wwi.dimension_Date and wwi.fact_Sales ta
     ;
     ```
 
-2. View your data as it loads. You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+2. View your data as it loads. You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Open a new query window on SampleDW, and run the following query to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
 
     ```sql
     SELECT
@@ -1027,7 +967,7 @@ Use the stored procedures you created to generate millions of rows in the wwi.fa
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
     ```
-3. The data generation in the previous step might take a while as it progresses through the year.  To see which day the current process is on, run this SQL command:
+3. The data generation in the previous step might take a while as it progresses through the year.  To see which day the current process is on, open a new query and run this SQL command:
 
     ```sql
     SELECT MAX([Invoice Date Key]) FROM wwi.fact_Sale;
@@ -1037,6 +977,22 @@ Use the stored procedures you created to generate millions of rows in the wwi.fa
 
     ```sql
     EXEC sp_spaceused N'wwi.fact_Sale';
+    ```
+
+## Populate the replicated table cache
+SQL Data Warehouse replicates a table by caching the data to each Compute node. The cache gets populated when a query runs against the table. Therefore, the first query on a replicated table might require extra time to populate the cache. After the cache is populated, queries on replicated tables run faster.
+
+Run these SQL queries to populate the replicated table cache on the Compute nodes. 
+
+    ```sql
+    SELECT TOP 1 * FROM [wwi].[dimension_City];
+    SELECT TOP 1 * FROM [wwi].[dimension_Customer];
+    SELECT TOP 1 * FROM [wwi].[dimension_Date];
+    SELECT TOP 1 * FROM [wwi].[dimension_Employee];
+    SELECT TOP 1 * FROM [wwi].[dimension_PaymentMethod];
+    SELECT TOP 1 * FROM [wwi].[dimension_StockItem];
+    SELECT TOP 1 * FROM [wwi].[dimension_Supplier];
+    SELECT TOP 1 * FROM [wwi].[dimension_TransactionType];
     ```
 
 ## Create statistics on newly loaded data

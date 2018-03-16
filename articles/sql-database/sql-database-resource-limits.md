@@ -2,19 +2,12 @@
 title: Azure SQL Database Resource Limits | Microsoft Docs
 description: This page describes some common resource limits for Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Active"
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ms.author: carlrab
 
 ---
@@ -61,7 +54,7 @@ The duration of the entire scale-up process depends on both the size and service
 
 ## Single database: limitations of P11 and P15 when the maximum size greater than 1 TB
 
-A maximum size greater than 1 TB for P11 and P15 database is supported in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The following considerations and limitations apply to P11 and P15 databases with a maximum size greater than 1 TB:
+A maximum size greater than 1 TB for P11 and P15 database is supported in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Australia Southeast, Canada Central, and Canada East. The following considerations and limitations apply to P11 and P15 databases with a maximum size greater than 1 TB:
 
 - If you choose a maximum size greater than 1 TB when creating a database (using a value of 4 TB or 4096 GB), the create command fails with an error if the database is provisioned in an unsupported region.
 - For existing P11 and P15 databases located in one of the supported regions, you can increase the maximum storage to beyond 1 TB in increments of 256 GB up to 4 TB. To see if a larger size is supported in your region, use the [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) function or inspect the database size in the Azure portal. Upgrading an existing P11 or P15 database can only be performed by a server-level principal login or by members of the dbmanager database role. 

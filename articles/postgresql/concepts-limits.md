@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 02/28/2018
 ---
 # Limitations in Azure Database for PostgreSQL
-The Azure Database for PostgreSQL service is in public preview. The following sections describe capacity and functional limits in the database service.
+The following sections describe capacity and functional limits in the database service.
 
 ## Pricing Tier Maximums
 Azure Database for PostgreSQL has multiple pricing tiers you can choose from when creating a server. For more information, see [Pricing tiers in Azure Database for PostgreSQL](concepts-pricing-tiers.md).  

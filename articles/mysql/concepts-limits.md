@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/28/2018
 ---
 # Limitations in Azure Database for MySQL
-The Azure Database for MySQL service is in public preview. The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
+The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
 
 ## Service tier maximums
 Azure Database for MySQL has multiple service tiers to choose from when creating a server. For more information, see [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md).  
 
-There is a maximum number of connections, Compute Units, and storage in each service tier during preview, as follows: 
+There is a maximum number of connections, Compute Units, and storage in each service tier, as follows: 
 
 |**Pricing Tier**| **Compute Generation**|**vCore(s)**| **Max Connections**|
 |---|---|---|---|
@@ -71,7 +71,7 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 ### Unsupported
 - SELECT ... INTO OUTFILE
 
-## Preview functional limitations
+## Functional limitations
 
 ### Scale operations
 - Dynamic scaling of servers across pricing tiers is currently not supported. That is, switching between Basic, General Purpose, and Memory Optimized pricing tiers.
