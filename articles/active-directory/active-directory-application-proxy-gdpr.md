@@ -21,7 +21,7 @@ ms.custom: it-pro
 
 # GDPR in the Azure Active Directory application proxy  
 
-Azure Active Directory (Azure AD) Application Proxy is GDPR compliant along with all other Microsoft services and features. To learn more about Microsoft’s GDPR support, see [Licensing Terms and Documentation](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+Azure Active Directory (Azure AD) Application Proxy is GDPR-compliant along with all other Microsoft services and features. To learn more about Microsoft’s GDPR support, see [Licensing Terms and Documentation](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
 Because this feature includes connectors on your computers, there are a few events that you need to monitor to stay GDPR compliant. 
 Application Proxy creates the following log types, which can contain EUII:
@@ -54,7 +54,7 @@ There are three different types of requests you are liable for:
  
 To process view / export requests, you need to go through each of the log files to search for related entries. 
 
-Because these are text files, you can search by, for example, using the `findstr` command to find entries related to your user. Search for the following fields because they might be in the logs: 
+Because the logs are text files, you can search by, for example, using the `findstr` command to find entries related to your user. Search for the following fields because they might be in the logs: 
 
 - UserId
 - The username type configured for any applications using Kerberos Constrained Delegation:
@@ -62,11 +62,11 @@ Because these are text files, you can search by, for example, using the `findstr
     - On-premises user principal name
     - Username part of user principal name
     - Username part of on-premises user principal name
-    - On-premises SAM account name) . 
+    - On-premises SAM account name 
 
  
 You can then collect these fields and share them with the user.
-To process delete requests, you need to delete the relevant logs. To do this, first restart the connector service (Microsoft Azure AD Application Proxy Connector). This generates a new log file, which enables you to delete the old files. You can then follow the process for view / export to find all relevant logs, and selectively delete those fields or files. You can also always just delete all old log files if you don’t need them anymore.
+To process delete requests, you need to delete the relevant logs. You can restart the connector service (Microsoft Azure AD Application Proxy Connector) to generate a new log file. The new log file enables you to delete the old log files. You can then follow the process for view / export to find all relevant logs, and selectively delete those fields or files. You can also always just delete all old log files if you don’t need them anymore.
 
 
 ## Turn connector logs off
