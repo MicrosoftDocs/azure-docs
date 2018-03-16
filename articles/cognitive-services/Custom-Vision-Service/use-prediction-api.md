@@ -3,7 +3,7 @@ title: Use the Prediction Endpoint | Microsoft Docs
 description: How to use the API to programmatically test images.
 services: cognitive-services
 author: anrothMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: custom vision service
