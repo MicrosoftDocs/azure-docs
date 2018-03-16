@@ -26,7 +26,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Enabling AKS preview
 
-Ensure that the needed Azure service providers are enable with the `az provider register` command. 
+Ensure that the needed Azure service providers are enabled with the `az provider register` command. 
 
 ```azurecli-interactive
 az provider register -n Microsoft.Network
