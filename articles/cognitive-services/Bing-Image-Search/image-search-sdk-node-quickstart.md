@@ -1,7 +1,7 @@
 ---
 title: Image search SDK Node quickstart | Microsoft Docs
 description: Setup for Image search SDK console application.
-titleSuffix: Azure cognitive services Image search SDK Node quickstart
+titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -39,7 +39,8 @@ client.imagesOperations.search('El Capitan', function (err, result, request, res
 });
 
 ```
-The code prints `result.value` items to the console without parsing any text.
+The code prints `result.value` items to the console without parsing any text. The results will be:
+- _type: 'ImageObjectElementType'
 
 ![Imageresults](media/node-sdk-quickstart-image-results.png)
 

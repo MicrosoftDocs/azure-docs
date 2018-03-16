@@ -18,6 +18,10 @@ The default global list of terms in Azure Content Moderator is sufficient for mo
 
 You can use the Content Moderator SDK for .NET to create custom lists of terms to use with the Text Moderation API.
 
+> [!NOTE]
+> There is a maximum limit of **5 term lists** with each list to **not exceed 10,000 terms**.
+>
+
 This article provides information and code samples to help you get started using 
 the Content Moderator SDK for .NET to:
 - Create a list.

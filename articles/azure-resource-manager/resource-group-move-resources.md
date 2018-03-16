@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
 
 ---
@@ -96,7 +96,7 @@ Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAn
 * Move your resources to a new Azure account (and Azure Active Directory tenant) and you need help with the instructions in the preceding section.
 * Move classic resources but are having trouble with the limitations.
 
-## Services that enable move
+## Services that can be moved
 
 The services that enable moving to both a new resource group and subscription are:
 
@@ -120,7 +120,7 @@ The services that enable moving to both a new resource group and subscription ar
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * IoT Hubs
 * Key Vault
-* Load Balancers
+* Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -129,6 +129,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Operational Insights
 * Operations Management
 * Power BI
+* Public IP - see [Public IP limitations](#pip-limitations)
 * Redis Cache
 * Scheduler
 * Search
@@ -146,7 +147,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Virtual Networks - see [Virtual Networks limitations](#virtual-networks-limitations)
 * VPN Gateway
 
-## Services that do not enable move
+## Services that cannot be moved
 
 The services that currently do not enable moving a resource are:
 
@@ -158,8 +159,10 @@ The services that currently do not enable moving a resource are:
 * Express Route
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
+* Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Managed Applications
 * Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
+* Public IP - see [Public IP limitations](#pip-limitations)
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
 * StorSimple Device Manager
@@ -175,7 +178,7 @@ Managed disks do not support move. This restriction means that several related r
 * Snapshots created from managed disks
 * Availability sets with virtual machines with managed disks
 
-Virtual machines created from Marketplace resources cannot be moved across subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
+Virtual machines created from Marketplace resources with plans attached cannot be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
 
 Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 
@@ -304,7 +307,7 @@ For example, suppose you have set up replication of your on-premises machines to
 To move a VM enrolled in **Azure backup** between resource groups:
  1. Temporarily stop backup and retain backup data
  2. Move the VM to the target resource group
- 3. Re-protect it under the same/new vault
+ 3. Reprotect it under the same/new vault
 Users can restore from the available restore points created before the move operation.
 If the user moves the backed-up VM across subscriptions, step 1 and step 2 remain the same. In step 3, user needs to protect the VM under a new vault present/ created in the target subscription. Recovery Services vault does not support cross subscription backups.
 
@@ -318,6 +321,16 @@ When moving an HDInsight cluster to a new subscription, first move other resourc
 
 You cannot move multiple Search resources placed in different regions all at once.
 In such a case, you need to move them separately.
+
+## <a name="lb-limitations"></a> Load Balancer limitations
+
+Basic SKU Load Balancer can be moved.
+Standard SKU Load Balancer cannot be moved.
+
+## <a name="pip-limitations"></a> Public IP limitations
+
+Basic SKU Public IP can be moved.
+Standard SKU Public IP cannot be moved.
 
 ## Use portal
 

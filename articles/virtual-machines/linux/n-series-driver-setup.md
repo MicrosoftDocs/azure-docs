@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -24,19 +24,15 @@ ms.custom: H1Hack27Feb2017
 
 To take advantage of the GPU capabilities of Azure N-series VMs running Linux, install supported NVIDIA graphics drivers. This article provides driver setup steps after you deploy an N-series VM. Driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-
 For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-
-
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## Install CUDA drivers for NC, NCv2, and ND VMs
+## Install CUDA drivers for NC, NCv2, NCv3, and ND-series VMs
 
-Here are steps to install NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit. 
+Here are steps to install NVIDIA drivers from the NVIDIA CUDA Toolkit on N-series VMs. 
 
 C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
 
 > [!NOTE]
 > CUDA driver download links provided here are current at time of publication. For the latest CUDA drivers, visit the [NVIDIA](https://developer.nvidia.com/cuda-zone) website.
@@ -108,12 +104,12 @@ sudo reboot
   
   sudo reboot
 
-2. Install the latest Linux Integration Services for Hyper-V.
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget https://aka.ms/lis
  
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis
  
   cd LISISO
  
@@ -150,9 +146,7 @@ sudo reboot
 
 5. Reboot the VM and proceed to verify the installation.
 
-
 ### Verify driver installation
-
 
 To query the GPU device state, SSH to the VM and run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
 
@@ -160,10 +154,9 @@ If the driver is installed, you will see output similar to the following. Note t
 
 ![NVIDIA device status](./media/n-series-driver-setup/smi.png)
 
-
 ## RDMA network connectivity
 
-RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC24r deployed in the same availability set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
+RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC24r deployed in the same availability set or VM scale set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
 
 ### Distributions
 
@@ -178,9 +171,9 @@ Deploy RDMA-capable N-series VMs from an image in the Azure Marketplace that sup
 > 
 
 
-## Install GRID drivers for NV VMs
+## Install GRID drivers for NV-series VMs
 
-To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
+To install NVIDIA GRID drivers on NV-series VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
 
 ### Ubuntu 16.04 LTS
 
@@ -260,12 +253,12 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
   blacklist lbm-nouveau
   ```
  
-3. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
+3. Reboot the VM, reconnect, and install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget https://aka.ms/lis
 
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis
 
   cd LISISO
 
@@ -346,7 +339,6 @@ This file can be invoked as root on boot by creating an entry for it in `/etc/rc
 ## Troubleshooting
 
 * You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the mode setting goes away. You can always script the mode setting to execute upon startup.
-
 
 ## Next steps
 

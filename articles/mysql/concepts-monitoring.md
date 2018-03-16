@@ -1,14 +1,14 @@
 ---
-title: Monitoring in Azure Database for MySQL  | Microsoft Docs
+title: Monitoring in Azure Database for MySQL
 description: This article describes the metrics for monitoring and alerting for Azure Database for MySQL, including CPU, limits, storage, and connection statistics.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 02/28/2018
 ---
 # Monitoring in Azure Database for MySQL
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MySQL provides various metrics that give insight into the behavior of the resources supporting the MySQL server. 
@@ -36,9 +36,6 @@ These metrics are available for Azure Database for MySQL:
 |active_connections|Total active connections|Count|The number of active connections to the server.|
 |connections_failed|Total failed connections|Count|The number of failed connections to the server.|
 
-
-> [!NOTE]
-> Compute Unit is composed of Memory and CPU. The Compute Unit percentage is max(memory%, cpu%). Examine the memory and cpu charts to pinpoint which is contributing to Compute Unit percentage changes. For more information, see [compute units](concepts-compute-unit-and-storage.md).
 
 ## Next steps
 - For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). 

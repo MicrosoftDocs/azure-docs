@@ -32,7 +32,9 @@
   - name: Video Search SDK Node quickstart (preview)
     href: video-search-sdk-node-quickstart.md 
   - name: Video Search SDK Python quickstart (preview)
-    href: video-sdk-python-quickstart.md 
+    href: video-sdk-python-quickstart.md
+  - name: Video Search SDK Java quickstart (preview)
+    href: video-sdk-java-quickstart.md 
 - name: How to
   items:
   - name: Use and display requirements

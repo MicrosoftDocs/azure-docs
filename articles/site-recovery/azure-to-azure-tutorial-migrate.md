@@ -5,8 +5,9 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
+ms.custom: MVC
 ---
 
 # Migrate Azure VMs to another region
@@ -72,7 +73,7 @@ Recovery, due to security constraints.
 Create the vault in any region, except the source region.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
+2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
 3. In **Name**, specify the friendly name **ContosoVMVault**. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group **ContosoRG**.
@@ -121,7 +122,8 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 2. In **Failover**, select **Latest**. The encryption key setting isn't relevant for this scenario.
 3. Select **Shut down machine before beginning failover**. Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 4. Check that the Azure VM appears in Azure as expected.
-5. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, and stops replication for the VM.
+5. In **Replicated items**, right-click the VM > **Commit**. This finishes the migration process,
+6. After the commit finishes, click **Disable Replication**.  This stops replication for the VM.
 
 
 

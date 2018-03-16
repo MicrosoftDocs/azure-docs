@@ -1,3 +1,5 @@
+# [SQL Data Warehouse Documentation](index.md)
+
 # Overview
 
 ## [About SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
@@ -16,13 +18,14 @@
 
 
 # Tutorials
-## [1 - Load data from blob](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - Load WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # Concepts
 ## Service features
 ### [MPP architecture](massively-parallel-processing-mpp-architecture.md)
 ### [Performance tiers](performance-tiers.md)
 ### [Data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Scale-out, pause, resume](sql-data-warehouse-manage-compute-overview.md)
 ### [Data warehouse backups](sql-data-warehouse-backups.md)
 ### [Auditing](sql-data-warehouse-auditing-overview.md)
 ### [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
@@ -50,7 +53,7 @@
 
 
 ## Monitor & tune
-### [Guidelines](resource-classes-for-workload-management.md)
+### [Workload management](resource-classes-for-workload-management.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Monitor](sql-data-warehouse-manage-monitor.md)
 ### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
@@ -98,6 +101,7 @@
 
 
 ## Load & move data
+### [New York taxi cab data](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Contoso public data](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

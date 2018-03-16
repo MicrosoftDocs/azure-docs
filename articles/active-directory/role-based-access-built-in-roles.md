@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 
@@ -48,6 +48,7 @@ This article only addresses the different roles that exist today. When you assig
 | [BizTalk Contributor](#biztalk-contributor) |Can manage BizTalk services |
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) |Can manage ClearDB MySQL databases |
 | [Contributor](#contributor) |Can manage everything except access. |
+| [Cosmos DB Account Reader Role](#cosmos-db-account-reader-role) |Can read Azure Cosmos DB account data |
 | [Data Factory Contributor](#data-factory-contributor) |Can create and manage data factories, and child resources within them. |
 | [DevTest Labs User](#devtest-labs-user) |Can view everything and connect, start, restart, and shutdown virtual machines |
 | [DNS Zone Contributor](#dns-zone-contributor) |Can manage DNS zones and records |
@@ -308,6 +309,19 @@ Can manage everything except access
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Can’t delete roles and role assignments |
 | Microsoft.Authorization/*/Write |Can’t create roles and role assignments |
+
+### Cosmos DB Account Reader Role
+Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#documentdb-account-contributor) for managing Azure Cosmos DB accounts.
+
+| **Actions** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Read roles and role assignments, can read permissions given to each user|
+|Microsoft.DocumentDB/*/read|Read any collection|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Read the readonly keys pane|
+|Microsoft.Insights/Metrics/read|Read account metrics|
+|Microsoft.Insights/MetricDefinitions/read|Read metrics definitions|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Read resource groups|
+|Microsoft.Support/*|Create and manage support tickets|
 
 ### Data Factory Contributor
 Create and manage data factories, and child resources within them.

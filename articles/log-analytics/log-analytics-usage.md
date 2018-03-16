@@ -40,13 +40,17 @@ The **Log Analytics usage** dashboard displays the following information:
 ![usage dashboard](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### To work with usage data
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. In your list of Log Analytics workspaces, select a workspace.
-4. Select **Log Analytics usage** from the list in the left pane.
-5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.<br><br> ![time interval](./media/log-analytics-usage/time.png)<br><br>
-6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).<br><br> ![example data usage blade](./media/log-analytics-usage/blade.png)<br><br>
-7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search.png)
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
+2. Click **All services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
+    ![Azure hub](./media/log-analytics-usage/hub.png)
+3. The **Log Analytics** dashboard shows a list of your workspaces. Select a workspace.
+4. In the *workspace* dashboard, click **Log Analytics usage**.
+5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.  
+    ![time interval](./media/log-analytics-usage/time.png)
+6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).  
+    ![example data usage blade](./media/log-analytics-usage/blade.png)
+7. On the Log Search dashboard, review the results that are returned from the search.  
+    ![example usage log search](./media/log-analytics-usage/usage-log-search.png)
 
 ## Create an alert when data collection is higher than expected
 This section describes how to create an alert if:

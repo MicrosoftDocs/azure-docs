@@ -116,7 +116,7 @@ Get-AzureRmVMSize `
 
 You can also use Azure Advisor to get more information on ways to improve the availability of your VMs. Azure Advisor helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
 
-Sign in to the [Azure portal](https://portal.azure.com), select **More services**, and type **Advisor**. The Advisor dashboard displays personalized recommendations for the selected subscription. For more information, see [Get started with Azure Advisor](../../advisor/advisor-get-started.md).
+Sign in to the [Azure portal](https://portal.azure.com), select **All services**, and type **Advisor**. The Advisor dashboard displays personalized recommendations for the selected subscription. For more information, see [Get started with Azure Advisor](../../advisor/advisor-get-started.md).
 
 
 ## Next steps

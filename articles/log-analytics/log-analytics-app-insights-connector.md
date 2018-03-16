@@ -61,7 +61,7 @@ In approximately 30 minutes, data becomes available and the Application Insights
 Other points to keep in mind:
 
 - You can only link Application Insights apps to one Log Analytics workspace.
-- You can only link [Standard or Premium Application Insights resources](https://azure.microsoft.com/pricing/details/application-insights) to Log Analytics. However, you can use the Free tier of Log Analytics.
+- You can only link [Basic or Enterprise Application Insights resources](https://azure.microsoft.com/pricing/details/application-insights) to Log Analytics. However, you can use the Free tier of Log Analytics.
 
 ## Management packs
 

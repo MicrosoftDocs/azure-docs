@@ -33,7 +33,7 @@ To troubleshoot your issue, start with the [General Problem Areas with Applicati
 
 ## General Problem Areas with Application Access to consider
 
-Below is a list of the general problem areas that you can drill into if you have an idea of where to start, but we recommend you read the walkthrough to get going quickly: [Walkthrough: Steps to troubleshoot Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Following is a list of the general problem areas that you can drill into if you have an idea of where to start, but we recommend you read the walkthrough to get going quickly: [Walkthrough: Steps to troubleshoot Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 -   [Problems with the user’s account](#problems-with-the-users-account)
 
@@ -45,7 +45,7 @@ Below is a list of the general problem areas that you can drill into if you have
 
 ## Steps to troubleshoot Microsoft Application access
 
-Below are some common issues folks run into when their users cannot sign in to a Microsoft application.
+Following are some common issues folks run into when their users cannot sign in to a Microsoft application.
 
 -   General issues to check first
 
@@ -87,7 +87,7 @@ Below are some common issues folks run into when their users cannot sign in to a
 
 ## Problems with the user’s account
 
-Application access can be blocked due to a problem with a user that is assigned to the application. Below are some ways you can troubleshoot and solve problems with users and their account settings:
+Application access can be blocked due to a problem with a user that is assigned to the application. Following are some ways you can troubleshoot and solve problems with users and their account settings:
 
 -   [Check if a user account exists in Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
 
@@ -109,11 +109,11 @@ Application access can be blocked due to a problem with a user that is assigned 
 
 ### Check if a user account exists in Azure Active Directory
 
-To check if a user’s account is present, follow the steps below:
+To check if a user’s account is present, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -127,11 +127,11 @@ To check if a user’s account is present, follow the steps below:
 
 ### Check a user’s account status
 
-To check a user’s account status, follow the steps below:
+To check a user’s account status, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -147,11 +147,11 @@ To check a user’s account status, follow the steps below:
 
 ### Reset a user’s password
 
-To reset a user’s password, follow the steps below:
+To reset a user’s password, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -161,9 +161,9 @@ To reset a user’s password, follow the steps below:
 
 6.  **Search** for the user you are interested in and **click the row** to select.
 
-7.  click the **Reset password** button at the top of the user blade.
+7.  click the **Reset password** button at the top of the user pane.
 
-8.  click the **Reset password** button on the **Reset password** blade that appears.
+8.  click the **Reset password** button on the **Reset password** pane that appears.
 
 9.  Copy the **temporary password** or **enter a new password** for the user.
 
@@ -179,11 +179,11 @@ To enable self-service password reset, follow the deployment steps below:
 
 ### Check a user’s multi-factor authentication status
 
-To check a user’s multi-factor authentication status, follow the steps below:
+To check a user’s multi-factor authentication status, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -191,9 +191,9 @@ To check a user’s multi-factor authentication status, follow the steps below:
 
 5.  click **All users**.
 
-6.  click the **Multi-Factor Authentication** button at the top of the blade.
+6.  click the **Multi-Factor Authentication** button at the top of the pane.
 
-7.  Once the **Multi-Factor Authentication Administration Portal** loads, ensure you are on the **Users** tab.
+7.  Once the **Multi-Factor Authentication Administration portal** loads, ensure you are on the **Users** tab.
 
 8.  Find the user in the list of users by searching, filtering, or sorting.
 
@@ -203,11 +203,11 @@ To check a user’s multi-factor authentication status, follow the steps below:
 
 ### Check a user’s authentication contact info
 
-To check a user’s authentication contact info used for Multi-factor authentication, Conditional Access, Identity Protection, and Password Reset, follow the steps below:
+To check a user’s authentication contact info used for Multi-factor authentication, Conditional Access, Identity Protection, and Password Reset, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -225,11 +225,11 @@ To check a user’s authentication contact info used for Multi-factor authentica
 
 ### Check a user’s group memberships
 
-To check a user’s group memberships, follow the steps below:
+To check a user’s group memberships, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -243,11 +243,11 @@ To check a user’s group memberships, follow the steps below:
 
 ### Check a user’s assigned licenses
 
-To check a user’s assigned licenses, follow the steps below:
+To check a user’s assigned licenses, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -261,11 +261,11 @@ To check a user’s assigned licenses, follow the steps below:
 
 ### Assign a user a license 
 
-To assign a license to a user, follow the steps below:
+To assign a license to a user, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -287,7 +287,7 @@ To assign a license to a user, follow the steps below:
 
 ## Problems with groups
 
-Application access can be blocked due to a problem with a group that is assigned to the application. Below are some ways you can troubleshoot and solve problems with groups and group memberships:
+Application access can be blocked due to a problem with a group that is assigned to the application. Following are some ways you can troubleshoot and solve problems with groups and group memberships:
 
 -   [Check a group’s membership](#check-a-groups-membership)
 
@@ -301,11 +301,11 @@ Application access can be blocked due to a problem with a group that is assigned
 
 ### Check a group’s membership
 
-To check a group’s membership, follow the steps below:
+To check a group’s membership, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -319,11 +319,11 @@ To check a group’s membership, follow the steps below:
 
 ### Check a dynamic group’s membership criteria 
 
-To check a dynamic group’s membership criteria, follow the steps below:
+To check a dynamic group’s membership criteria, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -339,11 +339,11 @@ To check a dynamic group’s membership criteria, follow the steps below:
 
 ### Check a group’s assigned licenses
 
-To check a group’s assigned licenses, follow the steps below:
+To check a group’s assigned licenses, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -357,11 +357,11 @@ To check a group’s assigned licenses, follow the steps below:
 
 ### Reprocess a group’s licenses
 
-To reprocess a group’s assigned licenses, follow the steps below:
+To reprocess a group’s assigned licenses, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -382,11 +382,11 @@ To reprocess a group’s assigned licenses, follow the steps below:
 
 ### Assign a group a license
 
-To assign a license to a group, follow the steps below:
+To assign a license to a group, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -417,9 +417,9 @@ To assign a license to a group, follow the steps below:
 
 To check or validate a single conditional access policy:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -440,9 +440,9 @@ To check or validate a single conditional access policy:
 
 To check or validate a single application’s currently configured conditional access policy:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -472,9 +472,9 @@ To check or validate a single application’s currently configured conditional a
 
 To check or validate a single conditional access policy:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -488,7 +488,7 @@ To check or validate a single conditional access policy:
 
 ## Problems with application consent
 
-Application access can be blocked because the proper permissions consent operation has not occurred. Below are some ways you can troubleshoot and solve application consent issues:
+Application access can be blocked because the proper permissions consent operation has not occurred. Following are some ways you can troubleshoot and solve application consent issues:
 
 -   [Perform a user-level consent operation](#perform-a-user-level-consent-operation)
 
@@ -512,13 +512,13 @@ Application access can be blocked because the proper permissions consent operati
 
 ### Perform administrator-level consent for a single-tenant application
 
--   For **single-tenant applications** that request permissions (like those you are developing or own in your organization), you can perform an **administrative-level consent** operation on behalf of all users by signing in as a Global Administrator and clicking on the **Grant permissions** button at the top of the **Application Registry -&gt; All Applications -&gt; Select an App -&gt; Required Permissions** blade.
+-   For **single-tenant applications** that request permissions (like those you are developing or own in your organization), you can perform an **administrative-level consent** operation on behalf of all users by signing in as a Global Administrator and clicking on the **Grant permissions** button at the top of the **Application Registry -&gt; All Applications -&gt; Select an App -&gt; Required Permissions** pane.
 
 -   For **any application developed using the V1 or V2 application model**, you can enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### Perform administrator-level consent for a multi-tenant application
 
--   For **multi-tenant applications** that request permissions (like an application a third party, or Microsoft, develops), you can perform an **administrative-level consent** operation. Sign in as a Global Administrator and clicking on the **Grant permissions** button under the **Enterprise Applications -&gt; All Applications -&gt; Select an App -&gt; Permissions** blade (available soon).
+-   For **multi-tenant applications** that request permissions (like an application a third party, or Microsoft, develops), you can perform an **administrative-level consent** operation. Sign in as a Global Administrator and clicking on the **Grant permissions** button under the **Enterprise Applications -&gt; All Applications -&gt; Select an App -&gt; Permissions** pane (available soon).
 
 -   You can also enforce this administrator-level consent to occur by following the instructions under the **Request the permissions from a directory admin** section of [Using the admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

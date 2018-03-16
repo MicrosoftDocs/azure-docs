@@ -56,7 +56,7 @@ The following table describes the connected sources that are supported by this s
 Perform the following steps to add the Azure SQL Analytics solution to your workspace.
 
 1. Add the Azure SQL Analytics solution to your workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
-2. In the Azure portal, click **New** (the + symbol), then in the list of resources, select **Monitoring + Management**.  
+2. In the Azure portal, click **Create a resource** > **Monitoring + Management**.  
     ![Monitoring + Management](./media/log-analytics-azure-sql/monitoring-management.png)
 3. In the **Monitoring + Management** list click **See all**.
 4. In the **Recommended** list, click **More**, and then in the new list, find **Azure SQL Analytics (Preview)** and then select it.  
@@ -99,7 +99,7 @@ Click on the **Azure SQL Analytics** tile to open the Azure SQL Analytics dashbo
 
 Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, the drill-down report is opened.
 
-![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+![Azure SQL Analytics Timeouts](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
 Each perspective provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
 
@@ -144,13 +144,19 @@ You can easily create alerts with the data coming from Azure SQL Database resour
 *High DTU on Azure SQL Database*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 *High DTU on Azure SQL Database Elastic Pool*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 You can use these alert-based queries to alert on specific thresholds for both Azure SQL Database and elastic pools. To configure an alert for your Log Analytics workspace:
@@ -163,7 +169,7 @@ You can use these alert-based queries to alert on specific thresholds for both A
 4. Run one of the example queries.
 5. In Log Search, click **Alert**.  
 ![create alert in search](./media/log-analytics-azure-sql/create-alert01.png)
-6. On the **Add Alert Rule** page, configure the appropriate properties and the specific thresholds that you want and then click **Save**.  
+6. On the **Add Alert Rule** page, configure the appropriate properties and the specific thresholds that you want and then click **Save**. 
 ![add alert rule](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## Next steps

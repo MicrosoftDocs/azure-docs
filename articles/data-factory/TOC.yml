@@ -92,6 +92,8 @@
       href: tutorial-control-flow-portal.md    
     - name: .NET
       href: tutorial-control-flow.md    
+  - name: 9 - Transform data with Azure Databricks
+    href: transform-data-using-databricks-notebook.md
 - name: Samples
   items:
   - name: Code samples
@@ -205,6 +207,8 @@
         href: connector-mongodb.md
       - name: MySQL
         href: connector-mysql.md
+      - name: Netezza
+        href: connector-netezza.md
       - name: OData
         href: connector-odata.md
       - name: ODBC
@@ -231,6 +235,8 @@
         href: connector-sap-business-warehouse.md
       - name: SAP Cloud for Customer
         href: connector-sap-cloud-for-customer.md
+      - name: SAP ECC
+        href: connector-sap-ecc.md
       - name: SAP HANA
         href: connector-sap-hana.md
       - name: ServiceNow
@@ -249,6 +255,8 @@
         href: connector-sybase.md
       - name: Teradata
         href: connector-teradata.md
+      - name: Vertica
+        href: connector-vertica.md
       - name: Web Table
         href: connector-web-table.md
       - name: Xero
