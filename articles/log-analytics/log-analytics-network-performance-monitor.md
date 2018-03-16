@@ -69,16 +69,15 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
     
 
 * **ICMP protocol**: If you choose ICMP as the protocol for monitoring, enable the following firewall rules to reliably utilize ICMP:
-
-        
-        ```
-        netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
-        netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,any" dir=in action=allow 
-        netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow 
-        netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow 
-        netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow 
-        netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
-        ```
+    
+   ```
+   netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
+   netsh advfirewall firewall add rule name="NPMDICMPV6Echo" protocol="icmpv6:128,any" dir=in action=allow 
+   netsh advfirewall firewall add rule name="NPMDICMPV4DestinationUnreachable" protocol="icmpv4:3,any" dir=in action=allow 
+   netsh advfirewall firewall add rule name="NPMDICMPV6DestinationUnreachable" protocol="icmpv6:1,any" dir=in action=allow 
+   netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmpv4:11,any" dir=in action=allow 
+   netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
+   ```
  
 
 ### Configure the solution 
@@ -113,9 +112,9 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
    ![Network Performance Monitor Configuration page](media/log-analytics-network-performance-monitor/npm-private-peerings.png)
     
-   The monitoring for these peerings is initially in a disabled state. Select each peering that you want to monitor, and configure monitoring for them from the details view on the right. Select **Save** to save the configuration. To learn more, see the "Configure ExpressRoute monitoring" article. 
+The monitoring for these peerings is initially in a disabled state. Select each peering that you want to monitor, and configure monitoring for them from the details view on the right. Select **Save** to save the configuration. To learn more, see the "Configure ExpressRoute monitoring" article. 
 
-   After the setup is finished, it takes 30 minutes to an hour for the data to populate. While the solution aggregates data from your network, you see the message *Solution requires additional configuration* on the Network Performance Monitor **Overview** tile. After the data is collected and indexed, the **Overview** tile changes and informs you of your network health in a summary. You then can edit the monitoring of the nodes on which Operations Management Suite agents are installed, as well as the subnets discovered from your environment.
+After the setup is finished, it takes 30 minutes to an hour for the data to populate. While the solution aggregates data from your network, you see the message *Solution requires additional configuration* on the Network Performance Monitor **Overview** tile. After the data is collected and indexed, the **Overview** tile changes and informs you of your network health in a summary. You then can edit the monitoring of the nodes on which Operations Management Suite agents are installed, as well as the subnets discovered from your environment.
 
 #### Edit monitoring settings for subnets and nodes 
 
