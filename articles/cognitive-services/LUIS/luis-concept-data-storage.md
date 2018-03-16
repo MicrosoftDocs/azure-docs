@@ -16,7 +16,7 @@ ms.author: v-geberr;
 LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. This data is stored for 30 days. 
 
 ## Export and delete app
-Users have full control over [exporting](create-new-app.md#export-app) and [deleting](create-new-app.md#delete-app) it. 
+Users have full control over [exporting](create-new-app.md#export-app) and [deleting](create-new-app.md#delete-app) the app. 
 
 ## Utterances in an intent
 Delete example utterances used for training [LUIS][LUIS]. If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
@@ -25,9 +25,9 @@ Delete example utterances used for training [LUIS][LUIS]. If you delete an examp
 You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](label-suggested-utterances.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 
 ## Accounts
-If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
+If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
 
-Account deleting is available from the **Settings** page. Right-click on your account name in the top right navigation bar to get to the **Settings** page.
+Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
 
 ## Next steps
 
