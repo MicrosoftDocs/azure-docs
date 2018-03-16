@@ -26,5 +26,9 @@ Limited Trial project resources are attached to your Custom Vision login (ie an 
 |Tags/ project|50|50|100|
 |Iterations |10|10|10|
 |How long prediction images stored|30 days|30 days|30 days|
+|[Prediction](https://go.microsoft.com/fwlink/?linkid=865445) operations with storage (Transactions Per Second)|2|2|10|
+|[Prediction](https://go.microsoft.com/fwlink/?linkid=865445) operations without storage (Transactions Per Second)|2|2|20|
+|[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (API calls Per Second)|2|2|10|
+|[Other API calls](https://go.microsoft.com/fwlink/?linkid=865446) (Transactions Per Second)|2|2|10|
 
-Note, the *# training images per project* and *# Tags/project* will be increased over time for S0 projects. 
+Limitations on *# training images per project* and *# Tags/project* are expected to be increased over time for S0 projects. 
