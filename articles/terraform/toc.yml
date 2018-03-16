@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Tutorials 
   items:
+    - name: Create a Terraform VM with MSI enabled
+      href: terraform-vm-msi.md
     - name: Create a VM cluster with Terraform modules
       href: terraform-create-vm-cluster-module.md
     - name: Create a VM cluster with Terraform and HCL

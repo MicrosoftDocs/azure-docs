@@ -9,7 +9,7 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: rogarana
 ---
 
@@ -20,7 +20,7 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 
 To complete this quickstart: 
 * Install [PHP](http://php.net/downloads.php)
-* Install [the Azure SDK for PHP](https://github.com/Azure/azure-storage-php)
+* Install [the Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -193,6 +193,13 @@ If you no longer need the blobs uploaded in this quickstart, you can delete the 
     echo "<br />";
     unlink($fileToUpload);   
 ```
+
+## Resources for developing PHP applications with blobs
+
+See these additional resources for PHP development with Blob storage:
+
+- View, download, and install the [PHP client library source code](https://github.com/Azure/azure-storage-php) for Azure Storage on GitHub.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob) written using the PHP client library.
 
 ## Next steps
  
