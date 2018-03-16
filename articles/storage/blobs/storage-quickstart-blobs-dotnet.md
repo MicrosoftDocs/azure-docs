@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
 ---
 
@@ -250,13 +250,13 @@ See these additional resources for .NET development with Blob storage:
 
 ### Binaries and source code
 
-- Download the NuGet package for the latest version of the [Storage .NET client library](https://www.nuget.org/packages/WindowsAzure.Storage/). 
-- View the [Storage .NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
+- Download the NuGet package for the latest version of the [.NET client library](https://www.nuget.org/packages/WindowsAzure.Storage/) for Azure Storage. 
+- View the [.NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
 
 ### Client library reference and samples
 
-- See the [Storage .NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the client library.
-- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) written using the Storage .NET client library.
+- See the [.NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the .NET client library.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) written using the .NET client library.
 
 ## Next steps
 
