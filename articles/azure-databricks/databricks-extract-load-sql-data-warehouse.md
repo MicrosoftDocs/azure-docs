@@ -20,7 +20,7 @@ ms.author: nitinme
 
 # Tutorial: Stream events into Azure Databricks using Event Hubs
 
-In this tutorial, you extract data from Azure Data Lake Store into Azure Databricks, run transformations on the data in Azure Databricks, and then load the transformed data into Azure SQL Data Warehouse. The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Blob Storage as temporary storage for the data being transfered between an Azure Databricks cluster and Azure SQL Data Warehouse.
+In this tutorial, you extract data from Azure Data Lake Store into Azure Databricks, run transformations on the data in Azure Databricks, and then load the transformed data into Azure SQL Data Warehouse. The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Blob Storage as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
 
 The following illustration shows the application flow:
 
@@ -45,7 +45,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 Before you start with this tutorial, make sure to meet the following requirements:
 - Create an Azure SQL Data Warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions at [Quickstart: Create an Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Create an Azure Blob storage and a container within that. Follow the instructions at [Quickstart: Create an Azure Blog storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Create an Azure Blob storage, and a container within the storage account. Also, retrieve the access key to access the storage account. Follow the instructions at [Quickstart: Create an Azure Blog storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## Log in to the Azure portal
 
@@ -210,7 +210,7 @@ In this section, you associate the Azure Data Lake Store account with the Azure 
 
 ## Upload data to Data Lake Store
 
-In this section, you upload a sample data file to Data Lake Store. You use this file later in Azure Databricks to run some transformations. The sample data (**small_radio_json.json**) that we use in this tutorial is available in this [Github repo](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+In this section, you upload a sample data file to Data Lake Store. You use this file later in Azure Databricks to run some transformations. The sample data (**small_radio_json.json**) that you use in this tutorial is available in this [Github repo](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
 1. From the [Azure portal](https://portal.azure.com), select the Data Lake Store account you created.
 
@@ -274,7 +274,126 @@ You have now extracted the data from Azure Data Lake Store into Azure Databricks
 
 ## Transform data in Azure Databricks
 
+The raw sample data **small_radio_json.json** captures the audience for a radio station and has a variety of columns. In this section, you transform the data to only retrieve specific columns in from the dataset. 
+
+1. Start by retrieving only the columns *firstName*, *lastName*, *gender*, *location*, and *level* from the dataframe you already created.
+
+        val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
+
+    You get an output as shown in the following snippet.
+
+        +---------+----------+------+--------------------+-----+
+        |firstname|  lastname|gender|            location|level|
+        +---------+----------+------+--------------------+-----+
+        | Annalyse|Montgomery|     F|  Killeen-Temple, TX| free|
+        |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+        |     Liam|     Watts|     M|New York-Newark-J...| paid|
+        |     Tess|  Townsend|     F|Nashville-Davidso...| free|
+        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+        |     Alan|     Morse|     M|Chicago-Napervill...| paid|
+        |Gabriella|   Shelton|     F|San Jose-Sunnyval...| free|
+        |   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
+        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+        |     Tess|  Townsend|     F|Nashville-Davidso...| free|
+        |     Alan|     Morse|     M|Chicago-Napervill...| paid|
+        |     Liam|     Watts|     M|New York-Newark-J...| paid|
+        |     Liam|     Watts|     M|New York-Newark-J...| paid|
+        |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+        |     Alan|     Morse|     M|Chicago-Napervill...| paid|
+        |   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
+        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+        |     Alan|     Morse|     M|Chicago-Napervill...| paid|
+        |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+        +---------+----------+------+--------------------+-----+
+
+2.  You can further transform this data to rename the column **level** to **subscription_type**.
+
+        val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
+        renamedColumnsDF.show()
+
+    You get an output as shown in the following snippet.
+
+        +---------+----------+------+--------------------+-----------------+
+        |firstname|  lastname|gender|            location|subscription_type|
+        +---------+----------+------+--------------------+-----------------+
+        | Annalyse|Montgomery|     F|  Killeen-Temple, TX|             free|
+        |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+        |     Liam|     Watts|     M|New York-Newark-J...|             paid|
+        |     Tess|  Townsend|     F|Nashville-Davidso...|             free|
+        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+        |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+        |Gabriella|   Shelton|     F|San Jose-Sunnyval...|             free|
+        |   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
+        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+        |     Tess|  Townsend|     F|Nashville-Davidso...|             free|
+        |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+        |     Liam|     Watts|     M|New York-Newark-J...|             paid|
+        |     Liam|     Watts|     M|New York-Newark-J...|             paid|
+        |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+        |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+        |   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
+        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+        |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+        |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+        |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+        +---------+----------+------+--------------------+-----------------+
+
 ## Load data into Azure SQL Data Warehouse
+
+In this section, you upload the transformed data into Azure SQL Data Warehouse. Using the Azure SQL Data Warehouse connector for Azure Databricks, you can directly upload a dataframe as a table in SQL data warehouse.
+
+As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage as a temporary storage to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must have already created the account as part of the prerequisites for this article.
+
+1. Provide the configuration to access the Azure Storage account from Azure Databricks.
+
+        val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
+        val blobContainer = "<CONTAINER NAME>"
+        val blobAccessKey =  "<ACCESS KEY>"
+
+2. Specify a temporary folder that will be used while moving data between Azure Databricks and Azure SQL Data Warehouse.
+
+        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
+
+3. Run the following snippet to store Azure Blob storage access keys in the configuration. This ensures that you do not have to keep the access key in the notebook in plain text.
+
+        val acntInfo = "fs.azure.account.key."+ blobStorage
+        sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
+
+4. Provide the values to connect to the Azure SQL Data Warehouse instance. You must have created a SQL data warehouse as part of the prerequisites.
+
+        //SQL Data Warehouse related settings
+        val dwDatabase = "<DATABASE NAME>"
+        val dwServer = "<DATABASE SERVER NAME>" 
+        val dwUser = "<USER NAME>"
+        val dwPass = "<PASSWORD>"
+        val dwJdbcPort =  "1433"
+        val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
+        val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
+        val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
+
+5. Run the following snippet to load the tranformed dataframe, **renamedColumnsDF**, as a table in SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
+
+        spark.conf.set(
+          "spark.sql.parquet.writeLegacyFormat",
+          "true")
+        
+        renamedColumnsDF.write
+            .format("com.databricks.spark.sqldw")
+            .option("url", sqlDwUrlSmall) 
+            .option("dbtable", "SampleTable")
+            .option( "forward_spark_azure_storage_credentials","True")
+            .option("tempdir", tempDir)
+            .mode("overwrite")
+            .save()
+
+6. Connect to the SQL database and verify that you see a **SampleTable**.
+
+    ![Verify sample table](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verify sample table")
+
+7. Run a select query to verify the contents of the table. It should have the same data as the **renamedColumnsDF** dataframe.
+
+    ![Verify sample table content](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Verify sample table content")
 
 ## Clean up resources
 
