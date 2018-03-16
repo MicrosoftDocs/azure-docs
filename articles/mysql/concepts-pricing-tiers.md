@@ -36,36 +36,34 @@ After you create a server, the number of vCores can be changed up or down within
 
 ## Compute generations, vCores, and memory
 
-Compute resources are provided as vCores, representing the logical CPU of the underlying hardware. Currently, two compute generations, Gen 4 and Gen 5, are offered for you to choose from. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. Gen 4 and Gen 5 are available in the regions below: 
+Compute resources are provided as vCores, representing the logical CPU of the underlying hardware. Currently, two compute generations, Gen 4 and Gen 5, are offered for you to choose from. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. Gen 4 and Gen 5 are available in the following regions: 
 
 | **Azure Region** | **Generation 4** | **Generation 5** |
-|:---|:----------|:--------------------|:---------------------|
-| Central US |  | [x] |
-| East US | [x] | [x] |
-| East US 2 | [x] |  |
-| North Central US | [x] |  |
-| South Central US | [x] |  |
-| West US | [x] | [x] |
-| West US 2 |  | [x] |
-| Canada Central | [x] | [x] |
-| Canada East | [x] | [x] |
-| Brazil South | [x] |  |
-| North Europe | [x] | [x] |
-| West Europe | [x] | [x] |
-| UK West |  | [x] |
-| UK South |  | [x] |
-| East Asia | [x] |  |
-| Southeast Asia | [x] |  |
-| Australia East |  | [x] |
-| Australia SE |  |  |
-| China East | [x] |  |
-| China North | [x] |  |
-| Central India | [x] |  |
-| South India |  |  |
-| West India | [x] |  |
-| Japan East | [x] |  |
-| Japan West | [x] |  |
-| Korea South |  | [x] |
+|:---|:----------:|:--------------------:|
+| Central US |  | X |
+| East US | X | X |
+| East US 2 | X |  |
+| North Central US | X |  |
+| South Central US | X |  |
+| West US | X | X |
+| West US 2 |  | X |
+| Canada Central | X | X |
+| Canada East | X | X |
+| Brazil South | X |  |
+| North Europe | X | X |
+| West Europe | X | X |
+| UK West |  | X |
+| UK South |  | X |
+| East Asia | X |  |
+| Southeast Asia | X |  |
+| Australia East |  | X |
+| China East | X |  |
+| China North | X |  |
+| Central India | X |  |
+| West India | X |  |
+| Japan East | X |  |
+| Japan West | X |  |
+| Korea South |  | X |
 
 Depending on the pricing tier, each vCore is provisioned with a specific amount of memory. When you increase or decrease the number of vCores for your server, the memory increases or decreases proportionally. The General Purpose tier provides double the amount of memory per vCore compared to the Basic tier. The Memory Optimized tier provides double the amount of memory compared to the General Purpose tier.
 
