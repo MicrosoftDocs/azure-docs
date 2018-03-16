@@ -596,7 +596,7 @@ In this tutorial, you learned how to use Azure Databricks to stream data into Az
 > * Read tweets from Event Hubs
 > * Run sentiment analysis on tweets
 
-Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
+Advance to the next tutorial to learn about performing machine learning tasks using Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Sentiment analyis on streaming data using Azure Databricks ](quickstart-create-databricks-workspace-portal.md)
+>[Machine Learning using Azure Databricks ](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)
