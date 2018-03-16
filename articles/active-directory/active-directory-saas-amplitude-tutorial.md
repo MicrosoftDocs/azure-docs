@@ -104,7 +104,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Amplitude Domain and URLs single sign-on information](./media/active-directory-saas-amplitude-tutorial/tutorial_amplitude_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://amplitude.com/saml/sso/metadata`
+    a. In the **Identifier** textbox, type the URL: `https://amplitude.com/saml/sso/metadata`
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://analytics.amplitude.com/saml/sso/<uniqueid>`
 
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Amplitude Domain and URLs single sign-on information](./media/active-directory-saas-amplitude-tutorial/tutorial_amplitude_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://analytics.amplitude.com/sso`
+    In the **Sign-on URL** textbox, type the URL: `https://analytics.amplitude.com/sso`
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -141,7 +141,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Open the downloaded **Metadata Xml** from Azure portal in notepad, paste the content into the **Microsoft Azure Active Directory Metadata** textbox.
 
-	b. Copy the **Reply URL (ACS)** value and paste it into the **Reply URL** textbox of Amplitude Domain and URLs section.
+	b. Copy the **Reply URL (ACS)** value and paste it into the **Reply URL** textbox of Amplitude Domain and URLs section in the Azure portal.
 
 	c. Click **Save**
 
