@@ -19,7 +19,7 @@ ms.author: sethm
 
 ---
 
-# Process event streams using PowerShell and .NET
+# Process event streams using PowerShell
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to use PowerShell to deploy resources, and use sample clients to ingest and process events into Event Hubs. 
 
@@ -29,19 +29,34 @@ This article requires that you are running the latest version of Azure PowerShel
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Use PowerShell to provision resources
+## Log on to Azure
 
-Replace all placeholders with the appropriate values, then run the following PowerShell cmdlets:
+Once PowerShell is installed, perform the following steps to install the Event Hubs PowerShell module, and to log on to Azure:
+
+1. Issue the following command to install the Event Hubs PowerShell module:
+
+   ```azurepowershell-interactive
+   Install-Module AzureRM.EventHub
+   ```
+
+2. Run the following command to log on to Azure:
+
+   ```azurepowershell-interactive
+   Login-AzureRmAccount
+   ```
+
+3. Change to the current subscription or see the currently active subscription:
+
+   ```azurepowershell
+   Select-AzureRmSubscription -SubscriptionName "MyAzureSub"
+   Get-AzureRmContext
+   ```
+
+## Provision resources
+
+After logging in to Azure, issue the following commands to provision Event Hubs resources. Be sure to replace all placeholders with the appropriate values:
 
 ```azurepowershell
-# Run this first: log in to your Azure subscription, follow the on-screen directions, then install Event Hubs module
-Login-AzureRmAccount
-Install-Module AzureRM.EventHub
-
-# Optional - Change to the current subscription or see the currently active subscription
-Select-AzureRmSubscription -SubscriptionName "MyAzureSub"
-Get-AzureRmContext
-
 # Create a resource group 
 New-AzureRmResourceGroup -Name eventhubsResourceGroup -Location eastus
 
