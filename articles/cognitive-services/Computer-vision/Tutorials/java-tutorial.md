@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.service: cognitive-services
 
 ms.devlang: java
-manager: corneliakara
+manager: corncar
 ---
 
 # Computer Vision API Java tutorial

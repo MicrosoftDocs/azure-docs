@@ -3,7 +3,7 @@ title: Computer Vision API for Microsoft Cognitive Services | Microsoft Docs
 description: Use advanced algorithms in the Computer Vision API to help you process images and return information in Microsoft Cognitive Services. 
 services: cognitive-services 
 author: KellyDF 
-manager: corneliakara 
+manager: corncar 
  
 ms.service: cognitive-services 
 ms.technology: computer-vision 

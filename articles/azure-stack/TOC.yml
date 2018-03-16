@@ -232,14 +232,22 @@
         href: azure-stack-app-service-capacity-planning.md
       - name: Before you get started
         href: azure-stack-app-service-before-you-get-started.md
+      - name: How to redistribute Azure App Service on Azure Stack across fault domains
+        href: azure-stack-app-service-fault-domain-update.md
       - name: Deploy App Service resource provider
         href: azure-stack-app-service-deploy.md
       - name: Deploy App Service offline
         href: azure-stack-app-service-deploy-offline.md
+      - name: Update App Service
+        href: azure-stack-app-service-update.md
+      - name: Update App Service Offline
+        href: azure-stack-app-service-update-offline.md
       - name: Add more web worker roles
         href: azure-stack-app-service-add-worker-roles.md
       - name: Configure deployment sources
         href: azure-stack-app-service-configure-deployment-sources.md
+      - name: App Service Update One Release Notes
+        href: azure-stack-app-service-release-notes-update-one.md
     - name: Populate the marketplace
       items:
       - name: Marketplace overview
@@ -264,14 +272,24 @@
       items:
       - name: Overview
         href: azure-stack-billing-and-chargeback.md
-      - name: Usage data reporting
-        href: azure-stack-usage-reporting.md
-      - name: Provider usage API
-        href: azure-stack-provider-resource-api.md
-      - name: Tenant usage API
-        href: azure-stack-tenant-resource-usage-api.md
-      - name: Usage FAQ
-        href: azure-stack-usage-related-faq.md
+      - name: Manage usage and billing as a CSP
+        href: azure-stack-add-manage-billing-as-a-csp.md
+      - name: Add tenants for usage and billing 
+        href: azure-stack-csp-howto-register-tenants.md
+      - name: Manage tenant registration
+        href: azure-stack-csp-ref-operations.md
+      - name: Usage and billing reference
+        items:
+        - name: Usage data reporting
+          href: azure-stack-usage-reporting.md
+        - name: Usage reporting infrastructure for Cloud Service Providers
+          href: azure-stack-csp-ref-infrastructure.md
+        - name: Provider usage API
+          href: azure-stack-provider-resource-api.md
+        - name: Tenant usage API
+          href: azure-stack-tenant-resource-usage-api.md
+        - name: Usage FAQ
+          href: azure-stack-usage-related-faq.md
     - name: Connect to Azure
       items:
       - name: Connect using VPN

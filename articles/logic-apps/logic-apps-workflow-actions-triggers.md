@@ -2,7 +2,7 @@
 title: Workflow triggers and actions - Azure Logic Apps | Microsoft Docs
 description: Learn about the triggers and actions for creating automated workflows and processes with logic apps
 services: logic-apps
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
 editor: 
 documentationcenter: 

@@ -267,7 +267,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  What types of accounts does password writeback work for?**
 
-  > **A:** Password writeback works for federated and password hash synchronized users.
+  > **A:** Password writeback works for user accounts that are synchronized from on-premises Active Directory to Azure AD, including federated, password hash synchronized, and Pass-Through Autentication Users.
   >
   >
 * **Q:  Does password writeback enforce my domain’s password policies?**

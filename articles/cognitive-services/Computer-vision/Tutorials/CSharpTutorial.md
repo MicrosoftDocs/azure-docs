@@ -3,7 +3,7 @@ title: Computer Vision API C# tutorial | Microsoft Docs
 description: Explore a basic Windows app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: KellyDF
-manager: corneliakara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: computer-vision
