@@ -1,6 +1,6 @@
 ---
 title: Monitor Batch with Azure Application Inisghts | Microsoft Docs
-description: Learn about how to instrument an Azure Batch solution with Azure Application Insights.
+description: Learn how to instrument Azure Batch application code using the Azure Application Insights library.
 services: batch
 author: paselem
 manager: jeconnoc
@@ -28,13 +28,14 @@ into your Azure Batch .NET solution and instrument your application code. It als
 examples on how to monitor your application via the Azure portal and build 
 custom dashboards.
 
-A sample C-sharp solution is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
+A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). 
 
 ## Prerequisites
+* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 or a more recent version). 
 * [Batch account](batch-account-create-portal.md)
 * [Application Insights resource](../application-insights/app-insights-create-new-resource.md)
   
-  To persist your application logs and performance counters, you must create an Application Insights resource where Azure stores data.
+  To persist your application logs and performance counters, you must create an Application Insights resource where Azure stores data. Select the *General* **Application type**.
 
   Copy the [instrumentation 
 key](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) from the portal. It is required later in this article.
@@ -46,36 +47,35 @@ key](../application-insights/app-insights-create-new-resource.md#copy-the-instru
 
 ## Add Application Insights to your project
 
-Add the Microsoft.ApplicationInsights.WindowsServer NuGet package to your application's project.
+The **Microsoft.ApplicationInsights.WindowsServer** NuGet package and its dependencies are required for your project. Add or restore them to your application's project. If you need to download missing packages, ensure the [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) is installed.
 
 ```powershell
-PM> Install-Package Microsoft.ApplicationInsights.WindowsServer
+Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```
+You can now reference them using the **Microsoft.ApplicationInsights** namespace.
 
-## Instrumenting your code
+## Instrument your code
 
-Now that you have added the required packages to your project, you can reference them using the **Microsoft.ApplicationInsights** namespace.
-
-First off, we'll need to update the ApplicationInsights.config file with your instrumentation key.
+First, update the ApplicationInsights.config file in the TopNWords solution with your instrumentation key.
 
 ```xml
-<InstrumentationKey>YOUR-KEY-GOES-HERE</InstrumentationKey>
+<InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
 
-This example uses the following instrumentation calls:
-* TrackMetric() to understand how long, on average, a Compute Node takes to download the required text file.
-* TrackTrace() to add debugging calls to our code.
-* TrackEvent() to track interesting events we want to capture.
+The example in TopNWords.cs uses the following instrumentation calls from the [Application Insights API](../application-insights/app-insights-api-custom-events-metrics.md):
+* `TrackMetric()` - Tracks how long, on average, a compute node takes to download the required text file.
+* `TrackTrace()` - Adds debugging calls to your code.
+* `TrackEvent()` - Tracks interesting events to capture.
 
-We also inherently track exceptions. This sample purposely leaves out exception 
+We also inherently track exceptions. This example purposely leaves out exception 
 handling to see how Application Insights automatically reports unhandled 
-exceptions for us and significantly improves the debugging experience. The 
-following sample illustrates how to use these methods.
+exceptions and significantly improves the debugging experience. The 
+following snippet illustrates how to use these methods.
 
 ```csharp
 public void CountWords(string blobName, int numTopN, string storageAccountName, string storageAccountKey)
 {
-    // simulate exception for some  set of tasks
+    // simulate exception for some set of tasks
     Random rand = new Random();
     if (rand.Next(0, 10) % 10 == 0)
     {
@@ -126,15 +126,12 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 
 ### Azure Batch telemetry initializer helper
 When reporting telemetry for a given server and instance, Application Insights 
-uses the Azure VM Role and VM name for the default values. Since we're running 
-in the context of Azure Batch, we would like to use the Pool name and Compute 
-Node name instead. A telemetry initializer allows us to override the default 
-values. You can learn more about telemetry initializers 
-[here](http://apmtips.com/blog/2014/12/01/telemetry-initializers/) or see an 
-example on [github](https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/WindowsServer/WindowsServer.Shared/AzureWebAppRoleEnvironmentTelemetryInitializer.cs).
+uses the Azure VM Role and VM name for the default values. In the context of Azure Batch, we would like to use the pool name and compute 
+node name instead. Use a [telemetry initializer](../application-insights/app-insights-api-filtering-sampling.md#add-properties) to override the default 
+values. (See a code  
+example on [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/WindowsServer/WindowsServer.Shared/AzureWebAppRoleEnvironmentTelemetryInitializer.cs).)
 
 ```csharp
-
 using Microsoft.ApplicationInsights.Channel;
 using Microsoft.ApplicationInsights.Extensibility;
 using System;
@@ -181,31 +178,37 @@ namespace Microsoft.Azure.Batch.Samples.TopNWordsSample
 }
 ```
 
-To enable the telemetry initializer update the Application Insights config.
+To enable the telemetry initializer, update the ApplicationInsights.config file. In this example:
 
 ```xml
 <TelemetryInitializers>
-    <Add Type="Microsfot.Azure.Batch.Samples.TopNWordsSample.AzureBatchNodeTelemetryInitializer, TopNWordsSample"/>
+    <Add Type="Microsoft.Azure.Batch.Samples.TopNWordsSample.AzureBatchNodeTelemetryInitializer, TopNWordsSample"/>
 </TelemetryInitializers>
 ```
 
-## Update your job and tasks to include the necessary binaries
+## Update the job and tasks to include Application Insights binaries
 
-In order for Application Insights to run correctly on your Compute Nodes, you 
-must make sure the binaries are correctly placed. Add the required 
-binaries to your task's resource files collection and they will get downloaded 
-when your task executes.
+In order for Application Insights to run correctly on your compute nodes, make sure the binaries are correctly placed. Add the required 
+binaries to your task's resource files collection so that they get downloaded 
+at the time your task executes. The following snippets are similar to code in Job.cs.
 
-First, create a static list of files we need to upload.
+First, create a static list of files to upload.
+
 ```csharp
-// application insights config file and assemblies
-private const string AIConfig = "ApplicationInsights.config";
-private const string AIDllName = "Microsoft.ApplicationInsights.dll";
-private const string AIInterceptDllAgentName = "Microsoft.AI.Agent.Intercept.dll";
-private const string AIDependencyCollectorName = "Microsoft.AI.DependencyCollector.dll";
-private const string AIPerfCounterCollectorName = "Microsoft.AI.PerfCounterCollector.dll";
-private const string AIServerTelemetryName = "Microsoft.AI.ServerTelemetryChannel.dll";
-private const string AIWindowsServerName = "Microsoft.AI.WindowsServer.dll";
+private static readonly List<string> AIFilesToUpload = new List<string>()
+{
+    // Application Insights config and assemblies
+    "ApplicationInsights.config",
+    "Microsoft.ApplicationInsights.dll",
+    "Microsoft.AI.Agent.Intercept.dll",
+    "Microsoft.AI.DependencyCollector.dll",
+    "Microsoft.AI.PerfCounterCollector.dll",
+    "Microsoft.AI.ServerTelemetryChannel.dll",
+    "Microsoft.AI.WindowsServer.dll",
+
+    // custom telemetry initializer assemblies
+    "Microsoft.Azure.Batch.Samples.TelemetryInitializer.dll",
+ };
 ```
 
 Next, create the staging files that are used by the task.
@@ -215,20 +218,15 @@ Next, create the staging files that are used by the task.
 FileToStage topNWordExe = new FileToStage(TopNWordsExeName, stagingStorageAccount);
 FileToStage storageDll = new FileToStage(StorageClientDllName, stagingStorageAccount);
 
-// Upload application insights assemblies
-FileToStage applicationInsightsConfig = new FileToStage(AIConfig, stagingStorageAccount);
-FileToStage applicationInsightsDll = new FileToStage(AIDllName, stagingStorageAccount);
-FileToStage applicationInsightsCollectorDll = new FileToStage(AIDependencyCollectorName, stagingStorageAccount);
-FileToStage applicationInsightsInterceptorDll = new FileToStage(AIInterceptDllAgentName, stagingStorageAccount);
-FileToStage applicationInsightsPerfCounterCollectorDll = new FileToStage(AIPerfCounterCollectorName, stagingStorageAccount);
-FileToStage applicationInsightsServerTelemetryDll = new FileToStage(AIServerTelemetryName, stagingStorageAccount);
-FileToStage applicationInsightsWindowsServerDll = new FileToStage(AIWindowsServerName, stagingStorageAccount);
+// Upload Application Insights assemblies
+List<FileToStage> aiStagedFiles = new List<FileToStage>();
+foreach (string aiFile in AIFilesToUpload)
+{
+    aiStagedFiles.Add(new FileToStage(aiFile, stagingStorageAccount));
+}
 ```
 
-> The FileToStage method is a helper function in the code 
-> sample that allows you to easily upload a file from local disk to an 
-> Azure Storage blob. This is later referenced downloaded to a Compute Node 
-> and referenced by a task.
+The `FileToStage` method is a helper function in the code sample that allows you to easily upload a file from local disk to an Azure Storage blob. This is later downloaded to a compute node and referenced by a task.
 
 Finally add the tasks to the job and include the necessary Application Insights binaries.
 ```csharp
@@ -251,57 +249,52 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
                             // required application binaries
                             topNWordExe,
                             storageDll,
-                            // Application Insights config file an binaries
-                            applicationInsightsConfig,
-                            applicationInsightsDll,
-                            applicationInsightsCollectorDll,
-                            applicationInsightsInterceptorDll,
-                            applicationInsightsPerfCounterCollectorDll,
-                            applicationInsightsServerTelemetryDll,
-                            applicationInsightsWindowsServerDll
                         };
-
+    foreach (FileToStage stagedFile in aiStagedFiles)
+   {
+        task.FilesToStage.Add(stagedFile);
+   }    
     task.RunElevated = false;
     tasksToRun.Add(task);
 }
 ```
 
-## Viewing data in the Azure portal
+## View data in the Azure portal
 
-Now that we have our job and tasks configured to use Application Insights, run 
+Now that you've configured the job and tasks to use Application Insights, run 
 the job in your pool. Navigate to the Azure portal and open the Application 
-Insghts service that you provisioned. At this point, you should start to see 
-data flowing and getting logged. In this article we'll only touch on a few 
-features, but feel free to explore the full feature set provided by the 
-Application Insights service.
+Insghts resource that you provisioned. At this point, you should start to see 
+data flowing and getting logged. In this article, we only touch on a few 
+features, but feel free to explore the full feature set provided by 
+Application Insights.
 
 ### View live stream data
 
-The following screenshot shows how we can view live data coming from the 
-Compute Nodes in the pool, for example the CPU usage per Compute Node.
+The following screenshot shows how to view live data coming from the 
+compute nodes in the pool, for example the CPU usage per compute node.
 
-![Live stream compute node data](./media/batch-monitoring-with-application-insights/ApplicationInsightsLiveStream.png)
+![Live stream compute node data](./media/monitor-application-insights/applicationinsightslivestream.png)
 
-### Viewing trace logs
+### View trace logs
 
 Opening up the Search blade in the portal reveals a list of diagnostic data 
 captured by Application Insights including traces, events, exceptions, and more. 
 In the following screenshot, we see how a single trace for a task is logged and 
 can later be queried for debugging purposes.
 
-![Trace logs image](./media/batch-monitoring-with-application-insights/TraceLogsForTask.png)
+![Trace logs image](./media/monitor-application-insights/tracelogsfortask.png)
 
 ### View unhandled exceptions
 
 The following image shows how Application Insights logs exceptions thrown from your application. In this case, within seconds of the application throwing the exception we are able to drill into a specific exception and diagnose the issue.
 
-![Unhandled exceptions](./media/batch-monitoring-with-application-insights/Exception.png)
+![Unhandled exceptions](./media/monitor-application-insights/exception.png)
 
-### Measuring blob download time
+### Measure blob download time
 
 Custom metrics are also a valuable tool in the portal. The following image shows how the average time it took each Compute Node to download the required text file it was operating against.
 
-![Blob download time per node](./media/batch-monitoring-with-application-insights/BlobDownloadTime.png)
+![Blob download time per node](./media/monitor-application-insights/blobdownloadtime.png)
 
 To create a chart such as the one above you can:
 1. Open the Metrics blade in your Application Insights account.
@@ -309,7 +302,7 @@ To create a chart such as the one above you can:
 3. Click 'Edit' on the chart that was added.
 4. Update the chart details as shown in the image above.
 
-## Getting performance counters from Compute Nodes when no tasks are running
+## Get performance counters from compute nodes when no tasks are running
 
 You may have noticed that all metrics, including performance counters are only 
 logged when the tasks are running. This behavior is useful because it limits 
@@ -384,3 +377,14 @@ Learn more about [Application Insights](https://docs.microsoft.com/en-us/azure/a
 
 For Application Insights support in other languages look at the 
 [languages, platforms and integrations documentation](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-platforms).
+
+
+[To find out]-------------
+* For App Insights resource, *General* type is recommended?
+* Does it matter what region the App Insights resource is deployed to?
+* Needed to updated packages.config in Microsoft.Azure.Batch.Samples.TelemetryStartTask to specify Microsoft.Application Insights version **2.5.1**
+* Where/how is insightsClient defined
+* App insights instrumentationkey - need to add also to TopNWordsTask.cs
+
+
+2fca7715-0ce0-4730-afe8-ba64de797026
