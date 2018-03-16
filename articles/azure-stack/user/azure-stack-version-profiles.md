@@ -54,10 +54,10 @@ You use role-based access control to manage the actions users in your organizati
 
 | Resource Types | API Versions |
 |---------------------|--------------------|
-| Locks | 2015-01-01 |
+| Locks | 2017-04-01 |
 | Operations | 2015-07-01 |
-| Permissions | 2015-7-01 |
-| Policy Assignments | 2016-12-01 |
+| Permissions | 2015-07-01 |
+| Policy Assignments | 2016-12-01 (2017-06-01-preview) |
 | Policy Definitions | 2016-12-01 |
 | Provider Operations | 2015-07-01-preview |
 | Role Assignments | 2015-07-01 |
@@ -138,7 +138,7 @@ Managing your key vaults as well as the keys, secrets, and certificates within y
 | Locations | 2017-02-01-preview |
 | Locations/quotas | 2017-02-01-preview |
 
-### Microsoft.Network 
+### Microsoft.Network
 
 Operations call result is a representation of available Network cloud operations list. For more information, see [Operation REST API](https://docs.microsoft.com/rest/api/operation/).
 
@@ -165,26 +165,32 @@ Operations call result is a representation of available Network cloud operations
 Azure Resource Manager enables you to deploy and manage the infrastructure for your Azure solutions. You organize related resources in resource groups, and deploy your resources with JSON templates. For an introduction to deploying and managing resources with Resource Manager, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 | Resource Types | API Versions |
-|-----------------------------------------|--------------|
+|-----------------------------------------|-------------------|
 | Application Registrations | 2015-01-01 |
-| Check Resource Name | 2015-01-01 |
+| Check Resource Name | 2015-012016-09-01 |
 | Delegated Providers | 2015-01-01 |
 | Delegated Providers/offers | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
-| Deployments | 2016-02-01 |
-| Deployments/operations | 2016-02-01 |
+| Deployments | 2016-0209-01 |
+| Deployments/operations | 2016-0209-01 |
 | Extensions Metadata | 2015-01-01 |
-| Links | 2015-01-01 |
+| Links | 2015-012016-09-01 |
 | Locations | 2015-01-01 |
 | Offers | 2015-01-01 |
 | Operations | 2015-01-01 |
-| Providers | 2015-01-01 |
-| Resource Groups | 2015-01-01 |
-| Resources | 2015-01-01 |
-| Subscriptions | 2015-01-01 |
-| Subscriptions/location | 2015-01-01 |
-| Subscriptions/operation results | 2015-01-01 |
-| Subscriptions/providers | 2015-01-01 |
+| Providers | 2015-012017-08-01 |
+| Resource Groups | 2015-012016-09-01 |
+| Resources | 2015-012016-09-01 |
+| Subscriptions | 2015-012016-09-01 |
+| Subscriptions/location | 2015-012016-09-01 |
+| Subscriptions/operation results | 2015-012016-09-01 |
+| Subscriptions/providers | 2015-012017-08-01 |
+| Subscriptions/Resource Groups | 2015-012016-09-01 |
+| Subscriptions/resourceGroups/resources | 2015-012016-09-01 |
+| Subscriptions/resources | 2015-012016-09-01 |
+| Subscriptions/tagNames | 2016-0609-01 |
+| Subscriptions/tagNames/tagValues | 2016-0609-01 |
+| Tenants | 2015-012017-08-01 |
 
 ### Microsoft.Storage 
 

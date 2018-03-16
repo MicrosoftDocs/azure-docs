@@ -17,7 +17,7 @@ ms.date: 03/16/2018
 ms.author: mabrigg
 
 ---
-# # Use API version profiles with Azure CLI 2.0 in Azure Stack
+# Use API version profiles with Azure CLI 2.0 in Azure Stack
 
 In this article, we guide you through the process of using the Azure command-line interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
 
