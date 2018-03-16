@@ -31,7 +31,7 @@ Service Fabric manages the lifetime of services, from provisioning and deploymen
 ## What are Reliable Services?
 Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. With the Reliable Services programming model, you get:
 
-* Access to the rest of the Service Fabric programming APIs. Unlike Service Fabric Services modeled as [Guest Executables](service-fabric-deploy-existing-app.md), Reliable Services get to use the rest of the Service Fabric APIs directly. This allows services to:
+* Access to the rest of the Service Fabric programming APIs. Unlike Service Fabric Services modeled as [Guest Executables](service-fabric-guest-executables-introduction.md), Reliable Services get to use the rest of the Service Fabric APIs directly. This allows services to:
   * query the system
   * report health about entities in the cluster
   * receive notifications about configuration and code changes
