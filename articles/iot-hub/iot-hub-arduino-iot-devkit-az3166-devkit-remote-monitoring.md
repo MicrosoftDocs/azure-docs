@@ -1,5 +1,5 @@
 ---
-title: 'IoT DevKit to cloud: Connect IoT DevKit AZ3166 to Azure IoT Hub | Microsoft Docs'
+title: 'IoT DevKit to cloud: Connect IoT MXChip DevKit to Azure IoT Hub | Microsoft Docs'
 description: In this tutorial, learn how to send status of sensors on IoT DevKit AZ3166 to Azure IoT Suite for monitoring and visualization.
 services: iot-hub
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 02/02/2018
 ms.author: liydu
 
 ---
-# Connect IoT DevKit AZ3166 to Azure IoT Suite for remote monitoring
+# Connect MXChip IoT DevKit to Azure IoT Suite for remote monitoring
 
 In this tutorial, you learn how to run a sample app on your DevKit to send sensor data to your Azure IoT Suite.
 
