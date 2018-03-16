@@ -9,7 +9,7 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: rogarana
 ---
 
@@ -193,6 +193,13 @@ If you no longer need the blobs uploaded in this quickstart, you can delete the 
     echo "<br />";
     unlink($fileToUpload);   
 ```
+
+## Resources for developing PHP applications with blobs
+
+See these additional resources for PHP development with Blob storage:
+
+- View, download, and install the [PHP client library source code](https://github.com/Azure/azure-storage-php) for Azure Storage on GitHub.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob) written using the PHP client library.
 
 ## Next steps
  

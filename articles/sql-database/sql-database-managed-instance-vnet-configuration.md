@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ---
@@ -29,7 +29,7 @@ Plan how you deploy a Managed Instance in virtual network using your answers to 
 
    If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify existing virtual network for Managed Instance](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   If you plan to create new virtual network, see [Create new virtual network for Managed Instance](#create-new-virtual-network-for-managed-instances).
+   If you plan to create new virtual network, see [Create new virtual network for Managed Instance](#create-a-new-virtual-network-for-managed-instances).
 
 ## Requirements
 
