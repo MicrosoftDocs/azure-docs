@@ -23,7 +23,7 @@ ms.reviewer:
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-API profiles specify the Azure resource provider and the API version for Azure REST endpoints. You can create custom clients in different languages using the API profiles. Each client uses API profiles to contact the right resource provider and API version for Azure Stack.
+API profiles specify the Azure resource provider and the API version for Azure REST endpoints. You can create custom clients in different languages using API profiles. Each client uses an API profile to contact the right resource provider and API version for Azure Stack.
 
 This topic helps you:
  - Understand API profiles for Azure Stack.
