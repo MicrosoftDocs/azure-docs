@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/07/2018
 ms.author: jingwang
 
 ---
@@ -38,7 +38,7 @@ Specifically, this MongoDB connector supports:
 
 ## Prerequisites
 
-To copy data from a MongoDB database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details. The Integration Runtime provides a built-in MongoDB driver, therefore you don't need to manually install any driver when copying data from/to MongoDB.
+To copy data from a MongoDB database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details. The Integration Runtime provides a built-in MongoDB driver, therefore you don't need to manually install any driver when copying data from MongoDB.
 
 ## Getting started
 
@@ -150,7 +150,7 @@ To copy data from MongoDB, set the source type in the copy activity to **MongoDb
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "MongoDbSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -162,7 +162,7 @@ To copy data from MongoDB, set the source type in the copy activity to **MongoDb
 ```
 
 > [!TIP]
-> When specify the SQL query, pay attention to the DateTime format. For example: `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', <datetime parameter>, <datetime parameter>)`
+> When specify the SQL query, pay attention to the DateTime format. For example: `SELECT * FROM Account WHERE LastModifiedDate >= {{ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')}'}} AND LastModifiedDate < {{ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}'}}`
 
 ## Schema by Data Factory
 

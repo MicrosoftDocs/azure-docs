@@ -2,14 +2,14 @@
 title: Understand features in LUIS apps in Azure | Microsoft Docs
 description: Learn about features, which help improve a LUIS app's performance. Features include phrase lists and patterns for recognizing regular expressions.
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 02/09/2018
-ms.author: v-demak
+ms.author: v-geberr;
 ---
 # Phrase list features in LUIS
 

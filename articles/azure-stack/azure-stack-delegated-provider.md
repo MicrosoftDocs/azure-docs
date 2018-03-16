@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: alfredop
 
@@ -23,7 +23,7 @@ ms.reviewer: alfredop
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 As the Azure Stack operator, you often want to put other people in charge
-of creating offers and signing up users. For example, if you are a service provider, you might want resellers to sign up
+of creating offers and signing up users. For example, if you're a service provider, you might want resellers to sign up
 customers and manage them on your behalf. Or if you're part of a central IT group in an enterprise, you might want subsidiaries to sign up users without your intervention.
 
 Delegation helps you with these tasks by making it possible to reach and manage
@@ -70,8 +70,8 @@ The following sections describe how to establish a delegated provider, delegate 
 ## Set up roles
 
 To see a delegated provider at work, you need additional Azure AD accounts in addition to your Azure Stack operator
-account. If you do not have them, create the two accounts. The accounts
-can belong to any Azure AD user. We refer to them as the delegated
+account. If you do not have these two accounts, create them. The accounts
+can belong to any Azure AD user and are referred to as the delegated
 provider and the user.
 
 | **Role** | **Organizational rights** |
@@ -86,12 +86,9 @@ provider and the user.
    delegated providers:
    
    a.  [Create a plan](azure-stack-create-plan.md).
-       This plan should include only the subscriptions service. In this
-       article, we use a plan called **PlanForDelegation**.
+       This plan should include only the subscriptions service. This article uses a plan called **PlanForDelegation**.
    
-   b.  [Create an offer](azure-stack-create-offer.md)
-       based on this plan. In this article, we use an offer
-       called **OfferToDP**.
+   b.  [Create an offer](azure-stack-create-offer.md) based on this plan. This article uses an offer called **OfferToDP**.
    
    c.  After the creation of the offer is complete, add the delegated provider as a subscriber to this offer. Do this by selecting **Subscriptions** > **Add** > **New Tenant Subscription**.
    
@@ -109,14 +106,9 @@ provider and the user.
 
 ## Azure Stack operator creates the delegated offer
 
-You have now established your delegated provider. The next step is to create the plan and offer that you are going to delegate, and which your customers will use. It's a good idea to define this offer exactly as you want the customers to see it because delegated provider won't be able to change the plans and quotas it includes.
+You have now established your delegated provider. The next step is to create the plan and offer that you are going to delegate, and which your customers will use. It's a good idea to define this offer exactly as you want the customers to see it because the delegated provider can't change the plans and quotas it includes.
 
-1. As an Azure Stack operator, [create a
-   plan](azure-stack-create-plan.md)
-   and [an
-   offer](azure-stack-create-offer.md)
-   based on it. For this article, we use an offer
-   called **DelegatedOffer.**
+1. As an Azure Stack operator, [create a plan](azure-stack-create-plan.md) and [an offer](azure-stack-create-offer.md) based on it. This article uses an offer called **DelegatedOffer.**
    
    > [!NOTE]
    > This offer does not have to be public. If you choose, you can make it public. In most cases, however, you only want delegated providers to have access to it. After you delegate a private offer as described in the following steps, the delegated provider has access to it.
@@ -133,14 +125,14 @@ You have now established your delegated provider. The next step is to create the
 
 ## Delegated provider customizes the offer
 
-Sign in to the user portal as the delegated provider. Then create a new offer by using the delegated offer as a template.
+Sign in to the user portal as the delegated provider and then create a new offer by using the delegated offer as a template.
 
 1. Select **New** > **Tenant Offers + Plans** > **Offer**.
 
     ![Create a new offer](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Assign a name to the offer. Here we choose **ResellerOffer**. Select the delegated offer on which to base it, and then select **Create**.
+1. Assign a name to the offer. This article uses **ResellerOffer**. Select the delegated offer on which to base it, and then select **Create**.
    
    ![Assign a name](media/azure-stack-delegated-provider/image6.png)
 
@@ -151,7 +143,7 @@ Sign in to the user portal as the delegated provider. Then create a new offer by
 
 2. The delegated provider exposes these offers through their own portal URL. These offers are visible only through the delegated portal. To find and change this URL:
    
-    a.  Select **Browse** > **More services** >  **Subscriptions**. Then select the delegated provider subscription. In our case, it's **DPSubscription** > **Properties**.
+    a.  Select **Browse** > **More services** > **Subscriptions**. Then select the delegated provider subscription. For example, **DPSubscription** > **Properties**.
    
     b.  Copy the portal URL to a separate location, such as Notepad.
    
@@ -164,7 +156,7 @@ Sign in to the user portal as the delegated provider. Then create a new offer by
    the previous step. Sign in to the portal as a user. 
    
    >[!NOTE]
-   > Use the delegated portal for this step. The delegated offers are not visible otherwise.
+   >The delegated offers are not visible unless you use the delegated portal. 
 
 2. In the dashboard, select **Get a subscription**. You see that
    only the delegated offers that were created by the delegated provider are presented to the user:

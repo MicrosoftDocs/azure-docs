@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/02/2018
+ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -16,6 +16,7 @@ The [Azure Migrate](migrate-overview.md) services assesses on-premises workloads
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Create an account that Azure Migrate uses to discover on-premises VMs
 > * Create an Azure Migrate project.
 > * Set up an on-premises collector virtual machine (VM), to discover on-premises VMware VMs for assessment.
 > * Group VMs and create an assessment.
@@ -35,16 +36,26 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - **Permissions**: On the vCenter Server, you need permissions to create a VM by importing a file in .OVA format. 
 - **Statistics settings**: The statistics settings for the vCenter Server should be set to level 3 before you start deployment. If lower than level 3, assessment will work, but performance data for storage and network isn't collected. The size recommendations in this case will be done based on performance data for CPU and memory and configuration data for disk and network adapters. 
 
+## Create an account for VM discovery
+
+Azure Migrate needs access to VMware servers to automatically discover VMs for assessment. Create a VMware account with the following properties. You specify this account during Azure Migrate setup.
+
+- User type: At least a read-only user
+- Permissions: Data Center object –> Propagate to Child Object, role=Read-only
+- Details: User assigned at datacenter level, and has access to all the objects in the datacenter.
+- To restrict access, assign the No access role with the Propagate to child object, to the child objects (vSphere hosts, datastores, VMs and networks).
+
 ## Log in to the Azure portal
+
 Log in to the [Azure portal](https://portal.azure.com).
 
 ## Create a project
 
 1. In the Azure portal, click **Create a resource**.
-2. Search for **Azure Migrate**, and select the service **Azure Migrate (preview)** in the search results. Then click **Create**.
+2. Search for **Azure Migrate**, and select the service **Azure Migrate** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
-5. Specify the location in which to create the project, then click **Create**. You can only create an Azure Migrate project in the West Central US region for this preview. However, you can still plan your migration for any target Azure location. The location specified for the project is only used to store the metadata gathered from on-premises VMs. 
+5. Specify the location in which to create the project, then click **Create**. You can only create an Azure Migrate project in the West Central US or East US region. However, you can still plan your migration for any target Azure location. The location specified for the project is only used to store the metadata gathered from on-premises VMs. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -69,7 +80,23 @@ Check that the .OVA file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. The generated hash should match these settings.
-    
+
+	For OVA version 1.0.9.5
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+	
+	For OVA version 1.0.9.2
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+	
     For OVA version 1.0.8.59
 
     **Algorithm** | **Hash value**

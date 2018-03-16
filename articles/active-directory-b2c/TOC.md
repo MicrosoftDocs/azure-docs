@@ -1,3 +1,5 @@
+# [Azure AD B2C Documentation](index.md)
+
 # [Overview](active-directory-b2c-overview.md)
 
 # Get started
@@ -59,6 +61,7 @@
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
 ## [Use the reporting API](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Migrate users](active-directory-b2c-user-migration.md)
+## [Migrate social identities](active-directory-b2c-social-migration.md)
 
 # Identity Experience Framework
 ## [Custom policies](active-directory-b2c-overview-custom.md)

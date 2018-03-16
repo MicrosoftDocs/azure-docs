@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ---
@@ -40,7 +40,7 @@ As you decide what content to include in your Azure Stack marketplace, you shoul
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Select the item you want in the list and then click **Download**. This starts downloading the VM image for the item you selected. Download times vary.
+5. Select the item you want in the list and then click **Download**. The VM image for the item you selected starts to download. Download times vary.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -58,7 +58,7 @@ From the machine that has internet connectivity, use the following steps to down
 
 1. Open a PowerShell console as an administrator and [install Azure Stack specific PowerShell modules](azure-stack-powershell-install.md). Make sure that you install **PowerShell version 1.2.11 or higher**.  
 
-2. Add the Azure account that you have used to register Azure Stack. To do this, run the **Add-AzureRmAccount** cmdlet without any parameters. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.  
+2. Add the Azure account that you have used to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet without any parameters. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.  
 
 3. If you have multiple subscriptions, run the following command to select the one you have used for registration:  
 
@@ -71,16 +71,17 @@ From the machine that has internet connectivity, use the following steps to down
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -90,7 +91,7 @@ From the machine that has internet connectivity, use the following steps to down
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -99,15 +100,17 @@ From the machine that has internet connectivity, use the following steps to down
 
    ![Azure Marketplace items popup](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Select the image that you want to download (you can select multiple images by holding the Ctrl key) and make a note of the image version, you will use this version to import the image in next section > click **Ok** > accept the legal terms by clicking on **Yes**. You can also filter the list of images by using the **Add criteria** option. The download takes a while depending on the size of the image. Once the image downloads, it is available in the destination path that you provided earlier. The download contains the VHD file and gallery items in the Azpkg format.  
+7. Select the image that you want to download and make a note of the image version. You can select multiple images by holding the Ctrl key. You use the image version to import the image in next section.  Next, click **Ok**, and then accept the legal terms by clicking on **Yes**. You can also filter the list of images by using the **Add criteria** option. 
+
+   The download takes a while depending on the size of the image. Once the image downloads, it's available in the destination path that you provided earlier. The download contains the VHD file and gallery items in the Azpkg format.
 
 ### Import the image and publish it to Azure Stack marketplace
 
-1. After you download the image & gallery package, save them and the contents in AzureStack-Tools-vnext folder to a removable disk drive and copy it to the Azure Stack environment (you can copy it to locally to any location such as: "C:\MarketplaceImages".)   
+1. After you download the image and gallery package, save them and the contents in AzureStack-Tools-master folder to a removable disk drive and copy it to the Azure Stack environment (you can copy it locally to any location such as: "C:\MarketplaceImages").     
 
 2. Before importing the image, you must connect to the Azure Stack operator’s environment by using the steps described in [configure Azure Stack operator’s PowerShell environment](azure-stack-powershell-configure-admin.md).  
 
-3. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the publisher, offer, and other parameter values with the values of the image that you are importing. You can get the “publisher”, “offer” and “sku” values of the image from the imageReference object of the Azpkg file that you downloaded earlier and the “version” value from step 6 in the previous section.
+3. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. You can get the *publisher*, *offer*, and *sku* values of the image from the imageReference object of the Azpkg file that you downloaded earlier and the *version* value from step 6 in the previous section.
 
    ```json
    "imageReference": {
@@ -127,8 +130,8 @@ From the machine that has internet connectivity, use the following steps to down
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```

@@ -50,7 +50,7 @@
   - name: Log Search
     items:
        - name: Log searches overview
-         href: log-analytics-log-search-new.md   
+         href: log-analytics-log-search.md   
        - name: Log Search portals
          href: log-analytics-log-search-portals.md   
 - name: How-to guides
@@ -107,7 +107,7 @@
       href: https://docs.loganalytics.io
     - name: Transition from legacy language
       href: log-analytics-log-search-transition.md
-    - name: Cross-workspace searches
+    - name: Cross-resource searches
       href: log-analytics-cross-workspace-search.md
     - name: Take action from search results
       href: log-analytics-log-search-takeaction.md
@@ -117,20 +117,6 @@
       href: log-analytics-flow-tutorial.md
     - name: Log Search API
       href: https://dev.loganalytics.io/
-  - name: Legacy log search
-    items:
-    - name: Log searches overview
-      href: log-analytics-log-searches.md
-    - name: Search reference
-      href: log-analytics-search-reference.md
-      items:
-      - name: Regular expressions
-        href: log-analytics-log-searches-regex.md
-    - name: Log Search API
-      href: log-analytics-log-search-api.md
-      items:
-      - name: Python
-        href: log-analytics-log-search-api-python.md
   - name: Analyze data
     items:
     - name: Dashboards

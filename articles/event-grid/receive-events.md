@@ -26,18 +26,19 @@ This article describes how to [validate an HTTP endpoint](security-authenticatio
 
 If you are developing in .Net, [add a dependency](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) to your function for the `Microsoft.Azure.EventGrid` [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). SDKs for other languages are available via the [Publish SDKs](./sdk-overview.md#publish-sdks) reference. These packages contain the models for native event types such as `EventGridEvent`, `StorageBlobCreatedEventData`, and `EventHubCaptureFileCreatedEventData`.
 
-To do this, click on the "View Files" link in your Azure Function (right most pane in the Azure functions portal), and create a file called project.json. Add the following contents to the `project.json` file and save it: 
- 
+To do this, click on the "View Files" link in your Azure Function (right most pane in the Azure functions portal), and create a file called project.json. Add the following contents to the `project.json` file and save it:
+
  ```json
-{ 
-  "frameworks": { 
-    "net46":{ 
-      "dependencies": { 
-        "Microsoft.Azure.EventGrid": "1.1.0-preview" 
-      } 
-    } 
-   } 
-} 
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.Azure.EventGrid": "1.1.0-preview"
+      }
+    }
+   }
+}
+
 ```
 
 ![Added Nuget package](./media/receive-events/add-dependencies.png)
@@ -49,54 +50,56 @@ The first thing we want to do is handle `Microsoft.EventGrid.SubscriptionValidat
 Use the following code to handle subscription validation:
 
 ```csharp
-using System.Net; 
-using Newtonsoft.Json; 
-using Newtonsoft.Json.Linq; 
-using Newtonsoft.Json.Serialization; 
-using Microsoft.Azure.EventGrid.Models; 
- 
-class SubscriptionValidationEventData 
-{ 
-    public string ValidationCode { get; set; } 
-} 
- 
-class SubscriptionValidationResponseData 
-{ 
-    public string ValidationResponse { get; set; } 
-} 
- 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log) 
-{ 
 
-    log.Info($"C# HTTP trigger function begun");  
-    string response = string.Empty; 
-    const string SubscriptionValidationEvent = "Microsoft.EventGrid.SubscriptionValidationEvent"; 
- 
-    string requestContent = await req.Content.ReadAsStringAsync(); 
-    EventGridEvent[] eventGridEvents = JsonConvert.DeserializeObject<EventGridEvent[]>(requestContent); 
- 
-    foreach (EventGridEvent eventGridEvent in eventGridEvents) 
-    { 
-        JObject dataObject = eventGridEvent.Data as JObject; 
-       
-        // Deserialize the event data into the appropriate type based on event type 
-        if (string.Equals(eventGridEvent.EventType, SubscriptionValidationEvent, StringComparison.OrdinalIgnoreCase)) 
-        { 
-            var eventData = dataObject.ToObject<SubscriptionValidationEventData>(); 
-            log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}"); 
-            // Do any additional validation (as required) and then return back the below response 
-            var responseData = new SubscriptionValidationResponseData(); 
-            responseData.ValidationResponse = eventData.ValidationCode; 
-            return req.CreateResponse(HttpStatusCode.OK, responseData);    
-        }             
-    } 
-     
-    return req.CreateResponse(HttpStatusCode.OK, response);     
-} 
+using System.Net;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
+using Microsoft.Azure.EventGrid.Models;
+
+class SubscriptionValidationEventData
+{
+    public string ValidationCode { get; set; }
+}
+
+class SubscriptionValidationResponseData
+{
+    public string ValidationResponse { get; set; }
+}
+
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+{
+
+    log.Info($"C# HTTP trigger function begun");
+    string response = string.Empty;
+    const string SubscriptionValidationEvent = "Microsoft.EventGrid.SubscriptionValidationEvent";
+
+    string requestContent = await req.Content.ReadAsStringAsync();
+    EventGridEvent[] eventGridEvents = JsonConvert.DeserializeObject<EventGridEvent[]>(requestContent);
+
+    foreach (EventGridEvent eventGridEvent in eventGridEvents)
+    {
+        JObject dataObject = eventGridEvent.Data as JObject;
+
+        // Deserialize the event data into the appropriate type based on event type
+        if (string.Equals(eventGridEvent.EventType, SubscriptionValidationEvent, StringComparison.OrdinalIgnoreCase))
+        {
+            var eventData = dataObject.ToObject<SubscriptionValidationEventData>();
+            log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
+            // Do any additional validation (as required) and then return back the below response
+            var responseData = new SubscriptionValidationResponseData();
+            responseData.ValidationResponse = eventData.ValidationCode;
+            return req.CreateResponse(HttpStatusCode.OK, responseData);
+        }
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK, response);
+}
 
 ```
 
 ```javascript
+
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -105,7 +108,7 @@ module.exports = function (context, req) {
 
     for (var events in req.body) {
         var body = req.body[events];
-        // Deserialize the event data into the appropriate type based on event type  
+        // Deserialize the event data into the appropriate type based on event type
         if (body.data && body.eventType == validationEventType) {
             context.log("Got SubscriptionValidation event data, validation code: " + body.data.validationCode + " topic: " + body.topic);
 
@@ -115,7 +118,8 @@ module.exports = function (context, req) {
         }
     }
     context.done();
-}; 
+};
+
 ```
 
 ### Test validation response
@@ -123,6 +127,7 @@ module.exports = function (context, req) {
 Test the validation response function by pasting the sample event into the test field for the function:
 
 ```json
+
 [{
   "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -135,6 +140,7 @@ Test the validation response function by pasting the sample event into the test 
   "metadataVersion": "1",
   "dataVersion": "1"
 }]
+
 ```
 
 When you click Run, the Output should be 200 OK and `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in the body:
@@ -146,62 +152,63 @@ When you click Run, the Output should be 200 OK and `{"ValidationResponse":"512d
 We can now extend the function to handle `Microsoft.Storage.BlobCreated`:
 
 ```cs
-using System.Net; 
-using Newtonsoft.Json; 
-using Newtonsoft.Json.Linq; 
-using Newtonsoft.Json.Serialization; 
-using Microsoft.Azure.EventGrid.Models; 
- 
-class SubscriptionValidationEventData 
-{ 
-    public string ValidationCode { get; set; } 
-} 
- 
-class SubscriptionValidationResponseData 
-{ 
-    public string ValidationResponse { get; set; } 
-} 
- 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log) 
-{ 
-    log.Info($"C# HTTP trigger function begun");  
-    string response = string.Empty; 
+
+using System.Net;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
+using Microsoft.Azure.EventGrid.Models;
+
+class SubscriptionValidationEventData
+{
+    public string ValidationCode { get; set; }
+}
+
+class SubscriptionValidationResponseData
+{
+    public string ValidationResponse { get; set; }
+}
+
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+{
+    log.Info($"C# HTTP trigger function begun");
+    string response = string.Empty;
     const string SubscriptionValidationEvent = "Microsoft.EventGrid.SubscriptionValidationEvent";
-    const string StorageBlobCreatedEvent = "Microsoft.Storage.BlobCreated"; 
- 
- 
-    string requestContent = await req.Content.ReadAsStringAsync(); 
-    EventGridEvent[] eventGridEvents = JsonConvert.DeserializeObject<EventGridEvent[]>(requestContent); 
- 
-    foreach (EventGridEvent eventGridEvent in eventGridEvents) 
-    { 
-        JObject dataObject = eventGridEvent.Data as JObject; 
-       
+    const string StorageBlobCreatedEvent = "Microsoft.Storage.BlobCreated";
+
+    string requestContent = await req.Content.ReadAsStringAsync();
+    EventGridEvent[] eventGridEvents = JsonConvert.DeserializeObject<EventGridEvent[]>(requestContent);
+
+    foreach (EventGridEvent eventGridEvent in eventGridEvents)
+    {
+        JObject dataObject = eventGridEvent.Data as JObject;
+
         // Deserialize the event data into the appropriate type based on event type 
-        if (string.Equals(eventGridEvent.EventType, SubscriptionValidationEvent, StringComparison.OrdinalIgnoreCase)) 
-        { 
-            var eventData = dataObject.ToObject<SubscriptionValidationEventData>(); 
+        if (string.Equals(eventGridEvent.EventType, SubscriptionValidationEvent, StringComparison.OrdinalIgnoreCase))
+        {
+            var eventData = dataObject.ToObject<SubscriptionValidationEventData>();
             log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
 
-            // Do any additional validation (as required) and then return back the below response 
-            var responseData = new SubscriptionValidationResponseData(); 
-            responseData.ValidationResponse = eventData.ValidationCode; 
-            return req.CreateResponse(HttpStatusCode.OK, responseData);    
+            // Do any additional validation (as required) and then return back the below response
+            var responseData = new SubscriptionValidationResponseData();
+            responseData.ValidationResponse = eventData.ValidationCode;
+            return req.CreateResponse(HttpStatusCode.OK, responseData);
         }
 
-        else if (string.Equals(eventGridEvent.EventType, StorageBlobCreatedEvent, StringComparison.OrdinalIgnoreCase)) 
-        { 
-            var eventData = dataObject.ToObject<StorageBlobCreatedEventData>(); 
-            log.Info($"Got BlobCreated event data, blob URI {eventData.Url}"); 
-        }    
-    } 
-     
-    return req.CreateResponse(HttpStatusCode.OK, response);     
+        else if (string.Equals(eventGridEvent.EventType, StorageBlobCreatedEvent, StringComparison.OrdinalIgnoreCase))
+        {
+            var eventData = dataObject.ToObject<StorageBlobCreatedEventData>();
+            log.Info($"Got BlobCreated event data, blob URI {eventData.Url}");
+        }
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK, response);
 }
 
 ```
 
 ```javascript
+
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -227,6 +234,7 @@ module.exports = function (context, req) {
     }
     context.done();
 };
+
 ```
 
 ### Test Blob Created event handling
@@ -234,6 +242,7 @@ module.exports = function (context, req) {
 Test the new functionality of the function by putting a [Blob storage event](./event-schema-blob-storage.md#example-event) into the test field and running:
 
 ```json
+
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
   "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
@@ -273,75 +282,76 @@ You can also test this out live by creating a Blob storage account or General Pu
 Finally, lets extend the function once more so that it can also handle custom events. We add a check for our own event `Contoso.Items.ItemReceived`. Your final code should look like this:
 
 ```cs
-using System.Net; 
-using Newtonsoft.Json; 
-using Newtonsoft.Json.Linq; 
-using Newtonsoft.Json.Serialization; 
-using Microsoft.Azure.EventGrid.Models; 
- 
-class SubscriptionValidationEventData 
-{ 
-    public string ValidationCode { get; set; } 
-} 
- 
-class SubscriptionValidationResponseData 
-{ 
-    public string ValidationResponse { get; set; } 
-} 
 
-class ContosoItemReceivedEventData 
-{ 
-    public string id { get; set; }     
-    public string message { get; set; }   
+using System.Net;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
+using Microsoft.Azure.EventGrid.Models;
+
+class SubscriptionValidationEventData
+{
+    public string ValidationCode { get; set; }
+}
+
+class SubscriptionValidationResponseData
+{
+    public string ValidationResponse { get; set; }
+}
+
+class ContosoItemReceivedEventData
+{
+    public string id { get; set; }
+    public string message { get; set; }
     public string time { get; set; }
-} 
- 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log) 
-{ 
+}
+
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+{
     log.Info($"C# HTTP trigger function begun");
-    string response = string.Empty; 
+    string response = string.Empty;
     const string SubscriptionValidationEvent = "Microsoft.EventGrid.SubscriptionValidationEvent";
-    const string StorageBlobCreatedEvent = "Microsoft.Storage.BlobCreated"; 
+    const string StorageBlobCreatedEvent = "Microsoft.Storage.BlobCreated";
     const string CustomTopicEvent = "Contoso.Items.ItemReceived";
- 
- 
-    string requestContent = await req.Content.ReadAsStringAsync(); 
-    EventGridEvent[] eventGridEvents = JsonConvert.DeserializeObject<EventGridEvent[]>(requestContent); 
- 
-    foreach (EventGridEvent eventGridEvent in eventGridEvents) 
-    { 
-        JObject dataObject = eventGridEvent.Data as JObject; 
-       
-        // Deserialize the event data into the appropriate type based on event type 
-        if (string.Equals(eventGridEvent.EventType, SubscriptionValidationEvent, StringComparison.OrdinalIgnoreCase)) 
-        { 
-            var eventData = dataObject.ToObject<SubscriptionValidationEventData>(); 
-            log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}"); 
-            // Do any additional validation (as required) and then return back the below response 
-            var responseData = new SubscriptionValidationResponseData(); 
-            responseData.ValidationResponse = eventData.ValidationCode; 
-            return req.CreateResponse(HttpStatusCode.OK, responseData);    
+
+    string requestContent = await req.Content.ReadAsStringAsync();
+    EventGridEvent[] eventGridEvents = JsonConvert.DeserializeObject<EventGridEvent[]>(requestContent);
+
+    foreach (EventGridEvent eventGridEvent in eventGridEvents)
+    {
+        JObject dataObject = eventGridEvent.Data as JObject;
+
+        // Deserialize the event data into the appropriate type based on event type
+        if (string.Equals(eventGridEvent.EventType, SubscriptionValidationEvent, StringComparison.OrdinalIgnoreCase))
+        {
+            var eventData = dataObject.ToObject<SubscriptionValidationEventData>();
+            log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
+            // Do any additional validation (as required) and then return back the below response
+            var responseData = new SubscriptionValidationResponseData();
+            responseData.ValidationResponse = eventData.ValidationCode;
+            return req.CreateResponse(HttpStatusCode.OK, responseData);
         }
 
-        else if (string.Equals(eventGridEvent.EventType, StorageBlobCreatedEvent, StringComparison.OrdinalIgnoreCase)) 
-        { 
-            var eventData = dataObject.ToObject<StorageBlobCreatedEventData>(); 
-            log.Info($"Got BlobCreated event data, blob URI {eventData.Url}"); 
+        else if (string.Equals(eventGridEvent.EventType, StorageBlobCreatedEvent, StringComparison.OrdinalIgnoreCase))
+        {
+            var eventData = dataObject.ToObject<StorageBlobCreatedEventData>();
+            log.Info($"Got BlobCreated event data, blob URI {eventData.Url}");
         }
 
-        else if (string.Equals(eventGridEvent.EventType, CustomTopicEvent, StringComparison.OrdinalIgnoreCase)) 
-        { 
-            var eventData = dataObject.ToObject<ContosoItemReceivedEventData>(); 
-            log.Info($"Got ContosoItemReceived event data, item URI {eventData.id}"); 
-        } 
-    } 
-     
-    return req.CreateResponse(HttpStatusCode.OK, response);     
+        else if (string.Equals(eventGridEvent.EventType, CustomTopicEvent, StringComparison.OrdinalIgnoreCase))
+        {
+            var eventData = dataObject.ToObject<ContosoItemReceivedEventData>();
+            log.Info($"Got ContosoItemReceived event data, item URI {eventData.id}");
+        }
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK, response);
 }
 
 ```
 
 ```javascript
+
 var http = require('http');
 var t = require('tcomb');
 
@@ -358,7 +368,7 @@ module.exports = function (context, req) {
 
     for (var events in req.body) {
         var body = req.body[events];
-        // Deserialize the event data into the appropriate type based on event type  
+        // Deserialize the event data into the appropriate type based on event type
         if (body.data && body.eventType == validationEventType) {
             context.log("Got SubscriptionValidation event data, validation code: " + body.data.validationCode + " topic: " + body.topic);
 
@@ -380,6 +390,7 @@ module.exports = function (context, req) {
     }
     context.done();
 };
+
 ```
 
 ### Test custom event handling
@@ -387,19 +398,21 @@ module.exports = function (context, req) {
 Finally, test that your extented function can now handle your custom event type:
 
 ```json
+
 [{
-	"subject": "Contoso/foo/bar/items",
-	"eventType": "Microsoft.EventGrid.CustomEventType",
-	"eventTime": "2017-08-16T01:57:26.005121Z",
-	"id": "602a88ef-0001-00e6-1233-1646070610ea",
-	"data": { 
-			"id": "831e1650-001e-001b-66ab-eeb76e069631",
-			"message": "Contoso item Foo",
-			"time": "2017-06-26T18:41:00.9584103Z"
-		    },
-	"dataVersion": "",
-	"metadataVersion": "1"
+    "subject": "Contoso/foo/bar/items",
+    "eventType": "Microsoft.EventGrid.CustomEventType",
+    "eventTime": "2017-08-16T01:57:26.005121Z",
+    "id": "602a88ef-0001-00e6-1233-1646070610ea",
+    "data": { 
+            "id": "831e1650-001e-001b-66ab-eeb76e069631",
+            "message": "Contoso item Foo",
+            "time": "2017-06-26T18:41:00.9584103Z"
+            },
+    "dataVersion": "",
+    "metadataVersion": "1"
 }]
+
 ```
 
 You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Create a custom topic and an event subscription with the endpoint set as the Function URL.

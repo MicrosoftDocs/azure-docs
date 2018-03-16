@@ -77,7 +77,7 @@ In all the other cases, no intermediate step is not required, and failover takes
 We recommended that for test failover, you choose a network that's isolated from the production recovery site network specific in the  **Compute and Network** settings for each VM. By default, when you create an Azure virtual network, it is isolated from other networks. The test network should mimic your production network:
 
 - The test network should have same number of subnets as your production network. Subnets should have the same names.
-- The test network should use the same IP address rangek.
+- The test network should use the same IP address range.
 - Update the DNS of the test network with the IP address specified for the DNS VM in **Compute and Network** settings. Read [test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations) for more details.
 
 
@@ -85,7 +85,7 @@ We recommended that for test failover, you choose a network that's isolated from
 
 Although we recommended that you use a test network separate from your production network, if you do want to test a disaster recovery drill into your production network, note the following: 
 
-- Make sure that the primary VM is shut down when you run the test failover. Otherewise there will be two VMs with the same identity,  running in the same network at the same time. This can lead to unexpected consequences.
+- Make sure that the primary VM is shut down when you run the test failover. Otherwise there will be two VMs with the same identity,  running in the same network at the same time. This can lead to unexpected consequences.
 - Any changes to VMs created for test failover are lost when you clean up the failover. These changes are not replicated back to the primary VM.
 - Testing in your production environment leads to a downtime of your production application. Users shouldn't use apps running on VMs when the test failover is in progress.  
 

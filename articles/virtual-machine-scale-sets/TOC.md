@@ -1,3 +1,5 @@
+# [Virtual Machines Scale Sets Documentation](index.md)
+
 # Overview
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
@@ -12,6 +14,7 @@
 # How To
 ## Plan and design
 ### [Design considerations](virtual-machine-scale-sets-design-overview.md)
+### [Understand instance IDs](virtual-machine-scale-sets-instance-ids.md)
 
 ## Create a template
 ### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)
@@ -35,6 +38,7 @@
 #### [Use the Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Work with large scale sets](virtual-machine-scale-sets-placement-groups.md)
 ### [Convert a scale set template to use managed disk](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Use low-priority](virtual-machine-scale-sets-use-low-priority.md)
 
 ## Manage
 ### Common management tasks

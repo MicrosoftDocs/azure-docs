@@ -2,14 +2,14 @@
 title: Use prebuilt domains in LUIS apps in Azure | Microsoft Docs
 description: Learn how to use prebuilt domains in Language Understanding Intelligent Service (LUIS) applications.
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-demak
+ms.author: v-geberr;
 ---
 
 # Use prebuilt domains in LUIS apps  

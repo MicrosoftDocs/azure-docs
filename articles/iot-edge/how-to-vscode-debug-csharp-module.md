@@ -45,7 +45,7 @@ After you finish the preceding tutorial, you should have the following items rea
 
 2. In `launch.json`, browse to the **Debug IoT Edge Custom Module (.NET Core)** section. Under **pipeArgs**, fill in the `<container_name>`. It should be `filtermodule` in this tutorial.
 
-    ![Screenshot of VS Code debug window](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Screenshot of VS Code launch.json](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. Browse to **Program.cs**. Add a breakpoint in the `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Press **F5** again, and select the process to attach to. In this tutorial, the process name should be `FilterModule.dll`.

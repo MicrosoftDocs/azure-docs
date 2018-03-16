@@ -1,3 +1,5 @@
+# [VPN Gateway Documentation](index.md)
+
 # Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
@@ -18,6 +20,8 @@
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
+
+## [Download VPN device configuration scripts](vpn-gateway-download-vpndevicescript.md)
 
 ## Configure Point-to-Site connections - native Azure certificate authentication
 ### Configure a P2S VPN

@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Transfer objects to/from Azure Blob storage using Azure Storage Explorer | Microsoft Docs
-description: Quickly learn to transfer objects to/from Azure Blob storage using Azure Storage Explorer
+title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Azure Storage Explorer | Microsoft Docs
+description: In this quickstart, you use Azure Storage Explorer to create a storage account and a container. Then you use Storage Explorer to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,11 +8,11 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
 ---
 
-# Transfer objects to/from Azure Blob storage using Azure Storage Explorer
+# Quickstart: Upload, download, and list blobs using Azure Storage Explorer
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a multi platform user interface used to manager the contents of your storage accounts. This guide details using Azure Storage Explorer to transfer files between a local disk and Azure Blob storage.
 

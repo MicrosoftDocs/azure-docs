@@ -33,6 +33,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## <a name="ide"></a> Step 1: Add the Application Insights SDK
 
+> [!IMPORTANT]
+> The process to add Application Insights varies by ASP.NET template type. If you are using the **Empty** or **Azure Mobile App** template select **Project** > **Add Application Insights Telemetry**. For all other ASP.NET templates consult the instructions below. 
+
 Right-click your web app name in the Solution Explorer, and choose **Configure Application Insights**
 
 ![Screenshot of Solution Explorer, with Configure Application Insights highlighted](./media/app-insights-asp-net/0001-configure-application-insights.png)

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
 ---
 
 
 # Organize your resources with Azure Management Groups 
 
-If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. These containers give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.  
+If you have multiple subscriptions, you can organize them into containers called “management groups" to help you manage access, policy, and compliance across your subscriptions. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.  
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section. 
 
@@ -66,10 +66,10 @@ While any [built-in RBAC role](../active-directory/role-based-access-control-wha
 
 
 ## Next steps 
-To Learn more about management groups, see: 
+To learn more about management groups, see: 
 - [Create management groups to organize Azure resources](management-groups-create.md)
 - [How to change, delete, or manage your management groups](management-groups-manage.md)
-- [Install the Azure Powershell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
+- [Install the Azure PowerShell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Install the Azure CLI Extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Install the Azure CLI extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
 

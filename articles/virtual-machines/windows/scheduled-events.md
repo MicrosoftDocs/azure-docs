@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 02/22/2018
 ms.author: ericrad
 
 ---
@@ -24,7 +24,8 @@ Scheduled Events is an Azure Metadata Service that gives your application time t
 
 For information about Scheduled Events on Linux, see [Scheduled Events for Linux VMs](../linux/scheduled-events.md).
 
-[!IMPORTANT] Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
+> [!Note] 
+> Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
 
 ## Why Scheduled Events?
 
