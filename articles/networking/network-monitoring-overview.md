@@ -90,6 +90,7 @@ Traffic Analytics is a cloud-based solution that provides  visibility into user 
 * Top talkers, chatty applications, VM conversations in the cloud, traffic hotspots
 * Sources and destinations of traffic across VNETs, inter-relationships between critical business services and applications
 * Security – malicious traffic, ports open to the Internet,  applications or VMs attempting Internet access…
+* Capacity utilization and helps you eliminate issues of over-provisioning or underutilization by monitoring utilization trends of VPN gateways and other services
 
 Traffic Analytics equips you with actionable information that helps you audit your organization’s network activity, secure applications and data,  optimize workload performance and stay compliant.
 
