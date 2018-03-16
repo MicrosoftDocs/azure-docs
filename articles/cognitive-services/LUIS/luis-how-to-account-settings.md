@@ -24,7 +24,7 @@ This single, region-specific authoring key, on the **Settings** page, allows you
 The authoring key is used for any apps you own as well as any apps you are listed as a collaborator.
 
 ## Authoring key regions
-The authoring key is specific to the [authoring region](luis-reference-region.md#publishing-regions). The key does not work in a different region. 
+The authoring key is specific to the [authoring region](luis-reference-regions.md#publishing-regions). The key does not work in a different region. 
 
 ## Reset authoring key
 If your authoring key is compromised, reset the key. The key is reset on all your apps in the [LUIS] website. If you author your apps via the authoring APIs, you need to change the value of `Ocp-Apim-Subscription-Key` to the new key. 
