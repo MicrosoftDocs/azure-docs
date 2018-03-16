@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -32,6 +32,8 @@ Before you can enable and use Application Proxy services, you need to have:
   * For single sign-on to your published applications using Kerberos Constrained Delegation, this machine should be domain-joined in the same AD domain as the applications that you are publishing. For information, see [KCD for single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md).
 
 If your organization uses proxy servers to connect to the internet, read [Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md) for details on how to configure them before you get started with Application Proxy.
+
+If you want to use applications with websockets, you should consider testing them using the public preview of the [connectors with websocket support](https://aka.ms/appproxywebsocketsconnector).
 
 ## Open your ports
 
