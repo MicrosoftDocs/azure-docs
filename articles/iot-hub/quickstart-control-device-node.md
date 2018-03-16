@@ -105,7 +105,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md), you can skip this step.
 
-Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstarts/archive/master.zip and extract the ZIP archive.
+Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstarts-node/archive/master.zip and extract the ZIP archive.
 
 ## Run the simulated device application
 

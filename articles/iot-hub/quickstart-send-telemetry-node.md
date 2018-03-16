@@ -101,7 +101,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Download the sample
 
-Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstarts/archive/master.zip and extract the ZIP archive.
+Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstarts-node/archive/master.zip and extract the ZIP archive.
 
 ## Run the simulated device application
 
