@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -20,13 +20,14 @@ The top-level resource in Azure Container Instances is the *container group*. Th
 
 A container group is a collection of containers that get scheduled on the same host machine. The containers in a container group share a lifecycle, local network, and storage volumes. It is similar to the concept of a *pod* in [Kubernetes][kubernetes-pod] and [DC/OS][dcos-pod].
 
-The following diagram shows an example of a container group that includes multiple containers.
+The following diagram shows an example of a container group that includes multiple containers:
 
 ![Container groups diagram][container-groups-example]
 
 This example container group:
 
 * Is scheduled on a single host machine.
+* Is assigned a DNS name label.
 * Exposes a single public IP address, with one exposed port.
 * Consists of two containers. One container listens on port 80, while the other listens on port 5000.
 * Includes two Azure file shares as volume mounts, and each container mounts one of the shares locally.
@@ -48,7 +49,7 @@ You can specify external volumes to mount within a container group. You can map 
 
 ## Common scenarios
 
-Multi-container groups are useful in cases where you want to divide up a single functional task into a small number of container images, which can be delivered by different teams and have separate resource requirements.
+Multi-container groups are useful in cases where you want to divide a single functional task into a small number of container images. These images can then be delivered by different teams and have separate resource requirements.
 
 Example usage could include:
 
