@@ -1,19 +1,13 @@
 ---
 title: Release notes for the Azure File Sync agent (preview) | Microsoft Docs
-description: Release notes for the Azure File Sync agent (preview)
+description: Release notes for the Azure File Sync agent (preview).
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: tamram
+manager: jeconnoc
 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.topic: article
+ms.date: 03/12/2018
 ms.author: wgries
 ---
 
@@ -25,14 +19,25 @@ This article provides the release notes for the supported versions of the Azure 
 ## Supported versions
 The following versions are supported for the Azure File Sync agent:
 
-| Version | Release date | Support end date |
-|---------|--------------|------------------|
-| 2.1.0.0 | February 28, 2018 | Current version |
-| 2.0.11.0 | February 8, 2018 | Current version |
-| 1.1.0.0 | September 26, 2017 | July 30, 2018 |
+| Milestone | Agent version number | Release date | Status |
+|----|----------------------|--------------|------------------|
+| March update rollup | 2.2.0.0 | March 12, 2018 | Supported (recommended version) |
+| February update rollup | 2.1.0.0 | February 28, 2018 | Supported |
+| Refresh 1 | 2.0.11.0 | February 8, 2018 | Supported |
+| January update rollup | 1.4.0.0 | January 8, 2018 | Supported until May 8, 2018<sup>1</sup> |
+| November update rollup | 1.3.0.0 | November 30, 2017 | Supported until May 8, 2018<sup>1</sup> |
+| October update rollup | 1.2.0.0 | October 31, 2017 | Supported until May 8, 2018<sup>1</sup> |
+| Initial preview release | 1.1.0.0 | September 26, 2017 | Supported until May 8, 2018<sup>1</sup> |
+
+\[1\]: Releases of the Azure File Sync agent during preview intentionally do not conform to the update policy. The update policy will be enforced starting with the first agent release after Azure File Sync is declared generally available.
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 2.2.0.0
+The following release notes are for version 2.2.0.0 of the Azure File Sync agent released March 12th, 2018.  These notes are in addition to the release notes listed for version 2.1.0.0 and 2.0.11.0
+
+Installation of v2.1.0.0 for some customers would fail due to the FileSyncSvc not stopping. This update fixes that issue.
 
 ## Agent version 2.1.0.0
 The following release notes are for version 2.1.0.0 of the Azure File Sync agent released February 28, 2018. These notes are in addition to the release notes listed for version 2.0.11.0.
