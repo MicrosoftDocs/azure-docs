@@ -33,7 +33,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Windows VM
+    - name: Windows VM
       - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Access Azure Resource Manager</a>
 
 - title: Step-by-Step Tutorials
