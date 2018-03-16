@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/20/2018
 ms.author: tamram
 ms.custom: mvc
 ---
@@ -92,6 +92,11 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 ```bash
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
+
+# [Java] (#tab/java)
+[Download the sample project](linkhere) and extract the storage-java-ragrs.zip file.
+
+
 ---
 
 
@@ -131,6 +136,11 @@ In the sample code, the `run_circuit_breaker` method in the `circuitbreaker.py` 
 The Storage object retry function is set to a linear retry policy. The retry function determines whether to retry a request, and specifies the number of seconds to wait before retrying the request. Set the **retry\_to\_secondary** value to true, if request should be retried to secondary in case the initial request to primary fails. In the sample application, a custom retry policy is defined in the `retry_callback` function of the storage object.
  
 Prior to the download, the Service object [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.  
+
+# [Java] (#tab/java)
+To run the application on a terminal or command prompt, open one which is scoped to the directory that you downloaded the code at earlier. Then enter `mvn compile java`. The application uploads the **HelloWorld.png** image from the directory to your storage account. The application checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Then it begins downloading the image. Outputting which endpoint it is reading from with each download.
+
+The Storage object retry function is set to use a linear retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. The application will automatically switch between secondary and primary as it fails or succeeds since the **LocationMode** is set to **PRIMARY\_THEN\_SECONDARY**.
 
 ---
 
@@ -188,6 +198,10 @@ def retry_callback(retry_context):
                             "Check your application's network connection.")
 ```
 
+# [Java] (#tab/java)
+
+With Java defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. Since it will automatically switch back to Primary for you when it is reachable
+
 ---
 
 
@@ -230,6 +244,9 @@ def response_callback(response):
             blob_client.location_mode = LocationMode.PRIMARY
             secondary_read_count = 0
 ```
+# [Java] (#tab/java)
+
+With Java defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. Since it will automatically switch back to Primary when it is reachable.
 
 ---
 
