@@ -22,6 +22,8 @@ These steps show you how to build the [Azure IoT Hub C# SDK](https://github.com/
 
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+
 <a id="setupdevbox"></a>
 ## Prepare the development environment 
 
