@@ -2,18 +2,18 @@
 title: Use multi-instance tasks to run MPI applications - Azure Batch | Microsoft Docs
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: 
+ms.date: 5/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -104,9 +104,10 @@ Look for the sizes specified as "RDMA capable" in the following articles:
   * [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. For more information on CloudServiceConfiguration and VirtualMachineConfiguration pools, see the Pool section of the [Batch feature overview](batch-api-basics.md).
+> To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. 
 >
->
+> Batch [limits](batch-quota-limits.md#other-limits) the number of RDMA-connected nodes in a pool that can run MPI jobs.
+
 
 ## Create a multi-instance task with Batch .NET
 Now that we've covered the pool requirements and MPI package installation, let's create the multi-instance task. In this snippet, we create a standard [CloudTask][net_task], then configure its [MultiInstanceSettings][net_multiinstance_prop] property. As mentioned earlier, the multi-instance task is not a distinct task type, but a standard Batch task configured with multi-instance settings.
