@@ -230,12 +230,12 @@ In C# and C# script, you can use the following parameter types for the triggerin
 * `string`
 * `Byte[]`
 * A POCO serializable as JSON
-* `ICloudBlob` (requires "inout" binding direction in *function.json*)
-* `CloudBlockBlob` (requires "inout" binding direction in *function.json*)
-* `CloudPageBlob` (requires "inout" binding direction in *function.json*)
-* `CloudAppendBlob` (requires "inout" binding direction in *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-As noted, some of these types require an `inout` binding direction in *function.json*. This direction is not supported by the standard editor in the Azure portal, so you must use the advanced editor.
+<sup>1</sup> Requires "inout" binding direction in *function.json* or `FileAccess.ReadWrite` in a C# class library.
 
 Binding to `string`, `Byte[]`, or POCO is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) later in this article.
 
@@ -533,16 +533,14 @@ In C# and C# script, you can use the following parameter types for the blob inpu
 * `TextReader`
 * `string`
 * `Byte[]`
-* `CloudBlobContainer`<sup>1</sup>
+* `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`<sup>2</sup>
-* `CloudBlockBlob`<sup>2</sup>
-* `CloudPageBlob`<sup>2</sup>
-* `CloudAppendBlob`<sup>2</sup>
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-<sup>1</sup> Requires "in" binding direction in *function.json* or `FileAccess.Read` in a C# class library.
-
-<sup>2</sup> Requires "inout" binding direction in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+<sup>1</sup> Requires "inout" binding direction in *function.json* or `FileAccess.ReadWrite` in a C# class library.
 
 Binding to `string` or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) earlier in this article.
 
