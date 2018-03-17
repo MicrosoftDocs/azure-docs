@@ -69,7 +69,7 @@ Make sure you define the scope as the repo that contains your container image.
 
 ![Screenshot of webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
 
-When you update the image, the web app updates automatically with the new image.
+When you update the image, the web app is updated automatically with the new image.
 
 ### Docker Hub
 
@@ -81,7 +81,7 @@ For the webhook URL, provide the URL that you obtained earlier.
 
 ![Screenshot of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
 
-When you update the image, the web app updates automatically with the new image.
+When you update the image, the web app is updated automatically with the new image.
 
 ## Next steps
 
