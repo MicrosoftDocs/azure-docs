@@ -533,14 +533,16 @@ In C# and C# script, you can use the following parameter types for the blob inpu
 * `TextReader`
 * `string`
 * `Byte[]`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (requires "inout" binding direction in *function.json*)
-* `CloudBlockBlob` (requires "inout" binding direction in *function.json*)
-* `CloudPageBlob` (requires "inout" binding direction in *function.json*)
-* `CloudAppendBlob` (requires "inout" binding direction in *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-As noted, some of these types require an `inout` binding direction in *function.json*. This direction is not supported by the standard editor in the Azure portal, so you must use the advanced editor.
+<sup>1</sup> Requires "in" binding direction in *function.json* or `FileAccess.Read` in a C# class library.
+
+<sup>2</sup> Requires "inout" binding direction in *function.json* or `FileAccess.ReadWrite` in a C# class library.
 
 Binding to `string` or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) earlier in this article.
 
@@ -745,14 +747,16 @@ In C# and C# script, you can bind to the following types to write blobs:
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer` (use an input binding to get a reference to a container, then you can use that reference to write blobs)
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (requires "inout" binding direction in *function.json*)
-* `CloudBlockBlob` (requires "inout" binding direction in *function.json*)
-* `CloudPageBlob` (requires "inout" binding direction in *function.json*)
-* `CloudAppendBlob` (requires "inout" binding direction in *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-As noted, some of these types require an `inout` binding direction in *function.json*. This direction is not supported by the standard editor in the Azure portal, so you must use the advanced editor.
+<sup>1</sup> Requires "in" binding direction in *function.json* or `FileAccess.Read` in a C# class library.
+
+<sup>2</sup> Requires "inout" binding direction in *function.json* or `FileAccess.ReadWrite` in a C# class library.
 
 In async functions, use the return value or `IAsyncCollector` instead of an `out` parameter.
 
