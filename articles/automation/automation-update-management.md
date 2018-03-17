@@ -1,21 +1,13 @@
 ---
-title: Update Management solution in Azure | Microsoft Docs
+title: Update Management solution in Azure
 description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: ''
-
-ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
-
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
 ---
 # Update Management solution in Azure
 

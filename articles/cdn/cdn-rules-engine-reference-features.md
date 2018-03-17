@@ -44,28 +44,28 @@ These features are designed to customize when and how content is cached.
 Name | Purpose
 -----|--------
 [Bandwidth Parameters](#bandwidth-parameters) | Determines whether bandwidth throttling parameters (for example, ec_rate and ec_prebuf) are active.
-[Bandwidth Throttling](#bandwidth-throttling) | Throttles the bandwidth for the response provided by the edge servers.
+[Bandwidth Throttling](#bandwidth-throttling) | Throttles the bandwidth for the response provided by the point-of-presence (POP).
 [Bypass Cache](#bypass-cache) | Determines whether the request should bypass caching.
-[Cache-Control Header Treatment](#cache-control-header-treatment) | Controls the generation of `Cache-Control` headers by the edge server when External Max-Age feature is active.
+[Cache-Control Header Treatment](#cache-control-header-treatment) | Controls the generation of `Cache-Control` headers by the POP when External Max-Age feature is active.
 [Cache-Key Query String](#cache-key-query-string) | Determines whether the cache-key includes or excludes query string parameters associated with a request.
 [Cache-Key Rewrite](#cache-key-rewrite) | Rewrites the cache-key associated with a request.
-[Complete Cache Fill](#complete-cache-fill) | Determines what happens when a request results in a partial cache miss on an edge server.
+[Complete Cache Fill](#complete-cache-fill) | Determines what happens when a request results in a partial cache miss on a POP.
 [Compress File Types](#compress-file-types) | Defines the file formats for the files that are compressed on the server.
-[Default Internal Max-Age](#default-internal-max-age) | Determines the default max-age interval for edge server to origin server cache revalidation.
-[Expires Header Treatment](#expires-header-treatment) | Controls the generation of `Expires` headers by an edge server when the External Max-Age feature is active.
-[External Max-Age](#external-max-age) | Determines the max-age interval for browser to edge server cache revalidation.
-[Force Internal Max-Age](#force-internal-max-age) | Determines the max-age interval for edge server to origin server cache revalidation.
+[Default Internal Max-Age](#default-internal-max-age) | Determines the default max-age interval for POP to origin server cache revalidation.
+[Expires Header Treatment](#expires-header-treatment) | Controls the generation of `Expires` headers by a POP when the External Max-Age feature is active.
+[External Max-Age](#external-max-age) | Determines the max-age interval for browser to POP cache revalidation.
+[Force Internal Max-Age](#force-internal-max-age) | Determines the max-age interval for POP to origin server cache revalidation.
 [H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) | Determines the types of H.264 file formats that may be used to stream content.
 [Honor No-Cache Request](#honor-no-cache-request) | Determines whether an HTTP client's no-cache requests are forwarded to the origin server.
 [Ignore Origin No-Cache](#ignore-origin-no-cache) | Determines whether the CDN ignores certain directives served from an origin server.
 [Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) | Determines the response that is returned to clients when a request generates a 416 Requested Range Not Satisfiable status code.
-[Internal Max-Stale](#internal-max-stale) | Controls how long past the normal expiration time a cached asset may be served from an edge server when the edge server is unable to revalidate the cached asset with the origin server.
+[Internal Max-Stale](#internal-max-stale) | Controls how long past the normal expiration time a cached asset may be served from a POP when the POP is unable to revalidate the cached asset with the origin server.
 [Partial Cache Sharing](#partial-cache-sharing) | Determines whether a request can generate partially cached content.
 [Prevalidate Cached Content](#prevalidate-cached-content) | Determines whether cached content is eligible for early revalidation before its TTL expires.
-[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) | Determines how an HTTP client's request for a 0-byte cache asset is handled by the edge servers.
+[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) | Determines how an HTTP client's request for a 0-byte cache asset is handled by the POPs.
 [Set Cacheable Status Codes](#set-cacheable-status-codes) | Defines the set of status codes that can result in cached content.
 [Stale Content Delivery on Error](#stale-content-delivery-on-error) | Determines whether expired cached content is delivered when an error occurs during cache revalidation or when retrieving the requested content from the customer origin server.
-[Stale While Revalidate](#stale-while-revalidate) | Improves performance by allowing the edge servers to serve stale client to the requester while revalidation takes place.
+[Stale While Revalidate](#stale-while-revalidate) | Improves performance by allowing the POPs to serve stale client to the requester while revalidation takes place.
 
 ## Comment feature
 
@@ -149,7 +149,7 @@ These features are designed to control how the CDN communicates with an origin s
 Name | Purpose
 -----|--------
 [Maximum Keep-Alive Requests](#maximum-keep-alive-requests) | Defines the maximum number of requests for a Keep-Alive connection before it is closed.
-[Proxy Special Headers](#proxy-special-headers) | Defines the set of CDN-specific request headers that are forwarded from an edge server to an origin server.
+[Proxy Special Headers](#proxy-special-headers) | Defines the set of CDN-specific request headers that are forwarded from a POP to an origin server.
 
 
 ## Specialty features
@@ -199,8 +199,8 @@ Bandwidth throttling parameters determine whether the data transfer rate for a c
 
 Value|Result
 --|--
-Enabled|Allows the edge servers to honor bandwidth throttling requests.
-Disabled|Causes the edge servers to ignore bandwidth throttling parameters. The requested content is served normally (that is, without bandwidth throttling).
+Enabled|Allows the POPs to honor bandwidth throttling requests.
+Disabled|Causes the POPs to ignore bandwidth throttling parameters. The requested content is served normally (that is, without bandwidth throttling).
 
 **Default Behavior:** Enabled.
  
@@ -210,14 +210,14 @@ Disabled|Causes the edge servers to ignore bandwidth throttling parameters. The 
 
 ---
 ### Bandwidth Throttling
-**Purpose:** Throttles the bandwidth for the response provided by the edge servers.
+**Purpose:** Throttles the bandwidth for the response provided by the POPs.
 
 Both of the following options must be defined to properly set up bandwidth throttling.
 
 Option|Description
 --|--
 Kbytes per second|Set this option to the maximum bandwidth (Kb per second) that may be used to deliver the response.
-Prebuf seconds|Set this option to the number of seconds for the edge servers to wait until bandwidth is throttled. The purpose of this time period of unrestricted bandwidth is to prevent a media player from experiencing stuttering or buffering issues due to bandwidth throttling.
+Prebuf seconds|Set this option to the number of seconds for the POPs to wait until bandwidth is throttled. The purpose of this time period of unrestricted bandwidth is to prevent a media player from experiencing stuttering or buffering issues due to bandwidth throttling.
 
 **Default Behavior:** Disabled.
 
@@ -231,8 +231,8 @@ Prebuf seconds|Set this option to the number of seconds for the edge servers to 
 
 Value|Result
 --|--
-Enabled|Causes all requests to fall through to the origin server, even if the content was previously cached on edge servers.
-Disabled|Causes edge servers to cache assets according to the cache policy defined in its response headers.
+Enabled|Causes all requests to fall through to the origin server, even if the content was previously cached on POPs.
+Disabled|Causes POPs to cache assets according to the cache policy defined in its response headers.
 
 **Default Behavior:**
 
@@ -287,7 +287,7 @@ Key information:
 
 ---
 ### Cache-Control Header Treatment
-**Purpose:** Controls the generation of `Cache-Control` headers by the edge server when the External Max-Age Feature is active.
+**Purpose:** Controls the generation of `Cache-Control` headers by the POP when the External Max-Age Feature is active.
 
 The easiest way to achieve this type of configuration is to place the External Max-Age and the Cache-Control Header Treatment features in the same statement.
 
@@ -413,9 +413,9 @@ Key information:
 
 ---
 ### Complete Cache Fill
-**Purpose:** Determines what happens when a request results in a partial cache miss on an edge server.
+**Purpose:** Determines what happens when a request results in a partial cache miss on a POP.
 
-A partial cache miss describes the cache status for an asset that was not completely downloaded to an edge server. If an asset is only partially cached on an edge server, then the next request for that asset will be forwarded again to the origin server.
+A partial cache miss describes the cache status for an asset that was not completely downloaded to a POP. If an asset is only partially cached on a POP, then the next request for that asset will be forwarded again to the origin server.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -428,8 +428,8 @@ Due to the manner in which cache settings are tracked, this feature cannot be as
 
 Value|Result
 --|--
-Enabled|Restores the default behavior. The default behavior is to force the edge server to initiate a background fetch of the asset from the origin server. After which, the asset will be in the edge server's local cache.
-Disabled|Prevents an edge server from performing a background fetch for the asset. The result is that the next request for that asset from that region causes an edge server to request it from the customer origin server.
+Enabled|Restores the default behavior. The default behavior is to force the POP to initiate a background fetch of the asset from the origin server. After which, the asset will be in the POP's local cache.
+Disabled|Prevents a POP from performing a background fetch for the asset. The result is that the next request for that asset from that region causes a POP to request it from the customer origin server.
 
 **Default Behavior:** Enabled.
 
@@ -521,14 +521,14 @@ Disabled|The X-EC-Debug response header will be excluded from the response.
 
 ---
 ### Default Internal Max-Age
-**Purpose:** Determines the default max-age interval for edge server to origin server cache revalidation. In other words, the amount of time that will pass before an edge server will check whether a cached asset matches the asset stored on the origin server.
+**Purpose:** Determines the default max-age interval for POP to origin server cache revalidation. In other words, the amount of time that will pass before a POP will check whether a cached asset matches the asset stored on the origin server.
 
 Key information:
 
 - This action will only take place for responses from an origin server that did not assign a max-age indication in the `Cache-Control` or `Expires` header.
 - This action will not take place for assets that are not deemed cacheable.
-- This action does not affect browser to edge server cache revalidations. These types of revalidations are determined by the `Cache-Control` or `Expires` headers sent to the browser, which can be customized with the External Max-Age feature.
-- The results of this action do not have an observable effect on the response headers and the content returned from edge servers for your content, but it may have an effect on the amount of revalidation traffic sent from edge servers to your origin server.
+- This action does not affect browser to POP cache revalidations. These types of revalidations are determined by the `Cache-Control` or `Expires` headers sent to the browser, which can be customized with the External Max-Age feature.
+- The results of this action do not have an observable effect on the response headers and the content returned from POPs for your content, but it may have an effect on the amount of revalidation traffic sent from POPs to your origin server.
 - Configure this feature by:
     - Selecting the status code for which a default internal max-age can be applied.
     - Specifying an integer value and then selecting the desired time unit (for example, seconds, minutes, hours, etc.). This value defines the default internal max-age interval.
@@ -569,7 +569,7 @@ Disabled| Restores the default behavior. The default behavior is to allow the or
 
 ---
 ### Expires Header Treatment
-**Purpose:** Controls the generation of `Expires` headers by an edge server when the External Max-Age feature is active.
+**Purpose:** Controls the generation of `Expires` headers by a POP when the External Max-Age feature is active.
 
 The easiest way to achieve this type of configuration is to place the External Max-Age and the Expires Header Treatment features in the same statement.
 
@@ -588,16 +588,16 @@ Remove| Ensures that an `Expires` header is not included with the header respo
 
 ---
 ### External Max-Age
-**Purpose:** Determines the max-age interval for browser to edge server cache revalidation. In other words, the amount of time that will pass before a browser can check for a new version of an asset from an edge server.
+**Purpose:** Determines the max-age interval for browser to POP cache revalidation. In other words, the amount of time that will pass before a browser can check for a new version of an asset from a POP.
 
-Enabling this feature will generate `Cache-Control: max-age` and `Expires` headers from the edge servers and send them to the HTTP client. By default, these headers will overwrite those created by the origin server. However, the Cache-Control Header Treatment and the Expires Header Treatment features may be used to alter this behavior.
+Enabling this feature will generate `Cache-Control: max-age` and `Expires` headers from the POPs and send them to the HTTP client. By default, these headers will overwrite those created by the origin server. However, the Cache-Control Header Treatment and the Expires Header Treatment features may be used to alter this behavior.
 
 Key information:
 
-- This action does not affect edge server to origin server cache revalidations. These types of revalidations are determined by the `Cache-Control` and `Expires` headers received from the origin
+- This action does not affect POP to origin server cache revalidations. These types of revalidations are determined by the `Cache-Control` and `Expires` headers received from the origin
 server, and can be customized with the Default Internal Max-Age and the Force Internal Max-Age features.
 - Configure this feature by specifying an integer value and selecting the desired time unit (for example, seconds, minutes, hours, etc.).
-- Setting this feature to a negative value causes the edge servers to send a `Cache-Control: no-cache` and an `Expires` time that is set in the past with each response to the browser. Although an HTTP client will not cache the response, this setting will not affect the edge servers' ability to cache the response from the origin server.
+- Setting this feature to a negative value causes the POPs to send a `Cache-Control: no-cache` and an `Expires` time that is set in the past with each response to the browser. Although an HTTP client will not cache the response, this setting will not affect the POPs' ability to cache the response from the origin server.
 - Setting the time unit to "Off" will disable this feature. The `Cache-Control` and `Expires` headers cached with the response of the origin server will pass through to the browser.
 
 **Default Behavior:** Off
@@ -627,13 +627,13 @@ Disabled|Requests will not be redirected.
 
 ---
 ### Force Internal Max-Age
-**Purpose:** Determines the max-age interval for edge server to origin server cache revalidation. In other words, the amount of time that will pass before an edge server can check whether a cached asset matches the asset stored on the origin server.
+**Purpose:** Determines the max-age interval for POP to origin server cache revalidation. In other words, the amount of time that will pass before a POP can check whether a cached asset matches the asset stored on the origin server.
 
 Key information:
 
 - This feature will override the max-age interval defined in `Cache-Control` or `Expires` headers generated from an origin server.
-- This feature does not affect browser to edge server cache revalidations. These types of revalidations are determined by the `Cache-Control` or `Expires` headers sent to the browser.
-- This feature does not have an observable effect on the response delivered by an edge server to the requester. However, it may have an effect on the amount of revalidation traffic sent from the edge servers to the origin server.
+- This feature does not affect browser to POP cache revalidations. These types of revalidations are determined by the `Cache-Control` or `Expires` headers sent to the browser.
+- This feature does not have an observable effect on the response delivered by a POP to the requester. However, it may have an effect on the amount of revalidation traffic sent from the POPs to the origin server.
 - Configure this feature by:
     - Selecting the status code for which an internal max-age will be applied.
     - Specifying an integer value and selecting the desired time unit (for example, seconds, minutes, hours, etc.). This value defines the request's max-age interval.
@@ -677,10 +677,10 @@ A no-cache request occurs when the HTTP client sends a `Cache-Control: no-cache
 
 Value|Result
 --|--
-Enabled|Allows an HTTP client's no-cache requests to be forwarded to the origin server, and the origin server will return the response headers and the body through the edge server back to the HTTP client.
+Enabled|Allows an HTTP client's no-cache requests to be forwarded to the origin server, and the origin server will return the response headers and the body through the POP back to the HTTP client.
 Disabled|Restores the default behavior. The default behavior is to prevent no-cache requests from being forwarded to the origin server.
 
-For all production traffic, it is highly recommended to leave this feature in its default disabled state. Otherwise, origin servers will not be shielded from end-users who may inadvertently trigger many no-cache requests when refreshing web pages, or from the many popular media players that are coded to send a no-cache header with every video request. Nevertheless, this feature can be useful to apply to certain non-production staging or testing directories, in order to allow fresh content to be pulled on-demand from the origin server.
+For all production traffic, it is highly recommended to leave this feature in its default disabled state. Otherwise, origin servers will not be shielded from end users who may inadvertently trigger many no-cache requests when refreshing web pages, or from the many popular media players that are coded to send a no-cache header with every video request. Nevertheless, this feature can be useful to apply to certain non-production staging or testing directories, in order to allow fresh content to be pulled on-demand from the origin server.
 
 The cache status that will be reported for a request that is allowed to be forwarded to an origin server due to this feature is TCP_Client_Refresh_Miss. The Cache Statuses report, which is available in the Core reporting module, provides statistical information by cache status. This allows you to track the number and percentage of requests that are being forwarded to an origin server due to this feature.
 
@@ -723,11 +723,11 @@ Key information:
 ### Ignore Unsatisfiable Ranges 
 **Purpose:** Determines the response that will be returned to clients when a request generates a 416 Requested Range Not Satisfiable status code.
 
-By default, this status code is returned when the specified byte-range request cannot be satisfied by an edge server and an If-Range request header field was not specified.
+By default, this status code is returned when the specified byte-range request cannot be satisfied by a POP and an If-Range request header field was not specified.
 
 Value|Result
 -|-
-Enabled|Prevents the edge servers from responding to an invalid byte-range request with a 416 Requested Range Not Satisfiable status code. Instead the servers will deliver the requested asset and return a 200 OK to the client.
+Enabled|Prevents the POPs from responding to an invalid byte-range request with a 416 Requested Range Not Satisfiable status code. Instead the servers will deliver the requested asset and return a 200 OK to the client.
 Disabled|Restores the default behavior. The default behavior is to honor the 416 Requested Range Not Satisfiable status code.
 
 **Default Behavior:** Disabled.
@@ -738,15 +738,15 @@ Disabled|Restores the default behavior. The default behavior is to honor the 41
 
 ---
 ### Internal Max-Stale
-**Purpose:** Controls how long past the normal expiration time a cached asset may be served from an edge server when the edge server is unable to revalidate the cached asset with the origin server.
+**Purpose:** Controls how long past the normal expiration time a cached asset may be served from a POP when the POP is unable to revalidate the cached asset with the origin server.
 
-Normally, when an asset's max-age time expires, the edge server will send a revalidation request to the origin server. The origin server will then respond with either a 304 Not Modified to give the edge server a fresh lease on the cached asset, or else with 200 OK to provide the edge server with an updated version of the cached asset.
+Normally, when an asset's max-age time expires, the POP will send a revalidation request to the origin server. The origin server will then respond with either a 304 Not Modified to give the POP a fresh lease on the cached asset, or else with 200 OK to provide the POP with an updated version of the cached asset.
 
-If the edge server is unable to establish a connection with the origin server while attempting such a revalidation, then this Internal Max-Stale feature controls whether, and for how long, the edge server may continue to serve the now-stale asset.
+If the POP is unable to establish a connection with the origin server while attempting such a revalidation, then this Internal Max-Stale feature controls whether, and for how long, the POP may continue to serve the now-stale asset.
 
 Note that this time interval starts when the asset's max-age expires, not when the failed revalidation occurs. Therefore, the maximum period during which an asset can be served without successful revalidation is the amount of time specified by the combination of max-age plus max-stale. For example, if an asset was cached at 9:00 with a max-age of 30 minutes and a max-stale of 15 minutes, then a failed revalidation attempt at 9:44 would result in an end user receiving the stale cached asset, while a failed revalidation attempt at 9:46 would result in the end user receiving a 504 Gateway Timeout.
 
-Any value configured for this feature is superseded by `Cache-Control: must-revalidate` or `Cache-Control: proxy-revalidate` headers received from the origin server. If either of those headers is received from the origin server when an asset is initially cached, then the edge server will not serve a stale cached asset. In such a case, if the edge server is unable to revalidate with the origin when the asset's max-age interval has expired, the edge server returns a 504 Gateway Timeout error.
+Any value configured for this feature is superseded by `Cache-Control: must-revalidate` or `Cache-Control: proxy-revalidate` headers received from the origin server. If either of those headers is received from the origin server when an asset is initially cached, then the POP will not serve a stale cached asset. In such a case, if the POP is unable to revalidate with the origin when the asset's max-age interval has expired, the POP returns a 504 Gateway Timeout error.
 
 Key information:
 
@@ -827,7 +827,7 @@ Key information:
     - CACHE-CONTROL
     - cachE-Control
 - When specifying a header name, use only alphanumeric characters, dashes, or underscores.
-- Deleting a header will prevent it from being forwarded to an origin server by the edge servers.
+- Deleting a header will prevent it from being forwarded to an origin server by the POPs.
 - The following headers are reserved and cannot be modified by this feature:
     - forwarded
     - host
@@ -847,7 +847,7 @@ Each response contains a set of response headers that describe it. This featur
 - Append or overwrite the value assigned to a response header. If the specified response header does not exist, then this feature will add it to the response.
 - Delete a response header from the response.
 
-By default, response header values are defined by an origin server and by the edge servers.
+By default, response header values are defined by an origin server and by the POPs.
 
 One of the following actions can be performed on a response header:
 
@@ -911,7 +911,7 @@ Define the amount of time prior to the expiration of the requested content's TTL
 
 Key information:
 
-- Selecting "Off" as the time unit requires revalidation to take place after the cached content's TTL has expired. Time should not be specified and it will be ignored.
+- Selecting "Off" as the time unit requires revalidation to take place after the cached content's TTL has expired. Time should not be specified and is ignored.
 
 **Default Behavior:** Off. Revalidation may only take place after the cached content's TTL has expired.
 
@@ -921,7 +921,7 @@ Key information:
 
 ---
 ### Proxy Special Headers
-**Purpose:** Defines the set of CDN-specific request headers that will be forwarded from an edge server to an origin server.
+**Purpose:** Defines the set of CDN-specific request headers that will be forwarded from a POP to an origin server.
 
 Key information:
 
@@ -936,15 +936,15 @@ Key information:
 
 ---
 ### Refresh Zero-Byte Cache Files
-**Purpose:** Determines how an HTTP client's request for a 0-byte cache asset is handled by the edge servers.
+**Purpose:** Determines how an HTTP client's request for a 0-byte cache asset is handled by the POPs.
 
 Valid values are:
 
 Value|Result
 --|--
-Enabled|Causes the edge server to refetch the asset from the origin server.
+Enabled|Causes the POP to refetch the asset from the origin server.
 Disabled|Restores the default behavior. The default behavior is to serve up valid cache assets upon request.
-This feature is not required for correct caching and content delivery, but may be useful as a workaround. For example, dynamic content generators on origin servers can inadvertently result in 0-byte responses being sent to the edge servers. These types of responses are typically cached by the edge servers. If you know that a 0-byte response is never a valid response 
+This feature is not required for correct caching and content delivery, but may be useful as a workaround. For example, dynamic content generators on origin servers can inadvertently result in 0-byte responses being sent to the POPs. These types of responses are typically cached by the POPs. If you know that a 0-byte response is never a valid response 
 
 for such content, then this feature can prevent these types of assets from being served to your clients.
 
@@ -1015,12 +1015,12 @@ Disabled|The origin server's error is forwarded to the requester.
 
 ---
 ### Stale While Revalidate
-**Purpose:** Improves performance by allowing the edge servers to serve stale content to the requester while revalidation takes place.
+**Purpose:** Improves performance by allowing the POPs to serve stale content to the requester while revalidation takes place.
 
 Key information:
 
 - The behavior of this feature varies according to the selected time unit.
-    - **Time Unit:** Specify a length of time and select a time unit (for example, Seconds, Minutes, Hours, etc.) to allow stale content delivery. This type of setup allows the CDN to extend the length of time that it may deliver content before requiring validation according to the following formula:**TTL** + **Stale While Revalidate Time** 
+    - **Time Unit:** Specify a length of time and select a time unit (for example, Seconds, Minutes, Hours, etc.) to allow stale content delivery. This type of setup allows the CDN to extend the length of time that it may deliver content before requiring validation according to the following formula: **TTL** + **Stale While Revalidate Time** 
     - **Off:** Select "Off" to require revalidation before a request for stale content may be served.
         - Do not specify a length of time since it is inapplicable and will be ignored.
 
@@ -1108,7 +1108,7 @@ Valid values are:
 
 Value|Result
 ---|----
-Enabled|Causes the edge server to ignore case when comparing URLs for Token-Based Authentication parameters.
+Enabled|Causes the POP to ignore case when comparing URLs for Token-Based Authentication parameters.
 Disabled|Restores the default behavior. The default behavior is for URL comparisons for Token Authentication to be case-sensitive.
 
 **Default Behavior:** Disabled.
@@ -1194,7 +1194,7 @@ Option|Description
 -|-
  Source & Pattern | These settings define a request URI pattern that identifies the type of requests that may be rewritten. Only requests whose URL satisfies both of the following criteria will be rewritten: <br/>     - **Source (or content access point):** Select a relative path that identifies an origin server. This is the  "/XXXX/" section and your endpoint name. <br/> - **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> Verify that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any of the match conditions defined for this feature. Specify a pattern; if you use a blank value as the pattern, all strings are matched. 
  Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - HTTP variables <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
- This feature allows the edge servers to rewrite the URL without performing a traditional redirect. This means that the requester will receive the same response code as if the rewritten URL had been requested.
+ This feature allows the POPs to rewrite the URL without performing a traditional redirect. This means that the requester will receive the same response code as if the rewritten URL had been requested.
 
 **Sample Scenario 1**
 
