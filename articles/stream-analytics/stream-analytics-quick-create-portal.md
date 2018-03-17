@@ -19,9 +19,9 @@ Azure Stream Analytics is a managed event processing engine that does real-time 
 
 ## Before you begin
 
-* If you don't have an Azure subscription, create a [free account]()
-* Log in to the [Azure portal]().
-* Download the [sensor sample data]() from GitHub.
+* If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)
+* Log in to the [Azure portal](https://portal.azure.com/).
+* Download the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub.
 
 ## Create a Stream Analytics job
 
@@ -35,9 +35,9 @@ Azure Stream Analytics is a managed event processing engine that does real-time 
    |---------|---------|---------|
    |Job name   |  myJob   |   Enter a name to identify your Stream Analytics job. Stream Analytics job name can contain alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. |
    |Subscription  | <Your subscription> |  Select the Azure subscription that you want to use for this job. |
-   |Resource group   |   myResourceGroup  |   Select **Create New** and enter a new resource-group name for your account. For valid resource group names, see [Naming rules and restrictions](). |
+   |Resource group   |   myResourceGroup  |   Select **Create New** and enter a new resource-group name for your account. For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |Location  |  <Select the region that is closest to your users> | Select geographic location where you can host your Stream Analytics job. Use the location that's closest to your users for better performance and to reduce the data transfer cost. |
-   |Streaming units  | 1  |   Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, refer to [understanding and adjusting streaming units]() article.   |
+   |Streaming units  | 1  |   Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, refer to [understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) article.   |
    |Hosting environment  |  Cloud  |   Stream Analytics jobs can be deployed to cloud or edge. Cloud allows you to deploy to Azure Cloud, and Edge allows you to deploy to an IoT edge device. |
 
 4. Check the **Pin to dashboard** box to place your job on your dashboard and then select **Create**.  
@@ -54,7 +54,7 @@ In this section you will configure blob storage as an input to the Stream Analyt
 3. Fill out the Storage account job blade with the **Name** and **Resource group** details (host the storage account in the same resource group as the Streaming job for increased performance), you can leave other options to their default values.  
 4. Go to the Storage account you created in the above step > from the **Overview** blade > open the **Blobs** tile.  
 5. From the **Blob Service** blade > click **Container** > provide a **Name** for your container > change the **Public access level** to Blob (anonymous read access for blobs only) > Click **OK**.  
-6. Go to the container that’s created > select Upload > upload the [sensor sample data]() that you downloaded earlier.  
+6. Go to the container that’s created > select Upload > upload the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) that you downloaded earlier.  
    ![Upload sample data to blob](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
  
 ### Add the input 
@@ -130,6 +130,7 @@ You should delete the job to avoid billing the streaming units consumed by the j
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
+
 In this quick start, you’ve deployed a simple Stream analytics job, to learn about configuring other input sources and performing real time detection, continue to the following article:
 
 > [!div class="nextstepaction"]
