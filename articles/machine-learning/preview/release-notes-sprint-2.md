@@ -2,8 +2,8 @@
 title: Azure ML Workbench release notes for sprint 2 December 2017
 description: This document details the updates for the sprint 2 release of Azure ML 
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning

@@ -2,6 +2,7 @@
 title: "Virtual Network service endpoints and rules for Azure SQL Database | Microsoft Docs"
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your Azure SQL Database. You SQL Database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
+ms.service: sql-database
 author: MightyPen
 manager: craigg
 ms.custom: "VNet Service endpoints"
