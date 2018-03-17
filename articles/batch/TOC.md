@@ -72,6 +72,7 @@
 
 ## [Monitor Batch solutions](monitoring-overview.md)
 ### [Use metrics and diagnostic logs](batch-diagnostics.md)
+### [Monitor with Application Insights](monitor-application-insights.md)
 ### [Query resources efficiently](batch-efficient-list-queries.md)
 
 ## Use developer tools

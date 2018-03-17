@@ -1,5 +1,5 @@
 ---
-title: Monitor Batch with Azure Application Inisghts | Microsoft Docs
+title: Monitor Batch with Azure Application Insights | Microsoft Docs
 description: Learn how to instrument Azure Batch application code using the Azure Application Insights library.
 services: batch
 author: paselem
@@ -67,7 +67,7 @@ The example in TopNWords.cs uses the following instrumentation calls from the [A
 * `TrackTrace()` - Adds debugging calls to your code.
 * `TrackEvent()` - Tracks interesting events to capture.
 
-We also inherently track exceptions. This example purposely leaves out exception 
+This example purposely leaves out exception 
 handling to see how Application Insights automatically reports unhandled 
 exceptions and significantly improves the debugging experience. The 
 following snippet illustrates how to use these methods.
@@ -184,9 +184,9 @@ To enable the telemetry initializer, update the ApplicationInsights.config file.
 <TelemetryInitializers>
     <Add Type="Microsoft.Azure.Batch.Samples.TopNWordsSample.AzureBatchNodeTelemetryInitializer, TopNWordsSample"/>
 </TelemetryInitializers>
-```
+``` 
 
-## Update the job and tasks to include Application Insights binaries
+## Update the job and tasks to include Aplication Insights binaries
 
 In order for Application Insights to run correctly on your compute nodes, make sure the binaries are correctly placed. Add the required 
 binaries to your task's resource files collection so that they get downloaded 
@@ -264,7 +264,7 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 Now that you've configured the job and tasks to use Application Insights, run 
 the job in your pool. Navigate to the Azure portal and open the Application 
 Insghts resource that you provisioned. At this point, you should start to see 
-data flowing and getting logged. In this article, we only touch on a few 
+data flowing and getting logged. In the rest of this article, we only touch on a few 
 features, but feel free to explore the full feature set provided by 
 Application Insights.
 
@@ -277,44 +277,44 @@ compute nodes in the pool, for example the CPU usage per compute node.
 
 ### View trace logs
 
-Opening up the Search blade in the portal reveals a list of diagnostic data 
+To view trace logs in your Applications Insights resource, click **Search**. This view shows a list of diagnostic data 
 captured by Application Insights including traces, events, exceptions, and more. 
-In the following screenshot, we see how a single trace for a task is logged and 
-can later be queried for debugging purposes.
+
+The following screenshot shows how a single trace for a task is logged and later queried for debugging purposes.
 
 ![Trace logs image](./media/monitor-application-insights/tracelogsfortask.png)
 
 ### View unhandled exceptions
 
-The following image shows how Application Insights logs exceptions thrown from your application. In this case, within seconds of the application throwing the exception we are able to drill into a specific exception and diagnose the issue.
+The following image shows how Application Insights logs exceptions thrown from your application. In this case, within seconds of the application throwing the exception you can drill into a specific exception and diagnose the issue.
 
 ![Unhandled exceptions](./media/monitor-application-insights/exception.png)
 
 ### Measure blob download time
 
-Custom metrics are also a valuable tool in the portal. The following image shows how the average time it took each Compute Node to download the required text file it was operating against.
+Custom metrics are also a valuable tool in the portal. The following image shows the average time it took each compute node to download the required text file it was processing.
 
 ![Blob download time per node](./media/monitor-application-insights/blobdownloadtime.png)
 
-To create a chart such as the one above you can:
-1. Open the Metrics blade in your Application Insights account.
-2. Click 'Add chart'.
-3. Click 'Edit' on the chart that was added.
-4. Update the chart details as shown in the image above.
+To create a chart such as this one:
+1. In your Application Insights resource, click **Metrics**. > **Add chart**.
+2. Click **Edit** on the chart that was added.
+2. Update the chart details as shown in the preceding image.
 
 ## Get performance counters from compute nodes when no tasks are running
 
-You may have noticed that all metrics, including performance counters are only 
-logged when the tasks are running. This behavior is useful because it limits 
-data getting logged to your Application Insights account. There are cases 
-when you would always like to monitor the Compute Nodes, for example they are 
-running background work which is not scheduled via the Batch service. In this 
-case it can be useful to have a monitoring process running for the life of the 
-Compute Node. One way to achieve this behavior is to spawn a process that loads 
-the Application Insights library and runs in the background. We can set the 
-Application Insights configuration file to emit data we're interested in, such 
-as performance counters. In the samples we use the start task to load the 
-binaries on the machine and keep a process running indefinitely.
+You may have noticed that all metrics, including performance counters, are only 
+logged when the tasks are running. This behavior is useful because it limits the amount of
+data getting logged to Application Insights. However, there are cases 
+when you would always like to monitor the compute nodes; for example, they might be 
+running background work which is not scheduled via the Batch service. In this case, you set up a monitoring process running for the life of the 
+compute node. 
+
+One way to achieve this behavior is to spawn a process that loads 
+the Application Insights library and runs in the background. Configure the 
+Application Insights configuration file to emit data you're interested in, such 
+as performance counters. In the samples, the start task loads the 
+binaries on the machine and keeps a process running indefinitely.
 
 ```csharp
 CloudPool pool = client.PoolOperations.CreatePool(
@@ -360,31 +360,22 @@ pool.StartTask = new StartTask()
 };
 ```
 
-> Tip: To increase the manageability of your solution, you can bundle this up 
-> into an [application package](./batch-application-packages.md). The application package can then be deployed 
-> automatically to your pools by adding an application package reference.
+> [!TIP]
+> To increase the manageability of your solution, you can bundle the assembly in an [application package](./batch-application-packages.md). Then, to deploy the application package automatically to your pools, add an application package reference to the pool configuration.
+>
 
-## Throttling and sampling data in Application Insights
+## Throttle and sample data in Application Insights
 
 Due to the large-scale nature of Azure Batch workloads, for applications 
 running in production you may want to limit the amount of data collected by 
 Application Insights to manage costs. 
-This [article](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-sampling) provides some mechanisms to achieve this.
+This [article](../application-insights/app-insights-sampling) provides some mechanisms to achieve this.
 
 
-## More reading ...
-Learn more about [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
+## Next steps
+* Learn more about [Application Insights](../application-insights/app-insights-overview.md).
 
-For Application Insights support in other languages look at the 
-[languages, platforms and integrations documentation](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-platforms).
-
-
-[To find out]-------------
-* For App Insights resource, *General* type is recommended?
-* Does it matter what region the App Insights resource is deployed to?
-* Needed to updated packages.config in Microsoft.Azure.Batch.Samples.TelemetryStartTask to specify Microsoft.Application Insights version **2.5.1**
-* Where/how is insightsClient defined
-* App insights instrumentationkey - need to add also to TopNWordsTask.cs
+* For Application Insights support in other languages, look at the 
+[languages, platforms and integrations documentation](../application-insights/app-insights-platforms.md).
 
 
-2fca7715-0ce0-4730-afe8-ba64de797026
