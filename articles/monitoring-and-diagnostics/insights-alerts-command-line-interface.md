@@ -17,7 +17,7 @@ ms.date: 10/24/2016
 ms.author: robb
 
 ---
-# Create metric alerts in Azure Monitor for Azure services - Cross-platform CLI
+# Create classic metric alerts in Azure Monitor for Azure services - Cross-platform CLI
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
