@@ -4,7 +4,7 @@ description: Identify and correct common issues encounted when you are retrainin
 services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: raymondl
+manager: hjerez
 editor: ''
 
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
