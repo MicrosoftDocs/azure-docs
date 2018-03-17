@@ -4,6 +4,10 @@
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
+# Quickstarts
+## [Create a job - Portal](stream-analytics-quick-create-portal.md)
+## [Create a job - PowerShell](stream-analytics-quick-create-powershell.md)
+
 # Get started
 ## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
