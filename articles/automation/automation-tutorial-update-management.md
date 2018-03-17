@@ -1,17 +1,9 @@
 ---
-title: Manage updates and patches for your Azure Windows VMs | Microsoft Docs
+title: Manage updates and patches for your Azure Windows VMs
 description: This article provides an overview of how to use Azure Automation - Update management to manage updates and patches for your Azure Windows VMs.
 services: automation
-documentationcenter: ''
 author: zjalexander
-manager: jwhit
-editor: ''
-
-ms.assetid:
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
