@@ -233,7 +233,7 @@ By default, when you configure the RD Gateway to use a central policy store for 
 
  ![Authentication Settings](./media/nps-extension-remote-desktop-gateway/image15.png)
  
-5. Click **Cancel**. 
+5. Click **OK**. 
 
 ## Configure NPS on the server where the NPS extension is installed
 The NPS server where the NPS extension is installed needs to be able to exchange RADIUS messages with the NPS server on the Remote Desktop Gateway. To enable this message exchange, you need to configure the NPS components on the server where the NPS extension service is installed. 
