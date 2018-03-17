@@ -1,6 +1,6 @@
 ---
 title: Protect an API using OAuth 2.0 with Azure Active Directory and API Management | Microsoft Docs
-description: Learn how to protect an API using OAuth 2.0 with Azure Active Directory and API Management. 
+description: Learn how to protect a Web API backend with Azure Active Directory and API Management.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -28,27 +28,27 @@ To follow the steps in this article, you must have:
 
 ## Overview
 
-This guide shows you how to protect an API with OAuth 2.0 in APIM. We will use AAD as the Authorization Server (OAuth Server). Below is a quick overview of the steps:
+This guide shows you how to protect an API with OAuth 2.0 in APIM. In this article, AAD as the Authorization Server (OAuth Server) is used. Below is a quick overview of the steps:
 
-1. Register an application (backend-app) in AAD to represent our API
+1. Register an application (backend-app) in AAD to represent the API
 2. Register another application (client-app) in AAD to represent a client application that needs to call the API
 3. In AAD, grant permissions to allow client-app to call backend-app
 4. Configure the Developer Console to use OAuth 2.0 user authorization
 5. Add validate-jwt policy to validate the OAuth token for every incoming request
 
-## Register an application in AAD to represent our API
+## Register an application in AAD to represent the API
 
-To protect our API with AAD, the first step is to register an application in AAD that represents our API. 
+To protect an API with AAD, the first step is to register an application in AAD that represents the API. 
 
 Navigate to your AAD tenant, then navigate to **App registrations**.
 
-Click on **New application registration**. 
+Select **New application registration**. 
 
 Provide a name of the application. In this example, `backend-app` is used.  
 
 Choose **Web app / API** as the **Application type**. 
 
-For **Sign-on URL**, you can simply use `https://localhost` as a placeholder.
+For **Sign-on URL**, you can use `https://localhost` as a placeholder.
 
 Click on **Create**.
 
@@ -56,7 +56,7 @@ Once the application is created, make a note of the **Application ID** for use i
 
 ## Register another application in AAD to represent a client application
 
-Every client application that needs to call our API needs to be registered as an application in AAD as well. In this guide, we will use the Developer Console in the APIM Develooer Portal as the sample client application. 
+Every client application that needs to call the API needs to be registered as an application in AAD as well. In this guide, we will use the Developer Console in the APIM Developer Portal as the sample client application. 
 
 We need to register another application in AAD to represent the Developer Console.
 
@@ -64,7 +64,7 @@ Click on **New application registration** again.
 
 Provide a name of the application and choose **Web app / API** as the **Application type**. In this example, `client-app` is used.  
 
-For **Sign-on URL**, you can simply use `https://localhost` as a placeholder or use the sign-in URL of your APIM instance. In this example, `https://contoso5.portal.azure-api.net/signin` is used.
+For **Sign-on URL**, you can use `https://localhost` as a placeholder or use the sign-in URL of your APIM instance. In this example, `https://contoso5.portal.azure-api.net/signin` is used.
 
 Click on **Create**.
 
@@ -80,7 +80,7 @@ Make a note of the key value.
 
 ## Grant permissions in AAD
 
-Now we have registered two applications to represent our API (i.e., backend-app) and the Developer Console (i.e., client-app), we need to grant permissions to allow the client-app to call the backend-app.  
+Now we have registered two applications to represent the API (that is, backend-app) and the Developer Console (that is, client-app), we need to grant permissions to allow the client-app to call the backend-app.  
 
 Navigate to **Application registrations** again. 
 
@@ -163,9 +163,9 @@ Navigate to any operation under the `Echo API` in the Developer Portal and click
 
 Note a new item in the **Authorization** section corresponding to the authorization server you just added.
 
-Select **Authorization code** from the authorization drop-down list and you will be prompted to signin to the AAD tenant. If you are already signed in with the account, you may not be prompted.
+Select **Authorization code** from the authorization drop-down list and you will be prompted to sign in to the AAD tenant. If you are already signed in with the account, you may not be prompted.
 
-After successful signin, an `Authorization` header will be added to the request with an access token from AAD. 
+After successful sign-in, an `Authorization` header will be added to the request with an access token from AAD. 
 
 A sample token looks like below, it is Base64 encoded.
 
@@ -178,7 +178,7 @@ Click **Send** and you should be able to call the API successfully.
 
 ## Configure a JWT validation policy to pre-authorize requests
 
-At this point, when a user tries to make a call from the Developer Console, the user will be prompted to signin and the Developer Console will obtain an Access Token on behalf of the user. Everything is working as expected. However, what if someone calls our API without a token or with an invalid token? For example, you can try deleting the `Authorization` header and will find you are still able to call the API. The reason is because APIM does not validate the Access Token at this point. It simply pass the `Auhtorization` header to the backend API.
+At this point, when a user tries to make a call from the Developer Console, the user will be prompted to sign in and the Developer Console will obtain an Access Token on behalf of the user. Everything is working as expected. However, what if someone calls our API without a token or with an invalid token? For example, you can try deleting the `Authorization` header and will find you are still able to call the API. The reason is because APIM does not validate the Access Token at this point. It passes the `Auhtorization` header to the backend API.
 
 We can use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize requests in APIM by validating the access tokens of each incoming request. If a request does not have a valid token, it is blocked by API Management and is not passed along to the backend. We can add the below policy to `Echo API`. 
 
