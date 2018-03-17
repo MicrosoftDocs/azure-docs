@@ -43,7 +43,7 @@ When alerts in an OMS workspace get scheduled for extending into Azure, they wil
 Users can enjoy the benefits of extending alerts before this date; by voluntarily opting to make their alerts manageable in Azure.
 
 ### How to voluntarily extending your alerts
-To enable users an easy pass into Azure alerts, Microsoft has created tools to enable extending the alerts. Microsoft Operations Management Suite customers can extend their alerts to Azure either from a wizard in OMS portal (or) use a programmatic approach by using a new API. For more information, see [Extending alerts into Azure using OMS portal and API](monitoring-alert-extend-tool.md).
+To enable users an easy pass into Azure alerts, Microsoft has created tools to enable extending the alerts. Microsoft Operations Management Suite customers can extend their alerts to Azure either from a wizard in OMS portal (or) use a programmatic approach by using a new API. For more information, see [Extending alerts into Azure using OMS portal and API](monitoring-alerts-extend-tool.md).
 
 
 ## Usage after extending your alerts
@@ -56,6 +56,6 @@ For any operation on alerts like edit or creation done in OMS portal, users will
 
 ## Next steps
 
-* Learn of the tools to [initiate extending alerts from OMS into Azure](monitoring-alert-extend-tool.md)
+* Learn of the tools to [initiate extending alerts from OMS into Azure](monitoring-alerts-extend-tool.md)
 * Learn more about the new [Azure alerts experience](monitoring-overview-unified-alerts.md).
 * Learn about [log alerts in Azure Alerts](monitor-alerts-unified-log.md).
