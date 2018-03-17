@@ -64,7 +64,7 @@ Here's the full list of Azure monitor based metric sources that are supported fo
 
 Metrics from Logs, currently supports the following popular OMS logs:
 - [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
-- Heartbeat records for machines
+- [Heartbeat records for Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
 - [Update management](../operations-management-suite/oms-solution-update-management.md) records
 
 Here's the full list of OMS log based metric sources that are supported for near real-time metric alerts:
