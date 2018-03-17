@@ -17,7 +17,7 @@ ms.date: 09/23/2016
 ms.author: robb
 
 ---
-# Create metric alerts in Azure Monitor for Azure services - Azure portal
+# Create classic metric alerts in Azure Monitor for Azure services - Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -89,7 +89,7 @@ Once you have created an alert, you can select it and:
 
 ## Next steps
 * [Get an overview of Azure monitoring](monitoring-overview.md) including the types of information you can collect and monitor.
-* Learn more about the new [near real-time metric alerts](monitoring-near-real-time-metric-alerts.md)
+* Learn more about the [newer metric alerts](monitoring-near-real-time-metric-alerts.md)
 * Learn more about [configuring webhooks in alerts](insights-webhooks-alerts.md).
 * Learn more about [configuring alerts on Activity log events](monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
