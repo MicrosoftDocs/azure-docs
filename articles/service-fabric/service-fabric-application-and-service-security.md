@@ -3,7 +3,7 @@ title: Learn about Azure Service Fabric application security | Microsoft Docs
 description: An overview of how to securely run microservices applications on Service Fabric. Learn how to run services and startup script under different security accounts, authenticate and authorize users, manage application secrets, secure service communications, use an API gateway, and secure application data at rest. 
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,10 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: mfussell
+ms.author: ryanwi
 
 ---
 # Service Fabric application and service security
+A microservices architecture can bring [many benefits](service-fabric-overview-microservices.md). Managing the security of microservices, however, is a challenge and different than managing traditional monolithic applications security. 
+
+With a monolith, the application is typically running on one or more servers within a network and it's easier to identify the exposed ports and APIs and IP address. There is often one perimeter or boundary and one database to protect. If that system is compromised because of a security breach or attack, it is likely that everything within the system will be available to the attacker. With microservices, the system is more complex.  Services are decentralized and distributed across many hosts and migrate from host to host.  With proper security, you limit the privileges an attacker can get and the amount of data available in a single attack by breaching one service.  Communication is not internal, but happens over a network, and there are many exposed ports and interactions between services. Knowing what these service interactions are and when they happen is crucial to your application security.
+
+This article is not a guide to microservices security, there are many such resources available online, but describes how different aspects of security can be accomplished in Service Fabric.
 
 ## Authentication and authorization
 It is often necessary for resources and APIs exposed by a service to be limited to certain trusted users or clients. 
@@ -33,6 +38,13 @@ For ASP.NET Core, the primary mechanism for [authenticating users](/dotnet/stand
 After authentication, services need to authorize user access or determine what a user is able to do. This process allows a service to make APIs available to some authenticated users, but not to all. Authorization is orthogonal and independent from authentication, which is the process of ascertaining who a user is. Authentication may create one or more identities for the current user.
 
 [ASP.NET Core authorization](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) can be done based on users’ roles or based on custom policy, which might include inspecting claims or other heuristics.
+
+## Restrict and secure access using an API gateway
+Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. An [API gateway](/azure/architecture/microservices/gateway) sits between clients and services and is the entry point to all the services that your application is providing. It acts as a reverse proxy, routing requests from clients to services. It may also perform various cross-cutting tasks such as authentication and authorization, SSL termination, and rate limiting. If you don't deploy a gateway, clients must send requests directly to front-end services.
+
+In Service Fabric, a gateway can be any stateless service such as an [ASP.NET Core application](service-fabric-reliable-services-communication-aspnetcore.md), or another service designed for traffic ingress, such as [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), or [Azure API Management](https://docs.microsoft.com/azure/api-management).
+
+API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services.  You can by secure access to backend services, prevent DOS attacks by using throttling, or verify API keys, JWT tokens, certificates, and other credentials. To learn more, read [Service Fabric with Azure API Management overview](service-fabric-api-management-overview.md).
 
 ## Manage application secrets
 Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. This article uses Azure Key Vault to manage keys and secrets. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere.
@@ -76,13 +88,6 @@ Enable HTTPS endpoints in your [ASP.NET Core or Java](service-fabric-service-man
 You can establish secure connection between the reverse proxy and services, thus enabling an end to end secure channel. Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. For information on configuring the reverse proxy, read [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md).  [Connect to a secure service](service-fabric-reverseproxy-configure-secure-communication.md) describes how to establish secure connection between the reverse proxy and services.
 
 The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. Learn how to improve security when you're using service remoting (in [C#](service-fabric-reliable-services-secure-communication.md) or [Java](service-fabric-reliable-services-secure-communication-java.md)) or using [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
-
-## Restrict and secure access using an API gateway
-Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. An [API gateway](/azure/architecture/microservices/gateway) sits between clients and services. It acts as a reverse proxy, routing requests from clients to services. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. If you don't deploy a gateway, clients must send requests directly to front-end services.
-
-In Service Fabric, a gateway can be any stateless service such as an [ASP.NET Core application](service-fabric-reliable-services-communication-aspnetcore.md), or another service designed for traffic ingress, such as [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), or [Azure API Management](https://docs.microsoft.com/azure/api-management).
-
-API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services.  You can by secure access to backend services, prevent DOS attacks by using throttling, or verify API keys, JWT tokens, certificates, and other credentials. To learn more, read [Service Fabric with Azure API Management overview](service-fabric-api-management-overview.md).
 
 ## Encrypt application data at rest
 Each [node type](service-fabric-cluster-nodetypes.md) in a Service Fabric cluster running in Azure is backed by a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Using a Azure Resource Manager template, you can attach data disks to the scale set(s) that make up the Service Fabric cluster.  If your services save data to attached data disk, you can [encrypt those data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md).
