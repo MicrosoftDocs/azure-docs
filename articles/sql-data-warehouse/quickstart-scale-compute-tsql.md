@@ -101,7 +101,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 
 ## Check data warehouse state
 
-When a data warehouse is paused, you can't connect to it with T-SQL. To see the current state of the data warehouse, you can use a PowerShell cmdlet. For an example, see [Check data warehouse state - Powershell](quickstart-scale-compute-powershell.md#Check-database-state). 
+When a data warehouse is paused, you can't connect to it with T-SQL. To see the current state of the data warehouse, you can use a PowerShell cmdlet. For an example, see [Check data warehouse state - Powershell](quickstart-scale-compute-powershell.md#Check-data-warehouse-state). 
 
 ## Check operation status
 
