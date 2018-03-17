@@ -203,8 +203,7 @@ Following is a sample response for an action with only a threshold and severity.
             "Value": 10
         },
         "Severity": "critical",
-        "Version": 1
-    }
+        "Version": 1    }
 
 Use the Put method with a unique action ID to create a new action for a schedule with severity.  
 
@@ -219,7 +218,7 @@ Use the Put method with an existing action ID to modify a severity action for a 
 #### Action Groups
 All alerts in Azure, use Action Group as the default mechanism for handling actions. With Action Group, you can specify your actions once and then associate the action group to multiple alerts - across Azure. Without the need, to repeatedly declare the same actions over and over again. Action Groups support multiple actions - including email, SMS, Voice Call, ITSM Connection, Automation Runbook, Webhook URI and more. 
 
-For user's who have extended their alerts into Azure - a schedule should now have Action Group details passed along with threshold, to be able to create an alert. E-mail details, Webhook URLs, Runbook Automation details, and other Actions, need to be defined in side an Action Group first before creating an alert; one can create [Action Group from Azure Monitor]((../monitoring-and-diagnostics/monitoring-action-groups.md) ) in Portal or use [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
+For user's who have extended their alerts into Azure - a schedule should now have Action Group details passed along with threshold, to be able to create an alert. E-mail details, Webhook URLs, Runbook Automation details, and other Actions, need to be defined in side an Action Group first before creating an alert; one can create [Action Group from Azure Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) in Portal or use [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups).
 
 To add association of action group to an alert, specify the unique Azure Resource Manager ID of the action group in the alert definition. A sample illustration is provided below:
 
