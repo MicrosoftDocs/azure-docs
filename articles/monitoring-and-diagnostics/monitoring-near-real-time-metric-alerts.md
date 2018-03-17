@@ -19,10 +19,10 @@ ms.custom:
 
 ---
 
-# Near real-time metric alerts
+# Use the newer metric alerts for Azure services in Azure portal
 Azure Monitor supports a new alert type called near real-time metric alerts. 
 
-Near real-time metric alerts differ from [older metric alerts](insights-alerts-portal.md) in a few ways:
+Near real-time metric alerts differ from [classic metric alerts](insights-alerts-portal.md) in a few ways:
 
 - **Improved latency**: Near real-time metric alerts can run as frequently as every one minute. Older metric alerts always run at a frequency of 5 minutes.
 - **Support for multi-dimensional metrics**: You can alert on dimensional metrics allowing you to monitor an interesting segment of the metric.
@@ -37,36 +37,36 @@ Near real-time metric alerts support alerting for metrics that use dimensions. Y
 
 Here's the full list of Azure monitor based metric sources that are supported for near real-time metric alerts:
 
-|Metric Name/Details  |Dimensions Supported  |
-|---------|---------|
-|Microsoft.ApiManagement/service     | Yes        |
-|Microsoft.Automation/automationAccounts     |     Yes   |
-|Microsoft.Batch/batchAccounts | N/A|
-|Microsoft.Cache/Redis     |    N/A     |
-|Microsoft.Compute/virtualMachines     |    N/A     |
-|Microsoft.Compute/virtualMachineScaleSets     |   N/A      |
-|Microsoft.DataFactory/factories     |   Yes     |
-|Microsoft.DBforMySQL/servers     |   N/A      |
-|Microsoft.DBforPostgreSQL/servers     |    N/A     |
-|Microsoft.EventHub/namespaces     |  Yes      |
-|Microsoft.Logic/workflows     |     N/A    |
-|Microsoft.Network/applicationGateways     |    N/A     |
-|Microsoft.Network/publicipaddresses     |  N/A       |
-|Microsoft.Search/searchServices     |   N/A      |
-|Microsoft.ServiceBus/namespaces     |  Yes       |
-|Microsoft.Storage/storageAccounts     |    Yes     |
-|Microsoft.Storage/storageAccounts/services     |     Yes    |
-|Microsoft.StreamAnalytics/streamingjobs     |  N/A       |
-|Microsoft.CognitiveServices/accounts     |    N/A     |
-|Microsoft.OperationalInsights/workspaces (Preview) | Yes|
+|Resource type  |Dimensions Supported  | Metrics Available|
+|---------|---------|----------------|
+|Microsoft.ApiManagement/service     | Yes        | [API Management](monitoring-supported-metrics.md#microsoftapimanagementservice)|
+|Microsoft.Automation/automationAccounts     |     Yes   | [Automation Accounts](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
+|Microsoft.Batch/batchAccounts | N/A| [Batch Accounts](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
+|Microsoft.Cache/Redis     |    N/A     |[Redis Cache](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.Compute/virtualMachines     |    N/A     | [Virtual Machines](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
+|Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Virtual Machine scale sets](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.DataFactory/factories     |   Yes     |[Data Factories V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
+|Microsoft.DBforMySQL/servers     |   N/A      |[DB for MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/servers     |    N/A     | [DB for PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
+|Microsoft.EventHub/namespaces     |  Yes      |[Event Hubs](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.Logic/workflows     |     N/A    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
+|Microsoft.Network/applicationGateways     |    N/A     | [Application Gateways](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/publicipaddresses     |  N/A       |[Public IP Addreses](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Search/searchServices     |   N/A      |[Search services](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
+|Microsoft.ServiceBus/namespaces     |  Yes       |[Service Bus](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
+|Microsoft.Storage/storageAccounts     |    Yes     | [Storage Accounts](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAccounts/services     |     Yes    | [Blob Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [File Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [Queue Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) and [Table Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableervices)|
+|Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
+|Microsoft.CognitiveServices/accounts     |    N/A     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
+|Microsoft.OperationalInsights/workspaces (Preview) | Yes|[Log Analytics workspaces](#support-for-oms-logs-as-metrics-for-alerting)|
 
 
-## Create a near real-time metric alert
-Currently, you can create near real-time metric alerts only in the Azure portal or REST API. Support for configuring near real-time metric alerts by using PowerShell, the Azure command-line interface (Azure CLI) is coming soon.
+## Create a newer metric alert
+Currently, you can create newer metric alerts only in the Azure portal or REST API. Support for configuring near real-time metric alerts by using PowerShell, the Azure command-line interface (Azure CLI) is coming soon.
 
-To learn how to create a near real-time metric alert in Azure portal, see [Create an alert rule in the Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
+To learn how to create a newer metric alert in Azure portal, see [Create an alert rule in the Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
-## Manage near real-time metric alerts
+## Manage newer metric alerts
 After you create a near real-time metric alert, you can manage the alert by using the steps described in [Manage your alerts in the Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## Support for OMS logs as metrics for alerting
@@ -207,6 +207,6 @@ The POST operation contains the following JSON payload and schema for all near r
 
 ## Next steps
 
-* Learn more about the new [Alerts (Preview) experience](monitoring-overview-unified-alerts.md).
-* Learn about [log alerts in Azure Alerts (Preview)](monitor-alerts-unified-log.md).
+* Learn more about the new [Alerts experience](monitoring-overview-unified-alerts.md).
+* Learn about [log alerts in Azure](monitor-alerts-unified-log.md).
 * Learn about [alerts in Azure](monitoring-overview-alerts.md).
