@@ -76,7 +76,7 @@ Get an instance of `TelemetryClient` (except in JavaScript in webpages):
 
 TelemetryClient is thread-safe.
 
-For ASP.NET and Java projects, we recommend that you create an instance of TelemetryClient for each module of your app. For instance, you may have one TelemetryClient instance in your web service to report incoming HTTP requests, and another in a middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instace sends. 
+For ASP.NET and Java projects, incoming HTTP Requests are automatically captured. You might want to create additional instances of TelemetryClient for other module of your app. For instance, you may have one TelemetryClient instance in your middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instace sends. 
 
 *C#*
 
@@ -570,7 +570,7 @@ Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Appl
 
 In .NET [Log adapters](app-insights-asp-net-trace-logs.md) use this API to send third-party logs to the portal.
 
-In Java [Standard loggers like Log4J, Logback](app-insights-java-trace-logs.md) use this Appenders to send third-party logs to the portal.
+In Java for [Standard loggers like Log4J, Logback](app-insights-java-trace-logs.md) use Application Insights Log4j or Logback Appenders to send third-party logs to the portal.
 
 *C#*
 
@@ -607,7 +607,7 @@ In addition, you can add a severity level to your message. And, like other telem
 
     Map<String, Integer> properties = new HashMap<>();
     properties.put("Database", db.ID);
-    telemetry.trackTrace("Slow Databas response", SeverityLevel.Warning, properties);
+    telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
 
 ```
 
@@ -647,9 +647,6 @@ finally
     long startTime = System.currentTimeMillis();
     try {
         success = dependency.call();
-    }
-    catch (Exception ex) {
-
     }
     finally {
         long endTime = System.currentTimeMillis();
@@ -710,7 +707,7 @@ Normally, the SDK sends data at times chosen to minimize the impact on the user.
  ```C#
     telemetry.Flush();
     // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(1000);
+    System.Threading.Thread.Sleep(5000);
 ```
 
 *Java*

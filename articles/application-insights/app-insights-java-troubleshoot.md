@@ -47,13 +47,13 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 #### I don't see all the data I'm expecting
 * Open the Quotas and Pricing blade and check whether [sampling](app-insights-sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry. 
 * Do you have SDK Sampling turned on? If yes, data would be sampled at the rate specified for all the applicable types.
-* Are you running an older version of SDK 2.0.0-BETA or older? Please upgrade to version 2.0.1 of the SDK. It has reliable channel to transmit data and retires exponentially for all error codes. You might be ocasionally getting throttled. 
-* How large is the load of your application in terms of rps? Our current limit is 32k items/sec. Please contact Microsoft Support if your application has higher load then this.
+* Are you running an older version of Java SDK? Starting with version 2.0.1, we have introduced fault tolerance mechanism to handle intermittent network and backend failures as well as data persistence on local drives.
+* Are you getting throttled due to excessive telemetry? If you turn on INFO logging, you will see a log message "App is throttled". Our current limit is 32k telemetry items/second.
 
 ### Java Agent cannot capture dependency data
 * Have you configured Java agent by following [Configure Java Agent](app-insights-java-agent.md) ?
-* Did you ensured that Java Agent jar and AI-Agent.xml file lie in the same folder?
-* Did you made sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Redis Cache dependency collection.
+* Make sure both the java agent jar and the AI-Agent.xml file are placed in the same folder.
+* Make sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Redis Cache dependency collection.
 * Are you using JDK 1.7 or 1.8? Currently we do not support dependency collection in JDK 9.
 
 ## No usage data
