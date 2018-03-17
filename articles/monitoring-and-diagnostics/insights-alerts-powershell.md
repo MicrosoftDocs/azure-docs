@@ -17,7 +17,7 @@ ms.date: 10/20/2016
 ms.author: robb
 
 ---
-# Create metric alerts in Azure Monitor for Azure services - PowerShell
+# Create classic metric alerts in Azure Monitor for Azure services - PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
