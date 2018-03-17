@@ -22,21 +22,23 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, first create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
 
-Next, download and install .NET Core 2.0 for your operating system. You can also choose to install an editor to use with your operating system.
+Next, download and install .NET Core 2.0 for your operating system. If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer. You can also choose to install an editor to use with your operating system.
 
 # [Windows](#tab/windows)
 
-- Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows/build) 
-- Optionally install [Visual Studio for Windows](https://www.visualstudio.com/) 
+- Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
+- Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.  
+
+For information about choosing between .NET Core and the .NET Framework, see [Choose between .NET Core and .NET Framework for server apps](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
 # [Linux](#tab/linux)
 
-- Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux/build)
+- Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
 - Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
 
 # [macOS](#tab/macos)
 
-- Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos/build).
+- Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
 - Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ---
