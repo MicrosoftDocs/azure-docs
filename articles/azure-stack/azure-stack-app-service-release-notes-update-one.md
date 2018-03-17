@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack Update One | Microsoft Docs
+title: App Service on Azure Stack Update One Release Notes | Microsoft Docs
 description: Learn about what's in update one for App Service on Azure Stack, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: anwestg
 ms.reviewer: brenduns
 
 ---
-# App Service on Azure Stack Update One Release Notes
+# App Service on Azure Stack update 1 release notes
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -114,7 +114,7 @@ Azure App Service on Azure Stack Update 1 includes the following improvements an
 
 Refer to the documentation in the [Azure Stack 1802 Release Notes](azure-stack-update-1802.md)
 
-## See also
+## Next Steps
 
 - For an overview of Azure App Service, see [Azure App Service on Azure Stack overview](azure-stack-app-service-overview.md).
 - For more information about how to prepare to deploy App Service on Azure Stack, see [Before you get started with App Service on Azure Stack](azure-stack-app-service-before-you-get-started.md).
