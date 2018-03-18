@@ -23,13 +23,15 @@ ms.author: johndeu;
 ## 1 Introduction 
 In order to facilitate the insertion of advertisements, or custom events on a client player, broadcasters often make use of timed metadata embedded within the video. To enable these scenarios, Media Services provides support for the transport of timed metadata along with the media, from the ingest point of the live streaming channel to the client application.
 This specification outlines two modes that are supported by Media Services for timed metadata within live streaming signals:
-1)	[SCTE-35] signaling that heeds the recommended practices outlined by [SCTE-67]
-2)	A generic timed metadata signaling mode, for messages that are not [SCTE-35]
+
+1. [SCTE-35] signaling that heeds the recommended practices outlined by [SCTE-67]
+
+2. A generic timed metadata signaling mode, for messages that are not [SCTE-35]
 
 ### 1.2 Conformance Notation
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119
 
-### 1.3 Document Terms
+### 1.3 Terms Used
 
 | Term              | Definition                                                                                                                                                                                                                       |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -47,8 +49,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 -----------------------
 
-## 3 Timed Metadata Ingest
-### 3.1 RTMP Ingest
+## 2 Timed Metadata Ingest
+### 2.1 RTMP Ingest
 RTMP supports timed metadata signals sent as AMF cue messages embedded within the RTMP stream. The cue messages may be sent some time before the actual event, or ad splice insertion needs to occur. To support this scenario, the actual time of the splice or segment is sent within the cure message. For more information, see [AMF0].
 
 The following table describes the format of the AMF message payload that Media Services will ingest.
@@ -58,7 +60,7 @@ The name of the AMF message can be used to differentiate multiple event streams 
 ## Signal Syntax
 For RTMP simple mode, Media Services supports a single AMF cue message called "onAdCue" with the following format:
 
-## Simple Mode
+### Simple Mode
 
 | Field Name | Field Type | Required? | Descriptions                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
@@ -70,7 +72,7 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 
 ---------------------------
 
-## SCTE-35 Mode
+### SCTE-35 Mode
 
 | Field Name | Field Type | Required? | Descriptions                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
@@ -83,7 +85,7 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 
 ---------------------------
 
-### 3.1.1 Cancelation and Updates
+### 2.1.1 Cancelation and Updates
 
 Messages can be canceled or updated by sending multiple messages with the same
 presentation time and ID. The presentation time and ID uniquely identify the
@@ -92,10 +94,10 @@ pre-roll constraints is the message that is acted upon. The updated event replac
 previously received messages. The pre-roll constraint is four seconds. Messages
 received at least four seconds prior to the presentation time will be acted upon.
 
-## 3.2 Fragmented MP4 Ingest (Smooth Streaming)
+## 2.2 Fragmented MP4 Ingest (Smooth Streaming)
 Refer to [LIVE-FMP4] for requirements on live stream ingest. The following sections provide details regarding ingest of timed presentation metadata.  Timed presentation metadata is ingested as a sparse track, which is defined in both the Live Server Manifest Box (see MS-SSTR) and the Movie Box (‘moov’).  Each sparse fragment consists of a Movie Fragment Box (‘moof’) and Media Data Box (‘mdat’), where the ‘mdat’ box is the binary message.
 
-### 3.2.1 Live Server Manifest Box
+### 2.2.1 Live Server Manifest Box
 The sparse track MUST be declared in the Live Server Manifest box with a
 \<textstream\> entry and it MUST have the following attributes set:
 
@@ -111,7 +113,7 @@ The sparse track MUST be declared in the Live Server Manifest box with a
 
 -------------------------------------
 
-### 3.2.2 Movie Box
+### 2.2.2 Movie Box
 
 The Movie Box (‘moov’) follows the Live Server Manifest Box as part of the
 stream header for a sparse track.
@@ -134,7 +136,7 @@ The ‘moov’ box SHOULD contain a **HandlerBox (‘hdlr’)** as defined in
 
 The ‘stsd’ box SHOULD contain a MetaDataSampleEntry box with a coding name as defined in [ISO-14496-12].  For example, for SCTE-35 messages the coding name SHOULD be 'scte'.
 
-### 3.2.3 Movie Fragment Box and Media Data Box
+### 2.2.3 Movie Fragment Box and Media Data Box
 
 Sparse track fragments consist of a Movie Fragment Box (‘moof’) and a Media Data
 Box (‘mdat’).
@@ -148,6 +150,8 @@ following fields:
 | fragment_absolute_time | 64-bit unsigned integer | Required      | MUST be the arrival time of the event. This value aligns the message with the parent track.   |
 | fragment_duration      | 64-bit unsigned integer | Required      | MUST be the duration of the event. The duration can be zero to indicate that the duration is unknown. |
 
+------------------------------------
+
 
 The MediaDataBox (‘mdat’) box MUST have the following format:
 
@@ -158,17 +162,18 @@ The MediaDataBox (‘mdat’) box MUST have the following format:
 | presentation_time_delta | 32-bit unsigned integer (uimsbf) | Required      | The sum of the fragment_absolute_time, specified in the TrackFragmentExtendedHeaderBox, and the presentation_time_delta MUST be the presentation time of the event. The presentation time and duration SHOULD align with Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. For HLS egress, time and duration SHOULD align with segment boundaries. The presentation time and duration of different event messages within the same event stream MUST not overlap. |
 | message                 | byte array                       | Required      | The event message. For [SCTE-35] messages, the message is the binary splice_info_section(), although [SCTE-67] recommends something else. For [SCTE-35] messages, this MUST be the splice_info_section() in order for messages to be sent to HLS, Smooth, and Dash clients in compliance with [SCTE-67]. For [SCTE-35] messages, the binary splice_info_section() is the payload of the ‘mdat’ box, and it is NOT base64 encoded.                                                            |
 
+------------------------------
 
-3.2.4 Cancelation and Updates
+
+### 2.2.4 Cancelation and Updates
 Messages can be canceled or updated by sending multiple messages with the same presentation time and ID.  The presentation time and ID uniquely identify the event. The last message received for a specific presentation time, that meets pre-roll constraints, is the message that is acted upon. The updated message replaces any previously received messages.  The pre-roll constraint is four seconds. Messages received at least four seconds prior to the presentation time will be acted upon. 
 
---------------------------------
-4 Timed Metadata Delivery
-=======================
 
-Event stream data is opaque to Azure Media Services. Azure Media Services merely
-passes three pieces of information between the ingest end point and the client
-end point. The following properties are delivered to the client, in compliance
+## 3 Timed Metadata Delivery
+
+Event stream data is opaque to Media Services. Media Services merely
+passes three pieces of information between the ingest endpoint and the client
+endpoint. The following properties are delivered to the client, in compliance
 with [SCTE-67] and/or the client’s streaming protocol:
 
 1.  Scheme – a URN or URL identifying the scheme of the message.
@@ -183,11 +188,11 @@ with [SCTE-67] and/or the client’s streaming protocol:
 5.  Message – the event data.
 
 
-## 4.1 Smooth Streaming Delivery
+### 3.1 Smooth Streaming Delivery
 
 Refer to sparse track handling details in the specifications [FMP4] and [MS-SSTR].
 
-### Smooth Client Manifest Example
+#### Smooth Client Manifest Example
 ~~~ xml
 <?xml version=”1.0” encoding=”utf-8”?>
 <SmoothStreamingMedia MajorVersion=”2” MinorVersion=”0” TimeScale=”10000000” IsLive=”true” Duration=”0”
@@ -227,7 +232,7 @@ Refer to sparse track handling details in the specifications [FMP4] and [MS-SSTR
 </SmoothStreamingMedia> 
 ~~~ 
 
-## 4.2	Apple HTTP Live Streaming (HLS) Delivery
+## 3.2	Apple HLS Delivery
 Timed metadata for Apple HTTP Live Streaming (HLS) may be embedded in the segment playlist within a custom M3U tag.  The application layer can parse the M3U playlist and process M3U tags. 
 Azure Media Services will embed timed metadata in the EXT-X-CUE tag defined in [HLS].  The EXT-X-CUE tag is currently used by DynaMux for messages of type ADI3.  To support SCTE-35 and non SCTE-35 messages, set the attributes of the EXT-X-CUE tag as defined below:
 
@@ -243,7 +248,7 @@ Azure Media Services will embed timed metadata in the EXT-X-CUE tag defined in [
 
 The HLS player application layer will use the TYPE to identify the format of the message, decode the message, apply the necessary time conversions, and process the event.  The events are time synchronized in the segment playlist of the parent track, according to the event timestamp.  They are inserted before the nearest segment (#EXTINF tag).
 
-### HLS Segment Playlist Example
+#### HLS Segment Playlist Example
 ~~~
 #EXTM3U
 #EXT-X-VERSION:4
@@ -274,7 +279,7 @@ Fragments(video=480000000,format=m3u8-aapl)
 …
 ~~~
 
-### HLS Message Handling
+#### HLS Message Handling
 
 Events are signaled in the segment playlist of each video and audio track. The
 position of the EXT-X-CUE tag MUST always be either immediately before the first
@@ -291,7 +296,7 @@ When a sliding presentation window is enabled, the EXT-X-CUE tags are removed
 from the segment playlist when the media time that they refer to has rolled out
 of the sliding presentation window.
 
-## 4.4	DASH Egress
+### 3.3	DASH Egress
 [DASH] provides three ways to signal events:
 
 1.  Events signaled in the MPD
@@ -306,7 +311,7 @@ solution is useful for live streaming because clients do not need to download th
 Azure Media Services will do both signaling in the MPD and in-band signaling
 using the Event Message Box.
 
-### MPD Signaling
+#### MPD Signaling
 
 Events will be signaled in the MPD using the EventStream element, which appears
 within the Period element.
@@ -329,7 +334,7 @@ Zero or more Event elements are contained within the EventStream element, and th
 | id                  | 32-bit unsigned integer | Optional      | Identifies this instance of the message. Messages with equivalent semantics shall have the same value. If the ID is not specified when the message is ingested, Azure Media Services will generate a unique id.             |
 | Event element value | string                  | Required      | The event message as a base64 string as described in [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
-### XML Syntax and Example for DASH manifest (MPD) Signaling
+#### XML Syntax and Example for DASH manifest (MPD) Signaling
 
 ~~~ xml
 <!-- XML Syntax -->
@@ -365,7 +370,7 @@ Zero or more Event elements are contained within the EventStream element, and th
 ~~~
 **Note that presentationTime is the presentation time of the event, not the arrival time of the message.**
 
-### 4.3.2 In-band Event Message Box Signaling
+### 4.3.1 In-band Event Message Box Signaling
 An in-band event stream requires the MPD to have an InbandEventStream element at the Adaptation Set level.  This element has a mandatory schemeIdUri attribute and optional timescale attribute, which also appear in the Event Message Box (‘emsg’).  Event message boxes with scheme identifiers that are not defined in the MPD should not be present. If a DASH client detects an event message box with a scheme that is not defined in the MPD, the client is expected to ignore it.
 The Event Message box (‘emsg’) provides signaling for generic events related to the media presentation time. If present, any ‘emsg’ box shall be placed before any ‘moof’ box.
 
@@ -402,12 +407,12 @@ The fields of the DASHEventMessageBox are defined below:
 | Id                      | 32-bit unsigned integer | Required      | Identifies this instance of the message. Messages with equivalent semantics shall have the same value. If the ID is not specified when the message is ingested, Azure Media Services will generate a unique id.                                                                                                                                                    |
 | Message_data            | byte array              | Required      | The event message. For [SCTE-35] messages, the message data is the binary splice_info_section(), although [SCTE-67] recommends something else.                                                                                                                                                                                                                                 |
 
-## 4.3.3 DASH Message Handling
+### 3.3.2 DASH Message Handling
 
 Events are signaled in-band, within the ‘emsg’ box, for both video and audio tracks.  The signaling occurs for all segment requests for which the presentation_time_delta is 15 seconds or less. 
 When a sliding presentation window is enabled, event messages are removed from the MPD when the sum of the time and duration of the event message is less than the time of the media data in the manifest.  In other words, the event messages are removed from the manifest when the media time to which they refer has rolled out of the sliding presentation window.
 
-# 5. SCTE-35 Ingest
+## 4 SCTE-35 Ingest
 
 [SCTE-35] messages are ingested in binary format using the Scheme
 **“urn:scte:scte35:2013a:bin”** for Smooth ingest and the type **“scte35”** for
@@ -424,9 +429,8 @@ the cue attribute of the AMF message is set to the base64encoded
 **splice_info_section()**. When the messages have the format described above,
 they are sent to HLS, Smooth, and Dash clients in compliance with [SCTE-67].
 
----------------------------------------------------
-# 6.  Normative References
 
+## 5 References
 
 [SCTE-35] ANSI/SCTE 35 2013a – Digital Program Insertion Cueing Message for
 Cable, 2013a
