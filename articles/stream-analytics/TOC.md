@@ -7,9 +7,8 @@
 ## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
 
-
 # Tutorials
-## [1 - Test and run your job](stream-analytics-test-a-job.md)
+## [1 - Test and run your job](stream-analytics-test-query.md)
 ## [2 - View results on a dashboard](stream-analytics-power-bi-dashboard.md)
 ## [3 - Run Azure Functions](stream-analytics-with-azure-functions.md)
 ## [4 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
@@ -29,7 +28,6 @@
 ## [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
 ## [Event ordering considerations](stream-analytics-out-of-order-and-late-events.md)
 
-
 # How-to-guides
 
 ## Manage
@@ -42,7 +40,6 @@
 ### [Run jobs on IoT edge](stream-analytics-edge.md) 
 ### [Run a JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [High-frequency trading](stream-analytics-high-frequency-trading.md)
-
 
 ## Monitor
 
@@ -79,7 +76,6 @@
 ### [Sentiment analysis with ML models](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Anomaly detection](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Use REST APIs](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
