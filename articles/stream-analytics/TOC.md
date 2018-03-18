@@ -2,7 +2,6 @@
 
 # Overview
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
-## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
 # Get started
 ## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
@@ -102,6 +101,7 @@
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Customer case studies](https://azure.microsoft.com/case-studies/?service=stream-analytics)
 ## [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
 
 
