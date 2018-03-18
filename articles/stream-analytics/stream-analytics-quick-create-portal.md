@@ -137,5 +137,5 @@ You should delete the job to avoid billing the streaming units consumed by the j
 In this quickstart, you’ve deployed a simple Stream analytics job, to learn about configuring other input sources and performing real-time detection, continue to the following article:
 
 > [!div class="nextstepaction"]
-> [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
+> [Real-time fraud detection using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 
