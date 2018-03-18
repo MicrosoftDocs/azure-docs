@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Stream events into Azure Databricks using Event Hubs | Microsoft Docs'
+title: 'Tutorial: ETL operations using Azure Databricks | Microsoft Docs'
 description: Learn how to extract data from Data Lake Store into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
 services: azure-databricks
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: nitinme
 
 ---
 
-# Tutorial: Stream events into Azure Databricks using Event Hubs
+# Tutorial: ETL operations using Azure Databricks
 
 In this tutorial, you extract data from Azure Data Lake Store into Azure Databricks, run transformations on the data in Azure Databricks, and then load the transformed data into Azure SQL Data Warehouse. The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Blob Storage as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
 
@@ -399,7 +399,7 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
 
 After you have finished running the tutorial, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
 
-![Stop a Databricks cluster](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Stop a Databricks cluster")
+![Stop a Databricks cluster](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
 If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
 
