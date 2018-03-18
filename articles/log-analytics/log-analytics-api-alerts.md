@@ -125,7 +125,7 @@ The request format for creating a new action varies by action type so these exam
 ### Deleting actions
 > [!NOTE]
 > All alerts in a workspace will be automatically extended to Azure, starting from April 23, 2018. Unless user voluntarily does the same before, for more information - see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). 
-For users, extending their Alerts into Azure - actions are now controlled with-in Azure [Action Group. Once a workspace and its Alerts are extended to Azure - all actions can be deleted using [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups)
+For users, extending their Alerts into Azure - actions are now controlled with-in Azure Action Group. Once a workspace and its Alerts are extended to Azure - all actions can be deleted using [Action Group API](https://docs.microsoft.com/en-us/rest/api/monitor/actiongroups)
 
 Use the Delete method with the action ID to delete an action.
 
