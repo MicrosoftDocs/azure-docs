@@ -17558,5 +17558,15 @@
         "redirect_url": "/azure/sql-data-warehouse/resource-classes-for-workload-management",
         "redirect_document_id": false
      }
+     ,{
+        "source_path": "articles/stream-analytics/stream-analytics-data-lake-output.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#azure-data-lake-store",
+        "redirect_document_id": false
+     }
+     ,{
+        "source_path": "articles/stream-analytics/stream-analytics-sample-data-input.md",
+        "redirect_url": "/azure/stream-analytics/stream-analytics-test-query",
+        "redirect_document_id": false
+     }
    ]
 }
