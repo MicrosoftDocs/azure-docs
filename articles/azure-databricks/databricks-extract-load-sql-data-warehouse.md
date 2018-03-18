@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Stream events into Azure Databricks using Event Hubs | Microsoft Docs'
-description: Learn to use Azure Databricks with Event Hubs to ingest streaming data from Twitter and read the data in real time. 
+description: Learn how to extract data from Data Lake Store into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 03/15/2018
+ms.date: 03/19/2018
 ms.author: nitinme
 
 ---
@@ -409,11 +409,12 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace
 > * Create a Spark cluster in Azure Databricks
-> * Create a Twitter app to generate streaming data
-> * Create notebooks in Azure Databricks
-> * Add libraries for Event Hubs and Twitter API
-> * Send tweets to Event Hubs
-> * Read tweets from Event Hubs
+> * Create an Azure Data Lake Store account
+> * Upload data to Azure Data Lake Store
+> * Create a notebook in Azure Databricks
+> * Extract data from Data Lake Store
+> * Transform data in Azure Databricks
+> * Load data into Azure SQL Data Warehouse
 
 > [!div class="nextstepaction"]
 >[Get started with Azure Databricks](quickstart-create-databricks-workspace-portal.md)
