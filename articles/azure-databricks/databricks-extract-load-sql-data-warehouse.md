@@ -18,7 +18,7 @@ ms.author: nitinme
 
 ---
 
-# Tutorial: ETL operations using Azure Databricks
+# Tutorial: Extract, transform, and load operations using Azure Databricks
 
 In this tutorial, you extract data from Azure Data Lake Store into Azure Databricks, run transformations on the data in Azure Databricks, and then load the transformed data into Azure SQL Data Warehouse. The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Blob Storage as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
 
@@ -416,5 +416,7 @@ In this tutorial, you learned how to:
 > * Transform data in Azure Databricks
 > * Load data into Azure SQL Data Warehouse
 
+Advance to the next tutorial to learn about streaming real-time data into Azure Databricks using Azure Event Hubs.
+
 > [!div class="nextstepaction"]
->[Get started with Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+>[Stream data into Azure Databricks using Event Hubs](databricks-stream-from-eventhubs.md)
