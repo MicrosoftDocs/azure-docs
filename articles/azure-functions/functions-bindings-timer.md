@@ -258,6 +258,10 @@ is passed into the function. The following JSON is an example representation of 
 
 The timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.
 
+## Function apps sharing Storage
+
+If you share a Storage account across multiple function apps, make sure that each function app has a different `id` in *host.json*. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

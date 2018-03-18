@@ -203,10 +203,10 @@ See these additional resources for PHP development with Blob storage:
 
 ## Next steps
  
-In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using PHP. To learn more about working with blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using PHP. To learn more about working with PHP, continue to our PHP Developer center.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](./storage-php-how-to-use-blobs.md)
+> [PHP Developer Center](https://azure.microsoft.com/en-us/develop/php/)
 
 
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

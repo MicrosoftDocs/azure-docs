@@ -164,7 +164,9 @@
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Collaborate on a LUIS app
-      href: luis-how-to-collaborate.md    
+      href: luis-how-to-collaborate.md 
+  - name: Manage your LUIS account
+    href: luis-how-to-account-settings.md   
   - name: Migrate to V2 API
     href: migration-v1-to-v2.md
 - name: Reference
