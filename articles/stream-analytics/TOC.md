@@ -8,7 +8,7 @@
 ## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
 
 # Tutorials
-## [1 - Test and run your job](stream-analytics-test-query.md)
+## [1 - Test your job](stream-analytics-test-query.md)
 ## [2 - View results on a dashboard](stream-analytics-power-bi-dashboard.md)
 ## [3 - Run Azure Functions](stream-analytics-with-azure-functions.md)
 ## [4 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
