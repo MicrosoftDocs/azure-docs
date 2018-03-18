@@ -6,7 +6,14 @@
 # Get started
 ## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
-## [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md)
+
+
+# Tutorials
+## [1 - Test and run your job](stream-analytics-test-a-job.md)
+## [2 - View results on a dashboard](stream-analytics-power-bi-dashboard.md)
+## [3 - Run Azure Functions](stream-analytics-with-azure-functions.md)
+## [4 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
+## [5 - Configure alerts](stream-analytics-set-up-alerts.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
@@ -16,6 +23,7 @@
 ### [Streaming data inputs](stream-analytics-define-inputs.md)
 ### [Reference data inputs](stream-analytics-use-reference-data.md)
 ## [Output types for a job](stream-analytics-define-outputs.md)
+### [Output to Cosmos DB](stream-analytics-documentdb-output.md)
 ## [Window functions](stream-analytics-window-functions.md)
 ## [Compatibility level](stream-analytics-compatibility-level.md)
 ## [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
@@ -23,14 +31,6 @@
 
 
 # How-to-guides
-
-## Create jobs
-### [Test queries and sample input data](stream-analytics-sample-data-input.md)
-### [Test queries](stream-analytics-test-query.md)
-### [Run a JavaScript UDF](stream-analytics-javascript-user-defined-functions.md)
-### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
-### [Output to Cosmos DB](stream-analytics-documentdb-output.md)
-### [Configure alerts](stream-analytics-set-up-alerts.md)
 
 ## Manage
 ### [Update a job](stream-analytics-job-reliability.md)
@@ -42,7 +42,7 @@
 ### [Run jobs on IoT edge](stream-analytics-edge.md) 
 ### [Run a JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [High-frequency trading](stream-analytics-high-frequency-trading.md)
-### [Run Azure Functions](stream-analytics-with-azure-functions.md)
+
 
 ## Monitor
 
