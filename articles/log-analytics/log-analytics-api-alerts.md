@@ -139,7 +139,7 @@ A Schedule should have one and only one Alert action.  Alert actions have one or
 | Threshold |Criteria for when the action is run.| Required for every alert, before or after they are extended to Azure. |
 | Severity |Label used to classify alert when triggered.| Required for every alert, before or after they are extended to Azure. |
 | Action Groups |IDs of Azure ActionGroup where actions required are specified, like - E-Mails, SMSs, Voice Calls, Webhooks, Automation Runbooks, ITSM Connectors, etc.| Required once alerts are extended to Azure|
-| Customize Actions|Modify the standard output for select actions from ActionGroup| Optional for every alert, can be after alerts are extended to Azure. |
+| Customize Actions|Modify the standard output for select actions from ActionGroup| Optional for every alert, can be used after alerts are extended to Azure. |
 | EmailNotification |Send mail to multiple recipients. | Not required, if alerts are extended to Azure|
 | Remediation |Start a runbook in Azure Automation to attempt to correct identified issue. |Not required, if alerts are extended to Azure|
 | Webhook Actions | Push data from Alerts, to desired service as JSON |Not required, if alerts are extended to Azure|
