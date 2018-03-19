@@ -28,7 +28,7 @@ The following section describes the configuration of auditing on your Managed In
    - Navigate to the Azure Storage where you would like to store your audit logs.
 
      > [!IMPORTANT]
-     > It is recommended to use a storage account in the same region as the Managed Instance server to avoid cross-region reads/writes.
+     > Use a storage account in the same region as the Managed Instance server to avoid cross-region reads/writes.
 
    - In the storage account, go to **Overview** and click **Blobs**.
 
@@ -60,7 +60,7 @@ The following section describes the configuration of auditing on your Managed In
 
    - Configure the SAS as follows:
      - **Allowed services**: Blob
-     - **Start date**: to avoid time zone related issues, it is recommended to use yesterday’s date.
+     - **Start date**: to avoid time zone-related issues, it is recommended to use yesterday’s date.
      - **End date**: choose the date on which this SAS Token expires. 
 
        > [!NOTE]
@@ -88,7 +88,7 @@ The following section describes the configuration of auditing on your Managed In
     GO
     ```
 
-6. Execute the following T-SQL statement to create a new Server Audit (choose your own audit name, use the Container URL that you created in the previous steps) :
+6. Execute the following T-SQL statement to create a new Server Audit (choose your own audit name, use the Container URL that you created in the previous steps):
 
     ```SQL
     CREATE SERVER AUDIT [<your_audit_name>]
@@ -120,10 +120,10 @@ There are several methods you can use to view blob auditing logs.
 
 - Use the system function `sys.fn_get_audit_file` (T-SQL) to return the audit log data in tabular format. For more information on using this function, see the [sys.fn_get_audit_file documentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- For a full list of audit log consumption methods, please refer to the [Get started with SQL database auditing](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
 
 > [!IMPORTANT]
-> The method for viewing audit records from the portal (‘Audit records’ blade) is currently unavailable for Managed Instance.
+> The method for viewing audit records from the Azure portal (‘Audit records’ pane) is currently unavailable for Managed Instance.
 
 ## Auditing differences between Managed Instance, Azure SQL Database, and SQL Server
 
@@ -144,7 +144,7 @@ The key differences in the `CREATE AUDIT` syntax for Auditing to Azure blob stor
 
 ## Next steps
 
-- For a full list of audit log consumption methods, please refer to the [Get started with SQL database auditing](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
 - For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 
