@@ -85,6 +85,6 @@ For a more advanced streaming scenario, see [Tutorial: Upload, encode, stream](s
 
 ## Next Steps
 
-* [Analyze your videos](analyze-videos-tutorial.md)
-* [Playback on multiple devices](playback-tutorial.md)
+> [!div class="nextstepaction"]
+> [Analyze your videos](analyze-videos-tutorial.md)
 

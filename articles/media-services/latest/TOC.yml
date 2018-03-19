@@ -19,8 +19,6 @@
     href: stream-files-tutorial.md
   - name: Analyze your video
     href: analyze-videos-tutorial.md
-  - name: Playback on multiple devices
-    href: playback-tutorial.md
 - name: Samples
   items:
   - name: Code samples

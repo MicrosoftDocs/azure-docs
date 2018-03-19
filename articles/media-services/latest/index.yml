@@ -41,7 +41,6 @@ sections:
     items:
     - html: <a href="/azure/media-services/latest/stream-files-tutorial">Upload, encode, stream videos</a>
     - html: <a href="/azure/media-services/latest/analyze-videos-tutorial">Analyze your videos</a>
-    - html: <a href="/azure/media-services/latest/playback-tutorial">Playback on multiple devices</a>
 - title: Reference
   items:
   - type: list

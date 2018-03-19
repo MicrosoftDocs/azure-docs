@@ -17,52 +17,48 @@ ms.author: juliako
 
 # Tutorial: Upload, encode, download, and stream videos
 
-This tutorial shows tasks that are common in the following scenarios:
+This tutorial shows you how to stream video files. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. The tutorial also shows you how to download your content, this is useful when you want to deliver offline content for playback on airplanes, trains, and automobiles. 
 
-* Delivering adaptive bitrate encoded content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices.
-* Adding subtitles and captions to videos to cater to a broader audience. 
-* Delivering offline content for playback on airplanes, trains, and automobiles. 
+This tutorial examines a .NET code sample that is located on GitHub, so you are first offered to clone the sample repository. 
 
-To accomplish the above scenarios, you need to perform the following tasks, described in this tutorial.
+The article explains the following tasks that are part of the code sample:  
 
 > [!div class="checklist"]
-> * Create a new Azure Media Services account
 > * Create an input asset based on a local file
 > * Create an output asset to store the results of the job
 > * Create a transform and a job that encodes the specified file
-> * Add subtitles
 > * Wait for the job to complete
 > * Download the result to your local folder
 > * Get the streaming URL
-> * Test the stream in Azure Media Player
-> * Clean up resources
+> * Test the stream in a player (in this case, we use Azure Media Player)
 
 ## Prerequisites
 
-* Setup your development environment.
-* Have an mp4 file that you want to upload, encode, and stream.
++ An active [GitHub](https://github.com) account. 
++ Visual Studio. The example described in this quickstart uses Visual Studio 2017. 
+
+    If you do not have Visual Studio installed, you can get [Visual Studio Community 2017, Visual Studio Professional 2017, or Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
++ An Azure Media Services account. See the steps described in [Create a Media Services account](create-account-cli-quickstart.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Download the complete code sample
+## Clone the sample application
 
-You can find the complete code sample that is described in this article at [this location](https://github.com/Azure-Samples).<br/> You can either download, build, and run the sample. Or, you can create one from scratch following instructions in this quickstart. 
+First, let's clone the [StreamAndEncodeFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials) app from GitHub. Visual Studio 2017 was used to create the sample.
 
-## Log in to Azure
+1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
+2. Run the following command to clone the sample repository. 
 
-In this section, we log in to the [Azure portal](http://portal.azure.com) and use the **CloudShell** to execute the account creation script, shown in the next step.
+    ```bash
+    git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+    ```
+3. Open the solution file in Visual Studio. 
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-## Create the account
-
-This section shows how to create a Media Services account using CLI 2.0. When creating a Media Services account, you need to supply the ID of an Azure Storage account resource. The specified storage account is attached to your Media Services account. This storage account resource has to be located in the same geographic region as the Media Services account. For more information, see [Storage accounts](storage-account-concept.md).
-
-The account creation script that follows, first, creates the Storage account. Then, it creates the Media Services account.
-
-```azurecli-interactive
-az create account 
-```
+    The project that is discussed in this article is called **EncodeAndStreamFiles**.
+4. Build the solution. 
+4. To run the app and access the Media Services APIs, you need to specify the correct values in App.config. 
+    
+    To get the values, see (create-account-cli-quickstart.md#access_api).
 
 ## Create an input asset based on a local file
 
@@ -213,16 +209,6 @@ Run the code and get the streaming URL from the console.
 2. In the **URL:** box, paste the value that you got from the step 7.
 3. Press **Update Player**.
 
-## Clean up resources
-
-If you're not going to continue to use this app, delete all resources created by this quickstart. 
-
-In the **CloudShell**, that you opened in the first step, execute the following command:
-
-```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
-az group delete --name myResourceGroup
-```
 
 ## Next steps
 

@@ -23,7 +23,9 @@ ms.author: juliako
 
 This quickstart shows you how to stream video files. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately.
 
-This quickstart examines a .NET code sample that is located on GitHub. The article explains the following tasks that are part of the code sample:  
+This tutorial examines a .NET code sample that is located on GitHub, so you are first offered to clone the sample repository. 
+
+The article explains the following tasks that are part of the code sample:  
 
 1. Create the **AzureMediaServicesClient** object to access Media Services operations.
 2. Create a job to encode a file hosted on an HTTPS URI.
@@ -214,8 +216,6 @@ String GetProgressiveDownloadURL()
 ## Run the app and get the streaming URLs
 
 Run the app that you cloned, copy one of the URLs you want to test.  
-
-TODO: Once i have an example from the product team, i will add a screenshot of the console with URLs.
 
 ## Test with Azure Media Player
 

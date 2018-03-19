@@ -58,7 +58,7 @@ az group create -n <myresourcegroup> -l westus2
 
 When creating a Media Services account, you need to supply the ID of an Azure Storage account resource. The specified storage account is attached to your Media Services account. You can have two storage accounts associated with your Media Services account: **Primary** and **Secondary**, Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. However, **Blob only** accounts are not allowed as **Primary**. If you want to learn more about storage accounts, see [Azure Storage account options](../../storage/common/storage-account-options.md). 
 
-The following command creates the Storage account that is going to be associated with the Media Services Account (primary). In the script below, substitute the *storageaccountforams* placeholder. 
+The following command creates the Storage account that is going to be associated with the Media Services Account (primary). In the script below, substitute the *storageaccountforams* placeholder. Ther 'account_name' must have length less than 24.
 
 ```azurecli-interactive
 az storage account create -n <storageaccountforams> -g <myresourcegroup>
@@ -78,10 +78,12 @@ az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <stor
 
 ## <a id="access_api" />Get necessary values to access Media Services API
 
-To start programming against Media Services, you need supply the following values:
+To start programming against Media Services, you need to create an Azure AD service principal and get the values that are needed to connect to the Media Services API.  
+
+Before running the script, substitute the *myresourcegroup* placeholder with the name you want to use for your resource group.
 
 ```azurecli-interactive
-az ams  ???
+az ams  sp create -a <mynewamssubcroupacc> -g <myresourcegroup>
 ```
 
 ## Clean up resources
