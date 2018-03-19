@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
 
 ---
@@ -61,10 +61,6 @@ Use the following procedure to create a computer group from a log search in the 
 2. Click the **Save** button at the top of the screen.
 3. Select **Yes** to **Save this query as a computer group**.
 5. Provide values for each property for the computer group. 
-
-
->[!NOTE]
-> If your workspace is still using the [legacy Log Analytics query language](log-analytics-log-search-upgrade.md) then you use the same procedure for creating a computer group, but the you must use the syntax of the legacy query language.
 
 
 ### Log search API
@@ -126,18 +122,6 @@ The following query would return UpdateSummary records for only computers in Dom
   UpdateSummary | where Computer in (ADComputers)
   ```
 
-
-
-  
-
->[!NOTE]
-> If your workspace is still using the [legacy Log Analytics query language](log-analytics-log-search-upgrade.md)>, then you use the following syntax to refer to a computer group in a log search.  Specifying the **Category** >is optional and only required if you have computer groups with the same name in different categories. 
->
->    `$ComputerGroups[Category: Name]`
->
->Computer groups are typically used with the **IN** clause in the log search as in the following example:
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
 
 
 
