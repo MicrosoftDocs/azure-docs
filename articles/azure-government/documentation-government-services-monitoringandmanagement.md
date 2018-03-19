@@ -88,7 +88,7 @@ Add-AzureRmAutoscaleSetting -Location "USGov Virginia" -Name "MyScaleVMSSSetting
 
 If you are interested in implementing autoscale on your resources, use PowerShell/ARM/Rest calls to specify the settings. 
 
-For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
+For more information on using PowerShell, see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
 
 #### Diagnostic Logs
 Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.
@@ -108,7 +108,7 @@ $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com
 Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%" 
 ```
 
-For more information on using PowerShell, please see [public documentation](../monitoring-and-diagnostics/insights-powershell-samples.md).
+For more information on using PowerShell, see [public documentation](../monitoring-and-diagnostics/insights-powershell-samples.md).
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
