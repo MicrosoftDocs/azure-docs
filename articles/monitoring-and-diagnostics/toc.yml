@@ -70,8 +70,6 @@
       href: monitoring-autoscale-get-started.md
     - name: Multi-dimensional metrics explorer
       href: monitoring-metric-charts.md
-    - name: Azure CLI 1.0 samples
-      href: insights-cli-samples.md
     - name: Azure PowerShell samples
       href: insights-powershell-samples.md
   - name: Use alerts
