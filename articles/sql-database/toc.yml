@@ -101,8 +101,10 @@
       href: sql-database-manage-logins.md
     - name: Multi-factor auth
       href: sql-database-ssms-mfa-authentication.md
-    - name: Auditing
+    - name: Auditing - SQL Database
       href: sql-database-auditing.md
+    - name: Auditing - Managed Instance
+      href: sql-database-managed-instance-auditing.md
     - name: Threat detection - SQL Database
       href: sql-database-threat-detection.md
     - name: Threat detection - Managed Instance
