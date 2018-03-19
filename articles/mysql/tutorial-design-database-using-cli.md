@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
 ---
 

@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ---
 # Limitations in Azure Database for PostgreSQL
 The following sections describe capacity and functional limits in the database service.

@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ---
 # Supported PostgreSQL Database Versions
 Microsoft aims to support n-2 versions of the PostgreSQL engine in the Azure Database for PostgreSQL service, meaning the currently released major version (n) and the two prior major versions (-2).
