@@ -20,7 +20,7 @@ ms.author: nitinme
 
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
-In this tutorial, you perform a typical ETL (extract, transform, and load data) operation using Azure Databricks. You extract data from Azure Data Lake Store into Azure Databricks, run transformations on the data in Azure Databricks, and then load the transformed data into Azure SQL Data Warehouse. The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Blob Storage as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
+In this tutorial, you perform an ETL (extract, transform, and load data) operation using Azure Databricks. You extract data from Azure Data Lake Store into Azure Databricks, run transformations on the data in Azure Databricks, and then load the transformed data into Azure SQL Data Warehouse. The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Blob Storage as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
 
 The following illustration shows the application flow:
 

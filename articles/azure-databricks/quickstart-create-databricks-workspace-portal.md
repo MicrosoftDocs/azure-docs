@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/19/2018
 ms.author: nitinme
 ms.custom: mvc
 
@@ -181,7 +181,7 @@ If you do not manually terminate the cluster it will automatically stop, provide
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to stream data into Azure Databricks using Event Hubs.
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Event Hubs.
 
 > [!div class="nextstepaction"]
->[Stream data into Azure Databricks using Event Hubs](databricks-stream-from-eventhubs.md)
+>[Extract, transform, and load data using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
