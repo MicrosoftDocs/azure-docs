@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: jeedes
 
 ---
@@ -136,15 +136,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. In the **Identifier** textbox, type a URL using the following pattern:
-
-    | |
-    |--|
-    | `http://google.com/a/<yourdomain.com>`|
-    | `http://google.com`|    
-    | `google.com/<yourdomain.com>`|
-    | `google.com`|
-
+    b. In the **Identifier** textbox, type a URL using the following pattern: `google.com/a/<yourdomain.com>`
+ 
     > [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
 
@@ -154,14 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
-    b. In the **Identifier** textbox, type a URL using the following pattern:
-
-    | |
-    |--|
-    | `http://google.com/a/<yourdomain.com>`|
-    | `http://google.com`|    
-    | `google.com/<yourdomain.com>`|
-    | `google.com`|
+    b. In the **Identifier** textbox, type a URL using the following pattern: `google.com/a/<yourdomain.com>`
     
     > [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values. 
@@ -202,7 +188,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e. In G Suite, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.
 
-    f. Click **Save Changes**.
+	f. Select **Use a domain specific issuer**.
+
+    g. Click **Save Changes**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
