@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/19/2018
 ms.author: bhanupr
 
 ---
@@ -22,12 +22,10 @@ ms.author: bhanupr
 
 Domain-joined clusters provide the multi-user enterprise security capabilities on HDInsight. Domain-joined HDInsight clusters are connected to active directory domains, so that domain users can use their domain credentials to authenticate with the clusters and run big data jobs. 
 
-There are two ways to set up a domain controller so that a domain-joined HDInsight cluster can connect to:
-
-- Azure Active Directory Domain Services (Azure AD DS)
-- Active Directory Domain controller on Azure IaaS VMs
-
 In this article, you learn how to configure a Domain-joined HDInsight cluster using Azure Active Directory Domain Services.
+
+> [!NOTE]
+> Active Directory on Azure IaaS VMs is not longer supported.
 
 ## Create Azure ADDS
 
