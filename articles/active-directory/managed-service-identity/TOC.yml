@@ -47,6 +47,13 @@
         href: /azure/app-service/app-service-managed-service-identity
       - name: Azure Event Hubs
         href: /azure/event-hubs/event-hubs-managed-service-identity
+    - name: How-to guides
+      items:
+      - name: Windows VM
+        items:
+        - name: Configure Identity for an Azure VM
+        items:
+        - name: Portal
     - name: Resources
       items:
       - name: FAQs and known issues
