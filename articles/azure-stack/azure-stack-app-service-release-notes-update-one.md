@@ -48,7 +48,7 @@ Azure App Service on Azure Stack Update 1 includes the following improvements an
 
 - **High Availability of Azure App Service** - The Azure Stack 1802 update enabled workloads to be deployed across fault domains.  Therefore App Service infrastructure is able to be fault tolerant as it will be deployed across fault domains.  By default all new deployments of Azure App Service will have this capability however for deployments completed prior to Azure Stack 1802 update being applied refer to the [App Service Fault Domain documentation](azure-stack-app-service-fault-domain-update.md)
 
-- **Deploy in existing virtual network** - Customers can now deploy App Service on Azure Stack within an existing virtual network.  Deploying in an existing virtual network enables customers to connect to the SQL Server and File Server, required for Azure App Service, over private ports.  During deployment customers can select to deploy in an existing virtual network, however [must create subnets for use by App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) prior to deployment.
+- **Deploy in existing virtual network** - Customers can now deploy App Service on Azure Stack within an existing virtual network.  Deploying in an existing virtual network enables customers to connect to the SQL Server and File Server, required for Azure App Service, over private ports.  During deployment, customers can select to deploy in an existing virtual network, however [must create subnets for use by App Service](azure-stack-app-service-before-you-get-started.md#virtual-network) prior to deployment.
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**.  Consistent with Azure Stack Portal SDK version.
 
@@ -102,11 +102,11 @@ Azure App Service on Azure Stack Update 1 includes the following improvements an
 
 - Certificate validation errors
 
-Some customers have experienced issues when providing certificates to the App Service installer when deploying on an integrated system.  This was due to overly restrictive validation in the installer.  We have since re-release the App Service installer and request customers [download the updated installer](https://aka.ms/appsvconmasinstaller), file date stamp 16th March 7:12 PM.  If you continue to experience issues validating certificates with the updated installer, please contact support.
+Some customers have experienced issues when providing certificates to the App Service installer when deploying on an integrated system, due to overly restrictive validation in the installer.  We have since re-release the App Service installer and request customers [download the updated installer](https://aka.ms/appsvconmasinstaller), file date stamp 16 March 7:12 PM.  If you continue to experience issues validating certificates with the updated installer, contact support.
 
 - Problem retrieving Azure Stack root certificate from integrated system.
 
-An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve the Azure Stack root certificate when executing the script on a machine which does not have the root certificate installed.  The script has also now been re-released, resolving this issue, and request customers [download the updated helper scripts](https://aka.ms/appsvconmashelpers), file date stamp 16th March 2018 06:58:20 PM.  If you continue to experience issues retrieving the root certificate with the updated script, please contact support.
+An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve the Azure Stack root certificate when executing the script on a machine that does not have the root certificate installed.  The script has also now been re-released, resolving this issue, and request customers [download the updated helper scripts](https://aka.ms/appsvconmashelpers), file date stamp 16 March 2018 06:58:20 PM.  If you continue to experience issues retrieving the root certificate with the updated script, contact support.
 
 ### Known issues with the update process
 
