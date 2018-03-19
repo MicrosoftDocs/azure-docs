@@ -429,129 +429,125 @@ Through the entire Marketplace publishing process, you use an email address that
 
 You should have only one Microsoft ID account for your Azure Marketplace and AppSource offerings. We highly recommend that you don't share it with other services or offers.
 
-The selected email address should preferably be in your corporate domain and controlled by your IT team. Please review the sections in [Guidelines and How Tos](#Guidelines-and-How-Tos) including Guidelines for creating a Microsoft ID to Manage Marketplace Account and Guidance for Microsoft IDs in Azure AD Federated Domains for guidelines prior creating an ID. 
+The selected email address should preferably be in your corporate domain and controlled by your IT team. For guidelines prior to creating an ID, review the sections in [Guidelines and how-tos](#guidelines-and-how-tos). 
 
 #### Submit the Marketplace nomination form
-As part of the Marketplace onboarding process, you will need to submit a nomination form, submitting information about your application or service offer, your company's information, and the level of support that you will be providing. 
+As part of the Marketplace onboarding process, you need to submit a nomination form. The form includes information about your application or service offer, your company's information, and the level of support that you will provide. 
 
-Once the form is submitted the Marketplace team will review the application and validate the request. Once the request is reviewed, you will be notified via email with the next steps that need to be completed to become an approved Partner in the Cloud Partner Portal. Please submit your nomination in:
+- [Azure Marketplace nomination form](http://aka.ms/listonazuremarketplace)   
+- [AppSource nomination form](http://aka.ms/listonappsource)
 
-Azure Marketplace Nomination: http://aka.ms/listonazuremarketplace   
-AppSource Nomination: http://aka.ms/listonappsource
+After you submit the form, the Marketplace team will review the application and validate the request. After the request is reviewed, you will be notified via email with the next steps for becoming an approved partner in the Cloud Partner Portal.
 
 #### Register in the Developer Center
 
-The [Microsoft Developer Center](https://developer.microsoft.com/) is used to register your company's information. The registrant must be a valid representative of the company and must provide their personal information to validate their identity. The person registering must use a Microsoft ID that is shared for the company, and the same account must be used in the [Cloud Partner Portal](https://cloudpartner.azure.com/). 
+The [Microsoft Developer Center](https://developer.microsoft.com/) is used to register your company's information. The registrant must be a valid representative of the company and must provide their personal information to validate their identity. The registrant must use a Microsoft ID that's shared for the company, and the same account must be used in the [Cloud Partner Portal](https://cloudpartner.azure.com/). 
 
 >[!IMPORTANT]
->You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one.
+>Before you try to create a Microsoft Developer Center account, make sure your company doesn't already have one.
 
-During the process, we will collect company address information, bank account information, and tax information. These are typically obtainable from finance or business contacts. In addition, you must complete the following Publisher profile components to progress through the various phases of offer creation and deployment:
+During the process, we'll collect company address information, bank account information, and tax information. These are typically obtainable from finance or business contacts. In addition, you must complete the following Publisher profile components to progress through the various phases of offer creation and deployment:
 
 
 |**Publisher profile**  |**To start profile**  |**Staging**  |**List and trial**  |**Transact**
 |---------|---------|---------|---------|---------|
-|**Company registration**     | **Must have**        |  **Must have**       | **Must have**        |  **Must have**       |
-|**Tax profile ID**   |    Optional     |    Optional     |  Optional       | **Must have**      |
-|**Bank account**     |   Optional      |    Optional     |  Optional       |  **Must have**      |
+|**Company registration**     | Must have        |  Must have       | Must have        |  Must have       |
+|**Tax profile ID**   |    Optional     |    Optional     |  Optional       | Must have      |
+|**Bank account**     |   Optional      |    Optional     |  Optional       |  Must have      |
 
-Refer to the Appendix: Instructions on how to register in the Developer Center for a step by step explanation of this process. 
+For a step-by-step explanation of this process, see [Instructions on how to register in the Developer Center](#instructions-on-how-to-register-in-the-developer-center). 
 
-#### Log in to the Cloud Partner Portal
+#### Sign in to the Cloud Partner Portal
 
-Once you have received the approval from the Marketplace Team that the Nomination has been approved and you have registered in the [Microsoft Developer Center](https://dev.windows.com), an account will be created for you to access the [Cloud Partner Portal](https://cloudpartner.azure.com). First-time sign-in credentials will be included in the Nomination approval email. 
+After you receive approval from the Marketplace team that the nomination has been approved and you have registered in the [Microsoft Developer Center](https://dev.windows.com), an account is created for you to access the [Cloud Partner Portal](https://cloudpartner.azure.com). First-time sign-in credentials are be included in the Nomination approval email. 
 
-Use your Marketplace account (Microsoft ID) to access your publisher profile. Once in the Cloud Partner Portal, the last step is to associate the Developer Center account with the respective Marketplace Publisher Profile to publish. This can be done in the Cloud Partner Portal in your Publisher Profile via the button at the bottom of the screen.
+Use your Marketplace account (Microsoft ID) to access your publisher profile. When you're in the Cloud Partner Portal, the last step is to associate the Developer Center account with the respective Marketplace publisher profile to publish. You can make this association in the Cloud Partner Portal, in your publisher profile, via the button at the bottom of the screen.
 
-For detailed information on how to use the Cloud Partner Portal, please refer to the [Learn](https://cloudpartner.azure.com/#Learn) menu within the portal and click in the Documentation section. 
+For detailed information on how to use the Cloud Partner Portal, go to the [Learn](https://cloudpartner.azure.com/#Learn) menu in the portal and review the **Documentation** section. 
 
 
 ## Getting support
 
 This is the list of the support options for the Azure Marketplace:
 
-**Azure Marketplace general inquiries:**
-|Support Channel |Description |
+**Azure Marketplace general inquiries**
+|Support channel |Description |
 |---------|---------|
-|Email: cloudmarketplace@microsoft.com     |  Onboarding Support Distribution List. Used for onboarding requests, setting up Discovery sessions, and Architecture Design Sessions (ADS) with Partners.        |
+|Email: cloudmarketplace@microsoft.com     |  Onboarding support distribution list. Used for onboarding requests, setting up discovery sessions, and Architecture Design Sessions with partners.        |
 
-**Azure Marketplace publishing support:**
+**Azure Marketplace publishing support**
 
 |Support channel  |Description  |
 |---------|---------|
-|Email: 
-azurecertified@microsoft.com |   Provides support for Partners' Azure Marketplace publishing applications. Business hours in Pacific Time Zone.      |
-|Email:
-AzureMarketOnboard@microsoft.com |   Provides support for the Azure Marketplace Solution Nomination Form and process. Business hours in Pacific Time Zone.      |
-|Email: 
-Amp-testdrive@microsoft.com |   Provides onboarding access to Test Drives. Business hours in Pacific Time Zone. | 
+|Email: azurecertified@microsoft.com |   Support for partners' Azure Marketplace publishing applications. Business hours are in the Pacific time zone.      |
+|Email: AzureMarketOnboard@microsoft.com |   Support for the Azure Marketplace solution nomination form and process. Business hours are in the Pacific time zone.      |
+|Email: Amp-testdrive@microsoft.com |   Onboarding access to test drives. Business hours are in the Pacific time zone. | 
 
-**Azure Marketplace portal support:**
+**Azure Marketplace portal support**
 
 |Support channel  |Description  |
 |---------|---------|
-|Email [Support](https://go.microsoft.com/fwlink/?linkid=844975)    |   Marketplace Publishing Portal support. Support provided 24/7.        |
+|Email: [Support](https://go.microsoft.com/fwlink/?linkid=844975)    |   Marketplace Publishing Portal support. Support is provided all day, every day.        |
 
 **Technical support**
 
 
 |Support channel  |Description  |
 |---------|---------|
-|Slack: [Join Marketplace Slack](https://join.marketplace.azure.com)    |   Slack environment to support Partners with technical issues. There 350+ Partners currently working on this environment.        |
-|MSDN Forums: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network forum.         |
-|StackOverflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    StackOverflow website has multiple sections that provide an environment to get solutions and ask questions about everything related to Azure and AMP:<ul><li>StackOverflow: [Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>StackOverflow: [Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>StackOverflow: [Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
+|Slack: [Join Marketplace Slack](https://join.marketplace.azure.com)    |   Slack environment to support partners with technical issues. There are more than 350 partners currently working on this environment.        |
+|MSDN forums: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network forum.         |
+|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Stack Overflow environment to get solutions and ask questions about everything related to Azure and the Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 
 
 **Marketing resources**
 
 |Support channel  |Description  |
 |---------|---------|
-|Email: cosell@microsoft.com    |  Provides support for onboarding processes and questions related to the Co-Sell program. Based in the Pacific Time Zone.        |
-|Email: gtm@microsoft.com    |  Provides support for go-to-market benefits and program questions. Business hours in the Pacific Time Zone.        |
-|Email: CEBrand@Microsoft.com     |  Answers questions about brand usage for Azure logos and branding.       |
+|Email: cosell@microsoft.com    |  Support for onboarding processes and questions related to the Co-Sell program. Based in the Pacific time zone.        |
+|Email: gtm@microsoft.com    |  Support for go-to-market benefits and program questions. Business hours are in the Pacific Time Zone.        |
+|Email: CEBrand@Microsoft.com     |  Answers to questions about usage for Azure logos and branding.       |
 
 ## Guidelines and how-tos
 
 ### Guidelines for creating a Microsoft ID to manage an Azure Marketplace account
 
-When creating a company account, follow these guidelines if more than one person will need to access the account by logging in with the Microsoft account that opened the account.
+When you're creating a company account, follow these guidelines if more than one person will need to access the account by logging in with the Microsoft account that opened the account.
 
 >[!IMPORTANT]
->Allow multiple users to access your Dev Center account, we recommend using Azure Active Directory to assign roles to individual users, who can access the account by signing in with their individual Azure AD credentials. For more info, please review the [Guidance with Azure AD Federated Domains](#guidance-with-aad-federated-domains).Create your Microsoft account using an email address that belongs to your company's domain, but not to a single individual for example, windowsapps@fabrikam.com.
+>To allow multiple users to access your Developer Center account, we recommend using Azure Active Directory to assign roles to individual users. These users can access the account by signing in with their individual Azure AD credentials. For more information, see [Guidance for Microsoft IDs in an Azure AD federated domain](#guidance-for-microsoft-ids-in-an-azure-ad-federated-domain). Create your Microsoft account by using an email address that belongs to your company's domain, but not to a single individual. An example is windowsapps@fabrikam.com.
 
 - Limit access to this Microsoft account to the smallest possible number of developers.
-- Set up a corporate email distribution list that includes everyone who needs to access the developer account, and add this email address to your security info. This allows all the employees on the list to receive security codes when needed and to manage your Microsoft account's security info. If setting up a distribution list is not feasible, the owner of the individual email account will need to be available to access and share the security code when prompted (such as when new security info is added to the account or when it must be accessed from a new device).
+- Set up a corporate email distribution list that includes everyone who needs to access the developer account, and add this email address to your security information. This allows all the employees on the list to receive security codes when needed and to manage your Microsoft account's security information. If setting up a distribution list is not feasible, the owner of the individual email account needs to be available to access and share the security code when prompted. (For example, the owner is prompted when new security information is added to the account or when it must be accessed from a new device.)
 - Add a company phone number that does not require an extension and is accessible to key team members.
-- In general, have developers use trusted devices to log in to your company's developer account. All key team members should have access to these trusted devices. This will reduce the need for security codes to be sent when accessing the account.
+- In general, have developers use trusted devices to sign in to your company's developer account. All key team members should have access to these trusted devices. This access will reduce the need for security codes to be sent when someone is accessing the account.
 - If you need to allow access to the account from a non-trusted PC, limit that access to a maximum of five developers. Ideally, these developers should access the account from machines that share the same geographical and network location.
-- Frequently review your company's security info at [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) to make sure it's all current.
+- Frequently review your company's security information on the [management page](https://account.live.com/proofs/Manage) to make sure it's all current.
 
-Your developer account should be accessed primarily from trusted PCs. This is critical because there is a limit to the number of codes generated per account, per week. It also enables the most seamless sign-in experience.
-For more information on additional developer account guidelines and security, click [here](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
+Your developer account should be accessed primarily from trusted PCs. This is critical because there is a limit to the number of codes generated per account, per week. Using trusted PCs also enables the most seamless sign-in experience.
+
+For more information on additional developer account guidelines and security, see [Opening a developer account](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
 
 ### Guidance for Microsoft IDs in an Azure AD federated domain
 
-Your corporate account may be federated using [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/), and it will return an error if you try to create a Microsoft ID with a corporate email address. If you get an error, first check with your IT team to make sure this is the case. This is a known issue, and we are working on resolving it. 
-The workaround is the following:
+Your corporate account can be federated through [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/). It will return an error if you try to create a Microsoft ID with a corporate email address. If you get an error, first check with your IT team to make sure this is the case. This is a known issue, and we are working on resolving it. 
 
-We recommend you create a new email address in the **@outlook.com** domain. Follow these steps:
+As a workaround, we recommend that you create a new email address in the **@outlook.com** domain and create a rule. Follow these steps:
 
-1. Go to [https://signup.live.com/signup](https://signup.live.com/signup) and select **Get a new email address**
+1. Go to the [signup page](https://signup.live.com/signup) and select **Get a new email address**.
 
 
-2. Create the new email address and enter a password. This will create both a new Microsoft ID and an email mailbox in the outlook.com service. Continue the registration process until the account is created.
+2. Create the new email address and enter a password. This step creates both a new Microsoft ID and an email mailbox in the outlook.com service. Continue the registration process until the account is created.
 
->[!IMPORTANT]
->Ensure that the email id or distribution list (a distribution list is recommended to remove dependency from individuals) which you will be using for registering in the Dev Center is at first registered as a Microsoft account. If not, then please register using this [link](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1).
+   >[!IMPORTANT]
+   >Ensure that the email id or distribution list (a distribution list is recommended to remove dependency from individuals) which you will be using for registering in the Dev Center is at first registered as a Microsoft account. If not, then please register using this [link](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1).
 
-Also, **any email id under the Microsoft company domain** cannot be used for
-Dev Center registration.
+   Also, **any email id under the Microsoft company domain** cannot be used for Dev Center registration.
 
-Once the Microsoft ID is created with this account, log in to the account [mailbox](https://outlook.live.com/owa/) and create an email forward rule to move all the emails on this mailbox to the email address you created in your domain to manage the Azure Marketplace account. Refer to this [link](https://support.office.com/en-us/article/Use-rules-in-Outlook-Web-App-to-automatically-forward-messages-to-another-account-1433e3a0-7fb0-4999-b536-50e05cb67fed) on how to create an email forward rule in outlook.com.
+3. After the Microsoft ID is created with this account, log in to the account [mailbox](https://outlook.live.com/owa/) and create an email forward rule to move all the emails on this mailbox to the email address you created in your domain to manage the Azure Marketplace account. Refer to this [link](https://support.office.com/en-us/article/Use-rules-in-Outlook-Web-App-to-automatically-forward-messages-to-another-account-1433e3a0-7fb0-4999-b536-50e05cb67fed) on how to create an email forward rule in outlook.com.
 
-After this last step is completed, you will have all emails/communications from the Microsoft ID sent to your email account in your domain. You will need to use the @outlook.com email address to authenticate in both in the Microsoft Developer Center and the Cloud Partner Portal.
+After the last step is completed, you will have all emails/communications from the Microsoft ID sent to your email account in your domain. You will need to use the @outlook.com email address to authenticate in both in the Microsoft Developer Center and the Cloud Partner Portal.
 
-### Instructions on how to register in the Development Center
+### Instructions on how to register in the Developer Center
 
 1. Open a new Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you're not signed in to a personal account.
 2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Please read the following important note before you proceed.
