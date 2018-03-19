@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Table storage from Java | Microsoft Docs
+title: How to use Azure Table storage or Azure Cosmos DB Table API from Java | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: cosmos-db
 documentationcenter: java
@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/20/2018
 ms.author: mimig
 
 ---
-# How to use Azure Table storage from Java
+# How to use Azure Table storage or Azure Cosmos DB Table API from Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
-This guide will show you how to perform common scenarios using the Azure Table storage service. The samples are written in Java and use the [Azure Storage SDK for Java][Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#Next-Steps) section.
+This article demonstrates how to perform common scenarios using the Azure Table storage service and Azure Cosmos DB. The samples are written in Java and use the [Azure Storage SDK for Java][Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#Next-Steps) section.
 
 > [!NOTE]
 > An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].
@@ -35,7 +35,7 @@ This guide will show you how to perform common scenarios using the Azure Table s
 ## Create a Java application
 In this guide, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.
 
-To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription. Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the [Azure Storage SDK for Java][Azure Storage SDK for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository. Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.
+To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription. Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Storage SDK for Java][Azure Storage SDK for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository. Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.
 
 ## Configure your application to access table storage
 Add the following import statements to the top of the Java file where you want to use Microsoft Azure storage APIs to access tables:
@@ -58,7 +58,20 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, *ServiceConfiguration.cscfg*, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. Here's an example of getting the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file:
+## Set up an Azure Cosmos DB connection string
+An Azure Cosmos DB account uses a connection string to store the table endpoint and your credentials. When running in a client application, you must provide the Azure Cosmos DB connection string in the following format, using the name of your Azure Cosmos DB account and the primary access key for the account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. 
+
+This example shows how you can declare a static field to hold the connection string:
+
+```java
+public static final String storageConnectionString =
+    "DefaultEndpointsProtocol=https;" + 
+    "AccountName=your_cosmosdb_account;" + 
+    "AccountKey=your_account_key;" + 
+    "TableEndpoint=https://your_endpoint;" ;
+```
+
+In an application running within a role in Microsoft Azure, you can store this string in the service configuration file, *ServiceConfiguration.cscfg*, and you can access it with a call to the **RoleEnvironment.getConfigurationSettings** method. Here's an example of getting the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -66,7 +79,13 @@ String storageConnectionString =
     RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 ```
 
-The following samples assume that you have used one of these two methods to get the storage connection string.
+You can also store your connection string in your project's config.properties file:
+
+```java
+StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_account;AccountKey=your_account_key;TableEndpoint=https://your_table_endpoint/
+```
+
+The following samples assume that you have used one of these methods to get the storage connection string.
 
 ## How to: Create a table
 A **CloudTableClient** object lets you get reference objects for tables
@@ -570,6 +589,7 @@ catch (Exception e)
 
 ## Next steps
 
+* [Getting Started with Azure Table Service in Java](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage SDK for Java][Azure Storage SDK for Java]
 * [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference]
