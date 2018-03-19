@@ -29,7 +29,7 @@ If you encounter issues when you enable protection for Hyper-V VMs, check the fo
   - [Troubleshoot ](https://technet.microsoft.com/library/ff406382.aspx#H22) problems with WMI scripts and services.
 5. On the guest VM, ensure that the latest version of Integration Services is running.
     - [Check](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) that you have the latest version.
-    - [Keep]](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.
+    - [Keep](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services up-to-date.
     
 ## Replication issues
 
@@ -103,10 +103,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
     
 4. Check that you don't have an iSCSI disk attached to the VM. This isn't supported.
 5. Check that the Backup service is enabled. Verify this in **Hyper-V settings** > **Integration Services**.
-6. Make sure there are no conflicts with apps taking VSS snapshots. If multiple apps are trying to take VSS snapshots at the same time conflicts can occur. For example, if a Backup app is taking VSS snapshots when Site Recovery is scheduled by your replication policy to take a snapshot.
-
-    ![Snapshot conflict](media/hyper-v-azure-troubleshoot/snapshot-conflict.png)
-    
+6. Make sure there are no conflicts with apps taking VSS snapshots. If multiple apps are trying to take VSS snapshots at the same time conflicts can occur. For example, if a Backup app is taking VSS snapshots when Site Recovery is scheduled by your replication policy to take a snapshot.   
 7. Check if the VM is experiencing a high churn rate:
     - You can measure the daily data change rate for the guest VMs, using performance counters on Hyper-V host. To do this, enable the following counter. Aggregrate a sample of this value across the VM disks for 5-15 minutes, to get the VM churn.
         - Category: “Hyper-V Virtual Storage Device”
@@ -121,7 +118,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 ### VSS failing inside the Hyper-V Host
 
 1. Check event logs for VSS errors and recommendations:
-    - On the Hyper-V host server, open the Hyper-V Admin event log in **Event Viewer** > **Applications and Services Logs** > **Microsoft** > **Windows** > **Hyper-V** > **Admin***.
+    - On the Hyper-V host server, open the Hyper-V Admin event log in **Event Viewer** > **Applications and Services Logs** > **Microsoft** > **Windows** > **Hyper-V** > **Admin**.
     - Verify whether there are any events that indicate app-consistent snapshot failures.
     - A typical error is: "Hyper-V failed to generate VSS snapshot set for virtual machine 'XYZ': The writer experienced a non-transient error. Restarting the VSS service might resolve issues if the service is unresponsive."
 
