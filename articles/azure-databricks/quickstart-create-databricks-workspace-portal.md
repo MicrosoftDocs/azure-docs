@@ -127,7 +127,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
     ```sql
     %sql 
-    DROP TABLE IF EXISTS radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data;
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
