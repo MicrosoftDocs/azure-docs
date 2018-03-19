@@ -52,9 +52,9 @@ A sample screen below.
 
 
 ## Option 2 - Using API
-For customers who want to programmatically control or automate, the process of extending alerts in OMS into Azure; Microsoft has provided new AlertVersion API under Log Analytics.
+For customers who want to programmatically control or automate, the process of extending alerts in OMS into Azure; Microsoft has provided new AlertsVersion API under Log Analytics.
 
-The Log Analytics AlertVersion API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document, you will find examples where the API is accessed from a PowerShell command line using [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the API. The API will output results in JSON format, allowing usage of the results in many different ways programmatically.
+The Log Analytics AlertsVersion API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document, you will find examples where the API is accessed from a PowerShell command line using [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the API. The API will output results in JSON format, allowing usage of the results in many different ways programmatically.
 
 By using GET on the API, one can obtain in result the summary of the proposed change, as list of appropriate [Action Groups](monitoring-action-groups.md) for the alerts in OMS, in JSON format. If similar actions are seen across more than one alert - system will propose to create associate with all of them a single action group.  Action group proposed follow the naming convention: *WorkspaceName_AG_#Number*.
 
@@ -109,7 +109,7 @@ If the GET call to API is successful, along with 200 OK response, a JSON list of
                     "emailIds": [
                         "test1@mail.com",
                           "test2@mail.com"
-.md                    ],
+                    ],
                     "webhookActions": [],
                     "itsmAction": {
                         "connectionId": "<Guid>",
