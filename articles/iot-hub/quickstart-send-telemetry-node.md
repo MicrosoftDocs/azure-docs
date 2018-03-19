@@ -156,4 +156,4 @@ If you don't need the IoT hub any longer, delete it and the resource group in th
 In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a Node.js application, and read the telemetry from the hub using a simple back-end app. To learn how to control your simulated device from a back-end app, continue to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Control a device connected to an IoT hub](quickstart-c2d-node.md)
+> [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-node.md)
