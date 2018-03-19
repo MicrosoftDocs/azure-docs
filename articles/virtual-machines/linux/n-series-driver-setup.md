@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/19/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -160,16 +160,13 @@ RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC
 
 ### Distributions
 
-Deploy RDMA-capable N-series VMs from an image in the Azure Marketplace that supports RDMA connectivity on N-series VMs:
+Deploy RDMA-capable N-series VMs from one of the images in the Azure Marketplace that supports RDMA connectivity on N-series VMs:
   
 * **Ubuntu 16.04 LTS** - Configure RDMA drivers on the VM and register with Intel to download Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-> [!NOTE]
-> CentOS-based HPC images are not currently recommended for RDMA connectivity on N-series VMs. RDMA is not supported on the latest CentOS 7.4 kernel that supports NVIDIA GPUs.
-> 
-
+* **CentOS-based 7.4 HPC** - RDMA drivers and Intel MPI 5.1 are installed on the VM.
 
 ## Install GRID drivers for NV-series VMs
 
