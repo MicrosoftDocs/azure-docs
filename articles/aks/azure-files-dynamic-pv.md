@@ -94,7 +94,7 @@ spec:
 Create the persistent volume claim with the [kubectl create][kubectl-create] command.
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl create -f azure-file-pvc.yaml
 ```
 
 Once completed, the file share will be created. A Kubernetes secret is also created that contains connection information and credentials.
