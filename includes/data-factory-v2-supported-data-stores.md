@@ -1,6 +1,6 @@
 ---
 title: include file
-description: include file for ADF v2 supported connector matrix. Referened by copy activity and other overview topics.
+description: include file
 services: data-factory
 author: linda33wj
 ms.service: data-factory
