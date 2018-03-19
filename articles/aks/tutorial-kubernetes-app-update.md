@@ -86,7 +86,7 @@ Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with y
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your Azure Container Registry login server name.
+Use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your Azure Container Registry login server name. If you experience issues pushing to your ACR registry, ensure that you have run the [az acr login][az-acr-login] command.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -176,3 +176,4 @@ Advance to the next tutorial to learn about how to monitor Kubernetes with Opera
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
