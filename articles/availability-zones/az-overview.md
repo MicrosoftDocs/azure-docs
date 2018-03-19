@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/19/2018
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
@@ -30,6 +30,7 @@ Availability Zones help to protect you from datacenter-level failures. They are 
 - US Central
 - West Europe
 - France Central
+- Southeast Asia
 
 ## Services that support Availability Zones
 
