@@ -368,7 +368,10 @@ Zero or more Event elements are contained within the EventStream element, and th
   <Event presentationTime=”20000” duration=”10000” id=”1”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTYyMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
 </EventStream>
 ~~~
-**Note that presentationTime is the presentation time of the event, not the arrival time of the message.**
+
+>[!NOTE]
+>Note that presentationTime is the presentation time of the event, not the arrival time of the message.**
+>
 
 ### 4.3.1 In-band Event Message Box Signaling
 An in-band event stream requires the MPD to have an InbandEventStream element at the Adaptation Set level.  This element has a mandatory schemeIdUri attribute and optional timescale attribute, which also appear in the Event Message Box (‘emsg’).  Event message boxes with scheme identifiers that are not defined in the MPD should not be present. If a DASH client detects an event message box with a scheme that is not defined in the MPD, the client is expected to ignore it.
@@ -462,17 +465,10 @@ Edition 2012-07-15.
 
 ------------------------------------------
 
+## Next steps
+View Media Services learning paths.
 
-## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-[image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
-[image2]: ./media/media-services-fmp4-live-ingest-overview/media-services-image2.png
-[image3]: ./media/media-services-fmp4-live-ingest-overview/media-services-image3.png
-[image4]: ./media/media-services-fmp4-live-ingest-overview/media-services-image4.png
-[image5]: ./media/media-services-fmp4-live-ingest-overview/media-services-image5.png
-[image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
-[image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
