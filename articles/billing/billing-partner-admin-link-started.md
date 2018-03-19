@@ -14,14 +14,14 @@ ms.workload: na
 ---
 
 # Link partner ID to your account
-Partners who do consulting work or provide managed services on Microsoft Azure can track their impact across all customer engagements by linking the Partner ID to the account used for managing customer's resources.
+Partners who do consulting work or provide managed services on Microsoft Azure can track their impact across all customer engagements by linking the Partner ID to the their accounts used for managing customer's resources.
 
 This feature is available in a public preview. 
 
 ## Before you link 
-Before you link partner ID, you need to get access to customer’s Azure resources using one of the following:
+Before you link partner ID, you need to get access from the customer using one of the following:
 
-- **Guest User:** Customer can add you as a guest user using Azure AD business-to-business (B2B) collaboration capabilities and assign any RBAC role.See [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) for information.
+- **Guest User:** Customer can add you as a guest user and assign any RBAC role.See [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) for information.
 
 - **Directory account:**  Customer can create a new user from your organization in their directory and assign any RBAC role. 
 
