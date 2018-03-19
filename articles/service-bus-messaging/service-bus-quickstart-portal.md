@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2018
+ms.date: 03/19/2018
 ms.author: sethm
 
 ---
@@ -25,17 +25,17 @@ Microsoft Azure Service Bus is an enterprise integration message broker that pro
 
 ![queue](./media/service-bus-quickstart-portal/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages with Service Bus, using the Azure portal to create a messaging namespace and a queue within that namespace, and obtain authorization credentials on the namespace.
+This quickstart describes how to send and receive messages to and from a Service Bus queue. You use the [Azure portal][Azure portal] to first create a messaging namespace and a queue within that namespace. The procedure also obtains the authorization credentials on that namespace.
 
 If you do not have an Azure subscription, you can create a [free account][] before you begin.
 
-## Log in to the Azure portal
+## Log on to the Azure portal
 
-Log in to the [Azure portal][Azure portal].
+First, go to the [Azure portal][Azure portal] and log on using your Azure subscription. The first step is to create a Service Bus namespace of type **Messaging**.
 
 ## Create a Service Bus messaging namespace
 
-A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in your resource group:
+A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in a new or existing [resource group](/azure/azure-resource-manager/resource-group-portal):
 
 1. In the left navigation pane of the portal, click **+ Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
 2. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
