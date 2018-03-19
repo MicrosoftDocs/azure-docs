@@ -129,7 +129,7 @@ Do not use any of the utterances already in the app for the batch test:
           "entities": []
         },
         {
-          "text": "call Jack at work",
+          "text": "help",
           "intent": "None",
           "entities": []
         },
@@ -201,16 +201,32 @@ The two intents (dots on the chart) in the left bottom panel, in red, are the fa
 The two failing utterances should have been labeled as `None` intent but were instead labeled `HomeAutomation.TurnOn` intent. Because of this failure, both intents'
 expectations (HomeAutomation.TurnOn and None) failed.
 
-To determine why the `None` utterances are failing, review the utterances currently in `None`:
+To determine why the `None` utterances are failing, review the utterances currently in `None`. 
 
-```
-"decrease temperature for me please"
-"dim kitchen lights to 25."
-"lower your volume"
-"turn on the internet in my bedroom please"
-```
+## Review None intent's utterances
 
-These utterances are supposed to be outside the app domain. To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the `None` intent needs new, appropriate intents. 
+1. Close the **Test** panel by selecting the **Test** button on the top navigation bar. 
+
+2. Select **Build** from the top navigation panel. 
+
+3. Select **None** intent from list of intents.
+
+4. Select Control+E to see the token view of the utterances 
+    
+    |None intent's utterances|Prediction score|
+    |--|--|
+    |"decrease temperature for me please"|0.44|
+    |"dim kitchen lights to 25."|0.43|
+    |"lower your volume"|0.46|
+    |"turn on the internet in my bedroom please"|0.28|
+
+## Fix None intent's utterances
+    
+Any utterances in `None` are supposed to be outside of the app domain, but these utterances are relative to HomeAutomation, so they are in the wrong intent. 
+
+LUIS also gives the utterances less than 50% (<.50) prediction score. If you look at the utterances in the other two intents, you will see much higher prediction scores. When LUIS has low scores for example utterances, that is a good indication the utterances are confusing to LUIS between the current intent and other intents. 
+
+To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the `None` intent needs new, appropriate intents. 
 
 Three of the utterances in the `None` intent are meant to lower the automation device settings. They use words such as `dim`, `lower`, or `decrease`. The fourth utterance asks to turn on the internet. Since all four utterances are about turning on or changing the degree of power to a device, they should be moved to the `HomeAutomation.TurnOn` intent. 
 
@@ -236,17 +252,17 @@ Move the four utterances to the `HomeAutomation.TurnOn` intent.
 6. Add four new intents for the None intent:
 
     ```
-    "When is the game?"
-    "Call Mom about the party."
-    "The recipe calls for more milk."
-    "The pizza is done."
+    "fish"
+    "dogs"
+    "beer"
+    "pizza"
     ```
 
-    These utterances are definitely outside the domain of HomeAutomation. 
+    These utterances are definitely outside the domain of HomeAutomation. As you enter each utterance, watch the score for it. The score may be low, or even very low (with a red box around it). After you train the app, in step 8, the score will be much higher. 
 
-7. Because none of these utterances should have a HomeAutomation.Device ("light", "camera"), HomeAutomation.Operation("on","off") or HomeAutomation.Room ("living room"), remove any labels by selecting the blue label in the utterance and select **Remove label**.
+7. Remove any labels by selecting the blue label in the utterance and select **Remove label**.
 
-8. Select **Train** in the top right navigation bar.
+8. Select **Train** in the top right navigation bar. The score of each utterance is much higher. All scores for the `None` intent should be above .80 now. 
 
 ## Verify the fix
 In order to verify that the utterances in the batch test are correctly predicted for the **None** intent, run the batch test again.
@@ -259,7 +275,7 @@ In order to verify that the utterances in the batch test are correctly predicted
 
     ![Run dataset](./media/luis-tutorial-batch-testing/run-dataset.png)
 
-4. Select **See results**. The intents should all have green icons to the left of the intent names. Select the green dot in the top right panel closest to the middle of the chart. The name of the utterance appears in the table below the chart. The score of `breezeway off please` is very low at 0.24. An optional activity is to add more utterances to the intent to increase this score. 
+4. Select **See results**. The intents should all have green icons to the left of the intent names. With the right filter set to the `HomeAutomation.Turnoff` intent, select the green dot in the top right panel closest to the middle of the chart. The name of the utterance appears in the table below the chart. The score of `breezeway off please` is very low. An optional activity is to add more utterances to the intent to increase this score. 
 
     ![Run dataset](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
 
