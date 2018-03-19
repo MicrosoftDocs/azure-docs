@@ -54,14 +54,14 @@ This example uses the images from [this sample](https://github.com/Microsoft/Cog
 To create a new Custom Vision Service project, create a sample.py script file and add the following contents:
 
 ```Python
-from azure.cognitiveservices.vision.customvision.training import training_api
+from azure.cognitiveservices.vision.customvision.training.training_api import TrainingApi
 from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
 
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
 
-trainer = training_api.TrainingApi(training_key)
+trainer = TrainingApi(training_key)
 
 # Create a new project
 print ("Creating project...")
@@ -74,8 +74,8 @@ To add tags to your project, insert the following code to create two tags:
 
 ```Python
 # Make two tags in the new project
-hemlock_tag = trainer.create_tag(project.id, "Hemlock")
-cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
+hemlock_tag = trainer.create_tag(project.Id, "Hemlock")
+cherry_tag = trainer.create_tag(project.Id, "Japanese Cherry")
 ```
 
 ## Step 4: Upload images to the project
@@ -88,11 +88,11 @@ base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVi
 print ("Adding images...")
 for image_num in range(1,10):
     image_url = base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(image_url, [ hemlock_tag.id ] ) ])
+    trainer.create_images_from_urls(project.Id, [ ImageUrlCreateEntry(image_url, [ hemlock_tag.Id ] ) ])
 
 for image_num in range(1,10):
     image_url = base_image_url + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(image_url, [ cherry_tag.id ] ) ])
+    trainer.create_images_from_urls(project.Id, [ ImageUrlCreateEntry(image_url, [ cherry_tag.Id ] ) ])
 
 
 # Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
@@ -101,13 +101,13 @@ for image_num in range(1,10):
 #import os
 #hemlock_dir = "Images\\Hemlock"
 #for image in os.listdir(os.fsencode("Images\\Hemlock")):
-#    with open(hemlock_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data.read(), [ hemlock_tag.id ])
+#    with open(hemlock_dir + "\\" + os.fsdecode(image), mode="rb") as img_data:
+#        trainer.create_images_from_data(project.Id, img_data.read(), [ hemlock_tag.Id ])
 #
 #cherry_dir = "Images\\Japanese Cherry"
 #for image in os.listdir(os.fsencode("Images\\Japanese Cherry")):
-#    with open(cherry_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data.read(), [ cherry_tag.id ])
+#    with open(cherry_dir + "\\" + os.fsdecode(image), mode="rb") as img_data:
+#        trainer.create_images_from_data(project.Id, img_data.read(), [ cherry_tag.Id ])
 ```
 
 ## Step 5: Train the project
@@ -121,14 +121,14 @@ Now that you've added tags and images to the project, you can train it:
 import time
 
 print ("Training...")
-iteration = trainer.train_project(project.id)
+iteration = trainer.train_project(project.Id)
 while (iteration.status == "Training"):
-    iteration = trainer.get_iteration(project.id, iteration.id)
+    iteration = trainer.get_iteration(project.Id, iteration.id)
     print ("Training status: " + iteration.status)
     time.sleep(1)
 
 # The iteration is now trained. Make it the default project endpoint
-trainer.update_iteration(project.id, iteration.id, is_default=True)
+trainer.update_iteration(project.Id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
@@ -148,14 +148,14 @@ from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint 
 predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
 
 test_img_url = base_image_url + "Images/Test/test_image.jpg"
-results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url)
+results = predictor.predict_image_url(project.Id, iteration.id, url=test_img_url)
 
 # Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
 # they can be added by using the following.
 #
 # Open the sample image and get back the prediction results.
 # with open("Images\\test\\test_image.jpg", mode="rb") as test_data:
-#     results = predictor.predict_image(project.id, test_data.read(), iteration.id)
+#     results = predictor.predict_image(project.Id, test_data.read(), iteration.id)
 
 # Display the results.
 for prediction in results.predictions:
