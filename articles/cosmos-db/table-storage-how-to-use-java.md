@@ -33,9 +33,9 @@ This article demonstrates how to perform common scenarios using the Azure Table 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## Create a Java application
-In this guide, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.
+In this guide, you will use storage features that you can run in a Java application locally, or in code running in a web role or worker role in Azure.
 
-To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription. Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Storage SDK for Java][Azure Storage SDK for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository. Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.
+To do so, you will need to install the Java Development Kit (JDK) and create an Azure storage account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Storage SDK for Java][Azure Storage SDK for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository. Once you have completed those tasks, you can create a Java application that uses the examples in this article.
 
 ## Configure your application to access table storage
 Add the following import statements to the top of the Java file where you want to use Microsoft Azure storage APIs to access tables:
