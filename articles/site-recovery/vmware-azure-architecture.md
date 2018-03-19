@@ -52,9 +52,10 @@ The broad steps for setting up VMware to Azure disaster recovery or migration ar
 3. An initial copy of the VM data is replicated to Azure storage.
 4. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in a .hrl file.
 5. Communication happens as follows:
+
     a. VMs communicate with the on-premises configuration server on port HTTPS 443 inbound, for replication management.
     b. The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
-    c. VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.re
+    c. VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
     d. The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
 
 
