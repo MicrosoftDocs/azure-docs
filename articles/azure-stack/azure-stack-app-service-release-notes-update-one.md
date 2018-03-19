@@ -102,11 +102,11 @@ Azure App Service on Azure Stack Update 1 includes the following improvements an
 
 - Certificate validation errors
 
-Some customers have experienced issues when providing certificates to the App Service installer when deploying on an integrated system.  This was due to overly restrictive validation in the installer.  We have since re-release the App Service installer and request customers [download the updated installer](https://aka.ms/appsvconmasinstaller), file date stamp 3/16/2018 7:12 PM.  If you continue to experience issues validating certificates with the updated installer, please contact support.
+Some customers have experienced issues when providing certificates to the App Service installer when deploying on an integrated system.  This was due to overly restrictive validation in the installer.  We have since re-release the App Service installer and request customers [download the updated installer](https://aka.ms/appsvconmasinstaller), file date stamp 16th March 7:12 PM.  If you continue to experience issues validating certificates with the updated installer, please contact support.
 
 - Problem retrieving Azure Stack root certificate from integrated system.
 
-An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve the Azure Stack root certificate when executing the script on a machine which does not have the root certificate installed.  The script has also now been re-released, resolving this issue, and request customers [download the updated helper scripts](https://aka.ms/appsvconmashelpers), file date stamp 03/16/2018 06:58:20 PM.  If you continue to experience issues retrieving the root certificate with the updated script, please contact support.
+An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve the Azure Stack root certificate when executing the script on a machine which does not have the root certificate installed.  The script has also now been re-released, resolving this issue, and request customers [download the updated helper scripts](https://aka.ms/appsvconmashelpers), file date stamp 16th March 2018 06:58:20 PM.  If you continue to experience issues retrieving the root certificate with the updated script, please contact support.
 
 ### Known issues with the update process
 
@@ -116,7 +116,7 @@ An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve 
 
 - Slot Swap does not function
 
-Site slot swap is broken in this release.  To restore functionality complete these steps:
+Site slot swap is broken in this release.  To restore functionality, complete these steps:
 
 1. Modify the ControllersNSG Network Security Group to **Allow** remote desktop connections to the App Service controller instances.  Replace AppService.local with the name of the resource group you deployed App Service in.
 
@@ -143,7 +143,7 @@ Site slot swap is broken in this release.  To restore functionality complete the
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-2. Browse to the **CN0-VM** under Virtual Machines in the Azure Stack Administrator portal and **click Conect** to open a remote desktop session with the controller instance.  Use the credentials specified during the deployment of App Service.
+2. Browse to the **CN0-VM** under Virtual Machines in the Azure Stack Administrator portal and **click Connect** to open a remote desktop session with the controller instance.  Use the credentials specified during the deployment of App Service.
 3. Start **PowerShell as an Administrator** and execute the following script
 
     ```powershell
