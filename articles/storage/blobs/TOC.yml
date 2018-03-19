@@ -210,9 +210,11 @@
     href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Route events to a custom endpoint
     href: storage-blob-event-quickstart.md
-  - name: Custom domains
+  - name: Recover deleted blobs
+    href: storage-blob-soft-delete.md
+  - name: Configure a custom domains
     href: storage-custom-domain-name.md
-  - name: Searching Blob storage with Azure Search
+  - name: Search Blob storage with Azure Search
     href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Transfer data
     items:
