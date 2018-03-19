@@ -19,6 +19,8 @@
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
+    - name: SQL Operations Studio
+      href: https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
     - name: Azure portal
       href: sql-database-connect-query-portal.md
     - name: VS Code
