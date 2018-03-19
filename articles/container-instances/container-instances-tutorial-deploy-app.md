@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
 ---
@@ -29,7 +29,7 @@ In this tutorial, you:
 
 ## Deploy the container using the Azure CLI
 
-In this section, you use the Azure CLI to deploy the image built in the [first tutorial](container-instances-tutorial-prepare-app.md) and pushed to Azure Container Registry in the [second tutorial](container-instances-tutorial-prepare-acr.md). Be sure to complete those tutorials first before proceeding.
+In this section, you use the Azure CLI to deploy the image built in the [first tutorial](container-instances-tutorial-prepare-app.md) and pushed to Azure Container Registry in the [second tutorial](container-instances-tutorial-prepare-acr.md). Be sure you've completed those tutorials before proceeding.
 
 ### Get registry credentials
 
@@ -55,7 +55,7 @@ Now, use the [az container create][az-container-create] command to deploy the co
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Within a few seconds, you should receive an initial response from Azure Resource Manager. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Modify the value in the preceding command if you receive a "DNS name label" error message when you execute the command.
+Within a few seconds, you should receive an initial response from Azure Resource Manager. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Modify the value in the preceding command if you receive a **DNS name label** error message when you execute the command.
 
 ### Verify deployment progress
 
@@ -97,7 +97,7 @@ Example output:
 $ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
 ## Clean up resources
@@ -110,12 +110,17 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this tutorial, you completed the process of deploying your containers to Azure Container Instances. The following steps were completed:
+In this tutorial, you completed the process of deploying your container to Azure Container Instances. The following steps were completed:
 
 > [!div class="checklist"]
 > * Deployed the container from the Azure Container Registry using the Azure CLI
 > * Viewed the application in the browser
 > * Viewed the container logs
+
+Now that you have the basics down, move on to learning more about Azure Container Instances, such as how container groups work:
+
+> [!div class="nextstepaction"]
+> [Container groups in Azure Container Instances](container-instances-container-groups.md)
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

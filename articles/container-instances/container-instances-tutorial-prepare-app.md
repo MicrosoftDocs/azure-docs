@@ -7,14 +7,14 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
 ---
 
 # Tutorial: Create container for deployment to Azure Container Instances
 
-Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting any higher-level service. In this tutorial, you build a small web application in Node.js and package it in a container that can be run using Azure Container Instances.
+Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting a higher-level service. In this tutorial, you package a small Node.js web application in a container image that can be run using Azure Container Instances.
 
 In this article, part one of the series, you:
 
@@ -23,7 +23,7 @@ In this article, part one of the series, you:
 > * Create a container image from application source
 > * Test the image in a local Docker environment
 
-In subsequent tutorials, you upload your image to an Azure Container Registry, and then deploy it to Azure Container Instances.
+In subsequent tutorials, you upload your image to Azure Container Registry, and then deploy it to Azure Container Instances.
 
 ## Before you begin
 
@@ -45,7 +45,7 @@ You can also [download the ZIP archive][aci-helloworld-zip] from GitHub directly
 
 ## Build the container image
 
-The Dockerfile in the sample application shows how the container is built. It starts from an [official Node.js image][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux], a small distribution that is well suited to use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally, starts the application.
+The Dockerfile in the sample application shows how the container is built. It starts from an [official Node.js image][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux], a small distribution that is well suited for use with containers. It then copies the application files into the container, installs dependencies using the Node Package Manager, and finally, starts the application.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -123,13 +123,13 @@ In this tutorial, you created a container image that can be deployed in Azure Co
 
 > [!div class="checklist"]
 > * Cloned the application source from GitHub
-> * Created container images from application source
+> * Created a container image from the application source
 > * Tested the container locally
 
-Advance to the next tutorial in the series to learn about storing your container image in Azure Container Registry.
+Advance to the next tutorial in the series to learn about storing your container image in Azure Container Registry:
 
 > [!div class="nextstepaction"]
-> [Push image to Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
+> [Push image to Azure Container Registry](container-instances-tutorial-prepare-acr.md)
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
