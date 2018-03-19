@@ -31,10 +31,10 @@
       href: monitoring-overview-azure-monitor.md
     - name: Metrics
       href: monitoring-overview-metrics.md
-    - name: Alerts
-      href: monitoring-overview-alerts.md
-    - name: Alerts (Preview)
+    - name: Alerts 
       href: monitoring-overview-unified-alerts.md
+    - name: Alerts (Classic)
+      href: monitoring-overview-alerts.md
     - name: Log alerts
       href: monitor-alerts-unified-log.md
     - name: Autoscale
