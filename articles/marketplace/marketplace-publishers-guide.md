@@ -24,11 +24,10 @@ ms.author: ellacroi
 
 Welcome to the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [AppSource](https://appsource.microsoft.com) publisher guide. This guide is designed to help new and existing publishers understand how to use the Azure Marketplace and AppSource storefronts, how to publish their applications and services, and how to grow their business in partnership with Microsoft. 
 
-By the end of this guide, you'll learn more about each of these topics and know where to find more detailed information:
+By the end of this guide, you'll know more about each of these topics and know where to find more detailed information:
 
-- What the benefits of listing in one of the marketplace storefronts are
-- What the Azure Marketplace and AppSource are
-- How to use these storefronts
+- What the benefits are for listing in one of the marketplace storefronts
+- How to use the storefronts
 - Which storefront is right for your offers and services 
 - What kinds of applications and services offers can be published
 - What the technical and business requirements are for each publishing option
@@ -40,13 +39,13 @@ By the end of this guide, you'll learn more about each of these topics and know 
 
 For questions about the Azure Marketplace, AppSource, or this publishing guide, contact the Marketplace team at cloudmarketplace@microsoft.com. 
 
-## Benefits of participating in the Marketplace
+## Benefits of participating in the marketplace
 
-The Azure Marketplace and AppSource are the launching points for joint go-to-market activities with Microsoft and a flywheel for business growth. By using launch promotion, demand generation, and joint sales and marketing, you can make your Marketplace listings the centerpiece of your cloud business engine. There are no fees for participating in the Marketplace. Our goal is to connect Microsoft customers with the best solutions and services that our partner ecosystem offers.
+The Azure Marketplace and AppSource are the launching points for joint go-to-market activities with Microsoft and a flywheel for business growth. By using launch promotion, demand generation, and joint sales and marketing, you can make your marketplace listings the centerpiece of your cloud business engine. There are no fees for participating in the marketplace. Our goal is to connect Microsoft customers with the best solutions and services that our partner ecosystem offers.
 
-Take advantage of Marketplace capabilities to grow your business:
+Take advantage of marketplace capabilities to grow your business:
 
-- **Generate leads and sales opportunities.** Enter new markets with an expanded portfolio of solutions on the Microsoft cloud platform. Upsell and cross-sell Marketplace offerings. 
+- **Generate leads and sales opportunities.** Enter new markets with an expanded portfolio of solutions on the Microsoft cloud platform. Upsell and cross-sell marketplace offerings. 
 - **Enhance business value and increase deal size with existing and new customers.** Grow deal size and address customer problems when you're moving workloads to the cloud. Reduce sales cycles and increase deal profitability by selling complete solutions that target specific workloads and industry scenarios.
 - **Get actionable insights.** Your success is our success. Get insights on the performance of your listings via the Cloud Partner Portal. Learn what is performing, what leads you have generated, and how to maximize your campaign activities.
 
@@ -55,7 +54,7 @@ Take advantage of Marketplace capabilities to grow your business:
 
 ## Azure Marketplace and AppSource storefronts
 
-Microsoft provides two distinct marketplace storefronts that allow partners to list offers, enable trials, and transact directly with Microsoft customers and ecosystem: [Azure Marketplace] (https://azuremarketplace.microsoft.com) and [AppSource] (https://appsource.microsoft.com). These storefronts enable customers to find, try, and buy applications and services that accelerate their digital transformation. They help publishers grow their businesses by increasing access to Microsoft customers and partner ecosystems.
+Microsoft provides two distinct marketplace storefronts that allow partners to list offers, enable trials, and transact directly with Microsoft customers and ecosystem: [Azure Marketplace](https://azuremarketplace.microsoft.com) and [AppSource](https://appsource.microsoft.com). These storefronts enable customers to find, try, and buy applications and services that accelerate their digital transformation. They help publishers grow their businesses by increasing access to Microsoft customers and partner ecosystems.
  
 The marketplace storefronts are aligned to audiences and Microsoft cloud products to help customers find what they need. Each storefront offers specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
 
@@ -66,7 +65,7 @@ The marketplace storefronts are aligned to audiences and Microsoft cloud product
 |Built with or to extend     |Azure         | Azure, Dynamics 365, Office 365, Power BI, and PowerApps       |
 |Types of solutions and services     |  Infrastructure solutions and professional services   | Finished line-of-business cloud applications, Office 365 add-ins, and professional services        |
 |Publishing options     |  Contact Me, Consulting Services Offer, Trial, Virtual Machine, Solution Templates, and Managed Apps       |  Free Trial, Get Now, Test Drive, Contact Me, Consulting Services Offer      |
-|In-app experience to provides users access to apps and services in the context of their application  | Azure portal and Azure CLI         | Office 365, Dynamics 365, Power BI, Office client apps       |
+|In-app experience to give users access to apps and services in the context of their application  | Azure portal and Azure CLI         | Office 365, Dynamics 365, Power BI, Office client apps       |
 
 ## Using the storefronts
 
@@ -539,98 +538,99 @@ As a workaround, we recommend that you create a new email address in the **@outl
 2. Create the new email address and enter a password. This step creates both a new Microsoft ID and an email mailbox in the outlook.com service. Continue the registration process until the account is created.
 
    >[!IMPORTANT]
-   >Ensure that the email id or distribution list (a distribution list is recommended to remove dependency from individuals) which you will be using for registering in the Dev Center is at first registered as a Microsoft account. If not, then please register using this [link](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1).
+   >Ensure that the email ID or distribution list that you will use for registering in the Developer Center is registered as a Microsoft account. (We recommend a distribution list to remove dependency from individuals.) If not, [register now](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1).
+   >
+   >Also, *any email ID under the Microsoft company domain* cannot be used for Developer Center registration.
 
-   Also, **any email id under the Microsoft company domain** cannot be used for Dev Center registration.
+3. After you create the Microsoft ID with this account, sign in to the account [mailbox](https://outlook.live.com/owa/). [Create an email forwarding rule](https://support.office.com/en-us/article/Use-rules-in-Outlook-Web-App-to-automatically-forward-messages-to-another-account-1433e3a0-7fb0-4999-b536-50e05cb67fed) to move all the emails on this mailbox to the email address that you created in your domain to manage the Azure Marketplace account.
 
-3. After the Microsoft ID is created with this account, log in to the account [mailbox](https://outlook.live.com/owa/) and create an email forward rule to move all the emails on this mailbox to the email address you created in your domain to manage the Azure Marketplace account. Refer to this [link](https://support.office.com/en-us/article/Use-rules-in-Outlook-Web-App-to-automatically-forward-messages-to-another-account-1433e3a0-7fb0-4999-b536-50e05cb67fed) on how to create an email forward rule in outlook.com.
-
-After the last step is completed, you will have all emails/communications from the Microsoft ID sent to your email account in your domain. You will need to use the @outlook.com email address to authenticate in both in the Microsoft Developer Center and the Cloud Partner Portal.
+After you complete the last step, Outlook will send all emails/communications from the Microsoft ID to your email account in your domain. You need to use the @outlook.com email address to authenticate in both the Microsoft Developer Center and the Cloud Partner Portal.
 
 ### Instructions on how to register in the Developer Center
 
 1. Open a new Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you're not signed in to a personal account.
-2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller in the Dev Center. Please read the following important note before you proceed.
+2. Go to the [Developer Center](http://dev.windows.com/registration?accountprogram=azure) to register yourself as a seller.
 
-   ![Dev Center Email](./media/marketplace-publishers-guide/registerdevcenteremail.png)
+   ![Developer Center email](./media/marketplace-publishers-guide/registerdevcenteremail.png)
 
-3. Complete the "Help us protect your account" wizard, which will verify your identity via phone number or email address.
-4. In the "Registration-Account Info" section, select your **Account country/region** from the dropdown menu.
+3. Complete the **Help us protect your account** wizard, which will verify your identity via phone number or email address.
+4. In the **Registration-Account Info** section, select your account country/region from the drop-down menu.
 
-   ![Account Info](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
+   ![Account info with box for country/region](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
    
    >[!WARNING]
-   >"Sell-from" Countries: To sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved 'sell-from' countries above. This restriction is for payout and taxation reasons. For more information, see the [Marketplace participation policies]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
+   >To sell your services on the Azure Marketplace, make sure that your registered entity is from one of the approved "sell-from" countries. This restriction is for payout and taxation reasons. For more information, see the [Marketplace participation policies]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
 
-5. Select your "Account Type" as **Company** and then click the **Next** button.
+5. For **Account Type**, select **Company** and then select the **Next** button.
 
    >[!IMPORTANT]
-   >To better understand account types and which is best for you to choose, please view page [Account types, locations, and fees](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
+   >To better understand account types and which is best for you to choose, see [Account types, locations, and fees](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
 
-6. Enter the **Publisher display name**, typically the name of your company.
+6. For **Publisher display name**, enter the display name (typically the name of your company).
 
    >[!TIP]
-   >The publisher display name entered in the Dev Center is not displayed in the Azure Marketplace once your offer goes listed. But this must be filled to complete the registration process.
+   >The publisher display name entered in the Develop Center is not displayed in the Azure Marketplace after your offer is listed. But you must fill this box to complete the registration process.
 
-7. Enter the **Contact info** for the account verification.
+7. For **Contact info**, enter the information for the account verification.
 
    >[!IMPORTANT]
-   >You must provide accurate contact information because it will be used in our verification process for your company to be approved in the Developer Center.
+   >You must provide accurate contact information. The verification process will use it for approving your company in the Developer Center.
 
-8. Enter the contact information for the **Company Approver**. Company approver is the person who can verify that you are authorized to create an account in the Dev Center on behalf of your organization. Click on **Next** to move to the **"Payment section"** once you are finished.
+8. For **Company Approver**, enter the contact information for the approver. The approver is the person who can verify that you are authorized to create an account in the Developer Center on behalf of your organization. Select **Next** when you're finished.
 
-   ![Dev Center Payment](./media/marketplace-publishers-guide/devcenterregistrationpayment.png)
+   !["Account info" page with sections highlighted](./media/marketplace-publishers-guide/devcenterregistrationpayment.png)
 
-9. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info, or PayPal in supported markets. When you are finished, click **Next** to move on to the **"Review screen."**
+9. Enter your payment information to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card information, or PayPal in supported markets. When you're finished, select **Next**.
 
-   ![Dev Center Payment](./media/marketplace-publishers-guide/devcenterregistrationpayment2.png)
+   ![Developer Center payment information](./media/marketplace-publishers-guide/devcenterregistrationpayment2.png)
 
-10. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the Microsoft Azure Marketplace Publisher Agreement. Check the box to indicate you have read and accepted these terms.
-11. Click **Finish** to confirm your registration. We'll send a confirmation message to your email address.
-12. If you are planning to publish only free offers, click **Go to the [Cloud Partner Portal](https://cloudpartner.azure.com)**.
+10. Review your account information and confirm that everything is correct. Then, read and accept the terms and conditions of the Microsoft Azure Marketplace publisher agreement. Select the box to indicate that you have read and accepted these terms.
+11. Select **Finish** to confirm your registration. We'll send a confirmation message to your email address.
+12. If you're planning to publish only free offers, select **Go to the Cloud Partner Portal**.
 
-If you are planning to publish commercial (TRANSACT) offers--e.g., Virtual Machine offers with hourly billing model-- click **Update your account information** where you must fill in the tax and banking information in your Developer Center account.
+    If you're planning to publish commercial (transaction) offers--for example, virtual machine offers with an hourly billing model--select **Update your account information**. Then you must fill in the tax and banking information in your Developer Center account.
 
-If you prefer to update your tax and bank information later, then you can move to the next section. 
+If you prefer to update your tax and bank information later, you can move to the next section. 
 
 >[!IMPORTANT]
->In case of commercial (TRANSACT) offers, you will not be able to push your offers to production without completing the tax and bank account information.
+>For commercial (transaction) offers, you can't push your offers to production without completing the tax and bank account information.
 
-#### Add tax and banking information
+#### Add bank and tax information
 
-If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Developer Center. If you will publish only free or BYOL offers, then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
+If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Developer Center. If you will publish only free or BYOL offers, you don't need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
 
-**Bank information**
+To add bank information:
 1. Sign in to the Microsoft Developer Center with your Microsoft account.
-2.  Click **Payout account** in the left menu, under **Choose payment method** click **Bank account** or **PayPal**.
+2. Select **Payout account** in the left menu. Under **Choose payment method**, select **Bank account** or **PayPal**.
 
-   >    [!IMPORTANT]
-   >    If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
+   >[!IMPORTANT]
+   >If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
 
-3. Enter the payment info, and click Save when you are satisfied.
+3. Enter the payment info, and select **Save** when you're satisfied.
 
-   >    [!IMPORTANT]
-   >    If you need to update or change your payout account, follow the same steps above, replacing the current info with the new info. Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.
+   >[!IMPORTANT]
+   >If you need to update or change your payout account, follow the same preceding steps, but replace the current information with the new information. Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified. Any payments due for the current payment cycle will be added to the next one.
 
-4. Click **Next.** 
+4. Select **Next**. 
 
-**Tax information**
+To add tax information:
 
 1. Sign in to the [Microsoft Developer Center](https://dev.windows.com) with your Microsoft account (if needed).
-2. Click **Tax profile** in the left menu.
-3. On the **Set up your tax form** page, select the country or region where you have permanent residency, and then select the country or region where you hold primary citizenship. Click **Next**.
-4. Enter your tax details, and then click **Next.**
+2. Select **Tax profile** on the left menu.
+3. On the **Set up your tax form** page, select the country or region where you have permanent residency, and then select the country or region where you hold primary citizenship. Select **Next**.
+4. Enter your tax details, and then select **Next**.
 
-   >    [!WARNING]
-   >    You will not be able to push to production your commercial offers without completing the tax and bank account information in your Microsoft Developer Center account.
+   >[!WARNING]
+   >You will not be able to push to production your commercial offers until you complete the tax and bank account information in your Microsoft Developer Center account.
 
-If you have issues with Developer Center registration, please log a support ticket as below:
+If you have issues with Developer Center registration, log a support ticket:
 
-1. Go to the support link https://developer.microsoft.com/windows/support
-2. Under **Contact Us** section, click on the button **Submit an incident** as shown in the screen shot below.
-3. Choose "Help with Dev Center" as **Problem type** and "Publish and manage apps" as **Category**. After that click on the button "Start email."
+1. Go to the [support page](https://developer.microsoft.com/windows/support).
+2. Under **Contact Us**, select the **Submit an incident** button.
 
-   ![Dev Center Issue](./media/marketplace-publishers-guide/devcentersubmitincident.png)
+   !["Submit an incident" button](./media/marketplace-publishers-guide/devcentersubmitincident.png)
 
-4. You will be provided with a login page. Use any Microsoft account sign in. If you do not have a Microsoft account, then create one using this link. 
-5. Fill in the details of the issue and submit the ticket by clicking on the **Submit** button.
+3. Select **Help with Dev Center** as **Problem type**, and select **Publish and manage apps** as **Category**. After that, select the **Start email** button.   
+
+4. On the sign-in page, use any Microsoft account to sign in. If you don't have a Microsoft account, create one by using this link. 
+5. Fill in the details of the issue, and submit the ticket by selecting the **Submit** button.
