@@ -92,7 +92,7 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
             /_/
                 
         Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
-        Type in expressions to have them evaluated.
+.toMap        Type in expressions to have them evaluated.
         Type :help for more information.
 
         scala> 
@@ -123,7 +123,7 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
 
         val inputStream = spark.readStream.
         format("eventhubs").
-        options(eventhubConfig).
+        options(eventhubConfig.toMap).
         load()
 
 11. You should see output similar to:
