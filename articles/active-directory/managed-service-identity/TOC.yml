@@ -111,7 +111,8 @@
         - name: Azure Resource Manager Template
         - name: Azure SDK
     - name: Concepts
-      items: Access Patterns using Managed Identities
+      items: 
+      - name: Access Patterns using Managed Identities
     - name: Resources
       items:
       - name: FAQs and known issues
