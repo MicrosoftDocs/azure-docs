@@ -92,7 +92,7 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
             /_/
                 
         Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
-.toMap        Type in expressions to have them evaluated.
+        Type in expressions to have them evaluated.
         Type :help for more information.
 
         scala> 
