@@ -151,7 +151,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-After the agents are running, it takes several minutes for Azure to ingest and process the data.
+After the agents are running, it takes several minutes for Log Analytics to ingest and process the data.
 
 ## Access monitoring data
 

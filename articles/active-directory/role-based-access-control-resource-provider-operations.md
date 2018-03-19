@@ -1323,9 +1323,9 @@ This provider is not a full ARM provider and does not provide any ARM operations
 | Operation | Description |
 |---|---|
 |/register/action|Register a subscription to a resource provider.|
-|/solutions/write|Create new Management  solution|
-|/solutions/read|Get existing Management  solution|
-|/solutions/delete|Delete existing Management  solution|
+|/solutions/write|Create new management solution|
+|/solutions/read|Get existing management solution|
+|/solutions/delete|Delete existing management solution|
 
 ## Microsoft.RecoveryServices
 
