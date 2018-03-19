@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/11/2018
+ms.date: 03/19/2018
 ms.author: juliako
 ms.custom: mvc
 

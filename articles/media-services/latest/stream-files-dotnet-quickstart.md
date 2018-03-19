@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 03/19/2018
 ms.author: juliako
 ---
 

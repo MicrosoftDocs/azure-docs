@@ -9,7 +9,7 @@
   items:
   - name: Create an account - CLI
     href: create-account-cli-quickstart.md
-  - name: Stream video files 
+  - name: Stream video files
     items:
     - name: .NET with Visual Studio
       href: stream-files-dotnet-quickstart.md
