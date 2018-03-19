@@ -380,7 +380,6 @@
       - name: Provision tenants
         href: saas-standaloneapp-provision-and-catalog.md
     - name: Database per tenant
-      href: saas-dbpertenant-wingtip-app-overview.md
       items:
       - name: Tutorial intro
         href: saas-dbpertenant-wingtip-app-overview.md
