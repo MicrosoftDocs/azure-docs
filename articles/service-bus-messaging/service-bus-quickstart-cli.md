@@ -44,26 +44,13 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Once CLI is installed, open Cloud Shell and issue the following commands to log in to Azure: 
 
-1. First, install the Service Bus CLI extension, if you haven't already:
-
-   ```azurecli-interactive
-   az extension add --name servicebus
-   ```
-
-2. Run the following command to log in to Azure:
+1. Run the following command to log in to Azure:
 
    ```azurecli-interactive
    az login
    ```
-   This command displays the following text:
 
-   ```Output
-   To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code ######## to authenticate.
-   ```
-
-3. Open the https://aka.ms/devicelogin link in the browser and enter the code to authenticate your Azure login.
-
-4. Set the current subscription context:
+2. Set the current subscription context:
 
    ```azurecli
    az account set --subscription <Azure_subscription_name>
@@ -78,13 +65,13 @@ After logging in to Azure, issue the following commands to provision Service Bus
 az group create --name <my-resourcegroup> --location eastus
 
 # Create a Messaging namespace
-az servicebus namespace create --name <namespace_name> --resource-group <my-resourcegroup> -l eastus2
+az servicebus namespace create --name <namespace-name> --resource-group <my-resourcegroup> -l eastus2
 
 # Create a queue
-az servicebus queue create --resource-group <my-resourcegroup> --namespace-name <namespace_name> --name <queue_name>
+az servicebus queue create --resource-group <my-resourcegroup> --namespace-name <namespace_name> --name <queue-name>
 
 # Get the connection string
-az servicebus namespace authorizationrule keys list --resource-group <my-resourcegroup> --namespace-name <namespace-name> --name RootManageSharedAccessKey
+az servicebus namespace authorization-rule keys list --resource-group <my-resourcegroup> --namespace-name <namespace-name> --name RootManageSharedAccessKey
 ```
 
 After the last command runs, copy and paste the connection string, and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
@@ -128,9 +115,5 @@ In this article, you created a Service Bus namespace and other resources require
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-
-[1]: ./media/service-bus-quickstart-cli/cli1.png
-[2]: ./media/service-bus-quickstart-cli/cli2.png
-[service-bus-flow]: ./media/service-bus-quickstart-cli/service-bus-flow.png
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create
