@@ -26,7 +26,7 @@ Microsoft Azure Service Bus is an enterprise integration message broker that pro
 
 This quickstart describes how to send and receive messages with Service Bus, using Azure CLI to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace.
 
-If you do not have an Azure subscription, create a [free account][] before you begin.
+If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
 ## Prerequisites
 

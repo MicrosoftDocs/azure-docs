@@ -27,7 +27,14 @@ Microsoft Azure Service Bus is an enterprise integration message broker that pro
 
 This quickstart describes how to send and receive messages to and from a Service Bus queue. You use the [Azure portal][Azure portal] to first create a messaging namespace and a queue within that namespace. The procedure also obtains the authorization credentials on that namespace.
 
-If you do not have an Azure subscription, you can create a [free account][] before you begin.
+If you don't have an Azure subscription, you can create a [free account][] before you begin.
+
+## Prerequisites
+
+To complete this tutorial, make sure you have installed:
+
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Log on to the Azure portal
 
@@ -45,37 +52,52 @@ A Service Bus messaging namespace provides a unique scoping container, reference
 6. In **Location**, choose the country or region in which your namespace should be hosted.
 7. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
+![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
+
 ### Obtain the management credentials
 
-Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md) for information about how to create further rules with more constrained rights for regular senders and receivers. To copy the initial rule, follow these steps: 
+Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. To copy the initial rule, follow these steps: 
 
 1.  Click **All resources**, then click the newly created namespace name.
 2. In the namespace window, click **Shared access policies**.
 3. In the **Shared access policies** screen, click **RootManageSharedAccessKey**.
-4. In the **Policy: RootManageSharedAccessKey** window, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location. 
+4. In the **Policy: RootManageSharedAccessKey** window, click the **Copy** button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location. 
 
     ![connection-string][connection-string]
-5. Repeat the previous step, copying and pasting the value of **Primary key** to a temporary location for later use.
+5. Repeat the previous step, copying and pasting the value of **Primary Key** to a temporary location for later use.
 
 ## Create a queue
 
 To create a Service Bus queue, specify the namespace under which you want it created. The following example shows how to create a queue on the portal:
 
 1. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**).
-2. Click the namespace in which you would like to create the queue. In this example, it is **sbnstest1**.
+2. Click the namespace in which you would like to create the queue.
 3. In the namespace window, click **Queues**, then in the **Queues** window, click **+ Queue**.
 4. Enter the queue **Name** and leave the other values with their defaults.
 5. At the bottom of the window, click **Create**.
 
 ## Send and receive messages
 
-After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient).
+After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveQuickStart).
 
-1. Navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient), and load the **BasicSendReceiveUsingQueueClient.csproj** file into Visual Studio.
-2. Double-click **Program.cs** to open it in the Visual Studio editor.
-3. Replace the value of the `ServiceBusConnectionString` constant with the full connection string you obtained in the [previous section](#obtain-the-management-credentials).
-4. Replace the value of `QueueName` with the name of the queue you [created previously](#create-a-queue).
-5. Build and run the program, and observe 10 messages being sent to the queue, and received in parallel from the queue.
+To run the code, do the following:
+
+1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
+2. Open a command prompt with Administrator privileges.
+3. Navigate to the sample folder `\azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+4. Obtain the connection string you copied to Notepad in the "Obtain the management credentials" section of this quickstart.
+5. Type the following command to build the program:
+
+   ```shell
+   dotnet build
+   ```
+6.	Navigate to the `bin\Debug\netcoreapp2.0` folder.
+7.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
+
+   ```shell
+   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
+   ``` 
+8. Observe a set of messages being sent and received.
 
 ## Clean up resources
 

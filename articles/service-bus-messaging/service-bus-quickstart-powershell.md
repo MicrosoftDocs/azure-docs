@@ -100,7 +100,7 @@ To run the code, do the following:
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
    ``` 
-8. Observe a set of messages being send and received.
+8. Observe a set of messages being sent and received.
 
 ## Clean up deployment
 
