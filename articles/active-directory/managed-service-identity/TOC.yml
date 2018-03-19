@@ -52,8 +52,66 @@
       - name: Windows VM
         items:
         - name: Configure Identity for an Azure VM
+          items:
+          - name: Portal
+          - name: CLI
+          - name: PowerShell
+          - name: Azure Resource Manager Template
+          - name: Azure SDK
+      - name: Configure Identity for Azure VMSS
         items:
         - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: Azure SDK
+      - name: Acquire an access token
+        items:
+        - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: Azure SDK
+      - name: Sign-in to Azure AD
+        items:
+        - name: Portal
+        - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: Azure SDK
+    - name: Application Service
+      items:
+      - name: Configure Identity for Application Service
+        items:
+        - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: Azure SDK
+      - name: Acquire an access token
+        items:
+        - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: Azure SDK
+      - name: Sign-in to Azure AD
+        items:
+        - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: Azure SDK
+      - name: Manage user-assigned identities
+        items:
+        - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: Azure SDK
+    - name: Concepts
+      items: Access Patterns using Managed Identities
     - name: Resources
       items:
       - name: FAQs and known issues
