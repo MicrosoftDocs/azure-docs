@@ -50,7 +50,7 @@
     - name: Resources
       items:
       - name: FAQs and known issues
-      - href: known-issues.md
+        href: known-issues.md
     - name: Configure MSI for an Azure VM
       items:
       - name: Using Azure Portal
