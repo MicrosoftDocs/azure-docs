@@ -243,7 +243,7 @@ To get the public IP address of the load balancer, use [az network public-ip sho
     --query [ipAddress] \
     --output tsv
 ``` 
-![Test load balancer](./media/load-balancer-get-started-internet-arm-cli/1-load-balancer-test.png)
+![Test load balancer](./media/load-balancer-get-started-internet-arm-cli/running-nodejs-app.png)
 
 ## Clean up resources
 
