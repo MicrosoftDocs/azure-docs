@@ -41,7 +41,7 @@ The broad steps for setting up VMware to Azure disaster recovery or migration ar
     - **Crash-consistent snapshots**: By default, Site Recovery takes crash-consistent snapshots and creates recovery points with them every few minutes. A recovery point is crash consistent if all of the interrelated data components are write-order consistent, as they were at the instant the recovery point was created. To better understand, imagine the status of the data on your PC hard drive after a power outage or similar event. A crash-consistent recovery point is usually sufficient if your application is designed to recover from a crash without any data inconsistencies.
     - **App-consistent snapshots**: If this value isn't zero, the Mobility service running on the VM attempts to generate file system-consistent snapshots and recovery points. The first snapshot is taken after initial replication is complete. Then, snapshots are taken at the frequency you specify. A recovery point is application-consistent if, in addition to being write-order consistent, running applications complete all  of their operations, and flush their buffers to disk (application quiescing). App-consistent recovery points are recommended for database applications such as SQL, Oracle, and Exchange. If a crash-consistent snapshot is sufficient, this value can be set to 0.  
     - **Multi-VM consistency**: You can optionally create a replication group. Then, when you enable replication, you can gather VMs into that group. VMs in a replication group replicate together, and have shared crash-consistent and app-consistent recovery points when failed over. You should use this option carefully, since it can affect workload performance as snapshots needed to be gathered across multiple machines. Only do this if VMs run the same workload and need to be consistent, and VMs have similar churns. You can add up to 8 VMs to a group. 
-5. **Enable VM replication**. Finally, you enable replication for your on-premises VMware VMs. If you created an account to install the Mobility service, and specified that Site Recovery should do a push installation, then the Mobility service will be installed on each VM for which you enable replication. [Learn more](vmware-azure-tutorial.md#enable-replication).
+5. **Enable VM replication**. Finally, you enable replication for your on-premises VMware VMs. If you created an account to install the Mobility service, and specified that Site Recovery should do a push installation, then the Mobility service will be installed on each VM for which you enable replication. [Learn more](vmware-azure-tutorial.md#enable-replication). If you have created a replication group for multi-VM consistency, you can add VMs to that group.
 6. **Test failover**. After everything's set up, you can do a test failover to check that VMs fail over to Azure as expected. [Learn more](tutorial-dr-drill-azure.md).
 7. **Failover**. If you're just migrating the VMs to Azure - you run a full failover to do that. If you're setting up disaster recovery, you can run a full failover as you need to. For full disaster recovery, after failover to Azure, you can fail back to your on-premises site as and when it's available. [Learn more](vmware-azure-tutorial-failover-failback.md).
 
@@ -54,7 +54,7 @@ The broad steps for setting up VMware to Azure disaster recovery or migration ar
 5. Communication happens as follows:
     a. VMs communicate with the on-premises configuration server on port HTTPS 443 inbound, for replication management.
     b. The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
-    c. VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
+    c. VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.re
     d. The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
 
 
@@ -67,37 +67,21 @@ The broad steps for setting up VMware to Azure disaster recovery or migration ar
 After replication is set up and you run a disaster recovery drill (test failover) to check that everything's working as expected, you can run failover and failback as you need to.
 
 1. You run fail for a single machine, or create a recovery plans to fail over multiple VMs at the same time. The advantage of a recovery plan rather than single machine failover include:
-    - You can model app-dependencies by including all the VMs involved in the app in a single recovery plan.
-    - You can add scripts, Azure runbooks, and pause for manual actions in a recovery plan.
-    - You can 
-1. If you fail over machines in a recovery plan, rather than one by one, you have a few more failover options:
-    a. 
+    - You can model app-dependencies by including all the VMs across the app in a single recovery plan.
+    - You can add scripts, Azure runbooks, and pause for manual actions.
 2. After triggering the initial failover, you commit it to start accessing the workload from the Azure VM.
-
-When your primary on-premises site is available again, you can fail back.
-1. You need to set up a failback infrastructure, including:
+3. When your primary on-premises site is available again, you can prepare for fail back. In order to fail back, you need to set up a failback infrastructure, including:
 
     * **Temporary process server in Azure**: To fail back from Azure, you set up an Azure VM to act as a process server to handle replication from Azure. You can delete this VM after failback finishes.
-
     * **VPN connection**: To fail back, you need a VPN connection (or ExpressRoute) from the Azure network to the on-premises site.
-
     * **Separate master target server**: By default, the master target server that was installed with the configuration server on the on-premises VMware VM handles failback. If you need to fail back large volumes of traffic, set up a separate on-premises master target server for this purpose.
-
     * **Failback policy**: To replicate back to your on-premises site, you need a failback policy. This policy was automatically created when you created your replication policy from on-premises to Azure.
-2. After the components are in place, failback occurs in three stages:
+4. After the components are in place, failback occurs in three actions:
 
     a. Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
-
     b. Stage 2: Run a failover to the on-premises site.
-
     c. Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
-    d. 
-    e. 
-    f. Multi-VM is used if you group multiple machines into replication groups that share crash-consistent and app-consistent recovery points when they fail over. This method is useful if machines are running the same workload and need to be consistent.
-    g. 
-    h. If enable multi-VM consistency, VM in the replication group communicate with each other over port 20004. 
-        - Multi-VM consistency can be enabled when you 
-
+ 
 **VMware failback from Azure**
 
 ![Failback](./media/vmware-azure-architecture/enhanced-failback.png)
