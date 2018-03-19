@@ -97,42 +97,33 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
 
         scala> 
 
-7. Copy the following code snippet into a text editor and modify it so it has the Policy Key and Namespace set as appropriate for your Event Hub.
+7. Copy the following code snippet into a text editor and update it with your EventHub-compatible endpoint and the name of your EventHub. Then, execute it in spark shell.
 
-        val eventhubParameters = Map[String, String] (
-            "eventhubs.policyname" -> "RootManageSharedAccessKey",
-            "eventhubs.policykey" -> "<policyKey>",
-            "eventhubs.namespace" -> "<namespace>",
-            "eventhubs.name" -> "hub1",
-            "eventhubs.partition.count" -> "2",
-            "eventhubs.consumergroup" -> "$Default",
-            "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
-            "eventhubs.sql.containsProperties" -> "true"
-            )
-            
-8. If you look at your EventHub-compatible endpoint in the following form, the part that reads `iothub-xxxxxxxxxx` is your EventHub-compatible Namespace name, and can be used for `eventhubs.namespace`. The field `SharedAccessKeyName` can be used for `eventhubs.policyname`, and `SharedAccessKey` for `eventhubs.policykey`: 
+        val eventhubConnectionString = "Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx"
+        val eventhubName = "<Event Hubs name>"
+        val consumerGroup = "<Event Hubs consumer group name>"
+        val partitionCount = "<Event Hubs partition Count>"
+        
+8. Next, import the classes required to connect to Event Hubs by executing the following commands.
 
-        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+        import org.apache.spark.eventhubs.ConnectionStringBuilder
+        import org.apache.spark.eventhubs._
+        
+9. Building the Event Hubs connection and the configuration map.
 
-9. Paste the modified snippet into the waiting scala> prompt and press return. You should see output similar to:
-
-        scala> val eventhubParameters = Map[String, String] (
-            |       "eventhubs.policyname" -> "RootManageSharedAccessKey",
-            |       "eventhubs.policykey" -> "2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU",
-            |       "eventhubs.namespace" -> "sparkstreaming",
-            |       "eventhubs.name" -> "hub1",
-            |       "eventhubs.partition.count" -> "2",
-            |       "eventhubs.consumergroup" -> "$Default",
-            |       "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
-            |       "eventhubs.sql.containsProperties" -> "true"
-            |     )
-        eventhubParameters: scala.collection.immutable.Map[String,String] = Map(eventhubs.sql.containsProperties -> true, eventhubs.name -> hub1, eventhubs.consumergroup -> $Default, eventhubs.partition.count -> 2, eventhubs.progressTrackingDir -> /eventhubs/progress, eventhubs.policykey -> 2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU, eventhubs.namespace -> hdiz-docs-eventhubs, eventhubs.policyname -> RootManageSharedAccessKey)
+        scala> val maxEventsPerTrigger = partitionCount * 1000
+            |  val connectionString = ConnectionStringBuilder(eventhubConnectionString).setEventHubName(eventhubName).build
+            |  val eventhubConfig = EventHubsConf(connectionString).setConsumerGroup(consumerGroup).setMaxEventsPerTrigger(partitionCount)
+    
+  The output will look as follows:
+  
+        eventhubConfig: org.apache.spark.eventhubs.EventHubsConf = org.apache.spark.eventhubs.EventHubsConf@2e98a74
 
 10. Next, you begin to author a Spark Structured Streaming query be specifying the source. Paste the following into Spark Shell and press return.
 
         val inputStream = spark.readStream.
         format("eventhubs").
-        options(eventhubParameters).
+        options(eventhubConfig).
         load()
 
 11. You should see output similar to:
