@@ -91,7 +91,8 @@
 #### [Password complexity](active-directory-b2c-reference-password-complexity-custom.md)
 #### [Password change](active-directory-b2c-reference-password-change-custom.md)
 #### [Enable keep me signed in](active-directory-b2c-reference-kmsi-custom.md)
-### Troubleshooting
+### Troubleshooting and Event Logs
+#### [Create custom events with Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Reference
 ### [Release notes](active-directory-b2c-developer-notes-custom.md)
