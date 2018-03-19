@@ -14,14 +14,14 @@ ms.custom: mvc
 
 # Tutorial: Deploy a container to Azure Container Instances
 
-This is the final tutorial in a three-part series. Earlier in the series, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to an Azure Container Registry](container-instances-tutorial-prepare-acr.md). This article completes the tutorial series by deploying the container to Azure Container Instances.
+This is the final tutorial in a three-part series. Earlier in the series, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to Azure Container Registry](container-instances-tutorial-prepare-acr.md). This article completes the series by deploying the container to Azure Container Instances.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Deploy the container from the Azure Container Registry using the Azure CLI
-> * View the application in the browser
-> * View the container logs
+> * Deploy the container from Azure Container Registry to Azure Container Instances
+> * View the running application in the browser
+> * Display the container's logs
 
 ## Before you begin
 
@@ -29,34 +29,35 @@ In this tutorial, you:
 
 ## Deploy the container using the Azure CLI
 
-The Azure CLI enables deployment of a container to Azure Container Instances in a single command. Since the container image is hosted in the private Azure Container Registry, you must include the credentials required to access it. Obtain the credentials with the following Azure CLI commands.
+In this section, you use the Azure CLI to deploy the image built in the [first tutorial](container-instances-tutorial-prepare-app.md) and pushed to Azure Container Registry in the [second tutorial](container-instances-tutorial-prepare-acr.md). Be sure to complete those tutorials first before proceeding.
 
-Container registry login server (update with your registry name):
+### Get registry credentials
+
+When you deploy an image that's hosted in a private container registry, such as the one created in the [second tutorial](container-instances-tutorial-prepare-acr.md), you must supply the registry's credentials.
+
+First, get the full name of the container registry login server (replace `<acrName>` with the name of your registry):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Container registry password:
+Next, get the container registry password:
 
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Your application will need to have
-been [prepared in advance][prepare-app]; to deploy your container image from the container registry with a
-resource request of 1 CPU core and 1 GB of memory, run the following
- [az container create][az-container-create] command. Replace
-`<acrLoginServer>` and `<acrPassword>` with the values you obtained
-from the previous two commands. Replace `<acrName>` with the name of
-your container registry; you can also replace `aci-tutorial-app` with
-the name you want to give the new application.
+### Deploy container
+
+Now, use the [az container create][az-container-create] command to deploy the container. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands. Replace `<acrName>` with the name of your container registry.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Within a few seconds, you should receive an initial response from Azure Resource Manager. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Update the value in the preceding example if you receive a **DNS name label** error message when you execute the command.
+Within a few seconds, you should receive an initial response from Azure Resource Manager. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Modify the value in the preceding command if you receive a "DNS name label" error message when you execute the command.
+
+### Verify deployment progress
 
 To view the state of the deployment, use [az container show][az-container-show]:
 
@@ -74,7 +75,11 @@ Once the deployment succeeds, display the container's fully qualified domain nam
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Example output: `"aci-demo.eastus.azurecontainer.io"`
+For example:
+```console
+$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+"aci-demo.eastus.azurecontainer.io"
+```
 
 To see the running application, navigate to the displayed DNS name in your favorite browser:
 
@@ -86,9 +91,10 @@ You can also view the log output of the container:
 az container logs --resource-group myResourceGroup --name aci-tutorial-app
 ```
 
-Output:
+Example output:
 
 ```bash
+$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
