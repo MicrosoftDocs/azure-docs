@@ -33,13 +33,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Once CLI is installed, perform the following steps to install the Event Hubs CLI extension, and to log on to Azure:
 
-1. Issue the following command to install the Event Hubs CLI extension:
-
-   ```azurecli-interactive
-   az extension add --name eventhubs
-   ```
-
-2. Run the following command to log on to Azure:
+1. Run the following command to log on to Azure:
 
    ```azurecli-interactive
    az login
@@ -72,7 +66,7 @@ az storage account create --name <storage_account_name> --resource-group <my_res
 az storage account keys list --resource-group <my_resourceGroup> --account-name <storage_account_name>
 
 # Get namespace connection string
-az eventhubs namespace authorizationrule keys list --resource-group <my_resourceGroup> --namespace-name <namespace_name> --name RootManageSharedAccessKey
+az eventhubs namespace authorization-rule keys list --resource-group <my_resourceGroup> --namespace-name <namespace_name> --name RootManageSharedAccessKey
 ```
 
 Copy and paste the connection string to a temporary location, such as Notepad, to use later.
