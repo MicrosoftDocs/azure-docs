@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/19/2018
 ms.author: nitinme
 
 ---
@@ -26,9 +26,11 @@ This article provides information about the **most recent** Azure HDInsight rele
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
+<!--
 ## Notes for 03/08/2018 - Release of Spark 2.2 on HDInsight 3.6
 
 - Spark 2.2.0 improves stability across Spark Core, SQL, ML, and brings Structured Streaming to GA status. Spark 2.2.0 is now available on HDInsight 3.6.
+-->
 
 ## Notes for 08/01/2017 release of HDInsight
 

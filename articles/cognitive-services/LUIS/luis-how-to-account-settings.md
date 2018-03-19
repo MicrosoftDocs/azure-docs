@@ -14,6 +14,7 @@ ms.author: v-geberr
 ---
 
 # Manage your LUIS account
+The two key pieces of information for a LUIS account are the user account and the authoring key. Your login information is managed at [account.microsoft.com](https://account.microsoft.com). Your authoring key is managed from the [LUIS][LUIS] website **Settings** page. 
 
 ## Authoring key
 
