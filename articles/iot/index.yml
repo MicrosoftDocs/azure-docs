@@ -17,7 +17,7 @@ abstract:
   description: Azure IoT is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation help you deploy reliable and bi-directional communication between IoT devices and a solution back end. 
   aside:
     image:
-      alt: 
+      alt: A video introduction to Azure IoT services and solutions.
       height: 110
       src: media/index/contoso-hvac-iot-part1.png
       width: 250  
