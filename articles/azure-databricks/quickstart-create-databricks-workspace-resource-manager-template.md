@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Run a Spark job on Azure Databricks using Azure portal | Microsoft Docs'
-description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
+title: 'Quickstart: Run a Spark job on Azure Databricks using Resource Manager template | Microsoft Docs'
+description: The quickstart shows how to use the Azure Resource Manager template to create an Azure Databricks workspace, then create an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -18,41 +18,35 @@ ms.custom: mvc
 
 ---
 
-# Quickstart: Run a Spark job on Azure Databricks using the Azure portal
+# Quickstart: Run a Spark job on Azure Databricks using the Azure Resource Manager template
 
-This quickstart shows how to create an Azure Databricks workspace and an Apache Spark cluster within that workspace. Finally, you learn how to run a Spark job on the Databricks cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
+This quickstart shows how to create an Azure Databricks workspace using Azure Resource Manager template. You use the workspace to create an Apache Spark cluster and run a Spark job on the Databricks cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Log in to the Azure portal
-
-Log in to the [Azure  portal](https://portal.azure.com).
-
 ## Create a Databricks workspace
 
-In this section, you create an Azure Databricks workspace using the Azure portal. 
+In this section, you create an Azure Databricks workspace using the Azure Resource Manager template. 
 
-1. In the Azure portal, click **Create a resource**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. 
+1. Click the following image to open the template in the Azure portal.         
 
-    ![Databricks on Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-databricks-workspace%2Fazuredeploy.json" target="_blank"><img src="./media/quickstart-create-databricks-workspace-resource-manager-template/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. Under **Azure Databricks (Preview)**, click **Create**.
+2. Provide the required values to create your Azure Databricks workspace 
 
-3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
+    ![Create Azure Databricks workspace using an Azure Resource Manager template](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Create Azure Databricks workspace using an Azure Resource Manager template")
 
-    ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
-
-    Provide the following values: 
+	Provide the following values: 
      
     |Property  |Description  |
     |---------|---------|
-    |**Workspace name**     | Provide a name for your Databricks workspace        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
     |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
+    |**Workspace name**     | Provide a name for your Databricks workspace        |
     |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    Select **Pin to dashboard** and then click **Create**.
+3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**.
 
 4. The workspace creation takes a few minutes. During workspace creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
 
@@ -129,7 +123,7 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
     ```sql
     %sql 
-    DROP TABLE IF EXISTS radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data;
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
