@@ -18,7 +18,7 @@ To simplify the problem space of HA, Microsoft uses the following assumptions:
 2.	Operational staff make mistakes that lead to failures
 3.	Planned servicing operations cause outages 
 
-While such individual events are infrequent, at cloud scale, they every week if not every day. 
+While such individual events are infrequent, at cloud scale, they occur every week if not every day. 
 
 ## Fault-tolerant SQL databases
 Customers are most interested in the resiliency of their own databases and are less interested in the resiliency of the SQL Database service as a whole. 99.99% uptime for a service is meaningless if “my database” is part of the 0.01% of databases that are down. Each and every database needs to be fault-tolerant and fault mitigation should never result in the loss of a committed transaction. 

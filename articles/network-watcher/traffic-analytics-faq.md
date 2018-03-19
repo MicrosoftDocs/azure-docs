@@ -91,7 +91,7 @@ ms.author: jdial
 
 14.  How is Traffic Analytics priced?
 
-        No charges are billed while Traffic Analytics is in Public Preview. Generation of NSG Flow Logs and retention of data in an OMS workspace are subject to charges at published rates.
+        Traffic Analytics is metered for enhancing reduced logs, and storing the enhanced logs in a Log Analytics workspace. While in preview, Traffic Analytics is not billed for enhancing the reduced logs, however retention of data in a workspace is subject to billing at published rates. This answer will be updated once pricing for Traffic Analytics is available.
 
 15.  How can I navigate using Keyboard in Geo Map View?
 
