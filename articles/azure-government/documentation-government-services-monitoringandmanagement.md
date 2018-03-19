@@ -69,14 +69,13 @@ The following sections detail differences and workarounds for features of Azure 
 Action Groups are generally available in Azure Government with no differences from commercial Azure.   
 
 #### Activity Log Alerts
-Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure.
+Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure. 
+
+#### Alerts Experience
+The unified alerts UI experience is not available in Azure Government. 
 
 #### Autoscale
-<aside class="warning">
-Autoscale via the portal is not currently available. This feature is coming soon.  
-</aside>
-
-In the meantime, please use PowerShell/ARM/Rest calls to specify the settings. You will need to set the "Location" of the Autoscale to USGov Virginia. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
+If you are using PowerShell/ARM/REST calls to specify settings you will need to set the "Location" of the Autoscale to USGov Virginia. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1" 
@@ -95,10 +94,11 @@ For more information on using PowerShell, please see [public documentation](http
 Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.
 
 #### Metrics
-Metrics are generally available in Azure Government with no differences from commercial Azure. 
+Metrics are generally available in Azure Government. However, multi-dimensional metric are supported on via the REST API. The Azure Goverment portal is not able show charts which include multi-dimensional metrics. 
+
 
 #### Metric Alerts
-Metrics Alerts are generally available in Azure Government.
+The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  A second generation of alerts is available only in commercial Azure.  
 
 When using PowerShell/ARM/Rest calls to create Metric Alerts, you will need to set the "Location" of the metric alert to USGov Virginia. An example of the setting is below:
 
