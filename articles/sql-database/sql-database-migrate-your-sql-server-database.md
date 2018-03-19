@@ -2,19 +2,11 @@
 title: Migrate SQL Server DB to Azure SQL Database | Microsoft Docs
 description: Learn to migrate your SQL Server database to Azure SQL Database.
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: "Active"
 ms.date: 01/29/2018
 ms.author: carlrab
 
@@ -50,7 +42,7 @@ An Azure SQL database is created with a defined set of [compute and storage reso
 
 Follow these steps to create a blank SQL database. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
 

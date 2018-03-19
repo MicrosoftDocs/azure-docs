@@ -18,29 +18,11 @@ Testing is the process of providing sample utterances to LUIS and getting a resp
 
 You can [test](Train-Test.md) LUIS interactively, one utterance at a time, or provide a batch of utterances. In the interactive test, you can compare the current active model to the published model. 
 
-## A test score
-A test score is between zero (0) and one (1). An example of a highly confident LUIS score is 0.99. An example of a score of low confidence is 0.01. 
-
-|Score value|Score confidence|
-|--|--|
-|0.99|✔|
-|0.01|X|
-
-When an utterance results in a low-confidence score, LUIS highlights that in the website intent page, with the identified **labeled-intent** outlined with red. 
-
-![Score discrepancy](./media/luis-concept-test/score-discrepancy.png)
-
-## Score all intents
-A test score can also include all intents. This configuration is set on the **[Publish](Publishapp.md)** page or with the `verbose=true` query string addition to the [endpoint](https://aka.ms/v1-endpoint-api-docs). Reviewing the scores for all intents is a good way to verify that not only is the correct intent identified but that the next identified intent's score is significantly lower. 
-
-## E (exponent) notation
-
-Test scores can use exponent notation, *appearing* above the 0-1 range, such as `9.910309E-07`. This score is an indication of a very **small** number.
-
-|E notation score |Actual score|
-|--|--|
-|9.910309E-07|.0000009910309|
-
+<a name="A-test-score"></a>
+<a name="Score-all-intents"></a>
+<a name="E-(exponent)-notation"></a>
+## What is a score in testing?
+See [Prediction score](luis-concept-prediction-score.md) concepts to learn more about prediction scores.
 
 ## Interactive testing
 Interactive testing is done from the **Test panel** of the website. You can quickly enter utterances to see how intents and entities are identified and scored. If LUIS isn't predicting the intents and entities as you expect on an utterance in the testing pane, copy it to the Intent page as a new utterance. Then label the parts of that utterance, and train LUIS. 
@@ -55,7 +37,7 @@ It is important that utterances used for batch testing are new to LUIS. If you h
 If there are errors in the batch testing, you can either add more labels to help LUIS make the discrimination between intents or add a [phrase list](luis-concept-feature.md) feature with domain-specific vocabulary to help LUIS learn faster. 
 
 ## Endpoint testing
-You can test using the endpoint with a maximum of two versions of your app. With your main or live version of your app set as the production endpoint, add a second version to the staging endpoint. This approach gives you three versions of an utterance: the current model in the Test pane of the LUIS website, and the two versions at the two different endpoints. 
+You can test using the [endpoint](luis-glossary.md#endpoint) with a maximum of two versions of your app. With your main or live version of your app set as the production endpoint, add a second version to the staging endpoint. This approach gives you three versions of an utterance: the current model in the Test pane of the LUIS website, and the two versions at the two different endpoints. 
 
 All endpoint testing counts against your usage quota. 
 

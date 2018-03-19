@@ -1,6 +1,6 @@
 ---
 title: Deploy a Spring Boot application to Azure Service Fabric | Microsoft Docs
-description: Deploy a Spring Boot application for Azure Service Fabric using the Spring Boot Getting Started.
+description: In this quickstart, you deploy a Spring Boot application for Azure Service Fabric using a Spring Boot sample application.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 
 ---
 
-# Deploy a Spring Boot Application
+# Quickstart: deploy a Java Spring Boot Application to Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
 This quickstart demonstrates how to deploy a Spring Boot application to Service Fabric. This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric. 

@@ -1,25 +1,36 @@
 ---
-title: Create SQL Server Windows VM with Azure PowerShell | Microsoft Docs
+title: Create a SQL Server Windows VM with Azure PowerShell | Microsoft Docs
 description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine with Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: jroth
 ---
 
-# Create a SQL Server Windows virtual machine with Azure PowerShell
+# Quickstart: Create a SQL Server Windows virtual machine with Azure PowerShell
 
 This quickstart steps through creating a SQL Server virtual machine with Azure PowerShell.
 
+> [!TIP]
+> This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other Azure PowerShell options for creating SQL VMs, see the [Provisioning guide for SQL Server VMs with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+
+> [!TIP]
+> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+
+## <a id="subscription"></a> Get an Azure subscription
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+
+## <a id="powershell"></a> Get Azure PowerShell
 
 This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 

@@ -46,7 +46,7 @@ with your Azure account credentials.
 ## Create your logic app 
 
 1. From the main Azure menu, choose 
-**New** > **Enterprise Integration** > **Logic App**.
+**Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 

@@ -3,8 +3,8 @@ title: Understanding DNS in Azure Stack | Microsoft Docs
 description: Understanding DNS features and capabilities in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: ScottNapolitan
-manager: darmour
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: scottnap
+ms.date: 02/28/2018
+ms.author: mabrigg
 
 ---
 # Introducing iDNS for Azure Stack

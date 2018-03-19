@@ -1,20 +1,20 @@
 ---
-title: 'Connect to Azure Database for MySQL using Go | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL using Go'
 description: This quickstart provides several Go code samples you can use to connect and query data from Azure Database for MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/24/2018
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use Go language to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for MySQL from Windows, Ubuntu Linux, and Apple macOS platforms by using code written in the [Go](https://golang.org/) language. It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes that you are familiar with development using Go and that you are new to working with Azure Database for MySQL.
+This quickstart demonstrates how to connect to an Azure Database for MySQL from Windows, Ubuntu Linux, and Apple macOS platforms by using code written in the [Go](https://golang.org/) language. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using Go and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
@@ -22,7 +22,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## Install Go and MySQL connector
-Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation) with minimum version 1.3 on your own computer. Depending on your platform, follow the steps in the appropriate section:
+Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation) on your own computer. Depending on your platform, follow the steps in the appropriate section:
 
 ### Windows
 1. [Download](https://golang.org/dl/) and install Go for Microsoft Windows according to the [installation instructions](https://golang.org/doc/install).
@@ -30,7 +30,7 @@ Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](h
 3. Make a folder for your project such. `mkdir  %USERPROFILE%\go\src\mysqlgo`.
 4. Change directory into the project folder, such as `cd %USERPROFILE%\go\src\mysqlgo`.
 5. Set the environment variable for GOPATH to point to the source code directory. `set GOPATH=%USERPROFILE%\go`.
-6. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command. Version 1.3 is the minimum version required.
+6. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command.
 
    In summary, install Go, then run these commands in the command prompt:
    ```cmd
@@ -46,7 +46,7 @@ Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](h
 3. Make a folder for your project in your home directory, such as `mkdir -p ~/go/src/mysqlgo/`.
 4. Change directory into the folder, such as `cd ~/go/src/mysqlgo/`.
 5. Set the GOPATH environment variable to point to a valid source directory, such as your current home directory's go folder. At the Bash shell, run `export GOPATH=~/go` to add the go directory as the GOPATH for the current shell session.
-6. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command. Version 1.3 is the minimum version required.
+6. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command.
 
    In summary, run these bash commands:
    ```bash
@@ -63,7 +63,7 @@ Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](h
 3. Make a folder for your project in your home directory, such as `mkdir -p ~/go/src/mysqlgo/`.
 4. Change directory into the folder, such as `cd ~/go/src/mysqlgo/`.
 5. Set the GOPATH environment variable to point to a valid source directory, such as your current home directory's go folder. At the Bash shell, run `export GOPATH=~/go` to add the go directory as the GOPATH for the current shell session.
-6. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command. Version 1.3 is the minimum version required.
+6. Install the [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) by running the `go get github.com/go-sql-driver/mysql` command.
 
    In summary, install Go, then run these bash commands:
    ```bash
@@ -77,11 +77,10 @@ Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](h
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in the Azure portal, click **All resources** and then search for the server you have creased (such as **myserver4demo**).
-3. Click the server name **myserver4demo**.
-4. Select the server's **Properties** page, and then make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for MySQL - Server Admin Login](./media/connect-go/1_server-properties-name-login.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Click the server name.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for MySQL server name](./media/connect-go/1_server-overview-name-login.png)
    
 
 ## Build and run Go code 
@@ -112,9 +111,9 @@ import (
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
+	host     = "mydemoserver.mysql.database.azure.com"
 	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
+	user     = "myadmin@mydemoserver"
 	password = "yourpassword"
 )
 
@@ -189,9 +188,9 @@ import (
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
+	host     = "mydemoserver.mysql.database.azure.com"
 	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
+	user     = "myadmin@mydemoserver"
 	password = "yourpassword"
 )
 
@@ -258,9 +257,9 @@ import (
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
+	host     = "mydemoserver.mysql.database.azure.com"
 	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
+	user     = "myadmin@mydemoserver"
 	password = "yourpassword"
 )
 
@@ -312,9 +311,9 @@ import (
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
+	host     = "mydemoserver.mysql.database.azure.com"
 	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
+	user     = "myadmin@mydemoserver"
 	password = "yourpassword"
 )
 

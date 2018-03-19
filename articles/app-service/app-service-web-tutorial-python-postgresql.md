@@ -242,7 +242,7 @@ Your Git repository already contains the following files it needs to run the Fla
 
 ### Create an App Service plan
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
 ### Create a web app

@@ -13,32 +13,64 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 03/07/2018
 ms.author: mimig
 
 ---
 # Azure Cosmos DB diagnostic logging
 
-Once you've started using one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. Diagnostic logging in Azure Cosmos DB enables you to perform this monitoring. By enabling diagnostic logging, you can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and/or export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), which is part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+Once you've started using one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. This article provides an overview of all the logs available on the Azure platform, then explains how to enable diagnostic logging for monitoring purposes to send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and/or export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), which is part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+
+## Logs available in Azure
+
+Before we get into monitoring your Azure Cosmos DB account, lets clarify a few things about logging and monitoring. There are different types of logs on the Azure platform. There are [Azure Activity Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), events, heartbeat monitoring, operations logs, etc. There are plethora of logs. You can see full list of logs in [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) in the Azure portal. 
+
+The following image shows the different kinds of Azure logs available.
+
+![Different kinds of Azure logs](./media/logging/azurelogging.png)
+
+In the above image, **Compute resources** represent the Azure resources for which you can access the Guest OS. For example, Azure Virtual Machines, Virtual Machine scale sets, Azure Container Service etc. are considered as compute resources. Compute resources generate Activity Logs, Diagnostic Logs and Application Logs. To learn more, refer to the [Azure Monitoring – Compute resources](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) article.
+
+**Non-compute resources** are resources where you can’t access the underlying OS and work directly with resource. For example, Network Security Groups, Logic Apps etc. **Cosmos DB** is a non-compute resource. You can view logs for non-compute resources in the Activity log or by enabling the Diagnostic Logs option in the portal. To learn more, refer to the [Azure Monitoring – Non-compute resources](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) article.
+
+The Activity Log records the operations at a subscription level for Cosmos DB, operations such as ListKeys, Write DatabaseAccounts etc are logged. Diagnostic Logs provide more granular logging and it allows you to log DataPlaneRequests (Create, Read, Query.. ) and MongoRequests.
+
+
+For our discussion lets focus on Azure Activity, Azure Diagnotic, and Metrics. So what is the difference between these three logs? 
+
+### Azure Activity Log
+
+The Azure Activity Log is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log reports control-plane events for your subscriptions under the Administrative category. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. 
+
+The Activity Log differs from Diagnostic Logs. Activity Logs provide data about the operations on a resource from the outside (the "control plane"). In the Azure Cosmos DB context, some of the control plane operations include create collection, list keys, delete keys, list database, etc. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the "data plane"). Some of the data plane diagnostic log examples will be delete, insert, readfeed operation, etc.
+
+Activity Logs (control plane operations) may be much more richer in nature, they may include the full email address of the caller, caller IP address, resource name, operation name, and TenantId, etc. The Activity Log contains several [categories](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) of data. For full details on the schemata of these categories, see [Azure Activity Log event schema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema).  However, Diagnostic Logs can be restrictive in nature as PII data is often stripped from them. So, you may have the IP address of the caller, but the last octent is removed.
+
+### Azure Metrics
+
+[Azure Metrics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics), have the most important type of Azure telemetry data (also called performance counters) emitted by most Azure resources. Metrics enable you to view information about throughput, storage, consistency, availability, and the latency of your Azure Cosmos DB resources. For more information see [Monitoring and debugging with metrics in Azure Cosmos DB](use-metrics.md).
+
+### Azure Diagnostic Logs
+
+Azure Diagnostic Logs are logs emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type. Resource-level diagnostic logs also differ from guest OS-level diagnostic logs. Guest OS diagnostic logs are those collected by an agent running inside of a virtual machine or other supported resource type. Resource-level diagnostic logs require no agent and capture resource-specific data from the Azure platform itself, while guest OS-level diagnostic logs capture data from the operating system and applications running on a virtual machine.
 
 ![Diagnostic logging to Storage, Event Hubs, or Operations Management Suite via Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
-Use this tutorial to get started with Azure Cosmos DB logging via the Azure portal, CLI, or PowerShell.
-
-## What is logged?
+### What is logged by Azure Diagnostic Logs?
 
 * All authenticated backend requests (TCP/REST), across all APIs, are logged, which includes failed requests as a result of access permissions, system errors, or bad requests. Support for user initiated Graph, Cassandra, and Table API requests are not currently available.
 * Operations on the database itself, which includes CRUD operations on all documents, containers, and databases.
 * Operations on account keys, which include creating, modifying, or deleting these keys.
 * Unauthenticated requests that result in a 401 response. For example, requests that do not have a bearer token, or are malformed or expired, or have an invalid token.
 
-## Prerequisites
-To complete this tutorial, you must have the following resources:
+<a id="#turn-on"></a>
+## Turn on logging in the Azure portal
+
+To enable diagnostics logging, you must have the following resources:
 
 * An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account using the Azure portal](create-sql-api-dotnet.md#create-a-database-account), [CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
 
-<a id="#turn-on"></a>
-## Turn on logging in the Azure portal
+To enable diagnostic logging in the Azure portal, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), in your Azure Cosmos DB account, click **Diagnostic logs** in the left navigation, and then click **Turn on diagnostics**.
 
@@ -95,7 +127,7 @@ You can combine these parameters to enable multiple output options.
 
 ## Turn on logging using PowerShell
 
-To turn on logging using PowerShell, you need Azure Powershell, with a minimum version of 1.0.1.
+To turn on diagnostic logging using PowerShell, you need Azure Powershell, with a minimum version of 1.0.1.
 
 To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
@@ -312,7 +344,7 @@ To learn about the data in each JSON blob, see [Interpret your Azure Cosmos DB l
 
 ## Managing your logs
 
-Logs are made available in your account two hours from the time the Azure Cosmos DB operation was made. It's up to you to manage your logs in your storage account:
+Diagnostic logs are made available in your account two hours from the time the Azure Cosmos DB operation was made. It's up to you to manage your logs in your storage account:
 
 * Use standard Azure access control methods to secure your logs by restricting who can access them.
 * Delete logs that you no longer want to keep in your storage account.
@@ -323,7 +355,7 @@ Storage account is configured in the portal when **Log DataPlaneRequests** is se
 <a id="#view-in-loganalytics"></a>
 ## View logs in Log Analytics
 
-If you selected the **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection is forwarded to Log Analytics within two hours. This means that if you look at Log Analytics immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
+If you selected the **Send to Log Analytics** option when you turned on diagnostic logging, diagnostic data from your collection is forwarded to Log Analytics within two hours. This means that if you look at Log Analytics immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
 
 Before viewing your logs, you'll want to check and see if your Log Analytics workspace has been upgraded to use the new Log Analytics query language. To check this, open the [Azure portal](https://portal.azure.com), click **Log Analytics** on the far left side, then select the workspace name as shown in the following image. The **OMS Workspace** page is displayed as shown in the following image.
 

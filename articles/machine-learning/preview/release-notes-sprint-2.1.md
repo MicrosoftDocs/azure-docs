@@ -16,7 +16,7 @@ ms.date: 12/15/2017
 
 #### Version number: 0.1.1711.15323
 
->Here is how you can [find the version number](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Here is how you can [find the version number](known-issues-and-troubleshooting-guide.md).
 
 Welcome to the QFE (Quick Fix Engineering) release of the third update of Azure Machine Learning Workbench. This release is a minor release. It addresses several telemetry issues and helps the product team to better understand how the product is being used. The knowledge can go into future efforts for improving the product experience. 
 

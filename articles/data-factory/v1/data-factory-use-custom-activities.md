@@ -418,7 +418,7 @@ Here are the steps you perform in this section:
 
 ### Step 1: Create the data factory
 1. After logging in to the Azure portal, do the following steps:
-   1. Click **NEW** on the left menu.
+   1. Click **Create a resource** on the left menu.
    2. Click **Data + Analytics** in the **New** blade.
    3. Click **Data Factory** on the **Data analytics** blade.
    

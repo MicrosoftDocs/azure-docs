@@ -491,6 +491,9 @@ By default, all function routes are prefixed with *api*. You can also customize 
 
 HTTP triggers let you use keys for added security. A standard HTTP trigger can use these as an API key, requiring the key to be present on the request. Webhooks can use keys to authorize requests in a variety of ways, depending on what the provider supports.
 
+> [!NOTE]
+> When running functions locally, authorization is disabled no matter the `authLevel` set in `function.json`. As soon as you publish to Azure Functions, the `authLevel` immediately takes effect.
+
 Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your functions in the portal and select "Manage." 
 
 There are two types of keys:

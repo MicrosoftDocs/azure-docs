@@ -46,10 +46,10 @@ For information about how to set a function app to use the preview 2.0 version o
 
 To install an extension from the Azure portal, navigate to either a template or binding that references it. Create a new function, and while in the template selection screen, choose the "Microsoft Graph" scenario. Select one of the templates from this scenario. Alternatively, you can navigate to the "Integrate" tab of an existing function and select one of the bindings covered in this article.
 
-In both cases, a warning will appear which specifies the extension to be installed. Click **Install** to obtain the extension.
+In both cases, a warning will appear which specifies the extension to be installed. Click **Install** to obtain the extension. Each extension only needs to be installed once per function app. 
 
 > [!Note] 
-> Each extension only needs to be installed once per function app. The in-portal installation process can take up to 10 minutes on a consumption plan.
+> The in-portal installation process can take up to 10 minutes on a consumption plan.
 
 If you are using Visual Studio, you can get the extensions by installing these NuGet packages:
 - [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)

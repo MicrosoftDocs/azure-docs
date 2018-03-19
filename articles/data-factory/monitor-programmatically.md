@@ -3,7 +3,7 @@ title: Programmatically monitor an Azure data factory | Microsoft Docs
 description: Learn how to monitor a pipeline in a data factory by using different software development kits (SDKs).
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: spelluru
+ms.author: douglasl
 
 ---
 # Programmatically monitor an Azure data factory

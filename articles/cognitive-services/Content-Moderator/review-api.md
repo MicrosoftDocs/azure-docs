@@ -12,31 +12,31 @@ ms.date: 1/21/2018
 ms.author: sajagtap
 ---
 
-# Moderation Jobs and Reviews
+# Moderation jobs and reviews
 
-Combine machine-assisted moderation with human-in-the-loop capabilities by using the [Review API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to get the best results for your business. 
+Combine machine-assisted moderation with human-in-the-loop capabilities by using the Azure Content Moderator [Review API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to get the best results for your business.
 
 The Review API offers the following ways to include human oversight in your content moderation process:
 
-1. The `Job` operations for starting machine-assisted moderation and human review creation as one step.
-1. The `Review` operations for human review creation, outside of the moderation step.
-1. The `Workflow` operations for managing workflows that automate scanning with thresholds for review creation.
+* `Job` operations are used to start machine-assisted moderation and human review creation as one step.
+* `Review` operations are used for human review creation, outside of the moderation step.
+* `Workflow` operations are used to manage workflows that automate scanning with thresholds for review creation.
 
 The `Job` and `Review` operations accept your callback endpoints for receiving status and results.
 
-In this article, we cover the `Job` and `Review` operations. Read the [Workflows overview](workflow-api.md) for information on how to create, edit, and get workflow definitions.
+This article covers the `Job` and `Review` operations. Read the [Workflows overview](workflow-api.md) for information on how to create, edit, and get workflow definitions.
 
 ## Job operations
 
-### Start a Job
-Use the `Job.Create` operation to start a moderation and human review creation job. The Moderator scans the content and evaluates the designated workflow. Based on the workflow results, it either creates reviews or skips the step. It also submits the post-moderation and post-review tags to your callback endpoint.
+### Start a job
+Use the `Job.Create` operation to start a moderation and human review creation job. Content Moderator scans the content and evaluates the designated workflow. Based on the workflow results, it either creates reviews or skips the step. It also submits the post-moderation and post-review tags to your callback endpoint.
 
 The inputs include the following information:
 
-- The review team ID
-- The content to be moderated
-- The workflow name (The default is the “default” workflow)
-- Your API callback point for notifications
+- The review team ID.
+- The content to be moderated.
+- The workflow name. (The default is the "default" workflow.)
+- Your API callback point for notifications.
  
 The following response shows the identifier of the job that was started. You use the job identifier to get the job status and receive detailed information.
 
@@ -44,19 +44,19 @@ The following response shows the identifier of the job that was started. You use
 		"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
 	}
 
-### Get Job status
+### Get job status
 
-Use the `Job.Get` operation and the job identifier to get the details of a running or completed job. The operation returns immediately while the moderation job runs asynchronously. The  final results are returned through the callback endpoint.
+Use the `Job.Get` operation and the job identifier to get the details of a running or completed job. The operation returns immediately while the moderation job runs asynchronously. The results are returned through the callback endpoint.
 
 Your inputs include the following information:
 
-- The review team ID - The job identifier returned by the previous operation
+- The review team ID: The job identifier returned by the previous operation
 
 The response includes the following information:
 
-- The identifier of the review created (use this ID to get the final review results)
-- The status of the job (completed or in-progress)- The assigned moderation tags (key-value pairs)
-- Job execution report
+- The identifier of the review created. (Use this ID to get the final review results.)
+- The status of the job (completed or in-progress): The assigned moderation tags (key-value pairs).
+- The job execution report.
  
  
 		{
@@ -109,14 +109,14 @@ The response includes the following information:
 
 ## Review operations
 
-### Create Reviews
+### Create reviews
 
-Use the `Review.Create` operation to create the human reviews. You either moderate them elsewhere or you use custom logic to assign the moderation tags.
+Use the `Review.Create` operation to create the human reviews. You either moderate them elsewhere or use custom logic to assign the moderation tags.
 
 Your inputs to this operation include:
 
-- The content to be reviewed
-- The assigned tags (key value pairs) for review by human moderators
+- The content to be reviewed.
+- The assigned tags (key value pairs) for review by human moderators.
 
 The following response shows the review identifier:
 
@@ -125,8 +125,13 @@ The following response shows the review identifier:
 	]
 
 
-### Get Review status
-Use the `Review.Get` operation to get the results after a human review of the moderated image is completed. You get notified via your provided callback endpoint. The operation returns two sets of tags, the tags assigned by the moderation service, and the tags after the human review was completed.
+### Get review status
+Use the `Review.Get` operation to get the results after a human review of the moderated image is completed. You get notified via your provided callback endpoint. 
+
+The operation returns two sets of tags: 
+
+* The tags assigned by the moderation service
+* The tags after the human review was completed
 
 Your inputs include at a minimum:
 
@@ -139,7 +144,7 @@ The response includes the following information:
 - The tags (key-value pairs) confirmed by the human reviewer
 - The tags (key-value pairs) assigned by the moderation service
 
-You see both the reviewer assigned tags (**reviewResultTags**) and the initial tags (**metadata**) in the following sample response:
+You see both the reviewer-assigned tags (**reviewerResultTags**) and the initial tags (**metadata**) in the following sample response:
 
 	{
 		"reviewId": "201712i46950138c61a4740b118a43cac33f434",
@@ -174,8 +179,6 @@ You see both the reviewer assigned tags (**reviewResultTags**) and the initial t
 
 ## Next steps
 
-Test drive the [Job API console](try-review-api-job.md) and use the REST API code samples. Also check out the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md) if you are familiar with Visual Studio and C#. 
-
-For reviews, get started with the [Review API console](try-review-api-review.md) and use the REST API code samples. Then refer to the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md).
-
-For video reviews, use the [video review quickstart](video-reviews-quickstart-dotnet.md) and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).
+* Test drive the [Job API console](try-review-api-job.md), and use the REST API code samples. If you're familiar with Visual Studio and C#, also check out the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md). 
+* For reviews, get started with the [Review API console](try-review-api-review.md), and use the REST API code samples. Then see the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md).
+* For video reviews, use the [Video review quickstart](video-reviews-quickstart-dotnet.md), and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).

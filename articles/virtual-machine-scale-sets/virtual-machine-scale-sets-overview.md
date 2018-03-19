@@ -30,7 +30,7 @@ For more information about scale sets, watch these videos:
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## Creating and managing scale sets
-You can create a scale set in the [Azure portal](https://portal.azure.com) by selecting **new** and typing **scale** on the search bar. **Virtual machine scale set** is listed in the results. From there, you can fill in the required fields to customize and deploy your scale set. You also have options to set up basic autoscale rules based on CPU usage in the portal. To manage your scale set, you can use the Azure portal, [Azure PowerShell cmdlets](virtual-machine-scale-sets-windows-manage.md), or the Azure CLI 2.0.
+You can create a scale set in the [Azure portal](https://portal.azure.com) by selecting **Create a resource** and typing **scale** in the search bar. **Virtual machine scale set** is listed in the results. From there, you can fill in the required fields to customize and deploy your scale set. You also have options to set up basic autoscale rules based on CPU usage in the portal. To manage your scale set, you can use the Azure portal, [Azure PowerShell cmdlets](virtual-machine-scale-sets-windows-manage.md), or the Azure CLI 2.0.
 
 Scale sets can be deployed across [availability zones](virtual-machine-scale-sets-use-availability-zones.md).
 

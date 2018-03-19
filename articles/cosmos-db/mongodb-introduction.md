@@ -40,7 +40,10 @@ Azure Cosmos DB databases can be used as the data store for apps written for [Mo
 
 | Azure Cosmos DB Default Consistency Level |	Mongo API (3.4) |
 |---|---|
-|Session| Eventual |
+|Eventual| Eventual |
+|Consistent Prefix| Eventual with consistent order |
+|Session| Eventual with consistent order |
+|Bounded Staleness| Strong |
 | Strong | Strong |
 
 **Automatic indexing**: By default, Azure Cosmos DB automatically indexes all the properties within documents in your MongoDB database and does not expect or require any schema or creation of secondary indices. In addition, the unique index capability enables a uniqueness constraint on any document fields that are already auto-indexed in Azure Cosmos DB.

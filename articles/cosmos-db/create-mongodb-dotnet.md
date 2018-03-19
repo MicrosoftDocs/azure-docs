@@ -24,18 +24,6 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quickstart demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a tasks list web app built on the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
-## Clone the sample app
-
-First, download the sample MongoDB API app from GitHub. It implements a task list with MongoDB's document storage model.
-
-1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
-
-2. Run the following command to clone the sample repository. 
-
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
-    ```
-
 ## Prerequisites to run the sample app
 
 To run the sample, you'll need [Visual Studio](https://www.visualstudio.com/downloads/) and a valid Azure CosmosDB account.
@@ -48,6 +36,19 @@ If you don't already have Visual Studio, download [Visual Studio 2017 Community 
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+
+## Clone the sample app
+
+First, download the sample MongoDB API app from GitHub. It implements a task list with MongoDB's document storage model.
+
+1. Open a git terminal window, such as git bash, and `cd` to a working directory.
+2. Run the following command to clone the sample repository. 
+
+    ```bash
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
+    ```
+
+If you don't wish to use git, you can also [download the project as a ZIP file](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started/archive/master.zip).
 
 ## Review the code
 

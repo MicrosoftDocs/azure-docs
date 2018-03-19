@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -38,11 +38,11 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## Add a simulated device
 
-Navigate to the **Devices** page in the solution and then choose **New device**. In the **New device** panel, choose **Simulated**:
+Navigate to the **Devices** page in the solution and then choose **+ New device**. In the **New device** panel, choose **Simulated**:
 
 ![Provision a simulated device](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Leave the number of devices to provision set to **1**. Choose **Faulty Engine** as the **Device model**, and then choose **Apply** to create the simulated device:
+Leave the number of devices to provision set to **1**. Choose the **Faulty Engine** device model, and then choose **Apply** to create the simulated device:
 
 ![Provision a simulated engine device](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 

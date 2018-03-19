@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/14/2018
 ms.author: mimig
 
 ---
@@ -80,10 +80,10 @@ All code examples in this tutorial can be added to the `Main()` method of your c
 You can use the Azure CosmosDB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
 ### Use NuGet to install the required packages
-There are three packages you need to reference in your project to complete this tutorial:
+There are three recommended packages you need to reference in your project to complete this tutorial:
 
-* [Azure Storage Common Library for .NET (Preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 
-* [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account.
+* [Azure Storage Common Library for .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
+* [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). This package provides programmatic access to data resources in your Azure Table storage account or Azure Cosmos DB Table API account.
 * [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
 
 You can use NuGet to obtain both packages. Follow these steps:
@@ -97,6 +97,11 @@ You can use NuGet to obtain both packages. Follow these steps:
 > The ODataLib dependencies in the Storage Common Library for .NET are resolved by the ODataLib packages available on NuGet, not from WCF Data Services. The ODataLib libraries can be downloaded directly, or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage Client Library are [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), and [Spatial](http://nuget.org/packages/System.Spatial/). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage Common Library.
 > 
 > 
+
+> [!TIP]
+> Developers already familiar with Azure Table storage may have used the [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) package in the past. It is recommended that all new table applications use the [Azure Storage Common Library](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) and the [Azure Cosmos DB Table Library](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), however the WindowsAzure.Storage package is still supported. If you use the WindowsAzure.Storage library, include Microsoft.WindowsAzure.Storage.Table in your using statements.
+>
+>
 
 ### Determine your target environment
 You have two environment options for running the examples in this guide:
@@ -160,7 +165,7 @@ Add the following **using** directives to the top of the `Program.cs` file:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.Azure.Storage.Common; // Namespace for StorageAccounts
+using Microsoft.Azure.Storage; // Namespace for StorageAccounts
 using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
 ```
 

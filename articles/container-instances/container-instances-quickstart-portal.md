@@ -24,7 +24,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a container instance
 
-Select the **New** > **Containers** > **Azure Container Instances (preview)**.
+Select the **Create a resource** > **Containers** > **Azure Container Instances (preview)**.
 
 ![Begin creating a new container instance in the Azure portal][aci-portal-01]
 

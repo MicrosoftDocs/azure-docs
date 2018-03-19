@@ -17,7 +17,7 @@ ms.date: 01/22/2018
 
 #### Version number: 0.1.1712.18263
 
->Here is how you can [find the version number](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Here is how you can [find the version number](known-issues-and-troubleshooting-guide.md).
 
 Welcome to the fourth update of Azure Machine Learning Workbench. The following are the updates and improvements in this sprint. Many of these updates are made as direct result of user feedback. 
 
