@@ -8,8 +8,6 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ---
 # Track changes in your environment with the Change Tracking solution
