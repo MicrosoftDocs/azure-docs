@@ -31,8 +31,19 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Prebuilt entities](./Pre-builtEntities.md) | no limit|
 | [Simple](./luis-concept-entity-types.md)| 30|
 | [Utterance][utterances] | 500 characters|
-| [Utterances][utterances] | 15,000 created in app<br>10,000 imported into app|
+| [Utterances][utterances] | 15,000|
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanum and period (.) |
+
+## Intent and entity naming
+Do not use the following characters in intent and entity names:
+
+|Character|Name|
+|--|--|
+|`{`|Left curly bracket|
+|`}`|Right curly bracket|
+|`[`|Left bracket|
+|`]`|Right bracket|
+|`\`|Backslash|
 
 ## Key limits
 The authoring key has different limits for authoring and endpoint. The LUIS service subscription key is only valid for endpoint queries.

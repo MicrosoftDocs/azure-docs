@@ -91,18 +91,32 @@
       href: luis-concept-entity-types.md
     - name: Utterances
       href: luis-concept-utterance.md
-  - name: Features
-    href: luis-concept-feature.md
-  - name: Prediction score
-    href: luis-concept-prediction-score.md
-  - name: Data extraction
-    href: luis-concept-data-extraction.md
+  - name: Predictions
+    items:
+    - name: Prediction score
+      href: luis-concept-prediction-score.md
+    - name: Features
+      href: luis-concept-feature.md
+  - name: Data management
+    items: 
+    - name: Altering data
+      href: luis-concept-data-alteration.md
+    - name: Extracting data
+      href: luis-concept-data-extraction.md
+    - name: Data Storage
+      href: luis-concept-data-storage.md
   - name: Test
     items: 
     - name: Interactive testing
       href: luis-concept-test.md
     - name: Batch testing
       href: luis-concept-batch-test.md
+  - name: Enterprise
+    items:
+    - name: Design strategies
+      href: luis-concept-enterprise.md
+  - name: Best practices
+    href: luis-concept-best-practices.md
 - name: How-to guides
   items: 
   - name: Plan your app
@@ -145,12 +159,14 @@
       href: App-Dashboard.md
     - name: Manage LUIS keys
       href: Manage-Keys.md
-    - name: Manage Azure keys
+    - name: Manage Azure endpoint keys
       href: AzureIbizaSubscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Collaborate on a LUIS app
-      href: luis-how-to-collaborate.md    
+      href: luis-how-to-collaborate.md 
+  - name: Manage your LUIS account
+    href: luis-how-to-account-settings.md   
   - name: Migrate to V2 API
     href: migration-v1-to-v2.md
 - name: Reference
