@@ -93,7 +93,7 @@ Azure AD Domain Services can detect when this specific service principal is miss
 
 ## Alert AADDS105: Password synchronization application is out of date
 
-**Alert message:** The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted, and Microsoft was able to recreate it. This service principal manages another service principal and an application that are used for password synchronization. The managed service principal and application are not authorized under the newly created service principal, and will become outdated when the synchronization certificate expires. This means that the newly created service principal will be unable to update the old managed applications and synchronization of objects from AAD will be affected.
+**Alert message:** The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted and then recreated. This service principal manages another service principal and an application that are used for password synchronization. The managed service principal and/or application was not authorized under the newly created service principal so they cannot be managed by our service the old managed and password synchronization will be affected.
 
 
 **Resolution:**
@@ -109,10 +109,10 @@ To address this issue, type the following commands in a PowerShell window:
 2. Delete the old application and object using the following PowerShell commands
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
-    $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
-    Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $spObject = Get-AzureADServicePrincipal -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```
 3. After you have deleted both, the system will remediate itself and recreate the applications needed for password synchronization. To ensure the alert has been remediated, wait two hours and check your domain's health.
 
