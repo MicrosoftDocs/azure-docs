@@ -34,7 +34,7 @@ This article requires that you are running the latest version of Azure PowerShel
 
 ## Log in to Azure
 
-Once PowerShell is installed, open Cloud Shell and issue the following commands to log in to Azure: 
+Once PowerShell is installed, open Cloud Shell and issue the following commands: 
 
 1. First, install the Service Bus PowerShell module, if you haven't already:
 
@@ -73,25 +73,34 @@ New-AzureRmServiceBusQueue -ResourceGroupName <resource_group_name> -NamespaceNa
 Get-AzureRmServiceBusKey -ResourceGroupName <resource_group_name> -Namespace <namespace_name> -Name RootManageSharedAccessKey
 ```
 
-After the `Get-AzureRmServiceBusKey` cmdlet runs, copy and paste the connection string, and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
+After the `Get-AzureRmServiceBusKey` cmdlet runs, copy and paste the connection string and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
 
 ## Send and receive messages
 
-After the namespace and queue are created, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient).
+After the namespace and queue are created, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveQuickStart).
 
 To run the code, do the following:
 
 1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
-2. Navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient), and load the **BasicSendReceiveUsingQueueClient.csproj** file into Visual Studio.
-3.	Double-click **Program.cs** to open it in the Visual Studio editor.
-4.	If you have not done so already, obtain the connection string using the following PowerShell cmdlet. Be sure to replace `<resource_group_name>` and `<namespace_name>` with your specific values: 
+2. Open a Windows PowerShell prompt with Administrator privileges.
+3. Navigate to the sample folder `\azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+4. If you have not done so already, obtain the connection string using the following PowerShell cmdlet. Be sure to replace `<resource_group_name>` and `<namespace_name>` with your specific values: 
 
    ```azurepowershell
    Get-AzureRmServiceBusKey -ResourceGroupName <resource_group_name> -Namespace <namespace_name> -Name RootManageSharedAccessKey
    ```
-5.	In **Program.cs**, replace the value of the `ServiceBusConnectionString` constant with the full connection string you obtained in the previous step.
-6.	Replace the value of `QueueName` with the name of the queue you created.
-7.	Build and run the program, and observe 10 messages being sent to the queue, and subsequently received from the queue.
+5.	At the PowerShell prompt, type the following command:
+
+   ```shell
+   dotnet build
+   ```
+6.	Navigate to the `bin\Debug\netcoreapp2.0` folder.
+7.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
+
+   ```shell
+   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
+   ``` 
+8. Observe a set of messages being send and received.
 
 ## Clean up deployment
 
