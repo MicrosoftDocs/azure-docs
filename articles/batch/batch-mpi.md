@@ -47,6 +47,10 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 ## Requirements for multi-instance tasks
 Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. To disable concurrent task execution, set the [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) property to 1.
 
+> [!NOTE]
+> Batch [limits](batch-quota-limit.md#other-limits) the size of a pool that has inter-node communication enabled.
+
+
 This code snippet shows how to create a pool for multi-instance tasks using the Batch .NET library.
 
 ```csharp
@@ -106,8 +110,6 @@ Look for the sizes specified as "RDMA capable" in the following articles:
 > [!NOTE]
 > To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. 
 >
-> Batch [limits](batch-quota-limit.md#other-limits) the number of RDMA-connected nodes in a pool that can run MPI jobs.
-
 
 ## Create a multi-instance task with Batch .NET
 Now that we've covered the pool requirements and MPI package installation, let's create the multi-instance task. In this snippet, we create a standard [CloudTask][net_task], then configure its [MultiInstanceSettings][net_multiinstance_prop] property. As mentioned earlier, the multi-instance task is not a distinct task type, but a standard Batch task configured with multi-instance settings.

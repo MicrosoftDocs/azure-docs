@@ -50,7 +50,7 @@ If you created a Batch account with pool allocation mode set to **user subscript
 | Application package size (each) |Approx. 195GB<sup>1</sup> |
 | Maximum start task size | 32768 characters<sup>2</sup> |
 | Maximum task lifetime | 7 days<sup>3</sup> |
-| RDMA-connected compute nodes for MPI jobs | 100 |
+| Compute nodes in inter-node communication enabled pool | 100 |
 
 <sup>1</sup> Azure Storage limit for maximum block blob size<br />
 <sup>2</sup> Includes resource files and environment variables<br />
