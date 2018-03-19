@@ -102,11 +102,11 @@ Azure App Service on Azure Stack Update 1 includes the following improvements an
 
 - Certificate validation errors
 
-Some customers have experienced issues when providing certificates to the App Service installer when deploying on an integrated system, due to overly restrictive validation in the installer.  The App Service installer has been re-released, customers should [download the updated installer](https://aka.ms/appsvconmasinstaller), file date stamp 16 March 7:12 PM.  If you continue to experience issues validating certificates with the updated installer, contact support.
+Some customers have experienced issues when providing certificates to the App Service installer when deploying on an integrated system, due to overly restrictive validation in the installer.  The App Service installer has been re-released, customers should [download the updated installer](https://aka.ms/appsvconmasinstaller).  If you continue to experience issues validating certificates with the updated installer, contact support.
 
 - Problem retrieving Azure Stack root certificate from integrated system.
 
-An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve the Azure Stack root certificate when executing the script on a machine that does not have the root certificate installed.  The script has also now been re-released, resolving this issue, and request customers [download the updated helper scripts](https://aka.ms/appsvconmashelpers), file date stamp 16 March 2018 06:58:20 PM.  If you continue to experience issues retrieving the root certificate with the updated script, contact support.
+An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve the Azure Stack root certificate when executing the script on a machine that does not have the root certificate installed.  The script has also now been re-released, resolving this issue, and request customers [download the updated helper scripts](https://aka.ms/appsvconmashelpers).  If you continue to experience issues retrieving the root certificate with the updated script, contact support.
 
 ### Known issues with the update process
 
