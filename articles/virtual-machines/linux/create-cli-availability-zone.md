@@ -62,7 +62,7 @@ Create a resource group with the [az group create](/cli/azure/group#az_group_cre
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus2* region. East US 2 is one of the Azure regions that supports availability zones.
 
-```azurecli-interactive 
+```azurecli 
 az group create --name myResourceGroupVM --location eastus2
 ```
 
@@ -80,7 +80,7 @@ az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --
 
 It may take a few minutes to create the VM. Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `zones` value, which indicates the availability zone in which the VM is running. 
 
-```azurecli-interactive 
+```azurecli 
 {
   "fqdns": "",
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -100,19 +100,19 @@ When the VM is deployed in an availability zone, the IP address and managed disk
 
 First use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) command to return the name of public IP address resource in *myVM*. In this example, the name is stored in a variable that is used in a later step.
 
-```azurecli-interactive
+```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)
 ```
 
 Now you can get information about the IP address:
 
-```azurecli-interactive
+```azurecli
 az network public-ip show --resource-group myResourceGroupVM --name $ipaddressname
 ```
 
 The output shows that the IP address is in the same availability zone as the VM:
 
-```azurecli-interactive
+```azurecli
 {
   "dnsSettings": null,
   "etag": "W/\"b7ad25eb-3191-4c8f-9cec-c5e4a3a37d35\"",
@@ -158,7 +158,7 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
 
 The output shows that the managed disk is in the same availability zone as the VM:
 
-```azurecli-interactive
+```azurecli
 {
   "creationData": {
     "createOption": "FromImage",
@@ -174,8 +174,8 @@ The output shows that the managed disk is in the same availability zone as the V
   "encryptionSettings": null,
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/disks/osdisk_761c570dab",
   "location": "eastus2",
-  "managedBy": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "name": "osdisk_761c570dab",
+  "managedBy": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
+  "name": "myVM_osdisk_761c570dab",
   "osType": "Linux",
   "provisioningState": "Succeeded",
   "resourceGroup": "myResourceGroupVM",
@@ -184,7 +184,7 @@ The output shows that the managed disk is in the same availability zone as the V
     "tier": "Premium"
   },
   "tags": {},
-  "timeCreated": "2017-09-05T22:16:06.892752+00:00",
+  "timeCreated": "2018-03-05T22:16:06.892752+00:00",
   "type": "Microsoft.Compute/disks",
   "zones": [
     "1"
