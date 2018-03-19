@@ -1,6 +1,6 @@
 ---
-title: Backup and restore Service Fabric Reliable Actors | Microsoft Docs
-description: Learn how to implement backup and restore in your Service Fabric actors.
+title: Backup and restore Azure Service Fabric actors | Microsoft Docs
+description: Learn how to implement backup and restore in your Azure Service Fabric actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 03/19/2018
 ms.author: vturecek
 
 ---
@@ -109,7 +109,7 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-## Next steps
+For more information on Reliable Actors, read the following:
 * [Actor state management](service-fabric-reliable-actors-state-management.md)
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 * [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)

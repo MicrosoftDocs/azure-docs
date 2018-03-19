@@ -1,5 +1,5 @@
 ---
-title: Enumerate Reliable Actors on Service Fabric | Microsoft Docs
+title: Enumerate actors on Azure Service Fabric | Microsoft Docs
 description: Learn how to enumerate Reliable Actors and their metadata.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 03/19/2018
 ms.author: vturecek
 
 ---

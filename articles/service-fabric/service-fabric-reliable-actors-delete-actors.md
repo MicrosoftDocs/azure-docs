@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/06/2017
+ms.date: 03/19/2018
 ms.author: amanbha
 
 ---
@@ -49,7 +49,7 @@ Deleting an actor has the following effects depending on whether or not the acto
 
 An actor cannot call delete on itself from one of its actor methods because the actor cannot be deleted while executing within an actor call context, in which the runtime has obtained a lock around the actor call to enforce single-threaded access.
 
-## Next steps
+For more information on Reliable Actors, read the following:
 * [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
 * [Actor events](service-fabric-reliable-actors-events.md)
 * [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)

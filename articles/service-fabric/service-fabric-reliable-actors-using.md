@@ -1,5 +1,5 @@
 ---
-title: Implementing service-level features in Service Fabric actors | Microsoft Docs
+title: Implementing features in Azure Service Fabric actors | Microsoft Docs
 description: Describes how to write your own actor service that implements service-level features the same way you would when inheriting StatefulService.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 03/19/2018
 ms.author: vturecek
 
 ---
