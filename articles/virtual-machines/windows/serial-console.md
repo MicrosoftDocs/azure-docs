@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machine Serial Console | Microsoft Docs
-description: Bi-Directional Serial console for Azure Virtual Machines.
+title: Azure virtual machine Serial Console | Microsoft Docs
+description: Bi-Directional Serial console for Azure virtual machines.
 services: virtual-machines-windows
 documentationcenter: ''
 author: harijay
@@ -17,28 +17,29 @@ ms.date: 03/05/2017
 ms.author: harijay
 ---
 
-# Azure's Virtual Machine Serial Console -- Preview 
+# Azure's virtual machine Serial Console -- Preview 
 
 
-Azure's Virtual Machine Serial Console provides access to a text-based console for Linux and Windows Virtual Machines on Azure. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine and are not related to virtual machine's network / operating system state. Access to serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
+Azure's virtual machine Serial Console provides access to a text-based console for Linux and Windows virtual machines on Azure. This serial connection is to COM1 serial port of the virtual machine and provides access to the virtual machine and are not related to virtual machine's network / operating system state. Access to serial console for a virtual machine can be done only via Azure portal currently and allowed only for those users who have VM Contributor or above access to the virtual machine. 
 
 > [!Note] 
 > Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)
-> ACCESS VIA SERIAL CONSOLE SHOULD BE LIMITED TO DEV-TEST VIRTUAL MACHINES. PREVIEW FUNCTIONALITY IS SUPPORTED ON A AS IS BASIS. WE STRONGLY RECOMMEND NOT TO USE THIS FOR ANY PRODUCTION VIRTUAL MACHINE.
+> Access via serial console should be limited to dev-test virtual machines. Preview functionality is supported on an as is basis. We strongly recommend not to use this for any production virtual machine.
 
-Currently this service is in **preview** and access to serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
->
+> Currently this service is in **preview** and access to serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
+
+ 
 
 ## Prerequisites 
 
-1. Virtual Machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
+1. Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
 2. The account using serial console must have [Contributor role](../../active-directory/role-based-access-built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 
 ## Open the serial console
-Serial Console for Virtual Machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access Serial Console for Virtual Machines via portal 
+Serial Console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access Serial Console for virtual machines via portal 
 
   1. Open the Azure portal
-  2. In the left menu, select Virtual machines.
+  2. In the left menu, select virtual machines.
   3. Click on the VM in the list. The overview page for the VM will open.
   4. Scroll down to the Support + Troubleshooting section and llick on Serial Console (Preview) option. A new pane with the serial console will open and start the connection.
 
@@ -50,16 +51,16 @@ The serial console functionality can be deactivated for specific VMs by disablin
 ## Serial Console Security 
 
 ### Access Security 
-Access to Serial console is limited to users who have [VM Contributors](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) or above access to the Virtual Machine. If your AAD tenant requires Multi-Factor Authentication then access to serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
+Access to Serial console is limited to users who have [VM Contributors](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) or above access to the virtual machine. If your AAD tenant requires Multi-Factor Authentication then access to serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
 
 ### Channel Security
 All data is sent back and forth is encrypted on the wire.
 
 ### Audit logs
-All access to serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure Virtual Machine administrator.  
+All access to serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.  
 
 >[!CAUTION] 
-While no access passwords for the console are logged, if commands run within the console contain or output passwords, secrets, user names or any other form of Personally Identifiable Information (PII), those will be written to the Virtual Machine boot diagnostics logs, along with all other visible text, as part of the implementation of the serial console's scrollback functionality. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them, however we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII. 
+While no access passwords for the console are logged, if commands run within the console contain or output passwords, secrets, user names or any other form of Personally Identifiable Information (PII), those will be written to the virtual machine boot diagnostics logs, along with all other visible text, as part of the implementation of the serial console's scrollback functionality. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them, however we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII. 
 
 ### Concurrent usage
 If a user is connected to Serial Console and another user successfully requests access to that same virtual machine, the first user will be disconnected and the second user connected in a manner akin to the first user standing up and leaving the physical console and a new user sitting down.
@@ -69,7 +70,8 @@ This means that the user who gets disconnected will not be logged out! The abili
 
 
 ## Accessing Serial Console for Windows 
-Newer Windows Server images on Azure  have [Special Administrative Console](https://technet.microsoft.com/en-us/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. To enable Serial console for Windows Virtual Machines created with using Feb2018 or lower images please the following steps: 
+Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/en-us/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (e.g. Windows 10, Windows 8 or Windows 7). 
+To enable Serial console for Windows virtual machines created with using Feb2018 or lower images please the following steps: 
 
 1. Connect to your Windows virtual machine via Remote Desktop
 2. From an Administrative command prompt run the following commands 
