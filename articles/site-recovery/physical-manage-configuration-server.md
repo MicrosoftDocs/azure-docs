@@ -5,7 +5,7 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
 ---
 
@@ -160,7 +160,7 @@ You can modify proxy settings for the configuration server machine as follows:
   ```
 
   >[!WARNING]
-  If you have additional process servers attached to the configuration server, you need to [fix the proxy settings on all the scale-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) in your deployment.
+  If you have additional process servers attached to the configuration server, you need to [fix the proxy settings on all the scale-out process servers](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) in your deployment.
 
 ## Reregister a configuration server with the same vault
   1. Log in to your Configuration Server.
@@ -180,7 +180,7 @@ You can modify proxy settings for the configuration server machine as follows:
       ```
 
   >[!WARNING]
-  If you have multiple process server, you need to [reregister them](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server).
+  If you have multiple process server, you need to [reregister them](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## Register a configuration server with a different vault
 
@@ -229,8 +229,8 @@ Upgrade the server as follows:
 > [!WARNING]
 > Ensure the following before you start decommissioning your Configuration Server.
 > 1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all virtual machines under this Configuration Server.
-> 2. [Disassociate](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) and [Delete](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) all Replication policies from the Configuration Server.
-> 3. [Delete](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) all vCenters servers/vSphere hosts that are associated to the Configuration Server.
+> 2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) and [Delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all Replication policies from the Configuration Server.
+> 3. [Delete](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) all vCenters servers/vSphere hosts that are associated to the Configuration Server.
 
 
 ### Delete the Configuration Server from Azure portal

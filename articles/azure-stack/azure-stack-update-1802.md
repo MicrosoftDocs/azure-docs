@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/16/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -35,10 +35,6 @@ The Azure Stack 1802 update build number is **20180302.1**.
 ## Before you begin    
 > [!IMPORTANT]    
 > Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](/azure-stack-updates#plan-for-updates).
-
-> [!IMPORTANT]    
-> When you use [SQL](/azure-stack-sql-resource-provider-deploy) or [MySQL](/azure-stack-mysql-resource-provider-deploy) resource providers, they must run version 1712 before you start the install of Azure Stack version 1802. If the providers are version 1711 or earlier and you have installed Azure Stack version 1802, you can no longer update those resource providers to a more recent release.
-
 
 
 ### Prerequisites
@@ -125,6 +121,8 @@ The following are post-installation known issues for build  **20180302.1**
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*
 
     This alert can be safely ignored. 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
 
 #### Health and monitoring
 There are no known issues after updating to 1802.

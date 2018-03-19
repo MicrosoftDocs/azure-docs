@@ -40,7 +40,7 @@ var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS
 ```
 Use the client to search with a query text:
 ```
-var entityData = client.Entities.Search(query: "Tom Cruise");
+var entityData = client.Entities.Search(query: "Satya Nadella");
 
 ```
 Parse the results of previous query:
@@ -52,12 +52,12 @@ if (entityData?.Entities?.Value?.Count > 0)
 
     if (mainEntity != null)
     {
-        Console.WriteLine("Searched for \"Tom Cruise\" and found a dominant entity with this description:");
+        Console.WriteLine("Searched for \"Satya Nadella\" and found a dominant entity with this description:");
         Console.WriteLine(mainEntity.Description);
     }
     else
     {
-        Console.WriteLine("Couldn't find main entity tom cruise!");
+        Console.WriteLine("Couldn't find main entity Satya Nadella!");
     }
 }
 else
@@ -68,7 +68,7 @@ else
 ```
 
 ##Complete console application
-The following console application looks up a single entity on query "Tom Cruise" and prints out a short description.
+The following console application looks up a single entity on query "Satya Nadella" and prints out a short description.
 ```
 using System;
 using System.Linq;
@@ -101,7 +101,7 @@ namespace EntitySrchSDK
         {
             try
             {
-                var entityData = client.Entities.Search(query: "Tom Cruise");
+                var entityData = client.Entities.Search(query: "Satya Nadella");
 
                 if (entityData?.Entities?.Value?.Count > 0)
                 {
@@ -110,12 +110,12 @@ namespace EntitySrchSDK
 
                     if (mainEntity != null)
                     {
-                        Console.WriteLine("Searched for \"Tom Cruise\" and found a dominant entity with this description:");
+                        Console.WriteLine("Searched for \"Satya Nadella\" and found a dominant entity with this description:");
                         Console.WriteLine(mainEntity.Description);
                     }
                     else
                     {
-                        Console.WriteLine("Couldn't find main entity tom cruise!");
+                        Console.WriteLine("Couldn't find main entity Satya Nadella!");
                     }
                 }
                 else
@@ -134,13 +134,13 @@ namespace EntitySrchSDK
 ```
 
 ##Ambiguous results
-The following code handles disambiguation of results for an ambiguous query "Harry Potter".
+The following code handles disambiguation of results for an ambiguous query "William Gates".
 ```
        public static void HandlingDisambiguation(EntitySearchAPI client)
         {
             try
             {
-                var entityData = client.Entities.Search(query: "harry potter");
+                var entityData = client.Entities.Search(query: "william gates");
 
                 if (entityData?.Entities?.Value?.Count > 0)
                 {
@@ -150,12 +150,12 @@ The following code handles disambiguation of results for an ambiguous query "Har
 
                     if (mainEntity != null)
                     {
-                        Console.WriteLine("Searched for \"harry potter\" and found a dominant entity with type hint \"{0}\" with this description:", mainEntity.EntityPresentationInfo.EntityTypeDisplayHint);
+                        Console.WriteLine("Searched for \"William Gates\" and found a dominant entity with type hint \"{0}\" with this description:", mainEntity.EntityPresentationInfo.EntityTypeDisplayHint);
                         Console.WriteLine(mainEntity.Description);
                     }
                     else
                     {
-                        Console.WriteLine("Couldn't find a reliable dominant entity for harry potter!");
+                        Console.WriteLine("Couldn't find a reliable dominant entity for William Gates!");
                     }
 
                     if (disambigEntities?.Count > 0)
@@ -174,7 +174,7 @@ The following code handles disambiguation of results for an ambiguous query "Har
                     }
                     else
                     {
-                        Console.WriteLine("We didn't find any disambiguation items for harry potter, so we must be certain what you're talking about!");
+                        Console.WriteLine("We didn't find any disambiguation items for William Gates, so we must be certain what you're talking about!");
                     }
                 }
                 else
@@ -191,24 +191,24 @@ The following code handles disambiguation of results for an ambiguous query "Har
 ```
 
 ##EntityData places
-The following code looks up a single restaurant "John Howie Bellevue" and prints out its phone number.
+The following code looks up a single store "Microsoft Store" and prints out its phone number.
 ```
-        public static void RestaurantLookup(EntitySearchAPI client)
+        public static void StoreLookup(EntitySearchAPI client)
         {
             try
             {
-                var entityData = client.Entities.Search(query: "john howie bellevue");
+                var entityData = client.Entities.Search(query: "microsoft store");
 
                 if (entityData?.Places?.Value?.Count > 0)
                 {
                     // Some local entities will be places, others won't be. Depending on the data you want, try to cast to the appropriate schema.
-                    // In this case, the item being returned is technically a Restaurant, but the Place schema has the data we want (telephone)
-                    var restaurant = entityData.Places.Value.FirstOrDefault() as Place;
+                    // In this case, the item being returned is technically a store, but the Place schema has the data we want (telephone)
+                    var store = entityData.Places.Value.FirstOrDefault() as Place;
 
-                    if (restaurant != null)
+                    if (store != null)
                     {
-                        Console.WriteLine("Searched for \"John Howie Bellevue\" and found a restaurant with this phone number:");
-                        Console.WriteLine(restaurant.Telephone);
+                        Console.WriteLine("Searched for \"Microsoft Store\" and found a store with this phone number:");
+                        Console.WriteLine(store.Telephone);
                     }
                     else
                     {
@@ -285,7 +285,7 @@ The following code triggers a bad request and shows how to read the error respon
         {
             try
             {
-                var entityData = client.Entities.Search(query: "tom cruise", market: "no-ty");
+                var entityData = client.Entities.Search(query: "satya nadella", market: "no-ty");
             }
             catch (ErrorResponseException ex)
             {

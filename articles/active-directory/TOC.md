@@ -190,11 +190,10 @@
 #### [Report on automatic user provisioning](active-directory-saas-provisioning-reporting.md)
 #### [Troubleshoot user provisioning](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
 #### Get started
 ##### [Enable App Proxy](active-directory-application-proxy-enable.md)
+##### [GDPR support](active-directory-application-proxy-gdpr.md)
 ##### [Publish apps](application-proxy-publish-azure-portal.md)
 ##### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Single sign-on](application-proxy-sso-overview.md)
@@ -221,7 +220,7 @@
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
 
@@ -290,9 +289,10 @@
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin role to a user](active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](users-default-permissions.md)
+### [Securing privileged access](admin-roles-best-practices.md) 
+### [Create emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
-### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ---
@@ -172,14 +172,17 @@ You can specify these parameters in the command line. If you do not, or if any p
 
 
 ## Update the SQL resource provider adapter (multi-node only, builds 1710 and later)
-A new SQL resource provider adapter may be released when Azure Stack builds are updated. While the existing adapter will continue to work, we recommend updating to the latest build as soon as possible. Updates must be installed in order: you cannot skip versions (see the table above).
+A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. Updates must be installed in order: you cannot skip versions (see the table in step 3 of [Deploy the resource provider](#deploy-the-resource-provider)).
 
-The update process is similar to the installation process that's described earlier. You create a new VM with the latest resource provider code. In addition, you migrate settings to this new instance, including database and hosting server information. You also migrate the necessary DNS record.
+To update of the resource provider you use the *UpdateSQLProvider.ps1* script. The process is similar to the process used to install a resource provider, as described in the [Deploy the resource provider](#deploy-the-resource-provider) section of this article. The script is included with the download of the resource provider.
 
-Use the UpdateSQLProvider.ps1 script with the same arguments that we described earlier. You must provide the certificate here as well.
+The *UpdateSQLProvider.ps1* script creates a new VM with the latest resource provider code and migrates the settings from the old VM to the new VM. The settings that migrate include database and hosting server information, and the necessary DNS record.
+
+The script requires use of the same arguments that are described for the DeploySqlProvider.ps1 script. Provide the certificate here as well. 
 
 We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, the script will fail.
 
+Following is an example of the *UpdateSQLProvider.ps1* script that you can run from the PowerShell prompt. Be sure to change the account information and passwords as needed: 
 
 > [!NOTE]
 > The update process only applies to integrated systems.

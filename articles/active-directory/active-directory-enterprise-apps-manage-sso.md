@@ -4,7 +4,7 @@ description: Manage single sign-on settings for enterprise apps within your orga
 
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: MarkusVi
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: curtand
+ms.author: markvi
 ms.reviewer: asmalser
 
 

@@ -1,7 +1,7 @@
 ---
 
 title: Register your Azure subscription with Azure Cost Management | Microsoft Docs
-description: Use your Azure subscription to register with Azure Cost Management by Cloudyn.
+description: Use your Azure subscription to register with Azure Cost Management.
 services: cost-management
 keywords:
 author: bandersmsft
@@ -16,7 +16,7 @@ manager: carmonm
 
 # Register an individual Azure subscription and view cost data
 
-You use your Azure subscription to register with Azure Cost Management by Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
+You use your Azure subscription to register with Azure Cost Management. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
 ## Log in to Azure
 
@@ -38,13 +38,13 @@ You use your Azure subscription to register with Azure Cost Management by Cloudy
 9. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Accounts Management** page, you should see your Azure subscription account information.  
     ![Accounts Management](./media/quick-register-azure-sub/accounts-mgt.png)
 
-To watch a tutorial video about registering your Azure subscription, see [Finding your Directory GUID and Rate ID for use in Azure Cost Management by Cloudyn](https://youtu.be/PaRjnyaNGMI).
+To watch a tutorial video about registering your Azure subscription, see [Finding your Directory GUID and Rate ID for use in Azure Cost Management](https://youtu.be/PaRjnyaNGMI).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## Next steps
 
-In this quickstart, you used your Azure subscription information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management by Cloudyn, continue to the tutorial for Cost Management.
+In this quickstart, you used your Azure subscription information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management, continue to the tutorial for Cost Management.
 
 > [!div class="nextstepaction"]
 > [Review usage and costs](./tutorial-review-usage.md)

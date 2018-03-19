@@ -31,6 +31,18 @@
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
     - name: 4- Monitor and Diagnose
       href: service-fabric-tutorial-monitoring-aspnet.md
+  - name: Deploy a Java app
+    items:
+    - name: 1- Build a Java application
+      href: service-fabric-tutorial-create-java-app.md
+    - name: 2- Debug the application
+      href: service-fabric-tutorial-debug-log-local-cluster.md
+    - name: 3- Deploy the application
+      href: service-fabric-tutorial-java-deploy-azure.md
+    - name: 4- Monitor and diagnose
+      href: service-fabric-tutorial-java-elk.md
+    - name: 5- Configure CI/CD 
+      href: service-fabric-tutorial-java-jenkins.md
   - name: Containerize an existing .NET app
     items:
     - name: 1- Deploy a .NET app using Docker Compose
@@ -129,6 +141,8 @@
         href: service-fabric-reliable-actors-reentrancy.md
       - name: Type serialization
         href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
+    - name: Guest executables
+      href: service-fabric-guest-executables-introduction.md
   - name: Applications and services
     items:
     - name: Application model

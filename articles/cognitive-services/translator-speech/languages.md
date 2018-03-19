@@ -27,7 +27,7 @@ The following languages are supported for speech translation. If both languages 
 | Russian      |
 | Spanish      | 
 
-The Microsoft Translator Speech API supports the following languages as a target langauge for speech to text translation. 
+The Microsoft Translator Speech API supports the following languages as a target language for speech to text translation. 
 
 | Text language    | Language code |
 |:----------- |:-------------:|
