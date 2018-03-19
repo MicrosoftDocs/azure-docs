@@ -86,7 +86,7 @@ The service automatically takes backups of your server. The minimum retention pe
 
 ## Scale resources
 
-After creating your server, you can independently change the vCores, amount of storage, and backup retention period. You cannot change the pricing tier or the backup storage type after a server is created. vCores and the backup retention period can be scaled up or down. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. An eXample for scaling using CLI can be found [here](scripts/sample-scale-server-up-or-down.md).
+After creating your server, you can independently change the vCores, amount of storage, and backup retention period. You cannot change the pricing tier or the backup storage type after a server is created. vCores and the backup retention period can be scaled up or down. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. An example for scaling using CLI can be found [here](scripts/sample-scale-server-up-or-down.md).
 
 When changing the number of vCores, a copy of the original server is created with the new compute allocation. Once the new server is up and running, connections are switched over to the new server. During the brief moment when the system switches over to the new server, no new connections can be established and all uncommitted transactions are rolled back. This window varies, but in most cases is less than a minute.
 
