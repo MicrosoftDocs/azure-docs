@@ -38,7 +38,7 @@ When alerts in an OMS workspace get scheduled for extending into Azure, they wil
  ![During scheduled period, user action on alerts redirected to Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Extending alerts from Operations Management Suite (OMS) to Azure is not charged and usage of Azure alerts for query based Log Analytics alerts will remain free, as specified in pricing policy  
+> Extending alerts from Operations Management Suite (OMS) to Azure is not charged and usage of Azure alerts for query based Log Analytics alerts will be not billed, when used within the specifics and conditions stated in Azure pricing policy  
 
 Users can enjoy the benefits of extending alerts before this date; by voluntarily opting to make their alerts manageable in Azure.
 
