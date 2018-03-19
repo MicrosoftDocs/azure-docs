@@ -75,7 +75,7 @@ Activity Log Alerts are generally available in Azure Government with no differen
 The unified alerts UI experience is not available in Azure Government. 
 
 #### Autoscale
-If you are using PowerShell/ARM/REST calls to specify settings you will need to set the "Location" of the Autoscale to USGov Virginia. The resource targetted by Autoscale can exist in any region. An example of the setting is below:
+If you are using PowerShell/ARM/REST calls to specify settings, set the "Location" of the Autoscale to USGov Virginia. The resource targeted by Autoscale can exist in any region. An example of the setting is below:
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1" 
@@ -86,7 +86,7 @@ $notification1= New-AzureRmAutoscaleNotification -CustomEmails myname@company.co
 Add-AzureRmAutoscaleSetting -Location "USGov Virginia" -Name "MyScaleVMSSSetting" -ResourceGroup sdubeys-usgv -TargetResourceId /subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Web/serverFarms/ServerFarm1 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-If you are interested in implementing autoscale on your resources, please use PowerShell/ARM/Rest calls to specify the settings. 
+If you are interested in implementing autoscale on your resources, use PowerShell/ARM/Rest calls to specify the settings. 
 
 For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
 
@@ -94,7 +94,7 @@ For more information on using PowerShell, please see [public documentation](http
 Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.
 
 #### Metrics
-Metrics are generally available in Azure Government. However, multi-dimensional metric are supported on via the REST API. The Azure Goverment portal is not able show charts which include multi-dimensional metrics. 
+Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported on via the REST API. The Azure Government portal is not able show charts that include multi-dimensional metrics. 
 
 
 #### Metric Alerts
@@ -116,7 +116,7 @@ Log Analytics is generally available in Azure Government.
 ### Variations
 
 * Solutions that are available in Azure Government include:
-  * [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) - NPM is a cloud based network monitoring solution for public and hybrid cloud environments. Organizations use NPM to monitor network availability across on-premises and cloud environments.  Endpoint Monitor - a sub-capability of NPM, monitors network connectivity to applications.
+  * [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) - NPM is a cloud-based network monitoring solution for public and hybrid cloud environments. Organizations use NPM to monitor network availability across on-premises and cloud environments.  Endpoint Monitor - a subcapability of NPM, monitors network connectivity to applications.
   
 The following Log Analytics features and solutions are not currently available in Azure Government.
 
@@ -170,8 +170,8 @@ For more information, see [Log Analytics public documentation](../log-analytics/
 ## Scheduler
 For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.md). 
 
-## Azure Portal
-The Azure Government Portal can be accessed [here](https://portal.azure.us). 
+## Azure portal
+The Azure Government portal can be accessed [here](https://portal.azure.us). 
 
 ## Azure Resource Manager
 For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/resource-group-overview.md). 
@@ -179,4 +179,4 @@ For information on this service and how to use it, see [Azure Resource Manager D
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)
-* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
+* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
