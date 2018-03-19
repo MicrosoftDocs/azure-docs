@@ -3,8 +3,9 @@ title: Using Import/Export Data in Azure Machine Learning web services | Microso
 description: Learn how to use the Import Data and Export Data modules to send and receive data from a web service.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: raymondlaghaeian
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: ''
 
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.author: raymondl
 
 ---
 # Deploying Azure ML web services that use Data Import and Data Export modules
