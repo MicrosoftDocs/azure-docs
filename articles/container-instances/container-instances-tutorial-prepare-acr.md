@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: marsma
 ms.custom: mvc
 ---
@@ -165,7 +165,7 @@ To verify that the image you just pushed is indeed in your Azure container regis
 az acr repository list --name <acrName> --output table
 ```
 
-For example, if your registry is named *mycontainerregistry082*, you'll see output similar to:
+For example:
 
 ```console
 $ az acr repository list --name mycontainerregistry082 --output table
@@ -180,7 +180,7 @@ To see the *tags* for a specific image, use the [az acr repository show-tags][az
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
-Again, if your registry is named *mycontainerregistry082*, you'll see output similar to:
+You should see output similar to the following:
 
 ```console
 $ az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table

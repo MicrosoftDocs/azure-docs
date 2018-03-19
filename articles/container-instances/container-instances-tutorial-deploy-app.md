@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: marsma
 ms.custom: mvc
 ---
