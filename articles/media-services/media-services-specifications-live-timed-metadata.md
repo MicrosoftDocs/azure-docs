@@ -50,14 +50,14 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 -----------------------
 
 ## 2 Timed Metadata Ingest
-### 2.1 RTMP Ingest
+## 2.1 RTMP Ingest
 RTMP supports timed metadata signals sent as AMF cue messages embedded within the RTMP stream. The cue messages may be sent some time before the actual event, or ad splice insertion needs to occur. To support this scenario, the actual time of the splice or segment is sent within the cure message. For more information, see [AMF0].
 
 The following table describes the format of the AMF message payload that Media Services will ingest.
 
 The name of the AMF message can be used to differentiate multiple event streams of the same type.  For [SCTE-35] messages, the name of the AMF message MUST be “onAdCue” as recommended in [SCTE-67].  Any fields not listed below MUST be ignored, so that innovation of this design is not inhibited in the future.
 
-## Signal Syntax
+### Signal Syntax
 For RTMP simple mode, Media Services supports a single AMF cue message called "onAdCue" with the following format:
 
 ### Simple Mode
@@ -85,7 +85,7 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 
 ---------------------------
 
-### 2.1.1 Cancelation and Updates
+#### 2.1.1 Cancelation and Updates
 
 Messages can be canceled or updated by sending multiple messages with the same
 presentation time and ID. The presentation time and ID uniquely identify the
@@ -97,7 +97,7 @@ received at least four seconds prior to the presentation time will be acted upon
 ## 2.2 Fragmented MP4 Ingest (Smooth Streaming)
 Refer to [LIVE-FMP4] for requirements on live stream ingest. The following sections provide details regarding ingest of timed presentation metadata.  Timed presentation metadata is ingested as a sparse track, which is defined in both the Live Server Manifest Box (see MS-SSTR) and the Movie Box (‘moov’).  Each sparse fragment consists of a Movie Fragment Box (‘moof’) and Media Data Box (‘mdat’), where the ‘mdat’ box is the binary message.
 
-### 2.2.1 Live Server Manifest Box
+#### 2.2.1 Live Server Manifest Box
 The sparse track MUST be declared in the Live Server Manifest box with a
 \<textstream\> entry and it MUST have the following attributes set:
 
@@ -188,7 +188,7 @@ with [SCTE-67] and/or the client’s streaming protocol:
 5.  Message – the event data.
 
 
-### 3.1 Smooth Streaming Delivery
+## 3.1 Smooth Streaming Delivery
 
 Refer to sparse track handling details in the specifications [FMP4] and [MS-SSTR].
 
@@ -296,7 +296,7 @@ When a sliding presentation window is enabled, the EXT-X-CUE tags are removed
 from the segment playlist when the media time that they refer to has rolled out
 of the sliding presentation window.
 
-### 3.3	DASH Egress
+## 3.3	DASH Delivery
 [DASH] provides three ways to signal events:
 
 1.  Events signaled in the MPD
@@ -432,40 +432,33 @@ they are sent to HLS, Smooth, and Dash clients in compliance with [SCTE-67].
 
 ## 5 References
 
-[SCTE-35] ANSI/SCTE 35 2013a – Digital Program Insertion Cueing Message for
+**[SCTE-35]** ANSI/SCTE 35 2013a – Digital Program Insertion Cueing Message for
 Cable, 2013a
 
-[SCTE-67] ANSI/SCTE 67 2014 –Recommended Practice for SCTE 35: Digital Program
+**[SCTE-67]** ANSI/SCTE 67 2014 –Recommended Practice for SCTE 35: Digital Program
 Insertion Cueing Message for Cable
 
-[DASH] ISO/IEC 23009-1 2014 – Information technology – Dynamic adaptive
+**[DASH]** ISO/IEC 23009-1 2014 – Information technology – Dynamic adaptive
 streaming over HTTP (DASH) – Part 1: Media Presentation description and segment
 formats, 2nd edition
 
-[HLS] “HTTP Live Streaming”, draft-pantos-http-live-streaming-14, October 14,
-2014,  
-<http://tools.ietf.org/html/draft-pantos-http-live-streaming-14>
+**[HLS]** [“HTTP Live Streaming”, draft-pantos-http-live-streaming-14, October 14,
+2014,](http://tools.ietf.org/html/draft-pantos-http-live-streaming-14)
 
-[MS-SSTR] “Microsoft Smooth Streaming Protocol”, May 15, 2014,
-[http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/[MS-SSTR].pdf](http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+**[MS-SSTR]** [“Microsoft Smooth Streaming Protocol”, May 15, 2014](http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
-[AMF0] "Action Message Format AMF0",
-<http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf>
+**[AMF0]** ["Action Message Format AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-[HDS] “Primetime Digital Program Insertion Signaling Specification 1.1”, 2014,  
-<http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/primetime/pdfs/PrimetimeDigitalProgramInsertionSignalingSpecification1_1.pdf>
-
-[FMP4] [IIS Smooth Streaming File/Wire Format
+**[FMP4]** [IIS Smooth Streaming File/Wire Format
 Specification](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7bAC5A31A4-E455-4000-96E1-AB17BD083144%7d&file=IIS%20Smooth%20Streaming%20File%20Format%20Specification%20-%20v%202%203%2001%20latest%20draft.docx&action=default)
 
-[LIVE-FMP4] [Azure Media Services Fragmented MP4 Live Ingest
+**[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest
 Specification](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7b5CEE1122-AA28-4368-BC8E-9C0048BF1529%7d&file=AMS%20F-MP4%20Live%20Ingest%20Specification.docx&action=default)
 
-[ISO-14496-12] ISO/IEC 14496-12: Part 12 ISO base media file format, Fourth
+**[ISO-14496-12]** ISO/IEC 14496-12: Part 12 ISO base media file format, Fourth
 Edition 2012-07-15.
 
-[RTMP] “Adobe’s Real-Time Messaging Protocol”, December 21, 2012,  
-<http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf>
+**[RTMP]** [“Adobe’s Real-Time Messaging Protocol”, December 21, 2012](http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf) 
 
 ------------------------------------------
 
