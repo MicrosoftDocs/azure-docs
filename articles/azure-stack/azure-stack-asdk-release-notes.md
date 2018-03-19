@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/16/2018
 ms.author: brenduns
 ms.reviewer: chjoy
 
@@ -35,7 +35,7 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 
 
 ### Known issues
- 
+
 #### Portal
 - The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - For Azure Stack Development Kit, use https://aka.ms/azurestackforum.    
@@ -43,7 +43,7 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 - <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.  
 
 - When you view the properties of a resource or resource group, the **Move** button is disabled. This behavior is expected. Moving resources or resource groups between resource groups or subscriptions is not currently supported.
- 
+
 - You see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
@@ -55,15 +55,17 @@ See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fix
 -	In the admin portal, you might see a critical alert for the Microsoft.Update.Admin component. The Alert name, description, and remediation all display as:  
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*
 
-    This alert can be safely ignored. 
+    This alert can be safely ignored.
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
 
 #### Health and monitoring
-In the Azure Stack admin portal, you might see a critical alert with the name **Pending external certificate expiration**.  This alert can be safely ignored and does affect operations of the Azure Stack Development Kit. 
+In the Azure Stack admin portal, you might see a critical alert with the name **Pending external certificate expiration**.  This alert can be safely ignored and does affect operations of the Azure Stack Development Kit.
 
 
 #### Marketplace
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
- 
+
 #### Compute
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
@@ -81,7 +83,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 
 -  If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
-- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
+- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.
 
 
 #### Networking
@@ -100,26 +102,26 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 - Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
 
 - On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
- 
+
 - Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
 
--	<!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+-	<!-- 2096388 --> You cannot use the admin portal to update rules for a network security group.
 
-    Workaround for App Service: If you need to remote desktop to the Controller instances, you modify the security rules within the network security groups with PowerShell.  Following are examples of how to *allow*, and then restore the configuration to *deny*: 
-    
+    Workaround for App Service: If you need to remote desktop to the Controller instances, you modify the security rules within the network security groups with PowerShell.  Following are examples of how to *allow*, and then restore the configuration to *deny*:
+
     - *Allow:*
- 
+
       ```powershell    
       Login-AzureRMAccount -EnvironmentName AzureStackAdmin
-      
+
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
-      
+
       $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
-      
+
       ##This doesn’t work. Need to set properties again even in case of edit
-      
+
       #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
-      
+
       Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
         -Name $RuleConfig_Inbound_Rdp_3389.Name `
         -Description "Inbound_Rdp_3389" `
@@ -131,7 +133,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
         -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
         -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
         -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
-      
+
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
@@ -139,17 +141,17 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
     - *Deny:*
 
         ```powershell
-        
+
         Login-AzureRMAccount -EnvironmentName AzureStackAdmin
-        
+
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
-        
+
         $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
-        
+
         ##This doesn’t work. Need to set properties again even in case of edit
-    
+
         #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
-    
+
         Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
           -Name $RuleConfig_Inbound_Rdp_3389.Name `
           -Description "Inbound_Rdp_3389" `
@@ -161,13 +163,13 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
           -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
           -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
           -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
-          
+
         # Commit the changes back to NSG
-        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg 
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
         ```
 
 
-#### SQL and MySQL 
+#### SQL and MySQL
 - It can take up to one hour before users can create databases in a new SQL or MySQL SKU.
 
 - The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
@@ -177,7 +179,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 - Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
- 
+
 #### Usage and billing
 - Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
@@ -209,7 +211,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
 
 ### Known issues
- 
+
 #### Deployment
 - You must specify a time server by IP address during deployment.
 
@@ -224,7 +226,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 
    - You may see a blank row at the top of the list. You should still be able to select an item as expected.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
-   - If you have multiple user subscriptions, the resource group drop-down list may be empty. 
+   - If you have multiple user subscriptions, the resource group drop-down list may be empty.
 
    To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
 
@@ -232,13 +234,13 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 - If the **Component** link is clicked from any **Infrastructure Role** alert, the resulting **Overview** blade tries to load and fails. Additionally the **Overview **blade does not time out.
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription by using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
- 
+
 #### Marketplace
 - Some marketplace items are being removed in this release due to compatibility concerns. These will be re-enabled after further validation.
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
- 
+
 #### Compute
-- Users are given the option to create a virtual machine with geo-redundant storage. This configuration causes virtual machine creation to fail. 
+- Users are given the option to create a virtual machine with geo-redundant storage. This configuration causes virtual machine creation to fail.
 - You can configure a virtual machine availability set only with a fault domain of one, and an update domain of one.
 - There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
@@ -250,14 +252,14 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
 - Azure Stack operators may be unable to deploy, delete, modify VNETs or Network Security Groups. This issue is primarily seen on subsequent update attempts of the same package. This is caused by a packaging issue with an update which is currently under investigation.
 - Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which breaks Linux instances.
- 
-#### SQL/MySQL 
-- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
+
+#### SQL/MySQL
+- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU.
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
 
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
- 
+
 #### Usage and billing
 - Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
@@ -278,7 +280,7 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
 
 ### Known issues
- 
+
 #### Deployment
 - You must specify a time server by IP address during deployment.
 
@@ -293,7 +295,7 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
    - You may see a blank row at the top of the list. You should still be able to select an item as expected.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
-   - If you have multiple user subscriptions, the resource group drop-down list may be empty. 
+   - If you have multiple user subscriptions, the resource group drop-down list may be empty.
 
    To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
 
@@ -301,13 +303,13 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 - If the **Component** link is clicked from any **Infrastructure Role** alert, the resulting **Overview** blade tries to load and fails. Additionally the **Overview** blade does not time out.
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription by using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
- 
+
 #### Marketplace
 - When you try to add items to the Azure Stack marketplace by using the **Add from Azure** option, not all items may be visible for download.
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
- 
+
 #### Compute
-- Users are given the option to create a virtual machine with geo-redundant storage. This configuration causes virtual machine creation to fail. 
+- Users are given the option to create a virtual machine with geo-redundant storage. This configuration causes virtual machine creation to fail.
 - You can configure a virtual machine availability set only with a fault domain of one, and an update domain of one.
 - There is no marketplace experience to create virtual machine scale sets. You can create a scale set by using a template.
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
@@ -319,9 +321,9 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
 - Azure Stack operators may be unable to deploy, delete, modify VNETs or Network Security Groups. This issue is primarily seen on subsequent update attempts of the same package. This is caused by a packaging issue with an update which is currently under investigation.
 - Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which breaks Linux instances.
- 
-#### SQL/MySQL 
-- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
+
+#### SQL/MySQL
+- It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU.
 - Creation of items directly on SQL and MySQL hosting servers that are not performed by the resource provider is not supported and may result in a mismatched state.
 
 	> [!NOTE]
@@ -329,7 +331,7 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
- 
+
 #### Usage and billing
 - Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
@@ -339,4 +341,3 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
 > [!IMPORTANT]
 > Even the **azurestack\cloudadmin** account is the owner of the Default Provider Subscription in ADFS deployed environments, it does not have permissions to RDP into the host. Continue to use the **azurestack\azurestackadmin** account or the local administrator account to login, access and manage the host as needed.
-

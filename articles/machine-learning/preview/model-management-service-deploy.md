@@ -2,8 +2,8 @@
 title: Azure Machine Learning Model Management Web Service Deployment | Microsoft Docs
 description: This document describes the steps involved in deploying a machine learning model using Azure Machine Learning model Management.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
