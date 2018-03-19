@@ -75,7 +75,7 @@ Activity Log Alerts are generally available in Azure Government with no differen
 The unified alerts UI experience is not available in Azure Government. 
 
 #### Autoscale
-Autoscale generally available in Azure Government.
+Autoscale is generally available in Azure Government.
 
 If you are using PowerShell/ARM/REST calls to specify settings, set the "Location" of the Autoscale to USGov Virginia. The resource targeted by Autoscale can exist in any region. An example of the setting is below:
 
