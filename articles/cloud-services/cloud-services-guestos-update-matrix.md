@@ -72,12 +72,6 @@ July Guest OS has released.
 ###### **July 19, 2017**
 July Guest OS rollout is starting July 19 and has a projected release of August 8.
 
-###### **July 7, 2017**
-June Guest OS has released.
-
-###### **June 16, 2017**
-June Guest OS rollout is starting June 16 and has a projected release of July 11.
-
 
 ## Releases
 ## Family 5 releases
@@ -119,7 +113,7 @@ June Guest OS rollout is starting June 16 and has a projected release of July 11
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.51_201802-01 |January 4, 2018 |Post 4.53 |TBD |
+| WA-GUEST-OS-4.51_201802-01 |March 12, 2018 |Post 4.53 |TBD |
 | WA-GUEST-OS-4.50_201801-01 |January 4, 2018 |Post 4.52 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |TBD |
