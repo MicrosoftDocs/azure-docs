@@ -210,7 +210,7 @@ To determine why the `None` utterances are failing, review the utterances curren
 "turn on the internet in my bedroom please"
 ```
 
-These utterances are supposed to be outside the app domain but are not. To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the `None` intent needs new, appropriate intents. 
+These utterances are supposed to be outside the app domain. To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the `None` intent needs new, appropriate intents. 
 
 Three of the utterances in the `None` intent are meant to lower the automation device settings. They use words such as `dim`, `lower`, or `decrease`. The fourth utterance asks to turn on the internet. Since all four utterances are about turning on or changing the degree of power to a device, they should be moved to the `HomeAutomation.TurnOn` intent. 
 
