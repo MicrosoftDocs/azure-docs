@@ -11,8 +11,10 @@
     href: quickstart-create-databricks-workspace-portal.md
 - name: Tutorials
   items:
-  - name: Stream events using Event Hubs
+  - name: Stream data using Event Hubs
     href: databricks-stream-from-eventhubs.md
+  - name: Sentiment analysis using Cognitive Services
+    href: databricks-sentiment-analysis-cognitive-services.md
 - name: How-to guides
   items:
   - name: Connect with Excel, R, and Python 
