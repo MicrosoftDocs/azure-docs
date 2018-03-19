@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2018
+ms.date: 03/18/2018
 ms.author: kumud
 ---
 
@@ -136,7 +136,8 @@ No, you only need to enable it once per subscription and all the latency informa
 
 ### How do I turn off Real User Measurements for my subscription?
 You can stop accruing charges related to Real User Measurements when you stop collecting and sending back latency measurements from your client application. For example, when measurement JavaScript embedded in web pages, you can stop using this feature by removing the JavaScript or by turning off its invocation when the page is rendered.
-Another way to turn off Real User Measurements is to delete your key. Once you do that, any measurements sent to Traffic Manager with that key are discarded.
+
+You can also turn off Real User Measurements by deleting your key. Once you delete the key, any measurements sent to Traffic Manager with that key are discarded.
 
 ### Can I use Real User Measurements with client applications other than web pages?
 Yes, Real User Measurements is designed to ingest data collected through different type of end user clients. This FAQ will be updated as new types of client applications get supported.
