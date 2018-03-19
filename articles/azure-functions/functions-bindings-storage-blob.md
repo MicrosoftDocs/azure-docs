@@ -235,7 +235,7 @@ In C# and C# script, you can use the following parameter types for the triggerin
 * `CloudPageBlob`<sup>1</sup>
 * `CloudAppendBlob`<sup>1</sup>
 
-<sup>1</sup> Requires "inout" binding direction in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+<sup>1</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
 
 Binding to `string`, `Byte[]`, or POCO is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) later in this article.
 
@@ -540,7 +540,7 @@ In C# and C# script, you can use the following parameter types for the blob inpu
 * `CloudPageBlob`<sup>1</sup>
 * `CloudAppendBlob`<sup>1</sup>
 
-<sup>1</sup> Requires "inout" binding direction in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+<sup>1</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
 
 Binding to `string` or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) earlier in this article.
 
@@ -752,9 +752,9 @@ In C# and C# script, you can bind to the following types to write blobs:
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> Requires "in" binding direction in *function.json* or `FileAccess.Read` in a C# class library.
+<sup>1</sup> Requires "in" binding `direction` in *function.json* or `FileAccess.Read` in a C# class library.
 
-<sup>2</sup> Requires "inout" binding direction in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+<sup>2</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
 
 In async functions, use the return value or `IAsyncCollector` instead of an `out` parameter.
 
