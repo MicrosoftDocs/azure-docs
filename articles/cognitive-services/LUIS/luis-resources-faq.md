@@ -151,6 +151,9 @@ Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the [
 ## What LUIS regions support Bot Framework speech priming?
 [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) is only supported for LUIS apps in the central (US) instance. 
 
+## Why does LUIS add spaces to the query around or in the middle of words?
+LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).  
+
 ## Next steps
 
 To learn more about LUIS, see the following resources:
