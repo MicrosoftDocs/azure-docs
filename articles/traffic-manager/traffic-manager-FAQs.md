@@ -212,15 +212,11 @@ Traffic View creates its output by processing the data from the seven days prece
 When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If it has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
 
 ### Do I need to enable Traffic View for each profile in my subscription?
-During the preview period, Traffic View is enabled at a subscription level and is available for all Traffic Manager profiles under that subscription.
 
-### How can I turn off Traffic View?
-During the preview period, we request that you create a support ticket to disable Traffic View for your subscription.
+During the preview period, Traffic View was enabled at a subscription level. As part of the improvements we made before the general availability, you can now enable Traffic View at a profile level, allowing you to have more granular enabling of this feature. By default, Traffic View will be disabled for a profile.
 
-### Do I need to enable Traffic View for each profile in my subscription?
-
-During the preview period, Traffic View was enabled at a subscription level. As part of the improvements we made before the general availability, you can now enable Traffic View at a profile level, allowing you to have more granular enabling of this feature. By default, Traffic View will be disabled for a profile. 
-Note: if you had enabled Traffic View at a subscription level during the preview time, you will now need to re-enable it for each of the profile under that subscription 
+>[!NOTE]
+>If you enabled Traffic View at a subscription level during the preview time, you now need to re-enable it for each of the profile under that subscription.
  
 ### How can I turn off Traffic View? 
 You can turn off Traffic View for any profile using the Portal or REST API. 
