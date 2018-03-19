@@ -72,6 +72,7 @@ Network bandwidth limitations can impact replication. Troubleshoot issues as fol
 1. To check replication health, connect to the on-premises Hyper-V Manager console, select the VM, and verify health.
 
     ![Replication health](media/hyper-v-azure-troubleshoot/replication-health1.png)
+    
 
 2. Click **View Replication Health** to see the details:
 
