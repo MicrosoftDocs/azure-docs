@@ -279,9 +279,8 @@ In order to verify that the utterances in the batch test are correctly predicted
 
     ![Run dataset](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
 
-<!-- WAITING ON FIX
 
-The Entities section of the legend may have errors. That is the next thing to fix.
+    The Entities section of the legend may have errors. That is the next thing to fix.
 
 ## Create a batch testing with entities
 1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). The [file]() is also available in the LUIS-Samples repository. 
@@ -361,7 +360,7 @@ The Entities section of the legend may have errors. That is the next thing to fi
   }
 ]
 ```
--->
+
 ## Next steps
 
 > [!div class="nextstepaction"]
