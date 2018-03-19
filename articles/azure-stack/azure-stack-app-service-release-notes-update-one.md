@@ -1,5 +1,5 @@
 ---
-title: App Service on Azure Stack Update One Release Notes | Microsoft Docs
+title: App Service on Azure Stack update 1 release notes | Microsoft Docs
 description: Learn about what's in update one for App Service on Azure Stack, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/019/2018
 ms.author: anwestg
 ms.reviewer: brenduns
 
@@ -100,7 +100,13 @@ Azure App Service on Azure Stack Update 1 includes the following improvements an
 
 ### Known issues with the deployment process
 
-- There are no known issues for the deployment of Azure App Service on Azure Stack Update 1.
+- Certificate validation errors
+
+Some customers have experienced issues when providing certificates to the App Service installer when deploying on an integrated system.  This was due to overly restrictive validation in the installer.  We have since re-release the App Service installer and request customers [download the updated installer](https://aka.ms/appsvconmasinstaller), file date stamp 3/16/2018 7:12 PM.  If you continue to experience issues validating certificates with the updated installer, please contact support.
+
+- Problem retrieving Azure Stack root certificate from integrated system.
+
+An error in the Get-AzureStackRootCert.ps1 caused customers to fail to retrieve the Azure Stack root certificate when executing the script on a machine which does not have the root certificate installed.  The script has also now been re-released, resolving this issue, and request customers [download the updated helper scripts](https://aka.ms/appsvconmashelpers), file date stamp 03/16/2018 06:58:20 PM.  If you continue to experience issues retrieving the root certificate with the updated script, please contact support.
 
 ### Known issues with the update process
 
@@ -156,13 +162,13 @@ Site slot swap is broken in this release.  To restore functionality complete the
         
         # Commit Changes
         $sm.CommitChanges()
+
+        Get-AppServiceServer -ServerType ManagementServer | ForEach-Object Repair-AppServiceServer
         
     ```
 
-4. Open the **Web Cloud Management Console** using the shortcut on the desktop
-5. Under Managed Servers, click **Repair all servers in role...** in the Actions pane on the right, select **Management** and click **OK**
-6. Monitor the status of the Management Servers and once all are marked as **Ready** close the remote desktop session.
-7. Revert the ControllersNSG Network Security Group to **Deny** remote desktop connections to the App Service controller instances.  Replace AppService.local with the name of the resource group you deployed App Service in.
+4. Close the remote desktop session.
+5. Revert the ControllersNSG Network Security Group to **Deny** remote desktop connections to the App Service controller instances.  Replace AppService.local with the name of the resource group you deployed App Service in.
 
     ```powershell
 
@@ -192,7 +198,7 @@ Site slot swap is broken in this release.  To restore functionality complete the
 
 Refer to the documentation in the [Azure Stack 1802 Release Notes](azure-stack-update-1802.md)
 
-## Next Steps
+## Next steps
 
 - For an overview of Azure App Service, see [Azure App Service on Azure Stack overview](azure-stack-app-service-overview.md).
 - For more information about how to prepare to deploy App Service on Azure Stack, see [Before you get started with App Service on Azure Stack](azure-stack-app-service-before-you-get-started.md).
