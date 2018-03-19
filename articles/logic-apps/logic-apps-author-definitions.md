@@ -1,50 +1,107 @@
 ---
-title: Build on logic app definitions with JSON - Azure Logic Apps | Microsoft Docs
-description: Add parameters, process strings, create parameter maps, and get data with Date functions
+title: Create, edit, or extend JSON for logic app definitions - Azure Logic Apps | Microsoft Docs
+description: Author and customize logic app definitions in JSON
 author: ecfan
-manager: anneta
+manager: SyntaxC4
 editor: ''
 services: logic-apps
 documentationcenter: ''
 
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 01/31/2018
-ms.author: LADocs; estfan
+ms.date: 01/01/2018
+ms.author: estfan; LADocs
 ---
 
-# Build on your logic app definition with JSON
+# Create, edit, or customize JSON for logic app definitions
 
-To perform more advanced tasks with [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
-you can use code view to edit your logic app definition, 
-which uses simple, declarative JSON language. If you haven't already, first review 
-[how to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-Also, see the [full reference for the Workflow Definition Language](http://aka.ms/logicappsdocs).
+When you create enterprise integration 
+solutions with automated workflows in 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
+the underlying logic app definitions use simple 
+and declarative JavaScript Object Notation (JSON) 
+along with the [Workflow Definition Language (WDL) schema](../logic-apps/logic-apps-workflow-definition-language.md) 
+for their description and validation. These formats 
+make logic app definitions easier to read and 
+understand without knowing much about code. 
+When you want to automate creating and deploying logic apps, 
+you can include logic app definitions as 
+[Azure resources](../azure-resource-manager/resource-group-overview.md) 
+inside [Azure Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment). 
+To create, manage, and deploy logic apps, you can then use 
+[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), 
+[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), 
+or the [Azure Logic Apps REST APIs](https://docs.microsoft.com/rest/api/logic/).
+
+To work with logic app definitions in JSON, 
+open the Code View editor when working 
+in the Azure portal or in Visual Studio, 
+or copy the definition into any editor that you want. 
+If you're new to logic apps, review 
+[how to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Some Azure Logic Apps capabilities, like parameters, 
-> are available only when you work in code view for your logic app's definition. 
-> Parameters let you reuse values throughout your logic app. 
-> For example, if you want to use the same email address across several actions, 
-> define that email address as a parameter.
+> Some Azure Logic Apps capabilities, such as defining 
+> parameters and multiple triggers in logic app definitions, 
+> are available only in JSON, not the Logic Apps Designer. 
+> So for these tasks, you must work in Code View or another editor.
 
-## View and edit your logic app definition's in JSON
+## Edit JSON - Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal").
+1. Sign in to the 
+<a href="https://portal.azure.com" target="_blank">Azure portal</a>.
 
-2. From the left menu, choose **More services**. 
-Under **Enterprise Integration**, choose **Logic Apps**. 
-Select your logic app.
+2. From the left menu, choose **All services**. 
+In the search box, find "logic apps", 
+and then from the results, select your logic app.
 
-3. From your logic app menu, under **Development Tools**, 
-choose **Logic App Code View**.
+3. On your logic app's menu, under **Development Tools**, 
+select **Logic App Code View**.
 
-   The code view window opens and shows your logic app definition.
+   The Code View editor opens and shows 
+   your logic app definition in JSON format.
+
+## Edit JSON - Visual Studio
+
+Before you can work on your logic app definition 
+in Visual Studio, make sure that you've 
+[installed the required tools](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). 
+To create a logic app with Visual Studio, review 
+[Quickstart: Automate tasks and processes with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+In Visual Studio, you can open logic apps that were 
+created and deployed either directly from the Azure portal 
+or as Azure Resource Manager projects from Visual Studio.
+
+1. Open the Visual Studio solution, 
+or [Azure Resource Group](../azure-resource-manager/resource-group-overview.md) 
+project, that contains your logic app.
+
+2. Find and open your logic app's definition, 
+which by default, appears in an 
+[Resource Manager template](../azure-resource-manager/resource-group-overview.md#template-deployment), 
+named **LogicApp.json**. 
+You can use and customize this template for 
+deployment to different environments.
+
+3. Open the shortcut menu for your 
+logic app definition and template. 
+Select **Open With Logic App Designer**.
+
+   ![Open logic app in a Visual Studio solution](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+4. At the bottom of the designer, choose **Code View**. 
+
+   The Code View editor opens and shows 
+   your logic app definition in JSON format.
+
+5. To return to designer view, 
+at the bottom of the Code View editor, 
+choose **Design**.
 
 ## Parameters
 
