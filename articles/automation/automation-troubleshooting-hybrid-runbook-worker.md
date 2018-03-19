@@ -21,7 +21,7 @@ Your runbook is suspended shortly after attempting to execute it three times. Th
 If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
 
 ### Symptom
-Runbook execution fails and the error returned is, "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted 3 times."
+Runbook execution fails and the error returned is, "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 
 There are several possible causes for the error: 
 
@@ -30,7 +30,7 @@ There are several possible causes for the error:
 3. The runbooks cannot authenticate with local resources
 
 #### Cause 1: Hybrid Runbook Worker is behind proxy or firewall
-The computer the Hybrid Runbook Worker is running on is behind a firewall or proxy server and outbound network access may not be permitted or configured correctly.
+The computer the Hybrid Runbook Worker is running on is behind a firewall or proxy server and outbound network access may not be allowed or configured correctly.
 
 #### Solution
 Verify the computer has outbound access to *.azure-automation.net on port 443. 
