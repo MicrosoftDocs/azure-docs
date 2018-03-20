@@ -28,6 +28,8 @@ Typically, you deploy all the resources in your template to a single [resource g
 
 To target a different resource, use a nested or linked template. The `Microsoft.Resources/deployments` resource type provides parameters for `subscriptionId` and `resourceGroup`. These properties enable you to specify a different subscription and resource group for the nested deployment. All the resource groups must exist before running the deployment. If you do not specify either the subscription ID or resource group, the subscription and resource group from the parent template is used.
 
+The account you use to deploy the template must have permissions to deploy to the specified subscription ID. If the specified subscription exists in a different Azure Active Directory tenant, you must [add guest users from another directory](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+
 To specify a different resource group and subscription, use:
 
 ```json
