@@ -157,10 +157,13 @@ You can create an image with the option of having created its manifest before.
 az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
-Or you can create the manifest and image with a single command. 
+>[!NOTE] 
+>You can also use a single command to perform the model registration, manifest and model creation. Use -h with the service create command for more details.
+
+As an alternative, there is a single command to register a model, create a manifest and create an image (but not create and deploy the web service, yet) as one step as follows.
 
 ```
-az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime e.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
@@ -175,9 +178,9 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->You can also use a single command to perform the previous 4 steps. Use -h with the service create command for more details.
+>You can also use a single command to perform all previous 4 steps. Use -h with the service create command for more details.
 
-The single command to perform the previous 4 steps as one step is as follows.  This is an alternative for a quicker approach.
+As an alternative, there is a single command to register a model, create a manifest, create an image, as well as, create and deploy the webservice, as one step as follows.
 
 ```azurecli
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
