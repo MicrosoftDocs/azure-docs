@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
 ---
 # Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI
@@ -53,11 +53,11 @@ The return JSON should include the following:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
 ```
 
-If version 0.0.3 is not returned, run the following to update the extension: 
+If version 0.0.4 is not returned, run the following to update the extension: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
