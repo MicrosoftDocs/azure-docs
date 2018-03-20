@@ -1,26 +1,20 @@
 ---
-title: Soft delete for Azure Storage blobs (public preview) | Microsoft Docs
-description: Azure Storage now offers soft delete (public preview) for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
+title: Soft delete for Azure Storage blobs (Preview) | Microsoft Docs
+description: Azure Storage now offers soft delete (Preview) for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
 services: storage
-documentationcenter: ''
 author: MichaelHauss
 manager: vamshik
-editor: tysonn
 
-ms.assetid:
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/19/2018
 ms.author: mihauss
 ---
-# Soft delete for Azure Storage blobs (public preview)
+# Soft delete for Azure Storage blobs (Preview)
 
 ## Overview
 
-Azure Storage now offers soft delete (public preview) for blob objects so that you can more
+Azure Storage now offers soft delete (Preview) for blob objects so that you can more
 easily recover your data when it is erroneously modified or deleted by an
 application or other storage account user.
 
@@ -38,7 +32,7 @@ is permanently expired.
 
 Soft delete is backwards compatible; you don’t have to make any changes to your
 applications to take advantage of the protections this feature affords. However,
-[data recovery](#recovery) introduces a new "Undelete Blob" API.
+[data recovery](#recovery) introduces a new **Undelete Blob** API.
 
 > [!NOTE]
 > During Public Preview, calling Set Blob Tier on a blob with snapshots is disallowed.
@@ -239,19 +233,19 @@ period to better understand how the feature will affect your bill.
 ## Quick Start
 
 ### Portal
-To enable soft delete, navigate to the "Soft delete" option under "Blob Service". Then click "Enabled" and enter the number of days you want to retain soft deleted data.
+To enable soft delete, navigate to the **Soft delete** option under **Blob Service**. Then click **Enabled** and enter the number of days you want to retain soft deleted data.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
-To view soft deleted blobs, select the "Show deleted blobs" checkbox.
+To view soft deleted blobs, select the **Show deleted blobs** checkbox.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
-To view soft deleted snapshots for a given blob, select the blob then click "View snapshots".
+To view soft deleted snapshots for a given blob, select the blob then click **View snapshots**.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
-Make sure the "Show deleted snapshots" checkbox is selected.
+Make sure the **Show deleted snapshots** checkbox is selected.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
@@ -259,25 +253,25 @@ When you click on a soft deleted blob or snapshot, notice the new blob propertie
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-properties.png)
 
-Remember that undeleting a blob will also undelete all associated snapshots. To undelete soft deleted snapshots for an active blob, click on the blob and select "Undelete all snapshots".
+Remember that undeleting a blob will also undelete all associated snapshots. To undelete soft deleted snapshots for an active blob, click on the blob and select **Undelete all snapshots**.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
-Once you undelete a blob's snapshots, you can click "Promote" to copy a snapshot over the root blob, thereby restoring the blob to the snapshot.
+Once you undelete a blob's snapshots, you can click **Promote** to copy a snapshot over the root blob, thereby restoring the blob to the snapshot.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 ### PowerShell
 To enable soft delete, update a blob client’s service properties. The following example enables soft delete for a subset of accounts in a subscription:
 
-```bash
+```powershell
 Set-AzureRmContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
 ```
 
 To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling Undelete Blob, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:
-```bash
+```powershell
 # Create a context by specifying storage account name and key
 $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
