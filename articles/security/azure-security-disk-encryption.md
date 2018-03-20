@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
 
 ---
@@ -225,25 +225,25 @@ Use the following PowerShell cmdlet to create an Azure AD application:
 ##### Setting up the Azure AD client ID and secret from the Azure portal
 You can also set up your Azure AD client ID and secret by using the Azure Portal. To perform this task, do the following:
 
-1. Click the **Active Directory** tab.
+1. Select **All Services > Azure Active Directory**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-service.png)
 
-2. Click **Add Application**, and then type the application name.
+2. Select **App registrations > New application registration**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-app-registration.png)
 
-3. Click the arrow button, and then configure the application properties.
+3. Provide the requested information, and create the application:
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-app.png)
 
-4. Click the check mark in the lower left corner to finish. The application configuration page appears, and the Azure AD client ID is displayed at the bottom of the page.
+4. Select the newly created application to view its properties, including Application ID.  To create a key for the application, select **Settings > Keys**, add a description and expiration for the key, and click **Save**
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-create-pw.png)
 
-5. Save the Azure AD client secret by clicking the **Save** button. Note the Azure AD client secret in the keys text box. Safeguard it appropriately.
+5. Copy the generated secret value and safeguard it appropriately.
 
- ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/aad-save-pw.png)
 
 
 ##### Use an existing application
