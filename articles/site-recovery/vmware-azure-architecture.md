@@ -52,10 +52,10 @@ The broad steps for setting up VMware to Azure disaster recovery or migration ar
 3. An initial copy of the VM data is replicated to Azure storage.
 4. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in a .hrl file.
 5. Communication happens as follows:
-    a. VMs communicate with the on-premises configuration server on port HTTPS 443 inbound, for replication management.
-    b. The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
-    c. VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
-    d. The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
+    a) VMs communicate with the on-premises configuration server on port HTTPS 443 inbound, for replication management.
+    b) The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
+    c) VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
+    d) The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
 
 
 **VMware to Azure replication process**
@@ -77,9 +77,10 @@ After replication is set up and you run a disaster recovery drill (test failover
     * **Separate master target server**: By default, the master target server that was installed with the configuration server on the on-premises VMware VM handles failback. If you need to fail back large volumes of traffic, set up a separate on-premises master target server for this purpose.
     * **Failback policy**: To replicate back to your on-premises site, you need a failback policy. This policy was automatically created when you created your replication policy from on-premises to Azure.
 4. After the components are in place, failback occurs in three actions:
-    a. Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
-    b. Stage 2: Run a failover to the on-premises site.
-    c. Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
+    a) Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
+    b) Stage 2: Run a failover to the on-premises site.
+    c) Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
+    
  
 **VMware failback from Azure**
 
