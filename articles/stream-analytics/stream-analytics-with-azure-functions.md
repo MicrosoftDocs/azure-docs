@@ -13,18 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: sngun
 
 ---
 
-# Tutorial: Run Azure Functions with Azure Stream Analytics jobs 
+# Tutorial: Run Azure Functions with Stream Analytics jobs 
 
 You can run Azure Functions with Azure Stream Analytics by configuring Functions as one of the output sinks to the Stream Analytics job. Functions is an event-driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Functions to respond to triggers makes it a natural output to Stream Analytics jobs.
 
 Stream Analytics invokes Functions through HTTP triggers. The Functions output adapter allows users to connect Functions to Stream Analytics, such that the events can be triggered based on Stream Analytics queries. 
 
-This tutorial demonstrates how to connect Stream Analytics to [Azure Redis Cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md), by using [Azure Functions](../azure-functions/functions-overview.md). 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a Stream Analytics job
+> * Create an Azure function
+> * Configure Azure function as output to your job
 
 ## Configure a Stream Analytics job to run a function 
 
