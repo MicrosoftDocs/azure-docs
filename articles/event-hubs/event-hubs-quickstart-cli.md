@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 03/20/2018
 ms.author: sethm
 
 ---
@@ -73,41 +73,62 @@ Copy and paste the connection string to a temporary location, such as Notepad, t
 
 ## Stream into Event Hubs
 
-The next step is to download the sample code that streams events to an event hub, and receives those events using the Event Processor Host. 
+The next step is to download the sample code that streams events to an event hub, and receives those events using the Event Processor Host. First, send the messages:
 
 1. Clone the [Event Hubs GitHub repo](https://github.com/Azure/azure-event-hubs).
-2. Navigate to the [Send sample folder](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/Send).
+2. Navigate to the **Send** folder: `\azure-event-hubs\samples\Java\Basic\Send\src\main\java\com\microsoft\azure\eventhubs\samples\send`.
 2. In the Send.java file, replace the `----EventHubsNamespaceName-----` value with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article.
 2. Replace `----EventHubName-----` with the name of the event hub you created within that namespace.
-3. Replace `-----SharedAccessSignatureKeyName-----` with the name of the Primary Key value you obtained previously. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
-4. Replace `---SharedAccessSignatureKey----` with the value of the SAS key in the previous step.
-5. Issue the following command to build the application:
+3. Replace `-----SharedAccessSignatureKeyName-----` with the name of the Shared access policy for the namespace. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
+4. Replace `---SharedAccessSignatureKey----` with the value of the SAS key for the policy in the previous step.
+5. To build the application, navigate to the `\azure-event-hubs\samples\Java\Basic\Send` folder, and issue the following command:
 
    ```shell
    mvn clean package -DskipTests
    ```
-6. To run the program, issue the following command:
-   
-   ```shell
-   java -jar ./target/send-1.0.0-jar-with-dependencies.jar
-   ```   
 
 ### Receive
 
-1. In the ReceiveByDateTime.java file, replace the `----EventHubsNamespaceName-----` value with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article. 
-2. Replace `----EventHubName-----` with the name of the event hub you created within that namespace.
-3. Replace `-----SharedAccessSignatureKeyName-----` with the name of the Primary Key value you obtained previously. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
-4. Replace `---SharedAccessSignatureKey----` with the value of the SAS key in the previous step.
+Now download the Event Processor Host sample, which receives the messages you just sent:
+
+1. Navigate to the **EventProcessorSample** folder: `\azure-event-hubs\samples\Java\Basic\EventProcessorSample\src\main\java\com\microsoft\azure\eventhubs\samples\eventprocessorsample`.
+2. In the EventProcessorSample.java file, replace the `----EventHubsNamespaceName-----` value with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article. 
+3. Replace `----EventHubName-----` with the name of the event hub you created within that namespace.
+4. Replace `-----SharedAccessSignatureKeyName-----` with the name of the Shared access policy for the namespace. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
+5. Replace `---SharedAccessSignatureKey----` with the value of the SAS key for the policy in the previous step.
+6. Replace `----AzureStorageConnectionString----` with the connection string for the storage account you created.
+7. Replace `----StorageContainerName----` with the name of the container under the storage account you created.
+8. Replace `----HostNamePrefix----` with the name of the storage account.
+9. To build the application, navigate to the `\azure-event-hubs\samples\Java\Basic\EventProcessorSample` folder, and issue the following command:
+
+   ```shell
+   mvn clean package -DskipTests
+   ```
 
 ### Run the apps
 
-First, run the **Send** application and observe an event being sent. Then, run the **ReceiveByDateTime** app, and observe the event being received.
+If the builds completed successfully, you are ready to send and receive events. 
+
+1. Run the **Send** application and observe events being sent. To run the program, navigate to the `\azure-event-hubs\samples\Java\Basic\Send` folder, and issue the following command:
+
+   ```shell
+   java -jar ./target/send-1.0.0-jar-with-dependencies.jar
+   ```
+2. Run the **EventProcessorSample** app, and observe the events being received. To run the program, navigate to the `\azure-event-hubs\samples\Java\Basic\EventProcessorSample` folder, and issue the following command:
+   
+   ```shell
+   java -jar ./target/eventprocessorsample-1.0.0-jar-with-dependencies.jar
+   ```
+
+After running both programs, you can check the Azure portal overview page for the event hub to see the incoming and outgoing message count:
+
+![send and receive](./media/event-hubs-quickstart-cli/ephjava.png)
 
 ## Clean up deployment
 
 Run the following command to remove the resource group, namespace, storage account, and all related resources:
 
-```azurecli-interactive
+```azurecli
 az group delete --name <my_resourceGroup>
 ```
 
@@ -117,9 +138,6 @@ In this article, you created the Event Hubs namespace and other resources requir
 
 * [Send events to your event hub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
 * [Receive events from your event hub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
-
-[1]: ./media/event-hubs-quickstart-namespace-cli/cli1.png
-[2]: ./media/event-hubs-quickstart-namespace-cli/cli2.png
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
