@@ -25,8 +25,6 @@ ms.author: sedusch
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[sap-nw-ha]:high-availability-multi-sid-suse.md
-[sap-nfs-ha]:high-availability-guide-suse-nfs.md
 
 
 There are two options to set up a Pacemaker cluster in Azure. You can either use a fencing agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device.
@@ -448,5 +446,3 @@ sudo crm configure property stonith-enabled=true
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
-* To learn how to establish high availability and plan for disaster recovery of SAP NetWeaver on Azure VMs, see [Azure Virtual Machines high availability for SAP NetWeaver on SUSE Linux Enterprise Server for SAP applications][sap-nw-ha]
-* To learn how to use this cluster to create a high available NFS server, see [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][sap-nfs-ha]
