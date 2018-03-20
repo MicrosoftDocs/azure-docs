@@ -29,9 +29,12 @@ In part two of the series, you learn how to:
 > * Security Groups?
 > * Login to one of the instances
 
-Azure blob storage provides a scalable service for storing your data. To ensure your application is as performant as possible, an understanding of how blob storage works is recommended. Knowledge of the limits for Azure blobs is important, to learn more about these limits visit: [blob storage scalability targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+To create the cluster, use the Service Fabric for Windows Server package (Windows Server 2012 R2 and newer) found here: 
+Download Link - Service Fabric Standalone Package - Windows Server http://go.microsoft.com/fwlink/?LinkId=730690
+Copy it over
 
-[Partition naming](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) is another important factor when designing a highly performing application using blobs. Azure storage uses a range-based partitioning scheme to scale and load balance. This configuration means that files with similar naming conventions or prefixes go to the same partition. This logic includes the name of the container that the files are being uploaded to. In this tutorial, you use files that have GUIDs for names as well as randomly generated content. They are then uploaded to five different containers with random names.
+The Service Fabric runtime package is automatically downloaded at time of cluster creation. If deploying from a machine not connected to the internet, please download the runtime package out of band from here: 
+Download Link - Service Fabric Runtime - Windows Server
 
 ## Prerequisites
 

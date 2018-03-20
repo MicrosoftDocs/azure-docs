@@ -81,20 +81,28 @@ Since a number of management ports are required to run a service fabric cluster 
 
 ![Edit security group][aws-ec2securityedit]
 
-You will need to add two rules: the first is to allow ICMP traffic, for basic connectivity checks; the 2nd will be for all of the ports for SMB and Remote Registry. For the first rule select **Add Rule**, then from the drop-down menu select **All ICMP - IPv4**. Select the entry box next to custom and enter your security group id from above. For the second rule you will need to do the same thing.  Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range box enter `135, 137-139, 445`, and then in the source box enter your security group id.  Now click **Save**
+### FIX ME
+
+You will need to add a number of rules to the security group: the first is to allow ICMP traffic, for basic connectivity checks; the 2nd will be for all of the ports for SMB and Remote Registry. For the first rule select **Add Rule**, then from the drop-down menu select **All ICMP - IPv4**. Select the entry box next to custom and enter your security group id from above. For the second rule you will need to do the same thing.  Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range box enter `135, 137-139, 445`, and then in the source box enter your security group id.  Now click **Save**
 
 ![Security group ports][aws-ec2securityports]
 
 ## Connect to an instance and validate inter-connectivity
 
-click in one of the checkboxes next to the instance list
+From the security group tab, select **Instances** from the left-hand menu.  Click through each of the instances that you have created and note their IP addresses.
+
+### INSERT IP Address Image here
+
+Once you have all of the IP addresses select one of the nodes to connect to, right-click on the instance and select **Conect**.  From here you are able to download the RDP file for this particular instance.  Select **Download Remote Desktop File**, and then open the file that is downloaded to establish your remote desktop connection (RDP) to this instance.  When prompted enter your password `serv1ceF@bricP@ssword`.
 
 ![Download Remote Desktop File][aws-rdp]
 
 ## Enable SMB
 
+Once you have connected into the instance you'll need to enable file sharing.  Go to **Start** > **PowerShell** and run the following command:
+
 ```powershell
-netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes  
+netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
 ```
 
 ## Validate that Remote Registry is running
@@ -121,7 +129,7 @@ Start-Service -Name "Remote Registry"
 
 ## Open Service Fabric ports 
 
-To use SMB and Remote registry you'll need to open a number of ports, specifically: `135, 137, 138, 139, 445`. Opening these ports to the world is not particularly safe, so you will restrict it down to the LocalSubnet.
+To use SMB and Remote registry you'll need to open a number of ports, specifically: `135, 137-139, 445`. Opening these ports to the world is not particularly safe, so you will restrict it down to the LocalSubnet.
 
 ```powershell
 New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
@@ -140,7 +148,7 @@ In part one of the series, you learned how to launch three EC2 instances and get
 Advance to part two of the series to configure service fabric on your cluster.
 
 > [!div class="nextstepaction"]
-> [Create the service fabric cluster](standalone-tutorial-create-service-fabric-cluster.md)
+> [Install service fabric](standalone-tutorial-create-service-fabric-cluster.md)
 
 <!-- IMAGES -->
 [aws-console]: ./media/service-fabric-tutorial-standalone-cluster/aws-console.png
