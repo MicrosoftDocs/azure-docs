@@ -3,17 +3,10 @@ title: Provision new tenants in a multi-tenant app that uses Azure SQL Database 
 description: "Learn how to provision and catalog new tenants in an Azure SQL Database multi-tenant SaaS app"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: craigg
-editor: ''
-
-ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
@@ -96,8 +89,8 @@ Trace the script's execution using the **Debug** menu options - **F10** and **F1
 
 The following are not steps to explicitly follow, but an explanation of the workflow you step through while debugging the script:
 
-1. **Import the SubscriptionManagement.psm1** module that contains functions for signing in to Azure and selecting the Azure subscription you are working with.
 1. **Import the CatalogAndDatabaseManagement.psm1** module that provides a catalog and tenant-level abstraction over the [Shard Management](sql-database-elastic-scale-shard-map-management.md) functions. This module encapsulates much of the catalog pattern and is worth exploring.
+1. **Import the SubscriptionManagement.psm1** module that contains functions for signing in to Azure and selecting the Azure subscription you are working with.
 1. **Get configuration details**. Step into Get-Configuration (with F11) and see how the app config is specified. Resource names and other app-specific values are defined here, but do not change these values until you are familiar with the scripts.
 1. **Get the catalog object**. Step into Get-Catalog, which composes and returns a catalog object that is used in the higher-level script.  This function uses Shard Management functions that are imported from **AzureShardManagement.psm1**. The catalog object is composed of the following elements:
    * $catalogServerFullyQualifiedName is constructed using the standard stem plus your User name: _catalog-\<user\>.database.windows .net_.

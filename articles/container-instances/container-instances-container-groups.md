@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -20,19 +20,24 @@ The top-level resource in Azure Container Instances is the *container group*. Th
 
 A container group is a collection of containers that get scheduled on the same host machine. The containers in a container group share a lifecycle, local network, and storage volumes. It is similar to the concept of a *pod* in [Kubernetes][kubernetes-pod] and [DC/OS][dcos-pod].
 
-The following diagram shows an example of a container group that includes multiple containers.
+The following diagram shows an example of a container group that includes multiple containers:
 
 ![Container groups diagram][container-groups-example]
 
 This example container group:
 
 * Is scheduled on a single host machine.
+* Is assigned a DNS name label.
 * Exposes a single public IP address, with one exposed port.
 * Consists of two containers. One container listens on port 80, while the other listens on port 5000.
 * Includes two Azure file shares as volume mounts, and each container mounts one of the shares locally.
 
 > [!NOTE]
 > Multi-container groups are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+
+### Deployment
+
+**Container groups** have a minimum resource allocation of 1 vCPU and 1 GB memory. Individual **containers** can be provisioned using less than 1 vCPU and 1 GB memory. Within a container group the distribution of resources can be customized to multiple containers within the limits established at the container group level. For example, two containers each with 0.5 vCPU residing within a container group allocated 1 vCPU.
 
 ### Networking
 
@@ -44,7 +49,7 @@ You can specify external volumes to mount within a container group. You can map 
 
 ## Common scenarios
 
-Multi-container groups are useful in cases where you want to divide up a single functional task into a small number of container images, which can be delivered by different teams and have separate resource requirements.
+Multi-container groups are useful in cases where you want to divide a single functional task into a small number of container images. These images can then be delivered by different teams and have separate resource requirements.
 
 Example usage could include:
 

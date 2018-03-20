@@ -48,7 +48,7 @@ You may download and run the [Azure Virtual Machine Readiness Assessment](https:
 
 We recommend that you also first review the tutorials, guides, and videos that cover the following topics:
 
-* [Configure a Cloud-Only Virtual Network in the Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Configure a Cloud-Only Virtual Network in the Azure Portal](../virtual-network/quick-create-portal.md)
 * [Configure a Site-to-Site VPN in the Azure Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Install a new Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
 * [Install a replica Active Directory domain controller on Azure](active-directory-install-replica-active-directory-domain-controller.md)
