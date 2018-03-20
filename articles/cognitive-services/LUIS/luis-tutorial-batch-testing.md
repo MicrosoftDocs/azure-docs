@@ -225,7 +225,7 @@ To determine why the `None` utterances are failing, review the utterances curren
     
 Any utterances in `None` are supposed to be outside of the app domain. These utterances are relative to HomeAutomation, so they are in the wrong intent. 
 
-LUIS also gives the utterances less than 50% (<.50) prediction score. If you look at the utterances in the other two intents, you will see much higher prediction scores. When LUIS has low scores for example utterances, that is a good indication the utterances are confusing to LUIS between the current intent and other intents. 
+LUIS also gives the utterances less than 50% (<.50) prediction score. If you look at the utterances in the other two intents, you see much higher prediction scores. When LUIS has low scores for example utterances, that is a good indication the utterances are confusing to LUIS between the current intent and other intents. 
 
 To fix the app, the utterances currently in the `None` intent need to be moved into the correct intent and the `None` intent needs new, appropriate intents. 
 
