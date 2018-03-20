@@ -155,7 +155,7 @@ Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the [
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).  
 
 ## My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it? 
-Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) to create a LUIS key and assign it to the app. 
+Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) to create a LUIS endpoint key and assign it to the app. 
 
 ## Next steps
 
