@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Resource Limits | Microsoft Docs
-description: This page describes some common resource limits for Azure SQL Database.
+title: Azure SQL Database DTU-based Resource Limits | Microsoft Docs
+description: This page describes some common DTU-based resource limits for Azure SQL Database.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -11,10 +11,10 @@ ms.date: 03/31/2018
 ms.author: carlrab
 
 ---
-# Azure SQL Database resource limits
+# Azure SQL Database DTU-based resource model limits
 
 > [!IMPORTANT]
-> For resource limits with Azure SQL Database Managed Instance, see [SQL Database Managed Instance](sql-database-managed-instance.md#managed-instance-service-tier).
+> For vCore-based resource limits, see [SQL Database Service Tiers](sql-database-service-tiers.md).
 
 ## Single database: Storage sizes and performance levels
 

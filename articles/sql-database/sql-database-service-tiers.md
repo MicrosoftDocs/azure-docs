@@ -77,6 +77,15 @@ For details on specific performance levels and storage size choices available, s
 
 ## vCore-based resourcing model
 
+The vCore-based resourcing model gives your flexibility, control, transparency and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+A virtual core represents the logical CPU offered with an option to choose between generations of hardware. 
+- Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.
+- Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.
+
+
+### Choosing a service tier in the vCore resources model
+
 In the vCore-based resourcing model (preview), SQL Database offers a **General Purpose** and a **Business Critical** service tier. In this resourcing model, you can balance your workload requirements and price by separately configuring compute and storage
 - Customers pay for:
 - Service tier + number of vCore
@@ -84,9 +93,7 @@ In the vCore-based resourcing model (preview), SQL Database offers a **General P
 - Number of I/O's
 - Backup storage (RA-GRS) - free during preview
 
-Converting to the vCore-based resourcing model enables you to independently scale resources, match on-premises performance, and optimize price. Most databases and elastic pools will reduce cost. You can convert using your API of choice or using the Azure portal, with no downtime.
-
-### Choosing a service tier in the vCore resources model
+Converting to the vCore-based resourcing model enables you to independently scale resources, match on-premises performance, and optimize price. Most databases and elastic pools will reduce cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. You have the choice between the two resourcing models.
 
 The following table helps you understand the differences between these two tiers:
 
@@ -116,6 +123,10 @@ The following table helps you understand how to select the optimal configuration
 
 > [!TIP]
 > Rule of thumb: 100 DTU ~ 1 vCore
+
+The following table provides the complete SKU map
+
+![SKUs](./media/sql-database-service-tiers/sku.png)
 
 ### Azure Hybrid Use Benefit
 
