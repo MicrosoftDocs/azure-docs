@@ -181,7 +181,7 @@
 ### [Azure PowerShell](powershell-samples.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (Classic)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
