@@ -118,7 +118,7 @@ From other sources, if you configure them:
 * [Azure diagnostics](app-insights-azure-diagnostics.md)
 * [Docker containers](app-insights-docker.md)
 * [Import tables to Analytics](app-insights-analytics-import.md)
-* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## Can I filter out or modify some telemetry?

@@ -43,7 +43,7 @@ The preceding command uses the following information:
 - **Policy** – The policy definition ID, based on which you're using to create the assignment. In this case, it is the policy definition – *Audit Virtual Machines without Managed Disks*. To get the policy definition ID, run this command:
         `az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. Be sure to replace &lt;scope&gt; with the name of your resource group.
-- **Sku** – This command creates a policy assignment with the standard tier. The standard tier enables you to achieve at-scale management, compliance evaluation, and remediation. Currently, the standard tier is free. In the future, the standard tier will incur costs. When the pricing change occurs, it will be announced and more details will be provided at [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy).
+- **Sku** – This command creates a policy assignment with the standard tier. The standard tier enables you to achieve at-scale management, compliance evaluation, and remediation. For additional details about pricing tiers, see [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 ## Identify non-compliant resources

@@ -17,7 +17,7 @@ services: azure-migrate
 
 ## Overview
 
-An Azure Migrate Collector is a lighweight appliance that can be used to discover your on-premises vCenter environment. This appliance discovers on-premises VMware machines, and sends metadata about them to the Azure Migrate service.
+An Azure Migrate Collector is a lightweight appliance that can be used to discover your on-premises vCenter environment. This appliance discovers on-premises VMware machines, and sends metadata about them to the Azure Migrate service.
 
 The Collector appliance is an OVF that you can download from the Azure Migrate project. It instantiates a VMware virtual machine with 4 cores, 8 GB RAM and one disk of 80 GB. The Operating system of the appliance is Windows Server 2012 R2 (64 bit).
 
