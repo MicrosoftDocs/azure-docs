@@ -7,14 +7,15 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 1F335E3A-37B0-4D6D-A77E-DCBF8D21EF73
+ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/20/2018
 ms.author: mabrigg
+ms.reviewer: sijuman
 
 ---
 
@@ -39,7 +40,7 @@ import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compu
 
   1. Install Git. For instructions, see [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
   2. Install the [Go Programming Language](https://golang.org/dl).  
-  Note that to use profiles you need to install Go version 1.9 or newer.
+  API profiles for Azure will require Go version 1.9 or newer.
   3. Install the Go Azure SDK and its dependencies by running the following bash command:
   ````go
     go get -u -d github.com/Azure/azure-sdk-for-go/...
@@ -53,7 +54,7 @@ The GO SDK depends on Go-AutoRest modules to send REST requests to Azure Resourc
 
 To run a sample of Go code on Azure Stack:
   1. Install Azure SDK for Go and its dependencies. For instruction see the previous section, [Install Azure SDK for Go](#install-azure-sdk-for-go).
-  2. Get metadata information from the resource manager endpoint. The endpoint returns a JSON file with the information required to run Go samples.
+  2. Get metadata information from the Resource Manager endpoint. The endpoint returns a JSON file with the information required to run Go samples.
   > [!note] ResourceManagerUrl in one node environment is: `https://management.local.azurestack.external/ 
      ResourceManagerUrl in multi node environment is: https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
   >  
@@ -62,31 +63,27 @@ To run a sample of Go code on Azure Stack:
   Sample JSON file:
 
 ```json
-{ " gal int " 
-"https : / /portal . local . azurestack. external : 30015/" 
-"graphEndpoint" • "https: / / graph. windows . net/ " 
-"portal Endpoint " 
-"https : / / portal . local . azurestack. external / " 
-" authentication": {
-" loginEndpoint " 
-"https: //login. windows . net/" 
-" audiences" 
-[ "https : / / management . azurestackci04 . onmicrosoft . com/3eeB99cB 
--c137-4ce4-b230-619961a09a73"] 
-}
+{ "galleryEndpoint" : "https://portal.local.azurestack.external:30015/",  
+  "graphEndpoint" : "https://graph.windows.net/",  
+  "portal Endpoint ": "https://portal.local.azurestack.external/", 
+  "authentication": {
+    "loginEndpoint " : "https://login.windows.net/", 
+    "audiences" : ["https://management.azurestackci04.onmicrosoft.com/3eeB99cB
+-c137-4ce4-b230-619961a09a73"]
+  }
 }
 ```
 
   3. If not available, create a subscription and save the subscription ID to be used later. For information on creating a subscription, see [Create subscriptions to offers in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Create a service principal with "Subscription" scope and "Owner" role. Save the service principal's ID and secret. For information on creating a service principal for Azure Stack, see [Create service principal](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad).  
-  5. Now your Azure Stack environment is setup. In your code, import a service module from Go SDK profile. The current version of Azure Stack profile is **2017-03-09**. For example, to import network module from **2017-03-09** profile: 
+  4. Create a service principal with "Subscription" scope and "Owner" role. Save the service principal's ID and secret. For information on creating a service principal for Azure Stack, see [Create service principal](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Your Azure Stack environment is set up.
+  5. Import a service module from Go SDK profile in your code. The current version of Azure Stack profile is **2017-03-09**. For example, to import network module from **2017-03-09** profile type: 
 
-````go
-package main 
-import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/network/mgmt/network"
-````
+  ````go
+    package main 
+    import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/network/mgmt/network"
+  ````
   
-  6. In your function, create and authenticate a client with a **New** Client function call. For example to create a virtual network client:    
+  6. In your function, create and authenticate a client with a **New** Client function call. To create a virtual network client, you can use the following code:    
   
 ````go
 package main 
@@ -94,45 +91,44 @@ package main
 import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/network/mgmt/network" 
 
 func main() { 
-    vnetClient : network.NewVirtua1NetworksC1ientWithBaseURI( " <baseURI>", "(subscriptionID>")
+    vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
     vnetClient.Authorizer = autorest.NewBearerAuthorizer(token)
 ````
-  
-    Set `<baseURI>` to the "ResourceManagerUrl" value used in step #2.
-    Set `<subscriptionID>` to the SubscriptionID value saved from step #3.
-    To create token see Authentication section below.  
+
+  Set `<baseURI>` to the **ResourceManagerUrl** value used in step two.
+  Set `<subscriptionID>` to the **SubscriptionID** value saved from step three.
+  To create token, see Authentication section below.  
   
   7. Invoke API methods by using the client that you created in the previous step. For example, to create a virtual network by using our client from previous step: 
   
 ````go
-package main 
+package main
+
 import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/network/mgmt/network" 
 func main() { 
-vnetC1ient : 
-network. NewVirtua1NetworksC1ientWithBaseURI( " "(subscriptionID>") 
-vnetC1ient .Authorizer = autorest. NewBearerAuthorizer(token) 
-vnetC1ient .CreateOrUpdate( ) 
+  vnetC1ient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
+  vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
 
+  vnetClient .CreateOrUpdate( ) 
 ````
   
-  For a complete example of creating a virtual network on Azure Stack by using Go SDK profile, see Example section below.
+  For a complete example of creating a virtual network on Azure Stack by using Go SDK profile, see [Example](example).
 
 ## Authentication
 
-To get the Authorizer property from Azure Active Directory using Go SDK, install the Go-AutoRest modules. These modules should have been already installed with the "Go SDK" installation; if not, install the [authentication package on GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal). 
+To get the Authorizer property from Azure Active Directory using Go SDK, install the Go-AutoRest modules. These modules should have been already installed with the "Go SDK" installation; if not, install the [authentication package on GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 
-The Authorizer must be set as the authorizer for the resource client. There are different methods to get an Authorizer; for a complete list see here. 
+The Authorizer must be set as the authorizer for the resource client. There are different methods to get an Authorizer; for a complete list see here.
 
 This section presents a common way to get authorizer tokens on Azure Stack by using client credentials:
 
-  1. If a service principal with owner role on the subscription is available, skip this step. Otherwise create a service principal (instructions https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) and assign it an "owner" role scoped to your subscription (instructions https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Save the service principal application ID and secret. 
+  1. If a service principal with owner role on the subscription is available, skip this step. Otherwise create a service principal [instructions]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) and assign it an "owner" role scoped to your subscription [instructions]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Save the service principal application ID and secret. 
 
   2. Import **adal** package from Go-AutoRest in your code. 
   
 ````go
 package main 
 import "github.com/Azure/go-autorest/autorest/adal" 
-
 ````
   
   3. Create an oauthConfig by using NewOAuthConfig method from **adal** module. 
@@ -143,8 +139,8 @@ package main
 import "github.com/Azure/go-autorest/autorest/ada1" 
 
 func CreateToken() (adal. OAuthTokenProvider, error) { 
-    var token adal .0AuthTokenProvider 
-  oauthConfig, err := adal. NewOAuthConfig(activeDirectoryEndpoint, tenantlD)
+    var token adal .OAuthTokenProvider 
+  oauthConfig, err := adal. NewOAuthConfig(activeDirectoryEndpoint, tenantID)
 
 ````
    
@@ -158,24 +154,24 @@ package main
 import "github.com/Azure/go-autorest/autorest/adal" 
 
 func CreateToken() (adal. OAuthTokenProvider, error) { 
-    var token adal .0AuthTokenProvider 
+    var token adal.OAuthTokenProvider 
     oauthConfig, err 
-    adal. NewOAuthConfig(activeDirectoryEndpoint, tenantlD) 
-    token, err = adal. NewservicePrincipa1Token( 
+    adal. NewOAuthConfig(activeDirectoryEndpoint, tenantID) 
+    token, err = adal.NewservicePrincipalToken( 
       *oauthConfig, 
-      clientlD, 
+      clientID, 
       clientSecret, 
       activeDirectoryResourceID) 
-    return token, err 
+    return token, err
 ````
   
-  Set `<activeDirectoryResourceID>` to one of the values in the "audience" list from the ResourceManagerUrl metadata retrieved on the previous section of this document.
-  Set `<clientID>` to the service principal application ID saved when service principal was created on the previous section of this document.
-  Set `<clientSecret`> to the service principal application Secret saved when service principal was created on the previous section of this document.
+  Set `<activeDirectoryResourceID>` to one of the values in the "audience" list from the ResourceManagerUrl metadata retrieved on the previous section of this document.  
+  Set `<clientID>` to the service principal application ID saved when service principal was created on the previous section of this document.  
+  Set `<clientSecret`> to the service principal application Secret saved when service principal was created on the previous section of this document.  
 
 ## Example
 
-This section shows a sample of Go code to create virtual network on Azure Stack. For complete examples of Go SDK see [Azure Go SDk samples repository](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure stack samples are available under hybrid/ path inside service folders of the repository.
+This section shows a sample of Go code to create virtual network on Azure Stack. For complete examples of Go SDK see [Azure Go SDk samples repository](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack samples are available under hybrid/ path inside service folders of the repository.
 > [!note]  
 > To run the code in this example, verify that the subscription used has **Network** resource provider listed as **Registered**. To verify it, look for the Subscription in the Azure Stack portal, and click on **Resource providers.**
 
@@ -188,7 +184,7 @@ import (
   "context" 
   "fmt" 
 
-  "github.com/Azure/azure-sdk-for-go/profiles/2817-03-eg[network/mgmt/network"
+  "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
   "github.com/Azure/go-autorest/autorest"
   "github.com/Azure/go-autorest/autorest/adal"
   "github.com/Azure/go-autorest/autorest/to"
@@ -203,7 +199,7 @@ package main
 import ( 
   "context"
   "fmt"
-  "github.com/Azure/azure-sdk-for-go/profiles/2817-03-eg[network/mgmt/network"
+  "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
   "github.com/Azure/go-autorest/autorest"
   "github.com/Azure/go-autorest/autorest/adal"
   "github.com/Azure/go-autorest/autorest/to"

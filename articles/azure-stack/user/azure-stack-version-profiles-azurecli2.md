@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: mabrigg
+ms.reviewer: sijuman
 
 ---
 # Use API version profiles with Azure CLI 2.0 in Azure Stack
