@@ -63,8 +63,6 @@ Use the following procedure to create a computer group from a log search in the 
 5. Provide values for each property for the computer group. 
 
 
-### Log search API
-Computer groups created with the Log Search API are the same as searches created with a Log Search.  For details on creating a computer group using the Log Search API see [Computer Groups in Log Analytics log search REST API](log-analytics-log-search-api.md#computer-groups).
 
 ### Active Directory
 When you configure Log Analytics to import Active Directory group memberships, it analyzes the group membership of any domain joined computers with the OMS agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
