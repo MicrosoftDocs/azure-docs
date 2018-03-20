@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
 
@@ -53,7 +53,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
+6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
 	a. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
 
@@ -165,7 +165,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 1. To update an existing role, perform following steps -
 
-	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
+	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
 	b. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
 	
@@ -201,7 +201,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 1. To delete an  existing role, perform following steps -
 
-	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
+	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
 	b. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
 
@@ -240,10 +240,10 @@ If your application expects custom roles to be passed in SAML response, you need
 	
 	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchfinal.png)
 
-	h. After running the query the role will be deleted.	
-
-> [!NOTE]
-> The role needs to be disabled first before it can be removed. 
+	h. After running the query the role will be deleted.
+	
+	> [!NOTE]
+	> The role needs to be disabled first before it can be removed. 
 
 ## Next Steps
 
