@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -121,6 +121,13 @@ The following are post-installation known issues for build  **20180302.1**
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*
 
     This alert can be safely ignored. 
+
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- In both the admin portal and user portal, the Overview blade fails to load when you select the Overview blade for storage accounts that were created with an older API version (example: 2015-06-15). This includes system storage accounts like **updateadminaccount** that is used during patch and update. 
+
+  As a workaround, use PowerShell to run the **Start-ResourceSyncronizatoin.ps1** script to restore access to the storage account details. [The script is available from GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), and must run with service administrator credentials on the privileged endpoint. 
+
 
 #### Health and monitoring
 There are no known issues after updating to 1802.

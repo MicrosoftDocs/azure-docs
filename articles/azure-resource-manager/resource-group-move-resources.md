@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
 
 ---
@@ -120,7 +120,7 @@ The services that enable moving to both a new resource group and subscription ar
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * IoT Hubs
 * Key Vault
-* Load Balancers
+* Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -129,6 +129,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Operational Insights
 * Operations Management
 * Power BI
+* Public IP - see [Public IP limitations](#pip-limitations)
 * Redis Cache
 * Scheduler
 * Search
@@ -158,8 +159,10 @@ The services that currently do not enable moving a resource are:
 * Express Route
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
+* Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Managed Applications
 * Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
+* Public IP - see [Public IP limitations](#pip-limitations)
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
 * StorSimple Device Manager
@@ -318,6 +321,16 @@ When moving an HDInsight cluster to a new subscription, first move other resourc
 
 You cannot move multiple Search resources placed in different regions all at once.
 In such a case, you need to move them separately.
+
+## <a name="lb-limitations"></a> Load Balancer limitations
+
+Basic SKU Load Balancer can be moved.
+Standard SKU Load Balancer cannot be moved.
+
+## <a name="pip-limitations"></a> Public IP limitations
+
+Basic SKU Public IP can be moved.
+Standard SKU Public IP cannot be moved.
 
 ## Use portal
 

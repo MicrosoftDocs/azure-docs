@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/07/2018
+ms.date: 03/20/2018
 ms.author: jroth
 ---
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Resource Manager)
@@ -68,7 +68,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 > [!IMPORTANT]
 > If the extension is not already installed, installing the extension restarts the SQL Server service.
 
-It is also possible to install the SQL Server IaaS Agent Extension on an OS-only Windows Server virtual machine. This is only supported if you have also manually installed SQL Server on that machine. Then install the extension manually by using the same **Set-AzureVMSqlServerExtension** PowerShell cmdlet.
+It is also possible to install the SQL Server IaaS Agent Extension on an OS-only Windows Server virtual machine. This is only supported if you have also manually installed SQL Server on that machine. Then install the extension manually by using the same **Set-AzureRmVMSqlServerExtension** PowerShell cmdlet.
 
 > [!NOTE]
 > If you manually install the SQL Server IaaS Agent Extension on an OS-only Windows Server VM, you can not manage the SQL Server configuration settings through the Azure portal. In this scenario, you must make all changes with PowerShell.
@@ -78,7 +78,7 @@ One way to verify that the extension is installed is to view the agent status in
 
 ![SQL Server IaaS Agent Extension in Azure portal](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-You can also use the **Get-AzureVMSqlServerExtension** Azure PowerShell cmdlet.
+You can also use the **Get-AzureRmVMSqlServerExtension** Azure PowerShell cmdlet.
 
     Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 

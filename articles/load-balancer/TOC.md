@@ -50,6 +50,7 @@
 ### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
 
 ## Classic deployment model articles
+### [Outbound connections (classic)](load-balancer-outbound-connections-classic.md)
 ### [Configure internal Load Balancer for Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Configure internal Load Balancer for Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Configure internal Load Balancer for Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)

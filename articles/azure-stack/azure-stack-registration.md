@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/20/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
@@ -33,7 +33,6 @@ Before registering Azure Stack with Azure, you must have:
   > China, Germany, and US government cloud subscriptions are not currently supported. 
 
 - The username and password for an account that is an owner for the subscription (MSA/2FA accounts are supported)
-- *Not required beginning with Azure Stack 1712 update version (180106.1)*: The Azure AD for the Azure subscription. You can find this directory in Azure by hovering over your avatar at the top right corner of the Azure portal. 
 - Registered the Azure Stack resource provider (see the Register Azure Stack Resource Provider section below for details)
 
 If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.

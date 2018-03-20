@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2018
+ms.date: 03/20/2018
 ms.author: kumud
 ---
 
@@ -22,7 +22,7 @@ ms.author: kumud
 The Azure Load Balancer Standard SKU and Public IP Standard SKU together enable you to build highly scalable and reliable architectures. Applications that use Load Balancer Standard can take advantage of new capabilities. Low latency, high throughput, and scale are available for millions of flows for all TCP and UDP applications.
 
 >[!NOTE]
-> The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires a [separate sign-up](https://aka.ms/availabilityzones), in addition to signing up for Load Balancer [Standard preview](#preview-sign-up).
+> The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires [sign-up for Availability Zones](https://aka.ms/availabilityzones).
 
 ## Why use Load Balancer Standard?
 
@@ -326,10 +326,6 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 Load Balancer Standard is currently available in all public cloud regions except West US.
 
->[!IMPORTANT]
-> For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, North Europe, West Central US, West Europe, Southeast Asia) requires the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  [Please follow these steps](#additionalpreviewregions). Please execute all of them even if you have previously signed up for AllowLBPreview already.
-> This requirement will be removed in the coming weeks.
-
 ## SKU service limits and abilities
 
 Azure [Service Limits for Networking](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) apply per region per subscription. 
@@ -359,89 +355,6 @@ The following table compares the limits and abilities of the Public IP Basic and
 | VIP Availability | Not supported | Available |
 | Counters | Not supported | Available |
 | Network Security Group | Optional on NIC | Required |
-
-
-## Preview sign-up
-
-To participate in the preview for Load Balancer Standard SKU and the companion Public IP Standard SKU, register your subscription.  Registering your subscription gives you access from PowerShell or Azure CLI 2.0. To register, perform the following steps:
-
->[!NOTE]
->Registration of the Load Balancer Standard feature can take up to an hour to become effective globally. If you wish to use Load Balancer Standard with [Availability Zones](https://aka.ms/availabilityzones), a [separate sign-up](https://aka.ms/availabilityzones) is required for the AZ Preview.
-
-<a name="additionalpreviewregions"></a>
->[!IMPORTANT]
-> For a short period of time, access to regions outside of the initial launch regions (East US 2, Central US, North Europe, West Central US, West Europe, Southeast Asia) require the registration of additional subscription features (AllowLBPreviewWave2 and AllowLBPreviewWave3).  The steps below have been modified to enable additional subscription features. Please execute all of them even if you have previously signed up for AllowLBPreview already. This requirement will be removed in the coming weeks.
-
-
-### Sign up by using Azure CLI 2.0
-
-1. Register the feature with the provider:
-
-    ```cli
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
-    ```
-    
-2. The operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
-
-    ```cli
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
-    ```
-    
-    Proceed to the next step when the feature registration state returns 'Registered' for each of the above subscription features. Example:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowLBPreview",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-4. Complete the preview sign-up by re-registering your subscription with the resource provider:
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-
-### Sign up by using PowerShell
-
-1. Register the feature with the provider:
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-    
-2. The operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-
-  Proceed to the next step when the feature registration state returns 'Registered' for each of the above subscription features. Example:
-
-    ```
-    FeatureName      ProviderName        RegistrationState
-    -----------      ------------        -----------------
-    AllowLBPreview   Microsoft.Network   Registered
-    ```
-    
-3. Complete the preview sign-up by re-registering your subscription with the resource provider:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
  
 ## Pricing
 
@@ -456,14 +369,14 @@ The following limitations apply at the time of preview and are subject to change
 - Load Balancer back-end instances cannot be located in peered virtual networks at this time. All back-end instances must be in the same region.
 - SKUs are not mutable. You may not change the SKU of an existing resource.
 - Both SKUs can be used with a standalone VM, VM instances in an Availability Set, or a virtual machine scale set. VM combinations may not be used with both SKUs simultaneously. A configuration that contains a mixture of SKUs is not permitted.
-- Using an internal Load Balancer Standard with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md). You can restore this ability to a standalone VM, VM instances in an Availability Set, or a virtual machine scale set. You can also restore the ability to make outbound connections. To restore these abilities, simultaneously assign a public Load Balancer Standard, or Public IP Standard as an instance-level Public IP, to the same VM instance. After the assignment is complete, port-masquerading SNAT to a Public IP address is provided again.
-- VM instances might need to be grouped into availability sets to achieve full back-end pool scale. Up to 150 availability sets and standalone VMs can be placed into a single back-end pool.
+- Using an internal Load Balancer Standard with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md#defaultsnat). You can restore this ability to a standalone VM, VM instances in an Availability Set, or a virtual machine scale set. You can also restore the ability to make outbound connections. To restore these abilities, simultaneously assign a public Load Balancer Standard, or Public IP Standard as an instance-level Public IP, to the same VM instance. After the assignment is complete, port-masquerading SNAT to a Public IP address is provided again.
+- VM instances may need to be grouped into availability sets to achieve full back-end pool scale. Up to 150 availability sets and standalone VMs and virtual machine scale sets combined can be placed into a single back-end pool.
 - IPv6 is not supported.
 - In the context of Availability Zones, a front-end is not mutable from zonal to zone-redundant, or vice versa. After a front-end is created as zone-redundant, it remains zone-redundant. After a front-end is created as zonal, it remains zonal.
 - In the context of Availability Zones, a zonal Public IP address cannot be moved from one zone to another.
 - [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
 - Portal does not yet support the expanded preview regions.  Please use client tools like templates, Azure CLI 2.0 or PowerShell as a workaround.
-- Move subscription operations are not supported.
+- [Move subscription operations](../azure-resource-manager/resource-group-move-resources.md) are not supported for Standard SKU LB and PIP resources.
 - Not available in West US.
 
 
