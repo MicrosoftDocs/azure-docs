@@ -405,12 +405,14 @@ Assign the custom role "Linux Fence Agent Role" that was created in the last cha
 
 1. Go to https://portal.azure.com
 1. Open the All resources blade
-1. Select the virtual machine
+1. Select the virtual machine of the first cluster node
 1. Click Access control (IAM)
 1. Click Add
 1. Select the role "Linux Fence Agent Role"
 1. Enter the name of the application you created above
 1. Click OK
+
+Repeat the steps above for the second cluster node.
 
 ### **[1]** Create the STONITH devices
 
