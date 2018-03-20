@@ -15,11 +15,9 @@
 ### NC, NCv2, NCv3, and ND-series - NVIDIA CUDA drivers
 | Distribution | Driver |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 or 7.4<br/><br/> CentOS 7.3 or 7.4, CentOS-based 7.4 HPC<br/><br/> [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) (Ubuntu 16.04 LTS or CentOS 7.4 edition) | NVIDIA CUDA 9.1, driver branch R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 or 7.4<br/><br/> CentOS 7.3 or 7.4, CentOS-based 7.4 HPC | NVIDIA CUDA 9.1, driver branch R390 |
 
-> [!IMPORTANT]
-> Ensure that you install or upgrade to the latest CUDA drivers for your distribution. Drivers older than version R390 might have problems with updated Linux kernels.
->
+As an alternative to manual CUDA driver installation on a Linux VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Ubuntu 16.04 LTS or CentOS 7.4 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
 
 ### NV-series - NVIDIA GRID drivers
 
