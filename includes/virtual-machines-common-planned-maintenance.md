@@ -43,7 +43,7 @@ If you start self-service maintenance and there is an error during the process, 
 
 When the self-service window has passed, the **scheduled maintenance window** begins. During this time window, you can still query for the maintenance window, but no longer be able to start the maintenance yourself.
 
-For information on managing maintenance requiring a reboot, see [Handling planned maintenance notifications](maintenance-notifications.md).
+For information on managing maintenance requiring a reboot, see "Handling planned maintenance notifications" for [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
 ## Availability Considerations during Planned Maintenance 
 
