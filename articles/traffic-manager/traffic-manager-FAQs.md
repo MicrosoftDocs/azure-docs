@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2018
+ms.date: 03/18/2018
 ms.author: kumud
 ---
 
@@ -136,7 +136,8 @@ No, you only need to enable it once per subscription and all the latency informa
 
 ### How do I turn off Real User Measurements for my subscription?
 You can stop accruing charges related to Real User Measurements when you stop collecting and sending back latency measurements from your client application. For example, when measurement JavaScript embedded in web pages, you can stop using this feature by removing the JavaScript or by turning off its invocation when the page is rendered.
-Another way to turn off Real User Measurements is to delete your key. Once you do that, any measurements sent to Traffic Manager with that key are discarded.
+
+You can also turn off Real User Measurements by deleting your key. Once you delete the key, any measurements sent to Traffic Manager with that key are discarded.
 
 ### Can I use Real User Measurements with client applications other than web pages?
 Yes, Real User Measurements is designed to ingest data collected through different type of end user clients. This FAQ will be updated as new types of client applications get supported.
@@ -212,15 +213,11 @@ Traffic View creates its output by processing the data from the seven days prece
 When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If it has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
 
 ### Do I need to enable Traffic View for each profile in my subscription?
-During the preview period, Traffic View is enabled at a subscription level and is available for all Traffic Manager profiles under that subscription.
 
-### How can I turn off Traffic View?
-During the preview period, we request that you create a support ticket to disable Traffic View for your subscription.
+During the preview period, Traffic View was enabled at a subscription level. As part of the improvements we made before the general availability, you can now enable Traffic View at a profile level, allowing you to have more granular enabling of this feature. By default, Traffic View will be disabled for a profile.
 
-### Do I need to enable Traffic View for each profile in my subscription?
-
-During the preview period, Traffic View was enabled at a subscription level. As part of the improvements we made before the general availability, you can now enable Traffic View at a profile level, allowing you to have more granular enabling of this feature. By default, Traffic View will be disabled for a profile. 
-Note: if you had enabled Traffic View at a subscription level during the preview time, you will now need to re-enable it for each of the profile under that subscription 
+>[!NOTE]
+>If you enabled Traffic View at a subscription level during the preview time, you now need to re-enable it for each of the profile under that subscription.
  
 ### How can I turn off Traffic View? 
 You can turn off Traffic View for any profile using the Portal or REST API. 

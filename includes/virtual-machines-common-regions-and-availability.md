@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: iainfoulds
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/27/2018
+ ms.author: iainfou
+ ms.custom: include file
+---
+
 # Regions and availability for virtual machines in Azure
 Azure operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. This article provides you with an overview of the availability and redundancy features of Azure.
 
