@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.5.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
 
 ## Default Azure disks
@@ -55,7 +55,7 @@ When a scale set is created or scaled, two disks are automatically attached to e
 
 
 ## Azure data disks
-Additional data disks can be added if you need to install applications and store data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached. 
+Additional data disks can be added if you need to install applications and store data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached.
 
 ### Max data disks per VM
 | Type | Common sizes | Max data disks per VM |
@@ -91,7 +91,9 @@ While the above table identifies max IOPS per disk, a higher level of performanc
 You can create and attach disks when you create a scale set, or with an existing scale set.
 
 ### Attach disks at scale set creation
-Create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
+Create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). When prompted, provide a username and password for the VM instances. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985.
+
+Two disks are created with the `-DataDiskSizeGb` parameter. The first disk is *64* GB in size, and the second disk is *128* GB:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -102,7 +104,8 @@ New-AzureRmVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicy "Automatic"
+  -UpgradePolicy "Automatic" `
+  -DataDiskSizeGb 64,128
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VM instances.
@@ -139,6 +142,11 @@ To automate the process across multiple VM instances in a scale set, you can use
 The following example executes a script from a GitHub sample repo on each VM instance with [Add-AzureRmVmssExtension](/powershell/module/AzureRM.Compute/Add-AzureRmVmssExtension) that prepares all the raw attached data disks:
 
 ```azurepowershell-interactive
+# Get scale set object
+$vmss = Get-AzureRmVmss `
+          -ResourceGroupName "myResourceGroup" `
+          -VMScaleSetName "myScaleSet"
+
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
   "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1");
@@ -172,10 +180,10 @@ $lb = Get-AzureRmLoadBalancer -ResourceGroupName "myResourceGroup" -Name "myLoad
 Get-AzureRmLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Protocol,FrontEndPort,BackEndPort
 
 # View the public IP address of the load balancer
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIP | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
-To connect to your VM, specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, *azureuser* and *P@ssword!*). If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *1*:
+To connect to your VM, specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set. If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -289,10 +297,10 @@ Update-AzureRmVmss `
 
 
 ## Clean up resources
-To remove your scale set and disks, delete the resource group and all its resources with [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup):
+To remove your scale set and disks, delete the resource group and all its resources with [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup"
+Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

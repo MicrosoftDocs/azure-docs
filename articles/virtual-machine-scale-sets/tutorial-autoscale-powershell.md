@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/14/2018
+ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.1.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.5.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 
 ## Create a scale set
@@ -127,7 +127,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
 
 
 ## Define an autoscale profile
-To associate your autoscale rules with a scale set, you create a profile. The autoscale profile defines the default, minimum, and maximum scale set capacity, and associates your autoscale rules. Create an autoscale profile with [New-AzureRmAutoscaleProfile](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleProfile). The following example sets the default, and minimum, capacity of *2* VM instances, and a maximum of *10*. The scale out and scale in rules created in the preceding steps are then attached:
+To associate your autoscale rules with a scale set, create a profile. The autoscale profile defines the default, minimum, and maximum scale set capacity, and associates your autoscale rules. Create an autoscale profile with [New-AzureRmAutoscaleProfile](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleProfile). The following example sets the default, and minimum, capacity of *2* VM instances, and a maximum of *10*. The scale out and scale in rules created in the preceding steps are then attached:
 
 ```azurepowershell-interactive
 $myScaleProfile = New-AzureRmAutoscaleProfile `
@@ -153,7 +153,7 @@ Add-AzureRmAutoscaleSetting `
 
 
 ## Generate CPU load on scale set
-To test the autoscale rules, lets generate some CPU load on the VM instances in the scale set. This simulated CPU causes the autoscales to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
+To test the autoscale rules, generate some CPU load on the VM instances in the scale set. This simulated CPU load causes the autoscale rules to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
 
 To list the NAT ports to connect to VM instances in a scale set, first get the load balancer object with [Get-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer). Then, view the inbound NAT rules with [Get-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig):
 
@@ -190,7 +190,7 @@ IpAddress
 52.168.121.216
 ```
 
-Create a remote connection to your first VM instance. Specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, *azureuser* and *P@ssw0rd!*). If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *0*:
+Create a remote connection to your first VM instance. Specify your own public IP address and port number of the required VM instance, as shown from the preceding commands. When prompted, enter the credentials used when you created the scale set (by default in the sample commands, they are *azureuser* and *P@ssw0rd!*). If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. The following example connects to VM instance *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -227,7 +227,7 @@ while (1) {Get-AzureRmVmssVM `
     -VMScaleSetName $myScaleSet; sleep 10}
 ```
 
-Once the CPU threshold has been met, the autoscale scales increase the number of VM instances in the scale set. The following output shows three VMs created as the scale set autoscales out:
+Once the CPU threshold has been met, the autoscale rules increase the number of VM instances in the scale set. The following output shows three VMs created as the scale set autoscales out:
 
 ```powershell
 ResourceGroupName         Name Location          Sku Capacity InstanceID ProvisioningState
@@ -249,10 +249,10 @@ Exit *while* with `Ctrl-c`. The scale set continues to scale in every 5 minutes 
 
 
 ## Clean up resources
-To remove your scale set and additional resources, delete the resource group and all its resources with [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup):
+To remove your scale set and additional resources, delete the resource group and all its resources with [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup"
+Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 
@@ -265,7 +265,7 @@ In this tutorial, you learned how to automatically scale in or out a scale set w
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
 
-Advance to the next tutorial to learn how to automatically the VM instances in a scale set.
+For more examples of virtual machine scale sets in action, see the following sample Azure PowerShell sample scripts:
 
 > [!div class="nextstepaction"]
-> [Automatically upgrade scale set VM instances]()
+> [Scale set script samples for Azure PowerShell](powershell-samples.md)

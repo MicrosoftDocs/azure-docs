@@ -8,7 +8,7 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 
 ---
@@ -21,8 +21,8 @@ InMage Scout in [Azure Site Recovery](site-recovery-overview.md) provides real-t
 
 To complete this tutorial:
 
-- [Review](site-recovery-support-matrix-to-sec-site.md) the support requirements for all components.
-- Make sure that the machines you want to replicate comply with [replicated machine support](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- [Review](vmware-physical-secondary-support-matrix.md) the support requirements for all components.
+- Make sure that the machines you want to replicate comply with [replicated machine support](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ## Create a vault

@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.24 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## Create a resource group
@@ -168,7 +168,7 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170707   7.3.20170707
 CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 ```
 
-To deploy a scale set that uses a specific image, use the value in the *Urn* column. When you specify the image, the image version number can be replaced with *latest*, which selects the latest version of the distribution. In the following example, the `--image` argument is used to specify the latest version of a CentOS 7.3 image. 
+To deploy a scale set that uses a specific image, use the value in the *Urn* column. When you specify the image, the image version number can be replaced with *latest*, which selects the latest version of the distribution. In the following example, the `--image` argument is used to specify the latest version of a CentOS 7.3 image.
 
 As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
 
@@ -198,7 +198,7 @@ The following table categorizes common VM sizes into use cases.
 | [High performance](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
 
 ### Find available VM instance sizes
-To see a list of VM instance sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) command. 
+To see a list of VM instance sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) command.
 
 ```azurecli-interactive
 az vm list-sizes --location eastus --output table
@@ -293,7 +293,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 ## Clean up resources
 When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes
 ```
 

@@ -43,16 +43,10 @@ Get the ACR login server name with the [az acr list][az-acr-list] command.
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor. In this example, the file is opened with `vi`.
+The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor. In this example, the file is opened with `nano`.
 
 ```console
-vi azure-vote-all-in-one-redis.yaml
-```
-
-Alternatively, if you are working in Windows, you can use Visual Studio Code.
-
-```console
-code azure-vote-all-in-one-redis.yaml
+nano azure-vote-all-in-one-redis.yaml
 ```
 
 Replace `microsoft` with the ACR login server name. This value is found on line **47** of the manifest file.

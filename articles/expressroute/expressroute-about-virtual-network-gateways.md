@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
 
 ---
@@ -38,7 +38,7 @@ The following table shows the gateway types and the estimated aggregate throughp
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Application throughput depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theorectically achieve in an ideal environment. 
+> Application throughput depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment. 
 > 
 >
 
@@ -51,5 +51,6 @@ For additional technical resources and specific syntax requirements when using R
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## Next steps
-See [ExpressRoute Overview](expressroute-introduction.md) for more information about available connection configurations. 
+See [ExpressRoute Overview](expressroute-introduction.md) for more information about available connection configurations.
 
+See [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) for more information about creating ExpressRoute gateways.

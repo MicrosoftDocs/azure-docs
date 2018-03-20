@@ -34,6 +34,8 @@ When any attributes of a user or device change, the system evaluates all dynamic
 > You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
 > 
 > At the moment, it is not possible to create a device group based on the owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
+> 
+> Microsoft Teams does not yet support Dynamic Group Membership. You can validate the error in the logs associated with "Cannot migrate Dynamic membership group"
 
 ## To create an advanced rule
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.

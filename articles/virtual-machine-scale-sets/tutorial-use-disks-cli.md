@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -33,13 +33,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.24 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## Default Azure disks
-When a scale set is created or scaled, two disks are automatically attached to each VM instance. 
+When a scale set is created or scaled, two disks are automatically attached to each VM instance.
 
-**Operating system disk** - Operating system disks can be sized up to 2 TB, and hosts the VM instance's operating system. The OS disk is labeled */dev/sda* by default. The disk caching configuration of the OS disk is optimized for OS performance. Because of this configuration, the OS disk **should not** host applications or data. For applications and data, use data disks, which are detailed later in this article. 
+**Operating system disk** - Operating system disks can be sized up to 2 TB, and hosts the VM instance's operating system. The OS disk is labeled */dev/sda* by default. The disk caching configuration of the OS disk is optimized for OS performance. Because of this configuration, the OS disk **should not** host applications or data. For applications and data, use data disks, which are detailed later in this article.
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM instance. These are high-performance disks and may be used for operations such as temporary data processing. However, if the VM instance is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM instance size. Temporary disks are labeled */dev/sdb* and have a mountpoint of */mnt*.
 
@@ -55,7 +55,7 @@ When a scale set is created or scaled, two disks are automatically attached to e
 
 
 ## Azure data disks
-Additional data disks can be added if you need to install applications and store data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached. 
+Additional data disks can be added if you need to install applications and store data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached.
 
 ### Max data disks per VM
 | Type | Common sizes | Max data disks per VM |
@@ -91,7 +91,7 @@ While the above table identifies max IOPS per disk, a higher level of performanc
 You can create and attach disks when you create a scale set, or with an existing scale set.
 
 ### Attach disks at scale set creation
-First, create a resource group with the [az group create](/cli/azure/group#az_group_create) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
+First, create a resource group with the [az group create](/cli/azure/group#az_group_create) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -286,9 +286,9 @@ az vmss disk detach \
 
 
 ## Clean up resources
-To remove your scale set and disks, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
+To remove your scale set and disks, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes
 ```
 

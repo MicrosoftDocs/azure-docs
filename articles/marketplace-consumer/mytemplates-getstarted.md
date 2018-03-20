@@ -3,7 +3,7 @@ title: Get started with private Templates | Microsoft Docs
 description: Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell.
 services: marketplace-customer
 documentationcenter: ''
-author: VybavaRamadoss
+author: msmbaldwin
 manager: asimm
 editor: ''
 tags: marketplace, azure-resource-manager
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: vybavar
+ms.author: mbaldwin
 
 ---
 # Get started with private Templates on the Azure portal

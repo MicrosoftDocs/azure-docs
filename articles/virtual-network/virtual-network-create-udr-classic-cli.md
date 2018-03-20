@@ -21,8 +21,8 @@ ms.author: jdial
 # Control routing and use virtual appliances (classic) using the Azure CLI
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Azure CLI](tutorial-create-route-table-cli.md)
 > * [Template](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
@@ -31,7 +31,7 @@ ms.author: jdial
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the classic deployment model. You can also [control routing and use virtual appliances in the Resource Manager deployment model](virtual-network-create-udr-arm-cli.md).
+This article covers the classic deployment model. You can also [control routing and use virtual appliances in the Resource Manager deployment model](tutorial-create-route-table-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 

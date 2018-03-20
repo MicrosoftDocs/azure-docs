@@ -86,7 +86,7 @@ Use the following procedure:
 
      ![Select Target](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Under **Target Criteria, click **add criteria** select the signal type as **Activity log**.
+    - Under **Target Criteria**, click **add criteria** select the signal type as **Activity log**.
 
     - Select the signal from the list displayed.
 
@@ -108,7 +108,7 @@ Use the following procedure:
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. Under **define alert rules,** provide the following details:
+4. Under **define alert rules details**, provide the following details:
 
     - **Alert rule name** – Name for the new alert rule
     - **Description** – Description for the new alert rule

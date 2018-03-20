@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.24 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## Create and configure a source VM
@@ -55,7 +55,7 @@ The public IP address of your VM is shown in the output of the [az vm create](/c
 ssh azureuser@<publicIpAddress>
 ```
 
-To customize your VM, let's install a basic web server. When the VM instance in the scale set would be deployed, it would then have all the required packages to run a web application. Use `apt-get` to install *Nginx* as follows:
+To customize your VM, let's install a basic web server. When the VM instance in the scale set would be deployed, it would then have all the required packages to run a web application. Use `apt-get` to install *NGINX* as follows:
 
 ```bash
 sudo apt-get install -y nginx
@@ -116,7 +116,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 ## Test your scale set
 To allow traffic to reach your scale set and that verify that the web server works correctly, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a rule named *myLoadBalancerRuleWeb* that allows traffic on *TCP* port *80*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network lb rule create \
   --resource-group myResourceGroup \
   --name myLoadBalancerRuleWeb \
@@ -130,7 +130,7 @@ az network lb rule create \
 
 To see your scale set in action, get the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example gets the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroup \
   --name myScaleSetLBPublicIP \
@@ -138,15 +138,15 @@ az network public-ip show \
   --output tsv
 ```
 
-Type the public IP address into your web browser. The default Nginx web page is displayed, as shown in the following example:
+Type the public IP address into your web browser. The default NGINX web page is displayed, as shown in the following example:
 
 ![Nginx running from custom VM image](media/tutorial-use-custom-image-cli/default-nginx-website.png)
 
 
 ## Clean up resources
-To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete):
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes
 ```
 

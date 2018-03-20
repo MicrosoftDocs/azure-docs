@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 02/24/2018
+ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
@@ -24,10 +24,14 @@ This quickstart assumes a basic understanding of Kubernetes concepts, for detail
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Enabling AKS preview for your Azure subscription
-While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the `az provider register` command to register the AKS provider:
+## Enabling AKS preview
+
+Ensure that the needed Azure service providers are enabled with the `az provider register` command. 
 
 ```azurecli-interactive
+az provider register -n Microsoft.Network
+az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Compute
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -61,7 +65,7 @@ Output:
 
 ## Create AKS cluster
 
-The following example creates a cluster named *myAKSCluster* with one node.
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -73,14 +77,14 @@ After several minutes, the command completes and returns JSON-formatted informat
 
 To manage a Kubernetes cluster, use [kubectl][kubectl], the Kubernetes command-line client.
 
-If you're using Azure Cloud Shell, kubectl is already installed. If you want to install it locally, run the following command.
+If you're using Azure Cloud Shell, kubectl is already installed. If you want to install it locally, use the [az aks install-cli][az-aks-install-cli] command.
 
 
 ```azurecli
 az aks install-cli
 ```
 
-To configure kubectl to connect to your Kubernetes cluster, run the following command. This step downloads credentials and configures the Kubernetes CLI to use them.
+To configure kubectl to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. This step downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -241,7 +245,9 @@ To learn more about AKS, and walk through a complete code to deployment example,
 
 <!-- LINKS - internal -->
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
+[az aks install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -168,7 +168,7 @@ Following is a sample payload for a custom webhook action for any log alert.
     
 
     {
-    "AlertRuleName":"AcmeRule","IncludeSearchResults":true,
+    "alertname":"AcmeRule","IncludeSearchResults":true,
 	"SearchResult":
         {
 		"tables":[

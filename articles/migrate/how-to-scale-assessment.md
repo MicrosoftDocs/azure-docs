@@ -43,7 +43,7 @@ Plan your discoveries and assessments based on the following limits:
 You can use the same Azure Migrate collector to do multiple discoveries to one or more projects. Keep these planning considerations in mind:
  
 - When you do a discovery by using the Azure Migrate collector, you can set the discovery scope to a vCenter Server folder, datacenter, cluster, or host.
-- To do more than one discovery, verify in vCenter Server that the VMs you want to discover are in folders, datacenters, clusters, or hosts that support the limitation of 1,000 machines.
+- To do more than one discovery, verify in vCenter Server that the VMs you want to discover are in folders, datacenters, clusters, or hosts that support the limitation of 1,500 machines.
 - We recommend that for assessment purposes, you keep machines with interdependencies within the same project and assessment. In vCenter Server, make sure that dependent machines are in the same folder, datacenter, or cluster for the assessment.
 
 
@@ -81,6 +81,14 @@ Check that the OVA file is secure before you deploy it:
 
    Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Make sure that the generated hash matches the following settings.
+
+	For OVA version 1.0.9.5
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
     For OVA version 1.0.9.2
 

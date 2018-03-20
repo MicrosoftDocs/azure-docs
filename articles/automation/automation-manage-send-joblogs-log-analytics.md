@@ -1,22 +1,15 @@
 ---
-title: Forward Azure Automation job data to OMS Log Analytics | Microsoft Docs
+title: Forward Azure Automation job data to OMS Log Analytics
 description: This article demonstrates how to send job status and runbook job streams to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: tysonn
-
-ms.assetid: c12724c6-01a9-4b55-80ae-d8b7b99bd436
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/31/2017
-ms.author: magoedte
-
+manager: carmonm
 ---
+
 # Forward job status and job streams from Automation to Log Analytics (OMS)
 Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace. Job logs and job streams are visible in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Log Analytics you can:
 
@@ -67,7 +60,7 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
 After running this script, you'll see records in Log Analytics within 10 minutes of new JobLogs or JobStreams being written.
 
 To see the logs, run the following query in Log Analytics log search:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### Verify configuration
 To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are correctly configured on the Automation account by using the following PowerShell:

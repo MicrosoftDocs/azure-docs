@@ -19,16 +19,16 @@ ms.author: elsung
 ---
 
 # Access Azure Data Lake Store from VMs within an Azure VNET
-Azure Data Lake Store is a PaaS service that runs on public Internet IP addresses. Any server that can connect to the public Internet can typically connect to Azure Data Lake Store endpoints as well. By default, all VMs that are in Azure VNETs can access the Internet and hence can access Azure Data Lake Store. However, it is possible to configure VMs in a VNET to not have access to the Internet. For such VMs, access to Azure Data Lake Store is restricted as well. Blocking public Internet access for VMs in Azure VNETs can be done using any of the following approach.
+Azure Data Lake Store is a PaaS service that runs on public Internet IP addresses. Any server that can connect to the public Internet can typically connect to Azure Data Lake Store endpoints as well. By default, all VMs that are in Azure VNETs can access the Internet and hence can access Azure Data Lake Store. However, it is possible to configure VMs in a VNET to not have access to the Internet. For such VMs, access to Azure Data Lake Store is restricted as well. Blocking public Internet access for VMs in Azure VNETs can be done using any of the following approaches:
 
 * By configuring Network Security Groups (NSG)
 * By configuring User Defined Routes (UDR)
-* By exchanging routes via BGP (industry standard dynamic routing protocol) when ExpressRoute is used that block access to the Internet
+* By exchanging routes via BGP (industry standard dynamic routing protocol), when ExpressRoute is used, that block access to the Internet
 
-In this article, you will learn how to enable access to the Azure Data Lake Store from Azure VMs which have been restricted to access resources using one of the three methods listed above.
+In this article, you will learn how to enable access to the Azure Data Lake Store from Azure VMs, which have been restricted to access resources using one of the three methods listed previously.
 
 ## Enabling connectivity to Azure Data Lake Store from VMs with restricted connectivity
-To access Azure Data Lake Store from such VMs, you must configure them to access the IP address where the Azure Data Lake Store account is available. You can identify the IP addresses for your Data Lake Store accounts by resolving the DNS names of your accounts (`<account>.azuredatalakestore.net`). For this you can use tools such as **nslookup**. Open a command prompt on your computer and run the following command.
+To access Azure Data Lake Store from such VMs, you must configure them to access the IP address where the Azure Data Lake Store account is available. You can identify the IP addresses for your Data Lake Store accounts by resolving the DNS names of your accounts (`<account>.azuredatalakestore.net`). To resolve DNS names of your accounts, you can use tools such as **nslookup**. Open a command prompt on your computer and run the following command:
 
     nslookup mydatastore.azuredatalakestore.net
 
@@ -41,10 +41,10 @@ The output resembles the following. The value against **Address** property is th
 
 
 ### Enabling connectivity from VMs restricted by using NSG
-When a NSG rule is used to block access to the Internet, then you can create another NSG that allows access to the Data Lake Store IP Address. More information on NSG rules is available at [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md). For instructions on how to create NSGs see [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+When an NSG rule is used to block access to the Internet, then you can create another NSG that allows access to the Data Lake Store IP Address. For more information about NSG rules, see [Network security groups overview](../virtual-network/security-overview.md). For instructions on how to create NSGs, see [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
 ### Enabling connectivity from VMs restricted by using UDR or ExpressRoute
-When routes, either UDRs or BGP-exchanged routes, are used to block access to the Internet, a special route needs to be configured so that VMs in such subnets can access Data Lake Store endpoints. For more information, see [What are User Defined Routes?](../virtual-network/virtual-networks-udr-overview.md). For instructions on creating UDRs, see [Create UDRs in Resource Manager](../virtual-network/virtual-network-create-udr-arm-ps.md).
+When routes, either UDRs or BGP-exchanged routes, are used to block access to the Internet, a special route needs to be configured so that VMs in such subnets can access Data Lake Store endpoints. For more information, see [User-defined routes overview](../virtual-network/virtual-networks-udr-overview.md). For instructions on creating UDRs, see [Create UDRs in Resource Manager](../virtual-network/tutorial-create-route-table-powershell.md).
 
 ### Enabling connectivity from VMs restricted by using ExpressRoute
 When an ExpressRoute circuit is configured, the on-premises servers can access Data Lake Store through public peering. More details on configuring ExpressRoute for public peering is available at [ExpressRoute FAQs](../expressroute/expressroute-faqs.md).
