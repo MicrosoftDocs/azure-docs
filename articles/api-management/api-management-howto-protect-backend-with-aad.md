@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 03/18/2018
 ms.author: apimpm
 ---
 
@@ -24,23 +24,23 @@ This guide shows you how to configure your API Management (APIM) instance to pro
 To follow the steps in this article, you must have:
 * An APIM instance
 * An API being published using the APIM instance
-* An AAD tenant
+* An Azure AD tenant
 
 ## Overview
 
-This guide shows you how to protect an API with OAuth 2.0 in APIM. In this article, AAD as the Authorization Server (OAuth Server) is used. Below is a quick overview of the steps:
+This guide shows you how to protect an API with OAuth 2.0 in APIM. In this article, Azure AD as the Authorization Server (OAuth Server) is used. Below is a quick overview of the steps:
 
-1. Register an application (backend-app) in AAD to represent the API
-2. Register another application (client-app) in AAD to represent a client application that needs to call the API
-3. In AAD, grant permissions to allow client-app to call backend-app
+1. Register an application (backend-app) in Azure AD to represent the API
+2. Register another application (client-app) in Azure AD to represent a client application that needs to call the API
+3. In Azure AD, grant permissions to allow client-app to call backend-app
 4. Configure the Developer Console to use OAuth 2.0 user authorization
 5. Add validate-jwt policy to validate the OAuth token for every incoming request
 
-## Register an application in AAD to represent the API
+## Register an application in Azure AD to represent the API
 
-To protect an API with AAD, the first step is to register an application in AAD that represents the API. 
+To protect an API with Azure AD, the first step is to register an application in Azure AD that represents the API. 
 
-Navigate to your AAD tenant, then navigate to **App registrations**.
+Navigate to your Azure AD tenant, then navigate to **App registrations**.
 
 Select **New application registration**. 
 
@@ -54,11 +54,11 @@ Click on **Create**.
 
 Once the application is created, make a note of the **Application ID** for use in a subsequent step. 
 
-## Register another application in AAD to represent a client application
+## Register another application in Azure AD to represent a client application
 
-Every client application that needs to call the API needs to be registered as an application in AAD as well. In this guide, we will use the Developer Console in the APIM Developer Portal as the sample client application. 
+Every client application that needs to call the API needs to be registered as an application in Azure AD as well. In this guide, we will use the Developer Console in the APIM Developer Portal as the sample client application. 
 
-We need to register another application in AAD to represent the Developer Console.
+We need to register another application in Azure AD to represent the Developer Console.
 
 Click on **New application registration** again. 
 
@@ -101,7 +101,7 @@ Click on **Select** and then **Done**.
 
 ## Enable OAuth 2.0 User Authorization in the Developer Console
 
-At this point, we have created our applications in AAD and have granted proper permissions to allow the client-app to call the backend-app. 
+At this point, we have created our applications in Azure AD and have granted proper permissions to allow the client-app to call the backend-app. 
 
 In this guide, we will use the Developer Console as the client-app. Below steps describe how to enable OAuth 2.0 User Authorization in the Developer Console 
 
@@ -117,7 +117,7 @@ Check **Authorization code** as the **Authorization grant types**.
 
 Next, specify **Authorization endpoint URL** and **Token endpoint URL**.
 
-These values can be retrieved from the **Endpoints** page in your AAD tenant. To access the endpoints, navigate to the **App registrations** page again and click on **Endpoints**.
+These values can be retrieved from the **Endpoints** page in your Azure AD tenant. To access the endpoints, navigate to the **App registrations** page again and click on **Endpoints**.
 
 Copy the **OAuth 2.0 Authorization Endpoint** and paste it into the **Authorization endpoint URL** textbox.
 
@@ -141,7 +141,7 @@ Navigate back to the **Settings** page of your client-app.
 
 Click on **Reply URLs** and paste the **redirect_url** in the first row. In this example, we replaced `https://localhost` with the URL in the first row.  
 
-Now we have configured an OAuth 2.0 Authorization Server, the Developer Console should be able to obtain access tokens from AAD. 
+Now we have configured an OAuth 2.0 Authorization Server, the Developer Console should be able to obtain access tokens from Azure AD. 
 
 The next step is to enable OAuth 2.0 user authorization for our API, so that the Developer Console knows it needs to obtain an access token on behalf of the user before making calls to our API.
 
@@ -163,9 +163,9 @@ Navigate to any operation under the `Echo API` in the Developer Portal and click
 
 Note a new item in the **Authorization** section corresponding to the authorization server you just added.
 
-Select **Authorization code** from the authorization drop-down list and you will be prompted to sign in to the AAD tenant. If you are already signed in with the account, you may not be prompted.
+Select **Authorization code** from the authorization drop-down list and you will be prompted to sign in to the Azure AD tenant. If you are already signed in with the account, you may not be prompted.
 
-After successful sign-in, an `Authorization` header will be added to the request with an access token from AAD. 
+After successful sign-in, an `Authorization` header will be added to the request with an access token from Azure AD. 
 
 A sample token looks like below, it is Base64 encoded.
 

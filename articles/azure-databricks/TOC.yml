@@ -11,6 +11,8 @@
     href: quickstart-create-databricks-workspace-portal.md
 - name: Tutorials
   items:
+  - name: Perform ETL operations
+    href: databricks-extract-load-sql-data-warehouse.md
   - name: Stream data using Event Hubs
     href: databricks-stream-from-eventhubs.md
   - name: Sentiment analysis using Cognitive Services

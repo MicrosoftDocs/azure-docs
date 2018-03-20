@@ -44,8 +44,8 @@ From the Azure portal, or from PowerShell, you can manage all your DSC configura
 ### Import reporting data into Log Analytics
 
 Nodes that are managed with Azure Automation DSC send detailed reporting status data to the built-in pull server.
-You can configure Azure Automation DSC to send this data to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.
-To learn how to send DSC status data to your Log Analytics workspace, see [Forward Azure Automation DSC reporting data to OMS Log Analytics](automation-dsc-diagnostics.md).
+You can configure Azure Automation DSC to send this data to your Log Analytics workspace.
+To learn how to send DSC status data to your Log Analytics workspace, see [Forward Azure Automation DSC reporting data to Log Analytics](automation-dsc-diagnostics.md).
 
 ## Introduction video
 
