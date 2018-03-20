@@ -119,11 +119,11 @@ $vmss = Get-AzureRmVmss `
           -ResourceGroupName "myResourceGroup" `
           -VMScaleSetName "myScaleSet"
 
-# Attach a 128 GB data disk to LUN 3
+# Attach a 128 GB data disk to LUN 2
 Add-AzureRmVmssDataDisk `
   -VirtualMachineScaleSet $vmss `
   -CreateOption Empty `
-  -Lun 3 `
+  -Lun 2 `
   -DiskSizeGB 128
 
 # Update the scale set to apply the change
@@ -251,21 +251,21 @@ Under the *VirtualMachineProfile.StorageProfile* property, the list of *DataDisk
 
 ```powershell
 DataDisks[0]                            :
-  Lun                                   : 1
+  Lun                                   : 0
   Caching                               : None
   CreateOption                          : Empty
   DiskSizeGB                            : 64
   ManagedDisk                           :
     StorageAccountType                  : PremiumLRS
 DataDisks[1]                            :
-  Lun                                   : 2
+  Lun                                   : 1
   Caching                               : None
   CreateOption                          : Empty
   DiskSizeGB                            : 128
   ManagedDisk                           :
     StorageAccountType                  : PremiumLRS
 DataDisks[2]                            :
-  Lun                                   : 3
+  Lun                                   : 2
   Caching                               : None
   CreateOption                          : Empty
   DiskSizeGB                            : 128
@@ -275,7 +275,7 @@ DataDisks[2]                            :
 
 
 ## Detach a disk
-When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [Remove-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/remove-azurermvmssdatadisk) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss#az_vmss_show) in the previous section. The following example detaches LUN *2* from the scale set:
+When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [Remove-AzureRmVmssDataDisk](/powershell/module/azurerm.compute/remove-azurermvmssdatadisk) and specify the LUN of the disk. The LUNs are shown in the output from [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)  in the previous section. The following example detaches LUN *3* from the scale set:
 
 ```azurepowershell-interactive
 # Get scale set object
