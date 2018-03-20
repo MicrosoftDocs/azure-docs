@@ -1,6 +1,6 @@
 ---
-title: Azure Stream Analytics JavaScript user-defined functions | Microsoft Docs
-description: Perform advanced query mechanics with JavaScript user-defined functions
+title: "Tutorial: Azure Stream Analytics JavaScript user-defined functions" | Microsoft Docs
+description: In this tutorial, you perform advanced query mechanics with JavaScript user-defined functions
 keywords: javascript, user defined functions, udf
 services: stream-analytics
 author: SnehaGunda
@@ -8,12 +8,12 @@ manager: kfile
 
 ms.assetid:
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
+ms.custom: mvc
 ms.workload: data-services
 ms.date: 03/19/2018
 ms.author: sngun
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Tutorial: Azure Stream Analytics JavaScript user-defined functions
@@ -26,6 +26,8 @@ In this tutorial, you learn how to:
 > * Define a JavaScript user-defined function
 > * Add the function to the portal
 > * Define a query that runs the function
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## JavaScript user-defined functions
 JavaScript user-defined functions support stateless, compute-only scalar functions that do not require external connectivity. The return value of a function can only be a scalar (single) value. After you add a JavaScript user-defined function to a job, you can use the function anywhere in the query, like a built-in scalar function.
@@ -142,12 +144,12 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
-## Get help
-For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+## Clean up resources
 
-## Next steps
-* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and re-start it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by using the following steps
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.  
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
+> [!div class="nextstepaction"]
+> [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)

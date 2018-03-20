@@ -1,6 +1,6 @@
 ---
-title: Run Azure Functions with Azure Stream Analytics jobs  | Microsoft Docs
-description: Learn how to configure Azure Functions as an output sink to Stream Analytics jobs.
+title: "Tutorial: Run Azure Functions with Azure Stream Analytics jobs"  | Microsoft Docs
+description: In this tutorial, you learn how to configure Azure Functions as an output sink to Stream Analytics jobs.
 keywords: data output, streaming data, Azure Function
 documentationcenter: ''
 services: stream-analytics
@@ -9,13 +9,12 @@ manager: kfile
 
 ms.assetid: 
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
+ms.custom: mvc
 ms.workload: data-services
 ms.date: 03/19/2018
 ms.author: sngun
-
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Tutorial: Run Azure Functions with Stream Analytics jobs 
@@ -30,6 +29,8 @@ In this tutorial, you learn how to:
 > * Create a Stream Analytics job
 > * Create an Azure function
 > * Configure Azure function as output to your job
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Configure a Stream Analytics job to run a function 
 
@@ -199,3 +200,12 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 In the Azure portal, when you try to reset the Max Batch Size/ Max Batch Count value to empty (default), the value changes back to the previously entered value upon save. Manually enter the default values for these fields in this case.
 
+## Clean up resources
+
+When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and re-start it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by using the following steps:
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.  
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
+> [!div class="nextstepaction"]
+> [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
