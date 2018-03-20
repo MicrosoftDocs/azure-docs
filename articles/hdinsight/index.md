@@ -14,7 +14,7 @@ ms.date: 12/05/2017
 ms.author: carolz
 ---
 
-#Azure HDInsight Documentation
+# Azure HDInsight Documentation
 
 Learn how to use Azure HDInsight to analyze streaming or historical data. Tutorials and other documentation show you how to create clusters, process and analyze big data, and develop solutions using the most popular open-source frameworks, like Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more. 
 
