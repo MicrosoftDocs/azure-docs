@@ -1,9 +1,9 @@
 ---
-title: Upload, encode, stream using Azure Media Services | Microsoft Docs
+title: Upload, encode, and stream using Azure Media Services | Microsoft Docs
 description: Follow the steps of this tutorial to upload a file and encode the video with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Juliako
 manager: cflower
 editor: ''
 
@@ -15,7 +15,7 @@ ms.date: 03/19/2018
 ms.author: juliako
 ---
 
-# Tutorial: Upload, encode, download, and stream videos
+# Tutorial: Upload, encode, and stream videos
 
 This tutorial shows you how to stream video files. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. The tutorial also shows you how to download your content, this is useful when you want to deliver offline content for playback on airplanes, trains, and automobiles. 
 
@@ -60,7 +60,7 @@ First, let's clone the [StreamAndEncodeFiles](https://github.com/Azure-Samples/m
 4. Build the solution. 
 4. To run the app and access the Media Services APIs, you need to specify the correct values in App.config. 
     
-    To get the values, see (create-account-cli-quickstart.md#access_api).
+    To get the values, see [Accessing APIs](access-api-cli-how-to.md).
 
 ## Create an input asset based on a local file
 

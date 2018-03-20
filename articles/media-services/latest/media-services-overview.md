@@ -3,7 +3,7 @@ title: Azure Media Services overview | Microsoft Docs
 description: This article provides a high-level overview of Media Services and provides links to articles for more details.
 services: media-services
 documentationcenter: na
-author: juliako
+author: Juliako
 manager: cfowler
 editor: ''
 tags: ''
@@ -20,7 +20,7 @@ ms.custom: mvc
 
 ---
 
-## What is Azure Media Services?
+# What is Azure Media Services?
 
 > [!NOTE]
 > The latest version of Azure Media Services (2018-03-30) is in preview. This version is also called v3.
@@ -81,9 +81,9 @@ Media Services provides [Swagger files](https://github.com/Azure/azure-rest-api-
 
 The following quickstart shows you how to create an Azure Media Services account, upload a file based on the specified URL, encode it, and stream the video: [Stream your files](stream-files-dotnet-quickstart.md)
 
-For a more advanced streaming scenario, see [Tutorial: Upload, encode, stream](stream-files-tutorial.md).
+For a more advanced streaming scenario, see [Tutorial: Upload, encode, and stream](stream-files-tutorial.md).
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Analyze your videos](analyze-videos-tutorial.md)

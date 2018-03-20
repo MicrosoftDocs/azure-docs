@@ -1,21 +1,21 @@
 ---
-title: Analyze videos using Azure Video Indexer | Microsoft Docs
+title: Analyze videos with Azure Media Services and Video Indexer | Microsoft Docs
 description: Follow the steps of this tutorial to analyze videos using Azure Video Indexer.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Juliako
 manager: cflower
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: tutorail
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
 ---
 
-# Tutorial: Analyze videos using Azure Video Indexer
+# Tutorial: Analyze videos with Azure Media Services and Video Indexer 
 
 > [!NOTE]
 > The latest version of Azure Media Services (2018-03-30) is in preview. This version is also called v3.
@@ -62,7 +62,7 @@ First, let's clone the [StreamAndEncodeFiles](https://github.com/Azure-Samples/m
 4. Build the solution. 
 4. To run the app and access the Media Services APIs, you need to specify the correct values in App.config. 
     
-    To get the values, see (create-account-cli-quickstart.md#access_api).
+    To get the values, see [Accessing APIs](access-api-cli-how-to.md).
 
 ## Create an input asset based on a local file
 

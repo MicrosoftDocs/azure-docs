@@ -3,7 +3,7 @@ title: Access the Azure Media Services API - CLI 2.0 | Microsoft Docs
 description: Follow the steps of this how-to to access the Azure Media Services API.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Juliako
 manager: cflower
 editor: ''
 
@@ -36,7 +36,7 @@ Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-## Create an Azure AP application and service principal
+## Create an Azure AD application and service principal
 
 Before running the script, please replace the following placeholders:
 

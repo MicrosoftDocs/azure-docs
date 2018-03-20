@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Assets in Azure Media Services | Microsoft Docs
-description: This article gives an explanation of what are assets and how they are used by Azure Media Services.
+description: This article gives an explanation of what assets are, and how they are used by Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -19,7 +19,7 @@ ms.author: juliako
 
 An **Asset** contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.
 
-This article gives an explanation of what are assets and how they are used by Azure Media Services.
+This article gives an explanation of what assets are, and how they are used by Azure Media Services.
 
 ## Overview
 

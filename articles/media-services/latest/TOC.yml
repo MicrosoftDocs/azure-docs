@@ -15,7 +15,7 @@
       href: stream-files-dotnet-quickstart.md
 - name: Tutorials
   items:
-  - name: Upload, encode, stream
+  - name: Upload, encode, and stream
     href: stream-files-tutorial.md
   - name: Analyze your video
     href: analyze-videos-tutorial.md
@@ -40,7 +40,7 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=media-services   
+    href: https://azure.microsoft.com/resources/samples/?service=media-services   
   - name: Azure PowerShell (Resource Manager)
     href: /powershell/module/azurerm.media
   - name: REST

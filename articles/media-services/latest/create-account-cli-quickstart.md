@@ -3,7 +3,7 @@ title: Create an Azure Media Services account - CLI 2.0 | Microsoft Docs
 description: Follow the steps of this quickstart to create an Azure Media Services account.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Juliako
 manager: cflower
 editor: ''
 

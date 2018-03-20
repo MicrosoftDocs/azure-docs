@@ -1,9 +1,9 @@
 ---
-title: Stream video files - .NET | Microsoft Docs
+title: Stream video files with Azure Media Services - .NET | Microsoft Docs
 description: Follow the steps of this quickstart to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Juliako
 manager: cflower
 editor: ''
 keywords: azure media services, stream
@@ -60,7 +60,7 @@ First, let's clone the [StreamAndEncodeFiles](https://github.com/azure-samples/m
 4. Build the solution. 
 4. To run the app and access the Media Services APIs, you need to specify the correct values in App.config. 
     
-    To get the values, see (create-account-cli-quickstart.md#access_api).
+    To get the values, see [Accessing APIs](access-api-cli-how-to.md).
 
 ## Examine the downloaded code
 
@@ -147,7 +147,7 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string transformN
 }
 ```
 
-### Poll for encoding status. 
+### Poll for encoding status
 
 The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the job completion. The simplest option (that is shown here) is to use polling. 
 
