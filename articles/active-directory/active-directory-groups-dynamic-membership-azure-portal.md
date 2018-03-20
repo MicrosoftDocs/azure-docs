@@ -105,11 +105,11 @@ All Operators are listed below per precedence from lower to higher. Operators on
 All operators can be used with or without the hyphen prefix. Parentheses are needed only when precedence does not meet your requirements.
 For example:
 ```
-   user.department –eq "Marketing" –and user.country –eq "US"
+   user.department -eq "Marketing" -and user.country -eq "US"
 ```
 is equivalent to:
 ```
-   (user.department –eq "Marketing") –and (user.country –eq "US")
+   (user.department -eq "Marketing") -and (user.country -eq "US")
 ```
 ## Using the -In and -notIn operators
 

@@ -83,10 +83,6 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## Using the solution
 
->[!NOTE]
-> Please upgrade your Log Analytics to get the latest version of Azure SQL Analytics.
->
-
 When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases and Azure SQL elastic pools that the solution is connected to.
 
 ![Azure SQL Analytics tile](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
@@ -137,8 +133,6 @@ Through the Query duration and query waits perspectives, you can correlate the p
 ### Analyze data and create alerts
 
 You can easily create alerts with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use for alerting:
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *High DTU on Azure SQL Database*
