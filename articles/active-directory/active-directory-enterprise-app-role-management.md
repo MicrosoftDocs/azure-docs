@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
 
@@ -53,7 +53,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
+6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
 	a. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
 
@@ -94,37 +94,34 @@ If your application expects custom roles to be passed in SAML response, you need
 
 	> [!NOTE]
 	> Following is an example of appRoles object. 
-	> 
-	>	```
-	> {
-	> "appRoles": [
-	> {
-	>	"allowedMemberTypes": [
-	>	"User"
-	>	],
-	>	"description": "msiam_access",
-	>	"displayName": "msiam_access",
-	>	"id": "7dfd756e-8c27-4472-b2b7-38c17fc5de5e",
-	>	"isEnabled": true,
-	>	"origin": "Application",
-	>	"value": null
-	> },
-	> {
-	>	"allowedMemberTypes": [
-	>	"User"
-	>	],
-	>	"description": "teacher",
-	>	"displayName": "teacher",
-	>	"id": "6478ffd2-5dbd-4584-b2ce-137390b09b60",
-	>	"isEnabled": ,
-	>	"origin": "ServicePrincipal",
-	>	"value": "teacher"
-	> }
-	> ] 
-	> }
-	>
-	>	```
-
+	```
+	{
+	   "appRoles": [
+	{
+		"allowedMemberTypes": [
+		"User"
+		],
+		"description": "msiam_access",
+		"displayName": "msiam_access",
+		"id": "7dfd756e-8c27-4472-b2b7-38c17fc5de5e",
+		"isEnabled": true,
+		"origin": "Application",
+		"value": null
+	},
+	{
+		"allowedMemberTypes": [
+		"User"
+		],
+		"description": "teacher",
+		"displayName": "teacher",
+		"id": "6478ffd2-5dbd-4584-b2ce-137390b09b60",
+		"isEnabled": ,
+		"origin": "ServicePrincipal",
+		"value": "teacher"
+	}
+	] 
+	}	
+	```
 7. After the service principal is patched with more roles, we can assign users to the respective roles. This can be done by going to Portal and navigating to the respective app. Then, clicking on the **Users and Groups** tab on top. This process will list all the users or groups.
 
 	![Configure Single Sign-On Add](./media/active-directory-enterprise-app-role-management/userrole.png)
@@ -159,13 +156,13 @@ If your application expects custom roles to be passed in SAML response, you need
 	
 	e. Click **Ok**.
 
-10. To test your application in IDP initiated Single Sign on, log into the Access Panel (https://myapps.microsoft.com) and click on your application tile. In the SAML token you should see all the assigned roles for the user with the claim name you have given.
+10. To test your application in IDP initiated Single Sign on, log into the Access Panel (https://myapps.microsoft.com) and click on your application tile. In the SAML token, you should see all the assigned roles for the user with the claim name you have given.
 
 ## Update existing role
 
 1. To update an existing role, perform following steps -
 
-	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
+	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
 	b. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
 	
@@ -199,49 +196,49 @@ If your application expects custom roles to be passed in SAML response, you need
 		
 ## Delete existing role
 
-1. To delete an  existing role, perform following steps -
+To delete an  existing role, perform following steps:
 
-	a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) in another window.
+a. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
-	b. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
+b. Sign in to the Graph Explorer site using the global Admin/Co-admin credentials for your tenant.
 
-	c. Change the version to **beta** and fetch the list of service Principals from your tenant using following query:
+c. Change the version to **beta** and fetch the list of service Principals from your tenant using following query:
 	
-	`https://graph.microsoft.com/beta/servicePrincipals`
+`https://graph.microsoft.com/beta/servicePrincipals`
 	
-	If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+If you are using multiple directories, then you should follow this pattern `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 	
-	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
 	
-	d. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id**, which you have copied from Properties page and use following query to get to the respective Service Principal.
+d. From the list of service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. Search for the **Object id**, which you have copied from Properties page and use following query to get to the respective Service Principal.
 	 
-	`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 	
-	e. Extract the appRoles property from the service principal object.
+e. Extract the appRoles property from the service principal object.
 	
-	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
 
-	f. To delete the existing role, please follow below steps:
+f. To delete the existing role, please follow below steps:
 
-	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
+![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
 
-	Change the method from **GET** to **PATCH**.
+Change the method from **GET** to **PATCH**.
 
-	Copy the existing roles from the application and paste them in the **Request Body**.
+Copy the existing roles from the application and paste them in the **Request Body**.
 	
-	Set the **IsEnabled** value to **false** for the role which you want to delete
+Set the **IsEnabled** value to **false** for the role, which you want to delete
 
-	Click **Run Query**.
+Click **Run Query**.
 	
-	> [!NOTE] 
-	> Please make sure that you have **msiam_access** user role and the id is matching in the generated role.
+> [!NOTE] 
+> Please make sure that you have **msiam_access** user role and the id is matching in the generated role.
 	
-	g. After doing the above process, keep the method as **PATCH** and paste the remianing role content in the **Request Body** and click **Run Query**.
+g. After doing the above process, keep the method as **PATCH** and paste the remaining role content in the **Request Body** and click **Run Query**.
 	
-	![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchfinal.png)
+![Graph explorer dialog box](./media/active-directory-enterprise-app-role-management/graph-explorer-patchfinal.png)
 
-	h. After running the query the role will be deleted.	
-
+h. After running the query the role will be deleted.
+	
 > [!NOTE]
 > The role needs to be disabled first before it can be removed. 
 
