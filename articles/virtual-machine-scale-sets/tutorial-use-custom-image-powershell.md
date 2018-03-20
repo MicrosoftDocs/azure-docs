@@ -106,122 +106,19 @@ New-AzureRmImage -Image $image -ImageName "myImage" -ResourceGroupName "myResour
 
 
 ## Create a scale set from the custom VM image
-To get started with the scale set deployment, create the supporting network resources and scale set configuration objects as follows:
+Now create a scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) that uses the `-ImageName` parameter to define the custom VM image created in the previous step. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
 
 ```azurepowershell-interactive
-# Create a virtual network subnet
-$subnet = New-AzureRmVirtualNetworkSubnetConfig `
-  -Name "mySubnet" `
-  -AddressPrefix 10.0.0.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "myVnet" `
-  -Location "EastUS" `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $subnet
-
-# Create a public IP address
-$publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
-  -AllocationMethod Static `
-  -Name "myPublicIP"
-
-# Create a frontend and backend IP pool
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
-  -Name "myFrontEndPool" `
-  -PublicIpAddress $publicIP
-$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
-
-# Create a Network Address Translation (NAT) pool
-$inboundNATPool = New-AzureRmLoadBalancerInboundNatPoolConfig `
-  -Name "myRDPRule" `
-  -FrontendIpConfigurationId $frontendIP.Id `
-  -Protocol TCP `
-  -FrontendPortRangeStart 50001 `
-  -FrontendPortRangeEnd 50010 `
-  -BackendPort 3389
-
-# Create the load balancer
-$lb = New-AzureRmLoadBalancer `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "myLoadBalancer" `
-  -Location "EastUS" `
-  -FrontendIpConfiguration $frontendIP `
-  -BackendAddressPool $backendPool `
-  -InboundNatPool $inboundNATPool
-
-# Create a load balancer health probe on port 80
-Add-AzureRmLoadBalancerProbeConfig -Name "myHealthProbe" `
-  -LoadBalancer $lb `
-  -Protocol TCP `
-  -Port 80 `
-  -IntervalInSeconds 15 `
-  -ProbeCount 2
-
-# Create a load balancer rule to distribute traffic on port 80
-Add-AzureRmLoadBalancerRuleConfig `
-  -Name "myLoadBalancerRule" `
-  -LoadBalancer $lb `
-  -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
-  -BackendAddressPool $lb.BackendAddressPools[0] `
-  -Protocol TCP `
-  -FrontendPort 80 `
-  -BackendPort 80
-
-# Update the load balancer configuration
-Set-AzureRmLoadBalancer -LoadBalancer $lb
-
-# Create IP address configurations
-$ipConfig = New-AzureRmVmssIpConfig `
-  -Name "myIPConfig" `
-  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
-  -LoadBalancerInboundNatPoolsId $inboundNATPool.Id `
-  -SubnetId $vnet.Subnets[0].Id
-
-# Provide your own secure password for use with the VM instances
-$securePassword = "P@ssword!"
-$adminUsername = "azureuser"
-
-# Create a config object
-$vmssConfig = New-AzureRmVmssConfig `
-  -Location "EastUS" `
-  -SkuCapacity 2 `
-  -SkuName "Standard_DS2" `
-  -UpgradePolicyMode Automatic
-
-# Set up information for authenticating with the virtual machine
-Set-AzureRmVmssOsProfile $vmssConfig `
-  -AdminUsername $adminUsername `
-  -AdminPassword $securePassword `
-  -ComputerNamePrefix "myVM"
-
-# Attach the virtual network to the config object
-Add-AzureRmVmssNetworkInterfaceConfiguration `
-  -VirtualMachineScaleSet $vmssConfig `
-  -Name "network-config" `
-  -Primary $true `
-  -IPConfiguration $ipConfig
-```
-
-To use your custom image, create an object with [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage). Pass the image ID to a scale set storage profile with [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile). Finally, create your scale set with [New-AzureRmVmss](/powershell/module/AzureRM.Compute/New-AzureRmVmss):
-
-```azurepowershell-interactive
-# Get image object
-$image = Get-AzureRmImage `
-  -ResourceGroupName "myResourceGroup" `
-  -ImageName "myImage"
-
-# Create a storage profile that references the custom VM image ID
-Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferenceId $image.id -OsDiskOsType "Windows"
-
-# Create the scale set
 New-AzureRmVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
-  -VirtualMachineScaleSet $vmssConfig
+  -Location "EastUS" `
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicy "Automatic" `
+  -ImageName "myImage"
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
@@ -231,7 +128,9 @@ It takes a few minutes to create and configure all the scale set resources and V
 To see your scale set in action, get the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) as follows:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
+Get-AzureRmPublicIpAddress `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myPublicIPAddress" | Select IpAddress
 ```
 
 Type the public IP address into your web browser. The default IIS web page is displayed, as shown in the following example:
