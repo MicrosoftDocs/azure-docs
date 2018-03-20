@@ -190,16 +190,17 @@ In the legend, select the `HomeAutomation.TurnOff` intent. It has a green succes
 ![Batch results](./media/luis-tutorial-batch-testing/batch-result-1.png)
 
 ### HomeAutomation.TurnOn and None intents have errors
-The other two intents have errors, meaning the batch test predictions didn't match the batch file expectations. Select the `None` intent in the legend. 
+The other two intents have errors, meaning the test predictions didn't match the batch file expectations. Select the `None` intent in the legend to review the first error. 
 
 ![None intent](./media/luis-tutorial-batch-testing/none-intent-failures.png)
 
-The two intents (dots on the chart) in the left bottom panel, in red, are the failures. Select **False Negative** in the chart to see the failed utterances. 
+Failures appear on the chart in the red sections: **False Positive** and **False Negative**. Select the **False Negative** section name in the chart to see the failed utterances below the chart. 
 
 ![False negative failures](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
 
-The two failing utterances should have been labeled as `None` intent but were instead labeled `HomeAutomation.TurnOn` intent. Because of this failure, both intents'
-expectations (HomeAutomation.TurnOn and None) failed.
+The failing utterance, `help` was expected as a `None` intent but the test predicted `HomeAutomation.TurnOn` intent.  
+
+There are two failures, one in HomeAutomation.TurnOn, and one in None. Both were caused by the utterance `help` because it failed to meet the expectation in None and it was an unexpected match for the HomeAutomation.TurnOn intent. 
 
 To determine why the `None` utterances are failing, review the utterances currently in `None`. 
 
@@ -222,7 +223,7 @@ To determine why the `None` utterances are failing, review the utterances curren
 
 ## Fix None intent's utterances
     
-Any utterances in `None` are supposed to be outside of the app domain, but these utterances are relative to HomeAutomation, so they are in the wrong intent. 
+Any utterances in `None` are supposed to be outside of the app domain. These utterances are relative to HomeAutomation, so they are in the wrong intent. 
 
 LUIS also gives the utterances less than 50% (<.50) prediction score. If you look at the utterances in the other two intents, you will see much higher prediction scores. When LUIS has low scores for example utterances, that is a good indication the utterances are confusing to LUIS between the current intent and other intents. 
 
@@ -235,21 +236,15 @@ This is just one solution. You could also create a new intent of `ChangeSetting`
 ## Fix the app based on batch results
 Move the four utterances to the `HomeAutomation.TurnOn` intent. 
 
-1. To fix the app so the batch is successful, exit the batch test panel by selecting **Test** in the top navigation panel. 
+1. Select the checkbox above the utterance list so all utterances are selected. 
 
-2. Select **Intents** in the left navigation panel. 
-
-3. Select the `None` intent.  
-
-4. Select the checkbox above the utterance list so all utterances are selected. 
-
-5. In the **Reassign intent** drop-down, select `HomeAutomation.TurnOn`. 
+2. In the **Reassign intent** drop-down, select `HomeAutomation.TurnOn`. 
 
     ![Move utterances](./media/luis-tutorial-batch-testing/move-utterances.png)
 
     After the four utterances are reassigned, the utterance list for the `None` intent is empty.
 
-6. Add four new intents for the None intent:
+3. Add four new intents for the None intent:
 
     ```
     "fish"
@@ -264,7 +259,7 @@ Move the four utterances to the `HomeAutomation.TurnOn` intent.
 
 8. Select **Train** in the top right navigation bar. The score of each utterance is much higher. All scores for the `None` intent should be above .80 now. 
 
-## Verify the fix
+## Verify the fix worked
 In order to verify that the utterances in the batch test are correctly predicted for the **None** intent, run the batch test again.
 
 1. Select **Test** in the top navigation bar. 
@@ -279,13 +274,15 @@ In order to verify that the utterances in the batch test are correctly predicted
 
     ![Run dataset](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
 
-
+<!--
     The Entities section of the legend may have errors. That is the next thing to fix.
 
-## Create a batch testing with entities
+## Create a batch to test entity detection
 1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
 
-2. Copy the following JSON intto the file. These utterances have entities identified with `startPos` and `endPost`. These two elements identify the entity before [tokenization](luis-glossary.md#token), which happens in some [cultures](luis-supported-languages.md#tokenization) in LUIS. If you plan to batch test in a tokenized culture, learn how to [extract](luis-concept-data-extraction.md#tokenized-entity-returned) the non-tokenized entities. 
+2. Utterances have entities identified with `startPos` and `endPost`. These two elements identify the entity before [tokenization](luis-glossary.md#token), which happens in some [cultures](luis-supported-languages.md#tokenization) in LUIS. If you plan to batch test in a tokenized culture, learn how to [extract](luis-concept-data-extraction.md#tokenized-entity-returned) the non-tokenized entities.
+
+    Copy the following JSON into the file:
 
     ```JSON
     [
@@ -345,8 +342,6 @@ In order to verify that the utterances in the batch test are correctly predicted
         }
       ]
     ```
-    
-    Review the JSON to understand the test expects entities to be detected in some of the utterances. The entities are marked with startPos and endPos values. 
 
 3. Import the batch file, following the [same instructions](#run-the-batch) as the first import, and name the dataset `set 2`. Run the test.
 
@@ -357,6 +352,7 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 
 ## Review entity errors
 1. Select `HomeAutomation.Device` in the filter panel. The chart changes to show a single false positive and several true negatives. 
+
 2. Select the False positive section name. The utterance for this chart point is displayed below the chart. The labeled intent and the predicted intent are the same, which is consistent with the test -- the intent prediction is correct. 
 
     The issue is that the HomeAutomation.Device was detected but the batch expected HomeAutomation.Room for the utterance "coffee bar off please". `Coffee bar` could be a room or a device, depending on the environment and context. As the model designer, you can either enforce the selection as `HomeAutomation.Room` or change the batch file to use `HomeAutomation.Device`. 
@@ -379,7 +375,7 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 5. Select **See results** to review the test results.
 
 6. 
-
+-->
 ## Next steps
 
 > [!div class="nextstepaction"]
