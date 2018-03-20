@@ -116,13 +116,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     **RelayState**:
     
-    -For GoToMeeting App, use `https://global.gotomeeting.com`
+    - For GoToMeeting App, use `https://global.gotomeeting.com`
     
-    -For GoToTraining, use `https://global.gototraining.com`
+    - For GoToTraining, use `https://global.gototraining.com`
     
-    -For GoToWebinar, use `https://global.gotowebinar.com` 
+    - For GoToWebinar, use `https://global.gotowebinar.com` 
     
-    -For GoToAssist, use `https://app.gotoassist.com`
+    - For GoToAssist, use `https://app.gotoassist.com`
     
 5. Click **Save** button.
 
