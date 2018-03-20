@@ -145,6 +145,9 @@ No.
 ## What are the LUIS best practices? 
 Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the [best practices](luis-concept-best-practices.md). 
 
+## My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it? 
+Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in the next FAQ to create a LUIS endpoint key and assign it to the app. 
+
 ## How do I create and assign a LUIS endpoint key?
 [Create the endpoint key](azureibizasubscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action.
 
@@ -153,9 +156,6 @@ Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the [
 
 ## Why does LUIS add spaces to the query around or in the middle of words?
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).  
-
-## My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it? 
-Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) to create a LUIS endpoint key and assign it to the app. 
 
 ## Next steps
 
