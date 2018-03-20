@@ -1,8 +1,8 @@
 ﻿---
-title: Enable MFA for all administrators    
+title: Enable MFA for all Azure administrators    
 description: Guidance for enabling global admin
 ms.service: security
-author: TomSh
+author: barclayn
 manager: mbaldwin
 editor: TomSh
 ms.topic: article
