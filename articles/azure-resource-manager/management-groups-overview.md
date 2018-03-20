@@ -43,7 +43,7 @@ By creating a hierarchy that is grouped by departments, you are able to assign [
 ### Preview subscription visibility limitation 
 There is currently a limitation within the preview where you are not able to view subscriptions that you have inherited access to. The access is inherited to the subscription, but the Azure Resource Manager is not able to honor the inheritance access yet.  
 
-Using the REST API to get information on the subscription returns details as you do have access, but within the Azure Portal and Azure Powershell the subscriptions do not show. 
+Using the REST API to get information on the subscription returns details as you do have access, but within the Azure portal and Azure Powershell the subscriptions do not show. 
 
 This item is being worked on and will be resolved prior to Management Groups being announced as "General Availability."  
 
