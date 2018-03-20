@@ -168,7 +168,7 @@ In **Type**, click **AzureDiagnostics**, and then click **Apply**. AzureDiagnost
 
 Click **EventClass\_s** or one of the event names and Log Analytics continues constructing a query. Be sure to save your queries to reuse later.
 
-Be sure to see Log Analytics, which provides a website with enhanced query, dashboarding, and alerting capabilities on selected data.
+Be sure to see Log Analytics, which provides a website with enhanced query, dashboarding, and alerting capabilities on collected data.
 
 ### Queries
 
