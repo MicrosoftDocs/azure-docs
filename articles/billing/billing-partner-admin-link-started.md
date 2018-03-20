@@ -21,11 +21,11 @@ This feature is available in a public preview.
 ## Before you link 
 Before you link partner ID, you need to get access from the customer using one of the following:
 
-- **Guest User:** Customer can add you as a guest user and assign any RBAC role.See [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) for information.
+- **Guest User:** Customer can add you as a guest user and assign any RBAC role. See [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) for information.
 
 - **Directory account:**  Customer can create a new user from your organization in their directory and assign any RBAC role. 
 
-- **Service Principal:**  The customer can add an app or script from your orgnization in their directory and assign any RBAC role.The identity of the app or script is known as Service Principal. 
+- **Service Principal:**  The customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as Service Principal. 
 
 Once you have access to customer resources, you can use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to  user ID or Service Principal. 
 
@@ -112,7 +112,7 @@ Any user from partner organization who is working with customers can link a part
 
 Yes, partner ID linked can be changed, added, removed as many times as the partner wishes.
 
-**What if an user has credentials in multiple customer tenants?**
+**What if a user has credentials in multiple customer tenants?**
 
 The link between the Partner ID and the credentials is done per customer tenant.  You can associate and Partner ID to the user in each customer tenant.
 
