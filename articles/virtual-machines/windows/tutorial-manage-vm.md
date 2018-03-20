@@ -87,7 +87,7 @@ Use the following command, on your local machine, to create a remote desktop ses
 mstsc /v:<publicIpAddress>
 ```
 
-In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the credentials for an account on the virtual machine and then click **OK**.
+In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username and password you created for the for the virtual machine and then click **OK**.
 
 ## Understand VM images
 
