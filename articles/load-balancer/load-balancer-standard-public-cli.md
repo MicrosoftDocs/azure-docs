@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2017
+ms.date: 03/20/2017
 ms.author: kumud
 ---
 # Create a public load balancer to load balance VMS using Azure CLI 2.0
@@ -245,7 +245,7 @@ To get the public IP address of the load balancer, use [az network public-ip sho
     --query [ipAddress] \
     --output tsv
 ``` 
-![Test load balancer](./media/load-balancer-get-started-internet-arm-cli/running-nodejs-app.png)
+   ![Test load balancer](./media/load-balancer-standard-public-cli/running-nodejs-app.png)
 
 ## Clean up resources
 
@@ -254,7 +254,6 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az_gro
 ```azurecli-interactive 
   az group delete --name myResourceGroupLB
 ```
+## Next step
+Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
 
-
-## Next steps
-In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the Standard Load Balancer. To learn more about load balancers and their associated resources, continue to the how-to articles.
