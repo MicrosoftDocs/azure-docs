@@ -128,7 +128,7 @@ First, run the **SampleSender** application and observe 100 messages being sent.
 
 ![][3]
 
-Then, run the **SampleEphReceiver** app, and observe the messages being received into the Event Processor Host.
+Then, run the **SampleEphReceiver** app, and observe the messages being received.
 
 ![][4]
 
