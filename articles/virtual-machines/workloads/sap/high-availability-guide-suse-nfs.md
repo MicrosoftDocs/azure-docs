@@ -82,9 +82,8 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-nfs/ha-suse-nfs.png)
 
-The NFS server uses a dedicated virtual hostname and virtual IP addresses for every SAP system that uses this NFS server. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer.
+The NFS server uses a dedicated virtual hostname and virtual IP addresses for every SAP system that uses this NFS server. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer.        
 
-### NFS Server
 * Frontend configuration
   * IP address 10.0.0.4 for NW1
   * IP address 10.0.0.5 for NW2
@@ -101,7 +100,9 @@ The NFS server uses a dedicated virtual hostname and virtual IP addresses for ev
 
 ## Setting up a highly available NFS server
 
-### Deploying Linux
+You can either use a Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
+
+### Deploying Linux via Azure Template
 
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines.
 You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
@@ -119,6 +120,67 @@ Follow these steps to deploy the template:
       A new user is created that can be used to log on to the machine.
    5. Subnet ID  
       The ID of the subnet to which the virtual machines should be connected to. Leave empty if you want to create a new virtual network or select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
+
+### Deploying Linux manually via Azure portal
+
+You first need to create the virtual machines for this NFS cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+
+1. Create a Resource Group
+1. Create a Virtual Network
+1. Create an Availability Set  
+   Set max update domain
+1. Create Virtual Machine 1   
+   Use at least SLES4SAP 12 SP1, in this example the SLES4SAP 12 SP1 BYOS image
+   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   SLES For SAP Applications 12 SP1 (BYOS) is used  
+   Select Availability Set created earlier  
+1. Create Virtual Machine 2   
+   Use at least SLES4SAP 12 SP1, in this example the SLES4SAP 12 SP1 BYOS image
+   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   SLES For SAP Applications 12 SP1 (BYOS) is used  
+   Select Availability Set created earlier  
+1. Create a Load Balancer (internal)  
+   1. Create the frontend IP addresses
+      1. IP address 10.0.0.4 for NW1
+         1. Open the load balancer, select frontend IP pool, and click Add
+         1. Enter the name of the new frontend IP pool (for example **nw1-frontend**)
+         1. Set the Assignement to Static and enter the IP address (for example **10.0.0.4**)
+         1. Click OK         
+      1. IP address 10.0.0.5 for NW2
+         * Repeat the steps above for NW2
+   1. Create the backend pools
+      1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster for NW1
+         1. Open the load balancer, select backend pools, and click Add
+         1. Enter the name of the new backend pool (for example **nw1-backend**)
+         1. Click Add a virtual machine
+         1. Select the Availability Set you created earlier
+         1. Select the virtual machines of the NFS cluster
+         1. Click OK
+      1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster for NW2
+         * Repeat the steps above to create a backend pool for NW2
+   1. Create the health probes
+      1. Port 61000 for NW1
+         1. Open the load balancer, select health probes, and click Add
+         1. Enter the name of the new health probe (for example **nw1-hp**)
+         1. Select TCP as protocol, port 610**00**, keep Interval 5 and Unhealthy threshold 2
+         1. Click OK
+      1. Port 61001 for NW2
+         * Repeat the steps above to create a health probe for NW2
+   1. Loadbalancing rules
+      1. 2049 TCP for NW1
+         1. Open the load balancer, select load balancing rules and click Add
+         1. Enter the name of the new load balancer rule (for example **nw1-lb-2049**)
+         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**)
+         1. Keep protocol **TCP**, enter port **2049**
+         1. Increase idle timeout to 30 minutes
+         1. **Make sure to enable Floating IP**
+         1. Click OK    
+      1. 2049 UDP for NW1
+         * Repeat the steps above for port 2049 and UDP for NW1
+      1. 2049 TCP for NW2
+         * Repeat the steps above for port 2049 and TCP for NW2
+      1. 2049 UDP for NW2
+         * Repeat the steps above for port 2049 and UDP for NW2
 
 ### Create Pacemaker cluster
 
