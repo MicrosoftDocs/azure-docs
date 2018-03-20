@@ -61,15 +61,15 @@ The marketplace storefronts are aligned to audiences and Microsoft cloud product
 
 |          |Azure Marketplace |AppSource  |
 |---------|---------|---------|
-|Target audience     |IT pros and developers (specialist roles include DBAs, SecOps, DevOps)    | Line-of-business decision makers (specialist roles include Procurement, Manufacturing, Accounting)      |
-|Built with or to extend     |Azure         | Azure, Dynamics 365, Office 365, Power BI, and PowerApps       |
-|Types of solutions and services     |  Infrastructure solutions and professional services   | Finished line-of-business cloud applications, Office 365 add-ins, and professional services        |
-|Publishing options     |  Contact Me, Consulting Services Offer, Trial, Virtual Machine, Solution Templates, and Managed Apps       |  Free Trial, Get Now, Test Drive, Contact Me, Consulting Services Offer      |
+|Target audience     |IT pros and developers (specialist roles include DBAs, SecOps, DevOps)    | Line-of-business decision makers (specialist roles include procurement, manufacturing, accounting)      |
+|Built with or to extend     |Azure         | Azure, Dynamics 365, Office 365, Power BI, PowerApps       |
+|Types of solutions and services     |  Infrastructure solutions, professional services   | Finished line-of-business cloud applications, Office 365 add-ins, professional services        |
+|Publishing options     |  Contact Me, Consulting Services offer, trial, virtual machine, solution template, managed app       |  Free trial, Get Now, test drive, Contact Me, Consulting Services offer      |
 |In-app experience to give users access to apps and services in the context of their application  | Azure portal and Azure CLI         | Office 365, Dynamics 365, Power BI, Office client apps       |
 
 ## Using the storefronts
 
-Each storefront serves unique customer needs and enables targeting by role so you can offer the right solution or service based on who your customer is.
+Each storefront serves unique customer needs. It enables targeting by role, so you can offer the right solution or service based on who your customer is.
 
 Engage IT pros and cloud developers through the Azure Marketplace to discover, try, and buy IaaS, SaaS, and PaaS solutions:
 
@@ -86,47 +86,44 @@ Engage business users on AppSource to find, try, and get line-of-business SaaS a
 
 |Customer need  |AppSource  |
 |---------|---------|
-|**Looking for business solutions that work with Microsoft products they already use** | Enables customers to use third-party applications and services to extend Microsoft cloud applications and technologies       |
+|**Business solutions that work with Microsoft products they already use** | Enables customers to use third-party applications and services to extend Microsoft cloud applications and technologies       |
 |**Ability to easily find the right solution or implementation service.**    |   Provides a one-stop shop to discover, try, and get applications and services, add-ins, and more      |
 |**Industry-specific line-of-business solutions to address their specific business challenges**   | Provides finished end-to-end industry solutions to help address specific requirements across many industries     |
 |**Apps to help improve productivity, efficiency, and business insights**    | Provides apps for lines of business, including customer service, HR, operations, and many more        |
-| **Experienced implementation partner to help adapt apps to their unique situation** | Provides a catalog of consulting service offerings for solutions based on Dynamics 365, Power BI, PowerApps, and 3rd party apps are to help business users deliver predictable outcomes |
+| **Experienced implementation partner to help adapt apps to their unique situation** | Provides a catalog of Consulting Services offerings for solutions based on Dynamics 365, Power BI, PowerApps, and third-party apps to help business users deliver predictable outcomes |
 
 ## Understanding the differences between storefronts
 
-Choosing a storefront starts with identifying the target audience for your offer. The Azure Marketplace is aligned to the needs of IT pros and developers, and AppSource is aligned to the needs of business users. If your solution targets both audiences, you need to publish only once to list in both storefronts.
+Choosing a storefront starts with identifying the target audience for your offer. The Azure Marketplace is aligned to the needs of IT pros and developers. AppSource is aligned to the needs of business users. If your solution targets both audiences, you need to publish only once to list in both storefronts.
  
 Consider the additional benefits of each storefront:
 
 |Storefront benefit  |Azure Marketplace  |AppSource   |
 |---------|---------|---------|
-|**Billing flexibility**    | For virtual machines, Pay-As-You-Go billing options use Microsoft Enterprise Agreements (EAs) or web direct sales models. Pricing options also include a Free Tier subscription where an offering is perpetually free. They also include a Try It Now subscription that is promotionally free for a limited period, after which it's converted to a paid subscription. Bring Your Own License activation is also an option for supporting publishers. For both billing options, in scenarios where virtual machines are deployed using Azure apps (for example, solution template or managed app), all Azure resources provisioned are billed directly to the customer. | AppSource offers provisioning of a trial experience but does not currently offer a commerce-enabled publishing option. This enables you to use your current ordering and billing infrastructure with no additional investment or changes.        |
-|**Facilitation of connections with other partners**     |Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer, but will launch this functionality in 2018.         |  Independent software vendors, systems integrators, and managed service providers can be linked for specific implementation scenarios, supporting collaborative selling to new customers.      |
-|**Automation**     |    Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer.     | Take advantage of automated SaaS with add-in provisioning and use solution templates to automate SaaS-based data collection and deployment scenarios.        |Independent software vendors, systems integrators, and managed service providers can be linked for specific implementation scenarios, supporting collaborative selling to new customers.
+|**Billing flexibility**    | For virtual machines, Pay-As-You-Go billing options use Microsoft Enterprise Agreements (EAs) or web direct sales models. Pricing options also include a Free Tier subscription where an offering is perpetually free. They also include a Try It Now subscription that is promotionally free for a limited period, after which it's converted to a paid subscription. Bring Your Own License activation is also an option for supporting publishers. <br><br>For both billing options, in scenarios where virtual machines are deployed via Azure apps (for example, a solution template or managed app), all provisioned Azure resources are billed directly to the customer. | AppSource offers provisioning of a trial experience but does not currently offer a commerce-enabled publishing option. You can use your current ordering and billing infrastructure with no additional investment or changes.        |
+|**Facilitation of connections with other partners**     |Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer, but will launch this functionality in 2018.         |  Independent software vendors, systems integrators, and managed service providers can be linked for specific implementation scenarios. This ability supports collaborative selling to new customers.      |
+|**Automation**     |    Azure Marketplace does not currently allow the publisher to link a service provider or delivery partners to the offer.     | Take advantage of automated SaaS with add-in provisioning. Use solution templates to automate SaaS-based data collection and deployment scenarios.        |Independent software vendors, systems integrators, and managed service providers can be linked for specific implementation scenarios, supporting collaborative selling to new customers.
 |**Multiple cloud types**     |   Publish both public cloud and on-premises solutions through Azure Stack, or publish to Azure Government and regional clouds, including China and Germany.      |    AppSource does not currently offer support for Azure Stack, Azure Government, or regional clouds.     |
 |**In-context presentation to customers**     |  Make your solution available in the Azure in-portal experience for contextual search (virtual machines and solution templates).       |  Reach more customers through the in-app experience for Microsoft products such as Dynamics 365, Power BI, and Office 365.    |
 
 ## Publishing options
 
-Each storefront supports multiple publishing options and offer types: list, trial, and transaction. Select an offer type that best represents your application and service details. All publishing options will give partners access to lead sharing. 
-
-This section walks you through the options available to you in both storefronts. 
-
+Each storefront supports multiple publishing options and offer types. Select an offer type that best represents your application and service details. All publishing options will give partners access to lead sharing. 
 
 |**Publishing option**  | **Offer type** | **Storefront**  |
 |---------|---------|---------|
 |**List**    |    Contact Me, Consulting Services     |  Azure Marketplace, AppSource       |
-|**Trial**   |     Free Trial, SaaS Trial, Interactive Demo, Test Drive    |  Azure Marketplace, AppSource       |
-|**Transaction**     |   Virtual Machine, Solution Template, Managed Application      |    Azure Marketplace     |
+|**Trial**   |     Free trial, SaaS trial, interactive demo, test drive    |  Azure Marketplace, AppSource       |
+|**Transaction**     |   Virtual machine, solution template, managed application      |    Azure Marketplace     |
 
 ### List
 
-Use **Contact Me** when a trial-level or transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be nurtured into the foundational deals to start your business flywheel. However, the drawback is that customer engagement is limited, as compared with other offer types.
+Use Contact Me when trial-level or transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with an in-market solution to immediately begin receiving leads that can be nurtured into the foundational deals to start your business flywheel. However, the drawback is that customer engagement is limited, as compared with other offer types.
 
 >[!IMPORTANT]
->Contact Me is not a recommended listing type. You should use it only in situations where there is no way to establish a trial experience. Customer engagement is best with trial and transaction offers. If you have any type of trial experience, our onboarding process will guide you to one of those options, depending on your scenario.
+>We don't recommend the Contact Me listing type. You should use it only in situations where there is no way to establish a trial experience. Customer engagement is best with trial and transaction offers. If you have any type of trial experience, our onboarding process will guide you to one of those options, depending on your scenario.
 
-When the offer consists primarily of professional services (for example, assessments, implementations, workshops), use the **Consulting Services** offer type. Offer scope, duration, and price must be fixed, must be for a single customer, and must be conducted on site.
+When the offer consists primarily of professional services (for example, assessments, implementations, workshops), use the Consulting Services offer type. Offer scope, duration, and price must be fixed, must be for a single customer, and must be conducted on site.
 
 ### Trial
 
@@ -139,18 +136,18 @@ There are four typical trial scenarios:
 
 |**Trial option**  |**Key benefits**  |**Choose this option if...**  |
 |---------|---------|---------|
-|**Free trial**    |     Enables a customer to try your product before they buy with an automatic method to convert to paid. Also enables proofs of concept for the customer and joint engagement with Microsoft sales teams. |     Your solution is a virtual machine or solution template.<br> Your solution is an SaaS offering and you offer a multitenant SaaS product. <br>You have a first-run experience to get a customer up and running quickly. <br>You have a single tenant but are adding customers as guest users.|
-**Test drive**     |     Enables a customer to try your product before they buy AND provides a guided experience of your solution on a pre-configured setup |   Your solution is a virtual machine, solution template, or SaaS app with single tenant, or is complicated to provision. <br>You do not have a method to convert your trial to paid offer. |
-|**Interactive demo**    |  Allows customers to see your product in action without the complexity of setup       |    Your solution requires complex setup that would be difficult to achieve in the trial period.     |
+|**Free trial**    |     Enables a customer to try your product before they buy with an automatic method to convert to paid use. Also enables proofs of concept for the customer and joint engagement with Microsoft sales teams. |     Your solution is a virtual machine or solution template.<br><br> Your solution is an SaaS offering and you offer a multitenant SaaS product. <br><br>You have a first-run experience to get a customer up and running quickly. <br><br>You have a single tenant but are adding customers as guest users.|
+**Test drive**     |     Enables a customer to try your product before they buy. Also provides a guided experience of your solution on a pre-configured setup. |   Your solution is a virtual machine, solution template, or SaaS app with a single tenant, or is complicated to provision. <br><br>You don't have a method to convert your trial to a paid offer. |
+|**Interactive demo**    |  Allows customers to see your product in action without the complexity of setup.       |    Your solution requires complex setup that would be hard to achieve in the trial period.     |
 
 
 #### Free trial
 
-Use a *free trial* when the solution or app offers a free-to-try, SaaS-based trial. This option drives high-quality leads from interested customers, helping you start your business flywheel. Free trials can be presented as limited-use or limited-duration trial accounts. They should include a call to action for accelerating conversion to paid use of your software.
+Use a free trial when the solution or app offers a free-to-try, SaaS-based trial. This option drives high-quality leads from interested customers, to help you start your business flywheel. Free trials can be presented as limited-use or limited-duration trial accounts. They should include a call to action for accelerating conversion to paid use of your software.
 
 #### Test drive
 
-Use a *test drive* when the solution is deployed via one or more virtual machines via IaaS or SaaS apps. The benefit of this approach is the automated provisioning of a virtual appliance or entire solution environment couched in a partner-hosted "guided tour" of the solution for customer evaluation at no additional cost to the customer. The customer does not need to be an existing Azure customer, helping to generate higher-quality leads.
+Use a test drive when the solution is deployed via one or more virtual machines through IaaS or SaaS apps. The benefit of this approach is the automated provisioning of a virtual appliance or entire solution environment couched in a partner-hosted "guided tour" of the solution for customer evaluation at no additional cost to the customer. The customer does not need to be an existing Azure customer, to help generate higher-quality leads.
 
 There are additional benefits to a test drive:
 
@@ -161,25 +158,25 @@ There are additional benefits to a test drive:
 
 #### Interactive demo
 
-Take your customers through a guided experience of your product with an *interactive demo*. The benefit of this option is that you can provide a trial experience without complicated provisioning for complex solutions. This option provides a customer with a look around the solution. And it enables the publisher to begin receiving leads that can be nurtured into foundational deals to start your business flywheel. 
+Take your customers through a guided experience of your product by using an interactive demo. The benefit of this option is that you can provide a trial experience without complicated provisioning for complex solutions. This option provides customers with a look around the solution. And it enables publishers to begin receiving leads that can be nurtured into foundational deals to start your business flywheel. 
 
 ### Transaction
 
-In the Azure Marketplace, use a *virtual machine* when the solution is deployed as a virtual appliance to the customer's subscription. Virtual machines are fully commerce enabled via Pay-As-You-Go or BYOL-enabled licensing models. Microsoft hosts the commerce transaction and bills the customer on behalf of the publisher. Publishers get the benefit of leveraging the customer's preferred payment relationship with Microsoft, including the Enterprise Agreement. 
+In the Azure Marketplace, use a *virtual machine* when the solution is deployed as a virtual appliance to the customer's subscription. Virtual machines are fully commerce enabled via Pay-As-You-Go or BYOL-enabled licensing models. Microsoft hosts the commerce transaction and bills the customer on behalf of the publisher. The publisher gets the benefit of leveraging the customer's preferred payment relationship with Microsoft, including the Enterprise Agreement. 
 
 >[!NOTE]
 >At this time, an Enterprise Agreement's monetary commitments can be used against the virtual appliance's Azure usage, but not against the publisher's software license fees.
 
-Use an *Azure Solution Template* when a solution requires additional deployment and configuration automation beyond the virtual appliance. Solution templates can automate the provisioning of one or more virtual machine resources and can provision networking and storage resources. Solution templates can provide automation benefits on single virtual machines and on entire IaaS-based solution environments. Learn more about building solution templates in [GitHub](https://github.com/MicrosoftDocs/azure-docs).
+Use an *Azure solution template* when a solution requires additional deployment and configuration automation beyond the virtual appliance. Solution templates can automate the provisioning of one or more virtual machine resources and can provision networking and storage resources. Solution templates can provide automation benefits on single virtual machines and on entire IaaS-based solution environments. Learn more about building solution templates in [GitHub](https://github.com/MicrosoftDocs/azure-docs).
 
-Use an *Azure managed app* when you're deploying either a virtual machine or an entire IaaS-based solution to a customer's subscription--and the publisher or customer wants the solution to be managed by a third party (for example, an SI or MSP). Learn more about building managed apps in [Azure managed applications overview](https://docs.microsoft.com/azure/managed-applications/overview). For a list of commonly asked questions, see the [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
+Use an *Azure managed app* when you're deploying either a virtual machine or an entire IaaS-based solution to a customer's subscription--and the publisher or customer wants the solution to be managed by a third party (for example, an SI or MSP). Learn more about building managed apps in [Azure managed applications overview](https://docs.microsoft.com/azure/managed-applications/overview). For a list of commonly asked questions, see [Marketplace FAQs](https://azure.microsoft.com/marketplace/faq/).
 
 >[!NOTE]
 > Managed apps must be deployable through the Marketplace. If customer communication is a concern, note that you can reach out to interested customers if you have lead sharing enabled.
 
 ### Azure Certified program
 
-All virtual machines published in the Azure Marketplace are tested for the *Azure Certified* program. The program:
+All virtual machines published in the Azure Marketplace are tested for the Azure Certified program. The program:
 
 - Assures customers that your virtual machine is compatible with the Azure platform and the Marketplace selling model.
 - Tests for online image safety compliance, including viruses and malware.
@@ -191,9 +188,9 @@ There are no fees for participating in the Marketplace. There is no revenue shar
 
 #### Pay-As-You-Go and Bring Your Own License billing options
 
-When you use a Pay-As-You-Go transaction as a publishing option, your usage-based software licensing revenue is shared 80%/20% between you and Microsoft, respectively. A single offer can be priced at both Pay-As-You-Go and Bring Your Own License billing models, and can coexist at the offer level as separate SKUs. This can be configured in your offer in the Cloud Partner Portal.
+When you use a Pay-As-You-Go transaction as a publishing option, your usage-based software licensing revenue is shared 80%/20% between you and Microsoft, respectively. A single offer can be priced at both Pay-As-You-Go and Bring Your Own License billing models, and can coexist at the offer level as separate SKUs. You can configure this in your offer in the Cloud Partner Portal.
 
-Consider this example:
+Consider the following example.
 
 If you enable Pay-As-You-Go as an option:
 
