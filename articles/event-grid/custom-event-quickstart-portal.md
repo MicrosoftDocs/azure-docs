@@ -11,10 +11,10 @@ ms.service: event-grid
 ---
 # Create and route custom events with the Azure portal and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using third-party tools from either [RequestBin](https://requestb.in/) or [Hookbin](https://hookbin.com/).
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using a third-party tool from [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** and **Hookbin** aren't intended for high throughput usage. The use of these tools is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
+>**Hookbin** isn't intended for high throughput usage. The use of this tool is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
 
 When you're finished, you see that the event data has been sent to an endpoint.
 
@@ -62,7 +62,7 @@ An event grid topic provides a user-defined endpoint that you post your events t
 
 ## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. RequestBin and Hookbin are third-party tools that enable you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**, or go to [Hookbin](https://hookbin.com/) and click **Create New Endpoint**.  Copy the bin URL, because you need it when subscribing to the topic.
+Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. Hookbin is a third-party tools that enables you to create an endpoint, and view requests that are sent to it. Go to [Hookbin](https://hookbin.com/) and click **Create New Endpoint**.  Copy the bin URL, because you need it when subscribing to the topic.
 
 ## Subscribe to a topic
 
@@ -80,7 +80,7 @@ You subscribe to a topic to tell Event Grid which events you want to track.
 
    ![Add event grid subscription](./media/custom-event-quickstart-portal/add-event-subscription.png)
 
-1. Provide a unique name for your event subscription. For the topic type, select **Event Grid Topics**. For the instance, select the custom topic you created. Provide the URL from RequestBin or Hookbin as the endpoint for event notification. The endpoint must use `https:`. When finished providing values, select **Create**.
+1. Provide a unique name for your event subscription. For the topic type, select **Event Grid Topics**. For the instance, select the custom topic you created. Provide the URL from Hookbin as the endpoint for event notification. The endpoint must use `https:`. When finished providing values, select **Create**.
 
    ![Provide event grid subscription value](./media/custom-event-quickstart-portal/create-event-subscription.png)
 
