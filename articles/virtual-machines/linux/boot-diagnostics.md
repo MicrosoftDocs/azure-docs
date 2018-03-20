@@ -75,3 +75,7 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
 To enable boot diagnostics through the portal, you can also update an existing virtual machine through the portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
 
 ![Update Existing VM](./media/boot-diagnostics/screenshot5.png)
+
+## Next steps
+
+If you see a "Failed to get contents of the log" error when you use VM Boot Diagnostics, see [Failed to get contents of the log error in VM Boot Diagnostics](https://support.microsoft.com/help/4094480/failed-to-get-contents-of-the-log-error-in-vm-boot-diagnostics-in-azur).
