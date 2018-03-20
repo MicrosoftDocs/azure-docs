@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > * Send the messages and verify they arrived in the expected subscriptions
 > * Receive message from one subscription
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
