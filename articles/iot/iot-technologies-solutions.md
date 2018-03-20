@@ -25,8 +25,6 @@ Article provides an overview of the available PaaS/SaaS technologies and solutio
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
-[img-paas-saas-technologies-solutions]: media/iot-technologies-solutions/paas-saas-technologies-solutions.png
-
 ## Solutions
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation.
@@ -65,3 +63,4 @@ PaaS technologies that span the Azure platform.
 
 Check out the [5-minute Quickstarts section](#5-Minute-Quickstarts) to experience IoT features quickly and easily. Or for a more in-depth hands-on experience, try one of  the [Step-by-step Tutorials](#Step-by-step-Tutorials).
 
+[img-paas-saas-technologies-solutions]: media/iot-technologies-solutions/paas-saas-technologies-solutions.png

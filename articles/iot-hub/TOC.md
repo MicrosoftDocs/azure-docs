@@ -3,7 +3,6 @@
 
 # Overview
 ## [Azure and IoT](iot-hub-what-is-azure-iot.md)
-## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Overview of device management](iot-hub-device-management-overview.md)
 
 # [Get started](iot-hub-get-started.md)

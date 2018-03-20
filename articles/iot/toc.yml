@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: Introduction
-    href: ../iot-hub/iot-hub-what-is-azure-iot.md
+    href: iot-hub-what-is-azure-iot.md
   - name: Technologies/Solutions portfolio
     href: iot-technologies-solutions.md
 - name: IoT Hub 
