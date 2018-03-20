@@ -65,7 +65,6 @@ At this point, you are finished setting up your map. In a real world application
 
 You can now test your transform by making a request to the HTTP endpoint.  
 
-### Test transform where map has a reference to  
 
 ## Features and use cases
 * The transformation created in a map can be simple, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.  
@@ -83,7 +82,9 @@ You can create maps or transforms that reference custom code through .NET assemb
 
 * The map and the assembly referenced from the map needs to be uploaded to integration account. 
 
-* Map should include two additional attributes : **name** is custom assembly name and **namespace** is the namespace contaning your custom code.
+* Map should include two additional attributes 
+    * **name** is custom assembly name 
+    * **namespace** is the namespace in your assembly that includes the custom code
 
   Here is an example of the map with assembly reference and a call to the function in the assembly:
 
