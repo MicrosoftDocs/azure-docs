@@ -42,7 +42,7 @@ We recommended that you install the OMS agent on the computer that's running the
 
 All agents must have network connectivity to their gateways so that they can automatically transfer data to and from the gateway. We don't recommend installing a gateway on a domain controller.
 
-The following diagram shows data flow from direct agents to Azure Automation and Log Analytics using the gateway server. Agents must have their proxy configuration match the same port the OMS Gateway is configured to communicate to the service.  
+The following diagram shows data flow from direct agents to Azure Automation and Log Analytics using the gateway server. The proxy configuration of the agent must use the same port that the OMS Gateway uses to communicate with the service.  
 
 ![Direct agent communication with services diagram](./media/log-analytics-oms-gateway/oms-omsgateway-agentdirectconnect.png)
 
@@ -103,7 +103,7 @@ There are two ways to get the latest version of the OMS Gateway setup file.
    2. Select a workspace.
    3. In your workspace blade, under **General**, select **Quick Start**.
    4. Under **Choose a data source to connect to the workspace**, select **Computers**.
-   5. In the **Direct Agent** blade, select **Download OMS Gateway**.
+   5. In the **Direct Agent** panel, select **Download OMS Gateway**.
    
     ![Download OMS Gateway](./media/log-analytics-oms-gateway/download-gateway.png)
 
