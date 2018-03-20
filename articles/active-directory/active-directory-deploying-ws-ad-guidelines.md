@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2017
+ms.date: 03/20/2018
 ms.author: femila
 
 ---
@@ -69,7 +69,7 @@ See [Virtual Network](http://azure.microsoft.com/documentation/services/virtual-
 > 
 
 ### Static IP addresses can be configured with Azure PowerShell
-Dynamic addresses are allocated by default, but use the Set-AzureStaticVNetIP cmdlet if you want to assign a static IP address instead. That cmdlet sets a static IP address that will persist through service healing and VM shutdown/restart. For more information, see [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). You can also configure a static IP address while creating your VM in the Azure portal.
+Dynamic addresses are allocated by default, but use the Set-AzureStaticVNetIP cmdlet if you want to assign a static IP address instead. That cmdlet sets a static IP address that will persist through service healing and VM shutdown/restart. For more information, see [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). You can also configure a static IP address while creating your VM in the Azure portal, as shown below. For more information, see [Create a VM with a static public IP address using the Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
 
 ![screenshot of step to add static IP address when creating a VM](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
