@@ -204,7 +204,7 @@
 - name: Resources
   items: 
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://aka.ms/luis-roadmap
   - name: Glossary
     href: luis-glossary.md
   - name: FAQ
