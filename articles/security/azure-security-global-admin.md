@@ -1,8 +1,8 @@
----
+﻿---
 title: Enable MFA for all administrators    
 description: Guidance for enabling global admin
 ms.service: security
-author: TShinder
+author: TomSh
 manager: mbaldwin
 editor: TomSh
 ms.topic: article
