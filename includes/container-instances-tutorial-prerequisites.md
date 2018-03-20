@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+services: container-instances
+author: mmacy
+
+ms.service: container-instances
+ms.topic: include
+ms.date: 03/20/2018
+ms.author: marsma
+ms.custom: include file
+---
+
 You must satisfy the following requirements to complete this tutorial:
 
 **Azure CLI**: You must have Azure CLI version 2.0.29 or later installed on your local computer. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
