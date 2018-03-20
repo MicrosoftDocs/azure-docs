@@ -9,7 +9,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: v-geberr;
 ---
 # Language Understanding FAQ
@@ -154,10 +154,13 @@ Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the [
 ## Why does LUIS add spaces to the query around or in the middle of words?
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).  
 
+## My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it? 
+Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) to create a LUIS key and assign it to the app. 
+
 ## Next steps
 
 To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
-[LUIS]:luis-reference-regions.md
+[LUIS]:luis-reference-regions.md#luis-website
