@@ -6,9 +6,7 @@ ms.service: automation
 author: eamonoreilly
 ms.author: eamono
 manager: carmonm
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.date: 03/16/2018
 ms.custom: mvc
 ---

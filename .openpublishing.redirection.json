@@ -17662,6 +17662,42 @@
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-concurrency.md",
         "redirect_url": "/azure/sql-data-warehouse/resource-classes-for-workload-management",
         "redirect_document_id": false
-     }
+     },
+     {
+        "source_path": "articles/azure-stack/azure-stack-asdk-release-notes.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-release-notes",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-architecture.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-architecture",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack/azure-stack-deploy.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-deploy-considerations",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-run-powershell-script.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-add-default-image.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-marketplace-item",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-provision-vm.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-create-vm-template",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-redeploy.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-redeploy",
+        "redirect_document_id": false
+    }
    ]
 }
+
