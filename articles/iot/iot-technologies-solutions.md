@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: 
 author: bryanla
 manager: timlt
-editor: bryanla
+editor: BryanLa
 
 ms.service: iot-hub
 ms.devlang: na
