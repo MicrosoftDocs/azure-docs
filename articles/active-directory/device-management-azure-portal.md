@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to manage devices.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -110,6 +110,7 @@ With both options, you can get to a view that:
 
 ![All devices](./media/device-management-azure-portal/51.png)
 
+For some iOS devices, the device names containing apostrophes can potentially use different characters that look like apostrophes. So searching for such devices is a little tricky - if you are not seeing search results correctly, please ensure that the search string contains matching apostrophe character.
 
 ## Device management tasks
 

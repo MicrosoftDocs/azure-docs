@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -63,14 +63,18 @@ Edge Hub facilitates module to module communication. Using Edge Hub as a message
 
 To send data to the Edge hub, a module calls the SendEventAsync method. The first argument specifies on which output to send the message. The following pseudocode sends a message on output1:
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 To receive a message, register a callback that processes messages coming in on a specific input. The following pseudocode registers the function messageProcessor to be used for processing all messages received on input1:
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 The solution developer is responsible for specifying the rules that determine how Edge hub passes messages between modules. Routing rules are defined in the cloud and pushed down to Edge hub in its device twin. The same syntax for IoT Hub routes is used to define routes between modules in Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
@@ -99,7 +103,15 @@ Each item in the modules dictionary contains specific information about a module
    * onFailure - If the module crashes, the Edge agent restarts it. If the module shuts down cleanly, the Edge agent does not restart it.
    * Unhealthy - If the module crashes or is deemed unhealthy, the Edge agent restarts it.
    * Always - If the module crashes, is deemed unhealthy, or shuts down in any way, the Edge agent restarts it. 
-   
+
+IoT Edge agent sends runtime response to IoT Hub. Here is a list of possible responses:
+  * 200	- OK
+  * 400	- The deployment configuration is malformed or invalid.
+  * 417	- The device does not have a deployment configuration set.
+  * 412	- The schema version in the deployment configuration is invalid.
+  * 406	- The edge device is offline or not sending status reports.
+  * 500	- An error occurred in the edge runtime.
+
 ### Security
 
 The IoT Edge agent plays a critical role in the security of an IoT Edge device. For example, it performs actions like verifying a module’s image before starting it. These features will be added at general availability of V2 features. 
@@ -111,8 +123,8 @@ The IoT Edge agent plays a critical role in the security of an IoT Edge device. 
 - [Understand Azure IoT Edge modules][lnk-modules]
 
 <!-- Images -->
-[1]: ./media/iot-edge-runtime/pipeline.png
-[2]: ./media/iot-edge-runtime/gateway.png
+[1]: ./media/iot-edge-runtime/Pipeline.png
+[2]: ./media/iot-edge-runtime/Gateway.png
 [3]: ./media/iot-edge-runtime/ModuleEndpoints.png
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 

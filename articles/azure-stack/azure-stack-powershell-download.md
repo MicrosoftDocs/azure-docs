@@ -3,18 +3,18 @@ title: Download Azure Stack tools from GitHub | Microsoft Docs
 description: Learn how to download tools that are required for working with Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: sngun
+ms.date: 02/27/2018
+ms.author: mabrigg
 
 ---
 
@@ -29,6 +29,7 @@ ms.author: sngun
 cd \
 
 # Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip

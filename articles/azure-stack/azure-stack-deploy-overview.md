@@ -1,10 +1,10 @@
 ---
-title: Azure Stack Development Kit deployment quickstart | Microsoft Docs
-description: Learn how to deploy the Azure Stack Development Kit
+title: Evaluate the Azure Stack Development Kit | Microsoft Docs
+description: Learn how to deploy the Azure Stack Development Kit for evaluation purposes.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/10/2017
-ms.author: erikje
+ms.date: 01/22/2018
+ms.author: jeffgilb
 ms.custom: mvc
 
 ---
-# Azure Stack Development Kit deployment quickstart
+# Quickstart: Evaluate the Azure Stack Development Kit
 
 *Applies to: Azure Stack Development Kit*
 
@@ -28,9 +28,9 @@ The [Azure Stack Development Kit](azure-stack-poc.md) is a testing and developme
 
 2. [**Download and extract the deployment package**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). You can download the deployment package to the development kit host or to a another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
 
-3. [**Prepare the development kit host**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) by using the installer. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack install files).
+3. [**Prepare the development kit host**](azure-stack-run-powershell-script.md) by using the installer. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack install files).
 
-4. [**Deploy the development kit**](azure-stack-run-powershell-script.md#deploy-the-development-kit) on the development kit host.
+4. [**Deploy the development kit**](azure-stack-run-powershell-script.md) on the development kit host.
 
 5. If your Azure Stack deployment uses Azure Active Directory, you must [register Azure Stack with Azure](azure-stack-register.md) so that you can [download Azure marketplace items](azure-stack-download-azure-marketplace-item.md) to Azure Stack.
 

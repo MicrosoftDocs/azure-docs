@@ -1,6 +1,6 @@
 ---
 title: LUIS Prebuilt entities reference | Microsoft Docs
-description: This article contains lists of the pre-built entities that are included in Language Understanding Intelligent Services (LUIS).
+description: This article contains lists of the prebuilt entities that are included in Language Understanding (LUIS).
 services: cognitive-services
 author: DeniseMak
 manager: rstand
@@ -8,38 +8,49 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: v-demak
+ms.date: 12/13/2017
+ms.author: v-geberr
 ---
 
 # Prebuilt entities reference
 
-LUIS includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions are included in your published application and can be used in the LUIS web UI to label utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
+Language Understanding (LUIS) includes a set of prebuilt entities. When a prebuilt entity is included in your application, its predictions are included in your published application and can be used in the LUIS web UI to label utterances. The behavior of prebuilt entities **cannot** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 
 > [!NOTE]
 > **builtin.datetime** is deprecated. It is replaced by [**built-in.datetimeV2**](#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
-Pre-built entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```
-------|------|------|------|------|------|------|------|------|------|
-DatetimeV2   |    ✔   |   -   |   -   |   ✔   |    ✔   |   -   |   -   |   -   |   -   |
- Datetime   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Number   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Ordinal   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Percentage   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Temperature   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Dimension   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Money   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Age   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Geography   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-Encyclopedia   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-URL   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-Email   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-Phone number   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Prebuilt entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```   | ```fr-CA```   |   ```es-MX```   |   ```nl-NL```   |
+------|:------:|------|------|------|------|------|------|------|------|------|------|------|
+DatetimeV2   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   `*`   |   ✔   |   -   |   -   |   -   |   -   |   -   |
+ Datetime   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |   -   |   -   |   -   |   -   |
+Number   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Ordinal   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Percentage   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Temperature   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Dimension   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Money   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Age   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+Geography   |    `X`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Encyclopedia   |    `X`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+URL   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Email   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Phone number   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+
+`*` = coming soon
+
+`X` = See notes on [Deprecated prebuilt entities](#deprecated-prebuilt-entities)
+
+## Deprecated prebuilt entities
+
+The following prebuilt entities are deprecated and can't be added to new LUIS apps.
+* **Datetime**: Existing LUIS apps that use **builtin.datetime** should be migrated to **builtin.datetimeV2**, although the datetime entity continues to function in preexisting apps that use it.
+* **Geography**: Existing LUIS apps that use **builtin.geography** will be supported until December 2018.
+* **Encyclopedia**: Existing LUIS apps that use **builtin.encyclopedia** will be supported until December 2018.
 
 ## Examples of prebuilt entities
 The following table lists prebuilt entities with example utterances and their return values.
 
-Pre-built entity   |   Example utterance   |   JSON
+Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
  ```builtin.number```     |  ```ten```   |``` { "type": "builtin.number", "entity": "ten" } ```|
  ```builtin.number```     |   ```3.1415```   |```  { "type": "builtin.number", "entity": "3 . 1415" }``` |
@@ -123,7 +134,7 @@ The following example shows a JSON response from LUIS, that includes the resolut
 
 The **builtin.ordinal**, **builtin.percentage**, and **builtin.currency** entities also provide resolution to a value.
 <!--
-![Image of Pre-built Entities in LUIS](media/number-prebuilt-entities.png)
+![Image of Prebuilt Entities in LUIS](media/number-prebuilt-entities.png)
 -->
 
 ### Percentage resolution
@@ -259,13 +270,11 @@ The following example shows the resolution of the **builtin.currency** entity.
 
 The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times, and ranges of dates and times. This entity also resolves dates, times, and date ranges to values in a standardized format for client programs to consume. If an utterance contains a date or time that isn't fully specified, both past and future values are included in the resolution. 
 
-> [!NOTE]
-> **builtin.datetimeV2** is available only in the ```en-us``` and ```zh-cn``` locales.
 
 <table>
 <th> example </th><th>property descriptions</th>
 <tr><td>
-The following is an example of a JSON response containing a builtin.datetimeV2 entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href=#subtypes-of-datetimev2>Subtypes of datetimeV2</a>.
+The following is an example of a JSON response containing a builtin.datetimeV2 entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href="#subtypes-of-datetimev2">Subtypes of datetimeV2</a>.
 <pre>
   "entities": [
     {
@@ -288,7 +297,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    <td> 
    <table>
    <tr><td>entity</td><td><b>string</b>. Text extracted from the utterance, that represents a date, time, date range, or time range.</td></tr>
-   <tr><td>type</td><td><b>string</b>. One of the following <a href=#subtypes-of-datetimev2>subtypes of datetimeV2</a>: 
+   <tr><td>type</td><td><b>string</b>. One of the following <a href="#subtypes-of-datetimev2">subtypes of datetimeV2</a>: 
    <ul><li>builtin.datetimeV2.datetime
    <li>builtin.datetimeV2.date
    <li>builtin.datetimeV2.time
@@ -306,7 +315,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    </ul>
    <br/>Each element of <code>values</code> may contain the following fields: <br/>
    <table><tr><td>timex</td><td>time, date, or date range expressed in TIMEX format that follows the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 standard</a> as well as using the TIMEX3 attributes for  annotation using the TimeML language. This annotation is described in the <a href="http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf">TIMEX guidelines</a>.</td></tr><tr><td>type</td><td>The subtype, which can be one of the following: datetime, date, time, daterange, timerange, datetimerange, duration, set.</td></tr><tr><td>value </td><td><b>Optional.</b> A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If <code>type</code> is <code>duration</code>, the value is the number of seconds (duration) <br/> Only used if <code>type</code> is <code>datetime</code> or <code>date</code>, <code>time</code>, or <code>duration</code>.</td></tr>
-   <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code, or <code>datetimerange</code>.</td></tr></table>
+   <tr><td>start</td><td>A value representing the start of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code>, or <code>datetimerange</code>.</td></tr></table>
    </td></tr>
    <tr><td>end</td><td>A value representing the end of a time or date range, in the same format as <code>value</code>. Only used if <code>type</code> is <code>daterange</code>, <code>timerange</code, or <code>datetimerange</code>.</td></tr></table>
    </td></tr></table>
@@ -492,7 +501,7 @@ The **builtin.datetimeV2** prebuilt entity has the following subtypes, and examp
 * builtin.datetimeV2.set
 
 
-Pre-built entity   |   Example utterance   |   JSON
+Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
 ```builtin.datetimeV2.date```    |   ```tomorrow```   |```{ "type": "builtin.datetimeV2.date", "entity": "tomorrow", "resolution": {"values": [{"timex": "2017-06-21","type": "date", "value": "2017-06-21"}]} }``` |
 ```builtin.datetimeV2.date```    |   ```january 10 2009```   |```{ "type": "builtin.datetimeV2.date", "entity": "january 10 2009", "resolution": { "values": [ {"timex": "2009-01-10", "type": "date", "value": "2009-01-10" }] } }```|
@@ -501,7 +510,7 @@ Pre-built entity   |   Example utterance   |   JSON
 ```builtin.datetimeV2.date```    |   ```next monday```   |```{ "entity": "next monday", "type": "builtin.datetimeV2.date", "resolution": { "values": [{ "timex": "2017-06-26", "type": "date", "value": "2017-06-26" }] } }```|
 ```builtin.datetimeV2.time```      |   ```3 : 00```   |```{ "type": "builtin.datetimeV2.time", "entity": "3 : 00", "resolution": { "values": [{ "timex": "T03:00", "type": "time", "value": "03:00:00" }, { "timex": "T15:00", "type": "time", "value": "15:00:00" }]}	}```|
 ```builtin.datetimeV2.time```      |   ```4 pm```     |```{ "type": "builtin.datetimeV2.time", "entity": "4 pm", "resolution": { "values": [{"timex": "T16",  "type": "time", "value": "16:00:00"}] }	}```|
-```builtin.datetimeV2.timerange```    |   ```next week```   |```{ "entity": "6pm to 7pm", "type": "builtin.datetime.dateV2.timerange", "resolution": { "values": [{ "timex": "(T18,T19,PT1H)", "type": "timerange", "start": "18:00:00", "end": "19:00:00"}] } }```|
+```builtin.datetimeV2.timerange```    |   ```6pm to 7pm```   |```{ "entity": "6pm to 7pm", "type": "builtin.datetime.dateV2.timerange", "resolution": { "values": [{ "timex": "(T18,T19,PT1H)", "type": "timerange", "start": "18:00:00", "end": "19:00:00"}] } }```|
 ```builtin.datetimeV2.datetimerange```      |   ```tomorrow morning```   |```{ "entity": "tomorrow morning", "type": "builtin.datetimev2.datetimerange", "resolution": { "values": [{"timex": "2017-06-21TMO","type": "datetimerange", "start": "2017-06-21 08:00:00", "end": "2017-06-21 12:00:00"}]} }```|
 ```builtin.datetimeV2.datetimerange```      |   ```tonight```  |```{ "entity": "tonight", "type": "builtin.datetimeV2.datetimerange", "resolution": { "values": [{"timex": "2017-06-20TNI","type": "datetimerange", "start": "2017-06-20 20:00:00", "end": "2017-06-20 23:59:59"}]} }```|
 ```builtin.datetimeV2.duration```      |    ```for 3 hours```    |```{ "type": "builtin.datetimeV2.duration", "entity": "3 hours", "resolution": { "values": [{ "timex": "PT3H", "type": "duration", "value": "10800"}] } }```|  
@@ -526,7 +535,7 @@ To replace **builtin.datetime** with **builtin.datetimeV2** in your LUIS app, do
 
 The following table provides a comparison of datetime and datetimeV2. In the examples, the current date is 2017-06-20.
 
-Pre-built entity   |   Example utterance   |   JSON
+Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
 ```builtin.datetime.date```      |   ```tomorrow```   |```{ "type": "builtin.datetime.date", "entity": "tomorrow", "resolution": {"date": "2017-06-21"} }``` |
 ```builtin.datetimeV2.date```    |   ```tomorrow```   |```{ "type": "builtin.datetimeV2.date", "entity": "tomorrow", "resolution": {"values": [{"timex": "2017-06-21","type": "date", "value": "2017-06-21"}]} }``` |
@@ -559,7 +568,7 @@ Pre-built entity   |   Example utterance   |   JSON
 ```builtin.datetime.set```    |   every week   |```{ "entity": "every week", "type": "builtin.datetime.set", "resolution": {"time": "XXXX-WXX"} }```|
 ```builtin.datetimeV2.set```    |   every week   |```{ "entity": "every week", "type": "builtin.datetimeV2.set", "resolution": {"time": "XXXX-WXX"} }```|
 
-<!-- TODO: Verify whether the following are by design 
+<!-- TODO: Re-add when the behavior of the following work as intended 
 builtin.datetime.set    |   every morning   |```{ "type": "builtin.datetime.set", "entity": "every morning", "resolution": {"time": "XXXX-XX-XXTMO"}	}```|
 builtin.datetimeV2.timerange    |   every morning   |```{ "type": "builtin.datetimeV2.timerange", "entity": "morning", "resolution": { "values": [{"timex": "TMO", "type": "timerange", "start": "08:00:00", "end": "12:00:00"}]	} }```|
 
@@ -574,7 +583,7 @@ builtin.datetimeV2.date      |   week of september 30th   |```{ "entity": "septe
 
 #### The builtin.geography built-in entity type has 3 sub-types:
 
-Pre-built entity   |   Example utterance   |   JSON
+Prebuilt entity   |   Example utterance   |   JSON
 ------|------|------|
 ```builtin.geography.city```   |  ```seattle```    |```{ "type": "builtin.geography.city", "entity": "seattle" }```|
 ```builtin.geography.city```   |  ```paris```    |```{ "type": "builtin.geography.city", "entity": "paris" }```|
@@ -609,7 +618,7 @@ Pre-built entity   |   Example utterance   |   JSON
  ```
 
 
-Pre-built entity   |   Pre-built entity (sub-types)   |   Example utterance
+Prebuilt entity   |   Prebuilt entity (sub-types)   |   Example utterance
 ------|------|------|
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.people.person ```|```bryan adams``` |
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.producer ```| ```walt disney``` |

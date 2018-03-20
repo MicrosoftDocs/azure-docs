@@ -27,7 +27,7 @@ This article shows you how to manage your DNS zones by using the Azure portal. Y
 ## Create a DNS zone
 
 1. Sign in to the Azure portal
-2. On the Hub menu, click and click **New > Networking >** and then click **DNS zone** to open the Create DNS zone blade.
+2. On the Hub menu, click and click **Create a resource > Networking >** and then click **DNS zone** to open the Create DNS zone blade.
 
     ![DNS zone](./media/dns-operations-dnszones-portal/openzone650.png)
 

@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: annahar
+ms.author: kumud
 ---
 
 # Creating an Internet-facing load balancer using the Azure portal
@@ -29,8 +29,6 @@ ms.author: annahar
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
 This article covers the Resource Manager deployment model.
 
@@ -53,10 +51,10 @@ You can get more information about load balancer components with Azure Resource 
 ## Set up a load balancer in Azure portal
 
 > [!IMPORTANT]
-> This example assumes you have a virtual network called **myVNet**. Refer to [create virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) to do this. It also assumes there is a subnet within **myVNet** called **LB-Subnet-BE** and two VMs called **web1** and **web2** respectively within the same availability set called **myAvailSet** in **myVNet**. Refer to [this link](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to create VMs.
+> This example assumes you have a virtual network called **myVNet**. Refer to [create virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network) to do this. It also assumes there is a subnet within **myVNet** called **LB-Subnet-BE** and two VMs called **web1** and **web2** respectively within the same availability set called **myAvailSet** in **myVNet**. Refer to [this link](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to create VMs.
 
 1. From a browser navigate to the Azure portal: [http://portal.azure.com](http://portal.azure.com) and login with your Azure account.
-2. On the top left-hand side of the screen select **New** > **Networking** > **Load Balancer.**
+2. On the top left-hand side of the screen select **Create a resource** > **Networking** > **Load Balancer.**
 3. In the **Create load balancer** blade, type a name for your load balancer. Here it is called **myLoadBalancer**.
 4. Under **Type**, select **Public**.
 5. Under **Public IP address**, create a new public IP called **myPublicIP**.

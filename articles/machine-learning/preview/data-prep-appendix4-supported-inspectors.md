@@ -5,13 +5,13 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 02/01/2018
 ---
 
 # Supported inspectors for the Azure Machine Learning data preparation preview
@@ -48,6 +48,7 @@ This Inspector supports the halo effect.
 - Default number of buckets (Scott's Rule) 
 - Show halo
 - Kernel density plot overlay (Gaussian kernel) 
+- Use logarithmic scale
 
 
 ### Actions
@@ -61,6 +62,7 @@ This inspector presents a frequency table of values for the column that is curre
 - Descending
 - Include null/error values
 - Show halo
+- Use logarithmic scale
 
 
 ### Actions 
@@ -109,3 +111,18 @@ A map with points that are plotted, assuming that latitude and longitude have be
 This inspector supports filtering via point selection on the map. Press the **Ctrl** key, and then click and drag with the mouse to form a square around the points. Then apply filters as previously described.
 
 You can quickly size the map to show only the possible points by pressing the **E** on the left side of the map.
+
+
+## Pattern Frequency 
+
+This inspector shows a list of patterns in the selected String column. The patterns are represented using a regular expression like syntax. Hovering on the pattern shows the examples of values represented by that pattern. Along with the patterns, the approximate coverages in terms of percentage is also shown.
+
+![Image of the pattern inspector](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### Options
+- Number of top values
+- Descending
+- Show halo
+
+### Actions
+This inspector supports filtering based on displayed patterns. Press the **Ctrl** key, and then select the filled bars in pattern inspector. Then apply filters as previously described. As a result of the user acion, an Advanced filter step is added. You can see and modify the generated Python code by invoking the edit option of the Advanced Filter step.

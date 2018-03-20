@@ -20,9 +20,10 @@ ms.author: jrj;barbkess
 # Azure SQL Data Warehouse performance tiers (Preview)
 SQL Data Warehouse offers two performance tiers that are optimized for analytical workloads. This article explains the concepts of performance tiers to help you choose the most suitable performance tier for your workload. 
 
-
 ## What is a performance tier?
 A performance tier is an option that determines the configuration of your data warehouse. This option is one of the first choices you make when creating a data warehouse.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - The **Optimized for Elasticity performance tier** separates the compute and storage layers in the architecture. This option excels on workloads that can take full advantage of the separation between compute and storage by scaling frequently to support short periods of peak activity. This compute tier has the lowest entry price point and scales to support the majority of customer workloads.
 
@@ -158,12 +159,12 @@ The following table shows the maximum concurrent queries and concurrency slots f
 | DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
 | DW500         | 20                         |  20                         | 1       |  4       |  8      |  16      |
 | DW600         | 24                         |  24                         | 1       |  4       |  8      |  16      |
-| DW1000        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1200        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1500        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW2000        | 32                         |  48                         | 1       | 16       | 32      |  64      |
-| DW3000        | 32                         |  64                         | 1       | 16       | 32      |  64      |
-| DW6000        | 32                         | 128                         | 1       | 32       | 64      | 128      |
+| DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
+| DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
+| DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
+| DW2000        | 32                         |  80                         | 1       | 16       | 32      |  64      |
+| DW3000        | 32                         | 120                         | 1       | 16       | 32      |  64      |
+| DW6000        | 32                         | 240                         | 1       | 32       | 64      | 128      |
 
 **Static resource classes**
 The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  These apply to the Optimized for Elasticity performance tier.

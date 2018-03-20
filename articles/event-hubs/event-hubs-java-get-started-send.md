@@ -53,15 +53,13 @@ For the following sample, first create a new Maven project for a console/shell a
 import java.io.IOException;
 import java.nio.charset.*;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
 
 import com.microsoft.azure.eventhubs.*;
-import com.microsoft.azure.servicebus.*;
 
 public class Send
 {
     public static void main(String[] args) 
-            throws ServiceBusException, ExecutionException, InterruptedException, IOException
+            throws EventHubException, IOException
     {
 ```
 
@@ -84,6 +82,9 @@ Then, create a singular event by transforming a string into its UTF-8 byte encod
 
     EventHubClient ehClient = EventHubClient.createFromConnectionStringSync(connStr.toString());
     ehClient.sendSync(sendEvent);
+    
+    // close the client at the end of your program
+    ehClient.closeSync();
     }
 }
 

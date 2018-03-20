@@ -4,7 +4,7 @@ description: Manage your Azure Active tenant tenants by understanding your tenan
 services: active-tenant
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
@@ -22,7 +22,7 @@ ms.reviewer: piotrci
 
 # Understand how multiple Azure Active Directory tenants interact
 
-In Azure Active Directory (Azure AD), each tenent is a fully independent resource: a peer that is logically independent from the other tenants that you manage. There is no parent-child relationship between tenants. This independence between tenants includes resource independence, administrative independence, and synchronization independence.
+In Azure Active Directory (Azure AD), each tenant is a fully independent resource: a peer that is logically independent from the other tenants that you manage. There is no parent-child relationship between tenants. This independence between tenants includes resource independence, administrative independence, and synchronization independence.
 
 ## Resource independence
 * If you create or delete a resource in one tenant, it has no impact on any resource in another tenant, with the partial exception of external users. 

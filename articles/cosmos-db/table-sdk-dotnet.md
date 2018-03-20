@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 02/21/2018
 ms.author: mimig
 
 ---
@@ -30,13 +30,17 @@ ms.author: mimig
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbtableapiref)|
 |**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)|
-|**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+|**Current supported framework**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
 > If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
 >
 
 ## Release notes
+
+### <a name="1.1.0"/>1.1.0
+* Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism and TableQueryContinuationTokenLimitInKb to TableRequestOptions
+* Bug Fixes
 
 ### <a name="1.0.0"/>1.0.0
 * General availability release
@@ -47,6 +51,8 @@ ms.author: mimig
 ## Release and Retirement dates
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
+The [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview package has been deprecated and replaced by the [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) package. The WindowsAzure.Storage-PremiumTable SDK will be retired on November 15th, 2018, at which time requests to the retired SDK will not be permitted.
+
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
 Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
@@ -55,7 +61,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |November 15, 2017|--- |
-| [0.9.0-preview](#0.1.0-preview) |November 11, 2017 |--- |
+| [0.9.0-preview](#0.9.0-preview) |November 11, 2017 |--- |
 
 ## Troubleshooting
 

@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
 
 ---
@@ -67,7 +67,7 @@ The durability tier is used to indicate to the system the privileges that your V
 
 This privilege is expressed in the following values:
 
-* Gold - The infrastructure Jobs can be paused for a duration of two hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
+* Gold - The infrastructure Jobs can be paused for a duration of two hours per UD. Gold durability can be enabled only on full node VM skus like L32s, GS5, G5, DS15_v2, D15_v2  etc (In general all the VM Sizes listed at http://aka.ms/vmspecs, that are marked as 'Instance is isolated to hardware dedicated to a single customer' in the note, are Full node VMs)
 * Silver - The infrastructure Jobs can be paused for a duration of 10 minutes per UD and is available on all standard VMs of single core and above.
 * Bronze - No privileges. This is the default. Only use this durability level for Node Types that run _only_ stateless workloads. 
 
@@ -86,10 +86,11 @@ You get to choose durability level for each of your node-types.You can choose on
  
 1. Deployments to your Virtual Machine Scale Set and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or at the infrastructure level. 
 2. Increases the number of [replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (for example, primary swaps) due to automated node deactivations during Azure infrastructure operations.
+3. Takes nodes out of service for periods of time while Azure platform software updates or hardware maintenance activities are occurring. You may see nodes with status Disabling/Disabled during these activities. This reduces the capacity of your cluster temporarily, but should not impact the availability of your cluster or applications.
 
 ### Recommendations on when to use Silver or Gold durability levels
 
-Use Silver or Gold durability for all node types that host stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
+Use Silver or Gold durability for all node types that host stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed and capacity to be reduced in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
 
 ### Changing durability levels
 - Node types with durability levels of Silver or Gold cannot be downgraded to Bronze.
@@ -105,7 +106,7 @@ Use Silver or Gold durability for all node types that host stateful services you
 
 
 > [!WARNING]
-> Changing the VM SKU Size for VM Scale Sets not running at least Silver durability is not recommened. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause dataloss for stateful services or cause other unforseen operational issues, even for stateless workloads. 
+> Changing the VM SKU Size for VM Scale Sets not running at least Silver durability is not recommended. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
 > 
 	
 3. Maintain a minimum count of five nodes for any Virtual Machine Scale Set that has durability level of Gold or Silver enabled

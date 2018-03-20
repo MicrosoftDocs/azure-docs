@@ -5,16 +5,16 @@ services: active-directory
 keywords: Active directory password management, password management, Azure AD self service password reset
 documentationcenter: ''
 author: MicrosoftGuyJFlo
-manager: femila
-ms.reviewer: gahug
+manager: mtillman
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
 
@@ -28,6 +28,7 @@ Password writeback provides the following features:
 * **Provides zero-delay feedback**: Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet the policy or could not be reset or changed for any reason.
 * **Supports password resets for users that use Active Directory Federation Services (AD FS) or other federation technologies**: With password writeback, as long as the federated user accounts are synchronized into your Azure AD tenant, they are able to manage their on-premises Active Directory passwords from the cloud.
 * **Supports password resets for users that use** [password hash sync](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): When the password reset service detects that a synchronized user account is enabled for password hash sync, we reset both this account’s on-premises and cloud password simultaneously.
+* **Supports password resets for users that use Pass-Through Authentication**: With password writeback, as long as the Pass-Through Authentication accounts are synchronized into your Azure AD tenant, they are able to manage their on-premises Active Directory passwords from the cloud.
 * **Supports password changes from the access panel and Office 365**: When federated or password synchronized users come to change their expired or non-expired passwords, we write those passwords back to your local Active Directory environment.
 * **Supports passwords writeback when an admin resets them from the Azure portal**: Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password synchronized, we’ll set the password the admin selects in local Active Directory as well. This functionality is currently not supported in the Office admin portal.
 * **Enforces your on-premises Active Directory password policies**: When a user resets their password, we make sure that it meets your on-premises Active Directory policy before we commit it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you have defined in local Active Directory.
@@ -105,8 +106,8 @@ If you're not sure what account the described account refers to, open the Azure 
 
 If you set these permissions, the MA service account for each forest can manage passwords on behalf of the user accounts within that forest. 
 
->[!IMPORTANT]
->If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users will encounter errors when they attempt to manage their on-premises passwords from the cloud.
+> [!IMPORTANT]
+> If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users will encounter errors when they attempt to manage their on-premises passwords from the cloud.
 >
 
 > [!NOTE]
@@ -122,7 +123,6 @@ To set up the appropriate permissions for password writeback to occur, complete 
 5. Pick the account that permissions are being applied to (from the Azure AD Connect setup).
 6. In the **Applies to** drop-down list, select **Descendent user** objects.
 7. Under **Permissions**, select the boxes for the following:
-    * **Unexpire-password**
     * **Reset password**
     * **Change password**
     * **Write lockoutTime**
@@ -158,7 +158,6 @@ Passwords are written back in all the following situations:
   * Any administrator self-service voluntary change password operation
   * Any administrator self-service force change password operation, for example, password expiration
   * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com)
-  * Any administrator-initiated end-user password reset from the [Azure classic portal](https://manage.windowsazure.com)
   * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com)
 
 ### User and admin operations that are not supported for password writeback

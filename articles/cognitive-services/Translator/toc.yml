@@ -1,26 +1,65 @@
-- name: Translator API Documentation
-  href: ../index.md
+- name: Translator Text API Documentation
+  href: index.yml
 - name: Overview
   items: 
-  - name: Learn about the Translator API
+  - name: About Translator Text API
     href: translator-info-overview.md
-- name: Get started
-  items: 
-  - name: Languages
+  - name: Supported languages
     href: languages.md
-  - name: Hub
-    href: translator-hub-overview.md
-  - name: CTF
-    href: collaborative-translation-framework-reporting-api.md
-  - name: Translator Speech API overview
-    href: speech-overview.md
+  - name: Customize and improve text translation
+    href: customization.md
+  - name: How the API counts characters
+    href: character-counts.md
+- name: Quickstarts
+  expanded: true
+  items: 
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node.js
+    href: quickstarts/nodejs.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: Ruby
+    href: quickstarts/ruby.md
+- name: Tutorials
+  items: 
+  - name: Translator app
+    href: tutorial-wpf-translation-csharp.md
+- name: Samples
+  items: 
+  - name: Samples on GitHub
+    href: https://aka.ms/TranslatorGitHub
+- name: How-to guides
+  items:
+  - name: Sign-up for Translator Text API
+    href: translator-text-how-to-signup.md
+  - name: Add profanity filtering
+    href: profanity-filtering.md
+  - name: Transform text
+    href: transform-text.md
+  - name: Receive word alignment information
+    href: word-alignment.md
+  - name: Use the dynamic dictionary feature
+    href: dynamic-dictionary.md
+  - name: How to use Collaborative Translation Framework (CTF) reporting
+    href: ctf-reporting.md
+  - name: Return N-Best translations
+    href: return-n-best-translations.md
 - name: Reference
   items: 
-  - name: Translator Speech API reference
-    href: http://docs.microsofttranslator.com/speech-translate.html
   - name: Translator Text API reference
-    href: http://docs.microsofttranslator.com/text-translate.html
+    href: https://aka.ms/translator-text-api
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: FAQ
+    href: https://www.microsoft.com/en-us/translator/faq.aspx 
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/ 
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/558796-translator
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-translator

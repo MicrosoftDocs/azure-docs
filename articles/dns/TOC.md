@@ -1,3 +1,5 @@
+# [DNS Documentation](index.md)
+
 # Overview
 
 ## [What is Azure DNS?](dns-overview.md)
@@ -11,7 +13,6 @@
 ## Create a DNS zone and record
 ### [Azure portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
 ## Create a private DNS zone and record
@@ -24,13 +25,11 @@
 ## Manage DNS zones
 ### [Azure portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## Manage DNS records
 ### [Azure portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## Manage reverse DNS

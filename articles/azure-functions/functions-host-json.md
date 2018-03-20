@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 02/12/2018
 ms.author: tdykstra
 ---
 
@@ -45,6 +45,13 @@ The following sample *host.json* file has all possible options specified.
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
@@ -104,7 +111,7 @@ Specifies how many function invocations are aggregated when [calculating metrics
 }
 ```
 
-|Property  |Default | Description |
+|Property |Default  | Description |
 |---------|---------|---------| 
 |batchSize|1000|Maximum number of requests to aggregate.| 
 |flushTimeout|00:00:30|Maximum time period to aggregate.| 
@@ -157,31 +164,42 @@ Indicates the timeout duration for all functions. In Consumption plans, the vali
 }
 ```
 
-## http
+## healthMonitor
 
-Configuration settings for [http triggers and bindings](functions-bindings-http-webhook.md).
+Configuration settings for [Host health monitor](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
-```json
+```
 {
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 
-        "dynamicThrottlesEnabled": false
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
     }
 }
 ```
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|routePrefix|api|The route prefix that applies to all routes. Use an empty string to remove the default prefix. |
-|maxOutstandingRequests|-1|The maximum number of outstanding requests that will be held at any given time (-1 means unbounded). The limit includes requests that are queued but have not started executing, as well as any in-progress executions. Any incoming requests over this limit are rejected with a 429 "Too Busy" response. Callers can use that response to employ time-based retry strategies. This setting controls only queuing that occurs within the job host execution path. Other queues, such as the ASP.NET request queue, are unaffected by this setting. |
-|maxConcurrentRequests|-1|The maximum number of HTTP functions that will be executed in parallel (-1 means unbounded). For example, you could set a limit if your HTTP functions use too many system resources when concurrency is high. Or if your functions make outbound requests to a third-party service, those calls might need to be rate-limited.|
-|dynamicThrottlesEnabled|false|Causes the request processing pipeline to periodically check system performance counters. Counters include connections, threads, processes, memory, and cpu. If any of the counters are over a built-in threshold (80%), requests are rejected with a 429 "Too Busy" response until the counter(s) return to normal levels.|
+|enabled|true|Whether the feature is enabled. | 
+|healthCheckInterval|10 seconds|The time interval between the periodic background health checks. | 
+|healthCheckWindow|2 minutes|A sliding time window used in conjunction with the `healthCheckThreshold` setting.| 
+|healthCheckThreshold|6|Maximum number of times the health check can fail before a host recycle is initiated.| 
+|counterThreshold|0.80|The threshold at which a performance counter will be considered unhealthy.| 
+
+## http
+
+Configuration settings for [http triggers and bindings](functions-bindings-http-webhook.md).
+
+[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## id
 
 The unique ID for a job host. Can be a lower case GUID with dashes removed. Required when running locally. When running in Azure Functions, an ID is generated automatically if `id` is omitted.
+
+If you share a Storage account across multiple function apps, make sure that each function app has a different `id`. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
+
 
 ```json
 {
@@ -218,25 +236,7 @@ Controls filtering for logs written by an [ILogger object](functions-monitoring.
 
 Configuration settings for [Storage queue triggers and bindings](functions-bindings-storage-queue.md).
 
-```json
-{
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|maxPollingInterval|60000|The maximum interval in milliseconds between queue polls.| 
-|visibilityTimeout|0|The time interval between retries when processing of a message fails.| 
-|batchSize|16|The number of queue messages to retrieve and process in parallel. The maximum is 32.| 
-|maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.| 
-|newBatchThreshold|batchSize/2|The threshold at which a new batch of messages are fetched.| 
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## serviceBus
 
@@ -249,6 +249,7 @@ Configuration setting for [Service Bus triggers and bindings](functions-bindings
 Configuration settings for Singleton lock behavior. For more information, see [GitHub issue about singleton support](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
+{
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",

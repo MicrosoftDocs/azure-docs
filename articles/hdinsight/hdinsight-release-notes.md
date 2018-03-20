@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 03/19/2018
 ms.author: nitinme
 
 ---
@@ -26,6 +26,11 @@ This article provides information about the **most recent** Azure HDInsight rele
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
+<!--
+## Notes for 03/08/2018 - Release of Spark 2.2 on HDInsight 3.6
+
+- Spark 2.2.0 improves stability across Spark Core, SQL, ML, and brings Structured Streaming to GA status. Spark 2.2.0 is now available on HDInsight 3.6.
+-->
 
 ## Notes for 08/01/2017 release of HDInsight
 
@@ -98,7 +103,7 @@ Spark 2.0.1 is now available on Spark clusters (HDInsight version 3.5).
 * The URI for edge node access has changed to **clustername**-ed-ssh.azurehdinsight.net
 * R Server on HDInsight cluster provisioning has been streamlined.
 * R Server on HDInsight is now available as regular HDInsight "R Server" cluster type and no longer installed as a separate HDInsight application. The edge node and R Server binaries are now provisioned as part of the R Server cluster deployment. This improves speed and reliability of provisioning. Pricing model for R Server is updated accordingly.
-* R Server cluster type price is now based on Standard tier price plus R Server surcharge price. Premium tier is reserved for Premium features available across different cluster types and isn't used for R Server cluster type. This change doesn't affect effective pricing of R Server; it changes only how the charges are presented in the bill. All existing R Server clusters continue to work and Resource Manager templates continue to function until deprecation notice. **It is recommended though to update your scripted deployments to use new Resource Manager template.**
+* R Server cluster type price is now based on Standard tier price plus R Server surcharge price. This change doesn't affect effective pricing of R Server; it changes only how the charges are presented in the bill. All existing R Server clusters continue to work and Resource Manager templates continue to function until deprecation notice. **It is recommended though to update your scripted deployments to use new Resource Manager template.**
 
 
 

@@ -4,8 +4,8 @@ description: This document describes the steps and concepts involved in setting 
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -22,7 +22,7 @@ By the end of this document, you should be able to have your model management en
 
 ## What you need to get started
 To get the most out of this guide, you should have owner access to an Azure subscription that you can deploy your models to.
-The CLI comes pre-installed on the Azure Machine Learning Workbench and on [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+The CLI comes pre-installed on the Azure Machine Learning Workbench and on [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## Using the CLI
 To use the command-line interfaces (CLIs) from the Workbench, click **File** -] **Open CommandLine Interface**. 

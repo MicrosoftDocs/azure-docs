@@ -1,6 +1,6 @@
 ---
 title: Monitoring and Diagnostics for Windows Containers in Azure Service Fabric | Microsoft Docs
-description: Set up monitoring and diagnostics for Windows Container orchestrated on Azure Service Fabric.
+description: In this tutorial, you set up monitoring and diagnostics for Windows Container orchestrated on Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 
 
-# Monitor Windows containers on Service Fabric using OMS
+# Tutorial: monitor Windows containers on Service Fabric using OMS
 
 This is part three of a tutorial, and walks you through setting up OMS to monitor your Windows containers orchestrated on Service Fabric.
 
@@ -40,7 +40,7 @@ Before you begin this tutorial, you should:
 
 In the case that you used the [template provided](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) in the first part of this tutorial, it should include the following additions to a generic Service Fabric Azure Resource Manager template. In case the case that you have a cluster of your own that you are looking to set up for monitoring containers with OMS:
 * Make the following changes to your Resource Manager template.
-* Deploy it using PowerShell to upgrade your cluster by [deploying the template](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager realizes that the resource exists, so will roll it out as an upgrade.
+* Deploy it using PowerShell to upgrade your cluster by [deploying the template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager realizes that the resource exists, so will roll it out as an upgrade.
 
 ### Adding OMS to your cluster template
 

@@ -25,14 +25,14 @@ When you have completed this quickstart, your application will look similar to t
 
 !["Hello Azure!" example web app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this quickstart, install:
 
-* The free [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Neon.
-* The [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* The free <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. This quickstart uses Eclipse Neon.
+* The <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit for Eclipse</a>.
 
 ## Create a dynamic web project in Eclipse
 

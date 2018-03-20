@@ -3,7 +3,7 @@ title: Managing Azure Automation data | Microsoft Docs
 description: This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation.
 services: automation
 documentationcenter: ''
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 
@@ -40,19 +40,19 @@ The following table summarizes the retention policy for different resources.
 
 The retention policy applies to all users and currently cannot be customized.
 
-However, if you need to retain data for a longer period of time, you can forward runbook job logs to Log Analytics.  For further information, review [forward Azure Automation job data to OMS Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+However, if you need to retain data for a longer period of time, you can forward runbook job logs to Log Analytics.  For further information, review [forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
 
 ## Backing up Azure Automation
 When you delete an automation account in Microsoft Azure, all objects in the account are deleted including runbooks, modules, configurations, settings, jobs, and assets. The objects cannot be recovered after the account is deleted.  You can use the following information to backup the contents of your automation account before deleting it. 
 
 ### Runbooks
-You can export your runbooks to script files using either the Azure Management Portal or the [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet in Windows PowerShell.  These script files can be imported into another automation account as discussed in [Creating or Importing a Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet in Windows PowerShell.  These script files can be imported into another automation account as discussed in [Creating or Importing a Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### Integration modules
 You cannot export integration modules from Azure Automation.  You must ensure that they are available outside of the automation account.
 
 ### Assets
-You cannot export [assets](https://msdn.microsoft.com/library/dn939988.aspx) from Azure Automation.  Using the Azure Management Portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
+You cannot export [assets](https://msdn.microsoft.com/library/dn939988.aspx) from Azure Automation.  Using the Azure portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
 
 You can use [Azure cmdlets](https://msdn.microsoft.com/library/dn690262.aspx) to retrieve details of unencrypted assets and either save them for future reference or create equivalent assets in another automation account.
 
@@ -61,7 +61,7 @@ You cannot retrieve the value for encrypted variables or the password field of c
 You cannot export certificates from Azure Automation.  You must ensure that any certificates are available outside of Azure.
 
 ### DSC configurations
-You can export your configurations to script files using either the Azure Management Portal or the 
+You can export your configurations to script files using either the Azure portal or the 
 [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) cmdlet in Windows PowerShell. These configurations can be imported and used in another automation account.
 
 ## Geo-replication in Azure Automation

@@ -4,7 +4,7 @@ description: A topic on the extensible policy framework of Azure Active Director
 services: active-directory-b2c
 documentationcenter: ''
 author: sama
-manager: mbaldwin
+manager: mtillman
 editor: PatAltimore
 
 ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
@@ -59,8 +59,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &p=b2c_1_siin                                       // Your sign-in policy
 
 ```
-
-For more information about the policy framework, see [this blog post about Azure AD B2C on the Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Create a sign-up or sign-in policy
 

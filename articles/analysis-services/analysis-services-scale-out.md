@@ -13,7 +13,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/14/2018
 ms.author: owend
 
 ---
@@ -76,7 +76,7 @@ Use the **sync** operation.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### PowerShell
-In order to run sync from PowerShell, [update to the latest](https://github.com/Azure/azure-powershell/releases) 5.01 or higher AzureRM module. Use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+In order to run sync from PowerShell, [update to the latest](https://github.com/Azure/azure-powershell/releases) 5.01 or higher AzureRM module. Use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## Connections
 

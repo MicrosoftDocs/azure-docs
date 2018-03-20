@@ -3,7 +3,7 @@ title: Azure Quick Start - Create VM PowerShell | Microsoft Docs
 description: Quickly learn to create a Linux virtual machines with PowerShell
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/13/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -146,7 +146,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-## View the NGIX welcome page
+## View the NGINX welcome page
 
 With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the public IP address you documented above to visit the default page. 
 

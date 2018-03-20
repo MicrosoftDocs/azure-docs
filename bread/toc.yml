@@ -18,6 +18,9 @@
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
+      - name: Managed Service Identity
+        tocHref: /azure/active-directory/managed-service-identity/
+        topicHref: /azure/active-directory/managed-service-identity/
   - name: Active Directory B2C
     tocHref: /azure/active-directory-b2c/
     topicHref: /azure/active-directory-b2c/
@@ -30,6 +33,13 @@
   - name: API Management
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/
+    items:
+    - name: Policies
+      tocHref: /azure/api-management/policies/
+      topicHref: /azure/api-management/policy-samples/
+    - name: Azure PowerShell
+      tocHref: /azure/api-management/scripts/
+      topicHref: /azure/api-management/powershell-samples/
   - name: App Service
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
@@ -119,8 +129,8 @@
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
   - name: Cognitive Services
-    tocHref: /azure/cognitive-services/
-    topicHref: /azure/cognitive-services/
+    tocHref: /azure/#pivot=products&panel=ai
+    topicHref: /azure/#pivot=products&panel=ai
     items:
     - name: Bing Custom Search
       tocHref: /azure/cognitive-services/bing-custom-search/
@@ -143,7 +153,7 @@
     - name: Face
       tocHref: /azure/cognitive-services/face/
       topicHref: /azure/cognitive-services/face/
-    - name: Language Understanding Intelligent Service (LUIS)
+    - name: Language Understanding (LUIS)
       tocHref: /azure/cognitive-services/LUIS/
       topicHref: /azure/cognitive-services/LUIS/
     - name: Text Analytics
@@ -232,16 +242,24 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-      
+  - name: IoT Edge
+    tocHref: /azure/iot-edge/
+    topicHref: /azure/iot-edge/      
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
   - name: IoT Suite
     tocHref: /azure/iot-suite/
     topicHref: /azure/iot-suite/
+  - name: Jenkins
+    tocHref: /azure/jenkins/
+    topicHref: /azure/jenkins/
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Location Based Services
+    tocHref: /azure/location-based-services/
+    topicHref: /azure/location-based-services/
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
@@ -307,6 +325,31 @@
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
+  - name: Policy documentation
+    tocHref: /azure/azure-policy/
+    topicHref: /azure/azure-policy/
+    items:
+      - name: Overview of Azure Policy
+        tocHref: /azure/azure-policy/azure-policy-introduction/
+        topicHref: /azureazure-policy/azure-policy-introduction/
+      - name: Assign a policy - Portal
+        tocHref: /azure/azure-policy/assign-policy-definition/
+        topicHref: /azureazure-policy/assign-policy-definition/
+      - name: Assign a policy - PowerShell
+        tocHref: /azure/azure-policy/assign-policy-definition-ps/
+        topicHref: /azureazure-policy/assign-policy-definition-ps/
+      - name: Assign a policy - Azure CLI
+        tocHref: /azure/azure-policy/assign-policy-definition-cli/
+        topicHref: /azureazure-policy/assign-policy-definition-cli/
+      - name: Create and manage Azure Policy
+        tocHref: /azure/azure-policy/create-manage-polic/
+        topicHref: /azureazure-policy/create-manage-polic/
+      - name: Policy templates
+        tocHref: /azure/azure-policy/json-samples/
+        topicHref: /azureazure-policy/json-samples/
+      - name: Azure Policy definition structure
+        tocHref: /azure/azure-policy/policy-definition/
+        topicHref: /azureazure-policy/policy-definition/
   - name: PostgreSQL
     tocHref: /azure/postgresql/
     topicHref: /azure/postgresql/

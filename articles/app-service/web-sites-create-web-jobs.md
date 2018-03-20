@@ -3,7 +3,7 @@ title: Run Background tasks with WebJobs in Azure App Service
 description: Learn how to use WebJobs to run background tasks in Azure App Service web apps, API apps, or mobile apps.
 services: app-service
 documentationcenter: ''
-author: ggailey777
+author: tdykstra
 manager: erikre
 editor: jimbe
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
-ms.author: glenga
+ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 ---
 
 # Run Background tasks with WebJobs in Azure App Service
