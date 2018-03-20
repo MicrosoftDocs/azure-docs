@@ -171,6 +171,14 @@ In a multi-forest configuration, you should use the following script to create t
 
     $deSCP.CommitChanges()
 
+In the script above,
+
+- `$verifiedDomain = "contoso.com"` is a placeholder you need to replace with one of your verified domain names in Azure AD. You will have to own the domain before you can use it.
+
+For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
+
+![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## Step 2: Setup issuance of claims
 
