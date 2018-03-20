@@ -57,7 +57,7 @@ Windows agents must either be configured to communicate with a Windows Server Up
 
 Linux agents must have access to an update repository.
 
-This solution doesn't support an OMS Agent for Linux configured to report to multiple Operations Management Suite workspaces.
+This solution doesn't support an OMS Agent for Linux configured to report to multiple Log Analytics workspaces.
 
 ## Enable update management for Azure virtual machines
 
@@ -173,5 +173,5 @@ To see detailed information about any errors from the deployment, select **Error
 
 ## Next steps
 
-* To learn more about update management--including logs, output, and errors--see [Update Management solution in OMS](../operations-management-suite/oms-solution-update-management.md).
+* To learn more about update management--including logs, output, and errors--see [Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).
 

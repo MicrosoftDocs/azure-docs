@@ -31,7 +31,7 @@ If you are an existing SMA user, you can move your runbooks to Azure Automation 
 
 You can use the following criteria to determine whether Azure Automation with Hybrid Runbook Worker or Service Management Automation is more appropriate for your requirements.
 
-* SMA requires a local installation of its underlying components that are connected to Windows Azure Pack if a graphical management interface is required. More local resources are needed with higher maintenance costs than Azure Automation, which only needs an agent installed on local runbook workers. The agents are managed by Operations Management Suite, further decreasing your maintenance costs.
+* SMA requires a local installation of its underlying components that are connected to Windows Azure Pack if a graphical management interface is required. More local resources are needed with higher maintenance costs than Azure Automation, which only needs an agent installed on local runbook workers. The agents are managed by Log Analytics, further decreasing your maintenance costs.
 * Azure Automation stores its runbooks in the cloud and delivers them to on-premises Hybrid Runbook Workers. If your security policy does not allow this behavior, then you should use SMA.
 * SMA is included with System Center; and therefore, requires a System Center 2012 R2 license. Azure Automation is based on a tiered subscription model.
 * Azure Automation has advanced features such as graphical runbooks that are not available in SMA.
@@ -82,23 +82,23 @@ Perform the following steps to automate the installation and configuration of th
 ### Manual deployment 
 Perform the first two steps once for your Automation environment and then repeat the remaining steps for each worker computer.
 
-#### 1. Create Operations Management Suite workspace
-If you do not already have an Operations Management Suite workspace, then create one using instructions at [Manage your workspace](../log-analytics/log-analytics-manage-access.md). You can use an existing workspace if you already have one.
+#### 1. Create Log Analytics workspace
+If you do not already have a Log Analytics workspace, then create one using instructions at [Manage your workspace](../log-analytics/log-analytics-manage-access.md). You can use an existing workspace if you already have one.
 
-#### 2. Add Automation solution to Operations Management Suite workspace
-Solutions add functionality to Operations Management Suite. The Automation solution adds functionality for Azure Automation including support for Hybrid Runbook Worker. When you add the solution to your workspace, it automatically pushes down worker components to the agent computer that you will install in the next step.
+#### 2. Add Automation solution to Log Analytics workspace
+Solutions add functionality to Log Analytics. The Automation solution adds functionality for Azure Automation including support for Hybrid Runbook Worker. When you add the solution to your workspace, it automatically pushes down worker components to the agent computer that you will install in the next step.
 
-Follow the instructions at [To add a solution using the Solutions Gallery](../log-analytics/log-analytics-add-solutions.md) to add the **Automation** solution to your Operations Management Suite workspace.
+Follow the instructions at [To add a solution using the Solutions Gallery](../log-analytics/log-analytics-add-solutions.md) to add the **Automation** solution to your Log Analytics workspace.
 
 #### 3. Install the Microsoft Monitoring Agent
-The Microsoft Monitoring Agent connects computers to Operations Management Suite. When you install the agent on your on-premises computer and connect it to your workspace, it will automatically download the components required for Hybrid Runbook Worker.
+The Microsoft Monitoring Agent connects computers to Log Analytics. When you install the agent on your on-premises computer and connect it to your workspace, it will automatically download the components required for Hybrid Runbook Worker.
 
 Follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agent.md) to install the agent on the on-premises computer. You can repeat this process for multiple computers to add multiple workers to your environment.
 
-When the agent has successfully connected to Operations Management Suite, it is listed on the **Connected Sources** tab of the Operations Management Suite **Settings** pane. You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. To confirm the version of the Hybrid Runbook Worker, you can navigate to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.  
+When the agent has successfully connected to Log Analytics, it is listed on the **Connected Sources** tab of the Log Analytics **Settings** pane. You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. To confirm the version of the Hybrid Runbook Worker, you can navigate to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.  
 
 #### 4. Install the runbook environment and connect to Azure Automation
-When you add an agent to Operations Management Suite, the Automation solution pushes down the **HybridRegistration** PowerShell module, which contains the **Add-HybridRunbookWorker** cmdlet. You use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.
+When you add an agent to Log Analytics, the Automation solution pushes down the **HybridRegistration** PowerShell module, which contains the **Add-HybridRunbookWorker** cmdlet. You use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.
 
 Open a PowerShell session in Administrator mode and run the following commands to import the module.
 

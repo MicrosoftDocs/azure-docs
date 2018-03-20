@@ -1,6 +1,6 @@
 ---
 title: Call an Azure Automation runbook from a Log Analytics alert
-description: This article provides an overview of how to invoke an Automation runbook from a Log Analytics alert in Operations Management Suite.
+description: This article provides an overview of how to invoke an Automation runbook from a Log Analytics alert in Azure.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -19,11 +19,11 @@ For example, an alert might indicate a prolonged spike in processor utilization.
 There are two options to call a runbook in the alert configuration:
 
 * Use a webhook.
-   * This is the only option available if your Operations Management Suite workspace is not linked to an Automation account.
-   * If you already have an Automation account linked to an Operations Management Suite workspace, this option is still available.  
+   * This is the only option available if your Log Analytics workspace is not linked to an Automation account.
+   * If you already have an Automation account linked to a Log Analytics workspace, this option is still available.  
 
 * Select a runbook directly.
-   * This option is available only if the Operations Management Suite workspace is linked to an Automation account.
+   * This option is available only if the Log Analytics workspace is linked to an Automation account.
 
 ## Calling a runbook by using a webhook
 
@@ -31,7 +31,7 @@ You can use a webhook to start a particular runbook in Azure Automation through 
 
 ## Calling a runbook directly
 
-You can install and configure the Automation and Control offering in your Operations Management Suite workspace. While you're configuring the runbook actions option for the alert, you can view all runbooks from the **Select a runbook** drop-down list and select the specific runbook that you want to run in response to the alert. The selected runbook can run in an Azure workspace or on a hybrid runbook worker. 
+You can install and configure the Automation and Control offering in your Log Analytics workspace. While you're configuring the runbook actions option for the alert, you can view all runbooks from the **Select a runbook** drop-down list and select the specific runbook that you want to run in response to the alert. The selected runbook can run in an Azure workspace or on a hybrid runbook worker. 
 
 After you create the alert by using the runbook option, a webhook is created for the runbook. You can see the webhook if you go to the Automation account and open the webhook pane of the selected runbook. 
 
@@ -86,7 +86,7 @@ $SearchResult.SvcDisplayName_CF
 
 When the service stops, the alert rule in Log Analytics detects a match, triggers the runbook, and sends the alert context to the runbook. The runbook tries to verify that the service is stopped. If so, the runbook attempts to restart the service, verify that it started correctly, and display the results.     
 
-Alternatively, if you don't have your Automation account linked to your Operations Management Suite workspace, you can configure the alert rule with a webhook action. The webhook action triggers the runbook. It also configures the runbook to convert the JSON-formatted string and filter on **SearchResult** by following the guidance mentioned earlier.    
+Alternatively, if you don't have your Automation account linked to your Log Analytics workspace, you can configure the alert rule with a webhook action. The webhook action triggers the runbook. It also configures the runbook to convert the JSON-formatted string and filter on **SearchResult** by following the guidance mentioned earlier.    
 
 >[!NOTE]
 > If your workspace has been upgraded to the [new Log Analytics query language](../log-analytics/log-analytics-log-search-upgrade.md), the webhook payload has changed. Details of the format are in the [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).

@@ -62,4 +62,4 @@ To remove your virtual machine from inventory management:
 ## Next steps
 
 * To learn about managing changes in files and registry settings on your virtual machines, see [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).
-* To learn about managing Windows and package updates on your virtual machines, see [The Update Management solution in OMS](../operations-management-suite/oms-solution-update-management.md).
+* To learn about managing Windows and package updates on your virtual machines, see [The Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).

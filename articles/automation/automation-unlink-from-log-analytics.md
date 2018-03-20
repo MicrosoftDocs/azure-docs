@@ -1,6 +1,6 @@
 ---
 title: Unlink Azure Automation account from Log Analytics | Microsoft Docs
-description: This article provides an overview of how to unlink your Azure Automation account from an OMS workspace.
+description: This article provides an overview of how to unlink your Azure Automation account from a Log Analytics workspace.
 services: automation
 documentationcenter: ''
 author: georgewallace
@@ -49,4 +49,4 @@ If you used the Start/Stop VMs during off-hours solution, optionally you may wan
 
 ## Next steps
 
-To reconfigure your Automation account to integrate with OMS Log Analytics, see [Forward job status and job streams from Automation to Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md). 
+To reconfigure your Automation account to integrate with Log Analytics, see [Forward job status and job streams from Automation to Log Analytics](automation-manage-send-joblogs-log-analytics.md). 
