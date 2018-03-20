@@ -215,8 +215,6 @@
     href: https://stackoverflow.com/questions/tagged/LUIS 
   - name: UserVoice
     href: https://aka.ms/luis-uservoice-forum
-  - name: RSS
-    href: https://docs.microsoft.com/api/search/rss?search=LUIS
   - name: Search
     href: https://docs.microsoft.com/en-us/search/index?search=LUIS
   - name: Blog
