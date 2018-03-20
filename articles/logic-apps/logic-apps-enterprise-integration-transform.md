@@ -88,7 +88,7 @@ The transform action also supports maps or transforms with reference to external
 
   Here is an example of the map with reference to an assembly named XsltUtilitiesLib. It also calls the method circumference from the assembly. 
 
-````xml
+  ````xml
   <?xml version="1.0" encoding="utf-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
    <msxsl:script language="C#" implements-prefix="user">
@@ -108,7 +108,7 @@ The transform action also supports maps or transforms with reference to external
      </circles>
    </xsl:template>
   </xsl:stylesheet>
-````
+  ````
 
 
 ### Byte Order Mark

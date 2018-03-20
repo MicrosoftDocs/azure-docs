@@ -36,7 +36,8 @@ You can then create an Integration Map file that lets you
 visually map items between two XML schema files. 
 After you build this project, you will have an XSLT document.
 
-If you are referring external assembly in your maps, then you need to add both the map and the assembly to integration account.
+If you are referring external assembly in your maps, then you need to add both the map 
+and the assembly to integration account.
 
 ## How do I add a map?
 
