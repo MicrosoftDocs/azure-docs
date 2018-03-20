@@ -40,6 +40,7 @@
 #### [Windows with Shared Disk for (A)SCS Instance](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-high-availability-infrastructure-wsfc-file-share.md)
 #### [SUSE Linux with NFS for (A)SCS Instance](high-availability-guide-suse.md)
+#### [Pacemaker on SLES](high-availability-guide-suse-pacemaker.md)
 ### SAP Installation
 #### [Windows with Shared Disk for (A)SCS Instance](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-high-availability-installation-wsfc-file-share.md)

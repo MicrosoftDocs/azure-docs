@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
 
 ---
@@ -171,7 +171,7 @@ Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported. 
 Operating system disk count | 1 | Check fails if unsupported.  
 Data disk count | 64 or less. | Check fails if unsupported.  
-Data disk VHD size | Up to 4,095 GB | Check fails if unsupported. 
+Data disk size | Up to 4,095 GB | Check fails if unsupported. 
 Network adapters | Multiple adapters are supported. | 
 Shared VHD | Not supported. | Check fails if unsupported. 
 FC disk | Not supported. | Check fails if unsupported. 

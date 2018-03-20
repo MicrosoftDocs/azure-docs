@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 03/19/2018
 ms.author: tomfitz
 
 ---
@@ -156,7 +156,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
    ![select role](./media/resource-group-create-service-principal-portal/select-role.png)
 
-1. Search for your application, and select it.
+1. By default, Azure Active Directory applications aren't displayed in the available options. To find your application, you must provide the name of it in the search field. Select it.
 
    ![search for app](./media/resource-group-create-service-principal-portal/search-app.png)
 
