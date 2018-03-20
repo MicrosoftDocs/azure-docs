@@ -24,7 +24,7 @@ sections:
     style: icon48
     items:
     - image:
-        src: /media/common/i_cligeneric.svg
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
       text: Azure CLI
       href: /azure/container-instances/container-instances-quickstart
     - image:
@@ -32,7 +32,7 @@ sections:
       text: Azure Portal
       href: /azure/container-instances/container-instances-quickstart-portal
     - image:
-        src: /azure/virtual-machines/linux/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/container-instances/container-instances-quickstart-powershell
 - title: Step-by-Step Tutorials
