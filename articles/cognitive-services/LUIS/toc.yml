@@ -216,6 +216,8 @@
   - name: UserVoice
     href: https://aka.ms/luis-uservoice-forum
   - name: RSS
-    href: https://docs.microsoft.com/search/index?search=LUIS
+    href: https://docs.microsoft.com/api/search/rss?search=LUIS
+  - name: Search
+    href: https://docs.microsoft.com/en-us/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/
