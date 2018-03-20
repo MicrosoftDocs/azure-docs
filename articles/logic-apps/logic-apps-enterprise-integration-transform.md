@@ -78,15 +78,15 @@ You can now test your transform by making a request to the HTTP endpoint.
 ## Adanced features
 
 ### Reference custom code from maps or transforms
-You can create maps or transforms that reference custom code through .NET assemblies. 
+The transform action also supports maps or transforms with reference to external assembly. This capability allows to call custom .NET code directly from XSLT maps. Here are the  prerequisites to use assembly in maps.
 
-* The map and the assembly referenced from the map needs to be uploaded to integration account. 
+* The map and the assembly referenced from the map needs to be [uploaded to integration account](./logic-apps-enterprise-integration-maps.md#how-do-i-add-a-map). 
 
 * Map should include two additional attributes 
     * **name** is custom assembly name 
     * **namespace** is the namespace in your assembly that includes the custom code
 
-  Here is an example of the map with assembly reference and a call to the function in the assembly:
+  Here is an example of the map with reference to an assembly named XsltUtilitiesLib. It also calls the method circumference from the assembly. 
 
 ````xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -112,7 +112,7 @@ You can create maps or transforms that reference custom code through .NET assemb
 
 
 ### Byte Order Mark
-This feature can only be accessed from the code view.By default, the response from the transformation will start with the Byte Order Mark (BOM). To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
+This feature can only be accessed from the code view. By default, the response from the transformation will start with the Byte Order Mark (BOM). To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
 
 ````json
 "Transform_XML": {

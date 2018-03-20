@@ -27,6 +27,7 @@ should be transformed into another format.
 
 Suppose that you regularly receive B2B orders or invoices from a customer who uses the YYYMMDD format for dates. However, in your organization, you store dates in the MMDDYYY format. You can use a map to *transform* the YYYMMDD date format into the MMDDYYY before storing the order or invoice details in your customer activity database.
 
+
 ## How do I create a map?
 
 You can create BizTalk Integration projects with the 
@@ -34,6 +35,8 @@ You can create BizTalk Integration projects with the
 You can then create an Integration Map file that lets you 
 visually map items between two XML schema files. 
 After you build this project, you will have an XSLT document.
+
+If you are referring external assembly in your maps, then you need to add both the map and the assembly to integration account.
 
 ## How do I add a map?
 
