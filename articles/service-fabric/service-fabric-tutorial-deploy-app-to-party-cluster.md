@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2018
-ms.author: mikkelhegn
+ms.date: 02/23/2018
+ms.author: mikhegn
 ms.custom: mvc
 
 ---
@@ -60,9 +60,13 @@ You have two options for deployment:
 
 This tutorial will follow steps to create a cluster from Visual Studio. For the other options, you can copy and paste your connection endpoint or choose it from your subscription.
 > [!NOTE]
+<<<<<<< HEAD
+> Party clusters are secured with certificates, ake sure to follow the instrcutions on the Party Cluster site to download and install the client certificaaete in order for you to be able to authenticate with the cluster.
+=======
 > Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and party clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### Deploy the app to the Service Fabric cluster
+>>>>>>> 265482e4bb6d07b6928959f2eeea919753403610
 
 1. Right-click on the application project in the Solution Explorer and choose **Publish**.
 
