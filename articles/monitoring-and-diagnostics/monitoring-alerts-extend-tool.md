@@ -1,5 +1,5 @@
 ---
-title: Extend alerts from OMS into Azure - Tools | Microsoft Docs
+title: Initiate extending alerts from OMS into Azure | Microsoft Docs
 description: Tools and API by which extending alerts from OMS into Azure Alerts, can be done by customers voluntarily.
 author: msvijayn
 manager: kmadnani1
@@ -16,7 +16,7 @@ ms.date: 03/16/2018
 ms.author: vinagara
 
 ---
-# Extending alerts from OMS into Azure
+# Initiate extending alerts from OMS into Azure
 All customers using alerts in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), will have them extended into Azure - starting **23 April 2018**. Extending alerts into Azure, will *not* have any change in alert behavior and monitoring capabilities remain intact. With alerts created in OMS, now in Azure alerts - there are many benefits. The advantages and process by for extending alerts from OMS into Azure are discussed in detail, in [a seperate article](monitoring-alerts-extend.md). 
 
 Customers wanting to move their alerts from OMS into Azure immediately, can do so by using one of the options stated.
