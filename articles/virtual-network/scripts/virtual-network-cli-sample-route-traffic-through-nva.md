@@ -4,8 +4,8 @@ description: Azure CLI script sample - Route traffic through a firewall network 
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: ''
 tags:
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 07/07/2017
+ms.date: 03/20/2018
 ms.author: jdial
 
 ---
@@ -23,7 +23,7 @@ ms.author: jdial
 
 This script sample creates a virtual network with front-end and back-end subnets. It also creates a VM with IP forwarding enabled to route traffic between the two subnets. After running the script you can deploy network software, such as a firewall application, to the VM.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/cli), or from a local Azure CLI installation. If you use the CLI locally, this script requires that you are running version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the CLI locally, you also need to run `az login` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +35,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 
 ## Clean up deployment 
 
-Run the following command to remove the resource group, VM, and all related resources.
+Run the following command to remove the resource group, VM, and all related resources:
 
 ```azurecli
 az group delete --name MyResourceGroup --yes
@@ -43,7 +43,7 @@ az group delete --name MyResourceGroup --yes
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, virtual network,  and network security groups. Each command in the table links to command-specific documentation.
+This script uses the following commands to create a resource group, virtual network,  and network security groups. Each command in the following table links to command-specific documentation:
 
 | Command | Notes |
 |---|---|
@@ -64,4 +64,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional networking CLI script samples can be found in the [Azure Networking Overview documentation](../cli-samples.md)
+Additional networking CLI script samples can be found in [Virtual network CLI samples](../cli-samples.md).

@@ -3,9 +3,9 @@ title: Azure PowerShell script sample - Filter VM network traffic | Microsoft Do
 description: Azure PowerShell script sample - Filter inbound and outbound VM network traffic.
 services: virtual-network
 documentationcenter: virtual-network
-author: georgewallace
-manager: timlt
-editor: tysonn
+author: jimdial
+manager: jeconnoc
+editor: ''
 tags:
 
 ms.assetid:
@@ -14,16 +14,16 @@ ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 05/16/2017
-ms.author: gwallace
+ms.date: 03/20/2018
+ms.author: jdial
 
 ---
 
 # Filter inbound and outbound VM network traffic
 
-This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, and HTTPS, while outbound traffic to the Internet from the back-end subnet is not permitted. After running the script, you will have one virtual machine with two NICs. Each NIC is connected to a different subnet.
+This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, and HTTPS, while outbound traffic to the Internet from the back-end subnet is not permitted. After running the script, you have one virtual machine with two NICs. Each NIC is connected to a different subnet.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and then run `Login-AzureRmAccount` to create a connection with Azure.
+You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +34,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Clean up deployment 
 
-Run the following command to remove the resource group, VM, and all related resources.
+Run the following command to remove the resource group, VM, and all related resources:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -42,7 +42,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, virtual network,  and network security groups. Each command in the table links to command-specific documentation.
+This script uses the following commands to create a resource group, virtual network, and network security groups. Each command in the table links to command-specific documentation:
 
 | Command | Notes |
 |---|---|
@@ -60,6 +60,6 @@ This script uses the following commands to create a resource group, virtual netw
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional networking PowerShell script samples can be found in the [Azure Networking Overview documentation](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Additional virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).
