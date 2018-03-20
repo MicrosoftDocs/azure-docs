@@ -215,7 +215,7 @@
 ##### [Custom home page](application-proxy-office365-app-launcher.md)
 ##### [Translate inline links](application-proxy-link-translation.md)
 ##### [Wildcard applications](active-directory-application-proxy-wildcard.md)
-
+##### [Azure AD Application Proxy and Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
