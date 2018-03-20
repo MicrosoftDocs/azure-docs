@@ -37,7 +37,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 ## Script explanation
 
@@ -62,4 +62,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
-Additional networking PowerShell script samples can be found in the [Azure Networking Overview documentation](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Additional virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).

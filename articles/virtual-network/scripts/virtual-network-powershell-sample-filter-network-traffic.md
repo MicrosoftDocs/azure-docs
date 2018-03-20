@@ -29,7 +29,6 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 
 ## Sample script
 
-
 [!code-powershell[main](../../../powershell_scripts/virtual-network/filter-network-traffic/filter-network-traffic.ps1  "Filter VM network traffic")]
 
 ## Clean up deployment 
@@ -37,7 +36,7 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 Run the following command to remove the resource group, VM, and all related resources:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Script explanation

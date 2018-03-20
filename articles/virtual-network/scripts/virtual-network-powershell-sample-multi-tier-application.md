@@ -37,7 +37,7 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Script explanation
