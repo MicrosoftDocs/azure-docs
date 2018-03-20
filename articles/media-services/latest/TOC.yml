@@ -34,6 +34,9 @@
   - name: Auto-generating adaptive bitrate outputs
     href: autogen-bitrate-ladder.md
 - name: How-to guides
+  items:
+    -name: Access APIs - CLI
+     href: access-api-cli-how-to.md
 - name: Reference
   items:
   - name: Code samples
