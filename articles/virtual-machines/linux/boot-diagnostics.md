@@ -14,7 +14,7 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 03/20/2018
 ms.author: delhan
 ---
 # How to use boot diagnostics to troubleshoot Linux virtual machines in Azure
@@ -35,9 +35,9 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
 
 ## Common boot errors
 
-- [File system issues](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/)
-- [Kernel Issues](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)
-- [FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/ )
+- [File system issues](https://support.microsoft.com/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) 
+- [Kernel Issues](https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues/) 
+- [FSTAB errors](https://support.microsoft.com/en-us/help/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## Enable diagnostics on a new virtual machine
 1. When creating a new Virtual Machine from the Preview Portal, select the **Azure Resource Manager** from the deployment model dropdown:
