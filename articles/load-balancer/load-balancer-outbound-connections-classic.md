@@ -167,3 +167,4 @@ By using the nslookup command, you can send a DNS query for the name myip.opendn
 ## Next steps
 
 - Learn more about [Load Balancer](load-balancer-overview.md) used in Resource Manager deployments.
+- Learn mode about [outbound connection](load-balancer-outbound-connections.md) scenarios available in Resource Manager deployments.
