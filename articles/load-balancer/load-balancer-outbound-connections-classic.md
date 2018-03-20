@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/20/2018
 ms.author: kumud
 ---
 
@@ -167,3 +167,4 @@ By using the nslookup command, you can send a DNS query for the name myip.opendn
 ## Next steps
 
 - Learn more about [Load Balancer](load-balancer-overview.md) used in Resource Manager deployments.
+- Learn mode about [outbound connection](load-balancer-outbound-connections.md) scenarios available in Resource Manager deployments.
