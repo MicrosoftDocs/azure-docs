@@ -24,9 +24,7 @@ Azure's virtual machine Serial Console provides access to a text-based console f
 
 > [!Note] 
 > Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)
-> Access via serial console should be limited to dev-test virtual machines. Preview functionality is supported on an as is basis. We strongly recommend not to use this for any production virtual machine.
-
-> Currently this service is in **preview** and access to serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
+>Currently this service is in **public preview** and access to serial console for virtual machines is available to global Azure regions. At this point serial console is not available Azure Government, Azure Germany, and Azure China cloud.
 
  
 
