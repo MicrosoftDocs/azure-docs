@@ -1,8 +1,8 @@
 ---
 title: Link partner ID to your account
-description: Partners can track engagements with Azure customers by linking partner ID to the user account used for managing customer's resources. 
+description: Partners can track engagements with Azure customers by linking partner ID to the account used for managing customer's resources. 
 services: billing
-keywords: Azure partner link
+keywords: Azure link partner ID
 author: dhirajgandhi
 ms.author: dhgandhi
 ms.date: 03/12/2018
@@ -14,7 +14,7 @@ ms.workload: na
 ---
 
 # Link partner ID to your account
-Partners who do consulting work or provide managed services on Microsoft Azure can track their impact across all customer engagements by linking the Partner ID to the their accounts used for managing customer's resources.
+Partners who do consulting work or provide managed services on Microsoft Azure can track their impact across all customer engagements by linking the Partner ID to the accounts used for managing customer's resources.
 
 This feature is available in a public preview. 
 
@@ -106,18 +106,18 @@ C:\ az managementpartner delete --partner-id 12345
 
 **Who can link the partner ID?**
 
-The user from partner organization who has been granted access rights within a customer environment can attach a partner ID to the credentials within each the customer environment that they have been granted access. 
+Any user from partner organization who is working with customers can link a partner ID to the account within each the customer tenant that they have been granted access. 
 
 **Once a partner ID has been linked can it be changed? Is there a limit to the number of changes possible?**
 
 Yes, partner ID linked can be changed, added, removed as many times as the partner wishes.
 
-**What if an individual or application has credentials in multiple customer environments?**
+**What if an user has credentials in multiple customer tenants?**
 
 The link between the Partner ID and the credentials is done per customer tenant.  You can associate and Partner ID to the user in each customer tenant.
 
 **Can other partner or customer edit or remove the link to the Partner ID**
 
-The link is associated at the user level. Only you can edit or remove the link to the Partner ID.
+The link is associated at the account level. Only you can edit or remove the link to the Partner ID.
 
 
