@@ -32,6 +32,8 @@ The article explains the following tasks that are part of the code sample:
 > * Get the streaming URL
 > * Test the stream in a player (in this case, we use Azure Media Player)
 
+![Play the video](./media/stream-files-dotnet-tutorials/final-video.png)
+
 ## Prerequisites
 
 + An active [GitHub](https://github.com) account. 
