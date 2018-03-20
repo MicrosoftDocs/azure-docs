@@ -30,18 +30,24 @@ In part one of the series, you learn how to:
 
 ## Prerequisites
 
-In order to complete this tutorial you need an AWS account and a method to make an RDP connection.
+In order to complete this tutorial you need Azure and AWS accounts.
 
-## Create an EC2 instance
+## Create EC2 instances
 
-Login to the AWS Console
-In the search box enter EC2
-Click on Launch Instance
-Select Windows 2016 Base
-Select t2.medium -> Next: Configure Instance Details
-Change number of instances to 3 - how does Auto Scaling interact with Sevice Fabric?
-Leave the Networking preferences set to the default options.
-Expand Advanced details
+Login to the AWS Console > Enter **EC2** in the search box > Click on EC2 ***Virtual Servers in the Cloud***
+![AWS console search][aws-console]
+
+Select Launch Instance
+![EC2 console][aws-ec2console]
+
+Click **Select** next to Microsoft Windows Server 2016 Base, don't worry if the ami-xxxxxxxx matches as it varies depending on the region you are working in.
+![EC2 instance selection][aws-ec2instance]
+
+Select t2.medium > Next: Configure Instance Details
+![EC2 instance size selection][aws-ec2size]
+
+Change number of instances to 3 > Expand Advanced Details
+![EC2 instance configuration][aws-ec2configure]
 
 In order to connect your virtual machines together in service fabric you need the VMs to have the same credentials.  The two most common ways to do this are to join them all to a domain or update the Administrator password on each VM.  For this tutorial we will use a user data script to ensure they all have the same password.  In a production environment you should join them to a domain as storing credentials in the user data field of a VM is not secure.
 
@@ -55,20 +61,16 @@ $user.SetInfo()
 </powershell>
 ```
 
-Click on **Next: Storage**
-Click on **Next: Add Tags**
-Add a Name tag of Azure Service Fabric Cluster
-Click on **Next: Configure Security Group**
-Create a new security group
-Change the name to service-fabric-cluster
-Update the description if you would like
-Click on **Review and Launch**
+Once you've entered the powershell script in the user data field select **Review and Launch**
+
+![EC2 review and launch][aws-ec2configure2]
+
 Check to ensure all the settings are as desired.
 **Click Launch**
-Change the drop down to proceed with out a key pair, in this case we do not need a key to retrieve the password, as we are setting it in the user data script.'
+Change the drop down to proceed with out a key pair, in this case we do not need a key to retrieve the password, as we are setting it in the user data script.
 ![AWS keypair selection][aws-keypair]
-**Click Launch Instances**
-**Click View Instances**
+Click **Launch Instances**
+Click **View Instances**
 
 ## Connect to an instance and validate inter-connectivity
 
@@ -92,5 +94,11 @@ Advance to part two of the series to download large amounts of data from a stora
 > [Create the service fabric cluster](standalone-tutorial-create-service-fabric-cluster.md)
 
 <!-- IMAGES -->
+[aws-console]: ./media/service-fabric-tutorial-standalone-cluster/aws-console.png
+[aws-ec2console]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2console.png
+[aws-ec2instance]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2instance.png
+[aws-ec2size]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2size.png
+[aws-ec2configure]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2configure.png
+[aws-ec2configure2]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2configure2.png
 [aws-keypair]: ./media/service-fabric-tutorial-standalone-cluster/aws-keypair.png
 [aws-rdp]: ./media/service-fabric-tutorial-standalone-cluster/aws-rdp.png
