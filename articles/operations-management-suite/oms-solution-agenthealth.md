@@ -95,19 +95,19 @@ Each agent reporting to an Operations Manager management server will send two he
 The following table provides sample log searches for records collected by this solution.
 
 | Query | Description |
-| --- | --- |
-| Type=Heartbeat &#124; distinct Computer |Total number of agents |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Count of unresponsive agents in the last 24 hours |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Count of unresponsive agents in the last 15 minutes |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Computers online (in the last 24 hours) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Total Agents Offline in Last 30 minutes (for the last 24 hours) |
-| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Get a trend of number of agents over time by OSType|
-| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Distribution by OS Type |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Distribution by Agent Version |
-| Type=Heartbeat&#124;measure count() by Category |Distribution by Agent Category |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Distribution by Management Group |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Geo-location of Agents |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Number of OMS Gateways Installed |
+|:---|:---|
+| Heartbeat &#124; distinct Computer |Total number of agents |
+| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Count of unresponsive agents in the last 24 hours |
+| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(15m) |Count of unresponsive agents in the last 15 minutes |
+| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer in ((Heartbeat &#124; where TimeGenerated > ago(24h) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Computers online (in the last 24 hours) |
+| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer !in ((Heartbeat &#124; where TimeGenerated > ago(30m) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Total Agents Offline in Last 30 minutes (for the last 24 hours) |
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |Get a trend of number of agents over time by OSType|
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |Distribution by OS Type |
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by Version |Distribution by Agent Version |
+| Heartbeat &#124; summarize AggregatedValue = count() by Category |Distribution by Agent Category |
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Distribution by Management Group |
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Geo-location of Agents |
+| Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Number of OMS Gateways Installed |
 
 
 
