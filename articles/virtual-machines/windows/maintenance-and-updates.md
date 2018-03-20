@@ -22,5 +22,6 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
+## Next steps 
 
-
+For information on managing maintenance requiring a reboot, see [Handling planned maintenance notifications](maintenance-notifications.md).
