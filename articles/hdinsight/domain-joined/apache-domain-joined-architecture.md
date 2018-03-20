@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: bprakash
 
 ---
