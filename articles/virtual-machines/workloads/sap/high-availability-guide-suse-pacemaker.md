@@ -26,6 +26,8 @@ ms.author: sedusch
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
 
+![Pacemaker on SLES overview](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+
 
 There are two options to set up a Pacemaker cluster in Azure. You can either use a fencing agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device.
 
