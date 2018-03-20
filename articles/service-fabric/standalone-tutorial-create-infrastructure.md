@@ -19,18 +19,18 @@ ms.custom: mvc
 ---
 # Create AWS Infrastructure to host a service fabric cluster
 
-This tutorial is part one of a series.  Service Fabric for Windows Server deployment (standalone) offers you the option to choose your own environment and create a cluster as part of our "any OS, any cloud" approach with Service Fabric. This tutorial shows you how to create the AWS infrastructure necessary to host this standalone cluster.
+This tutorial is part one of a series.  Service Fabric for Windows Server deployment (standalone) offers you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. Part one of this tutorial shows you how to create the AWS infrastructure necessary to host a standalone cluster of Service Fabric.
 
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Create a set of EC2 instances
 > * Security Groups?
-> * Login to one of the instances
+> * Log in to one of the instances
 
 ## Prerequisites
 
-In order to complete this tutorial you need Azure and AWS accounts.
+To complete this tutorial you will need both an Azure and an AWS account.
 
 ## Create EC2 instances
 
@@ -49,7 +49,7 @@ Select t2.medium > Next: Configure Instance Details
 Change number of instances to 3 > Expand Advanced Details
 ![EC2 instance configuration][aws-ec2configure]
 
-In order to connect your virtual machines together in service fabric you need the VMs to have the same credentials.  The two most common ways to do this are to join them all to a domain or update the Administrator password on each VM.  For this tutorial we will use a user data script to ensure they all have the same password.  In a production environment you should join them to a domain as storing credentials in the user data field of a VM is not secure.
+To connect your virtual machines together in service fabric, the VMs that are hosting your infrastructure need to have the same credentials.  There are two common ways to get consistent credentials: join them all to the same domain, or set the same administrator password on each VM.  For this tutorial, we will use a user data script to ensure they all have the same password.  In a production environment, you should join them to a domain as storing credentials in the user data field of a VM is not secure.
 
 Enter the following script in the user data field on the console.
 
@@ -61,16 +61,14 @@ $user.SetInfo()
 </powershell>
 ```
 
-Once you've entered the powershell script in the user data field select **Review and Launch**
-
 ![EC2 review and launch][aws-ec2configure2]
 
-Check to ensure all the settings are as desired.
-**Click Launch**
-Change the drop down to proceed with out a key pair, in this case we do not need a key to retrieve the password, as we are setting it in the user data script.
-![AWS keypair selection][aws-keypair]
-Click **Launch Instances**
-Click **View Instances**
+Once you've entered the powershell script in the user data field select **Review and Launch** > **Launch**
+
+Change the drop-down to proceed without a key pair and select the checkbox acknowledging that you know the password.
+![AWS key pair selection][aws-keypair]
+
+**Launch Instances** > **View Instances**
 
 ## Connect to an instance and validate inter-connectivity
 
