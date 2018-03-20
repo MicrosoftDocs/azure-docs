@@ -21,7 +21,7 @@ In this quickstart, you deploy an AKS cluster using the Azure portal. A multi-co
 This quickstart assumes a basic understanding of Kubernetes concepts. For detailed information on Kubernetes see the [Kubernetes documentation][kubernetes-documentation].
 
 > [!NOTE]
-> Azure Container Service (AKS) is in preview. For production ready and supported Kuebrentes clusters in Azure, please user Azure Container Service (ACS). For more information, see the [ACS documentation](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/).
+> Azure Container Service (AKS) is in preview. For production ready and supported Kubernetes clusters on Azure, use Azure Container Service (ACS). For more information, see the [ACS documentation](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/).
 
 ## Sign in to Azure
 

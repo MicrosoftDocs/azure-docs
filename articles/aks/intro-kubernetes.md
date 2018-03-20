@@ -19,7 +19,7 @@ Azure Container Service (AKS) makes it simple to create, configure, and manage a
 By using AKS, you can take advantage of the enterprise-grade features of Azure, while still maintaining application portability through Kubernetes and the Docker image format.
 
 > [!NOTE]
-> Azure Container Service (AKS) is in preview. For production ready and supported Kuebrentes clusters in Azure, please user Azure Container Service (ACS). For more information, see the [ACS documentation](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/).
+> Azure Container Service (AKS) is in preview. For production ready and supported Kubernetes clusters on Azure, use Azure Container Service (ACS). For more information, see the [ACS documentation](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/).
 
 ## Managed Kubernetes in Azure
 
@@ -37,7 +37,7 @@ With Azure handling the management of the nodes in your AKS cluster, you no long
 The goal of AKS is to provide a container hosting environment by using open-source tools and technologies that are popular among customers today. To this end, we expose the standard Kubernetes API endpoints. By using these standard endpoints, you can leverage any software that is capable of talking to a Kubernetes cluster. For example, you might choose [kubectl][kubectl-overview], [helm][helm], or [draft][draft].
 
 ## Creating a Kubernetes cluster using Azure Container Service (AKS)
-To begin using AKS, deploy an AKS cluster with the [Azure CLI][aks-quickstart] or via the portal (search the Marketplace for **Azure Container Service**). If you are an advanced user who needs more control over the Azure Resource Manager templates, you can use the open source [acs-engine][acs-engine] project to build your own custom Kubernetes cluster and deploy it via the `az` CLI.
+To begin using AKS, deploy an AKS cluster with the [Azure CLI][aks-quickstart] or via the portal (search the Marketplace for **Azure Container Service**). If you are an advanced user who needs more control over the Azure Resource Manager templates, you can use the open-source [acs-engine][acs-engine] project to build your own custom Kubernetes cluster and deploy it via the `az` CLI.
 
 ### Using Kubernetes
 Kubernetes automates deployment, scaling, and management of containerized applications. It has a rich set of features including:
