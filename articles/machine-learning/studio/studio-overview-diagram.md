@@ -5,7 +5,7 @@ keywords: machine learning studio,overview diagram,download
 services: machine-learning
 documentationcenter: ''
 author: hning86
-ms.author: hai.ning
+ms.author: haining
 manager: mwinkle
 editor: cgronlun
 

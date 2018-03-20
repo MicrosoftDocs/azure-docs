@@ -5,7 +5,7 @@ keywords: experiment,linear regression,machine learning algorithms,machine learn
 services: machine-learning
 documentationcenter: ''
 author: hning86
-ms.author: hai.ning
+ms.author: haining
 manager: mwinkle
 editor: cgronlun
 
