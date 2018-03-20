@@ -17,38 +17,38 @@ ms.author: vinagara
 
 ---
 # Extending alerts from OMS into Azure
-All customers using alerts in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), will have them extended into Azure - starting **23 April 2018**. This will *not* have any change in alert behavior and monitoring capabilities remain intact. With alerts created in OMS, now in Azure alerts - there are many benefits. The advantages and process by for extending alerts from OMS into Azure are discussed in detail, in [a seperate article](monitoring-alerts-extend.md). 
+All customers using alerts in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), will have them extended into Azure - starting **23 April 2018**. Extending alerts into Azure, will *not* have any change in alert behavior and monitoring capabilities remain intact. With alerts created in OMS, now in Azure alerts - there are many benefits. The advantages and process by for extending alerts from OMS into Azure are discussed in detail, in [a seperate article](monitoring-alerts-extend.md). 
 
 Customers wanting to move their alerts from OMS into Azure immediately, can do so by using one of the options stated.
 
 ## Option 1 - Using OMS portal
 To voluntarily initiate the extending of alerts from OMS into Azure, follow the steps listed below.
 
-1) In Operations Management Suite (OMS) Overview page, go to Settings and then Alerts section. Click the button labeled "Extend into Azure", as highlighted in illustration below.
+1. In Operations Management Suite (OMS) Overview page, go to Settings and then Alerts section. Click the button labeled "Extend into Azure", as highlighted in illustration below.
 
-![OMS Alert Settings page with Extend option](./media/monitor-alerts-extend/ExtendInto.png)
+    ![OMS Alert Settings page with Extend option](./media/monitor-alerts-extend/ExtendInto.png)
 
-2) Once the button is clicked a 3-step wizard will be shown, with the first step providing details of the process. Press Next, to proceed.
+2. Once the button is clicked a 3-step wizard will be shown, with the first step providing details of the process. Press Next, to proceed.
 
 ![Extend Alerts from OMS into Azure - Step 1](./media/monitor-alerts-extend/ExtendStep1.png)
 
-3) In the second step, the system will show a summary of the proposed change, by listing appropriate [Action Groups](monitoring-action-groups.md), for the alerts in OMS. If similar actions are seen across more than one alert - system will propose to associate with all of them a single action group.  Action group proposed follow the naming convention: *WorkspaceName_AG_#Number*. To be proceed, click Next.
+3. In the second step, the system will show a summary of the proposed change, by listing appropriate [Action Groups](monitoring-action-groups.md), for the alerts in OMS. If similar actions are seen across more than one alert - system will propose to associate with all of them a single action group.  Action group proposed follow the naming convention: *WorkspaceName_AG_#Number*. To be proceed, click Next.
 A sample screen below.
 
-![Extend Alerts from OMS into Azure - Step 2](./media/monitor-alerts-extend/ExtendStep2.png)
+    ![Extend Alerts from OMS into Azure - Step 2](./media/monitor-alerts-extend/ExtendStep2.png)
 
 > [!NOTE]
 > If the edit alert option shown above, is used; the user will not be able to return to wizard. And will require to restart the process of extending alerts from OMS into Azure, from step 1. Also the list shows proposed change summary, the actual result may vary based on  any changes are done in parallel.
 
-4) In the last step of wizard, you can ask OMS to schedule extending all your alerts into Azure - by creating new Action Groups and associating them with alerts, as shown in the earlier screen. To proceed choose "Have OMS automatically all alerts in your workspace to Azure", then click Finish and confirm at the prompt to initiate the process. Alternatively, customers can use a new Log Analytics API - to manually trigger extending the alerts by choosing the alternate option. 
+4. In the last step of wizard, you can ask OMS to schedule extending all your alerts into Azure - by creating new Action Groups and associating them with alerts, as shown in the earlier screen. To proceed choose "Have OMS automatically all alerts in your workspace to Azure", then click Finish and confirm at the prompt to initiate the process. Alternatively, customers can use a new Log Analytics API - to manually trigger extending the alerts by choosing the alternate option. 
 
-![Extend Alerts from OMS into Azure - Step 3](./media/monitor-alerts-extend/ExtendStep3.png)
+    ![Extend Alerts from OMS into Azure - Step 3](./media/monitor-alerts-extend/ExtendStep3.png)
 
-5) Once the wizard is finished, control will return to the Alert Settings page and "Extend into Azure" option will be removed. In the background, OMS will schedule alerts in OMS to be extended into Azure; this can take some time and when the operation begins for a brief period alerts in OMS will not be available for modification. Once the background process is completed, an email will be sent to all users with administrator or contributor role; with details of the action groups created and respective alerts they have been associated with. 
+5. Once the wizard is finished, control will return to the Alert Settings page and "Extend into Azure" option will be removed. In the background, OMS will schedule alerts in OMS to be extended into Azure; this can take some time and when the operation begins for a brief period alerts in OMS will not be available for modification. Once the background process is completed, an email will be sent to all users with administrator or contributor role; with details of the action groups created and respective alerts they have been associated with. 
 
-6) Alerts will continue to be listed in OMS, even after they get extended into Azure.
+6. Alerts will continue to be listed in OMS, even after they get extended into Azure.
 
-![After Extending alerts in OMS to Azure](./media/monitor-alerts-extend/PostExtendList.png)
+    ![After Extending alerts in OMS to Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
 
 ## Option 2 - Using API
