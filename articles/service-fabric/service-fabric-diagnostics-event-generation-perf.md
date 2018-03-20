@@ -74,7 +74,7 @@ In the applications you are deploying to your cluster, if you are using Reliable
 
 If you use Reliable Services, we similarly have `Service Fabric Service` and `Service Fabric Service Method` counter categories that you should collect counters from. 
 
-If you use Reliable Collections, we recommend adding the `Avg. Transaction ms/Commit` from the `Service Fabric Transactional Replicator` to collect the average commit latency per transaction metric.
+If you use Reliable Collections, we recommend adding the `Avg. Transaction ms/Commit` from the `Service Fabric Transactional Replicator` (`\Service Fabric Replicator(*)\Avg. Commit ms/Operation`) to collect the average commit latency per transaction metric.
 
 
 ## Next steps
