@@ -19,6 +19,8 @@
     href: databricks-sentiment-analysis-cognitive-services.md
 - name: How-to guides
   items:
+  - name: Connect to data sources 
+    href: databricks-connect-to-data-sources.md
   - name: Connect with Excel, R, and Python 
     href: connect-databricks-excel-python-r.md
   - name: Use Databricks CLI from Azure Cloud Shell
