@@ -23,8 +23,7 @@ These release notes provide information about improvements, fixes, and known iss
 
 > Stay up to date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## Build  20180xxx.x
-
+ 
 
 
 ## Build 20180302.1
@@ -105,69 +104,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
  
 - Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
 
-<!-- 2096388   Fixed - Remove in 1803      You cannot use the admin portal to update rules for a network security group. 
 
-    Workaround for App Service: If you need to remote desktop to the Controller instances, you modify the security rules within the network security groups with PowerShell.  Following are examples of how to *allow*, and then restore the configuration to *deny*: 
-    
-    - *Allow:*
- 
-      ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
-      
-      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
-      
-      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
-      
-      ##This doesn’t work. Need to set properties again even in case of edit
-      
-      #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
-      
-      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-        -Name $RuleConfig_Inbound_Rdp_3389.Name `
-        -Description "Inbound_Rdp_3389" `
-        -Access Allow `
-        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
-        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
-        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
-        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
-        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
-        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
-        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
-      
-      # Commit the changes back to NSG
-      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
-
-    - *Deny:*
-
-        ```powershell
-        
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
-        
-        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
-        
-        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
-        
-        ##This doesn’t work. Need to set properties again even in case of edit
-    
-        #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
-    
-        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-          -Name $RuleConfig_Inbound_Rdp_3389.Name `
-          -Description "Inbound_Rdp_3389" `
-          -Access Deny `
-          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
-          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
-          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
-          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
-          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
-          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
-          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
-          
-        # Commit the changes back to NSG
-        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg 
-        ```
--->
 
 #### SQL and MySQL 
 - It can take up to one hour before users can create databases in a new SQL or MySQL SKU.
