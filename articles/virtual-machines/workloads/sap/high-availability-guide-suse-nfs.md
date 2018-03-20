@@ -304,21 +304,21 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
              fence-peer "/usr/lib/drbd/crm-fence-peer.sh";
              after-resync-target "/usr/lib/drbd/crm-unfence-peer.sh";
              split-brain "/usr/lib/drbd/notify-split-brain.sh root";
-		         pri-lost-after-sb "/usr/lib/drbd/notify-pri-lost-after-sb.sh; /usr/lib/drbd/notify-emergency-reboot.sh; echo b > /proc/sysrq-trigger ; reboot -f";
+             pri-lost-after-sb "/usr/lib/drbd/notify-pri-lost-after-sb.sh; /usr/lib/drbd/notify-emergency-reboot.sh; echo b > /proc/sysrq-trigger ; reboot -f";
         }
         startup {
-		         wfc-timeout 0;
+             wfc-timeout 0;
         }
         options {
         }
         disk {
-		         fencing resource-only;
-		         resync-rate 4G;
+             fencing resource-only;
+             resync-rate 4G;
         }
         net {
-		         after-sb-0pri discard-younger-primary;
-		         after-sb-1pri discard-secondary;
-		         after-sb-2pri call-pri-lost-after-sb;
+             after-sb-0pri discard-younger-primary;
+             after-sb-1pri discard-secondary;
+             after-sb-2pri call-pri-lost-after-sb;
         }
    }
    </code></pre>
@@ -333,22 +333,22 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>
    resource <b>NW1</b>-nfs {
-      protocol     C;
-      disk {
-         on-io-error       detach;
-      }
-      on <b>prod-nfs-0</b> {
-         address   <b>10.0.0.6:7790</b>;
-         device    /dev/drbd<b>0</b>;
-         disk      /dev/<b>vg-NW1-NFS</b>/<b>NW1</b>;
-         meta-disk internal;
-      }
-      on <b>prod-nfs-1</b> {
-         address   <b>10.0.0.7:7790</b>;
-         device    /dev/drbd<b>0</b>;
-         disk      /dev/<b>vg-NW1-NFS</b>/<b>NW1</b>;
-         meta-disk internal;
-      }
+        protocol     C;
+        disk {
+             on-io-error       detach;
+        }
+        on <b>prod-nfs-0</b> {
+             address   <b>10.0.0.6:7790</b>;
+             device    /dev/drbd<b>0</b>;
+             disk      /dev/<b>vg-NW1-NFS</b>/<b>NW1</b>;
+             meta-disk internal;
+        }
+        on <b>prod-nfs-1</b> {
+             address   <b>10.0.0.7:7790</b>;
+             device    /dev/drbd<b>0</b>;
+             disk      /dev/<b>vg-NW1-NFS</b>/<b>NW1</b>;
+             meta-disk internal;
+        }
    }
    </code></pre>
 
@@ -360,22 +360,22 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>
    resource <b>NW2</b>-nfs {
-      protocol     C;
-      disk {
-         on-io-error       detach;
-      }
-      on <b>prod-nfs-0</b> {
-         address   <b>10.0.0.6:7791</b>;
-         device    /dev/drbd<b>1</b>;
-         disk      /dev/<b>vg-NW2-NFS</b>/<b>NW2</b>;
-         meta-disk internal;
-      }
-      on <b>prod-nfs-1</b> {
-         address   <b>10.0.0.7:7791</b>;
-         device    /dev/drbd<b>1</b>;
-         disk      /dev/<b>vg-NW2-NFS</b>/<b>NW2</b>;
-         meta-disk internal;
-      }
+        protocol     C;
+        disk {
+             on-io-error       detach;
+        }
+        on <b>prod-nfs-0</b> {
+             address   <b>10.0.0.6:7791</b>;
+             device    /dev/drbd<b>1</b>;
+             disk      /dev/<b>vg-NW2-NFS</b>/<b>NW2</b>;
+             meta-disk internal;
+        }
+        on <b>prod-nfs-1</b> {
+             address   <b>10.0.0.7:7791</b>;
+             device    /dev/drbd<b>1</b>;
+             disk      /dev/<b>vg-NW2-NFS</b>/<b>NW2</b>;
+             meta-disk internal;
+        }
    }
    </code></pre>
 
