@@ -28,15 +28,11 @@ This quickstart describes the steps for creating a new Azure Media Services acco
 
 ## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-## Log in to Azure
-
 Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** to execute CLI commands, as shown in the next steps.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Set the Azure subscription
 
@@ -74,16 +70,6 @@ Below you can find the Azure CLI commands that creates a new Media Services acco
 
 ```azurecli-interactive
 az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <storageaccountforams>
-```
-
-## <a id="access_api" />Get necessary values to access Media Services API
-
-To start programming against Media Services, you need to create an Azure AD service principal and get the values that are needed to connect to the Media Services API.  
-
-Before running the script, substitute the *myresourcegroup* placeholder with the name you want to use for your resource group.
-
-```azurecli-interactive
-az ams  sp create -a <mynewamssubcroupacc> -g <myresourcegroup>
 ```
 
 ## Clean up resources

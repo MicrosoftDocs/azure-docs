@@ -96,7 +96,8 @@ private static Asset CreateInputAsset(IAzureMediaServicesClient client, string a
 
 ## Create an output asset to store the results of the job
 
-``` charp
+
+```csharp
 private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string assetName)
 {
     return client.Assets.CreateOrUpdate(assetName, new Asset());
@@ -133,7 +134,6 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string transformN
     return job;
 }
 
-## Add subtitles
 
 ## Wait for the job to complete
 
