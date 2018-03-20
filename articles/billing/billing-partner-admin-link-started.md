@@ -27,7 +27,7 @@ Before you link partner ID, you need to get access from the customer using one o
 
 - **Service Principal:**  Customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as Service Principal. 
 
-Once you have access to customer resources, you can use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to  user ID or Service Principal. 
+Once you have access to customer resources, you can use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to  user account or Service Principal. 
 
 ## PowerShell - Link new Partner ID
 
