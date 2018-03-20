@@ -4,7 +4,7 @@ description: Learn how to programmatically retrain a model and update the web se
 services: machine-learning
 documentationcenter: ''
 author: aashishb
-ms.author: aashishb
+ms.author: yahajiza
 manager: hjerez
 editor: ''
 

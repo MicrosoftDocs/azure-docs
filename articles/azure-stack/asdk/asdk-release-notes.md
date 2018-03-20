@@ -55,9 +55,9 @@ See the [new features and fixes](.\.\azure-stack-update-1802.md#new-features-and
 
     This alert can be safely ignored. 
 
- - In both the admin portal and user portal, the Overview blade fails to load when you select the Overview blade for storage accounts that were created with an older API version (example: 2015-06-15). 
+- In both the admin portal and user portal, the Overview blade fails to load when you select the Overview blade for storage accounts that were created with an older API version (example: 2015-06-15). 
 
-   As a workaround, use PowerShell to run the **Start-ResourceSyncronizatoin.ps1** script to restore access to the storage account details. [The script is available from GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), and must run with service administrator credentials on the development kit host if you use the ASDK.  
+  As a workaround, use PowerShell to run the **Start-ResourceSynchronization.ps1** script to restore access to the storage account details. [The script is available from GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), and must run with service administrator credentials on the development kit host if you use the ASDK.  
 
 
 #### Health and monitoring
