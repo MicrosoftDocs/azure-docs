@@ -25,6 +25,13 @@ Azure Event Hubs is a highly scalable data streaming platform and ingestion serv
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
+## Prerequisites
+
+To complete this tutorial, make sure you have installed:
+
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+
 ## Log in to Azure
 
 Log on to the [Azure portal][] using your Azure subscription.
