@@ -65,6 +65,8 @@ At this point, you are finished setting up your map. In a real world application
 
 You can now test your transform by making a request to the HTTP endpoint.  
 
+### Test transform where map has a reference to  
+
 ## Features and use cases
 * The transformation created in a map can be simple, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.  
 * Multiple map operations or functions are readily available, including strings, date time functions, and so on.  
@@ -75,10 +77,41 @@ You can now test your transform by making a request to the HTTP endpoint.
 * Includes support for the XML format.
 
 ## Adanced features
-The following features can only be accessed from the code view.
+
+### Reference custom code from maps or transforms
+You can create maps or transforms that reference custom code through .NET assemblies. 
+
+* The map and the assembly referenced from the map needs to be uploaded to integration account. 
+
+* Map should include two additional attributes : **name** is custom assembly name and **namespace** is the namespace contaning your custom code.
+
+  Here is an example of the map with assembly reference and a call to the function in the assembly:
+
+````xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+   <msxsl:script language="C#" implements-prefix="user">
+   <msxsl:assembly name="XsltUtilitiesLib"/>
+   <msxsl:using namespace="XsltUtilitiesLib" />
+   <![CDATA[public double circumference(double radius){ double pi = 3.14; double circ = pi*radius*2; return circ; }]]></msxsl:script>
+   <xsl:template match="data">
+     <circles>
+       <xsl:for-each select="circle">
+         <circle>
+           <xsl:copy-of select="node()"/>
+           <circumference>
+             <xsl:value-of select="user:circumference(radius)"/>
+           </circumference>
+         </circle>
+       </xsl:for-each>
+     </circles>
+   </xsl:template>
+  </xsl:stylesheet>
+````
+
 
 ### Byte Order Mark
-By default, the response from the transformation will start with the Byte Order Mark (BOM). To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
+This feature can only be accessed from the code view.By default, the response from the transformation will start with the Byte Order Mark (BOM). To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
 
 ````json
 "Transform_XML": {
@@ -95,6 +128,10 @@ By default, the response from the transformation will start with the Byte Order 
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
