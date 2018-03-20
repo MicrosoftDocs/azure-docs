@@ -59,7 +59,7 @@ Perform the following steps to automate the installation and configuration of th
   * *ResourceGroupName* (mandatory) - the name of the resource group associated with your Automation account. 
   * *HybridGroupName* (mandatory) - the name of a Hybrid Runbook Worker group that you specify as a target for the runbooks supporting this scenario. 
   *  *SubscriptionID* (mandatory) - the Azure Subscription Id that your Automation account is in.
-  *  *WorkspaceName* (optional) - the Log Analytics workspace name. If you do not have an Log Analytics workspace, the script creates and configures one. 
+  *  *WorkspaceName* (optional) - the Log Analytics workspace name. If you do not have a Log Analytics workspace, the script creates and configures one. 
 
      > [!NOTE]
      > Currently the only Automation regions supported for integration with Log Analytics are - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. If your Automation account is not in one of those regions, the script creates a Log Analytics workspace but it warns you that it cannot link them together.
