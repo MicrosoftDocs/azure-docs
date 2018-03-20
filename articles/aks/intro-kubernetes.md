@@ -18,6 +18,9 @@ Azure Container Service (AKS) makes it simple to create, configure, and manage a
 
 By using AKS, you can take advantage of the enterprise-grade features of Azure, while still maintaining application portability through Kubernetes and the Docker image format.
 
+> [!NOTE]
+> Azure Container Service (AKS) is in preview. For production ready and supported Kuebrentes clusters in Azure, please user Azure Container Service (ACS). For more information, see the [ACS documentation](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/).
+
 ## Managed Kubernetes in Azure
 
 AKS reduces the complexity and operational overhead of managing a Kubernetes cluster by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you. In addition, you pay only for the agent nodes within your clusters, not for the masters. As a managed Kubernetes service, AKS provides:
