@@ -22,7 +22,7 @@ ms.author: kumud
 The Azure Load Balancer Standard SKU and Public IP Standard SKU together enable you to build highly scalable and reliable architectures. Applications that use Load Balancer Standard can take advantage of new capabilities. Low latency, high throughput, and scale are available for millions of flows for all TCP and UDP applications.
 
 >[!NOTE]
-> The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires a [separate sign-up](https://aka.ms/availabilityzones).
+> The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires [sign-up for Availability Zones](https://aka.ms/availabilityzones).
 
 ## Why use Load Balancer Standard?
 
