@@ -5,9 +5,9 @@ services: azure-security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-#editor: 
+editor: 
 
-#ms.assetid:
+ms.assetid:
 ms.service: security
 ms.devlang: na
 ms.topic: article
