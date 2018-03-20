@@ -43,7 +43,7 @@
       href: monitoring-overview-activity-logs.md
     - name: Activity log alerts (Preview)
       href: monitoring-activity-log-alerts-new-experience.md      
-    - name: Extending Alerts from OMS into Azure
+    - name: Extend alerts from OMS to Azure
       href: monitoring-alerts-extend.md
     - name: Action groups
       href: monitoring-action-groups.md
@@ -94,7 +94,7 @@
       href: monitor-alerts-unified-log-webhook.md
     - name: Create a metric alert with a Resource Manager template
       href: monitoring-enable-alerts-using-template.md      
-    - name: Initiate extending alerts from OMS into Azure
+    - name: Initiate extending alerts from OMS to Azure
       href: monitoring-alerts-extend-tool.md
   - name: Use autoscale
     items:
