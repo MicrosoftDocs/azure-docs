@@ -67,6 +67,8 @@
     items:
     - name: Best practices
       href: azure-security-identity-management-best-practices.md
+    - name: Enforce MFA on subscription administrators
+      href: azure-security-global-admin.md
   - name: Network security
     href: security-network-overview.md
     items:

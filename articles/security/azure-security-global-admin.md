@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
 ---
-# Enforce multi-factor authentication (MFA) for administrators on your subscription
+# Enforce multi-factor authentication (MFA) for subscription administrators
 
 When you create your administrators, including your global administrator account, it is essential that you use very strong authentication methods.
 
