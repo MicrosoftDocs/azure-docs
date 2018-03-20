@@ -5,7 +5,7 @@ services: azure-databricks
 documentationcenter: ''
 author: lenadroid
 manager: cgronlun
-editor: 'nitinme'
+editor: nitinme
 tags: ''
 
 ms.assetid:
