@@ -238,25 +238,23 @@
         href: service-fabric-cluster-resource-manager-movement-cost.md
   - name: Monitoring and diagnostics
     items:
-    - name: Monitor and diagnose applications
+    - name: Monitor and diagnose
       href: service-fabric-diagnostics-overview.md
-    - name: Generate events
+    - name: Cluster event logs
+      href: service-fabric-diagnostics-event-generation-infra.md
       items:
-      - name: Generate platform level events
-        href: service-fabric-diagnostics-event-generation-infra.md
-        items:
-        - name: Operational channel
-          href: service-fabric-diagnostics-event-generation-operational.md
-        - name: Reliable Services events
-          href: service-fabric-reliable-services-diagnostics.md
-        - name: Reliable Actors events
-          href: service-fabric-reliable-actors-diagnostics.md
-        - name: Performance metrics
-          href: service-fabric-diagnostics-event-generation-perf.md
-        - name: Monitoring Service Remoting
-          href: service-fabric-reliable-serviceremoting-diagnostics.md
-      - name: Generate application level events
-        href: service-fabric-diagnostics-event-generation-app.md
+      - name: Operational channel
+        href: service-fabric-diagnostics-event-generation-operational.md
+      - name: Reliable Services events
+        href: service-fabric-reliable-services-diagnostics.md
+      - name: Reliable Actors events
+        href: service-fabric-reliable-actors-diagnostics.md
+      - name: Performance metrics
+        href: service-fabric-diagnostics-event-generation-perf.md
+      - name: Monitoring Service Remoting
+        href: service-fabric-reliable-serviceremoting-diagnostics.md
+    - name: Application event logs
+      href: service-fabric-diagnostics-event-generation-app.md
     - name: Inspect application and cluster health
       items:
       - name: Monitor Service Fabric health
