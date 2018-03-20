@@ -41,7 +41,7 @@ Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** 
 Before running the script, please replace the following placeholders:
 
 * --account-name -a (required): This is the name of the Azure Media Services account where to attach the service principal
-* --name -n (optional): This is the service principal name to use; if not provided, the command uses a naming convention: &lt;ams-account-name&gt;-access-sp.
+* --name -n (optional): This is the service principal name to use
 
 ```azurecli-interactive
 az ams  sp create -a <ams-account-name> -g <myresourcegroup>
