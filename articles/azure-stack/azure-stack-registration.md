@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.reviewer: avishwan
 
 ---
 # Register Azure Stack with Azure
@@ -30,7 +30,7 @@ Before registering Azure Stack with Azure, you must have:
 - The subscription ID for an Azure subscription. To get the ID, sign in to Azure, click **More services** > **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID. 
 
   > [!NOTE]
-  > Germany and US Government cloud subscriptions are not currently supported. 
+  > China, Germany, and US Government cloud subscriptions are not currently supported. 
 
 - The username and password for an account that is an owner for the subscription (MSA/2FA accounts are supported)
 - Registered the Azure Stack resource provider (see the Register Azure Stack Resource Provider section below for details).
@@ -61,7 +61,7 @@ To register the Azure Stack resource provider with Azure, start Powershell ISE a
 1. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure global administrator account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
    ```Powershell
-      Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or ChinaAzureCloud>"
+      Add-AzureRmAccount -EnvironmentName AzureCloud
    ```
 
 2. If you have multiple subscriptions, run the following command to select the one you want to use:  
@@ -208,4 +208,4 @@ UnRegister-AzsEnvironment -RegistrationToken $registrationToken
 
 ## Next steps
 
-[External monitoring integration](azure-stack-integrate-monitor.md)
+[Download marketplace items from Azure](azure-stack-download-azure-marketplace-item.md)
