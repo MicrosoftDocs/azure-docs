@@ -29,7 +29,7 @@ ms.author: sedusch
 
 There are two options to set up a Pacemaker cluster in Azure. You can either use a fencing agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device.
 
-The SBD device requires one additional virtual machine that acts as an iSCSI target server and provides an SBD device. This iSCSI target server can however be shared with other pacemaker clusters. The advantage of using an SBD device is a faster failover time and, if you are using SBD devices on-premises, does not require any changes on how you operate the pacemaker cluster. One disadvantage is that if the iSCSI target server is not available, Pacemaker cannot fence a node.
+The SBD device requires one additional virtual machine that acts as an iSCSI target server and provides an SBD device. This iSCSI target server can however be shared with other Pacemaker clusters. The advantage of using an SBD device is a faster failover time and, if you are using SBD devices on-premises, does not require any changes on how you operate the pacemaker cluster. The SBD fencing can still use the Azure fence agent as a backup fencing mechanism in case the iSCSI target server is not available.
 
 If you do not want to invest in one additional virtual machine, you can also use the Azure Fence agent. The downside is that a failover can take between 10 to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore.
 
