@@ -17,10 +17,17 @@ Azure Machine Learning Model Management provides interfaces to deploy models as 
 
 This document covers the steps to deploy your models as web services using the Azure Machine Learning Model Management command-line interface (CLI).
 
+## What you need to get started
+
+To get the most out of this guide, you should have contributer access to an Azure subscription or a resource group that you can deploy your models to.
+The CLI comes pre-installed on the Azure Machine Learning Workbench and on [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).  It can also be installed as a stand-alone package.
+
+In addition, a model management account and deployment environment must already be set up.  For more info on setting up your model management account and environment for local and cluster deployment, see [Model Management configuration](deployment-setup-configuration.md).
+
 ## Deploying web services
 Using the CLIs, you can deploy web services to run on the local machine or on a cluster.
 
-We recommend starting with a local deployment. You first validate that your model and code work, then deploy the web service to a cluster for production-scale use. For more info on setting up your environment for cluster deployment, see [Model Management configuration](deployment-setup-configuration.md). 
+We recommend starting with a local deployment. You first validate that your model and code work, then deploy the web service to a cluster for production-scale use.
 
 The following are the deployment steps:
 1. Use your saved, trained, Machine Learning model
@@ -44,7 +51,8 @@ saved_model = pickle.dumps(clf)
 ```
 
 ### 2. Create a schema.json file
-This step is optional. 
+
+While schema generation is optional, it is highly recommended to define the request and input variable format for better handling.
 
 Create a schema to automatically validate the input and output of your web service. The CLIs also use the schema to generate a Swagger document for your web service.
 
@@ -72,6 +80,13 @@ The following example uses a PANDAS dataframe:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
+```
+
+The following example uses a generic JSON format:
+
+```python
+inputs = {"input_json": SampleDefinition(DataTypes.STANDARD, yourinputjson)}
 generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
@@ -161,6 +176,13 @@ az ml service create realtime --image-id <image id> -n <service name>
 
 >[!NOTE] 
 >You can also use a single command to perform the previous 4 steps. Use -h with the service create command for more details.
+
+The single command to perform the previous 4 steps as one step is as follows.  This is an alternative for a quicker approach.
+
+```azurecli
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
+```
+
 
 ### 8. Test the service
 Use the following command to get information on how to call the service:
