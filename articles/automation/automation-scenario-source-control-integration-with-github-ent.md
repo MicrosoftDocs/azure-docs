@@ -1,20 +1,13 @@
 ---
-title: Azure Automation Source Control Integration with GitHub Enterprise | Microsoft Docs
+title: Azure Automation Source Control Integration with GitHub Enterprise
 description: Describes the details of how to configure integration with GitHub Enterprise  for source control of Automation runbooks.
 services: automation
-documentationCenter: ''
-authors: georgewallace
-manager: jwhit
-editor: ''
-
-ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: magoedte
+manager: carmonm
 ---
 
 # Azure Automation scenario - Automation source control integration with GitHub Enterprise
@@ -49,10 +42,10 @@ GitHRWCredential | Credential asset you create to contain the username and passw
 
 1. The Sync-LocalGitFolderToAutomationAccount runbook authenticates using the [Azure Run As account](automation-sec-configure-azure-runas-account.md). 
 
-2. A Microsoft Operations Management Suite (OMS) workspace with the Azure Automation solution enabled and configured is also required. If you do not have one that is associated with the Automation account used to install and configure this scenario, it is created and configured for you when you execute the **New-OnPremiseHybridWorker.ps1** script from the hybrid runbook worker.        
+2. A Log Analytics workspace with the Azure Automation solution enabled and configured is also required. If you do not have one that is associated with the Automation account used to install and configure this scenario, it is created and configured for you when you execute the **New-OnPremiseHybridWorker.ps1** script from the hybrid runbook worker.        
 
     > [!NOTE]
-    > Currently the following regions only support Automation integration with OMS - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. 
+    > Currently the following regions only support Automation integration with Log Analytics - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. 
 
 3. A computer that can serve as a dedicated Hybrid Runbook Worker that also hosts the GitHub software and maintain the runbook files (*runbook*.ps1) in a source directory on the file system to synchronize between GitHub and your Automation account.
 
