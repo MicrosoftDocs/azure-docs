@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2018
 ms.author: richrund
 
 ---
@@ -208,9 +208,9 @@ To use the updated solutions:
 
     | Instead of: | Use: |
     | --- | --- |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
-    | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
+    |`NetworkApplicationgateways | where OperationName=="ApplicationGatewayAccess"`| `AzureDiagnostics | where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess"` |
+    |`NetworkApplicationgateways | where OperationName=="ApplicationGatewayPerformance"` | `AzureDiagnostics | where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance` |
+    | `NetworkSecuritygroups` | `AzureDiagnostics | where ResourceType=="NETWORKSECURITYGROUPS"` |
 
    + For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
    + For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names.
