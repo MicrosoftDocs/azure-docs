@@ -25,8 +25,13 @@ ms.reviewer: chjoy
 
 These release notes provide information about improvements, fixes, and known issues in Azure Stack Development Kit. If you're not sure which version you're running, you can [use the portal to check](azure-stack-updates.md#determine-the-current-version).
 
-## Build 20180302.1
 
+## Build 2018xxx.x
+ 
+
+
+## Build 20180302.1
+ 
 ### New features and fixes
 See the [new features and fixes](azure-stack-update-1802.md#new-features-and-fixes) section of the Azure Stack 1802 update release notes for Azure Stack integrated systems.
 
@@ -105,7 +110,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 
 - Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
 
--	<!-- 2096388 --> You cannot use the admin portal to update rules for a network security group.
+-	<!-- 2096388 Remove - fixed in 1803   You cannot use the admin portal to update rules for a network security group.
 
     Workaround for App Service: If you need to remote desktop to the Controller instances, you modify the security rules within the network security groups with PowerShell.  Following are examples of how to *allow*, and then restore the configuration to *deny*:
 
@@ -167,6 +172,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
         ```
+ --> 
 
 
 #### SQL and MySQL
