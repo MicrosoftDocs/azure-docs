@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Create container for deployment to Azure Container Instances
 
-Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting a higher-level service. In this tutorial, you package a small Node.js web application in a container image that can be run using Azure Container Instances.
+Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting a higher-level service. In this tutorial, you package a small Node.js web application into a container image that can be run using Azure Container Instances.
 
 In this article, part one of the series, you:
 
@@ -23,7 +23,7 @@ In this article, part one of the series, you:
 > * Create a container image from application source
 > * Test the image in a local Docker environment
 
-In subsequent tutorials, you upload your image to Azure Container Registry, and then deploy it to Azure Container Instances.
+In tutorial parts two and three, you upload your image to Azure Container Registry, and then deploy it to Azure Container Instances.
 
 ## Before you begin
 
@@ -31,7 +31,7 @@ In subsequent tutorials, you upload your image to Azure Container Registry, and 
 
 ## Get application code
 
-The sample application in this tutorial is a simple web app built in [Node.js][nodejs]. The app serves a static HTML page, and looks similar to the following screenshot:
+The sample application in this tutorial is a simple web app built in [Node.js][nodejs]. The application serves a static HTML page, and looks similar to the following screenshot:
 
 ![Tutorial app shown in browser][aci-tutorial-app]
 

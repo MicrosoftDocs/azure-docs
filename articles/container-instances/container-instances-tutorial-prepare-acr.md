@@ -70,7 +70,7 @@ $ az acr create --resource-group myResourceGroup --name mycontainerregistry082 -
 }
 ```
 
-Throughout the rest of this tutorial, we use `<acrName>` as a placeholder for the container registry name that you chose in this step.
+The rest of the tutorial refers to `<acrName>` as a placeholder for the container registry name that you chose in this step.
 
 ## Log in to container registry
 
@@ -97,7 +97,7 @@ First, get the full login server name for your Azure container registry. Run the
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-For example, if your registry is named *mycontainerregistry082*, you'll see output similar to:
+For example, if your registry is named *mycontainerregistry082*:
 
 ```console
 $ az acr show --name mycontainerregistry082 --query loginServer --output table
@@ -120,7 +120,7 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
 ```
 
-Tag the *aci-tutorial-app* image with the loginServer of your container registry. Also, add the `:v1` tag to the end of the image name to indicate the image version number. Replace `<acrLoginServer>` with the result of the [az acr show][az-acr-show] command executed earlier.
+Tag the *aci-tutorial-app* image with the loginServer of your container registry. Also, add the `:v1` tag to the end of the image name to indicate the image version number. Replace `<acrLoginServer>` with the result of the [az acr show][az-acr-show] command you executed earlier.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1

@@ -33,7 +33,7 @@ In this section, you use the Azure CLI to deploy the image built in the [first t
 
 ### Get registry credentials
 
-When you deploy an image that's hosted in a private container registry, such as the one created in the [second tutorial](container-instances-tutorial-prepare-acr.md), you must supply the registry's credentials.
+When you deploy an image that's hosted in a private container registry like the one created in the [second tutorial](container-instances-tutorial-prepare-acr.md), you must supply the registry's credentials.
 
 First, get the full name of the container registry login server (replace `<acrName>` with the name of your registry):
 
@@ -55,7 +55,7 @@ Now, use the [az container create][az-container-create] command to deploy the co
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Within a few seconds, you should receive an initial response from Azure Resource Manager. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Modify the value in the preceding command if you receive a **DNS name label** error message when you execute the command.
+Within a few seconds, you should receive an initial response from Azure. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Modify the value in the preceding command if you receive a **DNS name label** error message when you execute the command.
 
 ### Verify deployment progress
 
