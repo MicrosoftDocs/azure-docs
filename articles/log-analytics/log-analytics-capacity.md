@@ -129,4 +129,4 @@ The following table provides sample log searches for capacity and performance da
 
 
 ## Next steps
-* Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Capacity and Performance data.
+* Use [Log searches in Log Analytics](log-analytics-log-search.md) to view detailed Capacity and Performance data.
