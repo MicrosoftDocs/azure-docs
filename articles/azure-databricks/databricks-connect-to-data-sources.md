@@ -19,7 +19,7 @@ ms.author: nitinme
 
 # Connect to data sources from Azure Databricks
 
-This article provides links to all the different data sources in Azure that can be connected to Azure Databricks. Following the examples in these links, you can extract data from the Azure data sources (for example, Azure Blob Storage, Azure Event Hubs, etc.) into an Azure Databricks cluster and run analytical jobs on them. 
+This article provides links to all the different data sources in Azure that can be connected to Azure Databricks. Follow the examples in these links to extract data from the Azure data sources (for example, Azure Blob Storage, Azure Event Hubs, etc.) into an Azure Databricks cluster, and run analytical jobs on them. 
 
 ## Prerequisites
 
