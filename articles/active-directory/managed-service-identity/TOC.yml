@@ -41,98 +41,91 @@
           href: tutorial-linux-vm-access-nonaad.md
         - name: Access Azure Resource Manager with a user-assigned MSI
           href: /azure/active-directory/pp/msi-tutorial-linux-vm-access-arm
-        - name: Azure Service Bus
-          href: /azure/service-bus-messaging/service-bus-managed-service-identity
+      - name: Azure Service Bus
+        href: /azure/service-bus-messaging/service-bus-managed-service-identity
       - name: Azure App Service and Functions
         href: /azure/app-service/app-service-managed-service-identity
       - name: Azure Event Hubs
         href: /azure/event-hubs/event-hubs-managed-service-identity
-    - name: How-to guides
-      items:
-      - name: Windows VM
-        items:
-        - name: Configure Identity for an Azure VM
-          items:
-          - name: Portal
-          - name: CLI
-          - name: PowerShell
-          - name: Azure Resource Manager Template
-          - name: Azure SDK
-        - name: Configure Identity for Azure VMSS
-          items:
-          - name: Portal
-          - name: CLI
-          - name: PowerShell
-          - name: Azure Resource Manager Template
-          - name: Azure SDK
-        - name: Acquire an access token
-          items:
-          - name: Portal
-          - name: CLI
-          - name: PowerShell
-          - name: Azure Resource Manager Template
-          - name: Azure SDK
-        - name: Sign-in to Azure AD
-          items:
-          - name: Portal
-          - name: Portal
-          - name: CLI
-          - name: PowerShell
-          - name: Azure Resource Manager Template
-          - name: Azure SDK
-      - name: Application Service
-        items:
-        - name: Configure Identity for Application Service
-          items:
-          - name: Portal
-          - name: CLI
-          - name: PowerShell
-          - name: Azure Resource Manager Template
-          - name: Azure SDK
-        - name: Acquire an access token
-          items:
-          - name: Portal
-          - name: CLI
-          - name: PowerShell
-          - name: Azure Resource Manager Template
-          - name: Azure SDK
-        - name: Sign-in to Azure AD
-          items:
-          - name: Portal
-          - name: CLI
-          - name: PowerShell
-          - name: Azure Resource Manager Template
-          - name: Azure SDK
-      - name: Manage user-assigned identities
-        items:
-        - name: Configure a user-assigned identity
-          items:
-          - name: Portal
-          - name: CLI
-          - name: PowerShell
-          - name: Azure Resource Manager Template
-          - name: Azure SDK
-        - name: Acquire an access token
-          items:
-          - name: Portal
-          - name: CLI
-          - name: PowerShell
-          - name: Azure Resource Manager Template
-          - name: Azure SDK
-        - name: Sign-in to Azure AD
-          items:
-          - name: Portal
-          - name: CLI
-          - name: PowerShell
-          - name: Azure Resource Manager Template
-          - name: Azure SDK
     - name: Concepts
       items: 
       - name: Access Patterns using Managed Identities
+      - name: Managed Identity REST protocol
+    - name: How-to guides
+      items:
+      - name: Configure Identity for an Azure VM
+        items:
+        - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: Go
+        - name: .NET
+        - name: Java
+        - name: Node JS
+        - name: Python
+        - name: Ruby
+      - name: Configure Identity for Azure VMSS
+        items:
+        - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: .NET
+        - name: Java
+        - name: Node JS
+        - name: Python
+        - name: Ruby
+      - name: Configure Identity for Application Service
+        items:
+        - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: .NET
+        - name: Java
+        - name: Node JS
+        - name: Python
+        - name: Ruby
+      - name: Acquire an access token
+        items:
+        - name: PowerShell
+        - name: Curl
+        - name: .NET
+        - name: Java
+        - name: Node JS
+        - name: Python
+        - name: Ruby
+      - name: Sign-in to PowerShell and CLI using Managed Identity
+        items:
+        - name: CLI
+        - name: Powershell
+      - name: Manage user-assigned identities
+        items:
+        - name: Portal
+        - name: CLI
+        - name: PowerShell
+        - name: Azure Resource Manager Template
+        - name: .NET
+        - name: Java
+        - name: Node JS
+        - name: Python
+        - name: Ruby
+    - name: Reference
+      items:
+      - name: CLI
+      - name: PowerShell
+      - name: Azure Resource Manager Template
+      - name: .NET
+      - name: Java
+      - name: Node JS
+      - name: Python
+      - name: Ruby 
     - name: Resources
       items:
       - name: FAQs and known issues
         href: known-issues.md
+      - name: Resource IDs for Aure services
     - name: Configure MSI for an Azure VM
       items:
       - name: Using Azure Portal
