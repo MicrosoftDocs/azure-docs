@@ -20,9 +20,6 @@ In this quickstart, an AKS cluster is deployed using the Azure CLI. A multi-cont
 
 This quickstart assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation][kubernetes-documentation].
 
-> [!NOTE]
-> Azure Container Service (AKS) is in preview. For production ready and supported Kubernetes clusters on Azure, use Azure Container Service (ACS). For more information, see the [ACS documentation](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/).
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].

@@ -12,14 +12,15 @@ ms.author: gamonroy
 ms.custom: mvc
 ---
 
-# Introduction to Azure Container Service (AKS)
+# Introduction to Azure Container Service (AKS) preview
 
 Azure Container Service (AKS) makes it simple to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
 
 By using AKS, you can take advantage of the enterprise-grade features of Azure, while still maintaining application portability through Kubernetes and the Docker image format.
 
-> [!NOTE]
-> Azure Container Service (AKS) is in preview. For production ready and supported Kubernetes clusters on Azure, use Azure Container Service (ACS). For more information, see the [ACS documentation](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/).
+> [!IMPORTANT]
+> Azuere Container Service (AKS) is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+>
 
 ## Managed Kubernetes in Azure
 
