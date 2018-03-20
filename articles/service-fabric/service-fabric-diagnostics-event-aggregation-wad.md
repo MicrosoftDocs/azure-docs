@@ -190,14 +190,15 @@ Logs from additional channels are also available for collection, here are some o
 
 * Data & Messaging Channel - Detailed: Verbose channel that contains all the non-critical logs from data and messaging in the cluster and the detailed operational channel. For detailed troubleshooting of all reverse proxy events, refer to the [reverse proxy diagnostics guide](service-fabric-reverse-proxy-diagnostics.md).  To view these events in Visual Studio's Diagnostic Event viewer, add "Microsoft-ServiceFabric:4:0x4000000000000020" to the list of ETW providers.
 
->[!NOTE]
->This channel has a very high volume of events, enabling event collection from this detailed channel results in a lot of traces being generated quickly, and can consume storage capacity. Only turn this on if absolutely necessary.
-
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"
   ```
 
-For example, to enable the **Base Data and Messaging Channel** our recommendation for comprehensive logging, The `EtwManifestProviderConfiguration` in the `WadCfg` of your template would look like the following:
+>[!NOTE]
+>This channel has a very high volume of events, enabling event collection from this detailed channel results in a lot of traces being generated quickly, and can consume storage capacity. Only turn this on if absolutely necessary.
+
+
+To enable the **Base Data and Messaging Channel** our recommendation for comprehensive logging, The `EtwManifestProviderConfiguration` in the `WadCfg` of your template would look like the following:
 
 ```json
   "WadCfg": {
