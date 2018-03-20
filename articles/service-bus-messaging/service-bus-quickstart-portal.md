@@ -97,7 +97,9 @@ To run the code, do the following:
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
    ``` 
-8. Observe a set of messages being sent and received.
+8. Observe 10 messages being sent to the queue, and subsequently received from the queue:
+
+   ![program output](./media/service-bus-quickstart-portal/dotnet.png)
 
 ## Clean up resources
 

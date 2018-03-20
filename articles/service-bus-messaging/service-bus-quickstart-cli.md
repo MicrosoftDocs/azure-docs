@@ -78,25 +78,25 @@ After the last command runs, copy and paste the connection string, and the queue
 
 ## Send and receive messages
 
-After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages.
+After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart).
 
 1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
-2. From a command prompt, navigate to [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/QueuesGettingStarted).
+2. From a command prompt, navigate to the sample folder `\azure-service-bus\samples\Java\quickstarts-and-tutorials\quickstart-java`.
 3. Issue the following command to build the application:
    
    ```shell
    mvn clean package -DskipTests
    ```
 
-4. To run the program, issue the following command. Make sure you supply the connection string you obtained in the previous step:
+4. To run the program, issue the following command. Make sure to replace the placeholders with the connection string and queue name you obtained in the previous step:
 
    ```shell
-   java -jar .\target\jmstopicquickstart-1.0.0-jar-with-dependencies.jar -c <your_connection_string>
+   java -jar .\target\samples.quickstart-1.0.0-jar-with-dependencies.jar -c "myConnectionString” -q "MyQueue"
    ```
 
 Observe 10 messages being sent to the queue, and subsequently received from the queue:
 
-![program output](./media/service-bus-quickstart-cli/javasendrecv.png)
+![program output](./media/service-bus-quickstart-cli/javaqs.png)
 
 ## Clean up deployment
 
