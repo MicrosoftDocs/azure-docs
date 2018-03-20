@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
 ms.author: marsma
 ---
 
@@ -40,10 +40,6 @@ The following table describes the container image and storage limits in place fo
 | Storage | 5 TB |
 
 Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images by using the [Azure CLI](/cli/azure/acr), the ACR [REST API](/rest/api/containerregistry/), or the [Azure portal][portal] as part of your registry maintenance routine. Deleted registry resources like repositories, images, and tags *cannot* be recovered after deletion.
-
-## Backup
-
-By using geo-redundant storage, Azure Container Registry automatically distributes your images across multiple regional data centers. ACR doesn't currently provide an automated export feature for backing up images to another storage account or platform. For a manual backup solution, you can iterate through the list of images in your registry, pull each image locally, then transfer them to an alternate storage platform.
 
 ## Storage cost
 
