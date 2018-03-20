@@ -1,4 +1,4 @@
----
+--
 title: 'Tutorial: Design an Azure Database for PostgreSQL using Azure CLI'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL server using Azure CLI.
 services: postgresql
@@ -144,7 +144,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
   
   ```azurecli-interactive
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  Once you are connected to the server, create a blank database at the prompt:
