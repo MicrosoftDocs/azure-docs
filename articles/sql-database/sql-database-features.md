@@ -87,6 +87,11 @@ The following table lists the major features of SQL Server and provides informat
 | [Minimal logging in bulk import](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | No | No |
 | [Modifying system data](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | No | Yes |
 | [Online index operations](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Yes | Yes |
+| [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)|No|Yes - see [T-SQL differences](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql)|Yes|Yes|
+| [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql)|No|Yes - see [T-SQL differences](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)|No|Yes - see [T-SQL differences](sql-database-managed-instance-transact-sql-information.md)|
+| [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|Yes|Yes|
 | [Operators](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | Most - see individual operators |Yes - see [T-SQL differences](sql-database-managed-instance-transact-sql-information.md) |
 | [Partitioning](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Yes | Yes |
 | [Point in time database restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) | Yes - see [SQL Database recovery](sql-database-recovery-using-backups.md#point-in-time-restore) |
