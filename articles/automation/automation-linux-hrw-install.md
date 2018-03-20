@@ -30,7 +30,7 @@ To install and configure a Hybrid Runbook Worker on your Linux computer, you fol
 
 Before you proceed, you need to note the Log Analytics workspace your Automation account is linked to and also the primary key for your Automation account. You can find both from the portal by selecting your Automation account, and selecting **Workspace** for the Workspace ID, and selecting **Keys** for the primary key.  
 
-1.	Enable the “Automation Hybrid Worker” solution in Log Analytics. This can be done by either:
+1.	Enable the “Automation Hybrid Worker” solution in Azure. This can be done by either:
 
    1. Add the **Automation Hybrid Worker** solution to your subscription using the procedure at [Add Log Analytics management solutions to your workspace](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
    2. Run the following cmdlet:
