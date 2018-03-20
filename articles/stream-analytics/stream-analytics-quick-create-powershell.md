@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Quickstart: Create a Stream Analytic job by using Azure PowerShell
@@ -251,7 +252,7 @@ Start-AzureRMStreamAnalyticsJob `
 
 ## Clean up resources
 
-You should delete the job to avoid billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and start it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by deleting the resource group:
+When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and re-start it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by running the following cmdlet:
 
 ```powershell
 Remove-AzureRmResourceGroup `

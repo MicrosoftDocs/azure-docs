@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Quickstart: Create a Stream Analytic job by using Azure portal
@@ -127,9 +128,9 @@ In this section, you will configure blob storage as an input to the Stream Analy
 
 ## Clean up resources
 
-You should delete the job to avoid billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and start it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by deleting the resource group:
+When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and re-start it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by using the following steps:
 
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.  
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
