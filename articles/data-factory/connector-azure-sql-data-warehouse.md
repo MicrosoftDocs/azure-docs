@@ -508,7 +508,7 @@ If you have source data with rows of size greater than 1 MB, you may want to spl
 
 ### SQL Data Warehouse resource class
 
-To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+To achieve best possible throughput, consider assigning a larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase.
 
 ### tableName in Azure SQL Data Warehouse
 
