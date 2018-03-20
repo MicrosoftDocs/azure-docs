@@ -18,8 +18,6 @@ Azure Event Grid is an eventing service for the cloud. In this article, you use 
 
 When you're finished, you see that the event data has been sent to an endpoint.
 
-![Event information](./media/custom-event-quickstart-portal/request-result.png)
-
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a custom topic
