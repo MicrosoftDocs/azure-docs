@@ -30,11 +30,11 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 ## Sample script
 
 
-[!code-powershell[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
 ## Clean up deployment 
 
-Run the following command to remove the resource group, VM, and all related resources.
+Run the following command to remove the resource group, VM, and all related resources:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -42,7 +42,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, virtual network,  and network security groups. Each command in the table links to command-specific documentation.
+This script uses the following commands to create a resource group, virtual network,  and network security groups. Each command in the following table links to command-specific documentation:
 
 | Command | Notes |
 |---|---|

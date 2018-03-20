@@ -29,7 +29,6 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 
 ## Sample script
 
-
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/filter-network-traffic/filter-network-traffic.sh  "Filter VM network traffic")]
 
 ## Clean up deployment 
@@ -42,7 +41,7 @@ az group delete --name MyResourceGroup --yes
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, virtual network,  and network security groups. Each command in the following table links to command-specific documentation:
+This script uses the following commands to create a resource group, virtual network, and network security groups. Each command in the following table links to command-specific documentation:
 
 | Command | Notes |
 |---|---|
@@ -50,7 +49,7 @@ This script uses the following commands to create a resource group, virtual netw
 | [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Creates an Azure virtual network and front-end subnet. |
 | [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Creates a back-end subnet. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) | Associates NSGs to subnets. |
-| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Creates a public IP address to access the VM from the Internet. |
+| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Creates a public IP address to access the VM from the internet. |
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Creates virtual network interfaces and attaches them to the virtual network's front-end and back-end subnets. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Creates network security groups (NSG) that are associated to the front-end and back-end subnets. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Creates NSG rules that allow or block specific ports to specific subnets. |
@@ -61,4 +60,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional networking CLI script samples can be found in [Virtual network CLI samples](../cli-samples.md).
+Additional virtual network CLI script samples can be found in [Virtual network CLI samples](../cli-samples.md).

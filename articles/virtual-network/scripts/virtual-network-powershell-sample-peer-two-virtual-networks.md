@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script Sample - Peer two virtual networks | Microsoft Docs
-description: Azure PowerShell Script Sample - Peer two virtual networks
+title: Azure PowerShell script sample - Peer two virtual networks | Microsoft Docs
+description: Azure PowerShell script sample - Peer two virtual networks
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -28,11 +28,11 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 
 ## Sample script
 
-[!code-azurepowershell[main](../../../powershell_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.ps1 "Peer two networks")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.ps1 "Peer two networks")]
 
 ## Clean up deployment 
 
-Run the following command to remove the resource group, VM, and all related resources.
+Run the following command to remove the resource group, VM, and all related resources:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -40,7 +40,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, virtual machine, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, virtual machine, and all related resources. Each command in the following table links to command specific documentation:
 
 | Command | Notes |
 |---|---|

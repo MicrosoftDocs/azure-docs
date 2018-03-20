@@ -30,7 +30,6 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 
 ## Sample script
 
-
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh "Route traffic through a network virtual appliance")]
 
 ## Clean up deployment 
@@ -50,13 +49,13 @@ This script uses the following commands to create a resource group, virtual netw
 | [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Creates an Azure virtual network and front-end subnet. |
 | [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Creates back-end and DMZ subnets. |
-| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Creates a public IP address to access the VM from the Internet. |
+| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Creates a public IP address to access the VM from the internet. |
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Creates a virtual network interface and enable IP forwarding for it. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Creates a network security group (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Creates NSG rules that allow HTTP and HTTPS ports inbound to the VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Associates the NSGs and route tables to subnets. |
 | [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Creates a route table for all routes. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Creates routes to route traffic between subnets and the Internet through the VM. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Creates routes to route traffic between subnets and the internet through the VM. |
 | [az vm create](/cli/azure/vm#az_vm_create) | Creates a virtual machine and attaches the NIC to it. This command also specifies the virtual machine image to use and administrative credentials. |
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group and all resources it contains. |
 
@@ -64,4 +63,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional networking CLI script samples can be found in [Virtual network CLI samples](../cli-samples.md).
+Additional virtual network CLI script samples can be found in [Virtual network CLI samples](../cli-samples.md).
