@@ -1,3 +1,4 @@
+# [Azure IoT Documentation](../iot/index.yml)
 # [IoT Suite Documentation](index.md)
 
 # Overview
