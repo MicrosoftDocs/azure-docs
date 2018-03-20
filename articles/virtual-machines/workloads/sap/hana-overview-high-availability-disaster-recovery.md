@@ -20,22 +20,24 @@ ms.custom: H1Hack27Feb2017
 # SAP HANA Large Instances high availability and disaster recovery on Azure 
 
 >[!IMPORTANT]
->This documentation is no replacement of the SAP HANA administration documentation or SAP Notes. It is expected that the reader has a solid understanding and expertise of SAP HANA administration and operations. Especially around the topics of backup, restore and high-availability and disaster-recovery. In this documentation, screenshots from SAP HANA Studio are shown. Content, structure, and nature of the screens of SAP Administration tools and the tools itself may change from SAP HANA release to release. Therefore, it is important that you exercise steps and processes taken in your environment and with your HANA versions and releases. Some processes described in this documentation are simplified for a better general understanding and are not meant to be used as detailed steps for eventual operation handbooks. If you want to create operation handbooks for your particular configurations, you need to test and exercise your processes and document those processes related to your specific configurations. 
+>This documentation is no replacement of the SAP HANA administration documentation or SAP Notes. It's expected that the reader has a solid understanding of and expertise in SAP HANA administration and operations, especially with the topics of backup, restore, high availability, and disaster recovery. In this documentation, screenshots from SAP HANA Studio are shown. Content, structure, and the nature of the screens of SAP administration tools and the tools themselves may change from SAP HANA release to release.
+
+It's important that you exercise steps and processes taken in your environment and with your HANA versions and releases. Some processes described in this documentation are simplified for a better general understanding and are not meant to be used as detailed steps for eventual operation handbooks. If you want to create operation handbooks for your configurations, you need to test and exercise your processes and document the processes related to your specific configurations. 
 
 
-High availability and disaster-recovery (DR) are important aspects of running your mission-critical SAP HANA on Azure (Large Instances) server. It's important to work with SAP, your system integrator, or Microsoft to properly architect and implement the right high-availability and disaster-recovery strategy. It is also important to consider the recovery point objective (RPO) and the recovery time objective, which are specific to your environment.
+High availability and disaster recovery (DR) are crucial aspects of running your mission-critical SAP HANA on the Azure (Large Instances) server. It's important to work with SAP, your system integrator, or Microsoft to properly architect and implement the right high-availability and disaster-recovery strategies. It's also important to consider the recovery point objective (RPO) and the recovery time objective, which are specific to your environment.
 
 Microsoft supports some SAP HANA high-availability capabilities with HANA Large Instances. These capabilities include:
 
 - **Storage replication**: The storage system's ability to replicate all data to another HANA Large Instance stamp in another Azure region. SAP HANA operates independently of this method. This functionality is the default disaster-recovery mechanism offered for HANA Large Instances.
-- **HANA system replication**: The [replication of all data in SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) to a separate SAP HANA system. The recovery time objective is minimized through data replication at regular intervals. SAP HANA supports asynchronous, synchronous in-memory, and synchronous modes. Synchronous mode is recommended only for SAP HANA systems that are within the same datacenter or less than 100 km apart. In the current design of HANA large-instance stamps, HANA system replication can be used for high availability within one region only. Currently, HANA system replication requires a third-party reverse-proxy or routing component for disaster-recovery configurations into another Azure region. 
-- **Host auto-failover**: A local fault-recovery solution for SAP HANA to use as an alternative to HANA system replication. If the master node becomes unavailable, you configure one or more standby SAP HANA nodes in scale-out mode, and SAP HANA automatically fails over to a standby node.
+- **HANA system replication**: The [replication of all data in SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) to a separate SAP HANA system. The recovery time objective is minimized through data replication at regular intervals. SAP HANA supports asynchronous, synchronous in-memory, and synchronous modes. Synchronous mode is recommended only for SAP HANA systems that are within the same datacenter or less than 100 km apart. With the current design of HANA large-instance stamps, HANA system replication can be used for high availability within one region only. HANA system replication requires a third-party reverse proxy or routing component for disaster-recovery configurations into another Azure region. 
+- **Host auto-failover**: A local fault-recovery solution for SAP HANA that's an alternative to HANA system replication. If the master node becomes unavailable, you configure one or more standby SAP HANA nodes in scale-out mode, and SAP HANA automatically fails over to a standby node.
 
-SAP HANA on Azure (Large Instances) is offered in two Azure regions in three different geopolitical areas (US, Australia, and Europe). With the Japan geopolitical area coming online soon. Two different regions, within a geopolitical area, that host HANA Large Instance stamps are connected to separate dedicated network circuits that are used for replicating storage snapshots to provide disaster-recovery methods. The replication is not established by default. It is set up for customers that ordered disaster-recovery functionality. Storage replication is dependent on the usage of storage snapshots for HANA Large Instances. It is not possible to choose an Azure region as a DR region that is in a different geopolitical area. 
+SAP HANA on Azure (Large Instances) is offered in two Azure regions in three geopolitical areas (US, Australia, and Europe), with the Japan geopolitical area coming online soon. Two regions within a geopolitical area that host HANA Large Instance stamps are connected to separate dedicated network circuits. These are used for replicating storage snapshots to provide disaster-recovery methods. The replication is not established by default but is set up for customers who order disaster-recovery functionality. Storage replication is dependent on the usage of storage snapshots for HANA Large Instances. It's not possible to choose an Azure region as a DR region that is in a different geopolitical area. 
 
-The following table shows the currently supported high-availability and disaster-recovery methods and combinations:
+The following table shows the currently supported high availability and disaster recovery methods and combinations:
 
-| Scenario supported in HANA Large Instances | High-availability option | Disaster-recovery option | Comments |
+| Scenario supported in HANA Large Instances | High availability option | Disaster recovery option | Comments |
 | --- | --- | --- | --- |
 | Single node | Not available. | Dedicated DR setup.<br /> Multipurpose DR setup. | |
 | Host auto-failover: N+m<br /> including 1+1 | Possible with the standby taking the active role.<br /> HANA controls the role switch. | Dedicated DR setup.<br /> Multipurpose DR setup.<br /> DR synchronization by using storage replication. | HANA volume sets are attached to all the nodes (n+m).<br /> DR site must have the same number of nodes. |
@@ -44,25 +46,25 @@ The following table shows the currently supported high-availability and disaster
 A dedicated DR setup is where the HANA Large Instance unit in the DR site is not used for running any other workload or non-production system. The unit is passive and is deployed only if a disaster failover is executed. Though, this setup is not a preferred choice for many customers.
 
 > [!NOTE]
-> [SAP HANA MCOD deployments](https://launchpad.support.sap.com/#/notes/1681092) (multiple HANA Instances on one unit) as overlaying scenarios work with the HA and DR methods listed in the table. Exception is the usage of HANA System Replication with an automatic failover cluster based on Pacemaker. Such a case only supports one HANA instance per unit. Whereas for [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) deployments, only non-storage based HA and DR methods work if more than one tenant is deployed. With one tenant deployed, all methods listed, are valid.  
+> [SAP HANA MCOD deployments](https://launchpad.support.sap.com/#/notes/1681092) (multiple HANA Instances on one unit) as overlaying scenarios work with the HA and DR methods listed in the table. An exception is the use of HANA System Replication with an automatic failover cluster based on Pacemaker. Such a case only supports one HANA instance per unit. For [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) deployments, only non-storage-based HA and DR methods work if more than one tenant is deployed. With one tenant deployed, all methods listed are valid.  
 
-A multipurpose DR setup is where the HANA Large Instance unit on the DR site runs a non-production workload. In case of disaster, you shut down the non-production system, you mount the storage-replicated (additional) volume sets, and then you start the production HANA instance. Most customers who use the HANA Large Instance disaster-recovery functionality, use this configuration. 
+A multipurpose DR setup is where the HANA Large Instance unit on the DR site runs a non-production workload. In case of disaster, shut down the non-production system, mount the storage-replicated (additional) volume sets, and then start the production HANA instance. Most customers who use the HANA Large Instance disaster recovery functionality use this configuration. 
 
 
 You can find more information on SAP HANA high availability in the following SAP articles: 
 
 - [SAP HANA High Availability Whitepaper](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [SAP HANA Administration Guide](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
-- [SAP Academy Video on SAP HANA System Replication](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
+- [SAP HANA Academy Video on SAP HANA System Replication](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
 - [SAP Support Note #1999880 – FAQ on SAP HANA System Replication](https://bcs.wdf.sap.corp/sap/support/notes/1999880)
 - [SAP Support Note #2165547 – SAP HANA Back up and Restore within SAP HANA System Replication Environment](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP Support Note #1984882 – Using SAP HANA System Replication for Hardware Exchange with Minimum/Zero Downtime](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 
 ## Network considerations for disaster recovery with HANA Large Instances
 
-To take advantage of the disaster-recovery functionality of HANA Large Instances, you need to design network connectivity to the two different Azure regions. You need an Azure ExpressRoute circuit connection from on-premises in your main Azure region and another circuit connection from on-premises to your disaster-recovery region. This measure covers a situation where there is a problem in an Azure region, including a Microsoft Enterprise Edge Router (MSEE) location.
+To take advantage of the disaster-recovery functionality of HANA Large Instances, you need to design network connectivity to the two Azure regions. You need an Azure ExpressRoute circuit connection from on-premises in your main Azure region, and another circuit connection from on-premises to your disaster-recovery region. This measure covers a situation in which there's a problem in an Azure region, including a Microsoft Enterprise Edge Router (MSEE) location.
 
-As a second measure, you can connect all Azure virtual networks that connect to SAP HANA on Azure (Large Instances) in one of the regions to an ExpressRoute circuit that connects HANA Large Instances in the other region. With this *cross connect*, services running on an Azure virtual network in Region #1, can connect to HANA Large Instance units in Region #2 and the other way around. This measure addresses a case where only one of the MSEE locations that connects to your on-premises location with Azure goes offline.
+As a second measure, you can connect all Azure virtual networks that connect to SAP HANA on Azure (Large Instances) in one region to an ExpressRoute circuit that connects HANA Large Instances in the other region. With this *cross connect*, services running on an Azure virtual network in Region 1 can connect to HANA Large Instance units in Region 2, and the other way around. This measure addresses a case in which only one of the MSEE locations that connects to your on-premises location with Azure goes offline.
 
 The following graphic illustrates a resilient configuration for disaster recovery cases:
 
@@ -70,35 +72,35 @@ The following graphic illustrates a resilient configuration for disaster recover
 
 
 
-## Other requirements when you use HANA Large Instances storage replication for disaster recovery
+## Other requirements with HANA Large Instances storage replication for disaster recovery
 
-Additional requirements for a disaster-recovery setup with HANA Large Instances are:
+In addition to the preceding requirements for a disaster recovery setup with HANA Large Instances, you must:
 
-- You must order SAP HANA on Azure (Large Instances) SKUs of the same size as your production SKUs and deploy them in the disaster-recovery region. In the current customer deployments, these instances are used to run non-production HANA instances. These configurations are referred to as *multipurpose DR setups*.   
-- You must order additional storage on the DR site for each of your SAP HANA on Azure (Large Instances) SKUs that you want to recover in the disaster-recovery site. Buying additional storage lets you allocate the storage volumes. You can allocate the volumes that are the target of the storage replication from your production Azure region into the disaster-recovery Azure region.
+- Order SAP HANA on Azure (Large Instances) SKUs of the same size as your production SKUs and deploy them in the disaster recovery region. In the current customer deployments, these instances are used to run non-production HANA instances. These configurations are referred to as *multipurpose DR setups*.   
+- Order additional storage on the DR site for each of your SAP HANA on Azure (Large Instances) SKUs that you want to recover in the disaster recovery site. Buying additional storage lets you allocate the storage volumes. You can allocate the volumes that are the target of the storage replication from your production Azure region into the disaster recovery Azure region.
 
  
 
 ## Backup and restore
 
-One of the most important aspects to operating databases is to protect them make from various catastrophic events. The cause of these events can be anything from natural disasters to simple user errors.
+One of the most important aspects to operating databases is to protect them from catastrophic events. The cause of these events can be anything from natural disasters to simple user errors.
 
 Backing up a database, with the ability to restore it to any point in time (such as before someone deleted critical data), enables restoration to a state that is as close as possible to the way it was prior to the disruption.
 
 Two types of backups must be performed for best results:
 
-- Database backups: full, incremental, or differential backups
-- Transaction-log backups
+- Database backups: Full, incremental, or differential backups
+- Transaction log backups
 
-In addition to full-database backups performed at an application level, you can perform backups with storage snapshots. Storage snapshots do not replace transaction-log backups. Transaction-log backups remain important to restore the database to a certain point in time or to empty the logs from already committed transactions. However, storage snapshots can accelerate recovery by quickly providing a roll-forward image of the database. 
+In addition to full-database backups performed at an application level, you can perform backups with storage snapshots. Storage snapshots do not replace transaction log backups. Transaction log backups remain important to restore the database to a certain point in time or to empty the logs from already committed transactions. However, storage snapshots can accelerate recovery by quickly providing a roll-forward image of the database. 
 
 SAP HANA on Azure (Large Instances) offers two backup and restore options:
 
-- Do it yourself (DIY). After you calculate to ensure there is enough disk space, perform full database and log backups by using disk backup methods. You can back up either directly to volumes attached to the HANA Large Instance units or to Network File Shares (NFS) set up in an Azure virtual machine (VM). In the latter case, customers set up a Linux VM in Azure, attach Azure Storage to the VM, and share the storage through a configured NFS server in that VM. If you perform the backup against volumes that directly attach to HANA Large Instance units, you need to copy the backups to an Azure storage account (after you set up an Azure VM that exports NFS shares that are based on Azure Storage). Or you can use either an Azure backup vault or Azure cold storage. 
+- Do-it-yourself (DIY). After you calculate to ensure there is enough disk space, perform full database and log backups by using disk backup methods. You can back up either directly to volumes attached to the HANA Large Instance units or to Network File Shares (NFS) set up in an Azure virtual machine (VM). In the latter case, customers set up a Linux VM in Azure, attach Azure Storage to the VM, and share the storage through a configured NFS server in that VM. If you perform the backup against volumes that directly attach to HANA Large Instance units, you need to copy the backups to an Azure storage account (after you set up an Azure VM that exports NFS shares that are based on Azure Storage). Or you can use either an Azure backup vault or Azure cold storage. 
 
    Another option is to use a third-party data protection tool to store the backups after they are copied to an Azure storage account. The DIY backup option might also be necessary for data that you need to store for longer periods of time for compliance and auditing purposes. In all cases, the backups are copied into NFS shares represented through a VM and Azure Storage.
 
-- Use the backup and restore functionality that the underlying infrastructure of SAP HANA on Azure (Large Instances) provides. This option fulfills the need for backups and fast restores. The rest of this section addresses the backup and restore functionality that's offered with HANA Large Instances. This section also covers the relationship backup and restore has to the disaster-recovery functionality offered by HANA Large Instances.
+- Infrastructure backup and restore functionality. You can also use the backup and restore functionality that the underlying infrastructure of SAP HANA on Azure (Large Instances) provides. This option fulfills the need for backups and fast restores. The rest of this section addresses the backup and restore functionality that's offered with HANA Large Instances. This section also covers the relationship backup and restore has to the disaster-recovery functionality offered by HANA Large Instances.
 
 > [!NOTE]
 > The snapshot technology that is used by the underlying infrastructure of HANA Large Instances has a dependency on SAP HANA snapshots. At this point, SAP HANA snapshots do not work in conjunction with multiple tenants of SAP HANA multitenant database containers. Thus, this method of backup cannot be used when you deploy multiple tenants in SAP HANA multitenant database containers. If only one tenant is deployed, SAP HANA snapshots do work.
