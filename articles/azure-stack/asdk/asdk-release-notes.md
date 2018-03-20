@@ -105,7 +105,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
  
 - Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
 
--	<!-- 2096388   Fixed - Remove in 1803      You cannot use the admin portal to update rules for a network security group. 
+<!-- 2096388   Fixed - Remove in 1803      You cannot use the admin portal to update rules for a network security group. 
 
     Workaround for App Service: If you need to remote desktop to the Controller instances, you modify the security rules within the network security groups with PowerShell.  Following are examples of how to *allow*, and then restore the configuration to *deny*: 
     
