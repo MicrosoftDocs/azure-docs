@@ -176,6 +176,10 @@
 ### [VM to VM connectivity problems](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [Configure PTR for SMTP Banner Check](create-ptr-for-smtp-service.md)
 
+## Sample scripts
+### [Azure CLI](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
+
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
