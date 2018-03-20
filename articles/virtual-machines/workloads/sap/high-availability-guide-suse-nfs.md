@@ -48,7 +48,7 @@ ms.author: sedusch
 [sap-hana-ha]:sap-hana-high-availability.md
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available NFS server that can be used to store the shared data of a highly available SAP system.
-This guide describes how to set up a highly available NFS server that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix prod.
+This guide describes how to set up a highly available NFS server that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix **prod**.
 
 Read the following SAP Notes and papers first
 
@@ -139,6 +139,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
    https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS) is used  
    Select Availability Set created earlier  
+1. Add one data disk for each SAP system to both virtual machines.
 1. Create a Load Balancer (internal)  
    1. Create the frontend IP addresses
       1. IP address 10.0.0.4 for NW1
@@ -273,6 +274,55 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo lvcreate -l 100%FREE -n <b>NW2</b> vg-<b>NW2</b>-NFS
    </code></pre>
 
+1. **[A]** Configure drbd
+
+   <pre><code>
+   sudo vi /etc/drbd.conf
+   </code></pre>
+
+   Make sure that the drbd.conf file contains the following two lines
+
+   <pre><code>
+   include "drbd.d/global_common.conf";
+   include "drbd.d/*.res";
+   </code></pre>
+
+   Change the global drbd configuration
+
+   <pre><code>
+   sudo vi /etc/drbd.d/global_common.conf
+   </code></pre>
+
+   Add the following entries to the handler and net section.
+
+   <pre><code>
+   global {
+        usage-count no;
+   }
+   common {
+        handlers {
+             fence-peer "/usr/lib/drbd/crm-fence-peer.sh";
+             after-resync-target "/usr/lib/drbd/crm-unfence-peer.sh";
+             split-brain "/usr/lib/drbd/notify-split-brain.sh root";
+		         pri-lost-after-sb "/usr/lib/drbd/notify-pri-lost-after-sb.sh; /usr/lib/drbd/notify-emergency-reboot.sh; echo b > /proc/sysrq-trigger ; reboot -f";
+        }
+        startup {
+		         wfc-timeout 0;
+        }
+        options {
+        }
+        disk {
+		         fencing resource-only;
+		         resync-rate 4G;
+        }
+        net {
+		         after-sb-0pri discard-younger-primary;
+		         after-sb-1pri discard-secondary;
+		         after-sb-2pri call-pri-lost-after-sb;
+        }
+   }
+   </code></pre>
+
 1. **[A]** Create the NFS drbd devices
 
    <pre><code>
@@ -285,7 +335,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    resource <b>NW1</b>-nfs {
       protocol     C;
       disk {
-         on-io-error       pass_on;
+         on-io-error       detach;
       }
       on <b>prod-nfs-0</b> {
          address   <b>10.0.0.6:7790</b>;
@@ -312,7 +362,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    resource <b>NW2</b>-nfs {
       protocol     C;
       disk {
-         on-io-error       pass_on;
+         on-io-error       detach;
       }
       on <b>prod-nfs-0</b> {
          address   <b>10.0.0.6:7791</b>;
