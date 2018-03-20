@@ -7,10 +7,12 @@
         href: overview.md
     - name: Quickstarts
       items:
-      - name: Windows VM
-        href: tutorial-windows-vm-access-arm.md
-      - name: Linux VM
-        href: tutorial-linux-vm-access-arm.md
+      - name: Use a VM MSI to acess Azure Resource Manager
+        items:
+        - name: Windows VM
+          href: tutorial-windows-vm-access-arm.md
+        - name: Linux VM
+          href: tutorial-linux-vm-access-arm.md
     - name: Tutorials
       items:
       - name: Windows VM/VMSS
@@ -62,7 +64,7 @@
         - name: Go
         - name: .NET
         - name: Java
-        - name: Node JS
+        - name: Node.js
         - name: Python
         - name: Ruby
       - name: Configure Identity for Azure VMSS
