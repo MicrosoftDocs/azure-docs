@@ -40,6 +40,11 @@ This release is currently distributed to a small and random selection of AADConn
 >[!NOTE]
 >When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
 
+>[!NOTE]
+>“Autoupgrade functionality was incorrectly disabled for some tenants by builds later than 1.1.524.0 . To ensure that your Azure AD Connect instance is still eligible for AutoUpgrade please run the following Powershell cmdlet.
+“Set-ADSyncAutoUpgrade -AutoupGradeState AutoUpgradeConfigurationState.Enabled”?
+
+
 ### Azure AD Connect
 #### Fixed issues
 
