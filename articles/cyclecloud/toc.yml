@@ -2,18 +2,40 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About CyelcCloud
+  - name: About CycleCloud
     href: cyclecloud-overview.md
-  - name: Prerequisites
-    href: prerequisites.md
 - name: CycleCloud Tools and Software
   items:
+  - name: Prerequisites
+    href: prerequisites.md
   - name: Installation
     href: installation.md
   - name: Configuring CycleCloud
     href: configuring_cyclecloud.md
   - name: Installing CycleCloud CLI
     href: install_cli.md
+  - name: Jetpack
+    href:
+  - name: pogo
+    items:
+    - name: Overview
+      href:
+    - name: pogo Configuration
+      href:
+    - name: Using pogo
+      href:
+  - name: SubmitOnce
+    items:
+    - name: Overview
+      href:
+    - name: User Management
+      href:
+    - name: CLI
+      href:
+    - name: Available Commands
+      href:
+    - name: Appendicies
+      href:
 - name: Quickstarts
   items:
   - name: Quickstart 1
@@ -36,33 +58,11 @@
       href: cluster_management.md
     - name: Nodes and Node Arrays
       href: nodes.md
-  - name: Jetpack
-    href:
   - name: Projects
     items:
     - name: Cluster-Init Projects
       href:
     - name: Firewall rules
-      href:
-  - name: pogo
-    items:
-    - name: Overview
-      href:
-    - name: pogo Configuration
-      href:
-    - name: Using pogo
-      href:
-  - name: SubmitOnce
-    items:
-    - name: Overview
-      href:
-    - name: User Management
-      href:
-    - name: CLI
-      href:
-    - name: Available Commands
-      href:
-    - name: Appendicies
       href:
   - name: Disaster Recovery
     items:
