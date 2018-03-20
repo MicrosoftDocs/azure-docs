@@ -113,7 +113,7 @@ az group delete --name myResourceGroup
 In this tutorial, you completed the process of deploying your container to Azure Container Instances. The following steps were completed:
 
 > [!div class="checklist"]
-> * Deployed the container from the Azure Container Registry using the Azure CLI
+> * Deployed the container from Azure Container Registry using the Azure CLI
 > * Viewed the application in the browser
 > * Viewed the container logs
 

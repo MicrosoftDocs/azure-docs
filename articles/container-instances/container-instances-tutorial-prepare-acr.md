@@ -112,7 +112,7 @@ Now, display the list of your local images with the [docker images][docker-image
 docker images
 ```
 
-Along with any other images you have on your machine, you should see the *aci-tutorial-app* image you built in the [previous tutorial](container-instances-prepare-app.md):
+Along with any other images you have on your machine, you should see the *aci-tutorial-app* image you built in the [previous tutorial](container-instances-tutorial-prepare-app.md):
 
 ```console
 $ docker images
