@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Google+ configuration | Microsoft Docs'
 description: Provide sign-up and sign-in to consumers with Google+ accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
-author: swkrish
+author: davidmu1
 manager: mtillman
-editor: bryanla
+editor: ''
 
-ms.assetid: 4dcca66f-29e4-4b4d-8840-50baad736bd7
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Google+ accounts
