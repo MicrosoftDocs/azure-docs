@@ -1,5 +1,5 @@
 ---
-title: Create a public load balancer - Azure CLI | Microsoft Docs
+title: Create a public Standard Load Balancer - Azure CLI | Microsoft Docs
 description: Learn how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
 ---
-# Create a public load balancer to load balance VMS using Azure CLI 2.0
+# Create a Standard Load Balancer to load balance VMS using Azure CLI 2.0
 
 This quickstart shows you how to create Standard Load Balancer. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server and load balance a web app between the two VMs.
 
@@ -28,15 +28,15 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroupLB* in the *eastus* location:
+The following example creates a resource group named *myResourceGroupSLB* in the *eastus* location:
 
 ```azurecli-interactive
   az group create \
-    --name myResourceGroupLB \
+    --name myResourceGroupSLB \
     --location eastus
 ```
 
-## Create a public IP address
+## Create a public Standard IP address
 
 To access your web app on the Internet, you need a public IP address for the load balancer. A Standard Load Balancer only supports Standard Public IP addresses. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) to create a Standard Public IP address named *myPublicIP* in *myResourceGroupSLB*.
 
@@ -54,7 +54,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer
 
-Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named **myLoadBalancer** that includes a frontend pool named **myFrontEndPool**, a back-end pool named **myBackEndPool** that is associated with the public IP address **myPublicIP** that you created in the preceding step.
+Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named **myLoadBalancer** that includes a frontend pool named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with the public IP address **myPublicIP** that you created in the preceding step.
 
 ```azurecli-interactive
   az network lb create \
@@ -62,7 +62,7 @@ Create a public Azure Load Balancer with [az network lb create](https://docs.mic
     --name myLoadBalancer \
     --sku standard
     --public-ip-address myPublicIP \
-    --frontend-ip-name myFrontEndPool \
+    --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
   ```
 
@@ -81,7 +81,7 @@ A health probe checks all virtual machine instances to make sure they can send n
 
 ### Create the load balancer rule
 
-A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) for listening to port 80 in the frontend pool *myFrontEndPool* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -91,7 +91,7 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
     --protocol tcp \
     --frontend-port 80 \
     --backend-port 80 \
-    --frontend-ip-name myFrontEndPool \
+    --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe  
 ```
@@ -127,7 +127,7 @@ Create a network security group rule to allow inbound connections through port 8
 
 ```azurecli-interactive
   az network nsg rule create \
-    --resource-group myResourceGroupLB \
+    --resource-group myResourceGroupSLB \
     --nsg-name myNetworkSecurityGroup \
     --name myNetworkSecurityGroupRuleHTTP \
     --protocol tcp \
@@ -146,7 +146,7 @@ Create three network interfaces with [az network nic create](/cli/azure/network/
 ```azurecli-interactive
 for i in `seq 1 2`; do
   az network nic create \
-    --resource-group myResourceGroupLB \
+    --resource-group myResourceGroupSLB \
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
@@ -167,7 +167,7 @@ Create an availability set with [az vm availabilityset create](/cli/azure/networ
 
  ```azurecli-interactive
   az vm availability-set create \
-    --resource-group myResourceGroupLB \
+    --resource-group myResourceGroupSLB \
     --name myAvailabilitySet
 ```
 
@@ -222,7 +222,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
  ```azurecli-interactive
 for i in `seq 1 2`; do
   az vm create \
-    --resource-group myResourceGroupLB \
+    --resource-group myResourceGroupSLB \
     --name myVM$i \
     --availability-set myAvailabilitySet \
     --nics myNic$i \
@@ -240,7 +240,7 @@ To get the public IP address of the load balancer, use [az network public-ip sho
 
 ```azurecli-interactive
   az network public-ip show \
-    --resource-group myResourceGroupLB \
+    --resource-group myResourceGroupSLB \
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -252,7 +252,7 @@ To get the public IP address of the load balancer, use [az network public-ip sho
 When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive 
-  az group delete --name myResourceGroupLB
+  az group delete --name myResourceGroupSLB
 ```
 ## Next step
 Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
