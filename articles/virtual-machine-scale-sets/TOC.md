@@ -1,15 +1,15 @@
 # [Virtual Machines Scale Sets Documentation](index.md)
 
 # Overview
-## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
+## [What are virtual machine scale sets?](overview.md)
 
 # Quickstarts
-## [Create in the Azure portal](virtual-machine-scale-sets-create-portal.md)
-## [Create with the Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
-## [Create with Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+## [Create in the Azure portal](quick-create-portal.md)
+## [Create with the Azure CLI 2.0](quick-create-cli.md)
+## [Create with Azure PowerShell](quick-create-powershell.md)
 ## Create with a template
-### [Linux scale set](virtual-machine-scale-sets-create-template-linux.md)
-### [Windows scale set](virtual-machine-scale-sets-create-template-windows.md)
+### [Linux scale set](quick-create-template-linux.md)
+### [Windows scale set](quick-create-template-windows.md)
 
 # Tutorials
 ## 1 - Create / manage scale set
