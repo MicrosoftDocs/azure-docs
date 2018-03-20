@@ -26,6 +26,18 @@ ms.author: jdial
     - NSG flow logs enabled for the NSGs you want to monitor
     - An Azure Storage account, to store raw flog logs
     - A Log Analytics (OMS) Workspace, with read and write access
+    - Your account must be assigned the following actions on the Microsoft.Network provider:
+
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
 2.  Which Azure regions are Traffic Analytics available in?
 
@@ -91,7 +103,7 @@ ms.author: jdial
 
 14.  How is Traffic Analytics priced?
 
-        No charges are billed while Traffic Analytics is in Public Preview. Generation of NSG Flow Logs and retention of data in an OMS workspace are subject to charges at published rates.
+        Traffic Analytics is metered for enhancing reduced logs, and storing the enhanced logs in a Log Analytics workspace. While in preview, Traffic Analytics is not billed for enhancing the reduced logs, however retention of data in a workspace is subject to billing at published rates. This answer will be updated once pricing for Traffic Analytics is available.
 
 15.  How can I navigate using Keyboard in Geo Map View?
 

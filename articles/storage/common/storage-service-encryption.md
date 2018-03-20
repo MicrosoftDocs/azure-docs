@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
 
 ---
@@ -59,17 +59,13 @@ A: Storage Service Encryption is enabled by default at the time of creating any 
 
 A: There is no additional cost.
 
-**Q: Who manages the encryption keys?**
-
-A: Microsoft manages the keys.
-
 **Q: Can I use my own encryption keys?**
 
-A: Not at this time.
+A: Yes, you can use your own encryption keys. For more information, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **Q: Can I revoke access to the encryption keys?**
 
-A: Not at this time. Microsoft fully manages the keys.
+A: Yes, if you [use your own encryption keys](storage-service-encryption-customer-managed-keys.md) in Azure Key Vault.
 
 **Q: Is Storage Service Encryption enabled by default when I create a storage account?**
 

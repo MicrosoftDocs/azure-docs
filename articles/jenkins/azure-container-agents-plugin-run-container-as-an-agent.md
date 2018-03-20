@@ -7,7 +7,7 @@ ms.service: multiple
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/16/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ---
@@ -64,6 +64,11 @@ This section walks you through setting the Jenkins URL.
 1. Select **Save**.
 
 ## Update Jenkins to allow Java Network Launch Protocol (JNLP)
+
+> [!NOTE]
+> This tutorial illustrates how to configure a JNLP agent. From version 0.4.x onwards, the [Jenkins Azure Container Agents plugin](https://plugins.jenkins.io/azure-container-agents) also supports SSH.
+>
+>
 
 The Jenkins agent connects with the Jenkins server via the Java Network Launch Protocol (JNLP). This section explains how to specify a port for JNLP agents to use when communicating with the Jenkins server.
 
