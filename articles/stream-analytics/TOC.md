@@ -3,10 +3,6 @@
 # Overview
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 
-# Get started
-## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
-
 # Tutorials
 ## [1 - Test your job](stream-analytics-test-query.md)
 ## [2 - View results on a dashboard](stream-analytics-power-bi-dashboard.md)
@@ -40,6 +36,7 @@
 ### [Run jobs on IoT edge](stream-analytics-edge.md) 
 ### [Run a JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [High-frequency trading](stream-analytics-high-frequency-trading.md)
+## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 
 ## Monitor
 
