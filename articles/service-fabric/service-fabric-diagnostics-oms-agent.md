@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: dekapur
 
 ---
@@ -57,7 +57,14 @@ The best way to add the OMS Agent to your cluster is via the virtual machine sca
 
     ![OMS agent cli command](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
-    This should take less than 15 min to successfully add the agent to your nodes. You can verify that the agents have been added by using the `az vmss extension list` API:
+5. Run the command to apply this configuration to your VM instances that already exist:  
+
+
+    ```sh
+    az vmss update-instances
+    ```
+
+This should take less than 15 min to successfully add the agent to your nodes. You can verify that the agents have been added by using the `az vmss extension list` API:
 
     ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
