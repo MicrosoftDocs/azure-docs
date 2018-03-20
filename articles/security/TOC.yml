@@ -2,7 +2,7 @@
   href: index.md
 - name: Architecture and design
   href: azure-security.md
-  expanded: true
+  expanded: false
   items:
   - name: Advanced threat detection
     href: azure-threat-detection.md
