@@ -37,7 +37,7 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
 
 - [File system issues](https://support.microsoft.com/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) 
 - [Kernel Issues](https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues/) 
-- [FSTAB errors](https://support.microsoft.com/en-us/help/azure-linux-vm-cannot-start-because-of-fstab-errors)
+- [FSTAB errors](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## Enable diagnostics on a new virtual machine
 1. When creating a new Virtual Machine from the Preview Portal, select the **Azure Resource Manager** from the deployment model dropdown:
