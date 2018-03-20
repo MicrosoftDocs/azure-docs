@@ -20,8 +20,10 @@ ms.author: mazha
 # Azure CDN POP locations by region
 > [!div class="op_single_selector"]
 > * [POP locations by region](cdn-pop-locations.md)
-> * [POP locations by POP abbreviation](cdn-pop-abbreviations.md)
+> * [POP locations by abbreviation](cdn-pop-abbreviations.md)
 > 
+
+
 This article lists current point-of-presence (POP) locations, sorted by region, for **Azure CDN from Verizon** and **Azure CDN from Akamai**.
 
 > [!IMPORTANT]
