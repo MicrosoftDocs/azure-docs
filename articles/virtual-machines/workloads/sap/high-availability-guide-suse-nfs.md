@@ -144,7 +144,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
       1. IP address 10.0.0.4 for NW1
          1. Open the load balancer, select frontend IP pool, and click Add
          1. Enter the name of the new frontend IP pool (for example **nw1-frontend**)
-         1. Set the Assignement to Static and enter the IP address (for example **10.0.0.4**)
+         1. Set the Assignment to Static and enter the IP address (for example **10.0.0.4**)
          1. Click OK         
       1. IP address 10.0.0.5 for NW2
          * Repeat the steps above for NW2
@@ -391,7 +391,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Setup drbd split-brain detection
 
-   When using drbd to syncronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be very rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
+   When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be very rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
 
    Read [the official drbd documentation](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) on how to set up a split brain notification.
 
