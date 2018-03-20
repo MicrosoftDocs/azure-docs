@@ -41,11 +41,11 @@ Azure IoT auto-provisioning can be understood into three phases:
 
 ## Roles and operations
 
-In addition to spanning weeks or months in time, the phases discussed in the previous section also span multiple roles. And in order for auto-provisioning to work, requirements are also placed on the manufacturer, specific to enabling the attestation mechanism. This means the phases may even occur in different orders, due to the asynchronous nature of the operations performed by the related roles.
+In addition to spanning weeks or months in production environments, the phases discussed in the previous section also span multiple roles. This section takes takes a deeper look at the various roles and operations related to each, then illustrates the flow in a sequence diagram. 
 
-This section takes takes a deeper look at the various roles and operations related to each, then illustrates the flow in a sequence diagram.
+Auto-provisioning also places requirements on the device manufacturer, specific to enabling the attestation mechanism. Manufacturing operations can also occur independently and asynchronously with respect to the auto-provisioning phases.
 
-In addition, a series of Quickstarts are provided in the table of contents to the left, to help explain auto-provisioning through hands-on experience. In order to facilitate/simplify the learning process, software is used to simulate a physical device for enrollment and registration. As noted earlier, the Quickstarts may also require you to fulfill operations for multiple roles, including roles that are not applicable due to the simulated nature of the Quickstarts.
+A series of Quickstarts are provided in the table of contents to the left, to help explain auto-provisioning through hands-on experience. In order to facilitate/simplify the learning process, software is used to simulate a physical device for enrollment and registration. As noted earlier, the Quickstarts may also require you to fulfill operations for multiple roles, including roles that are not applicable due to the simulated nature of the Quickstarts.
 
 
 
