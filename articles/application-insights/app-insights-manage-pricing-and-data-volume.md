@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 03/21/2018
 ms.author: mbullwin
 
 ---
@@ -173,6 +173,7 @@ You can write a script to set the price plan, using Azure Resource Management. [
 ## Next steps
 
 * [Sampling](app-insights-sampling.md)
+* [Intentional bad link to prevent merge](app-insights-does-not-exist.md)
 
 <!--Link references-->
 
