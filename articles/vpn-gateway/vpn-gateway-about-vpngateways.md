@@ -52,10 +52,13 @@ The following table can help you decide the best connectivity option for your so
 
 [!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-
 ## <a name="gwsku"></a>Gateway SKUs
 
-[!INCLUDE [gateway skus](../../includes/vpn-gateway-gwsku-include.md)]
+When you create a virtual network gateway, you specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs. For more information about gateway SKUs, including supported features, production and dev-test, and configuration steps, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+
+### <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
+
+[!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="diagrams"></a>Connection topology diagrams
 
