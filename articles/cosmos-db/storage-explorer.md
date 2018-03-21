@@ -128,15 +128,11 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
     ![Create collection2](./media/storage-explorer/create-collection2.png) 
 
-
-- Please select **Unlimited** to be able to specify partition key, then click **OK** to finish.
+- Select **Unlimited** to be able to specify partition key, then click **OK** to finish.
 
     If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection. For information on partition key settings, see [Design for partitioning](partition-data.md#designing-for-partitioning).
 
-
     ![Partition key](./media/storage-explorer/partitionkey.png)
-
-
 
 #### Delete a collection
 - Right-click the collection, click **Delete Collection**, and then click **Yes** in the pop-up window. 
@@ -166,11 +162,9 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 #### Create and modify vertex
 + To create a new vertex, open **Graph** from the left window, click **New Vertex**, edit the contents, then click **OK**.    
-+ To modify an existing vertex, click the pen icon in the right pane.    
-
++ To modify an existing vertex, click the pen icon in the right pane.   
 
     ![Graph](./media/storage-explorer/vertex.png)
-
 
 #### Delete a graph
 - To delete a vertex, click the recycle bin icon beside the vertex name.
@@ -179,7 +173,6 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 - Edit the graph filter by entering a [gremlin query](gremlin-support.md) and then click **Apply Filter**.
 
     ![Graph Filter](./media/storage-explorer/graph-filter.png)
-
 
 ### Table management
 
@@ -193,16 +186,12 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 + To import, click **Import** button and choose an existing table.
 + To export, click **Export** button and choose a destination.
 
-
     ![Table Import and Export](./media/storage-explorer/table-import-export.png)
-
 
 #### Delete Entities
 - Select the entities and click button **Delete**.
 
-
     ![Table delete](./media/storage-explorer/table-delete.png)
-
 
 #### Query table
 - Click **Query** button, input query condition, then click **Execute Query** button. Close Query pane by clicking **Close Query** button.
