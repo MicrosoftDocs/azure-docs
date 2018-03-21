@@ -5,7 +5,8 @@ keywords: ALM, AML, Azure ML, Application Life Cycle Management, Version Control
 services: machine-learning
 documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 
 ms.assetid: 1be6577d-f2c7-425b-b6b9-d5038e52b395
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.author: haining
 
 ---
 # Application Lifecycle Management in Azure Machine Learning Studio
