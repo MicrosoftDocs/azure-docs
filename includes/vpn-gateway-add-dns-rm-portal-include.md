@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/21/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 1. On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to open the **DNS servers** blade.
 
     ![Add DNS server](./media/vpn-gateway-add-dns-rm-portal/add_dns_server.png "Add DNS Server")
