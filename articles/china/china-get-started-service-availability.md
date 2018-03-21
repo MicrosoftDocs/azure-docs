@@ -4,8 +4,8 @@ description: This article highlights the services available in global Azure and 
 services: china
 cloud: na
 documentationcenter: na
-author: v-wimarc
-manager: edprice
+author: keqi
+manager: daneelp
 
 ms.assetid: na
 ms.service: china
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/20/2018
 ms.author: v-wimarc
 ---
 # Azure service availability in China
@@ -21,7 +21,7 @@ ms.author: v-wimarc
 The following tables compare services available in global Azure and Microsoft Azure operated by 21Vianet (Azure China  21Vianet). In the tables, GA means *general availability* and Preview means *available in preview*.
 
 > [!NOTE]
-> The tables on this page were updated on August 23, 2017. New services continue to be added. For the latest services, go to [http://www.azure.cn/](http://www.azure.cn/).
+> The tables on this page were updated on March 20, 2018. New services continue to be added. For the latest services, go to [http://www.azure.cn/](http://www.azure.cn/).
 
 ## Compute services
 ----------------
@@ -166,6 +166,6 @@ The following tables compare services available in global Azure and Microsoft Az
 
 
 ## Next steps
-- [Check for new services](http://www.azure.cn/)
+- [Check for new services](https://www.azure.cn/what-is-new/)
 
 
