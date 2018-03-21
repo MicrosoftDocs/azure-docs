@@ -4,8 +4,8 @@ description: 'Learn about how to push or copy data to an Azure search index by u
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
