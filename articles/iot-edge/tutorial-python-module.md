@@ -72,7 +72,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
     ```
  
 4. Select  **File** > **Open Folder**.
-5. Browse to the **FilterModule**  folder and click **Select Folder** to open the project in VS Code.
+5. Browse to the **FilterModule** folder and click **Select Folder** to open the project in VS Code.
 6. In VS Code explorer, click **main.py** to open it.
 7. At the top of the **FilterModule** namespace, import the `json` library:
 
