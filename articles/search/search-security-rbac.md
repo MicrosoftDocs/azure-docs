@@ -22,6 +22,8 @@ ms.author: heidist
 
 Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of *service administration* for Active Directory users, groups, and security principals assigned to each role. 
 
+## Roles
+
 For Azure Search, roles are associated with permission levels that support the following management tasks:
 
 | Role | Task |
@@ -36,6 +38,21 @@ Roles do not grant access rights to the service endpoint. Search service operati
 > [!Note]
 > For identity-based access over search results, you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md) and [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
+## Operations by role
+
+The following table summarizes the operations allowed in Azure Search and which key unlocks access a particular operation.
+
+| Operation | Role |
+|-----------|-------|
+| Create a service | Owner |
+| Scale a service  | Owner or Contributor |
+| Delete a service | Owner or Contributor |
+| Manage RBAC roles on the service | Owner |
+| Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters. | Owner or Contributor |
+| Query an index | [Admin or query key](search-security-api-keys.md) (RBAC is not applicable for query operations) |
+| Query system information, such as returning statistics, counts, and lists of objects. |  Owner, Contributor, Reader |
+| Manage admin keys | Owner or Contributor |
+| Manage query keys | Owner or Contributor  |
 
 ## See also
 
