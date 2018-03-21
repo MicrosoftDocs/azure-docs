@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB query cheat sheet
 
-The **Azure Cosmos DB query cheat sheet** helps you quickly write queries for your data by displaying common database queries, operations, functions, and operators in easy-to-print PDF reference sheets. The cheat sheets includes reference information for the SQL API, MongoDB API, Table API, and Gremlin/Graph API. 
+The **Azure Cosmos DB query cheat sheet** helps you quickly write queries for your data by displaying common database queries, operations, functions, and operators in easy-to-print PDF reference sheets. The cheat sheets include reference information for the SQL API, MongoDB API, Table API, and Gremlin/Graph API. 
 
 Choose from a letter-sized or A3-sized download. 
 
@@ -37,9 +37,9 @@ Download the [Azure Cosmos DB A3-sized query cheat sheet](https://go.microsoft.c
 
 ## Next steps
 For more help writing queries, see the following articles:
-* For SQL API queries, see [Query using the SQL API](tutorial-query-sql-api.md), [SQL queries for Azure Cosmos DB](sql-api-sql-query.md), and [SQL syntax reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* For MongoDB queries, see [Query using the MongoDB API](tutorial-query-mongodb.md)
-* For Graph API queries, see [Query using the MongoDB API](tutorial-query-graph.md)
+* For SQL API queries, see [Query using the SQL API](tutorial-query-sql-api.md), [SQL queries for Azure Cosmos DB](sql-api-sql-query.md), and [SQL syntax reference](sql-api-sql-query-reference.md)
+* For MongoDB queries, see [Query using the MongoDB API](tutorial-query-mongodb.md) and [MongoDB API support for MongoDB features and syntax](mongodb-feature-support.md)
+* For Graph API queries, see [Query using the Graph API](tutorial-query-graph.md) and [Azure Cosmos DB Gremlin graph support](gremlin-support.md)
 * For Table API queries, see [Query using the Table API](tutorial-query-table.md)
 
 
