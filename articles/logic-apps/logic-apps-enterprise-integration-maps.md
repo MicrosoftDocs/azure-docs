@@ -37,7 +37,8 @@ visually map items between two XML schema files.
 After you build this project, you will have an XSLT document.
 
 If you are referring external assembly in your maps, then you need to add both the map 
-and the assembly to integration account.
+and the assembly to integration account. They should be uploaded in a specific order, first assembly anf then the map that references the assembly
+
 
 ## How do I add a map?
 
@@ -74,6 +75,20 @@ was added or not. After you get this message,
 choose the **Maps** tile so you can view the newly added map.
 
 	![](./media/logic-apps-enterprise-integration-maps/map-4.png)
+
+
+## How do I add an assembly?
+Open the integration account where you want to upload the assembly.
+
+1. Choose the **Assemblies** tile.
+
+	![integrationaccount-assembly-tile](./media/logic-apps-enterprise-integration-maps/assemblytile.png)
+
+2. After the Assemblies blade opens, choose **Add**. Enter a **Name** for your assembly. To upload the assembly file, 
+choose the folder icon on the right side of the **Assembly** text box. 
+After the upload process completes, choose **OK**.
+
+ 	![add-assembly](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
 
 ## How do I edit a map?
 

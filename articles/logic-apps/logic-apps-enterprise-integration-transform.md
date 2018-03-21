@@ -82,32 +82,36 @@ The transform action also supports maps or transforms with reference to external
 
 * The map and the assembly referenced from the map needs to be [uploaded to integration account](./logic-apps-enterprise-integration-maps.md#how-do-i-add-a-map). 
 
-* Map should include two additional attributes 
+  > [!NOTE]
+  > Map and assembly are required to be uploaded in a specific order. The assembly should be uploaded before the map that references it.
+
+* Map should include two additional attributes and CDATA section containing the call to assembly code
     * **name** is custom assembly name 
     * **namespace** is the namespace in your assembly that includes the custom code
 
   Here is an example of the map with reference to an assembly named XsltUtilitiesLib. It also calls the method circumference from the assembly. 
 
   ````xml
-  <?xml version="1.0" encoding="utf-8"?>
+  <?xml version="1.0" encoding="UTF-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
-   <msxsl:script language="C#" implements-prefix="user">
-   <msxsl:assembly name="XsltUtilitiesLib"/>
-   <msxsl:using namespace="XsltUtilitiesLib" />
-   <![CDATA[public double circumference(double radius){ double pi = 3.14; double circ = pi*radius*2; return circ; }]]></msxsl:script>
-   <xsl:template match="data">
-     <circles>
-       <xsl:for-each select="circle">
-         <circle>
-           <xsl:copy-of select="node()"/>
-           <circumference>
-             <xsl:value-of select="user:circumference(radius)"/>
-           </circumference>
-         </circle>
-       </xsl:for-each>
-     </circles>
-   </xsl:template>
-  </xsl:stylesheet>
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+	 <circles>
+		<xsl:for-each select="circle">
+			<circle>
+				<xsl:copy-of select="node()"/>
+					<circumference>
+						<xsl:value-of select="user:circumference(radius)"/>
+					</circumference>
+			</circle>
+		</xsl:for-each>
+	 </circles>
+	</xsl:template>
+    </xsl:stylesheet>
   ````
 
 
