@@ -77,7 +77,8 @@
 ## [Manage groups and members](active-directory-manage-groups.md)
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell Azure Resource Manager](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell classic deployment model](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +95,8 @@
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
 ### [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md)
-### Manage group settings
-#### [Azure portal](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Manage group settings](active-directory-groups-settings-azure-portal.md)
+
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
