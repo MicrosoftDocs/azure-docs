@@ -4,8 +4,8 @@ description: Learn how you can use the Hive Activity in an Azure data factory to
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
