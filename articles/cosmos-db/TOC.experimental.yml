@@ -3,10 +3,10 @@ metadata:
   experiment_id: "662dc5fd-886f-4a"
 items:
   - name: Treatment
-    href: index.md
+    href: index.experimental.yml
     displayName: Treatment
   - name: Azure Cosmos DB Documentation
-    href: index.yml
+    href: index.experimental.yml
   - name: Overview
     items:
     - name: About Azure Cosmos DB
