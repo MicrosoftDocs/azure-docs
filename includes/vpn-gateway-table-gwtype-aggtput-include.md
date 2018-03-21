@@ -1,5 +1,3 @@
-Azure offers the following VPN gateway SKUs:
-
 |**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br>Connections** | **Aggregate<br>Throughput Benchmark** |
 |---       | ---                             | ---                    | ---                         |
 |**VpnGw1**| Max. 30                         | Max. 128               | 650 Mbps                    |
