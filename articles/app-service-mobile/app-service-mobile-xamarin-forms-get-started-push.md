@@ -210,7 +210,7 @@ The first two steps are required only when you're testing on an emulator.
 ## Configure and run the iOS project (optional)
 This section is for running the Xamarin iOS project for iOS devices. You can skip this section if you are not working with iOS devices.
 
-[!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
+[!INCLUDE [Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 #### Configure the notification hub for APNS
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
