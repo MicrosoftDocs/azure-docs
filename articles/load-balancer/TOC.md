@@ -13,12 +13,13 @@
 
 # Get Started
 ## [Create Basic Load Balancer](load-balancer-get-started-internet-portal.md)
-### [Create Basic Load Balancer (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
 ### [Create Basic Load Balancer (CLI)](load-balancer-get-started-internet-arm-cli.md)
+### [Create Basic Load Balancer (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
 ## [Create Standard Load Balancer](load-balancer-standard-public-portal.md)
+### [Create a Standard Load Balancer (CLI)](load-balancer-standard-public-cli.md)
 
 # How to
-## [Create a Standard Load Balancer](load-balancer-standard-public-cli.md)
+
 ## [Create public Load Balancer with IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Create public Load Balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Create public Load Balancer with IPv6 (Template)](load-balancer-ipv6-internet-template.md)
