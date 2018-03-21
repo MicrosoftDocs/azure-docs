@@ -10,7 +10,7 @@ metadata:
   manager: carolz
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.devlang:
   ms.topic: landing-page
   ms.date: 05/03/2017
   ms.author: carolz

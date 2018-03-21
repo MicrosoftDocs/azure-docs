@@ -1,21 +1,14 @@
 ---
 title: 'Azure SQL Database service | Microsoft Docs'
 description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
-keywords: 
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Active"
-ms.date: 02/28/2018
+ms.date: 03/21/2018
+manager: craigg
+ms.topic: article
 ms.author: carlrab
 
 ---
@@ -37,7 +30,8 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |CPU|Low|Low, Medium, High|Medium, High|
 |IO throughput (approximate) |2.5 IOPS per DTU	| 2.5 IOPS per DTU | 48 IOPS per DTU|
 |IO latency (approximate)|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
-|Columnstore indexing and in-memory OLTP|N/A|N/A|Supported|
+|Columnstore indexing |N/A|S3 and above|Supported|
+|In-memory OLTP|N/A|N/A|Supported|
 |||||
 
 ## Performance level and storage size limits
