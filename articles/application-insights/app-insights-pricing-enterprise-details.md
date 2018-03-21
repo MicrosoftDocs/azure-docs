@@ -19,7 +19,7 @@ ms.author: mbullwin
 
 # Manage pricing and data volume in Application Insights
 
-Pricing for [Azure Application Insights][start] is based on data volume per application. Each Application Insights resource is charged as a separate service, and contributes to the bill for your subscription to Azure.
+Pricing for [Azure Application Insights](https://review.docs.microsoft.com/en-us/azure/application-insights/app-insights-overview) is based on data volume per application. Each Application Insights resource is charged as a separate service, and contributes to the bill for your subscription to Azure.
 
 There are two pricing plans. The default plan is called Basic, which includes all of the same features as the Enterprise plan at no addition cost and bills primarily on the volume of data ingested. If you are using the Operations Management Suite, you should opt for the Enterprise plan, which has a per-node charge along with daily data allowances, and then will charge for data ingested above the included allowance.
 
@@ -27,7 +27,7 @@ If you have questions about how pricing works for Application Insights, feel fre
 
 ## The price plans
 
-See the [Application Insights pricing page][pricing] for current prices in your currency and region.
+See the [Application Insights pricing page](http://azure.microsoft.com/pricing/details/application-insights/) for current prices in your currency and region.
 
 ## Enterprise pricing details
 
