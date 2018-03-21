@@ -153,6 +153,8 @@
       href: service-fabric-application-and-service-manifests.md
     - name: Hosting model
       href: service-fabric-hosting-model.md
+    - name: Application security
+      href: service-fabric-application-and-service-security.md
     - name: Service state
       href: service-fabric-concepts-state.md
     - name: Service partitioning
@@ -164,9 +166,7 @@
     - name: Replica and instance lifecycle
       href: service-fabric-concepts-replica-lifecycle.md
     - name: Reconfiguration
-      href: service-fabric-concepts-reconfiguration.md
-    - name: Application security
-      href: service-fabric-application-and-service-security.md
+      href: service-fabric-concepts-reconfiguration.md    
     - name: Service communication
       href: service-fabric-connect-and-communicate-with-services.md
       items:

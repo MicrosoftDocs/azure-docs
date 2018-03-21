@@ -69,7 +69,7 @@ For an example, see [Manage application secrets](service-fabric-application-secr
 ## Secure the hosting environment
 By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. Service Fabric also helps secure the resources that are used by applications at the time of deployment under the user accounts--for example, files, directories, and certificates. This makes running applications, even in a shared hosted environment, more secure from one another.
 
-The application manifest declares the security principals (users and groups) required run the service(s) and secure resources.  These security principals are referenced in policies, for example the RunAs, endpoint binding, package sharing, or security access policies.  Policies are then applied to service resources in the **ServiceManifestImport** section of the application manifest.
+The application manifest declares the security principals (users and groups) required run the service(s) and secure resources.  These security principals are referenced in policies, for example the run-as, endpoint binding, package sharing, or security access policies.  Policies are then applied to service resources in the **ServiceManifestImport** section of the application manifest.
 
 When declaring principals, you can also define and create user groups so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
