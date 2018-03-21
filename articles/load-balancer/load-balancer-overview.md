@@ -78,11 +78,11 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
     Three types of probes are supported:
 
-   1. **HTTP custom probe:**  You can use it to create your own custom logic to determine the health of a backend pool instance. The load balancer will regularly probe your endpoint (every 15 seconds, by default). The instance is considered to be healthy if it responds with a HTTP 200 within the timeout period (default of 31 seconds). Any status other than HTTP 200 causes this probe to fail.  This is also useful for implementing your own logic to remove instances from the load balancer's rotation. For example, you can configure the instance to return a non-200 status if the instance is above 90% CPU.   This probe overrides the default guest agent probe.
+    - **HTTP custom probe:**  You can use it to create your own custom logic to determine the health of a backend pool instance. The load balancer will regularly probe your endpoint (every 15 seconds, by default). The instance is considered to be healthy if it responds with a HTTP 200 within the timeout period (default of 31 seconds). Any status other than HTTP 200 causes this probe to fail.  This is also useful for implementing your own logic to remove instances from the load balancer's rotation. For example, you can configure the instance to return a non-200 status if the instance is above 90% CPU.   This probe overrides the default guest agent probe.
 
-    2. **TCP custom probe:** This probe relies on successful TCP session establishment to a defined probe port.  As long as the specified listener on the virtual machine exists, this probe will succeed. If the connection is refused, the probe will fail. This probe overrides the default guest agent probe.
+    - **TCP custom probe:** This probe relies on successful TCP session establishment to a defined probe port.  As long as the specified listener on the virtual machine exists, this probe will succeed. If the connection is refused, the probe will fail. This probe overrides the default guest agent probe.
 
-    3. **Guest agent probe (on Platform as a Service Virtual Machines only):** The load balancer can also utilize the guest agent inside the virtual machine. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state. If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to attempt to reach the instance. If the guest agent responds with an HTTP 200, the load balancer will send traffic to that instance again.  Guest agent probes are a last resort and should not be used when HTTP or TCP custom probe configurations are possible. 
+    - **Guest agent probe (on Platform as a Service Virtual Machines only):** The load balancer can also utilize the guest agent inside the virtual machine. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state. If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to attempt to reach the instance. If the guest agent responds with an HTTP 200, the load balancer will send traffic to that instance again.  Guest agent probes are a last resort and should not be used when HTTP or TCP custom probe configurations are possible. 
     
 * **Outbound connections (Source NAT)**
 
@@ -95,7 +95,7 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
 Standard Load Balancer has additional SKU-specific abilities beyond these fundamentals.  Review the remainder of this article for details.
 
-## <a name="skus"></a> Load Balancer SKU Comparison
+## <a name="skus"></a> Load Balancer SKU comparison
 
 Azure Load Balancer supports two different SKUs: Basic and Standard.  There are differences in scenario scale, features, and pricing.  Any scenario possible with Basic Load Balancer can be created with Standard Load Balancer as well.  In fact, the APIs for both SKUs are similar and invoked through the specification of a SKU.  The API for supporting SKUs for Load Balancer and public IP is available starting with the 2017-08-01 API.  Both SKUs have the same general API and structure.
 
@@ -106,7 +106,7 @@ However, depending on which SKU is chosen, the complete scenario configuration d
 
 Standalone virtual machines, availability sets, and virtual machine scale sets can only be connected to one SKU, never both. When used with public IP addresses, both Load Balancer and public IP address SKU must match. Load Balancer and Public IP SKUs are not mutable.
 
-_It is a best practice to specify the SKUs explicitly, even though it is not yet mandatory._  Azure is keeping required changes as small as possible at this time. In the current API version, if you omit the SKU information when creating a Load Balancer, then it is assumed that you desire to use the Basic SKU. Future API versions may revise this behavior and require the selection of a SKU in REST, template, and client tools. Therefore, as a best practice, we recommend that you always explicitly provide SKU information when creating a Load Balancer.
+_It is a best practice to specify the SKUs explicitly, even though it is not yet mandatory._  At this time, required changes are being kept to a minimum. If a SKU is not specified, it is interpreted as the intention to use Basic SKU in the 2017-08-01 API version.
 
 >[!IMPORTANT]
 >Standard Load Balancer is a new Load Balancer product and largely a superset of Basic Load Balancer.  There are important and deliberate differences between both products.  Any end-to-end scenario possible with Basic Load Balancer can be created with Standard Load Balancer.  If you are already used to Basic Load Balancer, you should familiarize yourself with Standard Load Balancer to understand breaking changes in behavior between Standard and Basic and their impact. Review this section carefully.
@@ -165,7 +165,7 @@ Basic Load Balancer is offered at no charge.
 
 ## SLA
 
-For information about the Standard Load Balancer SLA, visit the [Load Balancer SLA](https://azure.microsoft.com/en-us/support/legal/sla/load-balancer/) page. 
+For information about the Standard Load Balancer SLA, visit the [Load Balancer SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/) page. 
 
 ## Next steps
 
