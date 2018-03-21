@@ -11,7 +11,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/20/2018
 ms.author: cynthn
 ---
 
@@ -39,6 +39,8 @@ az snapshot create \
 	--name osDisk-backup
 ```
 
+> [!NOTE]
+> If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--sku Standard_ZRS` parameter.
 
 ## Use Azure portal 
 
@@ -51,8 +53,6 @@ az snapshot create \
 7. For **Source disk**, select the Managed Disk to snapshot.
 8. Select the **Account type** to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.
 9. Click **Create**.
-
-If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `--sku Premium_LRS` with the `az snapshot create` command. This creates the snapshot so that it is stored as a Premium Managed Disk. Premium Managed Disks perform better because they are solid-state drives (SSDs), but cost more than Standard disks (HDDs).
 
 
 ## Next steps

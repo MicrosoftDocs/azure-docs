@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/20/2018
 ms.author: cynthn
 
 ---
@@ -77,6 +77,9 @@ New-AzureRmSnapshot `
    -ResourceGroupName $resourceGroupName 
 ```
 
+
+> [!NOTE]
+> If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `-SkuName Standard_ZRS` parameter.
 
 ## Next steps
 
