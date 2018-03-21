@@ -6,7 +6,6 @@ author: tamram
 manager: jeconnoc
 
 ms.service: storage
-ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
@@ -20,14 +19,14 @@ You can choose to replicate your data within the same data center, across data c
 
 Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
 
-When you create a storage account, you can select one of the following replication options:
+When you create a storage account, you select one of the following replication options:
 
 * [Locally redundant storage (LRS)](#locally-redundant-storage)
 * [Zone-redundant storage (ZRS)](#zone-redundant-storage)
 * [Geo-redundant storage (GRS)](#geo-redundant-storage)
 * [Read-access geo-redundant storage (RA-GRS)](#read-access-geo-redundant-storage)
 
-Read-access geo-redundant storage (RA-GRS) is the default option when you create a storage account.
+Locally redundant storage (LRS) is the default option when you create a storage account.
 
 The following table provides a quick overview of the differences between LRS, ZRS, GRS, and RA-GRS. Subsequent sections of this article address each type of replication in more detail.
 
