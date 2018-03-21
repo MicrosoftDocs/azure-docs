@@ -19,7 +19,7 @@ ms.author: apimpm
 
 When creating a Media Services account, you need to supply the ID of an Azure Storage account resource. The specified storage account is attached to your Media Services account. 
 
-You must have one **Primary** storage account and you can have n-number of **Secondary** storage accounts associated with your Media Services account. Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. 
+You must have one **Primary** storage account and you can have any number of **Secondary** storage accounts associated with your Media Services account. Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. 
 
 >[!NOTE]
 > Blob only accounts are not allowed as **Primary**. 
