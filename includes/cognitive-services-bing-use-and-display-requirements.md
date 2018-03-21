@@ -47,7 +47,7 @@ The only exception to the internet search experience requirement is for URL disc
 - You may attribute each response (or portion of a response) displayed from the Bing Web, Image, News, and Video APIs to Microsoft as described in [https://go.microsoft.com/fwlink/?linkid=833278](https://go.microsoft.com/fwlink/?linkid=833278), unless Microsoft specifies otherwise in writing for your use.  
 - You must not attribute responses (or portions of responses) displayed from the Bing Custom Search API to Microsoft, unless Microsoft specifies otherwise in writing for your particular use.
 
-**D. Transferring responses.** If you enable a user to transferIf you enable a user to transfer a response from a Search API to another user, such as through a messaging app or social media posting, the following apply:
+**D. Transferring responses.** If you enable a user to transfer a response from a Search API to another user, such as through a messaging app or social media posting, the following apply:
 
 - Transferred responses must:
     - Consist of content that is unmodified from the content of the responses displayed to the transferring user (formatting changes are permissible);
