@@ -19,6 +19,8 @@
     href: databricks-stream-from-eventhubs.md
   - name: Sentiment analysis using Cognitive Services
     href: databricks-sentiment-analysis-cognitive-services.md
+  - name: Stream data from HDInsight Kafka
+    href: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
 - name: How-to guides
   items:
   - name: Create a Spark cluster
