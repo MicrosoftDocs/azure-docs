@@ -50,7 +50,7 @@ To view the metrics for your Standard Load Balancer resources, browse of Metrics
 
 ![Metrics preview for Standard Load Balancer](./media/load-balancer-standard-diagnostics/LBMetrics1.png)
 
-**Figure - DIP Availability / Health probe status metric for Load Balancer**
+*Figure - DIP Availability / Health probe status metric for Load Balancer*
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
@@ -99,7 +99,7 @@ To get the DIP availability for your Standard Load Balancer resources,
 
 ![DIP availability](./media/load-balancer-standard-diagnostics/LBMetrics-DIPAvailability.png)
 
-**Figure - VIP availability for Load Balancer**
+*Figure - VIP availability for Load Balancer*
 
 Health probes fail for the following reasons:
 - if you configure a health probe to a port that is not listening or not responding or with the wrong protocol. If your service is using DSR (Floating IP) rules, you need to make sure that your service is listening on the IP address of the NIC's IP configuration and not just on the loopback configured with the frontend IP address.
@@ -119,7 +119,7 @@ To get SNAT connection statistics,
 
 ![SNAT Connection](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-**Figure - SNAT Connection Count for Load Balancer**
+*Figure - SNAT Connection Count for Load Balancer*
 
 
 #### How do I check inbound / outbound connection attempts for my service?
@@ -129,7 +129,7 @@ Use Total as the aggregation for most scenarios.
 
 ![SYN Connection](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-**Figure - SYN Count for Load Balancer**
+*Figure - SYN Count for Load Balancer*
 
 
 #### How do I check my network bandwidth consumption? 
@@ -147,7 +147,7 @@ Some example views for metrics with different configurations -
 
 ![Byte Count](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-**Figure - Byte Count for Load Balancer**
+*Figure - Byte Count for Load Balancer*
 
 #### <a name = "vipavailabilityandhealthprobes"></a>How do I diagnose my Load Balancer deployment?
 
@@ -159,7 +159,7 @@ You can take a step further and use VIP availability metrics to gain insight int
 
 ![VIP Diagnostics](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
 
-**Figure - Combining DIP and VIP availability metrics**
+*Figure - Combining DIP and VIP availability metrics*
 
 The chart shows the following information:
 - The infrastructure itself was healthy, the infrastructure hosting your VMs was reachable, and more than one VM was placed in the backend. This is indicated by the blue trace for VIP availability, which shows at 100%. 
@@ -183,24 +183,24 @@ To view the health of your Public Standard Load Balancer resources,
 
     ![Monitor page](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-    **Figure - Service health on Azure Monitor**
+    *Figure - Service health on Azure Monitor*
 
  - Select **Resource Health** and make sure correct **Subscription ID** and **Resource Type = Load Balancer** is selected.
 
 
     ![Service Health page](./media/load-balancer-standard-diagnostics/LBHealth2.png)
 
-    **Figure  - Resource Health**
+    *Figure  - Resource Health*
 
    ![Resource Health Status](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   **Figure - Select resource for health view**
+   *Figure - Select resource for health view*
 
  - Click on the Load Balancer resource from the list to view their historical health status.
 
     ![Load Balancer Health Status](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   **Figure  - Load Balancer resource heath view**
+   *Figure  - Load Balancer resource heath view*
  
 The following table lists the various resource health status and their descriptions. 
 
