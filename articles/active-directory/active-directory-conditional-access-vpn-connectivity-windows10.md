@@ -20,7 +20,7 @@ ms.reviewer: jairoc
 
 With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can fine-tune how authorized users access your resources. With Azure AD conditional access for virtual private network (VPN) connectivity, you can help protect your VPN connections.
 
-To configure conditional access for VPN connectivity, you must to complete the following steps: 
+To configure conditional access for VPN connectivity, you must complete the following steps: 
 
 1. Create Root Certificates for VPN Authentication with Azure AD.
 2. Create a Server Authentication Certificate that supports IKEv2.
@@ -47,7 +47,7 @@ To gain insights on how Microsoft implements this feature, see [Enhancing remote
 
 ## Prerequisites
 
-To configure Azure Active Directory conditional access for VPN connectivity, you need to have a VPN server configured.  For more details, refer to the [Always On VPN Deployment Guide](https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy).
+To configure Azure Active Directory conditional access for VPN connectivity, you need to have a VPN server configured.  For more information, see the [Always On VPN Deployment Guide](https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy).
 
 
 ## Step 1: Create Root Certificates for VPN Authentication with Azure AD 
@@ -144,7 +144,7 @@ Adding the IP Security (IPsec) IKE Intermediate application policy allows the se
 In this step, you configure Remote Access VPN to allow IKEv2 VPN connections, deny connections from other VPN protocols, and assign a static IP address pool for the issuance of IP addresses to connecting authorized VPN clients.
 
 ## Step 5: Verify that the Standard VPN works
-In this step, configure the template VPN profile on a domain-joined client computer. The type of user account you use (i.e., standard user or administrator) for this part of the process does not matter.
+In this step, configure the template VPN profile on a domain-joined client computer. The type of user account you use (that is, standard user or administrator) for this part of the process does not matter.
 
 1.  Sign in to a domain-joined client computer as a member of the **VPN Users** group.
 
@@ -174,7 +174,7 @@ In this step, configure the template VPN profile on a domain-joined client compu
 If Standard VPN is verified to be working correctly, proceed with removing weak authentication protocols and enforcing Certificate Authentication using Protected Extensible Authentication Protocol (PEAP). 
 
 >[!IMPORTANT]
->IKEv2 gateway enforcement can be configured in NPS to prevent connections from being allowed from anything but certificates that chain to the **AAD Conditional Access** root certificate by adding a Vendor Specific setting to the Network Policy. The attribute is _Allowed-Certificate-OID_, and should contain the AAD Conditional Access OID. Doing this will prevent client certificates that do not have the AAD Conditional Access OID from satisfying the request.. Alternatively, customers that happen to be using RRAS as their gateway can implement gateway enforcement against RRAS, if they prefer not to do it in NPS. See Gateway Enforcement in this article. 
+>IKEv2 gateway enforcement can be configured in NPS to prevent connections from being allowed from anything but certificates that chain to the **AAD Conditional Access** root certificate by adding a Vendor Specific setting to the Network Policy. The attribute is _Allowed-Certificate-OID_, and should contain the AAD Conditional Access OID. Doing this will prevent client certificates that do not have the AAD Conditional Access OID from satisfying the request. Alternatively, customers that happen to be using RRAS as their gateway can implement gateway enforcement against RRAS, if they prefer not to do it in NPS. See Gateway Enforcement in this article. 
 
 **Procedure**
 1. In the Routing and Remote Access MMC, expand **Policies\\Network Policies**.
@@ -203,7 +203,7 @@ If Standard VPN is verified to be working correctly, proceed with removing weak 
 
     a. Under Vendor Specific, click **Add**.
     b. Select the first option of **Allowed-Certificate-OID** and click **Add**.
-    c. Pase the AAD Conditional Access OID as the attribute value and click **OK** twice.
+    c. Paste the AAD Conditional Access OID as the attribute value and click **OK** twice.
 
 9. Click **Close** and click **Apply**.
 
@@ -211,7 +211,7 @@ If Standard VPN is verified to be working correctly, proceed with removing weak 
 >[!IMPORTANT]
 >Failure to implement this registry change will cause IKEv2 connections using cloud certificates with PEAP to fail, but IKEv2 connections using Client Auth certificates issued from the on-premises CA will work.
 
-An EAP-TLS client cannot connect unless the NPS server completes a revocation check of the certificate chain (including the root certificate) of the client and verifies that none of the certificates has been revoked. Cloud certificates issued to the user by Azure AD do not have a CRL because they are short-lived certificates with a lifetime of one hour. EAP on NPS needs to be configured to ignore the absence of a CRL. By default, IgnoreNoRevocationCheck is set to 0 (disabled) by default. You can add IgnoreNoRevocationCheck and set it to 1 to allow authentication of clients when the certificate does not include CRL distribution points. 
+An EAP-TLS client cannot connect unless the NPS server completes a revocation check of the certificate chain (including the root certificate) of the client and verifies that certificates have been revoked. Cloud certificates issued to the user by Azure AD do not have a CRL because they are short-lived certificates with a lifetime of one hour. EAP on NPS needs to be configured to ignore the absence of a CRL. By default, IgnoreNoRevocationCheck is set to 0 (disabled) by default. You can add IgnoreNoRevocationCheck and set it to 1 to allow authentication of clients when the certificate does not include CRL distribution points. 
 
 Since the authentication method is EAP-TLS, this registry value is only needed under EAP\13. If other EAP authentication methods are used, then the registry value should be added under those as well. 
 
@@ -240,7 +240,7 @@ For more information, see [How to Enable or Disable Certificate Revocation Check
 
 This section provides you with instructions for configuring your conditional access policy for VPN connectivity.
 
-After a root certificate has been created, the 'VPN connectivity' blade triggers the creation of the 'VPN Server' cloud application in the customer's tenant. Create a Conditional Access policy that is assigned to VPN users and set the **Cloud app** to **VPN Server**: 
+After a root certificate has been created, the 'VPN connectivity' triggers the creation of the 'VPN Server' cloud application in the customer's tenant. Create a Conditional Access policy that is assigned to VPN users and set the **Cloud app** to **VPN Server**: 
 
 - **Users**: All Users
 - **Cloud App**: VPN Server
