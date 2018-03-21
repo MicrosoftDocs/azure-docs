@@ -20,7 +20,7 @@
 ### [Compliance](documentation-government-plan-compliance.md)
 ### [Identity](documentation-government-plan-identity.md)
 ## Manage
-### [Operations Management Suite](documentation-government-manage-oms.md)
+### [Log Analytics](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ## Connect
