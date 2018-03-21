@@ -57,19 +57,32 @@ Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](ht
 
     ![Account list](./media/storage-explorer/account-list.png)
 
-    You have successfully connected to your **Azure Cosmos DB account** to your Azure subscription.
+    You have successfully connected to your **Cosmos DB account** to your Azure subscription.
 
 ## Connect to Azure Cosmos DB by using a connection string
 
 An alternative way of connecting to an Azure Cosmos DB is to use a connection string. Use the following steps to connect using a connection string.
 
-1. Find **Local and Attached** in the left tree, right-click **Azure Cosmos DB Accounts**, choose **Connect to Azure Cosmos DB...**
+1. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB...**
 
-    ![Connect to Azure Cosmos DB by connection string](./media/storage-explorer/connect-to-db-by-connection-string.png)
+    ![Connect to Cosmos DB by connection string](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Choose the appropriate **Default Experience** for your account type, <!--either--> **DocumentDB**<!--or **MongoDB**-->, paste in your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Only support SQL and Table API currently. Choose API, paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![Connection-string](./media/storage-explorer/connection-string.png)
+
+## Connect to Azure Cosmos DB by using local Emulator
+Use the following steps to connect to an Azure Cosmos DB by Emulator, only support SQL account currently.
+1. Install Emulator and launch. For how to install Emulator, see [Cosmos DB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+2. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB Emulator...**
+
+    ![Connect to Cosmos DB by Emulator](./media/storage-explorer/emulator-entry.png)
+
+3. Only support SQL API currently. Paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![Connect to Cosmos DB by Emulator dialog](./media/storage-explorer/emulator-dialog.png)
+
+
 
 ## Azure Cosmos DB resource management
 
@@ -109,18 +122,26 @@ Right-click the database, click **Delete Database**, and click **Yes** in the po
 ![Delete database2](./media/storage-explorer/delete-database2.png) 
 
 #### Create a collection
-Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish. For information on partition key settings, see [Design for partitioning](partition-data.md#designing-for-partitioning).
-
-If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection.
+Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish. 
 
 ![Create collection1](./media/storage-explorer/create-collection.png)
 
 ![Create collection2](./media/storage-explorer/create-collection2.png) 
 
+
+Please select **Unlimited** to be able to specify partition key, then click **OK** to finish.
+
+If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection. For information on partition key settings, see [Design for partitioning](partition-data.md#designing-for-partitioning).
+
+
+![Partition key](./media/storage-explorer/partitionkey.png)
+
+
+
 #### Delete a collection
 Right-click the collection, click **Delete Collection**, and then click **Yes** in the pop-up window. 
 
-The collection node is deleted, and the database refreshes automatically.  
+The collection node is deleted, and the database refreshes automatically.
 
 ![Delete collection](./media/storage-explorer/delete-collection.png) 
 
