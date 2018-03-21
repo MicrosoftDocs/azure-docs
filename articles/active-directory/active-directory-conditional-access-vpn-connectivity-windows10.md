@@ -305,12 +305,12 @@ After a root certificate has been created, the 'VPN connectivity' triggers the c
 16. On the **New** page, click **Create**.
 
 ## Step 9: Create OMA-DM based VPNv2 Profiles to Windows 10 devices
-In this step, you can use one of two methods. The first method is a managed deployment using Microsoft Intune to deploy a VPN Device Configuration policy, which does not have an option for AutoVPN. The second method can be used for unmanaged environments using a PowerShell script which leverages the Common Information Model which creates a WMI session in the user’s context. From this context, it then creates a new instance of the MDM_VPNv2_01 WMI class. 
+In this step, you can use one of two methods. The first method is a managed deployment using Intune to deploy a VPN Device Configuration policy, which does not have an option for AutoVPN. The second method can be used for unmanaged environments using a PowerShell script that leverages the Common Information Model, which creates a WMI session in the user’s context. From this context, it then creates a new instance of the MDM_VPNv2_01 WMI class. 
 
-VPNv2 profiles can also be created via SCCM, Microsoft Intune or with a PowerShell Script using [VPNv2 CSP settings](https://docs.microsoft.com/en-us/windows/client-management/mdm/vpnv2-csp). 
+VPNv2 profiles can also be created via SCCM, Intune or with a PowerShell Script using [VPNv2 CSP settings](https://docs.microsoft.com/en-us/windows/client-management/mdm/vpnv2-csp). 
 
-### Managed Deployment using Microsoft Intune
-Customers that wish to use AutoVPN with Microsoft Intune can configure Custom Device Configuration Profiles in Microsoft Intune. Cloud Identity Support engineers should engage a support engineer from the Mobility POD for assistance with Intune Device Configuration Policies. 
+### Managed Deployment using Intune
+Customers that wish to use AutoVPN with Intune can configure Custom Device Configuration Profiles in Microsoft Intune. Cloud Identity Support engineers should engage a support engineer from the Mobility POD for assistance with Intune Device Configuration Policies. 
 
 Everything discussed in this section is the minimum needed to make this work with Conditional Access. It does not cover Split Tunneling, Using WIP, creating custom Intune device configuration profiles to get AutoVPN working, or SSO. 
 
@@ -320,8 +320,8 @@ Everything discussed in this section is the minimum needed to make this work wit
 4.  In Name, enter a name for the VPN profile.
 5.  In Platform, select **Windows 10 or later**.
 6.  In Profile type, select **VPN**.
-7.  Under Settings, for the Conditional Access blade, set the **Conditional access for this VPN connection** to **Enabled**. Doing this sets `<DevideCompliance\><Enabled\>true<\/Enabled\>` in the VPNv2 profile, which tells the VPN clients to request an Azure AD Certificate. 
-9. Under Settings, for the Base VPN blade, verify or set the following settings:
+7.  Under Settings, for Conditional Access, set the **Conditional access for this VPN connection** to **Enabled**. Doing this sets `<DevideCompliance\><Enabled\>true<\/Enabled\>` in the VPNv2 profile, which tells the VPN clients to request an Azure AD Certificate. 
+8. Under Settings, for Base VPN, verify or set the following settings:
     - **Connection name**: Enter a name for this connection. End users see this name when they browse their device for the list of available VPN connections.
     - **Servers**: Add one or more VPN servers by clicking **Add**.
     - **Description** and **IP Address or FQDN** values must align with the Subject Name in the VPN server's authentication certificate.
@@ -330,7 +330,7 @@ Everything discussed in this section is the minimum needed to make this work wit
     - **EAP XML\\TrustedRootCA**: Set the **\<TrustedRootCA>5a 89 fe cb 5b 49 a7 0b 1a 52 63 b7 35 ee d7 1c c2 68 be 4b <\/TrustedRootCA> with the thumbprint of the root certificate authority at the top of the chain of the Server Authentication certificate. Additional root certificates can be added by adding additional **\<TrustedRootCA><\/TrustedRootCA>** entries. If the CA that issued the Server Authentication certificate was an International authority, this is not the certificate thumbprint to use. It must be the root CA. **Do NOT** use the thumbprint of the cloud root certificate. 
     - **EAP XML\\TLSExtension**: Must be present and contain **\<EKUName>AAD Conditional Access<\/EKUName>** and **\<EKUOID>1.3.6.1.4.1.311.87<\/EKUOID>**. These values tell the VPN client which certificate in the user's store should be used to perform VPN authentication. This is required when more than one certificate is in the user's store. If EAP/TLS fails, the entire **\<TLSExtension>** can be removed for troubleshooting. However, there must not be any certificates in the user's certificate store other than cloud certificates. 
 9.  Click **Create**. @Reviewer: This step is missing from the CSS wiki, and I'm not sure where it goes in this process. Is it after selecting VPN for the Profile type or does it happen in this sequence?
-10. In Microsoft Intune, under Device configuration, select the newly created device configuration profile.  
+10. In Intune, under Device configuration, select the newly created device configuration profile.  
 11. Select **Assignments**, under Include, click **Select groups to include**.
     >[!IMPORTANT]
     >Ensure that you have added the users to the Azure AD group that receives this policy on all Windows 10 devices.
@@ -344,7 +344,7 @@ If the VPN profile does not show up on the client device, under Settings\\Networ
 3.  In the left navigation pane, click **Access work or school**.
 4.  If you do not see **Connected to <\domain> MDM**, and you want to trigger synchronization manually, do the following:
     a. Press **Windows key + r**, and enter the following command to enable MDM Enrollment:```ms-device-enrollment:?mode=mdm```
-    b. Enter the username that is logged onto the device that needs the VPN profile. 
+    b. Enter the username that is logged on to the device that needs the VPN profile. 
 5.  Under Access work or school, click **Connected to <\domain> MDM** and click **Info**.
 6.  Click **Sync** and verify the VPN profile appears under Settings\\Network & Internet\\VPN.
 
@@ -356,7 +356,7 @@ The EAP XML sample below contains the minimum settings need to make this work wi
 ```
 
 ### Unmanaged Deployment using Windows PowerShell
-Customers that do not have management solutions like Microsoft Intune or SCCM can use the script method outlined here. This method requires a configuration file. 
+Customers that do not have management solutions like Intune or SCCM can use the script method outlined here. This method requires a configuration file. 
 
 1. Change the following settings in the ProfileXML file (see full script below):
 
@@ -370,7 +370,7 @@ Customers that do not have management solutions like Microsoft Intune or SCCM ca
 4. After running the script, test the VPN connection on the client device by verifying it in the Certificate snap-in:
     a.  On the Start menu, type **certmgr.msc**, and press Enter.
     b.  Verify that the **Microsoft VPN root CA gen 1** issues a certificate to the personal certificate store.
-5. Examine the Sign-in logs in the Azure Portal and observe the initial sign-in where MFA from the Windows VPN client took place.
+5. Examine the Sign-in logs in the Azure portal and observe the initial sign-in where MFA from the Windows VPN client took place.
 
     ![](./media/active-directory-conditional-access-vpn-connectivity-windows10/ad-conditional-access.png)
 
@@ -658,7 +658,7 @@ Write-Host "$Message"
 ```
 
 ## Step 10: Configure your VPN Client 
-@Reviewer: The link below doesn't seem to give a lot of information on what to do to configure the VPN client; it seems more conceptual than procedural. Also, if there is a procedural step, it is only Intune.
+@Reviewer: The link below doesn't seem to give much information on what to do to configure the VPN client; it seems more conceptual than procedural. Also, if there is a procedural step, it is only Intune.
 
 In this step, you configure your VPN client connectivity profile as outlined in [VPN and conditional access](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access).
 
