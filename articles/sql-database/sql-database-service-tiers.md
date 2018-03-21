@@ -39,7 +39,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |Uptime SLA|99.99%|99.99%|99.99%|N/A while in preview|
 |Backup retention|7 days|35 days|35 days|
 |CPU|Low|Low, Medium, High|Medium, High|
-|IO throughput (approximate) |2.5 IOPS per DTU	| 2.5 IOPS per DTU | 48 IOPS per DTU|
+|IO throughput (approximate) |2.5 IOPS per DTU| 2.5 IOPS per DTU | 48 IOPS per DTU|
 |IO latency (approximate)|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
 |Columnstore indexing and in-memory OLTP|N/A|N/A|Supported|
 |||||
@@ -83,6 +83,10 @@ A virtual core represents the logical CPU offered with an option to choose betwe
 - Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.
 - Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.
 
+Compute is charged per database, per elastic pool, or per Managed Instance.
+
+> [!IMPORTANT]
+> If you need less than one vCore of compute capacity, use the DTU-based resourcing model.
 
 ### Choosing a service tier in the vCore resources model
 
@@ -126,7 +130,69 @@ The following table helps you understand how to select the optimal configuration
 
 The following table provides the complete SKU map
 
-![SKUs](./media/sql-database-service-tiers/sku.png)
+|SKU|H/W Generation|vCores|Memory (GB)|Storage type|Max pool size|Max single DB size|Compute redundancy
+|---|:------------:|:----:|:---------:|:----------:|:-----------:|:----------------:|:---------:|
+|GP_Gen4_1|4|1|7|XIO|512|1024|1X|
+|GP_Gen4_2|4|2|14|XIO|756|1024|1X|
+|GP_Gen4_4|4|4|28|XIO|1536|1024|1X|
+|GP_Gen4_8|4|8|56|XIO|2048|1024|1X|
+|GP_Gen4_16|4|16|112|XIO|3584|1024|1X|
+|GP_Gen4_22|4|22|154|XIO|4096|4096|1X|
+|GP_Gen5_2|5|2|11|XIO|512|1024|1X|
+|GP_Gen5_4|5|4|22|XIO|756|1024|1X|
+|GP_Gen5_8|5|8|44|XIO|1536|1024|1X|
+|GP_Gen5_16|5|16|88|XIO|2048|1024|1X|
+|GP_Gen5_22|5|22|121|XIO|3072|1024|1X|
+|GP_Gen5_32|5|32|176|XIO|4096|4096|1X|
+|GP_Gen5_48|5|48|264|XIO|4096|4096|1X|
+|GP_Gen5_72|5|72|396|XIO|4096|4096|1X|
+|BC_Gen4_1|4|1|7|Attached SSD|1024|1024|3X|
+|BC_Gen4_2|4|2|14|Attached SSD|1024|1024|3X|
+|BC_Gen4_4|4|4|28|Attached SSD|1024|1024|3X|
+|BC_Gen4_8|4|8|56|Attached SSD|1536|1024|3X|
+|BC_Gen4_16|4|16|112|Attached SSD|2048|1024|3X|
+|BC_Gen4_22|4|22|154|Attached SSD|2048|1024|3X|
+|BC_Gen5_2|5|2|11|Attached SSD|1024|1024|3X|
+|BC_Gen5_4|5|4|22|Attached SSD|1024|1024|3X|
+|BC_Gen5_8|5|8|44|Attached SSD|1024|2048|3X|
+|BC_Gen5_16|5|16|88|Attached SSD|1024|3072|3X|
+|BC_Gen5_22|5|22|121|Attached SSD|2048|3584|3X|
+|BC_Gen5_32|5|32|176|Attached SSD|4096|4096|3X|
+|BC_Gen5_48|5|48|264|Attached SSD|4096|4096|3X|
+|BC_Gen5_72|5|72|396|Attached SSD|4096|4096|3X|
+|||||||||
+
+> [!IMPORTANT]
+> The option to deploy a database across multiple Availability Zones is available for databases in the Business Critical tier for databases deployed in regions supporting multiple Availability Zones (this is a preview feature). For more information, see [Zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration-preview).
+
+### Storage considerations
+
+Consider the following:
+- Each SKU supports a maximum storage size. It is used for MDF and LDF files.
+- You configures maximum size of MDF. The default max size is 32 GB.
+- The maximum size of LDF is fixed to 30% of the total storage. You cannot control it but are informed about it as part of the storage configuration experience.
+- The minimum size increment is 1 GB.
+- The minimum configurable size of the MDF is 32 GB. Consequently, the minimum storage size for which you are billed is 41.6GB (MDF and LDF).
+- For the General Purpose SKU, `tempdb` uses an attached SSD and this storage cost is included in the vCore price.
+- For the Business Critical SKU, `tempdb` shares the attached SSD with the MDF and LDF files and this storage cost is included in the vCore price.
+
+> [!IMPORTANT]
+> You are charged for the maximum storage that your configure.
+
+In addition to the existing monitoring metric for [space_used](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql), the following additional metrics have been added to [sys.ResourceStats](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), [sys.elastic_pool_resource_stats](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) and [sys.dm_db_resource_stats](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database): 
+- `space_allocated`: the size of the MDF file
+- `log_allocated`: the size of LDF file
+- `TempDB consumption`
+- `log_Max_size`
+
+These metrics are also be exposed via MDM APIs so that you can monitor, set up alerts, and so forth.
+
+### Backups and storage
+
+Storage for database backups is allocated to support the Point in Time Restore (PITR) and Long Term Retention (LTR) capabilities of SQL Database. This storage is allocated on a per database (not per pool) and billed as a separate per databases charge. 
+
+- **PITR**: All databases include a minimum of 7 days of all backups.  You can increase this backup retention period up to 35 days. Storage for backups equal to 1x of data size is provided at no extra charge.
+- **LTR**: SQL Database offers a flexible retention policy for full backups. You can select different retention for weekly, monthly and/or yearly backups, allowing your to manage the retention of database backups to address the different compliance requirements and allow your to manage the cost of storing multiple backups.
 
 ### Azure Hybrid Use Benefit
 
@@ -134,6 +200,60 @@ With Software Assurance in the vCore-based resourcing model, you can exchange yo
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
 
+### Geo-replication considerations
+
+[Geo-replication](sql-database-geo-replication-overview.md) is only supported between two databases in the same resourcing model. 
+
+At any point in time, the secondary in a geo-replication relationship cannot have less than 50% of the compute capacity of the primary. Because the secondary can become primary at any point, the secondary compute must be >=50% and <=200% of the primary compute. This is called the **1 click-stop** rule.
+
+#### Migration of single databases with geo-replication links
+
+The following rules apply:
+- To enable online migration to vCore, the DTU secondary must comply with the one click-stop rule. 
+- When a service level objective (SLO) change is initiated on the primary to a different edition/service tier, it will automatically perform an SLO change of the secondary to the matching SKU within the new edition/service tier. The migration is orchestrated to ensure that the resulting link is in a consistent state.
+- When the SLO change is initiated on the primary to a SKU within the same vCore edition/service tier, it automatically initiates the SLO change of the secondary proportionally. It ensures that vCore level of the secondary remains within 1 click-stop rule.  - When the SLO change is initiated on the secondary to a SKU within the same vCore edition/service tier, it updates the secondary if the new vCore level does not violate the 1 click-stop rule. Otherwise it fails. This is necessary to re-balance the size of the secondary.
+
+The following table illustrates the migration use cases for single databases. 
+
+|Use case|User action|Old state||New state||Result|
+|---|---|---|---|---|---|---|
+|||Primary|Secondary|Primary|Secondary||
+|1|SLO change to BC_Gen4_2 on Primary|P2|P1|BC_Gen4_2|BC_Gen4_1|Success
+2|SLO change to BC_Gen4_1 on Secondary|P2|P1|No change|No change|Error. Not allowed across editions.
+3|SLO change to BC_Gen4_8 on Primary|BC_Gen4_2|BC_Gen4_1|BC_Gen4_8|BC_Gen4_4|Success. The ratio is preserved.
+4|SLO change to BC_Gen4_4 on Primary|BC_Gen4_8|BC_Gen4_4|BC_Gen4_4|BC_Gen4_2|Success. The ratio is preserved.
+5|SLO change to BC_Gen4_4 on Secondary|BC_Gen4_4|BC_Gen4_2|BC_Gen4_4|BC_Gen4_4|Success. This is to rebalance the secondary.
+6|SLO change to GP_Gen4_4 on Primary|P2|P1|GP_Gen4_2|GP_Gen4_1|Success. Secondary is migrated to GP automatically
+7|SLO change to P2 on Primary|GP_Gen4_2|GP_Gen4_1|P2|P1|Success. Secondary is migrated to P1 automatically
+8|SLO change to GP_Gen4_4 on Primary|BC_Gen4_2|BC_Gen4_1|GP_Gen4_4|GP_Gen4_2|Success. The ratio is preserved.
+9|SLO change to GP_Gen4_2 on Secondary|BC_Gen4_2|BC_Gen4_1|No change|No change|Error. Not allowed across editions.
+
+#### Creation of single databases with geo-replication links
+
+The following rules apply to migration of single databases:
+- Creation of secondary of a different edition/service tier will result in error. 
+- Creation of secondary in the same edition/tier will only succeed if the target vCore is not different by more than 1 click-stop (higher or lower). This will guarantee that after failover the 1 click-stop rule will not be violated.
+
+#### Migration of elastic pools with geo-replication links
+
+The following rules apply to migration of databases in elastic pools:
+- To enable online migration to vCore, the DTU pools connected by the geo-replication links have the same `maxDTU` value. 
+- When a service level objective (SLO) change is initiated on either pool to a different edition/service tier, the SQL Database service automatically performs a SLO change of the other pool to the matching SKU within the new edition/service tier. After migration, both pools will have matching `maxDTU` values. This guarantees that there is no replication across editions/service tiers.
+- After migration, each pool can change `maxDTU` independently, but it cannot go up or down by more than 1 click-stop. 
+- The size of each pool (SKU) is not restricted but the maxDTU must comply with the 1 click-stop rule.
+
+The following table illustrates the migration use cases for pools:
+
+|Use case|User action|Old state||New state||Result|
+|---|---|---|---|---|---|---|
+|||Pool 1|Pool 2|Pool 1|Pool 2|
+1|SLO change of Pool 1 to GP_Gen4_4|B5M200, maxDTU=50|B1M50, maxDTU=50|GP_Gen4_4, maxCores=1|GP_Gen4_1, maxCores=1|Success|
+2|SLO change of Pool 1 to GP_Gen4_2|B3M100, maxDTU=100|B1M50, maxDTU=50|No change|No change|Failure. MaxDTU must be the same
+
+#### Geo-replication between pools
+The following rules apply:
+- Creation of secondary in a pool with different edition/service tier results in an error. This is an inconsistent state. 
+- Creation of secondary in a pool with the same edition/tier only succeeds if the target maxDTU is compliant with the 1 click-stop rule. 
 
 ## Next steps
 
