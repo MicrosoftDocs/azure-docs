@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 03/20/2018
 ms.author: kumud
 ---
 # Create a Standard Load Balancer to load balance VMS using Azure CLI 2.0
