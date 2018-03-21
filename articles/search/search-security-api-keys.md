@@ -1,5 +1,5 @@
 ---
-title: Manage and security admin and query api-keys for Azure Search | Microsoft Docs
+title: Create, manage, and secure admin and query api-keys for Azure Search | Microsoft Docs
 description: api-keys control access to the service endpoint. Admin keys grant write access. Query keys can be created for read-only access.
 services: search
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: heidist
 
 ---
 
-# Manage admin and query api-keys in Azure Search
+# Create and manage api-keys for an Azure Search service
 
 All requests to a search service need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating access to your search service endpoint. 
 
@@ -34,19 +34,33 @@ An admin api-key is created when the service is provisioned. There are two admin
 
 Query keys are designed for client applications that call Search directly. You can create up to 50 query keys. In application code, you specify the search URL and a query api-key to allow read-only access to the service. Your application code also specifies the index used by your application. Together, the endpoint, an api-key for read-only access, and a target index define the scope and access level of the connection from your client application.
 
-## View or generate keys
+## How to find the access keys for your service
 
-+ In the service dashboard, click **Keys** to slide open the key management page. 
+You can obtain access keys in the portal or through the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/). For more information, see [Manage admin and query api-keys](search-security-api-keys.md).
 
-Commands for regenerating or creating keys are at the top of the page. By default, only admin keys are created. Query api-keys must be created manually.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. List the [search services](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  for your subscription.
+3. select the service and on the service page, find **Settings** >**Keys** to view admin and query keys.
 
+![Portal page, Settings, Keys section](media/search-security-overview/settings-keys.png)
+
+## How to regenerate admin keys
+
+Two admin keys are created for each service so that you can rollover a primary key, using the secondary key for continued access.
+
+If you regenerate both primary and secondary keys at the same time, any applications using either key for accessing service operations will no longer have access to the service.
+
+1. In the **Settings** >**Keys** page, copy the secondary key.
+2. For all applications, update the api-key settings to use the secondary key.
+3. Regenerate the primary key.
+4. Update all applications to use the new primary key.
 
 ## Secure api-keys
 Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command-line interface). As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
 
 + In the service dashboard, click **Access control (IAM)** to view role assignments for your service.
 
-Members of the following roles can view and regnerate keys: Owner, Contributor, [Search Service Contributors](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#search-service-contributor)
+Members of the following roles can view and regenerate keys: Owner, Contributor, [Search Service Contributors](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#search-service-contributor)
 
 > [!Note]
 > For identity-based access over search results, you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md) and [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md).

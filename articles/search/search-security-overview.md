@@ -68,16 +68,6 @@ Authentication is required on each request, where each request is composed of a 
 > [!NOTE]  
 >  It is considered a poor security practice to pass sensitive data such as an `api-key` in the request URI. For this reason, Azure Search only accepts a query key as an `api-key` in the query string, and you should avoid doing so unless the contents of your index should be publicly available. As a general rule, we recommend passing your `api-key` as a request header.  
 
-### How to find the access keys for your service
-
-You can obtain access keys in the portal or through the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/). For more information, see [Manage admin and query api-keys](search-security-api-keys.md).
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. List the [search services](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  for your subscription.
-3. select the service and on the service page, find **Settings** >**Keys** to view admin and query keys.
-
-![Portal page, Settings, Keys section](media/search-security-overview/settings-keys.png)
-
 ## Index access
 
 In Azure Search, an individual index is not a securable object. Instead, access to an index is determined at the service layer (read or write access), along with the context of an operation.
@@ -120,7 +110,7 @@ The following table summarizes the operations allowed in Azure Search and which 
 | Query an index | Admin or query key (RBAC not applicable) |
 | Query system information, such as returning statistics, counts, and lists of objects. | Admin key, RBAC on the resource (Owner, Contributor, Reader) |
 | Manage admin keys | Admin key, RBAC Owner or Contributor on the resource. |
-| Manage query keys |  Admin key, RBAC Owner or Contributor on the resource. RBAC Reader can view query keys. |
+| Manage query keys |  Admin key, RBAC Owner or Contributor on the resource.  |
 
 
 ## See also
