@@ -105,10 +105,10 @@ The following table helps you understand the differences between these two tiers
 
 ||**General Purpose**|**Business Critical**|
 |---|---|---|
-|Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high I/O requirements. Offers highest resilience to failures using several isolated Always ON availability group replicas.|
+|Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high I/O requirements. Offers highest resilience to failures using several isolated replicas.|
 |Compuute|Gen 4 or Gen 5, 1 to 72 vCore|Gen 4 or Gen 5, 1 to 72 vCore|
 |Storage|Premium remote storage, 5GB – 4TB per instance|Super-fast local SSD storage, 5GB – 4TB per instance|
-|Availability|1 replica, no read-scale|3 replicas, 1 read-scale, zone redundant HA|
+|Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
 |Backups|RA-GRS, 7-35 days (7 days by default)|RA-GRS, 7-35 days (7 days by default)|
 |||
 
@@ -259,7 +259,6 @@ The following rules apply:
 
 ## Next steps
 
-- Learn about [Single database resources](sql-database-single-database-resources.md).
-- Learn about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+- Learn about [Read Scale-out](sql-database-read-scale-out.md.)
 

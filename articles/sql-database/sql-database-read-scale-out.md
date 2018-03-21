@@ -11,7 +11,7 @@ ms.date: 04/07/2018
 ms.author: sashan
 
 ---
-# Use read-only replicas to load balance read-only query workloads
+# Use read-only replicas to load balance read-only query workloads (preview)
 
 **Read Scale-Out** allows you to load balance Azure SQL Database read-only workloads using the capacity of read-only replicas. 
 
@@ -31,57 +31,61 @@ Read Scale-Out supports session-level consistency. Strong data consistency guara
 
 When you enable Read Scale-Out for a database, the `ApplicationIntent` option in the connection string provided by the client dictates whether the connection is routed to the write replica or to a read-only replica. Specifically, if the `ApplicationIntent` value is `ReadWrite` (the default value), the connection will be directed to the database’s read-write replica. This is identical to existing behavior. If the `ApplicationIntent` value is `ReadOnly`, the connection is routed to a readable replica.
 
-For example, the following connection string connects the client to a read-only replica:
+For example, the following connection string connects the client to a read-only replica (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
 ```SQL
-Server=tcp:dlem-svr-westus.database.windows.net;Database=dlem-db1;ApplicationIntent=ReadOnly;User ID=myLogin;Password=myPassword;Trusted_Connection=False; Encrypt=True;
+Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-Either of the following connection strings connects the client to a read-write replica:
+Either of the following connection strings connects the client to a read-write replica (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
 ```SQL
-Server=tcp:dlem-svr-westus.database.windows.net;Database=dlem-db1;ApplicationIntent=ReadWrite;User ID=myLogin;Password=myPassword;Trusted_Connection=False; Encrypt=True;
+Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
-Server=tcp:dlem-svr-westus.database.windows.net;Database=dlem-db1;User ID=myLogin;Password=myPassword;Trusted_Connection=False; Encrypt=True;
+Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
 ## Enable and Disable Read Scale-Out Using Azure PowerShell
 
-Managing Read Scale-Out in Azure PowerShell requires the December 2016 Azure PowerShell release or newer. For the newest release, see [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Managing Read Scale-Out in Azure PowerShell requires the December 2016 Azure PowerShell release or newer. For the newest PowerShell release, see [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
-Enable or disable read scale-out in Azure PowerShell by invoking the ‘Set-AzureRmSqlDatabase’ commandlet and passing in the desired value – ‘Enabled’ or ‘Disabled’ -- for the ‘-ReadScale’ parameter. Alternatively, you may use the ‘New-AzureRmSqlDatabase’ commandlet to create a new database with read scale-out enabled.
+Enable or disable read scale-out in Azure PowerShell by invoking the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) cmdlet and passing in the desired value – `Enabled` or `Disabled` -- for the `-ReadScale` parameter. Alternatively, you may use the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet to create a new database with read scale-out enabled.
 
-For example, to enable read scale-out for an existing database:
+For example, to enable read scale-out for an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
-Set-AzureRmSqlDatabase -ResourceGroupName dlem-rg -ServerName dlem-svr-westus -DatabaseName dlem-db1 -ReadScale Enabled
+```powershell
+Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+```
 
-To disable read scale-out for an existing database:
+To disable read scale-out for an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
-Set-AzureRmSqlDatabase -ResourceGroupName dlem-rg -ServerName dlem-svr-westus -DatabaseName dlem-db1 -ReadScale Disabled
+```powershell
+Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+```
 
-To create a new database with read scale-out enabled:
+To create a new database with read scale-out enabled (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
-New-AzureRmSqlDatabase -ResourceGroupName dlem-rg -ServerName dlem-svr-westus -DatabaseName dlem-db1 -ReadScale Enabled -Edition Premium
+```powershell
+New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
+```
 
-Enabling and Disabling Read Scale-Out Through the Azure Resource Manager REST API
+## Enabling and disabling Read Scale-Out using the Azure SQL Database REST API
 
-To create a database with read scale-out enabled, or to enable or disable read scale-out for an existing database, create or update the corresponding database entity with the ‘readScale’ property set to ‘Enabled’ or ‘Disabled’ as in the below sample request.
+To create a database with read scale-out enabled, or to enable or disable read scale-out for an existing database, create or update the corresponding database entity with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
 
+```rest
 Method: PUT
-
 URL: https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{GroupName}/providers/Microsoft.Sql/servers/{ServerName}/databases/{DatabaseName}?api-version= 2014-04-01-preview
-
 Body:
-
 {
+   "properties":
+   {
+      "readScale":"Enabled"
+   }
+} 
+```
 
-"properties":{
-
-"readScale":"Enabled"
-
-}
-
-} For additional information on the PUT database API, go to https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx. For additional information on the common parameters and headers for the Azure Resource Manager SQL Database APIs, go to https://msdn.microsoft.com/en-us/library/azure/mt163571.aspx.
-
+For additional information, see [Databases - Create or Update](/rest/api/sql/databases/createorupdate).
 
 ## Next steps
+
