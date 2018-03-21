@@ -115,7 +115,7 @@ Heartbeat
 
 On a Windows computer, you can review the following to verify agent connectivity with Log Analytics:
 
-1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
+1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to Log Analytics**.   
 2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector. These events indicate the computer has registered with the Log Analytics workspace and is receiving configuration.  
 
 If the agent is not able to communicate with Log Analytics and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-agent-windows.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
@@ -127,7 +127,7 @@ If the agent is not able to communicate with Log Analytics and it is configured 
 
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm a management group is communicating with Log Analytics, see [Validate Operations Manager Integration](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+To confirm an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager Integration](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## Data collection
 
