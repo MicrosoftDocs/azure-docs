@@ -1,42 +1,38 @@
 ---
 title: Azure solutions for Internet of Things (IoT Suite) 
-description: Overview of a sample IoT solution architecture and how it relates to devices, the Azure IoT Hub service, Azure IoT device SDKs, Azure IoT service SDKs, and other Azure services.
+description: Overview of a Azure IoT, a sample IoT solution architecture, and how it relates to devices, the Azure IoT Hub service, Azure IoT device SDKs, Azure IoT service SDKs, and other Azure services.
 services: iot
 documentationcenter: ''
-author: dominicbetts
+author: BryanLa
 manager: timlt
 editor: ''
 
-ms.assetid: a859e379-dca7-42fa-bdf6-1125c86ad140
 ms.service: iot
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
-ms.author: dobett
+ms.author: bryanla
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
+## Technologies and solutions available for building an Azure IoT solution
+
+Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The section provides an overview of the available  technologies and solutions, providing detail on the paths available for building your own solution:
+
+- Edge: IoT Edge, IoT device/service SDKs
+- Solutions: IoT Suite, IoT Suite Preconfigured Solutions, IoT Central (leverage another application to build a solution, for instance, IoT Central solutions)
+- Platform services: Platform as a Service (PaaS) offerings, IoT Hub, DPS, LBS, Time Series Insights (build your own application using IoT Suite, PCS, and all Technologies)
+
+![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
+
 ## Next steps
 
-Azure IoT Hub is an Azure service that enables secure and reliable bi-directional communications between your solution back end and millions of devices. It enables the solution back end to:
+See the Table of Contents to the left for the list of Azure IoT services you might wish to explore.
 
-* Receive telemetry at scale from your devices.
-* Route data from your devices to a stream event processor.
-* Receive file uploads from devices.
-* Send cloud-to-device messages to specific devices.
-
-You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes an identity registry used to provision devices, their security credentials, and their rights to connect to the IoT hub. To learn more about IoT Hub, see [What is IoT Hub][lnk-iot-hub].
-
-To learn how Azure IoT Hub enables standards-based device management for you to remotely manage your devices, see [Overview of device management with IoT Hub][lnk-device-management].
-
-To implement client applications on a wide variety of device hardware platforms and operating systems, you can use the Azure IoT device SDKs. The device SDKs include libraries that facilitate sending telemetry to an IoT hub and receiving cloud-to-device messages. When you use the device SDKs, you can choose from several network protocols to communicate with IoT Hub. To learn more, see the [information about device SDKs][lnk-device-sdks].
-
-To get started writing some code and running some samples, see the [Get started with IoT Hub][lnk-getstarted] tutorial.
-
-You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a collection of preconfigured solutions. IoT Suite enables you to get started quickly and scale IoT projects to address common IoT scenarios--such as remote monitoring, asset management, and predictive maintenance.
+[img-paas-saas-technologies-solutions]: media/iot-technologies-solutions/paas-saas-technologies-solutions.png
 
 [lnk-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
