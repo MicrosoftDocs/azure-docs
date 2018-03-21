@@ -90,5 +90,5 @@ Watch a quick example video showing a on-click failover for a two-tier WordPress
 
 ## Next steps
 
-- [Create](site-recovery-create-recovery-plan.md) a recovery plan.
+- [Create](site-recovery-create-recovery-plans.md) a recovery plan.
 * Learn about [running failovers](site-recovery-failover.md).  
