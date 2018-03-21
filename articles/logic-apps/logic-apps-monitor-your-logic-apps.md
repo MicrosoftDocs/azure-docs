@@ -172,7 +172,7 @@ Search for "log analytics", then choose **Log Analytics** as shown here:
 When you start typing, OMS shows you possible matches and operations that you can use. 
 
    For example, to find the top 10 events that happened, 
-   enter and select this search query: **search Category == "WorkflowRuntime" | limit 10**
+   enter and select this search query: **Category=WorkflowRuntime |top 10**
 
    ![Enter search string](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

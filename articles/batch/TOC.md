@@ -42,13 +42,12 @@
 
 ## Create and manage pools
 ### [Autoscale compute nodes](batch-automatic-scaling.md)
-### [Choose a VM size for compute nodes](batch-pool-vm-sizes.md)
+### [Compute-intensive VMs](batch-pool-compute-intensive-sizes.md)
 ### [Configure access to compute nodes](pool-endpoint-configuration.md)
 ### [Create a pool with a custom image](batch-custom-images.md)
 ### [Create a pool in a virtual network](batch-virtual-network.md)
-### [Use compute-intensive VMs](batch-pool-compute-intensive-sizes.md)
-### [Use Linux compute nodes](batch-linux-nodes.md)
-### [Use low-priority VMs](batch-low-pri-vms.md)
+### [Linux compute nodes](batch-linux-nodes.md)
+### [Low-priority VMs](batch-low-pri-vms.md)
 
 ## Manage jobs and tasks
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
@@ -84,9 +83,9 @@
 
 ## [Azure CLI](/cli/azure/batch)
 ## [Azure PowerShell](/powershell/module/azurerm.batch)
-## [.NET](/dotnet/api/overview/azure/batch)
-## [Java](/java/api/overview/azure/batch)
-## [Node.js](/javascript/api/overview/azure/batch)
+## [.NET](/dotnet/api/microsoft.azure.batch)
+## [Java](/java/api/com.microsoft.azure.batch)
+## [Node.js](/nodejs/api/overview/azure/batch)
 ## [Python](/python/api/overview/azure/batch)
 ## REST
 ### [Batch Service](/rest/api/batchservice)
@@ -101,6 +100,7 @@
 ### [Task complete event](batch-task-complete-event.md)
 ### [Task fail event](batch-task-fail-event.md)
 ## [Batch compute node environment variables](batch-compute-node-environment-variables.md)
+### [Resource Manager template](/templates/microsoft.batch/batchaccounts)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
@@ -110,7 +110,6 @@
 ## [HPC solutions in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-## [Resource Manager template](/azure/templates/microsoft.batch/batchaccounts)
 ## [Service updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)

@@ -154,7 +154,7 @@ Here is the orchestration as a single C# file in a Visual Studio project:
 
 ## Next steps
 
-This sample has shown how to implement the fan-out/fan-in pattern. The next sample shows how to implement the monitor pattern using [durable timers](durable-functions-timers.md).
+This sample has shown how to implement the fan-out/fan-in pattern. The next sample shows how to implement the [stateful singleton](durable-functions-singletons.md) pattern in an [eternal orchestration](durable-functions-eternal-orchestrations.md).
 
 > [!div class="nextstepaction"]
-> [Run the monitor sample](durable-functions-monitor.md)
+> [Run the stateful singleton sample](durable-functions-counter.md)

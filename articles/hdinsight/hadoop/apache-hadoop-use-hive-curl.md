@@ -74,8 +74,7 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
     
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
-       -Credential $creds `
-       -UseBasicParsing
+       -Credential $creds
     $resp.Content
     ```
 
@@ -98,8 +97,7 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/version/hive" `
-       -Credential $creds `
-       -UseBasicParsing
+       -Credential $creds
     $resp.Content
     ```
 
@@ -121,8 +119,7 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
        -Credential $creds `
        -Body $reqParams `
-       -Method POST `
-       -UseBasicParsing
+       -Method POST
     $jobID = (ConvertFrom-Json $resp.Content).id
     $jobID
     ```
@@ -162,8 +159,7 @@ This document also uses Windows PowerShell and [Jq](http://stedolan.github.io/jq
     $reqParams=@{"user.name"="admin"}
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
        -Credential $creds `
-       -Body $reqParams `
-       -UseBasicParsing
+       -Body $reqParams
     # ConvertFrom-JSON can't handle duplicate names with different case
     # So change one to prevent the error
     $fixDup=$resp.Content.Replace("jobID","job_ID")

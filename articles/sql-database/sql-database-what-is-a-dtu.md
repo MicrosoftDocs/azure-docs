@@ -3,11 +3,18 @@ title: 'SQL Database: What is a DTU? | Microsoft Docs'
 description: Understanding what an Azure SQL Database transaction unit is.
 keywords: database options,database performance
 services: sql-database
+documentationcenter: ''
 author: CarlRabeler
-manager: craigg
+manager: jhubbard
+editor: CarlRabeler
+
+ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
 ms.service: sql-database
 ms.custom: DBs & servers
+ms.devlang: na
 ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: "Active"
 ms.date: 04/14/2017
 ms.author: carlrab
 

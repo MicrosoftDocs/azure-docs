@@ -31,7 +31,7 @@ Learn how to enable and disable distributed denial of service (DDoS) protection,
 1. Log in to the Azure portal at http://portal.azure.com. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 2. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 3. Select **Networking**, and then select **Virtual Network**.
-4. Create a virtual network with your chosen settings. For more information about creating virtual networks, see [Create a virtual network](manage-virtual-network.md#create-a-virtual-network). Under **DDoS protection**, click **Enabled**, and then click **Create**. If you don't see **DDoS protection**, a likely cause is that your subscription is not registered for the feature. You must complete [registration](http://aka.ms/ddosprotection), and receive notification that your subscription has been enabled for the feature, before **DDoS protection** appears.
+4. Create a virtual network with your chosen settings. For more information about creating virtual networks, see [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md). Under **DDoS protection**, click **Enabled**, and then click **Create**. If you don't see **DDoS protection**, a likely cause is that your subscription is not registered for the feature. You must complete [registration](http://aka.ms/ddosprotection), and receive notification that your subscription has been enabled for the feature, before **DDoS protection** appears.
 
     ![Create virtual network](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 

@@ -134,6 +134,8 @@ To change the settings for a storage account, use [Set-AzureRmStorageAccount](/p
 
 * The **access tier** for Blob storage accounts. The value for access tier is set to **hot** or **cool**, and allows you to minimize your cost by selecting the access tier that aligns with how you use the storage account. For more information, see [Hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
+* The storage service encryption setting for blob storage and/or file storage. For more information about SSE, see [Storage Service Encryption](storage-service-encryption.md).
+
 * Only allow HTTPS traffic. 
 
 ### Manage the access keys

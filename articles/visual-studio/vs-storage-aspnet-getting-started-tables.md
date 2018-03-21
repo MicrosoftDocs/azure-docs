@@ -26,7 +26,7 @@ Azure Table storage enables you to store large amounts of structured data. The s
 
 This tutorial shows how to write ASP.NET code for some common scenarios using Azure table storage entities. These scenarios include creating a table, and adding, querying, and deleting table entities. 
 
-## Prerequisites
+##Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)

@@ -12,8 +12,6 @@
     href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Work with blobs - Azure portal
     href: storage-quickstart-blobs-portal.md
-  - name: Work with blobs - Storage Explorer
-    href: storage-quickstart-blobs-storage-explorer.md
   - name: Work with blobs - PowerShell
     href: storage-quickstart-blobs-powershell.md
   - name: Work with blobs - CLI
@@ -30,9 +28,8 @@
     href: storage-quickstart-blobs-ruby.md
   - name: Work with blobs - Node.js
     href: storage-quickstart-blobs-nodejs.md
-
-  - name: Work with blobs - PHP
-    href: storage-quickstart-blobs-php.md
+  - name: Work with blobs - Storage Explorer
+    href: storage-quickstart-blobs-storage-explorer.md
 - name: Tutorials
   items:
   - name: Upload and process an image
@@ -47,9 +44,9 @@
         href: storage-monitor-troubleshoot-storage-application.md
   - name: Design for high availability in cloud storage
     items:
-      - name: 1 - Make your application highly available
+      - name: Make your application highly available
         href: storage-create-geo-redundant-storage.md
-      - name: 2 - Simulate a failure with RA-GRS storage
+      - name: Simulate a failure with RA-GRS storage
         href: storage-simulate-failure-ragrs-account-app.md
   - name: Migrate on-premises data to cloud with AzCopy
     href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json    
@@ -57,13 +54,13 @@
     href: storage-unstructured-search.md
   - name: Optimize storage application performance and scalability
     items:
-      - name: 1 - Create a VM and storage account
+      - name: Create a VM and storage account
         href: storage-blob-scalable-app-create-vm.md
-      - name: 2 - Upload large data to an Azure storage account
+      - name: Upload large data to an Azure storage account
         href: storage-blob-scalable-app-upload-files.md
-      - name: 3- Download large data from a Azure storage account
+      - name: Download large data from a Azure storage account
         href: storage-blob-scalable-app-download-files.md
-      - name: 4 - Verify throughput and latency metrics
+      - name: Verify throughput and latency metrics
         href: storage-blob-scalable-app-verify-metrics.md
 - name: Samples
   items:
@@ -154,6 +151,8 @@
       href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Monitor, diagnose, and troubleshoot
       href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Troubleshoot error deleting storage account 
+      href: ../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Metrics and logging
       items:
       - name: Azure Storage metrics in Azure Monitor
@@ -170,12 +169,28 @@
     items:
     - name: REST
       href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: .NET
+      href: storage-dotnet-how-to-use-blobs.md
+    - name: Java
+      href: storage-java-how-to-use-blob-storage.md
+    - name: Node.js
+      href: storage-nodejs-how-to-use-blob-storage.md
     - name: C++
       href: storage-c-plus-plus-how-to-use-blobs.md
+    - name: PHP
+      href: storage-php-how-to-use-blobs.md
+    - name: Python
+      href: storage-python-how-to-use-blob-storage.md
+    - name: Ruby
+      href: storage-ruby-how-to-use-blob-storage.md
     - name: iOS
       href: storage-ios-how-to-use-blob-storage.md
     - name: Xamarin
       href: storage-xamarin-blob-storage.md
+    - name: PowerShell
+      href: storage-how-to-use-blobs-powershell.md 
+    - name: Azure CLI 2.0
+      href: storage-how-to-use-blobs-cli.md      
   - name: Manage
     items:
     - name: PowerShell for Azure Storage
@@ -320,9 +335,9 @@
   - name: Java
     items:
     - name: Blobs, Queues, Tables, and Files
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/client
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary
     - name: Resource Manager
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/management
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/managementapi
   - name: Node.js
     href: http://azure.github.io/azure-storage-node
   - name: Ruby
@@ -371,8 +386,6 @@
       href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshoot Storage Explorer
       href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Storage Explorer accessibility
-      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json 
   - name: NuGet packages
     items:
     - name: Azure Storage Client Library for .NET

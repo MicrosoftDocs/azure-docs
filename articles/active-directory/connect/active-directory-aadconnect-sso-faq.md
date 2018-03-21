@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 01/04/2018
 ms.author: billmath
 ---
 
@@ -34,16 +34,7 @@ No. Seamless SSO is only available in the worldwide instance of Azure AD.
 
 ## What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?
 
-Listed below is a non-exhaustive list of applications that send these parameters to Azure AD, and therefore provides users a silent sign-on experience using Seamless SSO:
-
-| Application name | Application URL to be used |
-| -- | -- |
-| Access panel | myapps.microsoft.com/contoso.com |
-| Outlook on Web | outlook.office365.com/contoso.com |
-
-In the above table, replace "contoso.com" with your domain name to get to the right application URLs for your tenant.
-
-If you have other applications that you are interested in, let us know in the comments section.
+We are in the process of compiling the list of applications that send these parameters and the ones that don't. If you have applications that you are interested in, let us know in the comments section.
 
 ## Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?
 
@@ -71,7 +62,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 ### Step 1. Get list of AD forests where Seamless SSO has been enabled
 
 1. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 3. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 4. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
 5. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.

@@ -113,7 +113,7 @@ Articles
 * [PaaS recommendations](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Compliance](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
 
-## Community Resources
+##Community Resources
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
 * [Security Center community forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)

@@ -2,14 +2,14 @@
 title: Create your first Language Understanding (LUIS) app in 10 minutes in Azure | Microsoft Docs 
 description: Get started quickly by creating and managing a LUIS application on the Language Understanding (LUIS) webpage. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: DeniseMak
+manager: hsalama
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: v-geberr;
+ms.author: v-demak
 ---
 
 # Create your first LUIS app

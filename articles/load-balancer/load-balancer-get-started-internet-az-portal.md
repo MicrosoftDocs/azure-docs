@@ -52,7 +52,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 
 ## Next steps
-- Learn how [create a Public IP in an availability zone](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Learn how [create a Public IP in an availability zone](../virtual-network/create-public-ip-availability-zone-portal.md)
 
 
 

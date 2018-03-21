@@ -2,14 +2,14 @@
 title: Add intents in LUIS applications | Microsoft Docs
 description: Use Language Understanding (LUIS) to add intents to help apps understand user requests and react to them properly.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: cahann
+manager: hsalama
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: v-geberr;
+ms.author: cahann
 ---
 
 # Manage intents 

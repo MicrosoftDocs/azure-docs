@@ -140,7 +140,7 @@ request.ContentType = @"audio/wav; codec=audio/pcm; samplerate=16000";
 request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_SUBSCRIPTION_KEY";
 
 // Send an audio file by 1024 byte chunks
-using (FileStream fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess.Read))
+using (fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess.Read))
 {
 
     /*

@@ -8,7 +8,8 @@
       href: endpoint-custom.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
-- name: API Quickstarts
+- name: Quickstarts
+  expanded: true
   items:
     - name: Create first instance
       href: quick-start.md
@@ -21,11 +22,7 @@
     - name: Python
       href: call-endpoint-python.md
 - name: SDK (preview)
-  items:
-  - name: SDK samples overview 
-    href: sdk.md
-  - name: Custom Search SDK C# quickstart (preview)
-    href: custom-search-sdk-quickstart.md
+  href: sdk.md  
 - name: Tutorials
   items:
     - name: Build a Custom Search web page

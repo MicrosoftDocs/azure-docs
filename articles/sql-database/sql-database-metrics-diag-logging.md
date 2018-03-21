@@ -4,11 +4,17 @@ description: Learn about how to configure Azure SQL Database to store resource u
 services: sql-database
 documentationcenter: ''
 author: veljko-msft 
-manager: craigg
+manager: jhubbard
+editor: 
+
+ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: monitor & tune
+ms.workload: "On Demand"
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 09/16/2017
 ms.author: vvasic
 
 ---
@@ -43,8 +49,8 @@ You can provision a new Azure resource or select an existing resource. After sel
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Contains information about the query runtime statistics, such as CPU usage and query duration.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Contains information about the query wait statistics, which tells you what your queries waited on, such as CPU, LOG, and LOCKING.
 - [Errors](sql-database-metrics-diag-logging.md#errors-dataset): Contains information about SQL errors that happened on this database.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Contains information about how much time a database spent waiting on different wait types.
-- [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): Contains information about timeouts that happened on a database.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): Contains information about how much time a database spent waiting on different wait types.
+- [Time-outs](sql-database-metrics-diag-logging.md#timeouts-dataset): Contains information about timeouts that happened on a database.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): Contains information about blocking events that happened on a database.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contains Intelligent Insights. [Learn more about Intelligent Insights](sql-database-intelligent-insights.md).
 
@@ -248,7 +254,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### Download metrics and logs from Storage
 
-Learn how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
+Learn how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).
 
 ## Metrics and logs available
 
@@ -376,7 +382,7 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/s
 |query_hash_s|Query hash of the failed query, if available.|
 |query_plan_hash_s|Query plan hash of the failed query, if available.|
 
-Learn more about [SQL Server error messages](https://msdn.microsoft.com/library/cc645603.aspx).
+Learn more about [SQL Server error messages](https://msdn.microsoft.com/en-us/library/cc645603.aspx).
 
 ### Database wait statistics dataset
 
@@ -469,4 +475,4 @@ To learn about Event Hubs, read:
 * [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 * [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-To learn more about Storage, see how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
+To learn more about Storage, see how to [download metrics and diagnostics logs from Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs).

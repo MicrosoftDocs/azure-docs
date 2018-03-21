@@ -3,7 +3,7 @@ title: Create a LUIS app to get secondary data - Azure | Microsoft Docs
 description: Learn how to create a simple LUIS app using intents and entities to extract data. 
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
+manager: kamran.iqbal
 
 ms.service: cognitive-services
 ms.technology: luis

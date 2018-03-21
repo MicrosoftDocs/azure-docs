@@ -1,17 +1,24 @@
 ---
-title: Create a standalone Azure Automation account
+title: Create a standalone Azure Automation account | Microsoft Docs
 description: This article walks you through the steps of creating, testing, and using an example security principal authentication in Azure Automation.
 services: automation
-ms.service: automation
+documentationcenter: ''
 author: georgewallace
-ms.author: gwallace
-ms.date: 03/15/2018
-ms.topic: article
 manager: carmonm
+editor: ''
+
+ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
+ms.service: automation
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/18/2017
+ms.author: magoedte
 ---
 
 # Create a standalone Azure Automation account
-This article shows you how to create an Azure Automation account in the Azure portal. You can use the portal Automation account to evaluate and learn about Automation without using additional management solutions or integration with Azure Log Analytics. You can add those management solutions or integrate with Log Analytics for advanced monitoring of runbook jobs at any point in the future. 
+This article shows you how to create an Azure Automation account in the Azure portal. You can use the portal Automation account to evaluate and learn about Automation without using additional management solutions or integration with Azure Log Analytics in Operations Management Suite (OMS). You can add those management solutions or integrate with Log Analytics for advanced monitoring of runbook jobs at any point in the future. 
 
 With an Automation account, you can authenticate runbooks by managing resources in either Azure Resource Manager or the classic deployment model.
 

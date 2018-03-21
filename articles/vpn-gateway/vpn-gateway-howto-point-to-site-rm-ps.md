@@ -212,11 +212,6 @@ The VPN client configuration files contain settings to configure devices to conn
 
 ### To connect from a Windows VPN client
 
->[!NOTE]
->You must have Administrator rights on the Windows client computer from which you are connecting.
->
->
-
 1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Click **Connect**. A pop-up message may appear that refers to using the certificate. Click **Continue** to use elevated privileges. 
 2. On the **Connection** status page, click **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
 

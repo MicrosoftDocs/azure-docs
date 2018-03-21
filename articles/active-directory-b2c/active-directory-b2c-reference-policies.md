@@ -3,15 +3,18 @@ title: 'Azure Active Directory B2C: Built-in policies | Microsoft Docs'
 description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: sama
 manager: mtillman
-editor: ''
+editor: PatAltimore
 
+ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
-ms.author: davidmu
+ms.author: sama
 
 ---
 # Azure Active Directory B2C: Built-in policies
@@ -56,6 +59,8 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &p=b2c_1_siin                                       // Your sign-in policy
 
 ```
+
+For more information about the policy framework, see [this blog post about Azure AD B2C on the Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Create a sign-up or sign-in policy
 

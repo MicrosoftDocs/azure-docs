@@ -76,11 +76,11 @@ Blobs in all three storage tiers can co-exist within the same account. Any blob 
 
 ### Blob-level tiering billing
 
-When a blob is moved to a cooler tier (hot->cool, hot->archive, or cool->archive), the operation is billed as a write of the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. If a blob is moved to a warmer tier (archive->cool, archive->hot, or cool->hot), the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply.
+When a blob is moved to a cooler tier (hot->cool, hot->archive, or cool->archive), the operation is billed as a write into the destination tier, and the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. If a blob is moved to a warmer tier (archive->cool, archive->hot, or cool->hot), the operation is billed as a read from the source tier, and the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply.
 
 If you toggle the account tier from hot to cool, you will be charged for write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only. There is no charge for this in Blob Storage accounts. You will be charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle your Blob Storage or GPv2 account from cool to hot. Early deletion charges for any blob moved out of the cool or archive tier may apply as well.
 
-### Cool and archive early deletion
+### Cool and archive early deletion (effective March 1, 2018)
 
 In addition to the per GB, per month charge, any blob that is moved into the cool tier (GPv2 accounts only) is subject to a cool early deletion period of 30 days, and any blob that is moved into the archive tier is subject to an archive early deletion period of 180 days. This charge is prorated. For example, if a blob is moved to archive and then deleted or moved to the hot tier after 45 days, you will be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in archive.
 
@@ -174,7 +174,7 @@ Each blob is always billed according to the tier indicated by **Access Tier** bl
 
 **How do I determine if I will incur an early deletion charge when deleting or moving a blob out of the cool or archive tier?**
 
-Any blob that is deleted or moved out of the cool (GPv2 accounts only) or archive tier before 30 days and 180 days respectively will incur a prorated early deletion charge. You can determine how long a blob has been in the cool or archive tier by checking the **Access Tier Change Time** blob property which provides a stamp of the last tier change. See [Cool and archive early deletion](#cool-and-archive-early-deletion) section for more details.
+Any blob that is deleted or moved out of the cool (GPv2 accounts only) or archive tier before 30 days and 180 days respectively will incur a prorated early deletion charge (effective March 1, 2018). You can determine how long a blob has been in the cool or archive tier by checking the **Access Tier Change Time** blob property which provides a stamp of the last tier change. See [Cool and archive early deletion](#cool-and-archive-early-deletion) section for more details.
 
 **Which Azure tools and SDKs support blob-level tiering and archive storage?**
 

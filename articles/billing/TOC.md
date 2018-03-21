@@ -1,5 +1,3 @@
-# [Azure Billing Documentation](index.md)
-
 # Get started
 ## [Prevent unexpected costs](billing-getting-started.md)
 ## [Create services included with free account](billing-create-free-services-included-free-account.md)

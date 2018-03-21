@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 03/14/2018
+ms.date: 01/17/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
@@ -26,9 +26,6 @@ To use policies, you must be authenticated through RBAC. Specifically, your acco
 
 - `Microsoft.Authorization/policydefinitions/write` permission to define a policy.
 - `Microsoft.Authorization/policyassignments/write` permission to assign a policy.
-- `Microsoft.Authorization/policySetDefinitions/write` permission to define an initiative.
-- `Microsoft.Authorization/policyassignments/write` permission to assign an initiative.
-
 
 These permissions are not included in the **Contributor** role.
 

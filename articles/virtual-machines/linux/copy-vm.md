@@ -33,7 +33,7 @@ You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fazure%2fvi
 
 -   Install [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
--   Sign in to an Azure account with [az login](/cli/azure/reference-index#az_login).
+-   Sign in to an Azure account with [az login](/cli/azure/#az_login).
 
 -   Have an Azure VM to use as the source for your copy.
 

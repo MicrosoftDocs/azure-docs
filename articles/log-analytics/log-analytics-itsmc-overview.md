@@ -186,7 +186,7 @@ You can also create work items in the connected ITSM sources directly from a log
 4. Provide the appropriate values in the **Contact Type**, **Impact**, **Urgency**, **Category**, and **Sub Category** text boxes, and then click **Create**.
 
 
-## Visualize and analyze the incident and change request data
+##Visualize and analyze the incident and change request data
 
 Based on your configuration when setting up a connection, ITSM connector can sync up to 120 days of Incident and Change request data. The log record schema for this data is provided in the [next section](#additional-information).
 

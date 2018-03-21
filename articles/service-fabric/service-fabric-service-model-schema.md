@@ -601,8 +601,6 @@ Describes a Microsoft Azure Service Fabric Cluster.
 ```
 
 ## Commands Element
-A comma delimited list of commands for container.
-
 |Attribute|Value|
 |---|---|
 |type|[xs:string](#xs:string-type)|

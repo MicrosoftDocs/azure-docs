@@ -1,5 +1,3 @@
-# [SQL Data Warehouse Documentation](index.md)
-
 # Overview
 
 ## [About SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
@@ -18,7 +16,7 @@
 
 
 # Tutorials
-## [1 - Load WideWorldImporters](load-data-wideworldimportersdw.md)
+## [1 - Load data from blob](load-data-from-azure-blob-storage-using-polybase.md)
 
 # Concepts
 ## Service features
@@ -52,12 +50,11 @@
 ### [SQL Database elastic query](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
-## Query performance
-### [Resource classes](resource-classes-for-workload-management.md)
+## Monitor & tune
+### [Workload management](resource-classes-for-workload-management.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-
-## [Monitor](sql-data-warehouse-manage-monitor.md)
-
+### [Monitor](sql-data-warehouse-manage-monitor.md)
+### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
 
 ## Develop data warehouses
 ### [Overview](sql-data-warehouse-overview-develop.md)
@@ -89,8 +86,6 @@
 #### [Variable assignment](sql-data-warehouse-develop-variable-assignment.md)
 #### [Views](sql-data-warehouse-develop-views.md)
 
-## [Troubleshoot](sql-data-warehouse-troubleshoot.md)
-
 # How-to guides
 ## Service features
 ### [Restore a data warehouse - portal](sql-data-warehouse-restore-database-portal.md)
@@ -104,7 +99,6 @@
 
 
 ## Load & move data
-### [New York taxi cab data](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Contoso public data](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

@@ -4,8 +4,7 @@ description: Frequently asked questions about Microsoft Cortana Intelligence Com
 services: machine-learning
 documentationcenter: ''
 author: hning86
-ms.author: hai.ning
-manager: mwinkle
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
+ms.author: haining;garye
 
 ---
 # Microsoft Cortana Intelligence Competitions FAQ

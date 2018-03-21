@@ -21,7 +21,7 @@ ms.author: rafats
 
 ---
 
-# Tutorial: Query Azure Cosmos DB by using the SQL API
+# Azure Cosmos DB: How to query using SQL?
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 

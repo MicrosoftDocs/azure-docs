@@ -28,6 +28,10 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 
 Error message: "VM Agent unable to communicate with Azure Backup"
 
+> [!NOTE]
+> If your Azure Linux VM backups fail with this error beginning January 4, 2018, run the following command in the VM, and then retry the backups:
+> `sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
+
 After you register and schedule a VM for the Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. When a snapshot isn't triggered, the backup might fail. Complete the following troubleshooting steps in the order listed, and then retry your operation:
 
 **Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
@@ -52,8 +56,9 @@ Error message: "VMSnapshot extension operation failed"
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 2: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 3: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Cause 4: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
+**Cause 4: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Cause 5: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## Backup fails because the VM agent is unresponsive
 
@@ -172,6 +177,7 @@ The following conditions might cause the snapshot task to fail:
 
 | Cause | Solution |
 | --- | --- |
+| The VM has SQL Server backup configured. | By default, the VM backup runs a Volume Shadow Copy Service (VSS) full backup on Windows VMs. On VMs that are running SQL Server-based servers and on which SQL Server backup is configured, snapshot execution delays might occur.<br><br>If you experience a backup failure because of a snapshot issue, set the following registry key:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | The VM status is reported incorrectly because the VM is shut down in Remote Desktop Protocol (RDP). | If you shut down the VM in RDP, check the portal to determine whether the VM status is correct. If it’s not correct, shut down the VM in the portal by using the **Shutdown** option on the VM dashboard. |
 | The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, configure it through the platform. The DHCP option inside the VM should be left enabled. For more information, see [Set a static internal private IP](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
@@ -180,7 +186,14 @@ If extensions can't load, backup fails because a snapshot can't be taken.
 
 #### Solution
 
-Uninstall the extension to force the VMSnapshot extension to reload. The next backup attempt reloads the extension.
+**For Windows guests:**
+Verify that the iaasvmprovider service is enabled and has a startup type of *automatic*. If the service isn't configured this way, enable the service to determine whether the next backup succeeds.
+
+**For Linux guests:**
+Verify that the latest version of VMSnapshot for Linux (the extension used by Backup) is 1.0.91.0.<br>
+
+
+If the backup extension still fails to update or load, uninstall the extension to force the VMSnapshot extension to reload. The next backup attempt reloads the extension.
 
 To uninstall the extension:
 

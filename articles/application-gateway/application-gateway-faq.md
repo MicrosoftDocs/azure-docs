@@ -134,6 +134,10 @@ Custom probes do not support wildcard or regex on response data.
 
 Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
 
+**Q. How are rules processed?**
+
+Rules are processed in the order they are created. It is recommended that multi-site rules are configured before basic rules. By configuring multi-site listeners first, this configuration reduces the chance that traffic is routed to the inappropriate backend. This routing issue can occur as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
+
 **Q. What does the Host field for custom probes signify?**
 
 Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>.

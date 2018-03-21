@@ -8,7 +8,6 @@
   - name: Supported languages
     href: text-analytics-supported-languages.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: C#
     href: Quickstarts/CSharp.md

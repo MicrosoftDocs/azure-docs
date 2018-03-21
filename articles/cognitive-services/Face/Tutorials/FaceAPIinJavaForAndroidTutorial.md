@@ -1,16 +1,15 @@
 ---
 title: Face API Java for Android tutorial | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
 description: Create a simple Android app that uses the Cognitive Services Face API to detect and frame human faces in an image.
 services: cognitive-services
-author: SteveMSFT
-manager: corncar
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
+ms.date: 02/24/2017
+ms.author: anroth
 ---
 
 # Getting Started with Face API in Java for Android Tutorial
@@ -159,7 +158,7 @@ Follow the instructions below to configure the client library:
    And then insert the following code in the MainActivity class:
 
 	    private FaceServiceClient faceServiceClient =  
-	                new FaceServiceRestClient("your API endpoint", "<Subscription Key>");
+	                new FaceServiceRestClient("your API endpoint", "your subscription key");  
 
    Replace the first parameter above with the API endpoint that was assigned to your key in step 1. For example:
    

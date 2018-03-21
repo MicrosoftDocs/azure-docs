@@ -3,7 +3,7 @@ title: Process large-scale datasets by using Data Factory and Batch | Microsoft 
 description: Describes how to process huge amounts of data in an Azure Data Factory pipeline by using the parallel processing capability of Azure Batch.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: spelluru
 manager: jhubbard
 editor: monicar
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: shlo
+ms.author: spelluru
 
 robots: noindex
 ---

@@ -25,12 +25,6 @@ This article explains how to send text messages by using [Twilio](https://www.tw
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Packages
-
-The Twilio bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet package. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub repository.
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## Example
 
 See the language-specific example:
@@ -198,7 +192,7 @@ module.exports = function (context, myQueueItem) {
 
 ## Attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
 
 For information about attribute properties that you can configure, see [Configuration](#configuration). Here's a `TwilioSms` attribute example in a method signature:
 

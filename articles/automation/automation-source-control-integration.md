@@ -1,13 +1,21 @@
 ---
-title: Source Control integration in Azure Automation
+title: Source Control integration in Azure Automation | Microsoft Docs
 description: This article describes source control integration with GitHub in Azure Automation.
 services: automation
-ms.service: automation
+documentationcenter: ''
 author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
+manager: jwhit
+editor: tysonn
+
+ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
+ms.service: automation
+ms.devlang: na
 ms.topic: article
-manager: carmonm
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/29/2017
+ms.author: magoedte;sngun
+
 ---
 # Source control integration in Azure Automation
 Source control integration allows you to associate runbooks in your Automation account to a GitHub source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts, making it easy to promote code that has been tested in your development environment to your production Automation account.

@@ -1,5 +1,3 @@
-# [Virtual Network Documentation](index.md)
-
 # Overview
 ## [Virtual networks](virtual-networks-overview.md)
 ## [Routing](virtual-networks-udr-overview.md)
@@ -27,6 +25,10 @@
 ### [Network security groups](virtual-networks-nsg.md)
 
 ## Deploy
+### [Virtual networks](virtual-networks-create-vnet-arm-pportal.md)
+#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
+#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Template](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Network security groups
 #### [Azure portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -38,25 +40,27 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### Route tables
-#### [Azure portal](tutorial-create-route-table-portal.md)
-#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
-#### [Azure CLI](tutorial-create-route-table-cli.md)
+### User-defined routes
+#### [Azure portal](create-user-defined-route-portal.md)
+#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
+#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
 #### [Template](virtual-network-create-udr-arm-template.md)
 #### Classic
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Virtual network peering
-#### Same deployment model - same subscription
-##### [Azure portal](tutorial-connect-virtual-networks-portal.md)
-##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
-##### [Azure CLI](tutorial-connect-virtual-networks-cli.md)
+#### [Same deployment model - same subscription](virtual-network-create-peering.md)
 #### [Same deployment model - different subscriptions](create-peering-different-subscriptions.md)
 #### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
 
 ### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
+
+### Public IP address - availability zone
+#### [Azure portal](create-public-ip-availability-zone-portal.md)
+#### [Azure CLI](create-public-ip-availability-zone-cli.md)
+#### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Virtual machines
 #### [Virtual machine network throughput](virtual-machine-network-throughput.md)
@@ -141,7 +145,7 @@
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## Manage
-### [Virtual networks](manage-virtual-network.md)
+### [Virtual networks](virtual-network-manage-network.md)
 #### [Subnets](virtual-network-manage-subnet.md)
 #### [Peerings](virtual-network-manage-peering.md)
 #### Classic
@@ -176,12 +180,8 @@
 ### [VM to VM connectivity problems](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [Configure PTR for SMTP Banner Check](create-ptr-for-smtp-service.md)
 
-## Sample scripts
-### [Azure CLI](cli-samples.md)
-### [Azure PowerShell](powershell-samples.md)
-
 # Reference
-## [Code samples](https://azure.microsoft.com/resources/samples/?service=virtual-network)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (Classic)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)

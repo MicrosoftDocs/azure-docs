@@ -1,5 +1,3 @@
-- name: Terraform on Azure Documentation
-  href: index.yml
 - name: Overview
   items:
   - name: About Terraform on Azure
@@ -15,8 +13,6 @@
       maintainContext: true
 - name: Tutorials 
   items:
-    - name: Create a Terraform VM with MSI enabled
-      href: terraform-vm-msi.md
     - name: Create a VM cluster with Terraform modules
       href: terraform-create-vm-cluster-module.md
     - name: Create a VM cluster with Terraform and HCL

@@ -69,7 +69,6 @@ A response includes this information:
 
 Example extract:
 
-
     "FaceDetection": {
        ......
       "result": true,
@@ -98,10 +97,6 @@ Example extract:
 In many online communities, after users upload images or other type of content, offensive items may get shared multiple times over the following days, weeks, and months. The costs of repeatedly scanning and filtering out the same image or even slightly modified versions of the image from multiple places can be expensive and error-prone.
 
 Instead of moderating the same image multiple times, you add the offensive images to your custom list of blocked content. That way, your content moderation system compares incoming images against your custom lists and stops any further processing.
-
-> [!NOTE]
-> There is a maximum limit of **5 image lists** with each list to **not exceed 10,000 images**.
->
 
 The Content Moderator provides a complete [Image List Management API](try-image-list-api.md) with operations for managing lists of custom images. Start with the [Image Lists API Console](try-image-list-api.md) and use the REST API code samples. Also check out the [Image List .NET quickstart](image-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
 

@@ -1,19 +1,27 @@
 ---
 title: 'Azure portal: Query Azure SQL Database using Query Editor | Microsoft Docs'
 description: Learn how to connect to SQL Database in the Azure portal by using the SQL Query Editor. Then, run Transact-SQL (T-SQL) statements to query and edit data.
+metacanonical: ''
 keywords: connect to sql database,azure portal, portal, query editor
 services: sql-database
+documentationcenter: ''
 author: ayoolubeko
-manager: craigg
+manager: jhubbard
+editor: ''
+
+ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
 ---
-# Azure portal: Use the SQL Query editor to connect and query data
+# Azure portal: Use the SQL Query Editor to connect and query data
 
-The SQL Query editor is a browser query tool that provides an efficient and lightweight way to execute SQL queries on your Azure SQL Database or Azure SQL Data Warehouse without leaving the Azure portal. This quickstart demonstrates how to use the Query editor to connect to a SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
+The SQL Query Editor is a browser query tool that provides an efficient and lightweight way to execute SQL queries on your Azure SQL Database or Azure SQL Data Warehouse without leaving the Azure portal. This quickstart demonstrates how to use the Query Editor to connect to a SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
 
 ## Prerequisites
 
@@ -21,19 +29,18 @@ This quickstart uses as its starting point the resources created in one of these
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-> [!NOTE]
-> Make sure that the "Allow access to Azure Services" option is set to "ON" in your SQL Server firewall settings. This option gives the SQL Query editor access to your databases and data warehouses.
-
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
 
 ## Connect using SQL Authentication
+> [!NOTE]
+> Make sure that the "Allow access to Azure Services" option is set to "ON" in your SQL Server firewall settings. This option gives the SQL Query Editor access to your databases and data warehouses.
 
 1. Click **SQL databases** from the left-hand menu and click the database you would like to query.
 
-2. On the SQL database page for your database, find and click **Query editor (preview)** in the left-hand menu.
+2. On the SQL database page for your database, find and click **Data explorer (preview)** in the left-hand menu.
 
     ![find query editor](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 

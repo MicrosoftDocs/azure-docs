@@ -31,13 +31,7 @@ When you encounter an issue, learn more about the state of your IoT Edge device 
 * View the messages going through the Edge Hub, and gather insights on device properties updates with verbose logs from the runtime containers.
 
    ```cmd
-   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
-   ```
-   
-* View verbose logs from iotedgectl commands:
-
-   ```cmd
-   iotedgectl --verbose DEBUG <command>
+   iotedgectl setup --runtime-log-level DEBUG
    ```
 
 * If you experience connectivity issues, inspect your edge device environment variables like your device connection string:
@@ -100,23 +94,6 @@ The Edge Agent doesn't have permissions to access a module's image.
 
 ### Resolution
 Try running the `iotedgectl login` command again.
-
-## iotedgectl can't find Docker
-iotedgectl fails to execute the setup or start command and prints the following message to the logs:
-```output
-File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
-  info = self._client.info()
-File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
-  return self.api.info(*args, **kwargs)
-File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
-  return self._result(self._get(self._url("/info")), True)
-```
-
-### Root cause
-iotedgectl can't find Docker, which is a pre-requisite.
-
-### Resolution
-Install Docker, make sure that it is running and retry.
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iot-edge/issues) so that we can continue to improve. 

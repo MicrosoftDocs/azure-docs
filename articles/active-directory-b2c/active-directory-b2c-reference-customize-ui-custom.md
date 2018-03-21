@@ -3,15 +3,18 @@ title: 'Azure Active Directory B2C: Reference: Customize the UI of a user journe
 description: A topic on Azure Active Directory B2C custom policies
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: rojasja
 manager: mtillman
-editor: ''
+editor: rojasja
 
+ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
 ms.topic: article
+ms.devlang: na
 ms.date: 04/25/2017
-ms.author: davidmu
+ms.author: joroja
 
 ---
 

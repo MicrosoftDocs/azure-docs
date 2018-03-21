@@ -19,8 +19,6 @@ See [Getting Started](GettingStarted.md) for a sample walkthrough of how to use 
 
 ![AcademicAutoComplete](AutoComplete.png)
 
-KES has moved from Cognitive Services Preview to Cognitive Services Labs. The new homepage for the project is [http://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration](http://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration).
-
 ## Reference
 * [Command Line Interface](CommandLine.md)
 * [Schema Format](SchemaFormat.md)

@@ -3,7 +3,7 @@ title: Add the Azure blob storage Connector in your Logic Apps | Microsoft Docs
 description: Get started and configure the Azure blob storage connector in a logic app
 services: ''
 documentationcenter: ''
-author: ecfan
+author: MandiOhlinger
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
-ms.author: estfan; ladocs
+ms.author: mandia; ladocs
 
 ---
 # Use the Azure blob storage connector in a logic app

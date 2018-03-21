@@ -1,7 +1,7 @@
 ---
 title: Entity search SDK Node quickstart | Microsoft Docs
 description: Setup for Entity search SDK console application.
-titleSuffix: Azure cognitive services
+titleSuffix: Azure cognitive services Entity search SDK Node quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -41,9 +41,7 @@ entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
 });
 
 ```
-The code prints `result.value` items to the console without parsing any text.  The results, if any per category, will include:
-- _type: 'Thing'
-- _type: 'ImageObject'
+The code prints `result.value` items to the console without parsing any text.
 
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
 

@@ -198,9 +198,6 @@ Configuration settings for [http triggers and bindings](functions-bindings-http-
 
 The unique ID for a job host. Can be a lower case GUID with dashes removed. Required when running locally. When running in Azure Functions, an ID is generated automatically if `id` is omitted.
 
-If you share a Storage account across multiple function apps, make sure that each function app has a different `id`. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
-
-
 ```json
 {
     "id": "9f4ea53c5136457d883d685e57164f08"

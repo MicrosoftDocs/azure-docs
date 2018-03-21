@@ -8,21 +8,19 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 02/20/2018
 ms.author: v-geberr;
 ---
 
 # Data extraction
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action.
 
-In the following sections, learn what data is returned from intents and entities with examples of JSON. The hardest data to extract is the machine-learned data because it is not an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you are confident you receive the data you expect. 
-
 ## Data location and key usage
-LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. You do not have to URL-encode utterances at the endpoint. 
+LUIS provides the data from the published endpoint. The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. You do not have to URL-encode utterances at the endpoint. 
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the subscription key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
+The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the subscription key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits).
 
 The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS][LUIS] website **Publish** page. 
 
@@ -134,11 +132,6 @@ All entities are returned in the **entities** array of the response from the end
   }
 ]
 ```
-
-## Tokenized entity returned
-Several [cultures](luis-supported-languages.md#tokenization) return the entity object with the `entity` value [tokenized](luis-glossary.md#token). The startIndex and endIndex returned by LUIS in the entity object do not map to the new, tokenized value but instead to the original query in order for you to extract the raw entity programmatically. 
-
-For example, in German, the word `das Bauernbrot` is tokenized into `das bauern brot`. The tokenized value, `das bauern brot`, is returned and the original value can be programmatically determined from the startIndex and endIndex of the original query, giving you `das Bauernbrot`.
 
 ## Simple entity data
 

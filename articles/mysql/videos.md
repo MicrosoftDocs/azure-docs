@@ -4,11 +4,11 @@ description: This page lists video content relevant for learning Azure Database 
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
+manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 12/01/2017
 ---
 # Azure Database for MySQL videos
 

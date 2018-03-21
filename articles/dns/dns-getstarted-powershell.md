@@ -75,7 +75,7 @@ Once you are satisfied that your DNS zone and records have been set up correctly
 The name servers for your zone are given by the `Get-AzureRmDnsZone` cmdlet:
 
 ```powershell
-Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+Get-AzureRmDnsZone -ZoneName contoso.com -ResourceGroupName MyResourceGroup
 
 Name                  : contoso.com
 ResourceGroupName     : myresourcegroup

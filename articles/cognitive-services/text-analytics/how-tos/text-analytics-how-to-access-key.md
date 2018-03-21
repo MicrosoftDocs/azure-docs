@@ -3,12 +3,12 @@ title: Access key for Text Analytics API (Microsoft Cognitive Services on Azure)
 description: Get an access key for Text Analytics operations to submit raw text for processing in Cognitive Services.
 services: cognitive-services
 author: HeidiSteen
-manager: cgronlun
+manager: jhubbard
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: get-started-article
-ms.date: 3/07/2018
+ms.date: 08/24/2017
 ms.author: heidist
 ---
 

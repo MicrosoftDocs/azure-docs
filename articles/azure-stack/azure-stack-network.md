@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -50,9 +50,7 @@ The network infrastructure for Azure Stack consists of several logical networks 
 ![Logical network diagram and switch connections](media/azure-stack-network/NetworkDiagram.png)
 
 ### BMC network
-This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the Hardware Lifecycle Host (HLH) is located on this network and may provide OEM specific software for hardware maintenance or monitoring. 
-
-The HLH also hosts the Deployment VM (DVM). The DVM is used during Azure Stack deployment and is removed when deployment completes. The DVM requires internet access in connected deployment scenarios to test, validate, and access multiple components. These components can be inside and outside of your corporate network; for example NTP, DNS, and Azure. For more information about connectivity requirements, see the [NAT section in Azure Stack firewall integration](azure-stack-firewall.md#network-address-translation). 
+This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the (HLH) hardware lifecycle host is located on this network and may provide OEM specific software for hardware maintenance and/or monitoring. 
 
 ### Private network
 This /24 (254 host IP’s) network is private to the Azure Stack region (does not expand beyond the border switch devices of the Azure Stack region) and is divided into two subnets:

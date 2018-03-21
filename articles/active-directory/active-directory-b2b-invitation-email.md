@@ -3,7 +3,7 @@ title: The elements of the B2B collaboration invitation email - Azure Active Dir
 description: Azure Active Directory B2B collaboration invitation email template
 services: active-directory
 documentationcenter: ''
-author: twooley
+author: sasubram
 manager: mtillman
 editor: ''
 tags: ''
@@ -13,8 +13,7 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: twooley
-ms.reviewer: sasubram
+ms.author: sasubram
 ms.custom: seohack1
 ---
 

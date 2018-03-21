@@ -24,7 +24,7 @@ ms.author: menchi
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[The IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is a new open source IoT extension that adds to the capabilities of [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) includes commands for interacting with Azure resource manager and management endpoints. Azure CLI 2.0 includes commands for interacting with Azure resource manager and management endpoints. For example, you can use Azure CLI 2.0 to create an Azure VM or an IoT Hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
+[The IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is a new open source IoT extension that adds to the capabilities of [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) includes commands for interacting with Azure resource manager and management endpoints. Azure CLI 2.0 includes commands for interacting with Azure resource manager and management endpoints. For example, you can use Azure CLI 2.0 to create an Azure VM or an IoT Hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
 
 | Management option          | Task                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -63,21 +63,21 @@ Run Azure CLI 2.0 and the IoT extension for Azure CLI 2.0 with various managemen
 - Install the IoT extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) describes several ways to install the extension.
 
 
-## Log in to your Azure account
+## Login to your Azure account
 
-Log in to your Azure account by running the following command:
+Login to your Azure account by running the following command:
 
 ```bash
 az login
 ```
 
-## Direct methods
+## Use the IoT extension for Azure CLI 2.0 with direct methods
 
 ```bash
 az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
 ```
 
-## Device twin desired properties
+## Use the IoT extension for Azure CLI 2.0 with twin’s desired properties
 
 Set a desired property interval = 3000 by running the following command:
 
@@ -87,7 +87,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 This property can be read from your device.
 
-## Device twin reported properties
+## Use the IoT extension for Azure CLI 2.0 with twin’s reported properties
 
 Get the reported properties of the device by running the following command:
 
@@ -97,7 +97,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 One of the properties is $metadata.$lastUpdated which shows the last time this device sends or receives a message.
 
-## Device twin tags
+## Use the IoT extension for Azure CLI 2.0 with twin’s tags
 
 Display the tags and properties of the device by running the following command:
 
@@ -111,7 +111,7 @@ Add a field role = temperature&humidity to the device by running the following c
 az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## Device twin queries
+## Use the IoT extension for Azure CLI 2.0 with device twins queries
 
 Query devices with a tag of role = 'temperature&humidity' by running the following command:
 

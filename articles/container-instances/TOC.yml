@@ -37,8 +37,6 @@
     href: container-instances-using-azure-container-registry.md
   - name: Run containerized tasks
     href: container-instances-restart-policy.md
-  - name: Set environment variables
-    href: container-instances-environment-variables.md
   - name: Troubleshoot deployments
     href: container-instances-troubleshooting.md
   - name: Configure data volumes

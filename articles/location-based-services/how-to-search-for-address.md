@@ -4,8 +4,8 @@ title: How to search for an address using the Azure Location Based Services (pre
 description: Learn how to search for an address using the Azure Location Based Services (preview) Search service
 services: location-based-services
 keywords: Don’t add or edit keywords without consulting your SEO champ.
-author: kgremban
-ms.author: kgremban
+author: philmea
+ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services

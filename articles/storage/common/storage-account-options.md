@@ -296,8 +296,8 @@ You can create a custom application to migrate your data into a Blob storage acc
 
 For more information, see [Get Started with Azure Blob storage](../blobs/storage-dotnet-how-to-use-blobs.md).
 
-> [!IMPORTANT]
-> Blobs encrypted using client-side encryption store encryption-related metadata with the blob. If you copy a blob that is encrypted with client-side encryption, ensure that the copy operation preserves the blob metadata, and especially the encryption-related metadata. If you copy a blob without the encryption metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> [!NOTE]
+> Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## FAQ
 

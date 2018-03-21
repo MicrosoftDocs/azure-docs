@@ -46,7 +46,7 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume. Multiple server endpoints can exist on the same volume if their namespaces do not overlap (for example, `F:\sync1` and `F:\sync2`). You can configure cloud tiering policies individually for each server endpoint. Currently, it is not possible to create a server endpoint for the root of a volume (for example `F:\` or `C:\myvolume`, if a volume is mounted as a mount point).
 
 > [!Note]  
-> Only non-removable volumes are supported.  Drives mapped from a remote share are not supported for a server endpoint path.  In addition, a server endpoint may be located on the Windows system volume though cloud tiering is not supported on the system volume.
+> A server endpoint may be located on the Windows system volume. Cloud tiering is not supported on the system volume.
 
 If you add a server location that has an existing set of files as a server endpoint to a sync group, those files are merged with any other files that are already on other endpoints in the sync group.
 
@@ -89,7 +89,7 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 | Reparse points | Skipped | |
 | NTFS compression | Fully supported | |
 | Sparse files | Fully supported | Sparse files sync (are not blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
-| Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tags created by the File Classification Infrastructure are not synced. Existing classification tags on files on each of the server endpoints are left untouched. |
+| Alternate Data Streams (ADS) | Preserved, but not synced | |
 
 > [!Note]  
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
@@ -139,7 +139,7 @@ Like antivirus solutions, backup solutions might cause the recall of tiered file
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:
 
 - BitLocker encryption
-- Azure Information Protection, Azure Rights Management Services (Azure RMS), and Active Directory RMS
+- Azure Rights Management Services (Azure RMS) (and legacy Active Directory RMS)
 
 Azure File Sync is known not to work with:
 

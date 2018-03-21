@@ -16,7 +16,6 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
- 
 
 ---
 # Azure Resource Manager template considerations

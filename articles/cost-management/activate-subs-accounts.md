@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
+ms.date: 01/29/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
@@ -53,7 +53,7 @@ When you add an account update a subscription, you grant Azure Cost Management a
 
 ### Update a subscription
 
-1. If you want to update an _unactivated_ subscription that already exists in Azure Cost Management in Accounts Management, click the edit pencil symbol to the right of the parent _tenant GUID_. Subscriptions are grouped under a parent tenant, so avoid activating subscriptions individually.
+1. If you want to update an _unactivated_ subscription that already exists in Azure Cost Management in Accounts Management, click the edit pencil symbol to the right of the _tenant GUID_.
     ![Rediscover subscriptions](./media/activate-subs-accounts/existing-sub.png)
 2. If necessary, enter the Tenant ID. If you don't know your Tenant ID, use the following steps to find it:
     1. Log into the [Azure portal](https://portal.azure.com).
@@ -73,7 +73,7 @@ When you add an account update a subscription, you grant Azure Cost Management a
 
     If you don't see a green checkmark symbol for one or more of the subscriptions, it means that you do not have permissions to create the reader app (the CloudynCollector) for the subscription. A user with higher permissions for the subscription needs to repeat this process.
 
-Watch the [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk) video that walks through the process.
+Watch the [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn](https://youtu.be/oCIwvfBB6kk) video that walks through the process.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 

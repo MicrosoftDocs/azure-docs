@@ -213,7 +213,7 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
    > [!IMPORTANT]
    > You must restart several services before the change takes effect.
 
-6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All Affected** from the **Service Actions** drop down list on the right. When prompted, select __Confirm Restart All__.
+6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All Affected** from the **Service Actions** drop down list on the right. When prompted, select __Conform Restart All__.
 
     Repeat this process for MapReduce2 and YARN.
 

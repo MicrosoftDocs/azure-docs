@@ -100,7 +100,7 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
-> [Govern virtual machines](tutorial-govern-resources.md)
+> [Monitor virtual machines](tutorial-monitoring.md)
 
 
 

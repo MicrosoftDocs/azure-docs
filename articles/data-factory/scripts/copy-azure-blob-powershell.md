@@ -2,7 +2,7 @@
 title: "PowerShell script: Copy data in the cloud by using Azure Data Factory | Microsoft Docs"
 description: This PowerShell script copies data from one location in an Azure Blob Storage to another location in the same Blob Storage. 
 services: data-factory
-author: linda33wj
+author: spelluru
 manager: jhubbard
 editor: ''
 
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: jingwang
+ms.author: spelluru
 ---
 
 # Use PowerShell to create a data factory pipeline to copy data in the cloud

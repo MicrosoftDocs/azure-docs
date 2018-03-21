@@ -2,14 +2,14 @@
 title: Call a Language Understanding Intelligent Services (LUIS) app using Node.js | Microsoft Docs 
 description: Learn to call a LUIS app using Node.js. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
+author: DeniseMak
+manager: rstand
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-geberr;
+ms.author: v-demak
 ---
 
 # Call a LUIS app using Node.js

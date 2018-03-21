@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: cynthn;davberg
+ms.author: cynthn
 
 ---
 # Compute benchmark scores for Linux VMs

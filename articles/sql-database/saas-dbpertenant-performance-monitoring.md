@@ -3,10 +3,17 @@ title: Monitor performance of many Azure SQL databases in a multi-tenant SaaS ap
 description: "Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app"
 keywords: sql database tutorial
 services: sql-database
+documentationcenter: ''
 author: stevestein
 manager: craigg
+editor: ''
+
+ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
+ms.workload: "Inactive"
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein

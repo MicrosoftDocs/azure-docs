@@ -3,7 +3,7 @@ title: Connectors for Azure Logic Apps | Microsoft Docs
 description: Choose from all the available Microsoft connectors to build and create logic apps
 services: logic-apps
 documentationcenter: ''
-author: ecfan
+author: MandiOhlinger
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
-ms.author: estfan; ladocs
+ms.author: mandia; ladocs
 
 ---
 # Connectors list

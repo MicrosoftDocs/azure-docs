@@ -2,11 +2,10 @@
 title: Use Azure Active Directory B2C to protect an ASP.NET Web API tutorial
 description: Tutorial on how to use Active Directory B2C to protect an ASP.NET web api and call it from an ASP.NET web app.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
-editor: ''
+author: PatAltimore
 
-ms.author: davidmu
+ms.author: patricka
+ms.reviewer: saraford
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial

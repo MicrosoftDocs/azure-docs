@@ -3,7 +3,7 @@ title: Azure PowerShell Samples for Azure Data Factory | Microsoft Docs
 description: Azure PowerShell Samples - Scripts to help you create and manage data factories. 
 services: data-factory
 author: spelluru
-manager: douglaslMS
+manager: jhubbard
 editor: ''
 
 ms.service: data-factory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: douglasl
+ms.author: spelluru
 ---
 
 # Azure PowerShell samples for Azure Data Factory
