@@ -12,7 +12,7 @@ ms.date: 03/21/2018
 ms.author: raynew
 
 ---
-# Using recovery plans
+# About recovery plans
 
 This article describes recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
@@ -30,23 +30,23 @@ A recovery plan helps you to define a systematic recovery process, by creating s
 * Automate recovery tasks to reduce RTO.
 - Verify that you're prepared for migration or disaster recovery by ensuring that your apps are part of a recovery plan.
 * Run test failover on recovery plans, to ensure disaster recovery or migration is working as expected.
-* 
+
 
 ## Model apps
 
-You can plan and create a recovery group to capture app-specific properties. 
+You can plan and create a recovery group to capture app-specific properties. As an example, let's consider a typical three-tier application with a SQL server backend, middleware, and a web frontend. Typically, ou customize the recovery plan so that machines in each tier start in the correct order after failover.
 
-As an example, let's consider a typical three-tier application with a SQL server backend, middleware, and a web frontend. Here's what you might do:
+	- The SQL backend should start first, the middleware next, and finally the web frontend.
+	- This start order ensures that the app is working by the time the last machine starts.
+	- This order ensures that when the middleware starts and tries to connect to the SQL Server tier, the SQL Server tier is already running. 
+	- This order also helps ensure that the frontend server starta last, so that end users don't connect to the app URL before all the components are up and running, and the app is ready to accept requests.
 
-- Customize the recovery plan so that machines start in the correct order after failover. The SQL backend should start first, the middleware next, and finally the web frontend.
-    - This order ensures that the app is working by the time the last machine starts.
-    - For example, when the middleware starts, it tries to connect to the SQL Server tier. The recovery plan ensures that the SQL Server tier is already running. Then, having a frontend server start last helps ensure that end users don't connect to the app URL before all the components are up and running, and the app is ready to accept requests.
-- To create this order, you add groups to the recovery group, and add machines into the groups. 
-- Where order is specified, sequencing is used. Actions run in parallel where appropriate, to improve application recovery RTO. So that:
-    - Machines in a single group fail over in parallel.
-    -  Machines in different groups fail over in group order, so that Group 2 machines start their failover only after all the machines in Group 1 have failed over and started.
+To create this order, you add groups to the recovery group, and add machines into the groups. 
+	- Where order is specified, sequencing is used. Actions run in parallel where appropriate, to improve application recovery RTO.
+	- Machines in a single group fail over in parallel.
+	- Machines in different groups fail over in group order, so that Group 2 machines start their failover only after all the machines in Group 1 have failed over and started.
 
-![Example recovery plan](./media/recovery-plan-overview/rp.png)
+	![Example recovery plan](./media/recovery-plan-overview/rp.png)
 
 With this customization in place, here's what happens when you run a failover on the recovery plan: 
 
@@ -79,7 +79,7 @@ You can use a recovery plan to trigger a test failover. Use the following best p
 - Because each app is unique, you need to build recovery plans that are customized for each application, and run a test failover on each.
 - Apps and their dependencies change frequently. To ensure recovery plans are up-to-date, run a test failover for each app every quarter.
 
-![Screenshot of an example test recovery plan in Site Recovery](./media/recovery-plan-overview/rptest.png)
+	![Screenshot of an example test recovery plan in Site Recovery](./media/recovery-plan-overview/rptest.png)
 
 ## Watch the video
 
