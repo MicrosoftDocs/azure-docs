@@ -117,7 +117,7 @@ This command saves the logs for the web app specified by the **-Name** parameter
 ### Download with Azure Command-Line Interface
 To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-    azure site log download webappname
+    az webapp log download --name webappname
 
 This command saves the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
