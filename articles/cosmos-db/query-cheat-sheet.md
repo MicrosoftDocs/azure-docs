@@ -14,27 +14,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 03/20/2018
 ms.author: mimig
 
 ---
 # Azure Cosmos DB query cheat sheet
 
-The **Azure Cosmos DB query cheat sheet** helps you quickly write queries for your data by displaying common database queries, operations, functions, and operators in an easy to print PDF reference sheet. The cheat sheet includes reference information for the SQL API, MongoDB API, Table API, and Gremlin/Graph API. 
+The **Azure Cosmos DB query cheat sheet** helps you quickly write queries for your data by displaying common database queries, operations, functions, and operators in easy-to-print PDF reference sheets. The cheat sheets includes reference information for the SQL API, MongoDB API, Table API, and Gremlin/Graph API. 
 
-## Download 
-Write your queries faster by downloading the query cheat sheet and using it as a quick reference. 
+Choose from a letter-sized or A3-sized download. 
 
-**Download the query cheat sheet here: [Azure Cosmos DB query cheat sheet](http://go.microsoft.com/fwlink/?LinkId=623215)**
+## Letter-sized cheat sheet
 
-## Print 
+Download the [Azure Cosmos DB letter-sized query cheat sheet](https://go.microsoft.com/fwlink/?linkid=870413) if you're going to print to letter-sized paper (8.5" x 11").
 
-You can print the cheat sheet single-sided or double-sided on A3 sized paper.
+![Azure Cosmos DB query cheat sheet - letter-sized, with SQL API, JavaScript, MongoDB API, Graph API, and Table API queries and functions](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 
-![Azure Cosmos DB query cheat sheet, page 1, with SQL, JavaScript and MongoDB queries and functions](./media/cheat-sheet/azure-cosmos-db-cheat-sheet-pg1.png)
+## Oversized cheat sheet
+Download the [Azure Cosmos DB A3-sized query cheat sheet](http://go.microsoft.com/fwlink/?LinkId=623215) if you're going to print using a plotter or large-scale printer on A3 paper (11.7" x 16.5").
 
-![Azure Cosmos DB query cheat sheet, page 2, with Table API and Gremlin/Graph API queries and functions](./media/cheat-sheet/azure-cosmos-db-cheat-sheet-pg2.png)
-
+![Azure Cosmos DB query cheat sheet - A3-sized, with SQL API, JavaScript, MongoDB API, Graph API, and Table API queries and functions](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
 
 ## Next steps
 For more help writing queries, see the following articles:
