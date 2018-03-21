@@ -120,6 +120,18 @@ Changing the size of your deployment might affect some of your established flows
 
 If the deployment size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
 
+SNAT ports allocations are IP transport protocol specific (TCP and UDP are maintained separately) and are released under the following conditions:
+
+### TCP SNAT port release
+
+- If both server/client sends FIN/ACK, SNAT port will be released after 240 seconds.
+- If a RST is seen, SNAT port will be released after 15 seconds.
+- idle timeout has been reached
+
+### UDP SNAT port release
+
+- idle timeout has been reached
+
 ## <a name="problemsolving"></a> Problem solving 
 
 This section is intended to help mitigate SNAT exhaustion and other scenarios which can occur with outbound connections in Azure.
