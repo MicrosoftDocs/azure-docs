@@ -17592,6 +17592,11 @@
         "source_path": "articles/azure-stack/azure-stack-redeploy.md",
         "redirect_url": "/azure/azure-stack/asdk/asdk-redeploy",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-register.md",
+        "redirect_url": "/azure/azure-stack/azure-stack-registration",
+        "redirect_document_id": false
     }
    ]
 }
