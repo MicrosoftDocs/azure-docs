@@ -58,12 +58,11 @@ Perform the following steps to automate the installation and configuration of th
    The *New-OnPremiseHybridWorker.ps1* script requires the following parameters during execution:
 
    * *AutomationAccountName* (mandatory) - The name of your Automation account.
-   * *AAResourceGroupName* (mandatory) - The name of the resource group for the Automation account
-   * *ResourceGroupName* (mandatory) - the name of the resource group associated with your Automation account.
-   * *OMSResourceGroupName* (optional) = The name of the resource group for the OMS workspace. If not specified, the AAResourceGroupName is used.
+   * *AAResourceGroupName* (mandatory) - The name of the resource group associated with your Automation account
+   * *OMSResourceGroupName* (optional) - The name of the resource group for the OMS workspace. If not specified, the AAResourceGroupName is used.
    * *HybridGroupName* (mandatory) - The name of a Hybrid Runbook Worker group that you specify as a target for the runbooks supporting this scenario.
-   * *SubscriptionID* (mandatory) - the Azure Subscription ID that your Automation account is in.
-   * *WorkspaceName* (optional) - the Log Analytics workspace name. If you do not have a Log Analytics workspace, the script creates and configures one.
+   * *SubscriptionID* (mandatory) - The Azure Subscription ID that your Automation account is in.
+   * *WorkspaceName* (optional) - The Log Analytics workspace name. If you do not have a Log Analytics workspace, the script creates and configures one.
 
      > [!NOTE]
      > Currently the only Automation regions supported for integration with Log Analytics are - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. If your Automation account is not in one of those regions, the script creates a Log Analytics workspace but it warns you that it cannot link them together.
@@ -75,14 +74,12 @@ Perform the following steps to automate the installation and configuration of th
      > You are prompted to authenticate with Azure after you execute the script. You **must** sign in with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
 
    ```powershell-interactive
-   .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
-   -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
+   .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> -AAResourceGroupName <NameofResourceGroup>`
+   -OMSResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
 4. You are prompted to agree to install **NuGet** and you are prompted to authenticate with your Azure credentials.
-
-   ![Execution of New-OnPremiseHybridWorker script](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
 5. After the script is complete, the Hybrid Worker Groups blade will show the new group and number of members or if an existing group, the number of members is incremented. You can select the group from the list on the **Hybrid Worker Groups** blade and select the **Hybrid Workers** tile. On the **Hybrid Workers** blade, you see each member of the group listed.
 
