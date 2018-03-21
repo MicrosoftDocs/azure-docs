@@ -45,9 +45,9 @@ The Azure Marketplace and AppSource are the launching points for joint go-to-mar
 
 Take advantage of marketplace capabilities to grow your business:
 
-- **Generate leads and sales opportunities.** Enter new markets with an expanded portfolio of solutions on the Microsoft cloud platform. Upsell and cross-sell marketplace offerings. 
-- **Enhance business value and increase deal size with existing and new customers.** Grow deal size and address customer problems when you're moving workloads to the cloud. Reduce sales cycles and increase deal profitability by selling complete solutions that target specific workloads and industry scenarios.
-- **Get actionable insights.** Your success is our success. Get insights on the performance of your listings via the Cloud Partner Portal. Learn what is performing, what leads you have generated, and how to maximize your campaign activities.
+- **Generate leads and sales opportunities**. Enter new markets with an expanded portfolio of solutions on the Microsoft cloud platform. Upsell and cross-sell marketplace offerings. 
+- **Enhance business value and increase deal size with existing and new customers**. Grow deal size and address customer problems when you're moving workloads to the cloud. Reduce sales cycles and increase deal profitability by selling complete solutions that target specific workloads and industry scenarios.
+- **Get actionable insights**. Your success is our success. Get insights on the performance of your listings via the Cloud Partner Portal. Learn what is performing, what leads you have generated, and how to maximize your campaign activities.
 
 >[!NOTE]
 >Apps that extend Office will access insights through the publishing process for Office apps.
@@ -131,7 +131,7 @@ Providing a trial experience increases the engagement level offered to customers
  
 All trial options are deployed to your trial environment and/or Azure subscription, rather than to the customer's environment or Azure subscription. Trials should be customer led without any additional purchases and minimal, if any, additional configuration to complete a simple use case. Trials must include free support at least for the duration of the trial period. Trial users should be nurtured and monitored along a deliberate evaluation path for best results. Publishers are encouraged to use both marketplace leads and the publisher's own in-app intelligence to monitor and manage trial users.
 
-There are four typical trial scenarios:
+There are three typical trial scenarios:
 
 
 |**Trial option**  |**Key benefits**  |**Choose this option if...**  |
@@ -158,7 +158,7 @@ There are additional benefits to a test drive:
 
 #### Interactive demo
 
-Take your customers through a guided experience of your product by using an interactive demo. The benefit of this option is that you can provide a trial experience without complicated provisioning for complex solutions. This option provides customers with a look around the solution. And it enables publishers to begin receiving leads that can be nurtured into foundational deals to start your business flywheel. 
+Take your customers through a guided experience of your product by using an interactive demo. The benefit of this option is that you can provide a trial experience without complicated provisioning for complex solutions. This option gives customers a look around the solution. And it enables publishers to begin receiving leads that can be nurtured into foundational deals to start your business flywheel. 
 
 ### Transaction
 
@@ -184,7 +184,7 @@ All virtual machines published in the Azure Marketplace are tested for the Azure
 
 #### Marketplace commercial considerations
 
-There are no fees for participating in the Marketplace. There is no revenue share for participating in the Marketplace when you're publishing by using the list, trial, and BYOL transaction options. For more details, see the [Marketplace participation policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+There are no fees for participating in the Marketplace. There is no revenue share for participating in the Marketplace when you're publishing by using the list, trial, and BYOL transaction options. For more information, see the [Marketplace participation policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
 #### Pay-As-You-Go and Bring Your Own License billing options
 
@@ -255,7 +255,7 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 |---------|---------|---------|
 |**Free trial period and trial experience**     |  A customer must be able to use your app for free for a limited time.<br><br>This means that the customer will not be subject to license or subscription fees for your product, nor the cost of the underlying Microsoft first-party product or service. Because all trial options are deployed to the publisher's Microsoft product subscription, the publisher solely controls trial cost optimization and management.<br><br>You can choose a free trial, interactive demo, or test drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try the app for no additional cost.<br><br>To begin the process of creating a test drive, reach out to cloudmarketplace@microsoft.com. <br><br>Note that Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Trial      | 
 | **Easily configurable, turnkey solution**    |  Your app must be easy and quick to configure and set up.       |  Trial       |
-|**Availability/Uptime**    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |    Trial     |
+|**Availability/uptime**    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |    Trial     |
 |**Azure Active Directory**    |    Your offer must allow Azure Active Directory (Azure AD) federated single sign-on (SSO) with consent enabled.      |  Trial|
 
 ### Prerequisites specific to transaction publishing
@@ -453,7 +453,7 @@ For a step-by-step explanation of this process, see [Instructions on how to regi
 
 #### Sign in to the Cloud Partner Portal
 
-After you receive approval from the Marketplace team that the nomination has been approved and you have registered in the [Microsoft Developer Center](https://dev.windows.com), an account is created for you to access the [Cloud Partner Portal](https://cloudpartner.azure.com). First-time sign-in credentials are be included in the nomination approval email. 
+After you receive approval from the Marketplace team that the nomination has been approved and you have registered in the [Microsoft Developer Center](https://dev.windows.com), an account is created for you to access the [Cloud Partner Portal](https://cloudpartner.azure.com). First-time sign-in credentials are included in the nomination approval email. 
 
 Use your Marketplace account (Microsoft ID) to access your publisher profile. When you're in the Cloud Partner Portal, the last step is to associate the Developer Center account with the respective Marketplace publisher profile to publish. You can make this association in the Cloud Partner Portal, in your publisher profile, via the button at the bottom of the screen.
 
