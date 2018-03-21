@@ -80,7 +80,7 @@ public class Send {
 
 ### Construct connection string
 
-Use the ConnectionStringBuilder class to construct a connection string value to pass to the Evewnt Hubs client instance. Replace the placeholders with the values you obtained when you created the namespace and event hub:
+Use the ConnectionStringBuilder class to construct a connection string value to pass to the Event Hubs client instance. Replace the placeholders with the values you obtained when you created the namespace and event hub:
 
 ```java
    final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
