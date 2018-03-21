@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 03/21/2018
 ms.author: kumud
 ---
 
@@ -157,6 +157,18 @@ Changing the size of your backend pool might affect some of your established flo
 
 If the backend pool size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
 
+SNAT ports allocations are IP transport protocol specific (TCP and UDP are maintained separately) and are released under the following conditions:
+
+### TCP SNAT port release
+
+- If both server/client sends FIN/ACK, SNAT port will be released after 240 seconds.
+- If a RST is seen, SNAT port will be released after 15 seconds.
+- idle timeout has been reached
+
+### UDP SNAT port release
+
+- idle timeout has been reached
+
 ## <a name="problemsolving"></a> Problem solving 
 
 This section is intended to help mitigate SNAT exhaustion and other scenarios which can occur with outbound connections in Azure.
@@ -219,6 +231,7 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 
 ## Next steps
 
-- Learn more about [Load Balancer Basic](load-balancer-overview.md).
+- Learn more about [Load Balancer](load-balancer-overview.md).
+- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
 - Learn more about [network security groups](../virtual-network/virtual-networks-nsg.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
