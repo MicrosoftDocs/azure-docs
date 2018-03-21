@@ -15,7 +15,7 @@ ms.author: davidmu
 
 ---
 
-# Track user behavior inside User Journeys using Application Insights
+# Track user behavior within User Journeys using Application Insights
 
 Azure Active Directory B2C can intergrate with Azure Application Insights.  Which can provide detailed and customized event logs for your custom user journeys.  This guide shows how to get started so you can: 
 * Gain insights on user behavior
