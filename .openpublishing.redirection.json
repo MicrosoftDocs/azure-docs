@@ -17555,7 +17555,7 @@
      },
      {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
-            "redirect_url": "/azure/azure-functions/durable-functions-monitor.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
      },
 	   {
