@@ -4,8 +4,8 @@ description: Learn how to join Azure-SSIS integration runtime to an Azure virtua
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services
