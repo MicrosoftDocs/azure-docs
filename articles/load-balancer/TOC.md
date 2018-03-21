@@ -15,6 +15,7 @@
 
 # Get Started
 
+## [Create Standard Load Balancer](load-balancer-standard-public-portal.md)
 ## [Configure internal Load Balancer](load-balancer-get-started-ilb-arm-portal.md)
 ### [Configure internal Load Balancer (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Configure internal Load Balancer (CLI)](load-balancer-get-started-ilb-arm-cli.md)

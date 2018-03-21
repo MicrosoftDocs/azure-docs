@@ -182,6 +182,6 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
 
 When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
 
-## Next step
+## Next steps
 
 Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
