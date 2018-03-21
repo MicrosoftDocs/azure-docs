@@ -156,7 +156,7 @@ $keyVaultResourceId = $keyVault.ResourceId;
 $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
 
 Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
-    -VMName $vmName `
+    -VMName "myVM" `
     -AadClientID $app.ApplicationId `
     -AadClientSecret $securePassword `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
@@ -168,7 +168,7 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
 Accept the prompt to continue with the VM encryption. The VM restarts during the process. Once the encryption process completes and the VM has rebooted, review the encryption status with [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus):
 
 ```powershell
-Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
+Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName "myVM"
 ```
 
 The output is similar to the following example:
