@@ -39,7 +39,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
     ![Enter basic information about your VM in the portal blade](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 
-4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. Confirm the size is available in the zone you want to use.
+4. Choose a size for the VM. Select a recommended size, or filter based on features. Confirm the size is available in the zone you want to use.
 
     ![Select a VM size](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
