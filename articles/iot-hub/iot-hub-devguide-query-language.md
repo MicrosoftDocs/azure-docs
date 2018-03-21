@@ -287,7 +287,7 @@ Currently, queries on **devices.jobs** do not support:
 
 Using [device-to-cloud routes][lnk-devguide-messaging-routes], you can configure IoT Hub to dispatch device-to-cloud messages to different endpoints. Dispatching is based on expressions evaluated against individual messages.
 
-The route [condition][lnk-query-expressions] uses the same IoT Hub query language as conditions in twin and job queries. Route conditions are evaluated on the message headers and body. Your routing query expression may involve only message headers, only the message body, or both. IoT Hub assumes a specific schema for the headers and message body in order to route messages. The following sections describe what is required for IoT Hub to properly route.
+The route [condition][lnk-query-expressions] uses the IoT Hub query language syntax as conditions in twin and job queries, but only a subset of the functions are available. Route conditions are evaluated on the message headers and body. Your routing query expression may involve only message headers, only the message body, or both message headers and message body. IoT Hub assumes a specific schema for the headers and message body in order to route messages, and the following sections describe what is required for IoT Hub to properly route.
 
 ### Routing on message headers
 
