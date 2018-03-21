@@ -201,14 +201,20 @@ Assigning an ILPIP changes your scenario to [Instance Level Public IP to a VM](#
 >[!NOTE] 
 >This option is not available for web worker roles.
 
-#### <a name="multifesnat"></a>Use multiple frontends
+#### <a name="multifesnat"></a>Multiple frontends
 
 When using public Standard Load Balancer, you assign [multiple frontend IP addresses for outbound connections](#multife) and [multiply the number of SNAT ports available](#preallocatedports).  You need to create a frontend IP configuration, rule, and backend pool to trigger the programming of SNAT to the public IP of the frontend.  The rule does not need to function and a health probe does not need to succeed.  If you do use multiple frontends for inbound as well (rather than just for outbound), you should use custom health probes well to insure reliability.
 
 >[!NOTE]
 >In most cases, exhaustion of SNAT ports is a sign of bad design.  Make sure you understand why you are exhausting ports before using more frontends to add SNAT ports.  You may be masking a problem which can lead to failure later.
 
-### <a name="idletimeout"></a>Use keepalives to reset the outbound idle timeout
+#### <a name="scaleout"></a>Scale out
+
+[Preallocated ports](#preallocatedports) are assigned based on the backend pool size and grouped into tiers to minimize disruption when ports have to be reallocated to accomodate the next larger backend pool size tier.  You may have an option to increase intensity of SNAT port utilization for a given frontend by scaling your backend pool to maximum size for a given tier.  This requires for the application to scale out efficiently.
+
+For example, 2 virtual machines in the backend pool would have 1024 SNAT ports available per IP configuration, allowing a total of 2048 SNAT ports for the deployment.  If the deployment were to be increased to 50 virtual machines, even though the number of preallocated ports remains constant per virtual machine, a total of 51,200 (50 x 1024) SNAT ports can be used by the deployment.  If you wish to scale out your deployment, check the number of [preallocated ports](#preallocatedports) per tier to make sure you shape your scale out to the maximum for the respective tier.  In the preceeding example, if you had chosen to scale out to 51 instead of 50 instances, your would progress to the next tier and end up with less SNAT ports per VM as well as in total.
+
+### <a name="idletimeout"></a>Keepalives to reset the outbound idle timeout
 
 Outbound connections have a 4-minute idle timeout. This timeout is not adjustable. However, you can use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.
 
