@@ -9,7 +9,7 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 03/20/2018
 ms.author: v-geberr
 ---
 
@@ -55,7 +55,7 @@ See [Key Limits](luis-boundaries.md#key-limits) and [Azure Regions](luis-referen
 Publishing regions are different from authoring regions. Make sure you create an app in the authoring region corresponding to the publishing region you want.
 
 ## Key limit errors
-If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. 
+If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. Fix these errors by getting a LUIS [endpoint](#endpoint-key) key, [assigning](#assign-endpoint-key) the key to the app on the **Publish** page of the [LUIS][LUIS] website.
 
 <a name="create-and-use-an-endpoint-key"></a>
 ## Assign endpoint key
@@ -100,4 +100,4 @@ Learn more about publishing [regions](luis-reference-regions.md) including publi
 
 Use your key to publish your app in the **Publish app** page. For instructions on publishing, see [Publish app](PublishApp.md).
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: luis-reference-regions.md#luis-website
