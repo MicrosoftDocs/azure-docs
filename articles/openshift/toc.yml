@@ -1,7 +1,7 @@
 - name: OpenShift Documentation
   href: index.md
 - name: Quickstarts
-   expanded: true
+  expanded: true
   items:
   - name: OpenShift:  Community template
     href: https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/
