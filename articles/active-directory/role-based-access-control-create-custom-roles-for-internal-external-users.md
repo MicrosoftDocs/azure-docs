@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 12/06/2017
+ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
@@ -50,11 +50,11 @@ There are two common examples when RBAC is used (but not limited to):
 * Working with users inside the organization (they are part of the user's Azure Active Directory tenant) but part of different teams or groups that need granular access either to the whole subscription or to certain resource groups or resource scopes in the environment
 
 ## Grant access at a subscription level for a user outside of Azure Active Directory
-RBAC roles can be granted only by **Owners** of the subscription therefore the admin user must be logged with a username which has this role pre-assigned or has created the Azure subscription.
+RBAC roles can be granted only by **Owners** of the subscription. Therefore, the administrator must be logged in as a user that has this role pre-assigned or has created the Azure subscription.
 
 From the Azure portal, after you sign-in as admin, select “Subscriptions” and chose the desired one.
 ![subscription blade in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png)
-By default, if the admin user has purchased the Azure subscription, the user will show up as **Account Admin**, this being the subscription role. For more details on the Azure subscription roles, see [Add or change Azure administrator roles that manage the subscription or services](/billing/billing-add-change-azure-subscription-administrator.md).
+By default, if the admin user has purchased the Azure subscription, the user will show up as **Account Admin**, this being the subscription role. For more information about the Azure subscription roles, see [Add or change Azure administrator roles that manage the subscription or services](/billing/billing-add-change-azure-subscription-administrator.md).
 
 In this example, the user "alflanigan@outlook.com" is the **Owner** of the "Free Trial" subscription in the AAD tenant "Default tenant Azure". Since this user is the creator of the Azure subscription with the initial Microsoft Account “Outlook” (Microsoft Account = Outlook, Live etc.) the default domain name for all other users added in this tenant will be **"@alflaniganuoutlook.onmicrosoft.com"**. By design, the syntax of the new domain is formed by putting together the username and domain name of the user who created the tenant and adding the extension **".onmicrosoft.com"**.
 Furthermore, users can sign in with a custom domain name in the tenant after adding and verifying it for the new tenant. For more information on how to verify a custom domain name in an Azure Active Directory tenant, see [Add a custom domain name to your directory](/active-directory/active-directory-add-domain).
@@ -203,7 +203,7 @@ Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole
 
 ![PowerShell screenshot for Reader RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/15.png)
 
-The following shows ths JSON output for the Reader role.
+The following shows the JSON output for the Reader role.
 
 ```json
 {
@@ -243,7 +243,7 @@ Next, you need to edit the JSON output to create your custom role.
 }
 ```
 
-A typical RBAC role is composed out of three main sections, **Actions**, **NotActions** and **AssignableScopes**.
+A typical RBAC role is composed out of three main sections, **Actions**, **NotActions**, and **AssignableScopes**.
 
 The **Action** section lists all the permitted operations for the role. It's important to understand that each action is assigned from a resource provider. In this case, to create support tickets, the **Microsoft.Support** resource provider must be listed.
 
@@ -311,7 +311,7 @@ The example has been further detailed to emphasize the limits of this custom RBA
 
 ## Create a custom RBAC role to open support requests using Azure CLI
 
-The steps to create a custom role using CLI are similar to PowerShell, except that the JSON output is different.
+The steps to create a custom role using CLI are similar to using PowerShell, except that the JSON output is different.
 
 For this example, you can start with the built-in role **Reader**. To list the actions of the Reader role, use the [az role definition list](/cli/azure/role/definition#az_role_definition_list) command.
 
