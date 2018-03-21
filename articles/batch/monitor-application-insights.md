@@ -7,10 +7,10 @@ manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
-ms.devlang: multiple
+ms.devlang: .NET
 ms.topic: article
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/20/2018
 ms.author: danlep
 ---
 
@@ -32,7 +32,9 @@ A sample C# solution with code to accompany this article is available on [GitHub
 
 ## Prerequisites
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 or a more recent version). 
+
 * [Batch account](batch-account-create-portal.md)
+
 * [Application Insights resource](../application-insights/app-insights-create-new-resource.md)
   
   To persist your application logs and performance counters, you must create an Application Insights resource where Azure stores data. Select the *General* **Application type**.
@@ -47,12 +49,12 @@ key](../application-insights/app-insights-create-new-resource.md#copy-the-instru
 
 ## Add Application Insights to your project
 
-The **Microsoft.ApplicationInsights.WindowsServer** NuGet package and its dependencies are required for your project. Add or restore them to your application's project. If you need to download missing packages, ensure the [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) is installed.
+The **Microsoft.ApplicationInsights.WindowsServer** NuGet package and its dependencies are required for your project. Add or restore them to your application's project. If you need to install the package, use the `Install-Package` command or NuGet Package Manager.
 
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```
-You can now reference them using the **Microsoft.ApplicationInsights** namespace.
+You can now reference Application Insights using the **Microsoft.ApplicationInsights** namespace.
 
 ## Instrument your code
 
@@ -68,7 +70,7 @@ The example in TopNWords.cs uses the following instrumentation calls from the [A
 * `TrackEvent()` - Tracks interesting events to capture.
 
 This example purposely leaves out exception 
-handling to see how Application Insights automatically reports unhandled 
+handling so that you see how Application Insights automatically reports unhandled 
 exceptions and significantly improves the debugging experience. The 
 following snippet illustrates how to use these methods.
 
@@ -126,10 +128,9 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 
 ### Azure Batch telemetry initializer helper
 When reporting telemetry for a given server and instance, Application Insights 
-uses the Azure VM Role and VM name for the default values. In the context of Azure Batch, we would like to use the pool name and compute 
+uses the Azure VM Role and VM name for the default values. In the context of Azure Batch, the example shows how to use the pool name and compute 
 node name instead. Use a [telemetry initializer](../application-insights/app-insights-api-filtering-sampling.md#add-properties) to override the default 
-values. (See a code  
-example on [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/WindowsServer/WindowsServer.Shared/AzureWebAppRoleEnvironmentTelemetryInitializer.cs).)
+values. (See a code example on [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/WindowsServer/WindowsServer.Shared/AzureWebAppRoleEnvironmentTelemetryInitializer.cs).)
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -228,7 +229,7 @@ foreach (string aiFile in AIFilesToUpload)
 
 The `FileToStage` method is a helper function in the code sample that allows you to easily upload a file from local disk to an Azure Storage blob. This is later downloaded to a compute node and referenced by a task.
 
-Finally add the tasks to the job and include the necessary Application Insights binaries.
+Finally, add the tasks to the job and include the necessary Application Insights binaries.
 ```csharp
 // initialize a collection to hold the tasks that will be submitted in their entirety
 List<CloudTask> tasksToRun = new List<CloudTask>(topNWordsConfiguration.NumberOfTasks);
@@ -264,9 +265,8 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 Now that you've configured the job and tasks to use Application Insights, run 
 the job in your pool. Navigate to the Azure portal and open the Application 
 Insghts resource that you provisioned. At this point, you should start to see 
-data flowing and getting logged. In the rest of this article, we only touch on a few 
-features, but feel free to explore the full feature set provided by 
-Application Insights.
+data flowing and getting logged. The rest of this article touches on only a few Application Insights
+features, but feel free to explore the full feature set.
 
 ### View live stream data
 
@@ -278,7 +278,7 @@ compute nodes in the pool, for example the CPU usage per compute node.
 ### View trace logs
 
 To view trace logs in your Applications Insights resource, click **Search**. This view shows a list of diagnostic data 
-captured by Application Insights including traces, events, exceptions, and more. 
+captured by Application Insights including traces, events, and exceptions. 
 
 The following screenshot shows how a single trace for a task is logged and later queried for debugging purposes.
 
@@ -286,7 +286,7 @@ The following screenshot shows how a single trace for a task is logged and later
 
 ### View unhandled exceptions
 
-The following image shows how Application Insights logs exceptions thrown from your application. In this case, within seconds of the application throwing the exception you can drill into a specific exception and diagnose the issue.
+The following image shows how Application Insights logs exceptions thrown from your application. In this case, within seconds of the application throwing the exception, you can drill into a specific exception and diagnose the issue.
 
 ![Unhandled exceptions](./media/monitor-application-insights/exception.png)
 
@@ -297,7 +297,7 @@ Custom metrics are also a valuable tool in the portal. The following image shows
 ![Blob download time per node](./media/monitor-application-insights/blobdownloadtime.png)
 
 To create a chart such as this one:
-1. In your Application Insights resource, click **Metrics**. > **Add chart**.
+1. In your Application Insights resource, click **Metrics** > **Add chart**.
 2. Click **Edit** on the chart that was added.
 2. Update the chart details as shown in the preceding image.
 
@@ -349,7 +349,7 @@ var resourceHelperTask = SampleHelpers.UploadResourcesAndCreateResourceFileRefer
 
 List<ResourceFile> resourceFiles = resourceHelperTask.Result;
 
-// Create a start task which will run a dummy exe in background that simply emit performance
+// Create a start task which will run a dummy exe in background that simply emits performance
 // counter data as defined in the relevant ApplicationInsights.config.
 // Note that the waitForSuccess on the start task was not set so the Compute Node will be
 // available immediately after this command is run.
@@ -367,9 +367,9 @@ pool.StartTask = new StartTask()
 ## Throttle and sample data in Application Insights
 
 Due to the large-scale nature of Azure Batch workloads, for applications 
-running in production you may want to limit the amount of data collected by 
+running in production you might want to limit the amount of data collected by 
 Application Insights to manage costs. 
-This [article](../application-insights/app-insights-sampling) provides some mechanisms to achieve this.
+See [Sampling in Application Insights](../application-insights/app-insights-sampling.md) for some mechanisms to achieve this.
 
 
 ## Next steps
