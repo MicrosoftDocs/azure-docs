@@ -37,6 +37,13 @@ This capability helps you perform http, HTTPS, TCP, and ICMP based tests to moni
 
 More information on the various capabilities supported by [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is available online.
  
+ ## Supported regions
+
+1. West Europe
+2. West Central US
+3. East US
+4. South East Asia
+5. South East Australia
 
 ## Set up and configure
 
