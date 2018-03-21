@@ -16,6 +16,9 @@ ms.author: sama
 
 ---
 # Azure Active Directory B2C: Manage SSO and token customization with custom policies
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Using custom policies provides you the same control over your token, session and single sign-on (SSO) configurations as through built-in policies.  To learn what each setting does, please see the documentation [here](#active-directory-b2c-token-session-sso).
 
 ## Token lifetimes and claims configuration
