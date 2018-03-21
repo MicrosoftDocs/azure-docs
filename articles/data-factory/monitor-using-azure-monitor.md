@@ -4,8 +4,8 @@ description: Learn how to use Azure Monitor to monitor Data Factory pipelines by
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

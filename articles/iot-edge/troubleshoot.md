@@ -7,8 +7,8 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 12/15/2017
-ms.topic: tutorial
+ms.date: 03/21/2018
+ms.topic: article
 ms.service: iot-edge
 
 ms.custom: mvc
@@ -102,7 +102,8 @@ The Edge Agent doesn't have permissions to access a module's image.
 Try running the `iotedgectl login` command again.
 
 ## iotedgectl can't find Docker
-iotedgectl fails to execute the setup or start command and prints the following message to the logs:
+
+The commands `iotedgectl setup` or `iotedgectl start` fail and print the following message to the logs:
 ```output
 File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
   info = self._client.info()
@@ -117,6 +118,26 @@ iotedgectl can't find Docker, which is a pre-requisite.
 
 ### Resolution
 Install Docker, make sure that it is running and retry.
+
+## iotedgectl setup fails with an invalid hostname
+
+The command `iotedgectl setup` fails and prints the following message: 
+
+```output
+Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
+```
+
+### Root cause
+This error occurs when you run IoT Edge on an Azure Windows virtual machine. The hostnames generated for these machines tend to be very long, and can exceed the 64 character limit. 
+
+### Resolution
+Shorter virtual machine names have shorter hostnames, so if you create new VMs for IoT Edge give them succinct names to prevent this error. 
+
+When you see this error, you can resolve it by specifying your own hostname with the following command: 
+
+```input
+iotedgectl setup --connection-string "<connection string>" --auto-cert-gen-force-no-passwords --edge-hostname "<hostname>"
+```
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iot-edge/issues) so that we can continue to improve. 
