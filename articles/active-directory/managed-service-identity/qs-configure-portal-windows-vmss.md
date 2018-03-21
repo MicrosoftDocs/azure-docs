@@ -46,7 +46,7 @@ If you have a virtual machine scale set that was originally provisioned without 
 
 3. Click the **Configuration** page, enable MSI on the virtual machine scale set by selecting **Yes** under "Managed service identity", then click **Save**. This operation can take 60 seconds or more to complete:
 
-   ![Configuration page screenshot](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)  
+   [![Configuration page screenshot](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
 ## Remove MSI from an Azure virtual machine scale set
 
