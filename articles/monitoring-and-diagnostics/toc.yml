@@ -51,8 +51,8 @@
     href: monitoring-partners.md
 - name: How-to guides
   items:
-    - name: Walkthrough of Azure Monitor
-      href: monitoring-get-started.md
+  - name: Walkthrough of Azure Monitor
+    href: monitoring-get-started.md
   - name: Use alerts
     items:
     - name: Configure new alerts in Azure portal
