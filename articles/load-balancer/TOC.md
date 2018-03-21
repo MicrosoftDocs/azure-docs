@@ -12,7 +12,7 @@
 ## [Multiple VIPs](load-balancer-multivip-overview.md)
 ## [Understanding outbound connections](load-balancer-outbound-connections.md)
 ## [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)
-
+## [Standard Load Balancer metrics and diagnostics](load-balancer-standard-diagnostics.md)
 # Get Started
 
 ## [Configure internal Load Balancer](load-balancer-get-started-ilb-arm-portal.md)
