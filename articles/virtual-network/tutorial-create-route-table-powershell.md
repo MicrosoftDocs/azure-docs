@@ -239,7 +239,7 @@ Enter the user name and password you specified when creating the VM (you may nee
 In a later step, the tracert.exe command is used to test routing. Tracert uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Though tracert is used to test routing in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
@@ -269,7 +269,7 @@ mstsc /v:myVmPublic
 Enable ICMP through the Windows firewall by entering the following command from PowerShell:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 To test routing of network traffic to the *myVmPrivate* VM from the *myVmPublic* VM, enter the following command from PowerShell:
@@ -329,4 +329,4 @@ In this article, you created a route table and associated it to a subnet. You cr
 While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. Advance to the next tutorial to learn how to restrict network access to Azure PaaS resources.
 
 > [!div class="nextstepaction"]
-> [Restrict network access to PaaS resources](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-powershell.md)
