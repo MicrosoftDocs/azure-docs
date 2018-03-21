@@ -54,6 +54,9 @@ Log Analytics creates an event of type *Heartbeat* and can be used to determine 
 Run the following query in search to check if you are reaching the daily limit and missing data:
 `Heartbeat | summarize max(TimeGenerated)`
 
+To check a specific computer, run the following query:
+`Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
+
 When data collection stops, depending on the time range selected, you will not see any records returned.   
 
 The following table describes reasons that data collection stops and a suggested action to resume data collection:
