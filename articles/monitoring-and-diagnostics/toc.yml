@@ -53,8 +53,6 @@
   items:
     - name: Walkthrough of Azure Monitor
       href: monitoring-get-started.md
-    - name: Azure PowerShell samples
-      href: insights-powershell-samples.md
   - name: Use alerts
     items:
     - name: Configure new alerts in Azure portal
@@ -141,7 +139,9 @@
     items:
     - name: Walkthrough using REST API
       href: monitoring-rest-api-walkthrough.md
-  - name: Use Azure Diagnostics extension
+    - name: Azure PowerShell samples
+      href: insights-powershell-samples.md
+    - name: Use Azure Diagnostics extension
     items:
     - name: Send to Application Insights
       href: azure-diagnostics-configure-application-insights.md
