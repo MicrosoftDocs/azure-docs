@@ -47,7 +47,7 @@ Because they start quickly and bill by the second, an environment based exclusiv
 
 ### Combination of container instances and containers in Virtual Machines
 
-For long-running, stable workloads, orchestrating containers in a cluster of dedicated virtual machines is typically be cheaper than running the same containers with Azure Container Instances. However, container instances offer a great solution for quickly expanding and contracting your overall capacity to deal with unexpected or short-lived spikes in usage.
+For long-running, stable workloads, orchestrating containers in a cluster of dedicated virtual machines is typically cheaper than running the same containers with Azure Container Instances. However, container instances offer a great solution for quickly expanding and contracting your overall capacity to deal with unexpected or short-lived spikes in usage.
 
 Rather than scaling out the number of virtual machines in your cluster, then deploying additional containers onto those machines, the orchestrator can simply schedule the additional containers in Azure Container Instances, and delete them when they're no longer needed.
 
