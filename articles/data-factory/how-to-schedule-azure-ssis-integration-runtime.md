@@ -4,7 +4,7 @@ description: This article describes how to schedule starting and stopping of an 
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
