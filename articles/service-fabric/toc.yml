@@ -259,15 +259,6 @@
       href: service-fabric-health-introduction.md
     - name: Report service health
       href: service-fabric-report-health.md
-    - name: Custom health events (MOVE)
-      items:
-      - name: Health overview
-      - name: Report and check service health
-        href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-      - name: Troubleshoot with system health reports
-        href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-      - name: View health reports
-        href: service-fabric-view-entities-aggregated-health.md
     - name: Aggregate events
       items:
       - name: Aggregate events with EventFlow
@@ -578,10 +569,14 @@
         href: service-fabric-diagnostics-oms-agent.md
       - name: Monitor containers
         href: service-fabric-diagnostics-oms-containers.md
-    - name: Performance monitoring
-      items:
-      - name: Performance monitoring with WAD
-        href: service-fabric-diagnostics-perf-wad.md
+    - name: Performance monitoring with WAD
+      href: service-fabric-diagnostics-perf-wad.md
+    - name: Report and check service health
+      href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+    - name: Troubleshoot with system health reports (dupe?)
+      href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+    - name: View health reports (dupe?)
+      href: service-fabric-view-entities-aggregated-health.md
 - name: Reference
   items:
   - name: Azure PowerShell
