@@ -15,7 +15,7 @@ Runbooks in Azure Automation cannot access resources in other clouds or in your 
 
 This functionality is illustrated in the following image:
 
-![Hybrid Runbook Worker Overview](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
+![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/automation.png)
 
 For a technical overview of the Hybrid Runbook Worker role and deployment considerations, see [Automation architecture overview](automation-offering-get-started.md#automation-architecture-overview).
 
