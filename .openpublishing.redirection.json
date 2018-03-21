@@ -184,6 +184,11 @@
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": true
         },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-samanage-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/active-directory/active-directory-saas-atlassiancloud-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-atlassian-cloud-tutorial",
@@ -4722,6 +4727,11 @@
             "source_path": "articles/cosmos-db/run-hadoop-with-hdinsight.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-hive",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-sql-query-cheat-sheet.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/query-cheat-sheet",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
@@ -17550,7 +17560,7 @@
      },
      {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
-            "redirect_url": "/azure/azure-functions/durable-functions-monitor.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
      },
 	   {
