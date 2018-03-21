@@ -15,7 +15,7 @@ ms.service: iot-edge
 ---
 
 # Develop an IoT Edge solution with multiple modules in Visual Studio Code - preview
-You can use Visual Studio Code to develop your IoT Edge solution with multiple modules. This tutorial walks you through creating, updating and deploying an IoT Edge solution that simply pipe sensor data on the simulated IoT Edge device in Visual Studio Code. In this tutorial, you learn how to:
+You can use Visual Studio Code to develop your IoT Edge solution with multiple modules. This tutorial walks you through creating, updating, and deploying an IoT Edge solution that simply pipe sensor data on the simulated IoT Edge device in Visual Studio Code. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge solution
@@ -30,11 +30,11 @@ Complete below tutorials
 * [Deploy Python module](tutorial-python-module.md)
 
 ## Prepare your first IoT Edge solution
-1. In VS Code command pallete, type and run the command **Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**SampleModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/<first module name>`). You can also change it to Azure container registry or Docker Hub.
+1. In VS Code command palette, type and run the command **Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**SampleModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/<first module name>`). You can also change it to Azure container registry or Docker Hub.
 
-2. The VS Code window will load your IoT Edge solution workspace. There are 2 main folders and a deployment manifest template file in the solution root folder. You can see debug configurations In `.vscode` folder. All user module codes will be sub-folder under the folder `modules`. `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exsits in every module folder.
+2. The VS Code window will load your IoT Edge solution workspace. There are two main folders and a deployment manifest template file in the solution root folder. You can see debug configurations In `.vscode` folder. All user module codes will be subfolders under the folder `modules`. `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
 
-3. Add your second module in to this solution project. This time type and run **Edge: Add IoT Edge module** and select the deployment template file to update. Then select an **Azure Function - C#** with name **SampleFunction** and its Docker image repository to add.
+3. Add your second module into this solution project. This time type and run **Edge: Add IoT Edge module** and select the deployment template file to update. Then select an **Azure Function - C#** with name **SampleFunction** and its Docker image repository to add.
 
 4. Now your first IoT Edge solution with two basic modules is ready. The default C# module acts as a pipe message module while the C# Funtion acts as a pipe message function. In the `deployment.template.json`, you will see this solution contains three modules. The message will be generated from the `tempSensor` module, and will be directly piped via `SampleModule` and `SampleFunction`, then sent to your IoT hub. Update the routes for these modules with below content. 
    ```json
@@ -47,8 +47,8 @@ Complete below tutorials
 
 5. Save this file.
 
-## Build an deploy your IoT Edge solution
-1. In VS Code command pallete, type and run the command **Edge: Build IoT Edge solution**. Based on the `module.json` file in each module folder, this command will check and start to build, containerize and push each module docker image. Also parse the required value to `deployment.template.json`, generate the `deployment.json` with actual value under `config` folder. You can see the build progress in VS Code integrated terminal.
+## Build and deploy your IoT Edge solution
+1. In VS Code command palette, type and run the command **Edge: Build IoT Edge solution**. Based on the `module.json` file in each module folder, this command will check and start to build, containerize and push each module docker image. Also parse the required value to `deployment.template.json`, generate the `deployment.json` with actual value under `config` folder. You can see the build progress in VS Code integrated terminal.
 
 2. In Azure IoT Hub Devices explorer, right-click an IoT Edge device ID, then select **Create deployment for Edge device**. Select the `deployment.json` under `config` folder. Then you can see the deployment is successfully created with a deployment ID in VS Code integrated terminal.
 
