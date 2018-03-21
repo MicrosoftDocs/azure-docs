@@ -56,7 +56,7 @@ LUIS offers many types of entities; prebuilt entities, custom machine learned en
 <a name="exact-match"></a>
 **Exact-match** entities use the text provided in the entity to make an exact text match.
 
-##Composite vs hierarchical entities
+## Composite vs hierarchical entities
 Composite entities and hierarchical entities both have parent-child relationships and are machine learned. The machine-learning allows LUIS to understand the entities based on different contexts (arrangement of words). Composite entities are more flexible because they allow different entity types as children. A hierarchical entity's children are only simple entities. 
 
 |Type|Purpose|Example|
