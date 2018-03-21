@@ -28,7 +28,7 @@ This article is not a guide to microservices security, there are many such resou
 It is often necessary for resources and APIs exposed by a service to be limited to certain trusted users or clients. 
 
 ### Authentication
-The first step to making API-level trust decisions is authentication. Authentication is the process of reliably ascertaining a user’s identity.  In microservice scenarios, authentication is typically handled centrally. If you are using an [API Gateway](#restrict-and-secure-access-using-an-api-gateway), the gateway is a good place to authenticate. If you use this approach, make sure that the individual services cannot be reached directly (without the API Gateway) unless additional security is in place to authenticate messages whether they come from the gateway or not.
+The first step to making API-level trust decisions is authentication. Authentication is the process of reliably ascertaining a user’s identity.  In microservice scenarios, authentication is typically handled centrally. If you are using an API Gateway, you can [offload authentication](/azure/architecture/patterns/gateway-offloading) to the gateway. If you use this approach, make sure that the individual services cannot be reached directly (without the API Gateway) unless additional security is in place to authenticate messages whether they come from the gateway or not.
 
 If services can be accessed directly, an authentication service like Azure Active Directory or a dedicated authentication microservice acting as a security token service (STS) can be used to authenticate users. Trust decisions are shared between services with security tokens or cookies. 
 
@@ -42,9 +42,9 @@ After authentication, services need to authorize user access or determine what a
 ## Restrict and secure access using an API gateway
 Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. An [API gateway](/azure/architecture/microservices/gateway) sits between clients and services and is the entry point to all the services that your application is providing. It acts as a reverse proxy, routing requests from clients to services. It may also perform various cross-cutting tasks such as authentication and authorization, SSL termination, and rate limiting. If you don't deploy a gateway, clients must send requests directly to front-end services.
 
-In Service Fabric, a gateway can be any stateless service such as an [ASP.NET Core application](service-fabric-reliable-services-communication-aspnetcore.md), or another service designed for traffic ingress, such as [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), or [Azure API Management](https://docs.microsoft.com/azure/api-management).
+In Service Fabric, a gateway can be any stateless service such as an [ASP.NET Core application](service-fabric-reliable-services-communication-aspnetcore.md), or another service designed for traffic ingress, such as [Træfik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), or [Azure API Management](https://docs.microsoft.com/azure/api-management).
 
-API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services.  You can by secure access to backend services, prevent DOS attacks by using throttling, or verify API keys, JWT tokens, certificates, and other credentials. To learn more, read [Service Fabric with Azure API Management overview](service-fabric-api-management-overview.md).
+API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services.  You can secure access to backend services, prevent DOS attacks by using throttling, or verify API keys, JWT tokens, certificates, and other credentials. To learn more, read [Service Fabric with Azure API Management overview](service-fabric-api-management-overview.md).
 
 ## Manage application secrets
 Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. This article uses Azure Key Vault to manage keys and secrets. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere.
@@ -90,10 +90,10 @@ You can establish secure connection between the reverse proxy and services, thus
 The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. Learn how to improve security when you're using service remoting (in [C#](service-fabric-reliable-services-secure-communication.md) or [Java](service-fabric-reliable-services-secure-communication-java.md)) or using [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## Encrypt application data at rest
-Each [node type](service-fabric-cluster-nodetypes.md) in a Service Fabric cluster running in Azure is backed by a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Using a Azure Resource Manager template, you can attach data disks to the scale set(s) that make up the Service Fabric cluster.  If your services save data to attached data disk, you can [encrypt those data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md).
+Each [node type](service-fabric-cluster-nodetypes.md) in a Service Fabric cluster running in Azure is backed by a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Using an Azure Resource Manager template, you can attach data disks to the scale set(s) that make up the Service Fabric cluster.  If your services save data to attached data disk, you can [encrypt those data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md).
 
-TO DO: Enable BitLocker on Windows standalone clusters?
-TO DO: Encrypt disks on Linux clusters?
+<!--TO DO: Enable BitLocker on Windows standalone clusters?
+TO DO: Encrypt disks on Linux clusters?-->
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
