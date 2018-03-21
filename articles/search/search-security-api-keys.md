@@ -49,7 +49,7 @@ Key security is ensured by restricting access via the portal or Resource Manager
 Members of the following roles can view and regnerate keys: Owner, Contributor, [Search Service Contributors](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#search-service-contributor)
 
 > [!Note]
-> For identity-based access over search results, you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md) and [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad).
+> For identity-based access over search results, you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md) and [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
 ## See also
 

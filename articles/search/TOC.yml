@@ -79,9 +79,9 @@
     items:
     - name: Security overview
       href: search-security-overview.md
-    - name: Admin and query api-keys
+    - name: Service keys
       href: search-security-api-keys.md
-    - name: Role-based access control
+    - name: Role-based admin access
       href: search-security-rbac.md
     - name: Security filters
       href: search-security-trimming-for-azure-search.md
