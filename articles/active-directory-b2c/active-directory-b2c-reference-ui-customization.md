@@ -19,6 +19,8 @@ ms.author: saeedakhter-msft
 ---
 # Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI)
 
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 User experience is paramount in a customer facing application.  Grow your customer base by crafting user experiences with the look and feel of your brand. Azure Active Directory B2C (Azure AD B2C) lets you customize sign-up, sign-in, profile editing, and password reset pages with pixel-perfect control.
 
 > [!NOTE]
