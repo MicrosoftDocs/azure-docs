@@ -387,6 +387,37 @@ Prebuilt entities are discovered based on a regular expression match using the o
   ]
 ``` 
 
+## RegEx entity data
+RegEx entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the RegEx entity definition, the following is an example utterance with the returned regex entities for the query `When was kb123456 published?`:
+
+```JSON
+{
+  "query": "when was kb123456 published?",
+  "topScoringIntent": {
+    "intent": "FindKBArticle",
+    "score": 0.933641255
+  },
+  "intents": [
+    {
+      "intent": "FindKBArticle",
+      "score": 0.933641255
+    },
+    {
+      "intent": "None",
+      "score": 0.04397359
+    }
+  ],
+  "entities": [
+    {
+      "entity": "kb123456",
+      "type": "KB number",
+      "startIndex": 9,
+      "endIndex": 16
+    }
+  ]
+}
+```
+
 ## Data matching multiple entities
 LUIS returns all entities discovered in the utterance. As a result, your chat bot may need to make decision based on the results. An utterance can have many entities in an utterance:
 
