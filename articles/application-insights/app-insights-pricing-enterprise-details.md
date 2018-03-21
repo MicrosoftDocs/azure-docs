@@ -17,19 +17,11 @@ ms.author: mbullwin
 
 ---
 
-# Manage pricing and data volume in Application Insights
+# Enterprise plan details
 
-Pricing for [Azure Application Insights](https://review.docs.microsoft.com/en-us/azure/application-insights/app-insights-overview) is based on data volume per application. Each Application Insights resource is charged as a separate service, and contributes to the bill for your subscription to Azure.
-
-There are two pricing plans. The default plan is called Basic, which includes all of the same features as the Enterprise plan at no addition cost and bills primarily on the volume of data ingested. If you are using the Operations Management Suite, you should opt for the Enterprise plan, which has a per-node charge along with daily data allowances, and then will charge for data ingested above the included allowance.
-
-If you have questions about how pricing works for Application Insights, feel free to post a question in our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights).
-
-## The price plans
+Application Insights has two pricing plans. The default plan is called [Basic](app-insights-pricing.md), which includes all of the same features as the Enterprise plan at no addition cost and bills primarily on the volume of data ingested. If you are using the Operations Management Suite, you should opt for the Enterprise plan, which has a per-node charge along with daily data allowances, and then will charge for data ingested above the included allowance.
 
 See the [Application Insights pricing page](http://azure.microsoft.com/pricing/details/application-insights/) for current prices in your currency and region.
-
-## Enterprise pricing details
 
 Here's how the Enterprise plan works:
 
@@ -57,9 +49,3 @@ Here's how the Enterprise plan works:
   * For earlier versions of the SDK, the [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) will behave just as the newer SDK versions, however the [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) will report only one node regardless of the number of actual application hosts. 
   * Note that if your application is using the SDK to set roleInstance to a custom value, by default that same value will be used to determine the count of nodes. 
   * If you are using a new SDK version with an app that is run from client machines or mobile devices, it is possible that the count of nodes might return a number that is very large (from the large number of client machines or mobile devices). 
-
-## Basic pricing
-
-Basic pricing is the most common plan for more details visit the [Basic pricing page](app-insights-pricing.md)
-
-* [Intentional bad link to prevent accidental merge](app-insights-does-not-exist.md)
