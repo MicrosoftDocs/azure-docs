@@ -58,7 +58,7 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
     ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    Figure - Hash-based distribution
+    *Figure - Hash-based distribution*
 
 * **Port forwarding**
 
