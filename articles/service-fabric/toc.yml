@@ -236,11 +236,11 @@
         href: service-fabric-cluster-resource-manager-advanced-throttling.md
       - name: Service movement
         href: service-fabric-cluster-resource-manager-movement-cost.md
-  - name: Monitoring and diagnostics
+  - name: Monitoring, diagnostics, and health
     items:
-    - name: Monitor and diagnose
+    - name: Monitoring overview
       href: service-fabric-diagnostics-overview.md
-    - name: Cluster event logs
+    - name: Cluster events
       href: service-fabric-diagnostics-event-generation-infra.md
       items:
       - name: Operational channel
@@ -253,7 +253,7 @@
         href: service-fabric-diagnostics-event-generation-perf.md
       - name: Monitoring Service Remoting
         href: service-fabric-reliable-serviceremoting-diagnostics.md
-    - name: Application event logs
+    - name: Application events
       href: service-fabric-diagnostics-event-generation-app.md
     - name: Inspect application and cluster health
       items:
