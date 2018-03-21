@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
 
 ---
@@ -63,12 +63,6 @@ Use the following procedure to create a computer group from a log search in the 
 5. Provide values for each property for the computer group. 
 
 
->[!NOTE]
-> If your workspace is still using the [legacy Log Analytics query language](log-analytics-log-search-upgrade.md) then you use the same procedure for creating a computer group, but the you must use the syntax of the legacy query language.
-
-
-### Log search API
-Computer groups created with the Log Search API are the same as searches created with a Log Search.  For details on creating a computer group using the Log Search API see [Computer Groups in Log Analytics log search REST API](log-analytics-log-search-api.md#computer-groups).
 
 ### Active Directory
 When you configure Log Analytics to import Active Directory group memberships, it analyzes the group membership of any domain joined computers with the OMS agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
@@ -126,18 +120,6 @@ The following query would return UpdateSummary records for only computers in Dom
   UpdateSummary | where Computer in (ADComputers)
   ```
 
-
-
-  
-
->[!NOTE]
-> If your workspace is still using the [legacy Log Analytics query language](log-analytics-log-search-upgrade.md)>, then you use the following syntax to refer to a computer group in a log search.  Specifying the **Category** >is optional and only required if you have computer groups with the same name in different categories. 
->
->    `$ComputerGroups[Category: Name]`
->
->Computer groups are typically used with the **IN** clause in the log search as in the following example:
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
 
 
 

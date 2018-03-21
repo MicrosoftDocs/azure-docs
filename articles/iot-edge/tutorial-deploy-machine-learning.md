@@ -43,7 +43,7 @@ On the machine running Module Management for Azure ML, download and save [iot_sc
 Use the trained model to create a container that can be deployed to IoT Edge devices. Use the following command to:
 
    * Register your model.
-   * Create a manafest.
+   * Create a manifest.
    * Create a Docker container image named *machinelearningmodule*.
    * Deploy the image to your Azure Container Service (AKS) cluster.
 

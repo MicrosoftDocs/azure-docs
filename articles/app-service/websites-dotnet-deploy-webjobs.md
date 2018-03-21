@@ -3,7 +3,7 @@ title: Develop and deploy WebJobs using Visual Studio - Azure
 description: Learn how to develop and deploy Azure WebJobs to Azure App Service using Visual Studio.
 services: app-service
 documentationcenter: ''
-author: ggailey777
+author: tdykstra
 manager: erikre
 editor: jimbe
 
@@ -27,7 +27,7 @@ This topic explains how to use Visual Studio to deploy a Console Application pro
 When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:
 
 * Copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs, *App_Data/jobs/triggered* for scheduled and on-demand WebJobs).
-* Sets up [Azure Scheduler jobs](#scheduler) for WebJobs that are scheduled to run at particular times. (This is not needed for continuous WebJobs.)
+* Sets up [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) jobs for WebJobs that are scheduled to run at particular times. (This is not needed for continuous WebJobs.)
 
 A WebJobs-enabled project has the following items added to it:
 
