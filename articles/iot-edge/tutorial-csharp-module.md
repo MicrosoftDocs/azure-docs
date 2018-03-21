@@ -7,8 +7,8 @@ keywords:
 author: kgremban
 manager: timlt
 
-ms.author: kgremban
-ms.date: 03/14/2018
+ms.author: v-jamebr
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -53,7 +53,7 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 3. Select **Create**.
 4. Once your container registry is created, navigate to it and select **Access keys**. 
 5. Toggle **Admin user** to **Enable**.
-6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial when you publish the Docker image to your registry, and when you add the registry credentials to the Edge runtime. 
+6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
 
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge module based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension.
@@ -232,14 +232,15 @@ The following steps show you how to create an IoT Edge module based on .NET core
 2. Right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
 3. In the **Select Folder** window, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
 4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filtermodule:latest`. The container registry address is the same as the login server that you copied from your registry. It should be in the form of `<your container registry name>.azurecr.io`.
-5. Sign in to Docker using the username, password, and login server that you copied from your Azure container registry when you created it. Enter the following command in the VS Code integrated terminal: 
+5. Sign in to Docker by entering the following command in the VS Code integrated terminal: 
      
    ```csh/sh
-   docker login -u <ACR username> -p <ACR password> <ACR login server>
+   docker login -u <username> -p <password> <Login server>
    ```
+        
+   Use the user name, password, and login server that you copied from your Azure container registry when you created it.
 
-6. Push the image to your container registry. Select **View** > **Command Palette** and search for the **Edge: Push IoT Edge module Docker image** menu command. Enter the image name in the pop-up text box at the top of the VS Code window. Use the same image name you used in step 4.
-7. To view your image in the Azure portal, navigate to your Azure container registry and select **Repositories**. You should see **filtermodule** listed.
+3. Push the image to your Docker repository. Select **View** > **Command Palette** and search for the **Edge: Push IoT Edge module Docker image** menu command. Enter the image name in the pop-up text box at the top of the VS Code window. Use the same image name you used in step 4.
 
 ## Add registry credentials to Edge runtime
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. These credentials give the runtime access to pull the container. 

@@ -51,7 +51,7 @@ If the VM is healthy, but is not responding to the probe, then one possible reas
 3. If the port state is not listed as **LISTENING**, configure the proper port. 
 4. Alternatively, select another port, that is listed as **LISTENING**, and update load balancer configuration accordingly.              
 
-### Cause 3: Firewall, or a network security group is blocking the port on the load balancer backend pool VMs  
+###Cause 3: Firewall, or a network security group is blocking the port on the load balancer backend pool VMs  
 If the firewall on the VM is blocking the probe port, or one or more network security groups configured on the subnet or on the VM, is not allowing the probe to reach the port, the VM is unable to respond to the health probe.          
 
 **Validation and resolution**

@@ -2,10 +2,10 @@
 title: How to scale an Azure Container Service cluster for Machine Learning | Microsoft Docs
 description: Scaling an ACS cluster - autoscale and static scaling; scaling the number of nodes in the cluster
 services: machine-learning
-author: aashishb
-ms.author: aashishb
+author: raymondl
+ms.author: raymondl
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc

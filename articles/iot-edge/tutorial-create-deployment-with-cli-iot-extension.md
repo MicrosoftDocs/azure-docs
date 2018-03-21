@@ -8,7 +8,7 @@ author: chrissie926
 manager: timlt
 
 ms.author: menchi
-ms.date: 03/02/2018
+ms.date: 02/12/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -18,7 +18,7 @@ ms.reviewer: kgremban
 
 # Deploy modules to an IoT Edge device using IoT extension for Azure CLI 2.0
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux, and MacOS.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. Azure CLI 2.0 is available on Windows, Linux, and MacOS.
 
 Azure CLI 2.0 enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI 2.0 with features such as device management and full IoT Edge capability.
 
@@ -95,7 +95,7 @@ Deployment JSON templates should always include the two system modules, edgeAgen
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "microsoft/azureiotedge-agent:1.0-preview",
+                 "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
                  "createOptions": "{}"
                }
              },
@@ -104,7 +104,7 @@ Deployment JSON templates should always include the two system modules, edgeAgen
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "microsoft/azureiotedge-hub:1.0-preview",
+                 "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
                  "createOptions": "{}"
                }
              }
@@ -116,7 +116,7 @@ Deployment JSON templates should always include the two system modules, edgeAgen
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
+                 "image": "edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview",
                  "createOptions": "{}"
                }
              }

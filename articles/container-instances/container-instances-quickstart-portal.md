@@ -1,18 +1,18 @@
 ---
 title: Quickstart - Create your first Azure Container Instances container with the Azure portal
-description: In this quickstart, you use the Azure portal to deploy a container in Azure Container Instances
+description: Deploy and get started with Azure Container Instances
 services: container-instances
 author: mmacy
 manager: timlt
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
 ---
 
-# Quickstart: Create your first container in Azure Container Instances
+# Create your first container in Azure Container Instances
 
 Azure Container Instances makes it easy to create and manage containers in Azure. In this quickstart, you create a container in Azure and expose it to the internet with a public IP address. This operation is completed by using the Azure portal. With just a few clicks, you will see this in your browser:
 

@@ -143,12 +143,12 @@ Deploy in one click your spokes in SQL databases from SQL Data Warehouse:
 [Sketch]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
-[data loading]:design-elt-data-loading.md
-[deeper guidance]:guidance-for-loading-data.md
-[indexes]:sql-data-warehouse-tables-index.md
-[partitions]:sql-data-warehouse-tables-partition.md
-[statistics]:sql-data-warehouse-tables-statistics.md
-[resource classes and concurrency]:resource-classes-for-workload-management.md
+[data loading]:./design-elt-data-loading.md
+[deeper guidance]: ./guidance-for-loading-data.md
+[indexes]:./sql-data-warehouse-tables-index.md
+[partitions]:./sql-data-warehouse-tables-partition.md
+[statistics]:./sql-data-warehouse-tables-statistics.md
+[resource classes and concurrency]:./sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 

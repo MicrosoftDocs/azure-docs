@@ -1,4 +1,4 @@
-- name: HDInsight Documentation
+- name: HDInsight documentation
   href: index.md
 - name: Hadoop
   href: ./hadoop/apache-hadoop-introduction.md

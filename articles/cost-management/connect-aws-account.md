@@ -96,4 +96,4 @@ Cost Management starts collecting the data and populating reports. However, some
 
 ## Next steps
 
-- To learn more about Azure Cost Management, continue to the [Review usage and costs](tutorial-review-usage.md) tutorial for Cost Management.
+- To learn more about Azure Cost Management by Cloudyn, continue to the [Review usage and costs](tutorial-review-usage.md) tutorial for Cost Management.

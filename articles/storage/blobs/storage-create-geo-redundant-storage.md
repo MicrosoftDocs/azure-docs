@@ -2,14 +2,18 @@
 title: Make application data highly available in Azure | Microsoft Docs 
 description: Use read access geo-redundant storage to make your application data highly available
 services: storage
-author: tamram
+documentationcenter: 
+author: georgewallace
 manager: jeconnoc
+editor: ''
 
 ms.service: storage
 ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: ''
 ms.topic: tutorial
-ms.date: 02/20/2018
-ms.author: tamram
+ms.date: 12/23/2017
+ms.author: gwallace
 ms.custom: mvc
 ---
 
@@ -66,7 +70,7 @@ Follow these steps to create a read-access geo-redundant storage account:
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Name** | mystorageaccount | A unique value for your storage account |
    | **Deployment model** | Resource Manager  | Resource Manager contains the latest features.|
-   | **Account kind** | StorageV2 | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Account kind** | General purpose | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performance** | Standard | Standard is sufficient for the example scenario. |
    | **Replication**| Read-access geo-redundant storage (RA-GRS) | This is necessary for the sample to work. |
    |**Secure transfer required** | Disabled| Secure transfer is not required for this scenario. |
@@ -74,7 +78,7 @@ Follow these steps to create a read-access geo-redundant storage account:
    |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Location** | East US | Choose a location. |
 
-![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+![create storage account](media/storage-create-geo-redundant-storage/figure1.png)
 
 ## Download the sample
 

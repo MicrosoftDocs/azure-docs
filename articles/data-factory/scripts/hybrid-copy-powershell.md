@@ -2,7 +2,7 @@
 title: "PowerShell script: Copy data from on-premises to Azure by using Data Factory | Microsoft Docs"
 description: This PowerShell script copies data from an on-premises SQL Server database to another an Azure Blob Storage. 
 services: data-factory
-author: linda33wj
+author: spelluru
 manager: jhubbard
 editor: ''
 
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
-ms.author: jingwang
+ms.author: spelluru
 ---
 
 # Use PowerShell to create a data factory pipeline to copy data from on-premises to Azure

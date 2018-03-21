@@ -3,15 +3,18 @@ title: 'Azure Active Directory B2C: Modify sign up in custom policies and config
 description: A walkthrough on adding claims to sign up and configure the user input
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: rojasja
 manager: mtillman
-editor: ''
+editor: tbd
 
+ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
 ms.topic: article
+ms.devlang: na
 ms.date: 04/29/2017
-ms.author: davidmu
+ms.author: joroja
 ---
 # Azure Active Directory B2C: Modify sign up to add new claims and configure user input.
 

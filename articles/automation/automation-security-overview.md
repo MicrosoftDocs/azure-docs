@@ -1,14 +1,21 @@
 ---
-title: Intro to authentication in Azure Automation
+title: Intro to authentication in Azure Automation | Microsoft Docs
 description: This article provides an overview of Automation security and the different authentication methods available for Automation Accounts in Azure Automation.
-keywords: automation security, secure automation; automation authentication
 services: automation
-ms.service: automation
+documentationcenter: ''
 author: georgewallace
-ms.author: gwallace
-ms.date: 03/19/2018
+manager: jwhit
+editor: tysonn
+keywords: automation security, secure automation; automation authentication
+
+ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
+ms.service: automation
+ms.devlang: na
 ms.topic: article
-manager: carmonm
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/01/2017
+ms.author: magoedte
 ROBOTS: NOINDEX
 ---
 # Introduction to authentication in Azure Automation  

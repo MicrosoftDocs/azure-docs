@@ -58,7 +58,7 @@ You can automate the creation of HDInsight R Server instances by using Azure Res
 4. Select **Cluster type** to open the **Cluster configuration** pane. In the **Cluster configuration** pane, select the following options:
 
    	* **Cluster type**: Select **R Server**.
-   	* **Version**: Select the version of R Server to install on the cluster. The version currently available is **R Server 9.1 (HDI 3.6)**. Release notes for the available versions of R Server are available on [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91).
+   	* **Version**: Select the version of R Server to install on the cluster. The version currently available is **R Server 9.1 (HDI 3.6)**. Release notes for the available versions of R Server are available on [MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
    	* **R Studio community edition for R Server**: This browser-based IDE is installed by default on the edge node. If you prefer to not have it installed, clear the check box. If you choose to have it installed, the URL for accessing the RStudio Server login will be in a portal application pane for your cluster after it’s created.
    	* Leave the other options at the default values, and use the **Select** button to save the cluster type.
 
@@ -99,7 +99,7 @@ You can automate the creation of HDInsight R Server instances by using Azure Res
 
 		ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-   	  Or, use the private key file as part the definition of your Hadoop Spark compute context for R Server on the client. For more information, see [Create a Compute Context for Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark).
+   	  Or, use the private key file as part the definition of your Hadoop Spark compute context for R Server on the client. For more information, see [Create a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
 8. The quick create transitions you to the **Storage** pane. There, you select the storage account settings to be used for the primary location of the HDFS file system that the cluster uses. Select a new or existing Azure storage account, or select an existing Azure Data Lake Store account.
 
@@ -377,7 +377,7 @@ Note also that the newly added users do not have root privileges in Linux system
 
 ## Use R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client
 
-It's possible to set up access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop. For more information, see the "Using Microsoft R Server as a Hadoop Client" section in [Creating a Compute Context for Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios). To do so, specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. Here's an example:
+It's possible to set up access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop. For more information, see the "Using Microsoft R Server as a Hadoop Client" section in [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md). To do so, specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. Here's an example:
 
 
     myNameNode <- "default"
@@ -703,7 +703,7 @@ When your data modeling is complete, you can operationalize the model to make pr
 	rxSparkConnect(reset = TRUE)
 
 
-At this stage, the configuration for operationalization is complete. Now you can use the mrsdeploy package on R Client to connect to the operationalization on the edge node. You can then start using its features, like [remote execution](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) and [web services](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Depending on whether your cluster is set up on a virtual network or not, you might need to set up port forward tunneling through an SSH login.
+At this stage, the configuration for operationalization is complete. Now you can use the mrsdeploy package on R Client to connect to the operationalization on the edge node. You can then start using its features, like [remote execution](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) and [web services](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Depending on whether your cluster is set up on a virtual network or not, you might need to set up port forward tunneling through an SSH login.
 
 ### R Server cluster on a virtual network
 

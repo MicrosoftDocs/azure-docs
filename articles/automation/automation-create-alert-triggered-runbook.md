@@ -1,11 +1,11 @@
 ---
-title: Use an alert to trigger an Azure Automation runbook
+title: Use an alert to trigger an Azure Automation runbook | Microsoft Docs
 description: Learn how to trigger a runbook to run when an Azure alert is raised.
 services: automation
-ms.service: automation
+keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/11/2018
 ms.topic: article
 manager: carmonm
 ---

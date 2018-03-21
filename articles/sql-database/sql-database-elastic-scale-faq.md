@@ -3,13 +3,19 @@ title: Azure SQL Elastic Scale FAQ | Microsoft Docs
 description: Frequently Asked Questions about Azure SQL Database Elastic Scale.
 services: sql-database
 documentationcenter: ''
-manager: craigg
-author: stevestein
+manager: jhubbard
+author: ddove
+editor: ''
+
+ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
 ms.service: sql-database
 ms.custom: scale out apps
+ms.workload: "Inactive"
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: sstein
+ms.author: ddove
 
 ---
 # Elastic database tools FAQ

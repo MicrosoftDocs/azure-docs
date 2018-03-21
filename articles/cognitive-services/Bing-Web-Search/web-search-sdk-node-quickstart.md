@@ -1,7 +1,7 @@
 ---
 title: Web search SDK Node quickstart | Microsoft Docs
 description: Setup for Web search SDK console application.
-titleSuffix: Azure cognitive services
+titleSuffix: Azure cognitive services Web search SDK Node quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -34,7 +34,7 @@ let webSearchApiClient = new WebSearchAPIClient(credentials);
 Search for results:
 ```
 webSearchApiClient.web.search('seahawks').then((result) => {
-    let properties = ["images", "webPages", "news", "videos"];
+    let properties = ["images", "webPages", "news"];
     for (let i = 0; i < properties.length; i++) {
         if (result[properties[i]]) {
             console.log(result[properties[i]].value);
@@ -47,11 +47,7 @@ webSearchApiClient.web.search('seahawks').then((result) => {
 })
 
 ```
-The code prints `result.value` items to the console without parsing any text.  The results, if any per category, will include:
-- _type: 'ImageObject'
-- _type: 'NewsArticle'
-- _type: 'WebPage'
-- _type: 'VideoObjectElementType'
+The code prints `result.value` items to the console without parsing any text.
 
 ![Video results](media/web-search-sdk-node-results.png)
 

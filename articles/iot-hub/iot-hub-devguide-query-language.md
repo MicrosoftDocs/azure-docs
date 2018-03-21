@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/26/2018
+ms.date: 01/29/2018
 ms.author: elioda
 
 ---
@@ -295,27 +295,27 @@ IoT Hub assumes the following JSON representation of message headers for message
 
 ```json
 {
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
+    "$messageId": "",
+    "$enqueuedTime": "",
+    "$to": "",
+    "$expiryTimeUtc": "",
+    "$correlationId": "",
+    "$userId": "",
+    "$ack": "",
+    "$connectionDeviceId": "",
+    "$connectionDeviceGenerationId": "",
+    "$connectionAuthMethod": "",
+    "$content-type": "",
+    "$content-encoding": "",
+
+    "userProperty1": "",
+    "userProperty2": ""
 }
 ```
 
 Message system properties are prefixed with the `'$'` symbol.
-User properties are always accessed with their name. If a user property name coincides with a system property (such as `$contentType`), the user property is retrieved with the `$contentType` expression.
-You can always access the system property using brackets `{}`: for instance, you can use the expression `{$contentType}` to access the system property `contentType`. Bracketed property names always retrieve the corresponding system property.
+User properties are always accessed with their name. If a user property name coincides with a system property (such as `$to`), the user property is retrieved with the `$to` expression.
+You can always access the system property using brackets `{}`: for instance, you can use the expression `{$to}` to access the system property `to`. Bracketed property names always retrieve the corresponding system property.
 
 Remember that property names are case insensitive.
 
@@ -347,58 +347,12 @@ Refer to the [Expression and conditions][lnk-query-expressions] section for the 
 
 IoT Hub can only route based on message body contents if the message body is properly formed JSON encoded in UTF-8, UTF-16, or UTF-32. Set the content type of the message to `application/json`. Set the content encoding to one of the supported UTF encodings in the message headers. If either of the headers is not specified, IoT Hub does not attempt to evaluate any query expression involving the body against the message. If your message is not a JSON message, or if the message does not specify the content type and content encoding, you can still use message routing to route the message based on the message headers.
 
-The following example shows how to create a message with a properly formed and encoded JSON body:
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
 You can use `$body` in the query expression to route the message. You can use a simple body reference, body array reference, or multiple body references in the query expression. Your query expression can also combine a body reference with a message header reference. For example, the following are all valid query expressions:
 
 ```sql
+$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```

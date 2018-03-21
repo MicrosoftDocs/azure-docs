@@ -1,5 +1,3 @@
-# [Azure Government Documentation](index.md)
-
 # Overview
 ## [What is Azure Government?](documentation-government-welcome.md)
 ## [Available services](documentation-government-services.md)
@@ -12,7 +10,6 @@
 ## [Cognitive Services](documentation-government-cognitiveservices.md)
 ## [Integrate Azure AD Authentication](documentation-government-aad-auth-qs.md)
 ## [GPUs](documentation-government-gpu.md)
-## [Kubernetes](documentation-government-k8.md)
 
 # How To
 ## Plan

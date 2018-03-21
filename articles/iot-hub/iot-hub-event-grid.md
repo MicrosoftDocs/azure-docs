@@ -24,7 +24,14 @@ Azure IoT Hub integrates with Azure Event Grid so that you can send event notifi
 
 ## Regional availability
 
-The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. For the latest list of regions, see [An introduction to Azure Event Grid][lnk-eg-overview]. 
+The Event Grid integration is in public preview, so is available in a limited number of regions. The integration works for IoT hubs located in the following regions:
+
+* Central US
+* East US
+* East US 2
+* West Central US
+* West US
+* West US 2
 
 ## Event types
 

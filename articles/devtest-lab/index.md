@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-# Devtest Labs Documentation
+#Devtest Labs Documentation
 
 Learn how to use Devtest Labs to quickly create application test environments using reusable artifacts. Tutorials, videos, and other documentation show you how to create, manage, and secure labs, and add and manage artifacts.
 

@@ -58,7 +58,7 @@ Many customers find that the easiest way to get users to use SSPR is with an ema
 Many customers choose to host a webpage and create a root DNS entry, like https://passwords.contoso.com. They populate this page with links to the following information:
 
 * [Azure AD password reset portal - https://aka.ms/sspr](https://aka.ms/sspr)
-* [Azure AD password reset registration portal - https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+* [Azure AD password reset registration portal - http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
 * [Azure AD password change portal - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Other organization-specific information
 

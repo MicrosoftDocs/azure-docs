@@ -3,15 +3,18 @@ title: 'Azure Active Directory B2C: Self-service password reset | Microsoft Docs
 description: A topic demonstrating how to set up self-service password reset for your consumers in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: swkrish
 manager: mtillman
-editor: ''
+editor: curtand
 
+ms.assetid: c87ed86e-1520-42b1-8c31-46cd44ed5310
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: davidmu
+ms.author: swkrish
 
 ---
 # Azure Active Directory B2C: Set up self-service password reset for your consumers

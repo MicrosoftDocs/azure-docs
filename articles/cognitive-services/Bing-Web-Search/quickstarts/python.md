@@ -30,7 +30,7 @@ Set `subscription_key` to your API key for the Bing API service.
 
 
 ```python
-subscription_key = None
+subscription_key = "96d05359d76f4e758906539daeab939e"
 assert subscription_key
 ```
 

@@ -3,11 +3,19 @@ title: Azure SQL Database firewall rules | Microsoft Docs
 description: Learn how to configure a SQL database firewall with server-level and database-level firewall rules to manage access.
 keywords: database firewall
 services: sql-database
+documentationcenter: ''
 author: CarlRabeler
-manager: craigg
+manager: jhubbard
+editor: cgronlun
+tags: ''
+
+ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
 ms.custom: security
+ms.devlang: na
 ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: "Active"
 ms.date: 10/11/2017
 ms.author: carlrab
 

@@ -20,7 +20,7 @@ ms.custom: mvc
 
 ---
 
-# Tutorial: Query Azure Cosmos DB by using the Table API
+# Azure Cosmos DB: How to query table data by using the Table API
 
 The Azure Cosmos DB [Table API](table-introduction.md) supports OData and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
 

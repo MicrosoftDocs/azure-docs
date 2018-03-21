@@ -1,5 +1,3 @@
-# [ExpressRoute Documentation](index.md)
-
 # Overview
 ## [What is ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)

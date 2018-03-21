@@ -14,23 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 10/11/2017
 ms.author: cherylmc
 
 ---
 # Create and modify peering for an ExpressRoute circuit
 
 This article helps you create and manage routing configuration for an ExpressRoute circuit in the Resource Manager deployment model using the Azure portal. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
-
-> [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-routing-arm.md)
-> * [Azure CLI](howto-routing-cli.md)
-> * [Video - Private peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Video - Public peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Video - Microsoft peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> * [PowerShell (classic)](expressroute-howto-routing-classic.md)
-> 
 
 
 ## Configuration prerequisites

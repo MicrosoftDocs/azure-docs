@@ -33,23 +33,21 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Govern VMs
-    href: tutorial-govern-resources.md
-  - name: 11 - Monitor and update VMs
+  - name: 10 - Monitor and update VMs
     href: tutorial-monitoring.md
-  - name: 12 - Manage VM security
+  - name: 11 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 13 - Deploy Jenkins
+  - name: 12 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 14 - CI/CD with Team Services
+  - name: 13 - CI/CD with Team Services
     href: tutorial-build-deploy-jenkins.md
-  - name: 15a - Create LAMP stack
+  - name: 14a - Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 15b - Create LEMP stack
+  - name: 14b - Create LEMP stack
     href: tutorial-lemp-stack.md
-  - name: 15c - Create MEAN stack
+  - name: 14c - Create MEAN stack
     href: tutorial-mean-stack.md
-  - name: 16 - Secure web server with SSL
+  - name: 15 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -108,8 +106,6 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: Troubleshoot attached VHDs
-      href: troubleshoot-vhds.md            
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -203,6 +199,8 @@
       href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
+    - name: Accelerated maintenance FAQ
+      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata

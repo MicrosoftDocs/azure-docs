@@ -3,15 +3,19 @@ title: Cloud identity management web and mobile apps Azure AD B2C | Microsoft Do
 description: Developing consumer-facing applications with Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: saeedakhter-msft
 manager: mtillman
-editor: ''
+editor: parakhj
 
+ms.assetid: c465dbde-f800-4f2e-8814-0ff5f5dae610
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.topic: article
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
 ms.date: 12/06/2016
-ms.author: davidmu
+ms.author: saeedakhter-msft
+ms.custom: seohack1
 ---
 # Azure AD B2C: Focus on your app, let us worry about sign-up and sign-in
 

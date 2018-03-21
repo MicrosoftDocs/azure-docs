@@ -3,7 +3,7 @@ title: 'Deploy SSIS packages to Azure | Microsoft Docs'
 description: 'This article explains how to deploy SSIS packages to Azure-SSIS integration runtime provided by Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
+author: spelluru
 manager: jhubbard
 editor: spelluru
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: douglasl
+ms.author: spelluru
 ---
 # Deploy SQL Server Integration Services packages to Azure
 This tutorial provides steps for provisioning an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. In this tutorial, you do the following steps:

@@ -2,12 +2,11 @@
 title: Azure Stack training and certification
 description: Learn about Azure Stack training certification opportunities
 services: azure-stack
-author: mattbriggs
-manager: femila
+author: vhorne
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
+ms.date: 9/25/2017
+ms.author: victorh
 keywords:
 ---
 

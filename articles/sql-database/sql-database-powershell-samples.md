@@ -4,15 +4,19 @@ description: Azure PowerShell script examples to help you create and manage Azur
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
-manager: craigg
+manager: jhubbard
 editor: tysonn
 tags: azure-service-management
+
+ms.assetid:
 ms.service: sql-database
 ms.custom: overview-samples, mvc
-ms.devlang: PowerShell
+ms.devlang: na
 ms.topic: sample
+ms.tgt_pltfrm: sql-database
+ms.workload: "On Demand"
 ms.date: 06/23/2017
-ms.author: carlrab
+ms.author: janeng
 ---
 
 # Azure PowerShell samples for Azure SQL Database

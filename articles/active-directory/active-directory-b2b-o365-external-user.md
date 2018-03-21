@@ -3,7 +3,7 @@ title: Office 365 external sharing and Azure Active Directory B2B collaboration 
 description: claims mapping reference for Azure Active Directory B2B collaboration
 services: active-directory
 documentationcenter: ''
-author: twooley
+author: sasubram
 manager: mtillman
 editor: ''
 tags: ''
@@ -15,8 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
-ms.author: twooley
-ms.reviewer: sasubram
+ms.author: sasubram
 
 ---
 

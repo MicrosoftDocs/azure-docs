@@ -58,6 +58,6 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional Azure Container Service CLI script samples can be found in the [Azure Container Service documentation](../cli-samples.md).

@@ -49,7 +49,7 @@ You can click a category to display the list of recommendations within that cate
 
 Select the recommended action for a recommendation to implement the recommendation.  A simple interface will open that enables you to implement the recommendation or refer you to documentation that assists you with implementation.  Once you implement a recommendation, it can take up to a day for Advisor to recognize that.
 
-If you do not intend to take immediate action on a recommendation, you can postpone it for a specified time period or dismiss it.  If you do not want to receive recommendations for a specific subscription or resource group, you can configure Advisor to only generate recommendations for specified subscriptions and resource groups.
+If you do not intend to take immediate action on a recommendation, you can snooze it for a specified time period or dismiss it.  If you do not want to receive recommendations for a specific subscription or resource group, you can configure Advisor to only generate recommendations for specified subscriptions and resource groups.
 
 ## Frequently asked questions
 
@@ -66,9 +66,9 @@ To obtain Advisor recommendations for a subscription, you must first register yo
 
 Advisor provides recommendations for virtual machines, availability sets, application gateways, App Services, SQL servers, SQL databases, and Redis Cache.
 
-### Can I postpone or dismiss a recommendation?
+### Can I snooze or dismiss a recommendation?
 
-To postpone or dismiss a recommendation, click the **Postpone** link. You can specify a postpone period or select **Never** to dismiss the recommendation.
+To snooze or dismiss a recommendation, click the **Snooze** link. You can specify a snooze time period or select **Never** to dismiss the recommendation.
 
 ## Next steps
 

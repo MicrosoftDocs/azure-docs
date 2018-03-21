@@ -51,6 +51,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional App Service CLI script samples can be found in the [Azure App Service documentation](../app-service-cli-samples.md).

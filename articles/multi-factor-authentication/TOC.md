@@ -1,5 +1,3 @@
-# [Multi-factor Authentication Documentation](index.md)
-
 # Overview
 ## [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md)
 ## [How it works](multi-factor-authentication-how-it-works.md)

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 02/16/2018
 ms.author: dukek
 
 ---
@@ -26,7 +26,7 @@ You can configure a list of actions with action groups. These groups can then be
 An action group can have up to 10 of each action type. Each action is made up of the following properties:
 
 * **Name**: A unique identifier within the action group.  
-* **Action type**: Send an Voice call or SMS, send an email, call a webhook, send data to an ITSM tool, call an Azure app, or run an Automation runbook.
+* **Action type**: Send an SMS, send an email, call a webhook, send data to an ITSM tool, call an Azure app, or run an Automation runbook.
 * **Details**: The corresponding phone number, email address, webhook URI, or ITSM Connection Details.
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md).
@@ -53,7 +53,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     a. **Name**: Enter a unique identifier for this action.
 
-    b. **Action Type**: Select Email/SMS/Push/Voice, Webhook, ITSM, or Automation Runbook.
+    b. **Action Type**: Select Email/SMS/Azure app, Webhook, ITSM, or Automation Runbook.
 
     c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
 

@@ -123,7 +123,7 @@ If you choose to use existing Azure SQL database or Microsoft SQL Server
   > 
   > 
   
-  * To create and configure a virtual network, see [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
+  * To create and configure a virtual network, see [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
     
     * When you are using SQL Server in your datacenter, you must configure the virtual network as *site-to-site* or *point-to-site*.
       

@@ -3,9 +3,9 @@ title: Invoke Spark programs from Azure Data Factory | Microsoft Docs
 description: Learn how to invoke Spark programs from an Azure data factory by using the MapReduce activity.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: 
-editor: 
+author: spelluru
+manager: jhubbard
+editor: monicar
 
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: shlo
+ms.author: spelluru
 
 robots: noindex
 ---

@@ -4,8 +4,7 @@ description: Use PowerShell to create multiple Machine Learning models and web s
 services: machine-learning
 documentationcenter: ''
 author: hning86
-ms.author: hai.ning
-manager: mwinkle
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
+ms.author: garye;haining
 
 ---
 # Create many Machine Learning models and web service endpoints from one experiment using PowerShell

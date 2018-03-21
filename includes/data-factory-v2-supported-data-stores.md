@@ -1,15 +1,3 @@
----
-title: include file
-description: include file
-services: data-factory
-author: linda33wj
-ms.service: data-factory
-ms.topic: include
-ms.date: 03/19/2018
-ms.author: jingwang
-ms.custom: include file
----
-
 | Category | Data store | Supported as a source | Supported as a sink | Supported by [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supported by [Self-hosted IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
@@ -25,7 +13,7 @@ ms.custom: include file
 | **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Drill (Beta)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
-| &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
+| &nbsp; |[Google BigQuery (Beta)](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
 | &nbsp; |[Greenplum (Beta)](../articles/data-factory/connector-greenplum.md) |✓ | |✓ |✓  |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |✓ | |✓ |✓  |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |✓ | |✓ |✓  |
@@ -34,7 +22,6 @@ ms.custom: include file
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |✓ | |✓ |✓  |
 | &nbsp; |[Microsoft Access](../articles/data-factory/connector-odbc.md#microsoft-access-source) |✓ | | |✓  |
 | &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |✓ | | |✓  |
-| &nbsp; |[Netezza (Beta)](../articles/data-factory/connector-netezza.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |✓ | |✓ |✓  |
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | | |✓  |
@@ -45,7 +32,6 @@ ms.custom: include file
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  |
 | &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |✓ | | |✓  |
-| &nbsp; |[Vertica (Beta)](../articles/data-factory/connector-vertica.md) |✓ | |✓ |✓  |
 | **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase (Beta)](../articles/data-factory/connector-couchbase.md) |✓ | |✓ |✓  |
 | &nbsp; |[MongoDB](../articles/data-factory/connector-mongodb.md) |✓ | |✓ |✓  |
@@ -58,7 +44,6 @@ ms.custom: include file
 | &nbsp; |[Generic OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[Generic ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
 | **Services and apps** |[Amazon Marketplace Web Service (Beta)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
-| &nbsp; |[Common Data Service for Apps](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (Beta)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
@@ -73,8 +58,7 @@ ms.custom: include file
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ |
-| &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
+| &nbsp; |[ServiceNow (Beta)](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (Beta)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Square (Beta)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
 | &nbsp; |[Web Table (HTML table)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |

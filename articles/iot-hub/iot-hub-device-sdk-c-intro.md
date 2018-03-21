@@ -3,7 +3,7 @@ title: The Azure IoT device SDK for C | Microsoft Docs
 description: Get started with the Azure IoT device SDK for C and learn how to create device apps that communicate with an IoT hub.
 services: iot-hub
 documentationcenter: ''
-author: yzhong94
+author: olivierbloch
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
-ms.author: yizhon
+ms.author: obloch
 
 ---
 # Azure IoT device SDK for C

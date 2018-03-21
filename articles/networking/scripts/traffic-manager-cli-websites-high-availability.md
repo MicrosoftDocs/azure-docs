@@ -54,6 +54,6 @@ This script uses the following commands to create a resource group, web app, tra
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional App Service CLI script samples can be found in the [Azure Networking documentation](../cli-samples.md).

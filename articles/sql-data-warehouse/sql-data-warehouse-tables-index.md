@@ -7,13 +7,14 @@ author: barbkess
 manager: jenniehubbard
 editor: ''
 
+ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 03/15/2018
+ms.date: 12/06/2017
 ms.author: barbkess
 
 ---
@@ -304,7 +305,7 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Concurrency]: ./resource-classes-for-workload-management.md
+[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 

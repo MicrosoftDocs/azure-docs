@@ -2,13 +2,21 @@
 title: Apply performance recommendations - Azure SQL Database | Microsoft Docs
 description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
 services: sql-database
+documentationcenter: ''
 author: stevestein
 manager: jhubbard
+editor: monicar
+
+ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
 ms.custom: monitor & tune
+ms.devlang: na
 ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: "On Demand"
 ms.date: 07/05/2017
 ms.author: sstein
+
 
 ---
 # Find and apply performance recommendations
@@ -42,7 +50,7 @@ Recommendations are sorted by their potential impact on performance into the fol
 > Azure SQL Database needs to monitor activities at least for a day in order to identify some recommendations. The Azure SQL Database can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not currently available, the **Performance recommendation** page provides a message explaining why.
 > 
 
-You can also view the status of the historical operations. Select a recommendation or status to see  more information.
+You can also view the status of the historical operations. Select a recommendation or status to see  more details.
 
 Here is an example of "Create index" recommendation in the Azure portal.
 
@@ -120,7 +128,7 @@ Applying a recommendation might not happen instantaneously. The portal provides 
 | Reverting |The recommendation was applied, but has been deemed non-performant and is being automatically reverted. |
 | Reverted |The recommendation was reverted. |
 
-Click an in-process recommendation from the list to see more information:
+Click an in-process recommendation from the list to see more details:
 
 ![Recommended Indexes](./media/sql-database-advisor-portal/operations.png)
 

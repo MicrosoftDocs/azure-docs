@@ -2,14 +2,14 @@
 title: Computer Vision API JavaScript tutorial | Microsoft Docs
 description: Explore a basic JavaScript app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
-author: KellyDF
-manager: corncar
+author: v-royhar
+manager: JuliaNik
 
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: kefre
+ms.author: v-royhar
 ---
 
 # Computer Vision API JavaScript tutorial

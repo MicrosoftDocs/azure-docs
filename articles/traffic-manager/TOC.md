@@ -1,5 +1,3 @@
-# [Traffic Manager Documentation](index.md)
-
 # Overview
 ## [What is Traffic Manager?](traffic-manager-overview.md)
 ## [Routing methods](traffic-manager-routing-methods.md)

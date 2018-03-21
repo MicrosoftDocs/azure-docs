@@ -3,9 +3,8 @@ title: Retrain a Machine Learning Model | Microsoft Docs
 description: Learn how to retrain a model and update the Web service to use the newly trained model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: serinakaye
-ms.author: serinak
-manager: mwinkle
+author: garyericson
+manager: raymondl
 editor: ''
 
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
+ms.author: raymondl
 
 ---
 # Retrain a Machine Learning Model

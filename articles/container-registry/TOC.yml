@@ -33,8 +33,6 @@
   items:
   - name: Container registry SKUs
     href: container-registry-skus.md
-  - name: Image storage
-    href: container-registry-storage.md
   - name: Geo-replication (preview)
     href: container-registry-geo-replication.md
   - name: Registry best practices

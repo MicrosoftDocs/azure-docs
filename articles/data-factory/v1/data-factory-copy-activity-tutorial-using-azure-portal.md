@@ -3,9 +3,9 @@ title: 'Tutorial: Create an Azure Data Factory pipeline to copy data (Azure port
 description: In this tutorial, you use Azure portal to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage to an Azure SQL database.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: 
-editor: 
+author: spelluru
+manager: jhubbard
+editor: monicar
 
 ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: jingwang
+ms.author: spelluru
 
 robots: noindex
 ---

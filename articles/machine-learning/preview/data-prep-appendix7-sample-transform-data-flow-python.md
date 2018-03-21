@@ -5,7 +5,7 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
@@ -38,8 +38,8 @@ Reformulates the data to meet a formula for reducing the outliers in a column.
 
 ## Transform data flow
 ### Fill down 
+Fill down requires two transforms. It assumes data that looks like the following:
 
-Fill down requires two transforms. It assumes data that looks like the following table:
 
 |State         |City       |
 |--------------|-----------|
@@ -54,17 +54,16 @@ Fill down requires two transforms. It assumes data that looks like the following
 |              |San Antonio|
 |              |Houston    |
 
-1. Create an "Add Column (Script)" transform using the following code:
+First, create an Add Column (Script) transform that contains the following code:
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-
-2. Create a "Transform Data Flow (Script)" transform that contains the following code:
+Now create a Transform Data Flow (Script) transform that contains the following code:
 ```python
     df = df.fillna( method='pad')
 ```
 
-The data now looks like the following table:
+The data now looks like the following:
 
 |State         |newState         |City       |
 |--------------|--------------|-----------|

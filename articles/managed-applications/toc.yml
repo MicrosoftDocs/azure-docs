@@ -1,11 +1,10 @@
-- name: Azure Managed Applications Documentation
+- name: Azure managed applications
   href: index.yml
 - name: Overview
   items:
   - name: About managed applications
     href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Create managed application
     href: managed-apps-quickstart-cli.md

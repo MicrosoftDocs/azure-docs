@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-experimental: true  
-experiment_id: cc996988-fb4f-47
+experiment: false  
+experiment_id: 6da8bdb2-aaae-49 
 
 ---
 # Create your first function in the Azure portal

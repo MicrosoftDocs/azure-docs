@@ -16,7 +16,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
 
 ---
@@ -43,11 +43,11 @@ You can also protect Infrastructure as a Service (IaaS) workloads such as VMs in
 
 Azure Backup Server inherits much of the workload backup functionality from Data Protection Manager (DPM). This article links to DPM documentation to explain some of the shared functionality. Though Azure Backup Server shares much of the same functionality as DPM. Azure Backup Server does not back up to tape, nor does it integrate with System Center.
 
-## Choose an installation platform
+## 1. Choose an installation platform
 The first step towards getting the Azure Backup Server up and running is to set up a Windows Server. Your server can be in Azure or on-premises.
 
 ### Using a server in Azure
-When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2012 R2 Datacenter or Windows Server 2016 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with two cores and 3.5 GB RAM.
+When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2012 R2 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with two cores and 3.5 GB RAM.
 
 Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/jj852163.aspx), helps explain these nuances. Before deploying the machine, read this article completely.
 
@@ -74,7 +74,7 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 
 Always join Azure Backup Server to a domain. If you plan to move the server to a different domain, it is recommended that you join the server to the new domain before installing Azure Backup Server. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
-## Recovery Services vault
+## 2. Recovery Services vault
 Whether you send backup data to Azure or keep it locally, the software needs to be connected to Azure. To be more specific, the Azure Backup Server machine needs to be registered with a recovery services vault.
 
 To create a recovery services vault:
@@ -111,7 +111,7 @@ To edit the storage replication setting:
 
     After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
-## Software package
+## 3. Software package
 ### Downloading the software package
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. If you already have a Recovery Services vault open, proceed to step 3. If you do not have a Recovery Services vault open, but are in the Azure portal, on the Hub menu, click **Browse**.
@@ -230,7 +230,7 @@ The first backup copy is kept on storage attached to the Azure Backup Server mac
 >
 >
 
-## Network connectivity
+## 4. Network connectivity
 Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` cmdlet in the Azure Backup Server PowerShell console. If the output of the cmdlet is TRUE then connectivity exists, else there is no connectivity.
 
 At the same time, the Azure subscription needs to be in a healthy state. To find out the state of your subscription and to manage it, log in to the [subscription portal](https://account.windowsazure.com/Subscriptions).

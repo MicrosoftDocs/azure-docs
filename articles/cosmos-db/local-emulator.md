@@ -27,11 +27,11 @@ ms.author: danoble
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
+  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Docker source</strong></td>
-  <td>[Github](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
+  <td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td>
 </tr>
 </table>
   
@@ -252,7 +252,7 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 </tr>
 <tr>
   <td>NoExplorer</td>
-  <td>Don't show data explorer on startup.</td>
+  <td>Don't show document explorer on startup.</td>
   <td>CosmosDB.Emulator.exe /NoExplorer</td>
   <td></td>
 </tr>

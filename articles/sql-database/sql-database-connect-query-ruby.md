@@ -2,10 +2,16 @@
 title: Use Ruby to query Azure SQL Database | Microsoft Docs
 description: This topic shows you how to use Ruby to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
+documentationcenter: ''
 author: CarlRabeler
-manager: craigg
+manager: jhubbard
+editor: ''
+
+ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
 ms.custom: mvc,develop apps
+ms.workload: "Inactive"
+ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 07/15/2017

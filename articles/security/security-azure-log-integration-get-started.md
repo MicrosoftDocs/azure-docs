@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with Azure log integration | Microsoft Docs
 description: Learn how to install the Azure log integration service and integrate logs from Azure storage, Azure Audit Logs and Azure Security Center alerts.
 services: security
@@ -192,7 +192,6 @@ Here you can see a video going over the steps covered above.
 If after an hour data is not showing up in the **Forwarded Events** folder, then:
 
 1. Check the machine running the Azure Log Integration service and confirm that it can access Azure. To test connectivity, try to open the [Azure portal](http://portal.azure.com) from the browser.
-
 2. Make sure the user account **AzLog** has write permission on the folder **users\Azlog**.
   <ol type="a">
    <li>Open **Windows Explorer** </li>
@@ -200,10 +199,8 @@ If after an hour data is not showing up in the **Forwarded Events** folder, then
   <li> Right-click on **c:\users\Azlog** </li>
   <li> Click on **Security**  </li>
   <li> Click on **NT Service\Azlog** and check the permissions for the account. If the account is missing from this tab or if the appropriate permissions are not currently showing you can grant the account rights in this tab.</li>
-  </ol>  
-  
+  </ol>
 3. Make sure the storage account added in the command **Azlog source add** is listed when you run the command **Azlog source list**.
-
 4. Go to **Event Viewer > Windows Logs > Application** to see if there are any errors reported from the Azure log integration.
 
 

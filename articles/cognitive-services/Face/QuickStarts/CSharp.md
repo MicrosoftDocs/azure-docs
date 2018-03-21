@@ -1,30 +1,29 @@
 ---
-title: Face API C# QuickStarts | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: Face API C# quick start | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Face API with C# in Cognitive Services.
 services: cognitive-services
-author: SteveMSFT
-manager: corncar
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
+ms.date: 06/21/2017
+ms.author: anroth
 ---
 
-# Face API C# QuickStarts
+# Face API C# Quick Starts
 This article provides information and code samples to help you quickly get started using the Face API with C# to accomplish the following tasks: 
 * [Detect Faces in Images](#Detect) 
-* [Create a PersonGroup](#Create)
+* [Create a Person Group](#Create)
 
 ## Prerequisites
 * Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
 * Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Detect Faces in images with Face API using C# <a name="Detect"> </a>
-Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-method to detect faces in an image and return face attributes including:
+Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
+to detect faces in an image and return face attributes including:
 * Face ID: Unique ID used in several Face API scenarios. 
 * Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
 * Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
@@ -57,7 +56,7 @@ namespace CSHttpClientSample
 		// **********************************************
 
 		// Replace the subscriptionKey string value with your valid subscription key.
-		const string subscriptionKey = "<Subscription Key>";
+		const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
 		// Replace or verify the region.
 		//
@@ -74,7 +73,7 @@ namespace CSHttpClientSample
 		{
 			// Get the path and filename to process from the user.
 			Console.WriteLine("Detect faces:");
-			Console.Write("Enter the path to an image with faces that you wish to analyze: ");
+			Console.Write("Enter the path to an image with faces that you wish to analzye: ");
 			string imageFilePath = Console.ReadLine();
 
 			// Execute the REST API call.
@@ -307,12 +306,12 @@ Response:
    }
 ]
 ```
-## Create a PersonGroup with Face API using C# <a name="Create"> </a>
+## Create a Person Group with Face API using C# <a name="Create"> </a>
 
-Use the [PersonGroup - Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)
-method to create a PersonGroup with specified personGroupId, name, and user-provided userData.
+Use the [Person Group - Create a Person Group method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) to
+create a person group with specified personGroupId, name, and user-provided userData.
 
-#### PersonGroup - Create C# example request
+#### Person Group - create a Person Group C# example request
 
 Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `string uri` to use the region where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
 
@@ -343,7 +342,7 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<Subscription Key>");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "6726adbabb494773a28a7a5a21d5974a");
 
             // Request URI string.
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.

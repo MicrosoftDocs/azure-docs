@@ -27,7 +27,7 @@ The following example shows the properties that are used by all event publishers
 [
   {
     "topic": string,
-    "subject": string,
+    "subject": string,    
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -69,7 +69,7 @@ For example, the schema published for an Azure Blob storage event is:
   }
 ]
 ```
-
+ 
 ## Event properties
 
 All events contain the same following top-level data:
@@ -89,9 +89,7 @@ To learn about the properties in the data object, see the event source:
 
 * [Azure subscriptions (management operations)](event-schema-subscriptions.md)
 * [Blob storage](event-schema-blob-storage.md)
-* [Event Hubs](event-schema-event-hubs.md)
-* [Service Bus](event-schema-service-bus.md)
-* [IoT Hub](event-schema-iot-hub.md)
+* [Event hubs](event-schema-event-hubs.md)
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 
 For custom topics, the event publisher determines the data object. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.

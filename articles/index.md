@@ -5,7 +5,6 @@ experimental: true
 experiment_id: "81ba5f65-59fb-4d"
 title: Microsoft Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
-ms.topic: hub-page
 featureFlags:
 - clicktale
 ---
@@ -162,10 +161,6 @@ featureFlags:
                                                             <img src="media/index/logo_nodejs.svg" alt="">
                                                             Node.js</a>
                                                     </li>
-                                                    <li>
-                                                        <a class="barLink" href="/go/azure/">
-                                                            Go</a>
-                                                    </li>
                                                 </ul></td></tr></table>
                                                <h4>App Models</h4>
                                                 <ul class="noBullet">
@@ -202,7 +197,7 @@ featureFlags:
                                                 </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
+                                                    <li><a class="barLink" href="/azure/machine-learning/preview">Machine Learning services</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">Face API</a></li>
                                                 </ul>
@@ -219,7 +214,7 @@ featureFlags:
                                                 <h3>Command-line tools</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/cli/azure">
+                                                        <a class="barLink" href="/cli/azure/overview">
                                                             <img src="media/index/azure_dev-7.svg" alt="">
                                                             Azure CLI
                                                         </a>
@@ -610,12 +605,12 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>AI + Machine Learning</h3>
+                                    <h3>AI + Cognitive Services</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/machine-learning/">
+                                            <a href="/azure/machine-learning/preview">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning</p>
+                                                <p>Machine Learning services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -655,6 +650,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/recommendations/overview">
+                                                <img src="media/index/API_Recommendations.svg" alt="" />
+                                                <p>Recommendations</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/academic-knowledge/home">
                                                 <img src="media/index/API_Know_Academic.svg" alt="" />
                                                 <p>Academic Knowledge</p>
@@ -691,7 +692,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/translator/">
+                                            <a href="/azure/cognitive-services/translator/translator-info-overview">
                                                 <img src="media/index/API_TranslatorText.svg" alt="" />
                                                 <p>Translator Text API</p>
                                             </a>
@@ -703,7 +704,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/bing-news-search/">
+                                            <a href="/azure/cognitive-services/Bing-news-Search/search-the-web">
                                                 <img src="media/index/API_Bing_News_Search.svg" alt="" />
                                                 <p>Bing News</p>
                                             </a>
@@ -860,7 +861,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Analytics</h3>
+                                    <h3>Data + Analytics</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -1171,7 +1172,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Management Tools</h3>
+                                    <h3>Monitoring + Management</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-policy/">
@@ -2319,7 +2320,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Analytics</a>
+                        <a href="#analytics">Data + Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2552,13 +2553,13 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#ai">AI + Machine Learning</a>
-                        <ul id="ai" class="cardsA">
+                        <a href="#cognitive">AI + Cognitive Services</a>
+                        <ul id="cognitive" class="cardsA">
                             <li class="fullSpan">
                                 <h2>Artificial Intelligence</h2>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/">
+                                <a href="/azure/machine-learning/preview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2568,7 +2569,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning</h3>
+                                                    <h3>Machine Learning services</h3>
                                                     <p>Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management</p>
                                                 </div>
                                             </div>
@@ -2715,10 +2716,19 @@ featureFlags:
                                                                 <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/entitylinking/home"><img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Entity Linking&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/kes/overview"><img src="media/index/API_KnowledgeExploration.svg" alt="" /><span>Knowledge Exploration Service (KES)&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Recommendations&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="media/index/API_Know_Academic.svg" alt="" /><span>Academic Knowledge&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2734,7 +2744,7 @@ featureFlags:
                                                         <h3>Search</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News Search</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search</a>
@@ -2746,10 +2756,10 @@ featureFlags:
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Bing Custom Search</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Custom Search</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />Bing Entity Search</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entity Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search</a>
@@ -3488,7 +3498,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#mgmt">Management Tools</a>
+                        <a href="#mgmt">Monitoring + Management</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/azure/azure-policy/">
@@ -3890,7 +3900,7 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/python/azure">Get the Azure libraries for Python</a>
+                                                    <a href="/python/azure/python-sdk-azure-install">Get the Azure libraries for Python</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/python/azure">Get started</a>
@@ -3987,29 +3997,6 @@ featureFlags:
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-                                                    <a href="/go/azure/">Get the Go SDK</a>
-                                                </h3>
-                                                <p>
-                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Get started</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Reference</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
                                                     <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
@@ -4047,7 +4034,7 @@ featureFlags:
                                                     Azure CLI 2.0
                                                 </h3>
                                                 <p>
-                                                    <a href="/cli/azure">Get Started</a>
+                                                    <a href="/cli/azure/overview">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>

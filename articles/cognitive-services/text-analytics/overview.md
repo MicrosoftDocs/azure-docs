@@ -3,12 +3,12 @@ title: Text Analytics API overview (Microsoft Cognitive Services on Azure) | Mic
 description: Text Analytics API in Azure Cognitive Services for sentiment analysis, key phrase extraction, and language detection.
 services: cognitive-services
 author: HeidiSteen
-manager: cgronlun
+manager: jhubbard
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 3/07/2018
+ms.date: 09/05/2017
 ms.author: heidist
 ---
 

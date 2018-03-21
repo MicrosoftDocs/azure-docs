@@ -2,11 +2,18 @@
 title: Configure Azure SQL Database security for disaster recovery | Microsoft Docs
 description: Learn the security considerations for configuring and managing security after a database restore or a failover to a secondary server.
 services: sql-database
+documentationcenter: na
 author: anosov1960
-manager: craigg
+manager: jhubbard
+editor: monicar
+
+ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
 ms.service: sql-database
 ms.custom: business continuity
+ms.devlang: na
 ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: "Inactive"
 ms.date: 10/13/2016
 ms.author: sashan
 

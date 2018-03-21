@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2018
+ms.date: 02/14/2018
 ms.author: cherylmc
 
 ---
@@ -46,13 +46,6 @@ You can start out creating and configuring resources using one configuration too
 
 When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
 
-### <a name="planningtable"></a>Planning table
-
-The following table can help you decide the best connectivity option for your solution.
-
-[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
-
-
 ## <a name="gwsku"></a>Gateway SKUs
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
@@ -72,7 +65,7 @@ Use the diagrams and descriptions to help select the connection topology to matc
 
 ### <a name="S2S"></a>Site-to-Site
 
-A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. S2S connections can be used for cross-premises and hybrid configurations. A S2S connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT. For information about selecting a VPN device, see the [VPN Gateway FAQ - VPN devices](/vpn-gateway-vpn-faq.md#s2s).
+A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. A S2S connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT. S2S connections can be used for cross-premises and hybrid configurations.   
 
 ![Azure VPN Gateway Site-to-Site connection example](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
