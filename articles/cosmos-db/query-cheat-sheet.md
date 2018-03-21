@@ -18,22 +18,22 @@ ms.date: 03/20/2018
 ms.author: mimig
 
 ---
-# Azure Cosmos DB query cheat sheet
+# Azure Cosmos DB query cheat sheets
 
-The **Azure Cosmos DB query cheat sheet** helps you quickly write queries for your data by displaying common database queries, operations, functions, and operators in easy-to-print PDF reference sheets. The cheat sheets include reference information for the SQL API, MongoDB API, Table API, and Gremlin/Graph API. 
+The **Azure Cosmos DB query cheat sheets** helps you quickly write queries for your data by displaying common database queries, operations, functions, and operators in easy-to-print PDF reference sheets. The cheat sheets include reference information for the SQL API, MongoDB API, Table API, and Gremlin/Graph API. 
 
 Choose from a letter-sized or A3-sized download. 
 
-## Letter-sized cheat sheet
+## Letter-sized cheat sheets
 
-Download the [Azure Cosmos DB letter-sized query cheat sheet](http://go.microsoft.com/fwlink/?LinkId=623215) if you're going to print to letter-sized paper (8.5" x 11").
+Download the [Azure Cosmos DB letter-sized query cheat sheets](http://go.microsoft.com/fwlink/?LinkId=623215) if you're going to print to letter-sized paper (8.5" x 11").
 
-![Azure Cosmos DB query cheat sheet - letter-sized, with SQL API, JavaScript, MongoDB API, Graph API, and Table API queries and functions](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
+![Azure Cosmos DB query cheat sheets - letter-sized, with SQL API, JavaScript, MongoDB API, Graph API, and Table API queries and functions](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 
-## Oversized cheat sheet
-Download the [Azure Cosmos DB A3-sized query cheat sheet](https://go.microsoft.com/fwlink/?linkid=870413) if you're going to print using a plotter or large-scale printer on A3-sized paper (11.7" x 16.5").
+## Oversized cheat sheets
+Download the [Azure Cosmos DB A3-sized query cheat sheets](https://go.microsoft.com/fwlink/?linkid=870413) if you're going to print using a plotter or large-scale printer on A3-sized paper (11.7" x 16.5").
 
-![Azure Cosmos DB query cheat sheet - A3-sized, with SQL API, JavaScript, MongoDB API, Graph API, and Table API queries and functions](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
+![Azure Cosmos DB query cheat sheets - A3-sized, with SQL API, JavaScript, MongoDB API, Graph API, and Table API queries and functions](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
 
 ## Next steps
 For more help writing queries, see the following articles:
