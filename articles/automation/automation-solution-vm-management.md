@@ -80,7 +80,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
 
 1. After you have configured the initial settings required for the solution, click **OK** to close the **Parameters** page and select **Create**. After all settings are validated, the solution is deployed to your subscription. This process can take several seconds to finish, and you can track its progress under **Notifications** from the menu.
 
-## Configure the solution
+## Scenarios
 
 The solution contains three distinct scenarios. These scenarios are:
 
@@ -157,18 +157,6 @@ Now that you have a schedule for stopping VMs based on CPU utilization, you need
 
 * Target start action by subscription and resource group. See the steps in [Scenario 1](#scenario-1:-daily-stop/start-vms-across-a-subscription-or-target-resource-groups) for testing and enabling **Scheduled-StartVM** schedules.
 * Target start action by subscription, resource group, and tag. See the steps in [Scenario 2](#scenario-2:-sequence-the-stop/start-vms-across-a-subscription-using-tags) for testing and enabling **Sequenced-StartVM** schedules.
-
-### Configuring email notifications
-
-To configure email notifications after the solution is deployed, modify the following three variables:
-
-* External_EmailFromAddress: Specify the sender's email address.
-* External_EmailToAddress: Specify a comma-separated list of email addresses (user@hotmail.com, user@outlook.com) to receive notification emails.
-* External_IsSendEmail: Set to **Yes** to receive emails. To disable email notifications, set value to **No**.
-
-### Modifying the startup and shutdown schedules
-
-Managing the startup and shutdown schedules in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md).
 
 ## Solution components
 
@@ -300,6 +288,18 @@ Selecting the solution displays the **Start-Stop-VM[workspace]** solution page. 
 ![Automation Update Management solution page](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
 From here, you can perform further analysis of the job records by clicking the donut tile. The solution dashboard shows job history and pre-defined log search queries. Switch to the Log Analytics Advanced portal to search based on your search queries.
+
+## Configure email notifications
+
+To configure email notifications after the solution is deployed, modify the following three variables:
+
+* External_EmailFromAddress: Specify the sender's email address.
+* External_EmailToAddress: Specify a comma-separated list of email addresses (user@hotmail.com, user@outlook.com) to receive notification emails.
+* External_IsSendEmail: Set to **Yes** to receive emails. To disable email notifications, set value to **No**.
+
+## Modify the startup and shutdown schedules
+
+Managing the startup and shutdown schedules in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md).
 
 ## Update the solution
 
