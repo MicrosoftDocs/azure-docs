@@ -358,7 +358,7 @@ efficiency of the linear version. It is ideal for cases where the linear
 approach doesn't give accurate enough answers. The developers kept it
 fast by breaking down the problem into a bunch of small linear SVM
 problems. Read the [full
-description](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf)
+description](http://proceedings.mlr.press/v28/jose13.html)
 for the details on how they pulled off this trick.
 
 Using a clever extension of nonlinear SVMs, the [one-class
