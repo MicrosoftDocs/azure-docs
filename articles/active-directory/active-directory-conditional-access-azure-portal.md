@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -47,7 +47,7 @@ Following are some common access concerns that conditional access can help you w
 
 - **[Network location](active-directory-conditional-access-locations.md)**: Azure AD is accessible from anywhere. What if an access attempt is performed from a network location that is not under the control of your IT department? Using a username and password combination might be good enough as proof of identity for access attempts to your resources from your corporate network. What if you demand a stronger proof of identity for access attempts that are initiated from other unexpected countries or regions of the world? What if you even want to block access attempts from certain locations?  
 
-- **[Device management](active-directory-conditional-access-conditions.md#device-platforms)**: In Azure AD, users can access cloud apps from a broad range of devices including mobile and also personal devices. What if you demand that access attempt should only be performed user using devices that are managed by your IT department? What if you even want to block certain device types form access in cloud apps in your environment? 
+- **[Device management](active-directory-conditional-access-conditions.md#device-platforms)**: In Azure AD, users can access cloud apps from a broad range of devices including mobile and also personal devices. What if you demand that access attempts should only be performed using devices that are managed by your IT department? What if you even want to block certain device types from accessing cloud apps in your environment? 
 
 - **[Client application](active-directory-conditional-access-conditions.md#client-apps)**: Today, you can access many cloud apps using different app types such as web-based apps, mobile apps, or desktop apps. What if an access attempt is performed using a client app type that causes known issues? What if you require a device that is managed by your IT department for certain app types? 
 
@@ -107,7 +107,7 @@ For more information, see [Set up SharePoint Online and Exchange Online for Azur
 
 ### License requirements for using conditional access
 
-Using conditional access requires a Azure AD Premium / Enterprise Mobility + Security license. To find the right license for your requirements, see [Enterprise Mobility + Security Pricing Options](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).
+Using conditional access requires a Azure AD Premium license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
 
 
 ## Next steps

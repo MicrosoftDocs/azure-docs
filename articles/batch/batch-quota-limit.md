@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 03/16/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -36,9 +36,10 @@ If you plan to run production workloads in Batch, you may need to increase one o
 ## Resource quotas
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### Quotas in user subscription mode
 
-If you used an earlier version of the Batch API to create a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, which is no longer recommended, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quota does not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+### Cores quotas in user subscription mode
+
+If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 ## Other limits
 | **Resource** | **Maximum Limit** |
@@ -49,6 +50,7 @@ If you used an earlier version of the Batch API to create a Batch account with p
 | Application package size (each) |Approx. 195GB<sup>1</sup> |
 | Maximum start task size | 32768 characters<sup>2</sup> |
 | Maximum task lifetime | 7 days<sup>3</sup> |
+| Compute nodes in inter-node communication enabled pool | 100 |
 
 <sup>1</sup> Azure Storage limit for maximum block blob size<br />
 <sup>2</sup> Includes resource files and environment variables<br />

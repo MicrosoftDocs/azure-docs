@@ -31,25 +31,25 @@ This overview covers these aspects of managing SQL Data Warehouse.
 * Performance Best Practices
 * Query Monitoring
 * Security
-* Backup and restore
+* Back up and restore
 
 ## Management tools
 You can use a variety of tools to manage databases in SQL Data Warehouse. As you manage databases, you will develop tool preferences for each type of task you need to perform.
 
 ### Azure portal
-The [Azure portal][Azure portal] is a web-based portal where you can create, update, and delete databases and monitor database resources. This tool is great is if you're just getting started with Azure, managing a small number of data warehouse databases, or need to quickly do something.
+The [Azure portal][Azure portal] is a web-based portal where you can create, update, and delete databases and monitor database resources. This tool is great if you're just getting started with Azure, managing a small number of data warehouse databases, or need to quickly do something.
 
 To get started with the Azure portal, see [Create a SQL Data Warehouse (Azure portal)][Create a SQL Data Warehouse (Azure portal)].
 
 ### SQL Server Data Tools in Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) in Visual Studio allows you to connect to, manage, and develop your databases. If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), try using SSDT in Visual Studio.
 
-SSDT includes the SQL Server Object Explorer which enables you to visualize, connect, and execute scripts against SQL Data Warehouse databases. To quickly connect to SQL Data Warehouse, you can simply click the **Open in Visual Studio** button in the command bar when viewing the database details in the Azure portal.  
+SSDT includes the SQL Server Object Explorer, which enables you to visualize, connect, and execute scripts against SQL Data Warehouse databases. To quickly connect to SQL Data Warehouse, you can simply click the **Open in Visual Studio** button in the command bar when viewing the database details in the Azure portal.  
 
 To get started with SSDT in Visual Studio, see [Query Azure SQL Data Warehouse with Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 
 ### Command-line tools
-Command line tools are ideal for automating your workloads.  PowerShell and sqlcmd are two great ways to automate your processes.  We recommend these tools for managing a large number of logical servers and deploying resource changes in a production environment as the tasks necessary can be scripted and then automated.
+Command-line tools are ideal for automating your workloads.  PowerShell and sqlcmd are two great ways to automate your processes.  We recommend these tools for managing a large number of logical servers and deploying resource changes in a production environment as the tasks necessary can be scripted and then automated.
 
 ### Dynamic management views
 DMVs are the bread and butter of managing SQL Data Warehouse. Almost all information that surfaces in the portal relies on DMVs. To see a list of SQL Data Warehouse DMVs, see [SQL Data Warehouse system views][SQL Data Warehouse system views].
@@ -81,8 +81,8 @@ To maintain a secure system, you must be on the alert and guard against any type
 
 To learn about managing security, head over to the [Security overview][Security overview].
 
-## Backup and restore
-Having reliable backps of your data is an essential part of any production database. SQL Data Warehouse keeps your data safe by automatically backing up your active databases at regular intervals. These backups allow you to recover from scenarios where you've corrupted your data or accidentally dropped your data or database.  For the data backup schedule, retention policy and how to restore a database, see [Restore from snapshot][Restore from snapshot].
+## Back up and restore
+Having reliable backups of your data is an essential part of any production database. SQL Data Warehouse keeps your data safe by automatically backing up your active databases at regular intervals. These backups allow you to recover from scenarios where you've corrupted your data or accidentally dropped your data or database.  For the data backup schedule, retention policy and how to restore a database, see [Restore from snapshot][Restore from snapshot].
 
 ## Next steps
 Using good database design principles will make it easier to manage your databases in SQL Data Warehouse. To learn more, head over to the [Development overview][Development overview].
@@ -97,10 +97,10 @@ Using good database design principles will make it easier to manage your databas
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale performance]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[Scale performance]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

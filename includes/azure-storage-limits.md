@@ -11,7 +11,7 @@
 
 <sup>1</sup>Includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
 
-<sup>2</sup> To get your standard storage accounts to grow past the advertised limits in capacity, ingress/egress and request rate, please make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review the request and may approve higher limits on a case by case basis.
+<sup>2</sup> If you need expanded limits for your storage account, please contact [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review the request and may approve higher limits on a case by case basis. Both general-purpose and Blob storage accounts support increased capacity, ingress/egress, and request rate by request. For the new maximums for Blob storage accounts, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 <sup>3</sup> Capped only by the account's ingress/egress limits. *Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
 

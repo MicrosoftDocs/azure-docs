@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/16/2018
 ms.author: maquaran
 
 ---
@@ -23,6 +23,7 @@ ms.author: maquaran
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -39,6 +40,11 @@ ms.author: maquaran
 |**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## Release notes
+
+### <a name="1.3.1"/>1.3.1
+* Stability improvements.
+* Support for manual checkpointing.
+* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
 
 ### <a name="1.2.0"/>1.2.0
 * Adds support for .NET Standard 2.0. The package now supports `netstandard2.0` and `net451` framework monikers.
@@ -68,6 +74,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.3.1](#1.3.1) |March 13, 2018 |--- |
 | [1.2.0](#1.2.0) |October 31, 2017 |--- |
 | [1.1.1](#1.1.1) |August 29, 2017 |--- |
 | [1.1.0](#1.1.0) |August 13, 2017 |--- |

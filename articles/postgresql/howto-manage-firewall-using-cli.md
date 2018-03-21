@@ -1,15 +1,15 @@
 ---
-title: Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI | Microsoft Docs
+title: Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI
 description: This article describes how to create and manage Azure Database for PostgreSQL firewall rules using Azure CLI command line.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/28/2018
 ---
 # Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI
 Server-level firewall rules enable administrators to manage access to an Azure Database for PostgreSQL Server from a specific IP address or range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for PostgreSQL firewall rules, see [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md)
@@ -42,6 +42,15 @@ To allow access to a singular IP address, provide the same address in the `--sta
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
+To allow applications from Azure IP addresses to connect to your Azure Database for PostgreSQL server, provide the IP address 0.0.0.0 as the Start IP and End IP, as in this example.
+```azurecli-interactive
+az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver--name AllowAllAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```
+
+> [!IMPORTANT]
+> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+> 
+
 Upon success, the command output lists the details of the firewall rule you have created, by default in JSON format. If there is a failure, the output shows an error message instead.
 
 ## Update firewall rule 

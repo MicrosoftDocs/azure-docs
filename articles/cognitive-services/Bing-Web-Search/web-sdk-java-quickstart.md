@@ -307,7 +307,8 @@ public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscript
 ```
 Add the previous methods to a class with main function to run the code:
 ```
-
+package javaWebSDK;
+import com.microsoft.azure.cognitiveservices.websearch.*;
 public class webSDK{
 	
 	public static void main(String [ ] args) {

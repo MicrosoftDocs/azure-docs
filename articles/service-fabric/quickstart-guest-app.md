@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
@@ -133,7 +133,7 @@ Navigate to this address where you will see the `HELLO WORLD` response.
 Do not forget to delete all of the resources you've created for this quickstart, as you are charged for those resources.
 
 ## Next steps
-Read more about [guest executables](service-fabric-deploy-existing-app.md).
+Read more about [guest executables](service-fabric-guest-executables-introduction.md).
 
 <!-- Image References -->
 

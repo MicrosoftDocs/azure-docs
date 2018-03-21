@@ -158,7 +158,7 @@ route del <destination_ip> gw <gateway_ip>
 
 # [Windows](#tab/windows)
 
-route delete <destination_ip> <gateway_ip>
+route delete <destination_ip>
 
 ---
 

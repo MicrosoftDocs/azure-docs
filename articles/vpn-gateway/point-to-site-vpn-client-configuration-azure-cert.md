@@ -64,6 +64,11 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 You can use the same VPN client configuration package on each Windows client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the Point-to-Site section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).
 
+>[!NOTE]
+>You must have Administrator rights on the Windows client computer from which you want to connect.
+>
+>
+
 Use the following steps to configure the native Windows VPN client for certificate authentication:
 
 1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package. 

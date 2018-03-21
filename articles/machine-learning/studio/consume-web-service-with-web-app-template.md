@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye;raymondl
+ms.author: raymondl
 
 ---
 # Consume an Azure Machine Learning web service by using a web app template
