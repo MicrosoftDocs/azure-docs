@@ -3,9 +3,9 @@ title: Retrain Machine Learning models programmatically | Microsoft Docs
 description: Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: serinakaye
-ms.author: serinak
-manager: mwinkle
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
