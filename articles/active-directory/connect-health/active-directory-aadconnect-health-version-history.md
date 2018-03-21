@@ -64,7 +64,7 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
   1. Bug fixes and general improvements
   2. Sovereign cloud support
 * Azure AD Connect Health agent for Sync (version 3.0.68.0) released with Azure AD Connect version 1.1.614.0
-    1. Support for Microsoft Azure Government Cloud and Microsoft Cloud Germany
+  1. Support for Microsoft Azure Government Cloud and Microsoft Cloud Germany
 
 ## April 2017      
 **Agent Update:**
