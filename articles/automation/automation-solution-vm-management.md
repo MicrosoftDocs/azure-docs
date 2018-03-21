@@ -43,9 +43,11 @@ This solution provides a decentralized automation option for users who want to r
 Perform the following steps to add the Start/Stop VMs during off-hours solution to your Automation account, and then configure the variables to customize the solution.
 
 1. In the Azure portal, click **Create a resource**.
-   ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
 1. In the Marketplace page, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press Enter. Select **Start/Stop VMs during off-hours [Preview]** from the search results.
 1. In the **Start/Stop VMs during off-hours [Preview]** page for the selected solution, review the summary information and then click **Create**.
+
+   ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
+
 1. The **Add Solution** page appears. You are prompted to configure the solution before you can import it into your Automation subscription.
    ![VM Management Add Solution blade](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 1. On the **Add Solution** page, select **Workspace**. Select an OMS workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** page, perform the following:
@@ -63,10 +65,6 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    * In the **Name** field, enter the name of the Automation account.
 
     All other options are automatically populated based on the OMS workspace selected. These options cannot be modified. An Azure Run As account is the default authentication method for the runbooks included in this solution. After you click **OK**, the configuration options are validated and the Automation account is created. You can track its progress under **Notifications** from the menu.
-
-    Otherwise, you can select an existing Automation Run As account. Note that the account you select cannot already be linked to another OMS workspace. If it is already linked, you receive a message and need to select a different Automation Run As account or create a new one.
-
-   ![Automation Account Already Linked to OMS Workspace](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)
 
 1. Finally, on the **Add Solution** page, select **Configuration**. The **Parameters** page appears.
 
@@ -303,9 +301,9 @@ Managing the startup and shutdown schedules in this solution follows the same st
 
 ## Update the solution
 
-If you have deployed a previous version of this solution, you must first delete it from your account before deploying this release.
+If you have deployed a previous version of this solution, you must first delete it from your account before deploying an updated release. Follow the steps to [remove the solution](#remove-the-solution) and then follow the steps above to [deploy the solution](#deploy-the-solution).
 
-## Removing the solution
+## Remove the solution
 
 If you decide you no longer need to use the solution, you can delete it from the Automation account. Deleting the solution only removes the runbooks. It does not delete the schedules or variables that were created when the solution was added. Those assets you need to delete manually if you are not using them with other runbooks.
 
