@@ -52,7 +52,7 @@ Complete below tutorials
 
 2. In Azure IoT Hub Devices explorer, right-click an IoT Edge device ID, then select **Create deployment for Edge device**. Select the `deployment.json` under `config` folder. Then you can see the deployment is successfully created with a deployment ID in VS Code integrated terminal.
 
-3. If you are simulating an IoT Edge device on your development machine. You will see all the module image containers will be started in a few minutes.
+3. If you are [simulating an IoT Edge device](tutorial-simulate-device-linux.md) on your development machine. You will see that all the module image containers will be started in a few minutes.
 
 ## View generated data
 

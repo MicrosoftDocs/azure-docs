@@ -42,7 +42,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
 * [Docker](https://docs.docker.com/engine/installation/) on the same computer that has Visual Studio Code. The Community Edition (CE) is sufficient for this tutorial. 
 * [Python](https://www.python.org/downloads/).
-* [Pip]().
+* [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages.
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
@@ -82,7 +82,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
 
 8. Add the `TEMPERATURE_THRESHOLD` and `TWIN_CALLBACKS` under the global counters. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
-    ```csharp
+    ```python
     TEMPERATURE_THRESHOLD = 25
     TWIN_CALLBACKS = 0
     ```
@@ -90,6 +90,9 @@ The following steps show you how to create an IoT Edge Python module using Visua
 9. Update the function `receive_message_callback` with below content.
 
     ```python
+    # receive_message_callback is invoked when an incoming message arrives on the specified 
+    # input queue (in the case of this sample, "input1").  Because this is a filter module, 
+    # we will forward this message onto the "output1" queue.
     def receive_message_callback(message, hubManager):
         global RECEIVE_CALLBACKS
         global TEMPERATURE_THRESHOLD
@@ -103,7 +106,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
         RECEIVE_CALLBACKS += 1
         print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
         data = json.loads(message_text)
-        if data.has_key("machine") and data["machine"].has_key("temperature") and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
+        if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
             map_properties.add("MessageType", "Alert")
             print("Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
         hubManager.forward_event_to_output("output1", message, 0)
@@ -119,9 +122,9 @@ The following steps show you how to create an IoT Edge Python module using Visua
         global TEMPERATURE_THRESHOLD
         print ( "\nTwin callback called with:\nupdateStatus = %s\npayload = %s\ncontext = %s" % (update_state, payload, user_context) )
         data = json.loads(payload)
-        if data.has_key("desired") and data["desired"].has_key("TemperatureThreshold"):
+        if "desired" in data and "TemperatureThreshold" in data["desired"]:
             TEMPERATURE_THRESHOLD = data["desired"]["TemperatureThreshold"]
-        if data.has_key("TemperatureThreshold"):
+        if "TemperatureThreshold" in data:
             TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
         TWIN_CALLBACKS += 1
         print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
@@ -147,7 +150,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
         
    Use the user name, password, and login server that you copied from your Azure container registry when you created it.
 
-2. In VS Code explorer, Right-click the **module.json** file and click **Build and Push IoT Edge module Docker image**. In the pop-up dropdown box at the top of the VS Code window, select your container platform, for example, **amd64** for Linux container. VS Code containerize the `main.py` and required dependencies, then push it to the container registry you specified.
+2. In VS Code explorer, Right-click the **module.json** file and click **Build and Push IoT Edge module Docker image**. In the pop-up dropdown box at the top of the VS Code window, select your container platform, for example, **amd64** for Linux container. VS Code containerize the `main.py` and required dependencies, then push it to the container registry you specified. It might take several minutes for your first time to build the image.
 
 3. You can get the full container image address with tag in the VS Code integrated terminal. For more infomation about the build and push definition, you can refer to the `module.json` file.
 
@@ -179,7 +182,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 9. Add the **filterModule** module that you created in the previous sections. 
     1. Select **Add IoT Edge Module**.
     2. In the **Name** field, enter `filterModule`.
-    3. In the **Image URI** field, enter your image address; for example `<your container registry address>/filtermodule:latest`.
+    3. In the **Image URI** field, enter your image address; for example `<your container registry address>/filtermodule:0.0.1-amd64`. The full image address can be found from the previous section.
     4. Check the **Enable** box so that you can edit the module twin. 
     5. Replace the JSON in the text box for the module twin with the following JSON: 
 
