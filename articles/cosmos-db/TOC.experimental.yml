@@ -461,6 +461,8 @@ items:
       href: time-to-live.md
   - name: Resources
     items:
+    - name: Documentation experiment
+      href: experiment.md
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
     - name: Azure Roadmap
