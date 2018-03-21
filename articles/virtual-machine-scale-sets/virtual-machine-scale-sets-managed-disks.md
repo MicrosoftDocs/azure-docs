@@ -3,7 +3,7 @@ title: Using Managed Disks With Azure Virtual Machine Scale Sets | Microsoft Doc
 description: Learn why and how to use managed disks with virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
-ms.author: negat
+ms.author: iainfou
 
 ---
 # Azure VM scale sets and managed disks
