@@ -117,7 +117,7 @@ public static Task Run(
 > Instance termination is currently only supported for C# orchestrator functions.
 
 > [!NOTE]
-> Instance termination does not currently cascade. Activity functions and sub-orchestrations will run to completion regardless of whether the orchestration instance that called them has been terminated.
+> Instance termination does not currently propagate. Activity functions and sub-orchestrations will run to completion regardless of whether the orchestration instance that called them has been terminated.
 
 ## Sending events to instances
 
