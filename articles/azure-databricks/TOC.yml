@@ -11,10 +11,16 @@
     href: quickstart-create-databricks-workspace-portal.md
 - name: Tutorials
   items:
-  - name: Stream events using Event Hubs
+  - name: Perform ETL operations
+    href: databricks-extract-load-sql-data-warehouse.md
+  - name: Stream data using Event Hubs
     href: databricks-stream-from-eventhubs.md
+  - name: Sentiment analysis using Cognitive Services
+    href: databricks-sentiment-analysis-cognitive-services.md
 - name: How-to guides
   items:
+  - name: Connect to data sources 
+    href: databricks-connect-to-data-sources.md
   - name: Connect with Excel, R, and Python 
     href: connect-databricks-excel-python-r.md
   - name: Use Databricks CLI from Azure Cloud Shell

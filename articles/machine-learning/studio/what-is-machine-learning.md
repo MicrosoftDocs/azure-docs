@@ -4,8 +4,9 @@ description: Explains basic concepts of machine learning in the cloud, describes
 keywords: what is machine learning,machine learning terms,predictive,what is predictive analytics,machine learning terms
 services: machine-learning
 documentationcenter: ''
-author: cjgronlund
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: eaee083e-eaa1-4408-838b-93e51423d159
@@ -15,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/23/2018
-ms.author: cgronlun;tedway;olgali
+
 
 ---
 # Introduction to Machine Learning in the Azure cloud

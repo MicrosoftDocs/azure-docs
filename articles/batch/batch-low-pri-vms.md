@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 03/19/2018
 ms.author: markscu
 
 ---
@@ -25,12 +25,6 @@ The tradeoff for using low-priority VMs is that those VMs may not be available t
  
 Low-priority VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, 
  see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
-
-
-> [!IMPORTANT]
-> Low-priority VMs are currently available only for workloads running in Batch. 
->
->
 
 ## Use cases for low-priority VMs
 
