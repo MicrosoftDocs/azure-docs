@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 03/21/2018
 ms.author: kumud
 ---
 
@@ -156,6 +156,18 @@ Remember that the number of SNAT ports available does not translate directly to 
 Changing the size of your backend pool might affect some of your established flows. If the backend pool size increases and transitions into the next tier, half of your preallocated SNAT ports are reclaimed during the transition to the next larger backend pool tier. Flows that are associated with a reclaimed SNAT port will time out and must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
 
 If the backend pool size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
+
+SNAT ports allocations are IP transport protocol specific (TCP and UDP are maintained separately) and are released under the following conditions:
+
+### TCP SNAT port release
+
+- If both server/client sends FIN/ACK, SNAT port will be released after 240 seconds.
+- If a RST is seen, SNAT port will be released after 15 seconds.
+- idle timeout has been reached
+
+### UDP SNAT port release
+
+- idle timeout has been reached
 
 ## <a name="problemsolving"></a> Problem solving 
 
