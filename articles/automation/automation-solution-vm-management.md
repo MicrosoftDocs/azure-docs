@@ -73,7 +73,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    Here, you're prompted to:
    * Specify the **Target ResourceGroup Names**. These are resource group names that contain VMs to be managed by this solution. You can enter more than one name and separate each by using a comma (values are not case sensitive). Using a wildcard is supported if you want to target VMs in all resource groups in the subscription. This value is stored in the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** variables.
    * Specify the **VM Exclude List (string)**. This is the name of one or more virtual machines from the target resource group. You can enter more than one name and separate each by using a comma (values are not case sensitive). Using a wildcard is supported. This value is stored in the **External_ExcludeVMNames** variable.
-   * Select a **Schedule**. This is a recurring date and time for starting and stopping the VMs in the target resource groups. By default, the schedule is configured to the UTC time zone. Selecting a different region is not available. To configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modifying-the-startup-and-shutdown-schedule).
+   * Select a **Schedule**. This is a recurring date and time for starting and stopping the VMs in the target resource groups. By default, the schedule is configured to the UTC time zone. Selecting a different region is not available. To configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modify-the-startup-and-shutdown-schedule).
    * To receive **Email notifications** from SendGrid, accept the default value of **Yes** and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the **External_EmailToAddress** variable with valid email addresses separated by a comma, and then modify the variable **External_IsSendEmail** with the value **Yes**.
 
 1. After you have configured the initial settings required for the solution, click **OK** to close the **Parameters** page and select **Create**. After all settings are validated, the solution is deployed to your subscription. This process can take several seconds to finish, and you can track its progress under **Notifications** from the menu.
@@ -84,7 +84,8 @@ The solution contains three distinct scenarios. These scenarios are:
 
 ### Scenario 1: Start/Stop VMs on a schedule
 
-This is the default configuration when you first deploy the solution. For example, you can configure it to stop all VMs across a subscription when you leave work in the evening, and start them in the morning when you are back in the office. When you configure the schedules **Scheduled-StartVM** and **Scheduled-StopVM** during deployment, they start and stop targeted VMs.
+This is the default configuration when you first deploy the solution. For example, you can configure it to stop all VMs across a subscription when you leave work in the evening, and start them in the morning when you are back in the office. When you configure the schedules **Scheduled-StartVM** and **Scheduled-StopVM** during deployment, they start and stop targeted VMs. Configuring this solution to just stop VMs is supported, see [Modify the startup and shutdown schedules](#modify-the-startup-and-shutdown-schedules) to learn how to configure a custom schedule.
+
 >[!NOTE]
 >The time zone is your current time zone when you configure the schedule time parameter. However, it is stored in UTC format in Azure Automation. You do not have to do any time zone conversion as this is handled during the deployment.
 
@@ -98,7 +99,7 @@ You can enable either targeting the action against a subscription and resource g
 2. Enable and update the **Scheduled-StartVM** and **Scheduled-StopVM** schedules.
 3. Run the **ScheduledStartStop_Parent** runbook with the ACTION parameter set to **start** and the WHATIF parameter set to **True** to preview your changes.
 
-#### Target the stop action by VM list
+#### Target the start and stop action by VM list
 
 1. Run the **ScheduledStartStop_Parent** runbook with the ACTION parameter set to **start**, add a comma-separated list of VMs in the *VMList* parameter, and then set the WHATIF parameter to **True**. Preview your changes.
 2. Configure the **External_ExcludeVMNames** parameter with a comma-separated list of VMs (VM1,VM2,VM3).
@@ -118,7 +119,7 @@ In an environment that includes two or more components on multiple VMs supportin
 3. Run the **SequencedStartStop_Parent** runbook with the ACTION parameter set to **start** and the WHATIF parameter set to **True** to preview your changes.
 4. Preview the action and make any necessary changes before implementing against production VMs. When ready, manually execute the runbook with the parameter set to **False**, or let the Automation schedule **Sequenced-StartVM** and **Sequenced-StopVM** run automatically following your prescribed schedule.
 
-#### Target the stop action by VM list
+#### Target the start and stop action by VM list
 
 1. Add a **SequenceStart** and a **SequenceStop** tag with a positive integer value to VMs you plan to add to the **VMList** variable. 
 2. Run the **SequencedStartStop_Parent** runbook with the ACTION parameter set to **start**, add a comma-separated list of VMs in the *VMList* parameter, and then set the WHATIF parameter to **True**. Preview your changes.
@@ -145,7 +146,7 @@ You can enable either targeting the action against a subscription and resource g
 2. Enable and update the **Schedule_AutoStop_CreateAlert_Parent** schedule.
 3. Run the **AutoStop_CreateAlert_Parent** runbook with the ACTION parameter set to **start** and the WHATIF parameter set to **True** to preview your changes.
 
-#### Target the stop action by VM list
+#### Target the start and stop action by VM list
 
 1. Run the **AutoStop_CreateAlert_Parent** runbook with the ACTION parameter set to **start**, add a comma-separated list of VMs in the *VMList* parameter, and then set the WHATIF parameter to **True**. Preview your changes.
 2. Configure the **External_ExcludeVMNames** parameter with a comma-separated list of VMs (VM1,VM2,VM3).
@@ -298,6 +299,14 @@ To configure email notifications after the solution is deployed, modify the foll
 ## Modify the startup and shutdown schedules
 
 Managing the startup and shutdown schedules in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md).
+
+Configuring the solution to just stop VMs at a certain time is supported. To do this you need to:
+
+1. Ensure you have added the resource groups for the VMs to shutdown in the **External_Start_ResourceGroupNames** variable.
+2. Create your own schedule for the time you want to shut down the VMs.
+3. Navigate to the **ScheduledStartStop_Parent** runbook and click **Schedule**. This allows you to select the schedule you created in the preceding step.
+4. Select **Parameters and run settings** and set the ACTION paramter to "Stop".
+5. Click **OK** to save your changes.
 
 ## Update the solution
 
