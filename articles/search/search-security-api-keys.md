@@ -25,11 +25,7 @@ All requests to a search service need an api-key that was generated specifically
 
 An api-key is a string composed of randomly generated numbers and letters. Through [role-based permissions](search-security-rbac.md), you can delete or read the keys, but you can't replace a key with a user-defined password or use Active Directory as the primary authentication methodology for accessing search operations. 
 
-Two types of keys are used to access your search service:
-
-* Admin (valid for any read-write operation against the service)
-* Query (valid for read-only operations such as queries against an index)
-
+Two types of keys are used to access your search service: admin (read-write) and query (read-only).
 
 |Key|Description|Limits|  
 |---------|-----------------|------------|  
