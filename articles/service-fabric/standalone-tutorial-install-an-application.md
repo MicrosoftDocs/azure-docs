@@ -29,32 +29,57 @@ In part three of the series, you learn how to:
 > * Security Groups?
 > * Login to one of the instances
 
-Azure blob storage provides a scalable service for storing your data. To ensure your application is as performant as possible, an understanding of how blob storage works is recommended. Knowledge of the limits for Azure blobs is important, to learn more about these limits visit: [blob storage scalability targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+## Download the Voting sample application
 
-[Partition naming](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) is another important factor when designing a highly performing application using blobs. Azure storage uses a range-based partitioning scheme to scale and load balance. This configuration means that files with similar naming conventions or prefixes go to the same partition. This logic includes the name of the container that the files are being uploaded to. In this tutorial, you use files that have GUIDs for names as well as randomly generated content. They are then uploaded to five different containers with random names.
-
-## Prerequisites
-
-In order to complete this tutorial you need an AWS account.
-
-## Create an EC2 instance
-
-This is where we create an EC2 instance.
-
-### Validate the connections
-
-While the files are being uploaded, you can verify the number of concurrent connections to your storage account. Open a **Command Prompt** and type `netstat -a | find /c "blob:https"`. This command shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example, 800 connections were open when uploading the random files to the storage account. This value changes throughout running the upload. By uploading in parallel block chunks, the amount of time required to transfer the contents is greatly reduced.
+If you did not build the Voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
 
 ```
-C:\>netstat -a | find /c "blob:https"
-800
-
-C:\>
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## Remote into your virtual machine
+## Deploy the app to the AWS
 
-Open the command prompt
+Now that the application is ready, you can deploy it to the Party Cluster direct from Visual Studio.
+
+1. Right-click **Voting** in the Solution Explorer and choose **Publish**. 
+
+    ![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
+
+2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. Click **Publish**. 
+
+    Once the publish has finished, you should be able to send a request to the application via a browser.
+
+3. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.westus.cloudapp.azure.com).
+
+    You should now see the same result as you saw when running the application locally.
+
+    ![API Response from Cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
+
+## Remove the application from a cluster using Service Fabric Explorer
+
+Service Fabric Explorer is a graphical user interface to explore and manage applications in a Service Fabric cluster.
+
+To remove the application from the Party Cluster:
+
+1. Browse to the Service Fabric Explorer, using the link provided by the Party Cluster sign-up page. For example, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+
+2. In Service Fabric Explorer, navigate to the **fabric:/Voting** node in the treeview on the left-hand side.
+
+3. Click the **Action** button in the right-hand **Essentials** pane, and choose **Delete Application**. Confirm deleting the application instance, which removes the instance of our application running in the cluster.
+
+![Delete Application in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
+
+## Remove the application type from a cluster using Service Fabric Explorer
+
+Applications are deployed as application types in a Service Fabric cluster, which enables you to have multiple instances and versions of the application running within the cluster. After having removed the running instance of our application, we can also remove the type, to complete the cleanup of the deployment.
+
+For more information about the application model in Service Fabric, see [Model an application in Service Fabric](service-fabric-application-model.md).
+
+1. Navigate to the **VotingType** node in the treeview.
+
+2. Click the **Action** button in the right-hand **Essentials** pane, and choose **Unprovision Type**. Confirm unprovisioning the application type.
+
+![Unprovision Application Type in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/unprovision-type.png)
 
 ## Next steps
 
