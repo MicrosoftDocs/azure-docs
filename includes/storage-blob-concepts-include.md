@@ -1,4 +1,4 @@
-Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.
+Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data. Clients can access data in Blob storage over HTTP or HTTPS from anywhere in the world.
 
 Common uses of Blob storage include:
 
@@ -9,15 +9,16 @@ Common uses of Blob storage include:
 * Storing data for analysis by an on-premises or Azure-hosted service.
 
 ## Blob service concepts
-The Blob service contains the following components:
+
+Here's a diagram that shows the types of objects available in Blob storage:
 
 ![Diagram of Blob service architecture](./media/storage-blob-concepts-include/blob1.png)
 
-* **Storage account:** All access to Azure Storage is done through a storage account. This storage account can be a **General-purpose storage account** or a **Blob storage account**, which is specialized for storing objects or blobs. See [About Azure storage accounts](../articles/storage/common/storage-create-storage-account.md) for more information.
-* **Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. Note that the container name must be lowercase.
+* **Storage account:** All access to Azure Storage is done through a storage account. This storage account can be a **General-purpose storage account** or a **Blob storage account**, which is specialized for storing objects or blobs. For more information, see [About Azure storage accounts](../articles/storage/common/storage-create-storage-account.md).
+* **Container:** A container provides a grouping for a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. The container name must be lowercase.
 * **Blob:** A file of any type and size. Azure Storage offers three types of blobs: block blobs, append blobs, and page blobs.
   
-    *Block blobs* are ideal for storing text or binary files, such as documents and media files. A single block blob can contain up to 50,000 blocks of up to 100 MB each, for a total size of slightly more than 4.75 TB (100 MB X 50,000). 
+    *Block blobs* are ideal for storing text or binary data, such as documents and media files. A single block blob can contain up to 50,000 blocks of up to 100 MB each, for a total size of slightly more than 4.75 TB (100 MB X 50,000). 
 
     *Append blobs* are similar to block blobs in that they are made up of blocks, but they are optimized for append operations, so they are useful for logging scenarios. A single append blob can contain up to 50,000 blocks of up to 4 MB each, for a total size of slightly more than 195 GB (4 MB X 50,000).
   
