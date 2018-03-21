@@ -195,7 +195,7 @@ To view the health of your Public Standard Load Balancer resources,
 
     ![Load Balancer health status](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Figure  - Load Balancer resource heath view*
+   *Figure  - Load Balancer resource health view*
  
 The following table lists the various resource health status and their descriptions. 
 
