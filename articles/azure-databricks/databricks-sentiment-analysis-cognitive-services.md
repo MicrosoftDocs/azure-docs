@@ -5,7 +5,7 @@ services: azure-databricks
 documentationcenter: ''
 author: lenadroid
 manager: cgronlun
-editor: nitinme
+editor: ''
 tags: ''
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: alehall
 
 ---
