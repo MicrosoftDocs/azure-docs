@@ -9,7 +9,6 @@
     - name: Supported countries and markets
       href: supported-countries-markets.md
 - name: API Quickstarts
-  expanded: true
   items:
   - name: First query in C#
     href: quickstarts/csharp.md

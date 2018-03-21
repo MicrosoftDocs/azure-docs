@@ -3,7 +3,7 @@ title: 'Tutorial: Create a pipeline using Copy Wizard | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using the Copy Wizard supported by Data Factory
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: spelluru
 manager: jhubbard
 editor: monicar
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: jingwang
+ms.author: spelluru
 
 robots: noindex
 ---

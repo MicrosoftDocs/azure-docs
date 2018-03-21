@@ -258,7 +258,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyncLogStartTime = Get-Date
+$SyncStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"

@@ -2,14 +2,13 @@
 title: Azure Stack Quick Start - Create a Windows virtual machine
 description: Azure Stack Quick Start - Create a Windows VM using the portal
 services: azure-stack
-author: brenduns
-manager: femila
+author: ErikjeMS
+manager: byronr
 
 ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 09/15/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.author: erikje
 ms.custom: mvc
 ---
 

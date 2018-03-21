@@ -1,6 +1,6 @@
 ---
   title: Document protection of personal data with Azure reporting tools| Microsoft Docs
-  description: use Azure reporting services to protect privacy of personal data in initiatives to comply with General Data Protection Regulation (GDPR).
+  description: how to use Azure reporting services and technologies to help protect privacy of personal data.
   services: security
   documentationcenter: na
   author: barclayn
@@ -13,7 +13,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 03/06/2018
+  ms.date: 08/24/2017
   ms.author: barclayn
 
 
@@ -21,7 +21,8 @@
 ---
 # Document protection of personal data with Azure reporting tools
 
-This article will discuss how to use Azure reporting services and technologies to help protect privacy of personal data. This information can be used to comply with industry or government regulations such as General Data Protection Regulation (GDPR).
+This article will discuss how to use Azure reporting services and technologies to help protect privacy of personal data.
+
 ## Scenario
 
 A large cruise company, headquartered in the United States, is expanding its operations to offer itineraries in the Mediterranean, Adriatic, and Baltic seas, as well as the British Isles. To help these efforts, it has acquired several smaller cruise lines based in Italy, Germany, Denmark and the U.K.

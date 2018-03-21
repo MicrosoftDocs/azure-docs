@@ -1,7 +1,7 @@
 ---
 title: Video Search SDK Node quickstart | Microsoft Docs
 description: Setup for Video Search SDK console application.
-titleSuffix: Azure cognitive services
+titleSuffix: Azure cognitive services Video search SDK Node quickstart
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -40,8 +40,7 @@ client.videosOperations.search('Interstellar Trailer').then((result) => {
 });
 
 ```
-The code prints `result.value` items to the console without parsing any text. The results will be:
-- _type: 'VideoObjectElementType'
+The code prints `result.value` items to the console without parsing any text.
 
 ![Video results](media/video-search-sdk-node-results.png)
 

@@ -32,7 +32,7 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## Prerequisite
-If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). 
+If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#az_login). 
 
 ## View existing NSGs
 To view the list of NSGs in a specific resource group, run the [az network nsg list](/cli/azure/network/nsg#az_network_nsg_list) command with a `-o table` output format:

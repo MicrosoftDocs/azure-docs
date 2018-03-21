@@ -1,6 +1,6 @@
 ---
 title: Create a Windows Service Fabric cluster in Azure | Microsoft Docs
-description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an existing Azure virtual network using PowerShell.
+description: Learn how to deploy a Windows Service Fabric cluster into an existing Azure virtual network using PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -18,7 +18,7 @@ ms.author: ryanwi
 ms.custom: mvc
 ---
 
-# Tutorial: deploy a Service Fabric Windows cluster into an Azure virtual network
+# Deploy a Service Fabric Windows cluster into an Azure virtual network
 This tutorial is part one of a series. You learn how to deploy a Service Fabric cluster running Windows into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) and [network security group](../virtual-network/virtual-networks-nsg.md) using PowerShell and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster using Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 This tutorial describes a production scenario.  If you want to quickly create a small cluster for testing purposes, see [Create a three node test cluster](./scripts/service-fabric-powershell-create-test-cluster.md).

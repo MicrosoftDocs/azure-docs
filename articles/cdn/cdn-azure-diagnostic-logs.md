@@ -107,7 +107,7 @@ For more information about log data delays, see [Log data delays](#log-data-dela
 
 The following example shows how to enable Diagnostic Logs via the Azure PowerShell Cmdlets.
 
-### Enabling Diagnostic Logs in a Storage Account
+###Enabling Diagnostic Logs in a Storage Account
 
 First log in and select a subscription:
 

@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Alert (classic) on metric condition
+  - name: Alert on metric condition
     href: monitor-quick-resource-metric-alert-portal.md
   - name: Alert on subscription activity
     href: monitor-quick-audit-notify-action-in-subscription.md
@@ -31,10 +31,10 @@
       href: monitoring-overview-azure-monitor.md
     - name: Metrics
       href: monitoring-overview-metrics.md
-    - name: Alerts 
-      href: monitoring-overview-unified-alerts.md
-    - name: Alerts (Classic)
+    - name: Alerts
       href: monitoring-overview-alerts.md
+    - name: Alerts (Preview)
+      href: monitoring-overview-unified-alerts.md
     - name: Log alerts
       href: monitor-alerts-unified-log.md
     - name: Autoscale
@@ -42,15 +42,24 @@
     - name: Activity log
       href: monitoring-overview-activity-logs.md
     - name: Activity log alerts (Preview)
-      href: monitoring-activity-log-alerts-new-experience.md      
-    - name: Extend alerts from OMS to Azure
-      href: monitoring-alerts-extend.md
+      href: monitoring-activity-log-alerts-new-experience.md
     - name: Action groups
       href: monitoring-action-groups.md
     - name: Diagnostic logs
       href: monitoring-overview-of-diagnostic-logs.md
     - name: Azure Diagnostics Extension
       href: azure-diagnostics.md
+  - name: Schemas
+    items:
+    - name: Azure Diagnostics extension schema
+      href: azure-diagnostics-schema.md
+      items:
+      - name: 1.0
+        href: azure-diagnostics-schema-1dot0.md
+      - name: 1.2
+        href: azure-diagnostics-schema-1dot2.md
+      - name: 1.3 and later
+        href: azure-diagnostics-schema-1dot3-and-later.md
 - name: How-to guides
   items:
   - name: Walkthroughs
@@ -61,28 +70,28 @@
       href: monitoring-autoscale-get-started.md
     - name: Multi-dimensional metrics explorer
       href: monitoring-metric-charts.md
+    - name: Azure CLI 1.0 samples
+      href: insights-cli-samples.md
     - name: Azure PowerShell samples
       href: insights-powershell-samples.md
   - name: Use alerts
     items:
-    - name: Configure new alerts in Azure portal
+    - name: Configure near real-time alerts in Azure portal
       href: monitoring-near-real-time-metric-alerts.md
-    - name: Configure classic alerts in Azure portal
+    - name: Configure alerts in Azure portal
       href: insights-alerts-portal.md
-    - name: Configure metric or log alerts in Azure portal
+    - name: Configure metric or log alerts in Alerts (Preview) in Azure portal
       href: monitor-alerts-unified-usage.md
     - name: Configure alerts with CLI
       href: insights-alerts-command-line-interface.md
     - name: Configure alerts with Azure PowerShell
       href: insights-alerts-powershell.md
-    - name: Have a classic metric alert call a webhook
+    - name: Have a metric alert call a webhook
       href: insights-webhooks-alerts.md
       name: Webhook actions for log alerts
       href: monitor-alerts-unified-log-webhook.md
     - name: Create a metric alert with a Resource Manager template
-      href: monitoring-enable-alerts-using-template.md      
-    - name: Initiate extending alerts from OMS to Azure
-      href: monitoring-alerts-extend-tool.md
+      href: monitoring-enable-alerts-using-template.md
   - name: Use autoscale
     items:
     - name: Understand Autoscale settings

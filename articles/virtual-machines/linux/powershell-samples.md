@@ -3,7 +3,7 @@ title: Azure Virtual Machine PowerShell Samples | Microsoft Docs
 description: Azure Virtual Machine PowerShell Samples
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: iainfou
+ms.author: nepeters
 
 ---
 # Azure Virtual Machine PowerShell samples

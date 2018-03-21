@@ -2,13 +2,19 @@
 title: Manage after migration - Azure SQL Database | Microsoft Docs
 description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
+documentationcenter: ''
 author: joesackmsft
-manager: craigg
+manager: jhubbard
+editor: 
+ms.assetid: 
 ms.service: sql-database
 ms.custom: migrate
+ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
-ms.author: josack
+ms.tgt_pltfrm: na
+ms.workload: "Inactive"
+ms.date: 12/06/2016
+ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
@@ -251,7 +257,7 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 ### How do I synchronize data between SQL Database and SQL Server?
 You have several ways to achieve this: 
 - **[Data Sync](sql-database-sync-data.md)** – This feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and SQL Database. To sync with on-premises SQL Server databases, you need to install and configure sync agent on a local computer and open the outbound TCP port 1433.
-- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premise to Azure SQL DB with the on-premise being the publisher and the Azure SQL DB being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premise to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Transaction Replication](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premise to Azure SQL DB with the on-premise being the publisher and the Azure SQL DB being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premise to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## Next steps
 Learn about [SQL Database](sql-database-technical-overview.md).

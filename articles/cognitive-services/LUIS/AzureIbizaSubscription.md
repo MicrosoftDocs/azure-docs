@@ -1,6 +1,6 @@
 ---
-title: Manage Azure endpoint subscription | Microsoft Docs
-description: In this article, you create a metered endpoint key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
+title: Manage Azure subscription | Microsoft Docs
+description: In this article, you create a metered key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
 services: cognitive-services
 author: v-geberr
 manager: Kaiqb
@@ -8,19 +8,15 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 01/08/2017
 ms.author: v-geberr
 ---
 
-# Manage Azure endpoint subscription keys
+# Manage Azure subscription keys
 
-For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. 
+For authoring, testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. When using the paid tier, LUIS scales to the number of endpoint transactions your application needs.
 
-> [!NOTE]
-> The [authoring key](manage-keys.md#authoring-key) should not be used for endpoint queries in production.
-
-<a name="create-luis-service"></a>
-## Create LUIS endpoint key
+## Create LUIS service
 
 1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)** 
 2. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
@@ -36,7 +32,7 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Log into your region's [LUIS](luis-reference-regions.md) website and [add the new LUIS endpoint key](Manage-Keys.md#assign-endpoint-key). 
+    > * Log into your region's [LUIS](luis-reference-regions.md) website and add the new LUIS service as part of [publishing your app](PublishApp.md). 
     > * You need to remember the name of the Azure service you created in order to select it on the region's [LUIS](luis-reference-regions.md) publish page.  
 
 ## Change LUIS pricing tier

@@ -1,13 +1,21 @@
 ---
-title: Runbook Output and Messages in Azure Automation
+title: Runbook Output and Messages in Azure Automation | Microsoft Docs
 description: Desribes how to create and retrieve output and error messages from runbooks in Azure Automation.
 services: automation
-ms.service: automation
+documentationcenter: ''
 author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
+manager: jwhit
+editor: tysonn
+
+ms.assetid: 13a414f5-0e2c-4be2-9558-a3e3ec84b6b2
+ms.service: automation
+ms.devlang: na
 ms.topic: article
-manager: carmonm
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 11/11/2016
+ms.author: magoedte;bwren
+
 ---
 # Runbook output and messages in Azure Automation
 Most Azure Automation runbooks have some form of output such as an error message to the user or a complex object intended to be consumed by another workflow. Windows PowerShell provides [multiple streams](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) to send output from a script or workflow. Azure Automation works with each of these streams differently, and you should follow best practices for how to use each when you are creating a runbook.
@@ -199,8 +207,8 @@ You can see from the preceding screenshot that when you enable Verbose logging a
    
    ![Graphical Authoring Logging and Tracing Blade](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### Microsoft Azure Log Analytics
-Automation can send runbook job status and job streams to your Log Analytics workspace. With Log Analytics you can,
+### Microsoft Operations Management Suite (OMS) Log Analytics
+Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace. With Log Analytics you can,
 
 * Get insight on your Automation jobs 
 * Trigger an email or alert based on your runbook job status (for example, failed or suspended) 
@@ -208,7 +216,7 @@ Automation can send runbook job status and job streams to your Log Analytics wor
 * Correlate jobs across Automation accounts 
 * Visualize your job history over time    
 
-For more information on how to configure integration with Log Analytics to collect, correlate and act on job data, see [Forward job status and job streams from Automation to Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+For more information on how to configure integration with Log Analytics to collect, correlate and act on job data, see [Forward job status and job streams from Automation to Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
 
 ## Next steps
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)

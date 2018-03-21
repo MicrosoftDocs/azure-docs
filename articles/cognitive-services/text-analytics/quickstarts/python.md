@@ -31,7 +31,7 @@ To continue with this walkthrough, replace `subscription_key` with a valid subsc
 
 
 ```python
-subscription_key = None
+subscription_key="5d162a1f02724f6daf4489f4220413a4"
 assert subscription_key
 ```
 

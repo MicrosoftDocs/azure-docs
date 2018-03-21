@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure solutions with PowerShell | Microsoft Docs
 description: Use Azure PowerShell and Resource Manager to manage your resources.
 services: azure-resource-manager
@@ -19,7 +19,7 @@ ms.author: tomfitz
 ---
 # Manage resources with Azure PowerShell
 
-[!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
+[!include[Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -27,7 +27,7 @@ If you choose to install and use the PowerShell locally, see [Install Azure Powe
 
 ## Understand scope
 
-[!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
+[!include[Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
 In this article, you apply all management settings to a resource group so you can easily remove those settings when done.
 
@@ -42,7 +42,7 @@ Currently, the resource group is empty.
 
 ## Role-based access control
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
+[!include[Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
 ### Assign a role
 
@@ -70,7 +70,7 @@ Typically, you repeat the process for **Network Contributor** and **Storage Acco
 
 ## Azure policies
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
+[!include[Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
 
 ### Apply policies
 
@@ -128,7 +128,7 @@ After your deployment finishes, you can apply more management settings to the so
 
 ## Lock resources
 
-[!INCLUDE [Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
+[!include[Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
 
 ### Lock a resource
 
@@ -151,11 +151,11 @@ The virtual machine can only be deleted if you specifically remove the lock. Tha
 
 ## Tag resources
 
-[!INCLUDE [Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
+[!include[Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
 ### Tag resources
 
-[!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
+[!include[Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
 To apply tags to a virtual machine, use:
 

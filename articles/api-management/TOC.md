@@ -42,7 +42,7 @@
 ## Cache
 ### [Add caching to improve performance](api-management-howto-cache.md)
 ## Secure your backend
-### [Protect your API with Azure AD](api-management-howto-protect-backend-with-aad.md)
+### [Protect Web API backend with Azure AD](api-management-howto-protect-backend-with-aad.md)
 ### [Connect to a virtual network](api-management-using-with-vnet.md)
 ### [Connect to an internal virtual network](api-management-using-with-internal-vnet.md)
 ### [Integrate Application Gateway in an internal VNET](api-management-howto-integrate-internal-vnet-appgateway.md)

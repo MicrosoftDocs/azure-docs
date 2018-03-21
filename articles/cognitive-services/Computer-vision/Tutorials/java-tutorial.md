@@ -2,14 +2,14 @@
 title: Computer Vision API Java tutorial | Microsoft Docs
 description: Explore a basic Java Swing app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services 
-author: KellyDF
-ms.author: kefre
+author: v-royhar
+ms.author: v-royhar
 ms.date: 09/21/2017
 ms.topic: tutorial
 ms.service: cognitive-services
 
 ms.devlang: java
-manager: corncar
+manager: julianik
 ---
 
 # Computer Vision API Java tutorial

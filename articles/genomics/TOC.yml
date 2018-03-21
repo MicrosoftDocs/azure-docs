@@ -1,4 +1,4 @@
-- name: Microsoft Genomics Documentation
+- name: Microsoft Genomics documentation
   href: index.yml
 - name: Overview
   items:
@@ -17,8 +17,6 @@
       href: quickstart-input-bam.md
     - name: Multiple FASTQ or BAM files
       href: quickstart-input-multiple.md    
-  - name: Input a SAS token instead of account key 
-    href: quickstart-input-sas.md
 - name: Resources
   items:
   - name: Common questions

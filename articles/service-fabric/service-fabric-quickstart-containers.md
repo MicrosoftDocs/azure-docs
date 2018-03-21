@@ -1,6 +1,6 @@
 ﻿---
 title: Create an Azure Service Fabric Windows container application | Microsoft Docs
-description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
+description: Create your first Windows container application on Azure Service Fabric.  
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,13 +13,13 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
 
 ---
 
-# Quickstart: deploy a Service Fabric Windows container application on Azure
+# Deploy a Service Fabric Windows container application on Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
 Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This quickstart shows you how to deploy a pre-built Docker container image in a Service Fabric application. When you're finished, you'll have a running Windows Server 2016 Nano Server and IIS container. This quickstart describes deploying a Windows container, read [this quickstart](service-fabric-quickstart-containers-linux.md) to deploy a Linux container.
@@ -46,25 +46,21 @@ Start Visual Studio as "Administrator".  Select **File** > **New** > **Project**
 
 Select **Service Fabric application**, name it "MyFirstContainer", and click **OK**.
 
-Select **Container** from the **Hosted Containers and Applications** templates.
+Select **Container** from the list of **service templates**.
 
 In **Image Name**, enter "microsoft/iis:nanoserver", the [Windows Server Nano Server and IIS base image](https://hub.docker.com/r/microsoft/iis/). 
 
 Name your service "MyContainerService", and click **OK**.
 
 ## Configure communication and container port-to-host port mapping
-The service needs an endpoint for communication.  For this quickstart, the containerized service listens on port 80.  In Solution Explorer, open *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml*.  Update the existing `Endpoint` in the ServiceManifest.xml file and add the protocol, port, and uri scheme: 
+The service needs an endpoint for communication.  You can now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file. For this quickstart, the containerized service listens on port 80: 
 
 ```xml
-<Resources>
-    <Endpoints>
-        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-   </Endpoints>
-</Resources>
+<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
 ```
 Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
 
-Configure the container port-to-host port mapping so that incoming requests to the service on port 80 are mapped to port 80 on the container.  In Solution Explorer, open *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml* and specify a `PortBinding` policy in `ContainerHostPolicies`.  For this quickstart, `ContainerPort` is 80 and `EndpointRef` is "MyContainerServiceTypeEndpoint" (the endpoint defined in the service manifest).    
+Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this quickstart, `ContainerPort` is 80 and `EndpointRef` is "MyContainerServiceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 80 are mapped to port 80 on the container.  
 
 ```xml
 <ServiceManifestImport>
@@ -81,7 +77,9 @@ Configure the container port-to-host port mapping so that incoming requests to t
 A full ApplicationManifest.xml example file is provided at the end of this article.
 
 ## Create a cluster
-To deploy the application to a cluster in Azure, you can either join a party cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform.  The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. Party clusters support containers. If you setup your own cluster, however, the cluster must be running on Windows Server 2016 with Containers in order to run containers.
+To deploy the application to a cluster in Azure, you can either join a party cluster or [create your own cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. 
 
 Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
 
@@ -108,7 +106,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and verify the connection parameter information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. 
+Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. 
 
 ![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -188,6 +186,7 @@ Here are the complete service and application manifests used in this quickstart.
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

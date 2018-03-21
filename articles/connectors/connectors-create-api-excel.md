@@ -3,7 +3,7 @@ title: Add the Excel connector | Microsoft Docs
 description: Overview of the Excel connector with REST API parameters
 services: ''
 documentationcenter: ''
-author: ecfan
+author: MandiOhlinger
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2016
-ms.author: estfan; ladocs
+ms.author: mandia; ladocs
 
 ---
 # Get started with the Excel connector

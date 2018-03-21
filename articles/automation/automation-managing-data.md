@@ -1,13 +1,21 @@
 ---
-title: Managing Azure Automation data
+title: Managing Azure Automation data | Microsoft Docs
 description: This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation.
 services: automation
-ms.service: automation
+documentationcenter: ''
 author: georgewallace
-ms.author: gwallace
-ms.date: 03/16/2018
+manager: stevenka
+editor: tysonn
+
+ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
+ms.service: automation
+ms.devlang: na
 ms.topic: article
-manager: carmonm
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 06/02/201
+ms.author: magoedte;bwren;sngun
+
 ---
 # Managing Azure Automation data
 This article contains multiple topics for managing an Azure Automation environment.
@@ -32,7 +40,7 @@ The following table summarizes the retention policy for different resources.
 
 The retention policy applies to all users and currently cannot be customized.
 
-However, if you need to retain data for a longer period of time, you can forward runbook job logs to Log Analytics.  For further information, review [forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+However, if you need to retain data for a longer period of time, you can forward runbook job logs to Log Analytics.  For further information, review [forward Azure Automation job data to OMS Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
 
 ## Backing up Azure Automation
 When you delete an automation account in Microsoft Azure, all objects in the account are deleted including runbooks, modules, configurations, settings, jobs, and assets. The objects cannot be recovered after the account is deleted.  You can use the following information to backup the contents of your automation account before deleting it. 

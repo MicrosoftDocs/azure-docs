@@ -32,7 +32,7 @@ The benefits of using virtual network peering include:
 
 ## <a name="requirements-constraints"></a>Requirements and constraints
 
-* Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview in US West Central, Canada Central, US West 2, Korea South, UK South, UK West, Canada East, India South, India Central, and India West. Before peering virtual networks in different regions, you must first  [register your subscription](tutorial-connect-virtual-networks-powershell.md#register) for the preview. Attempting to create a peering between virtual networks in different regions fails if you haven't completed registration for the preview.
+* Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview in US West Central, Canada Central, US West 2, Korea South, UK South, UK West, Canada East, India South, India Central, and India West. Before peering virtual networks in different regions, you must first  [register your subscription](virtual-network-create-peering.md#register) for the preview. Attempting to create a peering between virtual networks in different regions fails if you haven't completed registration for the preview.
     > [!WARNING]
     > Virtual network peerings created cross-region may not have the same level of availability and reliability as peerings in a general availability release. Virtual network peerings may have constrained capabilities and may not be available in all Azure regions. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -82,7 +82,7 @@ When the virtual networks that are sharing a single Azure ExpressRoute connectio
 
 ## Permissions
 
-Virtual network peering is a privileged operation. It's a separate function under the VirtualNetworks namespace. A user can be given specific rights to authorize peering. A user who has read-write access to the virtual network inherits these rights automatically.
+Virtual network peering is a privileged operation. It’s a separate function under the VirtualNetworks namespace. A user can be given specific rights to authorize peering. A user who has read-write access to the virtual network inherits these rights automatically.
 
 A user who is either an admin or a privileged user of the peering ability can initiate a peering operation on another virtual network. The minimum level of permission required is Network Contributor. If there is a matching request for peering on the other side, and if other requirements are met, the peering is established.
 
@@ -123,7 +123,7 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
 
     |Azure deployment model  | Subscription  |
     |---------|---------|
-    |Both Resource Manager |[Same](tutorial-connect-virtual-networks-portal.md)|
+    |Both Resource Manager |[Same](virtual-network-create-peering.md)|
     | |[Different](create-peering-different-subscriptions.md)|
     |One Resource Manager, one classic     |[Same](create-peering-different-deployment-models.md)|
     | |[Different](create-peering-different-deployment-models-subscriptions.md)|

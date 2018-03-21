@@ -85,7 +85,7 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 ```
 
 * **resource-group**. The resource group name. The format is case insensitive alphanumeric, underscore, and hyphen, 1-64 length.
-* **name**. The name of the IoT hub to be created. The format is case insensitive alphanumeric and hyphen, 3-50 length.
+* **name**. The name of the IoT hub to be created. The format is case insensitive alphanumeric, underscore, and hyphen, 3-50 length.
 * **location**. The location (azure region/datacenter) to provision the IoT hub.
 * **sku-name**. The name of the sku, one of: [F1, S1, S2, S3]. For the latest full list, refer to the pricing page for IoT Hub.
 * **units**. The number of provisioned units. Range: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.

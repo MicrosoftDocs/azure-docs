@@ -26,7 +26,7 @@ This article describes the details of configuring Service Map and onboarding age
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.2 | E0888727125FA4E4ECACFB4B2633284C014933EE0CC2F7A9F93F36AEDBD6C2C4  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
 
 
 ## Connected sources
@@ -144,7 +144,7 @@ To deploy the Azure VM Extension via PowerShell, you can use the following examp
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.4"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -177,7 +177,7 @@ An even easier way to ensure the the Dependency Agent is on each of your VMs is 
 "properties": {
 	"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
 	"type": "DependencyAgentWindows",
-	"typeHandlerVersion": "9.4",
+	"typeHandlerVersion": "9.3",
 	"autoUpgradeMinorVersion": true
 }
 

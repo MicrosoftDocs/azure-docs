@@ -1,13 +1,21 @@
 ---
-title: Runbook settings in Azure Automation
+title: Runbook settings | Microsoft Docs
 description: Describes the configuration settings for a runbook in Azure Automation and how to change them using both the Azure portal and Windows PowerShell.
 services: automation
-ms.service: automation
+documentationcenter: ''
 author: georgewallace
-ms.author: gwallace
-ms.date: 03/19/2018
+manager: stevenka
+editor: tysonn
+
+ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61
+ms.service: automation
+ms.devlang: na
 ms.topic: article
-manager: carmonm
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 11/11/2016
+ms.author: bwren
+
 ---
 # Runbook settings
 Each runbook in Azure Automation has multiple settings that help it to be identified and to change its logging behavior. Each of these settings is described below followed by procedures on how to modify them.

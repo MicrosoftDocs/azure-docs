@@ -89,7 +89,7 @@ For SQL Database, this tutorial uses [Azure SQL Database](/azure/sql-database/).
 
 ### Create a resource group
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### Create a SQL Database logical server
 
@@ -162,7 +162,7 @@ In this step, you deploy your SQL Database-connected .NET Core application to Ap
 
 ### Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)] 
 
 ### Configure an environment variable
 

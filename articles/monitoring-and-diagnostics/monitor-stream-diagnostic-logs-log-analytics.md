@@ -37,21 +37,21 @@ The Log Analytics workspace does not have to be in the same subscription as the 
 ## Stream diagnostic logs using the portal
 1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
 
-    ![Monitoring section of Azure Monitor](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
+    ![Monitoring section of Azure Monitor](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
 
 2. Optionally filter the list by resource group or resource type, then click on the resource for which you would like to set a diagnostic setting.
 
 3. If no settings exist on the resource you have selected, you are prompted to create a setting. Click "Turn on diagnostics."
 
-   ![Add diagnostic setting - no existing settings](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
+   ![Add diagnostic setting - no existing settings](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
 
    If there are existing settings on the resource, you will see a list of settings already configured on this resource. Click "Add diagnostic setting."
 
-   ![Add diagnostic setting - existing settings](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
+   ![Add diagnostic setting - existing settings](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
 
 3. Give your setting a name and check the box for **Send to Log Analytics**, then select a Log Analytics workspace.
    
-   ![Add diagnostic setting - existing settings](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
+   ![Add diagnostic setting - existing settings](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
 
 4. Click **Save**.
 

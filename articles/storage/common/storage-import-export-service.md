@@ -3,11 +3,17 @@ title: Using Azure Import/Export to transfer data to and from Azure Storage | Mi
 description: Learn how to create import and export jobs in the Azure portal for transferring data to and from Azure Storage.
 author: muralikk
 manager: syadav
+editor: tysonn
 services: storage
+documentationcenter: ''
 
+ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 10/03/2017
 ms.author: muralikk
 
 ---
@@ -22,34 +28,28 @@ In this article, we provide step-by-step instructions on using Azure Import/Expo
 Follow the below steps if the data on the disk is to be imported into Azure Storage.
 ### Step 1: Prepare the drive/s using WAImportExport tool and generate journal file/s.
 
-1.  Identify the data to be imported into Azure Storage. You can import directories and standalone files on a local server or a network share.
+1.  Identify the data to be imported into Azure Storage. This could be directories and standalone files on a local server or a network share.
 2.  Depending on total size of the data, procure the required number of 2.5 inch SSD or 2.5" or 3.5" SATA II or III hard disk drives.
 3.	Attach the hard drives directly using SATA or with external USB adaptors to a windows machine.
-1.  Create a single NTFS volume on each hard drive and assign a drive letter to the volume. No mountpoints.
-2.  To enable encryption on the windows machine, enable bit locker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
-3.  Completely copy data to these encrypted single NTFS volumes on disks using copy & paste or  drag & drop or Robocopy or any such tool.
+4.  Create a single NTFS volume on each hard drive and assign a drive letter to the volume. No mountpoints.
+5.  To enable encryption on the windows machine, enable bit locker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+6.  Completely copy data to these encrypted single NTFS volumes on disks using copy & paste or  drag & drop or Robocopy or any such tool.
 7.	Download WAImportExport V1 from https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.	Unzip to the default folder waimportexportv1. For example, C:\WaImportExportV1  
 9.	Run as Administrator and open a PowerShell or Command line and change directory to the unzipped folder. For example, cd C:\WaImportExportV1
-10.	Copy the following command line to a text editor and edit it to create a command line:
-
-    ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
-    ```
+10.	Copy the following command line to a notepad and edit it to create a command line.
+  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
     
-    These command line options are described in the following table:
-
-    |Option  |Description  |
-    |---------|---------|
-    |/j:     |The name of the journal file, with the .jrn extension. A journal file is generated per drive. Using the disk serial number as the journal file name is recommended.         |
-    |/sk:     |The Azure Storage account key.         |
-    |/t:     |The drive letter of the disk to be shipped. For example, drive `D`.         |
-    |/bk:     |The BitLocker key for the drive. Its numerical password from output of ` manage-bde -protectors -get D: `      |
-    |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
-    |/dstdir:     |The name of the destination container in Azure Storage         |
-    |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared         |
-1. Repeat step 10 for each of disk that needs to be shipped.
-2. A journal file with name provided with /j: parameter is created for every run of the command line.
+    /j:  The name of a file called journal file with .jrn extension. A journal file is generated per drive and so it is recommended to use the disk serial number as the journal file name.
+    /sk: Azure Storage Account key. 
+    /t:  Drive letter of the disk to be shipped. For example, D
+    /bk: is the bit locker key of the drive
+    /srcdir: Drive letter of the disk to be shipped followed by :\. For example, D:\
+    /dstdir: The name of Azure Storage Container to which the data is to be imported.
+    /skipwrite 
+    
+11. Repeat step 10 for each of disk that needs to be shipped.
+12. A journal file with name provided with /j: parameter is created for every run of the command line.
 
 ### Step 2: Create an Import Job on Azure Portal.
 
@@ -92,11 +92,6 @@ In this section, we list the prerequisites required to use this service. Review 
 
 ### Storage account
 You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Azure Import/Export only supports classic, Blob Storage accounts and General Purpose v1 storage accounts. Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
-
-> [!IMPORTANT] 
-> The Azure Import Export service does not support storage accounts where the [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) feature has been enabled. 
-> 
-> 
 
 ### Data types
 You can use Azure Import/Export service to copy data to **Block** blobs, **Page** blobs, or **Files**. Conversely, you can only export **Block** blobs, **Page** blobs or **Append** blobs from Azure storage using this service. The service supports only import of Azure Files into Azure storage. Exporting Azure Files is not currently supported.
@@ -300,7 +295,7 @@ The following table describes the drive failure states and the actions taken for
 | N/A | A drive that is not part of any job arrives at the data center as part of another job. | The drive will be marked as an extra drive and will be returned to the customer when the job associated with the original package is completed. |
 
 ### Time to process job
-The amount of time it takes to process an import/export job varies based on a number of factors such as shipping time, the load at the DataCenter, the job type and size of the data being copied, and number of disks in a job. Import/Export service does not have an SLA but the service strives to complete the copy in 7 to 10 days after the disks are received. In addition to the status posted on Azure Portal, REST APIs can be used to track the job progress. The percent complete parameter in the List Jobs operation API call provides the percentage copy progress.
+The amount of time it takes to process an import/export job varies depending on different factors such as shipping time, job type, type and size of the data being copied, and the size of the disks provided. The Import/Export service does not have an SLA but after the disks are received the service strives to complete the copy in 7 to 10 days. You can use the REST API to track the job progress more closely. There is a percent complete parameter in the List Jobs operation which gives an indication of copy progress. Reach out to us if you need an estimate to complete a time critical import/export job.
 
 ### Pricing
 **Drive handling fee**

@@ -73,7 +73,7 @@ AvailableProtocols:
 
 ## List pre-defined SSL Policies
 
-Application gateway comes with 3 pre-defined policies that can be used. The `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. These pre-defined policies can be used to quickly configure an SSL policy on your application gateway. By default **AppGwSslPolicy20150501** is selected if no specific SSL policy is defined.
+Application gateway comes with 3 pre-defined policies that can be used. The `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. These pre-defined policies can be used to quickly configure an SSL policy on your application gateway. By default **AppGwSslPolicy20170401** is selected if no specific SSL policy is defined.
 
 The following is an example of running `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 

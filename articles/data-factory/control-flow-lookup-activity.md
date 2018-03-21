@@ -5,7 +5,7 @@ services: data-factory
 documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
-editor: 
+editor: shlo
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: shlo
+ms.author: spelluru
 
 ---
 # Lookup activity in Azure Data Factory

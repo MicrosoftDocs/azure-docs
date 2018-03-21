@@ -86,7 +86,7 @@ The following table summarizes the differences between Functions and WebJobs:
 | C# |Supported |Supported |
 | F# |Supported |Not Supported |
 | JavaScript |Supported |Supported |
-| Java |Preview | Supported |
+| Java |Preview | Not supported |
 | Bash |Experimental |Supported |
 | Windows scripting (.cmd, .bat) |Experimental |Supported |
 | PowerShell |Experimental |Supported |

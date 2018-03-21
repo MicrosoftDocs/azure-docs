@@ -3,8 +3,8 @@ title: Search with Azure Location Based Services | Microsoft Docs
 description: Search nearby point of interest using Azure Location Based Services
 services: location-based-services
 keywords: 
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 11/28/2017
 ms.topic: tutorial
 ms.service: location-based-services

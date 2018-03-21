@@ -350,7 +350,6 @@ Here's an example of C# code that uses the [custom telemetry API](../application
 using System;
 using System.Net;
 using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Azure.WebJobs;
 using System.Net.Http;
@@ -367,7 +366,7 @@ namespace functionapp0915
             System.Environment.GetEnvironmentVariable(
                 "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
 
-        private static TelemetryClient telemetryClient = 
+        private static TelemetryClient telemetry = 
             new TelemetryClient() { InstrumentationKey = key };
 
         [FunctionName("HttpTrigger2")]
@@ -388,51 +387,35 @@ namespace functionapp0915
 
             // Set name to query string or body data
             name = name ?? data?.name;
-         
-            // Track an Event
-            var evt = new EventTelemetry("Function called");
-            UpdateTelemetryContext(evt.Context, context, name);
-            telemetryClient.TrackEvent(evt);
-            
-            // Track a Metric
-            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
-            UpdateTelemetryContext(metric.Context, context, name);
-            telemetryClient.TrackMetric(metric);
-            
-            // Track a Dependency
-            var dependency = new DependencyTelemetry
-                {
-                    Name = "GET api/planets/1/",
-                    Target = "swapi.co",
-                    Data = "https://swapi.co/api/planets/1/",
-                    Timestamp = start,
-                    Duration = DateTime.UtcNow - start,
-                    Success = true
-                };
-            UpdateTelemetryContext(dependency.Context, context, name);
-            telemetryClient.TrackDependency(dependency);
-            
+
+            telemetry.Context.Operation.Id = context.InvocationId.ToString();
+            telemetry.Context.Operation.Name = "cs-http";
+            if (!String.IsNullOrEmpty(name))
+            {
+                telemetry.Context.User.Id = name;
+            }
+            telemetry.TrackEvent("Function called");
+            telemetry.TrackMetric("Test Metric", DateTime.Now.Millisecond);
+            telemetry.TrackDependency("Test Dependency", 
+                "swapi.co/api/planets/1/", 
+                start, DateTime.UtcNow - start, true);
+
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, 
                     "Please pass a name on the query string or in the request body")
                 : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
-        
-        // This correllates all telemetry with the current Function invocation
-        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
-        {
-            context.Operation.Id = functionContext.InvocationId.ToString();
-            context.Operation.ParentId = functionContext.InvocationId.ToString();
-            context.Operation.Name = functionContext.FunctionName;
-            context.User.Id = userName;
-        }
-    }    
+    }
 }
 ```
 
 Don't call `TrackRequest` or `StartOperation<RequestTelemetry>`, because you'll see duplicate requests for a function invocation.  The Functions runtime automatically tracks requests.
 
-Don't set `telemetryClient.Context.Operation.Id`. This is a global setting and will cause incorrect correllation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). This ensures that the telemetry has the correct correllation details for the current function invocation.
+Set `telemetry.Context.Operation.Id` to the invocation ID each time your function is started. This makes it possible to correlate all telemetry items for a given function invocation.
+
+```cs
+telemetry.Context.Operation.Id = context.InvocationId.ToString();
+```
 
 ## Custom telemetry in JavaScript functions
 
@@ -516,10 +499,6 @@ PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
 For more information, see [How to stream logs](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
-
-### Viewing log files locally
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## Next steps
 

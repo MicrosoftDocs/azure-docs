@@ -79,6 +79,12 @@ Developers must first subscribe to a product to get access to the API. When they
 3. Click **+API**.
 4. Choose an API and click **Create**.
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
+> 
+> 
+
 ## Next steps
 
 In this tutorial, you learned how to:

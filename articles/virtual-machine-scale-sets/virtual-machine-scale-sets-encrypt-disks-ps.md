@@ -1,6 +1,6 @@
 ---
-title: Azure virtual machine scale sets disk encryption | Microsoft Docs
-description: Learn how to use Azure PowerShell to encrypt VM instances and attached disks in virtual machine scale sets
+title: Azure Virtual Machine Scale Sets Encrypt Disks | Microsoft Docs
+description: Learn how to encrypt attached disks in virtual machine scale sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -14,142 +14,86 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 01/26/2018
 ms.author: iainfou
 
 ---
 # Encrypt OS and attached data disks in a virtual machine scale set
-To protect and safeguard data at rest using industry standard encryption technology, virtual machine scale sets support Azure Disk Encryption (ADE). Encryption can be enabled for Windows and Linux virtual machine scale sets. For more information, see [Azure Disk Encryption for Windows and Linux](../security/azure-security-disk-encryption.md).
+Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) supports Azure disk encryption (ADE).  Azure disk encryption can be enabled for Windows and Linux virtual machine scale sets to protect and safeguard the scale sets data at rest using industry standard encryption technology. For more information, read Azure Disk Encryption for Windows and Linux virtual machines.
 
 > [!NOTE]
->  Azure Disk Encryption for virtual machine scale sets is currently in preview, available in all Azure public regions. 
->
-> Scale set VM reimage and upgrade operations are not supported in the current preview. In preview, scale set encryption is recommended only in test environments. In the preview, do not enable disk encryption in production environments where you may need to upgrade an OS image.
+>  Azure disk encryption for virtual machine scale sets is currently in public preview, available in all Azure public regions.
 
 Azure disk encryption is supported:
 - for scale sets created with managed disks, and not supported for native (or unmanaged) disk scale sets.
 - for OS and data volumes in Windows scale sets. Disable encryption is supported for OS and Data volumes for Windows scale sets.
 - for data volumes in Linux scale sets. OS disk encryption is NOT supported in the current preview for Linux scale sets.
 
+Scale set VM reimage and upgrade operations are not supported in the current preview. The Azure disk encryption for virtual machine scale sets preview is recommended only in test environments. In the preview, do not enable disk encryption in production environments where you might need to upgrade an OS image in an encrypted scale set.
 
 ## Prerequisites
-This article requires the Azure PowerShell module version 5.3.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+Install the latest versions of [Azure Powershell](https://github.com/Azure/azure-powershell/releases), which contains the encryption commands.
 
-Register your Azure subsription for the preview of disk encryption for virtual machine scale sets with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
+The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription using the following PowerShell commands: 
 
 ```powershell
 Login-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Wait around 10 minutes until the *Registered* state is returned by [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature), then reregister the `Microsoft.Compute` provider: 
+Wait around 10 minutes until the 'Registered' state is returned by the following command: 
 
 ```powershell
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-
-## Create an Azure Key Vault enabled for disk encryption
-Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You retain control of these cryptographic keys and can audit their use.
-
-Create a Key Vault with [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). To allow the Key Vault to be used for disk encryption, set the *EnabledForDiskEncryption* parameter. The following example also defines variables for resource group name, Key Vault Name, and location. Provide your own unique Key Vault name:
+## Create an Azure key vault enabled for disk encryption
+Create a new key vault in the same subscription and region as the scale set and set the 'EnabledForDiskEncryption' access policy.
 
 ```powershell
-$rgName="myResourceGroup"
-$vaultName="myuniquekeyvault"
-$location = "EastUS"
+$rgname="windatadiskencryptiontest"
+$VaultName="encryptionvault321"
 
-New-AzureRmResourceGroup -Name $rgName -Location $location
-New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $location -EnabledForDiskEncryption
-```
+New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $rgName -Location southcentralus -EnabledForDiskEncryption
+``` 
 
-
-### Use an existing Key Vault
-This step is only required if you have an existing Key Vault that you wish to use with disk encryption. Skip this step if you created a Key Vault in the previous section.
-
-You can enable an existing Key Vault in the same subscription and region as the scale set for disk encryption with [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/AzureRM.KeyVault/Set-AzureRmKeyVaultAccessPolicy). Define the name of your existing Key Vault in the *$vaultName* variable as follows:
+Or, enable an existing key vault in the same subscription and region as the scale set for disk encryption.
 
 ```powershell
-$vaultName="myexistingkeyvault"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
+$VaultName="encryptionvault321"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $VaultName -EnabledForDiskEncryption
 ```
-
-
-## Create a scale set
-First, set an administrator username and password for the VM instances with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
-
-```powershell
-$cred = Get-Credential
-```
-
-Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
-
-```powershell
-$vmssName="myScaleSet"
-
-New-AzureRmVmss `
-    -ResourceGroupName $rgName `
-    -VMScaleSetName $vmssName `
-    -Location $location `
-    -VirtualNetworkName "myVnet" `
-    -SubnetName "mySubnet" `
-    -PublicIpAddressName "myPublicIPAddress" `
-    -LoadBalancerName "myLoadBalancer" `
-    -UpgradePolicy "Automatic" `
-    -Credential $cred
-```
-
 
 ## Enable encryption
-To encrypt VM instances in a scale set, first get some information on the Key Vault URI and resource ID with [Get-AzureRmKeyVault](/powershell/module/AzureRM.KeyVault/Get-AzureRmKeyVault). These variables are used to then start the encryption process with [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/AzureRM.Compute/Set-AzureRmVmssDiskEncryptionExtension):
+The following commands encrypt a data disk in a running scale set using a key vault in the same resource group. You can also use templates to encrypt disks in a running [Windows scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) or [Linux scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
 ```powershell
-$diskEncryptionKeyVaultUrl=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
-$keyVaultResourceId=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
+$rgname="windatadiskencryptiontest"
+$VmssName="nt1vm"
+$DiskEncryptionKeyVaultUrl="https://encryptionvault321.vault.azure.net"
+$KeyVaultResourceId="/subscriptions/0754ecc2-d80d-426a-902c-b83f4cfbdc95/resourceGroups/windatadiskencryptiontest/providers/Microsoft.KeyVault/vaults/encryptionvault321"
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
-    -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId –VolumeType "All"
+Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName `
+    -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId –VolumeType Data
 ```
-
-When prompted, type *y* to continue the disk encryption process on the scale set VM instances.
-
 
 ## Check encryption progress
-To check on the status of disk encryption, use [Get-AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Get-AzureRmVmssDiskEncryption):
+Use the following commands to show encryption status of the scale set.
 
 ```powershell
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
+$rgname="windatadiskencryptiontest"
+$VmssName="nt1vm"
+Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
+
+Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName -InstanceId "4"
 ```
-
-When VM instances are encrypted, the *EncryptionSummary* code reports *ProvisioningState/succeeded* as shown in the following example output:
-
-```powershell
-ResourceGroupName            : myResourceGroup
-VmScaleSetName               : myScaleSet
-EncryptionSettings           :
-  KeyVaultURL                : https://myuniquekeyvault.vault.azure.net/
-  KeyEncryptionKeyURL        :
-  KeyVaultResourceId         : /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myuniquekeyvault
-  KekVaultResourceId         :
-  KeyEncryptionAlgorithm     :
-  VolumeType                 : All
-  EncryptionOperation        : EnableEncryption
-EncryptionSummary[0]         :
-  Code                       : ProvisioningState/succeeded
-  Count                      : 2
-EncryptionEnabled            : True
-EncryptionExtensionInstalled : True
-```
-
 
 ## Disable encryption
-If you no longer wish to use encrypted VM instances disks, you can disable encryption with [Disable-AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Disable-AzureRmVmssDiskEncryption) as follows:
+Disable encryption on a running virtual machine scale set using the following commands. You can also use templates to disable encryption in a running [Windows scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows) or [Linux scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux).
 
 ```powershell
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
+$rgname="windatadiskencryptiontest"
+$VmssName="nt1vm"
+Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
 ```
-
-
-## Next steps
-In this article, you used Azure PowerShell to encrypt a virtual machine scale set. You can also use the [Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md) or templates for [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) or [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).

@@ -2,11 +2,18 @@
 title: Azure SQL Database performance tuning guidance | Microsoft Docs
 description: Learn about using recommendations to improve Azure SQL Database query performance.
 services: sql-database
+documentationcenter: na
 author: CarlRabeler
-manager: craigg
+manager: jhubbard
+editor: ''
+
+ms.assetid: dd8d95fa-24b2-4233-b3f1-8e8952a7a22b
 ms.service: sql-database
 ms.custom: monitor & tune
+ms.devlang: na
 ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: "On Demand"
 ms.date: 02/12/2018
 ms.author: carlrab
 

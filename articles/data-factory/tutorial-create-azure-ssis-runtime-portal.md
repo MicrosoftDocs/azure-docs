@@ -3,7 +3,7 @@ title: 'Provision an SSIS integration runtime by using Azure Data Factory | Micr
 description: 'This article explains how to create an Azure-SSIS integration runtime by using Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
+author: spelluru
 manager: jhubbard
 editor: spelluru
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm:
 ms.devlang:
 ms.topic: hero-article
 ms.date: 01/29/2018
-ms.author: douglasl
+ms.author: spelluru
 ---
 
 # Provision an Azure-SSIS integration runtime by using the Azure Data Factory UI

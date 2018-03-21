@@ -2,11 +2,18 @@
 title: Azure SQL Database Azure Case Study - GEP| Microsoft Docs
 description: Learn about how GEP uses SQL Database to reach more global customers and achieve greater efficiency
 services: sql-database
+documentationcenter: ''
 author: CarlRabeler
-manager: craigg
+manager: jhubbard
+editor: ''
+
+ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
 ms.custom: reference
+ms.devlang: NA
 ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: "Inactive"
 ms.date: 01/10/2017
 ms.author: carlrab
 

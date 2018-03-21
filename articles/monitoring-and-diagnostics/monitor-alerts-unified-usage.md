@@ -17,7 +17,7 @@ ms.date: 02/05/2018
 ms.author: vinagara
 
 ---
-# Create, view, and manage alerts using Azure Monitor - Alerts (Preview)
+# Create, view and manage alerts using Azure Monitor - Alerts (Preview)
 
 ## Overview
 This article shows you how to set up alerts using the new Alerts (Preview) interface inside Azure portal. Definition of an Alert rule is in three parts:
@@ -25,14 +25,14 @@ This article shows you how to set up alerts using the new Alerts (Preview) inter
 - Criteria: Specific condition or logic that when seen in Signal, should trigger action
 - Action: Specific call sent to a receiver of a notification - email, SMS, webhook etc.
 
-Alert (Preview) uses the term **Log Alerts** to describe Alerts where signal is custom query based on [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Azure Application Insights](../application-insights/app-insights-analytics.md). The metric alert capability called [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md) in the existing alerts experience is referred as **Metric Alerts** in the Alerts (Preview). In *Metric Alerts*, some resource types provide [multidimensional metrics](monitoring-metric-charts.md) for specific Azure resource and hence alerts for such resource can be made more specific using additional filters on dimensions; such alerts are referred to as **Multi-Dimensional Metric Alerts**.
+Alerts (Preview) uses the term **Log Alerts** to describe Alerts where signal is custom query based on [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md). The metric alert capability called [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md) in the existing alerts experience is referred as **Metric Alerts** in the Alerts (Preview). In *Metric Alerts*, some resource types provide [multidimensional metrics](monitoring-metric-charts.md) for specific Azure resource and hence alerts for such resource can be made more specific using additional filters on dimensions; such alerts are referred to as **Multi-Dimensional Metric Alerts**.
 Azure Alerts (Preview) also provides a unified view to all your alert rules and ability to manage them a single place; including viewing any unresolved alerts. Learn more about functionality from [Azure Alerts(Preview) - Overview](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
-> While Azure Alerts (Preview) offers a new and enhanced experience for creating alerts in Azure. The existing [Azure Alerts](monitoring-overview-alerts.md) experience remains usable
+> While Azure Alerts (Preview) offers a new and enhanced experience for creating alerts in Azure. The existing [Azure Alerts](monitoring-overview-alerts.md) experience remain usable
 >
 
-Detailed next is step-by-step guide to using Azure Alerts (Preview).
+Detailed following is step-by-step guide to using Azure Alerts (Preview).
 
 ## Create an alert rule with the Azure portal
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts (Preview)**.  
@@ -62,13 +62,13 @@ Detailed next is step-by-step guide to using Azure Alerts (Preview).
 
     > Unified Alerts (Preview) also supports Activity Log alerts. [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Metric Alerts*: Ensure **Resource Type** is selected with signal type as **Metric**, then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
+5. *Metric Alerts*: Ensure **Resource Type** is selected platform  or monitor service (other than *Log Analytics*), then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
 
     ![Select a resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 
-    >  All [near real time alerts](monitoring-near-real-time-metric-alerts.md) capable resources are listed with monitor service **Platform** and signal type as **Metric**
+    > New metric capabilities introduced for fast alerting only are included in signal types as metrics from platform service
 
 6. *Metric Alerts*: Once signal is selected, logic for alerting can be stated. For reference, historic data of signal is shown with option to tweak the time window using **Show History**, varying from last six hours to last week. With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. As preview of the logic provided, the condition is shown in the visualization along with signal history, to indicate when the alert would have triggered. Finally specify for what time duration, Alert should look for the specified condition by choosing from the **Period** option along with how often Alert should run by selecting **Frequency**.
 
@@ -78,13 +78,16 @@ Detailed next is step-by-step guide to using Azure Alerts (Preview).
 
     ![Configure signal logic for multi-dimensional metric](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Log Alerts*: Ensure **Resource Type** is an analytics source like *Log Analytics* or *Application Insights* and signal type as **Log**, then once appropriate **resource** is chosen, click *Done*. Next use the **Add criteria** button to view list of signal options available for the resource and from the signal list **Custom log search** option for chosen log monitor service like *Log Analytics* or *Application Insights*.
+8. *Log Alerts*: Ensure **Resource Type** is an analytics source like *Log Analytics*/*Application Insights*, then once appropriate **resource** is chosen, click *Done*. Next use the **Add criteria** button to view list of signal options available for the resource and from the signal list **Custom log search** option for chosen log monitor service like *Log Analytics*/*Application Insights*.
 
    ![Select a resource - custom log search](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > Alerts (Preview) lists can import analytics query as signal type - **Log (Saved Query)**, as seen in above illustration. So users can perfect your query in Analytics and then save them for future use in alerts - more details on using saving query available at [using log search in log analytics](../log-analytics/log-analytics-log-searches.md) or [shared query in application insights analytics](../log-analytics/log-analytics-overview.md). 
+   > **Alerts preview** lists saved log searches as signal type - Log (Saved Query), when resource chosen is Log Analytics.
+   So that you can perfect your query in Analytics and then save them for future use - more details available at [using log search in log analytics](../log-analytics/log-analytics-log-searches.md). Then you can create alert rules based on these queries directly, as shown in the following sample screen with saved searches:
+
+   ![Select a resource - custom log search](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
 9.  *Log Alerts*: Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week.
 
@@ -118,8 +121,8 @@ For **Log Alerts** alerts can be based on:
 
     For **Log Alerts** some additional functionality is available to override the default Actions:
 
-    - **Email Notification**: Overrides *e-mail subject* in the email, sent via Action Group; if one or more email action exist in the said Action Group. You cannot modify the body of the mail and this field is **not** for email address.
-    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups; if one or more webhook action exist in the said Action Group. User can specificy format of JSON to be used for all webhooks configured in associated Action Group; for more information on webhook formats, see [webhook action for Log Alerts](monitor-alerts-unified-log-webhook.md). Test Webhook option is provided to check format and processing by destination using sample JSON and this option as labelled meant only for **testing** purposes.
+    - **Email Notification**: Overrides subject in the email, sent via Action Group. You cannot modify the body of the mail.
+    - **Include custom Json payload**: Overrides the webhook Json used by Action Groups and instead replace the default payload with a custom payload. For more details on webhook formats, see [webhook action for Log Alerts](monitor-alerts-unified-log-webhook.md)
 
         ![Action Overrides for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 
@@ -136,7 +139,7 @@ For **Log Alerts** alerts can be based on:
 2. The **Alerts (Preview) Dashboard** is displayed - wherein all Azure Alerts are unified and displayed in a singular board
    ![Alert Dashboard](./media/monitoring-overview-unified/alerts-preview-overview.png)
 3. From Top Left to Right, the Dashboard shows at a glance, the following - which can be clicked to see a detailed listing:
-    - *Fired Alerts*: The number of Alerts currently, which have met logic and in fired state
+    - *Fired Alerts*: The number of Alerts currently which have met logic and in fired state
     - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled
 4. A list of all fired alerts is shown which the user can click to view details
 5. Aiding in finding specific the alerts; one can use the dropdown options on top for filtering specific *Subscription, Resource Group and/or Resource*. Further for any unresolved alert, one use the *Filter alert* option to find for provided keyword - specific matching alerts with *Name, Alert Criteria, Resource Group, and Target Resource*

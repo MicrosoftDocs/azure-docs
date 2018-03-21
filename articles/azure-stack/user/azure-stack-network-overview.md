@@ -2,13 +2,12 @@
 title: Introduction to Azure Stack networking
 description: Learn about Azure Stack networking
 services: azure-stack
-author: mattbriggs
-manager: femila
+author: ScottNapolitan
 
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 02/28/2018
-ms.author: mabrigg
+ms.date: 9/25/2017
+ms.author: victorh
 
 ---
 # Introduction to Azure Stack networking

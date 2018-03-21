@@ -3,11 +3,18 @@ title: Monitoring database performance in Azure SQL Database | Microsoft Docs
 description: Learn about the options for monitoring your database with Azure tools and dynamic management views.
 keywords: database monitoring, cloud database performance
 services: sql-database
+documentationcenter: ''
 author: CarlRabeler
-manager: craigg
+manager: jhubbard
+editor: ''
+
+ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
 ms.custom: monitor & tune
+ms.devlang: na
 ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: "On Demand"
 ms.date: 09/20/2017
 ms.author: carlrab
 
@@ -27,7 +34,7 @@ In the [Azure portal](https://portal.azure.com/), you can monitor a single datab
 * Data IO percentage
 * Database size percentage
 
-Once you’ve added these metrics, you can continue to view them in the **Monitoring** chart with more information on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [service tiers](sql-database-service-tiers.md) article for details about DTUs.
+Once you’ve added these metrics, you can continue to view them in the **Monitoring** chart with more details on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [service tiers](sql-database-service-tiers.md) article for details about DTUs.
 
 ![Service tier monitoring of database performance.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 

@@ -3,15 +3,18 @@ title: 'Azure Active Directory B2C: Add Twitter as an OAuth1 identity provider b
 description: Use Twitter as an identity provider by using the OAuth1 protocol
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: yoelhor
 manager: mtillman
-editor: ''
+editor: 
 
+ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
 ms.topic: article
+ms.devlang: na
 ms.date: 10/23/2017
-ms.author: davidmu
+ms.author: yoelh
 ---
 
 # Azure Active Directory B2C: Add Twitter as an OAuth1 identity provider by using custom policies

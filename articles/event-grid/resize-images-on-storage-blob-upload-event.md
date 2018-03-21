@@ -1,7 +1,7 @@
 ---
 title: Use Azure Event Grid to automate resizing uploaded images | Microsoft Docs
 description: Azure Event Grid can trigger on blob uploads in Azure Storage. You can use this to send image files uploaded to Azure Storage to other services, such as Azure Functions, for resizing and other improvements.
-services: event-grid, functions
+services: event-grid
 author: ggailey777
 manager: cfowler
 editor: ''

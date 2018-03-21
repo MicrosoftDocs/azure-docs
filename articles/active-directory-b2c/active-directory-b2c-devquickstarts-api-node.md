@@ -3,16 +3,18 @@ title: 'Azure AD B2C: Secure a web API by using Node.js | Microsoft Docs'
 description: How to build a Node.js web API that accepts tokens from a B2C tenant
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: dstrockis
 manager: mtillman
 editor: ''
 
+ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
+ms.topic: hero-article
 ms.date: 01/07/2017
-ms.author: davidmu
+ms.author: xerners
 
 ---
 # Azure AD B2C: Secure a web API by using Node.js

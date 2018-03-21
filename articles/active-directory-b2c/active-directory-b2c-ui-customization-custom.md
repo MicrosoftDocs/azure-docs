@@ -3,15 +3,18 @@ title: 'Customize a UI by using custom policies - Azure AD B2C | Microsoft Docs'
 description: Learn about customizing a user interface (UI) while you use custom policies in Azure AD B2C.
 services: active-directory-b2c
 documentationcenter: ''
-author: davidmu1
+author: saeedakhter-msft
 manager: mtillman
-editor: ''
+editor: parakhj
 
+ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
 ms.service: active-directory-b2c
 ms.workload: identity
+ms.tgt_pltfrm: na
 ms.topic: article
+ms.devlang: na
 ms.date: 04/04/2017
-ms.author: davidmu
+ms.author: saeedakhter-msft
 ---
 # Azure Active Directory B2C: Configure UI customization in a custom policy
 
@@ -111,7 +114,7 @@ Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
 
 Validate that you're ready by doing the following:
 
-1. Go to the [www.test-cors.org](http://www.test-cors.org/) website, and then paste the URL in the **Remote URL** box.
+1. Go to the [test-cors.org](http://test-cors.org/) website, and then paste the URL in the **Remote URL** box.
 2. Click **Send Request**.  
     If you receive an error, make sure that your [CORS settings](#configure-cors) are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 
