@@ -143,19 +143,15 @@ module.exports = function (context, myTimer) {
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-The attribute's constructor takes a CRON expression, as shown in the following example:
+The attribute's constructor takes a CRON expression or a `TimeSpan`. You can use `TimeSpan`  only if the function app is running on an App Service plan. The following example shows a CRON expression:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
 {
-   ...
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 }
  ```
-
-You can specify a `TimeSpan` instead of a CRON expression if your function app runs on an App Service plan (not a Consumption plan).
-
-For a complete example, see [C# example](#c-example).
 
 ## Configuration
 
@@ -166,75 +162,9 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the timer object in function code. | 
-|**schedule**|**ScheduleExpression**|On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions. You can put the schedule expression in an app setting and set this property to a value wrapped in **%** signs, as in this example: "%NameOfAppSettingWithCRONExpression%". |
+|**schedule**|**ScheduleExpression**|A [CRON expression](#cron-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%NameOfAppSettingWithCRONExpression%". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
-### CRON format 
-
-A [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) for the Azure Functions timer trigger includes these six fields: 
-
-```
-{second} {minute} {hour} {day} {month} {day-of-week}
-```
-
->[!NOTE]   
->Many of the CRON expressions you find online omit the `{second}` field. If you copy from one of them, add the missing `{second}` field.
-
-### CRON time zones
-
-The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create a new app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
-
-For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following CRON expression that accounts for UTC time zone:
-
-```json
-"schedule": "0 0 15 * * *",
-```	
-
-Alternatively, you could add a new app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then the following CRON expression could be used for 10:00 AM EST: 
-
-```json
-"schedule": "0 0 10 * * *",
-```	
-### CRON examples
-
-Here are some examples of CRON expressions you can use for the timer trigger in Azure Functions. 
-
-To trigger once every five minutes:
-
-```json
-"schedule": "0 */5 * * * *"
-```
-
-To trigger once at the top of every hour:
-
-```json
-"schedule": "0 0 * * * *",
-```
-
-To trigger once every two hours:
-
-```json
-"schedule": "0 0 */2 * * *",
-```
-
-To trigger once every hour from 9 AM to 5 PM:
-
-```json
-"schedule": "0 0 9-17 * * *",
-```
-
-To trigger At 9:30 AM every day:
-
-```json
-"schedule": "0 30 9 * * *",
-```
-
-To trigger At 9:30 AM every weekday:
-
-```json
-"schedule": "0 30 9 * * 1-5",
-```
 
 ## Usage
 
@@ -254,9 +184,75 @@ is passed into the function. The following JSON is an example representation of 
 }
 ```
 
+## CRON expressions 
+
+A CRON expression for the Azure Functions timer trigger includes six fields: 
+
+```
+{second} {minute} {hour} {day} {month} {day-of-week}
+```
+
+Each field can have one of the following types of values:
+
+|Type  |Example  |When triggered  |
+|---------|---------|---------|
+|A specific value |<nobr>"0 5 * * * *"</nobr>|at hh:05:00 where hh is every hour (once an hour)|
+|All values (asterisk)|<nobr>"* 5 * * * *"</nobr>|at hh:05:ss where hh is every hour and ss is every second of hh:05 (60 times an hour)|
+|A range (hyphen)|<nobr>"0 5-7 * * * *"</nobr>|at hh:05:00, hh:06:00, and hh:07:00 where hh is every hour (3 times an hour)|  
+|A set of values (comma)|<nobr>"0 5,8,10 * * * *"</nobr>|at hh:05:00, hh:08:00, hh:010:00 where hh is every hour (3 times an hour)|
+|An interval value (slash)|<nobr>"0 0/5 * * * *"</nobr>|at hh:05:00, hh:10:00, hh:15:00, and so on through hh:55:00 where hh is every hour (12 times an hour)|
+
+### CRON time zones
+
+The numbers in a CRON expression refer to a time and date, not a time span. For example, a 5 in the `hour` field refers to 5:00 AM, not every 5 hours.
+
+The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create an app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073). 
+
+For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following CRON expression that accounts for UTC time zone:
+
+```json
+"schedule": "0 0 15 * * *",
+```	
+
+Or create an app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then uses the following CRON expression: 
+
+```json
+"schedule": "0 0 10 * * *",
+```	
+
+### CRON examples
+
+Here are some examples of CRON expressions you can use for the timer trigger in Azure Functions. 
+
+
+|Example|When triggered  |
+|---------|---------|
+|"0 */5 * * * *"|once every five minutes|
+|"0 0 * * * *"|once at the top of every hour|
+|"0 0 */2 * * *"|once every two hours|
+|"0 0 9-17 * * *"|once every hour from 9 AM to 5 PM|
+|"0 30 9 * * *"|at 9:30 AM every day|
+|"0 30 9 * * 1-5"|at 9:30 AM every weekday|
+
+>[!NOTE]   
+>You can find CRON expression examples online, but many of them omit the `{second}` field. If you copy from one of them, add the missing `{second}` field. Usually you'll want a zero in that field, not an asterisk.
+
+## TimeSpan
+
+ A `TimeSpan` can be used only for a function app that runs on an App Service Plan.
+
+Unlike a CRON expression, a `TimeSpan` value specifies the time interval between each time the timer invokes the function. If the function takes a significant amount of time to complete, the timer waits the specified amount of time after function completion.
+
+Expressed as a string, the `TimeSpan` format is `hh:mm:ss`. Here are some examples:
+
+|Example |When triggered  |
+|---------|---------|
+|"24:00:00" | every 24 hours        |
+|"00:01:00"|every minute         |
+
 ## Scale-out
 
-The timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.
+If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances.
 
 ## Function apps sharing Storage
 
