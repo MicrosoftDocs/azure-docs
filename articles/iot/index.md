@@ -22,11 +22,19 @@ ms.author: bryanla
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The section provides an overview of the available  technologies and solutions, providing detail on the paths available for building your own solution:
 
+| Edge | Solutions | Platform services |
+|------|-----------|-------------------|
+| Client-side technologies | Software as a Service (SaaS) offerings | Platform as a Service (PaaS) Offerings |
+| [IoT Edge](../iot-edge/) | [Iot Suite](../iot-suite/) | [IoT Hub](../iot-hub/) |
+
+
 - Edge: IoT Edge, IoT device/service SDKs
 - Solutions: IoT Suite, IoT Suite Preconfigured Solutions, IoT Central (leverage another application to build a solution, for instance, IoT Central solutions)
 - Platform services: Platform as a Service (PaaS) offerings, IoT Hub, DPS, LBS, Time Series Insights (build your own application using IoT Suite, PCS, and all Technologies)
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
+[![The industry's most comprehensive portfolio of technologies and solutions](media/iot-technologies-solutions/paas-saas-technologies-solutions-small.png)](media/iot-technologies-solutions/paas-saas-technologies-solutions.png#lightbox)
+
 
 ## Next steps
 

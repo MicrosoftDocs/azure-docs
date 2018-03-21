@@ -40,7 +40,7 @@ Use device-to-cloud messages for sending time series telemetry and alerts from y
 * Learn about IoT Hub [device-to-cloud messaging][lnk-d2c].
 * Learn about IoT Hub [cloud-to-device messaging][lnk-c2d].
 
-[lnk-azure-iot]: ../iot/what-is-azure-iot.md
+[lnk-azure-iot]: ../iot/index.md
 [lnk-iot-hub-overview]: iot-hub-what-is-iot-hub.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
