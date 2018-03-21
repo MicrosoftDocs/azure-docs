@@ -25,8 +25,6 @@ Article provides an overview of the available PaaS/SaaS technologies and solutio
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
-[![The industry's most comprehensive portfolio of technologies and solutions](media/iot-technologies-solutions/paas-saas-technologies-solutions-small.png)](media/iot-technologies-solutions/paas-saas-technologies-solutions.png#lightbox)
-
 ## Solutions
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation.
