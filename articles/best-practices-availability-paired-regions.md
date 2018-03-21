@@ -4,16 +4,10 @@ description: Learn about Azure regional pairing, to ensure that applications are
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-
-ms.assetid: c2d0a21c-2564-4d42-991a-bc31723f61a4
-ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
+manager: carmonm
+ms.service: multiple
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: raynew
 ---
 
