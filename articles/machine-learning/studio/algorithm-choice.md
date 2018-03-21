@@ -3,8 +3,9 @@ title: How to choose machine learning algorithms | Microsoft Docs
 description: How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
 tags: ''
 
@@ -15,7 +16,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
 
 ---
 # How to choose algorithms for Microsoft Azure Machine Learning
@@ -358,7 +358,7 @@ efficiency of the linear version. It is ideal for cases where the linear
 approach doesn't give accurate enough answers. The developers kept it
 fast by breaking down the problem into a bunch of small linear SVM
 problems. Read the [full
-description](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf)
+description](http://proceedings.mlr.press/v28/jose13.html)
 for the details on how they pulled off this trick.
 
 Using a clever extension of nonlinear SVMs, the [one-class

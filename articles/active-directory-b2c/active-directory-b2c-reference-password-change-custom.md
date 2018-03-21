@@ -3,17 +3,15 @@ title: 'Azure Active Directory B2C: Self-service password change| Microsoft Docs
 description: A topic demonstrating how to set up self-service password change for your consumers in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: vigunase
+author: davidmu1
 manager: mtillman
+editor: ''
 
-ms.assetid: 712a7128-5788-4914-8a52-24e200aa4de1
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
-ms.author: vigunase
+ms.author: davidmu
 ---
 # Azure Active Directory B2C: Configure password change in custom policies  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]

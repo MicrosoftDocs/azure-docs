@@ -12,9 +12,10 @@
 ## [Multiple VIPs](load-balancer-multivip-overview.md)
 ## [Understanding outbound connections](load-balancer-outbound-connections.md)
 ## [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)
-
+## [Standard Load Balancer metrics and diagnostics](load-balancer-standard-diagnostics.md)
 # Get Started
 
+## [Create Standard Load Balancer](load-balancer-standard-public-portal.md)
 ## [Configure internal Load Balancer](load-balancer-get-started-ilb-arm-portal.md)
 ### [Configure internal Load Balancer (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Configure internal Load Balancer (CLI)](load-balancer-get-started-ilb-arm-cli.md)
@@ -34,6 +35,7 @@
 ### [Create a zone redundant public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)
 
 # How to
+## [Create a Standard Load Balancer](load-balancer-standard-public-cli.md)
 ## [Configure TCP idle timeout for Load Balancer](load-balancer-tcp-idle-timeout.md)
 ## [Configure Distribution mode for Load Balancer](load-balancer-distribution-mode.md)
 ## [Configure Internal Load Balancer for SQL AlwaysOn](load-balancer-configure-sqlao.md)

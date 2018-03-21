@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 03/21/2018
 ms.author: kumud
 ---
 
@@ -23,6 +23,9 @@ ms.author: kumud
 > The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires a [separate sign-up](https://aka.ms/availabilityzones), in addition to signing up for Load Balancer [Standard preview](#preview-sign-up).
 
 Azure provides outbound connectivity for customer deployments through several different mechanisms. This article describes what the scenarios are, when they apply, how they work, and how to manage them.
+
+>[!NOTE] 
+>This article covers Resource Manager deployments only. Review [Outbound connections (Classic)](load-balancer-outbound-connections-classic.md) for all Classic deployment scenarios in Azure.
 
 A deployment in Azure can communicate with endpoints outside Azure in the public IP address space. When an instance initiates an outbound flow to a destination in the public IP address space, Azure dynamically maps the private IP address to a public IP address. After this mapping is created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated.
 
@@ -35,11 +38,7 @@ There are multiple [outbound scenarios](#scenarios). You can combine these scena
 
 ## <a name="scenarios"></a>Scenario overview
 
-Azure has two major deployment models: Azure Resource Manager and classic. Azure Load Balancer and related resources are explicitly defined when you're using [Azure Resource Manager](#arm). Classic deployments abstract the concept of a load balancer and express a similar function through the definition of endpoints of a [cloud service](#classic). The applicable [scenarios](#scenarios) for your deployment depend on which deployment model you use.
-
-### <a name="arm"></a>Azure Resource Manager
-
-Azure currently provides three different methods to achieve outbound connectivity for Azure Resource Manager resources. [Classic](#classic) deployments have a subset of these scenarios.
+Azure Load Balancer and related resources are explicitly defined when you're using [Azure Resource Manager](#arm).  Azure currently provides three different methods to achieve outbound connectivity for Azure Resource Manager resources. 
 
 | Scenario | Method | Description |
 | --- | --- | --- |
@@ -48,14 +47,6 @@ Azure currently provides three different methods to achieve outbound connectivit
 | [3. Standalone VM (no Load Balancer, no Instance Level Public IP address)](#defaultsnat) | SNAT with port masquerading (PAT) | Azure automatically designates a public IP address for SNAT, shares this public IP address with multiple private IP addresses of the availability set, and uses ephemeral ports of this public IP address. This is a fallback scenario for the preceding scenarios. We don't recommend it if you need visibility and control. |
 
 If you don't want a VM to communicate with endpoints outside Azure in public IP address space, you can use network security groups (NSGs) to block access as needed. The section [Preventing outbound connectivity](#preventoutbound) discusses NSGs in more detail. Guidance on designing, implementing, and managing a virtual network without any outbound access is outside the scope of this article.
-
-### <a name="classic"></a>Classic (cloud services)
-
-The scenarios available for classic deployments are a subset of the scenarios available for [Azure Resource Manager](#arm) deployments and Load Balancer Basic.
-
-A classic virtual machine has the same three fundamental scenarios as described for Azure Resource Manager resources ([1](#ilpip), [2](#lb), [3](#defaultsnat)). A classic web worker role has only two scenarios ([2](#lb), [3](#defaultsnat)). [Mitigation strategies](#snatexhaust) also have the same differences.
-
-The algorithm used for [preallocating ephemeral ports](#ephemeralprots) for PAT for classic deployments is the same as for Azure Resource Manager resource deployments.  
 
 ### <a name="ilpip"></a>Scenario 1: VM with an Instance Level Public IP address
 
@@ -94,7 +85,7 @@ SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#sn
 
 ### <a name="combinations"></a>Multiple, combined scenarios
 
-You can combine the scenarios described in the preceding sections to achieve a particular outcome. When multiple scenarios are present, an order of precedence applies: [scenario 1](#ilpip) takes precedence over [scenario 2](#lb) and [3](#defaultsnat) (Azure Resource Manager only). [Scenario 2](#lb) overrides [scenario 3](#defaultsnat) (Azure Resource Manager and classic).
+You can combine the scenarios described in the preceding sections to achieve a particular outcome. When multiple scenarios are present, an order of precedence applies: [scenario 1](#ilpip) takes precedence over [scenario 2](#lb) and [3](#defaultsnat). [Scenario 2](#lb) overrides [scenario 3](#defaultsnat).
 
 An example is an Azure Resource Manager deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer frontend. In this case, you can combine scenarios 1 and 2 for relief. For additional patterns, review [Managing SNAT exhaustion](#snatexhaust).
 
@@ -144,7 +135,7 @@ For patterns to mitigate conditions that commonly lead to SNAT port exhaustion, 
 
 Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using port masquerading SNAT ([PAT](#pat)). SNAT ports are ephemeral ports available for a particular public IP source address.
 
-Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. When an IP configuration is added to the pool, the SNAT ports are preallocated for this IP configuration based on the backend pool size. For classic web worker roles, the allocation is per role instance. When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#ideltimeout) happen.
+Azure preallocates SNAT ports to the IP configuration of the NIC of each VM. When an IP configuration is added to the pool, the SNAT ports are preallocated for this IP configuration based on the backend pool size. When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#ideltimeout) happen.
 
 The following table shows the SNAT port preallocations for tiers of backend pool sizes:
 
@@ -165,6 +156,18 @@ Remember that the number of SNAT ports available does not translate directly to 
 Changing the size of your backend pool might affect some of your established flows. If the backend pool size increases and transitions into the next tier, half of your preallocated SNAT ports are reclaimed during the transition to the next larger backend pool tier. Flows that are associated with a reclaimed SNAT port will time out and must be reestablished. If a new flow is attempted, the flow will succeed immediately as long as preallocated ports are available.
 
 If the backend pool size decreases and transitions into a lower tier, the number of available SNAT ports increases. In this case, existing allocated SNAT ports and their respective flows are not affected.
+
+SNAT ports allocations are IP transport protocol specific (TCP and UDP are maintained separately) and are released under the following conditions:
+
+### TCP SNAT port release
+
+- If both server/client sends FIN/ACK, SNAT port will be released after 240 seconds.
+- If a RST is seen, SNAT port will be released after 15 seconds.
+- idle timeout has been reached
+
+### UDP SNAT port release
+
+- idle timeout has been reached
 
 ## <a name="problemsolving"></a> Problem solving 
 
@@ -205,9 +208,19 @@ When using public Standard Load Balancer, you assign [multiple frontend IP addre
 >[!NOTE]
 >In most cases, exhaustion of SNAT ports is a sign of bad design.  Make sure you understand why you are exhausting ports before using more frontends to add SNAT ports.  You may be masking a problem which can lead to failure later.
 
+#### <a name="scaleout"></a>Scale out
+
+[Preallocated ports](#preallocatedports) are assigned based on the backend pool size and grouped into tiers to minimize disruption when ports have to be reallocated to accomodate the next larger backend pool size tier.  You may have an option to increase intensity of SNAT port utilization for a given frontend by scaling your backend pool to maximum size for a given tier.  This requires for the application to scale out efficiently.
+
+For example, 2 virtual machines in the backend pool would have 1024 SNAT ports available per IP configuration, allowing a total of 2048 SNAT ports for the deployment.  If the deployment were to be increased to 50 virtual machines, even though the number of preallocated ports remains constant per virtual machine, a total of 51,200 (50 x 1024) SNAT ports can be used by the deployment.  If you wish to scale out your deployment, check the number of [preallocated ports](#preallocatedports) per tier to make sure you shape your scale out to the maximum for the respective tier.  In the preceeding example, if you had chosen to scale out to 51 instead of 50 instances, your would progress to the next tier and end up with less SNAT ports per VM as well as in total.
+
+Conversely, scale out to the next larger backend pool size tier potentially outbound connections if allocated ports have to be reallocated.  If you don't want this to take place, you need to shape your deployment to the tier size.  Or make sure your application can detect and retry as necessary.  TCP keepalives can assist in detect when SNAT ports no longer function due to being reallocated.
+
 ### <a name="idletimeout"></a>Use keepalives to reset the outbound idle timeout
 
-Outbound connections have a 4-minute idle timeout. This timeout is not adjustable. However, you can use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.
+Outbound connections have a 4-minute idle timeout. This timeout is not adjustable. However, you can use transport (for example, TCP keepalives) or application-layer keepalives to refresh an idle flow and reset this idle timeout if necessary.  
+
+When using TCP keepalives, it is sufficient to enable them on one side of the connection. For example, it is sufficient to enable them on the server side only to reset the idle timer of the flow and it is not necessary for both sides to initiated TCP keepalives.  Similar concepts exist for application layer, including database client-server configurations.  Check the server side for what options exist for application specific keepalives.
 
 ## <a name="discoveroutbound"></a>Discovering the public IP that a VM uses
 There are many ways to determine the public source IP address of an outbound connection. OpenDNS provides a service that can show you the public IP address of your VM. 
@@ -228,6 +241,7 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 
 ## Next steps
 
-- Learn more about [Load Balancer Basic](load-balancer-overview.md).
+- Learn more about [Load Balancer](load-balancer-overview.md).
+- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
 - Learn more about [network security groups](../virtual-network/virtual-networks-nsg.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.

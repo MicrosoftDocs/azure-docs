@@ -8,7 +8,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/19/2018
 ms.author: v-geberr;
 ---
 
@@ -134,6 +134,11 @@ All entities are returned in the **entities** array of the response from the end
   }
 ]
 ```
+
+## Tokenized entity returned
+Several [cultures](luis-supported-languages.md#tokenization) return the entity object with the `entity` value [tokenized](luis-glossary.md#token). The startIndex and endIndex returned by LUIS in the entity object do not map to the new, tokenized value but instead to the original query in order for you to extract the raw entity programmatically. 
+
+For example, in German, the word `das Bauernbrot` is tokenized into `das bauern brot`. The tokenized value, `das bauern brot`, is returned and the original value can be programmatically determined from the startIndex and endIndex of the original query, giving you `das Bauernbrot`.
 
 ## Simple entity data
 
