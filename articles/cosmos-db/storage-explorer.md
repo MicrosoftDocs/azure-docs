@@ -110,55 +110,55 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 ### Database and collection management
 #### Create a database 
-Right-click the Azure Cosmos DB account, choose **Create Database**, input the database name, and press **Enter** to complete.
-
-- ![Create database](./media/storage-explorer/create-database.png) 
+-   Right-click the Azure Cosmos DB account, choose **Create Database**, input the database name, and press **Enter** to complete.
+       
+    ![Create database](./media/storage-explorer/create-database.png) 
 
 #### Delete a database
-Right-click the database, click **Delete Database**, and click **Yes** in the pop-up window. The database node is deleted, and the Azure Cosmos DB account refreshes automatically.
+- Right-click the database, click **Delete Database**, and click **Yes** in the pop-up window. The database node is deleted, and the Azure Cosmos DB account refreshes automatically.
 
-- ![Delete database1](./media/storage-explorer/delete-database1.png)  
+    ![Delete database1](./media/storage-explorer/delete-database1.png)  
 
-- ![Delete database2](./media/storage-explorer/delete-database2.png) 
+    ![Delete database2](./media/storage-explorer/delete-database2.png) 
 
 #### Create a collection
-Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish. 
+- Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish. 
 
-- ![Create collection1](./media/storage-explorer/create-collection.png)
+    ![Create collection1](./media/storage-explorer/create-collection.png)
 
-- ![Create collection2](./media/storage-explorer/create-collection2.png) 
-
-
-Please select **Unlimited** to be able to specify partition key, then click **OK** to finish.
-
-If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection. For information on partition key settings, see [Design for partitioning](partition-data.md#designing-for-partitioning).
+    ![Create collection2](./media/storage-explorer/create-collection2.png) 
 
 
-- ![Partition key](./media/storage-explorer/partitionkey.png)
+- Please select **Unlimited** to be able to specify partition key, then click **OK** to finish.
+
+    If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection. For information on partition key settings, see [Design for partitioning](partition-data.md#designing-for-partitioning).
+
+
+    ![Partition key](./media/storage-explorer/partitionkey.png)
 
 
 
 #### Delete a collection
-Right-click the collection, click **Delete Collection**, and then click **Yes** in the pop-up window. 
+- Right-click the collection, click **Delete Collection**, and then click **Yes** in the pop-up window. 
 
-The collection node is deleted, and the database refreshes automatically.
+    The collection node is deleted, and the database refreshes automatically.
 
-- ![Delete collection](./media/storage-explorer/delete-collection.png) 
+    ![Delete collection](./media/storage-explorer/delete-collection.png) 
 
 ### Document management
 
 #### Create and modify documents
-To create a new document, open **Documents** in the left window, click **New Document**, edit the contents in the right pane, then click **Save**. You can also update an existing document, and then click **Save**. Changes can be discarded by clicking **Discard**.
+- To create a new document, open **Documents** in the left window, click **New Document**, edit the contents in the right pane, then click **Save**. You can also update an existing document, and then click **Save**. Changes can be discarded by clicking **Discard**.
 
-- ![Document](./media/storage-explorer/document.png)
+    ![Document](./media/storage-explorer/document.png)
 
 #### Delete a document
-Click the **Delete** button to delete the selected document.
+- Click the **Delete** button to delete the selected document.
 
 #### Query for documents
-Edit the document filter by entering a [SQL query](sql-api-sql-query.md) and then click **Apply**.
+- Edit the document filter by entering a [SQL query](sql-api-sql-query.md) and then click **Apply**.
 
-- ![Document Filter](./media/storage-explorer/document-filter.png)
+    ![Document Filter](./media/storage-explorer/document-filter.png)
 
 
 
@@ -169,16 +169,16 @@ Edit the document filter by entering a [SQL query](sql-api-sql-query.md) and the
 + To modify an existing vertex, click the pen icon in the right pane.    
 
 
-- ![Graph](./media/storage-explorer/vertex.png)
+    ![Graph](./media/storage-explorer/vertex.png)
 
 
 #### Delete a graph
-To delete a vertex, click the recycle bin icon beside the vertex name.
+- To delete a vertex, click the recycle bin icon beside the vertex name.
 
 #### Filter for graph
-Edit the graph filter by entering a [gremlin query](gremlin-support.md) and then click **Apply Filter**.
+- Edit the graph filter by entering a [gremlin query](gremlin-support.md) and then click **Apply Filter**.
 
-- ![Graph Filter](./media/storage-explorer/graph-filter.png)
+    ![Graph Filter](./media/storage-explorer/graph-filter.png)
 
 
 ### Table management
@@ -187,33 +187,33 @@ Edit the graph filter by entering a [gremlin query](gremlin-support.md) and then
 + To create a new table, open **Entities** from the left window, click **Add**, edit the content in **Add Entity** dialog, add property by clicking button **Add Property**, then click **Insert**.
 + To modify a table, click **Edit**, modify the content, then click **Update**.
 
-- ![Table](./media/storage-explorer/table.png)
+    ![Table](./media/storage-explorer/table.png)
 
 #### Import and Export table
 + To import, click **Import** button and choose an existing table.
 + To export, click **Export** button and choose a destination.
 
 
-- ![Table Import and Export](./media/storage-explorer/table-import-export.png)
+    ![Table Import and Export](./media/storage-explorer/table-import-export.png)
 
 
 #### Delete Entities
-Select the entities and click button **Delete**.
+- Select the entities and click button **Delete**.
 
 
-- ![Table delete](./media/storage-explorer/table-delete.png)
+    ![Table delete](./media/storage-explorer/table-delete.png)
 
 
 #### Query table
-Click **Query** button, input query condition, then click **Execute Query** button. Close Query pane by clicking **Close Query** button.
+- Click **Query** button, input query condition, then click **Execute Query** button. Close Query pane by clicking **Close Query** button.
 
-- ![Table Query](./media/storage-explorer/table-query.png)
+    ![Table Query](./media/storage-explorer/table-query.png)
 
 ### Manage stored procedures, triggers, and UDFs
 * To create a stored procedure, in the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter a name in the left, type the stored procedure scripts in the right window, and then click **Create**. 
 * You can also edit existing stored procedures by double-clicking, making the update, and then clicking **Update** to save, or click **Discard** to cancel the change.
 
-- ![Stored procedure](./media/storage-explorer/stored-procedure.png)
+    ![Stored procedure](./media/storage-explorer/stored-procedure.png)
 * The operations for **Triggers** and **UDF** are similar with **Stored Procedures**.
 
 ## Next steps
