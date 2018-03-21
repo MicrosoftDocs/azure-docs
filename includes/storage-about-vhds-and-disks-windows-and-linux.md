@@ -14,6 +14,7 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 > [!WARNING]
 > If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
 > 
+> Page blobs are designed for use as VHDs only. Microsoft does not recommend storing other types of data in page blobs, as the storage cost may be significantly greater.  Use block blobs for storing data that is not a VHD.
 
 ## Types of disks 
 

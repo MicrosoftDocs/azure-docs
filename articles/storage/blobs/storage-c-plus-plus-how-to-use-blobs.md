@@ -32,6 +32,8 @@ This guide will demonstrate how to perform common scenarios using the Azure Blob
 > 
 > 
 
+## What is Blob storage?
+
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
