@@ -67,6 +67,7 @@
 ### [Rules engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
 ### [Rules engine match conditions](cdn-rules-engine-reference-match-conditions.md)
 ### [Rules engine features](cdn-rules-engine-reference-features.md)
+## [HTTP headers](cdn-http-headers.md)
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
