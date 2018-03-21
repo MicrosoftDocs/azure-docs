@@ -44,6 +44,9 @@ An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint
 
 Do not use the endpoint key for authoring LUIS apps.
 
+## Use endpoint key in query
+Change your endpoint query value for the `Ocp-Apim-Subscription-Key` from the authoring (starter) key, to the new endpoint key in order to use the LUIS endpoint key quota rate. If you create the key, and assign the key but do not change the endpoint query value for `Ocp-Apim-Subscription-Key`, you are not using your endpoint key quota.
+
 ## API usage of Ocp-Apim-Subscription-Key
 The LUIS APIs use the header, `Ocp-Apim-Subscription-Key`, in both the [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs. The header name does not change based on which set of APIs you are using. 
 
@@ -77,6 +80,7 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
 
     ![Choose the key](./media/luis-manage-keys/assign-key-filled-out.png)
 
+6. After you assign this endpoint key, use it in all endpoint queries. 
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
