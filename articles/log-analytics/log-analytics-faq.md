@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 03/21/2018
 ms.author: magoedte
 
 ---
@@ -47,24 +47,23 @@ A: No. Log Analytics is a scalable cloud service that processes and stores large
 
 ### Q. How do I troubleshoot if Log Analytics is no longer collecting data?
 
-A: If you are on the free pricing tier and have sent more than 500 MB of data in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing.
+A: If you are on the free pricing tier and have sent more than 500 MB of data in a day, data collection stops for the rest of the day. Reaching the daily limit is a common reason that Log Analytics stops collecting data, or data appears to be missing.  
 
-Log Analytics creates an event of type *Operation* when data collection starts and stops. 
+Log Analytics creates an event of type *Heartbeat* and can be used to determine if data collection stops. 
 
 Run the following query in search to check if you are reaching the daily limit and missing data:
-`Type=Operation OperationCategory="Data Collection Status"`
+`Heartbeat | summarize max(TimeGenerated)`
 
-When data collection stops, the *OperationStatus* is **Warning**. When data collection starts, the *OperationStatus* is **Succeeded**. 
+When data collection stops, depending on the time range selected, you will not see any records returned.   
 
 The following table describes reasons that data collection stops and a suggested action to resume data collection:
 
 | Reason data collection stops                       | To resume data collection |
 | -------------------------------------------------- | ----------------  |
-| Daily limit of free data reached<sup>1</sup>       | Wait until the following day for collection to automatically restart, or<br> Change to a paid pricing tier |
+| Limit of free data reached<sup>1</sup>       | Wait until the following month for collection to automatically restart, or<br> Change to a paid pricing tier |
 | Azure subscription is in a suspended state due to: <br> Free trial ended <br> Azure pass expired <br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)                          | Convert to a paid subscription <br> Convert to a paid subscription <br> Remove limit, or wait until limit resets |
 
-<sup>1</sup> If your workspace is on the free pricing tier, you're limited to sending 500 MB of data per day to the service. 
-When you reach the daily limit, data collection stops until the next day. Data sent while data collection is stopped is not indexed and is not available for searching. When data collection resumes, processing occurs only for new data sent. 
+<sup>1</sup> If your workspace is on the free pricing tier, you're limited to sending 500 MB of data per day to the service. When you reach the daily limit, data collection stops until the next day. Data sent while data collection is stopped is not indexed and is not available for searching. When data collection resumes, processing occurs only for new data sent. 
 
 Log Analytics uses UTC time and each day starts at midnight UTC. If the workspace reaches the daily limit, processing resumes during the first hour of the next UTC day.
 
@@ -75,14 +74,13 @@ A: Use the steps described in [create an alert rule](log-analytics-alerts-creati
 When creating the alert for when data collection stops, set the:
 - **Name** to *Data collection stopped*
 - **Severity** to *Warning*
-- **Search query** to `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-- **Time window** to *2 Hours*.
-- **Alert frequency** to be one hour since the usage data only updates once per hour.
+- **Search query** to `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+- **Time window** to *30 minutes*.
+- **Alert frequency** to every *ten* minutes.
 - **Generate alert based on** to be *number of results*
 - **Number of results** to be *Greater than 0*
 
-Use the steps described in [add actions to alert rules](log-analytics-alerts-actions.md) configure an e-mail, webhook, or runbook action for the alert rule.
-
+This alert will fire when the query returns results only if you have heartbeat missing for more than 15 minutes.  Use the steps described in [add actions to alert rules](log-analytics-alerts-actions.md) configure an e-mail, webhook, or runbook action for the alert rule.
 
 ## Configuration
 ### Q. Can I change the name of the table/blob container used to read from Azure Diagnostics (WAD)?
@@ -139,9 +137,9 @@ Ensure you have permission in both Azure subscriptions.
 ### Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?
 A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service, Log Analytics is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
 
-The Log Analytics agent was designed to ensure it has a small footprint. One of our customers wrote a blog about the tests they performed against our agent and how impressed they were. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakup by solution in the [Usage](log-analytics-usage.md) page.
+The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](log-analytics-usage.md) page.
 
-For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) about the low footprint of the OMS agent.
+For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) about the small footprint of the OMS agent.
 
 ### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Log Analytics?
 
