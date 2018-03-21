@@ -4724,6 +4724,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/sql-api-sql-query-cheat-sheet.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/query-cheat-sheet",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
@@ -17591,6 +17596,11 @@
     {
         "source_path": "articles/azure-stack/azure-stack-redeploy.md",
         "redirect_url": "/azure/azure-stack/asdk/asdk-redeploy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-register.md",
+        "redirect_url": "/azure/azure-stack/azure-stack-registration",
         "redirect_document_id": false
     }
    ]

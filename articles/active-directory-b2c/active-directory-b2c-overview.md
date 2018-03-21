@@ -3,7 +3,7 @@ title: Azure Active Directory B2C overview
 description: Get started developing consumer-facing applications with Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: saeedakhter-msft
+author: davidmu1
 manager: mtillman
 ms.author: saeeda
 

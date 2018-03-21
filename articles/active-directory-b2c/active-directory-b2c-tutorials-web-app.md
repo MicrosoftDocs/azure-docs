@@ -2,7 +2,7 @@
 title: Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for an ASP.NET web app.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 
 ms.author: patricka
 ms.reviewer: saraford
