@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/21/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 ### Step 1: Navigate to the virtual network gateway
 
 1. In the [Azure portal](https://portal.azure.com), navigate to **All resources**. 
