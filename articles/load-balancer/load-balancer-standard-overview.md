@@ -13,39 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 03/21/2018
 ms.author: kumud
 ---
 
-# Azure Load Balancer Standard overview (preview)
+# Azure Load Balancer Standard overview
 
-The Azure Load Balancer Standard SKU and Public IP Standard SKU together enable you to build highly scalable and reliable architectures. Applications that use Load Balancer Standard can take advantage of new capabilities. Low latency, high throughput, and scale are available for millions of flows for all TCP and UDP applications.
+Azure Load Balancer allows you to scale your applications and create high availability for your services. Load Balancer can be used for inbound as well as outbound scenarios and provides low latency, high throughput, and scales up to millions of flows for all TCP and UDP applications.  This article is specific to Standard Load Balancer and deeper than Load Balancer Overview.
 
 >[!NOTE]
-> The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires [sign-up for Availability Zones](https://aka.ms/availabilityzones).
+> To use [Availability Zones Preview](https://aka.ms/availabilityzones) with Standard Load Balancer requires [sign-up for Availability Zones](https://aka.ms/availabilityzones).
 
 ## Why use Load Balancer Standard?
 
-You can use Load Balancer Standard for the full range of virtual data centers. From small scale deployments to large and complex multi-zone architectures, use Load Balancer Standard to take advantage of the following capabilities:
+You can use Load Balancer Standard for the full range of virtual data centers. From small scale deployments to large and complex multi-zone architectures.  Review the table below for an overview of the differences between Standard Load Balancer and Basic Load Balancer:
 
-- [Enterprise scale](#enterprisescale) can be achieved with Load Balancer Standard. This feature can be used with any virtual machine (VM) instance within a virtual network, up to 1,000 VM instances.
+>[!NOTE]
+> New designs should use Standard Load Balancer. 
 
-- [New diagnostic insights](#diagnosticinsights) are available to help you understand, manage, and troubleshoot this vital component of your virtual data center. Use Azure Monitor (preview) to show, filter, and group new multi-dimensional metrics for continuous data path health measurements. Monitor your data from front-end to VM, endpoint health probes, for TCP connection attempts, and to outbound connections.
+| | [Standard SKU](load-balancer-standard-overview.md) | Basic SKU |
+| --- | --- | --- |
+| Backend pool size | up to 1000 instances | up to 100 instances|
+| Backend pool endpoints | any virtual machine in a single virtual network, including blend of virtual machines, availability sets, virtual machine scale sets. | virtual machines in a single availability set or virtual machine scale set |
+| Availability Zones | zone-redundant and zonal frontends for inbound and outbound, outbound flows mappings survive zone failure, cross-zone load balancing | / |
+| Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements | Azure Log Analytics for public Load Balancer only, SNAT exhaustion alert, backend pool health count |
+| HA Ports | internal Load Balancer | / |
+| Secure by default | default closed for public IP and Load Balancer endpoints and a network security group must be used to explicitly whitelist for traffic to flow | default open, network security group optional |
+| Outbound connections | Multiple frontends with per rule opt-out. An outbound scenario _must_ be explicitly created for the virtual machine to be able to use outbound connectivity.  [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) can be reached without outbound connectivity and do not count towards data processed.  Any public IP addresses, including Azure PaaS services not available as VNet Service Endpoints, must be reached via outbound connectivity and count towards data processed. When only an internal Load Balancer is serving a virtual machine, outbound connections via default SNAT are not available. | Single frontend, selected at random when multiple frontends are present.  When only internal Load Balancer is serving a virtual machine, default SNAT is used. |
+| Multiple frontends | Inbound and outbound | Inbound only |
+| Operations | Most operations < 30 seconds | 60-90+ seconds typical |
+| SLA | 99.99% for data path with two healthy virtual machines | Implicit in VM SLA | 
+| Pricing | Charged based on number of rules, data processed inbound or outbound associated with resource  | No charge |
 
-- [Network Security Groups](#nsg) are now required for any VM instance that is associated with Load Balancer Standard SKUs or Public IP Standard SKUs. Network Security Groups (NSGs) provide enhanced security for your scenario.
+Review [service limits for Load Balancer](https://aka.ms/lblimits), as well as [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 
-- [High Availability (HA) Ports provide high reliability](#highreliability) and scale for network virtual appliances (NVAs) and other application scenarios. HA Ports load balance all ports on an Azure Internal Load Balancer (ILB) front-end to a pool of VM instances.
-
-- [Outbound connections](#outboundconnections) now use a new Source Network Address Translation (SNAT) port allocation model that provides greater resiliency and scale.
-
-- [Load Balancer Standard with Availability Zones](#availabilityzones) can be used to construct zone-redundant and zonal architectures. Both of these architectures can include cross-zone load balancing. You can achieve zone-redundancy without dependency on DNS records. A single IP address is zone-redundant by default.  A single IP address can reach any VM in a virtual network within a region that is across all Availability Zones.
+You can use Standard Load Balancer Standard as a public or internal Load Balancer. And a virtual machine can be connected to one public and one internal Load Balancer resource.
 
 
-You can use Load Balancer Standard either in a public or internal configuration to support the following fundamental scenarios:
 
 - Load balance inbound traffic to healthy back-end instances.
 - Port forward inbound traffic to a single back-end instance.
 - Translate outbound traffic from a private IP address within the virtual network to a Public IP address.
+
+
+
+
 
 ### <a name = "enterprisescale"></a>Enterprise scale
 
