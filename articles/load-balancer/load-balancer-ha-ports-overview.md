@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 03/21/2018
 ms.author: kumud
 ---
 
@@ -23,7 +23,7 @@ ms.author: kumud
 Azure Load Balancer Standard helps you load balance TCP and UDP flows on all ports simultaneously, when you are using an internal Load Balancer. 
 
 >[!NOTE]
-> The high availability (HA) ports feature is available with Load Balancer Standard, and is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in the general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sign up for the Load Balancer Standard preview to use HA ports with Load Balancer Standard resources. Follow the instructions for sign-up to Load Balancer [Standard preview](https://aka.ms/lbpreview#preview-sign-up) as well.
+>Azure Load Balancer supports two different types: Basic and Standard. This article discusses Standard Load Balancer. For more information about Basic Load Balancer, see [Load Balancer overview](load-balancer-overview.md).
 
 An HA ports rule is a variant of a load balancing rule, configured on an internal Load Balancer Standard. You can simplify your use of Load Balancer by providing a single rule to load balance all TCP and UDP flows arriving on all ports of an internal Load Balancer Standard. The load balancing decision is made per flow. This is based on the following five-tuple connection: Source IP Address, Source Port, Destination IP Address, Destination Port, and Protocol.
 
