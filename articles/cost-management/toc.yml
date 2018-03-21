@@ -28,7 +28,7 @@
 - name: Concepts
   items:
   - name: Understanding cost reports
-    href: understading-cost-reports.md
+    href: understanding-cost-reports.md
 - name: How-to guides
   items:
   - name: Activate Azure subscriptions and accounts
