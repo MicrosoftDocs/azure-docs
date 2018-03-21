@@ -4724,6 +4724,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/sql-api-sql-query-cheat-sheet.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/query-cheat-sheet",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
@@ -17550,7 +17555,7 @@
      },
      {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
-            "redirect_url": "/azure/azure-functions/durable-functions-monitor.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
      },
 	   {
