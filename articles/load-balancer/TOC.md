@@ -34,6 +34,7 @@
 ### [Create a zone redundant public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)
 
 # How to
+## [Create a Standard Load Balancer](load-balancer-standard-public-cli.md)
 ## [Configure TCP idle timeout for Load Balancer](load-balancer-tcp-idle-timeout.md)
 ## [Configure Distribution mode for Load Balancer](load-balancer-distribution-mode.md)
 ## [Configure Internal Load Balancer for SQL AlwaysOn](load-balancer-configure-sqlao.md)
