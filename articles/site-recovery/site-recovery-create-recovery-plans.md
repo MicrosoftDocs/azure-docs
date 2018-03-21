@@ -81,7 +81,7 @@ You can customize a recovery plan by adding a script or manual action. Note that
 
 ## Watch a video
 
-Watch a video that demostrates how to build a recovery plan.
+Watch a video that demonstrates how to build a recovery plan.
 
 
 > [!VIDEO https://www.youtube.com/embed/1KUVdtvGqw8]
