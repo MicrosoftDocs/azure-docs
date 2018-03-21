@@ -85,7 +85,7 @@
       href: search-security-rbac.md
     - name: Security filters
       href: search-security-trimming-for-azure-search.md
-    - name: Secure with Active Directory
+    - name: Filter on AAD identities
       href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:
