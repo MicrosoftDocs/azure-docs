@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 03/17/2018
 ms.author: barbkess
 
 ---
