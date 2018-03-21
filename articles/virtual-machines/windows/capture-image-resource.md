@@ -4,7 +4,7 @@ description: Create a managed image of a generalized VM or VHD in Azure. Images 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/20/2018
 ms.author: cynthn
 
 ---
@@ -69,6 +69,9 @@ Before you begin, make sure that you have the latest version of the AzureRM.Comp
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
+
+> [!NOTE]
+> If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `-ZoneResilient` parameter in the image configuration.
 
 
 1. Create some variables.
