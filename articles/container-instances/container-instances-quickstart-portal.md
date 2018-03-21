@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 03/30/2018
 ms.author: marsma
 ms.custom: mvc
 ---
@@ -24,7 +24,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a container instance
 
-Select the **Create a resource** > **Containers** > **Azure Container Instances (preview)**.
+Select the **Create a resource** > **Containers** > **Azure Container Instances**.
 
 ![Begin creating a new container instance in the Azure portal][aci-portal-01]
 
@@ -69,7 +69,7 @@ This will launch a confirmation dialog box, select **Yes** when prompted.
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
-[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png
+<!--[aci-portal-02]: ./media/container-instances-quickstart-portal/qs-portal-02.png-->
 [aci-portal-03]: ./media/container-instances-quickstart-portal/qs-portal-03.png
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
