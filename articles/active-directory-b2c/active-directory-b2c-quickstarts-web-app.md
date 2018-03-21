@@ -2,18 +2,15 @@
 title: Test drive an Azure AD B2C enabled web app
 description: Quickstart to try a sample ASP.NET web app that uses Azure Active Directory B2C to provide user login.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
+editor: ''
 
-ms.reviewer: saraford
 ms.service: active-directory-b2c
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
+ms.author: davidmu
 
 ---
 # Quickstart: Test drive an Azure AD B2C enabled web app
