@@ -48,19 +48,11 @@ You create additional groups, and add machines to different groups so that you c
 3. Select the machine you want to move to the new group, click **Change group**, and then select the new group. Alternatively, right-click the group name > **Protected item**, and add machines to the group. A machine or replication group can only belong to one group in a recovery plan.
 
 
-
-
-
-
-
-     - **Add Azure runbooks**: You can extend recovery plans by using Azure runbooks. For example, you can use a runbook to automate tasks, or to create single-step recovery. For more information, see [Add Azure Automation runbooks to recovery plans](site-recovery-runbook-automation.md).
-
-
 ## Add a script or manual action
 
 You can customize a recovery plan by adding a script or manual action. Note that:
 
-- If you're replicating to Azure you can integrate Azure automation runbooks into your recovery plan.
+- If you're replicating to Azure you can integrate Azure automation runbooks into your recovery plan. [Learn more](site-recovery-runbook-automation.md).
 - If you're replicating Hyper-V VMs managed by System Center VMM, you can create a script on the on-premises VMM server, and include it in the recovery plan.
 - When you add a script, it adds a new set of actions for the group. For example, a set of pre-steps for Group 1 is created with the name *Group 1: pre-steps*. All pre-steps are listed inside this set. You can add a script on the primary site only if you have a VMM server deployed.
 - If you add an manual action, when the recovery plan runs, it stops at the point at which you inserted the manual action. A dialog box prompts you to specify that the manual action was completed.
@@ -90,6 +82,7 @@ You can customize a recovery plan by adding a script or manual action. Note that
 ## Watch a video
 
 Watch a video that demostrates how to build a recovery plan.
+
 
 > [!VIDEO https://www.youtube.com/embed/1KUVdtvGqw8]
 
