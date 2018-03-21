@@ -152,7 +152,7 @@ For the query `when is the best time to go to red rock?`, and the app has the wo
 ```
 
 ## Best practices
-Create an entity when the calling application or bot needs some parameters required to execute an action.
+See [Entity best practices](luis-concept-best-practices.md#entities) to learn more.
 
 ## Next steps
 

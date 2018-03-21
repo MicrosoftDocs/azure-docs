@@ -54,7 +54,7 @@ The next few lines of code call into the Face API to detect the faces in the ima
 import requests
 from IPython.display import HTML
 
-headers = { 'Ocp-Apim-Subscription-Key': '<Subscription Key>' }
+headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
     
 params = {
     'returnFaceId': 'true',
