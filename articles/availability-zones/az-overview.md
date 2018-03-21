@@ -19,14 +19,14 @@ ms.custom: mvc I am an ITPro and application developer, and I want to protect (u
 ---
 
 # Overview of Availability Zones in Azure
-Availability Zones is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within a Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. Zone-redundant services replicate your applications and data across Availability Zones to protect from single-points-of-failure. With Availability Zones, Azure offers industry best 99.99% VM uptime SLA. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
+Availability Zones is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. Zone-redundant services replicate your applications and data across Availability Zones to protect from single-points-of-failure. With Availability Zones, Azure offers industry best 99.99% VM uptime SLA. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
-Build high-availability into your application architecture by co-locating your compute, storage, networking and data resources within a zone and replicating in other zones. Azure services that support Availability Zones fall into two categories:
+Build high-availability into your application architecture by co-locating your compute, storage, networking, and data resources within a zone and replicating in other zones. Azure services that support Availability Zones fall into two categories:
 
 - **Zonal services** – you pin the resource to a specific zone (for example, virtual machines, managed disks, IP addresses), or
 - **Zone-redundant services** – platform replicates automatically across zones (for example, zone-redundant storage, SQL Database).
 
-To achieve comprehensive business continuity on Azure, build your application architecture using the combination of Availability Zones with Azure region pairs. You can synchronously replicate your applications and data using Availability Zones within a Azure region for high-availability and asynchronously replicate across Azure regions for disaster recovery protection.
+To achieve comprehensive business continuity on Azure, build your application architecture using the combination of Availability Zones with Azure region pairs. You can synchronously replicate your applications and data using Availability Zones within an Azure region for high-availability and asynchronously replicate across Azure regions for disaster recovery protection.
  
 ![conceptual view of one zone going down in a region](./media/az-overview/az-graphic-two.png)
 
