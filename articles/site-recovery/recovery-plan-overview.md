@@ -53,7 +53,7 @@ With this customization in place, here's what happens when you run a failover on
 1. A shutdown step attempts to turn off the  on-premises machines. The exception is if you run a test failover, in which case the primary site continues to run. 
 2. The shutdown triggers a parallel failover of all the machines in the recovery plan.
 3. The failover prepares virtual machine disks using replicated data.
-4. The startup groups run in order, and start the machines in each group. First, Group 1 runs, then Group 2, and finally, Group 3s. If there's more than one machine in any group, then all the machines start in parallel.
+4. The startup groups run in order, and start the machines in each group. First, Group 1 runs, then Group 2, and finally, Group 3. If there's more than one machine in any group, then all the machines start in parallel.
 
 
 ## Automate tasks
@@ -85,7 +85,8 @@ You can use a recovery plan to trigger a test failover. Use the following best p
 
 Watch a quick example video showing a on-click failover for a two-tier WordPress app.
     
-[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
+
 
 
 ## Next steps
