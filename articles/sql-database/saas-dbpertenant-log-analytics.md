@@ -40,7 +40,7 @@ Log Analytics workspaces and analytics solutions open in the Azure portal and in
 
 ### Create performance diagnostic data by simulating a workload on your tenants 
 
-1. In the PowerShell ISE, open *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\**Demo-PerformanceMonitoringAndManagement.ps1***. Keep this script open because you might want to run several of the load generation scenarios during this tutorial.
+1. In the PowerShell ISE, open *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*. Keep this script open because you might want to run several of the load generation scenarios during this tutorial.
 2. If you haven't done so already, provision a batch of tenants to make the monitoring context more interesting. This process takes a few minutes.
 
    a. Set **$DemoScenario = 1**, _Provision a batch of tenants_.
@@ -59,7 +59,7 @@ The Wingtip Tickets SaaS multitenant database scripts and application source cod
 
 ## Install and configure Log Analytics and the Azure SQL Analytics solution
 
-Log Analytics is a separate service that must be configured. Log Analytics collects log data, telemetry, and metrics in a log analytics workspace. Just like other resources in Azure, a log analytics workspace must be created. The workspace doesn't need to be created in the same resource group as the applications it monitors. Doing so often makes the most sense though. For the Wingtip Tickets app, use a single resource group to make sure the workspace is deleted with the application.
+Log Analytics is a separate service that must be configured. Log Analytics collects log data, telemetry, and metrics in a Log Analytics workspace. Just like other resources in Azure, a Log Analytics workspace must be created. The workspace doesn't need to be created in the same resource group as the applications it monitors. Doing so often makes the most sense though. For the Wingtip Tickets app, use a single resource group to make sure the workspace is deleted with the application.
 
 1. In the PowerShell ISE, open *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\**Demo-LogAnalytics.ps1***.
 2. To run the script, press F5.
