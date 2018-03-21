@@ -59,7 +59,7 @@ The availability group listener is an IP address and network name that the SQL S
 
     b. On the **Resources** tab, right-click the client access point resource under **Server Name**, and then click **Properties**. 
 
-   ![IP Resource](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
+   ![IP Resource](./media/virtual-machines-ag-listener-configure/98-dependencies.png)
 
     c. Click the **Dependencies** tab. Verify that the IP address is a dependency. If it is not, set a dependency on the IP address. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**. 
 
