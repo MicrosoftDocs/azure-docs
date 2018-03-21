@@ -171,31 +171,10 @@ After your NSGs are defined, assign them to the subnet that your ASE is on. If y
 
 ## Routes ##
 
-Routes are a critical aspect of what forced tunneling is and how to deal with it. In an Azure virtual network, routing is done based on the longest prefix match (LPM). If there is more than one route with the same LPM match, a route is selected based on its origin in the following order:
+Forced tunneling is when you set routes in your VNet so the outbound traffic doesn't go directly to the internet but somewhere else like an ExpressRoute gateway or a virtual appliance.  If you need to configure your ASE in such a manner then read the document on [Configuring your App Service Environment with Forced Tunneling][forcedtunnel].  This document will tell you the options available to work with ExpressRoute and forced tunneling.
 
-- User-defined route (UDR)
-- BGP route (when ExpressRoute is used)
-- System route
-
-To learn more about routing in a virtual network, read [User-defined routes and IP forwarding][UDRs].
-
-The Azure SQL database that the ASE uses to manage the system has a firewall. It requires communication to originate from the ASE public VIP. Connections to the SQL database from the ASE will be denied if they are sent down the ExpressRoute connection and out another IP address.
-
-If replies to incoming management requests are sent down the ExpressRoute, the reply address is different than the original destination. This mismatch breaks the TCP communication.
-
-For your ASE to work while your VNet is configured with an ExpressRoute, the easiest thing to do is:
-
--   Configure ExpressRoute to advertise _0.0.0.0/0_. By default, it force tunnels all outbound traffic on-premises.
--   Create a UDR. Apply it to the subnet that contains the ASE with an address prefix of _0.0.0.0/0_ and a next hop type of _Internet_.
-
-If you make these two changes, internet-destined traffic that originates from the ASE subnet isn't forced down the ExpressRoute and the ASE works. 
-
-> [!IMPORTANT]
-> The routes defined in a UDR must be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The preceding example uses the broad 0.0.0.0/0 address range. It can potentially be accidentally overridden by route advertisements that use more specific address ranges.
->
-> ASEs aren't supported with ExpressRoute configurations that cross-advertise routes from the public-peering path to the private-peering path. ExpressRoute configurations with public peering configured receive route advertisements from Microsoft. The advertisements contain a large set of Microsoft Azure IP address ranges. If the address ranges are cross-advertised on the private-peering path, all outbound network packets from the ASE's subnet are force tunneled to a customer's on-premises network infrastructure. This network flow is currently not supported with ASEs. One solution to this problem is to stop cross-advertising routes from the public-peering path to the private-peering path.
-
-To create a UDR, follow these steps:
+When you create an ASE in the portal we also create a set of route tables on the subnet that is created with the ASE.  Those routes simply say to send outbound traffic directly to the internet.  
+To create the same routes manually, follow these steps:
 
 1. Go to the Azure portal. Select **Networking** > **Route Tables**.
 
@@ -212,6 +191,10 @@ To create a UDR, follow these steps:
 5. After you create the new route table, go to the subnet that contains your ASE. Select your route table from the list in the portal. After you save the change, you should then see the NSGs and routes noted with your subnet.
 
     ![NSGs and routes][7]
+
+## Service Endpoints ##
+
+Service Endpoints 
 
 ### Deploy into existing Azure virtual networks that are integrated with ExpressRoute ###
 
@@ -254,3 +237,5 @@ To deploy your ASE into a VNet that's integrated with ExpressRoute, preconfigure
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
