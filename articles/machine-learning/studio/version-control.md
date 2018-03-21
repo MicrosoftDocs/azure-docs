@@ -33,14 +33,14 @@ You can then open the snapshot in Locked mode by clicking the name of the experi
 
 ![Run History list](./media/version-control/runhistorylist.png)
 
-After it's opened, you can save the snapshot experiment as a new experiment and then modify it. If your experiment snapshot contains assets such as a trained model, transform, or dataset that have updated versions, the snapshot retains the references to the original version when the snapshot was taken. If you save the locked snapshot as a new experiment, Azure Machine Learning Studio detects the existence of a newer version of these assets, and automatically updates them in the new experiment.
+After it's opened, you can save the snapshot experiment as a new experiment and then modify it. If your experiment snapshot contains assets such as trained models, transforms, or datasets that have updated versions, the snapshot retains the references to the original version when the snapshot was taken. If you save the locked snapshot as a new experiment, Azure Machine Learning Studio detects the existence of a newer version of these assets, and automatically updates them in the new experiment.
 
 If you delete the experiment, all snapshots of that experiment are deleted.
 
 ### Export/import experiment in JSON format
 The run history snapshots keep an immutable version of the experiment in Azure Machine Learning Studio every time it is submitted to run. You can also save a local copy of the experiment and check it in to your favorite source control system, such as Team Foundation Server, and later on re-create an experiment from that local file. You can use the [Azure Machine Learning PowerShell](http://aka.ms/amlps) commandlets [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) and [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) to accomplish that.
 
-The JSON file is a textual representation of the experiment graph, which might include a reference to assets in the workspace such as a dataset or a trained model. It doesn't contain a serialized version of the asset. If you attempt to import the JSON document back into the workspace, the referenced assets must already exist with the same asset IDs that are referenced in the experiment. Otherwise you will not be able to access the imported experiment.
+The JSON file is a textual representation of the experiment graph, which might include a reference to assets in the workspace such as a dataset or a trained model. It doesn't contain a serialized version of the asset. If you attempt to import the JSON document back into the workspace, the referenced assets must already exist with the same asset IDs that are referenced in the experiment. Otherwise you cannot access the imported experiment.
 
 ## Versioning trained model
 A trained model in Azure Machine Learning is serialized into a format known as an .iLearner file, and is stored in the Azure Blob storage account associated with the workspace. One way to get a copy of the .iLearner file is through the retraining API. [This article](retrain-models-programmatically.md) explains how the retraining API works. The high-level steps:
