@@ -3,8 +3,8 @@ title: Configure Azure virtual network service endpoints | Microsoft Docs
 description: Learn how to enable and disable service endpoints from your virtual network
 services: virtual-network
 documentationcenter: na
-author: anithaa
-manager: narayan
+author: jimdial
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2018
-ms.author: anithaa
+ms.author: jdial
 ms.custom: 
 ---
 # Configure Virtual Network Service Endpoints
