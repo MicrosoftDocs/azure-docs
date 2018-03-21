@@ -46,7 +46,7 @@ Serial Console for virtual machines is only accessible via [Azure portal](https:
 
 
 > [!NOTE] 
-> Serial console requires a local user with a password configured. At this time, VMs only configured with SSH public key will not have access to the Serial Console. To create a local user with password, follow [VM Access Extension](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-vmaccess-extension) and create local user with password.
+> Serial console requires a local user with a password configured. At this time, VMs only configured with SSH public key will not have access to the Serial Console. To create a local user with password, follow [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) and create local user with password.
 
 ### Disable feature
 The Serial Console functionality can be deactivated for specific VMs by disabling that VM's boot diagnostics setting.
@@ -60,7 +60,7 @@ Access to Serial console is limited to users who have [VM Contributors](../../ac
 All data is sent back and forth is encrypted on the wire.
 
 ### Audit logs
-All access to the Serial Console is currently logged in the [boot diagnostics](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.  
+All access to the Serial Console is currently logged in the [boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.  
 
 >[!CAUTION] 
 While no access passwords for the console are logged, if commands run within the console contain or output passwords, secrets, user names or any other form of Personally Identifiable Information (PII), those will be written to the virtual machine boot diagnostics logs, along with all other visible text, as part of the implementation of the Serial Console's scrollback functionality. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them, however we recommend following the best practice of using the SSH console for anything that may involve secrets and/or PII. 
@@ -85,7 +85,7 @@ Network lock down system| Access Serial Console via portal to manage system | Li
 Interacting with bootloader | Access GRUB/BCD via the Serial Console | Linux/Windows 
 
 ## Accessing Serial Console for Linux
-In order for Serial Console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros) have the Serial Console configured by default. Just by clicking in the portal on the Serial console section will provide access to the console. 
+In order for Serial Console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the Serial Console configured by default. Just by clicking in the portal on the Serial console section will provide access to the console. 
 
 ### Access for RedHat 
 RedHat Images available on Azure have console access enabled by default. Single user mode in Red Hat requires root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
@@ -99,7 +99,7 @@ RedHat Images available on Azure have console access enabled by default. Single 
 
 Now if the system boots into single user mode you can log in via root password.
 
-Alternatively for RHEL 7.4+ or 6.9+ you can enable single user mode in the GRUB prompts, see instructions [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/installation_guide/s1-rescuemode-booting-single)
+Alternatively for RHEL 7.4+ or 6.9+ you can enable single user mode in the GRUB prompts, see instructions [here](https://access.redhat.com/documentation/red_hat_enterprise_linux/5/html/installation_guide/s1-rescuemode-booting-single)
 
 ### Access for Ubuntu 
 Ubuntu images available on Azure have console access enabled by default. If the system boots into Single User Mode you can access without additional credentials. 
@@ -144,7 +144,7 @@ Hitting enter after the connection banner does not show a log in prompt | [Hitti
 **Q. How can I send feedback?**
 A. Provide feedback as an issue by going to https://aka.ms/serialconsolefeedback. Alternatively (less preferred) Send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com 
 **Q.I get an Error "Existing console has conflicting OS type "Windows" with the requested OS type of Linux?**
-A. This is a known issue to fix this, simply open [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) in bash mode and retry.
+A. This is a known issue to fix this, simply open [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in bash mode and retry.
 **Q. I am not able to access the Serial Console, where can I file a support case?**
 A. This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
 
