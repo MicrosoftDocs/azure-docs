@@ -72,15 +72,28 @@ book me 2 adult business tickets to Paris tomorrow on Air France
     > * For a single word, just select it. 
     > * For a set of two or more words, select at the beginning and then at the end of the set.
 
-2. In the entity drop-down box that appears, you can either select an existing entity to select it, or add a new entity by typing its name in the text box and selecting **Create new entity**. To create the simple entity "Airline," type "Airline" in the text box and then select **Create new entity**.
+2. In the entity drop-down box that appears, you can either select an existing entity to select it, or add a new entity by typing its name in the text box and selecting **Create new entity**. To create the simple entity "Airline," type "Airline" in the text box and then select **Done**.
+ 
+    ![Simple Entity Labeling](./media/add-example-utterances/create-airline-simple-entity.png)
+
+## Add regex entity label
+In the following procedure, you create a custom regex entity within the following utterance on the intent page to pull out the flight number `AFR1185`:
+
+```
+book me 2 adult business tickets to Paris tomorrow on Air France (AFR1185)
+```
+
+1. Select "AFR1185" in the utterance to.
+
+    > [!NOTE]
+    > When selecting words to label them as entities:
+    > * For a single word, just select it. 
+    > * For a set of two or more words, select at the beginning and then at the end of the set.
+
+2. In the entity drop-down box that appears, add a new entity by typing its name in the text box, `AirFrance flight number`, and selecting **Create new entity**. Select entity type of **RegEx**, enter Regex "AFR[0-9]{3,4}" in the text box and then select **Done**.
  
     ![Simple Entity Labeling](./media/add-example-utterances/create-airline-simple-entity.png)
  
-    > [!NOTE]
-    > This method is used to create a simple entity on the intent page as part of labeling utterances. Composite entity children must be created from the **Entities** page before labeling an utterance with that entity. For more instructions, see [Add entities](Add-entities.md). 
-
-A dialog pops up allowing you to choose which type of entity. For the entity "Airline," keep the entity type of "Simple" and select **Done.**
-
 ## Add hierarchical entity and label
 
 The city "Paris" can be either a ToLocation or a FromLocation when booking a plane ticket. In order for LUIS to understand both entity types, this step builds a hierarchical entity. 
