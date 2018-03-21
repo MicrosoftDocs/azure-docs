@@ -22,16 +22,16 @@ With [Azure Active Directory (Azure AD) conditional access](active-directory-con
 
 To configure conditional access for VPN connectivity, you must to complete the following steps: 
 
-1. Create root certificates for VPN authentication with Azure AD.
-2. Create a custom server authentication certificate template that supports IKEv2.
+1. Create Root Certificates for VPN Authentication with Azure AD.
+2. Create a Server Authentication Certificate that supports IKEv2.
 3. Request a Server Authentication Certificate for IKEv2.
 4. Configure Routing and Remote Access and Network Policy Server.
 5. Verify that the Standard VPN works.
 6. Remove Weak Authentication Methods.
 7. Configure EAP-TLS to Ignore Certificate Revocation List (CRL) Checking.
-8. Configure your conditional access policy.
+8. Configure your Conditional Access Policy.
 9. Create OMA-DM based VPNv2 Profiles to Windows 10 Devices
-10. Configure you VPN client.
+10. Configure your VPN Client.
 
 
 ## Before you begin
@@ -50,7 +50,7 @@ To gain insights on how Microsoft implements this feature, see [Enhancing remote
 To configure Azure Active Directory conditional access for VPN connectivity, you need to have a VPN server configured.  For more details, refer to the [Always On VPN Deployment Guide](https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy).
 
 
-## Step 1: Create root certificates for VPN authentication 
+## Step 1: Create Root Certificates for VPN Authentication with Azure AD 
 
 This step configures root certificates for VPN authentication with Azure AD. To configure conditional access for VPN connectivity, you need to:
 
@@ -236,7 +236,7 @@ For more information, see [How to Enable or Disable Certificate Revocation Check
 |HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\26     |EAP-MSCHAP v2         |
 
 
-## Step 8: Configure your conditional access policy
+## Step 8: Configure your Conditional Access Policy
 
 This section provides you with instructions for configuring your conditional access policy for VPN connectivity.
 
@@ -304,7 +304,7 @@ After a root certificate has been created, the 'VPN connectivity' blade triggers
 
 16. On the **New** page, click **Create**.
 
-## Step 9: Create OMA-DM based VPNv2 profiles to Windows 10 devices
+## Step 9: Create OMA-DM based VPNv2 Profiles to Windows 10 devices
 In this step, you can use one of two methods. The first method is a managed deployment using Microsoft Intune to deploy a VPN Device Configuration policy, which does not have an option for AutoVPN. The second method can be used for unmanaged environements using a PowerShell script which leverages the Common Information Model which creates a WMI session in the user’s context. From this context, it then creates a new instance of the MDM_VPNv2_01 WMI class. 
 
 VPNv2 profiles can be also created via SCCM, Microsoft Intune or with a PowerShell Script using [VPNv2 CSP settings](https://docs.microsoft.com/en-us/windows/client-management/mdm/vpnv2-csp). 
@@ -657,7 +657,7 @@ Write-EventLog -LogName "$EventLogName" -Source "$EventSourceName" -Message "$Me
 Write-Host "$Message"
 ```
 
-## Step 10: Configure your VPN client 
+## Step 10: Configure your VPN Client 
 @Reviewer: The link below doesn't seem to give a lot of information on what to do to configure the VPN client; it seems more conceptual than procedural. Also, if there is a procedural step, it is only Intune.
 
 In this step, you configure your VPN client connectivity profile as outlined in [VPN and conditional access](https://docs.microsoft.com/windows/access-protection/vpn/vpn-conditional-access).
