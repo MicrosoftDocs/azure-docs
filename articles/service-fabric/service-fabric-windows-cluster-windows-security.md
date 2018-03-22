@@ -33,8 +33,8 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
             "ClusterCredentialType": "Windows",
             "ServerCredentialType": "Windows",
             "WindowsIdentities": {  
-                "ClustergMSAIdentity": "[gMSA Identity]"  
-                "ClusterSPN": "[Registered SPN for the gMSA account]"  
+                "ClustergMSAIdentity": "[gMSA Identity]", 
+                "ClusterSPN": "[Registered SPN for the gMSA account]",
                 "ClientIdentities": [  
                     {  
                         "Identity": "domain\\username",  
