@@ -89,7 +89,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 ### F# example
 
-The following example shows a timer trigger binding in a *function.json* file and a [F# script function](functions-reference-fsharp.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
+The following example shows a timer trigger binding in a *function.json* file and an [F# script function](functions-reference-fsharp.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence.
 
 Here's the binding data in the *function.json* file:
 
@@ -170,7 +170,7 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the timer object in function code. | 
-|**schedule**|**ScheduleExpression**|A [CRON expression](#cron-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%NameOfAppSettingWithCRONExpression%". |
+|**schedule**|**ScheduleExpression**|A [CRON expression](#cron-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%NameOfAppSettingWithScheduleExpression%". |
 |**runOnStartup**|**RunOnStartup**|If `true`, the function is invoked when the runtime starts. Here are some events that cause the runtime to start: the function app wakes up after going idle due to inactivity; the function app is restarted due to function changes; the function app scales out. A function app's runtime does not necessarily start as the result of a deployment. Because runtime starts can be unpredictable, the effect of setting this property to `true` is unpredictable. |
 |**useMonitor**|**UseMonitor**|Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than 1 minute. For schedules that trigger more than once per minute, the default is `false`.
 
@@ -253,7 +253,7 @@ Or create an app setting for your function app named `WEBSITE_TIME_ZONE` and set
 
  A `TimeSpan` can be used only for a function app that runs on an App Service Plan.
 
-Unlike a CRON expression, a `TimeSpan` value specifies the time interval between each function invocation. If the function takes longer than the specified interval to complete, the timer triggers the next function invocation as soon as the previous function invocation completes.
+Unlike a CRON expression, a `TimeSpan` value specifies the time interval between each function invocation. When a function completes after running longer than the specified interval, the timer immediately invokes the function again.
 
 Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less than 24. When the first two digits are 24 or greater, the format is `dd:hh:mm`. Here are some examples:
 
@@ -270,6 +270,10 @@ If a function app scales out to multiple instances, only a single instance of a 
 ## Function apps sharing Storage
 
 If you share a Storage account across multiple function apps, make sure that each function app has a different `id` in *host.json*. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
+
+## Retry behavior
+
+Unlike the queue trigger, the timer trigger doesn't retry after a function fails. When a function fails, it is't called again until the next time on the schedule.
 
 ## Next steps
 
