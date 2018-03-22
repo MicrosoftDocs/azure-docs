@@ -170,6 +170,9 @@ CheckForMS17-010
 
 ```
 
+**Q: Why is the sync error showing less result in PowerShell cmdlet <i>Get-MsolDirSyncProvisioningError</i> ?**
+
+<i>Get-MsolDirSyncProvisioningError</i> will only return DirSync provisioning errors. Besides that, Connect Health portal also shows other sync error types such as export errors. This is consistent with Azure AD Connect delta result. Read more about [Azure AD Connect Sync errors](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
 
 ## Related links
