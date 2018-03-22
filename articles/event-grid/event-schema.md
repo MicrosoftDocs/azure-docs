@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
 ---
 
@@ -94,7 +94,19 @@ To learn about the properties in the data object, see the event source:
 * [IoT Hub](event-schema-iot-hub.md)
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 
-For custom topics, the event publisher determines the data object. The top-level data should contain the same fields as standard resource-defined events. When publishing events to custom topics, you should consider modeling the subject of your events to aid in routing and filtering.
+For custom topics, the event publisher determines the data object. The top-level data should contain the same fields as standard resource-defined events. 
+
+When publishing events to custom topics, create subjects for your events that make it easy for subscribers to know whether they are interested in the event. Subscribers use the subject to filter and route events. For example, if you provide a path for where the event happened, subscribers can filter by parts of that path. The **Azure subscriptions** publisher provides the subjects in the following formats:
+
+* `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>` when an event happens at a resource group.
+* `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/<resource-provider-namespace>/<resource-type>/<resource-name>` when an event happens at a resource.
+
+Subscribers could filter or route by:
+
+* `/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup` for all events in a resource group.
+* `/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Network` for all events on networking resources in a resource group.
+
+Your subject might need to provide more details about what happened in the event. The **Storage Accounts** publisher provides the subject `/blobServices/default/containers/testcontainer/blobs/testfile.txt` when a text file named *testfile* is added to a container named *testcontainer*. Subscribers could filter or route by the suffix `.txt` to only work with text files.
 
 ## Next steps
 
