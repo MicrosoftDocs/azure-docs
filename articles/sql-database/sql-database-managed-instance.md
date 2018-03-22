@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/21/2018
 ms.author: bonova
 ---
 
 # What is a Managed Instance (preview)?
 
-Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
+Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises (Enterprise Edition), providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
 
 > [!IMPORTANT]
 > For a list of regions in which Managed Instance is currently available, see [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
@@ -53,6 +53,9 @@ The following table shows several properties, accessible through Transact SQL, t
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:<instanceName>.<dnsPrefix>.database.windows.net, where <instanceName> is name provided by the customer, while <dnsPrefix> is auto-generated part of the name guaranteeing global DNS name uniqueness (“wcus17662feb9ce98”, for example)|Example: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## Key features and capabilities of a Managed Instance 
+
+> [!IMPORTANT]
+> A Managed Instance runs with all of the features of SQL Server Enterprise Edition, including online operations, automatic plan corrections, and other enterprise performance enhancements. 
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
