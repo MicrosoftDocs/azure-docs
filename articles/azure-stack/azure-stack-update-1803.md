@@ -52,10 +52,19 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - <!-- pending --> **Access the Marketplace** – You can now open the Azure Stack Marketplace by using the [+New](https://ms.portal.azure.com/#create/hub) option from within the admin and user portals the same way you do in the Azure portals.
  
-- **Azure Monitoring extension** - Azure Stack adds a new Azure Monitoring extension to the admin and user portals. This extension displays the Azure Monitor blade from the Azure portal for your subscription. To use display the Azure Monitor blade, each portal must be able to access the internet (and Azure) using port **13012**.  For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
+- **Azure Monitor** - Azure Stack adds Azure Monitor to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
 
+- <!-- 1739988 -->  **FIXED** - Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to break when using Linux instances on the Back-End network. ILB works fine with Windows instances on the Back-End Network.
 
+- <!-- 1805496 --> **FIXED** - An issue where VPN Connections between Azure Stack would become disconnected due to mismatching QuickMode SALifetime in Seconds values has been fixed.  The values now match the values in Azure.
 
+- <!-- 2209262 --> **FIXED** - The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal.
+
+- <!-- 1766332 --> **FIXED** - Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal.
+
+- <!-- 2096388 --> **FIXED** - Unable to update Network Security Group Rules form the Portal is now fixed.
+
+- **Various fixes** for performance, stability, security, and the operating system that is used by Azure stack.
 
 ### Known issues with the update process    
 *There are no known issues for the installation of update 1803.*
@@ -100,7 +109,7 @@ There are no known issues after updating to 1803.
 #### Compute
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
-- When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
+- <!-- IS --> When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
 - When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
@@ -122,9 +131,7 @@ There are no known issues after updating to 1803.
 
   This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one.
 
-- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs, which causes ILB to break when using Linux instances on the Back-End network.  ILB works fine with Windows instances on the Back-End Network.
 
-- The IP Forwarding feature is visible in the portal, however enabling IP Forwarding has no effect. This feature is not yet supported.
 
 - Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
 
