@@ -45,7 +45,7 @@ To complete this tutorial:
 
 ## Create local .NET Core app
 
-In this step, you set up the local .NET Core project. You will use the same project to deploy a back-end API app and a front-end web app.
+In this step, you set up the local .NET Core project. You use the same project to deploy a back-end API app and a front-end web app.
 
 ### Clone and run the sample application
 
@@ -214,13 +214,13 @@ Once you see the notification with the message `Successfully saved the Auth Sett
 
 Click **Azure Active Directory** again, and then click **Manage Application**.
 
-From the management page of the AD application, copy the **Application ID** to a notepad. You will need this value later.
+From the management page of the AD application, copy the **Application ID** to a notepad. You need this value later.
 
 ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
 
 ### Enable AuthN/AuthO for front-end app
 
-Perform the same steps for the front-end app, but skip the last step. You don't need the **Application ID** for the front-end app. Keep the **Azure Active Directory Settings** page open.
+Follow the same steps for the front-end app, but skip the last step. You don't need the **Application ID** for the front-end app. Keep the **Azure Active Directory Settings** page open.
 
 If you like, navigate to `http://<front_end_app_name>.azurewebsites.net`. You should now be redirected to a sign-in page. After you sign in, you still can't access the data from the back-end app, because you still need to do three things:
 
@@ -229,7 +229,7 @@ If you like, navigate to `http://<front_end_app_name>.azurewebsites.net`. You sh
 - Use the token in your code
 
 > [!TIP]
-> When testing the tokens with the App Service token store, if you run into errors and reconfigure your app, the tokens in the token store may not be regenerated from the new settings. The one way to make sure your tokens are regenerated is to sign out and sign back in to your app. An easy way to do that is to use your browser in private mode, and close and reopen the browser in private mode after making a change to your app's authentication/authorization settings.
+> If you run into errors and reconfigure your app's authentication/authorization settings, the tokens in the token store may not be regenerated from the new settings. To make sure your tokens are regenerated, you need to sign out and sign back in to your app. An easy way to do it is to use your browser in private mode, and close and reopen the browser in private mode after changing the settings in your apps.
 
 ### Grant front-end app access to back end
 
@@ -311,7 +311,7 @@ Congratulations! Your server code is now accessing the back-end data on behalf o
 
 In this step, you point the front-end Angular.js app to the back-end API. This way, you learn how to retrieve the access token and make API calls to the back-end app with it.
 
-Whereas the server code has access to request headers, client code can access `GET /.auth/me` to obtain the same access tokens.
+While the server code has access to request headers, client code can access `GET /.auth/me` to get the same access tokens.
 
 ### Configure CORS
 
@@ -321,7 +321,7 @@ In the Cloud Shell, enable CORS to your client's URL by using the [`az resource 
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
 ```
 
-This step doesn't have to do with authentication and authorization, but you need it so that your browser allows the cross-domain API calls from your Angular.js app. For more information, see [Add CORS functionality](app-service-web-tutorial-rest-api.md#add-cors-functionality).
+This step is not related to authentication and authorization. However, you need it so that your browser allows the cross-domain API calls from your Angular.js app. For more information, see [Add CORS functionality](app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 ### Point Angular.js app to back-end API
 
