@@ -24,7 +24,7 @@ ms.author: Jejiang
 
 # Cosmos DB in Storage Explorer Troubleshooting Guide Overview
 
-[Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) is a standalone app that allows you to connect to Cosmos DB accounts hosted on Azure and Sovereign Clouds from Windows, macOS or Linux. It enables you to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
+[Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) is a standalone app that allows you to connect to Cosmos DB accounts hosted on Azure and Sovereign Clouds from Windows, macOS, or Linux. It enables you to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
 
 This guide summarizes solutions for common issues seen for Azure Cosmos DB in Storage Explorer.
 
@@ -51,20 +51,20 @@ There a few reasons you may be seeing this error, the two most common ones are:
 
 2. You are running software, such as anti-virus software, which is injecting a self-signed SSL certificates into the HTTPS messages you receive.
 
-When Storage Explorer encounters one of these "self-signed certificates", it can no longer know if the HTTPS message it is receiving has been tampered with. If you have a copy of the self-signed certificate though, then you can tell Storage Explorer to trust it. If you are unsure of who is injecting the certificate, then you can try to find it yourself by doing the following:
+When Storage Explorer encounters one of these "self-signed certificates", it can no longer know if the HTTPS message it is receiving has been tampered with. If you have a copy of the self-signed certificate though, then you can tell Storage Explorer to trust it. If you are unsure of who is injecting the certificate, then you can try to find it yourself by doing the following steps:
 
 1. Install Open SSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (any of the light versions should suffice)
      - Mac and Linux: Should be included with your operating system
 2. Run Open SSL
-    - Windows: Go to the install directory, then /bin/, then double click on openssl.exe.
+    - Windows: Go to the install directory, then /bin/, then double-click on openssl.exe.
     - Mac and Linux: execute "openssl" from a terminal
 3. Execute `s_client -showcerts -connect microsoft.com:443`
-4. Look for self-signed certificates. If you're unsure which are self-signed, then look for any where the subject ("s:") and issuer ("i:") are the same.
+4. Look for self-signed certificates. If you're unsure, which are self-signed, then look for anywhere the subject ("s:") and issuer ("i:") are the same.
 5.	Once you have found any self-signed certificates, then for each one, copy and paste everything from and including `-----BEGIN CERTIFICATE-----` to `-----END CERTIFICATE-----` to a new .cer file.
 6.	Open Storage Explorer and then go to Edit -> SSL Certificates -> Import Certificates. Using the file picker, find, select, and open the .cer files you created.
 
-If you are unable to find any self-signed certificates using the above steps, then reach out to us via the feedback tool for more help.
+If you are unable to find any self-signed certificates using the above steps, then contact us via the feedback tool for more help.
 
 ## Unable to retrieve subscriptions
 
@@ -73,8 +73,8 @@ If you are unable to retrieve your subscriptions after you successfully signed i
 - Verify your account has access to the subscriptions by signing into the [Azure Portal](http://portal.azure.com/)
 - Make sure you have signed in using the correct environment ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/), or Custom Environment/Azure Stack)
 - If you are behind a proxy, make sure that you have configured the Storage Explorer proxy properly
-- Try removing and re-adding the account
-- Try deleting the following files from your home directory (i.e. C:\Users\ContosoUser), and then re-adding the account:
+- Try removing and readding the account
+- Try deleting the following files from your home directory (i.e. C:\Users\ContosoUser), and then readding the account:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -86,15 +86,15 @@ If you are unable to retrieve your subscriptions after you successfully signed i
 
 If you are unable to see the authentication page:
 
-- Depending on the speed of your connection, it may take a while for the sign in page to load, wait at least 1 minute before closing the authentication dialog
+- Depending on the speed of your connection, it may take a while for the sign-in page to load, wait at least one minute before closing the authentication dialog
 - If you are behind a proxy, make sure that you have configured the Storage Explorer proxy properly
 - Bring up the developer console by pressing F12 key. Watch the responses from developer console and see if you can find any clue for why authentication is not working
 
 ## Cannot remove account
 
-If you are unable to remove an account, or if the re-authenticate link does not do anything
+If you are unable to remove an account, or if the reauthenticate link does not do anything
 
-- Try deleting the following files from your home directory, and then re-adding the account:
+- Try deleting the following files from your home directory, and then readding the account:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -107,7 +107,7 @@ If you are unable to remove an account, or if the re-authenticate link does not 
 
 ## Http/Https Proxy Issue
 
-You cannot list Cosmos DB nodes in left tree when configuring http/https proxy in ASE. This is a known issue. We will fix this in next release. Please use Cosmos DB data explorer in Azure portal as a work around at this moment. 
+You cannot list Cosmos DB nodes in left tree when configuring http/https proxy in ASE. This is a known issue. We will fix this in next release. Please use Cosmos DB data explorer in Azure portal as a work-around at this moment. 
 
 ## \`Development\` node under \`Local and Attached\` Issue
 
@@ -127,7 +127,7 @@ You may see below error while trying to expand the tree nodes in left.
 
 ![Expand Error](./media/troubleshoot-cosmosdb-in-storage-explorer/expand-error.png)
 
-Please try the following:
+Please try the following suggestions:
 
 - Check if the Cosmos DB account is in provision progress and try again when the account is being created successfully.
 - If the account is under \`Quick Access\` or \`Local and Attached\` nodes, please check if the account has been deleted. If so, you need to remove the node manually.
