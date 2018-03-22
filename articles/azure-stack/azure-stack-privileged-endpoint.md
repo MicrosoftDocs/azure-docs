@@ -29,7 +29,7 @@ You can use the PEP to perform tasks such as the following:
 - To perform many post-deployment datacenter integration tasks for integrated systems, such as adding Domain Name System (DNS) forwarders after deployment, setting up Microsoft Graph integration, Active Directory Federation Services (AD FS) integration, certificate rotation, etc.
 - To work with Support to obtain temporary, high-level access for in-depth troubleshooting of an integrated system.
 
-The PEP logs every action (and its corresponding output) that you perform in the PowerShell session. This provides full transparency and complete auditing of operations. You can retain these log files for future audits.
+The PEP logs every action (and its corresponding output) that you perform in the PowerShell session. This provides a record of operations. You can retain these log files for future audits.
 
 > [!NOTE]
 > In the Azure Stack Development Kit (ASDK), you can run some of the commands available in the PEP directly from a PowerShell session on the development kit host. However, you may want to test some operations using the PEP, such as log collection, because this is the only method available to perform certain operations in an integrated systems environment.
@@ -40,16 +40,17 @@ You access the PEP through a remote PowerShell session on the virtual machine th
 
 Before you begin this procedure for an integrated system, make sure you can access the PEP either by IP address, or through DNS. After the initial deployment of Azure Stack, you can access the PEP only by IP address because DNS integration is not yet set up. Your OEM hardware vendor will provide you with a JSON file named **AzureStackStampDeploymentInfo** that contains the PEP IP addresses.
 
-We recommend that you connect to the PEP only from the hardware lifecycle host or from a dedicated, secure computer, such as a [Privileged Access Workstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+> [!NOTE]
+> For security reasons, we require that you connect to the PEP only from a hardened virtual machine running on top of the hardware lifecycle host, or from a dedicated, secure computer, such as a [Privileged Access Workstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). The original configuration of the hardware lifecycle host must not be modified from its original configuration, including installing new software, nor it should be used to connect to the PEP.
 
-1. Access your Privileged Access Workstation.
+1. Establish the trust.
 
     - On an integrated system, run the following command to add the PEP as a trusted host on your hardware lifecycle host or Privileged Access Workstation.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - If you’re running the ADSK, sign in to the development kit host.
+    - If you’re running the ASDK, sign in to the development kit host.
 
 2. On your hardware lifecycle host or Privileged Access Workstation, open an elevated Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the PEP:
  
@@ -71,7 +72,7 @@ We recommend that you connect to the PEP only from the hardware lifecycle host o
       ```` 
    When prompted, use the following credentials:
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.) 
+      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.)
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
@@ -140,7 +141,7 @@ To import the PEP session on your local machine, do the following steps:
       ```` 
    When prompted, use the following credentials:
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.) 
+      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.)
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
 
 3. Import the PEP session into your local machine
