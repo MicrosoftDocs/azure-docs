@@ -85,9 +85,9 @@ Read the [Deploy an application](service-fabric-deploy-remove-applications.md) a
    - Performs functions related to high availability and consistency of services.
    - Orchestrates application and cluster upgrades.
    - Interacts with other system components.
-   
+
  **Repair Manager service**: This is an optional system service that allows repair actions to be performed on a cluster in a way that is safe, automatable, and transparent. Repair manager is used in:
-   - Performing azure maintenance repairs on Silver and Gold durability Azure Service Fabric clusters.
+   - Performing Azure maintenance repairs on Silver and Gold durability Azure Service Fabric clusters.
    - Carrying out repair actions for [Patch Orchestration Application](service-fabric-patch-orchestration-application.md)
 
 ## Built-in programming models
