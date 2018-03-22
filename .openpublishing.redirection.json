@@ -17632,7 +17632,13 @@
         "source_path": "articles/data-factory/tutorial-create-azure-ssis-runtime-portal.md",
         "redirect_url": "/azure/data-factory/tutorial-deploy-ssis-packages-azure",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/media-services/media-services-specifications-ms-sstr-ammendment-hevc.md",
+        "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
+        "redirect_document_id": true
     }
+
    ]
 }
 
