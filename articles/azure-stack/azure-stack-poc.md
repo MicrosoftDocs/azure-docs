@@ -16,7 +16,7 @@ ms.topic: overview
 ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.custom: mv
+ms.custom: mvc
 
 ---
 # What is Azure Stack?
