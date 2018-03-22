@@ -19,9 +19,9 @@ ms.author: ellacroi
 ---
 
 # Azure Marketplace consulting services
-With a goal of connecting customers with services to support and extend their use of Microsoft Azure, the Azure Marketplace lists the consulting-service offerings from System Integrator (SI) partners of Microsoft. 
+With a goal of connecting customers with services to support and extend their use of Azure, the Azure Marketplace supports the listing of consulting-service offerings from System Integrator (SI) partners of Microsoft. 
 
-These consulting-service offerings are customer-specific engagements. The offerings are fixed in scope and duration, can be fixed-price or free, and have a defined outcome. Potential customers can easily request to be contacted by partners. Partners receive a notification in their CRM system, and they aim to respond to requests within 48 hours.
+These consulting-service offerings are customer-specific engagements. They're fixed in scope and duration, can be fixed-price or free, and have a defined outcome. Potential customers can easily request to be contacted by partners. Partners receive a notification in their CRM system, and they aim to respond to requests within 48 hours.
 
 Service offers that are based on Microsoft Dynamics 365, Office 365, and Power BI are eligible to be listed on AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
@@ -63,8 +63,7 @@ SI partners can submit consulting-service offerings for the following 18 countri
 The launch of Azure Marketplace consulting services will go live first for Australia, Canada, the United Kingdom, and the United States. The catalogs for other countries will go live after a meaningful number and compelling selection of service offerings have been submitted by partners and approved by Microsoft.
 
 ## Prepare your publishing artifacts
-Even before you nominate your service, you can start collecting and preparing the content that can help articulate the value of your service and solution to your target customer. 
-
+Even before you nominate your service, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer. 
 
 |Set up for new publishers  |
 |---------|

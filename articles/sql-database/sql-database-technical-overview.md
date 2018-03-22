@@ -3,22 +3,12 @@ title: What is the Azure SQL Database service? | Microsoft Docs
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: 
-
-ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
+manager: craigg
 ms.service: sql-database
-ms.custom: overview
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.date: 02/28/2018
-ms.workload: "Active"
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.reviewer: carlrab
 ---
 # What is the Azure SQL Database service? 
 
@@ -34,7 +24,7 @@ SQL Database shares its code base with the [Microsoft SQL Server database engine
 
 SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly, which enables you to run your database in a data center near you.
 
-> [!IMPORATNT]
+> [!IMPORTANT]
 > SQL Database Managed Instance is currently in preview and is only available at a single service level. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
 >
 

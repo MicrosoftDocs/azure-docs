@@ -18,9 +18,6 @@ ms.author: mabrigg
 
 ---
 # Azure Stack administration basics
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as an Azure Stack operator, and what you need to tell your users for them to become productive quickly.
 
 ## Understand the builds

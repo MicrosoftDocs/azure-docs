@@ -61,6 +61,3 @@ The implementation details of the orchestrator function do not actually matter. 
 
 > [!div class="nextstepaction"]
 > [Learn how to call sub-orchestrations](durable-functions-sub-orchestrations.md)
-
-> [!div class="nextstepaction"]
-> [Run a sample singleton](durable-functions-counter.md)

@@ -337,7 +337,7 @@ To delete a resource group and all its resources, run the following command:
 az group delete --name {your resource group name}
 ```
 
-You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs or supported platform SDKs published for Azure Resource Manager or IoT Hub and Device Provisioning Service.
+You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs or supported platform SDKs published for Azure Resource Manager or IoT Hub Device Provisioning Service.
 
 ## Next steps
 
