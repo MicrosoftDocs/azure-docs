@@ -2,19 +2,19 @@
 title: Customize the Container Image Used for Deploying Azure ML Models | Microsoft Docs
 description: This article describes how to customize a container image for Azure Machine Learning models
 services: machine-learning
-author: tedway
+author: raymondlaghaeian, tedway
 ms.author: tedway, raymondl
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 3/19/2018
+ms.date: 3/21/2018
 ---
 
-# Customize the Container Image Used for Deploying Azure ML Models
+# Customize the container image used for Azure ML Models
 
-Azure ML Workbench uses containers for deploying machine learning models. The models are deployed along with their dependencies, and Azure ML builds an image from the model, the dependencies, and associated files.
+This article describes how to customize a container image for Azure Machine Learning models.  Azure ML Workbench uses containers for deploying machine learning models. The models are deployed along with their dependencies, and Azure ML builds an image from the model, the dependencies, and associated files.
 
 ## How to customize the Docker image
 Customize the Docker image that Azure ML deploys using:
@@ -37,7 +37,7 @@ Customize the Docker image that Azure ML deploys using:
         - azure-ml-api-sdk==0.1.0a11
         - matplotlib
         
-2. A Docker steps file: using this option, you customize the deployed image by installing dependencies that cannot be installed from PyPi. 
+1. A Docker steps file: using this option, you customize the deployed image by installing dependencies that cannot be installed from PyPi. 
 
 The file should include Docker installation steps like a DockerFile. The following commands are allowed in the file: 
 
@@ -56,4 +56,7 @@ Image, Manifest, and Service commands accept the docker-file flag.
     # Install library dependencies
     RUN dep ensure -vendor-only
 
-Note: the base image for Azure ML containers is Ubuntu and can't be changed. If you specify a different base image, it will be ignored.
+[!NOTE] The base image for Azure ML containers is Ubuntu and can't be changed. If you specify a different base image, it will be ignored.
+
+## Next Steps
+Now that you've customized your container image, you can deploy it to a cluster for large-scale use.  For details on setting up a cluster for web service deployment, see [Model Management Configuration](deployment-setup-configuration.md). 
