@@ -33,7 +33,7 @@ To complete this quickstart, you need:
 > 
 > 
 
-## To create a server in Azure portal
+## To create a server in the Azure portal
 1. Sign in to the [Azure portal](https://portal.azure.com).  
 2. Click **+ New** > **Data + analytics** > **Analysis Services**.
 3. In the **Analysis Services** blade, fill in the required fields, and then press **Create**.
