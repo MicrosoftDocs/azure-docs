@@ -24,7 +24,7 @@ Load Balancer will distribute new inbound flows arriving on the load balancer's 
 
 Additionally, a public Load Balancer can also provide outbound connections for virtual machines inside your virtual network by translating their private IP addresses to public IP addresses.
 
-Azure Load Balancer is available in two different SKUs: [Basic](#basicloadbalancer) and [Standard](#standardloadbalancer).  There are differences in scale, features, and pricing.  Any scenario possible with Basic Load Balancer can also be created with Standard Load Balancer, although the approach might differ slightly.  As you learn about Load Balancer, it is important to familiarize yourself with the fundamentals and SKU-specific differences.
+Azure Load Balancer is available in two different SKUs: Basic and Standard.  There are differences in scale, features, and pricing.  Any scenario possible with Basic Load Balancer can also be created with Standard Load Balancer, although the approach might differ slightly.  As you learn about Load Balancer, it is important to familiarize yourself with the fundamentals and SKU-specific differences.
 
 ## Why use Load Balancer? 
 
@@ -165,7 +165,7 @@ Basic Load Balancer is offered at no charge.
 
 ## SLA
 
-For information about the Standard Load Balancer SLA, visit the [Load Balancer SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/) page. 
+For information about the Standard Load Balancer SLA, visit the [Load Balancer SLA](https://aka.ms/lbsla) page. 
 
 ## Next steps
 
