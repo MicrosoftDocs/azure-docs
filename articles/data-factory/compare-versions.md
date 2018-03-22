@@ -4,8 +4,7 @@ description: This article compares Azure Data Factory V1 Azure Data Factory V2.
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
@@ -109,7 +108,7 @@ In V1, you implement (custom) DotNet activity code by creating a .NET class libr
 
 In a V2 custom activity, you don't have to implement a .NET interface. You can directly run commands, scripts, and your own custom code compiled as an executable. 
 
-For more information, see [Difference between custom activity in V1 and V2](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1).
+For more information, see [Difference between custom activity in V1 and V2](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
 ## SDKs
  Data Factory V2 provides a richer set of SDKs that can be used to author, manage, and monitor pipelines.
