@@ -184,6 +184,11 @@
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": true
         },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-samanage-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/active-directory/active-directory-saas-atlassiancloud-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-atlassian-cloud-tutorial",
@@ -17560,7 +17565,7 @@
      },
      {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
-            "redirect_url": "/azure/azure-functions/durable-functions-monitor.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
      },
 	   {
