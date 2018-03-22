@@ -52,7 +52,7 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - <!-- pending --> **Access the Marketplace** – You can now open the Azure Stack Marketplace by using the [+New](https://ms.portal.azure.com/#create/hub) option from within the admin and user portals the same way you do in the Azure portals.
  
-- **Azure Monitoring extension** - Azure Stack adds a new Azure Monitoring extension to the admin and user portals. This extension displays the Azure Monitor blade from the Azure portal for your subscription. To use display the Azure Monitor blade, each portal must be able to access the internet (and Azure) using port **13012**.  For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
+- **Azure Monitor** - Azure Stack adds Azure Monitor to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
 
 
 
