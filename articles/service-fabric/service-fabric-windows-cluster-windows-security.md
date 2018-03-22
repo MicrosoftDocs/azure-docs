@@ -29,10 +29,12 @@ To prevent unauthorized access to a Service Fabric cluster, you must secure the 
 The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security using [Group Managed Service Account (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```  
-"security": {  
-            "WindowsIdentities": {  
-                "ClustergMSAIdentity": "accountname@fqdn"  
-                "ClusterSPN": "fqdn"  
+"security": {
+            "ClusterCredentialType": "Windows",
+            "ServerCredentialType": "Windows",
+            "WindowsIdentities": {  
+                "ClustergMSAIdentity": "[gMSA Identity]"  
+                "ClusterSPN": "[Registered SPN for the gMSA account]"  
                 "ClientIdentities": [  
                     {  
                         "Identity": "domain\\username",  
@@ -60,10 +62,12 @@ This approach does not require the creation of a domain group for which cluster 
 The following example **security** section configures Windows security using gMSA and specifies that the machines in *ServiceFabric.clusterA.contoso.com* gMSA are part of the cluster and that *CONTOSO\usera* has admin client access:  
   
 ```  
-"security": {  
-    "WindowsIdentities": {  
+"security": {
+    "ClusterCredentialType": "Windows",            
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {  
         "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",  
-        "ClusterSPN" : "clusterA.contoso.com",  
+        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",  
         "ClientIdentities": [{  
             "Identity": "CONTOSO\\usera",  
             "IsAdmin": true  
@@ -73,7 +77,7 @@ The following example **security** section configures Windows security using gMS
 ```  
   
 ## Configure Windows security using a machine group  
-The sample *ClusterConfig.Windows.MultiMachine.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security.  Windows security is configured in the **Properties** section: 
+This model is being deprecated. The recommaendation is to use gMSA as detailed above. The sample *ClusterConfig.Windows.MultiMachine.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security.  Windows security is configured in the **Properties** section: 
 
 ```
 "security": {
