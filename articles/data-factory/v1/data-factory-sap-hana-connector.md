@@ -4,7 +4,7 @@ description: Learn about how to move data from SAP HANA using Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
