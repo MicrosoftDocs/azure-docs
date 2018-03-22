@@ -162,5 +162,5 @@ In-development builds will provide the following benefits:
 - Other improvements
 
 ## Next steps
-[Evaluate the Azure Stack Development Kit](azure-stack-deploy-overview)
+[Evaluate the Azure Stack Development Kit](azure-stack-deploy-overview.md)
 
