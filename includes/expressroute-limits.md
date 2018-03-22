@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: expressroute
+ author: cherylmc
+ ms.service: expressroute
+ ms.topic: include
+ ms.date: 03/22/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 #### ExpressRoute Limits
 The following limits apply to ExpressRoute resources per subscription.
 
