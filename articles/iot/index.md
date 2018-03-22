@@ -21,47 +21,26 @@ ms.author: bryanla
 
 ## Technologies and solutions available for creating an Azure IoT solution
 
-Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the available technologies and solutions available for creating your own solution:
+| Introduction to Azure IoT services and solutions. (4:07) | Introduction to Azure IoT services and solutions. (4:07) | 
+|-|-|
+| [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | 
 
-## Videos
-| Introduction to Azure IoT services and solutions. (4:07) | 
-|-|
-| [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | 
+### Option 1
 
-> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player]
+Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the technologies and solutions available for creating your own solution:
 
-<ul class="panelContent cardsFTitle">
-    <li>
-        <!--a href="/azure/virtual-machines/windows"-->
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/contoso-hvac-iot-part1.png" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Getting started with Windows Virtual Machines</h3>
-                        <iframe src="https://channel9.msdn.com/Series/Youve-Got-Key-Values-A-Redis-Jump-Start/03/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
-
-> [!NOTE]
-> Option 1
+![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
 | **Edge**<br>Client-side technologies | **Solutions**<br>Leverage Software as a Service (SaaS) offerings | **Platform services**<br>Build on Platform as a Service (PaaS) Offerings |
 |------|-----------|-------------------|
 | &#9657; [IoT Edge][lnk-iot-edge-land]<br>&#9657; [IoT Device/Service SDKs][lnk-device-sdks] | &#9657; [Iot Suite Preconfigured Solutions][lnk-iot-suite-land]<br>&#9657; [IoT Central][lnk-iot-central-land] | &#9657; [IoT Hub][lnk-iot-hub-land]<br>&#9657; [IoT Hub Device Provisioning Service][lnk-iot-dps-land]<br>&#9657; [Location Based Services][lnk-iot-lbs-land]<br>&#9657; [Time Series Insights][lnk-iot-tsi-land]<br> |
 |    |    |    |
 
-> [!NOTE]
-> Option 2
+## Option 2
+
+Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the technologies and solutions available for creating your own solution:
+
+![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
 <ul class="panelContent cardsF">
     <li>
@@ -106,8 +85,6 @@ Microsoft has built a portfolio that supports the needs of all customers, enabli
         </div>
     </li>        
 </ul>
-
-![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
 ## Next steps
 
