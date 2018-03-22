@@ -4,7 +4,7 @@ description: This page provides an overview of the Network Watcher resource trou
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
@@ -78,13 +78,13 @@ The following tables show the different fault types (id under results from the p
 
 ## Supported Gateway types
 
-The following list shows the support shows which gateways and connections are supported with Network Watcher troubleshooting.
+The following table lists which gateways and connections are supported with Network Watcher troubleshooting:
+
 |  |  |
 |---------|---------|
 |**Gateway types**   |         |
 |VPN      | Supported        |
 |ExpressRoute | Not Supported |
-|Hypernet | Not Supported|
 |**VPN types** | |
 |Route Based | Supported|
 |Policy Based | Not Supported|
@@ -92,7 +92,6 @@ The following list shows the support shows which gateways and connections are su
 |IPSec| Supported|
 |VNet2Vnet| Supported|
 |ExpressRoute| Not Supported|
-|Hypernet| Not Supported|
 |VPNClient| Not Supported|
 
 ## Log files
