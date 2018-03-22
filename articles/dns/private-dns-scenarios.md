@@ -17,7 +17,7 @@ ms.date: 03/15/2018
 ms.author: kumud
 ---
 
-# Azure DNS Private Zones Scenarios
+# Azure DNS Private Zones scenarios
 Azure DNS Private Zones provide name resolution within a virtual network as well as between virtual networks. In this article, we look at some common scenarios that can be realized using this feature. 
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
