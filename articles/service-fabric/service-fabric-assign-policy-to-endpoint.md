@@ -1,6 +1,6 @@
 ---
-title: Learn about Azure microservices security policies | Microsoft Docs
-description: An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts
+title: Assign access policies to Azure Service Fabric service endpoints | Microsoft Docs
+description: Learn how to assign security access polices to HTTP or HTTPS endpoints in your Service Fabric service.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 03/21/2018
 ms.author: mfussell
 
 ---

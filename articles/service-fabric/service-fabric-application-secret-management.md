@@ -1,5 +1,5 @@
 ---
-title: Managing secrets in Service Fabric applications | Microsoft Docs
+title: Manage Azure Service Fabric application secrets | Microsoft Docs
 description: Learn how to secure secret values in a Service Fabric application.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 03/21/2018
 ms.author: vturecek
 
 ---
