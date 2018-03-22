@@ -1,6 +1,6 @@
 ---
-title: Azure quickstart - Use the Azure portal to send and receive messages from Azure Service Bus | Microsoft Docs
-description: Quickly learn to send and receive Service Bus messages using Azure portal
+title: Azure quickstart - Use the Azure portal and JMS to send and receive messages from Azure Service Bus | Microsoft Docs
+description: Quickly learn to send and receive Service Bus messages using Azure portal and JMS
 services: service-bus-messaging
 documentationcenter: ''
 author: sethmanheim
@@ -19,7 +19,7 @@ ms.author: sethm
 
 ---
 
-# Send and receive messages using the Azure portal
+# Send and receive using the Azure portal and JMS
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the workflow sends to and receives messages from a Service Bus queue.  
 
@@ -33,8 +33,8 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 To complete this tutorial, make sure you have installed:
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+-  [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), latest version.
+-  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
 ## Log on to the Azure portal
 
@@ -46,7 +46,7 @@ A Service Bus messaging namespace provides a unique scoping container, reference
 
 1. In the left navigation pane of the portal, click **+ Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
 2. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
-3. After making sure the namespace name is available, choose the pricing tier (Basic, Standard, or Premium).
+3. After making sure the namespace name is available, choose the pricing tier (Standard or Premium).
 4. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
 5. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
 6. In **Location**, choose the country or region in which your namespace should be hosted.
@@ -75,31 +75,31 @@ To create a Service Bus queue, specify the namespace under which you want it cre
 3. In the namespace window, click **Queues**, then in the **Queues** window, click **+ Queue**.
 4. Enter the queue **Name** and leave the other values with their defaults.
 5. At the bottom of the window, click **Create**.
+6. Make a note of the queue name.
 
 ## Send and receive messages
 
-After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveQuickStart).
+After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-jms).
 
 To run the code, do the following:
 
 1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
 2. Open a command prompt with Administrator privileges.
-3. Navigate to the sample folder `\azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
-4. Obtain the connection string you copied to Notepad in the "Obtain the management credentials" section of this quickstart.
+3. Navigate to the sample folder `\azure-service-bus\samples\Java\quickstarts-and-tutorials\quickstart-jms`.
+4. Obtain the connection string you copied to Notepad in the "Obtain the management credentials" section of this quickstart. You also need the name of the queue you created in the previous section.
 5. Type the following command to build the program:
 
    ```shell
-   dotnet build
+   mvn clean package -DskipTests
    ```
-6.	Navigate to the `bin\Debug\netcoreapp2.0` folder.
-7.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
+6.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
 
    ```shell
-   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
+   java -jar .\target\samples.quickstart-jms-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -q "myQueueName"
    ``` 
-8. Observe 10 messages being sent to the queue, and subsequently received from the queue:
+8. Observe ten messages being sent to the queue, and subsequently received from the queue:
 
-   ![program output](./media/service-bus-quickstart-portal/dotnet.png)
+   ![program output](./media/service-bus-quickstart-portal/jms.png)
 
 ## Clean up resources
 
@@ -109,8 +109,7 @@ When no longer needed, delete the namespace and queue. To do so, select these re
 
 In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about sending and receiving messages, continue with the following articles:
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
+* [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - use Azure CLI to send and receive messages from Azure Service Bus | Microsoft Docs
+title: Azure Quickstart - use Azure CLI and Java to send and receive messages from Azure Service Bus | Microsoft Docs
 description: Quickly learn to send and receive Service Bus messages
 services: service-bus-messaging
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2018
+ms.date: 03/22/2018
 ms.author: sethm
 
 ---
 
-# Send and receive messages using Azure CLI
+# Send and receive using Azure CLI and Java
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the workflow sends to and receives messages from a Service Bus queue.  
 
 ![queue](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages with Service Bus, using Azure CLI to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace.
+This quickstart describes how to send and receive messages with Service Bus, using Azure CLI to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages using the Java library.
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
@@ -103,7 +103,7 @@ Observe 10 messages being sent to the queue, and subsequently received from the 
 Run the following command to remove the resource group, namespace, and all related resources:
 
 ```azurecli-interactive
-az group delete --name <my-resourcegroup>
+az group delete --resource-group [my-resourcegroup]
 ```
 
 ## Next steps
