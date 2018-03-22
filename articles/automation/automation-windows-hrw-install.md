@@ -66,8 +66,6 @@ Perform the following steps to automate the installation and configuration of th
 
 4. You are prompted to agree to install **NuGet** and you are prompted to authenticate with your Azure credentials.
 
-![Execution of New-OnPremiseHybridWorker script](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
-
 5. After the script is complete, the Hybrid Worker Groups page will show the new group and number of members or if an existing group, the number of members is incremented.  You can select the group from the list on the **Hybrid Worker Groups** page and select the **Hybrid Workers** tile.  On the **Hybrid Workers** page, you see each member of the group listed.  
 
 ### Manual deployment 
