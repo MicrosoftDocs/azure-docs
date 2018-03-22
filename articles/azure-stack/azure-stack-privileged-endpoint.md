@@ -72,7 +72,7 @@ Before you begin this procedure for an integrated system, make sure you can acce
       ```` 
    When prompted, use the following credentials:
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.)
+      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\<accountname>**. (For ASDK, the user name is **azurestack\<accountname>**.)
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
@@ -141,7 +141,7 @@ To import the PEP session on your local machine, do the following steps:
       ```` 
    When prompted, use the following credentials:
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.)
+      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\<accountname>**. (For ASDK, the user name is **azurestack\<accountname>**.)
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
 
 3. Import the PEP session into your local machine
