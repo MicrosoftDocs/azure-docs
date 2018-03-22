@@ -1,4 +1,5 @@
 ---
+layout: LandingPage
 title: Azure solutions for Internet of Things (IoT Suite) 
 description: Overview of a Azure IoT, a sample IoT solution architecture, and how it relates to devices, the Azure IoT Hub service, Azure IoT device SDKs, Azure IoT service SDKs, and other Azure services.
 services: iot
@@ -22,7 +23,7 @@ ms.author: bryanla
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The section provides an overview of the available  technologies and solutions, providing detail on the paths available for building your own solution:
 
-| **Edge** | **Solutions** | **Platform services** |
+| **Edge**<br>Client-side technologies | **Solutions**<br>Software as a Service (SaaS) offerings | **Platform services**<br>Platform as a Service (PaaS) Offerings |
 |------|-----------|-------------------|
 | Client-side technologies<br><br>&#9657; [IoT Edge][lnk-iot-edge-land]<br>&#9657; [IoT Device/Service SDKs][lnk-device-sdks] | Software as a Service (SaaS) offerings<br><br>&#9657; [Iot Suite][lnk-iot-suite-land] | Platform as a Service (PaaS) Offerings<br><br>&#9657; [IoT Hub][lnk-iot-hub-land] |
 |    |    |    |
