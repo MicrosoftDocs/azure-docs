@@ -135,6 +135,8 @@
       href: security-center-ata-integration.md
     - name: Connect Azure AD Identity Protection
       href: security-center-aadip-integration.md
+    - name: Data export to SIEM
+      href: security-center-export-data-to-siem.md
   
   - name: Investigate threats
     href: security-center-detection-capabilities.md
@@ -164,8 +166,8 @@
       href: security-center-events-dashboard.md
     - name: Search
       href: security-center-search.md
-  
 
+ 
   - name: Scenarios
     items:
     - name: Incident response

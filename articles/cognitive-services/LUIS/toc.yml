@@ -81,6 +81,8 @@
     items: 
     - name: Authoring cycle
       href: luis-concept-app-iteration.md 
+    - name: Collaboration
+      href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
   - name: Design Model 
@@ -103,6 +105,8 @@
       href: luis-concept-data-alteration.md
     - name: Extracting data
       href: luis-concept-data-extraction.md
+    - name: Data Storage
+      href: luis-concept-data-storage.md
   - name: Test
     items: 
     - name: Interactive testing
@@ -157,12 +161,14 @@
       href: App-Dashboard.md
     - name: Manage LUIS keys
       href: Manage-Keys.md
-    - name: Manage Azure keys
+    - name: Manage Azure endpoint keys
       href: AzureIbizaSubscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Collaborate on a LUIS app
-      href: luis-how-to-collaborate.md    
+      href: luis-how-to-collaborate.md 
+  - name: Manage your LUIS account
+    href: luis-how-to-account-settings.md   
   - name: Migrate to V2 API
     href: migration-v1-to-v2.md
 - name: Reference
@@ -200,7 +206,7 @@
 - name: Resources
   items: 
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://aka.ms/luis-roadmap
   - name: Glossary
     href: luis-glossary.md
   - name: FAQ
@@ -211,5 +217,7 @@
     href: https://stackoverflow.com/questions/tagged/LUIS 
   - name: UserVoice
     href: https://aka.ms/luis-uservoice-forum
+  - name: Search
+    href: https://docs.microsoft.com/en-us/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/

@@ -7,18 +7,40 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create Databricks workspace
+  - name: Create Databricks workspace - Portal
     href: quickstart-create-databricks-workspace-portal.md
+  - name: Create Databricks workspace - Resource Manager template
+    href: quickstart-create-databricks-workspace-resource-manager-template.md
 - name: Tutorials
   items:
-  - name: Stream events using Event Hubs
+  - name: Perform ETL operations
+    href: databricks-extract-load-sql-data-warehouse.md
+  - name: Stream data using Event Hubs
     href: databricks-stream-from-eventhubs.md
+  - name: Sentiment analysis using Cognitive Services
+    href: databricks-sentiment-analysis-cognitive-services.md
+  - name: Stream data from HDInsight Kafka
+    href: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
 - name: How-to guides
   items:
+  - name: Create a Spark cluster
+    href: https://docs.azuredatabricks.net/user-guide/clusters/index.html
+  - name: Work with notebooks
+    href: https://docs.azuredatabricks.net/user-guide/notebooks/index.html
+  - name: Run Spark jobs
+    href: https://docs.azuredatabricks.net/user-guide/jobs.html 
+  - name: Connect to data sources 
+    href: databricks-connect-to-data-sources.md
   - name: Connect with Excel, R, and Python 
     href: connect-databricks-excel-python-r.md
   - name: Use Databricks CLI from Azure Cloud Shell
     href: databricks-cli-from-azure-cloud-shell.md
+  - name: Use BI tools
+    href: https://docs.azuredatabricks.net/user-guide/bi/index.html
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/databricks
 - name: Resources
   items:
   - name: Common questions
