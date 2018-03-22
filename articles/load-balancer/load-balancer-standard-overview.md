@@ -25,7 +25,7 @@ This article is focussed on Standard Load Balancer.  For a more general overview
 
 ## What is Standard Load Balancer?
 
-Standard Load Balancer is a new Load Balancer product with an expanded and more granular feature set over Basic Load Balancer.  While there are similarities, it is important to be familiar with the differences.  
+Standard Load Balancer is a new Load Balancer product for all TCP and UDP applications with an expanded and more granular feature set over Basic Load Balancer.  While there are many similarities, it is important to familiarize yourself with the differences as outlined in this article.
 
 You can use Standard Load Balancer Standard as a public or internal Load Balancer. And a virtual machine can be connected to one public and one internal Load Balancer resource.
 
@@ -34,6 +34,9 @@ The Load Balancer resource's functions are always expressed as a frontend, a rul
 One key aspect is the scope of the virtual network for the resource.  While Basic Load Balancer exists within the scope of an availability set, a Standard Load Balancer is fully integrated with the scope of a virtual network and all virtual network concepts apply.
 
 Load Balancer resources are objects within which you can express how Azure should program its multi-tenant infrastructure to achieve the scenario you wish to create.  There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance, capacity is always available, and there are no start-up or scaling delays to consider. 
+
+>[!NOTE]
+> Azure provides a suite of fully managed load balancing solutions for your scenarios.  If you are looking for TLS termination ("SSL offload") or HTTP/HTTPS application layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md).  If you are looking for global DNS load balancing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  End-to-end scenarios may benefit from combining these solutions as appropriate.
 
 ## Why use Standard Load Balancer?
 
