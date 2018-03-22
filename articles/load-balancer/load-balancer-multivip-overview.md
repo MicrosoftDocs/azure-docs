@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
 ---
 
 # Multiple Frontends for Azure Load Balancer
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer allows you to load balance services on multiple ports, multiple IP addresses, or both. You can use public and internal load balancer definitions to load balance flows across a set of VMs.
 
@@ -131,6 +129,6 @@ The Floating IP rule type is the foundation of several load balancer configurati
 ## Limitations
 
 * Multiple frontend configurations are only supported with IaaS VMs.
-* With the Floating IP rule, your application must use the DIP for outbound flows. If your application binds to the frontend IP address configured on the loopback interface in the guest OS, then SNAT is not available to rewrite the outbound flow and the flow fails.
+* With the Floating IP rule, your application must use the primary IP configuration for outbound flows. If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's SNAT is not available to rewrite the outbound flow and the flow fails.
 * Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Subscription limits apply. For more information, see [Service limits](../azure-subscription-service-limits.md#networking-limits) for details.
