@@ -20,7 +20,7 @@ ms.author: kumud
 
 # Create a public Basic Load Balancer to load balance VMs using the Azure portal
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can use the Azure portal to create a load balancer to load balance virtual machines. This quickstart shows you how to create network resources, backend servers, and a public load balancer.
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can use the Azure portal to create a load balancer to load balance virtual machines. This quickstart shows you how to create network resources, backend servers, and a public Basic Load Balancer.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -28,9 +28,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 
-## Create a public load balancer
+## Create a Basic Load Balancer
 
-In this section, you create a public load balancer that helps load balance virtual machines. 
+In this section, you create a public Basic Load Balancer that helps load balance virtual machines. 
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create a load balancer** page enter these values for the load balancer:
@@ -45,7 +45,7 @@ In this section, you create a public load balancer that helps load balance virtu
 
 ## Create backend servers
 
-In this section, you create a virtual network, create two virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
+In this section, you create a virtual network, create two virtual machines for the backend pool of your Basic Load Balancer, and then install IIS on the virtual machines to help test the load balancer.
 
 ### Create a virtual network
 1. On the top left-hand side of the screen click **New** > **Networking** > **Virtual network** and enter these values for the virtual network:
@@ -119,14 +119,14 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     - Follow instructions to complete the rest of the wizard 
 7. Repeat steps 1 to 6 for the virtual machine *myVM2*.
 
-## Create load balancer resources
+## Create Basic Load Balancer resources
 
 In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
 
 
 ### Create a backend address pool
 
-To distribute traffic to the VMs, a back-end address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to inlcude *VM1* and *VM2*.
+To distribute traffic to the VMs, a back-end address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to include *VM1* and *VM2*.
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.
@@ -143,7 +143,7 @@ To distribute traffic to the VMs, a back-end address pool contains the IP addres
 
 ### Create a health probe
 
-To allow the load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe *myHealthProbe* to monitor the health of the VMs.
+To allow the Basic Load Balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe *myHealthProbe* to monitor the health of the VMs.
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Health probes**, then click **Add**.
@@ -157,9 +157,9 @@ To allow the load balancer to monitor the status of your app, you use a health p
 
    ![Adding a probe](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
 
-### Create a load balancer rule
+### Create a Load Balancer rule
 
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend pool *myFrontEndPool* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+A Load Balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a Load Balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Load balancing rules**, then click **Add**.
@@ -187,4 +187,4 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 ## Next steps
 
-In this quickstart, you created a resource group, network resources, and backend servers. You then used those resources to create an load balancer. To learn more about load balancers and their associated resources, continue to the tutorial articles.
+In this quickstart, you created a resource group, network resources, and backend servers. You then used those resources to create a load balancer. To learn more about load balancers and their associated resources, continue to the tutorial articles.
