@@ -11,7 +11,7 @@ ms.date: 03/20/2018
 ms.author: jeking
 ---
 
-# Locally-redundant storage (LRS): The low-cost option for data redundancy in Azure Storage
+# Locally-redundant storage (LRS): Low-cost data redundancy for Azure Storage
 
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
