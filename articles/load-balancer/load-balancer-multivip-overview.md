@@ -132,3 +132,7 @@ The Floating IP rule type is the foundation of several load balancer configurati
 * With the Floating IP rule, your application must use the primary IP configuration for outbound flows. If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's SNAT is not available to rewrite the outbound flow and the flow fails.
 * Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Subscription limits apply. For more information, see [Service limits](../azure-subscription-service-limits.md#networking-limits) for details.
+
+## Next steps
+
+- Review [Outbound connections](load-balancer-outbound-connections.md) to understand the impact of multiple frontends on outbound connection behavior.
