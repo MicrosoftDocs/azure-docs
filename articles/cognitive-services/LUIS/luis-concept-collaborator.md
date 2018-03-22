@@ -27,7 +27,7 @@ The account that creates an app is the owner. Each app has a single owner. The o
 LUIS doesn't provide transfer of ownership, however any collaborator can export the app, and then create an app by importing it. Be aware the new app has a different App ID. The new app needs to be trained, published, and the new endpoint used.
 
 ## LUIS app collaborators
-An app owner can add collaborators to an app. The owner needs to add the collaborator's email address on app **[Settings](luis-how-to-collaborate.md)**. The collaborator has full access to the app. If the collaborator deletes the app, the app is removed from the collaborator's account but remains in the owners account. 
+An app owner can add collaborators to an app. The owner needs to add the collaborator's email address on app **[Settings](luis-how-to-collaborate.md)**. The collaborator has full access to the app. If the collaborator deletes the app, the app is removed from the collaborator's account but remains in the owner's account. 
 
 If you want to share multiple apps with collaborators, each app needs the collaborator's email added. 
 
