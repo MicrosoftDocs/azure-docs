@@ -3,7 +3,7 @@ title: Azure Service Fabric Reliable State Manager and Reliable Collection inter
 description: Deep dive on reliable collection concepts and design in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: rwike77
 manager: timlt
 editor: rajak
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: mcoskun
+ms.author: ryanwi
 
 ---
 
