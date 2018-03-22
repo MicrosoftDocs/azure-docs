@@ -17,3 +17,6 @@ ms.author: jeking
 
 ## See also
 
+- [Azure Storage replication](storage-redundancy.md)
+- [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md)
+- [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md)

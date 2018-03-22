@@ -17,4 +17,6 @@ ms.author: jeking
 
 ## See also
 
-
+- [Azure Storage replication](storage-redundancy.md)
+- [Locally-redundant storage (LRS): Low-cost data redundancy for Azure Storage](storage-redundancy-lrs.md)
+- [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md)
