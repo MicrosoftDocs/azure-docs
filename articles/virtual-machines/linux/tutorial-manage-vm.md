@@ -256,7 +256,7 @@ An Azure VM can have one of many power states. This state represents the current
 
 ### Find power state
 
-To retrieve the state of a particular VM, use the [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view) command. Be sure to specify a valid name for a virtual machine and resource group. 
+To retrieve the state of a particular VM, use the [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) command. Be sure to specify a valid name for a virtual machine and resource group. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

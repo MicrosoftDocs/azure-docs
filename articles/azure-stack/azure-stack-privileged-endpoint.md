@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
 
 ---
@@ -71,7 +71,7 @@ We recommend that you connect to the PEP only from the hardware lifecycle host o
       ```` 
    When prompted, use the following credentials:
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
+      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.) *CloudAdmin* is a reserved name and should not be used for this account name. 
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
@@ -140,7 +140,7 @@ To import the PEP session on your local machine, do the following steps:
       ```` 
    When prompted, use the following credentials:
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
+      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.) *CloudAdmin* is a reserved name and should not be used for this account name. 
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
 
 3. Import the PEP session into your local machine

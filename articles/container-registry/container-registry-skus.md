@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
 ---
 
@@ -34,11 +34,11 @@ The Basic, Standard, and Premium SKUs are collectively known as *managed* regist
 
 ### Managed (Basic, Standard, Premium)
 
-Managed registries are backed by an Azure Storage account managed by Azure. That is, the storage account that stores your images does not appear within your Azure subscription. There are several benefits gained by using one of the managed registry SKUs, discussed in-depth in [Upgrade a Classic registry][container-registry-upgrade]. This article focuses on the managed registry SKUs and their capabilities.
+Managed registries benefit from image storage managed entirely by Azure. That is, a storage account that stores your images does not appear within your Azure subscription. There are several benefits gained by using one of the managed registry SKUs, discussed in-depth in [Container image storage in Azure Container Registry][container-registry-storage]. This article focuses on the managed registry SKUs and their capabilities.
 
 ### Unmanaged (Classic)
 
-Classic registries are "unmanaged" in the sense that the storage account that backs a Classic registry resides within *your* Azure subscription. As such, you are responsible for the management of the storage account in which your container images are stored. With unmanaged registries, you can't switch between SKUs as your needs change (other than [upgrading][container-registry-upgrade] to a managed registry), and several features of managed registries are unavailable (for example, container image deletion, [geo-replication][container-registry-geo-replication] and [webhooks][container-registry-webhook]).
+Classic registries are "unmanaged" in the sense that the storage account that backs a Classic registry resides within *your* Azure subscription. As such, you are responsible for the management of the storage account in which your container images are stored. With unmanaged registries, you can't switch between SKUs as your needs change (other than [upgrading][container-registry-upgrade] to a managed registry), and several features of managed registries are unavailable (for example, container image deletion, [geo-replication][container-registry-geo-replication], and [webhooks][container-registry-webhook]).
 
 For more information about upgrading a Classic registry to one of the managed SKUs, see [Upgrade a Classic registry][container-registry-upgrade].
 
@@ -100,4 +100,5 @@ Submit and vote on new feature suggestions in [ACR UserVoice][container-registry
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md
