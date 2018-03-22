@@ -157,9 +157,14 @@ Azure File Sync is available only in the following regions in preview:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Canada Central | Toronto |
+| Central US | Iowa |
+| East Asia | Hong Kong |
 | East US | Virginia |
+| East US2 | Virginia |
+| North Europe | Ireland |
 | Southeast Asia | Singapore |
 | UK South | London |
+| West Cental US |
 | West Europe | Netherlands |
 | West US | California |
 
