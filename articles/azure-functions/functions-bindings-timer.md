@@ -201,9 +201,7 @@ The `IsPastDue` property is `true` when the current function invocation is later
 
 A CRON expression for the Azure Functions timer trigger includes six fields: 
 
-```
-{second} {minute} {hour} {day} {month} {day-of-week}
-```
+`{second} {minute} {hour} {day} {month} {day-of-week}`
 
 Each field can have one of the following types of values:
 
