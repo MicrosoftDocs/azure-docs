@@ -84,7 +84,6 @@ The following list shows the support shows which gateways and connections are su
 |**Gateway types**   |         |
 |VPN      | Supported        |
 |ExpressRoute | Not Supported |
-|Hypernet | Not Supported|
 |**VPN types** | |
 |Route Based | Supported|
 |Policy Based | Not Supported|
@@ -92,7 +91,6 @@ The following list shows the support shows which gateways and connections are su
 |IPSec| Supported|
 |VNet2Vnet| Supported|
 |ExpressRoute| Not Supported|
-|Hypernet| Not Supported|
 |VPNClient| Not Supported|
 
 ## Log files
