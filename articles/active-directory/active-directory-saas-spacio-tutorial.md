@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 03/22/2018
 ms.author: jeedes
 
 ---
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Spacio Client support team](mailto:support@spac.io) to get these values. 
 
-4. Click **Save** button.
+4. Click the **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
@@ -121,15 +121,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
    
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
+    b. Click **Endpoints** to open the **Endpoints** dialog box.  
     
     ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
 
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
+    c. Click the **Copy** button to copy the **FEDERATION METADATA DOCUMENT** URL and paste it into Notepad.
     
     ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
      
-    d. Now go to the property page of **Spacio** and copy the **Application Id** using **Copy** button and paste it into notepad.
+    d. Now go to the property page of **Spacio** and copy the **Application Id** using the **Copy** button and paste it into Notepad.
  
     ![Configure Single Sign-On](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
 
