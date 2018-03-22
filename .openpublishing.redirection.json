@@ -17627,6 +17627,11 @@
         "source_path": "articles/azure-stack/azure-stack-register.md",
         "redirect_url": "/azure/azure-stack/azure-stack-registration",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/data-factory/tutorial-create-azure-ssis-runtime-portal.md",
+        "redirect_url": "/azure/data-factory/tutorial-deploy-ssis-packages-azure",
+        "redirect_document_id": false
     }
    ]
 }
