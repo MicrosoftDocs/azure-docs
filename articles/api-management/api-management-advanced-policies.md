@@ -33,7 +33,7 @@ This topic provides a reference for the following API Management policies. For i
 -   [Set request method](#SetRequestMethod) - Allows you to change the HTTP method for a request.
 -   [Set status code](#SetStatus) - Changes the HTTP status code to the specified value.
 -   [Set variable](api-management-advanced-policies.md#set-variable) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.
--   [Trace](#Trace) - Adds a string into the [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) output.
+-   [Trace](#Trace) - Adds a string into the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output.
 -   [Wait](#Wait) - Waits for enclosed [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](api-management-advanced-policies.md#choose) policies to complete before proceeding.
 
 ##  <a name="choose"></a> Control flow
@@ -865,7 +865,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 -   System.DateTime?
 
 ##  <a name="Trace"></a> Trace
- The             `trace` policy adds a string into the [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) output. The policy will execute only when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to `true` and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key associated with the admin account.
+ The             `trace` policy adds a string into the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output. The policy will execute only when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to `true` and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key associated with the admin account.
 
 ### Policy statement
 
