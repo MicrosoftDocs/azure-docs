@@ -134,8 +134,8 @@ These are the key tenets to remember when working with Standard Load Balancer:
 - the completion of a rule drives the Load Balancer resource.  all programming of Azure derives from its configuration.
 - when multiple frontends are available, all frontends are used and each frontend multiplies the number of available SNAT ports
 - you can choose and control if you do not wish for a particular frontend to be used for outbound connections.
-- outbound scenarios are explicit and outbound connectivity does not exist until it has been specified.load balancing rules infer how SNAT is programmed.  load balancing
-- rules are protocol specific. SNAT is protocol specific and configuration should reflect this rather than create a side effect.
+- outbound scenarios are explicit and outbound connectivity does not exist until it has been specified.load balancing rules infer how SNAT is programmed.
+- load balancing rules are protocol specific. SNAT is protocol specific and configuration should reflect this rather than create a side effect.
 
 #### Multiple frontends
 If you want more SNAT ports because you are expecting or are already experiencing a high demand for outbound connections, you can also add incremental SNAT port inventory by configuring additional frontends, rules, and backend pools to the same virtual machine resources.
