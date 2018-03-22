@@ -129,7 +129,7 @@ If multiple routes contain the same address prefix, Azure selects the route type
 1. User-defined route
 2. A system route with the *Virtual network*, *VNet peering*, or *VirtualNetworkServiceEndpoint* hop type.
 2. BGP route
-3. A system route with a hop type other than *Virtual network*, *VNet peering*, and *VirtualNetworkServiceEndpoint*.
+3. A system route with a hop type other than *Virtual network*, *VNet peering*, or *VirtualNetworkServiceEndpoint*.
 
 For example, a route table contains the following routes:
 
