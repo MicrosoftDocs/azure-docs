@@ -1,15 +1,13 @@
 ---
-title: ExpressRoute virtual network gateway
-description: Various ExpressRoute virtual network gateway SKUs
-services: expressroute
-author: charwen
-
-ms.service: expressroute
-ms.topic: article
-ms.date: 03/22/2018
-ms.author: charwen
-ms.custom: expressroute
-                              
+ title: include file
+ description: include file
+ services: expressroute
+ author: cherylmc
+ ms.service: expressroute
+ ms.topic: include
+ ms.date: 03/22/2018
+ ms.author: cherylmc
+ ms.custom: include file
 ---
 
 
