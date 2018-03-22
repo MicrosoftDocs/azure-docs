@@ -180,7 +180,7 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
 > [!note]  
-> To specify a resource group, you will need to have a resource group in your subscription. For more information about subscriptions, see [Plan, offer, quota, and subscription overview](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-plan-offer-quota-overview)
+> To specify a resource group, you will need to have a resource group in your subscription. For more information about subscriptions, see [Plan, offer, quota, and subscription overview](azure-stack-plan-offer-quota-overview.md)
 
 After the resource group is created, the **Provisioning state** property is set to **Succeeded**.
 
