@@ -25,7 +25,7 @@ Microsoft has built a portfolio that supports the needs of all customers, enabli
 
 | Introduction to Azure IoT services and solutions. (4:07) | Introduction to Azure IoT services and solutions. (4:07) | 
 |-|-|
-| [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | 
+| [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | [![Codeless IoT Solutions][img-video-contoso-hvac-iot-part8]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player) | 
 
 ## Technologies and solutions available for creating solutions
 
@@ -86,6 +86,7 @@ See the Table of Contents to the left for the list of Azure IoT services to expl
 
 [img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
 [img-video-contoso-hvac-iot-part1]: media/index/contoso-hvac-iot-part1.png
+[img-video-contoso-hvac-iot-part1]: media/index/contoso-hvac-iot-part8.png
 
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
