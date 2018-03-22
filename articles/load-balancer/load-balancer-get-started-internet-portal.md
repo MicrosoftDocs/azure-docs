@@ -30,12 +30,12 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
 ## Create a Basic Load Balancer
 
-In this section, you create a public Basic Load Balancer that helps load balance virtual machines. 
+In this section, you create a public Basic Load Balancer using the  portal. The public IP address is automatically configured as the Load Balancer's frontend IP when you create the public IP when you create the load balancer resource using the portal.
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create a load balancer** page enter these values for the load balancer:
     - *myLoadBalancer* - for the name of the load balancer.
-    - **Public** - for the type of the load balancer.
+    - **Public** - for the type of the load balancer.'s fonrt 
      - *myPublicIP* - for the Public IP that you must create with SKU as **Basic**, and **Assignment** set as **Dynamic**.
     - *myResourceGroupLB* - for the name of the new resource group that you create.
 3. Click **Create** to create the load balancer.
@@ -159,7 +159,7 @@ To allow the Basic Load Balancer to monitor the status of your app, you use a he
 
 ### Create a Load Balancer rule
 
-A Load Balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a Load Balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+A Load Balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a Load Balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend pool *LoadBalancerFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
 
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Load balancing rules**, then click **Add**.
