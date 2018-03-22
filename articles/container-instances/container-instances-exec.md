@@ -13,9 +13,9 @@ ms.author: marsma
 
 # Execute a command in a running Azure container instance
 
-Azure Container Instances provides support for executing a command in a running container. Running a command in a container you've already started is especially helpful during application development and troubleshooting.
+Azure Container Instances supports executing a command in a running container. Running a command in a container you've already started is especially helpful during application development and troubleshooting.
 
-A few examples for when you might use this feature:
+A few examples of when you might use this feature:
 
 * Launch an interactive shell with `/bin/bash` to investigate a faulting application.
 * Execute `cat /dev/null > my-big-log-file` to clear up disk space.
@@ -26,7 +26,7 @@ A few examples for when you might use this feature:
 
 ## Run a command with Azure CLI
 
-Execute a command in a running container with the [az container exec][az-container-exec] command of the [Azure CLI](azure-cli):
+Execute a command in a running container with [az container exec][az-container-exec] in the [Azure CLI][azure-cli]:
 
 ```azurecli
 az container exec \
