@@ -53,7 +53,7 @@ With PAYG licensing, a failover cluster instance (FCI) of SQL Server on Azure Vi
 
 Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit In Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
 
-To compare PAYG and BYOL licensing for SQL Server on Azure Virtual Machines see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview#get-started-with-sql-vms).
+To compare PAYG and BYOL licensing for SQL Server on Azure Virtual Machines see [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
 For complete information about licensing SQL Server, see [Pricing](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
