@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article 
 ms.workload: storage-backup-recovery 
 ms.date: 03/08/2018 
-ms.author: trinadhk 
+ms.author: trinadhk, sogup
 --- 
 
 # Upgrade to VM backup stack V2
