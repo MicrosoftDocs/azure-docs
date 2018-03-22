@@ -4,8 +4,8 @@ description: 'Learn about pipelines and activities in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
