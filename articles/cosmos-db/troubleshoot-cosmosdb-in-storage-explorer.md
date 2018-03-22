@@ -28,16 +28,16 @@ ms.author: Jejiang
 
 This guide summarizes solutions for common issues seen for Azure Cosmos DB in Storage Explorer.
 
-- [Sign in Issues](https://github.com/CawaMS/StorageExplorerTroubleshootingGuide/blob/master/se-troubleshooting-guide.md#sign-in-issues)
-  - [Self-Signed Certificate in Certificate Chain](https://github.com/CawaMS/StorageExplorerTroubleshootingGuide/blob/master/se-troubleshooting-guide.md#self-signed-certificate-in-certificate-chain)
-  - [Unable to retrieve subscriptions](https://github.com/CawaMS/StorageExplorerTroubleshootingGuide/blob/master/se-troubleshooting-guide.md#unable-to-retrieve-subscriptions)
-  - [Unable to see the authentication page](https://github.com/CawaMS/StorageExplorerTroubleshootingGuide/blob/master/se-troubleshooting-guide.md#unable-to-see-auth-page)
-  - [Cannot remove account](https://github.com/CawaMS/StorageExplorerTroubleshootingGuide/blob/master/se-troubleshooting-guide.md#unable-to-remove-account)
-- [Http/Https Proxy Issue](https://github.com/CawaMS/StorageExplorerTroubleshootingGuide/blob/master/se-troubleshooting-guide.md#proxy-issue)
-- ['Development' node under 'Local and Attached' Issue](https://github.com/CawaMS/StorageExplorerTroubleshootingGuide/blob/master/se-troubleshooting-guide.md#development-node)
-- [Attach Cosmos DB account in \`Local and Attached\` Error](https://github.com/CawaMS/StorageExplorerTroubleshootingGuide/blob/master/se-troubleshooting-guide.md#attaching)
-- [Expand Cosmos DB node Error](https://github.com/CawaMS/StorageExplorerTroubleshootingGuide/blob/master/se-troubleshooting-guide.md#expand-node)
-- [Submit your Issue ](https://github.com/CawaMS/StorageExplorerTroubleshootingGuide/blob/master/se-troubleshooting-guide.md#submit-issues)
+- [Sign in Issues](#Sign-in-Issues)
+  - [Self-Signed Certificate in Certificate Chain](#Self-Signed-Certificate-in-Certificate-Chain)
+  - [Unable to retrieve subscriptions](#Unable-to-retrieve-subscriptions)
+  - [Unable to see the authentication page](#Unable-to-see-the-authentication-page)
+  - [Cannot remove account](#Cannot-remove-account)
+- [Http/Https Proxy Issue](#Http/Https-Proxy-Issue)
+- ['Development' node under 'Local and Attached' Issue](#\`Development\`-node-under-\`Local-and-Attached\`-Issue)
+- [Attach Cosmos DB account in \`Local and Attached\` Error](#Attaching-Cosmos-DB-account-in-\`Local-and-Attached\`-Error)
+- [Expand Cosmos DB node Error](#Expand-Cosmos-DB-node-Error)
+- [Submit your Issue](#Submit-Your-Issue)
 
 ## Sign in Issues
 
