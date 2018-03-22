@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: dobett
 
 ---
@@ -51,6 +51,7 @@ The following table lists the set of system properties in IoT Hub messages.
 | ConnectionDeviceId |An ID set by IoT Hub on device-to-cloud messages. It contains the **deviceId** of the device that sent the message. |
 | ConnectionDeviceGenerationId |An ID set by IoT Hub on device-to-cloud messages. It contains the **generationId** (as per [Device identity properties][lnk-device-properties]) of the device that sent the message. |
 | ConnectionAuthMethod |An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message. For more information, see [Device to cloud anti-spoofing][lnk-antispoofing]. |
+| CreationTimeUtc | Date and time the message was created on a device. A device must set this value explicitly. |
 
 ## Message size
 
