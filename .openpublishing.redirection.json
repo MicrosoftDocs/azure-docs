@@ -5033,6 +5033,11 @@
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/storage-explorer",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates",
+            "redirect_document_id": true
+        },
 		{
             "source_path": "articles/log-analytics/log-analytics-security.md",
             "redirect_url": "/azure/log-analytics/log-analytics-data-security",
