@@ -55,7 +55,7 @@ The following table shows several properties, accessible through Transact SQL, t
 ## Key features and capabilities of a Managed Instance 
 
 > [!IMPORTANT]
-> A Managed Instance runs with all of the features of SQL Server Enterprise Edition, including online operations, automatic plan corrections, and other enterprise performance enhancements. 
+> A Managed Instance runs with all of the features of the most recent version of SQL Server, including online operations, automatic plan corrections, and other enterprise performance enhancements. 
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
