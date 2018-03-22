@@ -21,7 +21,7 @@ ms.author: kumud
 
 Azure Load Balancer allows you to scale your applications and create high availability for your services. Load Balancer can be used for inbound as well as outbound scenarios and provides low latency, high throughput, and scales up to millions of flows for all TCP and UDP applications. 
 
-This article is focussed on Standard Load Balancer.  For a more general overview for Azure Load Balancer, review [Load Balancer Overview](load-balancer-overview.md) as well.
+This article is focused on Standard Load Balancer.  For a more general overview for Azure Load Balancer, review [Load Balancer Overview](load-balancer-overview.md) as well.
 
 ## What is Standard Load Balancer?
 
@@ -165,7 +165,7 @@ Review [detailed discussion of Outbound Connections](load-balancer-outbound-conn
 
 ### <a name="operations"></a> Management Operations
 
-Standard Load Balancer resources exist on an entirely new infrastructure platform.  This enables significantly faster management operations for Standard SKUs and completition times are typically less than 30 seconds per Standard SKU resource.  Note that as backend pools increase in size, the duration required for backend pool changes also increase.
+Standard Load Balancer resources exist on an entirely new infrastructure platform.  This enables significantly faster management operations for Standard SKUs and completion times are typically less than 30 seconds per Standard SKU resource.  Note that as backend pools increase in size, the duration required for backend pool changes also increase.
 
 You can modify Standard Load Balancer resources and move a Standard public IP address from one virtual machine to another much faster.
 
@@ -199,7 +199,7 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 >
 >Both Basic and Standard SKU have a number of differences as outlined in this article.  Make sure you understand and prepare for them.
 >
->Matching SKUs must be used for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and Standard SKU resources. You can't attach a strandalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.
+>Matching SKUs must be used for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and Standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.
 
 ## Region availability
 
