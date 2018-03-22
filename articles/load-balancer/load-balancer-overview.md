@@ -35,8 +35,9 @@ Azure Load Balancer can be used to:
 * Port forward traffic to a specific port on specific virtual machines with inbound NAT rules.
 * Provide [outbound connectivity](load-balancer-outbound-connections.md) for virtual machines inside your virtual network by using a public Load Balancer.
 
+
 >[!NOTE]
-> Azure provides several load balancing services.  If you are looking for TLS termination ("SSL offload") or HTTP/HTTPS application layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md).  If you are looking for global DNS load balancing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  End-to-end scenarios may benefit from combining these solutions as appropriate.
+> Azure provides a suite of fully managed load balancing solutions for your scenarios.  If you are looking for TLS termination ("SSL offload") or HTTP/HTTPS application layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md).  If you are looking for global DNS load balancing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Your end-to-end scenarios may benefit from combining these solutions as needed.
 
 ## What is Load Balancer?
 
