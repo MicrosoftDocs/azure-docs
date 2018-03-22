@@ -105,6 +105,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+The Service Fabric runtime which comes with the above installation includes the packages in the table below. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | latest |
+
 ## Set up a local cluster
   Once the installation completes, you should be able to start a local cluster.
 
