@@ -21,13 +21,15 @@ A LUIS account is associated with a single [Microsoft Live](https://login.live.c
 A LUIS account may have many LUIS apps.
 
 ## LUIS app owner
-Each app has a single owner. The owner is listed on app **[Settings](luis-how-to-collaborate.md)**. This is the account that can delete the app. This is also the account that receives email when the endpoint quota reaches 75%. 
+The account that creates an app is the owner. Each app has a single owner. The owner is listed on app **[Settings](luis-how-to-collaborate.md)**. This is the account that can delete the app. This is also the account that receives email when the endpoint quota reaches 75%. 
 
 ## Transfer ownership
-LUIS doesn't provide transfer of ownership, however any collaborator can export the app, and then create an app by import. The account that creates an app is the owner.  
+LUIS doesn't provide transfer of ownership, however any collaborator can export the app, and then create an app by importing it. Be aware the new app has a different App ID. The new app needs to be trained, published, and the new endpoint used.
 
 ## LUIS app collaborators
-An app owner can add collaborators by email address on app **[Settings](luis-how-to-collaborate.md)**. The collaborator has full access to the app. If the collaborator deletes the app, the app is removed from the collaborator's account but remains in the owners account. 
+An app owner can add collaborators to an app. The owner needs to add the collaborator's email address on app **[Settings](luis-how-to-collaborate.md)**. The collaborator has full access to the app. If the collaborator deletes the app, the app is removed from the collaborator's account but remains in the owners account. 
+
+If you want to share multiple apps with collaborators, each app needs the collaborator's email added. 
 
 ## Next steps
 
