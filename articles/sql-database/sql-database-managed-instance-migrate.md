@@ -5,7 +5,7 @@ keywords: database migration,sql server database migration,database migration to
 services: sql-database
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
@@ -71,7 +71,7 @@ To move SQL instances, you need to plan carefully:
 
 Managed Instance is a fully managed service that allows you to delegate some of the regular DBA activities to the platform as they are built in. Therefore, some instance level data does not need to be migrated, such as maintenance jobs for regular backups or Always On configuration, as [high availability](sql-database-high-availability.md) is built in.
 
-Managed Instance supports the following several database migration options:
+Managed Instance supports the following database migration options (currently these are the only supported migration methods):
 
 ### Azure Database Migration Service
 
@@ -79,7 +79,7 @@ The [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is a fully 
 
 ![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
-To learn more about this scenario and configuration steps for DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
+To learn more about this scenario and configuration steps for DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
 ### Native RESTORE from URL
 
@@ -125,4 +125,4 @@ To strengthen security, consider using some of the features that are available:
 
 - For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
 - For a tutorial that includes a restore from backup, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
-- For tutorial showing migration using DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-azure-sql.md).  
+- For tutorial showing migration using DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md).  

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ---
@@ -159,7 +159,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### DeploySqlProvider.ps1 parameters
+### DeployMySqlProvider.ps1 parameters
 You can specify these parameters in the command line. If you do not, or if any parameter validation fails, you are prompted to provide the required parameters.
 
 | Parameter name | Description | Comment or default value |
@@ -263,11 +263,15 @@ You can modify the password by first changing it on the MySQL server instance. S
 ![Update the admin password](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
 ## Update the MySQL resource provider adapter (multi-node only, builds 1710 and later)
-A new SQL resource provider adapter may be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. 
+A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. 
 
-The update process is similar to the installation process that was described earlier. You create a new VM with the latest resource provider code. Then you migrate the settings to this new instance, including database and hosting server information. You also migrate the necessary DNS record.
+To update of the resource provider you use the *UpdateMySQLProvider.ps1* script. The process is similar to the process used to install a resource provider, as described in the [Deploy the resource provider](#deploy-the-resource-provider) section of this article. The script is included with the download of the resource provider.
 
-Use the UpdateMySQLProvider.ps1 script with the same arguments that were described earlier. Provide the certificate here as well.
+The *UpdateMySQLProvider.ps1* script creates a new VM with the latest resource provider code and migrates the settings from the old VM to the new VM. The settings that migrate include database and hosting server information, and the necessary DNS record.
+
+The script requires use of the same arguments that are described for the DeployMySqlProvider.ps1 script. Provide the certificate here as well. 
+
+Following is an example of the *UpdateMySQLProvider.ps1* script that you can run from the PowerShell prompt. Be sure to change the account information and passwords as needed: 
 
 > [!NOTE]
 > The update process only applies to integrated systems.

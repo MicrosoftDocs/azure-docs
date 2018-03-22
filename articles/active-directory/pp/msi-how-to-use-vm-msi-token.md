@@ -6,7 +6,6 @@ documentationcenter:
 author: daveba
 manager: mtillman
 editor: 
-
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -23,9 +22,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors.
 
 ## Prerequisites
-
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 > [!IMPORTANT]
@@ -41,25 +38,34 @@ A client application can request an MSI [app-only access token](~/articles/activ
 | [Get a token using CURL](#get-a-token-using-curl) | Example of using the MSI REST endpoint from a Bash/CURL client |
 | [Handling token expiration](#handling-token-expiration) | Guidance for handling expired access tokens |
 | [Error handling](#error-handling) | Guidance for handling HTTP errors returned from the MSI token endpoint |
+| [Throttling guidance](#throttling-guidance) | Guidance for handling throttling of the MSI token endpoint |
 | [Resource IDs for Azure services](#resource-ids-for-azure-services) | Where to get resource IDs for supported Azure services |
+
 
 ## Get a token using HTTP 
 
-The fundamental interface for acquiring an access token is based on REST, making it accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs an Azure AD endpoint).
+The fundamental interface for acquiring an access token is based on REST, making it accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses an endpoint on the virtual machine (vs an Azure AD endpoint).
 
-Sample request:
+Sample request using the Instance Metadata Service (IMDS) Endpoint:
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
-Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+```
+
+Sample request using the MSI VM Extension Endpoint (upcoming deprecation):
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
 | Element | Description |
 | ------- | ----------- |
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
-| `http://localhost:50342/oauth2/token` | The MSI endpoint, where 50342 is the default port and is configurable. |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | The MSI endpoint for the Instance Metadata Service. |
+| `http://localhost:50342/oauth2/token` | The MSI endpoint for the VM extension, where 50342 is the default port and is configurable. |
+| `api-version`  | A query string parameter, indicating the API version for the IMDS endpoint.  |
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
-| `client_id` | A query string parameter, indicating the client ID (also known as App ID) of the service principal representing the user-assigned MSI. This value is returned in the `clientId` property during creation of a user-assigned MSI. This example requests a token for client ID "712eac09-e943-418c-9be6-9fd5c91078bl". |
+| `client_id` |  An *optional* query string parameter, indicating the client ID (also known as App ID) of the service principal representing a user-assigned MSI. If you are using system-assigned MSI, this parameter is not required. This value is returned in the `clientId` property during creation of a user-assigned MSI. This example requests a token for client ID "712eac09-e943-418c-9be6-9fd5c91078bl". |
 | `Metadata` | An HTTP request header field, required by MSI as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.
 
 Sample response:
@@ -91,6 +97,16 @@ Content-Type: application/json
 ## Get a token using CURL
 
 Be sure to substitute the client ID (also known as App ID) of your user-assigned MSI's service principal, for the <MSI CLIENT ID> value of the `client_id` parameter. This value is returned in the `clientId` property during creation of a user-assigned MSI.
+  
+Sample request using the Instance Metadata Service (IMDS) Endpoint:
+
+   ```bash
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>")
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+Sample request using the MSI VM Extension Endpoint (upcoming deprecation):
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -101,7 +117,7 @@ Be sure to substitute the client ID (also known as App ID) of your user-assigned
    Example responses:
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
@@ -109,7 +125,7 @@ Be sure to substitute the client ID (also known as App ID) of your user-assigned
 
 ## Handling token expiration
 
-The local MSI subsystem caches tokens. Therefore, you can call it as often as you like, and an on-the-wire call to Azure AD results only if:
+The MSI subsystem caches tokens. Therefore, you can call it as often as you like, and an on-the-wire call to Azure AD results only if:
 - a cache miss occurs due to no token in the cache
 - the token is expired
 
@@ -139,13 +155,23 @@ This section documents the possible error responses. A "200 OK" status is a succ
 | ----------- | ----- | ----------------- | -------- |
 | 400 Bad Request | invalid_resource | AADSTS50001: The application named *\<URI\>* was not found in the tenant named *\<TENANT-ID\>*. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\ | (Linux only) |
 | 400 Bad Request | bad_request_102 | Required metadata header not specified | Either the `Metadata` request header field is missing from your request, or is formatted incorrectly. The value must be specified as `true`, in all lower case. See the "Sample request" in the [Get a token using HTTP](#get-a-token-using-http) section for an example.|
-| 401 Unauthorized | unknown_source | Unknown Source *\<URI\>* | Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://localhost:50342/oauth2/token`. See the "Sample request" in the [Get a token using HTTP](#get-a-token-using-http) section for an example.|
+| 401 Unauthorized | unknown_source | Unknown Source *\<URI\>* | Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://169.254.169.254/metadata/identity/oath2/token` or `http://localhost:50342/oauth2/token`. See the "Sample request" in the [Get a token using HTTP](#get-a-token-using-http) section for an example.|
 |           | invalid_request | The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed. |  |
 |           | unauthorized_client | The client is not authorized to request an access token using this method. | Caused by a request that didn’t use local loopback to call the extension, or on a VM that doesn’t have an MSI configured correctly. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration. |
 |           | access_denied | The resource owner or authorization server denied the request. |  |
 |           | unsupported_response_type | The authorization server does not support obtaining an access token using this method. |  |
 |           | invalid_scope | The requested scope is invalid, unknown, or malformed. |  |
 | 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [Get a token using HTTP](#get-a-token-using-http) section for an example, or [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services and their respective resource IDs.
+
+## Throttling guidance 
+
+Throttling limits apply to the number of calls made to the MSI IMDS endpoint. When the throttling threshold is exceeded, the MSI IMDS endpoint limits any further requests while the throttle is in effect. During this period, the MSI IMDS endpoint will return the HTTP status code 429 ("Too many requests"), and the requests fail. 
+
+For retry, we recommend the following strategy: 
+
+| **Retry strategy** | **Settings** | **Values** | **How it works** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |Retry count<br />Min back-off<br />Max back-off<br />Delta back-off<br />First fast retry |5<br />0 sec<br />60 sec<br />2 sec<br />false |Attempt 1 - delay 0 sec<br />Attempt 2 - delay ~2 sec<br />Attempt 3 - delay ~6 sec<br />Attempt 4 - delay ~14 sec<br />Attempt 5 - delay ~30 sec |
 
 ## Resource IDs for Azure services
 

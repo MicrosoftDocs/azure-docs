@@ -99,5 +99,5 @@ Share snapshots provide only file-level protection. Share snapshots don't preven
 
 ## Next steps
 * [Work with share snapshots](storage-how-to-use-files-snapshots.md)
-* [Share snapshot FAQ](storage-files-faq.md)
+* [Share snapshot FAQ](storage-files-faq.md#share-snapshots)
 

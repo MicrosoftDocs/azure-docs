@@ -3,8 +3,18 @@
             "source_path": "articles/search/search-howto-index-documentdb.md",
             "redirect_url": "/azure/search/search-howto-index-cosmosdb",
             "redirect_document_id": true
-        },
+        },     
         {
+            "source_path": "articles/machine-learning/studio/live-chat.md",
+            "redirect_url": "https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning",
+            "redirect_document_id": true
+        },
+	{
+            "source_path": "articles/machine-learning/studio/datamarket-deprecation.md",
+            "redirect_url": "https://microsoft.com/cognitive",
+            "redirect_document_id": true
+        },
+	{
             "source_path": "articles/active-directory/active-directory-application-proxy-publish.md",
             "redirect_url": "/azure/active-directory/application-proxy-publish-azure-portal",
             "redirect_document_id": true
@@ -171,6 +181,11 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-zendesk-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": true
+        },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-samanage-provisioning-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": true
         },
@@ -406,6 +421,11 @@
         {
             "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-tips.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-manager-common-deployment-errors",
             "redirect_document_id": false
         },
         {
@@ -1063,6 +1083,16 @@
             "redirect_url": "/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/vs-azure-tools-connected-services-add-active-directory.md",
+            "redirect_url": "/azure/active-directory/develop/vs-active-directory-add-connected-service",
+            "redirect_document_id": false
+        },
+	{
+	    "source_path": "articles/vs-azure-tools-remote-desktop-roles.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-visual-studio",
+            "redirect_document_id": false
+        },        
         {
             "source_path": "articles/xplat-cli-azure-resource-manager.md",
             "redirect_url": "/azure/azure-resource-manager/xplat-cli-azure-resource-manager",
@@ -1737,6 +1767,16 @@
             "source_path": "articles/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates.md",
             "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-manage-from-vs.md",
+            "redirect_url": "/azure/logic-apps/manage-logic-apps-with-visual-studio",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-deploy-from-vs.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-deploy-template",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/logic-apps/custom-connector-build-web-api-app-tutorial.md",
@@ -3209,6 +3249,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-manage-vm-backup.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-manage-vm-protect",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-stack/azure-stack-faq.md",
             "redirect_url": "/azure/azure-stack/azure-stack-asdk-release-notes",
             "redirect_document_id": false
@@ -3396,6 +3441,11 @@
         {
             "source_path": "articles/aks/azure-files.md",
             "redirect_url": "/azure/aks/azure-files-dynamic-pv",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/kubernetes/container-service-kubernetes-jenkins.md",
+            "redirect_url": "/azure/aks/jenkins-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -4677,6 +4727,11 @@
             "source_path": "articles/cosmos-db/run-hadoop-with-hdinsight.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-hive",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-sql-query-cheat-sheet.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/query-cheat-sheet",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
@@ -8550,6 +8605,11 @@
             "redirect_document_id": false
         },
 		    {
+            "source_path": "articles/site-recovery/site-recovery-support-matrix-to-sec-site.md",
+            "redirect_url": "vmware-physical-secondary-support-matrix",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/tutorial-dr-drill-secondary.md",
             "redirect_url": "hyper-v-vmm-test-failover",
             "redirect_document_id": false
@@ -8966,7 +9026,7 @@
         },
         {
             "source_path": "articles/site-recovery/vmware-walkthrough-prerequisites.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -9090,6 +9150,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/support-matrix-vmware-to-azure.md",
+            "redirect_url": "vmware-physical-azure-support-matrix",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/site-recovery-support-matrix-to-azure.md",
+            "redirect_url": "vmware-physical-azure-support-matrix",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md",
             "redirect_url": "vmware-azure-install-mobility-service",
             "redirect_document_id": false
@@ -9161,7 +9231,7 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-support-matrix.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -9171,7 +9241,7 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-prereq.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -9181,7 +9251,7 @@
         },
 	{
             "source_path": "articles/site-recovery/site-recovery-best-practices.md",
-            "redirect_url": "site-recovery-support-matrix-to-azure",
+            "redirect_url": "vmware-physical-azure-support-matrix",
             "redirect_document_id": false
         },
         {
@@ -9769,6 +9839,11 @@
             "redirect_url": "/azure/active-directory/develop/active-directory-integrating-applications",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/active-directory/active-directory-app-registration.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-integrating-applications",
+            "redirect_document_id": false
+        },                     
         {
             "source_path": "articles/active-directory/active-directory-java-authenticate-users-access-control-eclipse.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-java-authenticate-users-access-control-eclipse",
@@ -12857,6 +12932,46 @@
         {
             "source_path": "articles/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
             "redirect_url": "/azure/storage/common/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-dotnet-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-java-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-nodejs-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-php-how-to-use-blobs.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-php",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-python-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-ruby-how-to-use-blob-storage.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-ruby",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-how-to-use-blobs-powershell.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-how-to-use-blobs-cli.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
             "redirect_document_id": false
         },
         {
@@ -17359,9 +17474,145 @@
             "redirect_document_id": false
     },
     {
+        "source_path": "articles/virtual-network/virtual-network-manage-network.md",
+        "redirect_url": "/azure/virtual-network/manage-virtual-network",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-cli.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-portal.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-powershell.md",
+        "redirect_url": "/azure/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-cli.md",
+        "redirect_url": "/azure/virtual-network/quick-create-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md",
+        "redirect_url": "/azure/virtual-network/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-service-endpoints-configure.md",
+        "redirect_url": "/azure/virtual-network/tutorial-restrict-network-access-to-resources",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-ps.md",
+        "redirect_url": "/azure/virtual-network/quick-create-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md",
+        "redirect_url": "/azure/virtual-network/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
         "redirect_url": "/azure/stream-analytics/stream-analytics-common-troubleshooting-issues",
         "redirect_document_id": false
-   }
+   },
+   {
+        "source_path": "articles/security-center/security-center-integrating-alerts-with-log-integration.md",
+        "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
+        "redirect_document_id": false
+    },
+	  {
+        "source_path": "articles/active-directory/active-directory-apps-permissions-consent.md",
+        "redirect_url": "/azure/active-directory/develop/active-directory-integrating-applications",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-searches.md",
+        "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-search-new.md",
+        "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-search-reference.md",
+        "redirect_url": "https://docs.loganalytics.io/docs/Language-Reference",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-searches-regex.md",
+        "redirect_url": "https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-search-api.md",
+        "redirect_url": "https://dev.loganalytics.io/",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/log-analytics/log-analytics-log-search-api-python.md",
+        "redirect_url": "https://dev.loganalytics.io/",
+        "redirect_document_id": false
+     },
+     {
+            "source_path": "articles/azure-functions/durable-functions-counter.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-monitor",
+            "redirect_document_id": true
+     },
+	   {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-concurrency.md",
+        "redirect_url": "/azure/sql-data-warehouse/resource-classes-for-workload-management",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/azure-stack/azure-stack-asdk-release-notes.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-release-notes",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-architecture.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-architecture",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack/azure-stack-deploy.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-deploy-considerations",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-run-powershell-script.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-add-default-image.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-marketplace-item",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-provision-vm.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-create-vm-template",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-redeploy.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-redeploy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-register.md",
+        "redirect_url": "/azure/azure-stack/azure-stack-registration",
+        "redirect_document_id": false
+    }
    ]
 }
+

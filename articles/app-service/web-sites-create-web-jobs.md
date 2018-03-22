@@ -3,7 +3,7 @@ title: Run Background tasks with WebJobs in Azure App Service
 description: Learn how to use WebJobs to run background tasks in Azure App Service web apps, API apps, or mobile apps.
 services: app-service
 documentationcenter: ''
-author: ggailey777
+author: tdykstra
 manager: erikre
 editor: jimbe
 
@@ -210,4 +210,4 @@ You can enter the CRON expression in the portal or include a `settings.job` file
    
 ## <a name="NextSteps"></a> Next steps
 
-The Azure WebJobs SDK can be used with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) and the [WebJobs SDK Quick Reference](./media/web-sites-create-web-jobs/webjobs-sdk-quick-reference.png).
+The Azure WebJobs SDK can be used with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
