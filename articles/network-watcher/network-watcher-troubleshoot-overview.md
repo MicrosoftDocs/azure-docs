@@ -19,7 +19,7 @@ ms.author: jdial
 
 # Introduction to resource troubleshooting in Azure Network Watcher
 
-Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring gateways and their connections is critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot gateways and connections. The capability can be called through the portal, PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
+Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring gateways and their connections are critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot gateways and connections. The capability can be called through the portal, PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
 
 ![portal][2]
 
@@ -51,10 +51,10 @@ The following tables show the different fault types (id under results from the p
 | GatewayNotFound | Cannot find gateway or gateway is not provisioned |No|
 | PlannedMaintenance |  Gateway instance is under maintenance  |No|
 | UserDrivenUpdate | This fault occurs when a user update is in progress. The update could be a resize operation. | No |
-| VipUnResponsive | This fault occure when the primary instance of the gateway can't be reached due to a health probe failure. | No |
+| VipUnResponsive | This fault occurs when the primary instance of the gateway can't be reached due to a health probe failure. | No |
 | PlatformInActive | There is an issue with the platform. | No|
 | ServiceNotRunning | The underlying service is not running. | No|
-| NoConnectionsFoundForGateway | No connections exists on the gateway. This fault is only a warning.| No|
+| NoConnectionsFoundForGateway | No connections exist on the gateway. This fault is only a warning.| No|
 | ConnectionsNotConnected | Connections are not connected. This fault is only a warning.| Yes|
 | GatewayCPUUsageExceeded | The current gateway CPU usage is > 95%. | Yes |
 
@@ -66,7 +66,7 @@ The following tables show the different fault types (id under results from the p
 | GatewayNotFound | Cannot find gateway or gateway is not provisioned |No|
 | PlannedMaintenance | Gateway instance is under maintenance  |No|
 | UserDrivenUpdate | This fault occurs when a user update is in progress. The update could be a resize operation.  | No |
-| VipUnResponsive | This fault occure when the primary instance of the gateway can't be reached due to a health probe failure. | No |
+| VipUnResponsive | This fault occurs when the primary instance of the gateway can't be reached due to a health probe failure. | No |
 | ConnectionEntityNotFound | Connection configuration is missing | No |
 | ConnectionIsMarkedDisconnected | The connection is marked "disconnected" |No|
 | ConnectionNotConfiguredOnGateway | The underlying service does not have the connection configured. | Yes |
