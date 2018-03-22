@@ -25,7 +25,7 @@ With a monolith, the application is typically running on one or more servers wit
 This article is not a guide to microservices security, there are many such resources available online, but describes how different aspects of security can be accomplished in Service Fabric.
 
 ## Authentication and authorization
-It is often necessary for resources and APIs exposed by a service to be limited to certain trusted users or clients. 
+It is often necessary for resources and APIs exposed by a service to be limited to certain trusted users or clients. Authentication is the process of reliably ascertaining a user’s identity.  Authorization is the process that makes APIs or services available to some authenticated users but not others.
 
 ### Authentication
 The first step to making API-level trust decisions is authentication. Authentication is the process of reliably ascertaining a user’s identity.  In microservice scenarios, authentication is typically handled centrally. If you are using an API Gateway, you can [offload authentication](/azure/architecture/patterns/gateway-offloading) to the gateway. If you use this approach, make sure that the individual services cannot be reached directly (without the API Gateway) unless additional security is in place to authenticate messages whether they come from the gateway or not.
@@ -83,14 +83,16 @@ Service Fabric provides a mechanism for services inside a container to access a 
 In addition, Service Fabric also supports gMSA (group Managed Service Accounts) for Windows containers. For more information, see [Set up gMSA for Windows containers](service-fabric-setup-gmsa-for-windows-containers.md).
 
 ## Secure service communication
-Enable HTTPS endpoints in your [ASP.NET Core or Java](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) web services.
+In Service Fabric, a service runs somewhere in a Service Fabric cluster, typically distributed across multiple VMs. Service Fabric provides several options for securing your service communications.
+
+You can enable HTTPS endpoints in your [ASP.NET Core or Java](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) web services.
 
 You can establish secure connection between the reverse proxy and services, thus enabling an end to end secure channel. Connecting to secure services is supported only when reverse proxy is configured to listen on HTTPS. For information on configuring the reverse proxy, read [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md).  [Connect to a secure service](service-fabric-reverseproxy-configure-secure-communication.md) describes how to establish secure connection between the reverse proxy and services.
 
 The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to improve security. Learn how to improve security when you're using service remoting (in [C#](service-fabric-reliable-services-secure-communication.md) or [Java](service-fabric-reliable-services-secure-communication-java.md)) or using [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## Encrypt application data at rest
-Each [node type](service-fabric-cluster-nodetypes.md) in a Service Fabric cluster running in Azure is backed by a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Using an Azure Resource Manager template, you can attach data disks to the scale set(s) that make up the Service Fabric cluster.  If your services save data to attached data disk, you can [encrypt those data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md).
+Each [node type](service-fabric-cluster-nodetypes.md) in a Service Fabric cluster running in Azure is backed by a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Using an Azure Resource Manager template, you can attach data disks to the scale set(s) that make up the Service Fabric cluster.  If your services save data to an attached data disk, you can [encrypt those data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) to protect your application data.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->
