@@ -28,17 +28,17 @@ The configuration file is:
 
 ## Application
 
-An application represents a definition of a blockchain application
+An application represents a definition of a blockchain application. 
 
 Some explaination of where these are used.  Could be here or in the description.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
 | ApplicationName | Unique app name | Y | AssetTransfer |
-| DisplayName     | Friendly display name | Y | Asset Transfer        |
-| Description     | Descriptive text | N | Transfer of assets between a buyer and seller |
-| [ApplicationRoles](#application-roles) | Array of ApplicationRoles | Y | Appraiser, Buyer |
-| [Workflows](#workflows) | Array of Workflows | Y | AssetTransfer |
+| DisplayName | Friendly display name | Y | Asset Transfer        |
+| Description | Descriptive text | N | Transfer of assets between a buyer and seller |
+| ApplicationRoles | Collection of [ApplicationRoles](#application-roles) | Y | Appraiser, Buyer |
+| Workflows | Collection of  [Workflows](#workflows) | Y | AssetTransfer |
 
 ## Workflows
 
@@ -49,44 +49,67 @@ Some explaination of where these are used.  Could be here or in the description.
 | Name | Unique name | Y | AssetTransfer |
 | DisplayName | Friendly display name | Y |Asset Transfer|
 | Description | Descriptive text | N | Business logic for the asset transfer scenario |
-| Initiators | Array of [ApplicationRoles](#application-roles) | Y | Owner |
+| Initiators | Collection of [ApplicationRoles](#application-roles) | Y | Owner |
 | StartState | The initial state of the smart contract | Y | Active |
-| Properties | Array of [identifiers](#identifiers) declared for the smart contract | Y | State |
-| [Constructor](#constructor) | Defines requirements for creating a smart contract instance | Y | For sample, see [Constructor](#constructor) |
-| Functions | | | |
-| States | | | |
+| Properties | Collection of [identifiers](#identifiers) declared for the smart contract | Y | State |
+| [Constructor](#constructor) | Defines input parameters for creating a smart contract instance | Y | For sample, see [constructor](#constructor) |
+| Functions | A collection of [functions](#functions) that can be executed on the smart contract. | N | Modify |
+| States | A collection smart contract [states](#states). | Y | For sample, see [states](#states) |
 
 ## Constructor
 
-An explaination...
+Defines input parameters for a new instance of a smart contract.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
-| Parameters | Array of [identifiers](#identifiers) required to initiate a smart contract. | Y | price |
+| Parameters | Collection of [identifiers](#identifiers) required to initiate a smart contract. | Y | price |
 | Description | Descriptive text | N | Constructor for asset transfer? |
-| Preconditions | Array of [expressions](#expressions) that define requirements verified prior to constructing the smart contract instance? | N | `Equal(Properties('InstanceOwner'), Parameters('sender'))` |
-| Postconditions | Array of [expressions](#expressions) that define requirements verified after constructing the smart contract instance? | N | `Equal(Properties('AskingPrice'), Parameters('price'))` |
+| Preconditions | Collection of [expressions](#expressions) that define requirements verified prior to constructing the smart contract instance? | N | `Equal(Properties('InstanceOwner'), Parameters('sender'))` |
+| Postconditions | Collection of [expressions](#expressions) that define requirements verified after constructing the smart contract instance? | N | `Equal(Properties('AskingPrice'), Parameters('price'))` |
 
 ## Functions
 
-An explaination...
+Functions that can be executied on the smart contract.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
 | Name | Unique name | Y | Modify |
 | DisplayName | Friendly display name | Y | Modify |
 | Description | Descriptive text | N | Modify the description/price attributes |
-| Parameters | Array of [identifiers](#identifiers) required to initiate a smart contract. | Y | description, price |
-| Preconditions | Array of [expressions](#expressions) that define requirements verified prior to executing the function? | N | `Equal(Properties('InstanceOwner'), Parameters('sender'))` |
-| Postconditions | Array of [expressions](#expressions) that define requirements verified after executing the function? | N | `Equal(Properties('AskingPrice'), Parameters('price'))` |
+| Parameters | Collection of [identifiers](#identifiers) required to initiate a smart contract. | Y | description, price |
+| Preconditions | Collection of [expressions](#expressions) that define requirements verified prior to executing the function? | N | `Equal(Properties('InstanceOwner'), Parameters('sender'))` |
+| Postconditions | Collection of [expressions](#expressions) that define requirements verified after executing the function? | N | `Equal(Properties('AskingPrice'), Parameters('price'))` |
 
 ## States
 
+A collection smart contract states.
+
+| Field | Description | Required | Sample value  |
+|-------|-------------|:--------:|---------------|
+| Name | Unique name | Y | Active |
+| DisplayName | Friendly display name | Y | Active |
+| Description | Descriptive text | N | The initial state of the asset transfer workflow |
+| PercentComplete | Value representing the percent completion at this state. | Y | 20 |
+| Value | Order of the state - probably going away (calculated) | Y | 0 |
+| Style | Guessing some kind of representation in UI | Y | Success |
+| Transitions | Collection of available [transitions](#transitions) to the next state. | N | For sample, see [transitions](#transitions) |
+
 ## Transitions
+
+Available actions to the next state.
+
+| Field | Description | Required | Sample value  |
+|-------|-------------|:--------:|---------------|
+| AllowedRoles | List of roles allowed to initiate the transition? | N | Buyer |
+| AllowedInstanceRoles | List of instance roles allowed to initiate the transition? | N | InstanceOwner |
+| DisplayName | Friendly display name | Y | Make Offer |
+| Description | Descriptive text | N | Make an offer for this asset |
+| Function | Function to initiate for transition | Y | MakeOffer |
+| NextState | Next contract state after transition | Y | OfferPlaced |
 
 ## Application Roles
 
-roles associated to actions
+Users can be assigned to application roles. Application rolls can be associated to actions.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
@@ -95,18 +118,16 @@ roles associated to actions
 
 ## Identifiers
 
-An explaination...
-
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
 | Name | Unique name | Y | AskingPrice |
 | DisplayName | Friendly display name | Y | Asking Price |
 | Description | Descriptive text | N | The asking price for the asset |
-| Type | Array of data types | Y | money |
+| Type | Collection of data types | Y | money |
 
 ## Expressions
 
-An explaination of expressions...
+An explaination of expressions.  Need to outline the syntax.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
