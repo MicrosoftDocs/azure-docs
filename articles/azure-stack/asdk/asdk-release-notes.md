@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 
@@ -276,6 +276,7 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
 
 ### Known issues
+Beginning with version 1711, **CloudAdmin** is a reserved account name and should not be manually specified when you deploy the development kit. 
  
 #### Deployment
 - You must specify a time server by IP address during deployment.
