@@ -5033,6 +5033,11 @@
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/storage-explorer",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates",
+            "redirect_document_id": true
+        },
 		{
             "source_path": "articles/log-analytics/log-analytics-security.md",
             "redirect_url": "/azure/log-analytics/log-analytics-data-security",
@@ -16196,14 +16201,19 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-configure-use-powershell.md",
-            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-configure.md",
-            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-configure.md",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
+            "redirect_document_id": false
+        },  
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-introduction.md",
             "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
@@ -17501,6 +17511,11 @@
     {
         "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md",
         "redirect_url": "/azure/virtual-network/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-service-endpoints-configure.md",
+        "redirect_url": "/azure/virtual-network/tutorial-restrict-network-access-to-resources",
         "redirect_document_id": false
     },
     {

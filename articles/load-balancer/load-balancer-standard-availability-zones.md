@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/21/2018
 ms.author: kumud
 ---
 
@@ -148,7 +148,7 @@ If you're using existing Resource Manager templates in your configuration, add t
 
 Cross-zone load balancing is the ability of Load Balancer to reach a backend endpoint in any zone and is independent of frontend and its zonality.
 
-If you wish to align and guarantee your deployment with a single zone, align zonal frontend and zonal backend resources to the same zone. No further action is required.
+If you wish to align and guarantee your deployment within a single zone, align zonal frontend and zonal backend resources to the same zone. No further action is required.
 
 ### Backend
 
@@ -207,7 +207,7 @@ Zone-redundant can provide a zone-agnostic and at the same time resilient option
 
 Zonal can provide an explicit guarantee to a zone, sharing fate with the health of the zone. Associating a zonal IP address or zonal Load Balancer frontend can be a desirable or reasonable attribute especially if your attached resource is a zonal VM in the same zone.  Or perhaps your application requires explicit knowledge about which zone a resource is located in and you wish to reason about availability in separate zones explicitly.  You can choose to expose multiple zonal frontends for an end-to-end service distributed across zones (that is, per zone zonal frontends for multiple zonal virtual machine scale sets).  And if your zonal frontends are public IP addresses, you can use these multiple zonal frontends for exposing your service with [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Or you can use multiple zonal frontends to gain per zone health and performance insights through third party monitoring solutions and expose the overall service with a zone-redundant frontend. You should only serve zonal resources with zonal frontends aligned to the same zone and avoid potentially harmful cross-zone scenarios for zonal resources.  Zonal resources only exist in regions where Availability Zones exist.
 
-There is no general guidance that one is a better choice than the other without knowing the end-to-end service.
+There is no general guidance that one is a better choice than the other without knowing the service architecture.
 
 ## Limitations
 
