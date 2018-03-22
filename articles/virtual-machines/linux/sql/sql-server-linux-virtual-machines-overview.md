@@ -10,7 +10,7 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 10/02/2017
+ms.date: 03/22/2018
 ms.author: jroth
 ---
 # Overview of SQL Server on Azure Virtual Machines (Linux)
@@ -19,7 +19,7 @@ ms.author: jroth
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-This topic describes your options for running SQL Server on Azure Linux virtual machines (VMs), along with [links to portal images](#option-1-create-a-sql-vm-with-per-minute-licensing).
+This topic describes your options for running SQL Server on Azure Linux virtual machines (VMs), along with [links to portal images](#create).
 
 > [!NOTE]
 > If you're already familiar with SQL Server and just want to see how to deploy a SQL Server Linux VM, see [Provision a Linux SQL Server VM in Azure](provision-sql-server-linux-virtual-machine.md). Or if you want to create a Windows VM with SQL Server, see [Provision a Windows SQL Server VM in Azure](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md).

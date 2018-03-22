@@ -18,9 +18,6 @@ ms.author: mabrigg
 
 ---
 # Azure Stack servicing policy
-
-*Applies to: Azure Stack integrated systems*
-
 This article describes the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state. 
 
 ## Update package types
