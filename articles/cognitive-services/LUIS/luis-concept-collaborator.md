@@ -35,6 +35,6 @@ If you want to share multiple apps with collaborators, each app needs the collab
 
 See [App Settings](luis-how-to-collaborate.md) to learn how to manage collaborators in your LUIS app.
 
-See [Add email to access list](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58fcccdd5aca2f08a4104342) in the Authoring Resource Manager deployment model APIs.
+See [Add email to access list](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58fcccdd5aca2f08a4104342) with the Authoring APIs.
 
 [luis-reference-prebuilt-domains]:luis-reference-prebuilt-domains.md
