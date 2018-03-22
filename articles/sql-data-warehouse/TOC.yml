@@ -166,7 +166,7 @@
     - name: Azure Data Lake Store
       href: sql-data-warehouse-load-from-azure-data-lake-store.md
     - name: Azure Databricks
-      href: http://docs.microsoft.com/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
+      href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
     - name: BCP
       href: sql-data-warehouse-load-with-bcp.md
     - name: Data Factory
