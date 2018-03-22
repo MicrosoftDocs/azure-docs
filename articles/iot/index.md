@@ -19,14 +19,20 @@ ms.author: bryanla
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## Technologies and solutions available for building an Azure IoT solution
+## Technologies and solutions available for creating an Azure IoT solution
 
-Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The section provides an overview of the available  technologies and solutions, providing detail on the paths available for building your own solution:
+Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the available technologies and solutions available for creating your own solution:
 
-| **Edge**<br>Client-side technologies | **Solutions**<br>Software as a Service (SaaS) offerings | **Platform services**<br>Platform as a Service (PaaS) Offerings |
+> [!NOTE]
+> Option 1
+
+| **Edge**<br>Client-side technologies | **Solutions**<br>Leverage Software as a Service (SaaS) offerings | **Platform services**<br>Build on Platform as a Service (PaaS) Offerings |
 |------|-----------|-------------------|
-| Client-side technologies<br><br>&#9657; [IoT Edge][lnk-iot-edge-land]<br>&#9657; [IoT Device/Service SDKs][lnk-device-sdks] | Software as a Service (SaaS) offerings<br><br>&#9657; [Iot Suite][lnk-iot-suite-land] | Platform as a Service (PaaS) Offerings<br><br>&#9657; [IoT Hub][lnk-iot-hub-land] |
+| &#9657; [IoT Edge][lnk-iot-edge-land]<br>&#9657; [IoT Device/Service SDKs][lnk-device-sdks] | &#9657; [Iot Suite Preconfigured Solutions][lnk-iot-suite-land]<br>&#9657; [IoT Central][lnk-iot-central-land] | &#9657; [IoT Hub][lnk-iot-hub-land]<br>&#9657; [IoT Hub Device Provisioning Service][lnk-iot-dps-land]<br>&#9657; [Location Based Services][lnk-iot-lbs-land]<br>&#9657; [Time Series Insights][lnk-iot-tsi-land]<br> |
 |    |    |    |
+
+> [!NOTE]
+> Option 2
 
 <ul class="panelContent cardsF">
     <li>
@@ -49,7 +55,7 @@ Microsoft has built a portfolio that supports the needs of all customers, enabli
                     <div class="cardText">
                         <h3>Solutions</h3>
                         <a href="/azure/iot-suite/index.md">IoT Suite</a><br/>
-                        <a href="/azure/iot-suite/iot-suite-what-are-preconfigured-solutions">What is IoT Suite?</a>
+                        <a href="/microsoft-iot-central">IoT Central</a>
                     </div>
                 </div>
             </div>
@@ -61,8 +67,10 @@ Microsoft has built a portfolio that supports the needs of all customers, enabli
                 <div class="card">
                     <div class="cardText">
                         <h3>Platform services</h3>
-                        <a href="/azure/iot-hub/index.yml">IoT Hub</a><br/>
-                        <a href="/azure/iot-hub/iot-hub-what-is-iot-hub">What is IoT Hub?</a>
+                        <a href="/azure/iot-hub/index.md">IoT Hub</a><br/>
+                        <a href="/azure/iot-dps/index.yml">IoT Hub Device Provisioning Service</a><br/>
+                        <a href="/azure/location-based-services/index.yml">Location Based Services</a><br/>
+                        <a href="/azure/time-series-insights/index.yml">Time Series Insights</a>
                     </div>
                 </div>
             </div>
@@ -70,25 +78,20 @@ Microsoft has built a portfolio that supports the needs of all customers, enabli
     </li>        
 </ul>
 
-- Edge: IoT Edge, IoT device/service SDKs
-- Solutions: IoT Suite, IoT Suite Preconfigured Solutions, IoT Central (leverage another application to build a solution, for instance, IoT Central solutions)
-- Platform services: Platform as a Service (PaaS) offerings, IoT Hub, DPS, LBS, Time Series Insights (build your own application using IoT Suite, PCS, and all Technologies)
-
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
 ## Next steps
 
 See the Table of Contents to the left for the list of Azure IoT services you might wish to explore.
 
-[img-paas-saas-technologies-solutions]: media/iot-technologies-solutions/paas-saas-technologies-solutions.png
+[img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
 
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-iot-edge-land]: ../iot-edge/index.yml
-[lnk-iot-hub-land]: ../iot-hub/index.yml
-[lnk-iot-suite-land]: ../iot-suite/index.md
-
-
-[lnk-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
-[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
-[lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md
+[lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
+[lnk-iot-dps-land]: /azure/iot-dps/index.yml
+[lnk-iot-edge-land]: /azure/iot-edge/index.yml
+[lnk-iot-hub-land]: /azure/iot-hub/index.md
+[lnk-iot-lbs-land]: /azure/location-based-services/index.yml
+[lnk-iot-suite-land]: /azure/iot-suite/index.md
+[lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
