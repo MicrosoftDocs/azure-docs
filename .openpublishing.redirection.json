@@ -17627,6 +17627,16 @@
         "source_path": "articles/azure-stack/azure-stack-register.md",
         "redirect_url": "/azure/azure-stack/azure-stack-registration",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-overview.md",
+        "redirect_url": "/azure/sql-data-warehouse/backup-and-restore",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-backups.md",
+        "redirect_url": "/azure/sql-data-warehouse/backup-and-restore",
+        "redirect_document_id": false
     }
    ]
 }
