@@ -2,9 +2,6 @@ metadata:
   experimental: false
   experiment_id: "662dc5fd-886f-4a"
 items:
-  - name: Treatment
-    href: index.experimental.yml
-    displayName: Treatment
   - name: Azure Cosmos DB Documentation
     href: index.experimental.yml
   - name: Overview
