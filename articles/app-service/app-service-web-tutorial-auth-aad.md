@@ -116,7 +116,7 @@ http://<front_end_app_name>.azurewebsites.net
 >
 >
 
-## Point front-end app to back-end API
+## Call back-end API from front end
 
 In this step, you point the front-end app's server code to access the back-end API. Later, you enable authenticated access from the front end to the back end.
 
@@ -272,7 +272,7 @@ Save your settings by clicking **PUT**.
 
 Your apps are now configured. The front end is now ready to access the back end with a proper access token.
 
-## Access API securely from server code
+## Call API securely from server code
 
 In this step, you enable your previously modified server code to make authenticated calls to the back-end API.
 
@@ -310,7 +310,7 @@ You should now be able to create, read, update, and delete data from the back-en
 
 Congratulations! Your server code is now accessing the back-end data on behalf of the authenticated user.
 
-## Access API securely from browser code
+## Call API securely from browser code
 
 In this step, you point the front-end Angular.js app to the back-end API. This way, you learn how to retrieve the access token and make API calls to the back-end app with it.
 
