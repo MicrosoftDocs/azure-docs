@@ -28,7 +28,14 @@ This quickstart describes how to send and receive messages to and from a Service
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
-This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
+## Prerequisites
+
+To complete this tutorial, make sure you have installed:
+
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+
+This quickstart requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
