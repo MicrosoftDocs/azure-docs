@@ -30,7 +30,7 @@ Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
 ## Create a Basic Load Balancer
 
-In this section, you create a public Basic Load Balancer using the  portal. The public IP address is automatically configured as the Load Balancer's frontend IP when you create the public IP when you create the load balancer resource using the portal.
+In this section, you create a public Basic Load Balancer using the  portal. The public IP address is automatically configured as the Load Balancer's frontend, named, *LoadBalancerFrontend* when you create the public IP when you create the load balancer resource using the portal.
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create a load balancer** page enter these values for the load balancer:
