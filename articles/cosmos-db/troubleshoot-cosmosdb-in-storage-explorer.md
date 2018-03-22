@@ -75,9 +75,9 @@ If you're unable to retrieve your subscriptions after you successfully signed in
 - If you're behind a proxy, make sure that you have configured the Storage Explorer proxy properly
 - Try removing and readding the account
 - Try deleting the following files from your home directory (such as: C:\Users\ContosoUser), and then readding the account:
-  - .adalcache
-  - .devaccounts
-  - .extaccounts
+  - `.adalcache`
+  - `.devaccounts`
+  - `.extaccounts`
 - Watch the developer tools console (f12) while signing in for any error messages
 
 ![console](./media/troubleshoot-cosmosdb-in-storage-explorer/console.png)
@@ -95,9 +95,9 @@ If you're unable to see the authentication page:
 If you're unable to remove an account, or if the reauthenticate link does not do anything
 
 - Try deleting the following files from your home directory, and then readding the account:
-  - .adalcache
-  - .devaccounts
-  - .extaccounts
+  - `.adalcache`
+  - `.devaccounts`
+  - `.extaccounts`
 - If you want to remove SAS attached Storage resources, delete:
   - %AppData%/StorageExplorer folder for Windows
   - /Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer for Mac
