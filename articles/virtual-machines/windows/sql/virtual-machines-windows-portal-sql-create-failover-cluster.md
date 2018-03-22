@@ -47,7 +47,7 @@ S2D supports two types of architectures - converged and hyper-converged. The arc
 
 ## Licensing and pricing
 
-On Azure Virtual Machines you can license SQL Server using pay as you go (PAYG) or bring your own license VM images. The type of image you choose affects how you are charged.
+On Azure Virtual Machines you can license SQL Server using pay as you go (PAYG) or bring your own license (BYOL) VM images. The type of image you choose affects how you are charged.
 
 With PAYG licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
