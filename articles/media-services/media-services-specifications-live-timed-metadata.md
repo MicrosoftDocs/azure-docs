@@ -370,7 +370,7 @@ Zero or more Event elements are contained within the EventStream element, and th
 ~~~
 
 >[!NOTE]
->Note that presentationTime is the presentation time of the event, not the arrival time of the message.**
+>Note that presentationTime is the presentation time of the event, not the arrival time of the message.
 >
 
 ### 4.3.1 In-band Event Message Box Signaling

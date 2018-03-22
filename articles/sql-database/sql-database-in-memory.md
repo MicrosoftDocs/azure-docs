@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
 ---
 # Optimize performance by using In-Memory technologies in SQL Database
@@ -99,7 +99,7 @@ When you use nonclustered columnstore indexes, the base table is still stored in
 
 There are never any incompatibilities or other problems when you upgrade to a higher pricing tier, such as from Standard to Premium. The available functionality and resources only increase.
 
-But downgrading the pricing tier can negatively impact your database. The impact is especially apparent when you downgrade from Premium to Standard or Basic when your database contains In-Memory OLTP objects. Memory-optimized tables, and columnstore indexes, are unavailable after the downgrade (even if they remain visible). The same considerations apply when you're lowering the pricing tier of an elastic pool, or moving a database with In-Memory technologies, into a Standard or Basic elastic pool.
+But downgrading the pricing tier can negatively impact your database. The impact is especially apparent when you downgrade from Premium to Standard or Basic when your database contains In-Memory OLTP objects. Memory-optimized tables are unavailable after the downgrade (even if they remain visible). The same considerations apply when you're lowering the pricing tier of an elastic pool, or moving a database with In-Memory technologies, into a Standard or Basic elastic pool.
 
 ### In-Memory OLTP
 
@@ -125,11 +125,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### Columnstore indexes
 
-*Downgrading to Basic or Standard*: Columnstore indexes are supported only on the Premium pricing tier, and not on the Standard or Basic tiers. When you downgrade your database to Standard or Basic, your columnstore index becomes unavailable. The system maintains your columnstore index, but it never leverages the index. If you later upgrade back to Premium, your columnstore index is immediately ready to be leveraged again.
+*Downgrading to Basic or Standard*: Columnstore indexes are supported only on the Premium pricing tier and on the Standard tier, S3 and above, and not on the Basic tier. When you downgrade your database to an unsupported tier or level, your columnstore index becomes unavailable. The system maintains your columnstore index, but it never leverages the index. If you later upgrade back to a supported tier or level, your columnstore index is immediately ready to be leveraged again.
 
-If you have a **clustered** columnstore index, the whole table becomes unavailable after tier downgrade. Therefore we recommend that you drop all *clustered* columnstore indexes before you downgrade your database below the Premium tier.
+If you have a **clustered** columnstore index, the whole table becomes unavailable after the downgrade. Therefore we recommend that you drop all *clustered* columnstore indexes before you downgrade your database to an unsupported tier or level.
 
-*Downgrading to a lower Premium tier*: This downgrade succeeds if the whole database fits within the maximum database size for the target pricing tier, or within the available storage in the elastic pool. There is no specific impact from the columnstore indexes.
+*Downgrading to a lower supported tier or level*: This downgrade succeeds if the whole database fits within the maximum database size for the target pricing tier, or within the available storage in the elastic pool. There is no specific impact from the columnstore indexes.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
