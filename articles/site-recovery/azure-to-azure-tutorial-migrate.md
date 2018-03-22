@@ -112,9 +112,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 
     ![enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > Currently, replication of Azure VMs with managed disks is not supported. 
+ 
 
 ## Run a failover
 
