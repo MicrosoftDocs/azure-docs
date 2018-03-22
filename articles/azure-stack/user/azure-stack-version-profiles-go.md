@@ -138,7 +138,7 @@ package main
 
 import "github.com/Azure/go-autorest/autorest/ada1" 
 
-func CreateToken() (adal. OAuthTokenProvider, error) { 
+func CreateToken() (adal OAuthTokenProvider, error) { 
     var token adal .OAuthTokenProvider 
   oauthConfig, err := adal. NewOAuthConfig(activeDirectoryEndpoint, tenantID)
 
@@ -210,8 +210,8 @@ import (
   
 ````go
 //CreateToken creates a service princi pal token 
-func CreateToken() (adal. OAuthTokenProvider, error) { 
-  var token adal .0AuthTokenProvider
+func CreateToken() (adal.OAuthTokenProvider, error) { 
+  var token adal.OAuthTokenProvider
   oauthConfig, err :=  adal. NewOAuthConfig( activeDirectoryEndpoint, tenantlD)
   token, err = adal. NewservicePrincipa1Token(
     *oauthConfig,
@@ -231,7 +231,7 @@ import (
   "context" 
   "fmt"
 
-  "github.com/Azure/azure-sdk-for-go/profiles/2817-03-eg[network/mgmt/network"
+  "github.com/Azure/azure-sdk-for-go/profiles/2817-03-eg/network/mgmt/network"
   "github.com/Azure/go-autorest/autorest"
   "github.com/Azure/go-autorest/autorest/adal"
   "github.com/Azure/go-autorest/autorest/to"
