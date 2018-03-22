@@ -27,6 +27,11 @@ ms.author: subramar
 
 To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development.
 
+> [!NOTE]
+> The Service Fabric runtime is not supported on Windows Subsystem for Linux (WSL), so you cannot host Service Fabric applications in WSL. However, the Azure Service Fabric command-line interface (CLI), which enables you to manage Service Fabric entities hosted elsewhere in the cloud or on-premises, is supported. For information about how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
+>
+
+
 ## Prerequisites
 
 The following operating system versions are supported for development:
