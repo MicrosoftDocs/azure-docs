@@ -9,7 +9,7 @@ manager: Kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/21/2018
 ms.author: v-geberr
 ---
 
@@ -44,6 +44,9 @@ An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint
 
 Do not use the endpoint key for authoring LUIS apps.
 
+## Use endpoint key in query
+Change your endpoint query value for the `Ocp-Apim-Subscription-Key` from the authoring (starter) key, to the new endpoint key in order to use the LUIS endpoint key quota rate. If you create the key, and assign the key but do not change the endpoint query value for `Ocp-Apim-Subscription-Key`, you are not using your endpoint key quota.
+
 ## API usage of Ocp-Apim-Subscription-Key
 The LUIS APIs use the header, `Ocp-Apim-Subscription-Key`, in both the [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs. The header name does not change based on which set of APIs you are using. 
 
@@ -55,9 +58,10 @@ See [Key Limits](luis-boundaries.md#key-limits) and [Azure Regions](luis-referen
 Publishing regions are different from authoring regions. Make sure you create an app in the authoring region corresponding to the publishing region you want.
 
 ## Key limit errors
-If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. 
+If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. Fix these errors by getting a LUIS [endpoint](#endpoint-key) key, [assigning](#assign-endpoint-key) the key to the app on the **Publish** page of the [LUIS][LUIS] website.
 
-## Create and use an endpoint key
+<a name="create-and-use-an-endpoint-key"></a>
+## Assign endpoint key
 On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the authoring (starter) key. 
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
@@ -76,6 +80,7 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
 
     ![Choose the key](./media/luis-manage-keys/assign-key-filled-out.png)
 
+6. After you assign this endpoint key, use it in all endpoint queries. 
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -99,4 +104,4 @@ Learn more about publishing [regions](luis-reference-regions.md) including publi
 
 Use your key to publish your app in the **Publish app** page. For instructions on publishing, see [Publish app](PublishApp.md).
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: luis-reference-regions.md#luis-website

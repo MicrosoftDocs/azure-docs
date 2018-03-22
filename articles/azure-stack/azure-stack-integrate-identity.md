@@ -2,11 +2,11 @@
 title: Azure Stack datacenter integration - Identity
 description: Learn how to integrate Azure Stack AD FS with your datacenter AD FS
 services: azure-stack
-author: mattbriggs
+author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -330,4 +330,4 @@ If any of the cmdlets fail, you can collect additional logs by using the `Get-Az
 
 ## Next steps
 
-[Register Azure Stack](azure-stack-registration.md)
+[Integrate external monitoring solutions](azure-stack-integrate-monitor.md)

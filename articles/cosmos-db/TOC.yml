@@ -237,8 +237,6 @@
           href: sql-api-python-samples.md
       - name: Resources
         items:
-        - name: SQL grammar cheat sheet
-          href: sql-api-sql-query-cheat-sheet.md
         - name: Videos
           href: https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
         - name: Service updates
@@ -260,6 +258,8 @@
         href: mongodb-mongoose.md
       - name: Using Read Preference
         href: mongodb-readpreference.md
+      - name: Indexing
+        href: mongodb-indexing.md
       - name: MongoDB feature support
         href: mongodb-feature-support.md
       - name: Angular tutorial series
@@ -399,6 +399,8 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: SQL APIs
     items:
+    - name: Async Java
+      href: sql-api-sdk-async-java.md
     - name: Java
       href: sql-api-sdk-java.md
     - name: .NET
@@ -433,6 +435,8 @@
       href: graph-sdk-dotnet.md
 - name: Resources
   items:
+  - name: Query cheat sheet
+    href: query-cheat-sheet.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Try Azure Cosmos DB for free

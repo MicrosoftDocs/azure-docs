@@ -100,6 +100,8 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Troubleshoot attached VHDs
+      href: troubleshoot-vhds.md      
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -199,8 +201,6 @@
       href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Accelerated maintenance FAQ
-      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata

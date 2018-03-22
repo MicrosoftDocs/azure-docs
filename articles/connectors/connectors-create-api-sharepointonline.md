@@ -3,7 +3,7 @@ title: Learn how to use the SharePoint Online connector in logic apps | Microsof
 description: Create logic apps with the SharePoint Online connector to mange lists on SharePoint.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/19/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the SharePoint Online connector

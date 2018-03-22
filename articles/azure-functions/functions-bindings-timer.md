@@ -28,6 +28,12 @@ A timer trigger lets you run a function on a schedule.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## Packages
+
+The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
 ## Example
 
 See the language-specific example:
@@ -135,7 +141,7 @@ module.exports = function (context, myTimer) {
 
 ## Attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+In [C# class libraries](functions-dotnet-class-library.md), use the [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
 The attribute's constructor takes a CRON expression, as shown in the following example:
 
@@ -251,6 +257,10 @@ is passed into the function. The following JSON is an example representation of 
 ## Scale-out
 
 The timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.
+
+## Function apps sharing Storage
+
+If you share a Storage account across multiple function apps, make sure that each function app has a different `id` in *host.json*. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
 
 ## Next steps
 

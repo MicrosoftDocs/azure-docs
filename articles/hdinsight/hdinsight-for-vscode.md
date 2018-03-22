@@ -119,7 +119,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
    ![linked cluster](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. You also can unlink a cluster by inputing **HDInsight: Unlink a cluster** from command palette.
+4. You also can unlink a cluster by inputting **HDInsight: Unlink a cluster** from command palette.
 
 ## List HDInsight clusters
 

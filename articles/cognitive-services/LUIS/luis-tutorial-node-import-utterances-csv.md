@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-demak;v-geberr;
+ms.author: v-geberr;
 ---
 
 # Build a LUIS app programmatically using Node.js

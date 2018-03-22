@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 3/1/2018
 ms.author: rithorn
 ---
 
@@ -169,7 +169,7 @@ To see what permissions you have, select the management group and then select **
 To move a subscription in PowerShell, you use the Add-AzureRmManagementGroupSubscription command.  
 
 ```azurepowershell-interactive
-Add-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 12345678-1234-1234-1234-123456789012
+New-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 12345678-1234-1234-1234-123456789012
 ```
 
 To remove the link between and subscription and the management group use the Remove-AzureRmManagementGroupSubscription command.

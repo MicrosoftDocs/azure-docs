@@ -17,11 +17,25 @@ services: azure-migrate
 
 ## Overview
 
-An Azure Migrate Collector is a lighweight appliance that can be used to discover your on-premises vCenter environment. This appliance discovers on-premises VMware machines, and sends metadata about them to the Azure Migrate service.
+An Azure Migrate Collector is a lightweight appliance that can be used to discover your on-premises vCenter environment. This appliance discovers on-premises VMware machines, and sends metadata about them to the Azure Migrate service.
 
-The Collector appliance is an OVF that you can download from the Azure Migrate project. It instantiates a VMware virtual machine with 4 cores, 8 GB RAM and one disk of 80 GB. The Operating system of the appliance is Windows Server 2012 R2 (64 bit)
+The Collector appliance is an OVF that you can download from the Azure Migrate project. It instantiates a VMware virtual machine with 4 cores, 8 GB RAM and one disk of 80 GB. The Operating system of the appliance is Windows Server 2012 R2 (64 bit).
 
 You can create the Collector by following the steps here - [How to create the Collector VM](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## Collector communication diagram
+
+![Collector communication diagram](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| Component      | To communicate with   | Port required                            | Reason                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| Collector      | Azure Migrate service | TCP 443                                  | Collector should be able to communicate with the service over the SSL port 443 |
+| Collector      | vCenter Server        | Default 443                             | Collector should be able to communicate with the vCenter server. It connects to vCenter on 443 by default. If the vCenter listens on a different port, that port should be available as outgoing port on the collector |
+| Collector		 | RDP|   | TCP 3389 | For you to be able to RDP into the Collector machine |
+
+
+
 
 
 ## Collector pre-requisites
@@ -154,6 +168,41 @@ The following table lists the performance counters that are collected, and also 
 The Collector only discovers the machine data and sends it to the project. The project might take additional time before the discovered data is displayed on the portal and you can start creating an assessment.
 
 Based on the number of virtual machines in the selected scope, it takes upto 15 minutes to send the static metadata to the project. Once the static metadata is available on the portal, you can see the list of machines in the portal and start creating groups. A assessment cannot be created until the collection job completes and the project has processed the data. Once the collection job completed on the Collector, it can take upto one hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
+
+## Locking down the collector appliance
+We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 45 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 45 day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
+
+We also recommend the following steps to secure your appliance
+1. Do not share or misplace administrator passwords with unauthorized parties.
+2. Shut down the appliance when not in use.
+3. Place the appliance in a secured network.
+4. Once the migration work is complete, delete the appliance instance. Be sure to also delete the disk backing files (VMDKs), as the disks may have vCenter credentials cached on them.
+
+## How to upgrade Collector
+
+You can upgrade the Collector to the latest version without downloading the OVA once again.
+
+1. Download the latest [upgrade package](https://aka.ms/migrate/col/latestupgrade).
+2. To ensure that the downloaded hotfix is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
+
+	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+	
+	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. Copy the zip file to the Azure Migrate collector virtual machine (collector appliance).
+4. Right-click on the zip file and select Extract All.
+5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
+
+### List of updates
+
+#### Upgrade to version 1.0.9.5
+
+For Upgrade to version 1.0.9.5 download [package](https://aka.ms/migrate/col/upgrade_9_5)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## Next steps
 

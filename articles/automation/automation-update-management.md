@@ -1,21 +1,13 @@
 ---
-title: Update Management solution in Azure | Microsoft Docs
+title: Update Management solution in Azure
 description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: ''
-
-ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
-
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
 ---
 # Update Management solution in Azure
 
@@ -54,8 +46,8 @@ The following table shows a list of supported operating systems:
 
 |Operating System  |Notes  |
 |---------|---------|
-|Windows Server 2008 and higher     | Only supports update assessments         |
-|Windows Server 2008 R2 SP1 and higher     |.NET Framework 4.5 and WMF 5.0 or later are needed for Windows Server 2008 R2 SP1<br>Nano Server not supported         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Only supports update assessments         |
+|Windows Server 2008 R2 SP1 and higher     |.NET Framework 4.5 and WMF 5.0 or later are needed for Windows Server 2008 R2 SP1        |
 |CentOS 6 (x86/x64), and 7 (x64)      | Linux agents must have access to an update repository.        |
 |Red Hat Enterprise 6 (x86/x64), and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
@@ -68,7 +60,7 @@ The following table lists the operating systems that are not supported:
 |Operating System  |Notes  |
 |---------|---------|
 |Windows client     | Client operating systems (Windows 7, Windows 10, etc.) are not supported.        |
-|Nano Server     | Nano server is part of Windows 2016.        |
+|Windows Server 2016 Nano Server     | Not supported       |
 
 ### Client requirements
 
@@ -158,7 +150,7 @@ Click on the **Update Management** on your automation account to view the status
 
 This view provides information on your machines, missing updates, update deployments, and scheduled update deployments.
 
-You can run a log search that returns information the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
+You can run a log search that returns information on the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
 
 ## Installing updates
 

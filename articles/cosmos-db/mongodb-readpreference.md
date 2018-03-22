@@ -36,7 +36,9 @@ Run the following commands to clone the sample repository. Based on your platfor
 
 1. [.NET sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference)
 2. [NodeJS sample application]( https://github.com/Azure-Samples/azure-cosmos-db-mongodb-node-geo-readpreference)
-3. [Java sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+3. [Mongoose sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-mongoose-geo-readpreference)
+4. [Java sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+5. [SpringBoot sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-spring)
 
 
 ```bash
