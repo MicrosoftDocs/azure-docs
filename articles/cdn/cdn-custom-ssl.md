@@ -20,7 +20,7 @@ ms.author: casoper
 # Configure HTTPS on an Azure Content Delivery Network custom domain
 
 > [!IMPORTANT]
-> This feature is not available with **Azure CDN Standard from Akamai** products. For a comparison of CDN features, see [Azure CDN overview](../articles/cdn/cdn-overview.md#azure-cdn-features).
+> This feature is not available with **Azure CDN Standard from Akamai** products. For a comparison of CDN features, see [Azure CDN overview](cdn-overview.md#azure-cdn-features).
 
 Microsoft supports the HTTPS protocol for custom domains on Azure Content Delivery Network (CDN). With HTTPS custom domain support, you can deliver secure content via SSL by using your own domain name to improve the security of data while in transit. The workflow to enable HTTPS for your custom domain is simplified via one-click enablement and complete certificate management, all with no additional cost.
 
@@ -186,6 +186,6 @@ The following table shows the operation progress that occurs when you disable HT
 
 ## Next steps
 
-- Learn how to set up a [custom domain on your Azure CDN endpoint](./cdn-map-content-to-custom-domain.md)
+- Learn how to set up a [custom domain on your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
 
 

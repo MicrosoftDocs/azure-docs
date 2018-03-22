@@ -23,7 +23,7 @@ File compression is a simple and effective method to improve file transfer speed
 There are two ways to enable file compression:
 
 - Enable compression on your origin server. In this case, the CDN passes along the compressed files and delivers them to clients that request them.
-- Enable compression directly on the CDN edge servers. In this case, the CDN compresses the files and serves them to end users, even if they are not compressed by the origin server.
+- Enable compression directly on the CDN POP servers ("compression on the fly"). In this case, the CDN compresses the files and serves them to the end users, even if they were not compressed by the origin server.
 
 > [!IMPORTANT]
 > CDN configuration changes can take some time to propagate through the network: 
@@ -38,7 +38,7 @@ There are two ways to enable file compression:
 ## Enabling compression
 The standard and premium CDN tiers provide the same compression functionality, but the user interface differs. For more information about the differences between standard and premium CDN tiers, see [Azure CDN Overview](cdn-overview.md).
 
-### Standard tier
+### Standard CDN profiles 
 > [!NOTE]
 > This section applies to **Azure CDN Standard**, **Azure CDN Standard from Verizon**, and **Azure CDN Standard from Akamai** profiles.
 > 
@@ -65,7 +65,7 @@ The standard and premium CDN tiers provide the same compression functionality, b
  
 5. After making your changes, select **Save**.
 
-### Premium tier
+### Premium CDN profiles
 > [!NOTE]
 > This section applies only to **Azure CDN Premium from Verizon** profiles.
 > 
@@ -92,7 +92,19 @@ The standard and premium CDN tiers provide the same compression functionality, b
 
 ## Compression rules
 
-### Azure CDN from Verizon profiles (both standard and premium tiers)
+### Azure CDN Standard profiles
+
+For **Azure CDN Standard** profiles, all files are eligible for compression. However, a file must be of a MIME type that has been [configured for compression](#enabling-compression).
+
+These profiles support the following compression encodings:
+- gzip (GNU zip)
+- brotli 
+ 
+If the request supports more than one compression type, those compression types take precedence over brotli compression.
+
+When a request for an asset specifies gzip compression and the request results in a cache miss, Azure CDN performs gzip compression of the asset directly on the POP server. Afterward, the compressed file is served  from the cache.
+
+### Azure CDN Standard/Premium from Verizon profiles
 
 For **Azure CDN from Verizon** profiles, only eligible files are compressed. To be eligible for compression, a file must:
 - Be larger than 128 bytes
@@ -106,7 +118,7 @@ These profiles support the following compression encodings:
  
 If the request supports more than one compression type, those compression types take precedence over brotli compression.
 
-When a request for an asset specifies brotli compression (`Accept-Encoding: br` HTTP header) and the request results in a cache miss, Azure CDN performs brotli compression of the asset on the origin server. Afterward, the compressed file is served directly from the cache.
+When a request for an asset specifies brotli compression (HTTP header is `Accept-Encoding: br`) and the request results in a cache miss, Azure CDN performs brotli compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache.
 
 ### Azure CDN from Akamai profiles
 
