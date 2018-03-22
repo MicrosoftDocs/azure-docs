@@ -26,11 +26,11 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Enable built-in authentication and authorization
 > * Secure apps against all unauthenticated requests
-> * Secure an app with Azure Active Directory as the identity provider
+> * Use Azure Active Directory as the identity provider
 > * Enable access to a remote app on behalf of the authenticated user
 > * Secure service-to-service calls with token authentication
-> * Retrieve and use access tokens from server code
-> * Retrieve and use access tokens from client (browser) code
+> * Get and use access tokens from server code
+> * Get and use access tokens from client (browser) code
 
 You can follow the steps in this tutorial on macOS, Linux, Windows.
 
@@ -113,6 +113,9 @@ http://<front_end_app_name>.azurewebsites.net
 
 > [!NOTE]
 > If your app restarts, you may have noticed that new data has been erased. This behavior by design because the sample ASP.NET Core app uses an in-memory database.
+>
+>
+
 ## Point front-end app to back-end API
 
 In this step, you point the front-end app's server code to access the back-end API. Later, you enable authenticated access from the front end to the back end.
@@ -194,7 +197,7 @@ In this step, you enable authentication and authorization for the two apps. You 
 
 ### Enable AuthN/AuthO for back-end app
 
-In the [Azure portal](https://portal.azure.com), open your back-end app's management page by clicking from the left menu: **Resource groups** > **myAuthResourceGroup** > _&lt;back\_end\_app\_name>.
+In the [Azure portal](https://portal.azure.com), open your back-end app's management page by clicking from the left menu: **Resource groups** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
 
 ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -249,7 +252,7 @@ Select the checkbox next to **Access _&lt;AD\_application\_name>_**. Click **Sel
 
 ### Configure App Service to return a usable access token
 
-The front-end app now has the required permissions. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's Application ID, which you copied from [Enable AuthN/AuthO for back-end app](#enable-authn-autho-for-back-end-app).
+The front-end app now has the required permissions. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's Application ID, which you copied from [Enable AuthN/AuthO for back-end app](#enable-authnautho-for-back-end-app).
 
 Sign in to [Azure Resource Explorer](https://resources.azure.com). At the top of the page, click **Read/Write** to enable editing of your Azure resources.
 
@@ -403,11 +406,11 @@ What you learned:
 > [!div class="checklist"]
 > * Enable built-in authentication and authorization
 > * Secure apps against all unauthenticated requests
-> * Secure an app with Azure Active Directory as the identity provider
+> * Use Azure Active Directory as the identity provider
 > * Enable access to a remote app on behalf of the authenticated user
 > * Secure service-to-service calls with token authentication
-> * Retrieve and use access tokens from server code
-> * Retrieve and use access tokens from client (browser) code
+> * Get and use access tokens from server code
+> * Get and use access tokens from client (browser) code
 
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
