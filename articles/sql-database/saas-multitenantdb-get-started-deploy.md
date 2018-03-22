@@ -167,7 +167,7 @@ The initial deployment includes three sample tenants in the *Tenants1* database.
 2. Press **F5** (not **F8**) to run the script (leave the default values for now).
 
    > [!NOTE]
-   > You must run the PowerShell scripts only by pressing the **F5** key, not by pressing **F8** to run a selected part of the script. The problem with **F8** is that the *$PSScriptRoot* variable is not evaluated. This variable is needed by many scripts to navigate of folders, or to invoke other scripts, or to import modules.
+   > You must run the PowerShell scripts only by pressing the **F5** key, not by pressing **F8** to run a selected part of the script. The problem with **F8** is that the *$PSScriptRoot* variable is not evaluated. This variable is needed by many scripts to navigate folders, invoke other scripts, or import modules.
 
 The new Red Maple Racing tenant is added to the *Tenants1* database and registered in the catalog. The new tenant's ticket-selling **Events** site opens in your browser:
 

@@ -39,9 +39,9 @@ Log in to the Azure portal at https://portal.azure.com.
 
     ![Enter basic information about your VM in the portal blade](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 
-4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. Most common VM sizes are supported in availability zones. 
+4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. Confirm the size is available in the zone you want to use.
 
-    ![Screenshot that shows VM sizes](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
+    ![Select a VM size](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
 5. Under **Settings** > **High availability**, select one of the numbered zones from the **Availability zone** dropdown, keep the remaining defaults, and click **OK**.
 
