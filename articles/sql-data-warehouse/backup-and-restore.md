@@ -26,7 +26,7 @@ A *data warehouse backup* is the copy of your database that you can use to resto
 
 A *data warehouse restore* is a new data warehouse that is created from a backup of an existing or deleted data warehouse. The restored data warehouse re-creates the backed-up data warehouse at a specific time. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion.
 
-Both local and geographical restores are part of SQL Data Warehouse's disaster recovery capabilities. For more information, see [Business continuity overview](../sql-database/sql-database-business-continuity.md)
+Both local and geographical restores are part of SQL Data Warehouse's disaster recovery capabilities. 
 
 ## Local snapshot backups
 Local snapshot backups are a built-in feature of the service.  You do not have to enable them. 
@@ -109,6 +109,4 @@ For more information about SQL Data Warehouse pricing, see [SQL Data Warehouse P
 The primary use for data warehouse restore is to recover data after accidental data loss or corruption. You can also use data warehouse restore to retain a backup for longer than seven days. Once the backup is restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. 
 
 ## Next steps
-To restore a SQL data warehouse, see [Restore a SQL data warehouse](sql-data-warehouse-restore-database-overview.md).
-
-For a business continuity overview, see [Business continuity overview](../sql-database/sql-database-business-continuity.md)
+For more information about disaster planning, see [Business continuity overview](../sql-database/sql-database-business-continuity.md)
