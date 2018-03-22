@@ -325,9 +325,11 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
 
 ### Known issues
+
  
 #### Deployment
 - You must specify a time server by IP address during deployment.
+- Beginning with version 1711, **CloudAdmin** is a reserved account name and should not be manually specified when you deploy the development kit. 
 
 #### Infrastructure management
 - Do not enable infrastructure backup on the **Infrastructure backup** blade.
