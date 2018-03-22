@@ -220,10 +220,10 @@ The following limitations apply at the time of preview and are subject to change
 - Load Balancer backend instances cannot be located in peered virtual networks at this time. All back-end instances must be in the same region.
 - SKUs are not mutable. You may not change the SKU of an existing resource.
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
+- Enabling Azure DDoS protection on the virtual network impacts the duration of management operations.
 - IPv6 is not supported.
 - [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
 - [Move subscription operations](../azure-resource-manager/resource-group-move-resources.md) are not supported for Standard SKU LB and PIP resources.
-
 
 ## Next steps
 
