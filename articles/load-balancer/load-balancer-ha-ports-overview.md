@@ -55,25 +55,25 @@ You can also use HA ports for applications that require load balancing of large 
 
 ## Region availability
 
-The HA ports feature is available in all the public Azure regions.
+The HA ports feature is available in all the global Azure regions.
 
 ## Supported configurations
 
 ### One single non-floating IP (non-Direct Server Return) HA ports configuration on the internal Standard Load Balancer
 
-This is a very basic HA Ports configuration. The following configuration allows you to configure HA Ports load balancing on a single frontend IP Address -
+This is a basic HA Ports configuration. The following configuration allows you to configure HA Ports load balancing on a single frontend IP Address -
 - While configuring your Standard Load Balancer, select **HA Ports** checkbox in the Load Balancer rule configuration, 
 - Making sure **Floating IP** is set to **Disabled**.
 
 This configuration does not allow any other load-balancing rule configuration on the current Load Balancer resource, as well as no other internal load balancer resource configuration for the given set of backend instances.
 
-However, you can configure an public Standard Load Balancer for the backend instances in addition to this HA Port rule.
+However, you can configure a public Standard Load Balancer for the backend instances in addition to this HA Port rule.
 
 ## One single floating IP (Direct Server Return) HA Ports configuration on the internal Standard Load Balancer
 
 You can similarly configure your load balancer to use a load balancing rule with **HA Port** with a single frontend, and the **Floating IP** set to **Enabled**. 
 
-This configuration allows you to add more floating IP load balancing rules, and / or an public Load Balancer. However, you cannot use a non-Floating IP HA Port Load Balancing configuration on top of this.
+This configuration allows you to add more floating IP load balancing rules, and / or a public Load Balancer. However, you cannot use a non-Floating IP HA Port boad balancing configuration on top of this configuration.
 
 ## 3. Multiple HA Ports configurations on the internal Standard Load Balancer
 
