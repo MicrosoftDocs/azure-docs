@@ -2,10 +2,10 @@
 title: Customize the Container Image Used for Deploying Azure ML Models | Microsoft Docs
 description: This article describes how to customize a container image for Azure Machine Learning models
 services: machine-learning
-author: raymondlaghaeian, tedway
+author: raymondl, tedway
 ms.author: tedway, raymondl
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
