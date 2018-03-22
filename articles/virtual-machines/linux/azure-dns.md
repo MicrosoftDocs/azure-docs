@@ -109,8 +109,8 @@ The resolv.conf file is auto-generated and should not be edited. The specific st
 2. Run 'netconfig update' to update.
 
 **CentOS by Rogue Wave Software (formerly OpenLogic)** (uses NetworkManager)
-1. Add 'echo "options timeout:1 attempts:5"' to '/etc/NetworkManager/dispatcher.d/11-dhclient'.
-2. Run 'service network restart' to update.
+1. Add 'RES_OPTIONS="timeout:1 attempts:1"' to '/etc/sysconfig/network'.
+2. Run 'systemctl restart NetworkManager' to update.
 
 ## Name resolution using your own DNS server
 Your name resolution needs may go beyond the features that Azure provides. For example, you might require DNS resolution between virtual networks. To cover this scenario, you can use your own DNS servers.  
