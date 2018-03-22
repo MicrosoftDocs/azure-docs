@@ -439,6 +439,8 @@ items:
         href: graph-sdk-dotnet.md
   - name: Resources
     items:
+    - name: Query cheat sheet
+      href: query-cheat-sheet.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Try Azure Cosmos DB for free

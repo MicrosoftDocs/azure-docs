@@ -184,6 +184,11 @@
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": true
         },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-samanage-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/active-directory/active-directory-saas-atlassiancloud-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-atlassian-cloud-tutorial",
@@ -4724,6 +4729,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/sql-api-sql-query-cheat-sheet.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/query-cheat-sheet",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
@@ -5022,6 +5032,11 @@
             "source_path": "articles/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/storage-explorer",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates",
+            "redirect_document_id": true
         },
 		{
             "source_path": "articles/log-analytics/log-analytics-security.md",
@@ -16186,14 +16201,19 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-configure-use-powershell.md",
-            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-configure.md",
-            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-configure.md",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
+            "redirect_document_id": false
+        },  
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-introduction.md",
             "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
@@ -17494,6 +17514,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/virtual-network/virtual-network-service-endpoints-configure.md",
+        "redirect_url": "/azure/virtual-network/tutorial-restrict-network-access-to-resources",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-ps.md",
         "redirect_url": "/azure/virtual-network/quick-create-powershell",
         "redirect_document_id": false
@@ -17550,7 +17575,7 @@
      },
      {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
-            "redirect_url": "/azure/azure-functions/durable-functions-monitor.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
      },
 	   {
