@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/22/2018
 ms.author: casoper
 
 ---
@@ -23,7 +23,7 @@ ms.author: casoper
 
 Microsoft supports the HTTPS protocol for custom domains on Azure Content Delivery Network (CDN). With HTTPS custom domain support, you can deliver secure content via SSL by using your own domain name to improve the security of data while in transit. The workflow to enable HTTPS for your custom domain is simplified via one-click enablement and complete certificate management, all with no additional cost.
 
-It's critical to ensure the privacy and data integrity of your web application's sensitive data while it is in transit. By using the HTTPS protocol, you ensure that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. By default, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (such as `https://contoso.azureedge.net`), HTTPS is automatically enabled. In addition, with custom domain HTTPS support, you can also enable secure delivery for a custom domain (for example, `https://www.contoso.com`). 
+It's critical to ensure the privacy and data integrity of your web application's sensitive data while it is in transit. By using the HTTPS protocol, you ensure that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. By default, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (such as https://contoso.azureedge.net), HTTPS is automatically enabled. In addition, with custom domain HTTPS support, you can also enable secure delivery for a custom domain (for example, https://www.contoso.com). 
 
 Some of the key attributes of the HTTPS feature are:
 
@@ -57,6 +57,8 @@ To enable HTTPS on a custom domain, follow these steps:
 
 ### Step 2: Validate domain
 
+If previously created a CNAME record for your CDN endpoint with the domain registrar for your custom domain and are not using the cdnverify subdomain name, this step is unnecessary. You won't receive a verification email from DigitCert or need to approve the request. Proceed to [Step 3: Wait for propagation](#step-3-wait-for-propagation). For more information, see [Create the CNAME DNS record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#step-2-create-the-cname-dns-records). Note, however, that if you've created a CNAME record entry for your endpoint and it contains the cdnverify subdomain, you will still need to follow the instructions in this step.
+
 >[!IMPORTANT] 
 >You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
 
@@ -85,7 +87,7 @@ When you click on the approval link, you are directed to the following online ap
 
 Follow the instructions on the form; you have two verification options:
 
-- You can approve all future orders placed through the same account for the same root domain; for example, `contoso.com`. This approach is recommended if you plan to add additional custom domains for the same root domain.
+- You can approve all future orders placed through the same account for the same root domain; for example, contoso.com. This approach is recommended if you plan to add additional custom domains for the same root domain.
 
 - You can approve just the specific host name used in this request. Additional approval is required for subsequent requests.
 
@@ -99,14 +101,14 @@ After the domain name is validated, it can take up to 6-8 hours for the custom d
 
 ### Operation progress
 
-The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the custom domain dialog. As each step becomes active, additional details appear under the step as it progresses. After a step successfully completes, a green check mark appears next to it. 
+The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the custom domain dialog. As each step becomes active, additional substep details appear under the step as it progresses. Not all of these substeps will occur. After a step successfully completes, a green check mark appears next to it. 
 
-| Operation step | Operation step details | 
+| Operation step | Operation substep details | 
 | --- | --- |
 | 1 Submitting request | Submitting request |
 | | Your HTTPS request is being submitted. |
 | | Your HTTPS request has been submitted successfully. |
-| 2 Domain validation | We have sent you an email asking you to validate the domain ownership. Waiting for your confirmation. |
+| 2 Domain validation | We have sent you an email asking you to validate the domain ownership. Waiting for your confirmation. ** |
 | | Your domain ownership has been successfully validated. |
 | | Domain ownership validation request expired (customer likely didn't respond within 6 days). HTTPS will not be enabled on your domain. * |
 | | Domain ownership validation request was rejected by the customer. HTTPS will not be enabled on your domain. * |
@@ -116,6 +118,8 @@ The following table shows the operation progress that occurs when you enable HTT
 | 4 Complete | HTTPS has been successfully enabled on your domain. |
 
 \* This message does not appear unless an error has occurred. 
+
+\** This message does not appear if you have created a CNAME entry for your custom domain that points to your endpoint.
 
 If an error occurs before the request is submitted, the following error message is displayed:
 
@@ -169,7 +173,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 3. *What if I don't receive the domain verification email from DigiCert?*
 
-    Contact Microsoft support if you don't receive an email within 24 hours.
+    Contact Microsoft support if you don't receive an email within 24 hours. If you have previously created a CNAME record for your CDN endpoint with the domain registrar for your custom domain and are not using the cdnverify subdomain name, you won't receive a domain verification email. The verification will occur automatically.
 
 4. *Is using a SAN certificate less secure than a dedicated certificate?*
 	
@@ -180,7 +184,8 @@ The following table shows the operation progress that occurs when you disable HT
 	Currently, this feature is only available with Azure CDN from Verizon. Microsoft is working on supporting this feature with Azure CDN from Akamai in the coming months.
 
 6. *Do I need a Certificate Authority Authorization record with my DNS provider?*
-   No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.
+
+    No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.
 
 
 ## Next steps
