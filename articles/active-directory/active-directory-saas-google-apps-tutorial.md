@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/22/2018
 ms.author: jeedes
 
 ---
@@ -136,7 +136,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. In the **Identifier** textbox, type a URL using the following pattern: `google.com/a/<yourdomain.com>`
+    b. In the **Identifier** textbox, type a URL using the following pattern: 
+	| |
+	|--|
+	| `google.com/a/<yourdomain.com>` |
+	| `google.com` |
+	| `http://google.com` |
+	| `http://google.com/a/<yourdomain.com>` |
  
     > [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
@@ -147,34 +153,40 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
-    b. In the **Identifier** textbox, type a URL using the following pattern: `google.com/a/<yourdomain.com>`
+    b. In the **Identifier** textbox, type a URL using the following pattern: 
+	| |
+	|--|
+	| `google.com/a/<yourdomain.com>` |
+	| `google.com` |
+	| `http://google.com` |
+	| `http://google.com/a/<yourdomain.com>` |
     
     > [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values. 
 
-4. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate file on your computer.
+5. On the **SAML Signing Certificate** section, click **Certificate** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_certificate.png) 
 
-5. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-googleapps-tutorial/tutorial_general_400.png)
 
-6. On the **G Suite Configuration** section, click **Configure G Suite** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Single Sign-On Service URL and Change password URL** from the **Quick Reference section.**
+7. On the **G Suite Configuration** section, click **Configure G Suite** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Single Sign-On Service URL and Change password URL** from the **Quick Reference section.**
 
 	![G Suite Configuration](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_configure.png) 
 
-7. Open a new tab in your browser, and sign into the [G Suite Admin Console](http://admin.google.com/) using your administrator account.
+8. Open a new tab in your browser, and sign into the [G Suite Admin Console](http://admin.google.com/) using your administrator account.
 
-8. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
+9. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
    
     ![Click Security.][10]
 
-9. On the **Security** page, click **Set up single sign-on (SSO).**
+10. On the **Security** page, click **Set up single sign-on (SSO).**
    
     ![Click SSO.][11]
 
-10. Perform the following configuration changes:
+11. Perform the following configuration changes:
    
     ![Configure SSO][12]
    
