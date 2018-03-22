@@ -54,8 +54,17 @@ This update includes the following improvements and fixes for Azure Stack.
  
 - **Azure Monitor** - Azure Stack adds Azure Monitor to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
 
+- <!-- 1739988 -->  **FIXED** - Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to break when using Linux instances on the Back-End network. ILB works fine with Windows instances on the Back-End Network.
 
+- <!-- 1805496 --> **FIXED** - An issue where VPN Connections between Azure Stack would become disconnected due to mismatching QuickMode SALifetime in Seconds values has been fixed.  The values now match the values in Azure.
 
+- <!-- 2209262 --> **FIXED** - The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal.
+
+- <!-- 1766332 --> **FIXED** - Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal.
+
+- <!-- 2096388 --> **FIXED** - Unable to update Network Security Group Rules form the Portal is now fixed.
+
+- **Various fixes** for performance, stability, security, and the operating system that is used by Azure stack.
 
 ### Known issues with the update process    
 *There are no known issues for the installation of update 1803.*
@@ -100,7 +109,7 @@ There are no known issues after updating to 1803.
 #### Compute
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
-- When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
+- <!-- IS --> When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
 - When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
