@@ -57,12 +57,12 @@ When Storage Explorer encounters one of these "self-signed certificates", it can
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (any of the light versions should suffice)
      - Mac and Linux: Should be included with your operating system
 2. Run Open SSL
-    - Windows: Go to the install directory, then /bin/, then double-click on openssl.exe.
-    - Mac and Linux: execute "openssl" from a terminal
+    - Windows: Go to the install directory, then **/bin/**, then double-click on **openssl.exe**.
+    - Mac and Linux: execute **openssl** from a terminal
 3. Execute `s_client -showcerts -connect microsoft.com:443`
 4. Look for self-signed certificates. If you're unsure, which are self-signed, then look for anywhere the subject ("s:") and issuer ("i:") are the same.
-5.	Once you have found any self-signed certificates, copy and paste everything from and including `-----BEGIN CERTIFICATE-----` to `-----END CERTIFICATE-----` to a new .cer file for each one.
-6.	Open Storage Explorer and then go to Edit -> SSL Certificates -> Import Certificates. Using the file picker, find, select, and open the .cer files you created.
+5.	Once you have found any self-signed certificates, copy and paste everything from and including **-----BEGIN CERTIFICATE-----** to **-----END CERTIFICATE-----** to a new .cer file for each one.
+6.	Open Storage Explorer and then go to **Edit** -> **SSL Certificates** -> **Import Certificates**. Using the file picker, find, select, and open the .cer files you created.
 
 If you're unable to find any self-signed certificates using the above steps, could send feedback for more help.
 
