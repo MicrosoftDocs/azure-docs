@@ -4,8 +4,8 @@ description: Learn how to programmatically create, monitor, and manage Azure dat
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
 ms.service: data-factory

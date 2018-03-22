@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
 ---
 
@@ -22,21 +22,23 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, first create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
 
-Next, download and install .NET Core 2.0 for your operating system. You can also choose to install an editor to use with your operating system.
+Next, download and install .NET Core 2.0 for your operating system. If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer. You can also choose to install an editor to use with your operating system.
 
 # [Windows](#tab/windows)
 
-- Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows/build) 
-- Optionally install [Visual Studio for Windows](https://www.visualstudio.com/) 
+- Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
+- Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.  
+
+For information about choosing between .NET Core and the .NET Framework, see [Choose between .NET Core and .NET Framework for server apps](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
 # [Linux](#tab/linux)
 
-- Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux/build)
+- Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
 - Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
 
 # [macOS](#tab/macos)
 
-- Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos/build).
+- Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
 - Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ---
@@ -74,7 +76,7 @@ export storageconnectionstring=<yourconnectionstring>
 Edit your .bash_profile, and add the environment variable:
 
 ```
-export STORAGE_CONNECTION_STRING=
+export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 ```
 
 After you add the environment variable, log out and back in to make the changes effective. Alternately, you can type "source .bash_profile" from your terminal.
@@ -85,11 +87,33 @@ After you add the environment variable, log out and back in to make the changes 
 
 This sample creates a test file in your local **MyDocuments** folder and uploads it to Blob storage. The sample then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files. 
 
+# [Windows](#tab/windows)
+
+If you are using Visual Studio as your editor, you can press **F5** to run. 
+
+Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
+
+```
+dotnet run
+```
+
+# [Linux](#tab/linux)
+
 Navigate to your application directory and run the application with the `dotnet run` command.
 
 ```
 dotnet run
 ```
+
+# [macOS](#tab/macos)
+
+Navigate to your application directory and run the application with the `dotnet run` command.
+
+```
+dotnet run
+```
+
+---
 
 The output shown is similar to the following example:
 
@@ -250,13 +274,13 @@ See these additional resources for .NET development with Blob storage:
 
 ### Binaries and source code
 
-- Download the NuGet package for the latest version of the [Storage .NET client library](https://www.nuget.org/packages/WindowsAzure.Storage/). 
-- View the [Storage .NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
+- Download the NuGet package for the latest version of the [.NET client library](https://www.nuget.org/packages/WindowsAzure.Storage/) for Azure Storage. 
+- View the [.NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
 
 ### Client library reference and samples
 
-- See the [Storage .NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the client library.
-- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) written using the Storage .NET client library.
+- See the [.NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the .NET client library.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) written using the .NET client library.
 
 ## Next steps
 
