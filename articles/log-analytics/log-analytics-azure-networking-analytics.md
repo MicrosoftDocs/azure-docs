@@ -208,9 +208,9 @@ To use the updated solutions:
 
     | Instead of: | Use: |
     | --- | --- |
-    |`NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess"`| `AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess"` |
-    |`NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance"` | `AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance` |
-    | `NetworkSecuritygroups` | `AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS"` |
+    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
+    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
    + For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names.
