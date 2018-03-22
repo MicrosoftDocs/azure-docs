@@ -84,7 +84,10 @@ There are some important steps to perform before moving a resource. By verifying
   az provider register --namespace Microsoft.Batch
   ```
 
-4. The account moving the resources must have the adequate permissions. The account must have the **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** permission on the source resource group. It must have the **Microsoft.Resources/subscriptions/resourceGroups/write** permission on the destination resource group.
+4. The account moving the resources must have at least the following permissions:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
 
 ## When to call support
 
