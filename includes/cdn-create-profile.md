@@ -17,7 +17,7 @@
     
 7. For **Pricing tier**, select a tier. For a comparison of the features available with each pricing tier, see [Azure CDN features](../articles/cdn/cdn-overview.md#azure-cdn-features).
    
-    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku-include.png)
+<!---    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku-include.png) --->
 
 8. Optionally, select **Create a new CDN endpoint now** to display the options for creating an endpoint at the same time that you create the profile. For more information, see [Create a new CDN endpoint](../articles/cdn/cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
    

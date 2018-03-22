@@ -1,6 +1,6 @@
 ---
 title: Azure CDN Overview | Microsoft Docs
-description: Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content.
+description: Learn what Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -13,16 +13,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/10/2017
-ms.author: v-semcev
+ms.date: 03/21/2018
+ms.author: rli
 
 ---
-# Overview of the Azure Content Delivery Network
+# Overview of Azure Content Delivery Network
 
-The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for securely delivering content to users. The CDN offers developers a global solution for rapidly delivering high-bandwidth content by caching the content at physical nodes across the world. 
+Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for securely delivering content to users. Azure CDN offers developers a global solution for rapidly delivering high-bandwidth content by caching the content at physical nodes across the world. 
 
 > [!NOTE]
-> This article describes the Azure CDN, how it works, and the features of each Azure CDN product. To skip this information and view a tutorial about how to create a CDN endpoint, see [Getting started with Azure CDN](cdn-create-new-endpoint.md). To see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
+> This article describes Azure CDN, how it works, and the features of each Azure CDN product. To skip this information and view a tutorial about how to create a CDN endpoint, see [Getting started with Azure CDN](cdn-create-new-endpoint.md). To see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
 
 The benefits of using a CDN to cache web site assets include:
 
@@ -41,14 +41,14 @@ The benefits of using a CDN to cache web site assets include:
 6. If the TTL for the file hasn't expired, the edge server returns the file from the cache. This process results in a faster, more responsive user experience.
 
 ## Azure CDN features
-Azure CDN has four products: **Azure CDN Standard**, **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**.  The following table lists the features available with each product.
+Azure CDN includes four products: **Azure CDN Standard**, **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**.  The following table lists the features available with each product.
 
 |  | Standard | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- | --- |
 | __Performance Features and Optimizations__ |
 | [Dynamic Site Acceleration](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic Site Acceleration - Adaptive Image Compression](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only) | | **&#x2713;**  |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic Site Acceleration - Object Prefetch](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only) | | **&#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic Site Acceleration - Adaptive Image Compression](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-azure-cdn-from-akamai-only) | | **&#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic Site Acceleration - Object Prefetch](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only) | | **&#x2713;**  |  |  |
 | [Video streaming optimization](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | | **&#x2713;**  | \* |  \* |
 | [Large file optimization](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;** | **&#x2713;**  | \* |  \* |
 | [Global server load balancing (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) | |**&#x2713;** |**&#x2713;** |**&#x2713;** |

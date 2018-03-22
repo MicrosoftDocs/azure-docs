@@ -3,8 +3,8 @@ title: Azure Diagnostic Logs | Microsoft Docs
 description: 'Customer can enable log analysis for Azure CDN.'
 services: cdn
 documentationcenter: ''
-author: 
-manager: 
+author: dksimpson
+manager: akucer
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: v-deasim
+ms.author: rli
 ---
 
 
@@ -26,7 +26,7 @@ With Azure diagnostic logs, you can view core analytics and save them into one o
  - Azure Event Hubs
  - [OMS Log Analytics repository](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-This feature is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN Profiles. 
+This feature is available on CDN endpoints for all pricing tiers. 
 
 Azure diagnostics logs allow you to export basic usage metrics from your CDN endpoint to a variety of sources so that you can consume them in a customized way. For example, you can do the following types of data export:
 
@@ -154,10 +154,10 @@ Before you can access the core analytics data from the Azure Storage Account, yo
 
 **Description of fields:**
 
-|value|description|
+|Value|Description|
 |-------|---------|
 |Subscription ID	|ID of the Azure subscription in Guid format.|
-|Resource |Group Name	Name of the resource group to which the CDN resources belong.|
+|Resource Group Name |Name of the resource group to which the CDN resources belong.|
 |Profile Name |Name of the CDN Profile|
 |Endpoint Name |Name of the CDN Endpoint|
 |Year|	4-digit representation of the year, for example, 2017|

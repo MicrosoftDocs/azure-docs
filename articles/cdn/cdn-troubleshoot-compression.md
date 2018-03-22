@@ -58,9 +58,9 @@ First, we should do a quick sanity check on the request.  You can use your brows
 
 ![CDN request headers](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### Verify compression settings (Standard CDN profile)
+### Verify compression settings (standard CDN profile)
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Standard from Akamai** profile. 
+> This step only applies if your CDN profile is an **Azure CDN Standard**, **Azure CDN Standard from Verizon**, or **Azure CDN Standard from Akamai** profile. 
 > 
 > 
 
@@ -87,7 +87,7 @@ Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and cl
 
 ### Verify the content is cached
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN from Verizon** profile (Standard or Premium).
+> This step applies only if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
 > 
 > 
 
@@ -100,7 +100,7 @@ Using your browser's developer tools, check the response headers to ensure the f
 
 ### Verify the file meets the size requirements
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN from Verizon** profile (Standard or Premium).
+> This step applies only if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
 > 
 > 
 

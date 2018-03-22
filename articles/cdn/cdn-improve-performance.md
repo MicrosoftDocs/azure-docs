@@ -26,7 +26,12 @@ There are two ways to enable file compression:
 - Enable compression directly on the CDN edge servers. In this case, the CDN compresses the files and serves them to end users, even if they are not compressed by the origin server.
 
 > [!IMPORTANT]
-> CDN configuration changes can take some time to propagate through the network. For **Azure CDN from Akamai** profiles, propagation usually completes in under one minute.  For **Azure CDN from Verizon** profiles, propagation usually completes within 90 minutes. If you're setting up compression for the first time for your CDN endpoint, consider waiting 1-2 hours before you troubleshoot to ensure the compression settings have propagated to the POPs.
+> CDN configuration changes can take some time to propagate through the network: 
+- For **Azure CDN Standard** profiles, propagation usually completes in two minutes. 
+- For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+- For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
+>
+> If you're setting up compression for the first time for your CDN endpoint, consider waiting 1-2 hours before you troubleshoot to ensure the compression settings have propagated to the POPs.
 > 
 > 
 
@@ -35,7 +40,7 @@ The standard and premium CDN tiers provide the same compression functionality, b
 
 ### Standard tier
 > [!NOTE]
-> This section applies to **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles.
+> This section applies to **Azure CDN Standard**, **Azure CDN Standard from Verizon**, and **Azure CDN Standard from Akamai** profiles.
 > 
 > 
 

@@ -26,11 +26,11 @@ Second, the latency between a user's machine and the file determines the speed a
 
 Third, many large files are not delivered in their entirety. Users might cancel a download halfway through or watch only the first few minutes of a long MP4 video. Therefore, software and media delivery companies want to deliver only the portion of a file that's requested. Efficient distribution of the requested portions reduces the egress traffic from the origin server. Efficient distribution also reduces the memory and I/O pressure on the origin server. 
 
-The Azure Content Delivery Network from Akamai now offers a feature that delivers large files efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers. This feature is available with the Standard Akamai pricing tier.
+**Azure CDN Standard** and **Azure CDN Standard from Akamai** profile endpoints offer a feature that delivers large files efficiently to users across the globe at scale. The feature reduces latencies because it reduces the load on the origin servers.
 
 ## Configure a CDN endpoint to optimize delivery of large files
 
-You can configure your CDN endpoint to optimize delivery for large files via the Azure portal. You can also use our REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal.
+You can configure your CDN endpoint to optimize delivery for large files via the Azure portal. You can also use the REST APIs or any of the client SDKs to do this. The following steps show the process via the Azure portal.
 
 1. To add a new endpoint, on the **CDN profile** page, select **Endpoint**.
 
@@ -43,15 +43,15 @@ You can configure your CDN endpoint to optimize delivery for large files via the
 
 After you create the CDN endpoint, it applies the large file optimizations for all files that match certain criteria. The following section describes this process.
 
-## Optimize for delivery of large files with the Azure Content Delivery Network from Akamai
+## Optimize for delivery of large files
 
-The large file optimization type feature turns on network optimizations and configurations to deliver large files faster and more responsively. General web delivery with Akamai caches files only below 1.8 GB and can tunnel (not cache) files up to 150 GB. Large file optimization caches files up to 150 GB.
+The large file optimization type feature turns on network optimizations and configurations to deliver large files faster and more responsively. General web delivery with **Azure CDN Standard** and **Azure CDN Standard from Akamai** endpoints caches files only below 1.8 GB and can tunnel (not cache) files up to 150 GB. Large file optimization caches files up to 150 GB.
 
 Large file optimization is effective when certain conditions are satisfied. Conditions include how the origin server operates and the sizes and types of the files that are requested. Before we get into details on these subjects, you should understand how the optimization works. 
 
 ### Object chunking 
 
-The Azure Content Delivery Network from Akamai uses a technique called object chunking. When a large file is requested, the CDN retrieves smaller pieces of the file from the origin. After the CDN edge/POP server receives a full or byte-range file request, it checks whether the file type is supported for this optimization. It also checks whether the file type meets the file size requirements. If the file size is greater than 10 MB, the CDN edge server requests the file from the origin in chunks of 2 MB. 
+Large file optimization with **Azure CDN Standard** and **Azure CDN Standard from Akamai** uses a technique called object chunking. When a large file is requested, the CDN retrieves smaller pieces of the file from the origin. After the CDN POP server receives a full or byte-range file request, it checks whether the file type is supported for this optimization. It also checks whether the file type meets the file size requirements. If the file size is greater than 10 MB, the CDN edge server requests the file from the origin in chunks of 2 MB. 
 
 After the chunk arrives at the CDN edge, it's cached and immediately served to the user. The CDN then prefetches the next chunk in parallel. This prefetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file is downloaded (if requested), all byte ranges are available (if requested), or the client terminates the connection. 
 
@@ -85,9 +85,9 @@ Minimum file size | 10 MB
 Maximum file size | 150 GB 
 Origin server characteristics | Must support byte-range requests 
 
-## Optimize for delivery of large files with the Azure Content Delivery Network from Verizon
+## Optimize for delivery of large files with Azure CDN from Verizon
 
-The Azure Content Delivery Network from Verizon delivers large files without a cap on file size. Additional features are turned on by default to make delivery of large files faster.
+**Azure CDN from Verizon** endpoints deliver large files without a cap on file size. Additional features are turned on by default to make delivery of large files faster.
 
 ### Complete cache fill
 
@@ -95,7 +95,7 @@ The default complete cache fill feature enables the CDN to pull a file into the 
 
 Complete cache fill is most useful for large assets. Typically, users don't download them from start to finish. They use progressive download. The default behavior forces the edge server to initiate a background fetch of the asset from the origin server. Afterward, the asset is in the edge server's local cache. After the full object is in the cache, the edge server fulfills byte-range requests to the CDN for the cached object.
 
-The default behavior can be disabled through the Rules Engine in the Verizon Premium tier.
+The default behavior can be disabled through the rules engine in **Azure CDN Premium from Verizon**.
 
 ### Peer cache fill hot-filing
 
@@ -103,13 +103,11 @@ The default peer cache fill hot-filing feature uses a sophisticated proprietary 
 
 ### Conditions for large file optimization
 
-The optimization features for Verizon are turned on by default. There are no limits on maximum file size. 
+Large file optimization features for **Azure CDN from Verizon** are turned on by default when you use the general web delivery optimization type. There are no limits on maximum file size. 
 
 ## Additional considerations
 
-Consider the following additional aspects for this optimization type.
- 
-### Azure Content Delivery Network from Akamai
+Consider the following additional aspects for this optimization type:
 
 - The chunking process generates additional requests to the origin server. However, the overall volume of data delivered from the origin is much smaller. Chunking results in better caching characteristics at the CDN.
 
@@ -119,6 +117,3 @@ Consider the following additional aspects for this optimization type.
 
 - Users can make range requests to the CDN, and they're treated like any normal file. Optimization applies only if it's a valid file type and the byte range is between 10 MB and 150 GB. If the average file size requested is smaller than 10 MB, you might want to use general web delivery instead.
 
-### Azure Content Delivery Network from Verizon
-
-The general web delivery optimization type can deliver large files.

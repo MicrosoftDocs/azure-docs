@@ -4,7 +4,7 @@ description: Learn how to enable or disable HTTPS on your Azure CDN endpoint wit
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: 
+manager: akucer
 editor: ''
 
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
@@ -13,17 +13,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/21/2018
 ms.author: casoper
 
 ---
 # Configure HTTPS on an Azure Content Delivery Network custom domain
 
-[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+> [!IMPORTANT]
+> This feature is not available with **Azure CDN Standard from Akamai** products. For a comparison of CDN features, see [Azure CDN overview](../articles/cdn/cdn-overview.md#azure-cdn-features).
 
 Microsoft supports the HTTPS protocol for custom domains on Azure Content Delivery Network (CDN). With HTTPS custom domain support, you can deliver secure content via SSL by using your own domain name to improve the security of data while in transit. The workflow to enable HTTPS for your custom domain is simplified via one-click enablement and complete certificate management, all with no additional cost.
 
-It's critical to ensure the privacy and data integrity of your web application's sensitive data while it is in transit. By using the HTTPS protocol, you ensure that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. By default, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (such as `https://contoso.azureedge.net`), HTTPS is automatically enabled. In addition, with custom domain HTTPS support, you can also enable secure delivery for a custom domain (for example, `https://www.contoso.com`). 
+It's critical to ensure the privacy and data integrity of your web application's sensitive data while it is in transit. By using the HTTPS protocol, you ensure that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. By default, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (such as https:\//contoso.azureedge.net), HTTPS is automatically enabled. In addition, with custom domain HTTPS support, you can also enable secure delivery for a custom domain (for example, https:\//www.contoso.com). 
 
 Some of the key attributes of the HTTPS feature are:
 
@@ -42,7 +43,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 ### Step 1: Enable the feature 
 
-1. In the [Azure portal](https://portal.azure.com), browse to your Verizon standard or premium CDN profile.
+1. In the [Azure portal](https://portal.azure.com), select your CDN profile.
 
 2. In the list of endpoints, click the endpoint containing your custom domain.
 
@@ -129,7 +130,7 @@ After you have enabled HTTPS on a custom domain, you can later disable it. To di
 
 ### Step 1: Disable the feature 
 
-1. In the [Azure portal](https://portal.azure.com), browse to your Verizon standard or premium CDN profile.
+1. In the [Azure portal](https://portal.azure.com), select a CDN profile.
 
 2. In the list of endpoints, click the endpoint containing your custom domain.
 
@@ -177,7 +178,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 5. *Can I use a custom domain HTTPS with Azure CDN from Akamai?*
 
-	Currently, this feature is only available with Azure CDN from Verizon. Microsoft is working on supporting this feature with Azure CDN from Akamai in the coming months.
+	Currently, this feature is not available with **Azure CDN Standard from Akamai** profiles. Microsoft is working on supporting this feature in the coming months.
 
 6. *Do I need a Certificate Authority Authorization record with my DNS provider?*
    No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.

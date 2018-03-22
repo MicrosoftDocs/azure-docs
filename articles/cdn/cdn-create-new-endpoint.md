@@ -77,10 +77,10 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
    > 
    > Endpoints in **Azure CDN from Akamai** profiles do not allow the full TCP port range for origin ports. For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
    > 
-   > When you access CDN content by using HTTPS, there are the following constraints:
+   > Accessing CDN content by using HTTPS has the following constraints:
    > 
    > * Use the SSL certificate provided by the CDN. Third-party certificates are not supported.
-   > * HTTPS support for Azure CDN custom domains is available only with **Azure CDN from Verizon** products (Standard and Premium). It is not supported on **Azure CDN from Akamai** products. For more information, see [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
+   > * HTTPS support for Azure CDN custom domains is not supported by **Azure CDN from Akamai** profiles. For more information, see [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md).
     
 9. Select **Add** to create the new endpoint.
    
@@ -89,9 +89,12 @@ A CDN profile is a collection of CDN endpoints. Each profile can contain one or 
    ![CDN endpoint][cdn-endpoint-success]
     
    > [!IMPORTANT]
-   > Because it takes time for the registration to propagate, the endpoint isn't immediately available for use. For **Azure CDN from Akamai** profiles, propagation usually completes within one minute. For **Azure CDN from Verizon** profiles, propagation usually completes within 90 minutes, but in some cases can take longer.
-    > 
-    > If you attempt to use the CDN domain name before the endpoint configuration has propagated to the POPs, you might receive an HTTP 404 response status. If it's been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
+   > Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
+   > - For **Azure CDN Standard** profiles, propagation usually completes in two minutes. 
+   > - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+   > - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
+   > 
+   > If you attempt to use the CDN domain name before the endpoint configuration has propagated to the POPs, you might receive an HTTP 404 response status. If it's been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
     > 
     > 
 

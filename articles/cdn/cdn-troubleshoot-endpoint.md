@@ -35,7 +35,12 @@ There are several possible causes, including:
 
 ## Troubleshooting steps
 > [!IMPORTANT]
-> After creating a CDN endpoint, it will not immediately be available for use, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Akamai</b> profiles, propagation usually completes within one minute.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.  If you complete the steps in this document and you're still getting 404 responses, consider waiting a few hours to check again before opening a support ticket.
+> After creating a CDN endpoint, it will not immediately be available for use, as it takes time for the registration to propagate through the CDN:
+> - For **Azure CDN Standard** profiles, propagation usually completes in two minutes. 
+> - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+> - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
+> 
+> If you complete the steps in this document and you're still getting 404 responses, consider waiting a few hours to check again before opening a support ticket.
 > 
 > 
 
