@@ -5,18 +5,13 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 03/20/2018
+ms.date: 03/22/2018
 ms.topic: hero-article
 ms.service: event-grid
 ---
 # Create and route custom events with the Azure portal and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that responds to the event, such as, a webhook or Azure Function. However, to simplify this article, you send the events to a URL that merely collects the messages. You create this URL by using a third-party tool from [Hookbin](https://hookbin.com/).
-
->[!NOTE]
->**Hookbin** isn't intended for high throughput usage. The use of this tool is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
-
-When you're finished, you see that the event data has been sent to an endpoint.
+Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a custom topic, subscribe to the topic, and trigger the event to view the result. You send the event to an Azure Function that logs the event data. When you're finished, you see that the event data has been sent to an endpoint and logged.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,9 +53,34 @@ An event grid topic provides a user-defined endpoint that you post your events t
 
    ![Name conflict](./media/custom-event-quickstart-portal/name-conflict.png)
 
-## Create a message endpoint
+## Create an Azure Function
 
-Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. Hookbin is a third-party tools that enables you to create an endpoint, and view requests that are sent to it. Go to [Hookbin](https://hookbin.com/) and click **Create New Endpoint**.  Copy the bin URL, because you need it when subscribing to the topic.
+Before subscribing to the topic, let's create the endpoint for the event message. In this article, you use an Azure Function as the endpoint.
+
+1. To create a function, select **Create a resource**.
+
+   ![Create a resource](./media/custom-event-quickstart-portal/create-resource-small.png)
+
+1. Select **Compute** and **Function App**.
+
+   ![Create function](./media/custom-event-quickstart-portal/create-function.png)
+
+1. Provide a unique name for the Azure Function. Do not use the name shown in the image. Select the resource group you created in this article. For hosting plan, use **Consumption Plan**. Use the suggested new storage account. After providing the values, select **Create**.
+
+   ![Provide function values](./media/custom-event-quickstart-portal/provide-function-values.png)
+
+1. When the deployment finishes, select **Go to resource**.
+
+   ![Go to resource](./media/custom-event-quickstart-portal/go-to-resource.png)
+
+1. Next to **Functions**, select **+**.
+
+   ![Add function](./media/custom-event-quickstart-portal/add-function.png)
+
+1. From the available options, select **Custom function**.
+
+   ![Custom function](./media/custom-event-quickstart-portal/select-custom-function.png)
+
 
 ## Subscribe to a topic
 
