@@ -44,26 +44,24 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
             }  
         }  
 ```  
-  
-| **Configuration Setting** | **Description** |  
-| --- | --- |  
-| ClusterCredentialType |Set to *Windows* to enable Windows security for node-node communication.  |  
+
+| **Configuration setting** | **Description** |
+| --- | --- |
+| ClusterCredentialType |Set to *Windows* to enable Windows security for node-node communication.  | 
 | ServerCredentialType |Set to *Windows* to enable Windows security for client-node communication. |  
-| WindowsIdentities |Contains the cluster and client identities. |  
-| ClustergMSAIdentity |Configures node-to-node security. A group managed service account. |  
-| ClusterSPN |Registered SPN for gMSA account|  
-| ClientIdentities |Configures client-to-node security. An array of client user accounts. |  
-| Identity |The client identity, a domain user. |  
-| IsAdmin |True specifies that the domain user has administrator client access, false for user client access. |  
-  
+| WindowsIdentities |Contains the cluster and client identities. |  
+| ClustergMSAIdentity |Configures node-to-node security. A group managed service account. |  
+| ClusterSPN |Registered SPN for gMSA account|  
+| ClientIdentities |Configures client-to-node security. An array of client user accounts. | 
+| Identity |Add the domain user, domain\username, for the client identity. |  
+| IsAdmin |Set to true to specify that the domain user has administrator client access or false for user client access. |  
+
 [Node to node security](service-fabric-cluster-security.md#node-to-node-security) is configured by setting **ClustergMSAIdentity** when service fabric needs to run under gMSA. In order to build trust relationships between nodes, they must be made aware of each other. This can be accomplished in two different ways: Specify the Group Managed Service Account that includes all nodes in the cluster or Specify the domain machine group that includes all nodes in the cluster. We strongly recommend using the [Group Managed Service Account (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) approach, particularly for larger clusters (more than 10 nodes) or for clusters that are likely to grow or shrink.  
 This approach does not require the creation of a domain group for which cluster administrators have been granted access rights to add and remove members. These accounts are also useful for automatic password management. For more information, see [Getting Started with Group Managed Service Accounts](http://technet.microsoft.com/library/jj128431.aspx).  
  
 [Client to node security](service-fabric-cluster-security.md#client-to-node-security) is configured using **ClientIdentities**. In order to establish trust between a client and the cluster, you must configure the cluster to know which client identities that it can trust. This can be done in two different ways: Specify the domain group users that can connect or specify the domain node users that can connect. Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control provides the ability for the cluster administrator to limit access to certain types of cluster operations for different groups of users, making the cluster more secure.  Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services. For more information on access controls, see [Role based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).  
  
-The following example **security** section configures Windows security using gMSA and specifies that the machines in *ServiceFabric.clusterA.contoso.com* gMSA are part of the cluster and that *CONTOSO\usera* has admin | ClusterCredentialType |Set to *Windows* to enable Windows security for node-node communication.  |  | ServerCredentialType |Set to *Windows* to enable Windows security for client-node communication. |  
-
-| WindowsIdentities |Contains the cluster and client identities. |  client access:  
+The following example **security** section configures Windows security using gMSA and specifies that the machines in *ServiceFabric.clusterA.contoso.com* gMSA are part of the cluster and that *CONTOSO\usera* has admin client access:  
   
 ```  
 "security": {
