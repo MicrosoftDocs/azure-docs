@@ -1,3 +1,15 @@
+---
+ title: include file for PowerShell for Azure DNS
+ description: include file for PowerShell for Azure DNS
+ services: dns
+ author: subsarma
+ ms.service: dns
+ ms.topic: include file for PowerShell for Azure DNS
+ ms.date: 03/21/2018
+ ms.author: subsarma
+ ms.custom: include file for PowerShell for Azure DNS
+---
+
 ## Set up Azure PowerShell for Azure DNS
 
 ### Before you begin

@@ -57,7 +57,7 @@ The following example creates a DNS private zone called *contoso.local* in the r
 az network dns zone create -g MyResourceGroup -n contoso.local --zone-type Private --resolution-vnets MyAzureVnet
 ```
 
-Note: In the above example, the virtual network "MyAzureVnet" belongs to the same Resource Group and Subscription as the private zone. If you need to link a virtual network that belongs to a different Resource Group or Subscription, you need to specify the full Azure Resource Manager (ARM) ID instead of just the virtual network name, for the parameter --resolution-vnets. 
+Note: In the above example, the virtual network "MyAzureVnet" belongs to the same Resource Group and Subscription as the private zone. If you need to link a virtual network that belongs to a different Resource Group or Subscription, you need to specify the full Azure Resource Manager ID instead of just the virtual network name, for the parameter --resolution-vnets. 
 
 If you need Azure to automatically create hostname records in the zone, use the *registration-vnets* parameter instead of *resolution-vnets*.  Registration virtual networks are automatically enabled for resolution.
 
