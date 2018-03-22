@@ -21,9 +21,10 @@ Customize the Docker image that Azure ML deploys using:
 
 1. A depenencies.yml file: to manage dependencies that are installable from [PyPi]( https://pypi.python.org/pypi), you can use the conda_dependencies.yml file from the Workbench project, or create your own. This is the recommend approach for installing Python dependencies that are pip-installable.
 
-> Example CLI command:
-
-    az ml image create -n <my Image Name> --manifest-id <my Manifest ID> -c amlconfig\conda_dependencies.yml 
+Example CLI command:
+```azurecli
+az ml image create -n <my Image Name> --manifest-id <my Manifest ID> -c amlconfig\conda_dependencies.yml
+```
 
 > Example conda_dependencies file: 
 
@@ -43,18 +44,20 @@ The file should include Docker installation steps like a DockerFile. The followi
 
 	RUN, ENV, ARG, LABEL, EXPOSE
 
-> Example CLI command:
-
-    az ml image create -n <my Image Name> --manifest-id <my Manifest ID> --docker-file <myDockerStepsFileName> 
+Example CLI command:
+```azurecli
+az ml image create -n <my Image Name> --manifest-id <my Manifest ID> --docker-file <myDockerStepsFileName> 
+```
 
 Image, Manifest, and Service commands accept the docker-file flag.
 
-> Example Docker steps file:
-
+Example Docker steps file:
+```docker
     # Install tools required to build the project
     RUN apt-get update && apt-get install -y git libxml2-dev
     # Install library dependencies
     RUN dep ensure -vendor-only
+```
 
 [!NOTE] The base image for Azure ML containers is Ubuntu and can't be changed. If you specify a different base image, it will be ignored.
 
