@@ -1,6 +1,6 @@
 ---
 title: Backup and recover your account credentials | Microsoft Docs
-description: Learn how to backup and recover your account credentials, using the Microsoft Authenticator app.
+description: Learn how to backup and recover your account credentials, using the Microsoft Authenticator app and Azure multi-factor authentication.
 services: multi-factor-authentication
 documentationcenter: ''
 author: eross-msft
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/28/2018
+ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
@@ -27,11 +27,9 @@ The Microsoft Authenticator app backs up your account credentials and related ap
 > You need one personal Microsoft account and one iCloud account for each backup storage location. But within that storage location, you can back up several accounts. For example, you can have a personal account, a school account, and a third-party account like Facebook, Google, and so on.<br><br>Only your account credentials are stored, which includes your user name and the 8-digit account verification code that's required to prove your identity with the Microsoft Authenticator app. We don’t store any other information associated with your accounts, including emails or files. We also don’t associate or share your accounts in any way or with any other product or service. And finally, your IT admin won’t get any information about any of these accounts.
 
 ## Back up your account credentials
-Before you can back up your credentials, you’ll need:
+Before you can back up your credentials, you’ll need both:
 
 - A personal [Microsoft account](https://account.microsoft.com/account) to act as your recovery account.
-
-    -AND-
 
 - An [iCloud account](https://www.icloud.com/) for the actual storage location. 
 
@@ -58,7 +56,7 @@ You can recover your account credentials from your iCloud account, using the sam
 
 After you finish your recovery, you might notice that your personal Microsoft account verification codes in the Microsoft Authenticator app are different between your old and new phones. The codes are different because each device has its own unique credential, but both are valid and will work if you try to sign in using the associated phone.
 
-## Recover additional personal Microsoft or Azure Active Directory accounts requiring more verification
+## Recover additional accounts requiring more verification
 If you use push notifications with your personal, work, or school accounts, you’ll get an on-screen alert that says you must provide additional verification before you can recover your information. Because push notifications require using a credential that’s tied to your specific device and never sent over the network, you must prove your identity before the credential is created on your device.
 
 For personal Microsoft accounts, you can prove your identity by entering your password along with an alternate email or phone number. For work or school accounts, you must scan a QR code given to you by your account provider.
@@ -90,4 +88,16 @@ There are a few reasons why your backup might not be available:
 
 -	**Accidental deletion.** It’s possible that you deleted your backup account from your previous device or while managing your cloud storage account. In this situation, you must manually recreate your account within the app.
 
--	**Existing Microsoft Authenticator accounts.** The Microsoft Authenticator app can’t recover backed up accounts if there are accounts already set up in the app. By preventing recovery, we can help ensure that your account details aren't overwritten with out-of-date information. In this situation, you must remove any existing account information from the existing accounts set up in your Authenticator app before you can recover your backup
+-	**Existing Microsoft Authenticator accounts.** The Microsoft Authenticator app can’t recover backed up accounts if there are accounts already set up in the app. By preventing recovery, we can help ensure that your account details aren't overwritten with out-of-date information. In this situation, you must remove any existing account information from the existing accounts set up in your Authenticator app before you can recover your backup.
+
+## Next steps
+Now that you've backed up and recovered your account credentials to your new device, you can continue to use the Microsoft Authenticator app to verify your identity.
+
+## Related topics
+- [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md)  
+
+- [Sign in with your phone](microsoft-authenticator-app-phone-signin-faq.md)
+
+- [Microsoft Authenticator app FAQ](microsoft-authenticator-app-faq.md)
+
+- [Multi-factor Authentication](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)
