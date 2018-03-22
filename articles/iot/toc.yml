@@ -1,11 +1,5 @@
 - name: Azure Internet of Things (IoT) Documentation
-  href: index.yml
-- name: Overview
-  items:
-  - name: Introduction
-    href: ../iot-hub/iot-hub-what-is-azure-iot.md
-  - name: Technologies/Solutions portfolio
-    href: iot-technologies-solutions.md
+  href: index.md
 - name: IoT Hub 
   href: ../iot-hub/index.md
 - name: IoT Hub Device Provisioning Service

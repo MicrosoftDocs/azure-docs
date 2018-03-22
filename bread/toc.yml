@@ -242,7 +242,7 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-  - name: IoT
+  - name: Internet of Things
     tocHref: /azure/iot/
     topicHref: /azure/iot/
     items:
@@ -255,6 +255,15 @@
       - name: IoT Hub Device Provisioning Service
         tocHref: /azure/iot-dps/
         topicHref: /azure/iot-dps/
+      - name: IoT Suite
+        tocHref: /azure/iot-suite/
+        topicHref: /azure/iot-suite/   
+      - name: Location Based Services
+        tocHref: /azure/location-based-services/
+        topicHref: /azure/location-based-services/
+      - name: Time Series Insights
+        tocHref: /azure/time-series-insights/
+        topicHref: /azure/time-series-insights/                     
   - name: IoT Edge
     tocHref: /azure/iot-edge/
     topicHref: /azure/iot-edge/      
