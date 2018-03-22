@@ -39,7 +39,7 @@ This guide summarizes solutions for common issues seen for Azure Cosmos DB in St
 - [Expand Cosmos DB node Error](#Expand-Cosmos-DB-node-Error)
 - [Submit your Issue](#Submit-Your-Issue)
 
-## Sign in Issues
+<h2 id="Sign in Issues">Sign in Issues</h2>
 
 Before proceeding further, try restarting your application and see if the problems can be fixed.
 
