@@ -61,15 +61,15 @@ Review the table below for an overview of the differences between Standard Load 
 Review [service limits for Load Balancer](https://aka.ms/lblimits), as well as [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 
 
-### Backend pool
+### <a name="backend"></a>Backend pool
 
-Standard Load Balancer backend pools can contain up to 1000 backend instances.  A backend instance is an IP configuration, which is a property of a NIC resource.
+Standard Load Balancer backend pools expands to any virtual machine resource in a virtual network.  It can contain up to 1000 backend instances.  A backend instance is an IP configuration, which is a property of a NIC resource.
 
 The backend pool can contain standalone virtual machines, availability sets, or virtual machine scale sets.  You can blend resources in the backend pool and it can contain any combination of these resources up to 150 total.
 
 When considering how to design your backend pool, you can design for the least number of individual backend pool resources to further optimize the duration of management operations.  There is no difference in data plane performance or scale.
 
-## Availability Zones
+## <a name="az"></a>Availability Zones
 
 >[!NOTE]
 > To use [Availability Zones Preview](https://aka.ms/availabilityzones) with Standard Load Balancer requires [sign-up for Availability Zones](https://aka.ms/availabilityzones).
@@ -99,7 +99,7 @@ Standard Load Balancer provides multi-dimensional metrics through Azure Monitor.
 
 Review a [detailed discussion of Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 
-### <a name = "haports"></a>HA Ports
+### <a name="haports"></a>HA Ports
 
 Standard Load Balancer supports a new type of rule.  
 
@@ -111,6 +111,12 @@ An HA Ports load balancing rule allows you to create active-passive or active-ac
 > If you are planning to use a Network Virtual Appliance, check with your vendor for guidance on whether their product has been tested with HA Ports and follow their specific guidance for implementation. 
 
 Review a [detailed discussion of HA Ports](load-balancer-ha-ports.md).
+
+### <a name="securebydefault"></a>Secure by default
+
+Standard Load Balancer is fully onboarded to the virtual network.  The virtual network is a private, closed network.  Because Standard Load Balancers and Standard public IP addresses are designed to allow this virtual network to be accessed from outside of the virtual network, these resources now default to closed unless you open them. This means Network Security Groups (NSGs) are now used to explicitly permit and whitelist allowed traffic.  You can create your entire virtual data center and decide through NSG what and when it should be available.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, we will not permit traffic to reach this resource.
+
+To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 
 ### <a name="outbound"></a> Outbound connections
 
@@ -147,18 +153,12 @@ Outbound connectivity of a virtual machine resource not associated with Standard
 
 Review a [detailed discussion of Outbound Connections](load-balancer-outbound-connections.md).
 
-### Multiple frontends
+### <a name="multife"></a>Multiple frontends
 Load Balancer supports multiple rules with multiple frontends.  Standard Load Balancer expands this to outbound scenarios.  Outbound scenarios are essentially the inverse of an inbound load balancing rule.  The inbound load balancing rule also creates an associate for outbound connections. Standard Load Balancer uses all frontends associated with a virtual machine resource through a load balancing rule.  Additionally, a parameter on the load balancing rule and allows you to suppress a load balancing rule for the purposes of outbound connectivity, which allows the selection of specific frontends including none.
 
 For comparison, Basic Load Balancer selects a single frontend at random and there is no ability to control which one was selected.
 
 Review a [detailed discussion of Outbound Connections](load-balancer-outbound-connections.md).
-
-### <a name = "nsg"></a>Secure by default
-
-Standard Load Balancer is fully onboarded to the virtual network.  The virtual network is a private, closed network.  Because Standard Load Balancers and Standard public IP addresses are designed to allow this virtual network to be accessed from outside of the virtual network, these resources now default to closed unless you open them. This means Network Security Groups (NSGs) are now used to explicitly permit and whitelist allowed traffic.  You can create your entire virtual data center and decide through NSG what and when it should be available.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, we will not permit traffic to reach this resource.
-
-To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 
 ### <a name ="outboundconnections"></a>Outbound connections
 
