@@ -1,6 +1,6 @@
 ---
-title: Azure Load Balancer Standard overview | Microsoft Docs
-description: Overview of Azure Load Balancer Standard features
+title: Azure Standard Load Balancer overview | Microsoft Docs
+description: Overview of Azure Standard Load Balancer features
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -197,9 +197,9 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 >
 >HA Ports and Diagnostics of the Standard SKU are only available in the Standard SKU. You can't migrate from the Standard SKU to the Basic SKU and also retain these features.
 >
->Both Basic and Standard SKU have a number of differences.  Make sure you understand and prepare for them.
+>Both Basic and Standard SKU have a number of differences as outlined in this article.  Make sure you understand and prepare for them.
 >
->Matching SKUs must be used for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and Standard SKU resources. You can't attach a VM, VMs in an Availability Set, or a virtual machine scale set to both SKUS simultaneously.
+>Matching SKUs must be used for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and Standard SKU resources. You can't attach a strandalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.
 
 ## Region availability
 
@@ -207,11 +207,11 @@ Load Balancer Standard is currently available in all public cloud regions.
 
 ## SLA
 
-Standard Load Balancers are available with a 99.99% SLA.  Review the [SLA](https://aka.ms/lbsla) for details.
+Standard Load Balancers are available with a 99.99% SLA.  Review the [Standard Load Balancer SLA](https://aka.ms/lbsla) for details.
 
 ## Pricing
 
-Standard Load Balancer is charged based on number of load balancing rules configured and all inbound and outbound data processed.
+Standard Load Balancer is a charged product based on number of load balancing rules configured and all inbound and outbound data processed. For Standard Load Balancer pricing information, visit the [Load Balancer Pricing](https://aka.ms/lbpricing) page.
 
 ## Limitations
 
