@@ -1,6 +1,6 @@
 ---
-title: Backup and recover your account credentials | Microsoft Docs
-description: Learn how to backup and recover your account credentials, using the Microsoft Authenticator app and Azure multi-factor authentication.
+title: Backup and recover info with Microsoft Authenticator - Azure | Microsoft Docs
+description: Learn how to backup and recover your account credentials, using the Microsoft Authenticator app.
 services: multi-factor-authentication
 documentationcenter: ''
 author: eross-msft
