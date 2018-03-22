@@ -64,7 +64,7 @@ When Storage Explorer encounters one of these "self-signed certificates", it can
 5.	Once you have found any self-signed certificates, then for each one, copy and paste everything from and including `-----BEGIN CERTIFICATE-----` to `-----END CERTIFICATE-----` to a new .cer file.
 6.	Open Storage Explorer and then go to Edit -> SSL Certificates -> Import Certificates. Using the file picker, find, select, and open the .cer files you created.
 
-If you are unable to find any self-signed certificates using the above steps, then contact us via the feedback tool for more help.
+If you are unable to find any self-signed certificates using the above steps, please send feedback for more help.
 
 ## Unable to retrieve subscriptions
 
@@ -74,7 +74,7 @@ If you are unable to retrieve your subscriptions after you successfully signed i
 - Make sure you have signed in using the correct environment ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/), or Custom Environment/Azure Stack)
 - If you are behind a proxy, make sure that you have configured the Storage Explorer proxy properly
 - Try removing and readding the account
-- Try deleting the following files from your home directory (i.e. C:\Users\ContosoUser), and then readding the account:
+- Try deleting the following files from your home directory (such as: C:\Users\ContosoUser), and then readding the account:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -107,17 +107,17 @@ If you are unable to remove an account, or if the reauthenticate link does not d
 
 ## Http/Https Proxy Issue
 
-You cannot list Cosmos DB nodes in left tree when configuring http/https proxy in ASE. This is a known issue. We will fix this in next release. Please use Cosmos DB data explorer in Azure portal as a work-around at this moment. 
+You cannot list Cosmos DB nodes in left tree when configuring http/https proxy in ASE. It is a known issue, and will be fixed in next release. You could use Cosmos DB data explorer in Azure portal as a work-around at this moment. 
 
 ## \`Development\` node under \`Local and Attached\` Issue
 
-There is no response after clicking the \`Development\` node under \`Local and Attached\` in left tree.  The behavior is expected. We will support Cosmos DB local emulator in next release.
+There is no response after clicking the \`Development\` node under \`Local and Attached\` in left tree.  The behavior is expected. Cosmos DB local emulator will be supported in next release.
 
 ![Development node](./media/troubleshoot-cosmosdb-in-storage-explorer/development.png)
 
 ## Attaching Cosmos DB account in \`Local and Attached\` Error
 
-If you see below error after attaching Cosmos DB account in \`Local and Attached\`, please check if you are using the right connection string.
+If you see below error after attaching Cosmos DB account in \`Local and Attached\`, then check if you are using the right connection string.
 
 ![Attaching Cosmos DB in Local and Attached error](./media/troubleshoot-cosmosdb-in-storage-explorer/attached-error.png)
 
@@ -127,11 +127,11 @@ You may see below error while trying to expand the tree nodes in left.
 
 ![Expand Error](./media/troubleshoot-cosmosdb-in-storage-explorer/expand-error.png)
 
-Please try the following suggestions:
+Try the following suggestions:
 
 - Check if the Cosmos DB account is in provision progress and try again when the account is being created successfully.
-- If the account is under \`Quick Access\` or \`Local and Attached\` nodes, please check if the account has been deleted. If so, you need to remove the node manually.
+- If the account is under \`Quick Access\` or \`Local and Attached\` nodes, then check if the account has been deleted. If so, you need to remove the node manually.
 
 ## Submit Your Issue 
 
-If none of the solutions work for you, please email us at Cosmos DB Dev Tooling Team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) with details about the issue, so we can contact you for fixing the issues.
+If none of the solutions work for you, send email to Cosmos DB Dev Tooling Team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) with details about the issue, for fixing the issues.
