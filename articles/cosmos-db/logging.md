@@ -36,15 +36,15 @@ The **Non-Compute resources** are resources in which you can’t access the unde
 The Activity Log records the operations at a subscription level for Azure Cosmos DB. Operations like ListKeys, Write DatabaseAccounts, and more are logged. Diagnostic Logs provide more granular logging and allow you to log DataPlaneRequests (Create, Read, Query, and so on) and MongoRequests.
 
 
-In this article, we focus on Azure Activity, Azure Diagnostic, and Azure metrics. What's the difference between these three logs? 
+In this article, we focus on the Azure Activity Log, Azure Diagnostic Logs, and Azure metrics. What's the difference between these three logs? 
 
 ### Azure Activity Log
 
-The Azure Activity Log is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log reports control-plane events for your subscriptions under the Administrative category. You can use the Activity Log to determine the 'what, who, and when' for any write operation (PUT, POST, DELETE) on the resources in your subscription. You can also understand the status of the operation and other relevant properties. 
+The Azure Activity Log is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log reports control-plane events for your subscriptions under the Administrative category. You can use the Activity Log to determine the "what, who, and when" for any write operation (PUT, POST, DELETE) on the resources in your subscription. You can also understand the status of the operation and other relevant properties. 
 
 The Activity Log differs from Diagnostic Logs. The Activity Log provides data about the operations on a resource from the outside (the _control plane_). In the Azure Cosmos DB context, control plane operations include create collection, list keys, delete keys, list database, and so on. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the _data plane_). Some examples of the data plane operations in the diagnostic log are Delete, Insert, and ReadFeed.
 
-Activity Logs (control plane operations) can be richer in nature and can include the full email address of the caller, caller IP address, resource name, operation name, and TenantId, and more. The Activity Log contains several [categories](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) of data. For full details on the schemata of these categories, see [Azure Activity Log event schema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). However, Diagnostic Logs can be restrictive in nature as PII data is often stripped from these logs. You might have the IP address of the caller, but the last octant is removed.
+Activity Logs (control plane operations) can be richer in nature and can include the full email address of the caller, caller IP address, resource name, operation name, TenantId, and more. The Activity Log contains several [categories](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) of data. For full details on the schemata of these categories, see [Azure Activity Log event schema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). However, Diagnostic Logs can be restrictive in nature as PII data is often stripped from these logs. You might have the IP address of the caller, but the last octant is removed.
 
 ### Azure metrics
 
@@ -68,7 +68,7 @@ Azure Diagnostic Logs are emitted by a resource and provide rich, frequent data 
 
 To enable diagnostics logging, you must have the following resources:
 
-* An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account by using the Azure portal](create-sql-api-dotnet.md#create-a-database-account), [CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
+* An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account by using the Azure portal](create-sql-api-dotnet.md#create-a-database-account), [Azure CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
 
 To enable diagnostic logging in the Azure portal, do the following steps:
 
@@ -80,11 +80,11 @@ To enable diagnostic logging in the Azure portal, do the following steps:
 
     * **Name**: Enter a name for the logs to create.
 
-    * **Archive to a storage account**: To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow the instructions to create a Resource Manager, general-purpose account. Then, return to this page in the portal to select your storage account. It might take a few minutes for newly created storage accounts to appear in the drop-down menu.
+    * **Archive to a storage account**: To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow the instructions to create an Azure Resource Manager, general-purpose account. Then, return to this page in the portal to select your storage account. It might take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**: To use this option, you need an existing Event Hubs namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub by using the Azure portal](../event-hubs/event-hubs-create.md). Then, return to this page in the portal to select the Event Hubs namespace and policy name.
     * **Send to Log Analytics**: To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [Create a new workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in the portal. For more information about viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-in-loganalytics).
-    * **Log DataPlaneRequests**: Select this option to log back-end requests from Azure Cosmos DB’s underlying distributed platform for SQL, Graph, MongoDB, Cassandra, and Table API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
-    * **Log MongoRequests**: Select this option to log user-initiated requests from Azure Cosmos DB’s front end for serving MongoDB API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
+    * **Log DataPlaneRequests**: Select this option to log back-end requests from the underlying Azure Cosmos DB distributed platform for SQL, Graph, MongoDB, Cassandra, and Table API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
+    * **Log MongoRequests**: Select this option to log user-initiated requests from the Azure Cosmos DB front end for serving MongoDB API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
     * **Metric Requests**: Select this option to store verbose data in [Azure metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md). If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
 
 3. Select **Save**.
@@ -93,9 +93,9 @@ To enable diagnostic logging in the Azure portal, do the following steps:
 
     If you want to change how your diagnostic logs are saved at any point in the future, return to this page to modify the diagnostic log settings for your account.
 
-## Turn on logging by using the Azure CLI
+## Turn on logging by using Azure CLI
 
-To enable metrics and diagnostics logging by using the Azure CLI, use the following commands:
+To enable metrics and diagnostics logging by using Azure CLI, use the following commands:
 
 - To enable storage of Diagnostic Logs in a storage account, use this command:
 
@@ -172,7 +172,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 ```
 
 > [!NOTE]
-> If you decide to use an existing storage account, the account must use the same subscription as your Azure Cosmos DB subscription. The account must also use the Resource Manager deployment model, rather than the Classic deployment model.
+> If you decide to use an existing storage account, the account must use the same subscription as your Azure Cosmos DB subscription. The account must also use the Resource Manager deployment model, rather than the classic deployment model.
 >
 >
 
