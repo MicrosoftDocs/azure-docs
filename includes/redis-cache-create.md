@@ -1,46 +1,28 @@
 To create a cache, first sign in to the [Azure portal](https://portal.azure.com), and click **Create a resource** > **Databases** > **Redis Cache**.
 
-> [!NOTE]
-> If you don't have an Azure account, you can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
-> 
-> 
-
 ![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
-
-> [!NOTE]
-> In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI.
-> 
-> * To create a cache using Resource Manager templates, see [Create a Redis cache using a template](../articles/redis-cache/cache-redis-cache-arm-provision.md).
-> * To create a cache using Azure PowerShell, see [Manage Azure Redis Cache with Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
-> * To create a cache using Azure CLI, see [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
-> 
-> 
 
 In **New Redis Cache**, specify the desired configuration for the cache.
 
 ![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
 
-* In **Dns name**, enter a unique cache name to use for the cache endpoint. The cache name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The cache name cannot start or end with the `-` character, and consecutive `-` characters are not valid.
-* For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it is automatically selected and the **Subscription** drop-down isn't displayed.
-* In **Resource group**, select or create a resource group for your cache. For more information, see [Using Resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-overview.md). 
-* Use **Location** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
-* Use **Pricing tier** to select the desired cache size and features.
 
-    Microsoft Azure Redis Cache is available in the following tiers:
 
-    * **Basic** – Single node. Multiple sizes up to 53 GB.
-    * **Standard** – Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
-    * **Premium** – Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB. All Standard tier features and more including support for [Redis cluster](../articles/redis-cache/cache-how-to-premium-clustering.md), [Redis persistence](../articles/redis-cache/cache-how-to-premium-persistence.md), and [Azure Virtual Network](../articles/redis-cache/cache-how-to-premium-vnet.md). 99.9% SLA.
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **DNS name** | Globally unique name | The cache name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The cache name cannot start or end with the `-` character, and consecutive `-` characters are not valid.  | 
+    | **Subscription** | Your subscription | The subscription under which this new Azure Redis Cache is created. | 
+    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your cache. | 
+    | **Location** | East US | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services that will use your cache. |
+    | **[Pricing tier](https://azure.microsoft.com/pricing/details/cache/)** |  Basic C0 (250 MB Cache) |  Select the desired cache based on the size and features you require. Microsoft Azure Redis Cache is available in the following tiers:
 
-    Each tier differs in terms of features and pricing. For information on pricing, see [Cache Pricing Details](https://azure.microsoft.com/pricing/details/cache/).
+        * **Basic** – Single node. Multiple sizes up to 53 GB.
+        * **Standard** – Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
+        * **Premium** – Enterprise ready, Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB. All Standard tier features and more. 
+    |
+    | **Pin to dashboard** |  Selected | Click pin the new cache to your dashboard making it easy to find. |
 
-* **Redis cluster** allows you to create caches larger than 53 GB and to shard data across multiple Redis nodes. For more information, see [How to configure clustering for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-clustering.md).
-* **Redis persistence** offers the ability to persist your cache to an Azure Storage account. For instructions on configuring persistence, see [How to configure persistence for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-persistence.md).
-* **Virtual Network** provides enhanced security and isolation by restricting access to your cache to only those clients within the specified Azure Virtual Network. You can use all the features of VNet such as subnets, access control policies, and other features to further restrict access to Redis. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-vnet.md).
-* By default, non-SSL access is disabled for new caches. To enable the non-SSL port, check **Unblock port 6379 (not SSL encrypted)**.
-* Click **Pin to dashboard** to pin the new cache to your dashboard making it easy to find.
-
-Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the dashboard. After the cache has been created, your new cache has a **Running** status and is ready for use with [default settings](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
+Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the dashboard. After the cache has been created, your new cache has a **Running** status and is ready for use.
 
 ![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
 

@@ -15,13 +15,16 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 03/02/2018
 ms.author: wesmc
+ms.custom: mvc
+
+#Customer intent: As a developer, new to Azure Redis Cache, I want to create an Azure Redis Cache, so I can see how it works.
 
 ---
-# Quickstart: How to create an Azure Redis Cache
+# Quickstart: Create an Azure Redis Cache
 
 
 
- Microsoft Azure Redis Cache is based on the popular open-source [Redis Cache](https://redis.io/). It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure. This guide shows you how to get started with Azure Redis Cache. You will create your first cache and test the cache using commands in the Redis Console.
+ Microsoft Azure Redis Cache is based on the popular open-source [Redis Cache](https://redis.io/). It gives you access to a secure, dedicated Redis cache, managed by Microsoft. Redis Cache is primarily used to improve the performance and scalability of systems that rely heavily on backend data-stores. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure. This guide shows you how to get started with Azure Redis Cache. You will create your first cache and test the cache using commands in the Redis Console.
 
 ![Azure Redis Cache Console Commands](media/cache-create-first-cache/cache-console-commands.png)
 
@@ -34,27 +37,15 @@ ms.author: wesmc
 Getting started with Azure Redis Cache is easy. To get started, you provision and configure a cache. Next, you configure the cache clients so they can access the cache. Once the cache clients are configured, you can begin working with them.
 
 
-
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
-
-
-## Configuring the cache 
-
-For this quickstart, you do not need any special configurations. For detailed information the configuration options available for your cache, see [How to configure Azure Redis Cache](cache-configure.md).
-
-## Finding your cache 
-
-[!INCLUDE [redis-cache-browse](../../includes/redis-cache-browse.md)]
-
 ## Testing the cache with the Redis Console
 
-In this section, you use the [Redis Console](cache-configure.md#redis-console) to connect to the cache and issue some test commands directly from the [Azure portal](https://portal.azure.com/). This console can be useful to help isolate a problem if an application is failing to communicate with a cache. 
+In this section, you use the [Redis Console](cache-configure.md#redis-console) to connect to the cache and issue some test commands directly from the Azure portal. This console can be useful to help isolate a problem if an application is failing to communicate with a cache. 
 
 In your Redis Cache blade, click the **Overview** tab, and then click the **Console** button at the top of the blade.
 
 ![Azure Redis Cache Console Button](media/cache-create-first-cache/cache-overview-console-button.png)
 
-The Redis Console opens in the [Azure portal](https://portal.azure.com/). In this console, you can issue [Redis Cache commands](https://redis.io/commands)
+The Redis Console opens in the Azure portal. In this console, you can issue [Redis Cache commands](https://redis.io/commands)
 
 The following example the cache was tested with these commands:
 
@@ -64,63 +55,6 @@ The following example the cache was tested with these commands:
 * `CLIENT LIST`
 
 ![Azure Redis Cache Console Commands](media/cache-create-first-cache/cache-console-commands.png)
-
-
-## Testing the cache with the Redis command-line tool
-
-`redis-cli.exe` is a popular command-line tool for interacting with a Redis Cache as a client. This tool is also available for use with Azure Redis Cache.
-
-Download the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/). If you want to run the command-line tool on another platform, download the package from [http://redis.io/download](https://redis.io/download).
-
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
-
-
-### Enable access for redis-cli.exe
-
-By default, only the SSL port (6380) is enabled. The `redis-cli.exe` command-line tool doesn't support SSL. You have two configuration choices to use it:
-
-1. [Enable the non-SSL port (6379)](cache-configure.md#access-ports) - **This configuration is not recommended** because in this configuration, the access keys are sent via TCP in clear text. This change can compromise access to your cache. The only scenario where you might consider this configuration is when you are just accessing a test cache.
-
-2. Download and install [stunnel](https://www.stunnel.org/downloads.html).
-
-    Run **stunnel GUI Start** to start the server.
-
-    Right-click the taskbar icon for the stunnel server and click **Show Log Window**.
-
-    On the stunnel Log Window menu, click **Configuration** > **Edit Configuration** to open the current configuration file.
-
-    Add the following entry for `redis-cli.exe` under the **Service definitions** section. Insert your actual cache name in place of `yourcachename`. 
-
-    ```
-    [redis-cli]
-    client = yes
-    accept = 127.0.0.1:6380
-    connect = yourcachename.redis.cache.windows.net:6380
-    ```
-
-    Save and close the configuration file. 
-  
-    On the stunnel Log Window menu, click **Configuration** > **Reload Configuration**.
-
-
-### Connect using the Redis command-line tool.
-
-If you're using stunnel, run `redis-cli.exe`, and pass your *port*, and *access key* (primary or secondary) to connect to the cache.
-
-```
-redis-cli.exe -p 6380 -a YourAccessKey
-```
-
-![stunnel with redis-cli](media/cache-create-first-cache/cache-redis-cli-stunnel.png)
-
-If you're using a test cache with the **unsecure** non-SSL port, run `redis-cli.exe` and pass your *host name*, *port*, and *access key* (primary or secondary) to connect to the test cache.
-
-```
-redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
-```
-
-![stunnel with redis-cli](media/cache-create-first-cache/cache-redis-cli-non-ssl.png)
-
 
 
 

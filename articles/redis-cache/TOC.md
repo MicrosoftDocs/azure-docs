@@ -42,6 +42,7 @@
 ### [Import/Export data](cache-how-to-import-export-data.md)
 ### [Reboot](cache-administration.md#reboot)
 ### [Schedule updates](cache-administration.md#schedule-updates)
+### [Configure redis-cli.exe access](cache-how-to-redis-cli-tool.md])
 
 ## Monitor and troubleshoot
 ### [Monitor in Azure portal](cache-how-to-monitor.md)
