@@ -23,6 +23,35 @@ ms.author: bryanla
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the available technologies and solutions available for creating your own solution:
 
+## Videos
+| Introduction to Azure IoT services and solutions. (4:07) | 
+|-|
+| [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player]
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <!--a href="/azure/virtual-machines/windows"-->
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/contoso-hvac-iot-part1.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Getting started with Windows Virtual Machines</h3>
+                        <iframe src="https://channel9.msdn.com/Series/Youve-Got-Key-Values-A-Redis-Jump-Start/03/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
+
 > [!NOTE]
 > Option 1
 
@@ -82,9 +111,10 @@ Microsoft has built a portfolio that supports the needs of all customers, enabli
 
 ## Next steps
 
-See the Table of Contents to the left for the list of Azure IoT services you might wish to explore.
+See the Table of Contents to the left for the list of Azure IoT services to explore.
 
 [img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
+[img-video-contoso-hvac-iot-part1]: media/index/contoso-hvac-iot-part1.png
 
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
