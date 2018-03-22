@@ -109,7 +109,7 @@ The resolv.conf file is auto-generated and should not be edited. The specific st
 2. Run 'netconfig update' to update.
 
 **CentOS by Rogue Wave Software (formerly OpenLogic)** (uses NetworkManager)
-1. Add 'RES_OPTIONS="timeout:1 attempts:1"' to '/etc/sysconfig/network'.
+1. Add 'RES_OPTIONS="timeout:1 attempts:5"' to '/etc/sysconfig/network'.
 2. Run 'systemctl restart NetworkManager' to update.
 
 ## Name resolution using your own DNS server
