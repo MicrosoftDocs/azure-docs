@@ -25,7 +25,7 @@ Domain-joined clusters provide the multi-user enterprise security capabilities o
 In this article, you learn how to configure a Domain-joined HDInsight cluster using Azure Active Directory Domain Services.
 
 > [!NOTE]
-> Active Directory on Azure IaaS VMs is not longer supported.
+> Active Directory on Azure IaaS VMs is no longer supported.
 
 ## Create Azure ADDS
 
