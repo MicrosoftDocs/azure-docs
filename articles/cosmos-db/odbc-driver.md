@@ -115,14 +115,15 @@ The following steps create a schema for the data in one or more collections usin
     - You can set **Hide Column** to **true** if you want to exclude that column from query results. Columns marked Hide Column = true are not returned for selection and projection, although they are still part of the schema. For example, you can hide all the Azure Cosmos DB system required properties starting with `_`.
     - The **id** column is the only field that cannot be hidden as it is used as the primary key in the normalized schema. 
 6. Once you have finished defining the schema, click **File** | **Save**, navigate to the directory to save the schema, and then click **Save**.
-7. Back in the **Azure Cosmos DB ODBC Driver DSN Setup** window, click ** Advanced Options**. Then, in the **Schema File** box, navigate to the saved schema file and click **OK**. Click **OK** again to save the DSN. This saves the schema you created to the DSN. 
+7. Back in the **Azure Cosmos DB ODBC Driver DSN Setup** window, click **Advanced Options**. Then, in the **Schema File** box, navigate to the saved schema file and click **OK**. Click **OK** again to save the DSN. This saves the schema you created to the DSN. 
 
 ## (Optional) Set up linked server connection
 
 You can query an Azure Cosmos DB from SQL Server Management Studio (SSMS) by setting up a linked server connection.
 
-1. Create a System Data Source as described in [Step 2](#connect), named for example `SDS Name`.
-2. In SSMS, create a linked server object `DEMOCOSMOS` for the data source with the following commands:
+1. Create a system data source as described in [Step 2](#connect), named for example `SDS Name`.
+2. [Install SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+3. In the SSMS query editor, create a linked server object `DEMOCOSMOS` for the data source with the following commands:
 
 ```sql
 USE [master]
