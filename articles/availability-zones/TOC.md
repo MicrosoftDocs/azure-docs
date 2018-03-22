@@ -35,7 +35,7 @@
 #### [Availability zones with SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Storage
-#### [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage)
+#### [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md)
 
 # Disaster Recovery
 ## [Use Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
