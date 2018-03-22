@@ -2,7 +2,7 @@
 title: Customize the Container Image Used for Deploying Azure ML Models | Microsoft Docs
 description: This article describes how to customize a container image for Azure Machine Learning models
 services: machine-learning
-author: raymondl, tedway
+author: tedway
 ms.author: tedway, raymondl
 manager: mwinkle
 ms.reviewer: mldocs
@@ -37,7 +37,7 @@ Customize the Docker image that Azure ML deploys using:
         - azure-ml-api-sdk==0.1.0a11
         - matplotlib
         
-1. A Docker steps file: using this option, you customize the deployed image by installing dependencies that cannot be installed from PyPi. 
+2. A Docker steps file: using this option, you customize the deployed image by installing dependencies that cannot be installed from PyPi. 
 
 The file should include Docker installation steps like a DockerFile. The following commands are allowed in the file: 
 
