@@ -91,10 +91,6 @@ An example is an Azure Resource Manager deployment where the application relies 
 
 ### <a name="multife"></a> Multiple frontends for outbound flows
 
-#### Load Balancer Basic
-
-Load Balancer Basic chooses a single frontend to be used for outbound flows when [multiple (public) IP frontends](load-balancer-multivip-overview.md) are candidates for outbound flows. This selection is not configurable, and you should consider the selection algorithm to be random. You can designate a specific IP address for outbound flows as described in [Multiple, combined scenarios](#combinations).
-
 #### Load Balancer Standard
 
 Load Balancer Standard uses all candidates for outbound flows at the same time when [multiple (public) IP frontends](load-balancer-multivip-overview.md) is present. Each frontend multiplies the number of available preallocated SNAT ports if a load balancing rule is enabled for outbound connections.
@@ -110,6 +106,10 @@ You can choose to suppress a frontend IP address from being used for outbound co
 ```
 
 Normally, this option defaults to _false_ and signifies that this rule programs outbound SNAT for the associated VMs in the backend pool of the load balancing rule.  This can be changed to _true_ to prevent Load Balancer from using the associated frontend IP address for outbound connections for the VM's in the backend pool of this load balancing rule.  And you can also still designate a specific IP address for outbound flows as described in [Multiple, combined scenarios](#combinations) as well.
+
+#### Load Balancer Basic
+
+Load Balancer Basic chooses a single frontend to be used for outbound flows when [multiple (public) IP frontends](load-balancer-multivip-overview.md) are candidates for outbound flows. This selection is not configurable, and you should consider the selection algorithm to be random. You can designate a specific IP address for outbound flows as described in [Multiple, combined scenarios](#combinations).
 
 ### <a name="az"></a> Availability Zones
 
@@ -215,7 +215,7 @@ When using public Standard Load Balancer, you assign [multiple frontend IP addre
 
 #### <a name="scaleout"></a>Scale out
 
-[Preallocated ports](#preallocatedports) are assigned based on the backend pool size and grouped into tiers to minimize disruption when ports have to be reallocated to accomodate the next larger backend pool size tier.  You may have an option to increase intensity of SNAT port utilization for a given frontend by scaling your backend pool to maximum size for a given tier.  This requires for the application to scale out efficiently.
+[Preallocated ports](#preallocatedports) are assigned based on the backend pool size and grouped into tiers to minimize disruption when some of the ports have to be reallocated to accomodate the next larger backend pool size tier.  You may have an option to increase intensity of SNAT port utilization for a given frontend by scaling your backend pool to maximum size for a given tier.  This requires for the application to scale out efficiently.
 
 For example, 2 virtual machines in the backend pool would have 1024 SNAT ports available per IP configuration, allowing a total of 2048 SNAT ports for the deployment.  If the deployment were to be increased to 50 virtual machines, even though the number of preallocated ports remains constant per virtual machine, a total of 51,200 (50 x 1024) SNAT ports can be used by the deployment.  If you wish to scale out your deployment, check the number of [preallocated ports](#preallocatedports) per tier to make sure you shape your scale out to the maximum for the respective tier.  In the preceeding example, if you had chosen to scale out to 51 instead of 50 instances, your would progress to the next tier and end up with less SNAT ports per VM as well as in total.
 

@@ -4,8 +4,7 @@ description: This article compares Azure Data Factory V1 Azure Data Factory V2.
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
