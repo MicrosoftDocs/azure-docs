@@ -111,6 +111,7 @@ The following list contains answers to commonly asked questions about Azure Redi
 * [Operations that are not supported](#operations-that-are-not-supported)
 * [How long does scaling take?](#how-long-does-scaling-take)
 * [How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)
+* [With Geo-replication configured, why am I not able to scale my cache or change the shards in a cluster?](#scaling-limitations-with-geo-relication)
 
 ### Can I scale to, from, or within a Premium cache?
 * You can't scale from a **Premium** cache down to a **Basic** or **Standard** pricing tier.
@@ -157,6 +158,11 @@ While Standard and Premium caches have a 99.9% SLA for availability, there is no
 * You can't scale from a larger size down to the **C0 (250 MB)** size.
 
 If a scaling operation fails, the service tries to revert the operation, and the cache will revert to the original size.
+
+### Scaling limitations with Geo-relication
+
+Once you have added a Geo-replication link between two caches, you will no longer be able to initiate a scaling operation or change the number of shards in a cluster. You must unlink to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md)
+
 
 ### How long does scaling take?
 Scaling takes approximately 20 minutes, depending on how much data is in the cache.
