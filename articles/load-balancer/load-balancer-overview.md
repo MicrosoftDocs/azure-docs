@@ -24,7 +24,7 @@ Load Balancer will distribute new inbound flows arriving on the load balancer's 
 
 Additionally, a public Load Balancer can also provide outbound connections for virtual machines inside your virtual network by translating their private IP addresses to public IP addresses.
 
-Azure Load Balancer is available in two different SKUs: [Basic](#basicloadbalancer) and [Standard](#standardloadbalancer).  There are differences in scale, features, and pricing.  Any scenario possible with Basic Load Balancer can also be created with Standard Load Balancer, although the approach might differ slightly.  As you learn about Load Balancer, it is important to familiarize yourself with the fundamentals and SKU-specific differences.
+Azure Load Balancer is available in two different SKUs: Basic and Standard.  There are differences in scale, features, and pricing.  Any scenario possible with Basic Load Balancer can also be created with Standard Load Balancer, although the approach might differ slightly.  As you learn about Load Balancer, it is important to familiarize yourself with the fundamentals and SKU-specific differences.
 
 ## Why use Load Balancer? 
 
@@ -35,8 +35,9 @@ Azure Load Balancer can be used to:
 * Port forward traffic to a specific port on specific virtual machines with inbound NAT rules.
 * Provide [outbound connectivity](load-balancer-outbound-connections.md) for virtual machines inside your virtual network by using a public Load Balancer.
 
+
 >[!NOTE]
-> Azure provides several load balancing services.  If you are looking for TLS termination ("SSL offload") or HTTP/HTTPS application layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md).  If you are looking for global DNS load balancing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  End-to-end scenarios may benefit from combining these solutions as appropriate.
+> Azure provides a suite of fully managed load balancing solutions for your scenarios.  If you are looking for TLS termination ("SSL offload") or HTTP/HTTPS application layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md).  If you are looking for global DNS load balancing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Your end-to-end scenarios may benefit from combining these solutions as needed.
 
 ## What is Load Balancer?
 
@@ -165,7 +166,7 @@ Basic Load Balancer is offered at no charge.
 
 ## SLA
 
-For information about the Standard Load Balancer SLA, visit the [Load Balancer SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/) page. 
+For information about the Standard Load Balancer SLA, visit the [Load Balancer SLA](https://aka.ms/lbsla) page. 
 
 ## Next steps
 

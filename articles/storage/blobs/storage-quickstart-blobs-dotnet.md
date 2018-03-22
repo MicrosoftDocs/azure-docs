@@ -76,7 +76,7 @@ export storageconnectionstring=<yourconnectionstring>
 Edit your .bash_profile, and add the environment variable:
 
 ```
-export STORAGE_CONNECTION_STRING=
+export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 ```
 
 After you add the environment variable, log out and back in to make the changes effective. Alternately, you can type "source .bash_profile" from your terminal.
@@ -87,11 +87,33 @@ After you add the environment variable, log out and back in to make the changes 
 
 This sample creates a test file in your local **MyDocuments** folder and uploads it to Blob storage. The sample then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files. 
 
+# [Windows](#tab/windows)
+
+If you are using Visual Studio as your editor, you can press **F5** to run. 
+
+Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
+
+```
+dotnet run
+```
+
+# [Linux](#tab/linux)
+
 Navigate to your application directory and run the application with the `dotnet run` command.
 
 ```
 dotnet run
 ```
+
+# [macOS](#tab/macos)
+
+Navigate to your application directory and run the application with the `dotnet run` command.
+
+```
+dotnet run
+```
+
+---
 
 The output shown is similar to the following example:
 
