@@ -3,7 +3,7 @@ title: Advanced usage of Reliable Services | Microsoft Docs
 description: Learn about advanced usage of Service Fabric's Reliable Services for added flexibility in your services.
 services: Service-Fabric
 documentationcenter: .net
-author: vturecek
+author: rwike77
 manager: timlt
 editor: masnider
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
-ms.author: vturecek
+ms.author: ryanwi
 
 ---
 # Advanced usage of the Reliable Services programming model
