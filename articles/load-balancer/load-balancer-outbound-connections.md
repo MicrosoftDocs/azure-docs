@@ -19,13 +19,13 @@ ms.author: kumud
 
 # Outbound connections in Azure
 
->[!NOTE]
-> The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires a [separate sign-up](https://aka.ms/availabilityzones), in addition to signing up for Load Balancer [Standard preview](#preview-sign-up).
-
 Azure provides outbound connectivity for customer deployments through several different mechanisms. This article describes what the scenarios are, when they apply, how they work, and how to manage them.
 
 >[!NOTE] 
 >This article covers Resource Manager deployments only. Review [Outbound connections (Classic)](load-balancer-outbound-connections-classic.md) for all Classic deployment scenarios in Azure.
+
+>[!NOTE]
+> To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires a [separate sign-up](https://aka.ms/availabilityzones), in addition to signing up for Load Balancer [Standard preview](#preview-sign-up).
 
 A deployment in Azure can communicate with endpoints outside Azure in the public IP address space. When an instance initiates an outbound flow to a destination in the public IP address space, Azure dynamically maps the private IP address to a public IP address. After this mapping is created, return traffic for this outbound originated flow can also reach the private IP address where the flow originated.
 
