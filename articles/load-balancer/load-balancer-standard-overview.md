@@ -210,66 +210,22 @@ Standard Load Balancers are available with a 99.99% SLA.  Review the [SLA](https
 
 Standard Load Balancer is charged based on number of load balancing rules configured and all inbound and outbound data processed.
 
-
-
-## SKU service limits and abilities
-
-Azure [Service Limits for Networking](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) apply per region per subscription. 
-
-The following table compares the limits and abilities of the Load Balancer Basic and Standard SKUs:
-
-| Load Balancer | Basic | Standard |
-| --- | --- | --- |
-| Back-end pool size | up to 100 | up to 1,000 |
-| Back-end pool boundary | Availability Set | virtual network, region |
-| Back-end pool design | VMs in Availability Set, virtual machine scale set in Availability Set | Any VM instance in the virtual network |
-| HA Ports | Not supported | Available |
-| Diagnostics | Limited, public only | Available |
-| VIP Availability  | Not supported | Available |
-| Fast IP Mobility | Not supported | Available |
-|Availability Zones scenarios | Zonal only | Zonal, Zone-redundant, Cross-zone load-balancing |
-| Outbound SNAT algorithm | On-demand | Preallocated |
-| Outbound SNAT front-end selection | Not configurable, multiple candidates | Optional configuration to reduce candidates |
-| Network Security Group | Optional on NIC/subnet | Required |
-
-The following table compares the limits and abilities of the Public IP Basic and Standard SKUs:
-
-| Public IP | Basic | Standard |
-| --- | --- | --- |
-| Availability Zones scenarios | Zonal only | Zone-redundant (default), zonal (optional) | 
-| Fast IP Mobility | Not supported | Available |
-| VIP Availability | Not supported | Available |
-| Counters | Not supported | Available |
-| Network Security Group | Optional on NIC | Required |
- 
-## Pricing
-
-Load Balancer Standard SKU billing is based on configured rules and processed data. No charges are incurred during the preview period. For more information, review the [Load Balancer](https://aka.ms/lbpreviewpricing) and [Public IP](https://aka.ms/lbpreviewpippricing) pricing pages.
-
-Customers continue to enjoy Load Balancer Basic SKU at no charge.
-
 ## Limitations
 
 The following limitations apply at the time of preview and are subject to change:
 
-- Load Balancer back-end instances cannot be located in peered virtual networks at this time. All back-end instances must be in the same region.
+- Load Balancer backend instances cannot be located in peered virtual networks at this time. All back-end instances must be in the same region.
 - SKUs are not mutable. You may not change the SKU of an existing resource.
-- Both SKUs can be used with a standalone VM, VM instances in an Availability Set, or a virtual machine scale set. VM combinations may not be used with both SKUs simultaneously. A configuration that contains a mixture of SKUs is not permitted.
-- Using an internal Load Balancer Standard with a VM instance (or any part of an Availability Set) disables [default SNAT outbound connections](load-balancer-outbound-connections.md#defaultsnat). You can restore this ability to a standalone VM, VM instances in an Availability Set, or a virtual machine scale set. You can also restore the ability to make outbound connections. To restore these abilities, simultaneously assign a public Load Balancer Standard, or Public IP Standard as an instance-level Public IP, to the same VM instance. After the assignment is complete, port-masquerading SNAT to a Public IP address is provided again.
-- VM instances may need to be grouped into availability sets to achieve full back-end pool scale. Up to 150 availability sets and standalone VMs and virtual machine scale sets combined can be placed into a single back-end pool.
+- A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
 - IPv6 is not supported.
-- In the context of Availability Zones, a front-end is not mutable from zonal to zone-redundant, or vice versa. After a front-end is created as zone-redundant, it remains zone-redundant. After a front-end is created as zonal, it remains zonal.
-- In the context of Availability Zones, a zonal Public IP address cannot be moved from one zone to another.
 - [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
-- Portal does not yet support the expanded preview regions.  Please use client tools like templates, Azure CLI 2.0 or PowerShell as a workaround.
-- [Move subscription operations](../azure-resource-manager/resource-group-move-resources.md) are not supported for Standard SKU LB and PIP resources.
-- Not available in West US.
+- - [Move subscription operations](../azure-resource-manager/resource-group-move-resources.md) are not supported for Standard SKU LB and PIP resources.
 
 
 ## Next steps
 
-- Learn more about [Load Balancer Basic](load-balancer-overview.md).
 - Learn more about [Availability Zones](../availability-zones/az-overview.md).
 - Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
 - Learn about [metrics exposed](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Learn more about [Load Balancer](load-balancer-overview.md).
