@@ -271,6 +271,7 @@ The following table shows the access rights required for various operations on S
 | Deadletter a message |Listen |Any valid queue address |
 | Get the state associated with a message queue session |Listen |Any valid queue address |
 | Set the state associated with a message queue session |Listen |Any valid queue address |
+| Schedule a message for later delivery; for example, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Listen | Any valid queue address
 | **Topic** | | |
 | Create a topic |Manage |Any namespace address |
 | Delete a topic |Manage |Any valid topic address |
