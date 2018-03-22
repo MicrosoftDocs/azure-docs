@@ -1,4 +1,4 @@
----
+--
 title: Link partner ID to your account in Azuure | Microsoft Docs
 description: Track engagements with Azure customers by linking partner ID to the user account that you use to manage the customer's resources. 
 services: billing
@@ -13,7 +13,7 @@ ms.workload: na
 ---
 
 # Link partner ID to your account in Azure
-As a partners that does consulting work or provide managed services on Azure,track your impact across your customer engagements by linking your partner ID to the accounts that you use to manage customer's resources.
+As a partner that does consulting work or provide managed services on Azure, track your impact across your customer engagements by linking your partner ID to the accounts that you use to manage customer's resources.
 
 This feature is available in a public preview. 
 
@@ -26,7 +26,7 @@ Before you link partner ID, you need to get access from the customer using one o
 
 - **Service principal:**  Customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as service principal. 
 
-Once you have access to customer resources, you can use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to  user account or service principal. You need to link partner ID for each customer tenant. 
+Once you have access to customer resources, you can use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to  user account or service principal. You have to link partner ID for each customer tenant. 
 
 ## PowerShell - Link new partner ID
 
@@ -105,16 +105,16 @@ C:\ az managementpartner delete --partner-id 12345
 
 **Who can link the partner ID?**
 
-Any user from partner organization can link a partner ID to the account which is used for managing customer's resources. 
+Any user from partner organization can link a partner ID to the account, which is used for managing customer's resources. 
   
 
 **Once a partner ID has been linked can it be changed? **
 
-Yes, linked partner ID can be changed, added or removed.
+Yes, linked partner ID can be changed, added, or removed.
 
 **What if a user has account in multiple customer tenants?**
 
-The link between the Partner ID and the account is done per customer tenant.  You need to link partner ID in each customer tenant.
+The link between the Partner ID and the account is done per customer tenant.  You have to link partner ID in each customer tenant.
 
 **Can other partner or customer edit or remove the link to the Partner ID**
 
