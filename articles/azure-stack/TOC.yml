@@ -247,15 +247,15 @@
       - name: Offer Linux virtual machines
         href: azure-stack-linux.md
     - name: Usage and billing
+      href: azure-stack-billing-and-chargeback.md
       items:
-      - name: Overview
-        href: azure-stack-billing-and-chargeback.md
       - name: Manage usage and billing as a CSP
         href: azure-stack-add-manage-billing-as-a-csp.md
-      - name: Add tenants for usage and billing 
-        href: azure-stack-csp-howto-register-tenants.md
-      - name: Manage tenant registration
-        href: azure-stack-csp-ref-operations.md
+        items:
+        - name: Add tenants for usage and billing 
+          href: azure-stack-csp-howto-register-tenants.md
+        - name: Manage tenant registration
+          href: azure-stack-csp-ref-operations.md
       - name: Usage and billing reference
         items:
         - name: Usage data reporting
