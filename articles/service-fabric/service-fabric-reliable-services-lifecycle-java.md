@@ -134,4 +134,4 @@ An important part of testing and validating Reliable Services is handling the ex
 ## Next steps
 * [Introduction to Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Reliable Services quickstart](service-fabric-reliable-services-quick-start-java.md)
-* [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
+
