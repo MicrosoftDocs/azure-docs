@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2018
+ms.date: 04/02/2018
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 
@@ -48,7 +48,7 @@ Once you create your IoT hub, you can upgrade from the basic tier to the standar
 | [Device twins](iot-hub-devguide-device-twins.md) and [Device management](iot-hub-device-management-overview.md) |   | Yes |
 | [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Yes |
 
-IoT Hub offers a third, free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard. 
+IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard. 
 
 ### IoT Hub REST APIs
 
