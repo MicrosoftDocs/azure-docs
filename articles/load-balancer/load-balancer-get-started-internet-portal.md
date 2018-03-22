@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/18
+ms.date: 03/22/2018
 ms.author: kumud
 ---
 
@@ -24,9 +24,9 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-## Log in to Azure
+## Sign in to the Azure portal
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 
 ## Create a Basic Load Balancer
 
