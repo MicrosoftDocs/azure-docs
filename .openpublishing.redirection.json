@@ -16611,7 +16611,12 @@
         },
         {
             "source_path": "articles/hdinsight/spark/apache-spark-eventhub-streaming.md",
-            "redirect_url": "/azure/hdinsight/spark/apache-spark-eventhub-structured-streaming",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-streaming-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/spark/apache-spark-eventhub-structured-streaming.md",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-streaming-overview",
             "redirect_document_id": false
         },
         {
