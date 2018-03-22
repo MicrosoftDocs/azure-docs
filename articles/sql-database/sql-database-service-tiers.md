@@ -260,5 +260,5 @@ The following rules apply:
 ## Next steps
 
 - Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
-- Learn about [Read Scale-out](sql-database-read-scale-out.md.)
+- Learn about [Read Scale-out](sql-database-read-scale-out.md).
 
