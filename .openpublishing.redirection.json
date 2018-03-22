@@ -184,6 +184,11 @@
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": true
         },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-samanage-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/active-directory/active-directory-saas-atlassiancloud-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-atlassian-cloud-tutorial",
@@ -17496,6 +17501,11 @@
     {
         "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md",
         "redirect_url": "/azure/virtual-network/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-service-endpoints-configure.md",
+        "redirect_url": "/azure/virtual-network/tutorial-restrict-network-access-to-resources",
         "redirect_document_id": false
     },
     {
