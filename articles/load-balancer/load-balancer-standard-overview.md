@@ -110,7 +110,7 @@ An HA Ports load balancing rule allows you to create active-passive or active-ac
 >[!IMPORTANT]
 > If you are planning to use a Network Virtual Appliance, check with your vendor for guidance on whether their product has been tested with HA Ports and follow their specific guidance for implementation. 
 
-Review [detailed discussion of HA Ports](load-balancer-ha-ports.md).
+Review [detailed discussion of HA Ports](load-balancer-ha-ports-overview.md).
 
 ### <a name="securebydefault"></a>Secure by default
 
@@ -224,8 +224,15 @@ The following limitations apply at the time of preview and are subject to change
 
 ## Next steps
 
+- Learn about [virtual networks](../virtual-network/virtual-networks-overview.md).
+- Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
+- Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)
 - Learn more about [Availability Zones](../availability-zones/az-overview.md).
+- Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
+- Learn about [supported metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md)
+- Learn about [Load Balancer HA Ports](load-balancer-ha-ports-overview.md)
+- Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md)
 - Learn more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
-- Learn about [metrics exposed](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Learn more about [Load Balancer](load-balancer-overview.md).
