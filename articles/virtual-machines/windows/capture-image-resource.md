@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/22/2018
 ms.author: cynthn
 
 ---
@@ -66,7 +66,7 @@ Creating an image directly from the VM ensures that the image includes all of th
 Before you begin, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it. (Use `Get-Module` to check what version you have.)
 
 ```azurepowershell-interactive
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute -RequiredVersion 4.3.2
 ```
 For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
