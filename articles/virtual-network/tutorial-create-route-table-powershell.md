@@ -1,5 +1,5 @@
 ---
-title: Route network traffic - PowerShell | Microsoft Docs
+title: Route network traffic - Azure PowerShell | Microsoft Docs
 description: Learn how to route network traffic with a route table using PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
