@@ -46,10 +46,12 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
 ```  
   
 | **Configuration Setting** | **Description** |  
-| --- | --- |  
-| WindowsIdentities |Contains the cluster and client identities. |  
+| --- | --- |  
+| ClusterCredentialType |Set to *Windows* to enable Windows security for node-node communication.  |  
+| ServerCredentialType |Set to *Windows* to enable Windows security for client-node communication. |  
+| WindowsIdentities |Contains the cluster and client identities. |  
 | ClustergMSAIdentity |Configures node-to-node security. A group managed service account. |  
-| ClusterSPN |Fully qualified domain SPN for gMSA account|  
+| ClusterSPN |Registered SPN for gMSA account|  
 | ClientIdentities |Configures client-to-node security. An array of client user accounts. |  
 | Identity |The client identity, a domain user. |  
 | IsAdmin |True specifies that the domain user has administrator client access, false for user client access. |  
@@ -59,7 +61,9 @@ This approach does not require the creation of a domain group for which cluster 
  
 [Client to node security](service-fabric-cluster-security.md#client-to-node-security) is configured using **ClientIdentities**. In order to establish trust between a client and the cluster, you must configure the cluster to know which client identities that it can trust. This can be done in two different ways: Specify the domain group users that can connect or specify the domain node users that can connect. Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control provides the ability for the cluster administrator to limit access to certain types of cluster operations for different groups of users, making the cluster more secure.  Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services. For more information on access controls, see [Role based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).  
  
-The following example **security** section configures Windows security using gMSA and specifies that the machines in *ServiceFabric.clusterA.contoso.com* gMSA are part of the cluster and that *CONTOSO\usera* has admin client access:  
+The following example **security** section configures Windows security using gMSA and specifies that the machines in *ServiceFabric.clusterA.contoso.com* gMSA are part of the cluster and that *CONTOSO\usera* has admin | ClusterCredentialType |Set to *Windows* to enable Windows security for node-node communication.  |  | ServerCredentialType |Set to *Windows* to enable Windows security for client-node communication. |  
+
+| WindowsIdentities |Contains the cluster and client identities. |  client access:  
   
 ```  
 "security": {
@@ -95,10 +99,10 @@ This model is being deprecated. The recommendation is to use gMSA as detailed ab
 
 | **Configuration setting** | **Description** |
 | --- | --- |
-| ClusterCredentialType |**ClusterCredentialType** is set to *Windows* if ClusterIdentity specifies an Active Directory Machine Group Name. |  
-| ServerCredentialType |Set to *Windows* to enable Windows security for clients.<br /><br />This indicates that the clients of the cluster and the cluster itself are running within an Active Directory domain. |  
-| WindowsIdentities |Contains the cluster and client identities. |  
-| ClusterIdentity |Use a machine group name, domain\machinegroup, to configure node-to-node security. |  
+| ClusterCredentialType |Set to *Windows* to enable Windows security for node-node communication.  | 
+| ServerCredentialType |Set to *Windows* to enable Windows security for client-node communication. |  
+| WindowsIdentities |Contains the cluster and client identities. |  
+| ClusterIdentity |Use a machine group name, domain\machinegroup, to configure node-to-node security. |  
 | ClientIdentities |Configures client-to-node security. An array of client user accounts. |  
 | Identity |Add the domain user, domain\username, for the client identity. |  
 | IsAdmin |Set to true to specify that the domain user has administrator client access or false for user client access. |  
