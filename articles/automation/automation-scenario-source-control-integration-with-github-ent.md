@@ -42,10 +42,10 @@ GitHRWCredential | Credential asset you create to contain the username and passw
 
 1. The Sync-LocalGitFolderToAutomationAccount runbook authenticates using the [Azure Run As account](automation-sec-configure-azure-runas-account.md). 
 
-2. A Microsoft Operations Management Suite (OMS) workspace with the Azure Automation solution enabled and configured is also required. If you do not have one that is associated with the Automation account used to install and configure this scenario, it is created and configured for you when you execute the **New-OnPremiseHybridWorker.ps1** script from the hybrid runbook worker.        
+2. A Log Analytics workspace with the Azure Automation solution enabled and configured is also required. If you do not have one that is associated with the Automation account used to install and configure this scenario, it is created and configured for you when you execute the **New-OnPremiseHybridWorker.ps1** script from the hybrid runbook worker.        
 
     > [!NOTE]
-    > Currently the following regions only support Automation integration with OMS - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. 
+    > Currently the following regions only support Automation integration with Log Analytics - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. 
 
 3. A computer that can serve as a dedicated Hybrid Runbook Worker that also hosts the GitHub software and maintain the runbook files (*runbook*.ps1) in a source directory on the file system to synchronize between GitHub and your Automation account.
 
