@@ -77,7 +77,7 @@ You can now test your transform by making a request to the HTTP endpoint.
 
 ## Advanced features
 
-### Reference custom code from maps or transforms
+### Reference assembly or custom code from maps 
 The transform action also supports maps or transforms with reference to external assembly. This capability enables calls to custom .NET code directly from XSLT maps. Here are the prerequisites to use assembly in maps.
 
 * The map and the assembly referenced from the map needs to be [uploaded to integration account](./logic-apps-enterprise-integration-maps.md#how-do-i-add-a-map). 

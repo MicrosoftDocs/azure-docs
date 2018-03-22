@@ -89,6 +89,7 @@ After the upload process completes, choose **OK**.
 
  	![add-assembly](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
 
+
 ## How do I edit a map?
 
 You must upload a new map file with the changes that you want. 
