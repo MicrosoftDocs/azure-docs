@@ -1,6 +1,6 @@
 ---
 title: ZRS Classic is a legacy option for replicating block blobs in Azure Storage | Microsoft Docs
-description: ZRS Classic By default, new storage accounts use locally redundant storage (LRS) for replication. LRS is the least expensive option for replication. It protects against hardware failures in the datacenter, but not against datacenter-level disasters.
+description: ZRS Classic is a legacy option for block blobs that will be deprecated in the future.
 services: storage
 author: tolandmike
 manager: jeconnoc
@@ -13,7 +13,7 @@ ms.author: jeking
 
 # ZRS Classic: A legacy option for redundancy of block blobs
 
-ZRS Classic accounts are available only for block blobs in general-purpose V1 storage accounts. ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
+ZRS Classic is available only for block blobs in general-purpose V1 storage accounts. ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
 
 ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.   
 
@@ -28,3 +28,7 @@ You can manually migrate ZRS account data to or from an LRS, ZRS Classic, GRS, o
 
 ## See also
 
+- [Azure Storage replication](storage-redundancy.md)
+- [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md)
+- [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md)
+- [Locally-redundant storage (LRS): Low-cost data redundancy for Azure Storage](storage-redundancy-lrs.md)
