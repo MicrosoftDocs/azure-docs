@@ -4,7 +4,7 @@ description: Learn how you can use Web Activity, one of the control flow activit
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory

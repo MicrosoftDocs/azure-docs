@@ -4,7 +4,7 @@ description: Learn how to use lookup activity to look up a value from an externa
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
