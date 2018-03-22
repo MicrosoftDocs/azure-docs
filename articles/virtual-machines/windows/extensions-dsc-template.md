@@ -36,7 +36,7 @@ For more information, see
 ```json
 {
     "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "Microsoft.Powershell.DSC",
+    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
     "apiVersion": "2017-12-01",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -90,7 +90,7 @@ see [VirtualMachineScaleSetExtension class](https://docs.microsoft.com/en-us/dot
 "extensions": [
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "Microsoft.Powershell.DSC",
+        "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
         "apiVersion": "2017-12-01",
         "location": "[resourceGroup().location]",
         "dependsOn": [
