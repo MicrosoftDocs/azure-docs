@@ -19,15 +19,15 @@ ms.author: bryanla
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## Technologies and solutions available for creating an Azure IoT solution
+## Azure IoT portfolio
+
+Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the technologies and solutions available for creating your own solution.
 
 | Introduction to Azure IoT services and solutions. (4:07) | Introduction to Azure IoT services and solutions. (4:07) | 
 |-|-|
 | [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | 
 
-### Option 1
-
-Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the technologies and solutions available for creating your own solution:
+## Technologies and solutions available for creating solutions
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
@@ -35,12 +35,6 @@ Microsoft has built a portfolio that supports the needs of all customers, enabli
 |------|-----------|-------------------|
 | &#9657; [IoT Edge][lnk-iot-edge-land]<br>&#9657; [IoT Device/Service SDKs][lnk-device-sdks] | &#9657; [Iot Suite Preconfigured Solutions][lnk-iot-suite-land]<br>&#9657; [IoT Central][lnk-iot-central-land] | &#9657; [IoT Hub][lnk-iot-hub-land]<br>&#9657; [IoT Hub Device Provisioning Service][lnk-iot-dps-land]<br>&#9657; [Location Based Services][lnk-iot-lbs-land]<br>&#9657; [Time Series Insights][lnk-iot-tsi-land]<br> |
 |    |    |    |
-
-## Option 2
-
-Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the technologies and solutions available for creating your own solution:
-
-![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
 <ul class="panelContent cardsF">
     <li>
