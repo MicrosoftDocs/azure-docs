@@ -31,7 +31,7 @@ To complete the connection configuration, ensure that you have the following ite
 
 * Two servers that meet the Azure Stack Development Kit hardware requirements,
   which are defined by the [Azure Stack deployment
-  prerequisites](azure-stack-deploy.md). Ensure that the other prerequisites that appear in the [article](azure-stack-deploy.md) are fulfilled too.
+  prerequisites](azure-stack-deploy-overview.md). Ensure that the other prerequisites that appear in the [article](azure-stack-deploy-overview.md) are fulfilled too.
 * The [Azure Stack Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/) deployment package.
 
 ## Deploy the Azure Stack Development Kit environments
