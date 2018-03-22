@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
 
 ---
@@ -262,7 +262,15 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     ```  
 
 ## Node version and package management
-The node version is currently locked at `6.5.0`. We're investigating adding support for more versions and making it configurable.
+
+The following table shows the Node.js version used by each major version of the Functions runtime:
+
+| Functions version | Node.js version | 
+|---|---|
+| 1.x | 6.11.2 (locked by the runtime) |
+| 2.x  |>=8.4.0 with current LTS 8.9.4 recommended. Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
+
+You can see the current version that the runtime is using by printing `process.version` from any function.
 
 The following steps let you include packages in your function app: 
 

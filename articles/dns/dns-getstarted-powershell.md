@@ -47,6 +47,7 @@ A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet. The following ex
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 ```
+Azure DNS now also supports private DNS zones (currently in public preview).  To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using PowerShell](./private-dns-getstarted-powershell.md).
 
 ## Create a DNS record
 
@@ -75,7 +76,7 @@ Once you are satisfied that your DNS zone and records have been set up correctly
 The name servers for your zone are given by the `Get-AzureRmDnsZone` cmdlet:
 
 ```powershell
-Get-AzureRmDnsZone -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 
 Name                  : contoso.com
 ResourceGroupName     : myresourcegroup

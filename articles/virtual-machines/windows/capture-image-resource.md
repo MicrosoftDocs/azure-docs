@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 03/06/2018
 ms.author: cynthn
 
 ---
 # Create a managed image of a generalized VM in Azure
 
 A managed image resource can be created from a generalized VM that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. 
-
 
 ## Generalize the Windows VM using Sysprep
 
@@ -30,7 +29,9 @@ Sysprep removes all your personal account information, among other things, and p
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
+> Once you have run sysprep on an VM it is considered *generalized* and it cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should take a [copy of the VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) and generalize the copy. 
+>
+> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep.  
 > 
 > 
 
