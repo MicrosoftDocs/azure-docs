@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: 
 ---
@@ -94,11 +94,58 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 }
 ```
 
-## Confirm zone for IP address and managed disk
+## Confirm zone for managed disk and IP address
 
-When the VM is deployed in an availability zone, the IP address and managed disk resources are deployed in the same availability zone. The following examples get information about these resources.
+When the VM is deployed in an availability zone, a managed disk for the VM is created in the same availability zone. By default, a public IP address is also created in that zone. The following examples get information about these resources.
 
-First use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) command to return the name of public IP address resource in *myVM*. In this example, the name is stored in a variable that is used in a later step.
+To verify that the VM's managed disk is in the availability zone, use the [az vm show](/cli/azure/vm#az_vm_show) command to return the disk id. In this example, the disk id is stored in a variable that is used in a later step. 
+
+```azurecli-interactive
+osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
+```
+Now you can get information about the managed disk:
+
+```azurecli-interactive
+az disk show --resource-group myResourceGroupVM --name $osdiskname
+```
+
+The output shows that the managed disk is in the same availability zone as the VM:
+
+```azurecli
+{
+  "creationData": {
+    "createOption": "FromImage",
+    "imageReference": {
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westeurope/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/latest",
+      "lun": null
+    },
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 30,
+  "encryptionSettings": null,
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/disks/osdisk_761c570dab",
+  "location": "eastus2",
+  "managedBy": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
+  "name": "myVM_osdisk_761c570dab",
+  "osType": "Linux",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroupVM",
+  "sku": {
+    "name": "Premium_LRS",
+    "tier": "Premium"
+  },
+  "tags": {},
+  "timeCreated": "2018-03-05T22:16:06.892752+00:00",
+  "type": "Microsoft.Compute/disks",
+  "zones": [
+    "1"
+  ]
+}
+```
+
+Use the [az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) command to return the name of public IP address resource in *myVM*. In this example, the name is stored in a variable that is used in a later step.
 
 ```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)
@@ -145,58 +192,9 @@ The output shows that the IP address is in the same availability zone as the VM:
 }
 ```
 
-Similarly, verify that the VM's managed disk is in the availability zone. Use the [az vm show](/cli/azure/vm#az_vm_show) command to return the disk id. In this example, the disk id is stored in a variable that is used in a later step. 
-
-```azurecli-interactive
-osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
-```
-Now you can get information about the managed disk:
-
-```azurecli-interactive
-az disk show --resource-group myResourceGroupVM --name $osdiskname
-```
-
-The output shows that the managed disk is in the same availability zone as the VM:
-
-```azurecli
-{
-  "creationData": {
-    "createOption": "FromImage",
-    "imageReference": {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westeurope/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/latest",
-      "lun": null
-    },
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 30,
-  "encryptionSettings": null,
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/disks/osdisk_761c570dab",
-  "location": "eastus2",
-  "managedBy": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "name": "myVM_osdisk_761c570dab",
-  "osType": "Linux",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroupVM",
-  "sku": {
-    "name": "Premium_LRS",
-    "tier": "Premium"
-  },
-  "tags": {},
-  "timeCreated": "2018-03-05T22:16:06.892752+00:00",
-  "type": "Microsoft.Compute/disks",
-  "zones": [
-    "1"
-  ]
-}
-```
- 
-
-
 ## Next steps
 
-In this article, you learned a how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
 
 
 
