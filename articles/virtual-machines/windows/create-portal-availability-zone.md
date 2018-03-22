@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: 
 ---
@@ -39,7 +39,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
     ![Enter basic information about your VM in the portal blade](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 
-4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. Confirm the size is available in the zone you want to use.
+4. Choose a size for the VM. Select a recommended size, or filter based on features. Confirm the size is available in the zone you want to use.
 
     ![Select a VM size](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
@@ -51,22 +51,24 @@ Log in to the Azure portal at https://portal.azure.com.
 
 7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
 
-## Confirm zone for IP address and managed disk
+## Confirm zone for managed disk and IP address
 
-When the VM is deployed in an availability zone, the IP address and managed disk resources for the VM are deployed in the same availability zone. 
+When the VM is deployed in an availability zone, a managed disk for the VM is created in the same availability zone. By default, a public IP address is also created in that zone.
 
 You can confirm the zone settings for these resources in the portal.  
 
 1. Click **Resource groups** and then the name of the resource group for the VM, such as *myResourceGroup*.
 
-2. Click the name of the Public IP address resource. The **Overview** page includes details about the location and availability zone of the resource.
-
-    ![Availability zone for IP address](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
-
 2. Click the name of the Disk resource. The **Overview** page includes details about the location and availability zone of the resource.
 
     ![Availability zone for managed disk](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
 
+3. Click the name of the Public IP address resource. The **Overview** page includes details about the location and availability zone of the resource.
+
+    ![Availability zone for IP address](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
+
+
+
 ## Next steps
 
-In this article, you learned a how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
