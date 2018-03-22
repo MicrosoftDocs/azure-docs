@@ -131,11 +131,11 @@ Standard Load Balancer introduces a new algorithm for a [more robust, scalable, 
 
 These are the key tenets to remember when working with Standard Load Balancer:
 
-1. the completion of a rule drives the Load Balancer resource.  all programming of Azure derives from its configuration.
-2. when multiple frontends are available, all frontends are used and each frontend multiplies the number of available SNAT ports
-3. you can choose and control if you do not wish for a particular frontend to be used for outbound connections.
-4. outbound scenarios are explicit and outbound connectivity does not exist until it has been specified.
-5. load balancing rules infer how SNAT is programmed.  load balancing rules are protocol specific. SNAT is protocol specific and configuration should reflect this rather than create a side effect.
+- the completion of a rule drives the Load Balancer resource.  all programming of Azure derives from its configuration.
+- when multiple frontends are available, all frontends are used and each frontend multiplies the number of available SNAT ports
+- you can choose and control if you do not wish for a particular frontend to be used for outbound connections.
+- outbound scenarios are explicit and outbound connectivity does not exist until it has been specified.load balancing rules infer how SNAT is programmed.  load balancing
+- rules are protocol specific. SNAT is protocol specific and configuration should reflect this rather than create a side effect.
 
 #### Multiple frontends
 If you want more SNAT ports because you are expecting or are already experiencing a high demand for outbound connections, you can also add incremental SNAT port inventory by configuring additional frontends, rules, and backend pools to the same virtual machine resources.
@@ -145,8 +145,8 @@ If you want to constrain outbound connections to only originate from a specific 
 
 #### Control outbound connectivity
 Standard Load Balancer exists within the context of the virtual network.  A virtual network is an isolated, private network.  Unless an association with a public IP address exists, public connectivity is not allowed.  You can reach [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) because they are inside of and local to your virtual network.  If you want to establish outbound connectivity to a destination outside of your virtual network, you have two options:
-1. assign a Standard SKU public IP address as an Instance-Level Public IP address to the virtual machine resource or
-2. place the virtual machine resource in the backend pool of a public Standard Load Balancer.
+- assign a Standard SKU public IP address as an Instance-Level Public IP address to the virtual machine resource or
+- place the virtual machine resource in the backend pool of a public Standard Load Balancer.
 
 Both will allow outbound connectivity from the virtual network to outside of the virtual network. 
 
