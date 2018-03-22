@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 03/22/2018
 ms.author: mimig
 
 ---
@@ -116,6 +116,55 @@ The following steps create a schema for the data in one or more collections usin
     - The **id** column is the only field that cannot be hidden as it is used as the primary key in the normalized schema. 
 6. Once you have finished defining the schema, click **File** | **Save**, navigate to the directory to save the schema, and then click **Save**.
 7. Back in the **Azure Cosmos DB ODBC Driver DSN Setup** window, click ** Advanced Options**. Then, in the **Schema File** box, navigate to the saved schema file and click **OK**. Click **OK** again to save the DSN. This saves the schema you created to the DSN. 
+
+## (Optional) Set up linked server connection
+
+You can query an Azure Cosmos DB from SQL Server Management Studio (SSMS) by setting up a linked server connection.
+
+1. Create a System Data Source as described in [Step 2](#connect), named for example `SDS Name`.
+2. In SSMS, create a linked server object `DEMOCOSMOS` for the data source with the following commands:
+
+```sql
+USE [master]
+GO
+
+EXEC master.dbo.sp_addlinkedserver @server = N'DEMOCOSMOS', @srvproduct=N'', @provider=N'MSDASQL', @datasrc=N'SDS Name'
+
+EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname=N'DEMOCOSMOS',@useself=N'False',@locallogin=NULL,@rmtuser=NULL,@rmtpassword=NULL
+
+GO
+```
+
+To see the new linked server name, refresh the Linked Servers list.
+
+![Linked Server in SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+
+### Query linked database
+
+To query the linked database, enter an SSMS query. In this example, the query selects from the table in the collection named `customers`:
+
+```sql
+SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
+```
+
+Execute the query. The result should be similar to this:
+
+```
+attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
+attachments/  1507476156    167 Nassau Street, Tuskahoma, Illinois, 5998   "2602bd56-0000-0000-0000-59da42bc0000"   2015-06-16T08:54:17 +04:00 f75f949ea8de466a9ef2bdb7ce065ac8
+attachments/  1507476156    885 Strong Place, Cassel, Montana, 2069       "2602be56-0000-0000-0000-59da42bc0000"   2015-03-20T07:21:47 +04:00 ef0365fb40c04bb6a3ffc4bc77c905fd
+attachments/  1507476156    515 Barwell Terrace, Defiance, Tennessee, 6439     "2602c056-0000-0000-0000-59da42bc0000"   2014-10-16T06:49:04 +04:00      e913fe543490432f871bc42019663518
+attachments/  1507476156    570 Ruby Street, Spokane, Idaho, 9025       "2602c156-0000-0000-0000-59da42bc0000"   2014-10-30T05:49:33 +04:00 e53072057d314bc9b36c89a8350048f3
+```
+
+> [!NOTE]
+> The linked Cosmos DB server does not support four-part naming. An error is returned similar to the following message:
+
+```
+Msg 7312, Level 16, State 1, Line 44
+
+Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server "DEMOCOSMOS". A four-part name was supplied, but the provider does not expose the necessary interfaces to use a catalog or schema.
+``` 
 
 ## (Optional) Creating views
 You can define and create views as part of the sampling process. These views are equivalent to SQL views. They are read-only and are scope the selections and projections of the Azure Cosmos DB SQL defined. 
