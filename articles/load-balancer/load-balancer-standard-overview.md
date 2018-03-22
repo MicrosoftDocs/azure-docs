@@ -135,7 +135,7 @@ If you want more SNAT ports because you are expecting or are already experiencin
 If you want to constrain outbound connections to only originate from a specific frontend IP address, you can optionally disable outbound SNAT on the rule which expresses the outbound mapping.
 
 #### Control outbound connectivity
-Standard Load Balancer exists within the context of the virtual network. Unless an association with a public IP address exists, public connectivity is not allowed.  You can reach [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) because they are inside of and local to your virtual network.  If you want to establish outbound connectivity to a destination outside of your virtual network, you have two options:
+Standard Load Balancer exists within the context of the virtual network.  A virtual network is an isolated, private network.  Unless an association with a public IP address exists, public connectivity is not allowed.  You can reach [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) because they are inside of and local to your virtual network.  If you want to establish outbound connectivity to a destination outside of your virtual network, you have two options:
 1. assign a Standard SKU public IP address as an Instance-Level Public IP address to the virtual machine resource or
 2. place the virtual machine resource in the backend pool of a public Standard Load Balancer.
 
@@ -143,7 +143,7 @@ Both will allow outbound connectivity from the virtual network to outside of the
 
 If you _only_ have an internal Standard Load Balancer associated with the backend pool in which your virtual machine resource is located, your virtual machine can only reach virtual network resources and [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).  You can follow the steps described in the preceding paragraph to create outbound connectivity.
 
-Outbound connecitivty of a virtual machine resource not associated with Standard SKUs remains as before.
+Outbound connectivity of a virtual machine resource not associated with Standard SKUs remains as before.
 
 Review a [detailed discussion of Outbound Connections](load-balancer-outbound-connections.md).
 
@@ -154,12 +154,9 @@ For comparison, Basic Load Balancer selects a single frontend at random and ther
 
 Review a [detailed discussion of Outbound Connections](load-balancer-outbound-connections.md).
 
+### <a name = "nsg"></a>Secure by default
 
-### <a name = "nsg"></a>Network Security Groups
-
-Load Balancer Standard and Public IP Standard fully onboard to the virtual network, which requires the use of Network Security Groups (NSGs). NSGs make it possible to whitelist traffic flow. You can use NSGs to gain full control over traffic to your deployment. You no longer have to wait for other traffic flows to complete.
-
-Associate NSGs with subnets or the network interfaces (NICs) of VM instances in the back-end pool. Use this configuration with Load Balancer Standard, and Public IP Standard when it is used as an instance-level Public IP. The NSG must explicitly whitelist the traffic that you want to permit, in order for that traffic to flow.
+Standard Load Balancer is fully onboarded to the virtual network.  The virtual network is a private, closed network.  Because Standard Load Balancers and Standard public IP addresses are designed to allow this virtual network to be accessed from outside of the virtual network, these resources now default to closed unless you open them. This means Network Security Groups (NSGs) are now used to explicitly permit and whitelist allowed traffic.  You can create your entire virtual data center and decide through NSG what and when it should be available.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, we will not permit traffic to reach this resource.
 
 To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 
