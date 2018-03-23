@@ -38,7 +38,7 @@ If you deployed your cluster in the Azure portal or used the sample Azure Resour
 ## Next steps
 * See the [overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md).
 * Learn about [cluster security](service-fabric-cluster-security.md).
-* [Remote connect](service-fabric-remote-connect-to-an-azure-cluster-node.md) to a specific scale set instance
+* [Remote connect](service-fabric-cluster-remote-connect-to-azure-cluster-node.md) to a specific scale set instance
 * [Update the RDP port range values](./scripts/service-fabric-powershell-change-rdp-port-range.md) on cluster VMs after deployment
 * [Change the admin username and password](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) for cluster VMs
 

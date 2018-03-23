@@ -532,7 +532,7 @@
       - name: Delete
         href: service-fabric-cluster-delete.md
       - name: Remote connect to cluster node VM
-        href: service-fabric-remote-connect-to-an-azure-cluster-node.md
+        href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
     - name: Standalone clusters
       items:
       - name: Create
