@@ -27,7 +27,7 @@ Azure Disk Encryption for Windows and Linux IaaS VMs is in general availability 
 
 ## What user experiences are available with Azure Disk Encryption?
 
-Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerShell, and Azure CLI. This gives you a lot of flexibility. You have three different options for enabling disk encryption for your IaaS VMs. For more information on the user experience and step-by-step guidance available in Azure Disk Encryption, see Azure Disk Encryption deployment scenarios and experiences.
+Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerShell, and Azure CLI. This gives you a lot of flexibility. You have three different options for enabling disk encryption for your IaaS VMs. For more information on the user experience and step-by-step guidance available in Azure Disk Encryption, see [Azure Disk Encryption deployment scenarios and experiences](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences).
 
 ## How much does Azure Disk Encryption cost?
 
@@ -77,19 +77,19 @@ Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For W
 
 ## Does Azure Disk Encryption allow you to bring your own key (BYOK) capability?
 
-Yes, you can supply your own key encryption keys. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption keys support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
+Yes, you can supply your own key encryption keys. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption keys support scenarios, see [Azure Disk Encryption deployment scenarios and experiences](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences).
 
 ## Can I use an Azure-created key encryption key?
 
-Yes, you can use Azure Key Vault to generate a key encryption key for Azure disk encryption use. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption key support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
+Yes, you can use Azure Key Vault to generate a key encryption key for Azure disk encryption use. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption key support scenarios, see [Azure Disk Encryption deployment scenarios and experiences](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences).
 
 ## Can I use an on-premises key management service or HSM to safeguard the encryption keys?
 
-You cannot use the on-premises key management service or HSM to safeguard the encryption keys with Azure Disk Encryption. You can only use the Azure Key Vault service to safeguard the encryption keys. For more information on the key encryption key support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
+You cannot use the on-premises key management service or HSM to safeguard the encryption keys with Azure Disk Encryption. You can only use the Azure Key Vault service to safeguard the encryption keys. For more information on the key encryption key support scenarios, see [Azure Disk Encryption deployment scenarios and experiences](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences).
 
 ## What are the prerequisites to configure Azure Disk Encryption?
 
-There is a prerequisite PowerShell script. With this script, you can create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption and safeguard secrets and keys. For more information on the key encryption key support scenarios, see Azure Disk Encryption prerequisites and deployment scenarios and experiences.
+There is a prerequisite PowerShell script. With this script, you can create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Azure Disk Encryption prerequisites and deployment scenarios and experiences](azure-security-disk-encryption.md#prerequisites).
 
 ## Where can I get more information on how to use PowerShell for configuring Azure Disk Encryption?
 
