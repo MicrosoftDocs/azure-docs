@@ -22,7 +22,7 @@ ms.author: kumud
 Azure Load Balancer's Standard SKU supports [Availability Zones](../availability-zones/az-overview.md) scenarios. Several new concepts are available with Standard Load Balancer, which allow you to optimize availability in your end-to-end scenario by aligning resources with zones as well as distribute them across zones.  Review [Availability Zones](../availability-zones/az-overview.md) for guidance on what Availability Zones are, which regions currently support Availability Zones, and other related concepts and products. Availability Zones in combination with Standard Load Balancer is an expansive and flexible feature set that can create many different scenarios.  Review this document to understand these [concepts](#concepts) and fundamental scenario [design guidance](#design).
 
 >[!NOTE]
-> The Load Balancer Standard SKU is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the generally available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. To use [Availability Zones Preview](https://aka.ms/availabilityzones) with this Preview requires a [separate sign-up](https://aka.ms/availabilityzones), in addition to signing up for Load Balancer [Standard preview](#preview-sign-up).
+>You need to [sign up for Availability Zones Preview](https://aka.ms/availabilityzones) to use this ability. 
 
 ## <a name="concepts"></a> Availability Zones concepts applied to Load Balancer
 
