@@ -45,7 +45,7 @@ Before proceeding further, try restarting your application and see if the proble
 
 <h2 id="Self-Signed-Certificate-in-Certificate-Chain">Self-Signed Certificate in Certificate Chain</h2>
 
-There are few reasons you may be seeing this error, the two most common ones are:
+There are a few reasons you may be seeing this error, the two most common ones are:
 
 1. You're behind a “transparent proxy”, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
 
