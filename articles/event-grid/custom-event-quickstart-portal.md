@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 03/22/2018
+ms.date: 03/23/2018
 ms.topic: hero-article
 ms.service: event-grid
 ---
@@ -81,26 +81,31 @@ Before subscribing to the topic, let's create the endpoint for the event message
 
    ![Custom function](./media/custom-event-quickstart-portal/select-custom-function.png)
 
+1. Scroll down until you find **Event Grid trigger**. Select **C#**.
+
+   ![Select event grid trigger](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
+
+1. Accept the default values, and select **Create**.
+
+   ![New function](./media/custom-event-quickstart-portal/new-function.png)
+
+Your Azure function is now ready to receive events.
 
 ## Subscribe to a topic
 
-You subscribe to a topic to tell Event Grid which events you want to track. 
+You subscribe to a topic to tell Event Grid which events you want to track, and where to send the events.
 
-1. To create an Event Grid subscription, select **All Services**.
+1. In your Azure function, select **Add Event Grid Subscription**.
 
-   ![Select all services](./media/custom-event-quickstart-portal/all-services.png)
+   ![Add event grid subscription](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
 
-1. Search for *Event Grid*. Select **Event Grid Subscriptions** from the available options.
+1. Provide values for the subscription. Select **Event Grid Topics** for the topic type. For subscription and resource group, select the subscription and resource group where you created your custom topic. For instance, select the name of your custom topic. The subscriber endpoint is prepopulated with the URL for the function.
 
-   ![Select event grid subscription](./media/custom-event-quickstart-portal/select-event-subscriptions.png)
+   ![Provide subscription values](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
-1. Select **+ Event Subscription**.
+1. Before triggering the event, open the logs for the function so you can see the event data when it is sent. At the bottom of your Azure function, select **Logs**.
 
-   ![Add event grid subscription](./media/custom-event-quickstart-portal/add-event-subscription.png)
-
-1. Provide a unique name for your event subscription. For the topic type, select **Event Grid Topics**. For the instance, select the custom topic you created. Provide the URL from Hookbin as the endpoint for event notification. The endpoint must use `https:`. When finished providing values, select **Create**.
-
-   ![Provide event grid subscription value](./media/custom-event-quickstart-portal/create-event-subscription.png)
+   ![Select logs](./media/custom-event-quickstart-portal/select-logs.png)
 
 Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. To simplify this article, use Cloud Shell to send sample event data to the custom topic. Typically, an application or Azure service would send the event data.
 
@@ -129,23 +134,9 @@ CURL is a utility that sends HTTP requests. In this article, use CURL to send an
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Browse to the endpoint URL that you created earlier. Or, click refresh in your open browser. You see the event you just sent.
+You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Look at the logs to see the event data.
 
-```json
-[{
-  "id": "1807",
-  "eventType": "recordInserted",
-  "subject": "myapp/vehicles/motorcycles",
-  "eventTime": "2017-08-10T21:03:07+00:00",
-  "data": {
-    "make": "Ducati",
-    "model": "Monster"
-  },
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
-}]
-```
+![View logs](./media/custom-event-quickstart-portal/view-log-entry.png)
 
 ## Clean up resources
 
