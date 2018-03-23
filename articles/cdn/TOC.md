@@ -81,15 +81,10 @@
 ## [REST](/rest/api/cdn/)
 
 # Resources
-<<<<<<< HEAD
-## [Azure CDN POP locations](cdn-pop-locations.md)
-## [Azure roadmap](https://azure.microsoft.com/roadmap/)
-=======
 ## Azure CDN POP locations
 ### [POP locations by region](cdn-pop-locations.md)
 ### [POP locations by abbreviation](cdn-pop-abbreviations.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
->>>>>>> 306ace810913c17af50ae22a66f82e317b341b08
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
