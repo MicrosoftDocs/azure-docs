@@ -20,4 +20,4 @@ To set up an environment for multiple developers:
      * **Command line or VS Code**: To see existing Connected Environments you have access to: `vsce env list`. To select an environment: `vsce env select`.
      * **Visual Studio IDE**: Open a project in Visual Studio, select **Connected Environment for AKS** from the launch settings drop-down. In the dialog that opens, select an existing development environment.
 
-![Visual Studio launch settings drop-down](../images/LaunchSettings.png)
+![Visual Studio launch settings drop-down](../media/LaunchSettings.png)

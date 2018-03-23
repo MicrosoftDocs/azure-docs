@@ -29,7 +29,7 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 1. When `mywebapi` is ready, open your browser to the localhost address and append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
 1. If all the steps were successful, you should be able to see a response from the `mywebapi` service that looks like this.
 
-    ![](images/WebAPIResponse.png)
+    ![](media/WebAPIResponse.png)
 
 ## Make a request from *webfrontend* to *mywebapi*
 Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch to the Visual Studio window which has the `webfrontend` project. In the `HomeController.cs` file *replace* the code for the About method with the following:

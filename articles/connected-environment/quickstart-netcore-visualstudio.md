@@ -41,33 +41,33 @@ We're now ready to Create an ASP.NET web app with Visual Studio.
 ## Create an ASP.NET web app
 From within Visual Studio 2017 create a new project, currently this must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
 
-![](images/NewProjectDialog1.png)
+![](media/NewProjectDialog1.png)
 
 Select the **Web Application (Model-View-Controller)** template and be sure you are targeting **.NET Core** and **ASP.NET Core 2.0** in the two dropdowns at the top of the dialog. Click **OK** to create the project.
 
-![](images/NewProjectDialog2.png)
+![](media/NewProjectDialog2.png)
 
 
 ## Create a dev environment in Azure
 With Connected Environment, you can create Kubernetes-based development environments that are fully managed by Azure and optimized for development. With the project we just created open, select **Connected Environment for AKS** from the launch settings dropdown as shown below.
 
-![](images/LaunchSettings.png)
+![](media/LaunchSettings.png)
 
 In the dialog that is displayed next make sure you are signed in with the appropriate account and then either select an existing development environment or select **<Create New Connected Environment for AKS…>** to create a new one.
 
-![](images/ConnectedEnvDialog.png)
+![](media/ConnectedEnvDialog.png)
 
 You can use the default values provided or adjust them as you like. Click **OK** when the values are set appropriately.
 
-![](images/NewEnvDialog.png)
+![](media/NewEnvDialog.png)
 
 Back on the previous dialog leave the **Space** dropdown defaulted to `mainline` for now, we will discuss this later in more detail. Check the **Publicly Accessible** checkbox so the web app will be accessible via a public endpoint. This isn't required but it will be helpful to demonstrate some concepts later in this walkthrough. But don’t worry, in either case you will be able to debug your website using Visual Studio.
 
-![](images/ConnectedEnvDialog2.png)
+![](media/ConnectedEnvDialog2.png)
 
 Click **OK** to select or create the development environment. A background task will be started to accomplish this, it will take a number of minutes to complete. You can see if it is still being created by hovering your cursor over the **Background tasks** icon in the bottom left corner of the status bar (see below).
 
-![](images/BackgroundTasks.png)
+![](media/BackgroundTasks.png)
 
 > [!Note]
 Until the development environment is successfully created you cannot debug your application.
@@ -81,7 +81,7 @@ You will see a file named `Dockerfile` has been added. This file has information
 
 Lastly, you will see a file named `vsce.yaml` which contains configuration information that is needed by the development environment, such as whether the application should be accessible via a public endpoint.
 
-![](images/ProjectFiles.png)
+![](media/ProjectFiles.png)
 
 ## Debug a container in Kubernetes
 Once the development environment is successfully created you can debug the application. Set a breakpoint in the code, for example on line 20 in the file `HomeController.cs` where the `Message` variable is set. Click **F5** to start debugging. 
@@ -107,7 +107,7 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 1. When `mywebapi` is ready, open your browser to the localhost address and append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
 1. If all the steps were successful, you should be able to see a response from the `mywebapi` service that looks like this.
 
-    ![](images/WebAPIResponse.png)
+    ![](media/WebAPIResponse.png)
 
 ## Make a request from *webfrontend* to *mywebapi*
 Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch to the Visual Studio window which has the `webfrontend` project. In the `HomeController.cs` file *replace* the code for the About method with the following:
@@ -193,15 +193,15 @@ Do the following to create a new space:
 4. From here you can change or create the Connected Environment and/or space that will be used when you F5 or Ctrl+F5. *Make sure the Connected Environment you created earlier is selected*.
 5. In the **Space** dropdown select **<Create New Space…>**.
 
-    ![](images/Settings.png)
+    ![](media/Settings.png)
 
 6. In the **Add Space** dialog type in a name for the space and click **OK**. I've used my name ("scott") for the new space so that it is identifiable to my peers what space I'm working in.
 
-    ![](images/AddSpace.png)
+    ![](media/AddSpace.png)
 
 7. You should now see your development environment and new Space selected on the project properties page.
 
-    ![](images/Settings2.png)
+    ![](media/Settings2.png)
 
 ### Update code for *mywebapi*
 

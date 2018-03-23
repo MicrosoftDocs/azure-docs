@@ -58,15 +58,15 @@ Do the following to create a new space:
 4. From here you can change or create the Connected Environment and/or space that will be used when you F5 or Ctrl+F5. *Make sure the Connected Environment you created earlier is selected*.
 5. In the **Space** dropdown select **<Create New Space…>**.
 
-    ![](images/Settings.png)
+    ![](media/Settings.png)
 
 6. In the **Add Space** dialog type in a name for the space and click **OK**. I've used my name ("scott") for the new space so that it is identifiable to my peers what space I'm working in.
 
-    ![](images/AddSpace.png)
+    ![](media/AddSpace.png)
 
 7. You should now see your development environment and new Space selected on the project properties page.
 
-    ![](images/Settings2.png)
+    ![](media/Settings2.png)
 
 ### Update code for *mywebapi*
 
