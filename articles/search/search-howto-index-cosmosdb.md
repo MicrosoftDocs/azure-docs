@@ -65,7 +65,7 @@ This article shows how to use the REST API. If you opt for the portal, the [Impo
 > You can launch the **Import data** wizard from the Azure Cosmos DB dashboard to simplify indexing for that data source. In left-navigation, go to **Collections** > **Add Azure Search** to get started.
 
 > [!NOTE] 
-> For now, you cannot create or edit **MongdoDB** data sources using Azure Portal or the .NET SDK. However, you **can** monitor execution history of MongoDB indexers in the portal.  
+> For now, you cannot create or edit **MongoDB** data sources using Azure Portal or the .NET SDK. However, you **can** monitor execution history of MongoDB indexers in the portal.  
 
 <a name="CreateDataSource"></a>
 ## Step 1: Create a data source
