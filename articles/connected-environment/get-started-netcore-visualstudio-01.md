@@ -1,13 +1,13 @@
 ---
 title: "Create a .NET Core development environment with containers using Kubernetes in the cloud with Visual Studio - Step 1 - Install tools | Microsoft Docs"
-author: "johnsta"
-ms.author: "johnsta"
-ms.date: "02/20/2018"
-ms.topic: "get-started-article"
-ms.technology: "vsce-kubernetes"
+author: "ghogen"
+ms.author: "ghogen"
+ms.date: "03/23/2018"
+ms.topic: "tutorial"
+
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
-manager: "ghogen"
+manager: "douge"
 ---
 # Get Started on Connected Environment with .NET Core and Visual Studio
 
@@ -36,7 +36,7 @@ While you can use the Connected Environment CLI as a standalone tool, rich featu
     * ASP.NET and web development
 1. Install the [Visual Studio extension for Connected Environment](https://aka.ms/get-vsce-visualstudio)
 
-We're now ready to Create an ASP.NET web app with Visual Studio.
+You're now ready to Create an ASP.NET web app with Visual Studio.
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app](get-started-netcore-visualstudio-02.md)

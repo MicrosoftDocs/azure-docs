@@ -1,13 +1,13 @@
 ---
 title: "Create a Node.js development environment with containers using Kubernetes in the cloud - Step 4 - Debug a container in Kubernetes | Microsoft Docs"
-author: "johnsta"
-ms.author: "johnsta"
-ms.date: "02/20/2018"
-ms.topic: "get-started-article"
-ms.technology: "vsce-kubernetes"
+author: "ghogen"
+ms.author: "ghogen"
+ms.date: "03/23/2018"
+ms.topic: "tutorial"
+
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
-manager: "ghogen"
+manager: "douge"
 ---
 # Get Started on Connected Environment with Node.js
 
@@ -30,7 +30,7 @@ Previous step: [Create a Node.js container in Kubernetes](get-started-nodejs-03.
 ## Debug the container in Kubernetes
 Hit **F5** to debug your code in Kubernetes!
 
-Similar to the `up` command, code is synced to the development environment when you start debugging, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
+Similar to the `up` command, code is synced to the development environment when you start debugging, and a container is built and deployed to Kubernetes. This time, the debugger is attached to the remote container.
 
 [!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
 
@@ -59,9 +59,9 @@ Refresh the web app in the browser, or press the *Say It Again* button. You shou
 ## Use NodeMon to develop even faster
 *Nodemon* is a popular tool that Node.js developers use for rapid development. Instead of manually restarting the Node process each time a server-side code edit is made, developers will often configure their Node project to have *nodemon* monitor file changes and automatically restart the server process. In this style of working, the developer just refreshes their browser after making a code edit.
 
-Connected Environment's intent is for you to be able to use the same, productive development workflows you employ when developing locally. To illustrate this, the sample `webfrontend` project was configured to use *nodemon* (it is configured as a dev dependency in `package.json`).
+With Connected Environment, you can use many of the same development workflows you use when developing locally. To illustrate this, the sample `webfrontend` project was configured to use *nodemon* (it is configured as a dev dependency in `package.json`).
 
-Try the following:
+Try the following steps:
 1. Stop the VS Code debugger.
 1. Click on the Debug icon in the **Activity Bar** on the side of VS Code. 
 1. Select **Attach (VSCE)** as the active debug configuration.
@@ -71,7 +71,7 @@ In this configuration, the container is configured to start *nodemon*. When serv
 1. Edit the hello message again in `server.js`, and save the file.
 1. Refresh the browser, or click the *Say It Again* button, to see your changes take effect!
 
-**Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!** Next, we'll see how we can create and call a second container.
+**Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!** Next, you'll see how you can create and call a second container.
 
 > [!div class="nextstepaction"]
 > [Call a service running in a separate container](get-started-nodejs-05.md)

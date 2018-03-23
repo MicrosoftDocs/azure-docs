@@ -1,13 +1,13 @@
 ---
 title: "Create a Node.js development environment with containers using Kubernetes in the cloud - Step 3 - Create an ASP.NET web app | Microsoft Docs"
-author: "johnsta"
-ms.author: "johnsta"
-ms.date: "02/20/2018"
-ms.topic: "get-started-article"
-ms.technology: "vsce-kubernetes"
+author: "ghogen"
+ms.author: "ghogen"
+ms.date: "03/23/2018"
+ms.topic: "tutorial"
+
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
-manager: "ghogen"
+manager: "douge"
 ---
 # Get Started on Connected Environment with Node.js
 
@@ -39,7 +39,7 @@ What happened? Edits to content files, like HTML and CSS, don't require the Node
 ### Test from a mobile device
 If you open the web app on a mobile device, you will notice that the UI does not display properly on a small device.
 
-To fix this, we'll add a `viewport` meta tag:
+To fix this, you'll add a `viewport` meta tag:
 1. Open the file `./public/index.html`
 1. Add a `viewport` meta tag in the existing `head` element:
 
@@ -53,7 +53,7 @@ To fix this, we'll add a `viewport` meta tag:
 1. Save the file.
 1. Refresh your device's browser. You should now see the web app rendered correctly. 
 
-This is an example of how some problems just aren't found until you test on the devices an app is meant to be used. With VS Connected Environment you can rapidly iterate on your code and validate any changes on target devices.
+This is an example of how some problems just aren't found until you test on the devices where an app is meant to be used. With VS Connected Environment, you can rapidly iterate on your code and validate any changes on target devices.
 
 ## Update a code file
 Updating server-side code files requires a little more work, because a Node.js app needs to restart.
@@ -70,7 +70,6 @@ res.send('Hello from webfrontend running in Azure!');
 
 This rebuilds the container image and redeploys the Helm chart. Reload the browser page to see your code changes take effect.
 
-
-But there is an even *faster method* for developing code, which we'll explore in the next section. 
+But there is an even *faster method* for developing code, which you'll explore in the next section. 
 > [!div class="nextstepaction"]
 > [Debug a container in Kubernetes](get-started-nodejs-04.md)

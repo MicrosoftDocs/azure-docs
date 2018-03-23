@@ -1,13 +1,13 @@
 ---
 title: "How to share a development environment | Microsoft Docs"
-author: "johnsta"
-ms.author: "johnsta"
+author: "ghogen"
+ms.author: "ghogen"
 ms.date: "3/12/2018"
 ms.topic: "article"
-ms.technology: "vsce-kubernetes"
+
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
-manager: "ghogen"
+manager: "douge"
 ---
 # Share a Development Environment
 

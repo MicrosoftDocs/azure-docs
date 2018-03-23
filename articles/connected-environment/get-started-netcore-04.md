@@ -1,13 +1,13 @@
 ---
 title: "Create a .NET Core development environment with containers using Kubernetes in the cloud - Step 4 - Debug a container in Kubernetes  | Microsoft Docs"
-author: "johnsta"
-ms.author: "johnsta"
-ms.date: "02/20/2018"
-ms.topic: "get-started-article"
-ms.technology: "vsce-kubernetes"
+author: "ghogen"
+ms.author: "ghogen"
+ms.date: "03/23/2018"
+ms.topic: "tutorial"
+
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
-manager: "ghogen"
+manager: "douge"
 ---
 # Get Started on Connected Environment with .NET Core
  
@@ -58,7 +58,7 @@ Instead of rebuilding and redeploying a new container image each time code edits
 
 Refresh the web app in the browser, and go to the About page. You should see your custom message appear in the UI.
 
-**Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!** Next, we'll see how we can create and call a second container.
+**Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!** Next, you'll see how you can create and call a second container.
 
 > [!div class="nextstepaction"]
 > [Call a service running in a separate container](get-started-netcore-05.md)
