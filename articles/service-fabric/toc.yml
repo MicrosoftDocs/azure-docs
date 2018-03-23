@@ -106,10 +106,14 @@
     - name: Reliable Services
       href: service-fabric-reliable-services-introduction.md
       items:
+      - name: Service partitioning
+        href: service-fabric-concepts-partitioning.md
       - name: Reliable Services lifecycle - C#
         href: service-fabric-reliable-services-lifecycle.md
       - name: Reliable Services lifecycle - Java
         href: service-fabric-reliable-services-lifecycle-java.md
+      - name: Replica and instance lifecycle
+        href: service-fabric-concepts-replica-lifecycle.md 
       - name: Reliable Collections
         href: service-fabric-reliable-services-reliable-collections.md
       - name: Reliable Collection guidelines & recommendations
@@ -122,15 +126,13 @@
         href: service-fabric-reliable-services-reliable-concurrent-queue.md
       - name: Reliable Collection serialization
         href: service-fabric-reliable-services-reliable-collections-serialization.md
-      - name: Reliable State Manager and Reliable Collection internals
-        href: service-fabric-reliable-services-reliable-collections-internals.md
-      - name: Advanced usage
-        href: service-fabric-reliable-services-advanced-usage.md
     - name: Reliable Actors
       href: service-fabric-reliable-actors-introduction.md
       items:
       - name: Architecture
         href: service-fabric-reliable-actors-platform.md
+      - name: Implementing service-level features
+        href: service-fabric-reliable-actors-using.md
       - name: Lifecycle and garbage collection
         href: service-fabric-reliable-actors-lifecycle.md
       - name: State management
@@ -141,6 +143,8 @@
         href: service-fabric-reliable-actors-reentrancy.md
       - name: Type serialization
         href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
+    - name: Guest executables
+      href: service-fabric-guest-executables-introduction.md
   - name: Applications and services
     items:
     - name: Application model
@@ -150,17 +154,11 @@
     - name: Hosting model
       href: service-fabric-hosting-model.md
     - name: Service state
-      href: service-fabric-concepts-state.md
-    - name: Service partitioning
-      href: service-fabric-concepts-partitioning.md
+      href: service-fabric-concepts-state.md    
     - name: Scalability of applications
       href: service-fabric-concepts-scalability.md
     - name: Availability of services
-      href: service-fabric-availability-services.md
-    - name: Replica and instance lifecycle
-      href: service-fabric-concepts-replica-lifecycle.md
-    - name: Reconfiguration
-      href: service-fabric-concepts-reconfiguration.md
+      href: service-fabric-availability-services.md       
     - name: Service communication
       href: service-fabric-connect-and-communicate-with-services.md
       items:
@@ -387,7 +385,15 @@
         href: service-fabric-reliable-services-backup-restore.md
     - name: Build a Reliable Actors service
       items:
-      - name: Send notifications
+      - name: Access, save, and remove actor state
+        href: service-fabric-reliable-actors-access-save-remove-state.md
+      - name: Enumerate actors
+        href: service-fabric-reliable-actors-enumerate.md
+      - name: Delete actors and their state
+        href: service-fabric-reliable-actors-delete-actors.md
+      - name: Backup and restore actors
+        href: service-fabric-reliable-actors-backup-and-restore.md
+      - name: Send actor notifications
         href: service-fabric-reliable-actors-events.md
       - name: Set timers and reminders
         href: service-fabric-reliable-actors-timers-reminders.md

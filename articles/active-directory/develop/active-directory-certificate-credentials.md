@@ -82,7 +82,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### Register your certificate with Azure AD
 
-To associate the certificate credential with the client application in Azure AD, you need to edit the application manifest.
+You can associate the certificate credential with the client application in Azure AD through the Azure portal using any of the following methods:
+
+**Uploading the certificate file**
+
+In the Azure app registration for the client application, click on **Settings**, click **Keys** and then click **Upload Public Key**. Select the certificate file you want to upload and click **Save**. Once you save, the certificate is uploaded and the thumbprint, start date and expires values are displayed. 
+
+**Updating the application manifest**
+
 Having hold of a certificate, you need to compute:
 
 - `$base64Thumbprint`, which is the base64 encoding of the certificate Hash
