@@ -19,7 +19,7 @@ ms.author: lbosq
 
 One of the key features of the Graph API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This process is achieved through the [partitioning capabilities in Cosmos DB](partition-data.md#how-does-partitioning-work), which make use of collections, also referred to as containers, that can scale independently in terms of storage and throughput. Cosmos DB Graph API uses the same types of collections for all Cosmos DB APIs:
 
-- Fixed Collection: These collections can store a graph database up to 10 GB in size with maximum of 10,000 request units per second allocated to it. To create a fixed collection it isn't necessary to specify a partitioning key property in the data.
+- Fixed Collection: These collections can store a graph database up to 10 GB in size with a maximum of 10,000 request units per second allocated to it. To create a fixed collection it isn't necessary to specify a partitioning key property in the data.
 
 - Unlimited Collection: These collections can automatically scale to store a graph beyond the 10-GB limit through horizontal partitioning. Each partition will store 10 GB and the data will be automatically balanced based on the **specified partitioning key**, which will be a required parameter when using an unlimited collection. This type of collection can store a virtually unlimited data size and can allow up to 100,000 request units per second, or more [by contacting support](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
 
