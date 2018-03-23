@@ -8320,6 +8320,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-reliable-services-advanced-usage.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-lifecycle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-reliable-services-reliable-collections-internals.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-add-a-web-frontend.md",
             "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore",
             "redirect_document_id": false
@@ -17644,6 +17654,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/media-services/media-services-specifications-ms-sstr-ammendment-hevc.md",
+        "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
+        "redirect_document_id": true
+    },
+    {
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md",
         "redirect_url": "/azure/sql-data-warehouse/cheat-sheet",
         "redirect_document_id": false
@@ -17658,6 +17673,7 @@
         "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements",
         "redirect_document_id": false
     }
+
    ]
 }
 
