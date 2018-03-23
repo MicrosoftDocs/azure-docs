@@ -82,16 +82,21 @@ Run the following command to build the Spark source code with Kubernetes support
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-The following command creates the Spark container images and pushes it to a container image registry. Replace `registry.example.com` with the name of your container registry. If using Docker Hub, this value is the registry name. If using Azure Container Registry (ACR), this value is the ACR login server name.
+The following commands create the Spark container image and push it to a container image registry. Replace `registry.example.com` with the name of your container registry and `v1` with the tag you prefer to use. If using Docker Hub, this value is the registry name. If using Azure Container Registry (ACR), this value is the ACR login server name.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 build
+REGISTRY_NAME=registry.example.com
+REGISTRY_TAG=v1
+```
+
+```bash
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
 ```
 
 Push the container image to your container image registry.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 push
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG push
 ```
 
 ## Prepare a Spark job
@@ -207,8 +212,6 @@ cd $sparkdir
 
 Submit the job using `spark-submit`.
 
-Replace `<spark-image>` with the name of your container image in format of `<your container registry name>/spark:<tag>`.
-
 ```bash
 ./bin/spark-submit \
   --master k8s://http://127.0.0.1:8001 \
@@ -216,7 +219,7 @@ Replace `<spark-image>` with the name of your container image in format of `<you
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
-  --conf spark.kubernetes.container.image=<spark-image> \
+  --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
 
