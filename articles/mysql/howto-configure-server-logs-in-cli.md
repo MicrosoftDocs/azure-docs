@@ -37,7 +37,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ## List logs for Azure Database for MySQL server
 To list the available log files for your server, run the [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) command.
 
-You can list the log files for server **mydemoserver.mysql.database.azure.com** under Resource Group **myresourcegroup**, and direct it to a text file called **log\_files\_list.txt.**
+You can list the log files for server **mydemoserver.mysql.database.azure.com** under Resource Group **myresourcegroup**. Then direct the list of log files to a text file called **log\_files\_list.txt.**
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
