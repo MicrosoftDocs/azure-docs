@@ -179,9 +179,14 @@ Once all decommissioned worker nodes are configured to run compute node, come ba
 
 2. Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
 
-3. Look for the "URIs" section, and add worker node's IP and port details.
+3. Look for the "Uris" section, and add worker node's IP and port details.
 
-	![decommission worker nodes cmdline](./media/r-server-operationalize/get-started-op-cmd.png)
+       "Uris": {
+         "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",
+         "Values": [
+           "http://localhost:12805", "http://[worker-node1-ip]:12805", "http://[workder-node2-ip]:12805"
+         ]
+       }
 
 ## Next steps
 
