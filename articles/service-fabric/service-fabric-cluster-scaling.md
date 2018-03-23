@@ -18,6 +18,11 @@ ms.author: chackdan
 
 ---
 # Scaling Service Fabric clusters
+A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Clusters can contain potentially thousands of nodes. After creating a Service Fabric cluster, you can scale the cluster by increasing or decreasing the number of cluster nodes or increasing or decreasing the size of nodes.  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
+
+Why scale the cluster?
+- Increase the number of nodes to
+- Decrease the number of nodes to reduce unused capacity
 
 ## Adding or removing nodes (scaling in or out)
 
@@ -25,7 +30,7 @@ ms.author: chackdan
 
 ### Scaling a standalone cluster in or out
 
-## Increasing or decreasing node resources (scaling up or down)
+## Increasing or decreasing the size of nodes (scaling up or down)
 
 ### Scaling an Azure cluster up or down
 
