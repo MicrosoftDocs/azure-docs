@@ -28,7 +28,7 @@ This tutorial requires that you are running the Azure CLI version 2.0.26 or late
 
 In order to restrict what extensions can be installed, you need to have a [rule](/azure/azure-policy/policy-definition#policy-rule) to provide the logic to identify the extension.
 
-This example shows you how to create a rules file for Linux VMs in Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
+This example shows you how to create a rules file for Linux VMs to deny installing extensions published by 'Microsoft.OSTCExtensions' using Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
 
 In a [bash Cloud Shell](https://shell.azure.com/bash), type:
 
@@ -84,7 +84,7 @@ Copy and paste the following .json into the file.
 	"notAllowedExtensions": {
 		"type": "Array",
 		"metadata": {
-			"description": "The list of extensions that will be denied. Example: BGInfo, CustomScriptExtension, JsonAADDomainExtension, VMAccessAgent.",
+			"description": "The list of extensions that will be denied. Example: CustomScriptForLinux, VMAccessForLinux etc.",
 			"strongType": "type",
 			"displayName": "Denied extension"
 		}
