@@ -81,6 +81,8 @@
     items: 
     - name: Authoring cycle
       href: luis-concept-app-iteration.md 
+    - name: Collaboration
+      href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
   - name: Design Model 
