@@ -55,9 +55,9 @@ The GO SDK depends on Go-AutoRest modules to send REST requests to Azure Resourc
 To run a sample of Go code on Azure Stack:
   1. Install Azure SDK for Go and its dependencies. For instruction see the previous section, [Install Azure SDK for Go](#install-azure-sdk-for-go).
   2. Get metadata information from the Resource Manager endpoint. The endpoint returns a JSON file with the information required to run Go samples.
-  > [!note] ResourceManagerUrl in one node environment is: `https://management.local.azurestack.external/ 
-     ResourceManagerUrl in multi node environment is: https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
-  >  
+  > [!note] ResourceManagerUrl in one node environment is: `https://management.local.azurestack.external/  
+  >  ResourceManagerUrl in multi node environment is: https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+
      To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
   Sample JSON file:
@@ -111,7 +111,7 @@ func main() {
   vnetClient .CreateOrUpdate( ) 
 ````
   
-  For a complete example of creating a virtual network on Azure Stack by using Go SDK profile, see [Example](example).
+  For a complete example of creating a virtual network on Azure Stack by using Go SDK profile, see [Example](#example).
 
 ## Authentication
 
