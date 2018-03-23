@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines-linux
+ author: dlepow
+ ms.service: virtual-machines-linux
+ ms.topic: include
+ ms.date: 03/19/2018
+ ms.author: danlep
+ ms.custom: include file
+---
+
 ## Deployment considerations
 
 * For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/).
