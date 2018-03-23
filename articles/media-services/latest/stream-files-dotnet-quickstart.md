@@ -23,18 +23,16 @@ ms.author: juliako
 
 This quickstart explains how to use Azure Media Services to stream video files. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately.
 
-This tutorial examines a .NET code sample that is located on GitHub, so you are first offered to clone the sample repository. 
+You are first offered to clone a GitHub sample repository because this quickstart examines .NET code that endcodes and delivers your videos with Media Services. 
 
-The article explains the following tasks that are part of the code sample:  
+Specifically, the article explains the following tasks that are part of the code sample:  
 
 1. Create the **AzureMediaServicesClient** object to access Media Services operations.
 2. Create a job to encode a file hosted on an HTTPS URI.
 3. Poll for encoding status. 
 4. Get the URL that players on mobile devices and browsers can use to stream the encoded video.
 
-When you run the application discussed in this article, it prints out streaming URLs that you can use to stream your video with a media player. 
-
-The quickstart shows how to do it with Azure Media Player. 
+When you run the application discussed in this article, it prints out streaming URLs that you can use to stream your video with a media player. This quickstart shows how to do it with Azure Media Player. 
 
 ![Play the video](./media/stream-files-dotnet-quickstart/final-video.png)
 
