@@ -25,12 +25,12 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Enable built-in authentication and authorization
-> * Secure apps against all unauthenticated requests
+> * Secure apps against unauthenticated requests
 > * Use Azure Active Directory as the identity provider
-> * Enable access to a remote app on behalf of the authenticated user
+> * Access a remote app on behalf of the signed-in user
 > * Secure service-to-service calls with token authentication
-> * Get and use access tokens from server code
-> * Get and use access tokens from client (browser) code
+> * Use access tokens from server code
+> * Use access tokens from client (browser) code
 
 You can follow the steps in this tutorial on macOS, Linux, Windows.
 
@@ -405,12 +405,12 @@ What you learned:
 
 > [!div class="checklist"]
 > * Enable built-in authentication and authorization
-> * Secure apps against all unauthenticated requests
+> * Secure apps against unauthenticated requests
 > * Use Azure Active Directory as the identity provider
-> * Enable access to a remote app on behalf of the authenticated user
+> * Access a remote app on behalf of the signed-in user
 > * Secure service-to-service calls with token authentication
-> * Get and use access tokens from server code
-> * Get and use access tokens from client (browser) code
+> * Use access tokens from server code
+> * Use access tokens from client (browser) code
 
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
