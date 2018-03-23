@@ -184,6 +184,11 @@
             "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": true
         },
+	{
+            "source_path": "articles/active-directory/active-directory-saas-samanage-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/active-directory/active-directory-saas-atlassiancloud-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-atlassian-cloud-tutorial",
@@ -1910,7 +1915,7 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation",
+            "redirect_url": "/azure/automation/automation-create-runas-account",
             "redirect_document_id": false
         },
         {
@@ -4724,6 +4729,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/sql-api-sql-query-cheat-sheet.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/query-cheat-sheet",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
@@ -5022,6 +5032,11 @@
             "source_path": "articles/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/storage-explorer",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates",
+            "redirect_document_id": true
         },
 		{
             "source_path": "articles/log-analytics/log-analytics-security.md",
@@ -16186,14 +16201,19 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-configure-use-powershell.md",
-            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
             "redirect_document_id": true
         },
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-configure.md",
-            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-configure.md",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
+            "redirect_document_id": false
+        },  
         {
             "source_path": "articles/hdinsight/hdinsight-domain-joined-introduction.md",
             "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
@@ -16591,7 +16611,12 @@
         },
         {
             "source_path": "articles/hdinsight/spark/apache-spark-eventhub-streaming.md",
-            "redirect_url": "/azure/hdinsight/spark/apache-spark-eventhub-structured-streaming",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-streaming-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/spark/apache-spark-eventhub-structured-streaming.md",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-streaming-overview",
             "redirect_document_id": false
         },
         {
@@ -17494,6 +17519,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/virtual-network/virtual-network-service-endpoints-configure.md",
+        "redirect_url": "/azure/virtual-network/tutorial-restrict-network-access-to-resources",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-ps.md",
         "redirect_url": "/azure/virtual-network/quick-create-powershell",
         "redirect_document_id": false
@@ -17513,7 +17543,7 @@
         "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
         "redirect_document_id": false
     },
-	{
+	  {
         "source_path": "articles/active-directory/active-directory-apps-permissions-consent.md",
         "redirect_url": "/azure/active-directory/develop/active-directory-integrating-applications",
         "redirect_document_id": false
@@ -17547,6 +17577,93 @@
         "source_path": "articles/log-analytics/log-analytics-log-search-api-python.md",
         "redirect_url": "https://dev.loganalytics.io/",
         "redirect_document_id": false
-     }
+     },
+     {
+            "source_path": "articles/azure-functions/durable-functions-counter.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-monitor",
+            "redirect_document_id": true
+     },
+	   {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-concurrency.md",
+        "redirect_url": "/azure/sql-data-warehouse/resource-classes-for-workload-management",
+        "redirect_document_id": false
+     },
+     {
+        "source_path": "articles/azure-stack/azure-stack-asdk-release-notes.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-release-notes",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-architecture.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-architecture",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack/azure-stack-deploy.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-deploy-considerations",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-run-powershell-script.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-add-default-image.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-marketplace-item",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-provision-vm.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-create-vm-template",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-redeploy.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-redeploy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-register.md",
+        "redirect_url": "/azure/azure-stack/azure-stack-registration",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-overview.md",
+        "redirect_url": "/azure/sql-data-warehouse/backup-and-restore",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-backups.md",
+        "redirect_url": "/azure/sql-data-warehouse/backup-and-restore",
+        "redirect_document_id": false
+    },		
+	{
+        "source_path": "articles/data-factory/tutorial-create-azure-ssis-runtime-portal.md",
+        "redirect_url": "/azure/data-factory/tutorial-deploy-ssis-packages-azure",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/media-services/media-services-specifications-ms-sstr-ammendment-hevc.md",
+        "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md",
+        "redirect_url": "/azure/sql-data-warehouse/cheat-sheet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage.md",
+        "redirect_url": "/azure/sql-data-warehouse/cheat-sheet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-reference.md",
+        "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements",
+        "redirect_document_id": false
+    }
+
    ]
 }
+

@@ -19,7 +19,7 @@ ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ---
-#Get started with Apache Storm on HDInsight using the storm-starter examples
+# Get started with Apache Storm on HDInsight using the storm-starter examples
 
 Learn how to use Apache Storm in HDInsight using the storm-starter examples.
 
