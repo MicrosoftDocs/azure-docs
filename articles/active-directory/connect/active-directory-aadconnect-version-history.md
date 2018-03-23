@@ -41,7 +41,7 @@ Status: Released for auto-upgrade and download.
 
 >[!NOTE]
 >“AutoUpgrade functionality was incorrectly disabled for some tenants who deployed builds later than 1.1.524.0. To ensure that your Azure AD Connect instance is still eligible for AutoUpgrade, run the following PowerShell cmdlet:
-“Set-ADSyncAutoUpgrade -AutoupGradeState AutoUpgradeConfigurationState.Enabled”?
+“Set-ADSyncAutoUpgrade -AutoupGradeState AutoUpgradeConfigurationState.Enabled”
 
 
 ### Azure AD Connect
