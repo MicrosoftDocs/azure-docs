@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
 
 ---
@@ -107,6 +107,7 @@ The services that enable moving to both a new resource group and subscription ar
 
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
+* App Service Certificates
 * Application Insights
 * Automation
 * Azure Cosmos DB
@@ -195,7 +196,9 @@ You cannot move a virtual network to a different subscription if the virtual net
 
 ## App Service limitations
 
-The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription.
+The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription. 
+
+The limitations described in these sections apply to uploaded certificates, not App Service Certificates. You can move App Service Certificates to a new resource group or subscription without limitations. If you have multiple web apps that use the same App Service Certificate, first move all the web apps, then move the certificate.
 
 ### Moving within the same subscription
 
