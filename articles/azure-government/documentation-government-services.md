@@ -34,7 +34,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## Compute
 | Generally Available | Preview |
 | --- | --- |
-| [Virtual Machines](documentation-government-compute.md#virtual-machines) | [Azure Container Service**](documentation-government-compute.md#azure-container-service) |
+| [Virtual Machines](documentation-government-compute.md#virtual-machines) |  |
 | [Batch](documentation-government-compute.md#batch) | |
 | [Cloud Services](documentation-government-compute.md#cloud-services) | |
 | [Virtual Machine Scale Sets](documentation-government-compute.md#virtual-machine-scale-sets) | |
