@@ -5,14 +5,14 @@ services: backup
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
 ---
-# Back up Azure File shares
+# Back up Azure File shares (Preview)
 
-This article details how to back up [Azure File shares](../storage/files/storage-files-introduction.md).
+This article explains how to use the Azure portal to back up and restore [Azure File shares](../storage/files/storage-files-introduction.md) in Azure.
 
 In this guide, you learn how to:
 > [!div class="checklist"]
@@ -25,6 +25,16 @@ In this guide, you learn how to:
 
 ## Prerequisites
 Before you can back up an Azure File share, ensure that it is present in one of the [supported Storage Account types](troubleshoot-azure-files.md#preview-boundaries). Once you have verified this, you can protect your file shares.
+
+## Limitations for Azure File share backup during Preview
+Azure Files backup is in Preview. Be aware of the following limitations during the Preview:
+- You cannot protect File shares in Storage accounts with zone-redundant storage(ZRS) or read-access geo-redundant storage (RA-GRS) replication
+- You cannot protect File shares in Storage accounts that have Virtual Networks enabled.
+- There is no PowerShell or CLI available for protecting Azure Files.
+- The maximum number of scheduled backups per day is one.
+- The maximum number of on-demand backups per day is four.
+- Use resource locks on the Storage account to prevent accidental deletion of backups in your Recovery Services vault.
+- Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures. 
 
 ## Configuring Azure File shares backup
 
