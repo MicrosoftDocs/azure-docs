@@ -33,8 +33,6 @@ ms.custom: H1Hack27Feb2017
 > 
 > 
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 <table>
 
 <tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
