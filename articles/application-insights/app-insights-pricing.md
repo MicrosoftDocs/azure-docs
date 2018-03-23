@@ -57,17 +57,17 @@ There is no separate charge for 'ping tests' of a single page. Telemetry from bo
 
 Application Insights makes it easy to understand the pricing plans available and what the costs are likely be based on recent usage patterns. Start by opening the **Usage and estimated costs** page in the Application Insights resource in the Azure portal:
 
-![Choose Pricing.](./media/app-insights-pricing/01-pricing.png)
+![Choose Pricing.](./media/app-insights-pricing/pricing-001.png)
 
 **a.** Review your data volume for the month. This includes all the data received and retained (after any [sampling](app-insights-sampling.md) from your server and client apps, and from availability tests.
 
 **b.** A separate charge is made for [multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)
 
-**c.** Enable the Enterprise plan (for subscriptions linked to an Enterprise agreement only)
+**c.** View data volume trends for the last month.
 
-**d.** View data volume for the last month, set a daily cap or set ingestion sampling.
+**d.** Enable data ingestion [sampling.](app-insights-sampling.md) 
 
-**e.** Select options to manage the volume of telemetry such as [sampling](app-insights-sampling.md) or a daily cap. 
+**e.** Configure the daily data volume cap.
 
 Application Insights charges are added to your Azure bill. You can see details of your Azure bill on the Billing section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions). 
 
@@ -104,9 +104,9 @@ You can use the daily volume cap to limit the data collected, but if the cap is 
 
 Instead, use  [Sampling](app-insights-sampling.md) to tune the data volume to the level you'd like, and use the daily cap only as a "last resort" in case your application starts sending much higher volumes of telemetry unexpectedly.
 
-To change the daily cap, in the Configure section of your Application Insights resource, click **Data volume management** then **Daily Cap**.
+To change the daily cap, in the Configure section of your Application Insights resource, from the **Usage and estimated costs** page, click  **Daily Cap**.
 
-![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/daily-cap.png)
+![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/pricing-003.png)
 
 ## Sampling
 [Sampling](app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while still retaining the ability to find related events during diagnostic searches, and still retaining correct event counts.
@@ -120,7 +120,7 @@ There are several forms of sampling.
 
 To set ingestion sampling, set the control in the Pricing dialog:
 
-![From the Quota and pricing dialog, click the Samples tile and select a sampling fraction.](./media/app-insights-pricing/04.png)
+![From the Quota and pricing dialog, click the Samples tile and select a sampling fraction.](./media/app-insights-pricing/pricing-004.png)
 
 > [!WARNING]
 > The Data sampling dialog only controls the value of ingestion sampling. It doesn't reflect the sampling rate that is being applied by the Application Insights SDK in your app. If the incoming telemetry has already been sampled at the SDK, ingestion sampling is not applied.
