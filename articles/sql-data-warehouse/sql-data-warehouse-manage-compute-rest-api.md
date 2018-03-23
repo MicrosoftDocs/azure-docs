@@ -58,5 +58,5 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 
 ## Next steps
-For other management tasks, see [Management overview](./sql-data-warehouse-overview-manage.md).
+For more information, see [Manage compute](sql-data-warehouse-manage-compute-overview).
 
