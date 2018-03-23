@@ -47,11 +47,11 @@ After you have used R Server cluster in HDInsight to complete your data modeling
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. You are presented with the options to choose from. Choose the first option, as shown in the following screenshot, to **Configure ML Server for Operationalization**.
+3. You are presented with the options to choose from. Choose the first option, as shown in the following screenshot, to **Configure R Server for Operationalization**.
 
     ![one box op](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. You are now presented with the option to choose how you want to operationalize ML Server. From the presented options, choose the first one by entering **A**.
+4. You are now presented with the option to choose how you want to operationalize R Server. From the presented options, choose the first one by entering **A**.
 
     ![one box op](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -165,7 +165,7 @@ Follow these steps to decommission worker nodes:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Enter **1** to select option **Configure ML Server for Operationalization**.
+3. Enter **1** to select option **Configure R Server for Operationalization**.
 
 4. Enter **C** to select option `C. Compute node`. This configures the compute node on the worker node.
 
