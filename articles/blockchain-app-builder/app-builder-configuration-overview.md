@@ -17,25 +17,23 @@ manager: zeyadr
 ---
 # Azure Blockchain App Builder Configuration Reference
 
-The configuration file is:
+The setup information for the application built in App Builder, such as states and user permissions
 
-* json
-* Represents an application
+REVISED: A file detailing the properties, states, actions and parameters, role permissions, and other specifications for the [smart contract(s)] in the application
+
+{The arrangement of parts, options, or features to produce a product that meets a specification, such as a customer order.}
 
 {image}
 
- An application consists of one or more workflows. Each workflow consists of one or more smart contracts. Each smart contract consists of one or more states, where specific users can take actions to transition to the next state. 
 
 ## Application
 
-An application represents a definition of a blockchain application. 
-
-Some explaination of where these are used.  Could be here or in the description.
+The application is comprised of one or more smart contracts and a configuration file that describes them.  The files are uploaded to the associated App Builder’s storage and SQL DB services via the Gateway API. 
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
 | ApplicationName | Unique app name | Y | AssetTransfer |
-| DisplayName | Friendly display name | Y | Asset Transfer        |
+| DisplayName | Friendly display name | Y | Asset Transfer |
 | Description | Descriptive text | N | Transfer of assets between a buyer and seller |
 | ApplicationRoles | Collection of [ApplicationRoles](#application-roles) | Y | Appraiser, Buyer |
 | Workflows | Collection of  [Workflows](#workflows) | Y | AssetTransfer |
@@ -109,7 +107,7 @@ Available actions to the next state.
 
 ## Application Roles
 
-Users can be assigned to application roles. Application rolls can be associated to actions.
+Application roles control access by assigning users to actions in the workflow.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|

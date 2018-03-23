@@ -29,6 +29,15 @@ Using the Azure Blockchain App Builder REST API you can:
 
 An application represents a definition of a blockchain application. An application consists of one or more workflows. Each workflow consists of one or more smart contracts. Each smart contract consists of one or more states, where specific users can take actions to transition to the next state. 
 
+The application built on blockchain that's created in App Builder. It has two components: the configuration and the business logic.
+
+REVISED: The application that's created in App Builder to address a specific business scenario, such as bank guarantees, provenance, trade finance, multi-party loyalty, royalties, etc. It is comprised of one or more smart contracts (each representing one part of an end-to-end solution) and a configuration file that describes them. The files are uploaded to the user’s storage and SQL DB services via the Gateway API. 
+
+The application is comprised of one or more smart contracts and a configuration file that describes them.  The files are uploaded to the associated App Builder’s storage and SQL DB services via the Gateway API. 
+It will be common for an application to include multiple smart contracts. These contracts typically represent different aspects or sub-processes of an end to end solution.
+
+Workflow behavior is defined by states. Actions initiate moving to another state.
+
 ## Base URL
 
 All URLs have the following base:

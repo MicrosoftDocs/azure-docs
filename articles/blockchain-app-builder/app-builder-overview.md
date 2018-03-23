@@ -13,9 +13,9 @@ manager: femila
 ---
 # What is Azure Blockchain App Builder?
 
-The Azure Blockchain App Builder empowers organizations to focus on writing smart contracts to enable their business scenarios by generating an end-to-end blockchain application.
+The Azure Blockchain App Builder helps organizations write smart contracts to enable their business scenarios by generating an end-to-end blockchain application.
 
-You can easily configure and deploy a blockchain proof of concept solutions complete with end to end business flows. 
+Using Azure Blockchain App Builder, you can configure and deploy blockchain proof of concept solutions complete with end to end business flows. 
 
 The App Builder uses Azure Resource Manager (ARM) template deployment to create the scaffolding for a blockchain application, which includes a web client, gateway API for integration, automatic off chain storage, hashing and signing services, and interaction with identity and secrets management services. This scaffold provides an easy extensible model, allowing developers to replace or add technology components for core system capabilities. Extensions to the App Builder include samples for key scenarios, such as IoT scenarios, which are able to utilize sensor data on the blockchain.
 
