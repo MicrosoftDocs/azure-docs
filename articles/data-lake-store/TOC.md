@@ -16,7 +16,7 @@
 # How to
 ## Load and move data
 ### [Using Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
-### [Using Data Lake Store in Storage Explorer](data-lake-store-in-storage-explorer.md)
+### [Using Storage Explorer](data-lake-store-in-storage-explorer.md)
 ### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
