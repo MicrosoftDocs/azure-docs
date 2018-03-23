@@ -38,10 +38,10 @@ Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** 
 
 ## Create an Azure AD application and service principal
 
-Before running the script, please replace the following placeholders:
+Before running the script, please replace the following placeholder:
 
-* *amsaccountname* (required): This is the name of the Azure Media Services account where to attach the service principal
-* *myresourcegroup* (optional): This is the service principal name to use
+* *amsaccountname*: This is the name of the Azure Media Services account where to attach the service principal
+* *myresourcegroup*: This is the service principal name to use
 
 ```azurecli-interactive
 az ams  sp create -a <amsaccountname> -g <myresourcegroup>
