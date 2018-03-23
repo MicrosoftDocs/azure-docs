@@ -133,11 +133,17 @@ The IoT Edge runtime can only support hostnames that are shorter than 64 charact
 ### Resolution
 Shorter virtual machine names have shorter hostnames, so if you create new VMs for IoT Edge give them succinct names to prevent this error. 
 
-When you see this error, you can resolve it by specifying your own hostname in the setup command: 
+When you see this error, you can resolve it by configuring the DNS name of your virtual machine, and then specifying the DNS name as the hostname in the setup command.
 
-```input
-iotedgectl setup --connection-string "<connection string>" --auto-cert-gen-force-no-passwords --edge-hostname "<hostname>"
-```
+1. In the Azure portal, navigate to the overview page of your virtual machine. 
+2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one. 
+3. Provide a value for **DNS name label** and select **Save**.
+4. On the overview page, hover your mouse to the right of the DNS name and select the copy button. 
+5. Inside the virtual machine, use the following command to set up the IoT Edge runtime with your DNS name:
+
+   ```input
+   iotedgectl setup --connection-string "<connection string>" --auto-cert-gen-force-no-passwords --edge-hostname "<DNS name>"
+   ```
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iot-edge/issues) so that we can continue to improve. 
