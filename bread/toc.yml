@@ -294,6 +294,10 @@
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/
+    items: 
+      - name: v3
+        tocHref: /azure/media-services/latest/
+        topicHref: /azure/media-services/latest/
   - name: Mobile Engagement
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/

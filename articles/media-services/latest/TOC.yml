@@ -1,0 +1,58 @@
+- name: Media Services Documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: About Media Services
+    href: media-services-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an account - CLI
+    href: create-account-cli-quickstart.md
+  - name: Stream video files
+    items:
+    - name: .NET with Visual Studio
+      href: stream-files-dotnet-quickstart.md
+- name: Tutorials
+  items:
+  - name: Upload, encode, and stream
+    href: stream-files-tutorial.md
+  - name: Analyze your video
+    href: analyze-videos-tutorial.md
+- name: Samples
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=media
+- name: Concepts
+  items:
+  - name: Storage accounts
+    href: storage-account-concept.md
+  - name: Transforms
+    href: transform-concept.md
+  - name: Assets
+    href: assets-concept.md
+  - name: Auto-generating adaptive bitrate outputs
+    href: autogen-bitrate-ladder.md
+- name: How-to guides
+  items:
+  - name: Access APIs - CLI
+    href: access-api-cli-how-to.md
+- name: Reference
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=media-services   
+  - name: Azure PowerShell (Resource Manager)
+    href: /powershell/module/azurerm.media
+  - name: REST
+    href: /rest/api/media/mediaservice
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+        

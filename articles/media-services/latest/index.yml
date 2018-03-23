@@ -1,0 +1,53 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Media Services v3 (preview) Documentation 
+metadata:
+  document_id: 
+  title: Azure Media Services v3 Documentation - Tutorials, API Reference | Microsoft Docs
+  meta.description: Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and more.
+  services: media-services
+  author: Juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03-20-2018
+  ms.author: juliako
+abstract:
+  description: Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create a Media Services account, start encoding your videos, and use Azure Media Player to play them back:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/media-services.svg
+      text: Create an account
+      href: /azure/media-services/latest/create-account-cli-quickstart
+    - image: 
+        src: media/index/media-services.svg
+      text: Stream video files
+      href: /azure/media-services/latest/stream-files-dotnet-quickstart
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to stream files, broadcast live, and analyze your videos with Media Services.'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/media-services/latest/stream-files-tutorial">Upload, encode, and stream videos</a>
+    - html: <a href="/azure/media-services/latest/analyze-videos-tutorial">Analyze your videos</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/media/">REST API</a></p>
