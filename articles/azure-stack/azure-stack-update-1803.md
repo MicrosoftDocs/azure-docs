@@ -45,24 +45,31 @@ The Azure Stack 1803 update build number is **1803xx.x**.
 *There are no post-update steps for update 1803.*
 
 
-### New features and fixes
+### New features 
 This update includes the following improvements and fixes for Azure Stack.
 
 - <!-- 1914853 --> **Automatic redirect to HTTPS** when you use HTTP to access the administrator and user portals. This improvement was made based on [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) feedback for Azure Stack.  
 
 - <!-- pending --> **Access the Marketplace** – You can now open the Azure Stack Marketplace by using the [+New](https://ms.portal.azure.com/#create/hub) option from within the admin and user portals the same way you do in the Azure portals.
  
-- **Azure Monitor** - Azure Stack adds Azure Monitor to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
+- **Azure Monitor** - Azure Stack adds [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
 
-- <!-- 1739988 -->  **FIXED** - Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to break when using Linux instances on the Back-End network. ILB works fine with Windows instances on the Back-End Network.
 
-- <!-- 1805496 --> **FIXED** - An issue where VPN Connections between Azure Stack would become disconnected due to mismatching QuickMode SALifetime in Seconds values has been fixed.  The values now match the values in Azure.
+### Fixed isues
 
-- <!-- 2209262 --> **FIXED** - The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal.
+- <!-- 1739988 -->  **Fixed** - Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to break when using Linux instances on the Back-End network. ILB works fine with Windows instances on the Back-End Network.
 
-- <!-- 1766332 --> **FIXED** - Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal.
+- <!-- 1805496 --> **Fixed** - An issue where VPN Connections between Azure Stack would become disconnected due to mismatching QuickMode SALifetime in Seconds values has been fixed.  The values now match the values in Azure.
 
-- <!-- 2096388 --> **FIXED** - Unable to update Network Security Group Rules form the Portal is now fixed.
+- <!-- 2209262 --> **Fixed** - The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal.
+
+- <!-- 1766332 --> **Fixed** - Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal.
+
+- <!-- 2096388 --> **Fixed** - Unable to update Network Security Group Rules from the Portal is now fixed.
+
+- <!-- 1868283 --> **Fixed** - Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks.
+
+- <!-- 1756324--> **Fixed** - Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure stack.
 
@@ -98,8 +105,7 @@ The following are post-installation known issues for build  **1803.xx.x**
 
 - <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
 
-#### Health and monitoring
-There are no known issues after updating to 1803.
+<!-- #### Health and monitoring --> 
 
 #### Marketplace
 - Users can browse the full marketplace without a subscription and can see administrative items like plans and offers. These items are non-functional to users.
@@ -109,7 +115,7 @@ There are no known issues after updating to 1803.
 #### Compute
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
-- <!-- IS --> When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
+- When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
 - When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
 
