@@ -172,6 +172,9 @@ Now that you’ve configured PowerShell, you can test the configuration by creat
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> To specify a resource group, you will need to have a resource group in your subscription. For more information about subscriptions, see [Plan, offer, quota, and subscription overview](azure-stack-plan-offer-quota-overview.md)
+
 After the resource group is created, the **Provisioning state** property is set to **Succeeded**.
 
 ## Next steps
@@ -179,10 +182,3 @@ After the resource group is created, the **Provisioning state** property is set 
 * [Install and configure CLI](azure-stack-connect-cli.md)
 
 * [Develop templates](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-
