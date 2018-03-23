@@ -205,6 +205,8 @@
     items:
     - name: Cluster security
       href: service-fabric-cluster-security.md
+    - name: Scaling
+      href: service-fabric-cluster-scaling.md
     - name: Feature differences between Linux and Windows
       href: service-fabric-linux-windows-differences.md
     - name: Clusters on Azure
