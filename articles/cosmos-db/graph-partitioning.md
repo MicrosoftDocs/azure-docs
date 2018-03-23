@@ -17,22 +17,22 @@ ms.author: lbosq
 ---
 # Using a partitioned graph in Azure Cosmos DB
 
-One of the key features of the Graph API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This is achieved through the [partitioning capabilities in Cosmos DB](partition-data.md#how-does-partitioning-work), which make use of collections, also referred to as containers, that can scale independently in terms of storage and throughput. Cosmos DB Graph API uses the same types of collections for all Cosmos DB APIs:
+One of the key features of the Graph API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This process is achieved through the [partitioning capabilities in Cosmos DB](partition-data.md#how-does-partitioning-work), which make use of collections, also referred to as containers, that can scale independently in terms of storage and throughput. Cosmos DB Graph API uses the same types of collections for all Cosmos DB APIs:
 
-- Fixed Collection: These collections can store a graph database up to 10GB in size with maximum of 10,000 request units per second allocated to it. To create a fixed collection it isn't necessary to specify a partitioning key property in the data.
+- Fixed Collection: These collections can store a graph database up to 10 GB in size with maximum of 10,000 request units per second allocated to it. To create a fixed collection it isn't necessary to specify a partitioning key property in the data.
 
-- Unlimited Collection: These collections can automatically scale to store a graph beyond the 10GB limit through horizontal partitioning. Each partition will store 10GB and the data will be automatically balanced based on the **specified partitioning key**, which will be a required parameter when using an unlimited collection. This type of collection can store a virtually unlimited data size and can allow up to 100,000 request units per second, or more [by contacting support](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+- Unlimited Collection: These collections can automatically scale to store a graph beyond the 10-GB limit through horizontal partitioning. Each partition will store 10 GB and the data will be automatically balanced based on the **specified partitioning key**, which will be a required parameter when using an unlimited collection. This type of collection can store a virtually unlimited data size and can allow up to 100,000 request units per second, or more [by contacting support](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
 
 In this document, the specifics on how graph databases are partitioned will be described along with its implications for both vertices (or nodes) and edges. The following are considerations that should be followed when creating a partitioned graph collection.
 
 ## Considerations for partitioned graph databases
 
 For a graph database, the following are the specific implementation details for unlimited collections:
-- **Setting up partitioning will be necessary** if the collection is expected to be more than 10GB in size and/or if allocating more than 10,000 request units per second (RU/s) will be required.
-- **Both vertices and edges are stored as documents** in the back-end of Cosmos DB Graph API. These are represented as JSON documents in the storage layer.
+- **Setting up partitioning will be necessary** if the collection is expected to be more than 10 GB in size and/or if allocating more than 10,000 request units per second (RU/s) will be required.
+- **Both vertices and edges are stored as documents** in the back-end of Cosmos DB Graph API. These objects stored in the JSON format in the storage layer.
 - **Vertices require a partitioning key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The name of this partitioning key is a single-word string without spaces or special characters, and it is defined when creating a new collection using the format `/partitioning-key-name` on the portal.
 - **Edges will be stored with their source vertex**. In other words, for each vertex its partitioning key will define where they will be stored along with its outgoing edges. This is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
-- **Graph queries need to specify a partitioning key**. To take full advantage of the horizontal partitioning in Cosmos DB, the partitioning key should be specified whenever a single vertex is selected. The following are ways in which this can be done:
+- **Graph queries need to specify a partitioning key**. To take full advantage of the horizontal partitioning in Cosmos DB, the partitioning key should be specified whenever a single vertex is selected. The following are queries for inserting vertices in partitioned collections:
     - Selecting a vertex by ID, then **filtering by the partitioning key property**: 
         `g.V('vertex_id').has('partitionKey', 'partitionKey_value')`
     - Selecting a vertex by **specifying a tuple including partitioning key value and ID**: 
@@ -46,7 +46,7 @@ For a graph database, the following are the specific implementation details for 
 
 The following are guidelines that should be followed to ensure the most efficient performance and scalability when using partitioned graphs in unlimited collections:
 - **Always specify the partitioning key value when querying a vertex**. Obtaining a vertex from a known partition is the most efficient way in terms of performance.
-- **Use the outgoing direction when querying edges whenever it's possible**. As mentioned above, edges are stored with their source vertices in the outgoing direction. This means that the chances of resorting to cross-partition queries are minimized when the data and queries are designed with this in mind.
+- **Use the outgoing direction when querying edges whenever it's possible**. As mentioned above, edges are stored with their source vertices in the outgoing direction. This means that the chances of resorting to cross-partition queries are minimized when the data and queries are designed with this pattern in mind.
 - **Choose a partitioning key that will evenly distribute data across partitions**. This decision heavily depends on the model of the data. A partitioning key should be chosen when its value can be hashed evenly into different partitions. This behavior will increase the chances of queries not resorting to cross-partition lookups. A random value for the partition key would provide an approximate even distribution of the data for the partitions when no other attribute can be chosen.
 - **Optimize queries to obtain data within the boundaries of a partition**. An optimal partitioning strategy would be aligned to the querying patterns. Queries that obtain data from a single partition provide the best possible performance.
 
@@ -54,7 +54,7 @@ The following are guidelines that should be followed to ensure the most efficien
 
 For example, for a collection of airports to be partitioned by the country they're in, defining the country property as a partitioning key will be required when creating the collection. In this case, this property would be `/country`, when creating the collection on the portal. The value of this property will be hashed and when vertices are inserted and that will define which partition they will be stored in. 
  
-After setting up the unlimited collection with the aforementioned partitioning key, this is what the insertion command in Gremlin should look like:
+After setting up the unlimited collection with the aforementioned partitioning key, the insertion command in Gremlin should look like:
 
 ```
 g.addV('airport')
@@ -63,7 +63,7 @@ g.addV('airport')
     .property('country', 'US')
 ``` 
 
-In this example, the label (the parameter of the `addV()` step), ID and location  properties are arbitrary values. The `country` property name will need to match the predefined partitioning key and the value needs to be a string. This value will define in which of the back-end partitions this vertex will reside in. For more information about how the partitions themselves are created, read the following article: [How does partitioning work?](partition-data.md#how-does-partitioning-work). 
+In this example, the label (the parameter of the `addV()` step), ID and location  properties are arbitrary values. The `country` property name will need to match the predefined partitioning key and the value needs to be a string. This value will define in which of the back-end partitions this vertex will reside in. For more information about how the partitions themselves are created, read the following article: [How does partitioning work](partition-data.md#how-does-partitioning-work). 
 
 Assume that the following vertex is created and that given the value of its partitioning key, the `country` property, it is stored in a separate partition:
 
@@ -74,16 +74,16 @@ g.addV('airport')
     .property('country', 'JP')
 ``` 
 
-All the edges that originate from every one these vertices will be stored in their respective partitions. Assuming that the edges in this example represent flights, this would mean that all flights documents will be stored in the same partition as their origin airport. The following Gremlin query would get all the flights from any given airport. Notice how the source vertex is obtained by specifying both its ID and partitioning key value:
+All the edges that originate from every one these vertices will be stored in their respective partitions. Assuming that the edges in this example represent flights, all flights documents would be stored in the same partition as their origin airport. The following Gremlin query would get all the flights from any given airport. Notice how the source vertex is obtained by specifying both its ID and partitioning key value:
 
 ```
 g.V(['US', 'LAX']).outE('flights')
 ``` 
 
-In this example a flight between Tokyo and Los Angeles would result in a cross-partition query. This kind of query would involve a seek operation in every partition until the documents that are being searched for are found.
+In this example, a flight between Tokyo and Los Angeles would result in a cross-partition query. This kind of query would involve a seek operation in every partition until the documents that are being searched for are found.
 
 ## Next steps
-In this article, we provided an overview of concepts and best practices for partitioning with a Azure Cosmos DB Graph API. 
+In this article, an overview of concepts and best practices for partitioning with an Azure Cosmos DB Graph API was provided. 
 
 * Learn about [Partition and scale in Azure Cosmos DB](partition-data.md).
 * Learn about the [Gremlin support in Graph API](gremlin-support.md).
