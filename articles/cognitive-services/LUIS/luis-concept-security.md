@@ -13,7 +13,7 @@ ms.author: v-geberr;
 ---
 
 # Security
-In order to secure the LUIS app, consider who has access to the app from the authoring APIs and the endpoint APIs.  
+In order to secure the LUIS app, consider who has access to the app from the [authoring](https://aka.ms/luis-authoring-apis) APIs and the [endpoint](https://aka.ms/luis-endpoint-apis) APIs.  
 
 ## Access to authoring
 Access to the app from the [LUIS][LUIS] website or the [authoring APIs](https://aka.ms/luis-authoring-apis) is controlled by the owner of the app. 
@@ -33,7 +33,9 @@ The owner and all collaborators can:
 |Train|
 
 ## Access to endpoint
-Access to the endpoint is controlled by the Public setting of the app on the **Settings** page. A private app's endpoint query is checked for an authorized key with remaining quota hits. A public app's endpoint query is checked for remaining quota hits. 
+Access to the endpoint to query LUIS is controlled by the **Public** setting of the app on the **Settings** page. A private app's endpoint query is checked for an authorized key with remaining quota hits. A public app's endpoint query is checked for remaining quota hits. 
+
+The endpoint key is passed either in the querystring of the GET request or the header of the POST request.
 
 ![Set app to public](./media/luis-concept-security/set-application-as-public.png)
 
@@ -45,9 +47,9 @@ A private app's endpoint is only available to the following:
 |Owner's authoring key| Up to 1000 endpoint hits|
 |Collaborators' authoring keys| Up to 1000 endpoint hits|
 |Endpoint keys added from **[Publish](publishapp.md)** page|Owner and collaborators can add endpoint keys|
-|Other authoring or endpoint keys| no access|
 
-The endpoint key is passed either in the querystring of the GET request or the header of the POST request. 
+Other authoring or endpoint keys have **no** access.
+
 
 ### Public app endpoint access
 Configure the app as **public** on the **Settings** page of the app. Once an app is configured as public, any valid LUIS authoring key or LUIS endpoint key can query your app, as long as the key has not used the entire endpoint quota.
