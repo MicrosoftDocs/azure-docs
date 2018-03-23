@@ -39,7 +39,7 @@ The following table outlines key differences and envisioned usage scenarios betw
 |SQL IaaS |For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
 |||
 
-![positioning](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## How to programmatically identify a Managed Instance
 
@@ -55,7 +55,7 @@ The following table shows several properties, accessible through Transact SQL, t
 ## Key features and capabilities of a Managed Instance 
 
 > [!IMPORTANT]
-> A Managed Instance runs with all of the features of SQL Server Enterprise Edition, including online operations, automatic plan corrections, and other enterprise performance enhancements. 
+> A Managed Instance runs with all of the features of the most recent version of SQL Server, including online operations, automatic plan corrections, and other enterprise performance enhancements. 
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |
