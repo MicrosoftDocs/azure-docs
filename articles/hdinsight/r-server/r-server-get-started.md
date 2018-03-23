@@ -230,6 +230,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 In this article you learned how to create a new R Server cluster in Azure HDInsight and the basics of using the R console from an SSH session. The following articles explain other ways of managing and working with R Server on HDInsight:
 
+* [Submit jobs from R Tools for Visual Studio](r-server-submit-jobs-r-tools-vs.md)
 * [Manage R Server cluster on HDInsight](r-server-hdinsight-manage.md)
 * [Operationalize R Server cluster on HDInsight](r-server-operationalize.md)
 * [Compute context options for R Server cluster on HDInsight](r-server-compute-contexts.md)
