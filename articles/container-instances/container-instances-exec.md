@@ -18,44 +18,31 @@ Azure Container Instances supports executing a command in a running container. R
 A few examples of when you might use this feature:
 
 * Launch an interactive shell with `/bin/bash` to investigate a faulting application.
-* Execute `cat /dev/null > my-big-log-file` to clear up disk space.
 * Verify a successful volume mount with `ls /mnt/my-azure-file-share`.
-
-> [!NOTE]
-> You can't currently use the `exec` command on a Windows *client* machine. You must use either Linux or macOS to launch a process in a running container. Executing commands in running Windows containers is **supported**.
+* Execute `cat /dev/null > my-big-log-file` to clear up disk space.
 
 ## Run a command with Azure CLI
 
 Execute a command in a running container with [az container exec][az-container-exec] in the [Azure CLI][azure-cli]:
 
 ```azurecli
-az container exec \
-    --resource-group <group-name> \
-    --name <container-group-name> \
-    --exec-command "<command>"
+az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
 ```
 
 For example, to launch a Bash shell in an Nginx container:
 
 ```azurecli
-az container exec \
-    --resource-group myResourceGroup \
-    --name mynginx \
-    --exec-command "/bin/bash"
+az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
 ```
 
 ## Multi-container groups
 
-If your [container group](container-instances-container-groups.md) has multiple containers, such as an application container and a logging sidecar, you must also specify the container name.
+If your [container group](container-instances-container-groups.md) has multiple containers, such as an application container and a logging sidecar, specify the name of the container in which to run the command.
 
 For example, in the container group *mynginx* are two containers, *nginx-app* and *logger*. To launch a shell on the *nginx-app* container, include the `--container-name` argument:
 
 ```azurecli
-az container exec \
-    --resource-group myResourceGroup \
-    --name mynginx \
-    --container-name nginx-app
-    --exec-command "/bin/bash"
+az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"
 ```
 
 ## Next steps
