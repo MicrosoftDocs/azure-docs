@@ -1,10 +1,10 @@
 ---
 title: Use Azure Policy to restrict VM extension installation | Microsoft Docs
-description: Using Azure Policy to Restrict Extension Deployments.
+description: Use Azure Policy to restrict VM extension deployments.
 services: virtual-machines-linux 
 documentationcenter: ''
 author: danielsollondon 
-manager: timlt 
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -12,23 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/27/2018
-ms.author: danis
+ms.date: 03/23/2018
+ms.author: danis;cynthn
 
 ---
 
-# How to use Azure Policy to Restrict Extensions Installation on VMs
+# How to use azure policy to restrict extensions installation on Linux VMs
 
 If you want to prevent the use or installation of certain extension on your Linux VMs, you can create an Azure policy using the CLI to restrict extensions for VMs within a resource group. 
 
-
-This tutorial requires that you are running the Azure CLI version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create a rules file
 
 In order to restrict what extensions can be installed, you need to have a [rule](/azure/azure-policy/policy-definition#policy-rule) to provide the logic to identify the extension.
 
-This example shows you how to create a rules file for Linux VMs to deny installing extensions published by 'Microsoft.OSTCExtensions' using Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
+This example shows you how to deny installing extensions published by 'Microsoft.OSTCExtensions' by creating a rules file in Azure Cloud Shell, but if you are working in CLI locally, you can also create a local file and replace the path (~/clouddrive) with the path to the local file on your machine.
 
 In a [bash Cloud Shell](https://shell.azure.com/bash), type:
 
