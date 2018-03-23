@@ -34,8 +34,8 @@ This guide summarizes solutions for common issues seen for Azure Cosmos DB in St
   - [Unable to see the authentication page](#Unable-to-see-the-authentication-page)
   - [Cannot remove account](#Cannot-remove-account)
 - [Http/Https Proxy Issue](#Http/Https-Proxy-Issue)
-- ['Development' node under 'Local and Attached' Issue](#\`Development\`-node-under-\`Local-and-Attached\`-Issue)
-- [Attach Cosmos DB account in \`Local and Attached\` Error](#Attaching-Cosmos-DB-account-in-\`Local-and-Attached\`-Error)
+- ['Development' node under 'Local and Attached' Issue](#Development-node-under-Local-and-Attached-Issue)
+- [Attach Cosmos DB account in \`Local and Attached\` Error](#Attaching-Cosmos-DB-account-in-Local-and-Attached-Error)
 - [Expand Cosmos DB node Error](#Expand-Cosmos-DB-node-Error)
 - [Submit your Issue](#Submit-Your-Issue)
 
@@ -109,13 +109,13 @@ If you're unable to remove an account, or if the reauthenticate link does not do
 
 You cannot list Cosmos DB nodes in left tree when configuring http/https proxy in ASE. It's a known issue, and will be fixed in next release. You could use Cosmos DB data explorer in Azure portal as a work-around at this moment. 
 
-<h2 id="\`Development\`-node-under-\`Local-and-Attached\`-Issue">\`Development\` node under \`Local and Attached\` Issue</h2>
+<h2 id="Development-node-under-Local-and-Attached-Issue">\`Development\` node under \`Local and Attached\` Issue</h2>
 
 There is no response after clicking the \`Development\` node under \`Local and Attached\` in left tree.  The behavior is expected. Cosmos DB local emulator will be supported in next release.
 
 ![Development node](./media/troubleshoot-cosmosdb-in-storage-explorer/development.png)
 
-<h2 id="Attaching-Cosmos-DB-account-in-\`Local-and-Attached\`-Error">Attaching Cosmos DB account in \`Local and Attached\` Error</h2>
+<h2 id="Attaching-Cosmos-DB-account-in-Local-and-Attached-Error">Attaching Cosmos DB account in \`Local and Attached\` Error</h2>
 
 If you see below error after attaching Cosmos DB account in \`Local and Attached\`, then check if you're using the right connection string.
 
