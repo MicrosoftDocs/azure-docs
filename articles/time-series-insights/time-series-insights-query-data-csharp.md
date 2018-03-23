@@ -22,6 +22,8 @@ The sample shows several basic examples of Query API usage:
 3. As an example of HTTPS request, availability data is requested for the environment of interest.
 4. As an example of web socket request, event aggregates data is requested for the environment of interest. Data is requested for the whole availability time range.
 
+This example code is also available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
 ## Project References
 Add NuGet packages `Microsoft.IdentityModel.Clients.ActiveDirectory` and `Newtonsoft.Json` for this example. 
 
