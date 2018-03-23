@@ -22,7 +22,7 @@ The Bing Entity Search API samples include scenarios that:
 
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
-    * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.1.0-preview)
+    * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0)
     * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingEntitySearch) for definitions and dependencies.
 * Get started with [Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * See also [Node.js libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/entitySearch) for definitions and dependencies.

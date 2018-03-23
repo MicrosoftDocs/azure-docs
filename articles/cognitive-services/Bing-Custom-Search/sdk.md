@@ -17,7 +17,7 @@ The Bing Custom Search API sample looks up a single query term and prints out `n
 
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
-    * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.1.0-preview)
+    * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)
     * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingCustomSearch) for definitions and dependencies.
 * Get started with [NodeJS samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * See also [NodeJS libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/customSearch) for definitions and dependencies.
