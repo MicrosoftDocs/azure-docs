@@ -149,9 +149,9 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
    ![Starting the configuration process][2]
 
-4. Choose an existing Operations Management Suite (OMS) workspace or create a new one. This example uses an existing one.
+4. Choose an existing Log Analytics workspace or create a new one. This example uses an existing one.
 
-   ![Options for OMS workspaces][3]
+   ![Options for Log Analytics workspaces][3]
 
 5. Confirm the settings and click **Save**.
 

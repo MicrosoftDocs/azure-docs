@@ -6,7 +6,7 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
 ---
@@ -18,7 +18,7 @@ To simplify the problem space of HA, Microsoft uses the following assumptions:
 2.	Operational staff make mistakes that lead to failures
 3.	Planned servicing operations cause outages 
 
-While such individual events are infrequent, at cloud scale, they every week if not every day. 
+While such individual events are infrequent, at cloud scale, they occur every week if not every day. 
 
 ## Fault-tolerant SQL databases
 Customers are most interested in the resiliency of their own databases and are less interested in the resiliency of the SQL Database service as a whole. 99.99% uptime for a service is meaningless if “my database” is part of the 0.01% of databases that are down. Each and every database needs to be fault-tolerant and fault mitigation should never result in the loss of a committed transaction. 
@@ -41,7 +41,7 @@ Key benefits:
 
 ## Data redundancy
 
-The high availability solution in SQL Database is based on [Always ON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, Always ON is used for persistence while in RS is it used for availability (low RTO). 
+The high availability solution in SQL Database is based on [Always ON Availability Groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, the Always ON availability group technology is used for persistence while in RS it is used for availability (low RTO). 
 
 ## Local storage configuration
 
