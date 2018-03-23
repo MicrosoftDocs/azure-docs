@@ -45,7 +45,7 @@ Offerings must be of one of the following five service types (you can list more 
 
 Except for the *Briefing* service type, consulting services can be offered in-person (that is, onsite at a customer’s location or a partner’s facility) or virtually (that is, via teleconferencing, web conferencing, or remote implementation). Briefings must be offered in person.
 
-For more information, see [competencies through Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies#simple-tab-content-1). 
+For more information, see [competencies through Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
 
 ## Supported countries
 
