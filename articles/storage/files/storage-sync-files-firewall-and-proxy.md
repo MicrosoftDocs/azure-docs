@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/26/2018
+ms.date: 02/26/2018
 ms.author: fauhse
 ---
 
