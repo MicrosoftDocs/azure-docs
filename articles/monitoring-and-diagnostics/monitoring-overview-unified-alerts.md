@@ -13,25 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/23/2018
 ms.author: mamit
 ms.custom:
 
 ---
-# Explore the Alerts experience in Azure Monitor
+# The new alerts experience in Azure Monitor
 
 ## Overview
- Alerts experience in Azure has a fresh look and updated functionality. This new experience is available from the **Alerts** tab under Azure Monitor. The following are some of the advantages of using the new Alerts experience compared to Alerts (Classic) experience:
+ Alerts has new experience. The older alerts experience is now under the Alerts (Classic) tab. The new Alerts experience has the following benefits over the Alerts (Classic) experience:
 
- - **Separation of Fired alerts and Alert Rules** - In the new Alerts experience, Alert Rules (the definition of condition that triggers an alert), and Fired Alerts (an instance of the alert rule firing) are differentiated, so the operational and configuration views are separated.
- - **A unified authoring experience for metric, activity log and log alerts** - The new Alerts authoring experience guides the user along the process of configuring an alert rule, which makes it simpler to discover the right things to get alerted on.
- - **View fired Log Analytics alerts in Azure portal** - In the Alerts experience, you can now also see fired Log Analytics alerts in your subscription.  
+ - **Separation of Fired alerts and Alert Rules** - Alert Rules (the definition of condition that triggers an alert), and Fired Alerts (an instance of the alert rule firing) are differentiated, so the operational and configuration views are separated.
+ - **A unified authoring experience**  - All alert creation for for metrics, logs and activity log across Azure Monitor, Log Analytics, and Application Insights is in one place. 
+ - **View fired Log Analytics alerts in Azure portal** - You can now also see fired Log Analytics alerts in your subscription. Previoiusly these were in a separate portal. 
+ - **Better workflow** - The new alerts authoring experience guides the user along the process of configuring an alert rule, which makes it simpler to discover the right things to get alerted on.
  
-
 The following sections describe, in more detail, how the new experience works.
 
 ## Taxonomy
-The Alerts experience uses following concepts to separate the Alert Rule and Fired Alert objects while unifying the authoring experience across different alert types.
+The Alerts experience uses following concepts to separate the alert rule and fired alert objects while unifying the authoring experience across different alert types.
 
 - **Target Resource** - A target can be any Azure resource. Target Resource defines the scope and signals available for alerting. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace or an Application Insights resource.
 
