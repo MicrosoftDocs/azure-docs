@@ -18,7 +18,7 @@ ms.date: 06/19/2017
 ms.author: bradsev
 
 ---
-#Introduction to R Server and open-source R capabilities on HDInsight
+# Introduction to R Server and open-source R capabilities on HDInsight
 
 Microsoft R Server is available as a deployment option when you create HDInsight clusters in Azure. This new capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
 

@@ -131,6 +131,8 @@
   items:
   - name: Azure Stack Operator Documentation
     href: /azure/azure-stack/
+  - name: ASDK Documentation
+    href: /azure/azure-stack/asdk/
 - name: Resources
   items:
   - name: Azure Stack roadmap
