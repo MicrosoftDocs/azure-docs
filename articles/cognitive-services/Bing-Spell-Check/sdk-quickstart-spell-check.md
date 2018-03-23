@@ -19,7 +19,7 @@ The Bing Spell Check SDK contains the functionality of the REST API for spell ch
 
 To set up a console application using the Bing Spell Check SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.SpellCheck` package.
 
-Installing the [SpellCheck SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.1.0-preview) also installs dependencies, including:
+Installing the [SpellCheck SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.2.0) also installs dependencies, including:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.AZure
 * Newtonsoft.Json
