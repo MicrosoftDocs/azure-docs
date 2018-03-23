@@ -129,12 +129,9 @@
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
   - name: Cognitive Services
-    tocHref: /azure/#pivot=products&panel=ai
-    topicHref: /azure/#pivot=products&panel=ai
+    tocHref: /azure/cognitive-services/
+    topicHref: /azure/cognitive-services/
     items:
-    - name: Cognitive Services
-      tocHref: /azure/cognitive-services/
-      topicHref: /azure/cognitive-services/
     - name: Bing Custom Search
       tocHref: /azure/cognitive-services/bing-custom-search/
       topicHref: /azure/cognitive-services/bing-custom-search/
