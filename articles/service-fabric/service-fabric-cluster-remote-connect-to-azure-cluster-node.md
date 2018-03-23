@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/5/2018
+ms.date: 03/23/2018
 ms.author: chackdan
 
 ---
@@ -62,9 +62,6 @@ To find an IP address and port that you can use to remotely connect to a specifi
 * Learn about the [Service Fabric SDK and getting started](service-fabric-get-started.md).
 
 <!--Image references-->
-[NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png
-[Resources]: ./media/service-fabric-cluster-nodetypes/Resources.png
-[InboundNatPools]: ./media/service-fabric-cluster-nodetypes/InboundNatPools.png
 [LBBlade]: ./media/service-fabric-cluster-nodetypes/LBBlade.png
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
