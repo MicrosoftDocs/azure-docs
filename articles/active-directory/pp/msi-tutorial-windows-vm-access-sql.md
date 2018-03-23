@@ -135,7 +135,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### Enable Azure AD authentication for the SQL server
 
-Now that you have created the group and added the VM MSI to the membership, you can [configure Azure AD authentication for the SQL server](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) using the following steps:
+Now that you have created the group and added the VM MSI to the membership, you can [configure Azure AD authentication for the SQL server](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) using the following steps:
 
 1.	In the Azure portal, select **SQL servers** from the left-hand navigation.
 2.	Click the SQL server to be enabled for Azure AD authentication.

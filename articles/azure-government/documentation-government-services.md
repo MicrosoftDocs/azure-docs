@@ -110,7 +110,7 @@ The **services available in Azure Government** are listed by category, as well a
 | Generally Available | Preview |
 | --- | --- |
 | [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory) | |
-| [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium) | |
+| [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2) | |
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | |
 | [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication) | |
 
