@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 03/21/2018
 ms.author: sedusch
 
 ---
@@ -312,8 +312,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
         options {
         }
         disk {
-             fencing resource-only;
-             resync-rate 4G;
+             resync-rate 50M;
         }
         net {
              after-sb-0pri discard-younger-primary;
