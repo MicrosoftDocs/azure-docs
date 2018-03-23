@@ -419,7 +419,8 @@ reach the **Alerts** page directly.
 
 2.  Define the **Alert condition**.
 
-    *Note*: Make sure to select **All** in the **Filter by resource type**.
+    > [!NOTE]
+    > Make sure to select **All** in the **Filter by resource type**.
 
     ![Alert condition, screen 1 of 3](media/monitor-using-azure-monitor/alerts_image5.png)
 
@@ -429,7 +430,7 @@ reach the **Alerts** page directly.
 
 3.  Define the **Alert details**.
 
-    [Alert details](media/monitor-using-azure-monitor/alerts_image8.png)
+    ![Alert details](media/monitor-using-azure-monitor/alerts_image8.png)
 
 4.  Define the **Action group**.
 
