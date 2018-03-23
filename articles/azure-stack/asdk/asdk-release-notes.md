@@ -26,10 +26,9 @@ These release notes provide information about improvements, fixes, and known iss
 ## Build 20180327.xxx
 
 ### New features and fixes
-See the [new features and fixes](.\.\azure-stack-update-1803.md#new-features-and-fixes) section of the Azure Stack 1803 update release notes for Azure Stack integrated systems.
-
+The new features and fixes released for Azure Stack integrated systems version 1803 apply to the Azure Stack Development Kit. See the [new features](.\.\azure-stack-update-1803.md#new-features) and [fixed issues](.\.\azure-stack-update-1803.md#fixed-issues) sections of the Azure Stack 1803 update release notes for details.  
 > [!IMPORTANT]    
-> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
+> Some of the items listed in the **new features** and **fixed issues** sections are relevant only to Azure Stack integrated systems.
 
 ### Known issues
  
@@ -103,8 +102,6 @@ See the [new features and fixes](.\.\azure-stack-update-1803.md#new-features-and
 
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
  
-#### Usage and billing
-- Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 <!--
 #### Identity
@@ -284,7 +281,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 - Under **Networking**, if you click **Connection** to set up a VPN connection, **VNet-to-VNet** is listed as a possible connection type. Do not select this option. Currently, only the **Site-to-site (IPsec)** option is supported.
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
 - Azure Stack operators may be unable to deploy, delete, modify VNETs or Network Security Groups. This issue is primarily seen on subsequent update attempts of the same package. This is caused by a packaging issue with an update which is currently under investigation.
-- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which breaks Linux instances.
+- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which drop packets to the back-end network when using Linux instances.
  
 #### SQL/MySQL 
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
@@ -358,7 +355,7 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 - Under **Networking**, if you click **Connection** to set up a VPN connection, **VNet-to-VNet** is listed as a possible connection type. Do not select this option. Currently, only the **Site-to-site (IPsec)** option is supported.
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
 - Azure Stack operators may be unable to deploy, delete, modify VNETs or Network Security Groups. This issue is primarily seen on subsequent update attempts of the same package. This is caused by a packaging issue with an update which is currently under investigation.
-- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which breaks Linux instances.
+- Internal Load Balancing (ILB) improperly handles MAC addresses for back-end VMs which drop packets to the back-end network when using Linux instances.
  
 #### SQL/MySQL 
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
