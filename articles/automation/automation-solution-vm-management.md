@@ -218,9 +218,9 @@ You should not enable all schedules, because this might create overlapping sched
 |**Schedule name** | **Frequency** | **Description**|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Every 8 hours | Runs the AutoStop_CreateAlert_Parent runbook every 8 hours, which in turn stops the VM-based values in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables. Alternatively, you can specify a comma-separated list of VMs by using the VMList parameter.|
-|Scheduled_StopVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Stop* every day at the specified time.  Automatically stops all VMs that meet the rules defined by asset variables. You should enable the related schedule, **Scheduled-StartVM**.|
+|Scheduled_StopVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Stop* every day at the specified time. Automatically stops all VMs that meet the rules defined by asset variables. You should enable the related schedule, **Scheduled-StartVM**.|
 |Scheduled_StartVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Start* every day at the specified time.  Automatically starts all VMs that meet the rules defined by the appropriate variables. You should enable the related schedule, **Scheduled-StopVM**.|
-|Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the Sequenced_Parent runbook with a parameter of *Stop* every Friday at the specified time.  Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. Refer to the Runbooks section for more details on tag values and asset variables.  You should enable the related schedule, **Sequenced-StartVM**.|
+|Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the Sequenced_Parent runbook with a parameter of *Stop* every Friday at the specified time. Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. Refer to the Runbooks section for more details on tag values and asset variables. You should enable the related schedule, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the Sequenced_Parent runbook with a parameter of *Start* every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. Refer to the Runbooks section for more details on tag values and asset variables. You should enable the related schedule, **Sequenced-StopVM**.|
 
 ## Log Analytics records
@@ -302,7 +302,7 @@ Managing the startup and shutdown schedules in this solution follows the same st
 
 Configuring the solution to just stop VMs at a certain time is supported. To do this, you need to:
 
-1. Ensure you have added the resource groups for the VMs to shutdown in the **External_Start_ResourceGroupNames** variable.
+1. Ensure you have added the resource groups for the VMs to shut down in the **External_Start_ResourceGroupNames** variable.
 2. Create your own schedule for the time you want to shut down the VMs.
 3. Navigate to the **ScheduledStartStop_Parent** runbook and click **Schedule**. This allows you to select the schedule you created in the preceding step.
 4. Select **Parameters and run settings** and set the ACTION parameter to "Stop".
