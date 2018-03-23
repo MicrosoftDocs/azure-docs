@@ -25,8 +25,6 @@ Web Apps not only adds the power of Microsoft Azure to your application, such as
 
 With App Service, you pay for the Azure compute resources you use. The compute resources you use is determined by the _App Service plan_ that you run your Web Apps on. For more information, see [App Service plans in Azure Web Apps](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-The following 5-minute video introduces Azure App Service Web Apps.
-
 ## Why use Web Apps?
 
 Here are some key features of App Service Web Apps:
