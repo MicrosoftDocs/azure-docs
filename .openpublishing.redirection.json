@@ -15816,7 +15816,7 @@
         },
         {
             "source_path": "articles/cognitive-services/index.md",
-            "redirect_url": "/azure/cognitive-services/index",
+            "redirect_url": "/azure/cognitive-services/",
             "redirect_document_id": false
         },
         {
