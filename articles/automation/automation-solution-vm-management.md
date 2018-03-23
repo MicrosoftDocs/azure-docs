@@ -49,7 +49,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. The **Add Solution** page appears. You are prompted to configure the solution before you can import it into your Automation subscription.
-   ![VM Management Add Solution blade](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+   ![VM Management Add Solution page](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 1. On the **Add Solution** page, select **Workspace**. Select an OMS workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** page, perform the following:
    * Specify a name for the new **OMS Workspace**.
    * Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
@@ -71,8 +71,8 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    ![Parameters page for solution](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
    Here, you're prompted to:
-   * Specify the **Target ResourceGroup Names**. These are resource group names that contain VMs to be managed by this solution. You can enter more than one name and separate each by using a comma (values are not case sensitive). Using a wildcard is supported if you want to target VMs in all resource groups in the subscription. This value is stored in the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** variables.
-   * Specify the **VM Exclude List (string)**. This is the name of one or more virtual machines from the target resource group. You can enter more than one name and separate each by using a comma (values are not case sensitive). Using a wildcard is supported. This value is stored in the **External_ExcludeVMNames** variable.
+   * Specify the **Target ResourceGroup Names**. These are resource group names that contain VMs to be managed by this solution. You can enter more than one name and separate each by using a comma (values are not case-sensitive). Using a wildcard is supported if you want to target VMs in all resource groups in the subscription. This value is stored in the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** variables.
+   * Specify the **VM Exclude List (string)**. This is the name of one or more virtual machines from the target resource group. You can enter more than one name and separate each by using a comma (values are not case-sensitive). Using a wildcard is supported. This value is stored in the **External_ExcludeVMNames** variable.
    * Select a **Schedule**. This is a recurring date and time for starting and stopping the VMs in the target resource groups. By default, the schedule is configured to the UTC time zone. Selecting a different region is not available. To configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modify-the-startup-and-shutdown-schedule).
    * To receive **Email notifications** from SendGrid, accept the default value of **Yes** and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the **External_EmailToAddress** variable with valid email addresses separated by a comma, and then modify the variable **External_IsSendEmail** with the value **Yes**.
 
@@ -233,8 +233,8 @@ Property | Description|
 ----------|----------|
 Caller |  Who initiated the operation. Possible values are either an email address or system for scheduled jobs.|
 Category | Classification of the type of data. For Automation, the value is JobLogs.|
-CorrelationId | GUID that is the Correlation Id of the runbook job.|
-JobId | GUID that is the Id of the runbook job.|
+CorrelationId | GUID that is the Correlation ID of the runbook job.|
+JobId | GUID that is the ID of the runbook job.|
 operationName | Specifies the type of operation performed in Azure. For Automation, the value is Job.|
 resourceId | Specifies the resource type in Azure. For Automation, the value is the Automation account associated with the runbook.|
 ResourceGroup | Specifies the resource group  name of the runbook job.|
@@ -254,10 +254,10 @@ Property | Description|
 ----------|----------|
 Caller |  Who initiated the operation. Possible values are either an email address or system for scheduled jobs.|
 Category | Classification of the type of data. For Automation, the value is JobStreams.|
-JobId | GUID that is the Id of the runbook job.|
+JobId | GUID that is the ID of the runbook job.|
 operationName | Specifies the type of operation performed in Azure. For Automation, the value is Job.|
 ResourceGroup | Specifies the resource group  name of the runbook job.|
-resourceId | Specifies the resource Id in Azure. For Automation, the value is the Automation account associated with the runbook.|
+resourceId | Specifies the resource ID in Azure. For Automation, the value is the Automation account associated with the runbook.|
 ResourceProvider | Specifies the Azure service that supplies the resources you can deploy and manage. For Automation, the value is Azure Automation.|
 ResourceType | Specifies the resource type in Azure. For Automation, the value is the Automation account associated with the runbook.|
 resultType | The result of the runbook job at the time the event was generated. A possible value is:<br>- InProgress|
@@ -300,12 +300,12 @@ To configure email notifications after the solution is deployed, modify the foll
 
 Managing the startup and shutdown schedules in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md).
 
-Configuring the solution to just stop VMs at a certain time is supported. To do this you need to:
+Configuring the solution to just stop VMs at a certain time is supported. To do this, you need to:
 
 1. Ensure you have added the resource groups for the VMs to shutdown in the **External_Start_ResourceGroupNames** variable.
 2. Create your own schedule for the time you want to shut down the VMs.
 3. Navigate to the **ScheduledStartStop_Parent** runbook and click **Schedule**. This allows you to select the schedule you created in the preceding step.
-4. Select **Parameters and run settings** and set the ACTION paramter to "Stop".
+4. Select **Parameters and run settings** and set the ACTION parameter to "Stop".
 5. Click **OK** to save your changes.
 
 ## Update the solution
