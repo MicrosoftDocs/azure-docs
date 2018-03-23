@@ -4,7 +4,7 @@ description: Key analytics scenarios and components for Windows and Linux Data S
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: gokuma;bradsev
+ms.author: gokuma
 
 ---
 

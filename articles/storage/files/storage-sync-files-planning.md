@@ -174,6 +174,7 @@ In preview, we support syncing only with an Azure file share that's in the same 
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Next steps
+* [Consider firewall and proxy settings](storage-sync-files-firewall-and-proxy.md)
 * [Planning for an Azure Files deployment](storage-files-planning.md)
 * [Deploy Azure Files](storage-files-deployment-guide.md)
 * [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)

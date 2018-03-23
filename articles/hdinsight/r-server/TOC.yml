@@ -21,6 +21,10 @@
   items:
   - name: Use R Server
     items:
+    - name: Manage R Server cluster
+      href: r-server-hdinsight-manage.md
+    - name: Operationalize R Server cluster
+      href: r-server-operationalize.md
     - name: Storage options
       href: r-server-storage.md
     - name: Compute context
