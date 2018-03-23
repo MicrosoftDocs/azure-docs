@@ -119,6 +119,8 @@
         href: azure-stack-deploy-template-powershell.md
       - name: Deploy with Visual Studio
         href: azure-stack-deploy-template-visual-studio.md
+  - name: Enable a Cloud Service Provider
+    href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
@@ -129,6 +131,8 @@
   items:
   - name: Azure Stack Operator Documentation
     href: /azure/azure-stack/
+  - name: ASDK Documentation
+    href: /azure/azure-stack/asdk/
 - name: Resources
   items:
   - name: Azure Stack roadmap

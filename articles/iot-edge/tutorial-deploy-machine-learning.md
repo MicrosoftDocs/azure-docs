@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -40,12 +40,16 @@ In this section, you download the trained model files and convert them into an A
 
 On the machine running Module Management for Azure ML, download and save [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) and [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) from the Azure ML IoT Toolkit on GitHub. These files define the trained machine learning model that you will deploy to your Iot Edge device. 
 
-Use the trained model to create a container that can be deployed to IoT Edge devices.
+Use the trained model to create a container that can be deployed to IoT Edge devices. Use the following command to:
+
+   * Register your model.
+   * Create a manifest.
+   * Create a Docker container image named *machinelearningmodule*.
+   * Deploy the image to your Azure Container Service (AKS) cluster.
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-The service name, *machinelearningmodule* in this example, becomes the name of the docker container image.
 
 ### View the container repository
 

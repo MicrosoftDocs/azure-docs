@@ -33,7 +33,7 @@ You can install Backup Server v2 on Windows Server 2012 R2 or Windows Server 201
 ## Upgrade Backup Server to v2
 To upgrade from Backup Server v1 to Backup Server v2, make sure your installation has the required updates:
 
-- [Update the protection agents](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) on the protected servers.
+- [Update the protection agents](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) on the protected servers.
 - Upgrade Windows Server 2012 R2 to Windows Server 2016.
 - Upgrade Azure Backup Server Remote Administrator on all production servers.
 - Ensure that backups are set to continue without restarting your production server.

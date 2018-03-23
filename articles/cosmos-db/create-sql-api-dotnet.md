@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Build a web app with .NET and the SQL API | Microsoft Docs'
-description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB SQL API
+title: 'Build a .NET web app with Azure Cosmos DB using the SQL API | Microsoft Docs'
+description: In this quickstart, use the Azure Cosmos DB SQL API and the Azure portal to create a .NET web app
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -18,9 +18,7 @@ ms.date: 12/15/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+# Quickstart: Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 

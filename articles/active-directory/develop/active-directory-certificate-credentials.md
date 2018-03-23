@@ -16,7 +16,6 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-
 ---
 
 # Certificate credentials for application authentication
@@ -30,7 +29,7 @@ To compute the assertion, you probably want to use one of the many [JSON Web Tok
 #### Header
 
 | Parameter |  Remark |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | Should be **RS256** |
 | `typ` | Should be **JWT** |
 | `x5t` | Should be the X.509 Certificate SHA-1 thumbprint |
@@ -38,7 +37,7 @@ To compute the assertion, you probably want to use one of the many [JSON Web Tok
 #### Claims (Payload)
 
 | Parameter |  Remark |
-| --- | --- | --- |
+| --- | --- |
 | `aud` | Audience: Should be **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Expiration date: the date when the token expires. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires.|
 | `iss` | Issuer: should be the client_id (Application Id of the client service) |
@@ -47,9 +46,11 @@ To compute the assertion, you probably want to use one of the many [JSON Web Tok
 | `sub` | Subject: As for `iss`, should be the client_id (Application Id of the client service) |
 
 #### Signature
+
 The signature is computed applying the certificate as described in the [JSON Web Token RFC7519 specification](https://tools.ietf.org/html/rfc7519)
 
 ### Example of a decoded JWT assertion
+
 ```
 {
   "alg": "RS256",
@@ -71,6 +72,7 @@ The signature is computed applying the certificate as described in the [JSON Web
 ```
 
 ### Example of an encoded JWT assertion
+
 The following string is an example of encoded assertion. If you look carefully, you notice three sections separated by dots (.).
 The first section encodes the header, the second the payload, and the last is the signature computed with the certificates from the content of the first two sections.
 ```
@@ -79,14 +81,24 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### Register your certificate with Azure AD
-To associate the certificate credential with the client application in Azure AD, you need to edit the application manifest.
+
+You can associate the certificate credential with the client application in Azure AD through the Azure portal using any of the following methods:
+
+**Uploading the certificate file**
+
+In the Azure app registration for the client application, click on **Settings**, click **Keys** and then click **Upload Public Key**. Select the certificate file you want to upload and click **Save**. Once you save, the certificate is uploaded and the thumbprint, start date and expires values are displayed. 
+
+**Updating the application manifest**
+
 Having hold of a certificate, you need to compute:
+
 - `$base64Thumbprint`, which is the base64 encoding of the certificate Hash
 - `$base64Value`, which is the base64 encoding of the certificate raw data
 
-you also need to provide a GUID to identify the key in the application manifest (`$keyId`)
+You also need to provide a GUID to identify the key in the application manifest (`$keyId`).
 
 In the Azure app registration for the client application, open the application manifest, and replace the *keyCredentials* property with your new certificate information using the following schema:
+
 ```
 "keyCredentials": [
     {
