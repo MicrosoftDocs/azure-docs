@@ -126,12 +126,6 @@
         href: service-fabric-reliable-services-reliable-concurrent-queue.md
       - name: Reliable Collection serialization
         href: service-fabric-reliable-services-reliable-collections-serialization.md
-      - name: Reliable State Manager and Reliable Collection internals
-        href: service-fabric-reliable-services-reliable-collections-internals.md
-      - name: Advanced usage
-        href: service-fabric-reliable-services-advanced-usage.md
-      - name: Reconfiguration
-        href: service-fabric-concepts-reconfiguration.md
     - name: Reliable Actors
       href: service-fabric-reliable-actors-introduction.md
       items:

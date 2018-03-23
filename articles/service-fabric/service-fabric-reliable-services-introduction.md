@@ -109,5 +109,5 @@ If any of the following characterize your application service needs, then you sh
 
 ## Next steps
 * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
-* [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
+* [Reliable collections](service-fabric-reliable-services-reliable-collections.md)
 * [The Reliable Actors programming model](service-fabric-reliable-actors-introduction.md)
