@@ -44,6 +44,13 @@ An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint
 Do not use the endpoint key for authoring LUIS apps.
 
 ## Use endpoint key in query
+The LUIS endpoint accepts two styles of query:
+
+|Verb|Example url|Key location|
+|--|--|--|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a?**subscription-key=your-endpoint-key-here**&verbose=true&timezoneOffset=0&q=turn on the lights|query string value for subscription-key|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/98998dcf-66d2-468e-840a-7c7c57549b5a| header value for Ocp-Apim-Subscription-Key|
+
 Change your endpoint query value for the `Ocp-Apim-Subscription-Key` from the authoring (starter) key, to the new endpoint key in order to use the LUIS endpoint key quota rate. If you create the key, and assign the key but do not change the endpoint query value for `Ocp-Apim-Subscription-Key`, you are not using your endpoint key quota.
 
 ## API usage of Ocp-Apim-Subscription-Key
