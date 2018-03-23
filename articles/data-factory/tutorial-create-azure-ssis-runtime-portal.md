@@ -4,8 +4,8 @@ description: 'This article explains how to create an Azure-SSIS integration runt
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
