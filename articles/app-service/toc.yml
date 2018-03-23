@@ -139,7 +139,7 @@
         href: app-service-mobile-how-to-configure-microsoft-authentication.md
       - name: Authenticate with Twitter
         href: app-service-mobile-how-to-configure-twitter-authentication.md
-    - name: Customize authN/authO
+    - name: Customize authN/authZ
       href: app-service-authentication-how-to.md
     - name: Use Managed Service Identity
       href: app-service-managed-service-identity.md

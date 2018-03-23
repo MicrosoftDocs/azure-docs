@@ -18,7 +18,7 @@ ms.author: cephalin
 
 # Customize authentication and authorization in App Service
 
-This article shows you how to customize authentication and authorization in App Service, and to get the data you need, once you've enabled it. 
+This article shows you how to customize authentication and authorization in App Service, and to manage identity from your application. 
 
 To get started quickly, see one of the following tutorials:
 
@@ -85,11 +85,17 @@ When your access token expires, you need to reauthenticate the user. You can avo
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq)).
 - **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](app-service-mobile-how-to-configure-microsoft-authentication.md), select the `wl.offline_access` scope.
-- **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. Click **Edit**, modify the following property, and then click **Put**. Be sure to replace _\<app\_id>_ with the Azure Active Directory application ID of the service you want to access.
+- **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
+    1. At the top of the page, select **Read/Write**.
+    1. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+    1. Click **Edit**.
+    1. Modify the following property. Replace _\<app\_id>_ with the Azure Active Directory application ID of the service you want to access.
 
-    ```json
-    "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
-    ```
+        ```json
+        "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
+        ```
+
+    1. Click **Put**. 
 
 Once your provider is configured, you can see if refresh tokens are in the token store by calling `/.auth/me`. 
 
@@ -108,9 +114,9 @@ function refreshTokens() {
 
 If a user revokes the permissions granted to your app, your call to `/.auth/me` may fail with a `403 Forbidden` response. To diagnose errors, check your application logs for details.
 
-## Extend token expiration grace period
+## Extend session expiration grace period
 
-Within the first 72 hours after token expiration, you're allowed to refresh the token without reauthenticating the user. Therefore, you can just call `/.auth/refresh` when your token becomes invalid and don't need to track token expiration yourself. If the authentication token isn't refreshed within the 72-hour window, the user must sign in again to get a valid authentication token.
+After an authenticated session managed by App Service expires, there is a 72-hour grace period by default. Within this grace period, you're allowed to refresh the session cookie or session token without reauthenticating the user. Therefore, you can just call `/.auth/refresh` when your session cookie or session token becomes invalid and don't need to track token expiration yourself. Once the 72-hour grace period is lapses, the user must sign in again to get a valid session cookie or session token.
 
 If 72 hours isn't enough time for you, you can extend this expiration window. Extending the expiration over a long period could have significant security implications (such as when an authentication token is leaked or stolen). So you should leave it at the default 72 hours or set the extension period to the smallest value.
 
@@ -119,6 +125,10 @@ To extend the default expiration window, run the following command in the [Cloud
 ```azurecli-interactive
 az webapp auth update --resource-group <group_name> --name <app_name> --token-refresh-extension-hours <hours>
 ```
+
+> [!NOTE]
+> The grace period only applies to the App Service authenticated session, not the tokens from the identity providers. There is no grace period for the expired provider tokens. 
+>
 
 ## Limit the domain of login accounts
 

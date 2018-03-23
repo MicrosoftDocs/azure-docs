@@ -19,66 +19,86 @@ ms.author: mahender
 ---
 # Authentication and authorization in Azure App Service
 
-Azure App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app, API, mobile back end, or [function app](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app. 
+Azure App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app, API, and mobile back end, and also [Azure Functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app. 
+
+Secure authentication and authorization requires deep understanding of security, including federation, encryption, [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [grant types](https://oauth.net/2/grant-types/), and so on. App Service provides these utilities so that you can spend more time and energy on providing business value to your customer.
+
+> [!NOTE]
+> You're not required to use App Service for authentication and authorization. Many web frameworks are bundled with security features, and you can use them if you like. If you need more flexibility than App Service provides, you can also write your own utilities.  
+>
 
 For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
-## App Service vs. your own auth code
+## How it works
 
-You are free to write your own code to authenticate and authorize users. However, secure authentication requires deep understanding of security, including federation, encryption, [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [grant types](https://oauth.net/2/grant-types/), and so on. App Service helps deliver world-class authentication and authorization to your app with the click of a button.
+The authentication and authorization module runs in the same sandbox as your application code. When it's enabled, every incoming HTTP request passes through it before being handled by your application code.
 
-Authentication and authorization in App Service doesn't fit everyone's need. Use your own utilities for authentication and authorization when you need more flexibility than App Service provides. 
+![](media/app-service-authentication-overview/architecture.png)
+
+This module handles several things for your app:
+
+- authenticates users with the specified provider
+- validates, stores, and refreshes tokens
+- manages the authenticated session
+- injects identity information into request headers
+
+The module runs separately from your application code and is configured using app settings. No SDKs, specific languages, or changes to your application code are required. 
 
 ### User claims
 
-For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard code pattern. For other language frameworks, App Service makes the user's claims available by injecting them into the request headers.
+For all language frameworks, App Service makes the user's claims available to your code by injecting them into the request headers. For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard .NET code pattern, including the `[Authorize]` attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable.
 
-> [!NOTE]
-> For [function apps](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not hydrated for .NET code, but you can still find the user claims in the request headers.
->
+For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not hydrated for .NET code, but you can still find the user claims in the request headers.
 
 For more information, see [Access user claims](app-service-authentication-how-to.md#access-user-claims).
 
 ### Token store
 
-App Service provides a built-in token store, which is a repository of [OAuth](https://wikipedia.org/wiki/OAuth) tokens that are associated with the users of your web apps, APIs, or native mobile apps. When you enable authentication with any provider, this token store is immediately available to your app. If your application code needs to access data from these providers, such as: 
+App Service provides a built-in token store, which is a repository of tokens that are associated with the users of your web apps, APIs, or native mobile apps. When you enable authentication with any provider, this token store is immediately available to your app. If your application code needs to access data from these providers on the user's behalf, such as: 
 
 - post to the authenticated user's Facebook timeline
-- read corporate data from the Azure Active Directory Graph API or even the Microsoft Graph on behalf of a user
+- read the user's corporate data from the Azure Active Directory Graph API or even the Microsoft Graph
 
-you typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just retrieve the tokens when you need them and tell App Service to refresh them when they become invalid. 
+The id tokens, access tokens, and refresh tokens cached for the authenticated session, and they're accessible only by the associated user.  
 
-If you don't need to token store for your app, you can disable it.
+You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](app-service-authentication-how-to.md#refresh-access-tokens) when they become invalid. 
 
-For more information, see [Retrieve tokens in app code](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) and [Refresh access tokens](app-service-authentication-how-to.md#refresh-access-tokens).
+If you don't need to work with tokens in your app, you can disable the token store.
 
-## Authentication flow
+### Logging and tracing
+
+If you [enable application logging](web-sites-enable-diagnostic-log.md), you will see authentication and authorization traces directly in your log files. If you see an authentication error that you didn’t expect, you can conveniently find all the details by looking in your existing application logs. If you enable [failed request tracing](web-sites-enable-diagnostic-log.md), you can see exactly what role the authentication and authorization module may have played in a failed request. In the trace logs, look for references to a module named `EasyAuthModule_32/64`. 
+
+## Identity providers
 
 App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_identity), in which a third-party identity provider manages the user identities and authentication flow for you. Five identity providers are available by default: 
 
-- Azure Active Directory (`/.auth/login/aad`)
-- Microsoft Account (`/.auth/login/microsoft`)
-- Facebook (`/.auth/login/facebook`)
-- Google (`/.auth/login/google`)
-- Twitter (`/.auth/login/twitter`)
+| Provider | Sign-in endpoint |
+| [Azure Active Directory](../active-directory/active-directory-whatis.md) | `/.auth/login/aad` |
+| [Microsoft Account](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoft` |
+| [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
+| [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` | 
+| [Twitter](https://developer.twitter.com/docs/basics/authentication) | `/.auth/login/twitter` | 
 
-You can provide your users with any number of these sign-in options with ease. You can also integrate another identity provider or [your own custom identity solution][custom-auth].
+When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options with ease. You can also integrate another identity provider or [your own custom identity solution][custom-auth].
 
-The authentication flow is the same for all providers, but differs depending on whether the browser is involved:
+## Authentication flow
 
-- Browser apps: Can present the provider's login page to the user. The server code manages the sign-in process, so it is also called _server-directed flow_ or _server flow_. This case applies to web apps. It also applies to native apps that sign users in using the Mobile Apps client SDK because the SDK opens a web view to sign users in with App Service authentication. 
-- Browser-less apps: Cannot present the provider's login page to the user. The client code must sign users in directly using the provider's SDK, so it is also called _client-directed flow_ or _client flow_. This case applies to REST APIs, [function apps](../azure-functions/functions-overview.md), and JavaScript browser clients. It also applies to native mobile apps that sign users in using the provider's SDK. 
+The authentication flow is the same for all providers, but differs depending on whether you want to log in with the provider's SDK:
+
+- Without provider SDK: The application delegates federated sign-in to App Service. This is typically the case with browser apps, which can present the provider's login page to the user. The server code manages the sign-in process, so it is also called _server-directed flow_ or _server flow_. This case applies to web apps. It also applies to native apps that sign users in using the Mobile Apps client SDK because the SDK opens a web view to sign users in with App Service authentication. 
+- With provider SDK: The application signs user in manually and then submits the authentication token to App Service for validation. This is typically the case with browser-less apps, which can't present the provider's sign-in page to the user. The application code manages the sign-in process, so it is also called _client-directed flow_ or _client flow_. This case applies to REST APIs, [Azure Functions](../azure-functions/functions-overview.md), and JavaScript browser clients, as well as web apps that need more flexibility in the sign-in process. It also applies to native mobile apps that sign users in using the provider's SDK.
 
 > [!NOTE]
-> Calls from a trusted browser app in App Service calls another REST API App Service or [function app](../azure-functions/functions-overview.md) can be authenticated using the server-directed flow. For more information, see [Authenticate users with Azure App Service]().
+> Calls from a trusted browser app in App Service calls another REST API in App Service or [Azure Functions](../azure-functions/functions-overview.md) can be authenticated using the server-directed flow. For more information, see [Authenticate users with Azure App Service]().
 >
 
 The table below shows the steps of the authentication flow.
 
-| Step | Browser app | Browser-less app |
+| Step | Without provider SDK | With provider SDK |
 | - | - | - |
-| 1. Sign user in | Redirects client to `/.auth/login/<provider>`. | Client code signs user in directly with provider's SDK. |
-| 2. Post-authentication | Provider redirects client to `/.auth/login/<provider>/callback`. | Client code posts token from provider to `/.auth/login/<provider>`. |
+| 1. Sign user in | Redirects client to `/.auth/login/<provider>`. | Client code signs user in directly with provider's SDK and receives an authentication token. For information, see the provider's documentation. |
+| 2. Post-authentication | Provider redirects client to `/.auth/login/<provider>/callback`. | Client code posts token from provider to `/.auth/login/<provider>` for validation. |
 | 3. Establish authenticated session | App Service adds authenticated cookie to response. | App Service returns its own authentication token to client code. |
 | 4. Serve authenticated content | Client includes authentication cookie in subsequent requests (automatically handled by browser). | Client code presents authentication token in `X-ZUMO-AUTH` header (automatically handled by Mobile Apps client SDKs). |
 
@@ -88,39 +108,42 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 ## Authorization behavior
 
-You can configure App Service authorization with any of the following behaviors:
+In the [Azure portal](https://portal.azure.com), you can configure App Service authorization with a number of behaviors.
+
+![](media/app-service-authentication-overview/authorization-flow.png)
+
+The following headings describe the options.
 
 ### (default) Allow all requests
 
 Authentication and authorization is not managed by App Service (turned off). 
 
-Choose this option that you don't need authentication and authorization, or that you want to write your own authentication and authorization code.
+Choose this option if you don't need authentication and authorization, or if you want to write your own authentication and authorization code.
 
 ### Allow only authenticated requests
 
-In the Azure portal, the option is **Log in with \<provider>**. App Service redirects all anonymous requests to `/.auth/login/<provider>` for the provider you choose. If the anonymous request comes from a native mobile app, the returned response is an `HTTP 401 Unauthorized`.
+The option is **Log in with \<provider>**. App Service redirects all anonymous requests to `/.auth/login/<provider>` for the provider you choose. If the anonymous request comes from a native mobile app, the returned response is an `HTTP 401 Unauthorized`.
 
 With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](app-service-authentication-how-to.md#access-user-claims)).
 
 ### Allow all requests, but validate authenticated requests
 
-In the Azure portal, the option is **Allow Anonymous requests**. This option turns on authentication and authorization in App Service, but defers authorization decisions to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers. 
+The option is **Allow Anonymous requests**. This option turns on authentication and authorization in App Service, but defers authorization decisions to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers. 
 
 This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in options](app-service-authentication-how-to.md#configure-multiple-sign-in-options) to your users. However, you have to write code. 
 
 ## More resources
 
-The following tutorials show how to configure App Service to use different authentication providers:
+[Customize authentication and authorization in App Service](app-service-authentication-how-to.md)
+
+Provider-specific how-to guides:
 
 * [How to configure your app to use Azure Active Directory login][AAD]
 * [How to configure your app to use Facebook login][Facebook]
 * [How to configure your app to use Google login][Google]
 * [How to configure your app to use Microsoft Account login][MSA]
 * [How to configure your app to use Twitter login][Twitter]
-
-To use a custom identity system, you can also use the [preview custom authentication support in the Mobile Apps .NET server SDK][custom-auth], which can be used by web apps, mobile apps, or API apps.
-
-For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
+* [How to: Use custom authentication for your application][custom-auth]
 
 [AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
