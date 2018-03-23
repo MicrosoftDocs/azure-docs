@@ -205,7 +205,7 @@ def retry_callback(retry_context):
 
 # [Java] (#tab/java)
 
-With Java defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. This is because it will automatically switch back to Primary for you when it is reachable.
+With Java, defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. This is because it will automatically switch back to Primary for you when it is reachable.
 
 ```java
     BlobRequestOptions myReqOptions = new BlobRequestOptions();
@@ -260,7 +260,7 @@ def response_callback(response):
 ```
 # [Java] (#tab/java)
 
-With Java defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. This is because it will automatically switch back to Primary for you when it is reachable.
+With Java, defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. This is because it will automatically switch back to Primary for you when it is reachable.
 
 ---
 
