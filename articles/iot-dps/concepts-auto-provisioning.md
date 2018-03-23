@@ -43,11 +43,9 @@ Azure IoT auto-provisioning can be understood into three phases:
 
 In addition to spanning weeks or months in production environments, the phases discussed in the previous section also span multiple roles. This section takes takes a deeper look at the various roles and operations related to each, then illustrates the flow in a sequence diagram. 
 
-Auto-provisioning also places requirements on the device manufacturer, specific to enabling the attestation mechanism. Manufacturing operations can also occur independently and asynchronously with respect to the auto-provisioning phases.
+Auto-provisioning also places requirements on the device manufacturer, specific to enabling the attestation mechanism. Manufacturing operations can also occur independent of the timing of auto-provisioning phases, especially in cases where new devices are procured after auto-provisioning has already been established.
 
-A series of Quickstarts are provided in the table of contents to the left, to help explain auto-provisioning through hands-on experience. In order to facilitate/simplify the learning process, software is used to simulate a physical device for enrollment and registration. As noted earlier, the Quickstarts may also require you to fulfill operations for multiple roles, including roles that are not applicable due to the simulated nature of the Quickstarts.
-
-
+A series of Quickstarts are provided in the table of contents to the left, to help explain auto-provisioning through hands-on experience. In order to facilitate/simplify the learning process, software is used to simulate a physical device for enrollment and registration. The Quickstarts may also require you to fulfill operations for multiple roles, including operations for roles that are not applicable due to the simulated nature of the Quickstarts.
 
 | Role | Operation | Description | Related Quickstart |
 |------| --------- | ------------| -------------------|
@@ -59,7 +57,7 @@ A series of Quickstarts are provided in the table of contents to the left, to he
 | Developer | Build/Deploy registration software | You build a sample registration application to simulate a real device, for your platform/language of choice, which runs on your workstation (instead of deploying it to a physical device). <br><br>The registration application performs the same operations one deployed to a physical device. You specify the attestation method (TPM or X.509 certificate), plus the registration URL and "ID Scope" of your Device Provisioning Service instance. The device identity is determined by the SDK attestation logic at runtime, based on the method you specify: <ul><li>**TPM attestation** - your development workstation runs a [TPM simulator application](how-to-use-sdk-tools.md#trusted-platform-module-tpm-simulator). Once running, a separate application is used to extract the TPM's "Endorsement Key" and "Registration ID" for use in enrolling the device identity. The SDK attestation logic also uses the simulator during registration, to present a signed SAS token for authentication and enrollment verification.</li><li>**X509 attestation** - you use a tool to [generate a certificate](how-to-use-sdk-tools.md#x509-certificate-generator). Once generated, you create the certificate file required for use in enrollment. The SDK attestation logic also uses the certificate during registration, to present for authentication and enrollment verification.</li></ul> | Auto-provision a simulated device (TPM/X.509) |
 | Device Provisioning Service,<br>IoT Hub | \<all operations\> | Just like a production implementation with physical devices, these roles are fulfilled via the IoT services you configure in your Azure subscription. The roles/operations function exactly the same for the Quickstarts, as the IoT services are indifferent to provisioning of physical vs. simulated devices. | Set up auto-provisioning,<br><br>Auto-provision a simulated device (TPM/X.509) |
 
-The following diagram provides a general overview of the roles and sequencing of operations required for auto-provisioning of a device:
+The following diagram summarizes the roles and sequencing of operations during device auto-provisioning:
 
 ![Auto-provisioning sequence for a device](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png) 
 
