@@ -1,3 +1,5 @@
+- name: Azure IoT Documentation 
+  href: ../iot/index.md
 - name: Azure Location Based Services Documentation 
   href: index.yml
 - name: Overview
