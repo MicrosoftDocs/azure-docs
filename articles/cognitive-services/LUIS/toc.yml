@@ -81,6 +81,8 @@
     items: 
     - name: Authoring cycle
       href: luis-concept-app-iteration.md 
+    - name: Collaboration
+      href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
   - name: Design Model 
@@ -204,7 +206,7 @@
 - name: Resources
   items: 
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://aka.ms/luis-roadmap
   - name: Glossary
     href: luis-glossary.md
   - name: FAQ
@@ -215,5 +217,7 @@
     href: https://stackoverflow.com/questions/tagged/LUIS 
   - name: UserVoice
     href: https://aka.ms/luis-uservoice-forum
+  - name: Search
+    href: https://docs.microsoft.com/en-us/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/

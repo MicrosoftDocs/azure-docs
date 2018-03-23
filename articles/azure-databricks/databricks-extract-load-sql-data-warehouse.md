@@ -45,7 +45,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 Before you start with this tutorial, make sure to meet the following requirements:
 - Create an Azure SQL Data Warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions at [Quickstart: Create an Azure SQL Data Warehouse](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Create an Azure Blob storage, and a container within the storage account. Also, retrieve the access key to access the storage account. Follow the instructions at [Quickstart: Create an Azure Blog storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. Follow the instructions at [Quickstart: Create an Azure Blog storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## Log in to the Azure portal
 
@@ -55,11 +55,9 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 In this section, you create an Azure Databricks workspace using the Azure portal. 
 
-1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks (Preview)**. 
+1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks**. 
 
     ![Databricks on Azure portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks on Azure portal")
-
-2. Under **Azure Databricks (Preview)**, select **Create**.
 
 3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
@@ -261,7 +259,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
         df.show()
 
-    You see an output similar to the following:
+    You see an output similar to the following snippet:
 
         +------+------+-----+----+-----+----+----+-----+---+----+-----+---+---+---+----+------+
         |   artist|     auth|firstName|gender|itemInSession|  lastName|   length|level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
@@ -280,7 +278,7 @@ The raw sample data **small_radio_json.json** captures the audience for a radio 
 
         val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
 
-    You get an output as shown in the following snippet.
+    You get an output as shown in the following snippet:
 
         +---------+----------+------+--------------------+-----+
         |firstname|  lastname|gender|            location|level|
@@ -372,7 +370,7 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. Run the following snippet to load the tranformed dataframe, **renamedColumnsDF**, as a table in SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
+5. Run the following snippet to load the transformed dataframe, **renamedColumnsDF**, as a table in SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
@@ -401,7 +399,7 @@ After you have finished running the tutorial, you can terminate the cluster. To 
 
 ![Stop a Databricks cluster](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
+If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops if it has been inactive for the specified time.
 
 ## Next steps 
 In this tutorial, you learned how to:
