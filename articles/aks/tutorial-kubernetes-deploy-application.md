@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Run applications in Azure Container Service (AKS)
+# Tutorial: Run applications in Azure Container Service (AKS)
 
 In this tutorial, part four of eight, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
@@ -21,7 +21,7 @@ In this tutorial, part four of eight, a sample application is deployed into a Ku
 > * Run application in Kubernetes
 > * Test the application
 
-In subsequent tutorials, this application is scaled out, updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
+In subsequent tutorials, this application is scaled out, updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 This tutorial assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation][kubernetes-documentation].
 

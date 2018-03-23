@@ -69,7 +69,7 @@ The export command writes the metadata to an Apache Hadoop Distributed File Syst
     ```
 
 #### Import offset metadata
-1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be exported.
+1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be imported.
 2. Run the following command (after you update the HDP version string) to import ZooKeeper offset data from the HDFS path /stormmetadata/zkdata to the ZooKeeper server on the target cluster:
 
     ```apache
@@ -77,7 +77,7 @@ The export command writes the metadata to an Apache Hadoop Distributed File Syst
     ```
    
 #### Delete offset metadata so that topologies can start processing data from the beginning, or from a timestamp that the user chooses
-1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be exported.
+1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be deleted.
 2. Run the following command (after you update the HDP version string) to delete all ZooKeeper offset data in the current cluster:
 
     ```apache
