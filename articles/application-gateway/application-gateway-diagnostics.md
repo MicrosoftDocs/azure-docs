@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
 
 ---
@@ -173,7 +173,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |clientPort     | Originating port for the request.       |
 |httpMethod     | HTTP method used by the request.       |
 |requestUri     | URI of the received request.        |
-|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request. </br> **X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
+|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
 |UserAgent     | User agent from the HTTP request header.        |
 |httpStatus     | HTTP status code returned to the client from Application Gateway.       |
 |httpVersion     | HTTP version of the request.        |
@@ -313,9 +313,21 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 ## Metrics
 
-Metrics are a feature for certain Azure resources where you can view performance counters in the portal. For Application Gateway, one metric is available now. This metric is throughput, and you can see it in the portal. Browse to an application gateway and click **Metrics**. To view the values, select throughput in the **Available metrics** section. In the following image, you can see an example with the filters that you can use to display the data in different time ranges.
+Metrics are a feature for certain Azure resources where you can view performance counters in the portal. For Application Gateway, the following metrics are available:
 
-![Metric view with filters][5]
+- Current Connections
+- Failed Requests
+- Healthy Host Count
+- Response Status
+- Throughput
+- Total Requests
+- Unhealthy Host count
+
+Browse to an application gateway, under **Monitoring** click **Metrics**. To view the available values, select the **METRIC** drop-down list.
+
+In the following image, you see an example with three metrics displayed for the last 30 minutes:
+
+[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 To see a current list of metrics, see [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -333,7 +345,7 @@ The following example walks you through creating an alert rule that sends an ema
 
    * In the **Condition** selector, select one of the four values: **Greater than**, **Greater than or equal**, **Less than**, or **Less than or equal to**.
 
-   * In the **Period** selector, select a period from 5 minutes to 6 hours.
+   * In the **Period** selector, select a period from five minutes to six hours.
 
    * If you select **Email owners, contributors, and readers**, the email can be dynamic based on the users who have access to that resource. Otherwise, you can provide a comma-separated list of users in the **Additional administrator email(s)** box.
 
