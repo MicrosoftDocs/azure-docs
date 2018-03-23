@@ -40,7 +40,7 @@ To complete this tutorial:
 # [Python] (#tab/python) 
 
 * Install [Python](https://www.python.org/downloads/)
-* Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
+* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python)
 * (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
 
 # [Java] (#tab/java)
@@ -99,7 +99,7 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 ```
 
 # [Java] (#tab/java)
-[Download the sample project](https://github.com/Azure-Samples/storage-java-ha-ra-grs) and extract the storage-java-ragrs.zip file.
+[Download the sample project](https://github.com/Azure-Samples/storage-java-ha-ra-grs) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
@@ -156,8 +156,6 @@ The Storage object retry function is set to use a linear retry policy. The retry
 # [.NET] (#tab/dotnet)
 
 The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
-
-In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) method. Prior to the download an [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) is defined. The operation context defines event handlers, that fire when a download completes successfully or if a download fails and is retrying.
  
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)

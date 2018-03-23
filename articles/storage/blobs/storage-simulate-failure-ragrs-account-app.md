@@ -39,6 +39,8 @@ To simulate a failure using Fiddler:
 
 ## Simulate a failure with Fiddler
 
+Before we begin, you should be aware of and understand the issues around reading (potentially) stale and inconsistent data.
+
 To simulate failure with Fiddler, you inject a failed response for requests to the primary endpoint of your RA-GRS storage account to simulate a failure.
 
 Follow the following steps to simulate a failure, and primary endpoint restoration with fiddler.
