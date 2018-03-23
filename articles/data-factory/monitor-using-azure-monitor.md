@@ -406,7 +406,7 @@ This takes you to the **Alerts** page.
 
 ![Alerts page](media/monitor-using-azure-monitor/alerts_image2.png)
 
-You can also login to the Azure portal and click **Monitor -&gt; Alerts** to
+You can also log in to the Azure portal and click **Monitor -&gt; Alerts** to
 reach the **Alerts** page directly.
 
 ![Alerts in the portal menu](media/monitor-using-azure-monitor/alerts_image3.png)
