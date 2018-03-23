@@ -20,7 +20,7 @@ Refer to the MySQL [documentation](https://dev.mysql.com/doc/relnotes/mysql/5.6/
 Refer to the MySQL [documentation](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-20.htmll) to learn about improvements and fixes in MySQL 5.7.20.
 
 > [!NOTE]
-> In the service a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the mysql prompt. 
+> In the service, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. 
 
 ## Managing updates and upgrades
 The service automatically manages patching for minor version updates. Major version upgrades are not supported (ex. upgrading from MySQL 5.6 to MySQL 5.7).
