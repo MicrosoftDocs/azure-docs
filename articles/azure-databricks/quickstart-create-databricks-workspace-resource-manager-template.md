@@ -22,6 +22,8 @@ ms.custom: mvc
 
 This quickstart shows how to create an Azure Databricks workspace using Azure Resource Manager template. You use the workspace to create an Apache Spark cluster and run a Spark job on the Databricks cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
 
+In this quickstart, as part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
+
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create an Azure Databricks workspace
