@@ -1915,7 +1915,7 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation",
+            "redirect_url": "/azure/automation/automation-create-runas-account",
             "redirect_document_id": false
         },
         {
