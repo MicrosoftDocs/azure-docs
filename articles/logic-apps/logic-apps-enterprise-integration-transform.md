@@ -80,16 +80,17 @@ You can now test your transform by making a request to the HTTP endpoint.
 ### Reference assembly or custom code from maps 
 The transform action also supports maps or transforms with reference to external assembly. This capability enables calls to custom .NET code directly from XSLT maps. Here are the prerequisites to use assembly in maps.
 
-* The map and the assembly referenced from the map needs to be [uploaded to integration account](./logic-apps-enterprise-integration-maps.md#how-do-i-add-a-map). 
+* The map and the assembly referenced from the map needs to be [uploaded to integration account](./logic-apps-enterprise-integration-maps.md). 
 
   > [!NOTE]
-  > Map and assembly are required to be uploaded in a specific order. The assembly should be uploaded before the map that references it.
+  > Map and assembly are required to be uploaded in a specific order. You must upload the assembly before you upload the map that references the assembly.
 
-* Map should include two additional attributes and CDATA section containing the call to assembly code
-    * **name** is custom assembly name 
-    * **namespace** is the namespace in your assembly that includes the custom code
+* The map must also have these attributes and a CDATA section that contains the call to the assembly code:
 
-  Here is an example of the map with reference to an assembly named XsltUtilitiesLib. It also calls the method circumference from the assembly. 
+    * **name** is the custom assembly name.
+    * **namespace** is the namespace in your assembly that includes the custom code.
+
+  This example shows a map that references an assembly named "XslUtilitiesLib" and calls the `circumreference` method from the assembly.
 
   ````xml
   <?xml version="1.0" encoding="UTF-8"?>
@@ -116,7 +117,7 @@ The transform action also supports maps or transforms with reference to external
 
 
 ### Byte Order Mark
-This feature can only be accessed from the code view. By default, the response from the transformation will start with the Byte Order Mark (BOM). To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
+By default, the response from the transformation starts with the Byte Order Mark (BOM). You can access this functionality only while working in the Code View editor. To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
 
 ````json
 "Transform_XML": {
