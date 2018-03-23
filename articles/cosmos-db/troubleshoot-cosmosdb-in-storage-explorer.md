@@ -43,7 +43,7 @@ This guide summarizes solutions for common issues seen for Azure Cosmos DB in St
 
 Before proceeding further, try restarting your application and see if the problems can be fixed.
 
-## Self-Signed Certificate in Certificate Chain
+<h2 id="Self-Signed-Certificate-in-Certificate-Chain">Self-Signed Certificate in Certificate Chain</h2>
 
 There a few reasons you may be seeing this error, the two most common ones are:
 
@@ -66,7 +66,7 @@ When Storage Explorer encounters one of these "self-signed certificates", it can
 
 If you're unable to find any self-signed certificates using the above steps, could send feedback for more help.
 
-## Unable to retrieve subscriptions
+<h2 id="Unable-to-retrieve-subscriptions">Unable to retrieve subscriptions</h2>
 
 If you're unable to retrieve your subscriptions after you successfully signed in:
 
@@ -82,7 +82,7 @@ If you're unable to retrieve your subscriptions after you successfully signed in
 
 ![console](./media/troubleshoot-cosmosdb-in-storage-explorer/console.png)
 
-## Unable to see the authentication page
+<h2 id="Unable-to-see-the-authentication-page">Unable to see the authentication page</h2>  
 
 If you're unable to see the authentication page:
 
@@ -90,7 +90,7 @@ If you're unable to see the authentication page:
 - If you're behind a proxy, make sure that you have configured the Storage Explorer proxy properly
 - Bring up the developer console by pressing F12 key. Watch the responses from developer console and see if you can find any clue for why authentication is not working
 
-## Cannot remove account
+<h2 id="Cannot-remove-account">Cannot remove account</h2>
 
 If you're unable to remove an account, or if the reauthenticate link does not do anything
 
@@ -105,23 +105,23 @@ If you're unable to remove an account, or if the reauthenticate link does not do
   - **You will have to reenter all your credentials** if you delete these files
 
 
-## Http/Https Proxy Issue
+<h2 id="Http/Https-Proxy-Issue">Http/Https Proxy Issue</h2>
 
 You cannot list Cosmos DB nodes in left tree when configuring http/https proxy in ASE. It's a known issue, and will be fixed in next release. You could use Cosmos DB data explorer in Azure portal as a work-around at this moment. 
 
-## \`Development\` node under \`Local and Attached\` Issue
+<h2 id="\`Development\`-node-under-\`Local-and-Attached\`-Issue">\`Development\` node under \`Local and Attached\` Issue</h2>
 
 There is no response after clicking the \`Development\` node under \`Local and Attached\` in left tree.  The behavior is expected. Cosmos DB local emulator will be supported in next release.
 
 ![Development node](./media/troubleshoot-cosmosdb-in-storage-explorer/development.png)
 
-## Attaching Cosmos DB account in \`Local and Attached\` Error
+<h2 id="Attaching-Cosmos-DB-account-in-\`Local-and-Attached\`-Error">Attaching Cosmos DB account in \`Local and Attached\` Error</h2>
 
 If you see below error after attaching Cosmos DB account in \`Local and Attached\`, then check if you're using the right connection string.
 
 ![Attaching Cosmos DB in Local and Attached error](./media/troubleshoot-cosmosdb-in-storage-explorer/attached-error.png)
 
-## Expand Cosmos DB node Error
+<h2 id="Expand-Cosmos-DB-node-Error">Expand Cosmos DB node Error</h2>
 
 You may see below error while trying to expand the tree nodes in left. 
 
@@ -132,6 +132,6 @@ Try the following suggestions:
 - Check if the Cosmos DB account is in provision progress and try again when the account is being created successfully.
 - If the account is under \`Quick Access\` or \`Local and Attached\` nodes, then check if the account has been deleted. If so, you need to remove the node manually.
 
-## Submit Your Issue 
+<h2 id="Submit-Your-Issue">Submit Your Issue</h2> 
 
 If none of the solutions work for you, send email to Cosmos DB Dev Tooling Team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) with details about the issue, for fixing the issues.
