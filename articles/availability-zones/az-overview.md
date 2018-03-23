@@ -61,8 +61,8 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Add a Managed Disk using PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Create a zone redundant virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Load balancer](../load-balancer/load-balancer-standard-overview.md)
-- [Zone-redundant storage](../storage/common/storage-redundancy#zone-redundant-storage.md)
-- [SQL Database](../sql-database/sql-database-high-availability#zone-redundant-configuration-preview.md)
+- [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage)
+- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
 
 
 ## Next steps
