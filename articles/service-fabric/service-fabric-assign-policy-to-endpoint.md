@@ -19,7 +19,7 @@ ms.author: mfussell
 ---
 
 # Assign a security access policy for HTTP and HTTPS endpoints
-If you apply a RunAs policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy** to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The following example applies the Customer1 account to an endpoint called **EndpointName**, which gives it full access rights.
+If you apply a run-as policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy**.  The security access policy ensures that ports allocated to these endpoints are correctly restricted to the run-as user account that the service runs under. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The following example applies the Customer1 account to an endpoint called **EndpointName**, which gives it full access rights.
 
 ```xml
 <Policies>
@@ -29,7 +29,7 @@ If you apply a RunAs policy to a service and the service manifest declares endpo
 </Policies>
 ```
 
-For the HTTPS endpoint, you also have to indicate the name of the certificate to return to the client. You can do this by using **EndpointBindingPolicy**, with the certificate defined in a certificates section in the application manifest.
+For the HTTPS endpoint, you also have to indicate the name of the certificate to return to the client. You can reference the certificate by using **EndpointBindingPolicy**, with the certificate defined in a certificates section in the application manifest.
 
 ```xml
 <Policies>

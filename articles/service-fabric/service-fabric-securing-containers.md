@@ -32,12 +32,12 @@ For Windows clusters, when starting the application, the runtime reads the certi
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password
 
-For Linux clusters, the certificates(PEM) are copied over from the store specified by X509StoreName onto the container. The corresponding environment variables on Linux are:
+For Linux clusters, the certificates (PEM) are copied over from the store specified by X509StoreName onto the container. The corresponding environment variables on Linux are:
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
 
-Alternatively, if you already have the certificates in the required form and would simply want to access it inside the container, you can create a data package inside your app package and specify the following inside your application manifest:
+Alternatively, if you already have the certificates in the required form and want to access it inside the container, you can create a data package inside your app package and specify the following inside your application manifest:
 
 ```xml
 <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">

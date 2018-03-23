@@ -18,7 +18,7 @@ ms.author: mfussell
 
 ---
 # Run a service as a group Managed Service Account
-By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. This makes running applications, even in a shared hosted environment, more secure from one another. By default, Service Fabric applications run under the account that the Fabric.exe process runs under. For a Windows Server standalone cluster, you can run a service as a group Managed Service Account (gMSA) or an [Active Directory user or group](service-fabric-run-service-as-ad-user-or-group.md) using a RunAs policy. Note that this uses Active Directory on-premises within your domain and not Azure Active Directory (Azure AD). By using a gMSA there is no password or encrypted password stored in the `Application Manifest`.
+By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. Running applications under different accounts, even in a shared hosted environment, makes them more secure from one another. By default, Service Fabric applications run under the account that the Fabric.exe process runs under. For a Windows Server standalone cluster, you can run a service as a group Managed Service Account (gMSA) or an [Active Directory user or group](service-fabric-run-service-as-ad-user-or-group.md) using a RunAs policy. Note that this uses Active Directory on-premises within your domain and not Azure Active Directory (Azure AD). By using a gMSA, there is no password or encrypted password stored in the `Application Manifest`.
 
 The following example shows how to create a gMSA account called *svc-Test$*; how to deploy that managed service account to the cluster nodes; and how to configure the user principal.
 
@@ -26,7 +26,7 @@ Pre-requisites:
 - The domain needs a KDS root key.
 - The domain needs to be at a Windows Server 2012 or later functional level.
 
-1. Have an Active Directory domain administrator create a group managed service account using the `New-ADServiceAccount` commandlet and ensure that the `PrincipalsAllowedToRetrieveManagedPassword` includes all of the service fabric cluster nodes. Note that `AccountName`, `DnsHostName`, and `ServicePrincipalName` must be unique.
+1. Have an Active Directory domain administrator create a group managed service account using the `New-ADServiceAccount` commandlet and ensure that the `PrincipalsAllowedToRetrieveManagedPassword` includes all of the service fabric cluster nodes. `AccountName`, `DnsHostName`, and `ServicePrincipalName` must be unique.
 
     ```poweshell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
