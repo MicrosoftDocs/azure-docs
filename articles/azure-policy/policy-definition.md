@@ -192,8 +192,8 @@ The following fields are supported:
 * `type`
 * `location`
 * `tags`
-* `tags.`*`tagName`*
-* `tags[`*`tagName`*`]`
+* `tags.tagName`
+* `tags[tagName]`
   * This bracket syntax supports tag names that contain periods
 * property aliases - for a list, see [Aliases](#aliases).
 
@@ -205,7 +205,7 @@ The following fields are supported:
 "equals": "Microsoft.Compute/virtualMachines/write"
 ```
 
-**Source** only supports one value, **action**. Action returns the authorization action of the request that is being evaluated. Authorization actions are exposed in the [Activity Log](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+**Source** only supports one value, **action**. Action returns the authorization action of the request that is being evaluated. Authorization actions are exposed in the authorization section of the [Activity Log](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
 
 When policy is evaluating existing resources in the background it sets **action** to a `/write` authorization action on the resource's type.
 
