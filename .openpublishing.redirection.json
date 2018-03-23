@@ -1915,7 +1915,7 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation",
+            "redirect_url": "/azure/automation/automation-create-runas-account",
             "redirect_document_id": false
         },
         {
@@ -17629,8 +17629,33 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-overview.md",
+        "redirect_url": "/azure/sql-data-warehouse/backup-and-restore",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-backups.md",
+        "redirect_url": "/azure/sql-data-warehouse/backup-and-restore",
+        "redirect_document_id": false
+    },		
+	{
         "source_path": "articles/data-factory/tutorial-create-azure-ssis-runtime-portal.md",
         "redirect_url": "/azure/data-factory/tutorial-deploy-ssis-packages-azure",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md",
+        "redirect_url": "/azure/sql-data-warehouse/cheat-sheet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage.md",
+        "redirect_url": "/azure/sql-data-warehouse/cheat-sheet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-reference.md",
+        "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements",
         "redirect_document_id": false
     }
    ]
