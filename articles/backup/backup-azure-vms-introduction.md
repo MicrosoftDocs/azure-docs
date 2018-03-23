@@ -132,7 +132,7 @@ For example, take an A2 Standard-sized virtual machine that has two additional d
 | Disk type | Max size | Actual data present |
 | --------- | -------- | ----------- |
 | Operating system disk |1023 GB |17 GB |
-| Local disk / Temporary storage |135 GB |5 GB (not included for backup) |
+| Local disk / Temporary disk |135 GB |5 GB (not included for backup) |
 | Data disk 1 |1023 GB |30 GB |
 | Data disk 2 |1023 GB |0 GB |
 
