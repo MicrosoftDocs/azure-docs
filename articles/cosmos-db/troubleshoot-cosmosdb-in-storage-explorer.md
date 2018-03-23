@@ -45,7 +45,7 @@ Before proceeding further, try restarting your application and see if the proble
 
 <h2 id="Self-Signed-Certificate-in-Certificate-Chain">Self-Signed Certificate in Certificate Chain</h2>
 
-There a few reasons you may be seeing this error, the two most common ones are:
+There are few reasons you may be seeing this error, the two most common ones are:
 
 1. You're behind a “transparent proxy”, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
 
@@ -54,7 +54,7 @@ There a few reasons you may be seeing this error, the two most common ones are:
 When Storage Explorer encounters one of these "self-signed certificates", it can no longer know if the HTTPS message it's receiving has been tampered with. If you have a copy of the self-signed certificate though, then you can tell Storage Explorer to trust it. If you're unsure of who is injecting the certificate, then you can try to find it yourself by doing the following steps:
 
 1. Install Open SSL
-     - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (any of the light versions should suffice)
+     - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (any of the light versions is ok)
      - Mac and Linux: Should be included with your operating system
 2. Run Open SSL
     - Windows: Go to the install directory, then **/bin/**, then double-click on **openssl.exe**.
