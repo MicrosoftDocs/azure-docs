@@ -97,8 +97,6 @@
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell - User
         href: azure-stack-powershell-configure-user.md
-      - name: Install and configure the Azure Stack CLI
-        href: azure-stack-connect-cli.md
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
       - name: Using API version profiles
