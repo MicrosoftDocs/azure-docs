@@ -25,7 +25,7 @@ If you want to prevent the use or installation of certain extension on your Wind
 
 In order to restrict what extensions can be installed, you need to have a [rule](/azure/azure-policy/policy-definition#policy-rule) to provide the logic to identify the extension.
 
-This example shows you how to create a rules file for Windows VMs in Cloud Shell, but if you are working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
+This example shows you how to create a rules file for Windows VMs to deny extensions published by 'Microsoft.Compute' using Cloud Shell, but if you are working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
 
 In a [Cloud Shell](https://shell.azure.com/powershell), type:
 
