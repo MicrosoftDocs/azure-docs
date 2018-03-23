@@ -76,7 +76,7 @@ Blobs in all three storage tiers can co-exist within the same account. Any blob 
 
 ### Blob-level tiering billing
 
-When a blob is moved to a cooler tier (hot->cool, hot->archive, or cool->archive), the operation is billed as a write into the destination tier, and the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. If a blob is moved to a warmer tier (archive->cool, archive->hot, or cool->hot), the operation is billed as a read from the source tier, and the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply.
+When a blob is moved to a cooler tier (hot->cool, hot->archive, or cool->archive), the operation is billed as a write of the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. If a blob is moved to a warmer tier (archive->cool, archive->hot, or cool->hot), the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply.
 
 If you toggle the account tier from hot to cool, you will be charged for write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only. There is no charge for this in Blob Storage accounts. You will be charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle your Blob Storage or GPv2 account from cool to hot. Early deletion charges for any blob moved out of the cool or archive tier may apply as well.
 

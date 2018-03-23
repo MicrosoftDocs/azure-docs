@@ -34,7 +34,20 @@ NPM offers three broad capabilities:
 This capability helps you perform http, HTTPS, TCP, and ICMP based tests to monitor in near real time or historically the availability and response time of your service, and the contribution of the network in packet loss and latency. With network topology map, you can isolate network slowdowns by identifying problem spots that occur along the network path from the node to the service, with latency data on each hop. With Built-in tests, monitor network connectivity to Office365 and Dynamics CRM without any pre-configuration. With this capability, you can monitor network connectivity to any TCP capable endpoint such as websites, SaaS, PaaS applications, SQL databases, etc.  
 
 [￼ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md): Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
+
+More information on the various capabilities supported by [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is available online.
  
+## Supported Regions
+NPM can monitor connectivity between networks and applications in any part of the world, from a workspace that is hosted in one of the following regions:
+* West Europe
+* West Central US
+* East US
+* South East Asia
+* South East Australia
+* US Government Virginia
+
+The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
+
 
 ## Set up and configure
 

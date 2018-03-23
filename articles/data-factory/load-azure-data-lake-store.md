@@ -4,8 +4,8 @@ description: 'Use Azure Data Factory to copy data into Azure Data Lake Store'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

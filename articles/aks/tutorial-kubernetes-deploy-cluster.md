@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Deploy an Azure Container Service (AKS) cluster
+# Tutorial: Deploy an Azure Container Service (AKS) cluster
 
 Kubernetes provides a distributed platform for containerized applications. With AKS, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part three of eight, a Kubernetes cluster is deployed in AKS. Steps completed include:
 
@@ -21,7 +21,7 @@ Kubernetes provides a distributed platform for containerized applications. With 
 > * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
-In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Operations Management Suite is configured to monitor the Kubernetes cluster.
+In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 

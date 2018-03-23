@@ -4,8 +4,8 @@ description: 'Learn about datasets and linked services in Data Factory. Linked s
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
