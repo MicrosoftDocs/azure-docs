@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: bradsev;paulsh
+ms.author: bradsev
 
 ---
 # Data science with a Linux Data Science Virtual Machine on Azure
