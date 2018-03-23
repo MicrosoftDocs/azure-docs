@@ -41,8 +41,8 @@
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
     - name: Scale-out, pause, resume
       href: sql-data-warehouse-manage-compute-overview.md
-    - name: Data warehouse backups
-      href: sql-data-warehouse-backups.md
+    - name: Backup and restore
+      href: backup-and-restore.md
     - name: Auditing
       href: sql-data-warehouse-auditing-overview.md
     - name: Capacity limits
