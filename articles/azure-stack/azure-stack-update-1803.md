@@ -55,7 +55,7 @@ This update includes the following improvements and fixes for Azure Stack.
 - **Azure Monitor** - Azure Stack adds [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
 
 
-### Fixed isues
+### Fixed issues
 
 - <!-- 1739988 -->  **Fixed** - Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network.
 
@@ -71,7 +71,7 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - <!-- 1756324--> **Fixed** - Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure.
 
-- **Various fixes** for performance, stability, security, and the operating system that is used by Azure stack.
+- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 ### Known issues with the update process    
 *There are no known issues for the installation of update 1803.*
