@@ -39,8 +39,6 @@ To simulate a failure using Fiddler:
 
 ## Simulate a failure with Fiddler
 
-Before we begin, you should be aware of and understand the issues around reading (potentially) stale and inconsistent data.
-
 To simulate failure with Fiddler, you inject a failed response for requests to the primary endpoint of your RA-GRS storage account to simulate a failure.
 
 Follow the following steps to simulate a failure, and primary endpoint restoration with fiddler.
@@ -178,9 +176,11 @@ In part two of the series, you learned about simulating a failure to test read a
 > * Simulate a failure with [fiddler](#simulate-a-failure-with-fiddler) or [an invalid static route](#simulate-a-failure-with-an-invalid-static-route) 
 > * Simulate primary endpoint restoration
 
-Follow this link to see pre-built storage samples.
+You should be aware of and understand the issues around reading (potentially) stale and inconsistent data.
+
+As such, we recommend following this link to learn more about how RA-GRS storage works and its associated risks.
 
 > [!div class="nextstepaction"]
-> [Azure storage script samples](storage-samples-blobs-cli.md)
+> [Azure storage script samples](../common/storage-designing-ha-apps-with-ragrs.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md
