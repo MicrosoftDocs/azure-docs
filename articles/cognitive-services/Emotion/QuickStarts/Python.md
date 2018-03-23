@@ -31,7 +31,7 @@ To continue with this walkthrough, replace `subscription_key` with the API key y
 
 
 ```python
-subscription_key = "eeb35d3bc60b4298addcea8d14bb022c"
+subscription_key = None
 assert subscription_key
 ```
 

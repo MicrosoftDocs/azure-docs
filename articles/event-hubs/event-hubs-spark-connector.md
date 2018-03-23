@@ -52,11 +52,11 @@ val reader = spark.readStream
   .load()
 val eventhubs = reader.select($"body" cast "string")
 
-// Output using Console Sink
-val query = eventhubs.writeStream
+eventhubs.writeStream
   .format("console")
   .outputMode("append")
-query.start().awaitTermintation()
+  .start()
+  .awaitTermination()
 ```
 The following example code sends events to your event hub with the Spark batch APIs. You can also write a streaming query to send events to the event hub.
 

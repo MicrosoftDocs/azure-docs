@@ -157,9 +157,14 @@ Azure File Sync is available only in the following regions in preview:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Canada Central | Toronto |
+| Central US | Iowa |
+| East Asia | Hong Kong |
 | East US | Virginia |
+| East US2 | Virginia |
+| North Europe | Ireland |
 | Southeast Asia | Singapore |
 | UK South | London |
+| West Cental US |
 | West Europe | Netherlands |
 | West US | California |
 
@@ -169,6 +174,7 @@ In preview, we support syncing only with an Azure file share that's in the same 
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Next steps
+* [Consider firewall and proxy settings](storage-sync-files-firewall-and-proxy.md)
 * [Planning for an Azure Files deployment](storage-files-planning.md)
 * [Deploy Azure Files](storage-files-deployment-guide.md)
 * [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)

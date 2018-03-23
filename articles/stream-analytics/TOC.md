@@ -41,6 +41,7 @@
 ### [Twitter sentiment analysis](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Real time fraud detection](stream-analytics-real-time-fraud-detection.md)
 ### [Run jobs on IoT edge](stream-analytics-edge.md) 
+### [Toll booth sensor data analysis](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Run a JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [High-frequency trading](stream-analytics-high-frequency-trading.md)
 ### [Run Azure Functions](stream-analytics-with-azure-functions.md)
@@ -64,6 +65,7 @@
 ## Visual Studio tools
 ### [Install tools](stream-analytics-tools-for-visual-studio-install.md)
 ### [Develop a cloud job](stream-analytics-tools-for-visual-studio.md)
+### [Develop an Edge job](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 ### [Set up CI/CD pipeline](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Troubleshoot
