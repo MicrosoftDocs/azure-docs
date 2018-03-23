@@ -1,6 +1,6 @@
 ---
-title: Getting started with Operations Management Suite Security and Audit Solution | Microsoft Docs
-description: This document helps you to get started with Operations Management Suite Security and Audit solution capabilities to monitor your hybrid cloud.
+title: Getting started with Security and Audit Solution | Microsoft Docs
+description: This document helps you to get started with Security and Audit solution capabilities to monitor your hybrid cloud.
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -18,11 +18,10 @@ ms.date: 07/18/2017
 ms.author: yurid
 
 ---
-# Getting started with Operations Management Suite Security and Audit Solution
-This document helps you get started quickly with Operations Management Suite (OMS) Security and Audit solution capabilities by guiding you through each option.
+# Getting started with Security and Audit Solution
+This document helps you get started quickly with Security and Audit management solution capabilities by guiding you through each option.
 
-## What is OMS?
-Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+
 
 ## OMS Security and Audit dashboard
 The OMS Security and Audit solution provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The **Security and Audit** dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame. To access the **Security and Audit** dashboard, follow these steps:
