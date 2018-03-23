@@ -199,5 +199,4 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
 
     ```
 
-## Next steps
-* [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+As a next step, read [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).

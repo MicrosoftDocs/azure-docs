@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 03/23/2018
 ms.author: subramar
 ---
 
@@ -28,7 +28,7 @@ To set up gMSA (group Managed Service Accounts), a credential specification file
   </ContainerHostPolicies>
 </Policies>
 ```
-## Next steps
+As a next step, read the following articles:
 
 * [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
 * [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)

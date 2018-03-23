@@ -65,7 +65,7 @@ Pre-requisites:
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps
+As a next step, read the following articles:
 * [Understand the application model](service-fabric-application-model.md)
 * [Specify resources in a service manifest](service-fabric-service-manifest-resources.md)
 * [Deploy an application](service-fabric-deploy-remove-applications.md)

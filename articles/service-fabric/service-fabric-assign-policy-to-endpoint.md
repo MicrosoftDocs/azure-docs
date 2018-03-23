@@ -19,7 +19,7 @@ ms.author: mfussell
 ---
 
 # Assign a security access policy for HTTP and HTTPS endpoints
-If you apply a run-as policy to a service and the service manifest declares endpoint resources with the HTTP protocol, you must specify a **SecurityAccessPolicy**.  The security access policy ensures that ports allocated to these endpoints are correctly restricted to the run-as user account that the service runs under. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The following example applies the Customer1 account to an endpoint called **EndpointName**, which gives it full access rights.
+If you apply a run-as policy and the service manifest declares HTTP endpoint resources, you must specify a **SecurityAccessPolicy**.  **SecurityAccessPolicy** ensures that ports allocated to these endpoints are correctly restricted to the user account that the service runs as. Otherwise, **http.sys** does not have access to the service, and you get failures with calls from the client. The following example applies the Customer1 account to an endpoint called **EndpointName**, which gives it full access rights.
 
 ```xml
 <Policies>
@@ -29,7 +29,7 @@ If you apply a run-as policy to a service and the service manifest declares endp
 </Policies>
 ```
 
-For the HTTPS endpoint, you also have to indicate the name of the certificate to return to the client. You can reference the certificate by using **EndpointBindingPolicy**, with the certificate defined in a certificates section in the application manifest.
+For an HTTPS endpoint, also indicate the name of the certificate to return to the client. You reference the certificate using **EndpointBindingPolicy**.  The certificate is defined in the **Certificates** section of the application manifest.
 
 ```xml
 <Policies>
@@ -42,7 +42,7 @@ For the HTTPS endpoint, you also have to indicate the name of the certificate to
 ```
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps
+For next steps, read the following articles:
 * [Understand the application model](service-fabric-application-model.md)
 * [Specify resources in a service manifest](service-fabric-service-manifest-resources.md)
 * [Deploy an application](service-fabric-deploy-remove-applications.md)

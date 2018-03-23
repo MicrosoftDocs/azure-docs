@@ -125,5 +125,4 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
         client => client.Channel.Add(2, 3)).Result;
     ```
 
-## Next steps
-* [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+As a next step, read [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).
