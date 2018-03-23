@@ -57,9 +57,9 @@ This update includes the following improvements and fixes for Azure Stack.
 
 ### Fixed isues
 
-- <!-- 1739988 -->  **Fixed** - Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to break when using Linux instances on the Back-End network. ILB works fine with Windows instances on the Back-End Network.
+- <!-- 1739988 -->  **Fixed** - Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the Back-End network. ILB works fine with Windows instances on the Back-End Network.
 
-- <!-- 1805496 --> **Fixed** - An issue where VPN Connections between Azure Stack would become disconnected due to mismatching QuickMode SALifetime in Seconds values has been fixed.  The values now match the values in Azure.
+- <!-- 1805496 --> **Fixed** - An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure.  The values now match the values in Azure.
 
 - <!-- 2209262 --> **Fixed** - The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal.
 
