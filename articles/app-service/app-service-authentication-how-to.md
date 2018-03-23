@@ -36,7 +36,7 @@ First, in the **Authentication / Authorization** page in the Azure portal, confi
 
 In **Action to take when request is not authenticated**, select **Allow Anonymous requests (no action)**.
 
-In the login page, or the navigation bar, or any other location of your web app, add a login link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
+In the sign-in page, or the navigation bar, or any other location of your web app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -46,7 +46,7 @@ In the login page, or the navigation bar, or any other location of your web app,
 <a href="/.auth/login/twitter">Log in with Twitter</a>
 ```
 
-When the user clicks on one of the links, the respective login page opens to sign in the user.
+When the user clicks on one of the links, the respective sign-in page opens to sign in the user.
 
 ## Access user claims
 
@@ -72,14 +72,14 @@ From your server code, the provider-specific tokens are injected into the reques
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
-From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me`. The returned JSON contains the provider-specific tokens.
+From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me`. The returned JSON has the provider-specific tokens.
 
 > [!NOTE]
 > Access tokens are for accessing provider resources, so they are present only if you configure your provider with a client secret. To see how to get refresh tokens, see [Refresh access tokens](#refresh-access-tokens).
 
 ## Refresh access tokens
 
-When your access token expires, you need to reauthenticate the user. You can avoid token expiration by making a `GET` call to the `/.auth/refresh` endpoint of your application. When called, App Service automatically refreshes the access tokens in the token store for the authenticated user. Subsequent requests for tokens by your app code get the refreshed tokens. However, for token refresh to work, the token store must contain [refresh tokens](https://auth0.com/learn/refresh-tokens/) for your provider. The way to get refresh tokens are documented by each provider, but the following list is a brief summary:
+When your provider's access token expires, you need to reauthenticate the user. You can avoid token expiration by making a `GET` call to the `/.auth/refresh` endpoint of your application. When called, App Service automatically refreshes the access tokens in the token store for the authenticated user. Subsequent requests for tokens by your app code get the refreshed tokens. However, for token refresh to work, the token store must contain [refresh tokens](https://auth0.com/learn/refresh-tokens/) for your provider. The way to get refresh tokens are documented by each provider, but the following list is a brief summary:
 
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
@@ -116,7 +116,7 @@ If a user revokes the permissions granted to your app, your call to `/.auth/me` 
 
 ## Extend session expiration grace period
 
-After an authenticated session managed by App Service expires, there is a 72-hour grace period by default. Within this grace period, you're allowed to refresh the session cookie or session token without reauthenticating the user. Therefore, you can just call `/.auth/refresh` when your session cookie or session token becomes invalid and don't need to track token expiration yourself. Once the 72-hour grace period is lapses, the user must sign in again to get a valid session cookie or session token.
+After an authenticated session expires, there is a 72-hour grace period by default. Within this grace period, you're allowed to refresh the session cookie or session token with App Service without reauthenticating the user. You can just call `/.auth/refresh` when your session cookie or session token becomes invalid, and you don't need to track token expiration yourself. Once the 72-hour grace period is lapses, the user must sign in again to get a valid session cookie or session token.
 
 If 72 hours isn't enough time for you, you can extend this expiration window. Extending the expiration over a long period could have significant security implications (such as when an authentication token is leaked or stolen). So you should leave it at the default 72 hours or set the extension period to the smallest value.
 
@@ -130,9 +130,9 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 > The grace period only applies to the App Service authenticated session, not the tokens from the identity providers. There is no grace period for the expired provider tokens. 
 >
 
-## Limit the domain of login accounts
+## Limit the domain of sign-in accounts
 
-Both Microsoft Account and Azure Active Directory allow logins from multiple domains. For example, Microsoft Account allows _outlook.com_, _live.com_, and _hotmail.com_ accounts. Azure Active Directory allows any number of custom domains for the login accounts. This behavior may be undesirable for an internal app, which you don't want anyone with an _outlook.com_ account to access. To limit the domain name of the login accounts, follow these steps.
+Both Microsoft Account and Azure Active Directory lets you sign in from multiple domains. For example, Microsoft Account allows _outlook.com_, _live.com_, and _hotmail.com_ accounts. Azure Active Directory allows any number of custom domains for the sign-in accounts. This behavior may be undesirable for an internal app, which you don't want anyone with an _outlook.com_ account to access. To limit the domain name of the sign-in accounts, follow these steps.
 
 In [https://resources.azure.com](https://resources.azure.com), navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
 
