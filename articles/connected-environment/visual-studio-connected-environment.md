@@ -24,4 +24,4 @@ This approach carries several benefits:
 > [Get Started](get-started.md)
 
 
-![](media/vscode-overview.png)
+![](media/visual-studio-connected-environment/vscode-overview.png)

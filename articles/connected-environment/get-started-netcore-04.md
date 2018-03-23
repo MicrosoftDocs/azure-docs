@@ -22,7 +22,7 @@ Previous step: [Create an ASP.NET Core Web App](get-started-netcore-03.md)
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
 1. Select **.NET Core Launch (VSCE)** as the active debug configuration.
 
-![](media/debug-configuration.png)
+![](media/get-started-netcore/debug-configuration.png)
 
 > [!Note]
 > If you don't see any Connected Environment commands in the Command Palette, ensure you have [installed the VS Code extension for Connected Environment](get-started-netcore-01.md#get-kubernetes-debugging-for-vs-code).
@@ -52,7 +52,7 @@ public IActionResult About()
 
 Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
 
-![](media/debug-action-refresh.png)
+![](media/get-started-netcore/debug-action-refresh.png)
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Connected Environment will incrementally recompile code within the existing container to provide a faster edit/debug loop.
 

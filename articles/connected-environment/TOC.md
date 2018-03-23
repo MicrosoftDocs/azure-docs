@@ -1,11 +1,6 @@
 # Visual Studio Connected Environment
 ## [Overview](visual-studio-connected-environment.md)
 
-## Quickstarts
-### [Create a Kubernetes development environment in Azure - Node.js](quickstart-node.md)
-### [Create a Kubernetes development environment in Azure - .NET Core](quickstart-netcore.md)
-### [Create a Kubernetes development environment in Azure - .NET Core - Visual Studio](quickstart-netcore-visualstudio.md) 
-
 ## [Tutorials](get-started.md)
 ###[.NET Core (VS Code & CLI)](get-started-netcore-01.md)
 ####[1. Install tools](get-started-netcore-01.md)

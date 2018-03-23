@@ -5,7 +5,7 @@ Open the **Command Palette** (using the **View | Command Palette** menu), and us
 
 This adds debug configuration for Connected Environment under the `.vscode` folder.
 
-![](../media/vsce-command-palette.png)
+![](../media/common/vsce-command-palette.png)
 
 > [!Note]
 > **IMPORTANT**: Due to a bug, please close and re-open VS Code before proceeding.

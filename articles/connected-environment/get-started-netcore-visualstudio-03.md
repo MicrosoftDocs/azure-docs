@@ -16,23 +16,23 @@ Previous step: [Create an ASP.NET web apps](get-started-netcore-visualstudio-02.
 ## Create a dev environment in Azure
 With Connected Environment, you can create Kubernetes-based development environments that are fully managed by Azure and optimized for development. With the project we just created open, select **Connected Environment for AKS** from the launch settings dropdown as shown below.
 
-![](media/LaunchSettings.png)
+![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 In the dialog that is displayed next make sure you are signed in with the appropriate account and then either select an existing development environment or select **<Create New Connected Environment for AKS…>** to create a new one.
 
-![](media/ConnectedEnvDialog.png)
+![](media/get-started-netcore-visualstudio/ConnectedEnvDialog.png)
 
 You can use the default values provided or adjust them as you like. Click **OK** when the values are set appropriately.
 
-![](media/NewEnvDialog.png)
+![](media/get-started-netcore-visualstudio/NewEnvDialog.png)
 
 Back on the previous dialog leave the **Space** dropdown defaulted to `mainline` for now, we will discuss this later in more detail. Check the **Publicly Accessible** checkbox so the web app will be accessible via a public endpoint. This isn't required but it will be helpful to demonstrate some concepts later in this walkthrough. But don’t worry, in either case you will be able to debug your website using Visual Studio.
 
-![](media/ConnectedEnvDialog2.png)
+![](media/get-started-netcore-visualstudio/ConnectedEnvDialog2.png)
 
 Click **OK** to select or create the development environment. A background task will be started to accomplish this, it will take a number of minutes to complete. You can see if it is still being created by hovering your cursor over the **Background tasks** icon in the bottom left corner of the status bar (see below).
 
-![](media/BackgroundTasks.png)
+![](media/get-started-netcore-visualstudio/BackgroundTasks.png)
 
 > [!Note]
 Until the development environment is successfully created you cannot debug your application.
@@ -46,7 +46,7 @@ You will see a file named `Dockerfile` has been added. This file has information
 
 Lastly, you will see a file named `vsce.yaml` which contains configuration information that is needed by the development environment, such as whether the application should be accessible via a public endpoint.
 
-![](media/ProjectFiles.png)
+![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 > [!div class="nextstepaction"]
 > [Debug a container in Kubernetes](get-started-netcore-visualstudio-04.md)

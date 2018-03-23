@@ -30,7 +30,7 @@ Picture yourself working on a service that interacts with dozens of other servic
 1. Some developers resort to simulating, or mocking up, many of their service dependencies. This can help sometimes, but managing those mocks can soon take on its own development effort. Plus, this leads to your dev environment looking very different to production, and subtle bugs can creep in.
 1. It follows that doing any type of end-to-end testing becomes difficult. Integration testing can only realistically happen post-commit, which means we see problems later in the development cycle.
 
-    ![](media/microservices-challenges.png)
+    ![](media/common/icroservices-challenges.png)
 
 ## Work in a shared development environment
 With Connected Environment, you can set up a *shared* development environment in Azure. Each developer can focus on just their part of the application, and can iteratively develop *pre-commit code* in an environment that already contains all the other services and cloud resources that their scenarios depend on. Dependencies are always up to date, and developers are working in a way that mirrors production.
@@ -58,15 +58,15 @@ Do the following to create a new space:
 4. From here you can change or create the Connected Environment and/or space that will be used when you F5 or Ctrl+F5. *Make sure the Connected Environment you created earlier is selected*.
 5. In the **Space** dropdown select **<Create New Space…>**.
 
-    ![](media/Settings.png)
+    ![](media/get-started-netcore-visualstudio/Settings.png)
 
 6. In the **Add Space** dialog type in a name for the space and click **OK**. I've used my name ("scott") for the new space so that it is identifiable to my peers what space I'm working in.
 
-    ![](media/AddSpace.png)
+    ![](media/get-started-netcore-visualstudio/AddSpace.png)
 
 7. You should now see your development environment and new Space selected on the project properties page.
 
-    ![](media/Settings2.png)
+    ![](media/get-started-netcore-visualstudio/Settings2.png)
 
 ### Update code for *mywebapi*
 
@@ -85,7 +85,7 @@ Do the following to create a new space:
 
 Here is a diagram that will help you understand how the different spaces work. The blue path shows a request via the `mainline` space, which is the default path used if no space is prepended to the URL. The green path shows a request via the `scott` space.
 
-![](media/Space-Routing.png)
+![](media/common/Space-Routing.png)
 
 This built-in capability of Connected Environment enables you to test code end-to-end in a shared evironment without requiring each developer  to re-create the full stack of services in their space. Note that this routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
 

@@ -8,7 +8,7 @@ mywebapi     scott     mywebapi-0.1.0     80/TCP  15s ago     http://localhost:6
 webfrontend  mainline  webfrontend-0.1.0  80/TCP  5h ago      https://scott-webfrontend-contosodev.vsce.io
 ```
 
-![](../media/space-routing.png)
+![](../media/common/space-routing.png)
 
 This built-in capability of Connected Environment enables you test code end-to-end in a shared evironment without requiring each developer  to re-create the full stack of services in their space. Note that this routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
 

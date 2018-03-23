@@ -16,7 +16,7 @@ Previous step: [Debug a container in Kubernetes](get-started-netcore-visualstudi
 ## Call another container
 In this section we're going to create a second service, `mywebapi`, and have `webfrontend` call it. Each service will run in separate containers. We'll then debug across both containers.
 
-![](media/multi-container.png)
+![](media/common/multi-container.png)
 
 ## Download sample code for *mywebapi*
 For the sake of time, let's download sample code from a GitHub repository. Go to https://github.com/Azure/vsce and select **Clone or Download** to download the GitHub repository. The code for this section is in `vsce/samples/dotnetcore/getting-started/mywebapi`.
@@ -29,7 +29,7 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 1. When `mywebapi` is ready, open your browser to the localhost address and append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
 1. If all the steps were successful, you should be able to see a response from the `mywebapi` service that looks like this.
 
-    ![](media/WebAPIResponse.png)
+    ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ## Make a request from *webfrontend* to *mywebapi*
 Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch to the Visual Studio window which has the `webfrontend` project. In the `HomeController.cs` file *replace* the code for the About method with the following:

@@ -16,11 +16,11 @@ Previous step: [Install tools](get-started-netcore-visualstudio-01.md)
 ## Create an ASP.NET web app
 From within Visual Studio 2017 create a new project, currently this must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
 
-![](media/NewProjectDialog1.png)
+![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
 Select the **Web Application (Model-View-Controller)** template and be sure you are targeting **.NET Core** and **ASP.NET Core 2.0** in the two dropdowns at the top of the dialog. Click **OK** to create the project.
 
-![](media/NewProjectDialog2.png)
+![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
 
 > [!div class="nextstepaction"]
 > [Create a dev environment in Azure](get-started-netcore-visualstudio-03.md)

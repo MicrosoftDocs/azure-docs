@@ -22,7 +22,7 @@ Previous step: [Create a Node.js container in Kubernetes](get-started-nodejs-03.
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
 1. Select **Launch Program (VSCE)** as the active debug configuration.
 
-![](media/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs.png)
 
 > [!Note]
 > If you don't see any Connected Environment commands in the Command Palette, ensure you have [installed the VS Code extension for Connected Environment](get-started-nodejs-01.md#get-kubernetes-debugging-for-vs-code).
@@ -49,7 +49,7 @@ app.get('/api', function (req, res) {
 
 Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
 
-![](media/debug-action-refresh-nodejs.png)
+![](media/get-started-node/debug-action-refresh-nodejs.png)
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Connected Environment will restart the Node.js process in between debug sessions to provide a faster edit/debug loop.
 

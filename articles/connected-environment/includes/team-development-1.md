@@ -13,7 +13,7 @@ Picture yourself working on a service that interacts with dozens of other servic
 1. Some developers resort to simulating, or mocking up, many of their service dependencies. This can help sometimes, but managing those mocks can soon take on its own development effort. Plus, this leads to your dev environment looking very different to production, and subtle bugs can creep in.
 1. It follows that doing any type of end-to-end testing becomes difficult. Integration testing can only realistically happen post-commit, which means we see problems later in the development cycle.
 
-![](../media/microservices-challenges.png)
+![](../media/common/microservices-challenges.png)
 
 
 ## Work in a shared development environment
