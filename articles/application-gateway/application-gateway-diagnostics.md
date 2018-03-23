@@ -327,7 +327,7 @@ Browse to an application gateway, under **Monitoring** click **Metrics**. To vie
 
 In the following image, you see an example with three metrics displayed for the last 30 minutes:
 
-![Metric view][5]
+[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 To see a current list of metrics, see [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
