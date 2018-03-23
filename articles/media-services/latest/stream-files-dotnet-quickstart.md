@@ -21,7 +21,7 @@ ms.author: juliako
 > [!NOTE]
 > The latest version of Azure Media Services (2018-03-30) is in preview. This version is also called v3.
 
-This quickstart shows you how to stream video files. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately.
+This quickstart explains how to use Azure Media Services to stream video files. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately.
 
 This tutorial examines a .NET code sample that is located on GitHub, so you are first offered to clone the sample repository. 
 
@@ -32,7 +32,9 @@ The article explains the following tasks that are part of the code sample:
 3. Poll for encoding status. 
 4. Get the URL that players on mobile devices and browsers can use to stream the encoded video.
 
-When you run the application discussed in this article, it prints out streaming URLs that you can use to stream your video with a media player. The quickstart shows how to do it with Azure Media Player. 
+When you run the application discussed in this article, it prints out streaming URLs that you can use to stream your video with a media player. 
+
+The quickstart shows how to do it with Azure Media Player. 
 
 ![Play the video](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -70,7 +72,7 @@ Let's review what's happening in the app that you cloned. Open the Program.cs fi
 
 To program against the Media Services API using .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. You first need to get a token and then create a ClientCredential object from the returned token. In the code you cloned at the beginning of the article, the **ArmClientCredential** object is used to get the token.  
 
-In the example, we set all the connection parameters in the app.config file. To get the values, see [Create an Azure Media Services account](create-account-cli-quickstart.md).
+In the example, we set all the connection parameters in the app.config file. To get the values, see [Accessing APIs](access-api-cli-how-to.md).
 
 ```csharp
 ArmClientCredentials credentials = new ArmClientCredentials(config);
@@ -212,10 +214,11 @@ String GetProgressiveDownloadURL()
 }
 ```
 
-
 ## Run the app and get the streaming URLs
 
 Run the app that you cloned, copy one of the URLs you want to test.  
+
+TODO: add a screenshot with the URLs.
 
 ## Test with Azure Media Player
 
