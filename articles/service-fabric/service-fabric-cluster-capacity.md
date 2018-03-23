@@ -196,11 +196,6 @@ This guidance of stateless Workloads that you are running on the non-primary nod
 
 **Number of VM instances:** For production workloads that are stateless, the minimum supported non-Primary Node type size is 2. This allows you to run you two stateless instances of your application and allowing your service to survive the loss of a VM instance. 
 
-> [!NOTE]
-> If your cluster is running on a service fabric version less than 5.6, due to a defect in the runtime (this issue is fixed in 5.6), scaling down a non-primary node type to less than 5, results in cluster health turning unhealthy, till you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) with the appropriate node name. Read [perform Service Fabric cluster in or out](service-fabric-cluster-scale-up-down.md) for more details
-> 
->
-
 **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is determined by workload you plan to run in the cluster, So we cannot provide you with qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
 For production workloads 
@@ -217,6 +212,7 @@ For production workloads
 Once you finish your capacity planning and set up a cluster, read the following:
 
 * [Service Fabric cluster security](service-fabric-cluster-security.md)
+* [Service Fabric cluster scaling](service-fabric-cluster-scaling.md)
 * [Disaster recovery planning](service-fabric-disaster-recovery.md)
 * [Relationship of Nodetypes to Virtual machine scale set](service-fabric-cluster-nodetypes.md)
 
