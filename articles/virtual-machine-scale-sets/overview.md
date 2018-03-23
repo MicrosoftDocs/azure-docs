@@ -63,4 +63,4 @@ There is no additional cost to scale sets. You only pay for the underlying compu
 To get started, create your first virtual machine scale set in the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Create a scale set in the Azure portal](virtual-machine-scale-sets-create-portal.md)
+> [Create a scale set in the Azure portal](quick-create-portal.md)
