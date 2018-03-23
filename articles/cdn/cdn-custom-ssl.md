@@ -57,7 +57,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 ### Step 2: Validate domain
 
-If previously created a CNAME record for your CDN endpoint with the domain registrar for your custom domain and are not using the cdnverify subdomain name, this step is unnecessary. You won't receive a verification email from DigitCert or need to approve the request. Proceed to [Step 3: Wait for propagation](#step-3-wait-for-propagation). For more information, see [Create the CNAME DNS record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#step-2-create-the-cname-dns-records). Note, however, that if you've created a CNAME record entry for your endpoint and it contains the cdnverify subdomain, you will still need to follow the instructions in this step.
+If you previously created a CNAME record for your CDN endpoint with the domain registrar for your custom domain and are not using the cdnverify subdomain name, this step is unnecessary. You won't receive a verification email from DigitCert or need to approve the request. Proceed to [Step 3: Wait for propagation](#step-3-wait-for-propagation). For more information, see [Create the CNAME DNS record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#step-2-create-the-cname-dns-records). Note, however, that if you've created a CNAME record entry for your endpoint and it contains the cdnverify subdomain, you will still need to follow the instructions in this step.
 
 >[!IMPORTANT] 
 >You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
