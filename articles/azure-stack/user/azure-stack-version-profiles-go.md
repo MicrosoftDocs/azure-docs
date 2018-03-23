@@ -23,7 +23,7 @@ ms.reviewer: sijuman
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-## Go and profiles
+## Go and version profiles
 
 A profile is a combination of different resource types with different versions from different services. Using a profile will help you mix and match between various resource types. Profiles can provide:
 
@@ -44,21 +44,27 @@ import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compu
   3. Install the Go Azure SDK and its dependencies by running the following bash command:
   ````go
     go get -u -d github.com/Azure/azure-sdk-for-go/...
-  ````
-You can find information about the Azure Go SDK at [Installing the Azure SDK for Go](https://docs.microsoft.com/go/azure/azure-sdk-go-install). The Azure Go SDK is publicly available at the [Go SDK on GitHub](https://github.com/Azure/azure-sdk-for-go).
+  ````  
 
-The GO SDK depends on Go-AutoRest modules to send REST requests to Azure Resource Manager endpoints. You will need to import the Go-AutoRest module dependencies from [Go-AutoRest on GitHub](https://github.com/Azure/go-autorest).
+### The GO SDK
+
+You can find more information about the Azure GO SDK at:
+- The Azure Go SDK at [Installing the Azure SDK for Go](https://docs.microsoft.com/go/azure/azure-sdk-go-install).
+- The Azure Go SDK is publicly available on GitHub at [azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go).
+
+### Go-AutoRest dependencies
+
+The GO SDK depends on the Azure Go-AutoRest modules to send REST requests to Azure Resource Manager endpoints. You will need to import the Azure Go-AutoRest module dependencies from [Azure Go-AutoRest on GitHub](https://github.com/Azure/go-autorest). You can find the install bash commands in the **Install** section.
 
 
 ## How to use GO SDK profiles on Azure Stack
 
 To run a sample of Go code on Azure Stack:
   1. Install Azure SDK for Go and its dependencies. For instruction see the previous section, [Install Azure SDK for Go](#install-azure-sdk-for-go).
-  2. Get metadata information from the Resource Manager endpoint. The endpoint returns a JSON file with the information required to run Go samples.
-  > [!note] ResourceManagerUrl in one node environment is: `https://management.local.azurestack.external/  
-  >  ResourceManagerUrl in multi node environment is: https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
-
-     To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+  2. Get the metadata information from the Resource Manager endpoint. The endpoint returns a JSON file with the information required to run your Go code.
+  > [!note] The ResourceManagerUrl in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`  
+  >  ResourceManagerUrl in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+  > To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
   Sample JSON file:
 
@@ -79,7 +85,7 @@ To run a sample of Go code on Azure Stack:
 
   ````go
     package main 
-    import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/network/mgmt/network"
+    import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
   ````
   
   6. In your function, create and authenticate a client with a **New** Client function call. To create a virtual network client, you can use the following code:    
@@ -87,7 +93,7 @@ To run a sample of Go code on Azure Stack:
 ````go
 package main 
 
-import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/network/mgmt/network" 
+import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network" 
 
 func main() { 
     vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
@@ -103,7 +109,7 @@ func main() {
 ````go
 package main
 
-import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/network/mgmt/network" 
+import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network" 
 func main() { 
   vnetC1ient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
   vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
