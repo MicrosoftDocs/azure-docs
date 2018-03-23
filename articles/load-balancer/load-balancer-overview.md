@@ -103,7 +103,7 @@ Azure Load Balancer supports two different SKUs: Basic and Standard.  There are 
 However, depending on which SKU is chosen, the complete scenario configuration detail may be slightly different. The Load Balancer documentation calls out when an article is applicable to a specific SKU only. Review the following table below to compare and understand the differences.  Review [Standard Load Balancer Overview](load-balancer-standard-overview.md) for further details.
 
 >[!NOTE]
-> New designs should use Standard Load Balancer. 
+> New designs should consider using Standard Load Balancer. 
 
 Standalone virtual machines, availability sets, and virtual machine scale sets can only be connected to one SKU, never both. When used with public IP addresses, both Load Balancer and public IP address SKU must match. Load Balancer and Public IP SKUs are not mutable.
 
@@ -114,17 +114,17 @@ _It is a best practice to specify the SKUs explicitly, even though it is not yet
 
 | | [Standard SKU](load-balancer-standard-overview.md) | Basic SKU |
 | --- | --- | --- |
-| Backend pool size | up to 1000 instances | up to 100 instances|
-| Backend pool endpoints | Any virtual machine in a single virtual network, including blend of virtual machines, availability sets, virtual machine scale sets. | virtual machines in a single availability set or virtual machine scale set |
-| Availability Zones | Zone-redundant and zonal frontends for inbound and outbound, outbound flows mappings survive zone failure, cross-zone load balancing | / |
-| Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements | Azure Log analytics for public Load Balancer only, SNAT exhaustion alert, backend pool health count |
+| Backend pool size | up to 1000 instances | up to 100 instances |
+| Backend pool endpoints | any virtual machine in a single virtual network, including blend of virtual machines, availability sets, virtual machine scale sets. | virtual machines in a single availability set or virtual machine scale set |
+| Availability Zones | zone-redundant and zonal frontends for inbound and outbound, outbound flows mappings survive zone failure, cross-zone load balancing | / |
+| Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements | Azure Log Analytics for public Load Balancer only, SNAT exhaustion alert, backend pool health count |
 | HA Ports | internal Load Balancer | / |
-| Secure by default | public IP and Load Balancer endpoints always default to closed, network security group used to explicitly whitelist | Defaults open, network security group optional |
-| Outbound connections | Multiple frontends, per rule opt-out. Association of a virtual machine with an outbound address _must_ be explicitly created.  This includes connectivity to other Azure PaaS services or [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) must be used. Outbound connections via default SNAT are not available when only an internal Load Balancer is serving a virtual machine. | Single frontend. Default SNAT is used when only internal Load Balancer is serving a virtual machine |
+| Secure by default | default closed for public IP and Load Balancer endpoints and a network security group must be used to explicitly whitelist for traffic to flow | default open, network security group optional |
+| Outbound connections | Multiple frontends with per rule opt-out. An outbound scenario _must_ be explicitly created for the virtual machine to be able to use outbound connectivity.  [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) can be reached without outbound connectivity and do not count towards data processed.  Any public IP addresses, including Azure PaaS services not available as VNet Service Endpoints, must be reached via outbound connectivity and count towards data processed. When only an internal Load Balancer is serving a virtual machine, outbound connections via default SNAT are not available. Outbound SNAT programming is transport protocol specific based on protocol of the inbound load balancing rule. | Single frontend, selected at random when multiple frontends are present.  When only internal Load Balancer is serving a virtual machine, default SNAT is used. |
 | Multiple frontends | Inbound and outbound | Inbound only |
-| Operations | Most operations < 30 seconds | 60-90+ seconds typical |
+| Management Operations | Most operations < 30 seconds | 60-90+ seconds typical |
 | SLA | 99.99% for data path with two healthy virtual machines | Implicit in VM SLA | 
-| Pricing | Billed based on number of rules, data processed inbound or outbound associated with resource  | No charge |
+| Pricing | Charged based on number of rules, data processed inbound or outbound associated with resource  | No charge |
 
 Review [service limits for Load Balancer](https://aka.ms/lblimits).  For Standard Load Balancer also review a more detailed [overview](load-balancer-standard-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 
