@@ -181,6 +181,6 @@ You should be aware of and understand the issues around reading (potentially) st
 As such, we recommend following this link to learn more about how RA-GRS storage works and its associated risks.
 
 > [!div class="nextstepaction"]
-> [Azure storage script samples](../common/storage-designing-ha-apps-with-ragrs.md)
+> [Designing HA apps with RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md
