@@ -139,7 +139,7 @@ The source specifies where the messages come from. It can be any of the followin
 ### Condition
 The condition is optional in a route declaration. If you want to pass all messages from the sink to the source, just leave out the **WHERE** clause entirely. Or you can use the [IoT Hub query language][lnk-iothub-query] to filter for certain messages or message types that satisfy the condition.
 
-The messages that pass between modules in IoT Edge are formatted the same as the messages that pass between your devices and Azure IoT Hub. All messages are formatted as JSON and have **systemProperties**, **appProperties**, and **body** parameter. 
+The messages that pass between modules in IoT Edge are formatted the same as the messages that pass between your devices and Azure IoT Hub. All messages are formatted as JSON and have **systemProperties**, **appProperties**, and **body** parameters. 
 
 You can build queries around all three parameters with the following syntax: 
 
@@ -147,7 +147,7 @@ You can build queries around all three parameters with the following syntax:
 * Application properties: `<propertyName>`
 * Body properties: `$body.<propertyName>` 
 
-For examples about how to create queries around message properties, see [Device-to-cloud message routes query expressions](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+For examples about how to create queries for message properties, see [Device-to-cloud message routes query expressions](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
 
 An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a leaf device. Messages that come from modules contain a system property called **connectionModuleId**. So if you want to route messages from leaf devices directly to IoT Hub, use the following route to exclude module messages:
 
