@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: tomfitz
 
 ---
@@ -83,6 +83,11 @@ There are some important steps to perform before moving a resource. By verifying
   ```azurecli-interactive
   az provider register --namespace Microsoft.Batch
   ```
+
+4. The account moving the resources must have at least the following permissions:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
 
 ## When to call support
 
