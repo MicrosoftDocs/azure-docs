@@ -181,7 +181,12 @@ Once all decommissioned worker nodes are configured to run compute node, come ba
 
 3. Look for the "URIs" section, and add worker node's IP and port details.
 
-	![decommission worker nodes cmdline](./media/r-server-operationalize/get-started-op-cmd.png)
+       "Uris": {
+         "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",
+         "Values": [
+           "http://localhost:12805", "http://[worker-node1-ip]:12805", "http://[workder-node2-ip]:12805"
+         ]
+       }
 
 ## Next steps
 
