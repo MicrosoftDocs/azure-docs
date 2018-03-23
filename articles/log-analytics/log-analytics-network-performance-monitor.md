@@ -37,6 +37,17 @@ This capability helps you perform http, HTTPS, TCP, and ICMP based tests to moni
 
 More information on the various capabilities supported by [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is available online.
  
+## Supported Regions
+NPM can monitor connectivity between networks and applications in any part of the world, from a workspace that is hosted in one of the following regions:
+* West Europe
+* West Central US
+* East US
+* South East Asia
+* South East Australia
+* US Government Virginia
+
+The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
+
 
 ## Set up and configure
 
