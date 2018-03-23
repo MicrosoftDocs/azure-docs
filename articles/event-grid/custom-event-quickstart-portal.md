@@ -55,7 +55,7 @@ An event grid topic provides a user-defined endpoint that you post your events t
 
 ## Create an Azure Function
 
-Before subscribing to the topic, let's create the endpoint for the event message. In this article, you use an Azure Function as the endpoint.
+Before subscribing to the topic, let's create the endpoint for the event message. In this article, you use Azure Functions to create a function app for the endpoint.
 
 1. To create a function, select **Create a resource**.
 
@@ -89,7 +89,7 @@ Before subscribing to the topic, let's create the endpoint for the event message
 
    ![New function](./media/custom-event-quickstart-portal/new-function.png)
 
-Your Azure function is now ready to receive events.
+Your function is now ready to receive events.
 
 ## Subscribe to a topic
 
