@@ -119,8 +119,8 @@
       href: luis-concept-enterprise.md
   - name: Security
     items:
-      -name: App access
-       href: luis-concept-security.md
+    - name: App access
+      href: luis-concept-security.md
   - name: Best practices
     href: luis-concept-best-practices.md
 - name: How-to guides
