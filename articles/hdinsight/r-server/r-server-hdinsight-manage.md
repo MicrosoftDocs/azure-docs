@@ -13,7 +13,7 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/22/2018
+ms.date: 03/23/2018
 ms.author: nitinme
 
 ---
@@ -324,7 +324,7 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
 
    * **Parameters**: The R packages to be installed. For example, `bitops stringr arules`
 
-   * Select the check box to **Persist this script action ...**.  
+   * Select the check box to **Persist this script action**.  
 
    > [!NOTE]
    > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed. If you want to install newer versions of packages, then there is some risk of incompatibility. However this kind of install is possible by specifying `useCRAN` as the first element of the package list, for example `useCRAN bitops, stringr, arules`.  

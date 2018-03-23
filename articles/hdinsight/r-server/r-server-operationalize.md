@@ -13,7 +13,7 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/22/2018
+ms.date: 03/23/2018
 ms.author: nitinme
 
 ---
@@ -149,13 +149,13 @@ Follow these steps to decommission worker nodes:
 
    ![decommission worker nodes](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Select **Actions** > **Selected Hosts** > **DataNodes** > click **Decommission**
-* Select **Actions** > **Selected Hosts** > **NodeManagers** > click **Decommission**
-* Select **Actions** > **Selected Hosts** > **DataNodes** > click **Stop**
-* Select **Actions** > **Selected Hosts** > **NodeManagers** > click on **Stop**
-* Select **Actions** > **Selected Hosts** > **Hosts** > click **Stop All Components**
-* Unselect the worker nodes and select the head nodes
-* Select **Actions** > **Selected Hosts** > "**Hosts** > **Restart All Components**
+* Select **Actions** > **Selected Hosts** > **DataNodes** > click **Decommission**.
+* Select **Actions** > **Selected Hosts** > **NodeManagers** > click **Decommission**.
+* Select **Actions** > **Selected Hosts** > **DataNodes** > click **Stop**.
+* Select **Actions** > **Selected Hosts** > **NodeManagers** > click on **Stop**.
+* Select **Actions** > **Selected Hosts** > **Hosts** > click **Stop All Components**.
+* Unselect the worker nodes and select the head nodes.
+* Select **Actions** > **Selected Hosts** > "**Hosts** > **Restart All Components**.
 
 ###	Step 2: Configure compute nodes on each decommissioned worker node(s)
 

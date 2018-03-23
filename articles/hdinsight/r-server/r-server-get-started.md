@@ -14,7 +14,7 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/22/2018
+ms.date: 03/23/2018
 ms.author: nitinme
 
 ---
@@ -77,11 +77,11 @@ Azure HDInsight includes an R Server option to be integrated into your HDInsight
 
 If you chose to install RStudio Server Community Edition as part of your HDInsight cluster, then you can access the RStudio login using one of the following two methods:
 
-* Go to the following URL (where **CLUSTERNAME** is the name of the R Server cluster you created):
+* **Option 1** - Go to the following URL (where **CLUSTERNAME** is the name of the R Server cluster you created):
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* Open the R Server cluster in the Azure portal, under **Quick links** click **R Server Dashboards**.
+* **Option 2** - Open the R Server cluster in the Azure portal, under **Quick links** click **R Server Dashboards**.
 
      ![Set the storage account settings for HDInsight](./media/r-server-get-started/dashboard-quick-links.png)
 
