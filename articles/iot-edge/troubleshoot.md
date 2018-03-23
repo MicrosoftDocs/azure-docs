@@ -139,7 +139,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
    ![Configure DNS name](./media/troubleshoot/configure-dns.png)
 
 3. Provide a value for **DNS name label** and select **Save**.
-4. Copy the new DNS name, which should be in the format **<DNSnamelabel>.<vmlocation>.cloudapp.azure.com**.
+4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
 5. Inside the virtual machine, use the following command to set up the IoT Edge runtime with your DNS name:
 
    ```input
