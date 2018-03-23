@@ -17,7 +17,7 @@ ms.author: wesmc
 
 ---
 
-How to use the Redis command-line tool with Azure Redis Cache
+# How to use the Redis command-line tool with Azure Redis Cache
 
 `redis-cli.exe` is a popular command-line tool for interacting with a Redis Cache as a client. This tool is also available for use with Azure Redis Cache.
 
