@@ -399,7 +399,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
     </html>
     ```
 
-##Next steps
+## Next steps
 Finally, build and run your app. Run `node app.js`, and then go to `http://localhost:3000`.
 
 Sign in with either a personal Microsoft account or a work or school account, and notice how the user's identity is reflected in the /account list. You now have a web app that's secured with industry standard protocols that can authenticate users with both their personal and work/school accounts.

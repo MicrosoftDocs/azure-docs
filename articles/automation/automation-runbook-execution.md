@@ -41,7 +41,7 @@ The following table describes the different statuses that are possible for a job
 | Suspending |The system is attempting to suspend the job at the request of the user. The runbook must reach its next checkpoint before it can be suspended. If it already passed its last checkpoint, then it completes before it can be suspended.  Applies to [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. |
 
 ## Viewing job status from the Azure portal
-You can view a summarized status of all runbook jobs or drill into details of a specific runbook job in the Azure portal or by configuring integration with your Microsoft Operations Management Suite (OMS) Log Analytics workspace to forward runbook job status and job streams.  For more information about integrating with OMS Log Analytics, see [Forward job status and job streams from Automation to Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).  
+You can view a summarized status of all runbook jobs or drill into details of a specific runbook job in the Azure portal or by configuring integration with your Log Analytics workspace to forward runbook job status and job streams.  For more information about integrating with Log Analytics, see [Forward job status and job streams from Automation to Log Analytics](automation-manage-send-joblogs-log-analytics.md).  
 
 ### Automation runbook jobs summary
 On the right of your selected Automation account, you can see a summary of all of the runbook jobs for a selected Automation account under **Job Statistics** tile.<br><br> ![Job Statistics tile](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> This tile displays a count and graphical representation of the job status for all jobs executed.  

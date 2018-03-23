@@ -226,7 +226,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     c. The names and values for **Principal Attribute** shown in the screenshot depend on how the application is developed. It is possible that your application requires different mappings.
 
-###Assertion-based groups
+### Assertion-based groups
 
 As an optional step, you can configure assertion-based groups for your Azure Active Directory Identity Provider.
 
