@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: danlep
 ---
 
@@ -47,10 +47,11 @@ In your Batch applications, use the Batch APIs to monitor or query the status of
 * Monitor the [node state](/rest/api/batchservice/computenode/list#computenodestate)
 * Monitor the [pool state](/rest/api/batchservice/pool/get#poolstate)
 * Monitor [pool usage in the account](/rest/api/batchservice/pool/listusagemetrics)
+* [Count pool nodes by state](/rest/api/batchservice/account/listpoolnodecounts)
 
 ## Batch application-level monitoring
 
-* [Application Insights](../application-insights/app-insights-overview.md) is an Azure service you can use to programmatically monitor the availability, performance, and usage of your Batch jobs and tasks. Easily get performance counters from compute nodes (VMs) and custom information for tasks off of the VMs. See the [code sample](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
+* [Application Insights](../application-insights/app-insights-overview.md) is an Azure service you can use to programmatically monitor the availability, performance, and usage of your Batch jobs and tasks. Easily get performance counters from compute nodes (VMs) and custom information for tasks off of the VMs. See [Monitor and debug an Azure Batch application with Application Insights](monitor-applicaiton-insights.md) and the accompanying [code sample](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
 
   > [!NOTE]
   > You may incur additional costs to use Application Insights. See the [pricing options](https://azure.microsoft.com/pricing/details/application-insights/). 

@@ -10,25 +10,25 @@ ms.service: batch
 ms.devlang: .NET
 ms.topic: article
 ms.workload: na
-ms.date: 03/20/2018
+ms.date: 03/22/2018
 ms.author: danlep
 ---
 
-# Monitor and debug an Azure Batch application with Application Insights
+# Monitor and debug an Azure Batch .NET application with Application Insights
 
 [Application Insights](../application-insights/app-insights-overview.md) provides an elegant and powerful way for developers to monitor and debug 
 applications deployed to Azure services. Using Application Insights you can 
 monitor performance counters and exceptions as well as instrument your code 
 with custom metrics and tracing. Integrating Application Insights with your 
 Azure Batch application allows you to gain deep insights into behaviors 
-and investigate issues in near-real-time.
+and investigate issues in near real-time.
 
 This article shows how to add and configure the Application Insights library 
 into your Azure Batch .NET solution and instrument your application code. It also provides
 examples on how to monitor your application via the Azure portal and build 
 custom dashboards.
 
-A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). 
+A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). This example adds Application Insights instrumentation code to the [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) example. If you're not familiar with that example, try building the solution and run TopNWords.exe first. Doing this will help you understand a basic Batch workflow of processing a set of input blobs in parallel on multiple compute nodes. 
 
 ## Prerequisites
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 or a more recent version). 
@@ -49,22 +49,23 @@ key](../application-insights/app-insights-create-new-resource.md#copy-the-instru
 
 ## Add Application Insights to your project
 
-The **Microsoft.ApplicationInsights.WindowsServer** NuGet package and its dependencies are required for your project. Add or restore them to your application's project. If you need to install the package, use the `Install-Package` command or NuGet Package Manager.
+The **Microsoft.ApplicationInsights.WindowsServer** NuGet package and its dependencies are required for your project. Add or restore them to your application's project. To install the package, use the `Install-Package` command or NuGet Package Manager.
 
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```
-You can now reference Application Insights using the **Microsoft.ApplicationInsights** namespace.
+Reference Application Insights from your .NET application by using the **Microsoft.ApplicationInsights** namespace.
 
 ## Instrument your code
 
-First, update the ApplicationInsights.config file in the TopNWords solution with your instrumentation key.
+To instrument your code, your solution needs to create an Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). In the example, the TelemetryClient loads its configuration from the [ApplicationInsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md) file. Be sure to update ApplicationInsights.config in the different projects with your Application Insights instrumentation key.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
 
-The example in TopNWords.cs uses the following instrumentation calls from the [Application Insights API](../application-insights/app-insights-api-custom-events-metrics.md):
+
+The example in TopNWords.cs uses the following [instrumentation calls](../application-insights/app-insights-api-custom-events-metrics.md) from the Application Insights API:
 * `TrackMetric()` - Tracks how long, on average, a compute node takes to download the required text file.
 * `TrackTrace()` - Adds debugging calls to your code.
 * `TrackEvent()` - Tracks interesting events to capture.
@@ -270,7 +271,7 @@ features, but feel free to explore the full feature set.
 
 ### View live stream data
 
-The following screenshot shows how to view live data coming from the 
+To view trace logs in your Applications Insights resource, click **Live Stream**. The following screenshot shows how to view live data coming from the 
 compute nodes in the pool, for example the CPU usage per compute node.
 
 ![Live stream compute node data](./media/monitor-application-insights/applicationinsightslivestream.png)

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: danlep
 ms.custom: 
 
@@ -48,17 +48,17 @@ To retrieve metrics programmatically, use the Azure Monitor APIs. For example, s
 
 ## Batch metric alerts
 
-Optionally, configure *metric alerts* that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) you choose when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). 
+Optionally, configure near real-time *metric alerts* that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) you choose when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). 
 
 For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools.
 
-To configure a metric alert:
+To configure a metric alert in the portal:
 
-1. In the portal, click **All services** > **Batch accounts**, and then click the name of your Batch account.
+1. Click **All services** > **Batch accounts**, and then click the name of your Batch account.
 2. Under **Monitoring**, click **Alert rules** > **Add metric alert**.
 3. Select a metric, an alert condition (such as when a metric exceeds a particular value during a period), and one or more notification mechanisms or actions.
 
-
+You can also configure a near real-time alert using the [REST API](). For more information, see [Use the newer metric alerts for Azure services in Azure portal](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
 ## Batch diagnostics
 
 Diagnostic logs contain information emitted by Azure resources that describe the operation of each resource. For Batch, you can collect **Service Logs** events emitted by the Azure Batch service during the lifetime of an individual Batch resource like a pool or task. You can also log account-level **Metrics**. 
