@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
 
@@ -190,22 +190,6 @@ If you would like to change the billing model or syndication features for your i
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
-
-## Remove a registered resource
-If you want to remove a registration, then you must use **UnRegister-AzsEnvironment** cmdlet and pass in either the registration resource name or the registration token you used for **Register-AzsEnvironment**.
-
-To remove a registration using a resource name:
-
-```Powershell    
-UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
-```
-To remove a registration using a registration token:
-
-```Powershell
-$registrationToken = "*Your copied registration token*"
-UnRegister-AzsEnvironment -RegistrationToken $registrationToken
-```
-
 ## Next steps
 
 [Download marketplace items from Azure](azure-stack-download-azure-marketplace-item.md)
