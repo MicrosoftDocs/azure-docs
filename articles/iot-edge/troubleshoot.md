@@ -7,7 +7,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 03/21/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -128,12 +128,12 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 ```
 
 ### Root cause
-This error occurs when you run IoT Edge on an Azure Windows virtual machine. The hostnames generated for these machines tend to be very long, and can exceed the 64 character limit. 
+The IoT Edge runtime can only support hostnames that are shorter than 64 characters. This usually isn't an issue for physical machines, but can occur when you set up the runtime on a virtual machine. The automatically generated hostnames for Windows virtual machines hosted in Azure, in particular, tend to be long. 
 
 ### Resolution
 Shorter virtual machine names have shorter hostnames, so if you create new VMs for IoT Edge give them succinct names to prevent this error. 
 
-When you see this error, you can resolve it by specifying your own hostname with the following command: 
+When you see this error, you can resolve it by specifying your own hostname in the setup command: 
 
 ```input
 iotedgectl setup --connection-string "<connection string>" --auto-cert-gen-force-no-passwords --edge-hostname "<hostname>"
