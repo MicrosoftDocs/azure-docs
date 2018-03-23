@@ -1,6 +1,6 @@
 ﻿---
 title: Protect personal data in transit with encryption in Azure | Microsoft Docs
-description: Using encryption in Azure to protect personal data. This information will be helpful in your efforts to comply with General Data Protection Regulation (GDPR).
+description: information on Azure encryption to protect personal data can be helpful in efforts to comply with General Data Protection Regulation (GDPR).
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 

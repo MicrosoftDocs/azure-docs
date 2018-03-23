@@ -18,6 +18,9 @@
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
+      - name: Managed Service Identity
+        tocHref: /azure/active-directory/managed-service-identity/
+        topicHref: /azure/active-directory/managed-service-identity/
   - name: Active Directory B2C
     tocHref: /azure/active-directory-b2c/
     topicHref: /azure/active-directory-b2c/

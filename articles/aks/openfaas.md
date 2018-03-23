@@ -227,7 +227,7 @@ You can also test the function within the OpenFaaS UI.
 
 ![alt text](media/container-service-serverless/OpenFaaSUI.png)
 
-# Next Steps
+## Next Steps
 
 The default deployment of OpenFaas needs to be locked down for both OpenFaaS Gateway and Functions. [Alex Ellis' Blog post](https://blog.alexellis.io/lock-down-openfaas/) has more details on secure configuration options. 
 

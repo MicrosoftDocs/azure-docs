@@ -14,7 +14,7 @@ manager: carmonm
 
 # Tutorial: Forecast future spending
 
-Azure Cost Management by Cloudyn helps you forecast future spending using historical usage and spending data. You use Cloudyn reports to view all cost projection data. The examples in this tutorial walk you through reviewing cost projections using the reports. In this tutorial, you learn how to:
+Azure Cost Management helps you forecast future spending using historical usage and spending data. You use Cloudyn reports to view all cost projection data. The examples in this tutorial walk you through reviewing cost projections using the reports. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Forecast future spending
