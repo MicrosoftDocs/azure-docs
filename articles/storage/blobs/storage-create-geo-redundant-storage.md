@@ -207,6 +207,15 @@ def retry_callback(retry_context):
 
 With Java defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. This is because it will automatically switch back to Primary for you when it is reachable.
 
+```java
+    BlobRequestOptions myReqOptions = new BlobRequestOptions();
+    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff,maxAttempts));
+    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
+    blobClient.setDefaultRequestOptions(myReqOptions);
+
+    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
+```
+
 ---
 
 
