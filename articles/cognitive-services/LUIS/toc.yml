@@ -81,6 +81,8 @@
     items: 
     - name: Authoring cycle
       href: luis-concept-app-iteration.md 
+    - name: Collaboration
+      href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
   - name: Design Model 
@@ -219,3 +221,5 @@
     href: https://docs.microsoft.com/en-us/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
