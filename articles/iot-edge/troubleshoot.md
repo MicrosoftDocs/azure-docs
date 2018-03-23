@@ -131,18 +131,19 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 The IoT Edge runtime can only support hostnames that are shorter than 64 characters. This usually isn't an issue for physical machines, but can occur when you set up the runtime on a virtual machine. The automatically generated hostnames for Windows virtual machines hosted in Azure, in particular, tend to be long. 
 
 ### Resolution
-Shorter virtual machine names have shorter hostnames, so if you create new VMs for IoT Edge give them succinct names to prevent this error. 
-
-When you see this error, you can resolve it by configuring the DNS name of your virtual machine, and then specifying the DNS name as the hostname in the setup command.
+When you see this error, you can resolve it by configuring the DNS name of your virtual machine, and then setting the DNS name as the hostname in the setup command.
 
 1. In the Azure portal, navigate to the overview page of your virtual machine. 
 2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one. 
+
+   ![Configure DNS name](./media/troubleshoot/configure-dns.png)
+
 3. Provide a value for **DNS name label** and select **Save**.
-4. On the overview page, hover your mouse to the right of the DNS name and select the copy button. 
+4. Copy the new DNS name, which should be in the format **<DNSnamelabel>.<vmlocation>.cloudapp.azure.com**.
 5. Inside the virtual machine, use the following command to set up the IoT Edge runtime with your DNS name:
 
    ```input
-   iotedgectl setup --connection-string "<connection string>" --auto-cert-gen-force-no-passwords --edge-hostname "<DNS name>"
+   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
    ```
 
 ## Next steps
