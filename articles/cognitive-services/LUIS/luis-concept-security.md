@@ -18,7 +18,7 @@ In order to secure the LUIS app, consider who has access to the app from the [au
 ## Access to authoring
 Access to the app from the [LUIS][LUIS] website or the [authoring APIs](https://aka.ms/luis-authoring-apis) is controlled by the owner of the app. 
 
-The owner and all collaborators can:
+The owner and all collaborators have access to author the app. 
 
 |Authoring access includes|Notes|
 |--|--|
