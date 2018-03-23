@@ -37,11 +37,15 @@ When you want to make **production endpoint queries**, create an Azure [LUIS sub
 > For convenience, many of the samples use the Authoring key since it provides a few endpoint calls in its [quota](luis-boundaries.md#key-limits).  
 
 ## Endpoint Key
- When you need **production endpoint queries**, create an [Azure LUIS key](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). This key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+ When you need **production endpoint queries**, create an [LUIS key](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in the Azure portal. Remember the name used to create the key, you will need it when you add the key to the app. An endpoint key is directly related to an Azure LUIS subscription key but is not the subscription key in the portal.
 
-An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint key can be used for all your LUIS apps or for specific LUIS apps. When you publish each LUIS app, you set the endpoint key. Part of this process is choosing the Azure LUIS subscription.  
+When the LUIS subscription process is finished, [add the key](Manage-keys.md#assign-endpoint-key) to the app on the **Publish** page. 
 
-Do not use the endpoint key for authoring LUIS apps.
+The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+
+The endpoint key can be used for all your LUIS apps or for specific LUIS apps. On the **Publish** page of each LUIS app, add the endpoint key. Part of this process is choosing the Azure LUIS subscription.  
+
+Do not use the endpoint key for authoring LUIS apps. 
 
 ## Use endpoint key in query
 The LUIS endpoint accepts two styles of query:
