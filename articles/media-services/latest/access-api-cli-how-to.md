@@ -40,11 +40,28 @@ Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** 
 
 Before running the script, please replace the following placeholders:
 
-* --account-name -a (required): This is the name of the Azure Media Services account where to attach the service principal
-* --name -n (optional): This is the service principal name to use
+* *amsaccountname* (required): This is the name of the Azure Media Services account where to attach the service principal
+* *myresourcegroup* (optional): This is the service principal name to use
 
 ```azurecli-interactive
-az ams  sp create -a <ams-account-name> -g <myresourcegroup>
+az ams  sp create -a <amsaccountname> -g <myresourcegroup>
+```
+
+This command will produce a response similar to this:
+
+``` 
+{
+  "AadClientId": "00000000-0000-0000-0000-000000000000",
+  "AadEndpoint": "https://login.microsoftonline.com",
+  "AadSecret": "00000000-0000-0000-0000-000000000000",
+  "AadTenantId": "00000000-0000-0000-0000-000000000000",
+  "AccountName": "amsname",
+  "ArmAadAudience": "https://management.core.windows.net/",
+  "ArmEndpoint": "https://management.azure.com/",
+  "Region": "West US",
+  "ResourceGroup": "myresourcegroup",
+  "SubscriptionId": "00000000-0000-0000-0000-000000000000"
+}
 ```
 
 ## Next steps
