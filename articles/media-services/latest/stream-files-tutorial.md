@@ -19,14 +19,14 @@ ms.author: juliako
 
 This tutorial shows you how to stream video files. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. The tutorial also shows you how to download your content, this is useful when you want to deliver offline content for playback on airplanes, trains, and automobiles. 
 
-This tutorial examines a .NET code sample that is located on GitHub, so you are first offered to clone the sample repository. 
+You are first offered to clone a GitHub sample repository because this tutorial examines .NET code that uploads, endcodes, and delivers your videos with Media Services.
 
 The article explains the following tasks that are part of the code sample:  
 
 > [!div class="checklist"]
 > * Create an input asset based on a local file
 > * Create an output asset to store the results of the job
-> * Create a transform and a job that encodes the specified file
+> * Create a transform and a job that encodes the uploaded file
 > * Wait for the job to complete
 > * Download the result to your local folder
 > * Get the streaming URL
@@ -77,15 +77,20 @@ private static Asset CreateInputAsset(IAzureMediaServicesClient client, string a
 {
     Asset asset = client.Assets.CreateOrUpdate(assetName, new Asset());
 
-    var sasUrls = client.Assets.ListContainerSas(assetName, new ListContainerSasInput
+    ListContainerSasInput sasInput = new ListContainerSasInput()
     {
         Permissions = AssetContainerPermission.ReadWrite,
         ExpiryTime = DateTimeOffset.Now.AddHours(1)
-    });
+    };
 
-    var sasUri = new Uri(response.AssetContainerSasUrls.First());
-    var container = new CloudBlobContainer(sasUri);
-    var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
+    var response = client.Assets.ListContainerSasAsync(assetName, sasInput).Result;
+
+    string uploadSasUrl = response.AssetContainerSasUrls.First();
+
+    string filename = Path.GetFileName(fileToUpload);
+    var sasUri = new Uri(uploadSasUrl);
+    CloudBlobContainer container = new CloudBlobContainer(sasUri);
+    var blob = container.GetBlockBlobReference(filename);
     blob.UploadFromFile(fileToUpload);
 
     return asset;
@@ -94,6 +99,8 @@ private static Asset CreateInputAsset(IAzureMediaServicesClient client, string a
 
 ## Create an output asset to store the results of the job
 
+The output asset stores the result of your encoding job. In this sample we download the results from this output asset into the "output" folder, so you can see what you got.
+
 ``` charp
 private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string assetName)
 {
@@ -101,22 +108,49 @@ private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string 
 }
 ```
 
-## Create a transform
+## Create a transform and a job that encodes the uploaded file
 
-For more information, see [Transforms and jobs](transform-concept.md).
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a job to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. One example of a recipe would be to encode the video in order to stream it to a variety of iOS and Android devices. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). 
 
-## Create and submit a job that encodes the specified file
+### Transform
+
+When creating a **Transform**, you should first check if one already exists, as shown in the code that follows. 
 
 ```csharp
-private static Job SubmitJob(IAzureMediaServicesClient client, string transformName, string jobName)
+Transform transform = client.Transforms.Get(transformName);
+
+if (transform == null)
 {
-    Asset outputAsset = client.Assets.CreateOrUpdate(Guid.NewGuid().ToString() + "-output", new Asset());
+    var output = new[]
+    {
+        new TransformOutput
+        {
+                OnError = OnErrorType.ContinueJob,
+                RelativePriority = Priority.Normal,
+                Preset = new BuiltInStandardEncoderPreset()
+                {
+                    PresetName = EncoderNamedPreset.AdaptiveStreaming
+                }
+        }
+    };
 
-    JobInputHttp jobInput = new JobInputHttp(files: new[] { "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4" });
+    transform = new Transform(output, location: location);
+    transform = client.Transforms.CreateOrUpdate(transformName, transform);
+}
+```
 
+When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. This objects requires for you to specify a **Preset**. **Preset** is step-by-step instructions in a recipe - the set of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. Each TransformOutput contains a Preset. In this example, we use a built-in Preset called AdaptiveStreaming. This Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. The output files never exceed the input resolution and bitrate. For example, if the input is 720p at 3 Mbps, output remains 720p at best, and will start at rates lower than 3 Mbps. For information about auto-generated bitrate ladder, see [Use Azure Media Services built-in standard encoder to auto-generate a bitrate ladder](autogen-bitrate-ladder.md).
+
+### Job
+
+As mentioned above, the **Transform** object is the recipe, and a **Job** is the actual request to Media Services to apply that Transform to a given input video or audio content. The Job specifies information like the location of the input video, and the location for the output. In this example, the input video is uploaded from your local machine. You can also specify an Azure Blob SAS URL, or S3 tokenized URL. Media Services also allows you to ingest from any existing content in Azure Storage.
+
+```
+private static Job SubmitJob(IAzureMediaServicesClient client, string transformName, string jobName, JobInput jobInput, string outputAssetName)
+{
     JobOutput[] jobOutputs =
     {
-        new JobOutputAsset(outputAsset.Name),
+        new JobOutputAsset(outputAssetName),
     };
 
     Job job = client.Jobs.CreateOrUpdate(
@@ -130,10 +164,16 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string transformN
 
     return job;
 }
-
-## Add subtitles
+```
 
 ## Wait for the job to complete
+
+The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the job completion. The simplest option (that is shown here) is to use polling. 
+
+> [!Note]
+> Polling is not a recommended best practice for production applications. Developers should instead use Event Grid, as shown in [Tutorial: upload, encode, and stream files](stream-files-tutorial.md).
+
+The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you will get the **Error** state. If the job is in the process of being canceled, you will get **Canceling** and **Canceled** when it is done.
 
 ```csharp
 private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string transformName, string jobName)
@@ -170,7 +210,9 @@ private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string t
 }
 ```
 
-## Download the result to your local folder
+## Download the results to your local folder
+
+Download the results to the "output" folder, so you can see what you got once the encoding is done.
 
 ``` csharp
 private static void DownloadResults(IAzureMediaServicesClient client, string assetName, string resultsFolder)
@@ -201,9 +243,11 @@ private static void DownloadResults(IAzureMediaServicesClient client, string ass
 }
 ```
 
-## Get the streaming URL
+## Run the app and get the streaming URLs
 
-Run the code and get the streaming URL from the console.
+Run the app that you cloned, copy one of the URLs you want to test.  
+
+TODO: add a screenshot with the URLs.
 
 ## Test with Azure Media Player
 
