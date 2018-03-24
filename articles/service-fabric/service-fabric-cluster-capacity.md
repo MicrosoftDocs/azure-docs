@@ -29,7 +29,7 @@ Let us briefly review each of these items.
 ## The number of node types your cluster needs to start out with
 First, you need to figure out what the cluster you are creating is going to be used for.  What kinds of applications you are planning to deploy into this cluster? If you are not clear on the purpose of the cluster, you are most likely not yet ready to enter the capacity planning process.
 
-Establish the number of node types your cluster needs to start out with.  Each node type is mapped to a Virtual Machine Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. So the decision of the number of node types essentially comes down to the following considerations:
+Establish the number of node types your cluster needs to start out with.  Each node type is mapped to a virtual machine scale set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. So the decision of the number of node types essentially comes down to the following considerations:
 
 * Does your application have multiple services, and do any of them need to be public or internet facing? Typical applications contain a front-end gateway service that receives input from a client and one or more back-end services that communicate with the front-end services. So in this case, you end up having at least two node types.
 * Do your services (that make up your application) have different infrastructure needs such as greater RAM or higher CPU cycles? For example, let us assume that the application that you want to deploy contains a front-end service and a back-end service. The front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  The back-end service, however, is computation intensive and needs to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet facing.
@@ -84,7 +84,7 @@ You get to choose durability level for each of your node-types.You can choose on
 	 
 **Disadvantages of using Silver or Gold durability levels**
  
-1. Deployments to your Virtual Machine Scale Set and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or at the infrastructure level. 
+1. Deployments to your virtual machine scale set and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or at the infrastructure level. 
 2. Increases the number of [replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (for example, primary swaps) due to automated node deactivations during Azure infrastructure operations.
 3. Takes nodes out of service for periods of time while Azure platform software updates or hardware maintenance activities are occurring. You may see nodes with status Disabling/Disabled during these activities. This reduces the capacity of your cluster temporarily, but should not impact the availability of your cluster or applications.
 
@@ -100,17 +100,17 @@ Use Silver or Gold durability for all node types that host stateful services you
 ### Operational Recommendations for the node type that you have set to silver or gold durability level.
 
 1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion.
-2. Adopt safer ways to make a VM SKU change (Scale up/down): Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe operation and so should be avoided if possible. Here is the process you can follow to avoid common issues.
-	- **For non-primary node types:** It is recommended that you create new Virtual Machine Scale Set, modify the service placement constraint to include the new Virtual Machine Scale Set/node type and then reduce the old Virtual Machine Scale Set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
-	- **For the primary node type:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances. If that not possible, create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one node type, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
+2. Adopt safer ways to make a VM SKU change (Scale up/down): Changing the VM SKU of a virtual machine scale set is inherently an unsafe operation and so should be avoided if possible. Here is the process you can follow to avoid common issues.
+	- **For non-primary node types:** It is recommended that you create new virtual machine scale set, modify the service placement constraint to include the new virtual machine scale set/node type and then reduce the old virtual machine scale set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
+	- **For the primary node type:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances. If that not possible, create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the virtual machine scale set Model definition to reflect the new SKU. If your cluster has only one node type, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
 
 
 > [!WARNING]
 > Changing the VM SKU Size for virtual machine scale sets not running at least Silver durability is not recommended. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
 > 
 	
-3. Maintain a minimum count of five nodes for any Virtual Machine Scale Set that has durability level of Gold or Silver enabled
-4. Do not delete random VM instances, always use Virtual Machine Scale Set scale down feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
+3. Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled
+4. Do not delete random VM instances, always use virtual machine scale set scale down feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
 6. If using Autoscale, then set the rules such that scale in (removing of VM instances) are done only one node at a time. Scaling down more than one instance at a time is not safe.
 7. If Scaling down a primary node type, you should never scale it down more than what the reliability tier allows.
 
@@ -214,7 +214,7 @@ Once you finish your capacity planning and set up a cluster, read the following:
 * [Service Fabric cluster security](service-fabric-cluster-security.md)
 * [Service Fabric cluster scaling](service-fabric-cluster-scaling.md)
 * [Disaster recovery planning](service-fabric-disaster-recovery.md)
-* [Relationship of Nodetypes to Virtual machine scale set](service-fabric-cluster-nodetypes.md)
+* [Relationship of Nodetypes to virtual machine scale set](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
