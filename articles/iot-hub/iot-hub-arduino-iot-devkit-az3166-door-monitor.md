@@ -18,7 +18,7 @@ ms.author: liydu
 
 ---
 
-# Door Monitor
+# Door Monitor          The MXChip IoT DevKit contains 
 
 ## What you learn
 
@@ -40,12 +40,12 @@ Finish the [Getting Started Guide]({{"/docs/get-started/" | absolute_url }}) to:
 
 An active Azure subscription. If you do not have one, you can register via one of these methods:
 
-* Activate a [free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html){:target="_blank"}.
-* Claim your [Azure credit](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/){:target="_blank"} if you are an MSDN or Visual Studio subscriber.
+* Activate a [free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html).
+* Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are an MSDN or Visual Studio subscriber.
 
 ## Deploy SendGrid service in Azure
 
-[SendGrid](https://sendgrid.com/){:target="_blank"} is a cloud-based email delivery platform. This service will be used to send email notifications.
+[SendGrid](https://sendgrid.com/) is a cloud-based email delivery platform. This service will be used to send email notifications.
 
 > [!NOTE]
 > If you have already deployed a SendGrid service, you may proceed directly to [Deploy IoT Hub in Azure](#deploy-iot-hub-in-azure).
@@ -56,7 +56,7 @@ To provision Azure services, use the **Deploy to Azure** button. This button ena
 
 Click the **Deploy to Azure** button, below. 
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json){:.click-action-tracker.click-tracker-name--DeployToAzure target="_blank"}
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
 
 You then see the following page.
 
@@ -65,7 +65,7 @@ You then see the following page.
 
 Complete the sign-up form:
 
-  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal){:target="_blank"}.
+  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
 
   * **Name**: The name for your SendGrid service. Choose a unique name, differing from other services you may have.
 
@@ -98,7 +98,7 @@ The following steps will provision other Azure IoT related services and deploy A
 
 Click the **Deploy to Azure** button, below. 
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json){:.click-action-tracker.click-tracker-name--DeployToAzure target="_blank"}
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
 
 You then see the following page.
 
@@ -107,11 +107,11 @@ You then see the following page.
 
 Complete the sign-up form:
 
-  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal){:target="_blank"}.
+  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
 
   * **Iot Hub Name**: The name for your IoT hub. Choose a unique name, differing from other services you may have.
 
-  * **Iot Hub Sku**: F1 (limited one per subscription) is free. You can see more pricing information at [pricing and scale tier](https://azure.microsoft.com/pricing/details/iot-hub/){:target="_blank"}.
+  * **Iot Hub Sku**: F1 (limited one per subscription) is free. You can see more pricing information at [pricing and scale tier](https://azure.microsoft.com/pricing/details/iot-hub/).
 
   * **From Email**: This should be the same email address you used when setting up the SendGrid service.
 
