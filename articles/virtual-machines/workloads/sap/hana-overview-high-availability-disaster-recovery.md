@@ -68,7 +68,7 @@ As a second measure, you can connect all Azure virtual networks that connect to 
 
 The following graphic illustrates a resilient configuration for disaster recovery cases:
 
-![Optimal configuration for disaster recovery](./media/hana-overview-high-availability-disaster recovery/image1-optimal-configuration.png)
+![Optimal configuration for disaster recovery](./media/hana-overview-high-availability-disaster-recovery/image1-optimal-configuration.png)
 
 
 
@@ -154,7 +154,7 @@ To ensure that the snapshot script executes successfully, make sure that Perl is
 
 `perl -v`
 
-![The public key is copied by running this command](./media/hana-overview-high-availability-disaster recovery/perl_screen.png)
+![The public key is copied by running this command](./media/hana-overview-high-availability-disaster-recovery/perl_screen.png)
 
 
 ### Set up storage snapshots
@@ -225,7 +225,7 @@ The new location is **_/root/.ssh/id\_dsa.pub**. Do not enter an actual password
 
 Make sure that the public key was corrected as expected by changing folders to **/root/.ssh/** and then executing the `ls` command. If the key is present, you can copy it by running the following command:
 
-![The public key is copied by running this command](./media/hana-overview-high-availability-disaster recovery/image2-public-key.png)
+![The public key is copied by running this command](./media/hana-overview-high-availability-disaster-recovery/image2-public-key.png)
 
 At this point, contact SAP HANA on Azure Service Management and provide them with the public key. The service representative uses the public key to register it in the underlying storage infrastructure that is carved out for your HANA Large Instance tenant.
 
@@ -233,7 +233,7 @@ At this point, contact SAP HANA on Azure Service Management and provide them wit
 
 To initiate the creation of SAP HANA snapshots, you need to create a user account in SAP HANA that the storage snapshot scripts can use. Create an SAP HANA user account within SAP HANA Studio for this purpose. The user must be created under the SYSTEMDB and NOT under the SID database. This account must have the following privileges: **Backup Admin** and **Catalog Read**. In this example, the username is **SCADMIN**. The user account name created in HANA Studio is case-sensitive. Make sure to select **No** for requiring the user to change the password on their next sign-in.
 
-![Creating a user in HANA Studio](./media/hana-overview-high-availability-disaster recovery/image3-creating-user.png)
+![Creating a user in HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
 If you use MCOD deployments with multiple SAP HANA instances on one unit, you need to repeat this step for every SAP HANA instance.
 
@@ -525,7 +525,7 @@ In the following example, you perform a combined snapshot that covers the volume
 
 The following graphic illustrates the sequences of the previous example, excluding the boot LUN:
 
-![Relationship between backups and snapshots](./media/hana-overview-high-availability-disaster recovery/backup_snapshot_updated0921.PNG)
+![Relationship between backups and snapshots](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
 SAP HANA performs regular writes against the /hana/log volume to document the committed changes to the database. On a regular basis, SAP HANA writes a savepoint to the /hana/data volume. As specified in crontab, an SAP HANA transaction log backup is executed every 5 minutes. You also see that an SAP HANA snapshot is executed every hour as a result of triggering a combined storage snapshot over the /hana/data and /hana/shared volumes. After the HANA snapshot succeeds, the combined storage snapshot is executed. As instructed in crontab, the storage snapshot on the /hana/logbackup volume is executed every 5 minutes, around 2 minutes after the HANA transaction log backup.
 
@@ -543,13 +543,13 @@ If you've set a commitment to users of a point-in-time recovery of 30 days, you 
 
 To benefit from storage snapshots and the eventual storage replication of transaction log backups, you need to change the location to which SAP HANA writes the transaction log backups. You can make this change in HANA Studio. Though SAP HANA backs up full log segments automatically, you should specify a log backup interval to be deterministic. This is especially true when you use the disaster recovery option, because you usually want to execute log backups with a deterministic period. In the following case, 15 minutes are set as the log backup interval.
 
-![Schedule SAP HANA backup logs in SAP HANA Studio](./media/hana-overview-high-availability-disaster recovery/image5-schedule-backup.png)
+![Schedule SAP HANA backup logs in SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image5-schedule-backup.png)
 
 You can also choose backups that are more frequent than every 15 minutes. A more frequent setting is often used in conjunction with disaster recovery functionality of HANA Large Instances. Some customers perform transaction log backups every 5 minutes.  
 
 If the database has never been backed up, the final step is to perform a file-based database backup to create a single backup entry that must exist within the backup catalog. Otherwise, SAP HANA cannot initiate your specified log backups.
 
-![Make a file-based backup to create a single backup entry](./media/hana-overview-high-availability-disaster recovery/image6-make-backup.png)
+![Make a file-based backup to create a single backup entry](./media/hana-overview-high-availability-disaster-recovery/image6-make-backup.png)
 
 
 After your first successful storage snapshots have been executed, you can delete the test snapshot that was executed in step 6. To do so, run the script `removeTestStorageSnapshot.pl`:
@@ -695,10 +695,10 @@ The following shows you how to prepare for the request:
 
 2. Shut down the HANA instance.
 
- ![Shut down the HANA instance](./media/hana-overview-high-availability-disaster recovery/image7-shutdown-hana.png)
+ ![Shut down the HANA instance](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
 3. Unmount the data volumes on each HANA database node. If the data volumes are still mounted to the operating system, the restoration of the snapshot fails.
- ![Unmount the data volumes on each HANA database node](./media/hana-overview-high-availability-disaster recovery/image8-unmount-data-volumes.png)
+ ![Unmount the data volumes on each HANA database node](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
 4. Open an Azure support request and include instructions about the restoration of a specific snapshot.
 
@@ -708,31 +708,31 @@ The following shows you how to prepare for the request:
 
 5. After the restoration process is complete, remount all the data volumes.
 
- ![Remount all the data volumes](./media/hana-overview-high-availability-disaster recovery/image9-remount-data-volumes.png)
+ ![Remount all the data volumes](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
 6. Select the recovery options within SAP HANA Studio, if they do not automatically come up when you reconnect to HANA DB through SAP HANA Studio. The following example shows a restoration to the last HANA snapshot. A storage snapshot embeds one HANA snapshot. If you restore to the most recent storage snapshot, it should be the most recent HANA snapshot. (If you restore to an older storage snapshot, you need to locate the HANA snapshot based on the time the storage snapshot was taken.)
 
- ![Select recover options within SAP HANA Studio](./media/hana-overview-high-availability-disaster recovery/image10-recover-options-a.png)
+ ![Select recover options within SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
 7. Select **Recover the database to a specific data backup or storage snapshot**.
 
- ![The Specify Recovery Type window](./media/hana-overview-high-availability-disaster recovery/image11-recover-options-b.png)
+ ![The Specify Recovery Type window](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
 8. Select **Specify backup without catalog**.
 
- ![The Specify Backup Location window](./media/hana-overview-high-availability-disaster recovery/image12-recover-options-c.png)
+ ![The Specify Backup Location window](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
 9. In the **Destination Type** list, select **Snapshot**.
 
- ![The Specify the Backup to Recover window](./media/hana-overview-high-availability-disaster recovery/image13-recover-options-d.png)
+ ![The Specify the Backup to Recover window](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
 10. Select **Finish** to start the recovery process.
 
- ![Select "Finish" to start the recovery process](./media/hana-overview-high-availability-disaster recovery/image14-recover-options-e.png)
+ ![Select "Finish" to start the recovery process](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
 11. The HANA database is restored and recovered to the HANA snapshot that's included in the storage snapshot.
 
- ![HANA database is restored and recovered to the HANA snapshot](./media/hana-overview-high-availability-disaster recovery/image15-recover-options-f.png)
+ ![HANA database is restored and recovered to the HANA snapshot](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
 ### Recover to the most recent state
 
@@ -745,23 +745,23 @@ The following process restores the HANA snapshot that is included in the storage
 
 2. Select **Recover the database to its most recent state**.
 
- ![Select "Recover the database to its most recent state"](./media/hana-overview-high-availability-disaster recovery/image16-recover-database-a.png)
+ ![Select "Recover the database to its most recent state"](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
 3. Specify the location of the most recent HANA log backups. The location needs to contain all the HANA transaction log backups from the HANA snapshot to the most recent state.
 
- ![Specify the location of the most recent HANA log backups](./media/hana-overview-high-availability-disaster recovery/image17-recover-database-b.png)
+ ![Specify the location of the most recent HANA log backups](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
 4. Select a backup as a base from which to recover the database. In this example, the HANA snapshot in the screenshot is the HANA snapshot that was included in the storage snapshot. 
 
- ![Select a backup as a base from which to recover the database](./media/hana-overview-high-availability-disaster recovery/image18-recover-database-c.png)
+ ![Select a backup as a base from which to recover the database](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
 5. Clear the **Use Delta Backups** check box if deltas do not exist between the time of the HANA snapshot and the most recent state.
 
- ![Clear the "Use Delta Backups" check box if no deltas exist](./media/hana-overview-high-availability-disaster recovery/image19-recover-database-d.png)
+ ![Clear the "Use Delta Backups" check box if no deltas exist](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
 6. On the summary screen, select **Finish** to start the restoration procedure.
 
- ![Click "Finish" on the summary screen](./media/hana-overview-high-availability-disaster recovery/image20-recover-database-e.png)
+ ![Click "Finish" on the summary screen](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
 ### Recover to another point in time
 To recover to a point in time between the HANA snapshot (included in the storage snapshot) and one that is later than the HANA snapshot point-in-time recovery, perform the following steps:
@@ -811,7 +811,7 @@ HANA Large Instances offer a disaster recovery functionality between HANA Large 
 
 In the scenarios deployed so far, customers use the unit in the DR region to run non-production systems that use an installed HANA instance. The HANA Large Instance unit needs to be of the same SKU as the SKU used for production purposes. The following image shows what the disk configuration between the server unit in the Azure production region and the disaster recovery region looks like:
 
-![DR setup configuration from disk point of view](./media/hana-overview-high-availability-disaster recovery/disaster_recovery_setup.PNG)
+![DR setup configuration from disk point of view](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_setup.PNG)
 
 As shown in this overview graphic, you then need to order a second set of disk volumes. The target disk volumes are the same size as the production volumes for the production instance in the disaster recovery units. These disk volumes are associated with the HANA Large Instance server unit in the disaster recovery site. The following volumes are replicated from the production region to the DR site:
 
@@ -842,11 +842,11 @@ In cases where you use HANA System Replication as high-availability functionalit
 ## Preparation of the disaster recovery scenario
 In this scenario, you have a production system running on HANA Large Instances in the production Azure region. For the steps that follow, let's assume that the SID of that HANA system is "PRD," and that you have a non-production system running on HANA Large Instances in the DR Azure region. For the latter, let's assume that its SID is "TST." The following image shows this configuration:
 
-![Start of DR setup](./media/hana-overview-high-availability-disaster recovery/disaster_recovery_start1.PNG)
+![Start of DR setup](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start1.PNG)
 
 If the server instance has not already been ordered with the additional storage volume set, SAP HANA on Azure Service Management attaches the additional set of volumes as a target for the production replica to the HANA Large Instance unit on which you're running the TST HANA instance. For that purpose, you need to provide the SID of your production HANA instance. After SAP HANA on Azure Service Management confirms the attachment of those volumes, you need to mount those volumes to the HANA Large Instance unit.
 
-![DR setup next step](./media/hana-overview-high-availability-disaster recovery/disaster_recovery_start2.PNG)
+![DR setup next step](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start2.PNG)
 
 The next step is for you to install the second SAP HANA instance on the HANA Large Instance unit in the DR Azure region, where you run the TST HANA instance. The newly installed SAP HANA instance needs to have the same SID. The users created need to have the same UID and Group ID that the production instance has. If the installation succeeded, follow these steps:
 
@@ -856,7 +856,7 @@ The next step is for you to install the second SAP HANA instance on the HANA Lar
 - Stop the newly installed SAP HANA instance on the HANA Large Instance unit in the DR Azure region.
 - Unmount these PRD volumes and contact SAP HANA on Azure Service Management. The volumes can't stay mounted to the unit because they can't be accessible while functioning as storage replication target.  
 
-![DR setup step before establishing replication](./media/hana-overview-high-availability-disaster recovery/disaster_recovery_start3.PNG)
+![DR setup step before establishing replication](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
 The operations team establishes the replication relationship between the PRD volumes in the production Azure region and the PRD volumes in the DR Azure region.
 
@@ -874,7 +874,7 @@ To minimize the recovery point objective, set up the following:
 
 With this setup, the sequence of transaction log backups, storage snapshots, and the replication of the HANA transaction log backup volume and /hana/data, and /hana/shared (includes /usr/sap) might look like the data shown in this graphic:
 
- ![Relationship between a transaction log backup snapshot and a snap mirror on a time axis](./media/hana-overview-high-availability-disaster recovery/snapmirror.PNG)
+ ![Relationship between a transaction log backup snapshot and a snap mirror on a time axis](./media/hana-overview-high-availability-disaster-recovery/snapmirror.PNG)
 
 To achieve an even better RPO in the disaster recovery case, you can copy the HANA transaction log backups from SAP HANA on Azure (Large Instances) to the other Azure region. To achieve this further RPO reduction, perform the following steps:
 
@@ -886,7 +886,7 @@ To achieve an even better RPO in the disaster recovery case, you can copy the HA
 
 When HANA Large Instance operations confirm the replication relationship setup and you start the execution storage snapshot backups, the data replication begins.
 
-![DR setup step before establishing replication](./media/hana-overview-high-availability-disaster recovery/disaster_recovery_start4.PNG)
+![DR setup step before establishing replication](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start4.PNG)
 
 As the replication progresses, the snapshots on the PRD volumes in the DR Azure regions are not restored. They are only stored. If the volumes are mounted in such a state, they represent the state in which you unmounted those volumes after the PRD SAP HANA instance was installed in the server unit in the DR Azure region. They also represent the storage backups that are not yet restored.
 
@@ -951,25 +951,25 @@ On the operations side, the following steps occur:
 The next sequence of steps involves recovering the SAP HANA production instance based on the restored storage snapshot and the transaction log backups that are available:
 
 1. Change the backup location to **/hana/logbackups** by using SAP HANA Studio.
-   ![Change the backup location for DR recovery](./media/hana-overview-high-availability-disaster recovery/change_backup_location_dr1.png)
+   ![Change the backup location for DR recovery](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
 2. SAP HANA scans through the backup file locations and suggests the most recent transaction log backup to restore to. The scan can take a few minutes until a screen like the following appears:
-   ![List of transaction log backups for DR recovery](./media/hana-overview-high-availability-disaster recovery/backup_list_dr2.PNG)
+   ![List of transaction log backups for DR recovery](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 3. Adjust some of the default settings:
 
       - Clear **Use Delta Backups**.
       - Select **Initialize Log Area**.
 
-   ![Set the initialize log area](./media/hana-overview-high-availability-disaster recovery/initialize_log_dr3.PNG)
+   ![Set the initialize log area](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
 4. Select **Finish**.
 
-   ![Finish the DR restore](./media/hana-overview-high-availability-disaster recovery/finish_dr4.PNG)
+   ![Finish the DR restore](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 
 A progress window, like the one shown here, should appear. Keep in mind that the example is of a disaster recovery restore of a three-node scale-out SAP HANA configuration.
 
-![Restore progress](./media/hana-overview-high-availability-disaster recovery/restore_progress_dr5.PNG)
+![Restore progress](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
 If the restore seems to hang at the **Finish** screen and does not show the progress screen, confirm that all the SAP HANA instances on the worker nodes are running. If necessary, start the SAP HANA instances manually.
 
