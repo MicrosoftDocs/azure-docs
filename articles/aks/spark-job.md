@@ -81,14 +81,17 @@ Run the following command to build the Spark source code with Kubernetes support
 ```bash
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
+Set the SPARK_HOME variable to the same folder as sparkdir.
 
+```bash
+SPARK_HOME=$(sparkdir)
+```
 The following commands create the Spark container image and push it to a container image registry. Replace `registry.example.com` with the name of your container registry and `v1` with the tag you prefer to use. If using Docker Hub, this value is the registry name. If using Azure Container Registry (ACR), this value is the ACR login server name.
 
 ```bash
 REGISTRY_NAME=registry.example.com
 REGISTRY_TAG=v1
 ```
-
 ```bash
 ./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
 ```
