@@ -38,7 +38,7 @@ The new alerts experience uses the following concepts to separate the Alert Rule
 
 - **Criteria** - Criteria is combination of Signal and Logic applied on a Target resource. Examples: Percentage CPU > 70%, Server Response Time > 4 ms, Result count of a log query > 100 etc. 
 
-- **Signal** - Signals are emitted by the Target resource and can be of several types. This preview supports **Metric**, **Activity log**, **Application Insights** and **Log** as Signal types.
+- **Signal** - Signals are emitted by the Target resource and can be of several types. **Metric**, **Activity log**, **Application Insights** and **Log** are supported Signal types.
 
 - **Logic** - User-defined logic to check if the Signal is within expected range/values.  
  
