@@ -101,12 +101,11 @@ The integration between Flow, Logic Apps, and Functions continues to improve ove
 
 ## Next steps
 
-Get started with each of the services by creating your first flow, logic app, function app, or WebJob. Click any of the following links:
+Get started by creating your first flow, logic app, or function app. Click any of the following links:
 
 * [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Create your first Azure Function](functions-create-first-azure-function.md)
-* [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction)
 
 Or, get more information on these integration services with the following links:
 
