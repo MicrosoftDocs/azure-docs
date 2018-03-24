@@ -30,8 +30,11 @@ Why scale the cluster?
 Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is set up as a separate virtual machine scale set. Each node type can then be scaled in or out independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. 
 
 Guidelines:
-- Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled
-- Do not delete random VM instances, always use virtual machine scale set scale down feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
+- primary node types running production workloads should always have five or more nodes.
+- non-primary node types running stateful production workloads should always have five or more nodes.
+- non-primary node types running stateless production workloads should always have two or more nodes.
+- Maintain a minimum count of five nodes for any node type that has durability level of Gold or Silver enabled
+- Do not delete random VM instances/nodes, always use virtual machine scale set scale down feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
 - If using Autoscale, then set the rules such that scale in (removing of VM instances) are done only one node at a time. Scaling down more than one instance at a time is not safe.
 
 
@@ -59,6 +62,13 @@ Based on these limitations, you may wish to [implement more customized automatic
 
 ## Scaling a standalone cluster in or out
 
+Removal of nodes may initiate multiple upgrades. Some nodes are marked with `IsSeedNode=”true”` tag and can be identified by querying the cluster manifest using [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Removal of such nodes may take longer than others since the seed nodes will have to be moved around in such scenarios. The cluster must maintain a minimum of 3 primary node type nodes.
+
+Guidelines:
+- The replacement of primary nodes should be performed one node after another, instead of removing and then adding in batches.
+- Before removing a node type, please double check if there are any nodes referencing the node type. Remove these nodes before removing the corresponding node type. Once all corresponding nodes are removed, you can remove the NodeType from the cluster configuration and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
+
+For more information, see [scale a standalone cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
 
 ## Scaling an Azure cluster up or down
 Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe operation and so should be avoided if possible. Here is the process you can follow to avoid common issues.
