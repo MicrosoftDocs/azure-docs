@@ -53,8 +53,8 @@ The new alerts experience uses the following concepts to separate the Alert Rule
 ## Single place to view and manage alerts
 The goal of the Alerts (Preview) experience is to be the single place to view and manage all your Azure alerts. The following subsections describe the functions of each individual screen of the new experience.
 
-### Alerts (preview) overview page
-**Monitor - Alerts (Preview)** overview page shows aggregated summary of all the fired alerts, and total configured/enabled alert rules. It also shows a list of all fired alerts. Changing the subscriptions or filter parameters updates the aggregates and the alerts fired list.
+### Alerts overview page
+**Monitor - Alerts** overview page shows aggregated summary of all the fired alerts, and total configured/enabled alert rules. It also shows a list of all fired alerts. Changing the subscriptions or filter parameters updates the aggregates and the alerts fired list.
 
 > [!NOTE]
 > Fired Alerts shown in Alerts are limited to supported metric and activitylog alerts; Azure Monitor Overview shows count of fire alerts including those in older Azure Alerts
@@ -62,7 +62,7 @@ The goal of the Alerts (Preview) experience is to be the single place to view an
  ![alerts-overview](./media/monitoring-overview-unified/alerts-preview-overview.png) 
 
 ### Alert rules management
-**Monitor - Alerts (Preview)>Rules** is a single page to manage all alert rules across your Azure subscriptions. It lists all the alert rules (enabled or disabled) and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be disabled/enabled or edited from this page.  
+**Monitor - Alerts>Rules** is a single page to manage all alert rules across your Azure subscriptions. It lists all the alert rules (enabled or disabled) and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be disabled/enabled or edited from this page.  
 
  ![alerts-rules](./media/monitoring-overview-unified/alerts-preview-rules.png)
 
@@ -73,14 +73,14 @@ In the new Alerts experience, alerts can be authored in a consistent manner rega
 Authoring an alert is a three-step task where the user first picks a target for the alert, followed by selecting the right signal and then specifying the logic to be applied on the signal as part of the alert rule. This simplified authoring process no longer requires the user to know the monitoring source or signals supported before selecting an Azure resource. The common authoring experience automatically filters the list of available signals based on target resource selected and guides the creation of alert logic
 
 You can learn more on how to create following alert types [here](monitor-alerts-unified-usage.md).
-- Metric Alerts (called Near-Real-Time Metric Alerts in current experience)
+- Metric Alerts
 - Log alerts (Log Analytics)
 - Log alerts (Activity Logs)
-- Log  alerts (Application Insights)
+- Log alerts (Application Insights)
 
  
 
-## Alert types supported in this preview
+## Alert types supported
 
 
 | **Signal Type** | **Monitor Source** | **Description** | 
