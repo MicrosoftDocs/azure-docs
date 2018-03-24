@@ -17,7 +17,7 @@ ms.date: 06/22/2017
 ms.author: chackdan
 
 ---
-# Scale a Service Fabric cluster in or out using auto-scale rules
+# Scale a Service Fabric cluster in or out using auto-scale rules or manually
 Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine scale set. Each node type can then be scaled in or out independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Since the Service Fabric node types in your cluster are made of Virtual Machine scale sets at the backend, you need to set up auto-scale rules for each node type/Virtual Machine scale set.
 
 > [!NOTE]
