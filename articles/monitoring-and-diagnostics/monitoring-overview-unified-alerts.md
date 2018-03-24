@@ -31,20 +31,20 @@ Alerts has new experience. The older alerts experience is now under the Alerts (
 
 The following sections describe, in more detail, how the new experience works.
 
-## Taxonomy
-The Alerts experience uses following concepts to separate the Alert Rule and Fired Alert objects while unifying the authoring experience across different alert types.
+## Alert rules terminology
+The new alerts experience uses the following concepts to separate the Alert Rule and Fired Alert objects while unifying the authoring experience across different alert types.
 
 - **Target Resource** - A target can be any Azure resource. Target Resource defines the scope and signals available for alerting. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace or an Application Insights resource.
 
 - **Criteria** - Criteria is combination of Signal and Logic applied on a Target resource. Examples: Percentage CPU > 70%, Server Response Time > 4 ms, Result count of a log query > 100 etc. 
 
-- **Signal** - Signals are emitted by the Target resource and can be of several types. This preview supports **Metric**, **Activity log**, **Application Insights** and **Log** as Signal types.
+- **Signal** - Signals are emitted by the Target resource and can be of several types. **Metric**, **Activity log**, **Application Insights** and **Log** are supported Signal types.
 
 - **Logic** - User-defined logic to check if the Signal is within expected range/values.  
  
-- **Action** - A specific call sent to a receiver of a notification (for example, emailing an address or posting to a webhook URL). Notifications can usually trigger multiple actions. The alert types supported in this preview, support action groups.  
+- **Action** - A specific action taken when the alert is fired. For example, emailing an email address or calling a webhook URL. Multiple actions may occur when an alert fires. These alerts support action groups.  
  
-- **Alert rule** - The definition of a condition that would trigger the alert. In this preview, Alert rule captures the Target and Criteria for alerting. The Alert rule can be in an Enabled or a Disabled state.
+- **Alert rule** - The condition that would trigger the alert. The alert rule captures the Target and Criteria for alerting. The Alert rule can be in an Enabled or a Disabled state.
  
     > [!NOTE]
     > This is different from Alerts (Classic) experience where the alert represents both the rule and fired alert and therefore can be in one of Warning, Active or Disabled states.
