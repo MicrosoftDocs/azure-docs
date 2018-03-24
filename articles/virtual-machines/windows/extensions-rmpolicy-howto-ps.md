@@ -21,6 +21,8 @@ ms.author: danis;cynthn
 
 If you want to prevent the use or installation of certain extension on your Windows VMs, you can create an Azure policy using PowerShell to restrict extensions for VMs within a resource group. 
 
+This tutorial uses Azure PowerShell within the Cloud Shell, which is constantly updated to the latest version. If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+
 ## Create rules file
 
 In order to restrict what extensions can be installed, you need to have a [rule](/azure/azure-policy/policy-definition#policy-rule) to provide the logic to identify the extension.
