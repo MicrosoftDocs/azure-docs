@@ -73,7 +73,7 @@ Next, you create a webhook in your GitHub repository.
 
     ![Add a GitHub webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Use settings as specified in the table, then click **Add webhook**.
+1. Use settings as specified in the following table, then click **Add webhook**:
 
     ![Set the webhook URL and secret](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
