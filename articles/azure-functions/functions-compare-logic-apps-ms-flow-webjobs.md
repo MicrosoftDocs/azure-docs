@@ -48,19 +48,6 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 | Admin Experience |Manage Flow Environments and Data Loss Prevention (DLP) policies, track licensing [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Manage Resource Groups, Connections, Access Management, and Logging [https://portal.azure.com](https://portal.azure.com) |
 | Security |Office 365 Security and Compliance audit logs, Data Loss Prevention (DLP), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
 
-## Logic Apps vs. Durable Functions
-
-Azure Functions is a *code-first* integration service. Its Durable Functions extension (in preview) is an alternative to Logic Apps for creating complex workflows. To choose between the two, consider the following factors:
- 
-|  | Durable Functions | Logic Apps |
-| --- | --- | --- |
-| Code vs. designer | Code-first | Designer-first |
-| Connectors | [Limited set of connectors](functions-triggers-bindings.md#supported-bindings); write code yourself for others. | [Large collection of connectors](../connectors/apis-list.md), including [Enterprise Integration Pack for B2B scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md) |
-| Actions | Write action code yourself. |[Large collection of ready-made actions](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Workflow management tools | [REST API](durable-functions-http-api.md). | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/en-us/rest/api/logic/) |
-| Execution context | Can run [locally](functions-runtime-overview.md) or in the cloud. | Runs only in the cloud.|
-|Users|Developers|Integration architects|
-
 <a name="function"></a>
 
 ## Functions vs. WebJobs
@@ -108,8 +95,8 @@ For other scenarios where you want to run code snippets for integrating Azure or
 
 You don't have to choose just one of these services; they integrate with each other as well as they do with external services.
 
-A flow can call a logic app. A logic app can call a function, and a function can call a logic app. A logic app can call a long-running durable function and use the async HTTP pattern to wait for its completion.
- 
+A flow can call a logic app. A logic app can call a function, and a function can call a logic app.
+
 The integration between Flow, Logic Apps, and Functions continues to improve over time. You can build something in one service and use it in the other services.
 
 ## Next steps
@@ -119,7 +106,6 @@ Get started with each of the services by creating your first flow, logic app, fu
 * [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Create your first Azure Function](functions-create-first-azure-function.md)
-* [Durable Functions overview](durable-functions-overview.md)
 * [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction)
 
 Or, get more information on these integration services with the following links:
