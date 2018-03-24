@@ -51,7 +51,7 @@ The new alerts experience uses the following concepts to separate the Alert Rule
     >
 
 ## Single place to view and manage alerts
-The goal of the Alerts (Preview) experience is to be the single place to view and manage all your Azure alerts. The following subsections describe the functions of each individual screen of the new experience.
+The goal of the Alerts experience is to be the single place to view and manage all your Azure alerts. The following subsections describe the functions of each individual screen of the new experience.
 
 ### Alerts overview page
 **Monitor - Alerts** overview page shows aggregated summary of all the fired alerts, and total configured/enabled alert rules. It also shows a list of all fired alerts. Changing the subscriptions or filter parameters updates the aggregates and the alerts fired list.
