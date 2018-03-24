@@ -120,8 +120,10 @@ To use this example, you must:
     });
     ```
     
-[Optional] If you are using the **MongoDB Node.js 2.2 driver**, please replace the following code snippet:
+**Optional**: If you are using the **MongoDB Node.js 2.2 driver**, please replace the following code snippet:
+
 Original:
+
     ```nodejs
     MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
@@ -137,7 +139,9 @@ Original:
     });
     });
     ```
+    
 Should be replaced with:
+
     ```nodejs
     MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
@@ -152,8 +156,9 @@ Should be replaced with:
     });
     });
     ```
-
+    
 2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](connect-mongodb-account.md)):
+
 
 > [!IMPORTANT]
 > The **MongoDB Node.js 3.0 driver** requires encoding special characters in the Cosmos DB password. Make sure to encode '=' characters as %3D
