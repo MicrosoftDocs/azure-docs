@@ -93,7 +93,7 @@ $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBa
 ```
 
 ## Next steps
-- Learn how [create a Public IP in an availability zone](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Learn more about [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
 
 
 

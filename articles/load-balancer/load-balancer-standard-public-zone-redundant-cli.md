@@ -1,5 +1,5 @@
 ---
-title: Create a public Load Balancer Standard with zone redundant frontend using Azure CLI | Microsoft Docs
+title: Load balance zone-redundant VMs using Azure CLI | Microsoft Docs
 description: Learn how to create a public Load Balancer Standard with zone redundant frontend using Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -18,9 +18,9 @@ ms.date: 03/09/2018
 ms.author: kumud
 ---
 
-#  Create a public Load Balancer Standard with zone redundant frontend using Azure CLI
+#  Load balance VMs across all availability zones using Azure CLI
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zone redundant frontend to achieve achieve zone-redundancy without dependency on DNS records. A single front-end IP address is automatically zone-redundant.  Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
+This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend to achieve zone-redundancy without dependency on DNS records. A single front-end IP address is automatically zone-redundant.  Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,11 +35,11 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Create a resource group with [az group create](/cli/azure/group#az_group_create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroupLB* in the *westeurope* location:
+The following example creates a resource group named *myResourceGroupSLB* in the *westeurope* location:
 
 ```azurecli-interactive
 az group create \
---name myResourceGroupLB \
+--name myResourceGroupSLB \
 --location westeurope
 ```
 
@@ -50,9 +50,9 @@ The following example creates a zone redundant public IP address named *myPublic
 
 ```azurecli-interactive
 az network public-ip create \
---resource-group myResourceGroupLB \
+--resource-group myResourceGroupSLB \
 --name myPublicIP \
---sku Standard \
+--sku Standard
 ```
 
 ## Create Azure Load Balancer Standard
@@ -67,10 +67,10 @@ Create a Standard load balancer with [az network lb create](/cli/azure/network/l
 
 ```azurecli-interactive
 az network lb create \
---resource-group myResourceGroupLB \
+--resource-group myResourceGroupSLB \
 --name myLoadBalancer \
 --public-ip-address myPublicIP \
---frontend-ip-name myFrontEndPool \
+--frontend-ip-name myFrontEnd \
 --backend-pool-name myBackEndPool \
 --sku Standard
 ```
@@ -82,7 +82,7 @@ To create a TCP health probe, you use [az network lb probe create](/cli/azure/ne
 
 ```azurecli-interactive
 az network lb probe create \
---resource-group myResourceGroupLB \
+--resource-group myResourceGroupSLB \
 --lb-name myLoadBalancer \
 --name myHealthProbe \
 --protocol tcp \
@@ -95,13 +95,13 @@ Create a load balancer rule *myLoadBalancerRuleWeb* with [az network lb rule cre
 
 ```azurecli-interactive
 az network lb rule create \
---resource-group myResourceGroupLB \
+--resource-group myResourceGroupSLB \
 --lb-name myLoadBalancer \
 --name myLoadBalancerRuleWeb \
 --protocol tcp \
 --frontend-port 80 \
 --backend-port 80 \
---frontend-ip-name myFrontEndPool \
+--frontend-ip-name myFrontEnd \
 --backend-pool-name myBackEndPool \
 --probe-name myHealthProbe
 ```
@@ -116,7 +116,7 @@ Create a virtual network named *myVnet* with a subnet named *mySubnet* in the my
 
 ```azurecli-interactive
 az network vnet create \
---resource-group myResourceGroupLB \
+--resource-group myResourceGroupSLB \
 --location westeurope \
 --name myVnet \
 --subnet-name mySubnet
@@ -128,7 +128,7 @@ Create network security group named *myNetworkSecurityGroup* to define inbound c
 
 ```azurecli-interactive
 az network nsg create \
---resource-group myResourceGroupLB \
+--resource-group myResourceGroupSLB \
 --name myNetworkSecurityGroup
 ```
 
@@ -136,7 +136,7 @@ Create a network security group rule named *myNetworkSecurityGroupRule* for port
 
 ```azurecli-interactive
 az network nsg rule create \
---resource-group myResourceGroupLB \
+--resource-group myResourceGroupSLB \
 --nsg-name myNetworkSecurityGroup \
 --name myNetworkSecurityGroupRule \
 --protocol tcp \
@@ -154,7 +154,7 @@ Create three virtual NICs with [az network nic create](/cli/azure/network/nic#az
 ```azurecli-interactive
 for i in `seq 1 3`; do
     az network nic create \
-        --resource-group myResourceGroupLB \
+        --resource-group myResourceGroupSLB \
         --name myNic$i \
         --vnet-name myVnet \
         --subnet mySubnet \
@@ -213,54 +213,36 @@ runcmd:
 ```
 
 ### Create the zonal virtual machines
-Create the VMs with [az vm create](/cli/azure/vm#az_vm_create) in zone 1, zone 2, and zone 3. The following example creates three VMs in zone 1 and generates SSH keys if they do not already exist:
+Create the VMs with [az vm create](/cli/azure/vm#az_vm_create) in zone 1, zone 2, and zone 3. The following example creates a VM in each zone and generates SSH keys if they do not already exist:
 
 Create VMs in zone 1
 
 ```azurecli-interactive
  az vm create \
---resource-group myResourceGroupLB \
+--resource-group myResourceGroupSLB \
 --name myVM$i \
 --nics myNic$i \
 --image UbuntuLTS \
 --generate-ssh-keys \
---zone 1 \
+--zone $i \
 --custom-data cloud-init.txt
 ```
-Create a VM in zone 2
-
-```azurecli-interactive
- az vm create \
---resource-group myResourceGroupLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone 2 \
---custom-data cloud-init.txt
-```
-Create a VM in zone 3
-
-```azurecli-interactive
- az vm create \
---resource-group myResourceGroupLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone 3 \
---custom-data cloud-init.txt
-```
-
 ## Test the load balancer
 
-Obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). The following example obtains the IP address for *myPublicIP* created earlier:
+Get the public IP address of the load balancer using [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). 
 
+```azurecli-interactive
+  az network public-ip show \
+    --resource-group myResourceGroupSLB \
+    --name myPublicIP \
+    --query [ipAddress] \
+    --output tsv
+``` 
 You can then enter the public IP address in to a web browser. Remember - it takes a few minutes for the VMs to be ready before the load balancer starts to distribute traffic to them. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
 
 ![Running Node.js app](./media/load-balancer-standard-public-zone-redundant-cli/running-nodejs-app.png)
 
-To see the load balancer distribute traffic across all zonal VMs running your app, you can stop a VM in a particular zone and refresh your browser.
+To see the load balancer distribute traffic across VMs in all three availability zones running your app, you can stop a VM in a particular zone and refresh your browser.
 
 ## Next steps
 - Learn more about [Standard Load Balancer](./load-balancer-standard-overview.md)

@@ -231,17 +231,24 @@ done
 ```
 
 ## Test the load balancer
+Get the public IP address of the load balancer using [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). 
 
-Obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). The following example obtains the IP address for *myPublicIP* created earlier:
+```azurecli-interactive
+  az network public-ip show \
+    --resource-group myResourceGroupSLB \
+    --name myPublicIP \
+    --query [ipAddress] \
+    --output tsv
+``` 
 
 You can then enter the public IP address in to a web browser. Remember - it takes a few minutes for the VMs to be ready before the load balancer starts to distribute traffic to them. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
 
 ![Running Node.js app](./media/load-balancer-standard-public-zonal-cli/running-nodejs-app.png)
 
-To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
+To see the load balancer distribute traffic to VMs within zone 1 that are running your app, you can force-refresh your web browser.
 
 ## Next steps
-- Learn more about [Standard Load Balancer](./load-balancer-standard-overview.md)
+- Learn more about [Standard Load Balancer](./load-balancer-standard-overview.md).
 
 
 
