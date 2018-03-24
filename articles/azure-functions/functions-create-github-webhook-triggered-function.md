@@ -67,6 +67,8 @@ Next, you create a webhook in your GitHub repository.
 
 2. Choose **Settings** > **Options** and make sure that **Issues** is enabled under **Features**.
 
+   ![Enable Issues](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
+
 1. In **Settings**, choose **Webhooks** > **Add webhook**.
 
     ![Add a GitHub webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
