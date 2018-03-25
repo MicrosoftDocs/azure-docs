@@ -35,7 +35,7 @@ The following figure shows a load-balanced endpoint for web traffic that is shar
 
 Figure 1 - Load-balanced endpoint for web traffic
 
-When Internet clients send web page requests to the public IP address of the cloud service on TCP port 80, the Azure Load Balancer distributes the requests between the three virtual machines in the load-balanced set. For more information about load balancer algorithms, see the [load balancer overview page](load-balancer-overview.md#load-balancer-features).
+When Internet clients send web page requests to the public IP address of the cloud service on TCP port 80, the Azure Load Balancer distributes the requests between the three virtual machines in the load-balanced set. For more information about load balancer algorithms, see the [fundamental load balancer overview page](fudamental-load-balancer-overview.md#load-balancer-features).
 
 By default, Azure Load Balancer distributes network traffic equally among multiple virtual machine instances. You can also configure session affinity, For more information, see [load balancer distribution mode](load-balancer-distribution-mode.md).
 
