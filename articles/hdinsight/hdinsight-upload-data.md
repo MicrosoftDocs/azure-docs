@@ -193,7 +193,7 @@ There are also several applications that provide a graphical interface for worki
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### Visual Studio Tools for HDInsight
-For more information, see [Navigate the linked resources](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-the-linked-resources).
+For more information, see [Navigate the linked resources](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Storage Explorer
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in blobs. It is a free, open source tool that can be downloaded from [http://storageexplorer.com/](http://storageexplorer.com/). The source code is available from this link as well.
