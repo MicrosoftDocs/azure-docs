@@ -304,15 +304,15 @@ Before proceeding, make sure you have installed and configured the Azure CLI. Fo
 
 1. To switch to Azure Resource Manager mode, use the following command at the command line:
 
-```bash
-azure config mode arm
-```
+    ```bash
+    azure config mode arm
+    ```
 
 2. Use the following to authenticate to your Azure subscription.
 
-```bash
-azure login
-```
+    ```bash
+    azure login
+    ```
 
 3. Use the following command to apply a script action to a running cluster
 
