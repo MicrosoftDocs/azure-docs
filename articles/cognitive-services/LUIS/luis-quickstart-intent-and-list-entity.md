@@ -46,7 +46,7 @@ The list entity matches `h2o` to water, and `pop` to soft drink.
 When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON, LUIS is done. The calling application or chat bot takes that JSON and fulfills the request -- in whatever way the app or chat bot is designed to do. 
 
 ## Create a new app
-1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
+1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
 
 2. On the [LUIS][LUIS] website, select **Create new app**.  
 
@@ -54,17 +54,23 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
 
 3. In the pop-up dialog, enter the name `MyDrinklist`. 
 
+    ![LUIS apps list](./media/luis-quickstart-intent-and-list-entity/create-app-dialog.png)
+
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
-    ![Intents page](./media/luis-quickstart-intent-and-list-entity/intents-list.png)
+    ![Intents page](./media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png)
 
 ## Create a new intent
 
 1. On the **Intents** page, select **Create new intent**. 
 
+    ![Create new intents button](./media/luis-quickstart-intent-and-list-entity/create-new-intent.png)
+
 2. Enter the new intent name `OrderDrinks`. This intent should be selected any time a user wants to order a drink.
 
     By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
+
+    ![Create new OrderDrinks intent](./media/luis-quickstart-intent-and-list-entity/intent-create-dialog-order-drinks.png)
 
 3. Add several utterances to the `OrderDrinks` intent that you expect a user to ask for, such as:
 
@@ -74,11 +80,15 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
     |2 perriers with a twist of lime|
     |h20|
 
+    ![Enter utterances for intent](./media/luis-quickstart-intent-and-list-entity/intent-order-drinks-utterance.png)
+
 ## Add utterances to None intent
 
 The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
 
 1. Select **Intents** from the left panel. 
+
+    ![Enter utterances for intent](./media/luis-quickstart-intent-and-list-entity/left-panel-intents.png)
 
 2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app:
 
@@ -234,4 +244,5 @@ LUIS is done with this request. The calling application, such as a chat bot, can
 > Add the number [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type.
 
 <!--References-->
-[LUIS]:luis-reference-regions.md
+[LUIS]:luis-reference-regions.md#luis-website
+[LUIS-regions]:luis-reference-regions.md#publishing-regions
