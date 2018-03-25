@@ -36,7 +36,7 @@ When you want to make **production endpoint queries**, create an Azure [LUIS sub
 > [!CAUTION]
 > For convenience, many of the samples use the Authoring key since it provides a few endpoint calls in its [quota](luis-boundaries.md#key-limits).  
 
-## Endpoint Key
+## Endpoint key
  When you need **production endpoint queries**, create a [LUIS key](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in the Azure portal. Remember the name used to create the key, you will need it when you add the key to the app. An endpoint key is directly related to an Azure LUIS subscription key but is not the subscription key in the portal.
 
 When the LUIS subscription process is finished, [add the key](Manage-keys.md#assign-endpoint-key) to the app on the **Publish** page. 
