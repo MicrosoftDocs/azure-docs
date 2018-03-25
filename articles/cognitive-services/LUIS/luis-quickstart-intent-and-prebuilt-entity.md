@@ -1,6 +1,6 @@
 ---
-title: Create a LUIS app to get white listed data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and list entities to extract data. 
+title: Create a LUIS app to get prebuilt data - Azure | Microsoft Docs 
+description: Learn how to create a simple LUIS app using intents and prebuilt entities to extract data. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
@@ -15,7 +15,7 @@ ms.author: v-geberr;
 # Simple app with intents and a list entity
 This simple app has two intents and one list entity . 
 
-## List entity is a white-list match
+## A prebuilt entity is a 
 
 
 ## Quickstart app
