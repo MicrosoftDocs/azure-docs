@@ -39,7 +39,8 @@ Log in to the Azure portal at https://portal.azure.com.
 4. Under **Type**, select **Public**.
 5. Under SKU, select **Standard**.
 6. Click **Public IP address**, click **Create new**, and in **Create public IP address** page, under name, type **myPublicIPStandard**.
-    >[!NOTE] The public IP created in this step is of Standard SKU and is zone-redundant by default. 
+    >[!NOTE] 
+    > The public IP created in this step is of Standard SKU and is zone-redundant by default. 
 8. Under **Location**, select **East US2**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
 
     ![create zone-redundant Load Balancer Standard with the Azure portal](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
