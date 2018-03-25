@@ -20,13 +20,12 @@ ms.author: kumud
 
 #  Create a public Load Balancer Standard with zone-redundant Public IP address frontend using Azure portal
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address.
+This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address. A single frontend IP address on a Standard Load Balancer is zone-redundant by default.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Register for Availability Zones Preview
- 
-Availability zones are in preview and are ready for your development and test scenarios. Support is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+> [!NOTE]
+ Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## Log in to Azure 
 
@@ -36,17 +35,19 @@ Log in to the Azure portal at https://portal.azure.com.
 
 1. From a browser navigate to the Azure portal: [http://portal.azure.com](http://portal.azure.com) and login with your Azure account.
 2. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer.**
-3. In the **Create load balancer, under **Name** type **myPublicLB**.
+3. In the **Create load balancer** page, under **Name** type **myLoadBalancer**.
 4. Under **Type**, select **Public**.
-5. Under SKU, select **Standard (Preview)**.
-6. Click **Public IP address**, click **Create new**, on the **Create a public IP address** page, under name, type **myPublicIPStandard**, and for **Availability zone (Preview)**, select **Zone-redundant**.
-7. Under **Location**, select **East US2**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
+5. Under SKU, select **Standard**.
+6. Click **Public IP address**, click **Create new**, and in **Create public IP address** page, under name, type **myPublicIPStandard**.
+    >[!NOTE] 
+    > The public IP created in this step is of Standard SKU and is zone-redundant by default. 
+8. Under **Location**, select **East US2**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
 
     ![create zone-redundant Load Balancer Standard with the Azure portal](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
 
 
 ## Next steps
-- Learn how [create a Public IP in an availability zone](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Learn more about [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
 
 
 
