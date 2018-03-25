@@ -1,7 +1,7 @@
 ---
 title: Bing Search SDK | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Preview of the Bing Search SDK for applications that search the web.
+description: Bing Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 1/24/2018
 ms.author: v-gedod
 ---
-# Bing Search SDK preview
+# Bing Search SDK
 The Bing Spell Check samples include scenarios that:
 1. Search for misspelled query and parse the response.
 2. Trigger an error response from the API.

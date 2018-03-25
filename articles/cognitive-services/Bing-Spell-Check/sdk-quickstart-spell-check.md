@@ -1,5 +1,5 @@
 ---
-title: Spell Check SDK C# quickstart (preview)| Microsoft Docs
+title: Spell Check SDK C# quickstart | Microsoft Docs
 description: Setup for Spell Check SDK console application
 titleSuffix: Azure cognitive services setup Spell check search SDK C# console application
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 01/30/2018
 ms.author: v-gedod
 ---
 
-# Spell Check SDK C# quickstart (preview)
+# Spell Check SDK C# quickstart
 The Bing Spell Check SDK contains the functionality of the REST API for spell check. 
 
 ## Application dependencies

@@ -1,7 +1,7 @@
 ---
 title: Bing Search SDK | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Preview of the Bing Search SDK for applications that search the web.
+description: Bing Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 1/24/2018
 ms.author: v-gedod
 ---
-# Bing Search SDK preview
+# Bing Search SDK
 The Bing Entity Search API samples include scenarios that:
 1.	Search for entity such as Tom Cruise and get rich information.
 2.	Handle disambiguation of terms for queries with possibly multiple intents.

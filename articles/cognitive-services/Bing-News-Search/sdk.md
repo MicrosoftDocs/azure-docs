@@ -1,7 +1,7 @@
 ---
 title: Bing Search SDK | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Preview of the Bing Search SDK for applications that search the web.
+description: Bing Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 1/24/2018
 ms.author: v-gedod
 ---
-# Bing Search SDK preview
+# Bing Search SDK
 The Bing News Search API samples include scenarios that:
 1. Query news for search terms with `market` and `count` parameters, verify number of results, and print out `totalEstimatedMatches`, name, URL, description, published time, and name of provider of the first news result.
 2. Query most recent news for search terms with `freshness` and `sortBy` parameters, verify number of results, and print out `totalEstimatedMatches`, URL, description, published time and name of provider of the first news result.

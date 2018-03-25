@@ -1,7 +1,7 @@
 ---
 title: Bing Search SDK | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Preview of the Bing Search SDK for applications that search the web.
+description: Bing Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 1/25/2018
 ms.author: v-gedod
 ---
-# Bing Search SDK preview
+# Bing Search SDK
 The Bing Video Search API samples include scenarios that:
 1.	Query for a simple video.
 2.	Query restricted to free, short, and with certain aspect ratio, showing video filtering capabilities.

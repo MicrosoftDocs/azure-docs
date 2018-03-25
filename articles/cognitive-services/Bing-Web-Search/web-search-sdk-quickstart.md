@@ -12,9 +12,9 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-# Web Search SDK C# quickstart (preview)
+# Web Search SDK C# quickstart
 
-The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results. This edition of the SDK is a preview implementation.
+The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results.
 
 ## Application dependencies
 

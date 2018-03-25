@@ -12,7 +12,7 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-# Video Search SDK C# quickstart (Preview)
+# Video Search SDK C# quickstart
 
 The Bing Video Search SDK contains the functionality of the REST API for web requests and parsing results. 
 

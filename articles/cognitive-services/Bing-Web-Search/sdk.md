@@ -1,7 +1,7 @@
 ---
 title: Bing Search SDK | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Preview of the Web Search SDK for applications that search the web.
+description: Bing Web Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 1/11/2018
 ms.author: v-gedod
 ---
-# Bing Search SDK preview
+# Bing Search SDK
 The Bing Web Search API samples include scenarios that:
 1. Use a single-word query to get results and print out name and URL for the first of each web, image, news, and video results.
 2. Query on a phrase, verify the number of results, and print out name and URL of first result.
