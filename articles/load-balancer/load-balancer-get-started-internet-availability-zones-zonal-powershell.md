@@ -1,6 +1,6 @@
 ---
-title: Create a public Load Balancer Standard with zonal Public IP address frontend using PowerShell | Microsoft Docs
-description: Learn how to create public Load Balancer Standard with a zonal Public IP address frontend using PowerShell 
+title: Create a public Load Balancer Standard with zonal Public IP address frontend using Azure PowerShell | Microsoft Docs
+description: Learn how to create public Load Balancer Standard with a zonal Public IP address frontend using Azure PowerShell 
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -18,14 +18,14 @@ ms.date: 03/26/2018
 ms.author: kumud
 ---
 
-#  Create a public Load Balancer Standard with zonal frontend using PowerShell
+#  Create a public Load Balancer Standard with zonal frontend using Azure PowerShell
 
 This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address. To understand how availability zones work with Standard Load Balancer, see [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
- Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Log in to Azure
 
