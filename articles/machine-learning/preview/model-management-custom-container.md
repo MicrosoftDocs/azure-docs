@@ -52,13 +52,13 @@ Customize the Docker image that Azure ML deploys using:
 
    Image, Manifest, and Service commands accept the docker-file flag.
 
-Example Docker steps file:
-```docker
-    # Install tools required to build the project
-    RUN apt-get update && apt-get install -y git libxml2-dev
-    # Install library dependencies
-    RUN dep ensure -vendor-only
-```
+   Example Docker steps file:
+   ```docker
+   # Install tools required to build the project
+   RUN apt-get update && apt-get install -y git libxml2-dev
+   # Install library dependencies
+   RUN dep ensure -vendor-only
+   ```
 
 > [!NOTE]
 > The base image for Azure ML containers is Ubuntu and can't be changed. If you specify a different base image, it will be ignored.
