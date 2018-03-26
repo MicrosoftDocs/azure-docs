@@ -31,10 +31,8 @@ This tutorial shows you how to:
 > * Wait for the job to complete
 > * Download the result to your local folder
 > * Get the streaming URLs
-> * Test the encoded video in Azure Media Player
+> * Stream the encoded video in Azure Media Player
 > * Clean up resources
-
-![Play the video](./media/stream-files-dotnet-tutorials/final-video.png)
 
 ## Prerequisites
 
@@ -252,7 +250,11 @@ private static void DownloadResults(IAzureMediaServicesClient client, string ass
 
 Run the app that you cloned, copy one of the URLs you want to test.  
 
-## Test with Azure Media Player
+## Stream the encoded video with Azure Media Player
+
+This secion shows you how to use  Azure Media Player to test your stream.
+
+![Play the video](./media/stream-files-dotnet-tutorials/final-video.png)
 
 1. Open a web browser and browse to https://ampdemo.azureedge.net/.
 2. In the **URL:** box, paste the Streaming URL value you got when you ran the application.
