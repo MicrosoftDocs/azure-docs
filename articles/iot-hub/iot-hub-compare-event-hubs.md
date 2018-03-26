@@ -19,13 +19,13 @@ ms.author: kgremban
 ---
 # Comparison of Azure IoT Hub and Azure Event Hubs
 
-Both Azure IoT Hub and Azure Event Hubs are cloud services that can ingest large amounts of data and process or store that data for business insights. The two services are similar in that they both support process event and telemetry data with low latency and high reliability. However, only IoT Hub was developed with the specific capabilities needed to support at-scale internet of things scenarios in mind. 
+Both Azure IoT Hub and Azure Event Hubs are cloud services that can ingest large amounts of data and process or store that data for business insights. The two services are similar in that they both support process event and telemetry data with low latency and high reliability. However, only IoT Hub was developed with the specific capabilities needed to support at-scale internet of things scenarios. 
 
 Azure IoT Hub is the cloud gateway that connects devices and gathers data for business insights and automation. It makes it easy to stream data to the cloud and manage your devices at scale. An important differentiator between IoT Hub and other data ingestion services is that IoT Hub includes features that enrich the relationship between your devices and your backend systems. Bi-directional communication capabilities mean that while you receive data from devices you can also send messages back to devices to update properties or invoke an action. Device-level identity helps to secure your system. Distributed computing moves cloud service logic onto edge devices.
 
-[Azure Event Hubs][Azure Event Hubs] is an event ingestion service that can process and store large amounts of data and telemetry. Event Hubs is designed for event ingestion at a massive scale, both in the context of inter-datacenter and intra-datacenter scenarios but doesn’t provide the rich IoT-specific capabilities that are available with IoT Hub. 
+[Azure Event Hubs][Azure Event Hubs] is an event ingestion service that can process and store large amounts of data and telemetry. Event Hubs is designed for event ingestion at a massive scale, both in the context of inter-datacenter and intra-datacenter scenarios but doesn’t provide the rich IoT-specific capabilities that are available with IoT Hub. For that reason, we do not recommend Event Hubs for your IoT solutions. 
 
-The following table compares the capabilities of the two tiers of IoT Hub and Event Hubs to support IoT solutions. For more information about the standard and basic tiers of IoT Hub, see [How to choose the right IoT Hub tier][lnk-scaling].
+The following table provides details about how the two tiers of IoT Hub compare to Event Hubs when you're evaluating them for IoT capabilities. For more information about the standard and basic tiers of IoT Hub, see [How to choose the right IoT Hub tier][lnk-scaling].
 
 | IoT Capability | IoT Hub standard tier | IoT Hub basic tier | Event Hubs |
 | --- | --- | --- | --- |
