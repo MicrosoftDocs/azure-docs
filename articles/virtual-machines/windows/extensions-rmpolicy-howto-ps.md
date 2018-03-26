@@ -17,13 +17,13 @@ ms.author: danis;cynthn
 
 ---
 
-# How to use Azure Policy to restrict extensions installation on Windows VMs
+# Use Azure Policy to restrict extensions installation on Windows VMs
 
-If you want to prevent the use or installation of certain extension on your Windows VMs, you can create an Azure policy using PowerShell to restrict extensions for VMs within a resource group. 
+If you want to prevent the use or installation of certain extensions on your Windows VMs, you can create an Azure policy using PowerShell to restrict extensions for VMs within a resource group. 
 
 This tutorial uses Azure PowerShell within the Cloud Shell, which is constantly updated to the latest version. If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
 
-## Create rules file
+## Create a rules file
 
 In order to restrict what extensions can be installed, you need to have a [rule](/azure/azure-policy/policy-definition#policy-rule) to provide the logic to identify the extension.
 
@@ -63,7 +63,7 @@ Copy and paste the following .json into the file.
 
 When you are done, hit the **Ctrl + O** and then **Enter** to save the file. Hit **Ctrl + X** to close the file and exit.
 
-## Create parameters file
+## Create a parameters file
 
 You also need a [parameters](/azure/azure-policy/policy-definition#parameters) file that creates a structure for you to use for passing in a list of the extensions to block. 
 
@@ -148,17 +148,17 @@ Set-AzureRmVMAccessExtension `
 
 In the portal, the password change should fail with the "The template deployment failed because of policy violation." message.
 
-## Removing the assignment
+## Remove the assignment
 
 ```azurepowershell-interactive
 Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
-## Removing the policy
+## Remove the policy
 
 ```azurepowershell-interactive
 Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
 ```
 	
-## Next Steps
-For more information, please refer to [Azure Policy](../../azure-policy/azure-policy-introduction.md).
+## Next steps
+For more information, see [Azure Policy](../../azure-policy/azure-policy-introduction.md).
