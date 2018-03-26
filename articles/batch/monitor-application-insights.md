@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: .NET
 ms.topic: article
 ms.workload: na
-ms.date: 03/22/2018
+ms.date: 03/26/2018
 ms.author: danlep
 ---
 
@@ -71,7 +71,7 @@ The example in TopNWords.cs uses the following [instrumentation calls](../applic
 * `TrackEvent()` - Tracks interesting events to capture.
 
 This example purposely leaves out exception 
-handling so that you see how Application Insights automatically reports unhandled 
+handling. You see how Application Insights automatically reports unhandled 
 exceptions and significantly improves the debugging experience. The 
 following snippet illustrates how to use these methods.
 
@@ -139,7 +139,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 using System;
 using System.Threading;
 
-namespace Microsoft.Azure.Batch.Samples.TopNWordsSample
+namespace Microsoft.Azure.Batch.Samples.TelemetryInitializer
 {
     public class AzureBatchNodeTelemetryInitializer : ITelemetryInitializer
     {
@@ -184,11 +184,11 @@ To enable the telemetry initializer, update the ApplicationInsights.config file.
 
 ```xml
 <TelemetryInitializers>
-    <Add Type="Microsoft.Azure.Batch.Samples.TopNWordsSample.AzureBatchNodeTelemetryInitializer, TopNWordsSample"/>
+    <Add Type="Microsoft.Azure.Batch.Samples.TelemetryInitializer.AzureBatchNodeTelemetryInitializer, Microsoft.Azure.Batch.Samples.TelemetryInitializer"/>
 </TelemetryInitializers>
 ``` 
 
-## Update the job and tasks to include Aplication Insights binaries
+## Update the job and tasks to include Application Insights binaries
 
 In order for Application Insights to run correctly on your compute nodes, make sure the binaries are correctly placed. Add the required 
 binaries to your task's resource files collection so that they get downloaded 
@@ -228,7 +228,7 @@ foreach (string aiFile in AIFilesToUpload)
 }
 ```
 
-The `FileToStage` method is a helper function in the code sample that allows you to easily upload a file from local disk to an Azure Storage blob. This is later downloaded to a compute node and referenced by a task.
+The `FileToStage` method is a helper function in the code sample that allows you to easily upload a file from local disk to an Azure Storage blob. This file is later downloaded to a compute node and referenced by a task.
 
 Finally, add the tasks to the job and include the necessary Application Insights binaries.
 ```csharp
@@ -298,7 +298,7 @@ Custom metrics are also a valuable tool in the portal. The following image shows
 ![Blob download time per node](./media/monitor-application-insights/blobdownloadtime.png)
 
 To create a chart such as this one:
-1. In your Application Insights resource, click **Metrics** > **Add chart**.
+1. In your Application Insights resource, click **Metrics Explorer** > **Add chart**.
 2. Click **Edit** on the chart that was added.
 2. Update the chart details as shown in the preceding image.
 
