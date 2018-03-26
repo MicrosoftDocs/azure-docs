@@ -3,7 +3,7 @@ title: Provision a Deep Learning Data Science Virtual Machine on Azure  | Micros
 description: Configure and create a Deep Learning Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 
@@ -12,8 +12,8 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
-ms.author: gokuma;bradsev
+ms.date: 03/16/2018
+ms.author: gokuma
 
 ---
 # Provision a Deep Learning Virtual Machine on Azure 

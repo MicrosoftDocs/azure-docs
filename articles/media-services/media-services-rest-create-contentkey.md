@@ -24,7 +24,7 @@ ms.author: juliako
 > 
 > 
 
-Media Services enables you to create new and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
+Media Services enables you to deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
 
 When you create a new asset (for example, before you [upload files](media-services-rest-upload-files.md)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
 
@@ -74,9 +74,6 @@ This article does not show how to generate an AES key, encrypt the key, and calc
 ## Connect to Media Services
 
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
 
 ## Retrieve the ProtectionKeyId
 The following example shows how to retrieve the ProtectionKeyId, a certificate thumbprint, for the certificate you must use when encrypting your content key. Do this step to make sure that you already have the appropriate certificate on your machine.

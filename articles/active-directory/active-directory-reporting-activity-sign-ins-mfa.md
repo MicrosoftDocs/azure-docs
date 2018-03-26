@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
+ms.date: 03/16/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -24,7 +24,7 @@ With [Azure Active Directory (Azure AD) reporting](active-directory-reporting-az
 
 The [sign-in activity reports](active-directory-reporting-activity-sign-ins.md) provide you with information about the usage of managed applications and user sign-in activities, which includes information about the multi-factor authentication (MFA) usage. 
 
-The MFA data gives you insights into how MFA is working in your organization. It enables you to to answer questions like: 
+The MFA data gives you insights into how MFA is working in your organization. It enables you to answer questions like: 
 
 - Was the sign-in challenged with MFA? 
 
@@ -92,17 +92,9 @@ This section lists the possible values for MFA result status string.
 
     - satisfied by claim in the token 
 
-    - satisfied by claim in the token 
-
-    - satisfied by claim in the token 
-
-    - satisfied by claim in the token 
-
     - satisfied by claim provided by external provider 
 
     - satisfied by strong authentication 
-
-    - skipped as flow exercised was Windows broker logon flow 
 
     - skipped as flow exercised was Windows broker logon flow 
 

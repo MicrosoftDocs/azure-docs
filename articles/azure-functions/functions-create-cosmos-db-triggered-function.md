@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
 ---
@@ -46,9 +46,9 @@ Next, you create a function in the new function app.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Locate and choose the **Azure CosmosDBTrigger** template for your desired language.
+2. In the search field, type `cosmos` and then choose your desired language for the Azure Cosmos DB trigger template.
 
-    ![Create the Azure Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Choose the Azure Cosmos DB trigger](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Configure the new trigger with the settings as specified in the table below the image.
 
@@ -56,10 +56,10 @@ Next, you create a function in the new function app.
     
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Name your function** | Default | Use the default function name suggested by the template. |
-    | **Database name** | Tasks | Name of database with the collection to be monitored. |
+    | **Name** | Default | Use the default function name suggested by the template. |
     | **Collection name** | Items | Name of collection to be monitored. |
     | **Create lease collection if it doesn't exist** | Checked | The collection doesn't already exist, so create it. |
+    | **Database name** | Tasks | Name of database with the collection to be monitored. |
 
 4. Select **New** next to the **Azure Cosmos DB account connection** label, and choose an existing Cosmos DB account or **+ Create new**. 
  
@@ -70,8 +70,8 @@ Next, you create a function in the new function app.
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Name of database | Unique ID for the Azure Cosmos DB database  |
-    | **API** | SQL (DocumentDB) | This topic uses the document database API.  |
-    | **Subscription** | Azure Subscription | Azure Subscription  |
+    | **API** | SQL | This topic uses the SQL API.  |
+    | **Subscription** | Azure Subscription | The subscription under which this new Cosmos DB account is created.  |
     | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
     | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |
 
@@ -145,4 +145,4 @@ You have created a function that runs when a document is added or modified in yo
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-For more information about Azure Cosmos DB triggers, see [Azure Cosmos DB bindings for Azure Functions](functions-bindings-documentdb.md).
+For more information about Azure Cosmos DB triggers, see [Azure Cosmos DB bindings for Azure Functions](functions-bindings-cosmosdb.md).

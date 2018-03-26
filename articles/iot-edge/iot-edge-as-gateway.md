@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Understand how an Azure IoT Edge device can be used as a gateway for other devices | Microsoft Docs 
+title: Use Azure IoT Edge devices as gateways | Microsoft Docs 
 description: Use Azure IoT Edge to create a transparent, opaque or proxy gateway device that sends data from multiple downstream devices to the cloud or processes it locally.
 services: iot-edge
 keywords: 
@@ -27,7 +27,7 @@ The purpose of gateways in IoT solutions is specific to the solution and combine
 There are three patterns for using an IoT Edge device as a gateway: transparent, protocol translation, and identity translation:
 * **Transparent** – Devices that theoretically could connect to IoT Hub can connect to a gateway device instead. This implies that the downstream devices have their own IoT Hub identities and are using any of the  MQTT, AMQP, or HTTP protocols. The gateway simply passes communications between the devices and IoT Hub. The devices are  unaware that they are communicating with the cloud via a gateway and a user interacting with the devices in IoT Hub is unaware of the intermediate gateway device. Thus, the gateway is transparent. Refer to the [Create a transparent gateway][lnk-iot-edge-as-transparent-gateway] how-to for specifics on using an IoT Edge device as a transparent gateway.
 * **Protocol translation** – Devices that do not support MQTT, AMQP, or HTTP use a gateway device to send data to IoT Hub. The gateway is smart enough to understand that protocol used by the downstream devices; however it is the only device that has identity in IoT Hub. All information looks like it is coming from one device, the gateway. This implies that downstream devices must embed additional identifying information in their messages if cloud applications want to reason about the data on a per device basis. Additionally, IoT Hub primitives like twin and methods are only available for the gateway device, not downstream devices.
-* **Identity translation** - Devices that cannot connect to IoT Hub connect to a gateway device which provides IoT Hub identity and protocol translation on behalf of the downstream devices. The gateway is smart enough to understand the protocol used by the downstream devices, provide them identity, and translate IoT Hub primitives. Downstream devices appear in IoT Hub as first-class devices with twins and methods. A user can interact with the devices in IoT Hub does is unaware of the intermediate gateway device.
+* **Identity translation** - Devices that cannot connect to IoT Hub connect to a gateway device which provides IoT Hub identity and protocol translation on behalf of the downstream devices. The gateway is smart enough to understand the protocol used by the downstream devices, provide them identity, and translate IoT Hub primitives. Downstream devices appear in IoT Hub as first-class devices with twins and methods. A user can interact with the devices in IoT Hub and is unaware of the intermediate gateway device.
 
 ![Diagrams of gateway patterns][1]
 
@@ -53,7 +53,7 @@ Here is a quick cheat sheet that compares IoT Hub primitives when using transpar
 | Direct methods and cloud-to-device messages | The cloud can address each connected device individually | The cloud can only address the gateway device | The cloud can address each connected device individually |
 | [IoT Hub throttles and quotas][lnk-iothub-throttles-quotas] | Apply to each device | Apply to the gateway device | Apply to each device |
 
-When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
+When using an opaque gateway (protocol translation) pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
 
 ## Next steps
 Use an IoT Edge device as a [transparent gateway][lnk-iot-edge-as-transparent-gateway] 

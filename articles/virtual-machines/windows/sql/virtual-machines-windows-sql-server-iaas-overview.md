@@ -4,16 +4,15 @@ description: Learn how to run full editions of SQL Server on Azure Virtual Machi
 services: virtual-machines-windows
 documentationcenter: ''
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
-
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 02/28/2018
 ms.author: jroth
 ---
 # What is SQL Server on Azure Virtual Machines? (Windows)
@@ -38,12 +37,16 @@ SQL Server Azure VMs can take advantage of [Automated Backup](virtual-machines-w
 
 If you require high availability, consider configuring SQL Server Availability Groups. This involves multiple SQL Server Azure VMs in a virtual network. You can configure your high availability solution manually, or you can use templates in the Azure portal for automatic configuration. For an overview of all high availability options, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
+## Performance
+
+Azure virtual machines offer different machine sizes to meet various workload demands. SQL VMs also provide automated storage configuration, which is optimized for your performance requirements. For more information about configuring storage for SQL VMs, see [Storage configuration for SQL Server VMs](virtual-machines-windows-sql-server-storage-configuration.md). To fine-tune performance, see the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+
 ## Get started with SQL VMs
 
 To get started, choose a SQL Server virtual machine image with your required version, edition, and operating system. The following sections provide direct links to the Azure portal for the SQL Server virtual machine gallery images.
 
 > [!TIP]
-> To understand the VM and SQL pricing for these images, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
+> For more information about how to understand pricing for SQL images, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md). 
 
 ### <a id="payasyougo"></a> Pay as you go
 The following table provides a matrix of pay-as-you-go SQL Server images.
@@ -75,6 +78,9 @@ After creating your SQL Server VM, connect to it from applications or tools, suc
 
 ### Migrate your data
 If you have an existing database, you'll want to move that to the newly provisioned SQL VM. For a list of migration options and guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
+
+## <a id="lifecycle"></a> SQL VM image refresh policy
+Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ## Customer experience improvement program (CEIP)
 The Customer Experience Improvement Program (CEIP) is enabled by default. This periodically sends reports to Microsoft to help improve SQL Server. There is no management task required with CEIP unless you want to disable it after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting. For more information about data collection, see the [SQL Server Privacy Statement](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx).

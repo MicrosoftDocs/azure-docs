@@ -1,3 +1,5 @@
+# [Azure Billing Documentation](index.md)
+
 # Get started
 ## [Prevent unexpected costs](billing-getting-started.md)
 ## [Create services included with free account](billing-create-free-services-included-free-account.md)
@@ -27,17 +29,17 @@
 ### [Understand Reserved Instance usage for Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Manage subscriptions
+### [Find subscription or management group](billing-enterprise-mgmt-grp-find.md)
 ### [Manage administrator roles](billing-add-change-azure-subscription-administrator.md)
 ### [Transfer subscription ownership](billing-subscription-transfer.md)
 ### [Reactivate disabled subscription](billing-subscription-become-disable.md)
 ### [Upgrade from free subscription](billing-upgrade-azure-subscription.md)
 ### [Switch subscription offer](billing-how-to-switch-azure-offer.md)
+### [Link Azure AD tenant](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Cancel subscription](billing-how-to-cancel-azure-subscription.md)
-### [Find subscription or management group](billing-enterprise-mgmt-grp-find.md)
 ## Manage account
 ### [Edit profile](billing-how-to-change-azure-account-profile.md)
 ### [Update payment information](billing-how-to-change-credit-card.md)
-### [Link Office 365 tenant](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Pay for subscriptions by invoice](billing-how-to-pay-by-invoice.md)
 ## [Manage Reserved VM Instances](billing-manage-reserved-vm-instance.md)
 ## Troubleshoot

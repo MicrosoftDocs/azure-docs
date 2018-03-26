@@ -1,3 +1,5 @@
+# [CDN Documentation](index.md)
+
 # [Overview](cdn-overview.md)
 ## [What is Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 
@@ -8,7 +10,9 @@
 ## Integrate
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Storage](cdn-create-a-storage-account-with-cdn.md)
+### Storage
+#### [Integrate a storage account](cdn-create-a-storage-account-with-cdn.md)
+#### [SAS storage support](cdn-sas-storage-support.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
 ### [Add a custom domain to your CDN endpoint](cdn-map-content-to-custom-domain.md)
 ### [Configure HTTPS on a custom domain](cdn-custom-ssl.md)
@@ -59,6 +63,10 @@
 ### [File compression](cdn-troubleshoot-compression.md)
 
 # Reference
+##  [Rules engine reference](cdn-rules-engine-reference.md)
+### [Rules engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
+### [Rules engine match conditions](cdn-rules-engine-reference-match-conditions.md)
+### [Rules engine features](cdn-rules-engine-reference-features.md)
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
@@ -66,11 +74,9 @@
 ## [REST](/rest/api/cdn/)
 
 # Resources
-##  [Rules Engine reference](cdn-rules-engine-reference.md)
-### [Rules Engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
-### [Rules Engine features](cdn-rules-engine-reference-features.md)
-### [Rules Engine match conditions](cdn-rules-engine-reference-match-conditions.md)
-## [Azure CDN POP locations](cdn-pop-locations.md)
+## Azure CDN POP locations
+### [POP locations by region](cdn-pop-locations.md)
+### [POP locations by abbreviation](cdn-pop-abbreviations.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)

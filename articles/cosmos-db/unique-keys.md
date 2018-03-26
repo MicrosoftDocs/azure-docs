@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
 
 ---
@@ -24,7 +24,7 @@ ms.author: rafats
 Unique keys provide developers with the ability to add a layer of data integrity to their database. By creating a unique key policy when a container is created, you ensure the uniqueness of one or more values per [partition key](partition-data.md). Once a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate values specified by the unique key constraint.   
 
 > [!NOTE]
-> Unique keys are supported by the latest versions of the [.NET](documentdb-sdk-dotnet.md) and [.NET Core](documentdb-sdk-dotnet-core.md) SQL SDKs, and the [MongoDB API](mongodb-feature-support.md#unique-indexes). The Table API and Graph API do not support unique keys at this time. 
+> Unique keys are supported by the latest versions of the [.NET](sql-api-sdk-dotnet.md) and [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDKs, and the [MongoDB API](mongodb-feature-support.md#unique-indexes). The Table API and Graph API do not support unique keys at this time. 
 > 
 >
 
@@ -56,7 +56,7 @@ Once a container is created with a unique key policy, the policy cannot be chang
 
 A maximum of 16 path values (for example /firstName, /lastName, /address/zipCode, etc.) can be included in each unique key. 
 
-Each unique key policy can have a maximum of 10 unique key constraints or combinations. So the earlier example that uses first name, last name, and email address is just one constraint, and it uses three of the 16 possible paths available. 
+Each unique key policy can have a maximum of 10 unique key constraints or combinations and the combined paths for all unique index properties should not exceed 60 characters. So the earlier example that uses first name, last name, and email address is just one constraint, and it uses three of the 16 possible paths available. 
 
 Request unit charges for creating, updating, and deleting an item are slightly higher when there is a unique key policy on the container. 
 

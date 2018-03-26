@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
@@ -26,7 +26,7 @@ ms.custom: H1Hack27Feb2017
 You can run Azure Functions in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. You don't have to pay for idle VMs and don't have to reserve capacity in advance. This article focuses on the Consumption plan, a [serverless](https://azure.microsoft.com/overview/serverless-computing/) app model. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> Linux hosting is currently only available on an App Service plan.
+> [Linux hosting](functions-create-first-azure-function-azure-cli-linux.md) is currently only available on an App Service plan.
 
 If you aren't familiar with Azure Functions, see the [Azure Functions overview](functions-overview.md).
 
@@ -44,7 +44,7 @@ On an App Service plan you can scale between tiers to allocate different amount 
 When you're using a Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This plan scales automatically, and you are charged for compute resources only when your functions are running. On a Consumption plan, a function can run for a maximum of 10 minutes. 
 
 > [!NOTE]
-> The default timeout for functions on a Consumption plan is 5 minutes. The value can be increased to 10 minutes for the Function App by changing the property `functionTimeout` in [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> The default timeout for functions on a Consumption plan is 5 minutes. The value can be increased to 10 minutes for the Function App by changing the property `functionTimeout` in the [host.json](functions-host-json.md#functiontimeout) project file.
 
 Billing is based on number of executions, execution time, and memory used. Billing is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page].
 
@@ -88,14 +88,14 @@ To learn more about storage account types, see [Introducing the Azure Storage se
 
 ## How the Consumption plan works
 
-In the Consumption plan, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host is limited to 1.5 GB of memory.  An instance of the host is the Function App, meaning all functions within a funciton app share resources within an instance and scale at the same time.
+In the Consumption plan, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host is limited to 1.5 GB of memory.  An instance of the host is the Function App, meaning all functions within a function app share resources within an instance and scale at the same time.
 
 When you use the Consumption hosting plan, function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
 
 > [!NOTE]
 > When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options:
 > - Host the function app on an App Service plan, with Always On enabled.
-> - Use another mechanism to trigger the blob processing, such as an Event Grid subscription or a queue message that contains the blob name. For an example, see the [C# script and JavaScript examples for the blob input and output bindings](functions-bindings-storage-blob.md#input--output---example).
+> - Use another mechanism to trigger the blob processing, such as an Event Grid subscription or a queue message that contains the blob name. For an example, see the [examples for the blob input binding](functions-bindings-storage-blob.md#input---example).
 
 ### Runtime scaling
 
@@ -117,7 +117,7 @@ Different triggers may also have different scaling limits as well as documented 
 
 ### Best practices and patterns for scalable apps
 
-There are many aspects of a function app that will impact how well it will scale, including host configuration, runtime footprint, and resource effeciency.  View the [scalability section of the performance considerations article](functions-best-practices.md#scalability-best-practices) for more information.
+There are many aspects of a function app that will impact how well it will scale, including host configuration, runtime footprint, and resource efficiency.  View the [scalability section of the performance considerations article](functions-best-practices.md#scalability-best-practices) for more information.
 
 ### Billing model
 

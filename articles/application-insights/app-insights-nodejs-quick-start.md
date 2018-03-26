@@ -36,11 +36,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 Application Insights can gather telemetry data from any internet-connected application, regardless of whether it's running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Select **New** > **Monitoring + Management** > **Application Insights**.
+1. Select **Create a resource** > **Monitoring + Management** > **Application Insights**.
 
    ![Adding Application Insights Resource](./media/app-insights-nodejs-quick-start/001-u.png)
 
-   A configuration box will appear, use the table below to fill out the input fields.
+   A configuration box appears; use the following table to fill out the input fields.
 
     | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
@@ -63,11 +63,11 @@ Application Insights can gather telemetry data from any internet-connected appli
    npm install applicationinsights --save
    ```
 
-3. Edit your app's first .js file and add the two lines below to the topmost part of your script. If you are using the [Node.js quickstart app](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), you would modify the index.js file. 
+3. Edit your app's first .js file and add the two lines below to the topmost part of your script. If you are using the [Node.js quickstart app](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), you would modify the index.js file. Replace &lt;instrumentation_key&gt; with your application's instrumentation key. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
-   appInsights.setup('<instrumentation_key').start();
+   appInsights.setup('<instrumentation_key>').start();
    ```
 
 4. Restart your app.

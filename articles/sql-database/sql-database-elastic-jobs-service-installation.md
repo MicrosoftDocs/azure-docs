@@ -2,20 +2,13 @@
 title: Installing elastic database jobs | Microsoft Docs
 description: Walk through installation of the elastic job feature.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: ''
-
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
+ms.author: sstein
 
 ---
 # Installing Elastic Database jobs overview
@@ -152,7 +145,7 @@ Once you have [created an elastic pool](sql-database-elastic-pool-manage-portal.
 
 **Estimated time to complete:** 10 minutes.
 
-1. From the dashboard view of the elastic pool via the [Azure Portal](https://portal.azure.com/#) , click **Create job**.
+1. From the dashboard view of the elastic pool via the [Azure portal](https://portal.azure.com/#) , click **Create job**.
 2. If you are creating a job for the first time, you must install **Elastic Database jobs** by clicking **PREVIEW TERMS**.
 3. Accept the terms by clicking the checkbox.
 4. In the "Install services" view, click **JOB CREDENTIALS**.

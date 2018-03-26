@@ -40,11 +40,11 @@ to be processed by a queue trigger function. This approach allows you to defer t
 
 ### Cross function communication
 
-[Durable Functions](durable-functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) are built to manage state transitions and communication between multiple functions.
+[Durable Functions](durable-functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) are built to manage state transitions and communication between multiple functions.
 
 If not using Durable Functions or Logic Apps to integrate with multiple functions, it is generally a best practice to use storage queues for cross function communication.  The main reason is storage queues are cheaper and much easier to provision. 
 
-Individual messages in a storage queue are limited in size to 64 KB. If you need to pass larger messages between functions, an Azure Service Bus queue could be used to support message sizes up to 256 KB.
+Individual messages in a storage queue are limited in size to 64 KB. If you need to pass larger messages between functions, an Azure Service Bus queue could be used to support message sizes up to 256 KB in the Standard tier, and up to 1 MB in the Premium tier.
 
 Service Bus topics are useful if you require message filtering before processing.
 
@@ -99,7 +99,7 @@ Asynchronous programming is a recommended best practice. However, always avoid r
 
 ### Receive messages in batch whenever possible
 
-Some triggers like Event Hub enable receiving a batch of messages on a single invocation.  Batching messages has much better performance.  You can configure the max batch size in the `functions.json` file as detailed in the [host.json reference documentation](functions-host-json.md)
+Some triggers like Event Hub enable receiving a batch of messages on a single invocation.  Batching messages has much better performance.  You can configure the max batch size in the `host.json` file as detailed in the [host.json reference documentation](functions-host-json.md)
 
 For C# functions you can change the type to a strongly-typed array.  For example, instead of `EventData sensorEvent` the method signature could be `EventData[] sensorEvent`.  For other languages you'll need to explicitly set the cardinality property in your `function.json` to `many` in order to enable batching [as shown here](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 

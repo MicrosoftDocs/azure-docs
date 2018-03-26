@@ -2,13 +2,13 @@
 title: Supported file formats in Azure Data Factory | Microsoft Docs
 description: 'This topic describes the file formats and compression codes that are supported by file-based connectors in Azure Data Factory.'
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 03/07/2018
 ms.author: jingwang
 
 ---
@@ -434,7 +434,7 @@ If you want to parse the ORC files or write the data in ORC format, set the `for
 ```
 
 > [!IMPORTANT]
-> If you are not copying ORC files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the JRE 8 (Java Runtime Environment) on your IR machine. A 64-bit IR requires 64-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Note the following points:
@@ -454,7 +454,7 @@ If you want to parse the Parquet files or write the data in Parquet format, set 
 ```
 
 > [!IMPORTANT]
-> If you are not copying Parquet files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the JRE 8 (Java Runtime Environment) on your IR machine. A 64-bit IR requires 64-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Note the following points:

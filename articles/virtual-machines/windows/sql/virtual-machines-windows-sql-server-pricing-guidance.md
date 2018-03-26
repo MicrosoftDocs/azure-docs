@@ -4,22 +4,28 @@ description: Provides best practices for choosing the right SQL Server virtual m
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
-
 ms.assetid: 
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/17/2017
+ms.date: 02/20/2018
 ms.author: jroth
 ---
 # Pricing guidance for SQL Server Azure VMs
 
-This article provides pricing guidance for SQL Server virtual machines in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
+This article provides pricing guidance for [SQL Server virtual machines](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
+
+> [!TIP]
+> If you only need to find out a cost estimate for a specific combination of SQL Server edition and virtual machine size, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows). Select your operating system and SQL Server edition from the **OS/Software** list.
+>
+> ![UI on VM Pricing page](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> Or use the [pricing calculator](https://azure.microsoft.com/pricing/#explore-cost) to add and configure a virtual machine. 
 
 ## Free-licensed SQL Server editions
 
@@ -52,7 +58,7 @@ You have two options to pay for SQL Server licensing for these editions: *pay pe
 
 ### Pay per usage
 
-**Paying the SQL Server license per usage** means that the per-minute cost of running the Azure VM includes the cost of the SQL Server license. You can see the pricing for the different SQL Server editions (Web, Standard, Enterprise) in the [Azure VM pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard). The cost is the same for all versions of SQL Server (2012 SP3 to 2017). As with SQL Server licensing in general, the per-minute licensing cost depends on the number of VM cores.
+**Paying the SQL Server license per usage** means that the per-second cost of running the Azure VM includes the cost of the SQL Server license. You can see the pricing for the different SQL Server editions (Web, Standard, Enterprise) in the [Azure VM pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). The cost is the same for all versions of SQL Server (2012 SP3 to 2017). As with SQL Server licensing in general, the per-second licensing cost depends on the number of VM cores.
 
 Paying the SQL Server licensing per usage is recommended for:
 
@@ -102,7 +108,7 @@ To create a SQL Server 2016 Azure VM with one of these bring-your-own-license im
 > Let us know within 10 days how many SQL Server licenses you’ll use in Azure. The links to the previous images have instructions on how to do this.
 
 > [!NOTE]
-> It is not possible to change the licensing model of a pay-per-minute SQL Server VM to use your own license. In this case, you must create a new BYOL VM and migrate your databases to the new VM. 
+> It is not possible to change the licensing model of a pay-per-second SQL Server VM to use your own license. In this case, you must create a new BYOL VM and migrate your databases to the new VM. 
 
 ## Avoid unnecessary costs
 
@@ -143,6 +149,6 @@ For other workflows, consider automatically shutting down and restarting Azure V
 
 For general Azure pricing guidance, see [Prevent unexpected costs with Azure billing and cost management](../../../billing/billing-getting-started.md).
 
-For the latest Virtual Machines pricing, including SQL Server, see the [Azure VM pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard).
+For the latest Virtual Machines pricing, including SQL Server, see the [Azure VM pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 Learn more about SQL Server virtual machines for both [SQL Server Windows VMs](virtual-machines-windows-sql-server-iaas-overview.md) and [SQL Server Linux VMs](../../linux/sql/sql-server-linux-virtual-machines-overview.md).

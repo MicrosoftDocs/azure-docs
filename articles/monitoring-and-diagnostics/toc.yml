@@ -2,12 +2,12 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure Monitor
-    href: monitoring-overview-azure-monitor.md
+  - name: Monitoring in Azure
+    href: monitoring-overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Alert on metric condition
+  - name: Alert (classic) on metric condition
     href: monitor-quick-resource-metric-alert-portal.md
   - name: Alert on subscription activity
     href: monitor-quick-audit-notify-action-in-subscription.md
@@ -21,69 +21,64 @@
   items:
   - name: Sources of monitoring data
     href: monitoring-data-sources.md
+  - name: Azure Monitor
+    href: monitoring-overview-azure-monitor.md
+  - name: Metrics
+    href: monitoring-overview-metrics.md
+  - name: Autoscale
+    href: monitoring-overview-autoscale.md
+  - name: Diagnostic logs
+    href: monitoring-overview-of-diagnostic-logs.md
+  - name: Activity log
+    href: monitoring-overview-activity-logs.md
+  - name: Alerts 
+    href: monitoring-overview-unified-alerts.md
+  - name: Alerts (Classic)
+    href: monitoring-overview-alerts.md
+  - name: Log alerts
+    href: monitor-alerts-unified-log.md
+  - name: Activity log alerts (Preview)
+    href: monitoring-activity-log-alerts-new-experience.md      
+  - name: Extend alerts from OMS to Azure
+    href: monitoring-alerts-extend.md
+  - name: Action groups
+    href: monitoring-action-groups.md
+  - name: Azure Diagnostics Extension
+    href: azure-diagnostics.md
   - name: Roles permissions and security
     href: monitoring-roles-permissions-security.md
   - name: Partner integrations
     href: monitoring-partners.md
-  - name: Additional overviews
-    items:
-    - name: Monitoring tools across Azure
-      href: monitoring-overview.md
-    - name: Metrics
-      href: monitoring-overview-metrics.md
-    - name: Alerts
-      href: monitoring-overview-alerts.md
-    - name: Autoscale
-      href: monitoring-overview-autoscale.md
-    - name: Activity log
-      href: monitoring-overview-activity-logs.md
-    - name: Action groups
-      href: monitoring-action-groups.md
-    - name: Diagnostic logs
-      href: monitoring-overview-of-diagnostic-logs.md
-    - name: Azure Diagnostics Extension
-      href: azure-diagnostics.md
-  - name: Schemas
-    items:
-    - name: Azure Diagnostics extension schema
-      href: azure-diagnostics-schema.md
-      items:
-      - name: 1.0
-        href: azure-diagnostics-schema-1dot0.md
-      - name: 1.2
-        href: azure-diagnostics-schema-1dot2.md
-      - name: 1.3 and later
-        href: azure-diagnostics-schema-1dot3-and-later.md
 - name: How-to guides
   items:
-  - name: Walkthroughs
-    items:
-    - name: Walkthrough of Azure Monitor
-      href: monitoring-get-started.md
-    - name: Walkthrough of autoscale
-      href: monitoring-autoscale-get-started.md
-    - name: Multi-dimensional metrics explorer
-      href: monitoring-metric-charts.md
-    - name: Azure CLI 1.0 samples
-      href: insights-cli-samples.md
-    - name: Azure PowerShell samples
-      href: insights-powershell-samples.md
+  - name: Walkthrough of Azure Monitor
+    href: monitoring-get-started.md
   - name: Use alerts
     items:
-    - name: Configure near real-time alerts in Azure portal
+    - name: Configure new alerts in Azure portal
       href: monitoring-near-real-time-metric-alerts.md
-    - name: Configure alerts in Azure portal
+    - name: Configure classic alerts in Azure portal
       href: insights-alerts-portal.md
+    - name: Configure metric or log alerts in Azure portal
+      href: monitor-alerts-unified-usage.md
     - name: Configure alerts with CLI
       href: insights-alerts-command-line-interface.md
     - name: Configure alerts with Azure PowerShell
       href: insights-alerts-powershell.md
-    - name: Have a metric alert call a webhook
+    - name: Have a classic metric alert call a webhook
       href: insights-webhooks-alerts.md
+      name: Webhook actions for log alerts
+      href: monitor-alerts-unified-log-webhook.md
     - name: Create a metric alert with a Resource Manager template
-      href: monitoring-enable-alerts-using-template.md
+      href: monitoring-enable-alerts-using-template.md      
+    - name: Initiate extending alerts from OMS to Azure
+      href: monitoring-alerts-extend-tool.md
   - name: Use autoscale
     items:
+    - name: Walkthrough of autoscale
+      href: monitoring-autoscale-get-started.md
+    - name: Understand Autoscale settings
+      href: monitoring-understanding-autoscale-settings.md
     - name: Best practices
       href: insights-autoscale-best-practices.md
     - name: Common metrics
@@ -144,7 +139,9 @@
     items:
     - name: Walkthrough using REST API
       href: monitoring-rest-api-walkthrough.md
-  - name: Use Azure Diagnostics extension
+    - name: Azure PowerShell samples
+      href: insights-powershell-samples.md
+    - name: Use Azure Diagnostics extension
     items:
     - name: Send to Application Insights
       href: azure-diagnostics-configure-application-insights.md
@@ -156,6 +153,8 @@
     href: monitoring-metric-charts.md
   - name: Send metrics to Grafana
     href: monitor-send-to-grafana.md
+  - name: Send monitoring data to an event hub
+    href: monitor-stream-monitoring-data-event-hubs.md
 - name: Reference
   items:
   - name: Azure CLI

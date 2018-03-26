@@ -24,14 +24,22 @@
   items:
   - name: Plan and design
     items:
-    - name: Planning for an Azure Files deployment
-      href: storage-files-planning.md
-    - name: How to deploy Azure Files
-      href: storage-files-deployment-guide.md
-    - name: Planning for an Azure File Sync deployment
-      href: storage-sync-files-planning.md
-    - name: How to deploy Azure File Sync
-      href: storage-sync-files-deployment-guide.md
+    - name: Storage account options
+      href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Deploy Azure Files
+      items:  
+      - name: Planning for an Azure Files deployment
+        href: storage-files-planning.md
+      - name: How to deploy Azure Files
+        href: storage-files-deployment-guide.md
+    - name: Deploy Azure File Sync
+      items:  
+      - name: Planning for an Azure File Sync deployment
+        href: storage-sync-files-planning.md
+      - name: How to deploy Azure File Sync
+        href: storage-sync-files-deployment-guide.md
+      - name: Azure File Sync proxy and firewall settings
+        href: storage-sync-files-firewall-and-proxy.md
     - name: About file share snapshots
       href: storage-snapshots-files.md
     - name: How to work with file share snapshots
@@ -64,8 +72,6 @@
         href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Configure connection strings
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
-    - name: Using the Azure Storage REST API
-      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Manage
     items:
     - name: PowerShell for Azure Files
@@ -198,6 +204,8 @@
       href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Troubleshoot Storage Explorer
       href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+    - name: Storage Explorer accessibility
+      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
   - name: NuGet packages
     items:
     - name: Azure Storage Client Library for .NET

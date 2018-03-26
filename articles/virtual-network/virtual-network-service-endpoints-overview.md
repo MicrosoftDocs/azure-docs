@@ -13,19 +13,20 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: 
 ---
 
-# Virtual Network Service Endpoints (Preview)
+# Virtual Network Service Endpoints
 
 Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
 
-This feature is available in preview for the following Azure services and regions:
+This feature is available for the following Azure services and regions:
 
-- **Azure Storage**: All regions in the Azure public cloud.
-- **Azure SQL**: All regions in the Azure public cloud.
+- **Azure Storage**: Generally Available. All regions in the Azure public cloud and Azure Government.
+- **Azure SQL Database**: Generally Available in all Azure regions. 
+- **Azure SQL Datawarehouse**: Preview. All regions in the Azure public cloud.
 
 For the most up-to-date notifications for the preview, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -56,14 +57,14 @@ Service endpoints provide the following benefits:
 
   By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow         traffic from on-premises, you must also allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP       addresses can be added through the IP firewall configuration for Azure service resources.
 
-  ExpressRoute: If you are using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering, each ExpressRoute circuit uses two NAT IP addresses applied to Azure service   traffic when the traffic enters the Microsoft Azure network backbone. To allow access to your service resources, you must allow those   two public IP addresses in the resource IP firewall setting. To find your ExpressRoute circuit IP addresses, [open a support   ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal.Learn more about [NAT for ExpressRoute public peering.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  ExpressRoute: If you are using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering or Microsoft peering, you will need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit by default uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, the NAT IP address(es) that are used are either customer provided or are provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. To find your public peering ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. Learn more about [NAT for ExpressRoute public and Microsoft peering.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![Securing Azure services to virtual networks](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
 ### Configuration
 
 - Service endpoints are configured on a subnet in a virtual network. Endpoints work with any type of compute instances running within that subnet.
-- Only one service endpoint can be enabled to a specific service from a subnet. You can configure multiple service endpoints for all supported Azure services (Azure Storage, or Azure Sql Database, for example) on a subnet.
+- You can configure multiple service endpoints for all supported Azure services (Azure Storage, or Azure Sql Database, for example) on a subnet.
 - Virtual networks must be in the same region as the Azure service resource. If using GRS and RA-GRS Azure Storage accounts, the primary account must be in the same region as the virtual network.
 - The virtual network where the endpoint is configured can be in the same or different subscription than the Azure service resource. For more information on permissions required for setting up endpoints and securing Azure services, see [Provisioning](#Provisioning).
 - For supported services, you can secure new or existing resources to virtual networks using service endpoints.
@@ -103,11 +104,11 @@ Service endpoints can be configured on virtual networks independently, by a user
 
 Learn more about [built-in roles](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and assigning specific permissions to [custom roles](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Virtual networks and Azure service resources can be in the same or different subscriptions. If the virtual network and Azure service resources are in different subscriptions, the resources must be under the same Active Directory (AD) tenant, during the preview. 
+Virtual networks and Azure service resources can be in the same or different subscriptions. If the virtual network and Azure service resources are in different subscriptions, the resources must be under the same Active Directory (AD) tenant. 
 
 ## Pricing and limits
 
-There is no additional charge for using service endpoints. The current pricing model for Azure services (Azure Storage, Azure SQL Database) applies as-is today.
+There is no additional charge for using service endpoints. The current pricing model for Azure services (Azure Storage, Azure SQL Database) applies as is today.
 
 There is no limit on the total number of service endpoints in a virtual network.
 
@@ -115,7 +116,7 @@ For an Azure service resource (such as, an Azure Storage account), services may 
 
 ## Next steps
 
-- Learn how to [configure virtual network service endpoints](virtual-network-service-endpoints-configure.md)
+- Learn how to [configure virtual network service endpoints](tutorial-restrict-network-access-to-resources.md)
 - Learn how to [secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn how to [secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn about [Azure service integration in virtual networks](virtual-network-for-azure-services.md)

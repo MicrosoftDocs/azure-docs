@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
 ---
 
@@ -73,12 +73,17 @@ Visual Studio Code provides a local development experience covering all major pl
 3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
     ```
-4. Run Azure Storage Emulator or update the *local.appsettings.json* file with real Azure Storage connection string.
-3. Open the project in Visual Studio Code. 
-5. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
-6. Start the project by running in command prompt / terminal the following command:
+4. Install Azure Functions Twilio Extension by running the following in a command prompt / terminal window:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    ```
+5. Run Azure Storage Emulator or update the *local.appsettings.json* file with real Azure Storage connection string.
+6. Open the project in Visual Studio Code. 
+7. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
+8. Start the project by running in command prompt / terminal the following command:
     ```bash
     func host start
     ```
@@ -119,7 +124,7 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 
 1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
 
-2. Configure the function app to [use the 2.0 runtime version](functions-versions.md).
+2. Configure the function app to [use the 2.0 runtime version](set-runtime-version.md).
 
 3. Create a new function by selecting **"create your own custom function."**.
 

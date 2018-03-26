@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
@@ -42,7 +42,7 @@ The available roles are:
 
 Service principals enable headless connectivity to a registry in both push and pull scenarios like the following:
 
-  * *Reader*: Container deployments from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/), and others.
+  * *Reader*: Container deployments from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
 
   * *Contributor*: Continuous integration and deployment solutions like Visual Studio Team Services (VSTS) or Jenkins that build container images and push them to a registry.
 
@@ -59,6 +59,8 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 Once logged in, Docker caches the credentials, so you don't need to remember the app ID.
 
 Depending on the version of Docker you have installed, you might see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
+
+For more information on using a service principal for headless authentication to ACR, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
 
 ## Admin account
 

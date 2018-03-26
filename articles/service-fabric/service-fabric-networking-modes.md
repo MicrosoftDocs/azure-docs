@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -217,6 +217,16 @@ When a container service restarts or moves to another node in the cluster, the I
     >[!NOTE]
     >On Linux clusters, mixing networking modes for different services is not supported. 
     >
+
+5. When the **Open** mode is selected, the **Endpoint** definition in the service manifest should explicitly point to the code package corresponding to the endpoint, even if the service package has only one code package in it. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
 
 ## Next steps
 * [Understand the Service Fabric application model](service-fabric-application-model.md)

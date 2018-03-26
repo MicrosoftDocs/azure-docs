@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 12/06/2017
+ms.date: 02/27/2018
 ms.author: barbkess
 
 ---
@@ -71,7 +71,7 @@ $Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -Server
 $PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -158,7 +158,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 
 <!--Article references-->
 [Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Overview]: ./sql-data-warehouse-restore-database-overview.md

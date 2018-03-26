@@ -4,8 +4,8 @@ description: Learn how move data to/from Azure Cosmos DB collection using Azure 
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 
 robots: noindex
@@ -492,7 +492,7 @@ Azure Cosmos DB is a NoSQL store for JSON documents, where nested structures are
     **Answer:**
     If records have an "ID" field and the copy operation tries to insert a record with the same ID, the copy operation throws an error.  
 3. **Question:**
-    Does Data Factory support [range or hash-based data partitioning](../../cosmos-db/documentdb-partition-data.md)?
+    Does Data Factory support [range or hash-based data partitioning](../../cosmos-db/sql-api-partition-data.md)?
 
     **Answer:**
     No.

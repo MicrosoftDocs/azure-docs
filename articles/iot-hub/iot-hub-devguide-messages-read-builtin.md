@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
 
 ---
@@ -29,7 +29,7 @@ IoT Hub also enables you to manage consumer groups on the built-in device-to-clo
 
 By default, all messages that do not explicitly match a message routing rule are written to the built-in endpoint. If you disable this fallback route, messages that do not explicitly match any message routing rules are dropped.
 
-You can modify the retention time, either programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
+You can modify the retention time, either programmatically using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or with the [Azure portal][lnk-management-portal].
 
 IoT Hub exposes the **messages/events** built-in endpoint for your back-end services to read the device-to-cloud messages received by your hub. This endpoint is Event Hub-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
 
@@ -37,7 +37,7 @@ IoT Hub exposes the **messages/events** built-in endpoint for your back-end serv
 
 When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Event Hubs - Event Processor Host][lnk-eventprocessorhost], you can use any IoT Hub connection strings with the correct permissions. Then use **messages/events** as the Event Hub name.
 
-When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name from your IoT hub settings:
+When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name:
 
 1. Sign in to the [Azure portal][lnk-management-portal] and navigate to your IoT hub.
 1. Click **Endpoints**.

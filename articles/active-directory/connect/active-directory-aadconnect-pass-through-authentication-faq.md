@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
 ---
 
@@ -77,6 +77,12 @@ Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environme
 ## Can I install two or more Pass-through Authentication Agents on the same server?
 
 No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, follow the instructions in [Azure Active Directory Pass-through Authentication: Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+
+## How do I remove a Pass-through Authentication Agent?
+
+As long as a Pass-through Authentication Agent is running, it remains active and continually handles user sign-in requests. If you want to uninstall an Authentication Agent, go to **Control Panel -> Programs -> Programs and Features** and uninstall both the **Microsoft Azure AD Connect Authentication Agent** and the **Microsoft Azure AD Connect Agent Updater** programs.
+
+If you check the Pass-through Authentication blade on the [Azure Active Directory admin center](https://aad.portal.azure.com) after completing the preceding step, you'll see the Authentication Agent showing as **Inactive**. This is _expected_. The Authentication Agent is automatically dropped from the list after a few days.
 
 ## I already use AD FS to sign in to Azure AD. How do I switch it to Pass-through Authentication?
 

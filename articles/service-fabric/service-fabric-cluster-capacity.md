@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
 
 ---
@@ -67,7 +67,7 @@ The durability tier is used to indicate to the system the privileges that your V
 
 This privilege is expressed in the following values:
 
-* Gold - The infrastructure Jobs can be paused for a duration of two hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
+* Gold - The infrastructure Jobs can be paused for a duration of two hours per UD. Gold durability can be enabled only on full node VM skus like L32s, GS5, G5, DS15_v2, D15_v2  etc (In general all the VM Sizes listed at http://aka.ms/vmspecs, that are marked as 'Instance is isolated to hardware dedicated to a single customer' in the note, are Full node VMs)
 * Silver - The infrastructure Jobs can be paused for a duration of 10 minutes per UD and is available on all standard VMs of single core and above.
 * Bronze - No privileges. This is the default. Only use this durability level for Node Types that run _only_ stateless workloads. 
 
@@ -85,11 +85,12 @@ You get to choose durability level for each of your node-types.You can choose on
 **Disadvantages of using Silver or Gold durability levels**
  
 1. Deployments to your Virtual Machine Scale Set and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or at the infrastructure level. 
-2. Increases the number of [replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (for example, primary swaps) due to automated node deactivations during Azure infrastructure operations.
+2. Increases the number of [replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (for example, primary swaps) due to automated node deactivations during Azure infrastructure operations.
+3. Takes nodes out of service for periods of time while Azure platform software updates or hardware maintenance activities are occurring. You may see nodes with status Disabling/Disabled during these activities. This reduces the capacity of your cluster temporarily, but should not impact the availability of your cluster or applications.
 
 ### Recommendations on when to use Silver or Gold durability levels
 
-Use Silver or Gold durability for all node types that host stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
+Use Silver or Gold durability for all node types that host stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed and capacity to be reduced in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
 
 ### Changing durability levels
 - Node types with durability levels of Silver or Gold cannot be downgraded to Bronze.
@@ -98,10 +99,10 @@ Use Silver or Gold durability for all node types that host stateful services you
 
 ### Operational Recommendations for the node type that you have set to silver or gold durability level.
 
-1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion.
+1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion.
 2. Adopt safer ways to make a VM SKU change (Scale up/down): Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe operation and so should be avoided if possible. Here is the process you can follow to avoid common issues.
 	- **For non-primary nodetypes:** It is recommended that you create new Virtual Machine Scale Set, modify the service placement constraint to include the new Virtual Machine Scale Set/node type and then reduce the old Virtual Machine Scale Set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
-	- **For the primary nodetype:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances. If that not possible, create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
+	- **For the primary nodetype:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances. If that not possible, create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
 
 
 > [!WARNING]

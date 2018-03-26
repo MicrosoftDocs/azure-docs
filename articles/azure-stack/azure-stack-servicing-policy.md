@@ -18,9 +18,6 @@ ms.author: mabrigg
 
 ---
 # Azure Stack servicing policy
-
-*Applies to: Azure Stack integrated systems*
-
 This article describes the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state. 
 
 ## Update package types
@@ -50,14 +47,13 @@ The following table shows example update package releases, their prerequisite, a
 
 | Latest Update Package (*example*) | Prerequisite | Minimum Supported Version |
 | -- | -- | -- |
-| 1709 | Build 1708 | N/A |
 | 1710 | 1709 | N/A |
-| 1711 | 1710 | N/A |
-| 1712 | 1711 | 1709 |
-| 1801 | 1712 | 1710 |
-| 1802 | 1801 | 1711 |
-| 1803 | 1802 | 1712 |
-| 1804 | 1803 | 1801 |
+| 1711 | 1710 | 1709 |
+| 1712 | 1711 | 1710 |
+| 1802 | 1801 | 1712 |
+| 1803 | 1802 | 1801 |
+| 1804 | 1803 | 1802 |
+| 1805 | 1804 | 1803 |
 | | | 
 
 ## Next steps

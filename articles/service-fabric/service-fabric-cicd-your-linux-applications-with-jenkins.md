@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/27/2017
+ms.date: 3/9/2018
 ms.author: saysa
 
 ---
@@ -22,7 +22,6 @@ Jenkins is a popular tool for continuous integration and deployment of your apps
 
 ## General prerequisites
 - Have Git installed locally. You can install the appropriate Git version from [the Git downloads page](https://git-scm.com/downloads), based on your operating system. If you are new to Git, learn more about it from the [Git documentation](https://git-scm.com/docs).
-- Have the Service Fabric Jenkins plug-in handy. You can download it from [Service Fabric downloads](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). If you are using edge browser rename the extension of downloaded file from .zip to .hpi.
 
 ## Set up Jenkins inside a Service Fabric cluster
 
@@ -42,8 +41,8 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
 2. Clone the application, by using the following steps:
   ```sh
-  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  git clone https://github.com/suhuruli/jenkins-container-application.git
+  cd jenkins-container-application
   ```
 
 3. Persist the state of the Jenkins container in a file-share:
@@ -127,8 +126,8 @@ You need to have Docker installed. The following commands can be used to install
 Now when you run ``docker info`` in the terminal, you should see in the output that the Docker service is running.
 
 ### Steps
-  1. Pull the Service Fabric Jenkins container image: ``docker pull rapatchi/jenkins:v9``
-  2. Run the container image: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
+  1. Pull the Service Fabric Jenkins container image: ``docker pull rapatchi/jenkins:v10``. This image comes with Service Fabric Jenkins plugin pre-installed.
+  2. Run the container image: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
   4. Sign in to the Jenkins portal by using the following steps:
 
@@ -149,11 +148,6 @@ Now when you run ``docker info`` in the terminal, you should see in the output t
 
 Ensure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. This enables the Jenkins instance to receive notifications from GitHub.
 
-## Install the Service Fabric Jenkins plug-in from the portal
-
-1. Go to ``http://PublicIPorFQDN:8081``
-2. From the Jenkins dashboard, select **Manage Jenkins** > **Manage Plugins** > **Advanced**.
-Here, you can upload a plug-in. Select **Choose file**, and then select the **serviceFabric.hpi** file, which you downloaded under prerequisites or can download [here](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). When you select **Upload**, Jenkins automatically installs the plug-in. Allow a restart if requested.
 
 ## Create and configure a Jenkins job
 

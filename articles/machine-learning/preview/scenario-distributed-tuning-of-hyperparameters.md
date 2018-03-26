@@ -4,8 +4,10 @@ description: This scenario shows how to do distributed tuning of hyperparameters
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
 ---
@@ -22,7 +24,7 @@ Following is the link to the public GitHub repository:
 ## Use case overview
 
 Many machine learning algorithms have one or more knobs, called hyperparameters. These knobs allow tuning of algorithms to optimize their performance over future data, measured according to user-specified metrics (for example, accuracy, AUC, RMSE). Data scientist needs to provide values of hyperparameters when building a model over training data and before seeing the future test data. How based on the known training data can we set up the values of hyperparameters so that the model has a good performance over the unknown test data? 
-
+    
 A popular technique for tuning hyperparameters is a *grid search* combined with *cross-validation*. Cross-validation is a technique that assesses how well a model, trained on a training set, predicts over the test set. Using this technique, we first divide the dataset into K folds and then train the algorithm K times in a round-robin fashion. We do this on all but one of the folds called the "held-out fold". We compute the average value of the metrics of K models over K held-out folds. This average value, called *cross-validated performance estimate*, depends on the values of hyperparameters used when creating K models. When tuning hyperparameters, we search through the space of candidate hyperparameter values to find the ones that optimize cross-validation performance estimate. Grid search is a common search technique. In grid search, the space of candidate values of multiple hyperparameters is a cross-product of sets of candidate values of individual hyperparameters. 
 
 Grid search using cross-validation can be time-consuming. If an algorithm has five hyperparameters each with five candidate values, we use K=5 folds. We then complete a grid search by training 5<sup>6</sup>=15625 models. Fortunately, grid-search using cross-validation is an embarrassingly parallel procedure and all these models can be trained in parallel.
@@ -33,16 +35,12 @@ Grid search using cross-validation can be time-consuming. If an algorithm has fi
 * An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [Install and create Quickstart](./quickstart-installation.md) to install the Workbench and create accounts.
 * This scenario assumes that you are running Azure ML Workbench on Windows 10 or MacOS with Docker engine locally installed. 
 * To run the scenario with a remote Docker container, provision Ubuntu Data Science Virtual Machine (DSVM) by following the [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). We recommend using a virtual machine with at least 8 cores and 28 Gb of memory. D4 instances of virtual machines have such capacity. 
-* To run this scenario with a Spark cluster, provision Azure HDInsight cluster by following these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We recommend having a cluster with at least 
-- six worker nodes
-- eight cores
-- 28 Gb of memory 
-in both header and worker nodes. D4 instances of virtual machines have such capacity. We recommend changing the following parameters to maximize performance of the cluster.
-- spark.executor.instances
-- spark.executor.cores
-- spark.executor.memory 
-
-You can follow these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) and edit the definitions in "custom spark defaults" section.
+* To run this scenario with a Spark cluster, provision Spark HDInsight cluster by following these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We recommend having a cluster with the following configuration in both header and worker nodes:
+    - four worker nodes
+    - eight cores
+    - 28 Gb of memory  
+      
+  D4 instances of virtual machines have such capacity. 
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
@@ -111,7 +109,7 @@ with IP address, user name and password in DSVM. IP address of DSVM can be found
 
 To set up Spark environment, run in CLI
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 with the name of the cluster, cluster's SSH user name and password. The default value of SSH user name is `sshuser`, unless you changed it during provisioning of the cluster. The name of the cluster can be found in Properties section of your cluster page in Azure portal:
 
@@ -119,14 +117,20 @@ with the name of the cluster, cluster's SSH user name and password. The default 
 
 We use spark-sklearn package to have Spark as an execution environment for distributed tuning of hyperparameters. We modified spark_dependencies.yml file to install this package when Spark execution environment is used:
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -192,9 +196,9 @@ in CLI window.
 Since local environment is too small for computing all feature sets, we switch to remote DSVM that has larger memory. The execution inside DSVM is done inside Docker container that is managed by AML Workbench. Using this DSVM we are able to compute all features and train models and tune hyperparameters (see the next section). singleVM.py file has complete feature computation and modeling code. In the next section, we will show how to run singleVM.py in remote DSVM. 
 
 ### Tuning hyperparameters using remote DSVM
-We use [xgboost](https://anaconda.org/conda-forge/xgboost) implementation [1] of gradient tree boosting. We use [scikit-learn](http://scikit-learn.org/) package to tune hyperparameters of xgboost. Although xgboost is not part of scikit-learn package, it implements scikit-learn API and hence can be used together with hyperparameter tuning functions of scikit-learn. 
+We use [xgboost](https://anaconda.org/conda-forge/xgboost) implementation [1] of gradient tree boosting. We also use [scikit-learn](http://scikit-learn.org/) package to tune hyperparameters of xgboost. Although xgboost is not part of scikit-learn package, it implements scikit-learn API and hence can be used together with hyperparameter tuning functions of scikit-learn. 
 
-Xgboost has eight hyperparameters:
+Xgboost has eight hyperparameters, described [here](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md):
 * n_estimators
 * max_depth
 * reg_alpha
@@ -203,15 +207,13 @@ Xgboost has eight hyperparameters:
 * learning_rate
 * colsample\_by_level
 * subsample
-* objective
-A description of these hyperparameters can be found at
-- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-- 
+* objective  
+ 
 Initially, we use remote DSVM and tune hyperparameters from a small grid of candidate values:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-This grid has four combinations of values of hyperparameters. We use 5-fold cross validation, resulting 4x5=20 runs of xgboost. To measure performance of the models, we use negative log loss metric. The following code finds the values of hyperparameters from the grid that maximize the cross-validated negative log loss. The code also uses these values to train the final model over the full training set:
+This grid has four combinations of values of hyperparameters. We use 5-fold cross validation, resulting in 4x5=20 runs of xgboost. To measure performance of the models, we use negative log loss metric. The following code finds the values of hyperparameters from the grid that maximize the cross-validated negative log loss. The code also uses these values to train the final model over the full training set:
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -279,7 +281,7 @@ We use Spark cluster to scale out tuning hyperparameters and use larger grid. Ou
 
 This grid has 16 combinations of values of hyperparameters. Since we use 5-fold cross validation, we run xgboost 16x5=80 times.
 
-scikit-learn package does not have a native support of tuning hyperparameters using Spark cluster. Fortunately, [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) package from Databricks fills this gap. This package provides GridSearchCV function that has almost the same API as GridSearchCV function in scikit-learn. To use spark-sklearn and tune hyperparameters using Spark we need to connect to create Spark context
+scikit-learn package does not have a native support of tuning hyperparameters using Spark cluster. Fortunately, [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) package from Databricks fills this gap. This package provides GridSearchCV function that has almost the same API as GridSearchCV function in scikit-learn. To use spark-sklearn and tune hyperparameters using Spark we need to create a Spark context
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

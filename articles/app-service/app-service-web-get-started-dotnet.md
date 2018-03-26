@@ -19,11 +19,17 @@ ms.custom: mvc, devcenter
 ---
 # Create an ASP.NET Core web app in Azure
 
+> [!NOTE]
+> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md).
+>
+
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
 > [!NOTE]
 > If you're looking for how to build and deploy an ASP.NET Framework Web App, that article is available [here](app-service-web-get-started-dotnet-framework.md). 
 >
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -34,8 +40,6 @@ To complete this tutorial:
     - **Azure development**
 
     ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create an ASP.NET Core web app
 
@@ -166,4 +170,4 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+> [ASP.NET Core with SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)

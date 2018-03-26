@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Kubernetes cluster - Operations Management
-description: Monitoring Kubernetes cluster in Azure Container Service using Microsoft Operations Management Suite
+description: Monitoring Kubernetes cluster in Azure Container Service using Log Analytics
 services: container-service
 author: bburns
 manager: timlt
@@ -12,7 +12,7 @@ ms.author: bburns
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)
+# Monitor an Azure Container Service cluster with Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
@@ -53,11 +53,11 @@ CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## Monitoring Containers with Operations Management Suite (OMS)
+## Monitoring Containers with Log Analytics
 
-Microsoft Operations Management (OMS) is Microsoft's cloud-based IT
+Log Analytics is Microsoft's cloud-based IT
 management solution that helps you manage and protect your on-premises
-and cloud infrastructure. Container Solution is a solution in OMS Log
+and cloud infrastructure. Container Solution is a solution in Log
 Analytics, which helps you view the container inventory, performance,
 and logs in a single location. You can audit, troubleshoot containers by
 viewing the logs in centralized location, and find noisy consuming
@@ -69,11 +69,11 @@ For more information about Container Solution, please refer to the
 [Container Solution Log
 Analytics](../../log-analytics/log-analytics-containers.md).
 
-## Installing OMS on Kubernetes
+## Installing Log Analytics on Kubernetes
 
 ### Obtain your workspace ID and key
 For the OMS agent to talk to the service it needs to be configured with a workspace id and
-a workspace key. To get the workspace id and key you need to create an OMS account at <https://mms.microsoft.com>.
+a workspace key. To get the workspace id and key you need to create an account at <https://mms.microsoft.com>.
 Please follow the steps to create an account. Once you are done creating
 the account, you need to obtain your id and key by clicking
 **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
@@ -95,13 +95,13 @@ $ kubectl create -f oms-daemonset.yaml
 ```
 
 ### Installing the OMS agent using a Kubernetes Secret
-To protect your OMS workspace ID and key you can use Kubernetes Secret as a part of DaemonSet YAML file.
+To protect your Log Analytics workspace ID and key you can use Kubernetes Secret as a part of DaemonSet YAML file.
 
  - Copy the script, secret template file and the DaemonSet YAML file (from [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) and make sure they are on the same directory. 
 	  - secret generating script - secret-gen.sh
 	  - secret template - secret-template.yaml
    - DaemonSet YAML file - omsagent-ds-secrets.yaml
- - Run the script. The script will ask for the OMS Workspace ID and Primary Key. Please insert that and the script will create a secret yaml file so you can run it.   
+ - Run the script. The script will ask for the Log Analytics Workspace ID and Primary Key. Please insert that and the script will create a secret yaml file so you can run it.   
    ```
    #> sudo bash ./secret-gen.sh 
    ```

@@ -26,6 +26,11 @@ This document details how to use the Custom Script Extension using the Azure Pow
 
 ## Prerequisites
 
+> [!NOTE]  
+> Do not use Custom Script Extension to run Update-AzureRmVM with the same VM as its parameter, since it will wait on itself.  
+>   
+> 
+
 ### Operating System
 
 The Custom Script Extension for Windows can be run against Windows 10 Client, Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
@@ -131,7 +136,7 @@ When executing the `commandToExecute` command, the extension will have set this 
 
 Since the absolute download path may vary over time, it is better to opt for relative script/file paths in the `commandToExecute` string, whenever possible. For example:
 ```json
-	"commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+	"commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
 Path information after the first URI segment is retained for files downloaded via the `fileUris` property list.  As shown in the table below, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  
@@ -147,5 +152,4 @@ Path information after the first URI segment is retained for files downloaded vi
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums]
-(https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).

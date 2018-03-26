@@ -7,12 +7,12 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Scale application in Azure Container Service (AKS)
+# Tutorial: Scale application in Azure Container Service (AKS)
 
 If you've been following the tutorials, you have a working Kubernetes cluster in AKS and you deployed the Azure Voting app.
 
@@ -23,7 +23,7 @@ In this tutorial, part five of eight, you scale out the pods in the app and try 
 > * Manually scaling Kubernetes pods
 > * Configuring Autoscale pods running the app front end
 
-In subsequent tutorials, the Azure Vote application is updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
+In subsequent tutorials, the Azure Vote application is updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 
@@ -35,10 +35,10 @@ If you have not done these steps, and would like to follow along, return to the 
 
 If you created your Kubernetes cluster using the commands in the previous tutorial, it has one node. You can adjust the number of nodes manually if you plan more or fewer container workloads on your cluster.
 
-The following example increases the number of nodes to three in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
+The following example increases the number of nodes to three in the Kubernetes cluster named *myAKSCluster*. The command takes a couple of minutes to complete.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
 ```
 
 The output is similar to:
@@ -49,7 +49,7 @@ The output is similar to:
     "count": 3,
     "dnsPrefix": null,
     "fqdn": null,
-    "name": "myK8sCluster",
+    "name": "myAKSCluster",
     "osDiskSizeGb": null,
     "osType": "Linux",
     "ports": null,

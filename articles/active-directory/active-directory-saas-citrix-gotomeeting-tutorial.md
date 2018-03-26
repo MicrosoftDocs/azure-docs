@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
 
 ---
@@ -102,95 +102,36 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. On the **GoToMeeting Domain and URLs** section, click **Show advanced URL settings** and perform following actions -
+3. On the **GoToMeeting Domain and URLs** section, perform the following steps:
 
-	![GoToMeeting Domain and URLs single sign-on information](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+	![GoToMeeting Domain and URLs single sign-on information](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. In the **Identifier** textbox, type the URL:
-	`https://authentication.logmeininc.com/saml/sp`
+    In the **Identifier** textbox, type the URL: `https://authentication.logmeininc.com/saml/sp`
 
-	b. In the **Reply URL** textbox, type the URL:	`https://authentication.logmeininc.com/saml/acs`
+4. Click **Show Advanced URL configuration** and configure the below URLs
 
-	c. In the **Relay State** textbox, type one of the following URLs:
-
-	**For GoToMeeting**: `https://global.gotomeeting.com`
-	
-	**For GoToTraining**: `https://global.gototraining.com`
-
-	**For GoToWebinar**: `https://global.gotowebinar.com`
-
-	**For GoToAssist**: `https://app.gotoassist.com`
-
-
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![The Certificate download link](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **Sign on URL** (keep this blank)
+    
+    **Reply URL**: `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**:
+    
+    - For GoToMeeting App, use `https://global.gotomeeting.com`
+    
+    - For GoToTraining, use `https://global.gototraining.com`
+    
+    - For GoToWebinar, use `https://global.gotowebinar.com` 
+    
+    - For GoToAssist, use `https://app.gotoassist.com`
+    
 5. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. To generate the **Metadata** url, perform the following steps:
+6. In a different browser window, log in to your [GoToMeeting Organization Center](https://organization.logmeininc.com/). You will be prompted to confirm that the IdP has been updated
 
-    a. Click **App registrations**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. Enable the "My Identity Provider has been updated with the new domain" checkbox. Click **Done** when finished.
 
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. Now go to the property page of **GoToMeeting** and copy the **Application Id** using **Copy** button and paste it into notepad.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`	
-
-7. On the **GoToMeeting Configuration** section, click **Configure GoToMeeting** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![GoToMeeting Configuration](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. In a different browser window, log in to your [GoToMeeting Organization Center](https://account.citrixonline.com/organization/administration/)
-
-9. Under **identity provider** tab, you can configure the Azure settings either by providing the generated **Metadata URL** or the downloaded **Metadata file** or **Manual**.
-
-10. For **Metadata URL** perform the following steps:
-
-	![GoToMeeting Configuration](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-	a. In the **How would you like to configure your SAML IDP?**, Select **Automatic** from the dropdown.
-
-	b. Paste the **Metadata URL**, which you have generated in the previous steps into the  **Metadata URL** textbox.
-
-	c. Click **Save**.
-
-11. For **Metadata file** perform the following steps:
-
-	![GoToMeeting Configuration](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-	a. In the **How would you like to configure your SAML IDP?**, Select **Upload SAML metadata file** from the dropdown.
-
-	b. To upload your downloaded metadata file, click **Upload metadata file**.
-
-	c. Click **Save**.
-
-12. For **Manual** perform the following steps:
-
-	![GoToMeeting Configuration](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-	a.  In **Sign-in page URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
-
-	b.  In **Sign-out page URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
-
-	c.  In **Identity Provider Entity ID** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
-
-	d. Extract the X509Certificate from the downloaded metadata file and upload this certificate by clicking on **Upload certificate**.
-
-	e. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
