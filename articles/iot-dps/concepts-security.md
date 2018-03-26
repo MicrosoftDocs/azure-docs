@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: iot-dps
 
@@ -29,7 +29,7 @@ The attestation mechanism is the method used for confirming a device's identity.
 
 Device Provisioning Service supports two forms of attestation:
 * **X.509 certificates** based on the standard X.509 certificate authentication flow.
-* **SAS tokens** based on a nonce challenge using the TPM standard for keys. This does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Trusted Platform Module (TPM)** based on a nonce challenge, using the TPM standard for keys to present a signed Shared Access Signature (SAS) token. This does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## Hardware security module
 
@@ -40,7 +40,7 @@ The hardware security module, or HSM, is used for secure, hardware-based storage
 
 Device secrets may also be stored in software (memory), but it is a less secure form of storage than an HSM.
 
-## Trusted Platform Module (TPM)
+## Trusted Platform Module
 
 TPM can refer to a standard for securely storing keys used to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based. Learn more about [TPMs and TPM attestation](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Device Provisioning Service only supports TPM 2.0.
 
