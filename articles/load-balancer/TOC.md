@@ -26,7 +26,7 @@
 ## [Create a zone redundant public Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)
 ### [Create a zone redundant public Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Create a zone redundant public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)
-##[Create a zonal public Load Balancer Standard](load-balancer-get-started-internet-az-zonal-portal.md)
+## [Create a zonal public Load Balancer Standard](load-balancer-get-started-internet-az-zonal-portal.md)
 ### [Create a zonal public Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-zonal-powershell.md)
 ### [Create a zonal redundant public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-zonal-cli.md)
 ##  [Load balance VMs across availability zones (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
