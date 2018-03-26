@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/25/18
+ms.date: 03/26/18
 ms.author: kumud
 ---
 
 # Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal
 
-This article steps through creating a public Load Balancer Standard with a zone redundant frontend to achieve achieve zone-redundancy without dependency on DNS records. A single front-end IP address in a Standard Load Balancer is automatically zone-redundant. Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy.
+This article steps through creating a public Load Balancer Standard with a zone redundant frontend to achieve achieve zone-redundancy without dependency on multiple DNS records. A single front-end IP address in a Standard Load Balancer is automatically zone-redundant. Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. 
+
+For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -46,7 +48,7 @@ Standard Load Balancer only supports a Standard Public IP address. When you crea
 
 ## Create backend servers
 
-In this section, you create a virtual network, create virtual machines in different zones (zone 1, zone 2, and zone 3) for the region to add to the the backend pool of your load balancer, and then install IIS on the virtual machines to help test the zone-redundant load balancer. Hence, if VM in one zone fails, then traffic is routed to VMs in the other zones.
+In this section, you create a virtual network, create virtual machines in different zones (zone 1, zone 2, and zone 3) for the region to add to the the backend pool of your load balancer, and then install IIS on the virtual machines to help test the zone-redundant load balancer. Hence, if a zone fails, the health probe for VM in the same zone fails, and traffic continues to be served by VMs in the other zones.
 
 ### Create a virtual network
 1. On the top left-hand side of the screen click **Create a resource** > **Networking** > **Virtual network** and enter these values for the virtual network:
