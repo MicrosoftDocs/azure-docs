@@ -84,4 +84,4 @@ The timeline for the process of listing an OpenID Connect application in the gal
 
 ## Escalations
 
-For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com) and we'll respond as soon as possible.
+For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com)  which is SaaSApplicationIntegrations@service.microsoft.com and we'll respond as soon as possible.
