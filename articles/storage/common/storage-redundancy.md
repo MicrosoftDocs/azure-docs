@@ -6,7 +6,6 @@ author: tamram
 manager: jeconnoc
 
 ms.service: storage
-ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
@@ -20,16 +19,22 @@ You can choose to replicate your data within the same data center, across data c
 
 Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
 
+## Choosing a replication option
+
 When you create a storage account, you can select one of the following replication options:
 
-* [Locally redundant storage (LRS)](#locally-redundant-storage)
-* [Zone-redundant storage (ZRS)](#zone-redundant-storage)
-* [Geo-redundant storage (GRS)](#geo-redundant-storage)
-* [Read-access geo-redundant storage (RA-GRS)](#read-access-geo-redundant-storage)
+* [Locally redundant storage (LRS)](storage-redundancy-lrs.md)
+* [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md)
+* [Geo-redundant storage (GRS)](storage-redundancy-grs.md)
+* [Read-access geo-redundant storage (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
 Locally redundant storage (LRS) is the default option when you create a storage account.
 
-The following table provides a quick overview of the differences between LRS, ZRS, GRS, and RA-GRS. Subsequent sections of this article address each type of replication in more detail.
+> [!IMPORTANT]
+> You can change how your data is replicated after your storage account has been created. However, you may incur an additional one-time data transfer cost if you switch from LRS or ZRS to GRS or RA-GRS.
+>
+
+The following table provides a quick overview of the differences between LRS, ZRS, GRS, and RA-GRS:
 
 | Replication strategy | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
@@ -42,45 +47,6 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 > [!NOTE]
 > Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md).
 >
-
-## Locally redundant storage
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
-
-## Zone redundant storage
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
-
-### ZRS Classic accounts
-
-The existing ZRS capability is now referred to as ZRS Classic. ZRS Classic accounts are available only for block blobs in general-purpose V1 storage accounts. 
-
-ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. 
-
-ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.   
-
-Once ZRS is generally available in a region, you will no longer be able to create a ZRS Classic account from the portal in that region, but you can create one through other means.  
-An automated migration process from ZRS Classic to ZRS will be provided in the future.
-
-You can manually migrate ZRS account data to or from an LRS, ZRS Classic, GRS, or RAGRS account. You can perform this manual migration using AzCopy, Azure Storage Explorer, Azure PowerShell, Azure CLI, or one of the Azure Storage client libraries.
-
-> [!NOTE]
-> ZRS Classic accounts are planned for deprecation and required migration on March 31, 2021. Microsoft will send more details to ZRS Classic customers prior to deprecation.
-
-Additional questions are addressed in the [Frequently asked questions](#frequently-asked-questions) section. 
-
-## Geo-redundant storage
-[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
-
-## Read-access geo-redundant storage
-Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account. RA-GRS provides read-only access to the data in the secondary location, in addition to geo-replication across two regions.
-
-When you enable read-only access to your data in the secondary region, your data is available on a secondary endpoint as well as on the primary endpoint for your storage account. The secondary endpoint is similar to the primary endpoint, but appends the suffix `–secondary` to the account name. For example, if your primary endpoint for the Blob service is `myaccount.blob.core.windows.net`, then your secondary endpoint is `myaccount-secondary.blob.core.windows.net`. The access keys for your storage account are the same for both the primary and secondary endpoints.
-
-Some considerations to keep in mind when using RA-GRS:
-
-* Your application has to manage which endpoint it is interacting with when using RA-GRS.
-* Since asynchronous replication involves a delay, changes that have not yet been replicated to the secondary region may be lost if data cannot be recovered from the primary region, for example in the event of a regional disaster.
-* If Microsoft initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, see [Disaster Recovery Guidance](../storage-disaster-recovery-guidance.md).
-* RA-GRS is intended for high-availability purposes. For scalability guidance, review the [performance checklist](../storage-performance-checklist.md).
 
 ## Frequently asked questions
 

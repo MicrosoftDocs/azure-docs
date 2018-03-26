@@ -28,7 +28,7 @@ Before you can back up an Azure File share, ensure that it is present in one of 
 
 ## Limitations for Azure File share backup during Preview
 Azure Files backup is in Preview. Be aware of the following limitations during the Preview:
-- You cannot protect File shares in Storage accounts with [zone-redundant storage(ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) or [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) replication.
+- You cannot protect File shares in Storage accounts with [zone-redundant storage(ZRS)](../storage/common/storage-redundancy-zrs.md) or [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) replication.
 - You cannot protect File shares in Storage accounts that have Virtual Networks enabled.
 - There is no PowerShell or CLI available for protecting Azure Files.
 - The maximum number of scheduled backups per day is one.

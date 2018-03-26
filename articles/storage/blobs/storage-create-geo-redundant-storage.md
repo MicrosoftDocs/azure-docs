@@ -1,6 +1,6 @@
 ---
 title: Make application data highly available in Azure | Microsoft Docs 
-description: Use read access geo-redundant storage to make your application data highly available
+description: Use read-access geo-redundant storage to make your application data highly available
 services: storage
 author: tamram
 manager: jeconnoc
@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Make your application data highly available with Azure storage
 
-This tutorial is part one of a series, which shows you how to make your application data highly available in Azure. When you're finished, you have a console application that uploads and retrieves a blob to a [read-access geo-redundant](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage account. RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to. The application switches to secondary endpoint when a failure is simulated.
+This tutorial is part one of a series, which shows you how to make your application data highly available in Azure. When you're finished, you have a console application that uploads and retrieves a blob to a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account. RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to. The application switches to secondary endpoint when a failure is simulated.
 
 In part one of the series, you learn how to:
 
