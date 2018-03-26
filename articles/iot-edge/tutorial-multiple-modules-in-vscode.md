@@ -63,3 +63,11 @@ You can use Visual Studio Code to develop your IoT Edge solution with multiple m
 
 1. To monitor data arriving at the IoT hub, select the **View** > **Command Palette...** and search for **IoT: Start monitoring D2C message**. 
 2. To stop monitoring data, use the **IoT: Stop monitoring D2C message** command in the Command Palette. 
+
+## Next steps
+
+In this tutorial, you created an IoT Edge solution with a C# module, later you added a Function module, updated the routes for the solution, built and deployed to your simulated IoT Edge device. You can continue on to either of the following tutorials to learn about other scenarios when developing Azure IoT Edge in VS Code.
+
+> [!div class="nextstepaction"]
+> [Debug a C# module in VS Code](how-to-vscode-debug-csharp-module.md)
+> [Debug a C# Function in VS Code](how-to-vscode-debug-azure-function.md)
