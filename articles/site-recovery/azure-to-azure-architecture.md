@@ -47,7 +47,7 @@ When you enable Azure VM replication, the following resources are automatically 
 **Target virtual network** | The virtual network in which replicated VMs are located after failover. A network mapping is created between source and target virtual networks, and vice versa.
 **Cache storage accounts** | Before source VM changes are replicated to a target storage account, they are tracked and sent to the cache storage account in source location. This step ensures minimal impact on production applications running on the VM.
 **Target storage accounts (If source VM does not use managed disks)**  | Storage accounts in the target location to which the data is replicated.
-** Replica managed disks (If source VM is on managed disks)**  | Managed disks in the target location to which data is replicated.
+**Replica managed disks (If source VM is on managed disks)**  | Managed disks in the target location to which data is replicated.
 **Target availability sets**  | Availability sets in which the replicated VMs are located after failover.
 
 ### Step 2
