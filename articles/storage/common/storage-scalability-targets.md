@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure Stora
 services: storage
 documentationcenter: na
 author: roygara
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75

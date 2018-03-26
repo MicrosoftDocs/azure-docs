@@ -4,7 +4,7 @@ description: Learn how to use the Azure Command-Line Interface (Azure CLI) 2.0 w
 services: storage
 documentationcenter: na
 author: roygara
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid:
