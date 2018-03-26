@@ -18,8 +18,6 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: SQL API documentation
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 This article provides links to all Azure Cosmos DB content specific to the SQL API.
 
 These articles do not apply to the Graph API, Table API, or MongoDB API. 

@@ -1915,7 +1915,7 @@
         },
         {
             "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
-            "redirect_url": "/azure/automation",
+            "redirect_url": "/azure/automation/automation-create-runas-account",
             "redirect_document_id": false
         },
         {
@@ -6499,11 +6499,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-connect-query.md",
-            "redirect_url": "/azure/sql-database/sql-database-connect-query-vscode",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/sql-database/sql-database-control-access-aad-authentication-get-started.md",
             "redirect_url": "/azure/sql-database/sql-database-aad-authentication-configure",
             "redirect_document_id": false
@@ -8317,6 +8312,16 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-reliable-services-advanced-usage.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-lifecycle",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-reliable-services-reliable-collections-internals.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-reliable-services-introduction",
             "redirect_document_id": false
         },
         {
@@ -17619,6 +17624,51 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-use-disks-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-cli.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-portal.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-powershell.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-template-linux.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-template-windows.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-windows",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/azure-stack/azure-stack-redeploy.md",
         "redirect_url": "/azure/azure-stack/asdk/asdk-redeploy",
         "redirect_document_id": false
@@ -17629,10 +17679,41 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-overview.md",
+        "redirect_url": "/azure/sql-data-warehouse/backup-and-restore",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-backups.md",
+        "redirect_url": "/azure/sql-data-warehouse/backup-and-restore",
+        "redirect_document_id": false
+    },		
+	{
         "source_path": "articles/data-factory/tutorial-create-azure-ssis-runtime-portal.md",
         "redirect_url": "/azure/data-factory/tutorial-deploy-ssis-packages-azure",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/media-services/media-services-specifications-ms-sstr-ammendment-hevc.md",
+        "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md",
+        "redirect_url": "/azure/sql-data-warehouse/cheat-sheet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage.md",
+        "redirect_url": "/azure/sql-data-warehouse/cheat-sheet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-reference.md",
+        "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements",
+        "redirect_document_id": false
     }
+
    ]
 }
 
