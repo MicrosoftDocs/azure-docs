@@ -9,7 +9,7 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
-ms.date: 12/23/2017
+ms.date: 03/23/2018
 ms.author: v-ruogun 
 ---  
 

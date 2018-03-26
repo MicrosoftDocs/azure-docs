@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 03/23/2018
 ms.author: tamram
 ms.custom: mvc
 ---
@@ -40,7 +40,7 @@ To complete this tutorial:
 # [Python] (#tab/python) 
 
 * Install [Python](https://www.python.org/downloads/)
-* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python)
+* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 * (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
 
 # [Java] (#tab/java)
