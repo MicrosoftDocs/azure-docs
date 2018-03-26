@@ -29,7 +29,7 @@ See [Managing databases and logins](sql-database-manage-logins.md).
 See [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md).
 
 ## How does the usage of SQL Database show up on my bill?
-SQL Database bills on a predictable hourly rate based on both the service tier + performance level for single databases or eDTUs per elastic pool. Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. Additionally, service tiers + performance level and eDTUs per pool are broken out in the bill to make it easier to see the number of database days you used for each in a single month.
+SQL Database bills on a predictable hourly rate based on the [resourcing model](sql-database-service-tiers.md). Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. 
 
 ## What if a single database is active for less than an hour or uses a higher service tier for less than an hour?
 You are billed for each hour a database exists using the highest service tier + performance level that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour. 
@@ -40,10 +40,10 @@ Examples:
 * If you upgrade a database from Basic to Premium at 10:00 p.m. and upgrade completes at 1:35 a.m. on the following day, you are charged at the Premium rate starting at 1:00 a.m. 
 * If you downgrade a database from Premium to Basic at 11:00 a.m. and it completes at 2:15 p.m., then the database is charged at the Premium rate until 3:00 p.m., after which it is charged at the Basic rates.
 
-## How does elastic pool usage show up on my bill and what happens when I change eDTUs per pool?
-Elastic pool charges show up on your bill as Elastic DTUs (eDTUs) in the increments shown under eDTUs per pool on [the pricing page](https://azure.microsoft.com/pricing/details/sql-database/). There is no per-database charge for elastic pools. You are billed for each hour a pool exists at the highest eDTU, regardless of usage or whether the pool was active for less than an hour. 
+## How does elastic pool usage show up on my bill?
+Elastic pool charges show up on your bill as Elastic DTUs (eDTUs) or vCores plus storage in the increments shown on [the pricing page](https://azure.microsoft.com/pricing/details/sql-database/). There is no per-database charge for elastic pools. You are billed for each hour a pool exists at the highest eDTU or vCores, regardless of usage or whether the pool was active for less than an hour. 
 
-Examples:
+DTU-based resourcing model examples:
 
 * If you create a Standard elastic pool with 200 eDTUs at 11:18 a.m., adding five databases to the pool, you are charged for 200 eDTUs for the whole hour, beginning at 11 a.m. through the remainder of the day.
 * On Day 2, at 5:05 a.m., Database 1 begins consuming 50 eDTUs and holds steady through the day. Databases 2-5 fluctuate between 0 and 80 eDTUs. During the day, you add five other databases that consume varying eDTUs throughout the day. Day 2 is a full day billed at 200 eDTU. 
@@ -54,16 +54,13 @@ Elastic pools are billed per the following characteristics:
 
 * An elastic pool is billed upon its creation, even when there are no databases in the pool.
 * An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
-* If an elastic pool is resized to a new number of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of single databases.
-* The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the number and utilization of the elastic databases within it.
-* Price is computed by (number of pool eDTUs)x(unit price per eDTU).
+* If an elastic pool is resized, then the pool is not billed according to the new amount of resources until the resizing operation completes. This follows the same pattern as changing the performance level of single databases.
+* The price of an elastic pool is based on the resources of the pool. The price of an elastic pool is independent of the number and utilization of the elastic databases within it.
 
-The unit eDTU price for an elastic pool is higher than the unit DTU price for a single database in the same service tier. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
-
-To understand the eDTUs and service tiers, see [SQL Database options and performance](sql-database-service-tiers.md).
+For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/) and [Service tiers](sql-database-service-tiers.md).
 
 ## How does the use of active geo-replication in an elastic pool show up on my bill?
-Unlike single databases, using [active geo-replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
+Unlike single databases, using [active geo-replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the resources provisioned for each of the pools (primary pool and secondary pool)
 
 ## How does the use of the auditing feature impact my bill?
 Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, and Premium databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
@@ -71,14 +68,15 @@ Auditing is built into the SQL Database service at no extra cost and is availabl
 ## How do I find the right service tier and performance level for single databases and elastic pools?
 There are a few tools available to you: 
 
-* For on-premises databases, use the [DTU sizing advisor](http://dtucalculator.azurewebsites.net/) to recommend the databases and DTUs required, and evaluate multiple databases for elastic pools.
+* For on-premises databases being migrated to an Azure SQL Database using the DTU-based resourcing model, use the [DTU sizing advisor](http://dtucalculator.azurewebsites.net/) to recommend the databases and DTUs required, and evaluate multiple databases for elastic pools.
+* For on-premises databases being migrated to an Azure SQL Database using the vCore-based resourcing model, compare the vCores to your current compute resources. 
 * If a single database would benefit from being in a pool, Azure's intelligent engine recommends an elastic pool if it sees a historical usage pattern that warrants it. See [Monitor and manage an elastic pool with the Azure portal](sql-database-elastic-pool-manage-portal.md). For details about how to do the math yourself, see [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md)
 * To see whether you need to dial a single database up or down, see [performance guidance for single databases](sql-database-performance-guidance.md).
 
 ## How often can I change the service tier or performance level of a single database?
 You can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) as often as you want. For earlier version databases, you can change the service tier or performance level a total of four times in a 24-hour period.
 
-## How often can I adjust the eDTUs per pool?
+## How often can I adjust the resources per pool?
 As often as you want.
 
 ## How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic pool?

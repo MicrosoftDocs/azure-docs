@@ -6,7 +6,7 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/31/2018
+ms.date: 04/04/2018
 manager: craigg
 ms.topic: article
 ms.author: carlrab
@@ -14,7 +14,7 @@ ms.author: carlrab
 ---
 # What are Azure SQL Database service tiers?
 
-[Azure SQL Database](sql-database-technical-overview.md) offers two resourcing models for compute, storage, and I/O resources: a DTU-based model and a vCore-based model (preview). The following table and chart compare and contrast these two resourcing models.
+[Azure SQL Database](sql-database-technical-overview.md) offers two resourcing models for compute, storage, and I/O resources: a DTU-based resourcing model and a vCore-based resourcing model (preview). The following table and chart compare and contrast these two resourcing models.
 
 |**Pricing model**|**Description**|**Best for**|
 |---|---|---|
@@ -77,7 +77,7 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 
 For details on specific performance levels and storage size choices available, see [SQL Database resource limits](sql-database-resource-limits.md).
 
-## vCore-based resourcing model
+## vCore-based resourcing model (preview)
 
 The vCore-based resourcing model gives your flexibility, control, transparency and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/07/2018
+ms.date: 04/04/2018
 ms.author: sashan
 
 ---
@@ -17,15 +17,22 @@ ms.author: sashan
 
 ## Overview of Read Scale-Out
 
-Each database in the Premium tier ([DTU-based resourcing model](sql-database-service-tiers.md#dtu-based-resourcing-model)) or in the Business Critical tier ([vCore-based resourcing model](sql-database-service-tiers.md#vcore-based-resourcing-model)) is automatically provisioned with several replicas to support the availability SLA. These replicas have the same performance characteristics and Service Level Objective (SLO) as the read-write replica used by the regular database connections. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of the read-only replicas instead of sharing the read-write replica. Because read-only replicas are isolated from the read-write replica, the read-only queries will not affect the primary read-write workload. The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity.
+Each database in the Premium tier ([DTU-based resourcing model](sql-database-service-tiers.md#dtu-based-resourcing-model)) or in the Business Critical tier ([vCore-based resourcing model](sql-database-service-tiers.md#vcore-based-resourcing-model)) is automatically provisioned with several Always ON replicas to support the availability SLA. These replicas are provisioned with the same performance level as the read-write replica used by the regular database connections. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance.The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
 
-To use the Read Scale-Out feature with a particular database, you must explicitly enable it when creating the database or afterwards by altering its configuration using PowerShell commands or, or through the Azure Resource Manager REST API. <!---add link-->
+To use the Read Scale-Out feature with a particular database, you must explicitly enable it when creating the database or afterwards by altering its configuration using PowerShell by invoking the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) or the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets or through the Azure Resource Manager REST API using the [Databases - Create or Update](/rest/api/sql/databases/createorupdate) method. 
 
 After Read Scale-Out is enabled for a database, applications connecting to that database will be directed to either the read-write replica or to a read-only replica of that database according to the `ApplicationIntent` property configured in the application’s connection string. For information on the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
 
+> [!NOTE]
+> During preview, Query Data Store and Extended Events are not supported on the read-only replicas.
+
 ## Data consistency
 
-Read Scale-Out supports session-level consistency. Strong data consistency guarantees across different connections are not provided. That is to say: if an application uses two sessions to read from read-only replicas using Read Scale-Out, or reconnects after a connection failure, it is possible for the second session to return state corresponding to an earlier point in time than the first read. Likewise, if an application writes to the read-write replica in a read-write session and later reads from the read-only replica, it is possible that the read may see a state prior to the write. This is because replication to the replicas is asynchronous (replication latencies within the region are low and this situation is rare).
+One of the benefits of AlwasyON is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read Scale-Out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it can be redirected to a replica that is not 100% up to date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible. This is because the transaction log redo to the replicas is asynchronous.
+
+> [!NOTE]
+> Replication latencies within the region are low and this situation is rare.
+
 
 ## Connecting to a read-only replica
 
@@ -89,3 +96,5 @@ For additional information, see [Databases - Create or Update](/rest/api/sql/dat
 
 ## Next steps
 
+- For information about using PowerShell to set read scale-out, see the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) or the [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets.
+- For information about using the REST API to set read scale-out, see [Databases - Create or Update](/rest/api/sql/databases/createorupdate).
