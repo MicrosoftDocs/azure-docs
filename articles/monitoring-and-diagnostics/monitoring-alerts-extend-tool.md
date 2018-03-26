@@ -37,16 +37,14 @@ A sample screen below.
 
     ![Extend Alerts from OMS into Azure - Step 2](./media/monitor-alerts-extend/ExtendStep2.png)
 
-    > [!NOTE]
-    > If the edit alert option shown above, is used; the user will not be able to return to wizard. And will require to restart the process of extending alerts from OMS into Azure, from step 1. Also the list shows proposed change summary, the actual result may vary based on  any changes are done in parallel.
 
-4. In the last step of wizard, you can ask OMS to schedule extending all your alerts into Azure - by creating new Action Groups and associating them with alerts, as shown in the earlier screen. To proceed choose "Have OMS automatically all alerts in your workspace to Azure", then click Finish and confirm at the prompt to initiate the process. Alternatively, customers can use a new Log Analytics API - to manually trigger extending the alerts by choosing the alternate option. 
+4. In the last step of wizard, you can ask OMS to schedule extending all your alerts into Azure - by creating new Action Groups and associating them with alerts, as shown in the earlier screen. To proceed choose click Finish and confirm at the prompt to initiate the process. Optionally, customers can also provide email addresses to which they would like OMS to send a report on finishing the processing.
 
     ![Extend Alerts from OMS into Azure - Step 3](./media/monitor-alerts-extend/ExtendStep3.png)
 
-5. Once the wizard is finished, control will return to the Alert Settings page and "Extend into Azure" option will be removed. In the background, OMS will schedule alerts in OMS to be extended into Azure; this can take some time and when the operation begins for a brief period alerts in OMS will not be available for modification. Once the background process is completed, an email will be sent to all users with administrator or contributor role; with details of the action groups created and respective alerts they have been associated with. 
+5. Once the wizard is finished, control will return to the Alert Settings page and "Extend into Azure" option will be removed. In the background, OMS will schedule alerts in OMS to be extended into Azure; this can take some time and when the operation begins for a brief period alerts in OMS will not be available for modification. Current status will be shown via banner and if email addresses where provided during step 4, then they will be informed when background process successfully extends all alerts into Azure. 
 
-6. Alerts will continue to be listed in OMS, even after they get extended into Azure.
+6. Alerts will continue to be listed in OMS, even after they get successfully extended into Azure.
 
     ![After Extending alerts in OMS to Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
@@ -138,10 +136,11 @@ If all alerts in the specified workspace, have already been extended into Azure 
 }
 ```
 
-To initiate the scheduling of extending the alerts in OMS to Azure, initiate a POST to the API. Doing this call/command confirms the user's intent as well as acceptance to have their alerts in OMS extended to Azure and perform the changes as indicated in response of GET call to the API.
+To initiate the scheduling of extending the alerts in OMS to Azure, initiate a POST to the API. Doing this call/command confirms the user's intent as well as acceptance to have their alerts in OMS extended to Azure and perform the changes as indicated in response of GET call to the API. Optionally, user can provide a list of email addresses to which OMS will mail a report, when scheduled background process of extending the alerts in OMS to Azure finishes successfully.
 
 ```
-armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+$emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
+armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $emailJSON
 ```
 
 > [!NOTE]
