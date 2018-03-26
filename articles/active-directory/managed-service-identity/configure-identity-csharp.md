@@ -76,7 +76,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 ## Create the Azure VM with managed identity enabled
 
-1. Copy the following code sample into your Visual Studio project.
+1. Copy the following code sample into your Visual Studio project.  
 
 ```csharp
 using System;
@@ -119,7 +119,8 @@ namespace ManagedIdentityVM
     }
 }
 
-```
+```  
+
 2.  To run the console application, click **Start**.
 
 ## Next steps
