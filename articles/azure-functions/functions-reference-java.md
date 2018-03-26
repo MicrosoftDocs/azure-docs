@@ -339,7 +339,8 @@ To easily set environment variables when running Azure Functions locally, you ma
 
 Each key / value mapping in the `values` map will be made available at runtime as an environment variable, accessible by calling `System.getenv("<keyname>")`, for example, `System.getenv("AzureWebJobsStorage")`. Adding additional key / value pairs is accepted and recommended practice.
 
-*Note:* If this approach is taken, be sure to consider whether adding the local.settings.json file to your repository ignore file, so that it is not committed.
+> [!NOTE]
+> If this approach is taken, be sure to consider whether adding the local.settings.json file to your repository ignore file, so that it is not committed.
 
 With your code now depending on these environment variables, you can log in to the Azure Portal to set the same key / value pairs in your function app settings, so that your code functions equivalently when testing locally and when deployed to Azure.
 
