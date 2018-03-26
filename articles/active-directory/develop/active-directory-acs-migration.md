@@ -20,7 +20,7 @@ ms.author: dastrock
 
 # Migrate from the Azure Access Control service
 
-Azure Access Control, a service of Azure Active Directory (Azure AD), will be retired in November 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
+Azure Access Control, a service of Azure Active Directory (Azure AD), will be retired on November 7, 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
 
 
 ## Overview
@@ -54,9 +54,7 @@ https://<mynamespace>.accesscontrol.windows.net
 
 All communication with the STS and management operations are done at this URL. You use different paths for different purposes. To determine whether your applications or services use Access Control, monitor for any traffic to https://\<namespace\>.accesscontrol.windows.net. Any traffic to this URL is handled by Access Control, and needs to be discontinued. 
 
-The exception to this is any traffic to https://accounts.accesscontrol.windows.net. Traffic to this URL is already handled by a different service and is not affected by the Access Control deprecation. 
-
-You should also sign in to the Azure classic portal and check for any Access Control namespaces in the subscriptions that you own. Access Control namespaces are listed on the **Access Control Namespaces** tab, under the **Active Directory** service.
+The exception to this is any traffic to `https://accounts.accesscontrol.windows.net`. Traffic to this URL is already handled by a different service and **is not** affected by the Access Control deprecation. 
 
 For more information about Access Control, see [Access Control Service 2.0 (archived)](https://msdn.microsoft.com/library/hh147631.aspx).
 
@@ -66,9 +64,9 @@ As of November 2017, all Access Control components are fully supported and opera
 
 Here's the schedule for deprecating Access Control components:
 
-- **November 2017**:  The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: http://manage.windowsazure.com?restoreClassic=true. Use this URl to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
-- **April 2018**: Access Control namespace management is no longer available at the http://manage.windowsazure.com?restoreClassic=true dedicated URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at https://\<namespace\>.accesscontrol.windows.net. All other components of Access Control continue to operate normally.
-- **November 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at \<namespace\>.accesscontrol.windows.net) fail. You should have migrated all existing apps and services to other technologies well before this time.
+- **November 2017**:  The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: `http://manage.windowsazure.com?restoreClassic=true`. Use this URl to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
+- **April 2, 2018**: The Azure classic portal is completely retired, meaning Access Control namespace management is no longer available via any URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at `https://\<namespace\>.accesscontrol.windows.net`. All other components of Access Control continue to operate normally.
+- **November 7, 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at \<namespace\>.accesscontrol.windows.net) fail. You should have migrated all existing apps and services to other technologies well before this time.
 
 
 ## Migration strategies
@@ -96,6 +94,18 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
 
+
+### SharePoint customers
+
+SharePoint 2013, 2016, and SharePoint Online customers have long used ACS for authentication purposes in cloud, on-prem, and hybrid scenarios. Some SharePoint features and use cases will be affected by ACS retirement, while others will not. The below table summarizes migration guidance for some of the most popular SharePoint feature that leverage ACS:
+
+| Feature | Guidance |
+| ------- | -------- |
+| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 token required by Sharepoint for authentication, and ACS was used as an intermediary that made SharePoint compatibile with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using token issuance policies](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| [App authentication & server-to-server authentication in SharePoint on-prem](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Not affected by ACS retirement; no changes necessary. | 
+| [Low trust authorization for SharePoint add-ins (provider hosted and SharePoint hosted)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Not affected by ACS retirement; no changes necessary. |
+| [Remote event receivers for provider hosted add-ins.](https://docs.microsoft.com/sharepoint/dev/solution-guidance/use-remote-event-receivers-in-sharepoint) | Remote event receivers leverage Azure Service Bus, which is also deprecating support for ACS in November 2018. You will need to migrate your Service Bus implementations to use shared access signatures, [described here](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas). | 
+| [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Not affected by ACS retirement; no changes necessary. |
 
 ### Web applications that use passive authentication
 
