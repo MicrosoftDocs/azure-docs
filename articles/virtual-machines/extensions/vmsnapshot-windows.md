@@ -26,7 +26,7 @@ Azure Backup provides support for backing up workloads from on-premises to cloud
 ## Prerequisites
 
 ### Operating system
-For a list of supported operating systems, please refer to [Operating Systems supported by Azure Backup](../../backup/backup-azure-arm-vms-prepare#supported-operating-system-for-backup)
+For a list of supported operating systems, please refer to [Operating Systems supported by Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup)
 
 ### Internet connectivity
 
@@ -111,7 +111,7 @@ C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot
 
 ### Error codes and their meanings
 
-Troubleshooting information can be found on the [Azure VM backup troubleshooting guide](../../backup/backup-azure-vms-troubleshoot#).
+Troubleshooting information can be found on the [Azure VM backup troubleshooting guide](../../backup/backup-azure-vms-troubleshoot.md).
 
 ### Support
 

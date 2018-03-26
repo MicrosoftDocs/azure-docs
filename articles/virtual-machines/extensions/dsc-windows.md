@@ -3,7 +3,7 @@ title: Azure Desired State Configuration Extension Handler | Microsoft Docs
 description: Upload and apply a PS DSC configuration on an Azure VM using DSC Extension
 services: virtual-machines-windows 
 documentationcenter: ''
-author: esparmar 
+author: eshaparmar 
 manager: jeconnoc 
 editor: ''
 
