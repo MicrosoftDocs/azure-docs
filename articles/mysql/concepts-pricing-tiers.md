@@ -82,7 +82,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 
 ## Backup
 
-The service automatically takes backups of your server. The minimum retention period for backups is seven days. You can set a retention period of up to 35 days. The retention can be adjusted at any point during the lifetime of the server. You can choose between locally redundant and geo-redundant backups. Geo-redundant backups are also stored in the [geo-paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) of the region where your server is created. This redundancy provides a level of protection in the event of a disaster. You also gain the ability to restore your server to any other Azure region in which the service is available with geo-redundant backups. It's not possible to change between the two backup storage options after the server is created.
+The service automatically takes backups of your server. The minimum retention period for backups is seven days. You can set a retention period of up to 35 days. The retention can be adjusted at any point during the lifetime of the server. You can choose between locally redundant and geo-redundant backups. Geo-redundant backups also are stored in the [geo-paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) of the region where your server is created. This redundancy provides a level of protection in the event of a disaster. You also gain the ability to restore your server to any other Azure region in which the service is available with geo-redundant backups. It's not possible to change between the two backup storage options after the server is created.
 
 ## Scale resources
 
@@ -96,7 +96,7 @@ Scaling storage and changing the backup retention period are true online operati
 
 For the most up-to-date pricing information, see the service [pricing page](https://azure.microsoft.com/pricing/details/mysql/). To see the cost for the configuration you want, the [Azure portal](https://portal.azure.com/#create/Microsoft.MySQLServer) shows the monthly cost on the **Pricing tier** tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, and choose **Azure Database for MySQL** to customize the options.
 
-## Next Steps
+## Next steps
 
 - Learn how to [create a MySQL server in the portal](howto-create-manage-server-portal.md).
 - Learn how to [monitor and scale an Azure Database for MySQL server by using Azure CLI](scripts/sample-scale-server.md).
