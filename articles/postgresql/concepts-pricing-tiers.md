@@ -17,7 +17,7 @@ You can create an Azure Database for PostgreSQL server in one of three different
 
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
-| Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
+| Compute generation | Generation 4, Generation 5 | Generation 4, Generation 5 | Generation 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memory per vCore | 1x | 2x Basic | 2x General Purpose |
 | Storage size | 5 GB to 1 TB | 5 GB to 1 TB | 5 GB to 1 TB |
@@ -36,7 +36,7 @@ After you create a server, the number of vCores can be changed up or down within
 
 ## Compute generations, vCores, and memory
 
-Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available). 
+Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. Currently, you can choose from two compute generations, Generation 4 and Generation 5. Generation 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. Generation 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors. Generation 4 and Generation 5 are available in the following regions ("X" denotes available). 
 
 | **Azure region** | **Generation 4** | **Generation 5** |
 |:---|:----------:|:--------------------:|
