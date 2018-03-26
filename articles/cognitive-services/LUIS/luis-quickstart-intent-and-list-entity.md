@@ -110,32 +110,32 @@ Now that the two intents have utterances, LUIS needs to understand what a drink 
 
 2. Select `OrderDrinks` from the intents list.
 
-3. In the utterance, `h2o`, select the word `h2o`. A drop-down menu appears with a text box at the top to create a new entity.
+3. In the utterance, `h2o`, select the word `h2o`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `Drink` in the text box then select **Create new entity** in the drop-down menu then select enter. 
 
-4. Enter the entity name `Drink` in the text box then select **Create new entity** in the drop-down menu then select enter. 
-
-    ![Create new entity](./media/luis-quickstart-primary-and-secondary-data/create-message-entity.png)
+    ![Label utterance](./media/luis-quickstart-intent-and-list-entity/intent-label-h2o-in-utterance.png)
 
 5. In the pop-up window, select the **List** entity type with `Water` as the synonym. Select **Done**.
 
-    ![Verify entity type](./media/luis-quickstart-primary-and-secondary-data/entity-type.png)
+    ![Verify entity type](./media/luis-quickstart-intent-and-list-entity/create-list-ddl.png)
 
-6. Now that the entity is created, and one utterance is labeled, label the other synonym for water by selecting `perriers` from ` 2 perriers with a twist of lime`, then select `Drink` in the drop-down list. Follow the menu to the right, then select `Set as synonym`, then select `h2o`.
+6. Now that the entity is created, and one utterance is labeled, label the other synonyms for water by selecting `perriers` from ` 2 perriers with a twist of lime`, then select `Drink` in the drop-down list. Follow the menu to the right, then select `Set as synonym`, then select `h2o`.
 
-    ![Label utterance with existing entity](./media/luis-quickstart-primary-and-secondary-data/label-utterance.png)
+    ![Label utterance with existing entity](./media/luis-quickstart-intent-and-list-entity/intent-label-perriers.png)
 
 ## Modify the list entity from the Entity page
-The drink list entity is created but doesn't have many items and synonyms. It may be quicker to fill in the list if you know some of the terms, abbreviations, and slang your users enter. 
+The drink list entity is created but doesn't have many items and synonyms. If you know some of the terms, abbreviations, and slang, it is quicker to fill in the list on the **Entity** page. 
 
 1. Select **Entities** from the left panel.
 
-    ![All message utterances labeled](./media/luis-quickstart-primary-and-secondary-data/labeled-utterances.png)
+    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/intent-select-entities.png)
 
 2. Select `Drink` from entities list.
 
+    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png)
+
 3. In the text box, enter `Soda pop`, then select enter. This is a term that is broadly applied to carbonated drinks. Every culture has a nick-name or slang term for this type of drink.
 
-    img
+    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png)
 
 4. On the same row as `Soda pop`, enter synonyms such as: 
 
@@ -150,12 +150,14 @@ The drink list entity is created but doesn't have many items and synonyms. It ma
 
     This article has a few synonyms, to keep the example short. A production-level LUIS app would have many synonyms and would be reviewed and expanded on a regular basis. 
 
+    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png)
+
 5. Add several synonyms to the `h2o` row:
 
     ```
     waters
-    h20 (numeric 0)
-    h2o (letter o)
+    h20 (using numeric 0)
+    h2o (using letter o)
     ```
 
     If you don't add `waters`, an utterance of `3 waters please` would not pull out the drink type because it is an exact match at the [token](luis-supported-languages.md#tokenization) level.
@@ -165,23 +167,29 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-![Train button](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
+    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/train-button.png)
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-![Trained status bar](./media/luis-quickstart-primary-and-secondary-data/trained.png)
+    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/trained.png)
 
 ## Publish the app to get the endpoint URL
 In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
+    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/publish.png)
+
 2. Select the **Publish to product slot**. 
+
+    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/publish-to-production.png)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+
+    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png)
 
 2. Go to the end of the URL in the address and enter `2 cokes and 3 waters`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `OrderDrinks` intent with the two drink types of `cokes` and `waters`.
 
@@ -241,7 +249,9 @@ LUIS is done with this request. The calling application, such as a chat bot, can
 
 > [!div class="nextstepaction"]
 > [Learn more about entities](luis-concept-entity-types.md)
-> Add the number [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type.
+> Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type.
+> Add the **dimension** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the volume for each drink type such as liters or gallons.
+
 
 <!--References-->
 [LUIS]:luis-reference-regions.md#luis-website
