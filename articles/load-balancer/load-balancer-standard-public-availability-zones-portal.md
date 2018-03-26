@@ -36,7 +36,7 @@ Standard Load Balancer only supports a Standard Public IP address. When you crea
 2. In the **Create a load balancer** page enter these values for the load balancer:
     - *myLoadBalancer* - for the name of the load balancer.
     - **Public** - for the type of the load balancer.
-     - *myPublicIP* - for the new Public IP address that you create. To do so, click Choose a public IP address, and then click Create new.
+     - *myPublicIP* - for the new Public IP address that you create. To do so, click **Choose a public IP address**, and then click **Create new**. For name type *myPublicIP*, SKU is Standard by default, and select **Zone-redundant** for **Availability zone**.
     - *myResourceGroupLBAZ* -  for the name of the new resource group that you create.
     - **westeurope** - for the location.
 3. Click **Create** to create the load balancer.
@@ -93,6 +93,8 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     - *200* for **Priority**
     - *myRDPRule* for name
     - *Allow RDP* - for description
+
+
 ### Create virtual machines
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
@@ -109,7 +111,7 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
   
- ![Create a virtual machine](./media/load-balancer-standard-public-availability-zones-portal/3-load-balancer-backend-VMs.png)
+ ![Create a virtual machine](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. Create a second VM, named, *VM2* in Zone 2, and third VM in Zone 3, and with *myVnet* as the virtual network, *myBackendSubnet* as the subnet, and **myNetworkSecurityGroup* as the network security group using steps 1-6.
 
