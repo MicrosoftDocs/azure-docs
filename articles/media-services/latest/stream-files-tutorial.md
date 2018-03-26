@@ -11,26 +11,28 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/19/2018
+ms.date: 03/26/2018
 ms.author: juliako
 ---
 
 # Tutorial: Upload, encode, and stream videos
 
-This tutorial shows you how to stream video files. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. The tutorial also shows you how to download your content, this is useful when you want to deliver offline content for playback on airplanes, trains, and automobiles. 
+This tutorial shows you how to stream video files with Azure Media Services. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, or Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. 
 
-You are first offered to clone a GitHub sample repository because this tutorial examines .NET code that uploads, endcodes, and delivers your videos with Media Services.
+In this tutorial, you are first offered to clone a GitHub repository that contains the **UploadEncodeAndStreamFiles** project. The project contains .NET code that this article examines in detail. 
 
-The article explains the following tasks that are part of the code sample:  
+This tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Create an input asset based on a local file
-> * Create an output asset to store the results of the job
+> * Configure your app so it can access Media Services APIs
+> * Create an input asset and upload a local file into it 
+> * Create an output asset to store the result of the encoding job 
 > * Create a transform and a job that encodes the uploaded file
 > * Wait for the job to complete
 > * Download the result to your local folder
-> * Get the streaming URL
-> * Test the stream in a player (in this case, we use Azure Media Player)
+> * Get the streaming URLs
+> * Test the encoded video in Azure Media Player
+> * Clean up resources
 
 ![Play the video](./media/stream-files-dotnet-tutorials/final-video.png)
 
@@ -44,29 +46,32 @@ The article explains the following tasks that are part of the code sample:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Clone the sample application
+## Clone the sample repo
 
-First, let's clone the [StreamAndEncodeFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials) app from GitHub. Visual Studio 2017 was used to create the sample.
+First, let's clone the [media-services-v3-dotnet-tutorials](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials) repo from GitHub. Visual Studio 2017 was used to create samples in the solution.
 
 1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+    git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
     ```
 3. Open the solution file in Visual Studio. 
+4. Right-click the **UploadEncodeAndStreamFiles** project and select **Set as StartUp project**.
+5. Build the solution. 
+6. Open the Program.cs file.
+ 
+## Configure your app so it can access Media Services APIs
 
-    The project that is discussed in this article is called **EncodeAndStreamFiles**.
-4. Build the solution. 
-4. To run the app and access the Media Services APIs, you need to specify the correct values in App.config. 
+To run the app and access the Media Services APIs, you need to specify the correct values in App.config. 
     
-    To get the values, see [Accessing APIs](access-api-cli-how-to.md).
+To get the values, see [Accessing APIs](access-api-cli-how-to.md).
 
-## Create an input asset based on a local file
+## Create an input asset and upload a local file into it 
 
-In this example, you are creating an input asset based on a local video file. If you want to see how to encode a file based on an HTTPS URL, see [Stream a file](stream-files-dotnet-quickstart.md).
+In Program.cs, find the **CreateInputAsset** function. It shows how to create an input asset and upload a local video file into it. The input asset can be created from HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or paths to files located in Azure Blob storage. If you want to see how to upload and encode a file based on an HTTPS URL, see the [Stream a file](stream-files-dotnet-quickstart.md) quickstart.
 
-The following function performs the following actions:
+The function performs the following actions:
 
 -	Creates the Asset
 -	Gets a SAS URL
@@ -97,9 +102,9 @@ private static Asset CreateInputAsset(IAzureMediaServicesClient client, string a
 }
 ```
 
-## Create an output asset to store the results of the job
+## Create an output asset to store the result of a job 
 
-The output asset stores the result of your encoding job. In this sample we download the results from this output asset into the "output" folder, so you can see what you got.
+The output asset stores the result of your encoding job. Later, we show how to download the results from this output asset into the "output" folder, so you can see what you got.
 
 ``` charp
 private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string assetName)
@@ -139,11 +144,11 @@ if (transform == null)
 }
 ```
 
-When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. This objects requires for you to specify a **Preset**. **Preset** is step-by-step instructions in a recipe - the set of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. Each TransformOutput contains a Preset. In this example, we use a built-in Preset called AdaptiveStreaming. This Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. The output files never exceed the input resolution and bitrate. For example, if the input is 720p at 3 Mbps, output remains 720p at best, and will start at rates lower than 3 Mbps. For information about auto-generated bitrate ladder, see [Use Azure Media Services built-in standard encoder to auto-generate a bitrate ladder](autogen-bitrate-ladder.md).
+When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, we use a built-in Preset called AdaptiveStreaming. This Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. The output files never exceed the input resolution and bitrate. For example, if the input is 720p at 3 Mbps, output remains 720p at best, and will start at rates lower than 3 Mbps. For information about auto-generated bitrate ladder, see [Use Azure Media Services built-in standard encoder to auto-generate a bitrate ladder](autogen-bitrate-ladder.md).
 
 ### Job
 
-As mentioned above, the **Transform** object is the recipe, and a **Job** is the actual request to Media Services to apply that Transform to a given input video or audio content. The Job specifies information like the location of the input video, and the location for the output. In this example, the input video is uploaded from your local machine. You can also specify an Azure Blob SAS URL, or S3 tokenized URL. Media Services also allows you to ingest from any existing content in Azure Storage.
+As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The Job specifies information like the location of the input video, and the location for the output. In this example, the input video is uploaded from your local machine. You can also specify an Azure Blob SAS URL, or S3 tokenized URL. Media Services also allows you to ingest from any existing content in Azure Storage.
 
 ```
 private static Job SubmitJob(IAzureMediaServicesClient client, string transformName, string jobName, JobInput jobInput, string outputAssetName)
@@ -247,14 +252,21 @@ private static void DownloadResults(IAzureMediaServicesClient client, string ass
 
 Run the app that you cloned, copy one of the URLs you want to test.  
 
-TODO: add a screenshot with the URLs.
-
 ## Test with Azure Media Player
 
 1. Open a web browser and browse to https://ampdemo.azureedge.net/.
-2. In the **URL:** box, paste the value that you got from the step 7.
+2. In the **URL:** box, paste the Streaming URL value you got when you ran the application.
 3. Press **Update Player**.
 
+## Clean up resources
+
+If you no longer need any of the resources in your resource group, including the Media Services account you created for this Quickstart, delete the resource group. You can use the **CloudShell** tool.
+
+In the **CloudShell**, execute the following command:
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
 
 ## Next steps
 
