@@ -1,6 +1,6 @@
 ---
-title: Create a simple app with two intents - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using two intents and no entities to identify user utterances. 
+title: Create a LUIS app to get regular-expression matched data - Azure | Microsoft Docs 
+description: Learn how to create a simple LUIS app using intents and a regex entity to extract data. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
@@ -8,51 +8,89 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/26/2018
 ms.author: v-geberr;
----
+--- 
 
-# Simple app with intents
-This simple app has two intentions. The first intent's purpose is to identify when a user wants store information such as hours, and location. The second intent's purpose is to identify every other type of utterance. 
+# Simple app with intents and a regex entity
+This simple app has two [intents](luis-concept-intent.md) and one regex [entity](luis-concept-entity-types.md). Its purpose is to pull out Knowledge Base (KB) article numbers from an utterance. 
 
-Once the type of utterance is identified, LUIS is done. The calling application or chat bot then takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+## App intents
+The intents are categories of what the user wants. This app has two intents: FindArticle and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
+
+## Regex entity is a regular expression match
+The purpose of a entity is to find and categorize parts of the text in the utterance. 
+A [regex](luis-concept-entity-types.md) entity allows for a regex match of words or phrases in the utterance. It is not machine-learned.   
+
+For this Knowledge Base app, LUIS extracts the KB document number in such as way that a standard order can be created and filled. LUIS allows utterances to have variations, abbreviations, and slang. 
+
+Simple example utterances from users include:
+
+```
+When was KB123456 published?
+Who authored KB112211?
+KB224466 is about published in French?
+```
+
+Abbreviated or slang versions of utterances include:
+
+```
+KB123456
+kb123456 date?
+Kb123456 title?
+```
+ 
+The regex entity to match is `kb[0-9]{6,}`. This regex matches the characters `kb` literally but ignores case and culture variants. It matches digits 0-9, which can have between 6 and an unlimited number of digits. This won't match any number without `kb` or with a space between `kb` and the digits. And it won't match when there are fewer than 6 digits. The point is that the regular expression is a work in progress. When you review endpoint utterances or query logs, you notice variations in the usage of the KB number. 
+
+## What LUIS does
+When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
 
 ## Create a new app
-1. Log in to the [LUIS][LUIS] website. Make sure to log in to the region where you need the LUIS endpoints published.
+1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
 
 2. On the [LUIS][LUIS] website, select **Create new app**.  
 
-    ![LUIS apps list](./media/luis-quickstart-intents-only/app-list.png)
+    ![LUIS apps list](./media/luis-quickstart-intents-regex-entity/app-list.png)
 
-3. In the pop-up dialog, enter the name `MyStore`. 
+3. In the pop-up dialog, enter the name `MyKnowledgebase`. 
 
-    ![LUIS new app](./media/luis-quickstart-intents-only/create-app.png)
+    ![LUIS apps list](./media/luis-quickstart-intents-regex-entity/x.png)
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
-    ![Intents page](./media/luis-quickstart-intents-only/intents-list.png)
+    ![Intents page](./media/luis-quickstart-intents-regex-entity/x.png)
 
-5. Select **Create new intent**. Enter the new intent name `GetStoreInfo`. This intent should be selected any time a user wants information about your store such as what you sell, what hours you are open, and how to contact you.
+## Create a new intent
 
-    By creating an intent, you are creating a category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
+1. On the **Intents** page, select **Create new intent**. 
 
-6. Add seven utterances to the `GetStoreInfo` intent that you expect a user to ask for, such as:
+    ![Create new intents button](./media/luis-quickstart-intents-regex-entity/x.png)
 
-    ![New utterance](./media/luis-quickstart-intents-only/utterance-getstoreinfo.png)
+2. Enter the new intent name `x`. This intent should be selected any time a user wants to order a drink.
+
+    By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
+
+    ![Create new x intent](./media/luis-quickstart-intents-regex-entity/x.png)
+
+3. Add several utterances to the `x` intent that you expect a user to ask for, such as:
 
     | Example utterances|
     |--|
-    |When do you open?|
-    |What are your hours?|
-    |Are you open right now?|
-    |What is your phone number?|
-    |Can someone call me please?|
-    |Where is your store?|
-    |How do I get to your store?|
+    |Please send 2 cokes and a bottle of water to my room|
+    |2 perriers with a twist of lime|
+    |h20|
 
-7. The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
-    
-    Select **Intents** from the left panel. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app. If the app is about your store, some good **None** utterances are:
+    ![Enter utterances for intent](./media/luis-quickstart-intents-regex-entity/x.png)
+
+## Add utterances to None intent
+
+The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
+
+1. Select **Intents** from the left panel. 
+
+    ![Enter utterances for intent](./media/luis-quickstart-intents-regex-entity/x.png)
+
+2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app:
 
     | Example utterances|
     |--|
@@ -60,57 +98,80 @@ Once the type of utterance is identified, LUIS is done. The calling application 
     |Good bye|
     |What is going on?|
 
-    In your LUIS-calling application, such as a chat bot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
+## When the utterance is predicted for the None intent
+In your LUIS-calling application (such as a chat bot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
-8. In the top right side of the LUIS website, select the **Train** button. 
+Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chat bot, your chat bot can follow up with a question that focuses the customer's intent. 
 
-    ![Train button](./media/luis-quickstart-intents-only/train-button.png)
+## Create a KnowledgeBase article regex entity from the Intent page
+Now that the two intents have utterances, LUIS needs to understand what a drink is. Navigate back to the `x` intent and label (mark) the drinks in an utterance by following the steps:
 
-    Training is complete when you see the green status bar at the top of the website confirming success.
+1. Return to the `x` intent by selecting **Intents** in the left panel.
 
-    ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
+2. Select `x` from the intents list.
 
-9. In the top right side of the LUIS website, select the **Publish** button. Select the **Publish to product slot**. Publishing is complete when you see the green status bar at the top of the website confirming success.
+3. In the utterance, `h2o`, select the word `h2o`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `Drink` in the text box then select **Create new entity** in the drop-down menu then select enter. 
 
-10. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `When do you open next?`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the example utterances in step 4 so it is a good test and should return the `GetStoreInfo` utterances. 
+    ![Label utterance](./media/luis-quickstart-intents-regex-entity/x.png)
 
-    ```
-    {
-      "query": "When do you open next?",
-      "topScoringIntent": {
-        "intent": "MyStore",
-        "score": 0.984749258
-      },
-      "intents": [
-        {
-          "intent": "MyStore",
-          "score": 0.984749258
-        },
-        {
-          "intent": "None",
-          "score": 0.2040639
-        }
-      ],
-      "entities": []
-    }
-    ```
+5. In the pop-up window, select the **List** entity type with `Water` as the synonym. Select **Done**.
+
+    ![Verify entity type](./media/luis-quickstart-intents-regex-entity/x.png)
+
+6. Now that the entity is created, and one utterance is labeled, label the other synonyms for water by selecting `perriers` from ` 2 perriers with a twist of lime`, then select `Drink` in the drop-down list. Follow the menu to the right, then select `Set as synonym`, then select `h2o`.
+
+    ![Label utterance with existing entity](./media/luis-quickstart-intents-regex-entity/x.png)
+
+
+
+## Train the LUIS app
+LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
+
+1. In the top right side of the LUIS website, select the **Train** button.
+
+    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/x.png)
+
+2. Training is complete when you see the green status bar at the top of the website confirming success.
+
+    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/x.png)
+
+## Publish the app to get the endpoint URL
+In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
+
+1. In the top right side of the LUIS website, select the **Publish** button. 
+
+    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/x.png)
+
+2. Select the **Publish to product slot**. 
+
+    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/x.png)
+
+3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+
+## Query the endpoint with a different utterance
+1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+
+    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/x.png)
+
+2. Go to the end of the URL in the address and enter `2 cokes and 3 waters`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `x` intent with the two drink types of `cokes` and `waters`.
+
+```
+
+```
 
 ## What has this LUIS app accomplished?
-This app, with just two intents, identified a natural language query that is of the same intention but worded differently. 
+This app, with just two intents and a list entity, identified a natural language query intention and returned the extracted data. 
 
-The JSON result identifies the top scoring intent `GetStoreInfo` with a score of 0.984749258. All scores are between 1 and 0, with the better score being close to 1. The `None` intent's score is 0.2040639, much closer to zero. 
+Your chat bot now has enough information to determine the primary action, `x`, and what types of drinks were ordered from the Drink list entity. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and either find information (not stored in LUIS) to answer the question or can send the user to the store's website page containing the information. There are other programmatic options for the bot or calling application. LUIS doesn't do that work. LUIS only determines what the user's intention is. 
-
-## What about entities? 
-This LUIS app is so simple that it doesn't need entities yet. 
+LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to send the message through a 3rd party API. There are other programmatic options for the bot or calling application. LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about intents](luis-concept-intent.md)
+[Learn more about entities](luis-concept-entity-types.md). 
 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md
+[LUIS]:luis-reference-regions.md#luis-website
+[LUIS-regions]:luis-reference-regions.md#publishing-regions
