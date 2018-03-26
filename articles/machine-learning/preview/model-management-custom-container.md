@@ -27,6 +27,7 @@ Customize the Docker image that Azure ML deploys using:
    ```
 
    > Example conda_dependencies file: 
+   ```
    name: project_environment
    dependencies:
       - python=3.5.2
@@ -36,6 +37,7 @@ Customize the Docker image that Azure ML deploys using:
       - pip:
         - azure-ml-api-sdk==0.1.0a11
         - matplotlib
+   ```
         
 2. A Docker steps file: using this option, you customize the deployed image by installing dependencies that cannot be installed from PyPi. 
 
