@@ -20,7 +20,7 @@ ms.author: agummadi
 ---
 # Configure Network Performance Monitor for ExpressRoute
 
-Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Microsoft Operations Management Suite (OMS). NPM now offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use Private Peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate.
+Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Log Analytics. NPM now offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use Private Peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate.
 
 You can:
 
@@ -124,9 +124,9 @@ We recommend that you install at least two agents on each side of the ExpressRou
 2. On the **Welcome** page, click **Next**.
 3. On the **License Terms** page, read the license, and then click **I Agree**.
 4. On the **Destination Folder** page, change or keep the default installation folder, and then click **Next**.
-5. On the **Agent Setup Options** page, you can choose to connect the agent to Azure Log Analytics (OMS) or Operations Manager. Or, you can leave the choices blank if you want to configure the agent later. After making your selection(s), click **Next**.
+5. On the **Agent Setup Options** page, you can choose to connect the agent to Azure Log Analytics or Operations Manager. Or, you can leave the choices blank if you want to configure the agent later. After making your selection(s), click **Next**.
 
-  * If you chose to connect to **Azure Log Analytics (OMS)**, paste the **Workspace ID** and **Workspace Key** (Primary Key) that you copied into Notepad in the previous section. Then, click **Next**.
+  * If you chose to connect to **Azure Log Analytics**, paste the **Workspace ID** and **Workspace Key** (Primary Key) that you copied into Notepad in the previous section. Then, click **Next**.
 
     ![ID and Key](.\media\how-to-npm\8.png)
   * If you chose to connect to **Operations Manager**, on the **Management Group Configuration** page, type the **Management Group Name**, **Management Server**, and the **Management Server Port**. Then, click **Next**.
@@ -137,7 +137,7 @@ We recommend that you install at least two agents on each side of the ExpressRou
     ![Account](.\media\how-to-npm\10.png)
 6. On the **Ready to Install** page, review your choices, and then click **Install**.
 7. On the **Configuration completed successfully** page, click **Finish**.
-8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Operational Insights (OMS). When connected to OMS, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
+8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Operational Insights. When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
 
 9. Please repeat this for each VNET that you need to be monitored.
 
@@ -160,8 +160,8 @@ You can easily verify whether your agents are communicating.
 
 1. On a server with the monitoring agent, open the **Control Panel**.
 2. Open the **Microsoft Monitoring Agent**.
-3. Click the **Azure Log Analytics (OMS)** tab.
-4. In the **Status** column, you should see that the agent connected successfully to the Operations Management Suite service.
+3. Click the **Azure Log Analytics** tab.
+4. In the **Status** column, you should see that the agent connected successfully to Log Analytics.
 
   ![status](.\media\how-to-npm\12.png)
 

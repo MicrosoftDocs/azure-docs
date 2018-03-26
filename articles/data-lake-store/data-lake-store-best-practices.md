@@ -126,7 +126,7 @@ Data Lake Store provides detailed diagnostic logs and auditing. Data Lake Store 
 
 ### Export Data Lake Store diagnostics 
 
-One of the quickest ways to get access to searchable logs from Data Lake Store is to enable log shipping to **Operations Management Suite (OMS)** under the **Diagnostics** blade for the Data Lake Store account. This provides immediate access to incoming logs with time and content filters, along with alerting options (email/webhook) triggered within 15-minute intervals. For instructions, see [Accessing diagnostic logs for Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
+One of the quickest ways to get access to searchable logs from Data Lake Store is to enable log shipping to **Log Analytics** under the **Diagnostics** blade for the Data Lake Store account. This provides immediate access to incoming logs with time and content filters, along with alerting options (email/webhook) triggered within 15-minute intervals. For instructions, see [Accessing diagnostic logs for Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
 
 For more real-time alerting and more control on where to land the logs, consider exporting logs to Azure EventHub where content can be analyzed individually or over a time window in order to submit real-time notifications to a queue. A separate application such as a [Logic App](../connectors/connectors-create-api-azure-event-hubs.md) can then consume and communicate the alerts to the appropriate channel, as well as submit metrics to monitoring tools like NewRelic, Datadog, or AppDynamics. Alternatively, if you are using a third-party tool such as ElasticSearch, you can export the logs to Blob Storage and use the [Azure Logstash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) to consume the data into your Elasticsearch, Kibana, and Logstash (ELK) stack.
 
@@ -136,7 +136,7 @@ If Data Lake Store log shipping is not turned on, Azure HDInsight also provides 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Once the property is set and the nodes are restarted, Data Lake Store diagnostics is written to the YARN logs on the nodes (/tmp/<user>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in OMS or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Store account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Store for operational visibility and easier debugging.
+Once the property is set and the nodes are restarted, Data Lake Store diagnostics is written to the YARN logs on the nodes (/tmp/<user>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in Log Analytics or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Store account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Store for operational visibility and easier debugging.
 
 ### Run synthetic transactions 
 

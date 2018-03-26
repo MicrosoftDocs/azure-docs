@@ -102,7 +102,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **External Metastores**: View the Hive and Oozie metastores. The metastores can only be configured during the cluster creation process. See [use Hive/Oozie metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Script Actions**: Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
     * **Applications**: Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
-    * **Monitoring**: Monitor the cluster in Azure Operations Management Suite and Azure Log Analytics.
+    * **Monitoring**: Monitor the cluster in Azure Log Analytics.
     * **Properties**: View the cluster properties.
     * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
     * **Data Lake Store access**: Configure access Data Lake Stores.  See [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
