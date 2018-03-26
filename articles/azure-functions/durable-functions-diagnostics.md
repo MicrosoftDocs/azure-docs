@@ -46,6 +46,7 @@ Each lifecycle event of an orchestration instance causes a tracking event to be 
 * **reason**: Additional data associated with the tracking event. For example, if an instance is waiting for an external event notification, this field indicates the name of the event it is waiting for. If a function has failed, this will contain the error details.
 * **isReplay**: Boolean value indicating whether the tracking event is for replayed execution.
 * **extensionVersion**: The version of the Durable Task extension. This is especially important data when reporting possible bugs in the extension. Long-running instances may report multiple versions if an update occurs while it is running. 
+* **sequenceNumber**: Execution sequence number for an event. Combined with the timestamp helps to order the events by execution time. 
 
 The verbosity of tracking data emitted to Application Insights can be configured in the `logger` section of the `host.json` file.
 
@@ -88,8 +89,29 @@ The result is a list of tracking events that show the execution path of the orch
 
 ![Application Insights query](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
 
-> [!NOTE]
-> Some of these tracking events may be out of order due to the lack of precision in the `timestamp` column. This is being tracked in GitHub as [issue #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+Some of these tracking events may be out of order due to the lack of precision in the `timestamp` column. Events can be ordered by sorting by `timestamp` and `sequenceNumber` as shown in the query below: 
+
+```AIQL
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
+traces
+| where timestamp > start and timestamp < start + 30m
+| where customDimensions.Category == "Host.Triggers.DurableTask"
+| extend functionName = customDimensions["prop__functionName"]
+| extend instanceId = customDimensions["prop__instanceId"]
+| extend state = customDimensions["prop__state"]
+| extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
+| where isReplay == false
+| where instanceId == targetInstanceId
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
+```
+
+The result is a list of tracking events that shows the execution path of the orchestration, including any activity functions ordered by the execution time in ascending order.
+
+![Application Insights ordered query](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### Instance summary query
 
