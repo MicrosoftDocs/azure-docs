@@ -8,11 +8,11 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 03/24/2018
 ms.author: v-geberr;
 --- 
 
-# Simple app with primary and secondary data
+# Simple app with intents and machine-learned entities
 This simple app has two intents and one entity . This app demonstrates how to pull data out of an utterance. In the utterance, `Send a message telling them to stop`, the intent (primary data) is to send a message and the entity (secondary data) is the content of the message, `telling them to stop`.  
 
 When the intent and entities of the utterance are identified, LUIS is done. The calling application or chat bot takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
