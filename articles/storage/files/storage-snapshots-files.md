@@ -18,8 +18,8 @@ ms.author: renash
 
 ---
 
-# Overview of share snapshots for Azure Files (preview)
-Azure Files provides the capability to take share snapshots of file shares. Share snapshots (preview) capture the share state at that point in time. In this article, we describe what capabilities share snapshots provide and how you can take advantage of them in your custom use case.
+# Overview of share snapshots for Azure Files 
+Azure Files provides the capability to take share snapshots of file shares. Share snapshots  capture the share state at that point in time. In this article, we describe what capabilities share snapshots provide and how you can take advantage of them in your custom use case.
 
 
 ## When to use share snapshots
