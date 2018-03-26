@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/26/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
 
@@ -34,7 +34,7 @@ for the requested time frame. There is no request body.
 
 | **Method** | **Request URI** |
 | --- | --- |
-| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### Arguments
 | **Argument** | **Description** |
@@ -49,7 +49,7 @@ for the requested time frame. There is no request body.
 
 ### Response
 GET
-/subscriptions/sub1/providers/Microsoft.Commerce.Admin/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&api-version=1.0
+/subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&api-version=1.0
 
 ```json
 {
@@ -57,9 +57,9 @@ GET
 {
 
 "id":
-"/subscriptions/sub1/providers/Microsoft.Commerce.Admin/UsageAggregate/sub1-meterID1",
+"/subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregate/sub1-meterID1",
 "name": "sub1-meterID1",
-"type": "Microsoft.Commerce.Admin/UsageAggregate",
+"type": "Microsoft.Commerce/UsageAggregate",
 
 "properties": {
 "subscriptionId":"sub1",
