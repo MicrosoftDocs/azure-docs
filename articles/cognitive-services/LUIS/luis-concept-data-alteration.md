@@ -77,8 +77,8 @@ DateTime utcDatetime = DateTime.UtcNow;
 // Get Central Standard Time value of Now
 DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
 
-// Find 
-int timezoneOffset = (utcDatetime - cstDatetime).Hours;
+// Find timezoneOffset
+int timezoneOffset = (int)((utcDatetime - cstDatetime).TotalMinutes);
 ```
 
 ## Next steps
