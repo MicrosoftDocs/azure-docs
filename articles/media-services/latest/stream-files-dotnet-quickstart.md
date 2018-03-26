@@ -67,8 +67,6 @@ To get the values, see [Accessing APIs](access-api-cli-how-to.md).
 
 When you run the application it prints streaming URLs for DASH, HLS, and Smooth Streaming. Copy the Smooth Streaming URL.
 
-TODO: add a screenshot with the URLs.
-
 ## Test with Azure Media Player
 
 1. Open a web browser and browse to https://ampdemo.azureedge.net/.
