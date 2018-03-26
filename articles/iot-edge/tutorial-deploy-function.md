@@ -178,7 +178,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 1. Add the **filterFunction** module.
     1. Select **Add IoT Edge Module** again.
     2. In the **Name** field, enter `filterFunction`.
-    3. In the **Image** field, enter your image address; for example `<docker registry address>/filterfunction:latest`.
+    3. In the **Image URI** field, enter your image address; for example `<your container registry address>/filtermodule:0.0.1-amd64`. The full image address can be found from the previous section.
     74. Click **Save**.
 2. Click **Next**.
 3. In the **Specify Routes** step, copy the JSON below into the text box. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint. The second route transports messages from the filter module to IoT Hub. In this route, `$upstream` is a special destination that tells Edge Hub to send messages to IoT Hub. 
