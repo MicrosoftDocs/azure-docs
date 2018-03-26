@@ -20,11 +20,11 @@
       href: call-endpoint-nodejs.md 
     - name: Python
       href: call-endpoint-python.md
-- name: SDK (preview)
+- name: SDK
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Custom Search SDK C# quickstart (preview)
+  - name: Custom Search SDK C# quickstart
     href: custom-search-sdk-quickstart.md
 - name: Tutorials
   items:

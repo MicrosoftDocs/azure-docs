@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
 ---
 
 # Certificate credentials for application authentication
 
-Azure Active Directory allows an application to use its own credentials for authentication, for example, in the OAuth 2.0 Client Credentials Grant flow([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) and the On-Behalf-Of flow([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
+Azure Active Directory allows an application to use its own credentials for authentication. For example, in the OAuth 2.0 Client Credentials Grant flow([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) and the On-Behalf-Of flow([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 One form of credential that can be used is a JSON Web Token(JWT) assertion signed with a certificate that the application owns.
 
 ## Format of the assertion
-To compute the assertion, you probably want to use one of the many [JSON Web Token](https://jwt.io/) libraries in the language of your choice. The information carried by the token is:
+To compute the assertion, you probably want to use one of the many [JSON Web Token](https://jwt.ms/) libraries in the language of your choice. The information carried by the token is:
 
 #### Header
 
@@ -40,10 +40,10 @@ To compute the assertion, you probably want to use one of the many [JSON Web Tok
 | --- | --- |
 | `aud` | Audience: Should be **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Expiration date: the date when the token expires. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires.|
-| `iss` | Issuer: should be the client_id (Application Id of the client service) |
+| `iss` | Issuer: should be the client_id (Application ID of the client service) |
 | `jti` | GUID: the JWT ID |
 | `nbf` | Not Before: the date before which the token cannot be used. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |
-| `sub` | Subject: As for `iss`, should be the client_id (Application Id of the client service) |
+| `sub` | Subject: As for `iss`, should be the client_id (Application ID of the client service) |
 
 #### Signature
 
