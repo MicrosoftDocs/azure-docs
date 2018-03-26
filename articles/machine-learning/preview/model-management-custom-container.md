@@ -9,7 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 3/21/2018
+ms.date: 3/26/2018
 ---
 
 # Customize the container image used for Azure ML Models
