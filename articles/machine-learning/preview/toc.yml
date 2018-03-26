@@ -7,6 +7,10 @@
     href: overview-what-is-azure-ml.md
   - name: Model Management overview
     href: model-management-overview.md
+  - name: Other ML products
+    href: overview-more-machine-learning.md    
+  - name: Release notes
+    href: azure-machine-learning-release-notes.md    
 - name: Quickstarts
   items:
   - name: Install and start
@@ -180,8 +184,6 @@
       href: model-management-cli-reference.md
     - name: Model data collection API
       href: model-data-collection-api-reference.md
-  - name: Release notes
-    href: azure-machine-learning-release-notes.md
 - name: Resources
   items:  
   - name: Frequently asked questions
