@@ -22,12 +22,14 @@ A Service Fabric cluster is a network-connected set of virtual or physical machi
 
 Why scale the cluster? Application demands change over time.  You may need to increase cluster resources to meet increased application workload or network traffic or decrease cluster resources when demand drops.
 
-Scaling in and out, or horizontal scaling, changes the number of nodes in the cluster.  Once the new nodes join the cluster, the [Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md) moves services to them which reduces load on the existing nodes.  You can also decrease the number of nodes if the cluster's resources are not being used efficiently.  As nodes leave the cluster, services move off those nodes and load increases on the remaining nodes.  Reducing the number of nodes in a cluster running in Azure can save you money, since you pay for the number of VMs you use and not the workload on those VMs.  In cloud computing, horizontal scaling is usually preferred to vertical scaling.
+### Scaling in and out, or horizontal scaling
+Changes the number of nodes in the cluster.  Once the new nodes join the cluster, the [Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md) moves services to them which reduces load on the existing nodes.  You can also decrease the number of nodes if the cluster's resources are not being used efficiently.  As nodes leave the cluster, services move off those nodes and load increases on the remaining nodes.  Reducing the number of nodes in a cluster running in Azure can save you money, since you pay for the number of VMs you use and not the workload on those VMs.  In cloud computing, horizontal scaling is usually preferred to vertical scaling.
 
 - advantages: Infinite scale, in theory.  If your application is designed for scalability, you can enable limitless growth by adding more nodes.  The tooling in cloud environments makes it easy to add or remove nodes, so it's easy to adjust capacity and you only pay for the resources you use.  
-- disadvantages: Applications must be [designed for scalability](service-fabric-concepts-scalability.md).  Application databases and persistence may require additional architectural work to scale as well.  [Reliable collections](service-fabric-reliable-services-reliable-collections) in Service Fabric stateful services, however, make it much easier to scale your application data.
+- disadvantages: Applications must be [designed for scalability](service-fabric-concepts-scalability.md).  Application databases and persistence may require additional architectural work to scale as well.  [Reliable collections](service-fabric-reliable-services-reliable-collections.md) in Service Fabric stateful services, however, make it much easier to scale your application data.
 
-Scaling up and down, or vertical scaling, changes the resources (CPU, memory, or storage) of nodes in the cluster.
+### Scaling up and down, or vertical scaling 
+Changes the resources (CPU, memory, or storage) of nodes in the cluster.
 - advantages: Software and application architecture stays the same.
 - disadvantages: Finite scale, since there is a limit to how much you can increase resources on individual nodes. Downtime, because you will need to take physical or virtual machines offline in order to add or remove resources.
 
@@ -80,18 +82,20 @@ For more information, see [scale a standalone cluster](service-fabric-cluster-wi
 
 ## Scaling an Azure cluster up or down
 Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe operation and so should be avoided if possible. Here is the process you can follow to avoid common issues.
-- **For non-primary node types:** It is recommended that you create a new node type, modify the service placement constraint to include the new node type and then reduce the old node type instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
+- **For non-primary node types**, create a new node type with the resources you need.  Update the placement constraints of running services to include the new node type.  Gradually (one at a time), reduce the instance count of the old node type instance count to zero so that the reliability of the cluster is not affected.  Services will gradually migrate to the new node type as the old node type is decommisioned.
 - **For the primary node type:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances. If that not possible, create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one node type, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level).
 
 > [!WARNING]
 > Changing the VM SKU Size for virtual machine scale sets not running at least Silver durability is not recommended. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
 > 
 
-
-7. If Scaling down a primary node type, you should never scale it down more than what the reliability tier allows
+When scaling an Azure cluster, keep the following guidelines in mind:
+- If scaling down a primary node type, you should never scale it down more than what the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) allows. 
 
 ## Scaling a standalone cluster up or down
 
+When scaling a standalone cluster, keep the following guidelines in mind:
+- If scaling down a primary node type, you should never scale it down more than what the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) allows.
 
 ## Next steps
 * Learn about [application scalability](service-fabric-concepts-scalability.md)
