@@ -39,6 +39,7 @@ The following table provides a quick overview of the differences between LRS, ZR
 | Replication strategy | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | Data is replicated across multiple datacenters. |No |Yes |Yes |Yes |
+| Data is replicated across multiple availability zones. |No |Yes |No |No |
 | Data can be read from a secondary location as well as the primary location. |No |No |No |Yes |
 | Designed to provide ___ durability of objects over a given year. |at least 99.999999999% (11 9's)|at least 99.9999999999% (12 9's)|at least 99.99999999999999% (16 9's)|at least 99.99999999999999% (16 9's)|
 
