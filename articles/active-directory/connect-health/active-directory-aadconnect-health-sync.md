@@ -79,6 +79,7 @@ The report categorizes the existing synchronization errors in the following cate
 | Duplicate Attribute |Errors when Azure AD Connect attempts create or update objects with duplicated values of one or more attributes in Azure AD that must be unique in a Tenant, such as proxyAddresses, UserPrincipalName. |
 | Data Mismatch |Errors when the soft-match fails to match objects that result in synchronization errors. |
 | Data Validation Failure |Errors due to invalid data, such as unsupported characters in critical attributes such as UserPrincipalName, format errors that fail validation before being written in Azure AD. |
+| Federated Domain Change | Errors when accounts use a different federated domain. |
 | Large Attribute |Errors when one or more attributes are larger than the allowed size, length or count. |
 | Other |All other errors that don't fit in the above categories. Based on feedback, this category will be split in sub categories. |
 
