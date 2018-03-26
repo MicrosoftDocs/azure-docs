@@ -154,20 +154,18 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 
 3. To connect an OMS Gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then select **Add Host to Cluster**.
 
- ![Network Load Balancing Manager – Add Host To Cluster](./media/log-analytics-oms-gateway/nlb02.png)
+ ![Network Load Balancing Manager--Add Host To Cluster](./media/log-analytics-oms-gateway/nlb02.png)
 
 4. Enter the IP address of the gateway server to which you want to connect.
 
-    ![Network Load Balancing Manager – Add Host To Cluster: Connect](./media/log-analytics-oms-gateway/nlb03.png) 
+    ![Network Load Balancing Manager--Add Host To Cluster: Connect](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## Configure the OMS agent and the Operations Manager management group
-The following section includes steps on how to configure directly connected OMS agents, an Operations Manager management group, or Azure Automation Hybrid Runbook workers with the OMS Gateway to communicate with Azure Automation or Log Analytics.  
+The following sections in this article include steps on how to configure directly connected OMS agents, an Operations Manager management group, or Azure Automation Hybrid Runbook workers with the OMS Gateway to communicate with Azure Automation or Log Analytics.  
 
 To understand requirements and steps for installing the OMS agent on Windows computers that directly connect to Log Analytics, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md).
 
  For Linux computers, see [Connect Linux computers to Log Analytics](log-analytics-quick-collect-linux-computer.md). For information related to the Automation Hybrid Runbook Worker, see [Deploy Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
-
-### Configure the OMS agent and Operations Manager to use the OMS Gateway as a proxy server
 
 ### Configure the standalone OMS agent
 For information about configuring an agent to use a proxy server (which in this case is the gateway), see [Configure proxy and firewall settings with the Microsoft Monitoring Agent](log-analytics-proxy-firewall.md). If you have deployed multiple gateway servers behind a network load balancer, the OMS agent proxy configuration is the virtual IP address of the NLB:
@@ -202,11 +200,11 @@ After you complete the integration with Log Analytics, you can remove the change
 
 1. Open the Operations Manager console. Under **Operations Management Suite**, select **Connection**. Then select **Configure Proxy Server**.
 
-    ![Operations Manager – Configure Proxy Server](./media/log-analytics-oms-gateway/scom01.png)
+    ![Operations Manager--Configure Proxy Server](./media/log-analytics-oms-gateway/scom01.png)
 
 2. Select **Use a proxy server to access the Operations Management Suite**. Then type the IP address of the OMS Gateway server or the virtual IP address of the NLB. Ensure that you start with the `http://` prefix.
 
-    ![Operations Manager – proxy server address](./media/log-analytics-oms-gateway/scom02.png)
+    ![Operations Manager--proxy server address](./media/log-analytics-oms-gateway/scom02.png)
 
 3. Select **Finish**. Your Operations Manager management group is now configured to communicate through the gateway server to the Log Analytics service.
 
@@ -249,7 +247,7 @@ In the following steps, you need to know the Azure region where the Automation a
 3. Select the appropriate Azure Automation account.
 4. Under **Location**, view the region of the account.
 
-    ![Azure portal – Automation account location](./media/log-analytics-oms-gateway/location.png)  
+    ![Azure portal--Automation account location](./media/log-analytics-oms-gateway/location.png)  
 
 Use the following tables to identify the URL for each location:
 
@@ -329,7 +327,7 @@ If you get an error in step 3, the module wasn't imported. The error might occur
 ## Troubleshooting
 To collect events that are logged by the gateway, you need to also have the OMS agent installed.
 
-![Event Viewer – OMS Gateway Log](./media/log-analytics-oms-gateway/event-viewer.png)
+![Event Viewer--OMS Gateway Log](./media/log-analytics-oms-gateway/event-viewer.png)
 
 **OMS Gateway Event IDs and descriptions**
 
