@@ -1,5 +1,5 @@
 metadata:
-  experimental: false
+  experimental: true
   experiment_id: "662dc5fd-886f-4a"
 items:
   - name: Cosmos DB Documentation
