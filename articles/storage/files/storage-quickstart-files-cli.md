@@ -33,53 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you decide to install and use the Azure CLI locally, this guide requires that you are running the Azure CLI version 2.0.4 or later. Run **az --version** to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## Install jq
-By default, the Azure CLI commands return JSON (JavaScript Object Notation), which is the de facto way of sending and receiving messages from REST APIs. To facilitate working with the JSON responses, this guide uses the jq package. The following sections show how to install this package for various platforms. 
-
-> [!Note]  
-> The jq package is preinstalled on the Azure CLI Cloud Shell.
-
-### Install jq on Linux
-The jq package can be installed using the package manager on the Linux distribution of your choice.
-
-On **Ubuntu** and **Debian-based** distributions, use the `apt-get` package manager:
-
-```bash
-sudo apt-get install jq
-```
-
-On **Red Hat Enterprise Linux** and **CentOS**, use the `yum` package manager:
-
-```bash
-sudo yum install jq
-```
-
-On **openSUSE** and **SUSE Linux Enterprise Server**:
-
-```bash
-sudo zypper install jq
-```
-
-### Install jq on macOS
-The preferred way to install jq on macOS is using the Homebrew package management system. If you don't already have Homebrew installed, you can install Homebrew by following the [instructions from the Homebrew project](https://brew.sh/). You can install jq with the following command:
-
-```bash
-brew install jq
-```
-
-Alternatively, you can install jq by downloading the binary from [the jq project](https://stedolan.github.io/jq/download/#os_x).
-
-### Install jq on Windows
-The preferred way to install jq on Windows is using the Chocolately package management system. If you don't already have Chocolately installed, you can install Chocolately by following the [instructions from the Chocolately project](https://chocolatey.org/install). You can install jq with the following command:
-
-```
-chocolatey install jq
-```
-
-Alternatively, you can opt to use the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10). If you choose this installation method, follow the instructions for Linux above. This installation is only available for Windows 10.
-
-> [!Note]  
-> If you install jq in a Linux distribution on Windows using the Windows Subsystem for Linux, you should also install the Azure CLI there as well.
+By default, the Azure CLI commands return JSON (JavaScript Object Notation), which is the de facto way of sending and receiving messages from REST APIs. To facilitate working with the JSON responses, some of the examples in this guide uses the query parameter on the Azure CLI commands. This parameter uses the [JMESPath query language](http://jmespath.org/) for parsing JSON. You can learn more about how to manipulate the results of the Azure CLI commands by following the [JMESPath Tutorial](http://jmespath.org/tutorial.html).
 
 ## Create a resource group
 A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the [az group create](/cli/azure/group#create) command. 
@@ -100,9 +54,8 @@ STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
     --name "mystorageaccount$RANDOM" \
     --location eastus \
-    --sku Standard_LRS | \
-jq ".name" | \
-tr -d '"')
+    --sku Standard_LRS \
+    --query "name" | tr -d '"')
 ```
 
 ### Get the storage account key
@@ -111,9 +64,8 @@ Storage account keys are used to control access to resources in a storage accoun
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
-    --account-name $STORAGEACCT | \
-jq ".[0].value" | \
-tr -d '"')
+    --account-name $STORAGEACCT \
+    --query "[0].value" | tr -d '"')
 ```
 
 ## Create an Azure file share
@@ -237,9 +189,8 @@ You can create a share snapshot by using the [`az storage share snapshot`](/cli/
 SNAPSHOT=$(az storage share snapshot \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
-    --name "myshare" | \
-    jq ".snapshot" |
-    tr -d '"')
+    --name "myshare" \
+    --query "snapshot" | tr -d '"')
 ```
 
 ### Browse share snapshot contents
@@ -261,9 +212,8 @@ You can see the list of snapshots you've taken for your share with the following
 az storage share list \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
-    --include-snapshot | \
-jq '.[] | select(.name == "myshare") | select(.snapshot != null) | .snapshot' | \
-tr -d '"'
+    --include-snapshot \
+    --query "[? name=='myshare' && snapshot!=null]" | tr -d '"'
 ```
 
 ### Restore from a share snapshot
@@ -280,9 +230,8 @@ az storage file delete \
 # Build the source URI for snapshot restore
 URI=$(az storage account show \
     --resource-group "myResourceGroup" \
-    --name $STORAGEACCT | \
-    jq ".primaryEndpoints.file" | \
-    tr -d '"')
+    --name $STORAGEACCT \
+    --query "primaryEndpoints.file" | tr -d '"')
 
 URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
 
@@ -316,18 +265,17 @@ az group delete --name "myResourceGroup"
 You can alternatively remove resources one by one:
 - To remove the Azure file shares we created for this quickstart.  
 ```azurecli-interactive
-az storage share list \
+az storage share delete \
     --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY | 
-jq ".[].name" | tr -d '"' |
-while read SHARE
-do 
-    az storage share delete \
-        --account-name $STORAGEACCT \
-        --account-key $STORAGEKEY \
-        --name $SHARE \
-        --delete-snapshots include
-done
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --delete-snapshots include
+
+az storage share delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare2" \
+    --delete-snapshots include
 ```
 
 - To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any other storage resources you may have created such as an Azure Blob storage container).  
