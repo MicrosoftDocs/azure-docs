@@ -21,15 +21,14 @@ Customize the Docker image that Azure ML deploys using:
 
 1. A depenencies.yml file: to manage dependencies that are installable from [PyPi]( https://pypi.python.org/pypi), you can use the conda_dependencies.yml file from the Workbench project, or create your own. This is the recommend approach for installing Python dependencies that are pip-installable.
 
-Example CLI command:
-```azurecli
-az ml image create -n <my Image Name> --manifest-id <my Manifest ID> -c amlconfig\conda_dependencies.yml
-```
+   Example CLI command:
+   ```azurecli
+   az ml image create -n <my Image Name> --manifest-id <my Manifest ID> -c amlconfig\conda_dependencies.yml
+   ```
 
-> Example conda_dependencies file: 
-
-    name: project_environment
-    dependencies:
+   > Example conda_dependencies file: 
+   name: project_environment
+   dependencies:
       - python=3.5.2
       - scikit-learn
       - ipykernel=4.6.1
@@ -40,16 +39,16 @@ az ml image create -n <my Image Name> --manifest-id <my Manifest ID> -c amlconfi
         
 2. A Docker steps file: using this option, you customize the deployed image by installing dependencies that cannot be installed from PyPi. 
 
-The file should include Docker installation steps like a DockerFile. The following commands are allowed in the file: 
+   The file should include Docker installation steps like a DockerFile. The following commands are allowed in the file: 
 
 	RUN, ENV, ARG, LABEL, EXPOSE
 
-Example CLI command:
-```azurecli
-az ml image create -n <my Image Name> --manifest-id <my Manifest ID> --docker-file <myDockerStepsFileName> 
-```
+   Example CLI command:
+   ```azurecli
+   az ml image create -n <my Image Name> --manifest-id <my Manifest ID> --docker-file <myDockerStepsFileName> 
+   ```
 
-Image, Manifest, and Service commands accept the docker-file flag.
+   Image, Manifest, and Service commands accept the docker-file flag.
 
 Example Docker steps file:
 ```docker
@@ -59,7 +58,8 @@ Example Docker steps file:
     RUN dep ensure -vendor-only
 ```
 
-[!NOTE] The base image for Azure ML containers is Ubuntu and can't be changed. If you specify a different base image, it will be ignored.
+> [!NOTE]
+> The base image for Azure ML containers is Ubuntu and can't be changed. If you specify a different base image, it will be ignored.
 
-## Next Steps
+## Next steps
 Now that you've customized your container image, you can deploy it to a cluster for large-scale use.  For details on setting up a cluster for web service deployment, see [Model Management Configuration](deployment-setup-configuration.md). 
