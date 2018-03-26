@@ -1,6 +1,6 @@
 ---
 title: Azure Desired State Configuration Extension Handler | Microsoft Docs
-description: Upload and apply a PS DSC configuration on an Azure VM using DSC Extension
+description: Upload and apply a PowerShell DSC configuration on an Azure VM using DSC Extension
 services: virtual-machines-windows 
 documentationcenter: ''
 author: eshaparmar 
@@ -17,11 +17,11 @@ ms.date: 03/26/2018
 ms.author: esparmar
 
 ---
-# Powershell DSC Extension
+# PowerShell DSC Extension
 
 ## Overview
 
-The Powershell DSC Extension for Windows is published and supported by Microsoft. The extension uploads and applies a Powershell DSC Configuration on an Azure VM. The DSC Extension calls into Powershell DSC to enact the received DSC configuration on the VM. This document details the supported platforms, configurations, and deployment options for the DSC virtual machine extension for Windows.
+The PowerShell DSC Extension for Windows is published and supported by Microsoft. The extension uploads and applies a PowerShell DSC Configuration on an Azure VM. The DSC Extension calls into PowerShell DSC to enact the received DSC configuration on the VM. This document details the supported platforms, configurations, and deployment options for the DSC virtual machine extension for Windows.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ The DSC extension for Windows requires that the target virtual machine is connec
 
 ## Extension schema
 
-The following JSON shows the schema for the settings portion of the DSC Extension in an arm template. 
+The following JSON shows the schema for the settings portion of the DSC Extension in an Azure Resource Manager template. 
 
 ```json
 {
