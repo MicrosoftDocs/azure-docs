@@ -222,7 +222,7 @@ return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size
 
 ### Receive messages
 
-The registerReceiver() method registers the RegisterMessageHandler callback and also sets some message handler options:
+The `registerReceiver()` method registers the `RegisterMessageHandler` callback and also sets some message handler options:
 
 ```java
 void registerReceiver(QueueClient queueClient) throws Exception {

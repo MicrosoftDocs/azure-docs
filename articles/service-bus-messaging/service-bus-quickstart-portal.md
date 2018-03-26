@@ -101,6 +101,10 @@ To run the code, do the following:
 
    ![program output](./media/service-bus-quickstart-portal/jms.png)
 
+## Clean up resources
+
+When no longer needed, delete the namespace and queue. To do so, select these resources on the portal and click **Delete**. 
+
 ## Understand the sample code
 
 This section contains more details about what the sample code does. 
@@ -155,7 +159,7 @@ public void runApp(String[] args) {
 
 ### Create JMS queue connection
 
-The run() method uses the Java Messaging Service queue creation mechanics to create the queue context and send messages to it. It also uses the `ConnectionStringBuilder()` API from the Service Bus library to ensure robust parsing of the connection string:
+The `run()` method uses the Java Messaging Service queue creation mechanics to create the queue context and send messages to it. It also uses the `ConnectionStringBuilder()` API from the Service Bus library to ensure robust parsing of the connection string:
 
 ```java
 public void run() throws Exception {
@@ -234,10 +238,6 @@ public void run() throws Exception {
     System.out.printf("Closing queue client.\n");
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the namespace and queue. To do so, select these resources on the portal and click **Delete**. 
 
 ## Next steps
 
