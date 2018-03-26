@@ -12,7 +12,7 @@ ms.date: 03/26/2018
 ms.author: carlrab
 ---
 
-# Azure SQL Database Connect and Query quickstarts
+# Azure SQL Database Connect and Query Quickstarts
 
 The following table includes links to Azure examples showing how to connect and query an Azure SQL database.
 
