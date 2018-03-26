@@ -250,8 +250,11 @@ LUIS is done with this request. The calling application, such as a chat bot, can
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about entities](luis-concept-entity-types.md). Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type. Add the **dimension** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the volume for each drink type such as liters or gallons.
+[Learn more about entities](luis-concept-entity-types.md). 
+
+Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
+
+Add the **dimension** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the volume for each drink type such as liters or gallons.
 
 
 <!--References-->
