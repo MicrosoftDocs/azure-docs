@@ -28,9 +28,9 @@
 #### [Create a zone redundant Public Load Balancer Standard with Azure portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 ##### [Create a zone redundant Load Balancer Standard with PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 ##### [Create a zone redundant Public Load Balancer Standard with CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
-#### [Create a zonal public Load Balancer Standard](load-balancer-get-started-internet-az-zonal-portal.md)
-##### [Create a zonal public Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-zonal-powershell.md)
-##### [Create a zonal redundant public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-zonal-cli.md)
+#### [Create a zonal public Load Balancer Standard](../load-balancer/load-balancer-get-started-internet-az-zonal-portal.md)
+##### [Create a zonal public Load Balancer Standard (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-zonal-powershell.md)
+##### [Create a zonal redundant public Load Balancer Standard (CLI)](../load-balancer/load-balancer-get-started-internet-az-zonal-cli.md)
 
 ### [Public IP address](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
