@@ -73,8 +73,7 @@ To run a sample of Go code on Azure Stack:
   "portal Endpoint": "https://portal.local.azurestack.external/", 
   "authentication": {
     "loginEndpoint": "https://login.windows.net/", 
-    "audiences": ["https://management.azurestackci04.onmicrosoft.com/3eeB99cB
--c137-4ce4-b230-619961a09a73"]
+    "audiences": ["https://management.<yourtenant>.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
   }
 }
 ```
