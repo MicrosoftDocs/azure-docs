@@ -120,9 +120,9 @@ To use this example, you must:
     });
     ```
     
-**Optional**: If you are using the **MongoDB Node.js 2.2 driver**, please replace the following code snippet:
+    **Optional**: If you are using the **MongoDB Node.js 2.2 driver**, please replace the following code snippet:
 
-Original:
+    Original:
 
     ```nodejs
     MongoClient.connect(url, function(err, client) {
@@ -140,7 +140,7 @@ Original:
     });
     ```
     
-Should be replaced with:
+    Should be replaced with:
 
     ```nodejs
     MongoClient.connect(url, function(err, db) {
@@ -159,15 +159,14 @@ Should be replaced with:
     
 2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](connect-mongodb-account.md)):
 
-
-> [!IMPORTANT]
-> The **MongoDB Node.js 3.0 driver** requires encoding special characters in the Cosmos DB password. Make sure to encode '=' characters as %3D
->
-> Example: The password *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* encodes to *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
->
-> The **MongoDB Node.js 2.2 driver** does not require encoding special characters in the Cosmos DB password.
->
->
+    > [!IMPORTANT]
+    > The **MongoDB Node.js 3.0 driver** requires encoding special characters in the Cosmos DB password. Make sure to encode '=' characters as %3D
+    >
+    > Example: The password *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* encodes to *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
+    >
+    > The **MongoDB Node.js 2.2 driver** does not require encoding special characters in the Cosmos DB password.
+    >
+    >
    
     ```nodejs
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
