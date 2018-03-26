@@ -4,7 +4,7 @@ description: Learn how to manage Azure Cosmos DB in Azure Storage Explorer.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: ''
-author: jejiang 
+author: Jejiang 
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: Jejiang 
+ms.date: 03/20/2018
+ms.author: jejiang 
 
 ---
 # Manage Azure Cosmos DB in Azure Storage Explorer (Preview)
@@ -71,7 +71,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
     ![Connection-string](./media/storage-explorer/connection-string.png)
 
-## Connect to Azure Cosmos DB by using local Emulator
+## Connect to Azure Cosmos DB by using local emulator
 Use the following steps to connect to an Azure Cosmos DB by Emulator, only support SQL account currently.
 1. Install Emulator and launch. For how to install Emulator, see [Cosmos DB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
 2. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB Emulator...**
@@ -122,13 +122,13 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
     ![Delete database2](./media/storage-explorer/delete-database2.png) 
 
 #### Create a collection
-- Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish. 
+1. Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish. 
 
     ![Create collection1](./media/storage-explorer/create-collection.png)
 
     ![Create collection2](./media/storage-explorer/create-collection2.png) 
 
-- Select **Unlimited** to be able to specify partition key, then click **OK** to finish.
+2. Select **Unlimited** to be able to specify partition key, then click **OK** to finish.
 
     If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection. For information on partition key settings, see [Design for partitioning](partition-data.md#designing-for-partitioning).
 
@@ -161,8 +161,8 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 ### Graph management
 
 #### Create and modify vertex
-+ To create a new vertex, open **Graph** from the left window, click **New Vertex**, edit the contents, then click **OK**.    
-+ To modify an existing vertex, click the pen icon in the right pane.   
+1. To create a new vertex, open **Graph** from the left window, click **New Vertex**, edit the contents, then click **OK**.    
+2. To modify an existing vertex, click the pen icon in the right pane.   
 
     ![Graph](./media/storage-explorer/vertex.png)
 
@@ -177,18 +177,18 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 ### Table management
 
 #### Create and modify table
-+ To create a new table, open **Entities** from the left window, click **Add**, edit the content in **Add Entity** dialog, add property by clicking button **Add Property**, then click **Insert**.
-+ To modify a table, click **Edit**, modify the content, then click **Update**.
+1. To create a new table, open **Entities** from the left window, click **Add**, edit the content in **Add Entity** dialog, add property by clicking button **Add Property**, then click **Insert**.
+2. To modify a table, click **Edit**, modify the content, then click **Update**.
 
     ![Table](./media/storage-explorer/table.png)
 
-#### Import and Export table
-+ To import, click **Import** button and choose an existing table.
-+ To export, click **Export** button and choose a destination.
+#### Import and export table
+1. To import, click **Import** button and choose an existing table.
+2. To export, click **Export** button and choose a destination.
 
     ![Table Import and Export](./media/storage-explorer/table-import-export.png)
 
-#### Delete Entities
+#### Delete entities
 - Select the entities and click button **Delete**.
 
     ![Table delete](./media/storage-explorer/table-delete.png)
