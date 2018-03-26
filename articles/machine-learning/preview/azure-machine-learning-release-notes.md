@@ -14,10 +14,8 @@ ms.date: 03/28/2018
 
 In this article, learn about the new capabilities introduced in Azure Machine Learning. 
 
-## Sprint 3 - January 2018 
-**Version number: 0.1.1712.18263**
-
->Here is how you can [find the version number](known-issues-and-troubleshooting-guide.md).
+## 2018-01: Sprint 3 
+**Version number**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
 
 The following are the updates and improvements in this sprint. Many of these updates are made as direct result of user feedback. 
 
@@ -52,23 +50,19 @@ Following is a list of detailed updates in each component area of Azure Machine 
   - Ownership of the subscription is no longer required for provisioning resources. Contributor access to the resource group will be sufficient to set up the deployment environment.
   - Enabled local environment setup for free subscriptions 
 
-## Sprint 2 QFE - December 2017 
-**Version number: 0.1.1711.15323**
+## 2017-12: Sprint 2 QFE 
+**Version number**: 0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
 
->Here is how you can [find the version number](known-issues-and-troubleshooting-guide.md).
-
-Welcome to the QFE (Quick Fix Engineering) release of the third update of Azure Machine Learning Workbench. This release is a minor release. It addresses several telemetry issues and helps the product team to better understand how the product is being used. The knowledge can go into future efforts for improving the product experience. 
+This is the QFE (Quick Fix Engineering) release, a minor release. It addresses several telemetry issues and helps the product team to better understand how the product is being used. The knowledge can go into future efforts for improving the product experience. 
 
 In addition, there are two important updates:
 
 - Fixed a bug in data prep that prevented the time series inspector from displaying in data preparation packages.
 - In the command-line tool, you no longer need to be an Azure subscription owner to provision Machine Learning Compute ACS clusters. 
 
+## 2017-12:  &nbsp;Sprint 2 
+**Version number**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
 
-## Sprint 2 - December 2017 
-**Version number: 0.1.1711.15263**
-
->Here is how you can [find the version number](known-issues-and-troubleshooting-guide.md).
 
 Welcome to the third update of Azure Machine Learning. This update includes improvements in the workbench app, the Command-line Interface (CLI), and the back-end services. Thank you very much for sending the smiles and frowns. Many of the following updates are made as direct results of your feedback. 
 
@@ -160,17 +154,16 @@ For more information on creating compute targets, see [Configuring Azure Machine
 ### Sample projects
 - [Iris](https://github.com/Azure/MachineLearningSamples-Iris) and [MMLSpark](https://github.com/Azure/mmlspark) samples updated with the new Azure ML SDK version
 
-## BREAKING CHANGES
+### BREAKING CHANGES
 - Promoted the `--type` switch in `az ml computetarget attach` to a subcommand. 
 
     - `az ml computetarget attach --type remotedocker` is now `az ml computetarget attach remotedocker`
     - `az ml computetarget attach --type cluster` is now `az ml computetarget attach cluster`
 
-## Sprint 1 - November 2017 
+## 2017-11:  &nbsp;Sprint 1 
+**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
 
-**Version number: 0.1.1710.31013**
-
-Welcome to the second update of Azure Machine Learning. We continue to make improvements around security, stability, and maintainability in the workbench app, the CLI, and the back-end services layer. Thanks very much for sending us smiles and frowns. Many of the below updates are made as direct results of your feedback. Keep them coming!
+In this release, we've made improvements around security, stability, and maintainability in the workbench app, the CLI, and the back-end services layer. Thanks very much for sending us smiles and frowns. Many of the below updates are made as direct results of your feedback. Keep them coming!
 
 ### Notable New Features
 - Azure ML is now available in two new Azure regions: **West Europe** and **Southeast Asia**. They join the previous regions of **East US 2**, **West Central US**, and **Australia East**, bringing the total number of deployed regions to five.
@@ -289,25 +282,8 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 - New sample project [_Image Classification using CNTK_](./scenario-image-classification-using-cntk.md).
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Sprint 0 - October 2017 
-
-**Version number: 0.1.1710.04013**
+## 2017-10:  &nbsp;Sprint 0 
+**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
 
 Welcome to the first update of Azure Machine Learning Workbench following our initial public preview at the Microsoft Ignite 2017 conference. The main updates in this release are reliability and stabilization fixes.  Some of the critical issues we addressed include:
 
