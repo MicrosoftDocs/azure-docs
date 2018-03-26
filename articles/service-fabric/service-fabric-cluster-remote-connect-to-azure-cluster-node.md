@@ -56,10 +56,11 @@ To find an IP address and port that you can use to remotely connect to a specifi
     ![Remote Desktop Connection][RDP]
 
 
-## Next steps
+For next steps, read the following articles:
 * See the [overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md).
 * Learn about [cluster security](service-fabric-cluster-security.md).
-* Learn about the [Service Fabric SDK and getting started](service-fabric-get-started.md).
+* [Update the RDP port range values](./scripts/service-fabric-powershell-change-rdp-port-range.md) on cluster VMs after deployment
+* [Change the admin username and password](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) for cluster VMs
 
 <!--Image references-->
 [LBBlade]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/LBBlade.png
