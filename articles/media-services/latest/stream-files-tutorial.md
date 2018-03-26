@@ -273,7 +273,7 @@ Run the app that you cloned, copy one of the URLs you want to test.
 
 ## Stream the encoded video with Azure Media Player
 
-This secion shows you how to use  Azure Media Player to test your stream.
+This section shows you how to use  Azure Media Player to test your stream.
 
 ![Play the video](./media/stream-files-dotnet-tutorials/final-video.png)
 
