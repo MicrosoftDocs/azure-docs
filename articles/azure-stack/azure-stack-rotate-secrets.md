@@ -28,7 +28,7 @@ Azure Stack uses various secrets to maintain secure communication between the Az
 - **Internal secrets**  
 All the certificates, passwords, secure strings, and keys used by the Azure Stack infrastructure without intervention of the Azure Stack Operator. 
 
-- **External secrets**
+- **External secrets**  
 Infrastructure service certificates for external-facing services that are provided by the Azure Stack Operator. This includes the certificates for the following services: 
     - Administrator Portal 
     - Public Portal 
@@ -40,7 +40,7 @@ Infrastructure service certificates for external-facing services that are provid
     - ADFS<sup>*</sup>
     - Graph<sup>*</sup>
 
-> <sup>*</sup> Only applicable if the environment’s identity provider is Active Directory Federated Services (AD FS).
+    > <sup>*</sup> Only applicable if the environment’s identity provider is Active Directory Federated Services (AD FS).
 
 > [!NOTE]
 > All other secure keys and strings, including BMC and switch passwords, user and administrator account passwords are still manually updated by the administrator. 
@@ -59,23 +59,27 @@ Running secret rotation using the instructions below will remediate these alerts
 
 ## Pre-steps for secret rotation
 
-1. Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
+1.  Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
+
     > [!note]  
     > The next steps only apply when rotating Azure Stack external secrets.
-2. Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-3. Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
-3. Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **cloudadmin** identity.
-4. Open a Powershell ISE console on the ERCS VM using the **cloudadmin** account.  Navigate to your fileshare. 
-5. Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
+
+2.  Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+3.  Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
+3.  Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
+4.  Open a Powershell ISE console on the ERCS VM using the **CloudAdmin** account.  Navigate to your fileshare. 
+5.  Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
 ## Rotating external and internal secrets
 
 To rotate both external an internal secrets:
 
 1. Within the newly created **/Certificates** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
-2. Create a PowerShell Session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) using the **cloudadmin** account and store the sessions as a variable. You will use this variable as the parameter in the next step.
+2. Create a PowerShell Session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) using the **CloudAdmin** account and store the sessions as a variable. You will use this variable as the parameter in the next step.
+
     > [!IMPORTANT]  
     > Do not enter the session, store the session as a variable.
+    
 3. Run **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)**. Pass your Privileged Endpoint powershell session variable as the **Session** parameter. 
 4. Run **Start-SecretRotation** with the following parameters:
     - **PfxFilesPath**  
