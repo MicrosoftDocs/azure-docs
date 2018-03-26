@@ -56,7 +56,6 @@ You can find more information about the Azure GO SDK at:
 
 The GO SDK depends on the Azure Go-AutoRest modules to send REST requests to Azure Resource Manager endpoints. You will need to import the Azure Go-AutoRest module dependencies from [Azure Go-AutoRest on GitHub](https://github.com/Azure/go-autorest). You can find the install bash commands in the **Install** section.
 
-
 ## How to use GO SDK profiles on Azure Stack
 
 To run a sample of Go code on Azure Stack:
