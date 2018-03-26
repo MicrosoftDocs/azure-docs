@@ -106,7 +106,7 @@ The project used in this document stores data in Cosmos DB. Before running the c
 
 One way to do this is to use the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). The following script will create a database named `kafkadata` and a collection named `kafkacollection`. It then returns the primary key.
 
-```azure-cli
+```azurecli
 #!/bin/bash
 
 # Replace 'myresourcegroup' with the name of your resource group
