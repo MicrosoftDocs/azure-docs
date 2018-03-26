@@ -44,7 +44,7 @@ Bye.
 In this example, Command Prompt is launched in a running Nanoserver container:
 
 ```console
-$ az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd"
+$ az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
 Microsoft Windows [Version 10.0.14393]
 (c) 2016 Microsoft Corporation. All rights reserved.
 
@@ -71,9 +71,9 @@ Bye.
 
 ## Multi-container groups
 
-If your [container group](container-instances-container-groups.md) has multiple containers, such as an application container and a logging sidecar, specify the name of the container in which to run the command.
+If your [container group](container-instances-container-groups.md) has multiple containers, such as an application container and a logging sidecar, specify the name of the container in which to run the command with `--container-name`.
 
-For example, in the container group *mynginx* are two containers, *nginx-app* and *logger*. To launch a shell on the *nginx-app* container, include the `--container-name` argument:
+For example, in the container group *mynginx* are two containers, *nginx-app* and *logger*. To launch a shell on the *nginx-app* container:
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"
@@ -81,7 +81,7 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## Restrictions
 
-Azure Container Instances currently supports launching a single process with [az container exec][az-container-exec], and you cannot pass command arguments. For example, you cannot execute `echo FOO`, or chain commands like in `sh -c "echo FOO && echo BAR"`.
+Azure Container Instances currently supports launching a single process with [az container exec][az-container-exec], and you cannot pass command arguments. For example, you cannot chain commands like in `sh -c "echo FOO && echo BAR"`, or execute `echo FOO`.
 
 ## Next steps
 
