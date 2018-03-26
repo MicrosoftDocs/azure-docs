@@ -445,3 +445,5 @@
     href: faq.md
   - name: Data consistency explained through baseball
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
+  - name: Troubleshoot Azure Cosmos DB
+    href: troubleshoot-azure-cosmosdb.md

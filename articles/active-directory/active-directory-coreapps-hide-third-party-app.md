@@ -3,7 +3,7 @@ title: Hide an application from user's experience in Azure Active Directory | Mi
 description: How to hide an application from user's experience in Azure Active Directory access panels or Office 365 launchers.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: MarkusVi
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
-ms.author: billmath
+ms.author: markvi
 ms.reviewer: asteen
 ms.custom: it-pro
 ---
