@@ -183,6 +183,6 @@ You have created a Java function app with a simple HTTP trigger and deployed it 
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
 - Debug functions locally with Visual Studio Code. With the [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installed and with your Functions project open in Visual Studio Code, [attach the debugger](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) to port 5005. Then set a breakpoint in the editor and trigger your function while it's running locally:
     ![Debug functions in Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-
+- Debug functions remotely with Visual Studio Code. Check the [Writing serverless Java Applications](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) documentation for instructions.
 
 
