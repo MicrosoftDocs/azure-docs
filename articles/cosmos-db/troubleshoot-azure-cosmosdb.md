@@ -34,10 +34,10 @@ This guide summarizes solutions for common issues seen for Azure Cosmos DB in St
   - [Unable to see the authentication page](#Unable-to-see-the-authentication-page)
   - [Cannot remove account](#Cannot-remove-account)
 - [Http/Https proxy issue](#Http/Https-proxy-issue)
-- ["Development" node under "Local and Attached" issue](#Development-node-under-Local-and-Attached-issue)
-- [Attaching Azure Cosmos DB account in "Local and Attached" error](#Attaching-Azure-Cosmos-DB-account-in-Local-and-Attached-error)
+- ["Development" node under "Local and Attached" node issue](#Development-node-under-Local-and-Attached-node-issue)
+- [Attaching Azure Cosmos DB account in "Local and Attached" node error](#Attaching-Azure-Cosmos-DB-account-in-Local-and-Attached-node-error)
 - [Expand Azure Cosmos DB node error](#Expand-Azure-Cosmos-DB-node-error)
-- [Submit your issue](#Submit-your-issue)
+- [Next steps](#Next-steps)
 
 <h2 id="Sign-in-issues">Sign in issues</h2>
 
@@ -109,15 +109,15 @@ If you're unable to remove an account, or if the reauthenticate link does not do
 
 You cannot list Azure Cosmos DB nodes in left tree when configuring http/https proxy in ASE. It's a known issue, and will be fixed in next release. You could use Azure Cosmos DB data explorer in Azure portal as a work-around at this moment. 
 
-<h2 id="Development-node-under-Local-and-Attached-issue">"Development" node under "Local and Attached" issue</h2>
+<h2 id="Development-node-under-Local-and-Attached-node-issue">"Development" node under "Local and Attached" node issue</h2>
 
-There is no response after clicking the "Development" node under "Local and Attached" in left tree.  The behavior is expected. Azure Cosmos DB local emulator will be supported in next release.
+There is no response after clicking the "Development" node under "Local and Attached" node in left tree.  The behavior is expected. Azure Cosmos DB local emulator will be supported in next release.
 
 ![Development node](./media/troubleshoot-cosmosdb/development.png)
 
-<h2 id="Attaching-Azure-Cosmos-DB-account-in-Local-and-Attached-error">Attaching Azure Cosmos DB account in "Local and Attached" error</h2>
+<h2 id="Attaching-Azure-Cosmos-DB-account-in-Local-and-Attached-node-error">Attaching Azure Cosmos DB account in "Local and Attached" node error</h2>
 
-If you see below error after attaching Azure Cosmos DB account in "Local and Attached", then check if you're using the right connection string.
+If you see below error after attaching Azure Cosmos DB account in "Local and Attached" node, then check if you're using the right connection string.
 
 ![Attaching Azure Cosmos DB in Local and Attached error](./media/troubleshoot-cosmosdb/attached-error.png)
 
@@ -132,7 +132,7 @@ Try the following suggestions:
 - Check if the Azure Cosmos DB account is in provision progress and try again when the account is being created successfully.
 - If the account is under \`Quick Access\` or \`Local and Attached\` nodes, then check if the account has been deleted. If so, you need to remove the node manually.
 
-## Next steps 
+<h2 id="Next-steps">Next steps</h2>
 
 If none of the solutions work for you, send email to Azure Cosmos DB Dev Tooling Team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) with details about the issue, for fixing the issues.
 
