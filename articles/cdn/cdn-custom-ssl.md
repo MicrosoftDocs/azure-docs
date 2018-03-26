@@ -23,7 +23,7 @@ ms.author: casoper
 
 Microsoft supports the HTTPS protocol for custom domains on Azure Content Delivery Network (CDN). With HTTPS custom domain support, you can deliver secure content via SSL by using your own domain name to improve the security of data while in transit. The workflow to enable HTTPS for your custom domain is simplified via one-click enablement and complete certificate management, all with no additional cost.
 
-It's critical to ensure the privacy and data integrity of your web application's sensitive data while it is in transit. By using the HTTPS protocol, you ensure that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. By default, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (such as `https://contoso.azureedge.net`), HTTPS is automatically enabled. In addition, with custom domain HTTPS support, you can also enable secure delivery for a custom domain (for example, `https://www.contoso.com`). 
+It's critical to ensure the privacy and data integrity of your web application's sensitive data while it is in transit. By using the HTTPS protocol, you ensure that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. By default, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (such as https:\//contoso.azureedge.net), HTTPS is automatically enabled. In addition, with custom domain HTTPS support, you can also enable secure delivery for a custom domain (for example, https:\//www.contoso.com). 
 
 Some of the key attributes of the HTTPS feature are:
 
@@ -64,7 +64,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 When you added a custom domain to your endpoint, you created a CNAME record in the DNS table of your domain registrar to map to your CDN endpoint hostname. If that CNAME record still exists and does not contain the cdnverify subdomain, the DigiCert certificate authority (CA) uses it to validate ownership of your custom domain. 
 
-Your CNAME record should be in the following format, where Name is your custom domain name and Value is your CDN endpoint hostname:
+Your CNAME record should be in the following format, where *Name* is your custom domain name and *Value* is your CDN endpoint hostname:
 
 | Name            | Type  | Value                 |
 |-----------------|-------|-----------------------|
@@ -72,7 +72,7 @@ Your CNAME record should be in the following format, where Name is your custom d
 
 For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#step-2-create-the-cname-dns-records).
 
-If your CNAME record is in the correct format, DigiCert adds your custom domain name to the Subject Alternative Names (SAN) certificate. The certificate is valid for one year and will be auto-renewed before it expires. DigitCert will not send you a verification email and you won't need to approve the request. Proceed to [Step 3: Wait for propagation](#step-3-wait-for-propagation). 
+If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and adds it to the Subject Alternative Names (SAN) certificate. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Step 3: Wait for propagation](#step-3-wait-for-propagation). 
 
 #### CNAME record is not mapped to CDN endpoint
 
@@ -100,7 +100,7 @@ When you click on the approval link, you are directed to the following online ap
 
 Follow the instructions on the form; you have two verification options:
 
-- You can approve all future orders placed through the same account for the same root domain; for example, `contoso.com`. This approach is recommended if you plan to add additional custom domains for the same root domain.
+- You can approve all future orders placed through the same account for the same root domain; for example, contoso.com. This approach is recommended if you plan to add additional custom domains for the same root domain.
 
 - You can approve just the specific host name used in this request. Additional approval is required for subsequent requests.
 
@@ -186,7 +186,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 3. *What if I don't receive the domain verification email from DigiCert?*
 
-    Contact Microsoft support if you don't receive an email within 24 hours. If you have a a CNAME entry for your custom domain that points directly to your endpoint hostname (and you are not using the cdnverify subdomain name), you won't receive a domain verification email. Validation will occur automatically.
+    Contact Microsoft support if you don't receive an email within 24 hours. If you have a CNAME entry for your custom domain that points directly to your endpoint hostname (and you are not using the cdnverify subdomain name), you won't receive a domain verification email. Validation occurs automatically.
 
 4. *Is using a SAN certificate less secure than a dedicated certificate?*
 	
