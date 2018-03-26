@@ -10,9 +10,9 @@ ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
 ---
-# Release Notes for Azure Machine Learning
+# What's New in Azure Machine Learning
 
-In this article, learn about the new capabilities introduced in Azure Machine Learning. 
+In this article, learn about the new capabilities and known issues for [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
 
 ## 2018-01: Sprint 3 
 **Version number**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
