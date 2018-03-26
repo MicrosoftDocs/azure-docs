@@ -64,7 +64,7 @@ In most scenarios, Resource Manager deployment templates are the expected way to
 
 ## DSC extension PowerShell cmdlets
 
-The PowerShell cmdlets that are used to manage the DSC extension are best used in interactive troubleshooting and information-gathering scenarios. You can use the cmdlets to package, publish, and monitor DSC extension deployments. Note that cmdlets for the DSC extension aren't yet updated to work with the [default configuration script](#default-configuration-script).
+The PowerShell cmdlets that are used to manage the DSC extension are best used in interactive troubleshooting and information-gathering scenarios. You can use the cmdlets to package, publish, and monitor DSC extension deployments. Cmdlets for the DSC extension aren't yet updated to work with the [default configuration script](#default-configuration-script).
 
 The **Publish-AzureRMVMDscConfiguration** cmdlet takes in a configuration file, scans it for dependent DSC resources, and then creates a .zip file. The .zip file contains the configuration and DSC resources that are needed to enact the configuration. The cmdlet can also create the package locally by using the *-ConfigurationArchivePath* parameter. Otherwise, the cmdlet publishes the .zip file to blob storage, and then secures it with an SAS token.
 
@@ -83,7 +83,7 @@ Important information about Resource Manager DSC extension cmdlets:
 - Azure Resource Manager cmdlets are synchronous.
 - The *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *Version*, and *Location* parameters are all required.
 - *ArchiveResourceGroupName* is an optional parameter. You can specify this parameter when your storage account belongs to a different resource group than the one where the VM is created.
-- Use the **AutoUpdate** switch to automatically update the extension handler to the latest version when it's available. Note that this parameter has the potential to cause restarts on the VM when a new version of WMF is released.
+- Use the **AutoUpdate** switch to automatically update the extension handler to the latest version when it's available. This parameter has the potential to cause restarts on the VM when a new version of WMF is released.
 
 ### Get started with cmdlets
 
