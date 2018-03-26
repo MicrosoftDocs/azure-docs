@@ -3,8 +3,8 @@ title: OMS Azure virtual machine extension for Windows | Microsoft Docs
 description: Deploy the OMS agent on Windows virtual machine using a virtual machine extension.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
-manager: timlt
+author: johnkemnetz
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

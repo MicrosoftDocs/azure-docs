@@ -45,6 +45,8 @@
   - name: PowerShell DSC extension
     href: dsc-overview.md
     items:
+    - name: DSC and Windows
+      href: dsc-windows.md
     - name: Handle credentials
       href: dsc-credentials.md
     - name: Use templates
@@ -53,6 +55,12 @@
     href: log-collector.md
   - name: Key Vault extension
     href: key-vault-windows.md
+  - name: VM Snapshot extension
+    items:
+    - name: Linux
+      href: vmsnapshot-linux.md
+    - name: Windows
+      href: vmsnapshot-windows.md
   - name: Third-party extensions
     items:
     - name: Symantec
