@@ -58,7 +58,7 @@ To interact with the Service Fabric cluster itself, use [System.Fabric.FabricCli
 
 Of course, the scaling code doesn't need to run as a service in the cluster to be scaled. Both `IAzure` and `FabricClient` can connect to their associated Azure resources remotely, so the scaling service could easily be a console application or Windows service running from outside the Service Fabric application.
 
-Based on these limitations, you may wish to [implement more customized automatic scaling models](service-fabric-programmatic-scaling.md).
+Based on these limitations, you may wish to [implement more customized automatic scaling models](service-fabric-cluster-programmatic-scaling.md).
 
 Creating your own scaling service provides the highest degree of control and customizability over your application's scaling behavior. This can be useful for scenarios requiring precise control over when or how an application scales in or out. However, this control comes with a tradeoff of code complexity. Using this approach means that you need to own scaling code, which is non-trivial.
 
@@ -92,6 +92,6 @@ Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe opera
 ## Next steps
 * Learn about [application scalability](service-fabric-concepts-scalability.md)
 * [Scale an Azure cluster in or out](service-fabric-tutorial-scale-cluster.md)
-* [Scale an Azure cluster programmatically](service-fabric-cluster-programmatic-scaling.md)
+* [Scale an Azure cluster programmatically](service-fabric-cluster-programmatic-scaling.md) using the fluent Azure compute SDK.
 * [Scale a standaone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md)
 
