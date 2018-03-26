@@ -205,6 +205,8 @@ featureFlags:
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">Computer Vision API</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">Face API</a></li>
+                                                    <li><a class="barLink" href="/bot-framework/">Azure Bot Service</a></li>
+                                                    <li><a class="barLink" href="/azure/cognitive-services/luis/">LUIS</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -2746,10 +2748,10 @@ featureFlags:
                                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Custom Search</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Bing Custom Search</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" /><span>Bing Entity Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />Bing Entity Search</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search</a>

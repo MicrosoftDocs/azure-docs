@@ -78,6 +78,7 @@ To specify your key from a URI, follow these steps:
 
     ![Portal Screenshot showing Encryption with enter key uri option](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+
 #### Specify a key from a key vault 
 
 To specify your key from a key vault, follow these steps:
@@ -94,13 +95,24 @@ If the storage account does not have access to the key vault, you can run the Az
 
 You can also grant access via the Azure portal by navigating to the Azure Key Vault in the Azure portal and granting access to the storage account.
 
+
+You can associate the above key with an existing storage account using the following PowerShell commands:
+```powershell
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+```
+
+
 ### Step 5: Copy data to storage account
 
-To transfer data into your new storage account so that it’s encrypted, refer to Step 3 of [Getting Started in Storage Service Encryption for Data at Rest](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+To transfer data into your new storage account so that it’s encrypted. For more information see [FAQ for Storage Service Encryption](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### Step 6: Query the status of the encrypted data
 
-To query the status of the encrypted data, refer to Step 4 of [Getting Started in Storage Service Encryption for Data at Rest](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
+Query the status of the encrypted data.
 
 ## FAQ for SSE with customer-managed-keys
 

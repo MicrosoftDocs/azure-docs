@@ -86,7 +86,7 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 | Storage Endpoint Suffix | *.core.usgovcloudapi.net | *.core.windows.net |
 | Traffic Manager DNS Suffix | *.usgovtrafficmanager.net | *.trafficmanager.net |
 | Key Vault DNS Suffix | *.vault.usgovcloudapi.net | *.vault.azure.net |
-| Gallery Url | https://gallery.usgovcloudapi.net/ | https://gallery.azure.com/ |
+| Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
 | Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
 | Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
 

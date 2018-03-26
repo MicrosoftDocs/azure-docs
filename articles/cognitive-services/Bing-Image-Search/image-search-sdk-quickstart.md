@@ -12,20 +12,20 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-#Image Search SDK C# quickstart (preview)
+# Image Search SDK C# quickstart
 
 The Bing Image Search SDK contains the functionality of the REST API for image requests and parsing results. 
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing Image Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.ImageSearch` package.
 
-Installing the [NuGet Image Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.1.0-preview) also installs dependencies, including:
+Installing the [NuGet Image Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0) also installs dependencies, including:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-##Image Search client
+## Image Search client
 To create an instance of the `ImageSearchAPI` client, add using directives:
 ```
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
@@ -66,7 +66,7 @@ Console.WriteLine($"\r\nImage result total estimated matches: {imageResults.Tota
 
 ```
 
-##Complete console application
+## Complete console application
 
 The following console application executes the previously defined query "Canadian Rockies" to search for results then print first image insights token, thumbnail url, and image content url:
 
@@ -177,11 +177,11 @@ namespace ImageSrchSDK
 
 ```
 
-##Search options
+## Search options
 
 The Bing search samples demonstrate various features of the SDK.  Add the following functions to the previously defined `ImageSrchSDK` class.
 
-###Search using a filter
+### Search using a filter
 
 Search images for "studio ghibli", filtered for animated gifs and wide aspect, then verify number of results and print out insightsToken, thumbnail url, and url of first result.
 
@@ -225,7 +225,7 @@ Search images for "studio ghibli", filtered for animated gifs and wide aspect, t
 
 ```
 
-###Trending images
+### Trending images
 
 Search for trending images, and then verify categories and tiles.
 
@@ -279,7 +279,7 @@ Search for trending images, and then verify categories and tiles.
 
 ```
 
-###Image details
+### Image details
 
 Search images for "Degas", and then search for image details of the first image.
 ```
@@ -397,6 +397,6 @@ Search images for "Degas", and then search for image details of the first image.
 
 ```
 
-##Next steps
+## Next steps
 
 [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

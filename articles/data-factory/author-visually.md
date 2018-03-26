@@ -4,8 +4,8 @@ description: Learn how to use visual authoring in Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -38,7 +38,7 @@ When you use the UX **Authoring canvas** to author directly with the Data Factor
 Visual authoring with VSTS Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a VSTS Git account repository for source control, collaboration, versioning, and so on. A single VSTS Git account can have multiple repositories, but a VSTS Git repository can be associated with only one data factory. If you don't have a VSTS account or repository, follow [these instructions](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) to create your resources.
 
 > [!NOTE]
-> A Data Factory pipeline can't access files stored in a VSTS Git repository. As a result, you can't store files that are used by Data Factory pipeline activities - for example, data files and script files - in a VSTS Git repository.
+> You can store script and data files in a VSTS GIT repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a VSTS GIT repository to Azure Storage.
 
 ### Configure a VSTS Git repository with Azure Data Factory
 You can configure a VSTS GIT repository with a data factory through two methods.

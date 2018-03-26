@@ -46,19 +46,7 @@ To complete this quickstart:
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-
-## Create a resource group
-
-In the Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *West Europe* location. To see all supported locations for App Service, run the [`az appservice list-locations`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-You generally create your resource group and the resources in a region near you. 
-
-When the command finishes, a JSON output shows you the resource group properties.
-
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
