@@ -3,7 +3,7 @@ title: Azure Functions HTTP and webhook bindings
 description: Understand how to use HTTP and webhook triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
+ms.author: tdykstra
 ---
 
 # Azure Functions HTTP and webhook bindings
