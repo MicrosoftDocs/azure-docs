@@ -7,7 +7,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 03/21/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -128,16 +128,23 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 ```
 
 ### Root cause
-This error occurs when you run IoT Edge on an Azure Windows virtual machine. The hostnames generated for these machines tend to be very long, and can exceed the 64 character limit. 
+The IoT Edge runtime can only support hostnames that are shorter than 64 characters. This usually isn't an issue for physical machines, but can occur when you set up the runtime on a virtual machine. The automatically generated hostnames for Windows virtual machines hosted in Azure, in particular, tend to be long. 
 
 ### Resolution
-Shorter virtual machine names have shorter hostnames, so if you create new VMs for IoT Edge give them succinct names to prevent this error. 
+When you see this error, you can resolve it by configuring the DNS name of your virtual machine, and then setting the DNS name as the hostname in the setup command.
 
-When you see this error, you can resolve it by specifying your own hostname with the following command: 
+1. In the Azure portal, navigate to the overview page of your virtual machine. 
+2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one. 
 
-```input
-iotedgectl setup --connection-string "<connection string>" --auto-cert-gen-force-no-passwords --edge-hostname "<hostname>"
-```
+   ![Configure DNS name](./media/troubleshoot/configure-dns.png)
+
+3. Provide a value for **DNS name label** and select **Save**.
+4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
+5. Inside the virtual machine, use the following command to set up the IoT Edge runtime with your DNS name:
+
+   ```input
+   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
+   ```
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iot-edge/issues) so that we can continue to improve. 

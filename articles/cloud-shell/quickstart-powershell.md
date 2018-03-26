@@ -179,7 +179,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 #### Invoke PowerShell script across remote VMs
 
  > [!WARNING]
- > Please refer to [Troubleshooting remote management of Azure VMs](troubleshooting.md#powershell-resolutions).
+ > Please refer to [Troubleshooting remote management of Azure VMs](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
   Assuming you have a VM, MyVM1, let's use `Invoke-AzureRmVMCommand` to invoke a PowerShell script block on the remote machine.
 

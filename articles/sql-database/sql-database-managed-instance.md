@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/22/2018
 ms.author: bonova
 ---
 
 # What is a Managed Instance (preview)?
 
-Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
+Azure SQL Database Managed Instance (preview) is a new capability of Azure SQL Database, providing near 100% compatibility with SQL Server on-premises (Enterprise Edition), providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, Managed Instance preserves all PaaS capabilities (automatic patching and version updates, backup, high-availability),  that drastically reduces management overhead and TCO.
 
 > [!IMPORTANT]
 > For a list of regions in which Managed Instance is currently available, see [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
@@ -30,16 +30,16 @@ Managed Instance is envisioned as preferred platform for the following scenarios
 
 By General Availability, Managed Instance aims to deliver close to 100% surface area compatibility with the latest on-premises SQL Server version through a staged release plan. 
 
-The following table outlines key differences and envisioned usage scenarios between SQL IaaS, Azure SQL Database, and Managed Instance:
+The following table outlines key differences and envisioned usage scenarios between SQL IaaS, Azure SQL Database, and SQL Database Managed Instance:
 
 | | Usage scenario | 
 | --- | --- | 
-|Managed Instance |For customers looking to migrate a large number of apps from on-premises or IaaS, self-built, or ISV provided, with as low migration effort as possible, propose Managed Instance. Using the fully automated [Data Migration Service (DMS)](/sql/dma/dma-overview) in Azure, customers can lift and shift their on-premises SQL Server to a Managed Instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNET support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a SQL Database Managed Instance using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface. |
-|Azure SQL Database |**Elastic pools**: For customers developing new SaaS multi-tenant applications or intentionally transforming their existing on-premises apps into a SaaS multitenant app, propose elastic pools. Benefits of this model are: <br><ul><li>Conversion of the business model from selling licenses to selling service subscriptions (for ISVs)</li></ul><ul><li>Easy and bullet-proof tenant isolation</li></ul><ul><li>A simplified database-centric programming model</li></ul><ul><li>The potential to scale out without hitting a hard ceiling</li></ul>**Single databases**: For customers developing new apps other than SaaS multi-tenant, whose workload is stable and predictable, propose single databases. Benefits of this model are:<ul><li>A simplified database-centric programming model</li></ul>  <ul><li>Predictable performance for each database</li></ul>|
-|SQL IaaS |For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
+|SQL Database Managed Instance |For customers looking to migrate a large number of apps from on-premises or IaaS, self-built, or ISV provided, with as low migration effort as possible, propose Managed Instance. Using the fully automated [Data Migration Service (DMS)](/sql/dma/dma-overview) in Azure, customers can lift and shift their on-premises SQL Server to a Managed Instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNET support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a SQL Database Managed Instance using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface. |
+|Azure SQL Database (single or pool) |**Elastic pools**: For customers developing new SaaS multi-tenant applications or intentionally transforming their existing on-premises apps into a SaaS multitenant app, propose elastic pools. Benefits of this model are: <br><ul><li>Conversion of the business model from selling licenses to selling service subscriptions (for ISVs)</li></ul><ul><li>Easy and bullet-proof tenant isolation</li></ul><ul><li>A simplified database-centric programming model</li></ul><ul><li>The potential to scale out without hitting a hard ceiling</li></ul>**Single databases**: For customers developing new apps other than SaaS multi-tenant, whose workload is stable and predictable, propose single databases. Benefits of this model are:<ul><li>A simplified database-centric programming model</li></ul>  <ul><li>Predictable performance for each database</li></ul>|
+|SQL IaaS virtual machine|For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
 |||
 
-![positioning](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## How to programmatically identify a Managed Instance
 
@@ -53,6 +53,9 @@ The following table shows several properties, accessible through Transact SQL, t
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Full instance DNS name in the following format:<instanceName>.<dnsPrefix>.database.windows.net, where <instanceName> is name provided by the customer, while <dnsPrefix> is auto-generated part of the name guaranteeing global DNS name uniqueness (“wcus17662feb9ce98”, for example)|Example: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## Key features and capabilities of a Managed Instance 
+
+> [!IMPORTANT]
+> A Managed Instance runs with all of the features of the most recent version of SQL Server, including online operations, automatic plan corrections, and other enterprise performance enhancements. 
 
 | **PaaS benefits** | **Business continuity** |
 | --- | --- |

@@ -77,7 +77,8 @@
 ## [Manage groups and members](active-directory-manage-groups.md)
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell Azure Resource Manager model](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell classic deployment model](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +95,8 @@
 ### [View all groups](active-directory-groups-view-azure-portal.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
 ### [Restore a deleted Office 365 group](active-directory-groups-restore-azure-portal.md)
-### Manage group settings
-#### [Azure portal](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Manage group settings](active-directory-groups-settings-azure-portal.md)
+
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
@@ -215,12 +215,12 @@
 ##### [Custom home page](application-proxy-office365-app-launcher.md)
 ##### [Translate inline links](application-proxy-link-translation.md)
 ##### [Wildcard applications](active-directory-application-proxy-wildcard.md)
-
+##### [Azure AD Application Proxy and Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
+#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
 

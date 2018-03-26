@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 03/20/2018
+ms.date: 03/23/2018
 ms.author: alehall
 
 ---
 
 # Tutorial: Stream data into Azure Databricks using Event Hubs
 
-In this tutorial, you connect a data ingestion system with Azure Databricks to stream data into an Apache Spark cluster in near real-time . You set up data ingestion system using Azure Event Hubs and then connect it to Azure Databricks to process the messages coming through. To access a stream of data, you use Twitter APIs to ingest tweets into Event Hubs. Once you have the data in Azure Databricks, you can run analytical jobs to further analyze the data. In this tutorial, you extract the tweets that have the term "Azure" in them.
+In this tutorial, you connect a data ingestion system with Azure Databricks to stream data into an Apache Spark cluster in near real-time. You set up data ingestion system using Azure Event Hubs and then connect it to Azure Databricks to process the messages coming through. To access a stream of data, you use Twitter APIs to ingest tweets into Event Hubs. Once you have the data in Azure Databricks, you can run analytical jobs to further analyze the data. 
 
-The following screenshot shows the application flow:
+By the end of this tutorial, you would have streamed tweets from Twitter (that have the term "Azure" in them) and read the tweets in Azure Databricks.
+
+The following illustration shows the application flow:
 
 ![Azure Databricks with Event Hubs](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Azure Databricks with Event Hubs")
 
@@ -57,11 +59,9 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 In this section, you create an Azure Databricks workspace using the Azure portal.
 
-1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks (Preview)**.
+1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks**.
 
     ![Databricks on Azure portal](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks on Azure portal")
-
-2. Under **Azure Databricks (Preview)**, select **Create**.
 
 3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
@@ -131,7 +131,7 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
 2. In the New Library page, for **Source** select **Maven Coordinate**. For **Coordinate**, enter the coordinate for the package you want to add. Here is the Maven coordinates for the libraries used in this tutorial:
 
-    * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.0`
+    * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
     * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
     ![Provide Maven coordinates](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Provide Maven coordinates")

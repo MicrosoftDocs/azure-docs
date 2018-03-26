@@ -63,11 +63,9 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 In this section, you create an Azure Databricks workspace using the Azure portal.
 
-1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks (Preview)**.
+1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **Azure Databricks**.
 
     ![Databricks on Azure portal](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks on Azure portal")
-
-2. Under **Azure Databricks (Preview)**, select **Create**.
 
 3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
 
@@ -137,7 +135,7 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
 2. In the New Library page, for **Source** select **Maven Coordinate**. For **Coordinate**, enter the coordinate for the package you want to add. Here is the Maven coordinates for the libraries used in this tutorial:
 
-    * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.0`
+    * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
     * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
     ![Provide Maven coordinates](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Provide Maven coordinates")
