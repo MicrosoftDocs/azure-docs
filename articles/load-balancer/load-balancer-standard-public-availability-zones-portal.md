@@ -22,7 +22,7 @@ ms.author: kumud
 
 This article steps through creating a public Load Balancer Standard with a zone redundant frontend to achieve achieve zone-redundancy without dependency on multiple DNS records. A single front-end IP address in a Standard Load Balancer is automatically zone-redundant. Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more Availability Zones can fail and the data path survives as long as one zone in the region remains healthy. 
 
-For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones).
+For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
