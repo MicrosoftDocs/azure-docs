@@ -4,20 +4,20 @@ description: Learn to manage Azure file shares using Azure PowerShell.
 services: storage
 documentationcenter: ''
 author: wmgries	
-manager: klaasl
-editor: cynthn
+manager: jeconnoc
+editor: 
 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2018
+ms.date: 03/26/2018
 ms.author: wgries
 ---
 
 # Managing Azure file shares with Azure PowerShell 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using PowerShell. Learn how to: 
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide walks you through the basics of working with Azure file shares using PowerShell. In this article you learn how to:
 
 [!div class="checklist"]
 * Create a resource group and a storage account
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, you can create a [free account](https:/
 If would like to install and use the PowerShell locally, this guide requires the Azure PowerShell module version 5.1.1 or later. To find out which version of the Azure PowerShell module you are running, execute `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
-A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the[`New-AzureRmResourceGroup`](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet. 
+A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the [`New-AzureRmResourceGroup`](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet. 
 
 The following example creates a resource group named *myResourceGroup* in the East US region:
 
@@ -45,24 +45,15 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ## Create a storage account
 A storage account is a shared pool of storage you can use to deploy Azure file shares, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-If you don't already have an existing storage account, you can create a new one using [`New-AzureRmStorageAccount`](/powershell/module/azurerm.storage/new-azurermstorageaccount). This example creates a storage account named `mystorageaccount<random number>` and puts a reference to that storage account in the variable `$storageAcct`. Storage account names must be unique, so use `Get-Random` to append a pseudorandom number to the end to make it unique. 
+This example creates a storage account named `mystorageacct<random number>` and puts a reference to that storage account in the variable **$storageAcct**. Storage account names must be unique, so use `Get-Random` to append a number to the name to make it unique. 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzureRmStorageAccount `
                   -ResourceGroupName "myResourceGroup" `
-                  -Name "mystorageaccount$(Get-Random)" `
+                  -Name "mystorageacct$(Get-Random)" `
                   -Location eastus `
                   -SkuName Standard_LRS 
 ```
-
-If you already have an existing storage account you'd like to use for this tutorial, you can get a reference to the storage account using [`Get-AzureRmStorageAccount`](/powershell/module/azurerm.storage/get-azurermstorageaccount).
-
-```azurepowershell-interactive
-$storageAcct = Get-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" -StorageAccountName "<my-storage-account-name>"
-```
-
-> [!Note]  
-> You only need to run one of these cmdlets: if you executed `New-AzureRmStorageAccount`, you don't need to execute `Get-AzureRmStorageAccount`, the variable `$storageAcct` already has a reference to the storage account.
 
 ## Create an Azure file share
 Now you can create your first Azure file share. You can create a file share using the [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare) cmdlet. This example creates a share named `myshare`.
