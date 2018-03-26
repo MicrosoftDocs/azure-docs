@@ -25,6 +25,7 @@ This tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Configure your app so it can access Media Services APIs
+> * Start using Media Services APIs with .NET SDK
 > * Create an input asset and upload a local file into it 
 > * Create an output asset to store the result of the encoding job 
 > * Create a transform and a job that encodes the uploaded file
@@ -64,6 +65,26 @@ First, let's clone the [media-services-v3-dotnet-tutorials](https://github.com/A
 To run the app and access the Media Services APIs, you need to specify the correct values in App.config. 
     
 To get the values, see [Accessing APIs](access-api-cli-how-to.md).
+
+## Start using Media Services APIs with .NET SDK
+
+To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. You first need to get a token and then create a ClientCredential object from the returned token. In the code you cloned at the beginning of the article, the **ArmClientCredential** object is used to get the token.  
+
+In Program.cs, you can find the **CreateMediaServicesClient** method that creates the **AzureMediaServicesClient** object.  
+
+```
+private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper config)
+{
+    ArmClientCredentials credentials = new ArmClientCredentials(config);
+
+    return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
+    {
+        SubscriptionId = config.SubscriptionId,
+        ResourceGroupName = config.ResourceGroup,
+        AccountName = config.AccountName
+    };
+}
+```
 
 ## Create an input asset and upload a local file into it 
 
