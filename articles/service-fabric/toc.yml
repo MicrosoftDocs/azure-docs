@@ -567,7 +567,7 @@
       href: service-fabric-diagnostics-perf-wad.md
     - name: Report and check health
       href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-    - name: Add logging to your app
+    - name: Add logging to your service
       href: service-fabric-how-to-diagnostics-log.md
     - name: Troubleshoot with system health reports
       href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
