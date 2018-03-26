@@ -175,8 +175,11 @@ your requirements.
 - **Cache storage accounts**: Site Recovery uses a storage account in the source region. Changes to
   source VMs are sent to this account before replication to the target location.
 
-- **Target storage accounts**: By default, Site Recovery creates a new storage account in the
+- **Target storage accounts (If source VM does not use managed disks)**: By default, Site Recovery creates a new storage account in the
   target region to mirror the source VM storage account.
+
+- **Replica managed disks (If source VM uses managed disks)**: By default, Site Recovery creates replica managed disks in the
+  target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
 
 - **Target availability sets**: By default, Site Recovery creates a new availability set in the
   target region with the "asr" suffix. You can only add availability sets if VMs are part of a set in the source region.
