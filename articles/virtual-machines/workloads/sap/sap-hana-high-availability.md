@@ -78,7 +78,7 @@ To achieve high availability, SAP HANA is installed on two virtual machines. The
 The SAP HANA SR setup uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer.
 
 * Frontend configuration
-  * IP address 10.0.0.4
+  * IP address 10.0.0.13 for hn1-db
 * Backend configuration
   * Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
 * Probe Port
@@ -92,53 +92,6 @@ The SAP HANA SR setup uses a dedicated virtual hostname and virtual IP addresses
 
 The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications.
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines.
-
-### Manual Deployment
-
-1. Create a Resource Group
-1. Create a Virtual Network
-1. Create an Availability Set  
-   Set max update domain
-1. Create a Load Balancer (internal)  
-   Select VNET created in the second
-1. Create Virtual Machine 1  
-   Use at least SLES4SAP 12 SP1, in this example we will use the SLES4SAP 12 SP2 image
-   https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
-   SLES for SAP 12 SP2 (Premium)  
-   Select Availability Set  
-1. Create Virtual Machine 2  
-   Use at least SLES4SAP 12 SP1, in this example we will use the SLES4SAP 12 SP1 BYOS image
-   https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
-   SLES for SAP 12 SP2 (Premium)  
-   Select Availability Set  
-1. Add Data Disks
-1. Configure the load balancer
-    1. Create a frontend IP pool
-        1. Open the load balancer, select frontend IP pool, and click Add
-        1. Enter the name of the new frontend IP pool (for example hana-frontend)
-        1. Click OK
-        1. After the new frontend IP pool is created, write down its IP address
-    1. Create a backend pool
-        1. Open the load balancer, select backend pools, and click Add
-        1. Enter the name of the new backend pool (for example hana-backend)
-        1. Click Add a virtual machine
-        1. Select the Availability Set you created earlier
-        1. Select the virtual machines of the SAP HANA cluster
-        1. Click OK
-    1. Create a health probe
-        1. Open the load balancer, select health probes, and click Add
-        1. Enter the name of the new health probe (for example hana-hp)
-        1. Select TCP as protocol, port 625**03**, keep Interval 5 and Unhealthy threshold 2
-        1. Click OK
-    1. Create load balancing rules
-        1. Open the load balancer, select load balancing rules and click Add
-        1. Enter the name of the new load balancer rule (for example hana-lb-3**03**15)
-        1. Select the frontend IP address, backend pool, and health probe you created earlier (for example hana-frontend)
-        1. Keep protocol TCP, enter port 3**03**13
-        1. Increase idle timeout to 30 minutes
-        1. **Make sure to enable Floating IP**
-        1. Click OK
-        1. Repeat the steps above for port  3**03**15 and 3**03**17
 
 ### Deploy with template
 You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
@@ -165,6 +118,54 @@ To deploy the template, follow these steps:
        Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
     1. Subnet ID  
     The ID of the subnet to which the virtual machines should be connected to. To connect the virtual machine to your on-premises network, select the subnet of your VPN or Express Route virtual network. The ID usually looks like /subscriptions/`<subscription ID`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
+
+### Manual Deployment
+
+1. Create a Resource Group
+1. Create a Virtual Network
+1. Create an Availability Set  
+   Set max update domain
+1. Create a Load Balancer (internal)  
+   Select VNET created in the second
+1. Create Virtual Machine 1  
+   Use at least SLES4SAP 12 SP1, in this example we will use the SLES4SAP 12 SP2 image
+   https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
+   SLES for SAP 12 SP2 (Premium)  
+   Select Availability Set created ealier  
+1. Create Virtual Machine 2  
+   Use at least SLES4SAP 12 SP1, in this example we will use the SLES4SAP 12 SP1 BYOS image
+   https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
+   SLES for SAP 12 SP2 (Premium)  
+   Select Availability Set created ealier  
+1. Add Data Disks
+1. Configure the load balancer
+    1. Create a frontend IP pool
+        1. Open the load balancer, select frontend IP pool, and click Add
+        1. Enter the name of the new frontend IP pool (for example hana-frontend)
+        1. Set the Assignment to Static and enter the IP address (for example **10.0.0.13**)
+        1. Click OK
+        1. After the new frontend IP pool is created, write down its IP address
+    1. Create a backend pool
+        1. Open the load balancer, select backend pools, and click Add
+        1. Enter the name of the new backend pool (for example hana-backend)
+        1. Click Add a virtual machine
+        1. Select the Availability Set you created earlier
+        1. Select the virtual machines of the SAP HANA cluster
+        1. Click OK
+    1. Create a health probe
+        1. Open the load balancer, select health probes, and click Add
+        1. Enter the name of the new health probe (for example hana-hp)
+        1. Select TCP as protocol, port 625**03**, keep Interval 5 and Unhealthy threshold 2
+        1. Click OK
+    1. Create load balancing rules
+        1. Open the load balancer, select load balancing rules and click Add
+        1. Enter the name of the new load balancer rule (for example hana-lb-3**03**15)
+        1. Select the frontend IP address, backend pool, and health probe you created earlier (for example hana-frontend)
+        1. Keep protocol TCP, enter port 3**03**13
+        1. Increase idle timeout to 30 minutes
+        1. **Make sure to enable Floating IP**
+        1. Click OK
+        1. Repeat the steps above for port  3**03**15 and 3**03**17
 
 ## Create Pacemaker cluster
 
