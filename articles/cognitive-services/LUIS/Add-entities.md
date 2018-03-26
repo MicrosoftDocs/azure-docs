@@ -40,11 +40,11 @@ A simple entity is a generic entity that describes a single concept.
     ![Add Entity Dialog box - Simple](./media/add-entities/create-simple-airline-entity.png)
 
 ## Add regex entities
-A [regex entity](luis-content-entity-types.md#types-of-entities) is used to pull out data from the utterance based on a regular expression you provide. 
+A [regex entity](luis-concept-entity-types.md#types-of-entities) is used to pull out data from the utterance based on a regular expression you provide. 
 
 1. Open the TravelAgent app by selecting its name on **My Apps** page, and then select **Entities** in the left panel. 
 2. On the **Entities** page, select **Create new entity**.
-3. In the **Add Entity** dialog box, type "AirFrance Flight" in the **Entity name** box,  select **Regex** from the **Entity type** list, enter the regular expression `AFR[0-9]{3,4}`, and then select **Done**. This regular expression expects three characters, literally `AFR`, then 3 or 4 digits. The digits can be any number between 0 and 9. The regular expression matches AirFrance flight numbers such as: "AFR101", "ARF1302", and "AFR5006". See [Data Extraction](luis-concept-data-extraction.md#regEx-entity-data) to learn more about extracting the entity from the endpoint JSON query response. 
+3. In the **Add Entity** dialog box, type "AirFrance Flight" in the **Entity name** box,  select **Regex** from the **Entity type** list, enter the regular expression `AFR[0-9]{3,4}`, and then select **Done**. This regular expression expects three characters, literally `AFR`, then 3 or 4 digits. The digits can be any number between 0 and 9. The regular expression matches AirFrance flight numbers such as: "AFR101", "ARF1302", and "AFR5006". See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting the entity from the endpoint JSON query response. 
 
     ![Add Entity Dialog box - Simple](./media/add-entities/regex-entity-create-dialog.png)
 
