@@ -181,7 +181,7 @@
     - name: Model data collection API
       href: model-data-collection-api-reference.md
   - name: Release notes
-      href: azure-machine-learning-release-notes.md
+    href: azure-machine-learning-release-notes.md
 - name: Resources
   items:  
   - name: Frequently asked questions
