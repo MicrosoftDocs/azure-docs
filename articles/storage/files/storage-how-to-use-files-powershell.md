@@ -128,7 +128,7 @@ dir C:\Users\ContainerAdministrator\CloudDrive\
 
 ## Copy files
 
-To copy files from one file share to another file share using the [`Start-AzureStorageFileCopy`](/powershell/module/azure.storage/start-azurestoragefilecopy) cmdlet. You can also use this cmdlet to copy files to and from an Azure Blob storage container.  
+To copy files from one file share to another file share, use the [`Start-AzureStorageFileCopy`](/powershell/module/azure.storage/start-azurestoragefilecopy) cmdlet. You can also use this cmdlet to copy files to and from an Azure Blob storage container.  
 
 This example creates a new share and copies the file you just uploaded to the new share. 
 
@@ -140,7 +140,7 @@ New-AzureStorageShare `
     -Context $storageAcct.Context
 ```
 
-Create the new directory
+Create the new directory.
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `
@@ -170,7 +170,7 @@ Get-AzureStorageFile `
    -Path "myDirectory2" | Get-AzureStorageFile
 ```
 
-While the `Start-AzureStorageFileCopy` cmdlet is convenient simple moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves. Learn more about [AzCopy for Windows](../common/storage-use-azcopy.md) and [AzCopy for Linux](../common/storage-use-azcopy-linux.md). AzCopy must be installed locally - it is not available in Cloud Shell. 
+The `Start-AzureStorageFileCopy` cmdlet is convenient for simple moves between Azure file shares and Azure Blob storage containers, we recommend AzCopy for larger moves. Learn more about [AzCopy for Windows](../common/storage-use-azcopy.md) and [AzCopy for Linux](../common/storage-use-azcopy-linux.md). AzCopy must be installed locally - it is not available in Cloud Shell. 
 
 
 
@@ -203,7 +203,7 @@ Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.Name -eq
 Restore a file by using the [Start-AzureStorageFileCopy](/powershell/module/azure.storage/start-azurestoragefilecopy) cmdlet. This example deletes the **SampleUpload.txt** file that was uploaded and then restores it from the snapshot as **SampleRestore.txt**.
 
 
-Delete SampleUpload.txt
+Delete SampleUpload.txt.
 
 ```azurepowershell-interactive
 Remove-AzureStorageFile `
@@ -212,7 +212,7 @@ Remove-AzureStorageFile `
     -Path "myDirectory\SampleUpload.txt"
 ```
 
-Restore SampleUpload.txt from the share snapshot
+Restore SampleUpload.txt from the share snapshot.
 
 ```azurepowershell-interactive
 Start-AzureStorageFileCopy `
