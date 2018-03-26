@@ -38,7 +38,7 @@ Before you can use the samples in this topic, you need to complete the [prerequi
     $ClientSecret   = "<clientSecret>"         # Should be a ~44 character string insert your info here
     $loginURL       = "https://login.microsoftonline.com/"
     $tenantdomain   = "<tenantDomain>"
-    $ daterange            # For example, contoso.onmicrosoft.com
+    $daterange            # For example, contoso.onmicrosoft.com
 
     $7daysago = "{0:s}" -f (get-date).AddDays(-7) + "Z"
     # or, AddMinutes(-5)

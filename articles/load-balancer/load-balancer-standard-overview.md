@@ -215,8 +215,6 @@ Standard Load Balancer is a charged product based on number of load balancing ru
 
 ## Limitations
 
-The following limitations apply at the time of preview and are subject to change:
-
 - Load Balancer backend instances cannot be located in peered virtual networks at this time. All back-end instances must be in the same region.
 - SKUs are not mutable. You may not change the SKU of an existing resource.
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.

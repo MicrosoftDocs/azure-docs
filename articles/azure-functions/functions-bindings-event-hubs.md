@@ -200,6 +200,34 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
+To receive events in a batch, set `cardinality` to `many` in the *function.json* file:
+
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+Here's the JavaScript code:
+
+```javascript
+module.exports = function (context, eventHubMessages) {
+    context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
+    
+    eventHubMessages.forEach(message => {
+        context.log(`Processed message ${message}`);
+    });
+
+    context.done();
+};
+```
+
 ## Trigger - attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribute.
@@ -227,6 +255,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The name of the variable that represents the event item in function code. | 
 |**path** |**EventHubName** | The name of the event hub. | 
 |**consumerGroup** |**ConsumerGroup** | An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. | 
+|**cardinality** | n/a | For Javascript. Set to `many` in order to enable batching.  If omitted or set to `one`, single message passed to function. | 
 |**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
