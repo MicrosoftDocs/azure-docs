@@ -84,7 +84,7 @@ The report categorizes the existing synchronization errors in the following cate
 | Other |All other errors that don't fit in the above categories. Based on feedback, this category will be split in sub categories. |
 
 ![Sync Error Report Summary](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![Sync Error Report Categories](./media/active-directory-aadconnect-health-sync/errorreport02.png)
+![Sync Error Report Categories](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.png)
 
 ### List of objects with error per category
 Drilling into each category will provide the list of objects having the error in that category.
