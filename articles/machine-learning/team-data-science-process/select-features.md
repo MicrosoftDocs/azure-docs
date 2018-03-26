@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
+ms.author: bradsev
 
 ---
 # Feature selection in the Team Data Science Process (TDSP)
