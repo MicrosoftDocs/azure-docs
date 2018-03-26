@@ -13,10 +13,10 @@ ms.author: v-geberr;
 --- 
 
 # Simple app with intents and a list entity
-This simple app has two intents and one list entity. Its purpose is to take drink orders such as `1 coke and 1 milk please`. 
+This simple app has two [intents](luis-concept-intent.md) and one list [entity](luis-concept-entity-types). Its purpose is to take drink orders such as `1 coke and 1 milk please`. 
 
 ## App intents
-The intents are categories of what the user wants. This app has two intents: OrderDrink and None. The None intent is purposeful, to indicate anything outside the app.  
+The intents are categories of what the user wants. This app has two intents: OrderDrink and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
 
 ## List entity is an exact text match
 The purpose of the entity is to find and categorize parts of the text in the message. 
@@ -43,7 +43,7 @@ Abbreviated or slang versions of utterances include:
 The list entity matches `h2o` to water, and `pop` to soft drink.  
 
 ## What LUIS does
-When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON, LUIS is done. The calling application or chat bot takes that JSON and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
