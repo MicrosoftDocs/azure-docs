@@ -3,7 +3,7 @@ title: Azure Service Fabric - Performance monitoring with the Windows Azure Diag
 description: Use Windows Azure Diagnostics to collect performance counters for your Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur; srrengar
+author: srrengar
 manager: timlt
 editor: ''
 
