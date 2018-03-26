@@ -8,8 +8,8 @@ manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.topic: get-started-article
-ms.date: 09/21/2017
+ms.topic: overview
+ms.date: 03/28/2018
 ---
 
 # Machine learning solutions from Microsoft

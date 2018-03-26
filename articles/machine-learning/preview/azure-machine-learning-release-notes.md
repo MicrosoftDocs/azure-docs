@@ -5,11 +5,10 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
-ms.date: 10/12/2017
+ms.date: 03/28/2018
 ---
 # Release Notes for Azure Machine Learning
 
