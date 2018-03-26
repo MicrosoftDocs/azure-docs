@@ -119,7 +119,7 @@ To get SNAT connection statistics,
 
 ![SNAT Connection](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Figure - SNAT Connection Count for Load Balancer*
+*Figure - SNAT connection count for Load Balancer*
 
 
 #### How do I check inbound / outbound connection attempts for my service?
@@ -145,7 +145,7 @@ To get Byte or Packet count statistics
 
 Some example views for metrics with different configurations -
 
-![Byte Count](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
+![Byte count](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
 *Figure - Byte count for Load Balancer*
 
@@ -157,7 +157,7 @@ You can use health probe metrics to understand how Azure views the health of you
 
 You can take a step further and use VIP availability metrics to gain insight into how the Azure views the health of the underlying data plane responsible for your specific deployment. When you combine both metrics, you can isolate where the fault may be as illustrated in this example:
 
-![VIP Diagnostics](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
+![VIP diagnostics](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
 
 *Figure - Combining DIP and VIP availability metrics*
 
@@ -195,7 +195,7 @@ To view the health of your Public Standard Load Balancer resources,
 
     ![Load Balancer health status](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Figure  - Load Balancer resource heath view*
+   *Figure  - Load Balancer resource health view*
  
 The following table lists the various resource health status and their descriptions. 
 
