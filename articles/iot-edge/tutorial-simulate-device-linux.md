@@ -68,7 +68,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Configure the runtime with your IoT Edge device connection string from the previous section:
 ```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Start the runtime:

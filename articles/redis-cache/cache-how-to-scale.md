@@ -108,6 +108,7 @@ The following list contains answers to commonly asked questions about Azure Redi
 * [Will I lose data from my cache during scaling?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
+* [With Geo-replication configured, why am I not able to scale my cache or change the shards in a cluster?](#scaling-limitations-with-geo-relication)
 * [Operations that are not supported](#operations-that-are-not-supported)
 * [How long does scaling take?](#how-long-does-scaling-take)
 * [How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)
@@ -148,6 +149,12 @@ While Standard and Premium caches have a 99.9% SLA for availability, there is no
 * **Standard** and **Premium** caches remain available during the scaling operation. However, connection blips can occur while scaling Standard and Premium caches, and also while scaling from Basic to Standard caches. These connection blips are expected to be small and redis clients should be able to re-establish their connection instantly.
 * **Basic** caches are offline during scaling operations to a different size. Basic caches remain available when scaling from **Basic** to **Standard** but, may experience a small connection blip. If a connection blip occurs, redis clients should be able to re-establish their connection instantly.
 
+
+### Scaling limitations with Geo-relication
+
+Once you have added a Geo-replication link between two caches, you will no longer be able to initiate a scaling operation or change the number of shards in a cluster. You must unlink the cache to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md).
+
+
 ### Operations that are not supported
 * You can't scale from a higher pricing tier to a lower pricing tier.
   * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
@@ -157,6 +164,7 @@ While Standard and Premium caches have a 99.9% SLA for availability, there is no
 * You can't scale from a larger size down to the **C0 (250 MB)** size.
 
 If a scaling operation fails, the service tries to revert the operation, and the cache will revert to the original size.
+
 
 ### How long does scaling take?
 Scaling takes approximately 20 minutes, depending on how much data is in the cache.

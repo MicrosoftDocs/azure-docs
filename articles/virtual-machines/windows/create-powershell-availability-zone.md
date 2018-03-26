@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: 
 ---
@@ -74,7 +74,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS2
 ## Create networking resources
 
 ### Create a virtual network, subnet, and a public IP address 
-These resources are used to provide network connectivity to the virtual machine and connect it to the internet. Create the IP address in an availability zone, *2* in this example. To create the VM in an availability zone (shown in a later step), you specify the same zone used to create the IP address.
+These resources are used to provide network connectivity to the virtual machine and connect it to the internet. Create the IP address in an availability zone, *2* in this example. In a later step, you create the VM in the same zone used to create the IP address.
 
 ```powershell
 # Create a subnet configuration
@@ -138,9 +138,9 @@ Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compu
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 ```
 
-## Confirm zone for IP address and managed disk
+## Confirm zone for managed disk
 
-You created the VM's IP address resource in the same availability zone as the VM. The managed disk resource for the VM is also created in the same availability zone. You can verify this with [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
+You created the VM's IP address resource in the same availability zone as the VM. The managed disk resource for the VM is created in the same availability zone. You can verify this with [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk):
 
 ```powershell
 Get-AzureRmDisk -ResourceGroupName myResourceGroup
@@ -174,4 +174,4 @@ Tags               : {}
 
 ## Next steps
 
-In this article, you learned a how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
