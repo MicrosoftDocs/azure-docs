@@ -26,14 +26,13 @@ Customize the Docker image that Azure ML deploys using:
    az ml image create -n <my Image Name> --manifest-id <my Manifest ID> -c amlconfig\conda_dependencies.yml
    ```
 
-   > Example conda_dependencies file: 
+   Example conda_dependencies file: 
    ```
    name: project_environment
    dependencies:
       - python=3.5.2
       - scikit-learn
       - ipykernel=4.6.1
-    
       - pip:
         - azure-ml-api-sdk==0.1.0a11
         - matplotlib
