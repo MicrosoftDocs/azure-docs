@@ -92,7 +92,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 The following snippets are all taken from the C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java file.
 
-* The Gremlin `Client` is initialized from the configuration in the `C:/git-samples/azure-cosmos-db-graph-java-getting-started/src/remote.yaml/src/remote.yaml`.
+* The Gremlin `Client` is initialized from the configuration in the C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml file.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();

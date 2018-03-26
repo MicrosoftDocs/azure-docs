@@ -41,7 +41,7 @@ In addition:
 
 ## Create a database account
 
-Before you can create a document database, you need to create a SQL database account with Azure Cosmos DB.
+Before you can create a document database, you need to create a SQL API account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -58,7 +58,7 @@ You can now add data to your new collection using Data Explorer.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Now add a document to the collection with the following structure and click **Save**. You can use the **Copy** button in the code box below to copy the code to your clipboard.
+2. Now add a document to the collection with the following structure and click **Save**. Use the **Copy** button in the code box to copy the json to your clipboard.
 
      ```json
      {
@@ -116,7 +116,7 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-The following snippets are all taken from the `C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java` file.
+The following snippets are all taken from the C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java file.
 
 * `DocumentClient` initialization. The [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service. The `FILLME` portions of this code will be updated later in the quickstart.
 

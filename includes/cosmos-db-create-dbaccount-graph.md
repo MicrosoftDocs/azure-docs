@@ -20,6 +20,6 @@
 
     ![The new account blade for Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
-4. The account creation takes a few minutes. Wait for the portal to display the **Congratulations! Your Azure Cosmos DB account has been created** page.
+4. The account creation takes a few minutes. Wait for the portal to display the **Congratulations! Your Azure Cosmos DB account was created** page.
 
     ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png)
