@@ -73,6 +73,16 @@ When you run the application it prints streaming URLs for DASH, HLS, and Smooth 
 2. In the **URL:** box, paste the Streaming URL value you got when you ran the application.  
 3. Press **Update Player**.
 
+## Clean up resources
+
+If you no longer need any of the resources in your resource group, including the Media Services account you created for this Quickstart, delete the resource group. You can use the **CloudShell** tool.
+
+In the **CloudShell**, execute the following command:
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
