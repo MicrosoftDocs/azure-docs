@@ -19,18 +19,18 @@ manager: zeyadr
 
 The [Azure Blockchain App Builder]() helps organizations write smart contracts to enable their business scenarios by generating an end-to-end blockchain application. The Blockchain App Builder REST API is provided as part of an Azure Blockchain App Builder deployment. 
 
-Developers can use the Blockchain App Builder REST API to do the following:
+Developers can use the Blockchain App Builder REST API to:
 
 * Create blockchain apps
 * Manage blockchain apps within their consortium
 * Manage users or organizations associated with their consortium
-* Integrate blockchain into their organization's applications or third party applications
+* Integrate blockchain into their organization's applications or third-party applications
 * Create blockchain mobile or web apps
-* Perfom transactions on a blockchain
+* Perform transactions on a blockchain
 * Retrieve transactional data from a blockchain
 * Query metadata
 
-Azure Blockchain App Builder applications are defined by configuration information and business logic. An application consists of one or more workflows. Each workflow consists of one or more smart contracts that contain business logic in code files. Each smart contract flow is defined by one or more states. Authorized users can take actions to transition to the next state in the workflow. 
+Azure Blockchain App Builder applications are defined by configuration information and business logic. An application is represented by one or more workflows. Each workflow consists of one or more smart contracts that include business logic in code files. Each smart contract flow is defined by one or more states. Authorized users can take actions to transition to the next state in the workflow. 
 
  For example, you could create a blockchain app to manage and track organic goods. The app is represented as the following workflows:
 
