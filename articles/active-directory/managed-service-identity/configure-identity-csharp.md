@@ -77,11 +77,11 @@ namespace ManagedIdentityVM
 
 ```  
 
-2.  To run the console application, click **Start**.
+2. To run the console application, click **Start**.  
 
 ## Enable and remove managed identity for an Azure VM
 
-It is recommended to use Azure CLI to enable or remove managed identity from an Azure VM.  For instructions on how to enable and remove managed identity for an Azure VM:
+It is recommended to use Azure CLI to enable or remove managed identity from an Azure VM.  For instructions on how to enable and remove managed identity for an Azure VM using CLI:
 
 - [Enable MSI on an existing Azure VM](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-cli-windows-vm#enable-msi-on-an-existing-azure-vm)
 - [Remove MSI from an Azure VM](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-cli-windows-vm#remove-msi-from-an-azure-vm)
