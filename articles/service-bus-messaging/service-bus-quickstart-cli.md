@@ -106,6 +106,117 @@ Run the following command to remove the resource group, namespace, and all relat
 az group delete --resource-group my-resourcegroup
 ```
 
+## Understand the sample code
+
+This section contains more details about what the sample code does. 
+
+### Create queue clients to send and receive
+
+To send and receive messages, the `run()` method creates queue client instances, which are constructed from the connection string and the queue name. This code creates two queue clients, one each for sending and receiving:
+
+```java
+public void run() throws Exception {
+
+// Create a QueueClient instance for receiving using the connection string builder
+// We set the receive mode to "PeekLock", meaning the message is delivered
+// under a lock and must be acknowledged ("completed") to be removed from the queue
+QueueClient receiveClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
+this.registerReceiver(receiveClient);
+
+// Create a QueueClient instance for sending and then asynchronously send messages.
+QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
+```
+
+The `run()` method also starts the asynchronous message sending operation and closes the sender once the send operation is complete:
+
+```java
+this.sendMessagesAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+``` 
+
+### Construct and send messages
+
+The `sendMessagesAsync()` method creates a set of 10 messages and asynchronously sends them using the queue client:
+
+```java
+CompletableFuture<Void> sendMessagesAsync(QueueClient sendClient) {
+List<HashMap<String, String>> data =
+        GSON.fromJson(
+                "[" +
+                        "{'name' = 'Einstein', 'firstName' = 'Albert'}," +
+                        "{'name' = 'Heisenberg', 'firstName' = 'Werner'}," +
+                        "{'name' = 'Curie', 'firstName' = 'Marie'}," +
+                        "{'name' = 'Hawking', 'firstName' = 'Steven'}," +
+                        "{'name' = 'Newton', 'firstName' = 'Isaac'}," +
+                        "{'name' = 'Bohr', 'firstName' = 'Niels'}," +
+                        "{'name' = 'Faraday', 'firstName' = 'Michael'}," +
+                        "{'name' = 'Galilei', 'firstName' = 'Galileo'}," +
+                        "{'name' = 'Kepler', 'firstName' = 'Johannes'}," +
+                        "{'name' = 'Kopernikus', 'firstName' = 'Nikolaus'}" +
+                        "]",
+                new TypeToken<List<HashMap<String, String>>>() {}.getType());
+
+List<CompletableFuture> tasks = new ArrayList<>();
+for (int i = 0; i < data.size(); i++) {
+    final String messageId = Integer.toString(i);
+    Message message = new Message(GSON.toJson(data.get(i), Map.class).getBytes(UTF_8));
+    message.setContentType("application/json");
+    message.setLabel("Scientist");
+    message.setMessageId(messageId);
+    message.setTimeToLive(Duration.ofMinutes(2));
+    System.out.printf("\nMessage sending: Id = %s", message.getMessageId());
+    tasks.add(
+            sendClient.sendAsync(message).thenRunAsync(() -> {
+                System.out.printf("\n\tMessage acknowledged: Id = %s", message.getMessageId());
+            }));
+}
+return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
+```
+
+### Receive messages
+
+The registerReceiver() method registers the RegisterMessageHandler callback and also sets some message handler options:
+
+```java
+void registerReceiver(QueueClient queueClient) throws Exception {
+
+    // register the RegisterMessageHandler callback
+    queueClient.registerMessageHandler(new IMessageHandler() {
+                                           // callback invoked when the message handler loop has obtained a message
+                                           public CompletableFuture<Void> onMessageAsync(IMessage message) {
+                                               // receives message is passed to callback
+                                               if (message.getLabel() != null &&
+                                                       message.getContentType() != null &&
+                                                       message.getLabel().contentEquals("Scientist") &&
+                                                       message.getContentType().contentEquals("application/json")) {
+
+                                                   byte[] body = message.getBody();
+                                                   Map scientist = GSON.fromJson(new String(body, UTF_8), Map.class);
+
+                                                   System.out.printf(
+                                                           "\n\t\t\t\tMessage received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
+                                                                   "\n\t\t\t\t\t\tExpiresAtUtc = %s, \n\t\t\t\t\t\tContentType = \"%s\",  \n\t\t\t\t\t\tContent: [ firstName = %s, name = %s ]\n",
+                                                           message.getMessageId(),
+                                                           message.getSequenceNumber(),
+                                                               message.getEnqueuedTimeUtc(),
+                                                           message.getExpiresAtUtc(),
+                                                           message.getContentType(),
+                                                           scientist != null ? scientist.get("firstName") : "",
+                                                           scientist != null ? scientist.get("name") : "");
+                                               }
+                                               return CompletableFuture.completedFuture(null);
+                                           }
+
+                                           // callback invoked when the message handler has an exception to report
+                                           public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
+                                               System.out.printf(exceptionPhase + "-" + throwable.getMessage());
+                                           }
+                                       },
+            // 1 concurrent call, messages are auto-completed, auto-renew duration
+            new MessageHandlerOptions(1, true, Duration.ofMinutes(1)));
+
+}
+```
+
 ## Next steps
 
 In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about sending and receiving messages, continue with the following articles:
