@@ -35,14 +35,13 @@ Required permissions | For permissions required to apply an update, see [account
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## 1.1.750.0
-Status: Released to select customers
-This release is currently distributed to a small and random selection of AADConnect tenants that have enabled auto-upgrade. We will expand this group of tenants in the coming weeks until 100% of our auto-upgrade customers have received this release. After that we will post the build for general download on the above download link.
+Status 3/22/2018: Released for auto-upgrade and download.
 >[!NOTE]
 >When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
 
 >[!NOTE]
->“AutoUpgrade functionality was incorrectly disabled for some tenants by builds later than 1.1.524.0. To ensure that your Azure AD Connect instance is still eligible for AutoUpgrade, run the following PowerShell cmdlet:
-“Set-ADSyncAutoUpgrade -AutoupGradeState AutoUpgradeConfigurationState.Enabled”?
+>“AutoUpgrade functionality was incorrectly disabled for some tenants who deployed builds later than 1.1.524.0. To ensure that your Azure AD Connect instance is still eligible for AutoUpgrade, run the following PowerShell cmdlet:
+“Set-ADSyncAutoUpgrade -AutoupGradeState Enabled”
 
 
 ### Azure AD Connect
