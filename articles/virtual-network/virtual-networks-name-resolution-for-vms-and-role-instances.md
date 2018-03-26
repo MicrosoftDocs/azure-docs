@@ -130,7 +130,7 @@ The resolv.conf file is usually auto-generated, and should not be edited. The sp
   1. Add *echo "options timeout:1 attempts:5"* to **/etc/NetworkManager/dispatcher.d/11-dhclient**. 
   2. Update with `service network restart`.
 
-## Name resolution that uses your own DNS server
+## <a name="name-resolution-using-your-own-dns-server"></a>Name resolution that uses your own DNS server
 
 This section covers VMs and role instances, and web apps.
 
