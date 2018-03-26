@@ -76,7 +76,7 @@ Now, you can add the C# function code that connects to your SQL Database.
     #r "System.Data"
 	```
     >[!NOTE]
-    >The code in these examples are from C# script in the portal. When you are developing a precompiled C# function locally, you must instead add references to these assembles in your project.  
+    >The code in these examples are C# script from the portal. When you are developing a precompiled C# function locally, you must instead add references to these assembles in your local project.  
 
 3. Add the following `using` statements to the function:
 	```cs
