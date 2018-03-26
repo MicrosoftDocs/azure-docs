@@ -1,6 +1,6 @@
 ---
-title: 'Send messages to an MQTT server'
-description: Use the DevKit as a client to send messages to an MQTT server | Microsoft Docs.
+title: 'Send messages to an MQTT server using the Azure MQTT client library | Microsoft Docs.'
+description: Use the DevKit as a client to send messages to an MQTT server.
 services: iot-hub
 documentationcenter: ''
 author: liydu
@@ -13,7 +13,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2018
+ms.date: 03/26/2018
 ms.author: liydu
 
 ---
@@ -92,7 +92,14 @@ If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## See Also
+## See also
 
 * [Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud]({{"/docs/getting-started/" | absolute_url }})
 * [Shake, Shake for a Tweet]({{"/docs/projects/shake-shake/" | absolute_url }})
+
+## Next steps
+
+Now that you have learned how to configure your MXChip Iot DevKit as an MQTT client and use the MQTT Client library to send messages to an MQTT broker, here are the suggested next steps:
+
+* [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
