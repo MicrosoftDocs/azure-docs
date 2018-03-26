@@ -25,13 +25,8 @@ Web Apps not only adds the power of Microsoft Azure to your application, such as
 
 With App Service, you pay for the Azure compute resources you use. The compute resources you use is determined by the _App Service plan_ that you run your Web Apps on. For more information, see [App Service plans in Azure Web Apps](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-The following 5-minute video introduces Azure App Service Web Apps.
-
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Web-Apps-with-Yochay-Kiriaty/player]
->
->
-
 ## Why use Web Apps?
+
 Here are some key features of App Service Web Apps:
 
 * **Multiple languages and frameworks** - Web Apps has first-class support for ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, or Python. You can also run [PowerShell and other scripts or executables](web-sites-create-web-jobs.md) as background services.
@@ -67,4 +62,3 @@ Create your first web app.
 
 > [!div class="nextstepaction"]
 > [HTML](app-service-web-get-started-html.md)
-
