@@ -126,6 +126,11 @@ The **services available in Azure Government** are listed by category, as well a
 | [Azure Portal](documentation-government-services-monitoringandmanagement.md#azure-portal) | |
 | [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager) | |
 
+## Developer Tools
+| Generally Available | Preview |
+| --- | --- |
+| [DevTest Labs](documentation-government-services-devtools.md#devtest-labs)| |
+
 
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/).
