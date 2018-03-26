@@ -30,7 +30,7 @@ You can use the following images to compare the original page and the experiment
 
 [![View of the experimental landing page and table of contents](./media/experiment/new-page.png)](https://review.docs.microsoft.com/en-us/azure/cosmos-db/index?branch=pr-en-us-35257)
 
-Click the **Provide feedback** button below and provide feedback on this new experience after you've had a chance to get familiar with the new organization of the table of contents and the landing page. Please submit the form no later than midnight March 28th, 2018 so that the feedback can be reviewed and incorporated. 
+Click the **Provide feedback** button below and provide feedback on this new experience after you've had a chance to get familiar with the new organization of the table of contents and the landing page. Please submit the form no later than midnight March 30th, 2018 so that the feedback can be reviewed and incorporated. 
 
 > [!div class="nextstepaction"]
 > [Provide feedback](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7nNByCFnW1EvwkPlRiTC3hUMDJUV0w2RDdXSVFPN1UzOEY0S1QxMU5YQy4u)
