@@ -2,23 +2,19 @@
 title: Azure SQL Database Resource Limits | Microsoft Docs
 description: This page describes some common resource limits for Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Active"
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: carlrab
 
 ---
 # Azure SQL Database resource limits
+
+> [!IMPORTANT]
+> For resource limits with Azure SQL Database Managed Instance, see [SQL Database Managed Instance](sql-database-managed-instance.md#managed-instance-service-tier).
 
 ## Single database: Storage sizes and performance levels
 
@@ -50,7 +46,7 @@ The duration of the entire scale-up process depends on both the size and service
 
 * If you are upgrading to a higher service tier or performance level, the database max size does not increase unless you explicitly specify a larger size (maxsize).
 * To downgrade a database, the database used space must be smaller than the maximum allowed size of the target service tier and performance level. 
-* When downgrading from **Premium** or **Premium RS** to the **Standard** tier, an extra storage cost applies if both (1) the max size of the database is supported in the target performance level, and (2) the max size exceeds the included storage amount of the target performance level. For example, if a P1 database with a max size of 500 GB is downsized to S3, then an extra storage cost applies since S3 supports a max size of 500 GB and its included storage amount is only 250 GB. So, the extra storage amount is 500 GB – 250 GB = 250 GB. For pricing of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount. 
+* When downgrading from **Premium** to the **Standard** tier, an extra storage cost applies if both (1) the max size of the database is supported in the target performance level, and (2) the max size exceeds the included storage amount of the target performance level. For example, if a P1 database with a max size of 500 GB is downsized to S3, then an extra storage cost applies since S3 supports a max size of 500 GB and its included storage amount is only 250 GB. So, the extra storage amount is 500 GB – 250 GB = 250 GB. For pricing of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount. 
 * When upgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, upgrade its secondary databases to the desired performance tier before upgrading the primary database (general guidance). When upgrading to a different, upgrading the secondary database first is required.
 * When downgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, downgrade its primary databases to the desired performance tier before downgrading the secondary database (general guidance). When downgrading to a different edition, downgrading the primary database first is required.
 * The restore service offerings are different for the various service tiers. If you are downgrading to the **Basic** tier, there is a lower backup retention period - see [Azure SQL Database Backups](sql-database-automated-backups.md).
@@ -58,7 +54,7 @@ The duration of the entire scale-up process depends on both the size and service
 
 ## Single database: limitations of P11 and P15 when the maximum size greater than 1 TB
 
-A maximum size greater than 1 TB for P11 and P15 database is supported in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The following considerations and limitations apply to P11 and P15 databases with a maximum size greater than 1 TB:
+A maximum size greater than 1 TB for P11 and P15 database is supported in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. The following considerations and limitations apply to P11 and P15 databases with a maximum size greater than 1 TB:
 
 - If you choose a maximum size greater than 1 TB when creating a database (using a value of 4 TB or 4096 GB), the create command fails with an error if the database is provisioned in an unsupported region.
 - For existing P11 and P15 databases located in one of the supported regions, you can increase the maximum storage to beyond 1 TB in increments of 256 GB up to 4 TB. To see if a larger size is supported in your region, use the [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) function or inspect the database size in the Azure portal. Upgrading an existing P11 or P15 database can only be performed by a server-level principal login or by members of the dbmanager database role. 
@@ -76,7 +72,6 @@ For SQL Database elastic pools, the following tables show the resources availabl
 
 > [!NOTE]
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -108,6 +103,19 @@ You can increase or decrease the resources available to an elastic pool based on
 - In general, the duration to change the min eDTUs per database or max eDTUs per database is five minutes or less.
 - When downsizing pool eDTUs, the pool used space must be smaller than the maximum allowed size of the target service tier and pool eDTUs.
 - When rescaling pool eDTUs, an extra storage cost applies if (1) the storage max size of the pool is supported by the target pool, and (2) the storage max size exceeds the included storage amount of the target pool. For example, if a 100 eDTU Standard pool with a max size of 100 GB is downsized to a 50 eDTU Standard pool, then an extra storage cost applies since target pool supports a max size of 100 GB and its included storage amount is only 50 GB. So, the extra storage amount is 100 GB – 50 GB = 50 GB. For pricing of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount. 
+
+## What is the maximum number of servers and databases?
+
+| Maximum | Value |
+| :--- | :--- |
+| Databases per server | 5000 |
+| Number of servers per subscription per region | 21 |
+|||
+
+> [!IMPORTANT]
+> As the number of databases approaches the limit per server, the following can occur:
+> <br> •	Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
+> <br> •	Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
 ## What happens when database and elastic pool resource limits are reached?
 
@@ -143,4 +151,4 @@ When encountering high session or worker utilization, mitigation options include
 - For information about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 - For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
-- For information about tempdb size limits, see https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.
+- For information about tempdb size limits, see https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

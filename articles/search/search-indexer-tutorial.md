@@ -118,7 +118,7 @@ The following exercise assumes no existing server or database, and instructs you
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
-2. Click **New** > **SQL Database** to create a database, server, and resource group. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
+2. Click **Create a resource** > **SQL Database** to create a database, server, and resource group. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
 
    ![New database page](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

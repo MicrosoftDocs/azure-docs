@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 
@@ -57,6 +57,7 @@ The granularity of consistency is scoped to a single user request. A write reque
 ## Consistency levels
 You can configure a default consistency level on your database account that applies to all collections (and databases) under your Cosmos DB account. By default, all reads and queries issued against the user-defined resources use the default consistency level specified on the database account. You can relax the consistency level of a specific read/query request using in each of the supported APIs. There are five types of consistency levels supported by the Azure Cosmos DB replication protocol that provide a clear trade-off between specific consistency guarantees and performance, as described in this section.
 
+<a id="strong"></a>
 **Strong**: 
 
 * Strong consistency offers a [linearizability](https://aphyr.com/posts/313-strong-consistency-models) guarantee with the reads guaranteed to return the most recent version of an item. 
@@ -64,6 +65,7 @@ You can configure a default consistency level on your database account that appl
 * Azure Cosmos DB accounts that are configured to use strong consistency cannot associate more than one Azure region with their Azure Cosmos DB account.  
 * The cost of a read operation (in terms of [request units](request-units.md) consumed) with strong consistency is higher than session and eventual, but the same as bounded staleness.
 
+<a id="bounded-staleness"></a>
 **Bounded staleness**: 
 
 * Bounded staleness consistency guarantees that the reads may lag behind writes by at most *K* versions or prefixes of an item or *t* time-interval. 
@@ -73,6 +75,7 @@ You can configure a default consistency level on your database account that appl
 * Azure Cosmos DB accounts that are configured with bounded staleness consistency can associate any number of Azure regions with their Azure Cosmos DB account. 
 * The cost of a read operation (in terms of RUs consumed) with bounded staleness is higher than session and eventual consistency, but the same as strong consistency.
 
+<a id="session"></a>
 **Session**: 
 
 * Unlike the global consistency models offered by strong and bounded staleness consistency levels, session consistency is scoped to a client session. 
@@ -88,6 +91,7 @@ You can configure a default consistency level on your database account that appl
 * Consistent prefix guarantees that reads never see out of order writes. If writes were performed in the order `A, B, C`, then a client sees either `A`, `A,B`, or `A,B,C`, but never out of order like `A,C` or `B,A,C`.
 * Azure Cosmos DB accounts that are configured with consistent prefix consistency can associate any number of Azure regions with their Azure Cosmos DB account. 
 
+<a id="eventual"></a>
 **Eventual**: 
 
 * Eventual consistency guarantees that in absence of any further writes, the replicas within the group eventually converge. 
@@ -115,24 +119,19 @@ By default, for user-defined resources, the consistency level for queries is the
 
 As with read requests, you can lower the consistency level of a specific query request in each API.
 
+## Consistency levels for the MongoDB API
+
+Azure Cosmos DB currently implements MongoDB version 3.4, which has two consistency settings, strong and eventual. Because Azure Cosmos DB is multi-api, the consistency settings are applicable at the account level and enforcement of the consistency is controlled by each API.  Until MongoDB 3.6, there was no concept of a session consistency, so if you set a MongoDB API account to use session consistency, the consistency is downgraded to eventual when using MongoDB APIs. If you need a read-your-own-write guarantee for a MongoDB API account, the default consistency level for the account should be set to strong or bounded staleness.
+
 ## Next steps
 If you'd like to do more reading about consistency levels and tradeoffs, we recommend the following resources:
 
-* Doug Terry. Replicated Data Consistency explained through baseball (video).   
-  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
-* Doug Terry. Replicated Data Consistency explained through baseball.   
-  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
-  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”.   
-  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels. Eventual Consistent - Revisited.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* Moni Naor , Avishai Wool, The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing, v.27 n.2, p.423-447, April 1998.
-  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, Line-up: a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation, June 05-10, 2010, Toronto, Ontario, Canada  [doi>10.1145/1806596.1806634]
-  [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein , Ion Stoica, Probabilistically bounded staleness for practical partial quorums, Proceedings of the VLDB Endowment, v.5 n.8, p.776-787, April 2012
-  [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* [Replicated Data Consistency explained through baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
+* [Replicated Data Consistency explained through baseball (whitepaper) by Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+* [Session Guarantees for Weakly Consistent Replicated Data](http://dl.acm.org/citation.cfm?id=383631)
+* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+* [Eventual Consistent - Revisited](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* [Line-up: a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation](http://dl.acm.org/citation.cfm?id=1806634)
+* [Probabilistically bounded staleness for practical partial quorums](http://dl.acm.org/citation.cfm?id=2212359)

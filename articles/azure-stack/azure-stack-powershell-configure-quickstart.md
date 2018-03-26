@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 03/22/2018
 ms.author: mabrigg
 
 ---
@@ -47,7 +47,7 @@ Set-ExecutionPolicy RemoteSigned `
   -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
-Get-Module -ListAvailable | `
+Get-Module -ListAvailable -Name Azure* | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -66,7 +66,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -81,10 +81,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 
 # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
@@ -136,6 +132,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -150,9 +147,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `
@@ -178,6 +172,9 @@ Now that you’ve configured PowerShell, you can test the configuration by creat
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> To specify a resource group, you will need to have a resource group in your subscription. For more information about subscriptions, see [Plan, offer, quota, and subscription overview](azure-stack-plan-offer-quota-overview.md)
+
 After the resource group is created, the **Provisioning state** property is set to **Succeeded**.
 
 ## Next steps
@@ -185,10 +182,3 @@ After the resource group is created, the **Provisioning state** property is set 
 * [Install and configure CLI](azure-stack-connect-cli.md)
 
 * [Develop templates](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-

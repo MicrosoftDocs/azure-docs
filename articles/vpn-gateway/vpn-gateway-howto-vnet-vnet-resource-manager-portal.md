@@ -4,7 +4,7 @@ description: Create a VPN gateway connection between VNets by using Resource Man
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/29/2017
+ms.date: 03/21/2018
 ms.author: cherylmc
 
 ---
 # Configure a VNet-to-VNet VPN gateway connection using the Azure portal
 
-This article shows you how to connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant. 
+This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant. 
 
 The steps in this article apply to the Resource Manager deployment model and use the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
@@ -124,7 +124,7 @@ You can add additional address space and create subnets once your VNet has been 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Create a gateway subnet
-Before connecting your virtual network to a gateway, you first need to create the gateway subnet for the virtual network to which you want to connect. If possible, it's best to create a gateway subnet using a CIDR block of /28 or /27 in order to provide enough IP addresses to accommodate additional future configuration requirements.
+Before creating a vitual network gateway for your virtual network, you first need to create the gateway subnet. The gateway subnet contains the IP addresses that are used by the virtual network gateway. If possible, it's best to create a gateway subnet using a CIDR block of /28 or /27 in order to provide enough IP addresses to accommodate additional future configuration requirements.
 
 If you are creating this configuration as an exercise, refer to these [Example settings](#values) when creating your gateway subnet.
 

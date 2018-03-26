@@ -46,7 +46,7 @@ Various drives exist within App Service, including local drives and network driv
 <a id="LocalDrives"></a>
 
 ### Local drives
-At its core, App Service is a service running on top of the Azure PaaS (platform as a service) infrastructure. As a result, the local drives that are "attached" to a virtual machine are the same drive types available to any worker role running in Azure. This includes an operating system drive (the D:\ drive), an application drive that contains Azure Package cspkg files used exclusively by App Service (and inaccessible to customers), and a "user" drive (the C:\ drive), whose size varies depending on the size of the VM.
+At its core, App Service is a service running on top of the Azure PaaS (platform as a service) infrastructure. As a result, the local drives that are "attached" to a virtual machine are the same drive types available to any worker role running in Azure. This includes an operating system drive (the D:\ drive), an application drive that contains Azure Package cspkg files used exclusively by App Service (and inaccessible to customers), and a "user" drive (the C:\ drive), whose size varies depending on the size of the VM. It is important to monitor your disk utilization as your application grows. If the disk quota is reached, it can have adverse effects to your application.
 
 <a id="NetworkDrives"></a>
 

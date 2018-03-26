@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
 
 ---
@@ -35,7 +35,7 @@ Before you begin trying this HBase example, you must have the following items:
 ## Create HBase cluster
 The following procedure uses an Azure Resource Manager template to create a HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Click the following image to open the template in the Azure portal. The template is located in a public blob container. 
+1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/).
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. From the **Custom deployment** blade, enter the following values:

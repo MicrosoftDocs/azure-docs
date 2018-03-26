@@ -4,15 +4,15 @@ description: 'These tutorials show you how to incrementally copy data from a sou
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
 ---
 # Incrementally load data from a source data store to a destination data store

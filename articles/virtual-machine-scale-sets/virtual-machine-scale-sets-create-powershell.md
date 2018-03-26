@@ -117,7 +117,7 @@ $ipConfig = New-AzureRmVmssIpConfig `
 
 
 ## Create a scale set
-Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The *vmssConfig* object creates 2 VM instances in East US, with the credentials as specified in the *adminUsername* and *securePassword* variables. Provide your own credentials and create a scale set as follows:
+Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The *vmssConfig* object creates 2 VM instances in East US, with the credentials as specified in the *adminUsername* and *securePassword* variables. Provide your own credentials and create a scale set as follows:
 
 ```azurepowershell-interactive
 # Provide your own secure password for use with the VM instances

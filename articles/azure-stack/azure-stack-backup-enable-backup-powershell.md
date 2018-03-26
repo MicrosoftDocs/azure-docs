@@ -1,6 +1,6 @@
 ---
 title: Enable Backup for Azure Stack with PowerShell | Microsoft Docs
-description: Enable the Infrastructure Back Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. 
+description: Enable the Infrastructure Backup Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. 
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -21,11 +21,11 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Enable the Infrastructure Back Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. You can access the PowerShell cmdlets to enable backup, start backup, and get backup information via the operator management endpoint.
+Enable the Infrastructure Backup Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. You can access the PowerShell cmdlets to enable backup, start backup, and get backup information via the operator management endpoint.
 
 ## Download Azure Stack Tools
 
-Install and configured PowerShell for Azure Stack and the Azure Stack tools. See [Get up and running with PowerShell in Azure Stack](https://review.docs.microsoft.com/en-us/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+Install and configured PowerShell for Azure Stack and the Azure Stack tools. See [Get up and running with PowerShell in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
 
 ##  Load the Connect and Infrastructure modules
 
@@ -87,6 +87,9 @@ In the same PowerShell session, run the following commands:
    $encryptionkey = New-EncryptionKeyBase64
    ```
 
+> [!Warning]  
+> You must use the AzureStack-Tools to generate the key.
+
 ## Provide the backup share, credentials, and encryption key to enable backup
 
 In the same PowerShell session, edit the following PowerShell script by adding the variables for your environment. Run the updated script to provide the backup share, credentials, and encryption key to the Infrastructure Backup Service.
@@ -95,18 +98,18 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 |---              |---                                        |
 | $username       | Type the **Username** using the domain and username for the shared drive location. For example, `Contoso\administrator`. |
 | $password       | Type the **Password** for the user. |
-| $sharepath      | Type the path to the **Backup storage location**. You must use a Universal Naming Convention (UNC) string for the path a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. To ensure availability of the backup data, the  device should be in a separate location. |
+| $sharepath      | Type the path to the **Backup storage location**. You must use a Universal Naming Convention (UNC) string for the path to a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. To ensure availability of the backup data, the  device should be in a separate location. |
 
    ```powershell
-   $username = "domain\backupoadmin"
+    $username = "domain\backupoadmin"
     $password = "password"
     $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
     $location = Get-AzsLocation
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-
-Set-AzSBackupShare -Location $location -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
-
+    
+    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
    ```
+   
 ##  Confirm backup settings
 
 In the same PowerShell session, run the following commands:

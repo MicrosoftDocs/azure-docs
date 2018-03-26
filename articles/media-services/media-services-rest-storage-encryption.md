@@ -26,7 +26,7 @@ This article gives an overview of AMS storage encryption and shows you how to up
 * Create a content key.
 * Create an Asset. Set the AssetCreationOption to StorageEncryption when creating the Asset.
   
-     Encrypted assets have to be associated with content keys.
+     Encrypted assets are associated with content keys.
 * Link the content key to the asset.  
 * Set the encryption-related parameters on the AssetFile entities.
 
@@ -41,60 +41,62 @@ When accessing entities in Media Services, you must set specific header fields a
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## Storage encryption overview
-The AMS storage encryption applies **AES-CTR** mode encryption to the entire file.  AES-CTR mode is a block cipher that can encrypt arbitrary length data without need for padding. It operates by encrypting a counter block with the AES algorithm and then XOR-ing the output of AES with the data to encrypt or decrypt.  The counter block used is constructed by copying the value of the InitializationVector to bytes 0 to 7 of the counter value and bytes 8 to 15 of the counter value are set to zero. Of the 16-byte counter block, bytes 8 to 15 (that is, the least significant bytes) are used as a simple 64-bit unsigned integer that is incremented by one for each subsequent block of data processed and is kept in network byte order. If this integer reaches the maximum value (0xFFFFFFFFFFFFFFFF) then incrementing it resets the block counter to zero (bytes 8 to 15) without affecting the other 64 bits of the counter (that is, bytes 0 to 7).   In order to maintain the security of the AES-CTR mode encryption, the InitializationVector value for a given Key Identifier for each content key shall be unique for each file and files shall be less than 2^64 blocks in length.  This is to ensure that a counter value is never reused with a given key. For more information about the CTR mode, see [this wiki page](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (the wiki article uses the term "Nonce" instead of "InitializationVector").
+The AMS storage encryption applies **AES-CTR** mode encryption to the entire file.  AES-CTR mode is a block cipher that can encrypt arbitrary length data without need for padding. It operates by encrypting a counter block with the AES algorithm and then XOR-ing the output of AES with the data to encrypt or decrypt.  The counter block used is constructed by copying the value of the InitializationVector to bytes 0 to 7 of the counter value and bytes 8 to 15 of the counter value are set to zero. Of the 16-byte counter block, bytes 8 to 15 (that is, the least significant bytes) are used as a simple 64-bit unsigned integer that is incremented by one for each subsequent block of data processed and is kept in network byte order. If this integer reaches the maximum value (0xFFFFFFFFFFFFFFFF), then incrementing it resets the block counter to zero (bytes 8 to 15) without affecting the other 64 bits of the counter (that is, bytes 0 to 7).   In order to maintain the security of the AES-CTR mode encryption, the InitializationVector value for a given Key Identifier for each content key shall be unique for each file and files shall be less than 2^64 blocks in length.  This unique value is to ensure that a counter value is never reused with a given key. For more information about the CTR mode, see [this wiki page](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (the wiki article uses the term "Nonce" instead of "InitializationVector").
 
 Use **Storage Encryption** to encrypt your clear content locally using AES-256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.
 
 In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, common encryption, or no encryption).
 
 ## Create ContentKeys used for encryption
-Encrypted assets have to be associated with Storage Encryption key. You must create the content key to be used for encryption before creating the asset files. This section describes how to create a content key.
+Encrypted assets are associated with Storage Encryption keys. Create the content key to be used for encryption before creating the asset files. This section describes how to create a content key.
 
 The following are general steps for generating content keys that you associate with assets that you want to be encrypted. 
 
 1. For storage encryption, randomly generate a 32-byte AES key. 
    
-    This is the content key for your asset, which means all files associated with that asset need to use the same content key during decryption. 
+    The 32-byte AES Key is the content key for your asset, which means all files associated with that asset need to use the same content key during decryption. 
 2. Call the [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
 3. Encrypt your content key with the public key of the X.509 Certificate. 
    
    Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see a .NET example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Create a checksum value calculated using the key identifier and content key. The following .NET example calculates the checksum using the GUID part of the key identifier and the clear content key.
 
-        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-        {
-            const int ChecksumLength = 8;
-            const int KeyIdLength = 16;
-
-            byte[] encryptedKeyId = null;
-
-            // Checksum is computed by AES-ECB encrypting the KID
-            // with the content key.
-            using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+    ```csharp
+            public static string CalculateChecksum(byte[] contentKey, Guid keyId)
             {
-                rijndael.Mode = CipherMode.ECB;
-                rijndael.Key = contentKey;
-                rijndael.Padding = PaddingMode.None;
+                const int ChecksumLength = 8;
+                const int KeyIdLength = 16;
 
-                ICryptoTransform encryptor = rijndael.CreateEncryptor();
-                encryptedKeyId = new byte[KeyIdLength];
-                encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                byte[] encryptedKeyId = null;
+
+                // Checksum is computed by AES-ECB encrypting the KID
+                // with the content key.
+                using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+                {
+                    rijndael.Mode = CipherMode.ECB;
+                    rijndael.Key = contentKey;
+                    rijndael.Padding = PaddingMode.None;
+
+                    ICryptoTransform encryptor = rijndael.CreateEncryptor();
+                    encryptedKeyId = new byte[KeyIdLength];
+                    encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                }
+
+                byte[] retVal = new byte[ChecksumLength];
+                Array.Copy(encryptedKeyId, retVal, ChecksumLength);
+
+                return Convert.ToBase64String(retVal);
             }
+    ```
 
-            byte[] retVal = new byte[ChecksumLength];
-            Array.Copy(encryptedKeyId, retVal, ChecksumLength);
-
-            return Convert.ToBase64String(retVal);
-        }
-
-1. Create the Content key with the **EncryptedContentKey** (converted to base64-encoded string), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, and **Checksum** values you have received in previous steps.
+5. Create the Content key with the **EncryptedContentKey** (converted to base64-encoded string), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, and **Checksum** values you have received in previous steps.
 
     For storage encryption, the following properties should be included in the request body.
 
     Request body property    | Description
     ---|---
-    Id | The ContentKey Id which we generate ourselves using the following format, “nb:kid:UUID:<NEW GUID>”.
-    ContentKeyType | This is the content key type as an integer for this content key. We pass the value 1 for storage encryption.
+    Id | The ContentKey Id is generated using the following format, “nb:kid:UUID:<NEW GUID>”.
+    ContentKeyType | The content key type is an integer that defines the key. For storage encryption format, the value is 1.
     EncryptedContentKey | We create a new content key value that is a 256-bit (32 bytes) value. The key is encrypted using the storage encryption X.509 certificate that we retrieve from Microsoft Azure Media Services by executing an HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods. As an example, see the following .NET code: the  **EncryptSymmetricKeyData** method defined [here](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | This is the protection key id for the storage encryption X.509 certificate that was used to encrypt our content key.
     ProtectionKeyType | This is the encryption type for the protection key that was used to encrypt the content key. This value is StorageEncryption(1) for our example.
@@ -169,7 +171,7 @@ Response:
 ### Create the content key
 After you have retrieved the X.509 certificate and used its public key to encrypt your content key, create a **ContentKey** entity and set its property values accordingly.
 
-One of the values that you must set when create the content key is the type. In case of the storage encryption, the value is '1'. 
+One of the values that you must set when create the content key is the type. When using storage encryption, the value should be set to '1'. 
 
 The following example shows how to create a **ContentKey** with a **ContentKeyType** set for storage encryption ("1") and the **ProtectionKeyType** set to "0" to indicate that the protection key Id is the X.509 certificate thumbprint.  
 
@@ -239,7 +241,7 @@ The following example shows how to create an asset.
 
 **HTTP Response**
 
-If successful, the following is returned:
+If successful, the following response is returned:
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -291,7 +293,7 @@ Response:
 ## Create an AssetFile
 The [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
-Note that the **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
+The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
 After you upload your digital media file into a blob container, you will use the **MERGE** HTTP request to update the AssetFile with information about your media file (not shown in this article). 
 

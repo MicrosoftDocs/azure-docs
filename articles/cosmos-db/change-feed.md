@@ -3,7 +3,7 @@ title: Working with the change feed support in Azure Cosmos DB | Microsoft Docs
 description: Use Azure Cosmos DB change feed support to track changes in documents and perform event-based processing like triggers and keeping caches and analytics systems up-to-date. 
 keywords: change feed
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
+ms.date: 01/29/2018
+ms.author: rafats
 
 ---
 # Working with the change feed support in Azure Cosmos DB
@@ -57,6 +57,7 @@ Additional details:
 * Changes can be synchronized from any point-in-time, that is, there is no fixed data retention period for which changes are available.
 * Changes are available in chunks of partition key ranges. This capability allows changes from large collections to be processed in parallel by multiple consumers/servers.
 * Applications can request multiple change feeds simultaneously on the same collection.
+* ChangeFeedOptions.StartTime can be used to provide an initial starting point, for example, to find the continuation token corresponding to given clock time. The ContinuationToken, if specified, wins over the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs. 
 
 ## Use cases and scenarios
 
@@ -66,7 +67,6 @@ For example, with a change feed, you can perform the following tasks efficiently
 
 * Update a cache, search index, or a data warehouse with data stored in Azure Cosmos DB.
 * Implement application-level data tiering and archival, that is, store "hot data" in Azure Cosmos DB, and age out "cold data" to [Azure Blob Storage](../storage/common/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
-* Implement batch analytics on data using [Apache Hadoop](run-hadoop-with-hdinsight.md).
 * Perform zero down-time migrations to another Azure Cosmos DB account with a different partitioning scheme.
 * Implement [lambda pipelines on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with Azure Cosmos DB. Azure Cosmos DB provides a scalable database solution that can handle both ingestion and query, and implement lambda architectures with low TCO. 
 * Receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real time with [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), or [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
@@ -175,6 +175,7 @@ The left client was started first and it started monitoring all the partitions, 
 
 Note that if you have two serverless Azure funtions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to processs the partitions.
 
+<a id="understand-cf"></a>
 ### Understanding the Change Feed Processor library
 
 There are four main components of implementing the Change Feed Processor: the monitored collection, the lease collection, the processor host, and the consumers. 

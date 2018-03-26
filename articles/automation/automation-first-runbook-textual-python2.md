@@ -1,19 +1,13 @@
 ---
-title: My first Python runbook in Azure Automation | Microsoft Docs
+title: My first Python runbook in Azure Automation
 description:  Tutorial that walks you through the creation, testing, and publishing of a simple Python runbook.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: tysonn
-
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
+author: georgewallace
 ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
 ---
 
 # My first Python runbook
@@ -65,12 +59,11 @@ Click **Save** to save the runbook.
 Before you publish the runbook to make it available in production, you want to test it to make sure that it works properly. When you test a runbook, you run its **Draft** version and view its output interactively.
 
 1. Click **Test pane** to open the Test pane.
-   ![Test Pane](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-test.png)
-1. Click **Start** to start the test. This should be the only enabled option.
-1. A [runbook job](automation-runbook-execution.md) is created and its status displayed.
+2. Click **Start** to start the test. This should be the only enabled option.
+3. A [runbook job](automation-runbook-execution.md) is created and its status displayed.
    The job status starts as *Queued* indicating that it is waiting for a runbook worker in the cloud to come available. It moves to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.
-1. When the runbook job completes, its output is displayed. In this case, you should see *Hello World*.
-1. Close the Test pane to return to the canvas.
+4. When the runbook job completes, its output is displayed. In this case, you should see *Hello World*.
+5. Close the Test pane to return to the canvas.
 
 ## Publish and start the runbook
 
@@ -79,19 +72,18 @@ When you publish a runbook, you overwrite the existing published version with th
 In this case, you don't have a published version yet because you just created the runbook.
 
 1. Click **Publish** to publish the runbook and then **Yes** when prompted.
-   ![Publish button](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-publish.png)
-1. If you scroll left to view the runbook in the **Runbooks** pane now, it shows an **Authoring Status** of **Published**.
+2. If you scroll left to view the runbook in the **Runbooks** pane now, it shows an **Authoring Status** of **Published**.
 1. Scroll back to the right to view the pane for **MyFirstRunbook-Python**.
    The options across the top allow us to start the runbook, view the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call.
-1. You want to start the runbook, so click **Start** and then click **Ok** when the Start Runbook blade opens.
-1. A job pane is opened for the runbook job that you created. You can close this pane, but in this case you leave it open so you can watch the job's progress.
-1. The job status is shown in **Job Summary** and matches the statuses that you saw when you tested the runbook.
-1. Once the runbook status shows *Completed*, click **Output**. The Output pane is opened, and you can see your *Hello World*.
-1. Close the Output pane.
-1. Click **All Logs** to open the Streams pane for the runbook job. You should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.
-1. Close the Streams pane and the Job pane to return to the MyFirstRunbook-Python pane.
-1. Click **Jobs** to open the Jobs pane for this runbook. This lists all of the jobs created by this runbook. You should only see one job listed since you only ran the job once.
-1. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
+2. You want to start the runbook, so click **Start** and then click **Ok** when the Start Runbook blade opens.
+3. A job pane is opened for the runbook job that you created. You can close this pane, but in this case you leave it open so you can watch the job's progress.
+4. The job status is shown in **Job Summary** and matches the statuses that you saw when you tested the runbook.
+5. Once the runbook status shows *Completed*, click **Output**. The Output pane is opened, and you can see your *Hello World*.
+6. Close the Output pane.
+7. Click **All Logs** to open the Streams pane for the runbook job. You should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.
+8. Close the Streams pane and the Job pane to return to the MyFirstRunbook-Python pane.
+9. Click **Jobs** to open the Jobs pane for this runbook. This lists all of the jobs created by this runbook. You should only see one job listed since you only ran the job once.
+10. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
 ## Add authentication to manage Azure resources
 
@@ -193,10 +185,8 @@ async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_n
 async_vm_start.wait()
 ```
 
-When you start a Python runbook (either on the **Test** blade or as a published runbook),
-you can enter the values for parameters in the **Start Runbook** blade under **Parameters**.
-
-![Parameter value box](media/automation-first-runbook-textual-python/runbook-python-param-highlight.png)
+When you start a Python runbook (either on the **Test** page or as a published runbook),
+you can enter the values for parameters in the **Start Runbook** page under **Parameters**.
 
 After you start entering a value in the first box, a second will appear, and so on,
 so that you can enter as many parameter values as necessary.

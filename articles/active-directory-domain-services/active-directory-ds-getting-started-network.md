@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 02/05/2018
 ms.author: maheshu
 
 ---
@@ -43,7 +43,10 @@ The next configuration task is to create an Azure virtual network and a dedicate
 
     ![Pick virtual network](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
-5. **Existing virtual network:** If you plan to pick an existing virtual network, [create a dedicated subnet using the virtual networks extension](../virtual-network/virtual-networks-create-vnet-arm-pportal.md), and then pick that subnet. Click **Virtual Network** to select the existing virtual network. Click **Subnet** to pick the dedicated subnet in your existing virtual network, within which to enable your new managed domain. Click **OK** when you're done.
+  > [!WARNING]
+  > Make sure to pick an address space that is within the private IP address space. IP Addresses that you do not own that are in the public address space cause errors within Azure AD Domain Services.
+
+5. **Existing virtual network:** If you plan to pick an existing virtual network, [create a dedicated subnet using the virtual networks extension](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), and then pick that subnet. Click **Virtual Network** to select the existing virtual network. Click **Subnet** to pick the dedicated subnet in your existing virtual network, within which to enable your new managed domain. Click **OK** when you're done.
 
     ![Pick subnet within the virtual network](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 
@@ -51,7 +54,7 @@ The next configuration task is to create an Azure virtual network and a dedicate
   > **Guidelines for selecting a subnet**
   > 1. Use a dedicated subnet for Azure AD Domain Services. Do not deploy any other virtual machines to this subnet. This configuration enables you to configure network security groups (NSGs) for your workloads/virtual machines without disrupting your managed domain. For details, see [networking considerations for Azure Active Directory Domain Services](active-directory-ds-networking.md).
   2. Do not select the Gateway subnet for deploying Azure AD Domain Services, because it is not a supported configuration.
-  3. Ensure that the subnet you've selected has sufficient available address space - at least 3-5 available IP addresses.
+  3. Ensure that the subnet you've selected has sufficient available address space - at least 3-5 available IP addresses and exists in the private IP address space.
   >
 
 6. When you are done, click **OK** to proceed to the **Administrator group** page of the wizard.

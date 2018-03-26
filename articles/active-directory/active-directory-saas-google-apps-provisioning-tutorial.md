@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuring Google Apps for automatic user provisioning in Azure | Microsoft Docs'
+title: 'Tutorial: Configure Google Apps for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Google Apps.
 services: active-directory
 documentationCenter: na
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/26/2018
 ms.author: jeedes
 
 ---
@@ -155,9 +155,9 @@ This section guides you through the process of connecting your Azure AD to the u
 
 20. Select **Save**.
 
-This process starts the initial synchronization of any users or groups that are assigned to Google Apps in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes while the service is running. 
+This process starts the initial synchronization of any users or groups that are assigned to Google Apps in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes while the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. These logs describe all actions that are performed by the provisioning service  on your Google Apps app.
 
-You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports. These reports describe all actions that the are performed by the provisioning service  on your Google Apps app.
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 ## Additional resources
 

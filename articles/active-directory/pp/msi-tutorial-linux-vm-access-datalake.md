@@ -3,8 +3,8 @@ title: How to use a Linux VM Managed Service Identity (MSI) to access Azure Data
 description: A tutorial that shows you how to use a Linux VM Managed Service Identity (MSI) to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: skwan
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 For this tutorial, we create a new Linux VM. You can also enable MSI on an existing VM.
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Click **Create a resource** on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 

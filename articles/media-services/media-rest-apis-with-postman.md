@@ -30,7 +30,7 @@ This environment and collection is used in articles that show how to achieve var
 
 ## Configure the environment 
 
-1. Create a .json file that contains the environment variables used in AMS tutorials. Name the file **AzureMediaServices.postman_environment.json**. Open the file and paste the code that defines the Postman environment from [this code listing](postman-environment.md). 
+1. Create a .json file that contains the environment variables used in AMS tutorials. Name the file (for example, **AzureMediaServices.postman_environment.json**). Open the file and paste the code that defines the Postman environment from [this code listing](postman-environment.md). 
 2. Open the **Postman**.
 3. On the right of the screen, select the **Manage environment** option.
 
@@ -45,7 +45,7 @@ This environment and collection is used in articles that show how to achieve var
 
 ## Configure the collection
 
-1. Create a .json file that contains the **Postman** collection with all the operations that are needed to upload a file to Media Services. Name the file **AzureMediaServicesOperations.postman_collection.json**. Open the file and paste the code that defines the **Postman** collection from [this code listing](postman-collection.md).
+1. Create a .json file that contains the **Postman** collection with all the operations that are needed to upload a file to Media Services. Name the file (for example, **AzureMediaServicesOperations.postman_collection.json**). Open the file and paste the code that defines the **Postman** collection from [this code listing](postman-collection.md).
 2. Click **Import** to import the collection file.
 3. Choose the **AzureMediaServicesOperations.postman_collection.json** file.
 

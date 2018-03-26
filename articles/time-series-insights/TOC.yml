@@ -1,10 +1,11 @@
-- name: Azure Time Series Insights
+- name: Azure Time Series Insights Documentation
   href: index.yml
 - name: Overview
   items:
   - name: About Time Series Insights
     href: time-series-insights-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Explore Time Series Insights
     href: time-series-quickstart.md
@@ -16,6 +17,8 @@
     href: time-series-insights-explorer.md
   - name: Mitigate throttling
     href: time-series-insights-environment-mitigate-latency.md
+  - name: Understand data retention
+    href: time-series-insights-concepts-retention.md
   - name: Diagnose and troubleshoot
     href: time-series-insights-diagnose-and-solve-problems.md
   - name: Develop
@@ -38,6 +41,8 @@
     href: time-series-insights-how-to-add-an-event-source-eventhub.md
   - name: Connect to IoT Hub
     href: time-series-insights-how-to-add-an-event-source-iothub.md
+  - name: Configure data retention
+    href: time-series-insights-how-to-configure-retention.md
   - name: Create a reference data set
     href: time-series-insights-add-reference-data-set.md
   - name: Send events
@@ -76,3 +81,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-timeseries-insights
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights

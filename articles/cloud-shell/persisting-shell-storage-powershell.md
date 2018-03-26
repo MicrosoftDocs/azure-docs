@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/30/2018
 ms.author: damaerte
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## How PowerShell in Azure Cloud Shell (Preview) works
 PowerShell in Cloud Shell (Preview) persists files through the following method: 
@@ -32,7 +32,7 @@ You can unmount an Azure file share that's mounted to Cloud Shell at any time. I
 The `Dismount-CloudDrive` command unmounts an Azure file share from the current storage account. Dismounting the Cloud Drive terminates the current session. The user will be prompted to create and mount a new Azure file share during the next session.
 ![Running Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
-[!include [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## Next steps
 [Quickstart for PowerShell](quickstart-powershell.md) <br>

@@ -1,320 +1,146 @@
 ---
-title: Face API Python quick start | Microsoft Docs
+title: Face API Python QuickStarts | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Get information and code samples to help you quickly get started using the Face API with Python in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
-
+author: SteveMSFT
+manager: corncar
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 06/21/2017
-ms.author: anroth
+ms.date: 03/01/2018
+ms.author: sbowles
 ---
 
-# Face API Python Quick Starts
-This article provides information and code samples to help you quickly get started using the Face API with Python to accomplish the following tasks: 
-* [Detect Faces in Images](#Detect) 
-* [Create a Person Group](#Create)
+# Face detection using Cognitive Services
+This walkthrough shows you how to use the cognitive services [Face API](https://azure.microsoft.com/services/cognitive-services/face/) to detect faces in an image. The API also returns various attributes such as the gender and age of each person. The sample images used in this walkthrough are from the [How-Old Robot](http://www.how-old.net) that uses the same APIs.
 
-Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
+You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
-## Detect faces in images with Face API using Python <a name="Detect"> </a>
-Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
-to detect faces in an image and return face attributes including:
-* Face ID: Unique ID used in several Face API scenarios. 
-* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
-* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 
-#### Face Detect python example request
+For more information, see the [REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-1. Copy the appropriate section for your version of Python and save it to a file such as `detect_faces.py`.
-1. Replace the `subscriptionKey` value with your valid subscription key.
-1. Change the `uri_base` value to use the location where you obtained your subscription keys.
-1. Run the sample.
+## Prerequisites
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Face API**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=face-api) is sufficient for this quickstart. You need the subscription key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+
+## Running the walkthrough
+To continue with this walkthrough, replace `<Subscription Key>` with a valid subscription key.
+
 
 ```python
-import httplib, urllib, base64, json
+subscription_key = "<Subscription Key>"
+assert subscription_key
+```
 
-###############################################
-#### Update or verify the following values. ###
-###############################################
+Next, verify `face_api_url` and make sure it corresponds to the region you used when generating the subscription key. If you are using a trial key, you don't need to make any changes.
 
-# Replace the subscription_key string value with your valid subscription key.
-subscription_key = '13hc77781f7e4b19b5fcdd72a8df7156'
 
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your subscription keys.
-# For example, if you obtained your subscription keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-# a free trial subscription key, you should not need to change this region.
-uri_base = 'westcentralus.api.cognitive.microsoft.com'
+```python
+face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
+```
 
-# Request headers.
-headers = {
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': subscription_key,
-}
+Here is the URL of the image. You can experiment with different images  by changing ``image_url`` to point to a different image and rerunning this notebook.
 
-# Request parameters.
-params = urllib.urlencode({
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
-})
 
-# The URL of a JPEG image to analyze.
-body = "{'url':'https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg'}"
+```python
+image_url = 'https://how-old.net/Images/faces2/main007.jpg'
+```
 
-try:
-    # Execute the REST API call and get the response.
-    conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
-    conn.request("POST", "/face/v1.0/detect?%s" % params, body, headers)
-    response = conn.getresponse()
-    data = response.read()
+The next few lines of code call into the Face API to detect the faces in the image. In this instance, the image is specified via a publicly visible URL. You can also pass an image directly as part of the request body. For more information, see the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-    # 'data' contains the JSON data. The following formats the JSON data for display.
-    parsed = json.loads(data)
-    print ("Response:")
-    print (json.dumps(parsed, sort_keys=True, indent=2))
-    conn.close()
 
-except Exception as e:
-    print("[Errno {0}] {1}".format(e.errno, e.strerror))
+```python
+import requests
+from IPython.display import HTML
 
-####################################
-
-########### Python 3.6 #############
-import http.client, urllib.request, urllib.parse, urllib.error, base64, requests, json
-
-###############################################
-#### Update or verify the following values. ###
-###############################################
-
-# Replace the subscription_key string value with your valid subscription key.
-subscription_key = '13hc77781f7e4b19b5fcdd72a8df7156'
-
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your subscription keys.
-# For example, if you obtained your subscription keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-# a free trial subscription key, you should not need to change this region.
-uri_base = 'https://westcentralus.api.cognitive.microsoft.com'
-
-# Request headers.
-headers = {
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': subscription_key,
-}
-
-# Request parameters.
+headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
+    
 params = {
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
     'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
 }
 
-# Body. The URL of a JPEG image to analyze.
-body = {'url': 'https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg'}
-
-try:
-    # Execute the REST API call and get the response.
-    response = requests.request('POST', uri_base + '/face/v1.0/detect', json=body, data=None, headers=headers, params=params)
-
-    print ('Response:')
-    parsed = json.loads(response.text)
-    print (json.dumps(parsed, sort_keys=True, indent=2))
-
-except Exception as e:
-    print('Error:')
-    print(e)
-
-####################################	
-
+response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
+faces = response.json()
+HTML("<font size='5'>Detected <font color='blue'>%d</font> faces in the image</font>"%len(faces))
 ```
-#### Face Detect response
 
-A successful response is returned in JSON. Following is an example of a successful response: 
 
-```json
-Response:
-[
-  {
-    "faceAttributes": {
-      "accessories": [],
-      "age": 22.9,
-      "blur": {
-        "blurLevel": "low",
-        "value": 0.06
-      },
-      "emotion": {
-        "anger": 0.0,
-        "contempt": 0.0,
-        "disgust": 0.0,
-        "fear": 0.0,
-        "happiness": 0.0,
-        "neutral": 0.986,
-        "sadness": 0.009,
-        "surprise": 0.005
-      },
-      "exposure": {
-        "exposureLevel": "goodExposure",
-        "value": 0.67
-      },
-      "facialHair": {
-        "beard": 0.0,
-        "moustache": 0.0,
-        "sideburns": 0.0
-      },
-      "gender": "female",
-      "glasses": "NoGlasses",
-      "hair": {
-        "bald": 0.0,
-        "hairColor": [
-          {
-            "color": "brown",
-            "confidence": 1.0
-          },
-          {
-            "color": "black",
-            "confidence": 0.87
-          },
-          {
-            "color": "other",
-            "confidence": 0.51
-          },
-          {
-            "color": "blond",
-            "confidence": 0.08
-          },
-          {
-            "color": "red",
-            "confidence": 0.08
-          },
-          {
-            "color": "gray",
-            "confidence": 0.02
-          }
-        ],
-        "invisible": false
-      },
-      "headPose": {
-        "pitch": 0.0,
-        "roll": 0.1,
-        "yaw": -32.9
-      },
-      "makeup": {
-        "eyeMakeup": true,
-        "lipMakeup": true
-      },
-      "noise": {
-        "noiseLevel": "low",
-        "value": 0.0
-      },
-      "occlusion": {
-        "eyeOccluded": false,
-        "foreheadOccluded": false,
-        "mouthOccluded": false
-      },
-      "smile": 0.0
-    },
-    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
-    "faceRectangle": {
-      "height": 162,
-      "left": 177,
-      "top": 131,
-      "width": 162
-    }
-  }
-]
+The expected result is
+
+
+```html
+<font size='5'>Detected <font color='blue'>2</font> faces in the image</font>
 ```
-## Create a Person Group with Face API using Python <a name="Create"> </a>
-Use the [Person Group - Create a Person Group method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) 
-to create a person group with specified personGroupId, name, and user-provided userData. A person group is one of the most important parameters for the Face - Identify API. The Identify API searches for persons' faces in a specified person group. 
 
-#### Person Group - create a Person Group example
 
-Copy the appropriate section for your version of Python and save it to a file such as `test.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, and change the REST URL to use the region where you obtained your subscription keys.
+Finally, the face information can be overlaid of the original image using the `matplotlib` library in Python.
+
 
 ```python
-########### Python 2.7 #############
-import httplib, urllib, base64
+%matplotlib inline
+import matplotlib.pyplot as plt
 
-headers = {
-    # Request headers.
-    'Content-Type': 'application/json',
+from PIL import Image
+from matplotlib import patches
+from io import BytesIO
 
-    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
-}
+response = requests.get(image_url)
+image = Image.open(BytesIO(response.content))
 
-# Replace 'examplegroupid' with an ID you haven't used for creating a group before.
-# The valid characters for the ID include numbers, English letters in lower case, '-' and '_'. 
-# The maximum length of the ID is 64.
-personGroupId = 'examplegroupid'
+plt.figure(figsize=(8,8))
+ax = plt.imshow(image, alpha=0.6)
+for face in faces:
+    fr = face["faceRectangle"]
+    fa = face["faceAttributes"]
+    origin = (fr["left"], fr["top"])
+    p = patches.Rectangle(origin, fr["width"], fr["height"], fill=False, linewidth=2, color='b')
+    ax.axes.add_patch(p)
+    plt.text(origin[0], origin[1], "%s, %d"%(fa["gender"].capitalize(), fa["age"]), fontsize=20, weight="bold", va="bottom")
+_ = plt.axis("off")
+```
 
-# The userData field is optional. The size limit for it is 16KB.
-body = "{ 'name':'group1', 'userData':'user-provided data attached to the person group' }"
+Here are more images that can be analyzed using the same technique.
+First, define a helper function, ``annotate_image`` to annotate an image given its URL by calling into the Face API.
 
-try:
-    # NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
-    #   URL below with "westus".
-    conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
-    conn.request("POST", "/face/v1.0/persongroups/%s" % personGroupId, body, headers)
-    response = conn.getresponse()
 
-	# 'OK' indicates success. 'Conflict' means a group with this ID already exists.
-	# If you get 'Conflict', change the value of personGroupId above and try again.
-	# If you get 'Access Denied', verify the validity of the subscription key above and try again.
-    print(response.reason)
+```python
+def annotate_image(image_url):
+    response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
+    faces = response.json()
 
-    conn.close()
-except Exception as e:
-    print("[Errno {0}] {1}".format(e.errno, e.strerror))
-####################################
+    image_file = BytesIO(requests.get(image_url).content)
+    image = Image.open(image_file)
 
-########### Python 3.2 #############
-import http.client, urllib.request, urllib.parse, urllib.error, base64, sys
+    plt.figure(figsize=(8,8))
+    ax = plt.imshow(image, alpha=0.6)
+    for face in faces:
+        fr = face["faceRectangle"]
+        fa = face["faceAttributes"]
+        origin = (fr["left"], fr["top"])
+        p = patches.Rectangle(origin, fr["width"], \
+                              fr["height"], fill=False, linewidth=2, color='b')
+        ax.axes.add_patch(p)
+        plt.text(origin[0], origin[1], "%s, %d"%(fa["gender"].capitalize(), fa["age"]), \
+                 fontsize=20, weight="bold", va="bottom")
+    plt.axis("off")
+```
 
-headers = {
-    # Request headers.
-    'Content-Type': 'application/json',
+You can then call ``annotate_image`` on other images. A few examples samples are shown below.
 
-    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
-}
 
-# Replace 'examplegroupid' with an ID you haven't used for creating a group before.
-# The valid characters for the ID include numbers, English letters in lower case, '-' and '_'. 
-# The maximum length of the ID is 64.
-personGroupId = 'examplegroupid'
+```python
+annotate_image("https://how-old.net/Images/faces2/main001.jpg")
+```
 
-# The userData field is optional. The size limit for it is 16KB.
-body = "{ 'name':'group1', 'userData':'user-provided data attached to the person group' }"
 
-try:
-    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
-    #   URL below with "westus".
-    conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
-    conn.request("PUT", "/face/v1.0/persongroups/%s" % personGroupId, body, headers)
-    response = conn.getresponse()
+```python
+annotate_image("https://how-old.net/Images/faces2/main002.jpg")
+```
 
-	# 'OK' indicates success. 'Conflict' means a group with this ID already exists.
-	# If you get 'Conflict', change the value of personGroupId above and try again.
-	# If you get 'Access Denied', verify the validity of the subscription key above and try again.
-    print(response.reason)
 
-    conn.close()
-except Exception as e:
-    print(e.args)
-####################################
+```python
+annotate_image("https://how-old.net/Images/faces2/main004.jpg")
 ```

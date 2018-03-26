@@ -70,8 +70,8 @@ Next, you create a function in the new function app.
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Name of database | Unique ID for the Azure Cosmos DB database  |
-    | **API** | SQL (DocumentDB) | This topic uses the document database API.  |
-    | **Subscription** | Azure Subscription | Azure Subscription  |
+    | **API** | SQL | This topic uses the SQL API.  |
+    | **Subscription** | Azure Subscription | The subscription under which this new Cosmos DB account is created.  |
     | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
     | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |
 
@@ -145,4 +145,4 @@ You have created a function that runs when a document is added or modified in yo
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-For more information about Azure Cosmos DB triggers, see [Azure Cosmos DB bindings for Azure Functions](functions-bindings-documentdb.md).
+For more information about Azure Cosmos DB triggers, see [Azure Cosmos DB bindings for Azure Functions](functions-bindings-cosmosdb.md).

@@ -26,7 +26,7 @@ For more information, see [What is Azure Active Directory?](active-directory-wha
 ## Access Azure and Azure Active Directory
 **Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure portal?**
 
-**A:** To access the Azure portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a free [Azure account](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription.
+**A:** To access the Azure portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [https://aka.ms/accessAAD](https://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a free [Azure account](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription.
 
 For more information, see:
 

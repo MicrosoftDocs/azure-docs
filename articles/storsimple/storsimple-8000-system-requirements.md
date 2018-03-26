@@ -104,7 +104,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 
 | URL pattern | Component/Functionality | Device IPs |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
 | `https://*.backup.windowsazure.us` |Device registration |DATA 0 only |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |

@@ -3,7 +3,7 @@ title: FAQ and known issues with Managed Service Identity (MSI) for Azure Active
 description: Known issues with Managed Service Identity for Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -53,6 +53,23 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Where: 
 - Extension name and type for Windows is: ManagedIdentityExtensionForWindows
 - Extension name and type for Linux is: ManagedIdentityExtensionForLinux
+
+### Are there RBAC roles for User Assigned Identities?
+Yes:
+1. MSI Contributor: 
+
+- Can: CRUD user assigned identities. 
+- Cannot: Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
+
+2. MSI Operator: 
+
+- Can: Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
+- Cannot: CRUD user assigned identities.
+
+Note: The built-in contributor role can perform all of the actions described above: 
+- CRUD user assigned identities
+- Assign a user assigned identity to a resource. (i.e. assign the identity to a VM)
+
 
 ## Known issues
 
@@ -100,13 +117,11 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - The only way to remove all user assigned MSIs is by enabling the system assigned MSI. 
 - Provisioning of the VM extension to a VM might fail due to DNS lookup failures. Restart the VM, and try again. 
-- Azure CLI: `Az resource show` and `Az resource list` will fail on a VM with a user assigned MSI. As a workaround, please use `az vm/vmss show`
+- Adding a 'non-existent' MSI will cause the VM to fail. *Note: The fix to fail assign-identity if MSI doesn't exist, is being rolled-out*
 - Azure Storage tutorial is only available in Central US EUAP at the moment. 
-- When a User Assigned MSI is granted access to a resource, the IAM blade for that resource shows "Unable to access data." As a workaround, use the CLI to view/edit role assignments for that resource.
-- Creating a user assigned MSI with an underscore in the name, is not supported.
+- Creating a user assigned MSI with special characters (i.e. underscore) in the name, is not supported.
 - When adding a second user assigned identity, the clientID might not be available to requests tokens for it. As a mitigation, restart the MSI VM extension with the following two bash commands:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
 - The VMAgent on Windows does not currently support User Assigned MSI. 
-- Assigning a role to an MSI to access a resource currently doesn't require special permissions. 
 - When a VM has a user assigned MSI but no system assigned MSI, the portal UI will show MSI as enabled. To enable the system assigned MSI, use an Azure Resource Manager template, an Azure CLI, or an SDK.

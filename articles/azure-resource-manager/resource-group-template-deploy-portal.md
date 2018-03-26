@@ -44,7 +44,7 @@ This topic shows how to use the [Azure portal](https://portal.azure.com) with [A
 
 After you create a resource group, you can deploy resources to it from the Marketplace. The Marketplace provides pre-defined solutions for common scenarios.
 
-1. To start a deployment, select **New**.
+1. To start a deployment, select **Create a resource**.
 
    ![New resource](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -76,7 +76,7 @@ After you create a resource group, you can deploy resources to it from the Marke
 
 If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
 
-1. To deploy a customized template through the portal, select **New**, and search for **Template Deployment** until you can select it from the options.
+1. To deploy a customized template through the portal, select **Create a resource**, and search for **Template Deployment** until you can select it from the options.
 
    ![Search template deployment](./media/resource-group-template-deploy-portal/search-template.png)
 

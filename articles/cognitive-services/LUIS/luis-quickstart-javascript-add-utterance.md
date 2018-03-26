@@ -18,7 +18,7 @@ For more information, see the technical documentation for the [add utterance](ht
 
 ## Prerequisites
 > [!div class="checklist"]
-> * Your LUIS [**programmatic key**](Manage-Keys.md#programmatic-key). 
+> * Your LUIS [**authoring key**](luis-concept-keys.md#authoring-key). 
 > * Your existing LUIS **application ID** and **version ID**. 
 > * A new file named `add-utterances.html` project in VSCode.
 
@@ -34,9 +34,9 @@ Create `add-utterances.html` and add the following code:
 ## View in browser
 1. Open the file in a browser.
 
-2. Add your LUIS programmatic ID, your LUIS application ID, and change the version if it is not `0.1`
+2. Add your LUIS authoring ID, your LUIS application ID, and change the version if it is not `0.1`
 
-3. Modify the utterances to add to your application. They are stored in the utteranceJSON variable. Change these values for your own domain and utterance needs. 
+3. Modify the **array of utterances** to add to your application. They are stored in the utteranceJSON variable. Change these values for your own domain and utterance needs. 
 
     ```json
     // example batch utterances
@@ -61,14 +61,15 @@ Create `add-utterances.html` and add the following code:
     ];
     ```
 
-4. Click the `Upload utterance` button. The LUIS results are displayed below the buttons.
+4. Select the `Upload utterance` button. The LUIS results are displayed below the buttons.
 
-5. Click the `Train model` button to train your application with these new utterances.
+5. Select the `Train model` button to train your application with these new utterances.
 
-6. Click the `Train Status` button to see the training status. 
+6. Select the `Train Status` button to see the training status. 
 
 ![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
 
 ## Next steps
 > [!div class="nextstepaction"]
 > [Integrate LUIS with a bot](luis-csharp-tutorial-build-bot-framework-sample.md)
+
