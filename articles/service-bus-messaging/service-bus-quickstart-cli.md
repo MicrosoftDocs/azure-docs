@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2018
+ms.date: 03/26/2018
 ms.author: sethm
 
 ---
@@ -50,10 +50,10 @@ Once CLI is installed, open Cloud Shell and issue the following commands to log 
    az login
    ```
 
-2. Set the current subscription context:
+2. Set the current subscription context to the Azure subscription you want to use:
 
    ```azurecli
-   az account set --subscription <Azure_subscription_name>
+   az account set --subscription Azure_subscription_name
    ``` 
 
 ## Use CLI to provision resources
@@ -62,16 +62,16 @@ After logging in to Azure, issue the following commands to provision Service Bus
 
 ```azurecli
 # Create a resource group
-az group create --name <my-resourcegroup> --location eastus
+az group create --name my-resourcegroup --location eastus
 
 # Create a Messaging namespace
-az servicebus namespace create --name <namespace-name> --resource-group <my-resourcegroup> -l eastus2
+az servicebus namespace create --name namespace-name --resource-group my-resourcegroup -l eastus2
 
 # Create a queue
-az servicebus queue create --resource-group <my-resourcegroup> --namespace-name <namespace_name> --name <queue-name>
+az servicebus queue create --resource-group my-resourcegroup --namespace-name namespace_name --name queue-name
 
 # Get the connection string
-az servicebus namespace authorization-rule keys list --resource-group <my-resourcegroup> --namespace-name <namespace-name> --name RootManageSharedAccessKey
+az servicebus namespace authorization-rule keys list --resource-group my-resourcegroup --namespace-name namespace-name --name RootManageSharedAccessKey
 ```
 
 After the last command runs, copy and paste the connection string, and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
@@ -91,7 +91,7 @@ After the namespace and queue are provisioned, and you have the necessary creden
 4. To run the program, issue the following command. Make sure to replace the placeholders with the connection string and queue name you obtained in the previous step:
 
    ```shell
-   java -jar .\target\samples.quickstart-1.0.0-jar-with-dependencies.jar -c "myConnectionString” -q "MyQueue"
+   java -jar .\target\samples.quickstart-1.0.0-jar-with-dependencies.jar -c "myConnectionString” -q "queue-name"
    ```
 
 Observe 10 messages being sent to the queue, and subsequently received from the queue:
@@ -102,8 +102,8 @@ Observe 10 messages being sent to the queue, and subsequently received from the 
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
-```azurecli-interactive
-az group delete --resource-group [my-resourcegroup]
+```azurecli
+az group delete --resource-group my-resourcegroup
 ```
 
 ## Next steps

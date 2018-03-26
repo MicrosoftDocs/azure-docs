@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2018
+ms.date: 03/26/2018
 ms.author: chwolf;sethm
 
 ---
@@ -24,7 +24,7 @@ Microsoft Azure Service Bus is an enterprise integration message broker that pro
 
 ![queue](./media/service-bus-quickstart-powershell/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages to and from a Service Bus queue. You use PowerShell to first create a messaging namespace and a queue within that namespace. The procedure also obtains the authorization credentials on that namespace. Then the .NET Standard client is used to send and receive messages from this queue.
+This quickstart describes how to send and receive messages to and from a Service Bus queue, using PowerShell to create a messaging namespace and a queue within that namespace, and to obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages from this queue using the [.NET Standard library](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
@@ -64,20 +64,20 @@ Once PowerShell is installed, open Cloud Shell and issue the following commands:
 
 ## Use PowerShell to provision resources
 
-Replace all placeholders with the appropriate values, then run the following PowerShell cmdlets:
+After logging in to Azure, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
 ```azurepowershell
 # Create a resource group 
-New-AzureRmResourceGroup –Name <resource_group_name> –Location westus2
+New-AzureRmResourceGroup –Name my-resourcegroup –Location westus2
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName <resource_group_name> -NamespaceName <namespace_name> -Location westus2
+New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName <resource_group_name> -NamespaceName <namespace_name> -Name <queue_name> -EnablePartitioning $False
+New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName <resource_group_name> -Namespace <namespace_name> -Name RootManageSharedAccessKey
+Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
 After the `Get-AzureRmServiceBusKey` cmdlet runs, copy and paste the connection string and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
@@ -94,7 +94,7 @@ To run the code, do the following:
 4. If you have not done so already, obtain the connection string using the following PowerShell cmdlet. Be sure to replace `<resource_group_name>` and `<namespace_name>` with your specific values: 
 
    ```azurepowershell
-   Get-AzureRmServiceBusKey -ResourceGroupName <resource_group_name> -Namespace <namespace_name> -Name RootManageSharedAccessKey
+   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 5.	At the PowerShell prompt, type the following command:
 
@@ -116,7 +116,7 @@ To run the code, do the following:
 Run the following command to remove the resource group, namespace, and all related resources:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name <resource_group_name>
+Remove-AzureRmResourceGroup -Name my-resourcegroup
 ```
 
 ## Next steps

@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 03/26/2018
 ms.author: sethm
 
 ---
@@ -25,7 +25,7 @@ Microsoft Azure Service Bus is an enterprise integration message broker that pro
 
 ![queue](./media/service-bus-quickstart-portal/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages to and from a Service Bus queue. You use the [Azure portal][Azure portal] to first create a messaging namespace and a queue within that namespace. The procedure also obtains the authorization credentials on that namespace.
+This quickstart describes how to send and receive messages to and from a Service Bus queue, using the [Azure portal][Azure portal] to create a messaging namespace and a queue within that namespace, and to obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages using the Java Messaging service (JMS).
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
@@ -86,7 +86,7 @@ To run the code, do the following:
 1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/).
 2. Open a command prompt with Administrator privileges.
 3. Navigate to the sample folder `\azure-service-bus\samples\Java\quickstarts-and-tutorials\quickstart-jms`.
-4. Obtain the connection string you copied to Notepad in the "Obtain the management credentials" section of this quickstart. You also need the name of the queue you created in the previous section.
+4. Obtain the connection string you copied to Notepad in the [Obtain the management credentials](#obtain-the-management-credentials) section of this quickstart. You also need the name of the queue you created in the previous section.
 5. Type the following command to build the program:
 
    ```shell
