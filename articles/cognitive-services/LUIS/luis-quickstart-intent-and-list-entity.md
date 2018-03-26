@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/24/2018
+ms.date: 03/26/2018
 ms.author: v-geberr;
 --- 
 
@@ -19,7 +19,7 @@ This simple app has two [intents](luis-concept-intent.md) and one list [entity](
 The intents are categories of what the user wants. This app has two intents: OrderDrink and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
 
 ## List entity is an exact text match
-The purpose of the entity is to find and categorize parts of the text in the message. 
+The purpose of the entity is to find and categorize parts of the text in the utterance. 
 A [list](luis-concept-entity-types.md) entity allows for an exact match of words or phrases.  
 
 For this drink app, LUIS extracts the drink order in such as way that a standard order can be created and filled. LUIS allows utterances to have variations, abbreviations, and slang. 
@@ -50,11 +50,11 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
 
 2. On the [LUIS][LUIS] website, select **Create new app**.  
 
-    ![LUIS apps list](./media/luis-quickstart-intent-and-list-entity/app-list.png)
+    ![Create new app](./media/luis-quickstart-intent-and-list-entity/app-list.png)
 
 3. In the pop-up dialog, enter the name `MyDrinklist`. 
 
-    ![LUIS apps list](./media/luis-quickstart-intent-and-list-entity/create-app-dialog.png)
+    ![Name the app MyDrinkList](./media/luis-quickstart-intent-and-list-entity/create-app-dialog.png)
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
@@ -127,15 +127,15 @@ The drink list entity is created but doesn't have many items and synonyms. If yo
 
 1. Select **Entities** from the left panel.
 
-    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/intent-select-entities.png)
+    ![Select from left navigation](./media/luis-quickstart-intent-and-list-entity/intent-select-entities.png)
 
 2. Select `Drink` from entities list.
 
-    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png)
+    ![Select from list](./media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png)
 
 3. In the text box, enter `Soda pop`, then select enter. This is a term that is broadly applied to carbonated drinks. Every culture has a nick-name or slang term for this type of drink.
 
-    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png)
+    ![Enter canonical name](./media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png)
 
 4. On the same row as `Soda pop`, enter synonyms such as: 
 
@@ -150,7 +150,7 @@ The drink list entity is created but doesn't have many items and synonyms. If yo
 
     This article has a few synonyms, to keep the example short. A production-level LUIS app would have many synonyms and would be reviewed and expanded on a regular basis. 
 
-    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png)
+    ![Add synonyms](./media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png)
 
 5. Add several synonyms to the `h2o` row:
 
@@ -167,29 +167,29 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/train-button.png)
+    ![Train the app](./media/luis-quickstart-intent-and-list-entity/train-button.png)
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/trained.png)
+    ![Training succeeded](./media/luis-quickstart-intent-and-list-entity/trained.png)
 
 ## Publish the app to get the endpoint URL
 In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/publish.png)
+    ![Select publish button](./media/luis-quickstart-intent-and-list-entity/publish.png)
 
 2. Select the **Publish to product slot**. 
 
-    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/publish-to-production.png)
+    ![publish app](./media/luis-quickstart-intent-and-list-entity/publish-to-production.png)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-    ![All message utterances labeled](./media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png)
+    ![Select endpoint URL](./media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png)
 
 2. Go to the end of the URL in the address and enter `2 cokes and 3 waters`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `OrderDrinks` intent with the two drink types of `cokes` and `waters`.
 
@@ -237,13 +237,16 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 }
 ```
 
+## Where is the natural language processing in the List entity? 
+Because the list entity is an exact text match, it doesn't rely on natural language processing (or machine-learning). LUIS does use natural language processing (or machine-learning) to select the correct top-scoring intent. Additionally, an utterance can be a mix of more than one entity or even more than one type of entity. Each utterance is processed for all the entities in the app, including natural language processing (or machine-learned) entities such as the **Simple** entity.
+
 ## What has this LUIS app accomplished?
 This app, with just two intents and a list entity, identified a natural language query intention and returned the extracted data. 
 
 Your chat bot now has enough information to determine the primary action, `OrderDrinks`, and what types of drinks were ordered from the Drink list entity. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to send the message through a 3rd party API. There are other programmatic options for the bot or calling application. LUIS doesn't do that work. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application.  LUIS only determines what the user's intention is. 
 
 ## Next steps
 
