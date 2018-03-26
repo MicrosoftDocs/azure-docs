@@ -88,7 +88,5 @@ Before you deploy the share snapshot scheduler, carefully consider your share sn
 Share snapshots provide only file-level protection. Share snapshots don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can lock the storage account or the resource group.
 
 ## Next steps
-- [Managing Azure file shares with the Azure Portal](storage-how-to-use-files-portal.md)
-- [Managing Azure file shares with Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Managing Azure file shares with the Azure CLI](storage-quickstart-files-cli.md)
-- [Azure Files frequently asked questions](storage-files-faq.md)
+* [Work with share snapshots](storage-how-to-use-files-snapshots.md)
+* [Share snapshot FAQ](storage-files-faq.md#share-snapshots)

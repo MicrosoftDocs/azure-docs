@@ -5,14 +5,14 @@ services: backup
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
 ---
-# Back up Azure file shares
 
-This article details how to back up [Azure file shares](../storage/files/storage-files-introduction.md).
+# Back up Azure file shares
+This article explains how to use the Azure portal to back up and restore [Azure file shares](../storage/files/storage-files-introduction.md).
 
 In this guide, you learn how to:
 > [!div class="checklist"]
@@ -26,8 +26,17 @@ In this guide, you learn how to:
 ## Prerequisites
 Before you can back up an Azure file share, ensure that it is present in one of the [supported Storage Account types](troubleshoot-azure-files.md#preview-boundaries). Once you have verified this, you can protect your file shares.
 
-## Configuring backup for an Azure file share
+## Limitations for Azure file share backup during Preview
+Backup for Azure file shares is in preview. Be aware of the following limitations during the Preview:
+- You cannot protect Azure file shares in storage accounts with [zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) or [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) replication.
+- You cannot protect Azure file shares in storage accounts that have Virtual Networks enabled.
+- There is no PowerShell or CLI available for protecting Azure Files.
+- The maximum number of scheduled backups per day is one.
+- The maximum number of on-demand backups per day is four.
+- Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
+- Do not delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures. 
 
+## Configuring backup for an Azure file share
 All backup data is stored in Recovery Services vaults. This tutorial assumes you already have established an Azure file share. To back up your Azure file share:
 
 1. Create a Recovery Services vault in the same region as your file share. If you already have a vault, open your vault's Overview page and click **Backup**.

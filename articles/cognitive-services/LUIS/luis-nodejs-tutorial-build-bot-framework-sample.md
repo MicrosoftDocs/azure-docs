@@ -2,14 +2,14 @@
 title: Integrate LUIS with a bot using the Bot Builder SDK for Node.js in Azure | Microsoft Docs 
 description: Build a bot integrated with a LUIS application using the Bot Framework. 
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: v-demak
+ms.date: 03/06/2018
+ms.author: v-geberr;
 ---
 
 # Integrate LUIS with a bot using the Bot Builder SDK for Node.js
@@ -38,14 +38,15 @@ The bot responds to intents from the HomeAutomation domain that are in the LUIS 
 
     ![Create new resource](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
-3. In the **Bot Service** blade, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. 
+3. In the **Bot Service** blade, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
     * Select the **Language understanding (Node.js)** template for the **Bot template** field.
+    * Select the **LUIS App Location**. This is the authoring [region][LUIS] the app is created in.
+    * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
 
     ![Bot Service blade](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
-    * Check the box to confirm to the terms of service.
 
 4. Confirm that the bot service has been deployed.
     * Click Notifications (the bell icon that is located along the top edge of the Azure portal). The notification will change from **Deployment started** to **Deployment succeeded**.
@@ -368,7 +369,7 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 
 > [!div class="nextstepaction"]
 > [Add intents](./add-intents.md)
-
+> [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
 
 
 [intentDialog]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html
@@ -420,5 +421,5 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-
+[LUIS]:luis-reference-regions.md
 

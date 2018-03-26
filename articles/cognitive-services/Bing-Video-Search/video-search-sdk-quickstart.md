@@ -12,21 +12,21 @@ ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-#Video Search SDK C# quickstart (Preview)
+# Video Search SDK C# quickstart
 
 The Bing Video Search SDK contains the functionality of the REST API for web requests and parsing results. 
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing Video Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.VideoSearch` package.
 
-Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.1.0-preview) also installs dependencies, including:
+Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) also installs dependencies, including:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
 
-##Video Search client
+## Video Search client
 To create an instance of the `VideoSearchAPI` client, add using directives:
 ```
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
@@ -39,10 +39,10 @@ var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-
 
 
 ```
-Use the client to search with a query text "NASA CubeSat" for videos.
+Use the client to search with a query text "SwiftKey" for videos.
 ```
-var videoResults = client.Videos.SearchAsync(query: "NASA CubeSat").Result;
-Console.WriteLine("Search videos for query \"NASA CubeSat\"");
+var videoResults = client.Videos.SearchAsync(query: "SwiftKey").Result;
+Console.WriteLine("Search videos for query \"SwiftKey\"");
 
 ```
 
@@ -70,7 +70,7 @@ else
 }
 
 ```
-##Complete console application
+## Complete console application
 
 The following console application executes the previously defined query and parses results.
 
@@ -91,8 +91,8 @@ namespace VideoSrchSDK
 
             try
             {
-                var videoResults = client.Videos.SearchAsync(query: "NASA CubeSat").Result;
-                Console.WriteLine("Search videos for query \"NASA CubeSat\"");
+                var videoResults = client.Videos.SearchAsync(query: "SwiftKey").Result;
+                Console.WriteLine("Search videos for query \"SwiftKey\"");
 
                 if (videoResults == null)
                 {
@@ -133,17 +133,17 @@ namespace VideoSrchSDK
         }
 
 ```
-##URL parameters
+## URL parameters
 
-Search on query text "Interstellar Trailer" for videos that are unchanged, short, and 1080p resolution.  Verify the number of results, and print out ID, name, and url of first video result.
+Search on query text "Bellevue Trailer" for videos that are unchanged, short, and 1080p resolution.  Verify the number of results, and print out ID, name, and url of first video result.
 
 ```
         public static void VideoSearchWithFilters(VideoSearchAPI client)
         {
             try
             {
-                var videoResults = client.Videos.SearchAsync(query: "Interstellar Trailer", pricing: VideoPricing.Free, length: VideoLength.Short, resolution: VideoResolution.HD1080p).Result;
-                Console.WriteLine("Search videos for query \"Interstellar Trailer\" that is free, short and 1080p resolution");
+                var videoResults = client.Videos.SearchAsync(query: "Bellevue Trailer", pricing: VideoPricing.Free, length: VideoLength.Short, resolution: VideoResolution.HD1080p).Result;
+                Console.WriteLine("Search videos for query \"Bellevue Trailer\" that is free, short and 1080p resolution");
 
                 if (videoResults == null)
                 {
@@ -176,7 +176,7 @@ Search on query text "Interstellar Trailer" for videos that are unchanged, short
 
 
 ```
-##Trending videos
+## Trending videos
 Search for trending videos, then verify banner tiles and categories.
 ```
         public static void VideoTrending(VideoSearchAPI client)
@@ -251,21 +251,21 @@ Search for trending videos, then verify banner tiles and categories.
 
 
 ```
-##Details
-Search videos for "Interstellar Trailer", and then search for detailed information of the first video.
+## Details
+Search videos for "Bellevue Trailer", and then search for detailed information of the first video.
 ```
         public static void VideoDetail(VideoSearchAPI client)
         {
             try
             {
-                var videoResults = client.Videos.SearchAsync(query: "Interstellar Trailer").Result;
+                var videoResults = client.Videos.SearchAsync(query: "Bellevue Trailer").Result;
 
                 var firstVideo = videoResults?.Value?.FirstOrDefault();
 
                 if (firstVideo != null)
                 {
                     var modules = new List<VideoInsightModule?>() { VideoInsightModule.All };
-                    var videoDetail = client.Videos.DetailsAsync(query: "Interstellar Trailer", id: firstVideo.VideoId, modules: modules).Result;
+                    var videoDetail = client.Videos.DetailsAsync(query: "Bellevue Trailer", id: firstVideo.VideoId, modules: modules).Result;
                     Console.WriteLine($"Search detail for video id={firstVideo.VideoId}, name={firstVideo.Name}");
 
                     if (videoDetail != null)
@@ -314,6 +314,6 @@ Search videos for "Interstellar Trailer", and then search for detailed informati
 
 ```
 
-##Next steps
+## Next steps
 
 [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

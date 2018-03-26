@@ -31,6 +31,8 @@ Network Performance Monitor (NPM) is a suite of capabilities, each of which is g
 * Mission critical multi-tier applications/micro-services
 * User locations and web-based applications (HTTP/HTTPs) 
 
+Performance Monitor, ExpressRoute Monitor, and Service Endpoint Monitor are monitoring capabilities within NPM and are described below.
+
 ## Performance Monitor
 
 Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, and on-premises environments. You can monitor network connectivity across remote branch and field offices, store locations, data centers, and clouds. You can detect network issues before your users complain. The key advantages are:
@@ -40,6 +42,8 @@ Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, 
 * Troubleshoot transient and point-in-time network issues, that are difficult to replicate
 * Determine the specific segment on the network, that is responsible for degraded performance
 * Monitor the health of the network, without the need for SNMP
+
+![NPM topology map](./media/network-monitoring-overview/npm-topology-map.png) 
 
 For more information, view the following articles:
 
@@ -61,6 +65,53 @@ For more information, see the following articles:
 
 * [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
 * [Blog post](https://aka.ms/NPMExRmonitorGA)
+
+## Service Endpoint Monitor
+
+With Service Endpoint monitoring, you can now test reachability of applications and detect performance bottlenecks across on-premises, carrier networks and cloud/private data centers.
+
+* Monitor end-to-end network connectivity to applications
+* Correlate application delivery with network performance, detect precise location of degradation along the path between the user and the application
+* Test application reachability from multiple user locations across the globe
+* Determine network latency and packet loss for your line of business and SaaS applications
+* Determine hot spots on the network, that may be causing poor application performance
+* Monitor reachability to  Office 365 applications, using built-in tests for Microsoft Office 365, Dynamics 365, Skype for Business and other Microsoft services
+
+For more information, see the following articles:
+
+* [Configure Network Performance Monitor for monitoring Service Endpoints](https://aka.ms/applicationconnectivitymonitorguide)
+* [Blog post](https://aka.ms/svcendptmonitor)
+
+## Traffic Analytics
+Traffic Analytics is a cloud-based solution that provides  visibility into user and application activity on your cloud networks. NSG Flow logs are analyzed to provide insights into:
+
+* Traffic flows across your networks between Azure and Internet,  public cloud regions, VNETs, and subnets
+* Applications and protocols on your network, without the need for sniffers or dedicated flow collector appliances
+* Top talkers, chatty applications, VM conversations in the cloud, traffic hotspots
+* Sources and destinations of traffic across VNETs, inter-relationships between critical business services and applications
+* Security – malicious traffic, ports open to the Internet,  applications or VMs attempting Internet access…
+* Capacity utilization - helps you eliminate issues of over-provisioning or underutilization by monitoring utilization trends of VPN gateways and other services
+
+Traffic Analytics equips you with actionable information that helps you audit your organization’s network activity, secure applications and data,  optimize workload performance and stay compliant.
+
+![Geo-map showing traffic across regions](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+
+Related links:
+* [Blog post](https://aka.ms/trafficanalytics), [Documentation](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+
+## DNS Analytics
+Built for DNS Administrators, this solution collects, analyzes, and correlates DNS logs to provide security, operations, and performance-related insights.  Some of the capabilities are:
+
+* Identification of clients that try to resolve to malicious domains
+* Identification of stale resource records
+* Visibility into frequently queried domain names and talkative DNS clients
+* Visibility into the request load on DNS servers
+* Monitoring of dynamic DNS registration failures
+
+![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+Related links:
+* [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
 ## Next steps
 

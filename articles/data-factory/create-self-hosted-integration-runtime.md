@@ -4,8 +4,8 @@ description: Learn how to create self-hosted integration runtime in Azure Data F
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services
@@ -62,6 +62,7 @@ Here is a high-level data flow for the summary of steps for copy with self-hoste
 - Self-hosted integration runtime must be used for supporting data integration within Azure Virtual Network.
 - Treat your data source as an on-premises data source (that is behind a firewall) even when you use **ExpressRoute**. Use the self-hosted integration runtime to establish connectivity between the service and the data source.
 - You must use the self-hosted integration runtime even if the data store is in the cloud on an **Azure IaaS virtual machine**.
+- Tasks may fail in a Self-hosted Integration Runtime installed on a Windows Server on which FIPS-compliant encryption is enabled. To work around this issue, disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## Prerequisites
 

@@ -47,9 +47,13 @@
       href: delete-cluster.md
   - name: Configure data volumes
     items:
-    - name: Azure Disks
+    - name: Kubernetes Volume - Disks
+      href: azure-disk-volume.md
+    - name: Kubernetes Volume - Files
+      href: azure-files-volume.md
+    - name: Persistent Volume - Disks
       href: azure-disks-dynamic-pv.md
-    - name: Azure Files
+    - name: Persistent Volume - Files
       href: azure-files-dynamic-pv.md
   - name: Configure networking
     items:
@@ -73,10 +77,20 @@
       href: integrate-azure.md
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
+    - name: Using OpenFaaS with AKS
+      href: openfaas.md
+    - name: Run Spark jobs on AKS
+      href: spark-job.md
   - name: Kubernetes basics
     items:
     - name: Use Kubernetes dashboard
       href: kubernetes-dashboard.md
+  - name: Troubleshoot
+    items:
+    - name: SSH node access
+      href: aks-ssh.md
+    - name: Get kubelet logs
+      href: kubelet-logs.md
 - name: Reference
   items:
   - name: Azure CLI

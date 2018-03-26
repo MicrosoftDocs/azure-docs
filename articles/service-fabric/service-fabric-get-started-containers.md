@@ -387,6 +387,7 @@ Windows Server containers (process isolation mode) may not be compatible with ne
 ```xml
 <ContainerHostPolicies> 
          <ImageOverrides> 
+	       <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
@@ -406,6 +407,7 @@ The build version for WIndows Server 2016 is 14393, and the build version for Wi
 
 If the underlying OS on the VM is build 16299 (version 1709), Service Fabric picks the container image corresponding to that Windows Server version.  If an untagged container image is also provided alongside tagged container images in the application manifest, then Service Fabric treats the untagged image as one that works across versions. It is recommended to tag the container images explicitly.
 
+The untagged container image will work as an override for the one provide in the ServiceManifest. So image "myregistry.azurecr.io/samples/helloworldappDefault" will override the ImageName "myregistry.azurecr.io/samples/helloworldapp" in the ServiceManifest.
 
 ## Complete example Service Fabric application and service manifests
 Here are the complete service and application manifests used in this article.

@@ -406,5 +406,5 @@ Leave the command window open while you use the tutorial app; closing the window
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-image-api-v7-reference)
+> [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
 

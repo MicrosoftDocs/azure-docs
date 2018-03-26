@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
 ---
 
@@ -28,7 +28,7 @@ A *trigger* defines how a function is invoked. A function must have exactly one 
 
 Input and output *bindings* provide a declarative way to connect to data from within your code. Bindings are optional and a function can have multiple input and output bindings. 
 
-Triggers and bindings let you avoid hardcoding the details of the services that you're working with. You function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function, an `out` parameter, or a [collector object](functions-reference-csharp.md#writing-multiple-output-values).
+Triggers and bindings let you avoid hardcoding the details of the services that you're working with. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function, an `out` parameter, or a [collector object](functions-reference-csharp.md#writing-multiple-output-values).
 
 When you develop functions by using the Azure portal, triggers and bindings are configured in a *function.json* file. The portal provides a UI for this configuration but you can edit the file directly by changing to the **Advanced editor**.
 
@@ -39,6 +39,50 @@ When you develop functions by using Visual Studio to create a class library, you
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
+
+## Register binding extensions
+
+In version 2.x of the Azure Functions runtime, you must explicitly register the [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) that you use in your function app. 
+
+Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  The way you install and register binding extensions depends on how you develop your functions: 
+
++ [Locally in C# using Visual Studio or VS Code](#precompiled-functions-c)
++ [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
++ [In the Azure portal](#azure-portal-development) 
+
+There is a core set of bindings in version 2.x that are not provided as extensions. You do not need to register extensions for the following triggers and bindings: HTTP, timer, and Azure Storage. 
+
+For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview. 
+
+The package versions shown in this section are provided only as examples. Check the [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) to determine which version of a given extension are required by the other dependencies in your function app.    
+
+###  Local C# development using Visual Studio or VS Code 
+
+When you use Visual Studio or Visual Studio Code to locally develop functions in C#, you simply need to add the NuGet package for the extension. 
+
++ **Visual Studio**: Use the NuGet Package Manager tools. The following [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command installs the Azure Cosmos DB extension from the Package Manager Console:
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**: You can install packages from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET CLI, as follows:
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### Local development Azure Functions Core Tools
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### Azure portal development
+
+When you create a function or add a binding to an existing function, you are prompted when the extension for the trigger or binding being added requires registration.   
+
+After a warning appears for the specific extension being installed, click **Install** to register the extension. You need only install each extension one time for a given function app. 
+
+>[!Note] 
+>The in-portal installation process can take up to 10 minutes on a consumption plan.
 
 ## Example trigger and binding
 
@@ -67,9 +111,9 @@ Here's a *function.json* file for this scenario.
 }
 ```
 
-The first element in the `bindings` array is the Queue storage trigger. The `type` and `direction` properties identify the trigger. The `name` property identifies the function parameter that will receive the queue message content. The name of the queue to monitor is in `queueName`, and the connection string is in the app setting identified by `connection`.
+The first element in the `bindings` array is the Queue storage trigger. The `type` and `direction` properties identify the trigger. The `name` property identifies the function parameter that receives the queue message content. The name of the queue to monitor is in `queueName`, and the connection string is in the app setting identified by `connection`.
 
-The second element in the `bindings` array is the Azure Table Storage output binding. The `type` and `direction` properties identify the binding. The `name` property specifies how the function will provide the new table row, in this case by using the function return value. The name of the table is in `tableName`, and the connection string is in the app setting identified by `connection`.
+The second element in the `bindings` array is the Azure Table Storage output binding. The `type` and `direction` properties identify the binding. The `name` property specifies how the function provides the new table row, in this case by using the function return value. The name of the table is in `tableName`, and the connection string is in the app setting identified by `connection`.
 
 To view and edit the contents of *function.json* in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function.
 
