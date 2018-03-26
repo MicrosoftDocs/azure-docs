@@ -124,7 +124,7 @@ The Pattern feature is currently deprecated. Pattern features in LUIS are provid
 Each LUIS app has the authoring/starter key. LUIS subscription keys created during the GA time frame are visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys do not appear on the publish page. 
 
 ## How do I secure my LUIS endpoint? 
-See [Securing the endpoing](luis-concept-security.md#securing-the-endpoint).
+See [Securing the endpoint](luis-concept-security.md#securing-the-endpoint).
 
 ## Where is my LUIS app created during the Azure web app bot subscription process?
 If you select a LUIS template, and select the **Select** button in the template pane, the left-side pane changes to include the template type, and asks in what region to create the LUIS template. The web app bot process doesn't create a LUIS subscription though.
