@@ -138,8 +138,8 @@ You can download a copy of the file you uploaded by right clicking on the file. 
 
 ![A screenshot of the download button in the context menu for a file](media/storage-how-to-use-files-portal/download-file-1.png) 
 
-## Create and modify share snapshots (preview)
-One additional useful task you can do with an Azure file share is to create share snapshots (preview). A snapshot preserves a point-in-time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:
+## Create and modify share snapshots
+One additional useful task you can do with an Azure file share is to create share snapshots. A snapshot preserves a point-in-time for an Azure file share. Share snapshots are similar to operating system technologies you may already be familiar with such as:
 - [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 

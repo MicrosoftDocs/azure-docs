@@ -1,5 +1,5 @@
 ---
-title: Overview of share snapshots for Azure Files (preview) | Microsoft Docs
+title: Overview of share snapshots for Azure Files | Microsoft Docs
 description: A share snapshot is a read-only version of an Azure Files share that's taken at a point in time, as a way to back up the share.
 services: storage
 documentationcenter: .net
@@ -18,8 +18,8 @@ ms.author: renash
 
 ---
 
-# Overview of share snapshots for Azure Files (preview)
-Azure Files provides the capability to take share snapshots of file shares. Share snapshots (preview) capture the share state at that point in time. In this article, we describe what capabilities share snapshots provide and how you can take advantage of them in your custom use case.
+# Overview of share snapshots for Azure Files 
+Azure Files provides the capability to take share snapshots of file shares. Share snapshots capture the share state at that point in time. In this article, we describe what capabilities share snapshots provide and how you can take advantage of them in your custom use case.
 
 ## When to use share snapshots
 
@@ -88,5 +88,8 @@ Before you deploy the share snapshot scheduler, carefully consider your share sn
 Share snapshots provide only file-level protection. Share snapshots don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can lock the storage account or the resource group.
 
 ## Next steps
-* [Work with share snapshots](storage-how-to-use-files-snapshots.md)
-* [Share snapshot FAQ](storage-files-faq.md#share-snapshots)
+- Working with share snapshots in:
+    - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
+    - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+- [Share snapshot FAQ](storage-files-faq.md#share-snapshots)
