@@ -67,6 +67,7 @@
           href: qs-configure-template-windows-vm.md
         - name: Go
         - name: .NET
+          href: configure-identity-csharp.md
         - name: Java
         - name: Node.js
         - name: Python
