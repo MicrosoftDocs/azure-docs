@@ -379,6 +379,7 @@ For this reason, the HANA instance is included as an argument. If the execution 
    ```
     ./testStorageSnapshotConnection.pl <HANA SID>
    ```
+
 The script tries to sign in to the storage by using the public key provided in the previous setup steps, and with the data configured in the *HANABackupCustomerDetails.txt* file. If sign-in is successful, the following content is shown:
 
 ```
