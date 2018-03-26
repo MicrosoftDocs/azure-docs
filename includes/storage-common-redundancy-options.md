@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: storage
+ author: tamram
+ ms.service: storage
+ ms.topic: include
+ ms.date: 03/26/2018
+ ms.author: tamram
+ ms.custom: include file
+---
+
 Replication options for a storage account include:
 
 * [Locally-redundant storage (LRS)](../articles/storage/common/storage-redundancy-lrs.md): The default and low-cost option for replication of data in Azure Storage.

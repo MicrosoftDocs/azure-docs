@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: storage
+ author: tamram
+ ms.service: storage
+ ms.topic: include
+ ms.date: 03/26/2018
+ ms.author: tamram
+ ms.custom: include file
+---
+
 Zone redundant storage (ZRS) is designed to simplify the development of highly available applications. If your storage account uses ZRS for redundancy, then any data objects that you store in that account automatically benefit from the high availability provided by ZRS. You do not need to rewrite your application to take advantage of ZRS.
 
 With ZRS, your data is replicated across multiple availability zones within the same region. For more information about availability zones, see [Availability zones overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
