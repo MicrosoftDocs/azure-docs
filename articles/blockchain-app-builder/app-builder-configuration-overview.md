@@ -17,6 +17,12 @@ manager: zeyadr
 ---
 # Azure Blockchain App Builder Configuration Reference
 
+Blockchain apps in app builder consist of two core pieces. configuration and business logic (one or more smart contracts)
+
+configuration is the representation of the application as one or more workflows. The app and workflow is a state machine.  You have different states. Roles can take different actions depending on the state. Once you have defined that these applications can consist of one or more workflows.
+
+for your configuration you can have one or more smart contract files that codify the configuration / workflow representation.  The smart contract is written in the appropriate language of the specified blockchain stack. solidity for etherium. go for hyperledger fabric. you can have one or more files that represent your business logic code.
+
 The setup information for the application built in App Builder, such as states and user permissions
 
 REVISED: A file detailing the properties, states, actions and parameters, role permissions, and other specifications for the [smart contract(s)] in the application
@@ -25,7 +31,11 @@ REVISED: A file detailing the properties, states, actions and parameters, role p
 
 {image}
 
+App builder uses configuration schema to define blockchain applications and represents them as state machines. 
 
+Represents the application, the associated workflows, the state machine for each workflow, the roles that can particpate in those workflows.  the actions the roles can take at specific states. And provides hints to the UI to UI consumers for visually representing content on the blockchain. 
+
+represent state machine.  Action 1 has a table representing actions to next states.
 ## Application
 
 The application is comprised of one or more smart contracts and a configuration file that describes them.  The files are uploaded to the associated App Builder’s storage and SQL DB services via the Gateway API. 
