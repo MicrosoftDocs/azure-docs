@@ -37,8 +37,6 @@ A sample screen below.
 
     ![Extend Alerts from OMS into Azure - Step 2](./media/monitor-alerts-extend/ExtendStep2.png)
 
-    > [!NOTE]
-    > If the edit alert option shown above, is used; the user will not be able to return to wizard. And will require to restart the process of extending alerts from OMS into Azure, from step 1. Also the list shows proposed change summary, the actual result may vary based on  any changes are done in parallel.
 
 4. In the last step of wizard, you can ask OMS to schedule extending all your alerts into Azure - by creating new Action Groups and associating them with alerts, as shown in the earlier screen. To proceed choose click Finish and confirm at the prompt to initiate the process. Optionally, customers can also provide email addresses to which they would like OMS to send a report on finishing the processing.
 
