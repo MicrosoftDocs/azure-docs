@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.topic: tutorial
-ms.date: 03/23/2018
+ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
 ---
