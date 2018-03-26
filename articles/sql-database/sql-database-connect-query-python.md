@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/09/2017
+ms.date: 03/26/2018
 ms.author: carlrab
 ---
 # Use Python to query an Azure SQL database
