@@ -4,7 +4,7 @@ description: Overview of maintenance and updates for Linux virtual machines runn
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 03/21/2018
 ms.author: cynthn
 
 ---

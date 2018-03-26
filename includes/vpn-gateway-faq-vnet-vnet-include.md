@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/21/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 The VNet-to-VNet FAQ applies to VPN Gateway connections. If you are looking for VNet Peering, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md)
 
 ### Does Azure charge for traffic between VNets?

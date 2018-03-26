@@ -24,7 +24,7 @@ Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you mig
 When role instances and VMs hosted in Azure need to resolve domain names to internal IP addresses, they can use one of two methods:
 
 * [Azure-provided name resolution](#azure-provided-name-resolution)
-* [Name resolution that uses your own DNS server](#name-resolution-using-your-own-dns-server) (which might forward queries to the Azure-provided DNS servers) 
+* [Name resolution that uses your own DNS server](#name-resolution-that-uses-your-own-dns-server) (which might forward queries to the Azure-provided DNS servers) 
 
 The type of name resolution you use depends on how your VMs and role instances need to communicate with each other. The following table illustrates scenarios and corresponding name resolution solutions:
 
@@ -35,13 +35,13 @@ The type of name resolution you use depends on how your VMs and role instances n
 | **Scenario** | **Solution** | **Suffix** |
 | --- | --- | --- |
 | Name resolution between role instances or VMs located in the same cloud service or virtual network. | [Azure DNS Private Zones](../dns/private-dns-overview.md) or [Azure-provided name resolution](#azure-provided-name-resolution) |Hostname or FQDN |
-| Name resolution between role instances or VMs located in different virtual networks. |[Azure DNS Private Zones](../dns/private-dns-overview.md) or, Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server). |FQDN only |
-| Name resolution from an Azure App Service (Web App, Function, or Bot)  using virtual network integration to role instances or VMs located in the same virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server). |FQDN only |
-| Name resolution from App Service Web Apps to VMs located in the same virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server). |FQDN only |
-| Name resolution from App Service Web Apps to VMs located in a different virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server-for-web-apps). |FQDN only |
-| Resolution of on-premises computer and service names from role instances or VMs in Azure. |Customer-managed DNS servers (on-premises domain controller, local read-only domain controller, or a DNS secondary synced using zone transfers, for example). See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server). |FQDN only |
-| Resolution of Azure hostnames from on-premises computers. |Forward queries to a customer-managed DNS proxy server in the corresponding virtual network, the proxy server forwards queries to Azure for resolution. See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server). |FQDN only |
-| Reverse DNS for internal IPs. |[Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server). |Not applicable |
+| Name resolution between role instances or VMs located in different virtual networks. |[Azure DNS Private Zones](../dns/private-dns-overview.md) or, Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Name resolution from an Azure App Service (Web App, Function, or Bot)  using virtual network integration to role instances or VMs located in the same virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Name resolution from App Service Web Apps to VMs located in the same virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Name resolution from App Service Web Apps to VMs located in a different virtual network. |Customer-managed DNS servers forwarding queries between virtual networks for resolution by Azure (DNS proxy). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server-for-web-apps). |FQDN only |
+| Resolution of on-premises computer and service names from role instances or VMs in Azure. |Customer-managed DNS servers (on-premises domain controller, local read-only domain controller, or a DNS secondary synced using zone transfers, for example). See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Resolution of Azure hostnames from on-premises computers. |Forward queries to a customer-managed DNS proxy server in the corresponding virtual network, the proxy server forwards queries to Azure for resolution. See [Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |FQDN only |
+| Reverse DNS for internal IPs. |[Name resolution using your own DNS server](#name-resolution-that-uses-your-own-dns-server). |Not applicable |
 | Name resolution between VMs or role instances located in different cloud services, not in a virtual network. |Not applicable. Connectivity between VMs and role instances in different cloud services is not supported outside a virtual network. |Not applicable|
 
 ## Azure-provided name resolution
@@ -130,7 +130,7 @@ The resolv.conf file is usually auto-generated, and should not be edited. The sp
   1. Add *echo "options timeout:1 attempts:5"* to **/etc/NetworkManager/dispatcher.d/11-dhclient**. 
   2. Update with `service network restart`.
 
-## Name resolution that uses your own DNS server
+## <a name="name-resolution-using-your-own-dns-server"></a>Name resolution that uses your own DNS server
 
 This section covers VMs and role instances, and web apps.
 
