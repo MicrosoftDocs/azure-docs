@@ -15,9 +15,9 @@
     href: quick-setup-auto-provision.md
   - name: Set up auto-provisioning - Template
     href: quick-setup-auto-provision-rm.md
-  - name: Create simulated device
+  - name: Auto-provision a simulated device
     items:
-    - name: TPM 
+    - name: TPM attestation
       items:
         - name: C
           href: quick-create-simulated-device.md
@@ -29,7 +29,7 @@
           href: quick-create-simulated-device-tpm-node.md
         - name: Python
           href: quick-create-simulated-device-tpm-python.md
-    - name: X.509 
+    - name: X.509 attestation
       items:
         - name: C
           href: quick-create-simulated-device-x509.md
@@ -41,9 +41,9 @@
           href: quick-create-simulated-device-x509-node.md
         - name: Python
           href: quick-create-simulated-device-x509-python.md
-  - name: Enroll device
+  - name: Device enrollment using provisioning service APIs
     items:
-    - name: TPM 
+    - name: TPM attestation
       items:
         - name: Java
           href: quick-enroll-device-tpm-java.md
@@ -53,7 +53,7 @@
           href: quick-enroll-device-tpm-node.md
         - name: Python
           href: quick-enroll-device-tpm-python.md
-    - name: X.509 
+    - name: X.509 attestation
       items:
         - name: Java
           href: quick-enroll-device-x509-java.md
@@ -81,12 +81,14 @@
     href: tutorial-group-enrollments.md
 - name: Concepts
   items:
-  - name: Device concepts
+  - name: Auto-provisioning
+    href: concepts-auto-provisioning.md  
+  - name: Devices
     href: concepts-device.md
-  - name: Service concepts
-    href: concepts-service.md
-  - name: Security concepts
+  - name: Security
     href: concepts-security.md
+  - name: Service
+    href: concepts-service.md
 - name: How-to guides
   items:
   - name: Manage device enrollments

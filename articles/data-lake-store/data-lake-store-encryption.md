@@ -103,7 +103,7 @@ The following diagram illustrates these concepts:
 4.	Store the encrypted data block of data on persistent storage.
 
 > [!NOTE] 
-> For performance reasons, the DEK in the clear is cached in memory for a short time, and is immediately erased afterward. On persistent media, it is always stored encrypted by the MEK.
+> The DEK is always stored encrypted by the MEK, whether on persistent media or cached in memory.
 
 ## Key rotation
 
