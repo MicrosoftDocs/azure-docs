@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/2018
+ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
 
@@ -22,7 +22,7 @@ ms.custom: mvc, devcenter
 # Quickstart: create a .NET Service Fabric application in Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
-This quickstart shows how to deploy your first .NET application to Service Fabric. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster.
+This quickstart shows how to deploy your first .NET application to Service Fabric. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
 
 ![Application Screenshot](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
@@ -68,9 +68,9 @@ To deploy the application, press **F5**.
 > [!NOTE]
 > The first time you run and deploy the application, Visual Studio creates a local cluster for debugging. This operation may take some time. The cluster creation status is displayed in the Visual Studio output window.  In the output, you see the message "The application URL is not set or is not an HTTP/HTTPS URL so the browser will not be opened to the application."  This message does not indicate an error, but that a browser will not auto-launch.
 
-When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front-end of the application.
+When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front end of the application.
 
-![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
+![Application front end](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
 You can now add a set of voting options, and start taking votes. The application runs and stores all data in your Service Fabric cluster, without the need for a separate database.
 
@@ -89,6 +89,7 @@ When you vote in the application the following events occur:
 3. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
 
 ## Debug in Visual Studio
+
 When debugging the application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, data is stored in back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
 
 To look at what happens in the code, complete the following steps:
@@ -96,7 +97,7 @@ To look at what happens in the code, complete the following steps:
 
 2. Open the **/VotingData/Controllers/VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
 
-3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
+3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front end's api controller.
     - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
     
     ![Add Vote Front-End Service](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
@@ -167,7 +168,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 4. Open a browser and type in the cluster address followed by ':8080' to get to the application in the cluster - for example, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. You should now see the application running in the cluster in Azure.
 
-    ![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+    ![Application front end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## Scale applications and services in a cluster
 Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Service Fabric CLI (sfctl). In this example, use Service Fabric Explorer.
