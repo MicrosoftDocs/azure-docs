@@ -58,9 +58,13 @@
       - name: Configure Identity for an Azure VM
         items:
         - name: Portal
+          href: qs-configure-portal-windows-vm.md
         - name: CLI
+          href: qs-configure-cli-windows-vm.md
         - name: PowerShell
+          href: qs-configure-powershell-windows-vm.md
         - name: Azure Resource Manager Template
+          href: qs-configure-template-windows-vm.md
         - name: Go
         - name: .NET
         - name: Java
@@ -75,7 +79,7 @@
         - name: Azure Resource Manager Template
         - name: .NET
         - name: Java
-        - name: Node JS
+        - name: Node.js
         - name: Python
         - name: Ruby
       - name: Configure Identity for Application Service
@@ -95,7 +99,7 @@
         - name: Curl
         - name: .NET
         - name: Java
-        - name: Node JS
+        - name: Node.js
         - name: Python
         - name: Ruby
       - name: Sign-in to PowerShell and CLI using Managed Identity
