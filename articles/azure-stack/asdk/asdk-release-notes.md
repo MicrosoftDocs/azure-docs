@@ -31,7 +31,7 @@ The new features and fixes released for Azure Stack integrated systems version 1
 > Some of the items listed in the **new features** and **fixed issues** sections are relevant only to Azure Stack integrated systems.
 
 ### Changes
-- The way to change the state of a newly created offer from *private* to *public* or *decommissioned* has changed. For more information, see [Create an offer](azure-stack-create-offer.md). 
+- The way to change the state of a newly created offer from *private* to *public* or *decommissioned* has changed. For more information, see [Create an offer](.\.\azure-stack-create-offer.md). 
 
 
 ### Known issues
