@@ -8,6 +8,12 @@
     href: agent-linux.md
   - name: Windows VM Agent
     href: agent-windows.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Custom Script Extension
+      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      maintainContext: true 
 - name: Concepts
   items:
   - name: Linux
