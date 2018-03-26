@@ -18,7 +18,7 @@ For more information, see the technical documentation for the [add utterance](ht
 
 ## Prerequisites
 > [!div class="checklist"]
-> * Your LUIS [**authoring key**](Manage-Keys.md#programmatic-key). 
+> * Your LUIS [**authoring key**](luis-concept-keys.md#authoring-key). 
 > * Your existing LUIS **application ID** and **version ID**. 
 > * A new file named `add-utterances.html` project in VSCode.
 
