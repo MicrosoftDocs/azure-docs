@@ -23,12 +23,16 @@ These release notes provide information about improvements, fixes, and known iss
 
 > Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## Build 20180327.xxx
+## Build 20180323.2
 
 ### New features and fixes
 The new features and fixes released for Azure Stack integrated systems version 1803 apply to the Azure Stack Development Kit. See the [new features](.\.\azure-stack-update-1803.md#new-features) and [fixed issues](.\.\azure-stack-update-1803.md#fixed-issues) sections of the Azure Stack 1803 update release notes for details.  
 > [!IMPORTANT]    
 > Some of the items listed in the **new features** and **fixed issues** sections are relevant only to Azure Stack integrated systems.
+
+### Changes
+- The way to change the state of a newly created offer from *private* to *public* or *decommissioned* has changed. For more information, see [Create an offer](azure-stack-create-offer.md). 
+
 
 ### Known issues
  
@@ -213,8 +217,6 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
  
-#### Usage and billing
-- Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 <!--
 #### Identity
@@ -290,9 +292,6 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
  
-#### Usage and billing
-- Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
-
 #### Identity
 
 In Azure Active Directory Federation Services (ADFS) deployed environments, the **azurestack\azurestackadmin** account is no longer the owner of the Default Provider Subscription. Instead of logging into the **Admin portal / adminmanagement endpoint** with the **azurestack\azurestackadmin**, you can use the **azurestack\cloudadmin** account, so that you can manage and use the Default Provider Subscription.
@@ -367,8 +366,6 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
  
-#### Usage and billing
-- Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 #### Identity
 
