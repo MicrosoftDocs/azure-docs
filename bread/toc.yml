@@ -181,7 +181,7 @@
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
-  - name: CosmosDB
+  - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
   - name: Data Catalog
