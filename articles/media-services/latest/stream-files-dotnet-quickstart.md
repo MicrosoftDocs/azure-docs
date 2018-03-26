@@ -55,7 +55,7 @@ First, let's clone the [StreamAndEncodeFiles](https://github.com/azure-samples/m
 4. Right-click the **EncodeAndStreamFiles** project and select **Set as StartUp project**.
 5. Build the solution. 
 
-You can open Program.cs file and examine the code and code comments. If you want to understand more about what the code is doing, please see the [Upload, encode, and stream videos](stream-files-tutorial.md) tutorial. 
+You can open the Program.cs file and examine the code and code comments. If you want to understand more about what the code is doing, please see the [Upload, encode, and stream videos](stream-files-tutorial.md) tutorial. 
 
 ## Configure your app
 
