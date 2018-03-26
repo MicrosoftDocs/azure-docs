@@ -25,7 +25,7 @@ In this tutorial, part five of seven, you scale out the pods in the app and try 
 > * Configuring Autoscale pods running the app front end
 > * Scale the Kubernetes Azure agent nodes
 
-In subsequent tutorials, the Azure Vote application is updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
+In subsequent tutorials, the Azure Vote application is updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 

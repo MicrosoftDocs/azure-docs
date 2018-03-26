@@ -6499,11 +6499,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sql-database/sql-database-connect-query.md",
-            "redirect_url": "/azure/sql-database/sql-database-connect-query-vscode",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/sql-database/sql-database-control-access-aad-authentication-get-started.md",
             "redirect_url": "/azure/sql-database/sql-database-aad-authentication-configure",
             "redirect_document_id": false
