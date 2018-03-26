@@ -130,7 +130,7 @@ You may see below error while trying to expand the tree nodes in left.
 Try the following suggestions:
 
 - Check if the Azure Cosmos DB account is in provision progress and try again when the account is being created successfully.
-- If the account is under \`Quick Access\` or \`Local and Attached\` nodes, then check if the account has been deleted. If so, you need to remove the node manually.
+- If the account is under "Quick Access" node or "Local and Attached" nodes, then check if the account has been deleted. If so, you need to remove the node manually.
 
 <h2 id="Next-steps">Next steps</h2>
 
