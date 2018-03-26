@@ -116,7 +116,7 @@ For an Azure service resource (such as, an Azure Storage account), services may 
 
 ## Next steps
 
-- Learn how to [configure virtual network service endpoints](virtual-network-service-endpoints-configure.md)
+- Learn how to [configure virtual network service endpoints](tutorial-restrict-network-access-to-resources.md)
 - Learn how to [secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn how to [secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn about [Azure service integration in virtual networks](virtual-network-for-azure-services.md)

@@ -4,8 +4,8 @@ description: Learn how to copy data from supported source data stores to Azure C
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: multiple
 ms.workload: data-services

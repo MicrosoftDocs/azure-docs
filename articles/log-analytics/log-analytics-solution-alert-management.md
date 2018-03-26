@@ -106,20 +106,6 @@ The solution does import alerts from System Center Operations Manager and create
 The following table provides sample log searches for alert records collected by this solution: 
 
 | Query | Description |
-|:--- |:--- |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Critical alerts raised during the past 24 hours |
-| Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR |Warning alerts raised during the past 24 hours |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName |Sources with active alerts raised during the past 24 hours |
-| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed |Critical alerts raised during the past 24 hours that are still active |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Alerts raised during the past 24 hours that are now closed |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Alerts raised during the past 1 day grouped by their severity |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Alerts raised during the past 1 day sorted by their repeat count value |
-
-
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the preceding queries would change to the following:
->
->| Query | Description |
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |Critical alerts raised during the past 24 hours |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |Warning alerts raised during the past 24 hours |
@@ -128,6 +114,7 @@ The following table provides sample log searches for alert records collected by 
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(24h) and AlertState == "Closed" |Alerts raised during the past 24 hours that are now closed |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |Alerts raised during the past 1 day grouped by their severity |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |Alerts raised during the past 1 day sorted by their repeat count value |
+
 
 
 ## Next steps

@@ -20,7 +20,7 @@ In this quickstart, you learn how to use Python to upload, download, and list bl
 
 To complete this quickstart: 
 * Install [Python](https://www.python.org/downloads/)
-* Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md). 
+* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

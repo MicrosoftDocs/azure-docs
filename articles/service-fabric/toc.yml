@@ -121,16 +121,14 @@
       - name: Reliable Concurrent Queue
         href: service-fabric-reliable-services-reliable-concurrent-queue.md
       - name: Reliable Collection serialization
-        href: service-fabric-reliable-services-reliable-collections-serialization.md
-      - name: Reliable State Manager and Reliable Collection internals
-        href: service-fabric-reliable-services-reliable-collections-internals.md
-      - name: Advanced usage
-        href: service-fabric-reliable-services-advanced-usage.md
+        href: service-fabric-reliable-services-reliable-collections-serialization.md      
     - name: Reliable Actors
       href: service-fabric-reliable-actors-introduction.md
       items:
       - name: Architecture
         href: service-fabric-reliable-actors-platform.md
+      - name: Implementing service-level features
+        href: service-fabric-reliable-actors-using.md
       - name: Lifecycle and garbage collection
         href: service-fabric-reliable-actors-lifecycle.md
       - name: State management
@@ -389,7 +387,15 @@
         href: service-fabric-reliable-services-backup-restore.md
     - name: Build a Reliable Actors service
       items:
-      - name: Send notifications
+      - name: Access, save, and remove actor state
+        href: service-fabric-reliable-actors-access-save-remove-state.md
+      - name: Enumerate actors
+        href: service-fabric-reliable-actors-enumerate.md
+      - name: Delete actors and their state
+        href: service-fabric-reliable-actors-delete-actors.md
+      - name: Backup and restore actors
+        href: service-fabric-reliable-actors-backup-and-restore.md
+      - name: Send actor notifications
         href: service-fabric-reliable-actors-events.md
       - name: Set timers and reminders
         href: service-fabric-reliable-actors-timers-reminders.md
