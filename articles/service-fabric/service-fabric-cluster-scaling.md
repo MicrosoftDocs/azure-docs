@@ -60,6 +60,10 @@ Of course, the scaling code doesn't need to run as a service in the cluster to b
 
 Based on these limitations, you may wish to [implement more customized automatic scaling models](service-fabric-programmatic-scaling.md).
 
+Creating your own scaling service provides the highest degree of control and customizability over your application's scaling behavior. This can be useful for scenarios requiring precise control over when or how an application scales in or out. However, this control comes with a tradeoff of code complexity. Using this approach means that you need to own scaling code, which is non-trivial.
+
+How you should approach Service Fabric scaling depends on your scenario. If scaling is uncommon, the ability to add or remove nodes manually is probably sufficient. For more complex scenarios, auto-scale rules and SDKs exposing the ability to scale programmatically offer powerful alternatives.
+
 ## Scaling a standalone cluster in or out
 
 Removal of nodes may initiate multiple upgrades. Some nodes are marked with `IsSeedNode=”true”` tag and can be identified by querying the cluster manifest using [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Removal of such nodes may take longer than others since the seed nodes will have to be moved around in such scenarios. The cluster must maintain a minimum of 3 primary node type nodes.
