@@ -43,7 +43,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
 - Improved auto-suggestions while performing By Example transformations
 - Improved algorithm for Pattern Frequency inspector
 - Ability to send sample data and feedback while performing By Example transformations 
-![Image of send feedback link on derive column transform](media/release-notes-sprint-3/SendFeedbackFromDeriveColumn.png)
+![Image of send feedback link on derive column transform](media/azure-machine-learning-release-notes/SendFeedbackFromDeriveColumn.png)
 - Spark Runtime Improvements
 - Scala has replaced Pyspark
 - Fixed inability to close Data Not Applicable for the Time Series Inspector 
@@ -101,17 +101,17 @@ Following is a list of detailed updates in each component area of Azure Machine 
 ### Data preparation 
 - A Pattern Frequency Inspector to view the string patterns in a column. You can also filter your data using these patterns. This shows you a view similar to the Value Counts inspector. The difference is that Pattern Frequency shows the counts of the unique patterns of the data, rather than the counts of unique data. You can also filter in or out all rows that fit a certain pattern.
 
-![Image of pattern frequency inspector on Product Number](media/release-notes-sprint-2/pattern-inspector-product-number.png)
+![Image of pattern frequency inspector on Product Number](media/azure-machine-learning-release-notes/pattern-inspector-product-number.png)
 
 - Performance improvements while recommending edge cases to review in the 'derive column by example' transformation
 
 - [Support for SQL Server and Azure SQL DB as a data source](data-prep-appendix2-supported-data-sources.md#types) 
 
-![Image of creating a new SQL server data source](media/release-notes-sprint-2/sql-server-data-source.png)
+![Image of creating a new SQL server data source](media/azure-machine-learning-release-notes/sql-server-data-source.png)
 
 - Enabled "At a glance" view of row and column counts
 
-![Image of row column count at a grace](media/release-notes-sprint-2/row-col-count.png)
+![Image of row column count at a grace](media/azure-machine-learning-release-notes/row-col-count.png)
 
 - Data prep is enabled in all compute contexts
 - Data sources that use a SQL Server database are enabled in all compute contexts
@@ -148,9 +148,9 @@ For more information on creating compute targets, see [Configuring Azure Machine
 - Realtime scoring calls timeout set to 60 seconds
 - Registered model list and detail views available in the Azure portal
 
-![model details in portal](media/release-notes-sprint-2/model-list.jpg)
+![model details in portal](media/azure-machine-learning-release-notes/model-list.jpg)
 
-![model overview in portal](media/release-notes-sprint-2/model-overview-portal.jpg)
+![model overview in portal](media/azure-machine-learning-release-notes/model-overview-portal.jpg)
 
 ### MMLSpark
 - Deep Learning on Spark with [GPU support](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
