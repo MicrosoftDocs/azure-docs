@@ -46,7 +46,7 @@ The following URL for Azure Event Hubs is different in Azure Government:
 | *.servicebus.windows.net | *.servicebus.usgovcloudapi.net |
 
 ## Azure Notification Hubs
-For details on this service and how to use it, see [Azure Notification Hubs documentation](../notification-hubs/index.md).
+For details on this service and how to use it, see [Azure Notification Hubs documentation](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ### Variations
 Notification Hubs **does not yet have Portal support** and cannot be accessed through the Azure Government Portal.
