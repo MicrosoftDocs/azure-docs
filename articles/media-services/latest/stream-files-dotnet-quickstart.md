@@ -21,11 +21,11 @@ ms.author: juliako
 > [!NOTE]
 > The latest version of Azure Media Services (2018-03-30) is in preview. This version is also called v3.
 
-When streaming videos, you want for your customers to be able to play the videos on a wide variety of browsers and devices. Thus, you want to deliver adaptive bitrate content in various formats (for example, HLS, MPEG DASH, and Smooth Streaming). For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the content needs to be encoded and packaged appropriately.
+When streaming videos, you would likely want for your customers to be able to play videos on a wide variety of browsers and devices. Thus, you would want to deliver adaptive bitrate content in various formats (for example, HLS, MPEG DASH, and Smooth Streaming). For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the content needs to be encoded and packaged appropriately.
 
-This quickstart shows you how easy it is to start delivering videos with adaptive bitrate streaming using Media Services .NET. If you want to understand more about what the code is doing, please see the [Upload, encode, and stream videos](stream-files-tutorial.md) tutorial. 
+This quickstart shows you how easy it is to start delivering videos with adaptive bitrate streaming using Media Services .NET SDK. 
 
-In the quickstart, you are first offered to clone a GitHub repository that contains the **EncodeAndStreamFiles** project. The project contains .NET code that uploads a video file based on the specified URL, encodes the video, and prints out the streaming URLs.
+In the quickstart, you are first offered to clone a GitHub repository that contains the **EncodeAndStreamFiles** project. The project contains .NET code that uploads a video file based on the specified URL, encodes the video, and prints out the streaming URLs. If you want to understand more about what the code is doing, see the [Upload, encode, and stream videos](stream-files-tutorial.md) tutorial. 
 
 To run the application, you need to specify credentials needed to access Media Services API. 
 
@@ -61,7 +61,7 @@ You can open Program.cs file and examine the code and code comments. If you want
 
 To run the app and access the Media Services APIs, you need to specify the correct values in App.config. 
     
-    To get the values, see [Accessing APIs](access-api-cli-how-to.md).
+To get the values, see [Accessing APIs](access-api-cli-how-to.md).
 
 ## Run the app and get a streaming URL
 
