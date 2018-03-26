@@ -158,7 +158,7 @@ $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKe
 Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -VMName "myVM" `
     -AadClientID $app.ApplicationId `
-    -AadClientSecret $securePassword `
+    -AadClientSecret (New-Object PSCredential "user",$securePassword).GetNetworkCredential().Password `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
     -DiskEncryptionKeyVaultId $keyVaultResourceId `
     -KeyEncryptionKeyUrl $keyEncryptionKeyUrl `
