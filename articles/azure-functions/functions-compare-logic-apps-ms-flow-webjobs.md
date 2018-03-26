@@ -95,7 +95,7 @@ For other scenarios where you want to run code snippets for integrating Azure or
 
 You don't have to choose just one of these services; they integrate with each other as well as they do with external services.
 
-A flow can call a logic app. A logic app can call a function, and a function can call a logic app.
+A flow can call a logic app. A logic app can call a function, and a function can call a logic app. See, for example, [Create a function that integrates with Azure Logic Apps](functions-twitter-email.md).
 
 The integration between Flow, Logic Apps, and Functions continues to improve over time. You can build something in one service and use it in the other services.
 
