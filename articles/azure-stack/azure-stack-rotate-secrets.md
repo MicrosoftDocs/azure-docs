@@ -67,7 +67,7 @@ Running secret rotation using the instructions below will remediate these alerts
 2.  Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 3.  Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
 3.  Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
-4.  Open a Powershell ISE console on the ERCS VM using the **CloudAdmin** account.  Navigate to your fileshare. 
+4.  Open a PowerShell ISE console on the ERCS VM using the **CloudAdmin** account.  Navigate to your fileshare. 
 5.  Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
 ## Rotating external and internal secrets
@@ -80,7 +80,7 @@ To rotate both external an internal secrets:
     > [!IMPORTANT]  
     > Do not enter the session, store the session as a variable.
     
-3. Run **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)**. Pass your Privileged Endpoint powershell session variable as the **Session** parameter. 
+3. Run **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)**. Pass your Privileged Endpoint PowerShell session variable as the **Session** parameter. 
 4. Run **Start-SecretRotation** with the following parameters:
     - **PfxFilesPath**  
     Specify the network path to your Certificates directory created earlier.  
@@ -114,7 +114,7 @@ Remove-PSSession -Session $PEPSession
 
 To rotate only Azure Stack’s internal secrets:
 
-1. Create a Powershell session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
+1. Create a PowerShell session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. In the Privileged Endpoint session, run **Start-SecretRotation** with no arguments.
 
 ## Start-SecretRotation reference
