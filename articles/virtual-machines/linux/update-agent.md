@@ -4,7 +4,7 @@ description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: SuperScottz
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -117,7 +117,7 @@ This version of Debian does not have a version >= 2.0.16, therefore AutoUpdate i
 #### Check your current package version
 
 ```bash
-apt list --installed | grep walinuxagent
+apt list --installed | grep waagent
 ```
 
 #### Update package cache
