@@ -105,9 +105,57 @@ To run the code, do the following:
 
 This section contains more details about what the sample code does. 
 
+### Get connection string and queue
+
+First, the code declares two string variables that are passed to the program as arguments on the command line:
+
+```java
+String ConnectionString = null;
+String QueueName = null;
+```
+
+These values are passed to `main()` after being parsed by the `runApp()` method:
+
+```java
+public static void main(String[] args) {
+
+    QuickStartJMS app = new QuickStartJMS();
+    try {
+        app.runApp(args);
+        app.run();
+    } catch (Exception e) {
+        System.out.printf("%s", e.toString());
+    }
+    System.exit(0);
+}
+
+public void runApp(String[] args) {
+    try {
+        // parse connection string from command line             
+        Options options = new Options();
+        options.addOption(new Option("c", true, "Connection string"));
+        options.addOption(new Option("q", true, "Queue Name"));
+        CommandLineParser clp = new DefaultParser();
+        CommandLine cl = clp.parse(options, args);
+        if (cl.getOptionValue("c") != null && cl.getOptionValue("q") != null) {
+            ConnectionString = cl.getOptionValue("c");
+            QueueName =  cl.getOptionValue("q");
+        }
+        else
+        {
+            HelpFormatter formatter = new HelpFormatter();
+            formatter.printHelp("run jar with", "", options, "", true);
+        }
+
+    } catch (Exception e) {
+        System.out.printf("%s", e.toString());
+    }
+}
+```
+
 ### Create JMS queue connection
 
-The run() method uses the Java messaging Service queue creation mechanics to create the queue context and send messages to it. It also uses the ConnectionStringBuilder API from the Service Bus library to ensure robust parsing of the connection string:
+The run() method uses the Java Messaging Service queue creation mechanics to create the queue context and send messages to it. It also uses the `ConnectionStringBuilder()` API from the Service Bus library to ensure robust parsing of the connection string:
 
 ```java
 public void run() throws Exception {
