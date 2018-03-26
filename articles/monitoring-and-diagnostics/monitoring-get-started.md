@@ -18,7 +18,7 @@ ms.author: johnkem
 
 ---
 # Get started with Azure Monitor
-Azure Monitor is the platform service that provides a single source for monitoring Azure resources. With Azure Monitor, you can visualize, query, route, archive, and take action on the metrics and logs coming from resources in Azure. You can work with this data using by using the Azure portal, [Monitor PowerShell Cmdlets](insights-powershell-samples.md), [Cross-Platform CLI](insights-cli-samples.md), or [Azure Monitor REST APIs](https://msdn.microsoft.com/library/dn931943.aspx). In this article, we walk through a few of the key components of Azure Monitor, using the portal for demonstration.
+Azure Monitor is the platform service that provides a single source for monitoring Azure resources. With Azure Monitor, you can visualize, query, route, archive, and otherwise take action on the metrics and logs coming from resources in Azure. You can work with this data using by using the Azure portal, [Monitor PowerShell Cmdlets](insights-powershell-samples.md), [Cross-Platform CLI](insights-cli-samples.md), or [Azure Monitor REST APIs](https://msdn.microsoft.com/library/dn931943.aspx). In this article, we walk through a few of the key components of Azure Monitor, using the portal for demonstration.
 
 ## Walkthrough
 1. In the portal, navigate to **All services** and find the **Monitor** option. Click the star icon to add this option to your favorites list so that it is always easily accessible from the left-hand navigation bar.
@@ -36,7 +36,7 @@ Azure Monitor is the platform service that provides a single source for monitori
     The [**activity log**](monitoring-overview-activity-logs.md) describes all operations performed on resources in your subscription. Using the Activity Log, you can determine the ‘what, who, and when’ for any create, update, or delete operations on resources in your subscription. For example, the Activity Log tells you when a web app was stopped and who stopped it. Activity Log events are stored in the platform and available to query for 90 days.
 
     You can create and save queries for common filters, then pin the most important queries to a portal dashboard so you'll always know if events that meet your criteria have occurred.
-4. Filter the view to a particular resource group over the last week, then click the **Save** button.
+4. Filter the view to a particular resource group over the last week, then click the **Save** button. Give your query a name. 
 
     ![Save activity log query](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Now, click the **Pin** button.

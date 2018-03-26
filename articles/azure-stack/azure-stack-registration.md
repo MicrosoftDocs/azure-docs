@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/26/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
 
@@ -55,7 +55,7 @@ Connected environments can access the internet and Azure. For these environments
 
 ### Register the Azure Stack resource provider
 To register the Azure Stack resource provider with Azure, start Powershell ISE as an administrator and use the following PowerShell commands. These commands will:
-- Prompt you to log in as an owner of the Azure subscription to be used and set the `EnvironmentName` parameter to **AzureCloud**.
+- Prompt you to log in as an owner of the Azure subscription to be used and set the **EnvironmentName** parameter to **AzureCloud**.
 - Register the Azure resource provider **Microsoft.AzureStack**.
 
 1. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure global administrator account credentials and you may have to use 2-factor authentication based on your account’s configuration.
@@ -92,7 +92,7 @@ PowerShell to run:
 
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -101,7 +101,7 @@ Set-AzsRegistration `
 
 |Parameter|Description|
 |-----|-----|
-|CloudAdminCredential|PowerShell object that contains credential information (username and password) for the owner of the Azure subscription.|
+|CloudAdminCredential|PowerShell object that contains credential information (username and password) used to access the privileged endpoint.|
 |PrivilegedEndpoint|A pre-configured remote PowerShell console that provides you with capabilities like log collection and other post deployment tasks. To learn more, refer to the [using the privileged endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint) article.|
 |BillingModel|The billing model that your subscription uses. Allowed values for this parameter are: Capacity, PayAsYouUse, and Development.|
 
@@ -111,7 +111,7 @@ Follow the same instructions used for registering using the pay-as-you-use billi
 PowerShell to run:
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -190,22 +190,6 @@ If you would like to change the billing model or syndication features for your i
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
-
-## Remove a registered resource
-If you want to remove a registration, then you must use **UnRegister-AzsEnvironment** cmdlet and pass in either the registration resource name or the registration token you used for **Register-AzsEnvironment**.
-
-To remove a registration using a resource name:
-
-```Powershell    
-UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
-```
-To remove a registration using a registration token:
-
-```Powershell
-$registrationToken = "*Your copied registration token*"
-UnRegister-AzsEnvironment -RegistrationToken $registrationToken
-```
-
 ## Next steps
 
 [Download marketplace items from Azure](azure-stack-download-azure-marketplace-item.md)
