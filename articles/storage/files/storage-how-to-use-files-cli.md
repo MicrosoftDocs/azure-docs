@@ -4,15 +4,15 @@ description: Learn to use the Azure CLI to manage Azure Files.
 services: storage
 documentationcenter: na
 author: wmgries
-manager: klaasl
-editor: cynthn
+manager: jeconnoc
+editor: 
 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/17/2018
+ms.date: 03/26/2018
 ms.author: wgries
 ---
 
@@ -38,7 +38,7 @@ By default, the Azure CLI commands return JSON (JavaScript Object Notation), whi
 ## Create a resource group
 A resource group is a logical container into which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can create a new one with the [az group create](/cli/azure/group#create) command. 
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *East US* location.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -47,19 +47,19 @@ az group create --name myResourceGroup --location eastus
 ## Create a storage account
 A storage account is a shared pool of storage in which you can deploy Azure file share, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of file shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-If you don't already have an existing storage account, you can create a new one using the [az storage account create](/cli/azure/storage/account#create) command. This example creates a storage account named `mystorageaccount<random number>` and puts the name of that storage account in the variable `$STORAGEACCT`. To make the storage account name unique, use `$RANDOM` to append a pseudorandom number to the end to make it unique. 
+This example creates a storage account named `mystorageaccount<random number>` using the [az storage account create](/cli/azure/storage/account#create) command and then puts the name of that storage account in the variable `$STORAGEACCT`. Storage account names must be unique; using `$RANDOM` to appends a number to the end of the storage account name to make it unique. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
-    --name "mystorageaccount$RANDOM" \
+    --name "mystorageacct$RANDOM" \
     --location eastus \
     --sku Standard_LRS \
     --query "name" | tr -d '"')
 ```
 
 ### Get the storage account key
-Storage account keys are used to control access to resources in a storage account. They are automatically created when you create a storage account. View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys#list). This example displays the storage account keys for *mystorageaccount* in table format.
+Storage account keys are used to control access to resources in a storage account. They are automatically created when you create a storage account. You can get the storage account keys for the storage account using the [az storage account keys list](/cli/azure/storage/account/keys#list) command. 
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -100,7 +100,7 @@ az storage directory create \
 ```
 
 ### Upload a file
-To demonstrate how to upload a file using the [`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload) command, we first need to create a file inside your Azure CLI Cloud Shell's scratch drive to upload. The following commands will create and then upload the file.
+To demonstrate how to upload a file using the [`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload) command, we first need to create a file inside your Azure CLI Cloud Shell's scratch drive to upload. In the following example, we create and then upload the file.
 
 ```azurecli-interactive
 date > ~/clouddrive/SampleUpload.txt
