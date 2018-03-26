@@ -25,12 +25,14 @@
 ### Load Balancer
 #### [What is Load Balancer?](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer Standard and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md)
-#### [Create a zone redundant Public Load Balancer Standard with Azure portal](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-##### [Create a zone redundant Load Balancer Standard with PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-##### [Create a zone redundant Public Load Balancer Standard with CLI](../load-balancer/load-balancer-get-started-internet-az-cli.md)
-#### [Create a zonal public Load Balancer Standard](../load-balancer/load-balancer-get-started-internet-az-zonal-portal.md)
-##### [Create a zonal public Load Balancer Standard (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-zonal-powershell.md)
-##### [Create a zonal redundant public Load Balancer Standard (CLI)](../load-balancer/load-balancer-get-started-internet-az-zonal-cli.md)
+#### [Create a zone redundant public Standard Load Balancer](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+##### [Create a zone redundant Standard Load Balancer (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+##### [Create a zone redundant public Standard Load Balancer (CLI)](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [Create a zonal public Standard Load Balancer](../load-balancer/load-balancer-get-started-internet-az-zonal-portal.md)
+##### [Create a zonal public Standard Load Balancer (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-zonal-powershell.md)
+##### [Create a zonal redundant public Standard Load Balancer (CLI)](../load-balancer/load-balancer-get-started-internet-az-zonal-cli.md)
+#### [Load balance VMs across availability zones](../load-balancer/load-balancer-standard-public-availability-zones-portal.md)
+##### [Load balance VMs across availability zones with Azure (CLI)](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 
 ### [Public IP address](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
