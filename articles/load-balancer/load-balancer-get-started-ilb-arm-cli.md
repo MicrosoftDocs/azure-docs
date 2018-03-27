@@ -237,16 +237,19 @@ az network nic create \
     --subnet mySubnet \
     
 ```
-Next, create *myVM3* and associate it to *myNic3*.
+Next, to test the load balancer, create a virtual machine, *myVM3*, and associate it to *myNic3*.
 
 ```azurecli-interactive
-  az vm create \
+ AdminPassword=ChangeYourAdminPassword1
+ az vm create \
     --resource-group myResourceGroupILBCLI \
-    --name myVM3 \
-    --nics myNic3 \
-    --image UbuntuLTS \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --name myVM4 \
+    --nics myNic4 \
+    --image win2016datacenter \
+    --admin-password $AdminPassword \
+    --admin-username azureuser \
+    --no-wait
+
 --
 
 ## Test the load balancer
@@ -257,11 +260,9 @@ To get the private IP address of the load balancer, use [az network lb show](/cl
 ```azurecli-interactive
   az network lb show \
     --name myLoadBalancer
-    --resource-group myResourceGroupILBCLI \
-    --query [ipAddress] \
-    --output tsv
+    --resource-group myResourceGroupILBCLI
 ``` 
-![Test load balancer](./media/load-balancer-get-started-internet-arm-cli/running-nodejs-app.png)
+![Test load balancer](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
 
 ## Clean up resources
 
