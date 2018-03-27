@@ -1,5 +1,5 @@
 ---
-title: Create a Virtual Machine Scale Set in the Azure portal | Microsoft Docs
+title: Quickstart - Create a virtual machine scale set in the Azure portal | Microsoft Docs
 description: Learn how to quickly create a virtual machine scale in the Azure portal
 keywords: virtual machine scale sets
 services: virtual-machine-scale-sets
@@ -14,15 +14,16 @@ ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
-ms.topic: article
-ms.date: 12/19/2017
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 03/27/18
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 
 ---
 
-# Create a Virtual Machine Scale Set in the Azure portal
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this getting started article, you create a virtual machine scale set in the Azure portal. You can also create a scale set with the [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
+# Quickstart: Create a virtual machine scale set in the Azure portal
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set in the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -74,8 +75,7 @@ When no longer needed, delete the resource group, scale set, and all related res
 
 
 ## Next steps
-In this getting started article, you created a basic scale set in the Azure portal. For greater scalability and automation, expand your scale set with the following how-to articles:
+In this quickstart, you created a basic scale set in the Azure portal. To learn more, continue to the tutorial for how to create and manage Azure virtual machine scale sets.
 
-- [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
-- Automatically scale with [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), the [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md), or the [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Use automatic OS upgrades for your scale set VM instances](virtual-machine-scale-sets-automatic-upgrade.md)
+> [!div class="nextstepaction"]
+> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-powershell.md)
