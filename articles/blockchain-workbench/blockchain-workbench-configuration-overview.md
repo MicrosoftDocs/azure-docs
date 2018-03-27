@@ -1,6 +1,6 @@
 ---
-title: App Builder Configuration Reference - Azure Blockchain
-description: Azure Blockchain App Builder configuration overview and reference.
+title: Workbench Configuration Reference - Azure Blockchain
+description: Azure Blockchain Workbench configuration overview and reference.
 # services: service-name-with-dashes-AZURE-ONLY
 keywords: 
 author: PatAltimore
@@ -15,7 +15,7 @@ ms.topic: article
 ms.reviewer: zeyadr
 manager: zeyadr
 ---
-# Azure Blockchain App Builder Configuration Reference
+# Azure Blockchain Workbench Configuration Reference
 
 Blockchain apps in app builder consist of two core pieces. configuration and business logic (one or more smart contracts)
 
@@ -23,7 +23,7 @@ configuration is the representation of the application as one or more workflows.
 
 for your configuration you can have one or more smart contract files that codify the configuration / workflow representation.  The smart contract is written in the appropriate language of the specified blockchain stack. solidity for etherium. go for hyperledger fabric. you can have one or more files that represent your business logic code.
 
-The setup information for the application built in App Builder, such as states and user permissions
+The setup information for the application built in Workbench, such as states and user permissions
 
 REVISED: A file detailing the properties, states, actions and parameters, role permissions, and other specifications for the [smart contract(s)] in the application
 
@@ -38,7 +38,7 @@ Represents the application, the associated workflows, the state machine for each
 represent state machine.  Action 1 has a table representing actions to next states.
 ## Application
 
-The application is comprised of one or more smart contracts and a configuration file that describes them.  The files are uploaded to the associated App Builder’s storage and SQL DB services via the Gateway API. 
+The application is comprised of one or more smart contracts and a configuration file that describes them.  The files are uploaded to the associated Workbench’s storage and SQL DB services via the Gateway API. 
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
