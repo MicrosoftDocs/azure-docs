@@ -58,19 +58,19 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
 
 4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
 
-    ![Intents page](./media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png)
+    ![Intents page](./media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png)
 
 ## Create a new intent
 
 1. On the **Intents** page, select **Create new intent**. 
 
-    ![Create new intents button](./media/luis-quickstart-intent-and-hier-entity/create-new-intent.png)
+    ![Create new intents button](./media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png)
 
 2. Enter the new intent name `BookFlight`. This intent should be selected any time a user wants to make flight reservations.
 
     By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
 
-    ![Create new OrderDrinks intent](./media/luis-quickstart-intent-and-hier-entity/x.png)
+    ![Create new intent](./media/luis-quickstart-intent-and-hier-entity/create-new-intent.png)
 
 3. Add several utterances to the `BookFlight` intent that you expect a user to ask for, such as:
 
@@ -80,7 +80,7 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
     |Reserve a ticket to London tomorrow|
     |Schedule 4 seats from Paris to London for April 1|
 
-    ![Enter utterances for intent](./media/luis-quickstart-intent-and-hier-entity/x.png)
+    ![Enter utterances for intent](./media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png)
 
 ## Add utterances to None intent
 
@@ -88,7 +88,7 @@ The LUIS app currently has no utterances for the **None** intent. It needs utter
 
 1. Select **Intents** from the left panel. 
 
-    ![Enter utterances for intent](./media/x.png)
+    ![Enter utterances for intent](./media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png)
 
 2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app:
 
@@ -112,17 +112,17 @@ Now that the two intents have utterances, LUIS needs to understand what a locati
 
 3. In the utterance, `Book 2 flights from Seattle to Cairo next Monday`, select the word `Seattle`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `Location` in the text box then select **Create new entity** in the drop-down menu then select enter. 
 
-    ![Label utterance](./media/luis-quickstart-intent-and-hier-entity/x.png)
+    ![Label utterance](./media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png)
 
-5. In the pop-up window, select the **Hierarchical** entity type with `Origin` and `Destination` as the child entities. Select **Done**.
+4. In the pop-up window, select the **Hierarchical** entity type with `Origin` and `Destination` as the child entities. Select **Done**.
 
-    ![Verify entity type](./media/luis-quickstart-intent-and-hier-entity/x.png)
+    ![Verify entity type](./media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png)
 
     The label says Location because LUIS didn't know if the term was the origin or destination. Select `Seattle`, then select Location, then follow the menu to the right and select `Origin`.
 
-6. Now that the entity is created, and one utterance is labeled, label the other cities by selecting the city name, then selecting Location, then following the menu to the right to select `Origin` or `Destination`.
+5. Now that the entity is created, and one utterance is labeled, label the other cities by selecting the city name, then selecting Location, then following the menu to the right to select `Origin` or `Destination`.
 
-    ![Label utterance with existing entity](./media/luis-quickstart-intent-and-hier-entity/.png)
+    ![Label utterance with existing entity](./media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png)
 
 ## Train the LUIS app
 LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
