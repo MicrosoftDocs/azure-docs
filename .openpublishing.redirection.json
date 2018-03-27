@@ -13015,6 +13015,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-government/documentation-government-functions.md",
+            "redirect_url": "/azure/azure-functions/functions-create-first-azure-function",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storage/storage-create-storage-account-classic-portal.md",
             "redirect_url": "/azure/storage/common/storage-create-storage-account",
             "redirect_document_id": false
