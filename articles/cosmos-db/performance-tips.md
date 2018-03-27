@@ -21,6 +21,7 @@ ms.author: mimig
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
+> * [Async Java](performance-tips-rx-java.md)
 > 
 > 
 
