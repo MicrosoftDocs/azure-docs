@@ -69,8 +69,9 @@ The following tables contain the maximum values allowed for various components o
 | SELECT |Nested subqueries |32<br/><br/>You can never have more than 32 nested subqueries in a SELECT statement. There is no guarantee that you can always have 32. For example, a JOIN can introduce a subquery into the query plan. The number of subqueries can also be limited by available memory. |
 | SELECT |Columns per JOIN |1024 columns<br/><br/>You can never have more than 1024 columns in the JOIN. There is no guarantee that you can always have 1024. If the JOIN plan requires a temporary table with more columns than the JOIN result, the 1024 limit applies to the temporary table. |
 | SELECT |Bytes per GROUP BY columns. |8060<br/><br/>The columns in the GROUP BY clause can have a maximum of 8060 bytes. |
-| SELECT |Bytes per ORDER BY columns |8060 bytes.<br/><br/>The columns in the ORDER BY clause can have a maximum of 8060 bytes. |
-| Identifiers and constants per statement |Number of referenced identifiers and constants. |65,535<br/><br/>SQL Data Warehouse limits the number of identifiers and constants that can be contained in a single expression of a query. This limit is 65,535. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached][Internal error: An expression services limit has been reached]. |
+| SELECT |Bytes per ORDER BY columns |8060 bytes<br/><br/>The columns in the ORDER BY clause can have a maximum of 8060 bytes |
+| Identifiers  per statement |Number of referenced identifiers |65,535<br/><br/>SQL Data Warehouse limits the number of identifiers that can be contained in a single expression of a query. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached][Internal error: An expression services limit has been reached]. |
+| String literals | Number of string literals in a statement | 20,000 <br/><br/>SQL Data Warehouse limites the number of string constants that can be contained in a single expression of a query. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached][Internal error: An expression services limit has been reached]. |
 
 ## Metadata
 | System view | Maximum rows |
