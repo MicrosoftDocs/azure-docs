@@ -13,11 +13,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/09/2017
+ms.date: 03/26/2018
 ms.author: wesmc
+ms.custom: mvc
+
+#Customer intent: As an ASP.NET developer, new to Azure Redis Cache, I want to create a new ASP.NET app that uses Redis Cache.
 
 ---
-# How to create a Web App with Redis Cache
+# Quickstart: How to create a Web App with Redis Cache
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -27,7 +30,7 @@ ms.author: wesmc
 > 
 > 
 
-This tutorial shows how to create and deploy an ASP.NET web application to a web app in Azure App Service using Visual Studio 2017. The sample application displays a list of team statistics from a database and shows different ways to use Azure Redis Cache to store and retrieve data from the cache. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
+This quickstart shows how to create and deploy an ASP.NET web application to a web app in Azure App Service using Visual Studio 2017. The sample application displays a list of team statistics from a database and shows different ways to use Azure Redis Cache to store and retrieve data from the cache. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
 
 You learn:
 
