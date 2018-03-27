@@ -1,7 +1,7 @@
 ---
 title: Monitoring Azure applications and resources | Microsoft Docs
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications. 
-author: robb
+author: bwren
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -29,7 +29,7 @@ The following diagram shows a conceptual view of the components that work togeth
 ![Monitoring overview](media/monitoring-overview/monitoring-products-overview.png)
 
 
-## Shared Capabilities
+## Shared capabilities
 The core and deep monitoring service share functionality which provides the following capabilities. 
 
 ### Alerts
@@ -80,21 +80,21 @@ You can also send activity log entries to Log Analytics. There, you can analyze 
 ## Deep monitoring services
 The following Azure services provide rich capabilities for collecting and analyzing monitoring data at a deeper level. These services build on core monitoring and take advantage of common functionality in Azure. They provide powerful analytics with collected data to give you unique insights into your applications and infrastructure. They present data in the context of scenarios that are targeted to different audiences.
 
-## Deep application monitoring
-### Application Insights
+### Deep application monitoring
+#### Application Insights
 You can use [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises. 
 
 By instrumenting your application to work with Application Insights, you can achieve deep insights and implement DevOps scenarios. You can quickly identify and diagnose errors without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements. 
 
 Application Insights has extensive tools for interacting with the data that it collects. Application Insights stores its data in a common repository. It can take advantage of shared functionality such as alerts, dashboards, and deep analysis with the Log Analytics query language.
 
-## Deep infrastructure monitoring
-### Log Analytics
+### Deep infrastructure monitoring
+#### Log Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) plays a central role in Azure monitoring by collecting data from a variety of resources (including non-Microsoft tools) into a single repository. There, you can analyze the data by using a powerful query language. 
 
 Application Insights and Azure Security Center store their data in the Log Analytics data store and use its analytics engine. Data is also collected from Azure Monitor, management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
 
-### Management solutions
+#### Management solutions
 [Management solutions](../log-analytics/log-analytics-add-solutions.md) are packaged sets of logic that provide insights for a particular application or service. They rely on Log Analytics to store and analyze the monitoring data that they collect. 
 
 Management solutions are available from Microsoft and partners to provide monitoring for various Azure and third-party services. Examples of monitoring solutions include:
@@ -103,7 +103,7 @@ Management solutions are available from Microsoft and partners to provide monito
 
 You can view all available management solutions in the Azure Portal under the *Monitor* screen. 
 
-### Network Monitoring
+#### Network monitoring
 There are several tools that work together to monitor various aspects of your network, whether in Azure or on-premises.  
 
 [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) provides scenario-based monitoring and diagnostics for different network scenarios in Azure. It stores data in Azure metrics and diagnostics for further analysis. It works with the following solutions for monitoring various aspects of your network. 
@@ -117,7 +117,7 @@ There are several tools that work together to monitor various aspects of your ne
 [Service Endpoint Monitor](../networking/network-monitoring-overview.md) tests the reachability of applications and detects performance bottlenecks across on-premises, carrier networks, and cloud/private data centers.
 
 
-### Service Map
+#### Service Map
 [Service Map](../operations-management-suite/operations-management-suite-service-map.md) provides insight into your IaaS environment by analyzing virtual machines with their different processes and dependencies on other computers and external processes. It integrates events, performance data, and management solutions in Log Analytics. You can then view this data in the context of each computer and its relation to the rest of your environment. 
 
 Service Map is similar to [Application Map in Application Insights](../application-insights/app-insights-app-map.md). It focuses on the infrastructure components that support your applications.
@@ -152,6 +152,6 @@ After a reported outage, you use Service Map to perform forensics to identify th
 ## Next steps
 Learn more about:
 
-* [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) to get started with core monitoring metrics and alerts.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/) to get started with core monitoring metrics and alerts.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you're trying to diagnose problems in your App Service web app.
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) for analyzing collected monitoring data and logs.
