@@ -26,7 +26,7 @@ Management refers to the tasks and processes required to maintain your business 
 
 The following diagram illustrates the different areas of management that are required to maintain any application or resource.  These different areas can be thought of in terms of a lifecycle where each is required in continuous succession over the lifespan of a resource.  This starts with its initial deployment, through its continued operation, and finally when it's retired.
 
-![Management capabilities](media/asom-overview/management-capabilities.png)
+![Management capabilities](media/management-overview/management-capabilities.png)
 
 
 No single Azure service completely fills the requirements of a particular management area, but instead each are realized by multiple services working together.  Some services provide targeted functionality such as Application Insights that provides monitoring for web applications.  Others provide common functions such as Log Analytics that stores management data for other services allowing you to analyze data of different types collected by different services.  
