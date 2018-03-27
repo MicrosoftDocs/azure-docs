@@ -190,7 +190,7 @@ This app, with just two intents and a hierarchical entity, identified a natural 
 Your chat bot now has enough information to determine the primary action, `BookFlight`, and the location information found in the utterance. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application.  LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Next steps
 
