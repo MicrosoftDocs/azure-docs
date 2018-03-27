@@ -30,6 +30,7 @@ To ensure your virtual machines (VMs) in Azure are running correctly, you can re
 > * View VM metrics
 > * Create alerts based on diagnostic metrics
 > * Manage package updates
+> * Monitor changes and inventory
 > * Set up advanced monitoring
 
 
@@ -280,6 +281,7 @@ In this tutorial, you configured, reviewed, and managed updates for a VM. You le
 > * View VM metrics
 > * Create alerts based on diagnostic metrics
 > * Manage package updates
+> * Monitor changes and inventory
 > * Set up advanced monitoring
 
 Advance to the next tutorial to learn about Azure Security Center.

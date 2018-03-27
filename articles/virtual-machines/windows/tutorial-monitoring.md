@@ -33,6 +33,7 @@ In this tutorial, you learn how to:
 > * View VM metrics
 > * Create an alert
 > * Manage Windows updates
+> * Monitor changes and inventory
 > * Set up advanced monitoring
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
@@ -226,6 +227,7 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * View VM metrics
 > * Create an alert
 > * Manage Windows updates
+> * Monitor changes and inventory
 > * Set up advanced monitoring
 
 Advance to the next tutorial to learn about Azure security center.
