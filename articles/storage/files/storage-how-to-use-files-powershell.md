@@ -237,6 +237,7 @@ Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -
 ```
 
 ## Next steps
-- [Managing file shares with Azure CLI](storage-how-to-use-files-cli.md)
 - [Managing file shares with the Azure portal](storage-how-to-use-files-portal.md)
+- [Managing file shares with Azure CLI](storage-how-to-use-files-cli.md)
+- [Managing file shares with Storage Explorer](storage-how-to-use-files-storage-explorer.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)

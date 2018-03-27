@@ -287,6 +287,7 @@ az storage account delete \
 ```
 
 ## Next steps
-- [Managing file shares with Azure PowerShell](storage-how-to-use-files-powershell.md)
 - [Managing file shares with the Azure portal](storage-how-to-use-files-portal.md)
+- [Managing file shares with Azure PowerShell](storage-how-to-use-files-powershell.md)
+- [Managing file shares with Storage Explorer](storage-how-to-use-files-storage-explorer.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)

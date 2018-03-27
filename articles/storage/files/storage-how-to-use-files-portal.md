@@ -100,23 +100,23 @@ To create a share snapshot:
 2. On the page for the file share, click the **Snapshot** button on menu at the top of the page and then select **Create a snapshot**.  
 	![A screenshot illustrating how to find the create snapshot button](media/storage-how-to-use-files-portal/create-snapshot-1.png)
 
-### List and browse a share snapshot
+### List and browse share snapshots
 Once the snapshot is created, you can click **Snapshot** again and then select **View snapshots** to list the snapshots for the share. The resulting pane will show the snapshots for this share. Click on a share snapshot to browse it.
 
 ### Restore from a share snapshot
-To demonstrate the restore of a file from a share snapshot, we first need to delete a file from live share. Navigate into the **myDirectory** folder, right-click on the file you uploaded, and then click **Delete**. Then, to restore that file from the share snapshot:
+To demonstrate the restore of a file from a share snapshot, we first need to delete a file from the live Azure file share. Navigate into the *myDirectory* folder, right-click on the file you uploaded, and then click **Delete**. Then, to restore that file from the share snapshot:
 
 1. Click on **Snapshots** in the top menu and select **View snapshots**. 
-3. Click on the snapshot that you created earlier and it will open the contents in a new page. 
-4. Click on **myDirectory** in the snapshot and you should see the file that you deleted. 
-5. Right-click on the deleted file and select **Restore**.
-6. A pop-up will appear giving you a choice between restoring the file as a copy or overwriting the original file. Since we have deleted the original file, we can select **Overwrite original file** to restore the file as it was before we deleted it. Click **OK** to restore the file to the Azure file share.  
+2. Click on the snapshot that you created earlier and it will open the contents in a new page. 
+3. Click on **myDirectory** in the snapshot and you should see the file that you deleted. 
+4. Right-click on the deleted file and select **Restore**.
+5. A pop-up will appear giving you a choice between restoring the file as a copy or overwriting the original file. Since we have deleted the original file, we can select **Overwrite original file** to restore the file as it was before we deleted it. Click **OK** to restore the file to the Azure file share.  
 	![A screenshot of the restore file dialog](media/storage-how-to-use-files-portal/restore-snapshot-1.png)
 
-7. Once the file is done being restored, close the page for the snapshot and go back to **myshare** > **myDirectory** and the file should be back in its original place.
+6. Once the file is done being restored, close the page for the snapshot and go back to **myshare** > **myDirectory** and the file should be back in its original place.
 
 ### Delete a share snapshot
-To delete a share snapshot, [navigate to the share snapshot](#list-and-browse-a-share-snapshot). Click the checkbox next to the name of the share snapshot, and select the **Delete** button.
+To delete a share snapshot, [navigate to the list of share snapshots](#list-and-browse-a-share-snapshot). Click the checkbox next to the name of the share snapshot, and select the **Delete** button.
 
 ![A screenshot of deleting a share snapshot](media/storage-how-to-use-files-portal/delete-snapshot-1.png)
 
@@ -130,4 +130,5 @@ When you're done, you can delete the resource group, which deletes the storage a
 ## Next steps
 - [Managing file shares with the Azure PowerShell](storage-how-to-use-files-powershell.md)
 - [Managing file shares with Azure CLI](storage-how-to-use-files-cli.md)
+- [Managing file shares with Azure Storage Explorer](storage-how-to-use-files-storage-explorer.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md)
