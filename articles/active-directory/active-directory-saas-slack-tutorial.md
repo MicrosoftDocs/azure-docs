@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/28/2018
 ms.author: jeedes
 
 ---
@@ -41,7 +41,7 @@ To configure Azure AD integration with Slack, you need the following items:
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -120,7 +120,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
 	> [!NOTE] 
-	> If the user has **email address** assigned using the Office365 then only it will be populated, otherwise the **email address** claim will not appear in the SAML Token.
+	> If you have users who’s assigned **email address** is not on a Office365 license, the **User.Email** claim will not appear in the SAML Token. In these cases, we suggest using **user.userprincipalname** as the **User.Email** attribute value and **Unique Identifier** instead
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, select **user.mail**  as **User Identifier** and for each row shown in the table below, perform the following steps:
     
@@ -178,12 +178,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     d. Configure the above three settings as appropriate for your Slack team. For more information about the settings, please find the **Slack's SSO configuration guide** here. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     e.  Click **Save Configuration**.
-	 
-	<!-- Deselect **Allow users to change their email address**.
-
-    e.  Select **Allow users to choose their own username**.
-
-    f.  As **Authentication for your team must be used by**, select **It’s optional**. -->
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -269,8 +263,6 @@ When you click the Slack tile in the Access Panel, you should get automatically 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
