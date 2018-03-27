@@ -22,7 +22,7 @@ This feature is currently in preview.
 
 Find out how much time is spent in each method of your live web application when using [Application Insights](app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
 
-After completing this walkthrough, your app can collect Profiler traces like the traces that are shown in the image. In this example, the Profiler trace indicates that a particular web request is slow because most of the time is spent waiting. The *hot path* in the code that's slowing the app is marked by a flame icon. The **About** method in the **HomeController** section is slowing the web app because the method is calling the **Thread.Sleep** function.
+After you complete this walkthrough, your app can collect Profiler traces like the traces that are shown in the image. In this example, the Profiler trace indicates that a particular web request is slow because of time spent waiting. The *hot path* in the code that's slowing the app is marked by a flame icon. The **About** method in the **HomeController** section is slowing the web app because the method is calling the **Thread.Sleep** function.
 
 ![Profiler traces](./media/app-insights-profiler-aspnetcore-linux/profiler-traces.png)
 
@@ -164,7 +164,7 @@ You should see output similar to the following example:
 
 If you follow the enablement workflow for [Application Insights Profiler for Windows](./app-insights-profiler.md) and select **Enable** in the **Configure Profiler** pane, you receive an error. The enable action tries to install the Windows version of the Profiler agent on the Linux environment.
 
-We're working on a resolution for this issue with the enablement experience.
+We're working on a resolution for this issue.
 
 ![Don't try to re-enable the Profiler in the Performance pane](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
 
