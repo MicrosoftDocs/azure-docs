@@ -14,7 +14,7 @@ ms.author: carlrab
 ---
 # Create an Azure SQL database in the Azure portal
 
-This quick start tutorial walks through how to create a SQL database in Azure using the [DTU-based resourcing model](sql-database-service-tiers.md#vcore-based-resourcing-model-preview). Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure portal.
+This quick start tutorial walks through how to create a SQL database in Azure using the [DTU-based purchasing model](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

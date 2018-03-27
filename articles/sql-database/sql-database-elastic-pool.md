@@ -28,7 +28,7 @@ Elastic pools solve this problem by ensuring that databases get the performance 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Elastic pools enable the developer to purchase resources for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. You can configure resources for the pool based either on the [DTU-based resourcing model (preview)](sql-database-service-tiers.md#dtu-based-resourcing-model) or the [vCore-based resourcing model (preview)](sql-database-service-tiers.md#vcore-based-resourcing-model-preview). The resource requirement for a pool is determined by the aggregate utilization of its databases. The amount of resources available to the pool is controlled by the developer budget. The developer simply adds databases to the pool, sets the minimum and maximum resources for the databases (either minumumn and maximum DTUs or minimum or maximum vCores depending on your choice of resourceing model), and then sets the resources of the pool based on their budget. A developer can use pools to seamlessly grow their service from a lean startup to a mature business at ever-increasing scale.
+Elastic pools enable the developer to purchase resources for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. You can configure resources for the pool based either on the [DTU-based purchasing model (preview)](sql-database-service-tiers.md#dtu-based-purchasing-model) or the [vCore-based purchasing model (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). The resource requirement for a pool is determined by the aggregate utilization of its databases. The amount of resources available to the pool is controlled by the developer budget. The developer simply adds databases to the pool, sets the minimum and maximum resources for the databases (either minumumn and maximum DTUs or minimum or maximum vCores depending on your choice of resourceing model), and then sets the resources of the pool based on their budget. A developer can use pools to seamlessly grow their service from a lean startup to a mature business at ever-increasing scale.
 
 Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more resources to meet demand. Databases under light loads consume less, and databases under no load consume no resources. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool. Additional resources can be added to an existing pool with no database downtime, except that the databases may need to be moved to provide the additional compute resources for the new eDTU reservation. Similarly, if extra resources are no longer needed they can be removed from an existing pool at any point in time. And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
 
@@ -50,7 +50,7 @@ For the five-minute period illustrated, DB1 peaks up to 90 DTUs, but its overall
 
 A pool allows these unused DTUs to be shared across multiple databases, and so reduces the DTUs needed and overall cost.
 
-Building on the previous example, suppose there are additional databases with similar utilization patterns as DB1. In the next two figures below, the utilization of four databases and 20 databases are layered onto the same graph to illustrate the non-overlapping nature of their utilization over time using the DTU-based resourcing model:
+Building on the previous example, suppose there are additional databases with similar utilization patterns as DB1. In the next two figures below, the utilization of four databases and 20 databases are layered onto the same graph to illustrate the non-overlapping nature of their utilization over time using the DTU-based purchasing model:
 
    ![four databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool/four-databases.png)
 
@@ -72,14 +72,14 @@ The following rules of thumb related to database count and database utilization 
 
 If the amount of resources for single databases is more than 1.5x the resources needed for the pool, then an elastic pool is more cost effective. 
 
-***DTU-based resourcing model example***<br>
+***DTU-based purchasing model example***<br>
 At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using performance levels for single databases.
 
 ### Maximum number of concurrently peaking databases
 
 By sharing resourcess, not all databases in a pool can simultaneously use resourcess up to the limit available for single databases. The fewer databases that concurrently peak, the lower the pool resources can be set and the more cost-effective the pool becomes. In general, not more than 2/3 (or 67%) of the databases in the pool should simultaneously peak to their resources limit.
 
-***DTU-based resourcing model example***<br>
+***DTU-based purchasing model example***<br>
 To reduce costs for three S3 databases in a 200 eDTU pool, at most two of these databases can simultaneously peak in their utilization. Otherwise, if more than two of these four S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs. If the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than performance levels for single databases.
 
 Note this example does not consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 2/3 (or 67%) of the databases can peak simultaneously.
@@ -87,7 +87,7 @@ Note this example does not consider utilization of other databases in the pool. 
 ### Resource utilization per database
 A large difference between the peak and average utilization of a database indicates prolonged periods of low utilization and short periods of high utilization. This utilization pattern is ideal for sharing resources across databases. A database should be considered for a pool when its peak utilization is about 1.5 times greater than its average utilization.
 
-***DTU-based resourcing model example***<br>
+***DTU-based purchasing model example***<br>
 An S3 database that peaks to 100 DTUs and on average uses 67 DTUs or less is a good candidate for sharing eDTUs in a pool. Alternatively, an S1 database that peaks to 20 DTUs and on average uses 13 DTUs or less is a good candidate for a pool.
 
 ## How do I choose the correct pool size?
@@ -97,7 +97,7 @@ The best size for a pool depends on the aggregate resources needed for all datab
 * Maximum resources utilized by all databases in the pool (either maximum DTUs or maximum vCores depending on your choice of resourceing model).
 * Maximum storage bytes utilized by all databases in the pool.
 
-For available service tiers for each resource model, see the [DTU-based resourcing model](sql-database-service-tiers.md#dtu-based-resourcing-model) or the [vCore-based resourcing model (preview)](sql-database-service-tiers.md#vcore-based-resourcing-model-preview).
+For available service tiers for each resource model, see the [DTU-based purchasing model](sql-database-service-tiers.md#dtu-based-purchasing-model) or the [vCore-based purchasing model (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom group of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md).
 
@@ -105,16 +105,16 @@ In cases where you can't use tooling, the following step-by-step can help you es
 
 1. Estimate the eDTUs or vCores needed for the pool as follows:
 
-   For DTU-based resourcing model:
+   For DTU-based purchasing model:
    MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
    <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
 
-   For vCore-based resourcing model:
+   For vCore-based purchasing model:
    MAX(<*Total number of DBs* X *average vCore utilization per DB*>,<br>
    <*Number of concurrently peaking DBs* X *Peak vCore utilization per DB*)
 
 2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage. For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic pools and elastic databases](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
-3. For the DTU-based resourcing model, take the larger of the eDTU estimates from Step 1 and Step 2. For the vCore-based resourcing model, take the vCore estimate from Step 1.
+3. For the DTU-based purchasing model, take the larger of the eDTU estimates from Step 1 and Step 2. For the vCore-based purchasing model, take the vCore estimate from Step 1.
 4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest pool size that is greater than the estimate from Step 3.
 5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
 

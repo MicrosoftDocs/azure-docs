@@ -29,7 +29,7 @@ See [Managing databases and logins](sql-database-manage-logins.md).
 See [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md).
 
 ## How does the usage of SQL Database show up on my bill?
-SQL Database bills on a predictable hourly rate based on the [resourcing model](sql-database-service-tiers.md). Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. 
+SQL Database bills on a predictable hourly rate based on the [purchasing model](sql-database-service-tiers.md). Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. 
 
 ## What if a single database is active for less than an hour or uses a higher service tier for less than an hour?
 You are billed for each hour a database exists using the highest service tier + performance level that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour. 
@@ -43,7 +43,7 @@ Examples:
 ## How does elastic pool usage show up on my bill?
 Elastic pool charges show up on your bill as Elastic DTUs (eDTUs) or vCores plus storage in the increments shown on [the pricing page](https://azure.microsoft.com/pricing/details/sql-database/). There is no per-database charge for elastic pools. You are billed for each hour a pool exists at the highest eDTU or vCores, regardless of usage or whether the pool was active for less than an hour. 
 
-DTU-based resourcing model examples:
+DTU-based purchasing model examples:
 
 * If you create a Standard elastic pool with 200 eDTUs at 11:18 a.m., adding five databases to the pool, you are charged for 200 eDTUs for the whole hour, beginning at 11 a.m. through the remainder of the day.
 * On Day 2, at 5:05 a.m., Database 1 begins consuming 50 eDTUs and holds steady through the day. Databases 2-5 fluctuate between 0 and 80 eDTUs. During the day, you add five other databases that consume varying eDTUs throughout the day. Day 2 is a full day billed at 200 eDTU. 
@@ -68,8 +68,8 @@ Auditing is built into the SQL Database service at no extra cost and is availabl
 ## How do I find the right service tier and performance level for single databases and elastic pools?
 There are a few tools available to you: 
 
-* For on-premises databases being migrated to an Azure SQL Database using the DTU-based resourcing model, use the [DTU sizing advisor](http://dtucalculator.azurewebsites.net/) to recommend the databases and DTUs required, and evaluate multiple databases for elastic pools.
-* For on-premises databases being migrated to an Azure SQL Database using the vCore-based resourcing model, compare the vCores to your current compute resources. 
+* For on-premises databases being migrated to an Azure SQL Database using the DTU-based purchasing model, use the [DTU sizing advisor](http://dtucalculator.azurewebsites.net/) to recommend the databases and DTUs required, and evaluate multiple databases for elastic pools.
+* For on-premises databases being migrated to an Azure SQL Database using the vCore-based purchasing model, compare the vCores to your current compute resources. 
 * If a single database would benefit from being in a pool, Azure's intelligent engine recommends an elastic pool if it sees a historical usage pattern that warrants it. See [Monitor and manage an elastic pool with the Azure portal](sql-database-elastic-pool-manage-portal.md). For details about how to do the math yourself, see [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md)
 * To see whether you need to dial a single database up or down, see [performance guidance for single databases](sql-database-performance-guidance.md).
 
