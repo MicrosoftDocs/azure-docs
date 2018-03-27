@@ -136,7 +136,7 @@ The following table helps you understand how to select the optimal configuration
 
 The supported performance levels are shown in the following table.
 
-|Performance level|H/W Generation|vCores|Memory (GB)|In-memory OLTP|(GB)Storage type|Max pool size|Max single DB size|Max log size|TempDB size|Compute redundancy|
+|Performance level|H/W Generation|vCores|Memory (GB)|In-memory OLTP(GB)|Storage type|Max pool size|Max single DB size|Max log size|TempDB size|Compute redundancy|
 |-----------------|:------------:|:----:|:---------:|:------------:|:--------------:|:-----------:|:---------:|:----:|:----------:|:----------|:-----------------:|
 |GP_Gen4_1|4|1|7|N/A|XIO|512|1024|307|32|1X|
 |GP_Gen4_2|4|2|14|N/A|XIO|756|1024|307|64|1X|
