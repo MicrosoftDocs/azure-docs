@@ -5,6 +5,31 @@
             "redirect_document_id": true
         },     
         {
+            "source_path": "articles/machine-learning/preview/release-notes-sprint-0.md",
+            "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/preview/release-notes-sprint-1.md",
+            "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/preview/release-notes-sprint-2.1.md",
+            "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-3",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/preview/release-notes-sprint-2.md",
+            "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-2.1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/preview/release-notes-sprint-3.md",
+            "redirect_url": "/azure/machine-learning/preview/azure-machine-learning-release-notes",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/studio/live-chat.md",
             "redirect_url": "https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning",
             "redirect_document_id": true
