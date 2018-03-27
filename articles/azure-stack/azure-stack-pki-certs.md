@@ -43,6 +43,9 @@ The following list describes the certificate requirements that are needed to dep
 - Ensure that the Subject Names and Subject Alternative Names of all certificates match the specifications described in this article to avoid failed deployments.
 
 > [!NOTE]
+> Self Signed certificates are not supported.
+
+> [!NOTE]
 > The presence of Intermediary Certificate Authorities in a certificate's chain-of-trusts IS supported. 
 
 ## Mandatory certificates
