@@ -7,20 +7,16 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/04/2018
 ms.author: sashan
 
 ---
 # Store Azure SQL Database backups for up to 10 years
-Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term backup retention feature, you can store your SQL database backups in an Azure Recovery Services vault for up to 10 years. You can store up to 1,000 databases per vault. You then can select any backup in the vault to restore it as a new database.
+Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term backup retention feature, you can store specified SQL database full backups in SQL Azure storage for up to 10 years. You can then restore any backup as a new database.
 
 > [!IMPORTANT]
-> Long-term backup retention is currently in preview and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.
+> Long-term backup retention is currently in preview. Existing backups stored in the Azure Services Recovery Service vault as part of the previous preview of this feature are migrated to SQL Azure storage.<!-- and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.-->
 >
-
-> [!NOTE]
-> You can enable up to 200 databases per vault during a 24-hour period. We recommend that you use a separate vault for each server to minimize the impact of this limit. 
-> 
 
 ## How SQL Database long-term backup retention works
 

@@ -36,7 +36,7 @@ With SQL Database Managed Instance, each instance is isolated from other instanc
 
 ### Adjust performance and scale without downtime
 
-SQL Database offers a [DTU-based resourcing model](sql-database-service-tiers.md#dtu-based-resourcing-model) or the [vCore-based resourcing model (preview)](sql-database-service-tiers.md#vcore-based-resourcing-model). 
+SQL Database offers a [DTU-based resourcing model](sql-database-service-tiers.md#dtu-based-resourcing-model) or the [vCore-based resourcing model (preview)](sql-database-service-tiers.md#vcore-based-resourcing-model-preview). 
 - The DTU-based resourcing model offers a blend of compute, memory, and I/O resources in three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. Performance levels within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The vCore-based resourcing model lets you choose the number of vCores, the amount or memory, and the amount and speed of storage.
 

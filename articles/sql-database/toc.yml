@@ -308,8 +308,6 @@
       href: sql-database-vnet-service-endpoint-rule-powershell.md
   - name: Business continuity
     items:
-    - name: Configure vault - backups
-      href: sql-database-long-term-backup-retention-configure.md
     - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
   - name: Load & move data

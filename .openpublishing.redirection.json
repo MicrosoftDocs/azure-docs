@@ -6494,6 +6494,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-long-term-backup-retention-configure.md",
+            "redirect_url": "/azure/sql-database/sql-database-long-term-backup-retention",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-connect-query-dotnet.md",
             "redirect_url": "/azure/sql-database/sql-database-connect-query-dotnet-visual-studio",
             "redirect_document_id": false
