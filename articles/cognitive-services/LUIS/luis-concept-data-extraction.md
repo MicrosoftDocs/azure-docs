@@ -8,7 +8,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/26/2018
 ms.author: v-geberr;
 ---
 
@@ -387,8 +387,8 @@ Another example utterance, using a synonym for Paris:
   ]
 ``` 
 
-## RegEx entity data
-[RegEx](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the RegEx entity definition, the following is an example utterance with the returned regex entities for the query `When was kb123456 published?`:
+## Regular expression entity data
+[Regular expression](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the regular expression entity definition, the following is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
 
 ```JSON
 {
