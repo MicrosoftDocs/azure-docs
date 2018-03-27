@@ -12,7 +12,7 @@
 
 You can learn about Azure Cosmos DB global distribution in the following video, where Azure Cosmos DB Program Manager Andrew Liu walks through global distribution functionality.
 
->[!VIDEO https://youtu.be/embed/1D06yjTVxt8]
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
 
 For more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
 

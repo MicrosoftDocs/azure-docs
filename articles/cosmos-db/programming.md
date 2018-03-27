@@ -24,7 +24,7 @@ Learn how Azure Cosmos DB's language-integrated, transactional execution of Java
 
 We recommend getting started by watching the following video, where Andrew Liu provides an introduction to Azure Cosmos DB's server-side database programming model. 
 
-> [!VIDEO https://youtu.be/embed/s0cXdHNlVI0]
+> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
 >
 > 
 

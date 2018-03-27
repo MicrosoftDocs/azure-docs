@@ -32,7 +32,7 @@ This article answers the following questions:
 
 In the following video, Azure Cosmos DB Program Manager Andrew Liu walks you through the Azure Cosmos DB resource model. 
 
-> [!VIDEO https://youtu.be/embed/luWFgTP0IL4]
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
 >
 >
 

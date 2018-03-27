@@ -26,7 +26,7 @@ To learn how indexing works in Azure Cosmos DB, it's important to understand tha
 
 In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates the Azure Cosmos DB automatic indexing capabilities, and how to tune and configure the indexing policy on your Azure Cosmos DB container. 
 
->[!VIDEO https://youtu.be/embed/uFu2D-GscG0]
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 In this article, we take a close look at Azure Cosmos DB indexing policies, at how to customize indexing policy, and associated trade-offs. 
 

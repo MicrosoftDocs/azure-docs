@@ -31,13 +31,13 @@ We believe that these capabilities are key to reducing the friction between the 
 
 We recommend getting started by watching the following video, where Azure Cosmos DB Program Manager Andrew Liu shows Azure Cosmos DB's querying capabilities and demonstrates the online [Query Playground](http://www.documentdb.com/sql/demo), where you can try out Azure Cosmos DB and run SQL queries against our dataset as demonstrated in the video.
 
-> [!VIDEO https://youtu.be/embed/1LqUQRpHfFI]
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
 >
 >
 
 More advanced querying techniques are demonstrated in this follow up video:
 
-> [!VIDEO https://youtu.be/embed/kASU9NOIR90]
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
 >
 >
 

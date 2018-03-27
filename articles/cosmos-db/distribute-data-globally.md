@@ -37,7 +37,7 @@ Azure Cosmos DB provides the following capabilities to enable you to easily writ
 
 In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates the turnkey global distribution features.
 
-> [!VIDEO https://youtu.be/embed/1D06yjTVxt8]
+> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
 >
 
 ### <a id="RegionalPresence"></a>Ubiquitous regional presence 

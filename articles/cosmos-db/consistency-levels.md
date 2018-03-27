@@ -26,7 +26,7 @@ Besides the **strong** and **eventual consistency** models commonly offered by d
 
 In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates the turnkey global distribution features.
 
->[!VIDEO https://youtu.be/embed/-4FsGysVD14]
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## Distributed databases and consistency
 Commercial distributed databases fall into two categories: databases that do not offer well-defined provable consistency choices at all, and databases that offer two extreme programmability choices (strong vs. eventual consistency). 

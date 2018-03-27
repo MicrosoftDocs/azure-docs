@@ -33,7 +33,7 @@ In this article, learn how to:
 
 In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates how to add an Azure Search index to an Azure Cosmos DB container.
 
->[!VIDEO https://youtu.be/embed/OyoYu1Wzk4w]
+>[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 <a name="supportedAPIs"></a>
 ## Supported API types

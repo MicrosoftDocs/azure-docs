@@ -35,7 +35,7 @@ The **change feed support** in Azure Cosmos DB enables you to build efficient an
 
 In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates how the Azure Cosmos DB change feed works.
 
-> [!VIDEO https://youtu.be/embed/mFnxoxeXlaU]
+> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
 >
 >
 

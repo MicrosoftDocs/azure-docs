@@ -29,7 +29,7 @@ Cosmos DB supports both explicit and policy driven failovers that allow you to c
 
 You can also learn about regional failovers in this video by Azure Cosmos DB Program Manager Andrew Liu, which demonstrates the global distribution features including regional failover.
 
->[!VIDEO https://youtu.be/embed/1D06yjTVxt8]
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
 >
 
 ## <a id="ConfigureMultiRegionApplications"></a>Configuring multi-region applications
