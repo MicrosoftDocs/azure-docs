@@ -40,7 +40,7 @@ A simple entity is a generic entity that describes a single concept.
     ![Add Entity Dialog box - Simple](./media/add-entities/create-simple-airline-entity.png)
 
 ## Add regular expression entities
-A [regular expression entity](luis-concept-entity-types.md#types-of-entities) is used to pull out data from the utterance based on a regular expression you provide. 
+A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
 
 1. Open the TravelAgent app by selecting its name on **My Apps** page, and then select **Entities** in the left panel. 
 2. On the **Entities** page, select **Create new entity**.
