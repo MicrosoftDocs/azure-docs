@@ -58,7 +58,7 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
    You can change the geo-replication type of your storage account by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), or one of the Azure Storage client libraries.
 
    > [!NOTE]
-   > ZRS accounts cannot be converted LRS or GRS. Similarly, an existing LRS or GRS account cannot be converted to a ZRS account.
+   > ZRS accounts cannot be directly converted LRS or GRS right now. We plan to support migrating to ZRS from LRS, GRS, and RA-GRS after ZRS GA; we will announce this capability and update documentation when that happens.
     
 <a id="changedowntime"></a>
 #### 2. Does changing the replication type of my storage account result in down time?
@@ -68,9 +68,9 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 <a id="changecost"></a>
 #### 3. Are there additional costs to changing the replication type of my storage account?
 
-   Yes. If you change from LRS to GRS (or RA-GRS) for your storage account, you incur an additional charge for egress involved in copying existing data from primary location to the secondary location. After the initial data is copied, there are no further additional egress charges for geo-replication from the primary to secondary location. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+   It depends on your conversion path. Ordering from cheapest to the most expensive redundancy offering we have LRS, ZRS, GRS, and RA-GRS. For example, going *from* LRS to anything will incur additional charges because you are going to a more sophisticated redundancy level. GRS and RA-GRS both incur an egress bandwidth charge because your data (in your primary region) is being replicated to your secondary region. This is a one-time charge at initial setup. After the initial data is copied, there are no further additional egress charges for geo-replication from the primary to secondary location. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-   If you change from GRS to LRS, there is no additional cost, but your data is deleted from the secondary location.
+   If you change from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
 
 <a id="ragrsbenefits"></a>
 #### 4. How can RA-GRS help me?
@@ -100,13 +100,13 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
    Microsoft takes the responsibility of preserving your data seriously. If there is any chance of recovering the data in the primary region, Microsoft will delay the failover and focus on recovering your data. A future version of the service will allow you to trigger a failover at an account level so that you can control the RTO yourself.
 
 #### 8. What Azure Storage objects does ZRS support? 
-Block blobs, page blobs (except for those backing VM disks), tables, files, and queues. 
+Block blobs, page blobs (except for those backing VM disks), tables, files, and queues.
 
 #### 9. Does ZRS also include geo-replication? 
-Currently ZRS does not support geo-replication. If your scenario requires cross-region replication for the purposes of region-wide disaster recovery, use GRS or RA-GRS redundancy.
+Currently ZRS does not support geo-replication but this is something we are exploring to support in the future. If your scenario requires cross-region replication for the purposes of region-wide disaster recovery, use GRS or RA-GRS redundancy.
 
 #### 10. What happens when one or more ZRS zones go down? 
-When the first zone goes down, ZRS continues to write replicas of your data across the two remaining zones in the region. If a second zone goes down, read and write access is unavailable until at least two zones are available again. 
+When the first zone goes down, ZRS continues to write replicas of your data across the two remaining zones in the region. If a second zone goes down, read and write access is unavailable until at least two zones are available again. Go to [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md) for details on how ZRS works HA and DR capabilities.
 
 ## Next steps
 * [Designing highly available applications using RA-GRS Storage](../storage-designing-ha-apps-with-ragrs.md)

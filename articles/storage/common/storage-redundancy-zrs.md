@@ -15,6 +15,7 @@ ms.author: jeking
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
+
 ## See also
 
 - [Azure Storage replication](storage-redundancy.md)
