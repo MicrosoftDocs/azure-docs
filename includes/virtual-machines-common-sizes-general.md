@@ -133,6 +133,8 @@ ACU: 160
 
 ACU: 100
 
+
+
 | Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2x500               | 2 / 250                 |
@@ -181,3 +183,6 @@ In the classic deployment model, some VM size names are slightly different in CL
 |A2\Basic_A2|2|3.5 GB|2| 60 GB|4|4x300|
 |A3\Basic_A3|4|7 GB|2| 120 GB |8|8x300|
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16x300|
+
+
+Note that the number of Data Disks for Classic VMs might be lower than the number of Data Disks for Azure Resource Manager VMs.
