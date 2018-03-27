@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/08/2017
+ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
 ---
