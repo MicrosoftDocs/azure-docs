@@ -32,10 +32,9 @@ up your app, see [Scale up an app in Azure](web-sites-scale.md).
 - The feature is currently in preview.
 - You can only restore to the same site or to a slot belonging to that site.
 - App Service stops the target site while doing the restore.
-- App Service keeps three months worth of snapshots.
-    - Snapshots maximum of every six hours for the last four weeks.
-    - Snapshots every 12 hours for one to three months.
-
+- App Service keeps three months worth of snapshots for platform data recovery purposes.
+- You can only restore snapshots for the last 30 days.
+ 
 
 ## Restore an app from a snapshot
 
