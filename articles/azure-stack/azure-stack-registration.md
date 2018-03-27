@@ -22,7 +22,7 @@ ms.reviewer: avishwan
 Registering [Azure Stack](azure-stack-poc.md) with Azure allows you to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the subscription used for registration. 
 
 > [!IMPORTANT]
-> Registration is mandatory. Otherwise, you will be in violation of the licensing terms of the Azure Stack deployment as usage data will not be reported.
+> Registration is mandatory if you choose the pay-as-you-use billing model. Otherwise, you will be in violation of the licensing terms of the Azure Stack deployment as usage will not be reported.
 
 ## Prerequisites
 Before registering Azure Stack with Azure, you must have:
@@ -54,11 +54,11 @@ Connected environments can access the internet and Azure. For these environments
 > All these steps must be run from a computer that has access to the privileged endpoint. 
 
 ### Register the Azure Stack resource provider
-To register the Azure Stack resource provider with Azure, start Powershell ISE as an administrator and use the following PowerShell commands with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below). 
+To register the Azure Stack resource provider with Azure, start PowerShell ISE as an administrator and use the following PowerShell commands with the **EnvironmentName** parameter set to the appropriate Azure subscription type (see parameters below). 
 
 1. Add the Azure account that you use to register Azure Stack. To add the account, run the **Add-AzureRmAccount** cmdlet. You are prompted to enter your Azure global administrator account credentials and you may have to use 2-factor authentication based on your account’s configuration.
 
-   ```Powershell
+   ```PowerShell
       Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
    ```
 
@@ -69,13 +69,13 @@ To register the Azure Stack resource provider with Azure, start Powershell ISE a
 
 2. If you have multiple subscriptions, run the following command to select the one you want to use:  
 
-   ```powershell
+   ```PowerShell
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 3. Run the following command to register the Azure Stack resource provider in your Azure subscription:
 
-   ```Powershell
+   ```PowerShell
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
@@ -88,7 +88,7 @@ Use these steps to register Azure Stack with Azure using the pay-as-you-use bill
   Import-Module .\RegisterWithAzure.psm1
   ```
 
-2. Next, in the same PowerShell session, ensure you are logged in to the correct Azure Powershell Context. This is the azure account that was used to register the Azure Stack resource provider above. Powershell to run: 
+2. Next, in the same PowerShell session, ensure you are logged in to the correct Azure PowerShell Context. This is the azure account that was used to register the Azure Stack resource provider above. Powershell to run: 
 
   ```powershell 
   Login-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
@@ -172,7 +172,7 @@ Optionally, you can use the Get-Content cmdlet to point to a file that contains 
 ### Retrieve an Activation Key from Azure Registration Resource 
 Next, you need to retrieve an activation key from the registration resource created in Azure during Register-AzsEnvironment. 
  
-To get the activation key, run the following powershell commands:  
+To get the activation key, run the following PowerShell commands:  
 
   ```Powershell 
   $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>" 
@@ -183,7 +183,7 @@ To get the activation key, run the following powershell commands:
   > The activation key is saved in the file specified for *$KeyOutputFilePath*. You can change the filepath or filename at your discretion. 
 
 ### Create an Activation Resource in Azure Stack 
-Return to the Azure Stack environment with the file or text from the activation key created from Get-AzsActivationKey. Next you will create an activation resource in Azure Stack using that activation key. To create an activation resource run the following powershell commands:  
+Return to the Azure Stack environment with the file or text from the activation key created from Get-AzsActivationKey. Next you will create an activation resource in Azure Stack using that activation key. To create an activation resource run the following PowerShell commands:  
 
   ```Powershell 
   $ActivationKey = "<activation key>" 
@@ -239,13 +239,13 @@ You’ll need to update or renew your registration in the following circumstance
 #### Remove the activation resource from Azure Stack 
 You will first need to remove the activation resource from Azure Stack, and then the registration resource in Azure.  
 
-To remove the activation resource in Azure Stack, run the following Powershell commands in your Azure Stack environment:  
+To remove the activation resource in Azure Stack, run the following PowerShell commands in your Azure Stack environment:  
 
   ```Powershell 
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint 
   ``` 
 
-Next, to remove the registration resource in Azure, ensure you are on an Azure connected computer, log in to the correct Azure Powershell context, and run the appropriate Powershell commands as described below.
+Next, to remove the registration resource in Azure, ensure you are on an Azure connected computer, log in to the correct Azure PowerShell context, and run the appropriate PowerShell commands as described below.
 
 You can use the registration token used to create the resource:  
 
