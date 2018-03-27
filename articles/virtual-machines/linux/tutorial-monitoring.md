@@ -154,7 +154,7 @@ The following example creates an alert for average CPU usage.
 5. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
 6. Click the **OK** button.
 
-## Manage packe updates
+## Manage package updates
 
 Update management allows you to manage updates and patches for your Azure Linux VMs.
 Directly from your VM, you can quickly assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to the VM.
