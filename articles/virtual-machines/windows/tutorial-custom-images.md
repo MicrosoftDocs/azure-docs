@@ -30,13 +30,16 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * List all the images in your subscription
 > * Delete an image
 
-This tutorial requires the AzureRM.Compute module version 4.3.2 or later. Run ` Get-Module -ListAvailable AzureRM.Compute` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Before you begin
 
 The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VM instances.
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
+
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+If you choose to install and use the PowerShell locally, this tutorial requires the AzureRM module version 5.6.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Prepare VM
 
@@ -59,13 +62,13 @@ To create an image, the VM needs to be deallocated and marked as generalized in 
 
 Deallocated the VM using [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm).
 
-```powershell
+```azurepowershell-interactive
 Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
 ```
 
 Set the status of the virtual machine to `-Generalized` using [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm). 
    
-```powershell
+```azurepowershell-interactive
 Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
 ```
 
@@ -76,19 +79,19 @@ Now you can create an image of the VM by using [New-AzureRmImageConfig](/powersh
 
 Get the virtual machine. 
 
-```powershell
+```azurepowershell-interactive
 $vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
 ```
 
 Create the image configuration.
 
-```powershell
+```azurepowershell-interactive
 $image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
 ```
 
 Create the image.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
 ```	
 
@@ -100,7 +103,7 @@ Now that you have an image, you can create one or more new VMs from the image. C
 This example creates a VM named *myVMfromImage* from the *myImage*, in the *myResourceGroup*.
 
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
@@ -119,14 +122,14 @@ Here are some examples of common management image tasks and how to complete them
 
 List all images by name.
 
-```powershell
+```azurepowershell-interactive
 $images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 
 Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmImage `
     -ImageName myOldImage `
 	-ResourceGroupName myResourceGroup

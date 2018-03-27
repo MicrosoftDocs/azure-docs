@@ -39,14 +39,14 @@ You need to have already [created a managed VM image](capture-image-resource.md)
 
 You can use PowerShell to create a VM from an image using the simplified parameter set for the [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. The image needs to be in the same resource group where you want to create the VM.
 
-This example requires the AzureRM.Compute module version 4.3.2 or later. Run ` Get-Module -ListAvailable AzureRM.Compute` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This example requires the AzureRM module version 5.6.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 The simplified parameter set for New-AzureRmVm only requires that you provide a name, resource group and image name to create a VM from an image, but it will use the value of the **-Name** parameter as the name of all of the resources that it creates automatically. In this example, we provide more detailed names for each of the resource, but let the cmdlet create them automatically. You can also create resources, like the virtual network, ahead of time and pass the name into the cmdlet. It will use the existing resources if it can find them by their name.
 
 The following example creates a VM named *myVMFromImage*, in the *myResourceGroup* resource group, from the image named *myImage*. 
 
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
