@@ -13,9 +13,9 @@ ms.author: tamram
 
 # Azure Storage replication
 
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Replication copies your data so that it is protected from transient hardware failures, preserving your application up-time. 
+The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Replication copies your data so that it is protected from planned and unplanned events ranging from transient hardware failures, network or power outages, massive natural disasters, and so on.
 
-You can choose to replicate your data within the same data center, across data centers within the same region, or across regions. If your data is replicated across multiple data centers or across regions, it's also protected from a catastrophic failure in a single location.
+You can choose to replicate your data within the same data center, across data centers (i.e. Zones) within the same region, and even across regions. If your data is replicated across multiple data centers or across regions, it's also protected from a catastrophic failure in a single location.
 
 Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
 
@@ -23,12 +23,11 @@ Replication ensures that your storage account meets the [Service-Level Agreement
 
 When you create a storage account, you can select one of the following replication options:
 
-* [Locally redundant storage (LRS)](storage-redundancy-lrs.md)
+* [Locally redundant storage (LRS)](storage-redundancy-lrs.md), is the default option when you create a storage account
 * [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md)
 * [Geo-redundant storage (GRS)](storage-redundancy-grs.md)
 * [Read-access geo-redundant storage (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-Locally redundant storage (LRS) is the default option when you create a storage account.
 
 > [!IMPORTANT]
 > You can change how your data is replicated after your storage account has been created. However, you may incur an additional one-time data transfer cost if you switch from LRS or ZRS to GRS or RA-GRS.
@@ -38,12 +37,14 @@ The following table provides a quick overview of the differences between LRS, ZR
 
 | Replication strategy | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Data is replicated across multiple datacenters. |No |Yes |Yes |Yes |
-| Data is replicated across multiple Availability Zones. |No |Yes |No |No |
+| Data is replicated (3x) within a single data center. |Yes |No |Yes (secondary) |Yes (secondary)
+| Data is asynchronously replicated (3x) across multiple datacenters in two different regions (i.e. primary and secondary). |No |Yes |Yes |Yes |
+| Data is synchronously replicated (3x) across multiple Availability Zones within a region. |No |Yes |No |No |
 | Data can be read from a secondary location as well as the primary location. |No |No |No |Yes |
 | Designed to provide ___ durability of objects over a given year. |at least 99.999999999% (11 9's)|at least 99.9999999999% (12 9's)|at least 99.99999999999999% (16 9's)|at least 99.99999999999999% (16 9's)|
+| Available in ___ storage account types |GPv1, GPv2 |GPv2 |GPv1, GPv2 |GPv1, GPv2
 
-See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information for the different redundancy options.
+See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different redundancy options.
 
 > [!NOTE]
 > Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md).
@@ -102,7 +103,7 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 Block blobs, page blobs (except for those backing VM disks), tables, files, and queues. 
 
 #### 9. Does ZRS also include geo-replication? 
-Currently ZRS does not support geo-replication. If your scenario requires cross-region replication for the purposes of disaster recovery, use a GRS or RA-GRS storage account instead.   
+Currently ZRS does not support geo-replication. If your scenario requires cross-region replication for the purposes of region-wide disaster recovery, use GRS or RA-GRS redundancy.
 
 #### 10. What happens when one or more ZRS zones go down? 
 When the first zone goes down, ZRS continues to write replicas of your data across the two remaining zones in the region. If a second zone goes down, read and write access is unavailable until at least two zones are available again. 
