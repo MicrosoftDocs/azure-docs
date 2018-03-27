@@ -43,7 +43,7 @@ Log Analytics makes it easy to understand what the costs are likely be based on 
 
 1. Sign into the [Azure portal](http://portal.azure.com). 
 2. Click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-3. In the Log Analytics subscriptions pane, select your workspace and then click **Usage and estimated costs**  from the left-hand pane.<br><br> ![Usage and estimated costs page](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+3. In the Log Analytics subscriptions pane, select your workspace and then click **Usage and estimated costs**  from the left-hand pane.<br>[Usage and estimated costs page](log-analytics-manage-cost/)<br>
 
 From here you can review your data volume for the month. This includes all the data received and retained in your Log Analytics workspace.  Click **Usage details** from the top of the page to view the usage dashboard with information on data volume trends by source, computers and offering. To view and set a daily cap or to modify the retention period, click **Data volume management**.
  
@@ -56,12 +56,12 @@ Log Analytics charges are added to your Azure bill. You can see details of your 
 2. Click **More services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 3. In the Log Analytics subscriptions pane, select your workspace to modify from the list.
 4. On the Workspace page, click **Retention** from the left-hand pane.
-5. On the workspace retention pane, move the slider to increase or decrease the number of days and then click **Save**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.<br><br> ![Change workspace data retention setting](media/log-analytics-manage-cost-storage/manage-cost-change-retention.png)
+5. On the workspace retention pane, move the slider to increase or decrease the number of days and then click **Save**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.<br><br> ![Change workspace data retention setting](media/log-analytics-manage-cost/manage-cost-change-retention.png)
 
 ## Daily cap
-When creating a Log Analytics workspace from the Azure portal and you choose the *Free* plan, it is set to a 500 MB per day limit. There is no limit for the other pricing plans. You can configure a daily cap and limit the daily ingestion for your workspace, but use care as your goal should not be to hit the daily limit.  Otherwise at that point, you will lose data for the remainder of the day and your ability to observe the health conditions of resources supporting IT services is impacted.  The daily cap is intended to be used as a way to manage the unexpected increase in data volume from your managed resources and stay within your limit, or when you want to simply limit unplanned charges for your workspace.  
+When creating a Log Analytics workspace from the Azure portal and you choose the *Free* plan, it is set to a 500 MB per day limit. There are no limits for the other pricing plans. You can configure a daily cap and limit the daily ingestion for your workspace, but use care as your goal should not be to hit the daily limit.  Otherwise at that point, you will lose data for the remainder of the day and your ability to observe the health conditions of resources supporting IT services is impacted.  The daily cap is intended to be used as a way to manage the unexpected increase in data volume from your managed resources and stay within your limit, or when you want to simply limit unplanned charges for your workspace.  
 
-When the daily limit is reached, the collection of billable data types stops for the rest of the day.  A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
+When the daily limit is reached, a warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
 
 ### Identify what daily data limit to define 
 Review [Log Analytics Usage and estimated costs](log-analytics-usage.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
@@ -71,26 +71,7 @@ Review [Log Analytics Usage and estimated costs](log-analytics-usage.md) to unde
 2. Click **More services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 3. In the Log Analytics subscriptions pane, select your workspace to modify from the list.   
 4. Click **Usage and estimated costs** from the left pane, and then click **Data volume management**. 
-5. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.<br><br> ![Log Analytics configure data limit](media/log-analytics-manage-cost-storage/data-volume-mgmt-configpane-01.png)
-
-### Alert when limit reached
-While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view and manage alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).      
-
-To get you started, here are the recommended settings for the alert:
-
-* Target: Select your Log Analytics resource
-* Criteria: 
-   * Signal name: Custom log search
-   * Search query: Operation |where Detail has 'OverQuota'
-   * Based on: Number of results
-   * Condition: Greater than
-   * Threshold: 0
-   * Period: 5 (minutes)
-   * Frequency: 5 (minutes)
-* Alert rule name: Daily data limit reached
-* Severity: Warning (Sev 1)
-
-Once alert is defined and the limit is reached, an alert is triggered and performs the response defined in the Action Group. It can notify your team via email and text messages, or automate actions using webhooks, Automation runbooks or [integrating with an external ITSM solution](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
+5. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day. 
 
 ## Troubleshooting
 **Question**: How do I troubleshoot if Log Analytics is no longer collecting data? 
@@ -108,10 +89,13 @@ The following table describes reasons that data collection stops and a suggested
 
 <sup>1</sup> If your workspace is on the free pricing tier, you're limited to sending 500 MB of data per day to the service. When you reach the daily limit, data collection stops until the next day. Data sent while data collection is stopped is not indexed and is not available for searching. When data collection resumes, processing occurs only for new sent data. 
 
-Log Analytics uses UTC time. The reset time varies between workspaces to prevent all capped workspaces start ingesting data at the same time. If the workspace reaches the daily limit, processing resumes after the reset time defined in **Daily limit will be set at**.<br><br> ![Log Analytics limit UTC timezone](media/log-analytics-manage-cost-storage/data-volume-mgmt-limit-utc.png)
+Log Analytics uses UTC time. The reset time varies between workspaces to prevent all capped workspaces start ingesting data at the same time. If the workspace reaches the daily limit, processing resumes after the reset time defined in **Daily limit will be set at**.  
 
 **Question**: How can I be notified when data collection stops? 
 **Answer**: Use the steps described in *Create daily data cap* alert to be notified when data collection stops and follow the steps Use the steps described in add actions to alert rules configure an e-mail, webhook, or runbook action for the alert rule. 
+
+
+
 
 ## Next steps  
 
