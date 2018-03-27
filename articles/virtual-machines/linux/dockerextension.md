@@ -22,7 +22,7 @@ Docker is a popular container management and imaging platform that allows you to
 
 > [!WARNING]
 > The Azure Docker VM extension for Linux is deprecated and will be retired November 2018.
-> The extension merely installs Docker, so alteratives such as cloud-init or the Custom Script Extension are a better way to install the Docker version of choice. For more information on how to use cloud-init, see [Customize a Linux VM with cloud-init](tutorial-automate-vm-deployment.md).
+> The extension merely installs Docker, so alternatives such as cloud-init or the Custom Script Extension are a better way to install the Docker version of choice. For more information on how to use cloud-init, see [Customize a Linux VM with cloud-init](tutorial-automate-vm-deployment.md).
 
 ## Azure Docker VM extension overview
 The Azure Docker VM extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine (VM). By using the Azure Docker VM extension, you have more control and features than simply using Docker Machine or creating the Docker host yourself. These additional features, such as [Docker Compose](https://docs.docker.com/compose/overview/), make the Azure Docker VM extension suited for more robust developer or production environments.
