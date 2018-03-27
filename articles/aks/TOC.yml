@@ -59,6 +59,8 @@
     items:
     - name: Static IP address
       href: static-ip.md
+    - name: Internal load balancer
+      href: internal-lb.md
     - name: Ingress and TLS
       href: ingress.md
   - name: Security and authentication
