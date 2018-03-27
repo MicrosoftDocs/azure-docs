@@ -39,10 +39,10 @@ Once CLI is installed, perform the following steps to install the Event Hubs CLI
    az login
    ```
 
-3. Set the current subscription context:
+3. Set the current subscription context. Replace `MyAzureSub` with the name of the Azure subscription you want to use:
 
    ```azurecli
-   az account set --subscription <Azure_subscription_name>
+   az account set --subscription MyAzureSub
    ``` 
 
 ## Provision resources

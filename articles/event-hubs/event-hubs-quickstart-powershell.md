@@ -52,7 +52,7 @@ Once PowerShell is installed, perform the following steps to install the Event H
    Login-AzureRmAccount
    ```
 
-3. Change to the current subscription or see the currently active subscription:
+3. Change to the current subscription or see the currently active subscription. Replace `MyAzureSub` with the name of the Azure subscription you want to use:
 
    ```azurepowershell
    Select-AzureRmSubscription -SubscriptionName "MyAzureSub"
@@ -139,7 +139,7 @@ You can view the incoming and outgoing message count in the portal metrics windo
 
 Run the following command to remove the resource group, namespace, storage account, and all related resources. Replace `myResourceGroup` with the name of the resource group you created:
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
