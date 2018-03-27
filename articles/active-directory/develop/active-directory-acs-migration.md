@@ -52,7 +52,7 @@ To use these components, you must create one or more Access Control namespaces. 
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-All communication with the STS and management operations are done at this URL. You use different paths for different purposes. To determine whether your applications or services use Access Control, monitor for any traffic to https://\<namespace\>.accesscontrol.windows.net. Any traffic to this URL is handled by Access Control, and needs to be discontinued. 
+All communication with the STS and management operations are done at this URL. You use different paths for different purposes. To determine whether your applications or services use Access Control, monitor for any traffic to https://<namespace>.accesscontrol.windows.net. Any traffic to this URL is handled by Access Control, and needs to be discontinued. 
 
 The exception to this is any traffic to `https://accounts.accesscontrol.windows.net`. Traffic to this URL is already handled by a different service and **is not** affected by the Access Control deprecation. 
 
@@ -101,10 +101,9 @@ SharePoint 2013, 2016, and SharePoint Online customers have long used ACS for au
 
 | Feature | Guidance |
 | ------- | -------- |
-| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 token required by Sharepoint for authentication, and ACS was used as an intermediary that made SharePoint compatibile with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using token issuance policies](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatibile with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using token issuance policies](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
 | [App authentication & server-to-server authentication in SharePoint on-prem](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Not affected by ACS retirement; no changes necessary. | 
 | [Low trust authorization for SharePoint add-ins (provider hosted and SharePoint hosted)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Not affected by ACS retirement; no changes necessary. |
-| [Remote event receivers for provider hosted add-ins.](https://docs.microsoft.com/sharepoint/dev/solution-guidance/use-remote-event-receivers-in-sharepoint) | Remote event receivers leverage Azure Service Bus, which is also deprecating support for ACS in November 2018. You will need to migrate your Service Bus implementations to use shared access signatures, [described here](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas). | 
 | [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Not affected by ACS retirement; no changes necessary. |
 
 ### Web applications that use passive authentication
