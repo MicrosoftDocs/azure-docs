@@ -140,7 +140,7 @@ Show Windows firewall rule | `netsh advfirewall firewall show rule name="Remote 
 Disable Windows firewall | `netsh advfirewall set allprofiles state off` | 
 Create local user account | `net user /add <username> <password>` |
 Add local user to local group | `net localgroup Administrators <username> /add` | 
-Verify user account is enabled | `net user <username> \| find /i "active"` | Azure VMs created from generalized image will have the local administrator account renamed to the name specified during VM provisioning. So it will usually not be `Administrator`.
+Verify user account is enabled | `net user <username> \\| find /i "active"` | Azure VMs created from generalized image will have the local administrator account renamed to the name specified during VM provisioning. So it will usually not be `Administrator`.
 Enable user account | `net user <username> /active:yes` | 
 View user account properties | `net user <username>` | Example lines of interest from a local admin account<br>`Account active Yes`<br>`Account expires Never`<br>`Password expires Never`<br>`Workstations allowed All`<br>`Logon hours allowed All`<br>`Local Group Memberships *Administrators`
 View local groups | `net localgroup` |
