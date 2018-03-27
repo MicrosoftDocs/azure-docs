@@ -92,7 +92,7 @@ book me 2 adult business tickets to Paris tomorrow on Air France (AFR1185)
 
 2. In the entity drop-down box that appears, add a new entity by typing its name in the text box, `AirFrance flight number`, and selecting **Create new entity**. Select entity type of **Regular expression**, enter regular expression "AFR[0-9]{3,4}" in the text box and then select **Done**.
  
-    ![Simple Entity Labeling](./media/add-example-utterances/create-airline-simple-entity.png)
+    ![Regular Expression Entity Labeling](./media/add-example-utterances/create-airline-regex-entity.png)
  
 ## Add hierarchical entity and label
 
