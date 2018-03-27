@@ -3,7 +3,7 @@ title: SQL Data Warehouse capacity limits | Microsoft Docs
 description: Maximum values for connections, databases, tables and queries for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 03/15/2018
+ms.date: 03/27/2018
 ms.author: kevin;barbkess
 
 ---
@@ -36,13 +36,13 @@ The following tables contain the maximum values allowed for various components o
 |:--- |:--- |:--- |
 | Database |Max size |240 TB compressed on disk<br/><br/>This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). |
 | Table |Max size |60 TB compressed on disk |
-| Table |Tables per database |2 billion |
+| Table |Tables per database |10,000 |
 | Table |Columns per table |1024 columns |
 | Table |Bytes per column |Dependent on column [data type][data type].  Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
 | Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, SQL Data Warehouse supports row-overflow storage, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see the [Row-Overflow Data Exceeding 8-KB][Row-Overflow Data Exceeding 8 KB]. |
 | Table |Partitions per table |15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance. |
 | Table |Characters per partition boundary value. |4000 |
-| Index |Non-clustered indexes per table. |999<br/><br/>Applies to rowstore tables only. |
+| Index |Non-clustered indexes per table. |50<br/><br/>Applies to rowstore tables only. |
 | Index |Clustered indexes per table. |1<br><br/>Applies to both rowstore and columnstore tables. |
 | Index |Index key size. |900 bytes.<br/><br/>Applies to rowstore indexes only.<br/><br/>Indexes on varchar columns with a maximum size of more than 900 bytes can be created if the existing data in the columns does not exceed 900 bytes when the index is created. However, later INSERT or UPDATE actions on the columns that cause the total size to exceed 900 bytes will fail. |
 | Index |Key columns per index. |16<br/><br/>Applies to rowstore indexes only. Clustered columnstore indexes include all columns. |
