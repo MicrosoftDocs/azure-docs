@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -51,7 +51,7 @@ Failover and failback has four stages:
 
 ## Verify VM properties
 
-Verify the VM properties, and make sure that the VM complies with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Verify the VM properties, and make sure that the VM complies with [Azure requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. In **Protected Items**, click **Replicated Items** > VM.
 
@@ -109,7 +109,7 @@ low-latency network is required between the process server and the protected VM.
 - If you have a VPN connection, or you're running failback in a production environment, you must
   set up an Azure VM as a Azure-based process server for failback.
 - To set up a process server in Azure, follow the instructions in
-  [this article](site-recovery-vmware-setup-azure-ps-resource-manager.md).
+  [this article](vmware-azure-set-up-process-server-azure.md).
 
 ## Configure the master target server
 

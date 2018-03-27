@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
@@ -65,6 +65,9 @@ When you are authenticated, you can interact with the applications that your adm
 ## Web browser requirements
 
 At a minimum, the access panel requires a browser that supports JavaScript and has CSS enabled. To be signed in to applications through password-based single sign-on (SSO), you must have the access panel extension installed in your browser. The extension is downloaded automatically when you select an application that is configured for password-based SSO.
+
+The installer is architecture-specific. If you click the download link, you only get the installer for the OS architecture that you are currently running on. If you are an application deployment administrator, make sure that you visit the download link from a 64 bit and 32 bit device to get both installers.
+
 
 The access panel extension is currently available for:
 - **Edge**: on Windows 10 Anniversary Edition or later. 

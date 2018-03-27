@@ -1,6 +1,6 @@
 ﻿---
 title: Protect personal data with Azure network security features | Microsoft Docs
-description: Protect personal data using Azure network security features
+description: Protect personal data using Azure network security features. This may be used to comply with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 
 ---
 # Protect personal data with network security features: Azure Application Gateway and Network Security Groups
 
-This article provides information and procedures that will help you use Azure Application Gateway and Network Security Groups to protect personal data.
+This article provides information and procedures that will help you use Azure Application Gateway and Network Security Groups to protect personal data. This information may be helpful in your efforts to comply with General Data Protection Regulation (GDPR).
 
 An important element in a multi-layered security strategy to protect the privacy of personal data is a defense against common vulnerability exploits such as SQL injection or cross-site scripting. Keeping unwanted network traffic out of your Azure virtual network helps protect against potential compromise of sensitive data, and Microsoft Azure gives you tools to help protect your data against attackers.
 

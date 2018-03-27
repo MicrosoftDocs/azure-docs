@@ -16,7 +16,7 @@ manager: carmonm
 
 # Tutorial: Review usage and costs
 
-Azure Cost Management by Cloudyn shows you usage and costs so that you can track trends, detect inefficiencies, and create alerts. All usage and cost data is displayed in Cloudyn dashboards and reports. The examples in this tutorial walk you though reviewing usage and costs using dashboards and reports. In this tutorial, you learn how to:
+Azure Cost Management shows you usage and costs so that you can track trends, detect inefficiencies, and create alerts. All usage and cost data is displayed in Cloudyn dashboards and reports. The examples in this tutorial walk you though reviewing usage and costs using dashboards and reports. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Track usage and cost trends
@@ -52,7 +52,7 @@ In the preceding example, less money was spent starting on 2017-08-31 than befor
 
 In the example, you clearly see that Azure Storage cost dropped starting on 2017-08-31 while spending on other Azure services remained level. So, what caused that reduction in spending? In this example, some employees were on vacation away from work and did not use the Storage service.
 
-To watch a tutorial video about tracking usage and cost trends, see [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g).
+To watch a tutorial video about tracking usage and cost trends, see [Analyzing your cloud billing data vs. time with Azure Cost Management](https://youtu.be/7LsVPHglM0g).
 
 ## Detect usage inefficiencies
 
@@ -76,7 +76,7 @@ View VM instance IDs by clicking the plus symbol next to **List of Candidates**.
 
 ![List of Candidates](./media/tutorial-review-usage/sizing03.png)
 
-To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704).
+To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Azure Cost Management](https://youtu.be/1xaZBNmV704).
 
 ## Create alerts for unusual spending
 

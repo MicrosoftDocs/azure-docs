@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
 
 
@@ -22,11 +22,11 @@ ms.author: rajanaki
 
 When you [fail over](site-recovery-failover.md) Azure VMs from one region to another using [Azure Site Recovery](site-recovery-overview.md), the VMs boot up in the secondary region, in an unprotected state. If fail back the VMs to the primary region, you need to do the following:
 
-- Reprotect the VMs in the secondary region, so that they start replicating to the primary region. 
+- Reprotect the VMs in the secondary region, so that they start to replicate to the primary region. 
 - After reprotection completes and the VMs are replicating, you can fail them over from the secondary to primary region.
 
 > [!WARNING]
-> If you've [migrated](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) machines from the primary to the secondary region, moved the VM to another resource group, or deleted the Azure VM, you can't reprotect the VM, or fail it back.
+> If you've [migrated](migrate-overview.md#what-do-we-mean-by-migration) machines from the primary to the secondary region, moved the VM to another resource group, or deleted the Azure VM, you can't reprotect the VM, or fail it back.
 
 
 ## Prerequisites
@@ -54,7 +54,8 @@ You can customize the following properties of the target VMe during reprotection
 |---------|---------|
 |Target resource group     | Modify the target resource group in which the VM is created. As the part of reprotection, the target VM is deleted. You can choose a new resource group under which to create the VM after failover.        |
 |Target virtual network     | The target network can't be changed during the reprotect job. To change the network, redo the network mapping.         |
-|Target Storage     | You can change the storage account that the VM uses after failover.         |
+|Target Storage (Secondary VM does not use managed disks)     | You can change the storage account that the VM uses after failover.         |
+|Replica managed disks (Secondary VM uses managed disks)    | Site Recovery creates replica managed disks in the primary region to mirror the secondary VM's managed disks.         | 
 |Cache Storage     | You can specify a cache storage account to be used during replication. By default, a new cache storage account is be created, if it doesn't exist.         |
 |Availability Set     |If the VM in the secondary region is part of an availability set, you can choose an availability set for the target VM in the primary region. By default, Site Recovery tries to find the existing availability set in the primary region, and use it. During customization, you can specify a new availability set.         |
 
@@ -65,7 +66,8 @@ By default the following occurs:
 
 1. A cache storage account is created in the primary region
 2. If the target storage account (the original storage account in the primary region) doesn't exist, a new one is created. The assigned storage account name is the name of the storage account used by the secondary VM, suffixed with "asr".
-3. If the target availability set doesn't exist, a new one is created as part of the reprotect job if required. If you have customized the reprotection settings, then the selected set is used.
+3. If your VM uses managed disks, replica managed disks are created in the primary region to store the data replicated from the secondary VM's disks. 
+4. If the target availability set doesn't exist, a new one is created as part of the reprotect job if required. If you have customized the reprotection settings, then the selected set is used.
 
 When you trigger a reprotect job, and the target VM exists, the following occurs:
 

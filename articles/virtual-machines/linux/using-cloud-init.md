@@ -61,7 +61,7 @@ The next step is to create a file in your current shell, named *cloud-init.txt* 
 #cloud-config
 package_upgrade: true
 packages:
-  -httpd
+  - httpd
 ```
 Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to confirm the file name on exit.
 

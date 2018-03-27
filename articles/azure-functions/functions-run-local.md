@@ -33,14 +33,6 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 >[!NOTE]  
 > Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported. 
 
-### Version 1.x runtime
-
-The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to install the version 1.x tools:
-
-```bash
-npm install -g azure-functions-core-tools
-```
-
 ### Version 2.x runtime
 
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports. Use this version for cross-platform development and when the Functions runtime 2.x is required. 
@@ -66,6 +58,14 @@ When installing on macOS and Linux, you may need to include the `unsafe-perm` fl
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### Version 1.x runtime
+
+The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to install the version 1.x tools:
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## Run Azure Functions Core Tools

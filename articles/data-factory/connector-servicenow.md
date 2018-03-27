@@ -1,11 +1,11 @@
 ---
-title: Copy data from ServiceNow using Azure Data Factory (Beta) | Microsoft Docs
+title: Copy data from ServiceNow using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from ServiceNow to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -16,15 +16,12 @@ ms.date: 02/22/2018
 ms.author: jingwang
 
 ---
-# Copy data from ServiceNow using Azure Data Factory (Beta)
+# Copy data from ServiceNow using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> This connector is currently in Beta. You can try it out and give us feedback. Do not use it in production environments.
 
 ## Supported capabilities
 
@@ -112,7 +109,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 Note the following when specifying the schema and column for ServiceNow in query:
 
 - **Schema:** specify the schema as `Actual` or `Display` in the ServiceNow query, which you can look at it as the parameter of `sysparm_display_value` as true or false when calling [ServiceNow restful APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Column:** the column name for actual value under `Actual` scehma is `[columne name]_value`, while for display value under `Display` schema is `[columne name]_display_value`. Note the column name need map to the schema being used in the query.
+- **Column:** the column name for actual value under `Actual` schema is `[columne name]_value`, while for display value under `Display` schema is `[columne name]_display_value`. Note the column name need map to the schema being used in the query.
 
 **Sample query:**
 `SELECT col_value FROM Actual.alm_asset`

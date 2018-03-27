@@ -84,7 +84,7 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modul
 Configure the runtime with your IoT Edge device connection string from the previous section.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Start the runtime.
@@ -127,6 +127,12 @@ docker logs -f tempSensor
 
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
 ## Clean up resources
+
+If you want to remove the simulated device that you created, along with the Docker containers that were started for each module, use the following command: 
+
+```cmd
+iotedgectl uninstall
+```
 
 When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
 

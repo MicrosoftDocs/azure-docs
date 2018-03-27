@@ -29,7 +29,7 @@ Azure Virtual Network provides the following broad capabilities:
 - **[Virtual network connectivity:](#connect-vnets)** Virtual networks can be connected to each other, enabling resources in any virtual network to communicate with resources in any other virtual network.
 - **[On-premises connectivity:](#connect-on-premises)** A virtual network can be connected to an on-premises network, enabling resources to communicate between each other.
 - **[Traffic filtering:](#filtering)** You can filter network traffic to and from resources in a virtual network by source IP address and port, destination IP address and port, and protocol.
-- **[Routing:](#routing)** You can optionally override Azure's default routing by configuring your own routes, or by propagating BGP routes through a network gateway.
+- **[Routing:](#routing)** You can optionally override Azure's default routing by configuring your own routes, or by propagating border gateway protocol (BGP) routes through a network gateway.
 
 ## <a name = "isolation"></a>Network isolation and segmentation
 
