@@ -59,12 +59,11 @@ You first need to create an iSCSI target virtual machine if you do not have one 
 
 1. Enable the iSCSI target service
 
-   <pre><code>
-   # This will make sure that targetcli was called at least once and the initial configuration was done.
-   sudo targetcli --help
-   
+   <pre><code>   
    sudo systemctl enable target
+   sudo systemctl enable targetcli
    sudo systemctl start target
+   sudo systemctl start targetcli
    </code></pre>
 
 ### Create iSCSI device on iSCSI target server
@@ -77,15 +76,28 @@ Run the following command on the **iSCSI target VM** to create an iSCSI disk for
 # List all data disks with the following command
 sudo ls -al /dev/disk/azure/scsi1/
 
+# total 0
+# drwxr-xr-x 2 root root  80 Mar 26 14:42 .
+# drwxr-xr-x 3 root root 160 Mar 26 14:42 ..
+# lrwxrwxrwx 1 root root  12 Mar 26 14:42 lun0 -> ../../../<b>sdc</b>
+# lrwxrwxrwx 1 root root  12 Mar 26 14:42 lun1 -> ../../../sdd
+
+# Then use the disk name to list the disk id
+sudo ls -l /dev/disk/by-id/scsi-* | grep sdc
+
+# lrwxrwxrwx 1 root root  9 Mar 26 14:42 /dev/disk/by-id/scsi-14d53465420202020a50923c92babda40974bef49ae8828f0 -> ../../sdc
+# lrwxrwxrwx 1 root root  9 Mar 26 14:42 <b>/dev/disk/by-id/scsi-360022480a50923c92babef49ae8828f0 -> ../../sdc</b>
+
 # Use the data disk that you attached for this cluster to create a new backstore
-sudo targetcli backstores/block create <b>cl1</b> /dev/disk/azure/scsi1/<b>lun0</b>
+sudo targetcli backstores/block create <b>cl1</b> <b>/dev/disk/by-id/scsi-360022480a50923c92babef49ae8828f0</b>
 
 sudo targetcli iscsi/ create iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/luns/ create /backstores/block/<b>cl1</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create iqn.2006-04.<b>prod-cl1-0.local:prod-cl1-0</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create iqn.2006-04.<b>prod-cl1-1.local:prod-cl1-1</b>
 
-# restart the iSCSI target service to persist the changes
+# save the targetcli changes
+sudo targetcli saveconfig
 sudo systemctl restart target
 </code></pre>
 
@@ -434,7 +446,7 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 If you want to use an SBD device, we still recommend using an Azure fence agent as a backup in case the iSCSI target server is not available.
 
 <pre><code>
-fencing_topology \
+sudo crm configure fencing_topology \
   stonith-sbd rsc_st_azure
 
 </code></pre>

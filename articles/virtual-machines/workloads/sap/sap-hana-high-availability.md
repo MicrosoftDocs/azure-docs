@@ -253,7 +253,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
        For demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/disk/azure/scsi1/lun0 and format it with xfs.
 
        <pre><code>
-       sudo fdisk /dev/disk/azure/scsi1/lun0
+       sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
        sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
        
        # write down the ID of /dev/disk/azure/scsi1/lun0-part1
@@ -330,8 +330,58 @@ To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Per
     sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
     ```
 
-1. **[1]** Create HANA replication (as root)  
-    Run the following command. Make sure to replace bold strings (HANA System ID HN1 and instance number 03) with the values of your SAP HANA installation.
+## Configure SAP HANA 2.0 System Replication
+
+The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2 of the Pacemaker cluster.
+
+1. **[1]** Create Tenant Database
+
+   If you are using SAP HANA 2.0 or MDC, create a tenant database for your SAP NetWeaver system. Replace NW1 with the SID of your SAP system.
+
+   Log in as `<hanasid`>adm and execute the following command
+
+   <pre><code>
+   hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
+   </code></pre>
+
+1. **[1]** Configure System Replication on First Node
+   
+   Log in as `<hanasid`>adm and backup the databases
+
+   <pre><code>
+   hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
+   hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
+   hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
+   </code></pre>
+
+   Copy the system PKI files to secondary
+
+   <pre><code>
+   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
+   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
+   </code></pre>
+
+   Create the primary site.
+
+   <pre><code>
+   hdbnsutil -sr_enable –-name=<b>SITE1</b>
+   </code></pre>
+
+1. **[2]** Configure System Replication on Ssecond Node
+    
+    Register the second node to start the system replication. Log in as `<hanasid`>adm and run the following command
+
+    <pre><code>
+    sapcontrol -nr <b>03</b> -function StopWait 600 10
+    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
+    </code></pre>
+
+## Configure SAP HANA 1.0 System Replication
+
+1. **[1]** Create the Required Users
+
+    Log in as root and run the following command. Make sure to replace bold strings (HANA System ID HN1 and instance number 03) with the values of your SAP HANA installation.
+
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
@@ -339,48 +389,51 @@ To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Per
     hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </code></pre>
 
-1. **[A]** Create keystore entry (as root)
+1. **[A]** Create keystore entry
+   
+    Log in as root and run the following command to create a new keystore entry.
+
     <pre><code>
     PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
 
-1. **[1]** Backup database (as root)
+1. **[1]** Backup database
+
+   Log in as root and backup the databases
+
    <pre><code>
    PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
-   hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
-   </code></pre>
-
-   If you use HANA 2.0 or a multi-tenant installation, also backup the system database
-
-   <pre><code>
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
    </code></pre>
 
-1. **[1]** Copy the system PKI files to secondary (as root)
+   If you use a multi-tenant installation, also backup the tenant database
 
-   If you use HANA 2.0, you have to copy the system PKI files.
-
-   <pre><code>
-   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT <b>nw1</b>-cl-1:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
-   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY <b>nw1</b>-cl-1:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
+   <pre><code>   
+   hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
    </code></pre>
 
-1. **[1]** Switch to the sapsid user (for example hdbadm) and create the primary site.
+1. **[1]** Configure System Replication on First Node
+    
+    Log in as `<hanasid`>adm and create the primary site.
+
     <pre><code>
     su - <b>hdb</b>adm
     hdbnsutil -sr_enable –-name=<b>SITE1</b>
     </code></pre>
-1. **[2]** Switch to the sapsid user (for example hdbadm) and create the secondary site.
+
+1. **[2]** Configure System Replication on Secondary Node.
+
+    Log in as `<hanasid`>adm and register the secondary site.
+
     <pre><code>
-    su - <b>hdb</b>adm
     sapcontrol -nr <b>03</b> -function StopWait 600 10
-    hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
+    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
     </code></pre>
 
 ## Create SAP HANA cluster resources
 
-   First, create the HANA topology.
+   First, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes.
    
    <pre><code>
    sudo crm configure property maintenance-mode=true
@@ -398,7 +451,7 @@ To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Per
      meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
    </code></pre>
    
-   Next, create the HANA resources
+   Next, create the HANA resources.
    
    <pre><code>
    # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
@@ -435,6 +488,9 @@ To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Per
    sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
      msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
    
+   # Cleanup the HANA resources. The HANA resources might have failed because of a known issue.
+   sudo crm resource cleanup rsc_SAPHana_<b>HN1</b>_HDB<b>03</b>
+
    sudo crm configure property maintenance-mode=false
    </code></pre>
 
@@ -443,27 +499,20 @@ To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Per
    <pre><code>
    sudo crm_mon -r
    
-   # <b>Online: [ nw1-cl-0 nw1-cl-1 ]</b>
-   # 
+   # Online: [ hn1-db-0 hn1-db-1 ]
+   #
    # Full list of resources:
-   # 
-   #  Resource Group: g-NW1_ASCS
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
-   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
-   #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-1</b>
-   #  Resource Group: g-NW1_ERS
-   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
-   #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
-   #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
-   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-0</b>
-   #  Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
-   #      <b>Started: [ nw1-cl-0 nw1-cl-1 ]</b>
-   #  Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
-   #      <b>Masters: [ nw1-cl-0 ]</b>
-   #      <b>Slaves: [ nw1-cl-1 ]</b>
-   #  Resource Group: g_ip_HN1_HDB03
-   #      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
-   #      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
+   #
+   # stonith-sbd     (stonith:external/sbd): Started hn1-db-0
+   # rsc_st_azure    (stonith:fence_azure_arm):      Started hn1-db-1
+   # Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   #     Started: [ hn1-db-0 hn1-db-1 ]
+   # Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+   #     Masters: [ hn1-db-0 ]
+   #     Slaves: [ hn1-db-1 ]
+   # Resource Group: g_ip_HN1_HDB03
+   #     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+   #     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
 ### Test cluster setup
@@ -471,7 +520,7 @@ This chapter describes how you can test your setup. Every test assumes that you 
 
 #### Fencing Test
 
-You can test the setup of the fencing agent by disabling the network interface on node saphanavm1.
+You can test the setup of the fencing agent by disabling the network interface on node hn1-db-0.
 
 <pre><code>
 sudo ifdown eth0
@@ -483,15 +532,15 @@ If you set the stonith-action to off, the virtual machine is going to be stopped
 Once you start the virtual machine again, the SAP HANA resource fails to start as secondary if you set AUTOMATED_REGISTER="false". In this case, configure the HANA instance as secondary by executing this  command:
 
 <pre><code>
-su - <b>hdb</b>adm
+su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
+hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
 
 # switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 #### Testing a manual failover
@@ -505,7 +554,7 @@ After the failover, you can start the service again. If you set AUTOMATED_REGIST
 
 <pre><code>
 service pacemaker start
-su - <b>hdb</b>adm
+su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
@@ -529,7 +578,7 @@ if you set AUTOMATED_REGISTER="false", this sequence of commands should migrate 
 The SAP HANA resource on saphanavm1 fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
 
 <pre><code>
-su - <b>hdb</b>adm
+su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
