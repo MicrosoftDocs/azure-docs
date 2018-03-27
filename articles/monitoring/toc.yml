@@ -18,7 +18,7 @@
     items:
     - name: Autoscale
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=%2fazure%2fmonitoring%2ftoc.json
-      - name: Metrics
+  - name: Metrics
     items:
     - name: Metrics
       href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fmonitoring%2ftoc.json
@@ -46,8 +46,12 @@
       href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=%2fazure%2fmonitoring%2ftoc.json
   - name: Containers
     items:
-    - name: Containers
+    - name: Containers solution
       href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Monitor Docker applications
+      href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Profile application
+      href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=%2fazure%2fmonitoring%2ftoc.json
   - name: Databases
     items:
     - name: Azure SQL
