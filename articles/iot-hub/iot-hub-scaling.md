@@ -28,7 +28,7 @@ To decide which IoT Hub tier is right for your solution, ask yourself two questi
 Azure IoT Hub offers two tiers, basic and standard, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally then the basic tier is probably right for you. If you want to use more advanced configurations to control IoT devices remotely or distribute some of your workloads onto the devices themselves then you should consider the standard tier. For a detailed breakdown of which features are included in each tier continue to [Basic and standard tiers](#basic-and-standard-tiers).
 
 **How much data do I plan to move daily?**
-Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3. For example, each unit of a level 1 IoT hub can handle 400,000 messages a day, while a level 3 unit can handle 300,000,000. For more details about the data guidelines, continue to [Message throughput](#message-throughput).
+Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3. For example, each unit of a level 1 IoT hub can handle 400 thousand messages a day, while a level 3 unit can handle 300 million. For more details about the data guidelines, continue to [Message throughput](#message-throughput).
 
 ## Basic and standard tiers
 
@@ -86,9 +86,9 @@ The best way to size an IoT Hub solution is to evaluate the traffic on a per-uni
 * Cloud-to-device messages
 * Identity registry operations
 
-Once you create your IoT Hub you can change the number of units or move between the 1, 2, and 3 sizes within a specific tier without interrupting your existing operations. For more information, see [How to upgrade your IoT Hub](iot-hub-upgrade.md).
+Traffic is measured on a per-unit basis, not per hub. A level 1 or 2 IoT Hub instance can have as many as 200 units associated with it. A level 3 IoT Hub instance can have up to 10 units. Once you create your IoT hub you can change the number of units or move between the 1, 2, and 3 sizes within a specific tier without interrupting your existing operations. For more information, see [How to upgrade your IoT Hub](iot-hub-upgrade.md).
 
-For example, device-to-cloud messages follow these sustained throughput guidelines:
+As an example of each tier's traffic capabilities, device-to-cloud messages follow these sustained throughput guidelines:
 
 | Tier | Sustained throughput | Sustained send rate |
 | --- | --- | --- |
