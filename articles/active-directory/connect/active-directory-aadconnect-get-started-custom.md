@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: billmath
 
 ---
@@ -161,7 +161,7 @@ This screen allows you to select the optional features for your specific scenari
 | Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Office 365. Azure AD Connect is synchronizing a specific set of [attributes](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory. |
 | Exchange Mail Public Folders | The Exchange Mail Public Folders feature allows you to synchronize mail-enabled Public Folder objects from your on-premises Active Directory to Azure AD. |
 | Azure AD app and attribute filtering |By enabling Azure AD app and attribute filtering, the set of synchronized attributes can be tailored. This option adds two more configuration pages to the wizard. For more information, see [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
-| Password synchronization |If you selected federation as the sign-in solution, then you can enable this option. Password synchronization can then be used as a backup option. For additional information, see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>If you selected Pass-through Authentication this option can also be enabled to ensure support for legacy clients and as a backup option. For additional information, see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md).|
+| Password hash synchronization |If you selected federation as the sign-in solution, then you can enable this option. Password hash synchronization can then be used as a backup option. For additional information, see [Password hash synchronization](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>If you selected Pass-through Authentication this option can also be enabled to ensure support for legacy clients and as a backup option. For additional information, see [Password hash synchronization](active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Password writeback |By enabling password writeback, password changes that originate in Azure AD is written back to your on-premises directory. For more information, see [Getting started with password management](../active-directory-passwords-getting-started.md). |
 | Group writeback |If you use the **Office 365 Groups** feature, then you can have these groups represented in your on-premises Active Directory. This option is only available if you have Exchange present in your on-premises Active Directory. For more information, see [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Device writeback |Allows you to writeback device objects in Azure AD to your on-premises Active Directory for conditional access scenarios. For more information, see [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
