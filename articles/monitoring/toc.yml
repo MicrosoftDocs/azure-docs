@@ -1,5 +1,5 @@
 - name: Azure Monitoring Documentation
-  href: asom-overview.md
+  href: management-overview-monitoring.md
 - name: Overview 
   items:
   - name: Monitoring in Azure
@@ -9,10 +9,16 @@
   - name: Alerting
     items:
     - name: Azure alerts
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fazure%2fmonitoring%2ftoc.json
+      href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Action groups
+      href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fmonitoring%2ftoc.json  
     - name: Import Operations Manager alerts
       href: ../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2fmonitoring%2ftoc.json
-  - name: Metrics
+  - name: Autoscale
+    items:
+    - name: Autoscale
+      href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=%2fazure%2fmonitoring%2ftoc.json
+      - name: Metrics
     items:
     - name: Metrics
       href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fmonitoring%2ftoc.json
@@ -28,6 +34,8 @@
   items:
   - name: Applications
     items:
+    - name: Application Insights
+      href: ../application-insights/app-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Application Insights connector
       href: ../log-analytics/log-analytics-app-insights-connector.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Key Vault Analytics

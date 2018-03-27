@@ -4,7 +4,7 @@ description:  Overview of the different Microsoft services and functionality tha
 author: robb
 manager: carmonm
 editor: ''
-services: monitoring-and-diagnostics
+services: monitoring
 documentationcenter: monitoring-and-diagnostics
 
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
