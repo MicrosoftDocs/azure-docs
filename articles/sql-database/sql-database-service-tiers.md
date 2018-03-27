@@ -142,17 +142,15 @@ The supported performance levels are shown in the following table.
 |GP_Gen4_2|4|2|14|N/A|XIO|756|1024|307|64|1X|
 |GP_Gen4_4|4|4|28|N/A|XIO|1536|1024|461|128|1X|
 |GP_Gen4_8|4|8|56|N/A|XIO|2048|1024|614|256|1X|
-|GP_Gen4_16|4|16|112|N/A|XIO|3584|1024|1X|
-|GP_Gen4_24*|4|24|154|N/A|XIO|4096|4096|1X|
-|BC_Gen4_1|4|1|7|1|Attached SSD|1024|1024|3X|
-|BC_Gen4_2|4|2|14|2|Attached SSD|1024|1024|3X|
-|BC_Gen4_4|4|4|28|4|Attached SSD|1024|1024|3X|
-|BC_Gen4_8|4|8|56|8|Attached SSD|1536|1024|3X|
-|BC_Gen4_16|4|16|112|20|Attached SSD|2048|1024|3X|
-|BC_Gen4_22|4|24|154|32|Attached SSD|2048|1024|3X|
+|GP_Gen4_16|4|16|112|N/A|XIO|3584|1024|922|384|1X|
+|BC_Gen4_1*|4|1|7|1|Attached SSD|1024|1024|307|32|3X|
+|BC_Gen4_2|4|2|14|2|Attached SSD|1024|1024|307|64|3X|
+|BC_Gen4_4|4|4|28|4|Attached SSD|1024|1024|307|128|3X|
+|BC_Gen4_8|4|8|56|8|Attached SSD|1536|1024|307|256|3X|
+|BC_Gen4_16|4|16|112|20|Attached SSD|2048|1024|1229|384|3X|
 |||||||||
 
-\* Coming soon
+\* Single database only
 
 > [!IMPORTANT]
 > Business critical service tier supports the zone redundant deployment choice in regions that support multiple Availability Zones (this is a preview feature). For more information, see [Zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration-preview).
