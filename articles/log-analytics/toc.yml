@@ -155,9 +155,9 @@
       href: log-analytics-agent-manage.md
     - name: Manage workspace cost
       items:
-        - name: Data volume and retention
+      - name: Data volume and retention
         href: log-analytics-manage-cost-storage.md
-        - name: Monitor usage
+      - name: Monitor usage
         href: log-analytics-usage.md
     - name: Delete a workspace
       href: log-analytics-manage-del-workspace.md
