@@ -27,6 +27,8 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quickstart demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [SQL .NET API](sql-api-sdk-dotnet.md) and [Xamarin](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=Cross-Platform) utilizing [Xamarin.Forms](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=XamarinForms) and the [MVVM architectural pattern](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
+![Xamarin ToDo app running on iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
+
 ## Prerequisites
 
 If you are developing on Windows and don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** and **Mobile Development with .NET** workloads during the Visual Studio setup.
@@ -48,9 +50,9 @@ If you are using a Mac, you can download the **free** [Visual Studio for Mac](ht
 
 You can now add data to your new collection using Data Explorer.
 
-1. In Data Explorer, the new database appears in the Collections pane. Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**. 
+1. In Data Explorer, the new database appears in the Collections pane. Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**.
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-new-document.png)
 
 2. Now add a document to the collection with the following structure.
 
@@ -65,7 +67,7 @@ You can now add data to your new collection using Data Explorer.
 
 3. Once you've added the json to the **Documents** tab, click **Save**.
 
-    ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-save-document.png)
+    ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
 4. Create and save one more document where you insert a unique value for the `id` property, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
@@ -75,11 +77,11 @@ You can now add data to your new collection using Data Explorer.
 
 ## Clone the sample application
 
-Now let's clone the Xamarin SQL API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone the Xamarin SQL API app from github, review the code, obtain the API keys, and run it. You'll see how easy it is to work with data programmatically.
 
 1. Open a git terminal window, such as git bash, and `cd` to a working directory.
 
-2. Run the following command to clone the sample repository. 
+2. Run the following command to clone the sample repository.
 
     ```bash
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
@@ -91,11 +93,13 @@ Now let's clone the Xamarin SQL API app from github, set the connection string, 
 
 This solution demonstrates how to create a To Do app using the Cosmos DB SQL API. The app has 2 tabs, the first tab contains a list view showing to do items that are not yet complete. The second tab displays to do items that have been completed. In addition to viewing not completed to do items in the first tab, you can also add new to do items, edit existing ones, and mark items as completed.
 
-The code in the ToDoItems folder contains:
+![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-sql-api-xamarin-dotnet/android-todo-screen.png)
 
-* ToDoItems.Core: This folder contains a .NET Standard project holding the Xamarin.Forms and shared application logic code that maintains todo items within Cosmos DB.
-* Droid: This folder contains the Android project for the solution.
-* iOS: This folder contains the iOS project for the solution.
+The code in the ToDoItems Solution contains:
+
+* ToDoItems.Core: This is a .NET Standard project holding a Xamarin.Forms project and shared application logic code that maintains todo items within Cosmos DB.
+* ToDoItems.Android: This project contains the Android app.
+* ToDoItems.iOS: This project contains the iOS app.
 
 Now let's take a quick review of how the Xamarin.Forms app communicates with Cosmos DB.
 
@@ -108,15 +112,7 @@ Now let's take a quick review of how the Xamarin.Forms app communicates with Cos
     docClient = new DocumentClient(new Uri(APIKeys.CosmosEndpointUrl), APIKeys.CosmosAuthKey);
     ```
 
-The URL and authentication key of your Cosmos DB account are parameters. A discussion of how to obtain those is in the next section **Obtain your connection Kkys**.
-
-* Several functions which query or modify Cosmos DB need the URL of the collection they are operating on. The `URI` of the collection is obtained as follows:
-
-    ```csharp
-    docCollectionUri = UriFactory.CreateDocumentCollectionUri(databaseName, collectionName);
-    ```
-
-The name of the database and collection as passed in as parameters to generate the unique URL.
+The URL and authentication key of your Cosmos DB account are parameters. A discussion of how to obtain those is in the next section **Obtain your API keys**.
 
 * When querying a collection for documents, the `DocumentClient.CreateDocumentQuery<T>` method is used, as seen here in the `GetToDoItems()` function:
 
@@ -126,7 +122,7 @@ The name of the database and collection as passed in as parameters to generate t
         var todos = new List<ToDoItem>();
 
         var todoQuery = docClient.CreateDocumentQuery<ToDoItem>(
-                                docCollectionUri)
+                                UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
                                 .Where(todo => todo.Completed == false)
                                 .AsDocumentQuery();
 
@@ -141,7 +137,10 @@ The name of the database and collection as passed in as parameters to generate t
     }
     ```
 
-The `CreateDocumentQuery<T>` takes the document collection URI as a parameter. You can also specify a predicate using a `Where` clause (in addition to other LINQ operators).
+The `CreateDocumentQuery<T>` takes a URI that points to the collection created in the previous section. And you are also able to specify LINQ operators such as a `Where` clause. In this case only To Do items that are not completed are returned.
+
+> [!INFO]
+> Several functions that operate on Cosmos DB collections and documents take an URI as a parameter which specifies the address of the collection or document. This URI is constructed using the `URIFactory` class. URIs for databases, collections, and documents can all be created with this class.
 
 `CreateDcoumentQuery<T>` is executed synchronously, and returns an `IQueryable<T>`. However, the `AsDocumentQuery` method converts the `IQueryable<T>` to an `IDocumentQuery<T>` object which can be executed asynchronously. Thus not blocking the UI thread for mobile applications.
 
@@ -150,7 +149,7 @@ The `IDocumentQuery<T>.ExecuteNextAsync<T>` function retrieves the page of resul
 * The `InsertToDoItem` function on line 107 demonstrates how to insert a new document:
 
     ```csharp
-    await docClient.CreateDocumentAsync(docCollectionUri, item);
+    await docClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), item);
     ```
 
 The document collection URI is specified as well as the item to be inserted.
@@ -162,7 +161,7 @@ The document collection URI is specified as well as the item to be inserted.
     await docClient.ReplaceDocumentAsync(docUri, item);
     ```
 
-Here a new URL is needed to uniquely identify the document to replace and is obtained by using `UriFactory.CreateDocumentUri` and passing it the database and collection names and the id of the document.
+Here a new URI is needed to uniquely identify the document to replace and is obtained by using `UriFactory.CreateDocumentUri` and passing it the database and collection names and the id of the document.
 
 The `DocumentClient.ReplaceDocumentAsync` replaces the document identified by the URI with the one specified as a parameter.
 
@@ -175,7 +174,7 @@ The `DocumentClient.ReplaceDocumentAsync` replaces the document identified by th
 
 Again note the unique doument URI being created and passed to the `DocumentClient.DeleteDocumentAsync` function.
 
-## Obtain your connection keys
+## Obtain your API keys
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
@@ -193,7 +192,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
 
-You've now updated your app with all the info it needs to communicate with Azure Cosmos DB.
+You've now updated your app with all the info it needs to communicate with Azure Cosmos DB, and you will be able to run it.
 
 ## Review SLAs in the Azure portal
 
