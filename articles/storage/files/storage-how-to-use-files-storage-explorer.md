@@ -52,6 +52,11 @@ For the purposes of this quickstart, login with your Azure account. Select **Add
 
 ![Microsoft Azure Storage Explorer - Connect window](./media/storage-how-to-use-files-storage-explorer/connect-to-azure-storage-1.png)
 
+## Create a storage account
+The Azure Storage Explorer doesn't have the ability to create new resources, so for the purposes of this demo, create the storage account with the [Azure portal](https://portal.azure.com/). 
+
+[!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
+
 ## Manipulating the contents of the Azure file share
 Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure portal. All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access.
 
@@ -122,6 +127,11 @@ To demonstrate the restore of a file from a share snapshot, we first need to del
 
 ### Delete a share snapshot
 To delete a share snapshot, [navigate to the list of share snapshots](#list-and-browse-share-snapshots). Right click on the share snapshot you would like to delete, and select delete.
+
+## Clean up resources
+The Azure Storage Explorer doesn't have the ability to remove resources; you can clean up from this quickstart with the [Azure portal](https://portal.azure.com/). 
+
+[!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## Next steps
 - [Managing file shares with the Azure portal](storage-how-to-use-files-portal.md)
