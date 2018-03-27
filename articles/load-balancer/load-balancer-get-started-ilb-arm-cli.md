@@ -136,7 +136,7 @@ Create two network interfaces with [az network nic create](/cli/azure/network/ni
 ```azurecli-interactive
 for i in `seq 1 3`; do
   az network nic create \
-    --resource-group myResourceGroupILBCLI \
+    --resource-group myResourceGroupILB \
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
@@ -156,7 +156,7 @@ Create an availability set with [az vm availabilityset create](/cli/azure/networ
 
  ```azurecli-interactive
   az vm availability-set create \
-    --resource-group myResourceGroupILBCLI \
+    --resource-group myResourceGroupILB \
     --name myAvailabilitySet
 ```
 
@@ -211,7 +211,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az_vm_create).
  ```azurecli-interactive
 for i in `seq 1 2`; do
   az vm create \
-    --resource-group myResourceGroupILBCLI \
+    --resource-group myResourceGroupILB \
     --name myVM$i \
     --availability-set myAvailabilitySet \
     --nics myNic$i \
@@ -222,45 +222,28 @@ for i in `seq 1 2`; do
 ```
 It may take a few minutes for the VMs to get deployed.
 
-### Create a VM for connecting to the backend pool
+### Create a VM for testing the load balancer
 
-Create a VM named *myVM3* for testing the load balancer.
-
-First create a NIC named *myNic3*.
+To test the load balancer, create a virtual machine, *myVMTest*, and associate it to *myNic3*.
 
 ```azurecli-interactive
-az network nic create \
-    --resource-group myResourceGroupILBCLI \
-    --name myNic3 \
-    --network-security-group myNetworkSecurityGroup 
-    --vnet-name myVnet \
-    --subnet mySubnet \
-    
-```
-Next, to test the load balancer, create a virtual machine, *myVM3*, and associate it to *myNic3*.
-
-```azurecli-interactive
- AdminPassword=ChangeYourAdminPassword1
  az vm create \
-    --resource-group myResourceGroupILBCLI \
-    --name myVM4 \
-    --nics myNic4 \
+    --resource-group myResourceGroupILB \
+    --name myVMTest \
     --image win2016datacenter \
-    --admin-password $AdminPassword \
     --admin-username azureuser \
-    --no-wait
-
---
+    --admin-password myPassword123456!
+ --
 
 ## Test the load balancer
-To test the load balancer, you must first obtain the private IP address of the load balancer. Next, sign in to virtual machine *myVM3* and type the private IP address into the address bar of its web browser.
+To test the load balancer, you must first obtain the private IP address of the load balancer. Next, sign in to virtual machine *myVMTest* and type the private IP address into the address bar of its web browser.
 
-To get the private IP address of the load balancer, use [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Copy the private IP address, and then paste it into the address bar of a web browser in *myVM3*.
+To get the private IP address of the load balancer, use [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Copy the private IP address, and then paste it into the address bar of a web browser of your virtual machine - *myVMTest*.
 
 ```azurecli-interactive
   az network lb show \
     --name myLoadBalancer
-    --resource-group myResourceGroupILBCLI
+    --resource-group myResourceGroupILB
 ``` 
 ![Test load balancer](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
 
