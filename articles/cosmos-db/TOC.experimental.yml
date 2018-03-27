@@ -8,6 +8,8 @@ items:
     items:
     - name: About Azure Cosmos DB
       href: introduction.md
+    - name: Documentation experiment
+      href: experiment.experimental.md
   - name: Quickstarts
     expanded: true
     items:
@@ -458,8 +460,6 @@ items:
       href: time-to-live.md
   - name: Resources
     items:
-    - name: Documentation experiment
-      href: experiment.md
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
     - name: Azure Roadmap

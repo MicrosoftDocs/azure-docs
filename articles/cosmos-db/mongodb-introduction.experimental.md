@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-experimental: true
+experimental: false
 experiment_id: "662dc5fd-886f-4a"
 ---
 # Introduction to Azure Cosmos DB: API for MongoDB

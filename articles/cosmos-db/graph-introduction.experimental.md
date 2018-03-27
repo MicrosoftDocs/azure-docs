@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-experimental: true
+experimental: false
 experiment_id: "662dc5fd-886f-4a"
 ---
 # Introduction to Azure Cosmos DB: Graph API

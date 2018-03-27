@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: mimig
-experimental: true
+experimental: false
 experiment_id: "662dc5fd-886f-4a"
 ---
 # Azure Cosmos DB documentation experiment

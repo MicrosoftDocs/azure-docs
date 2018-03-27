@@ -8,8 +8,8 @@ items:
     items:
     - name: About Azure Cosmos DB
       href: introduction.md
-    - name: 20 days of tips
-      href: 20-days-of-tips.md
+    - name: Documentation experiment
+      href: experiment.md
   - name: Quickstarts
     expanded: true
     items:
