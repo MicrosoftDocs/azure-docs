@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 01/27/2018
 ms.author: cherylmc
 
 ---
@@ -67,7 +67,8 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 * Power BI
 * Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
-* Most of the Azure services, with the following few exceptions:
+* Most of the Azure services. Please check directly with the service that you want to use to verify support.<br>
+  **The following services are not supported:**
   * CDN
   * Visual Studio Team Services Load Testing
   * Multi-factor Authentication
@@ -84,7 +85,8 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Using [route filters](#route-filters-for-microsoft-peering), you get access to the same public services with the Microsoft peering :
   * Power BI
   * Dynamics 365 for Finance and Operations
-  * Most of the Azure services, with the following few exceptions :
+  * Most of the Azure services. Please check directly with the service that you want to use to verify support.<br>
+    **The following services are not supported:**
     * CDN
     * Visual Studio Team Services Load Testing
     * Multi-factor Authentication
