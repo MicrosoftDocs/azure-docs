@@ -122,7 +122,6 @@ These values are passed to `main()` after being parsed by the `runApp()` method:
 
 ```java
 public static void main(String[] args) {
-
     QuickStartJMS app = new QuickStartJMS();
     try {
         app.runApp(args);
@@ -163,7 +162,6 @@ The `run()` method uses the Java Messaging Service queue creation mechanics to c
 
 ```java
 public void run() throws Exception {
-
     ConnectionStringBuilder csb = new ConnectionStringBuilder(ConnectionString);
         
     // set up JNDI context

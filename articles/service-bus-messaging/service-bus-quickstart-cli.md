@@ -123,7 +123,6 @@ These values are passed to `main()` after being parsed by the `runApp()` method:
 
 ```java
 public static void main(String[] args) {
-
     SendAndReceiveMessages app = new SendAndReceiveMessages();
     try {
         app.runApp(args);
@@ -164,7 +163,6 @@ To send and receive messages, the `run()` method creates queue client instances,
 
 ```java
 public void run() throws Exception {
-
 // Create a QueueClient instance for receiving using the connection string builder
 // We set the receive mode to "PeekLock", meaning the message is delivered
 // under a lock and must be acknowledged ("completed") to be removed from the queue
@@ -226,7 +224,6 @@ The `registerReceiver()` method registers the `RegisterMessageHandler` callback 
 
 ```java
 void registerReceiver(QueueClient queueClient) throws Exception {
-
     // register the RegisterMessageHandler callback
     queueClient.registerMessageHandler(new IMessageHandler() {
                            // callback invoked when the message handler loop has obtained a message
