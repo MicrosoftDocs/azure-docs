@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 03/26/2018
 ms.author: cynthn
 ---
 
@@ -28,7 +28,7 @@ If you want to use a sample script, see [Sample script to upload a VHD to Azure 
 
 - Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](managed-disks-overview.md).
-- This article requires the AzureRM.Compute module version 4.3.2 or later. Run ` Get-Module -ListAvailable AzureRM.Compute` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+- This article requires the AzureRM module version 5.6 or later. Run ` Get-Module -ListAvailable AzureRM.Compute` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Generalize the source VM using Sysprep
@@ -61,39 +61,8 @@ If you will be using the VHD to create a managed disk for a VM, the storage acco
 To show the available storage accounts, type:
 
 ```azurepowershell
-Get-AzureRmStorageAccount
+Get-AzureRmStorageAccount | Format-Table
 ```
-
-If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-vhd-to-your-storage-account) section.
-
-If you need to create a storage account, follow these steps:
-
-1. You need the name of the resource group where the storage account should be created. To find out all the resource groups that are in your subscription, type:
-   
-    ```powershell
-    Get-AzureRmResourceGroup
-    ```
-
-    To create a resource group named **myResourceGroup** in the **East US** region, type:
-
-    ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "East US"
-    ```
-
-2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
-   
-    ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "East US"`
-        -SkuName "Standard_LRS" -Kind "Storage"
-    ```
-   
-    Valid values for -SkuName are:
-   
-   * **Standard_LRS** - Locally redundant storage. 
-   * **Standard_ZRS** - Zone redundant storage.
-   * **Standard_GRS** - Geo redundant storage. 
-   * **Standard_RAGRS** - Read access geo redundant storage. 
-   * **Premium_LRS** - Premium locally redundant storage. 
 
 ## Upload the VHD to your storage account
 
@@ -149,35 +118,44 @@ Create a managed image using your generalized OS VHD. Replace the values with yo
 
 First, set the some parameters:
 
-    ```powershell
-	$location = "East US" 
-	$imageName = "myImage"
-    ```
+```powershell
+$location = "East US" 
+$imageName = "myImage"
+```
 
 Create the image using your generalized OS VHD.
 
-    ```powershell
-	$imageConfig = New-AzureRmImageConfig -Location $location
-	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $urlOfUploadedImageVhd
-	$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```
+```powershell
+$imageConfig = New-AzureRmImageConfig `
+   -Location $location
+$imageConfig = Set-AzureRmImageOsDisk `
+   -Image $imageConfig `
+   -OsType Windows `
+   -OsState Generalized `
+   -BlobUri $urlOfUploadedImageVhd `
+   -DiskSizeGB 20
+New-AzureRmImage `
+   -ImageName $imageName `
+   -ResourceGroupName $rgName `
+   -Image $imageConfig
+```
 
 
 ## Create the VM
 
-Now that you have an image, you can create one or more new VMs from the image. This example creates a VM named *myVMfromImage* from the *myImage*, in the *myResourceGroup*.
+Now that you have an image, you can create one or more new VMs from the image. This example creates a VM named *myVM* from the *myImage*, in the *myResourceGroup*.
 
 
 ```powershell
 New-AzureRmVm `
     -ResourceGroupName $rgName `
-    -Name "myVMfromImage" `
+    -Name "myVM" `
 	-ImageName $imageName `
     -Location $location `
-    -VirtualNetworkName "myImageVnet" `
-    -SubnetName "myImageSubnet" `
-    -SecurityGroupName "myImageNSG" `
-    -PublicIpAddressName "myImagePIP" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNSG" `
+    -PublicIpAddressName "myPIP" `
     -OpenPorts 3389
 ```
 
