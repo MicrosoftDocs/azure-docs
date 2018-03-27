@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Hosting Model | Microsoft Docs
-description: Describes relationship between replicas (or instances) of a deployed Servic Fabric service and service-host process.
+title: Azure Service Fabric hosting model | Microsoft Docs
+description: Describes the relationship between replicas (or instances) of a deployed Service Fabric service and the service-host process.
 services: service-fabric
 documentationcenter: .net
 author: harahma
@@ -15,47 +15,47 @@ ms.date: 04/15/2017
 ms.author: harahma
 
 ---
-# Service Fabric hosting model
-This article provides an overview of application hosting models provided by Service Fabric, and describes the differences between the **Shared Process** and **Exclusive Process** models. It describes how a deployed application looks on a Service Fabric node and relationship between replicas (or instances) of the service and the service-host process.
+# Azure Service Fabric hosting model
+This article provides an overview of application hosting models provided by Azure Service Fabric, and describes the differences between the Shared Process and Exclusive Process models. It describes how a deployed application looks on a Service Fabric node, and the relationship between replicas (or instances) of the service and the service-host process.
 
-Before proceeding further, make sure that you are familiar with [Service Fabric Application Model][a1] and understand various concepts and relation among them. 
+Before proceeding further, be sure that you understand the various concepts and relationships explained in [Model an application in Service Fabric][a1]. 
 
 > [!NOTE]
-> In this article, for simplicity, unless explicitly mentioned:
+> In this article, unless explicitly mentioned as meaning something different:
 >
-> - All uses of the word *replica* refers to both a replica of a stateful service or an instance of a stateless service.
-> - *CodePackage* is treated equivalent to *ServiceHost* process that registers a *ServiceType* and hosts replicas of services of that *ServiceType*.
+> - *Replica* refers to both a replica of a stateful service and an instance of a stateless service.
+> - *CodePackage* is treated as equivalent to a *ServiceHost* process that registers a *ServiceType*, and hosts replicas of services of that *ServiceType*.
 >
 
-To understand the hosting model, let us walk through an example. Let us say we have an *ApplicationType* 'MyAppType', which has a *ServiceType* 'MyServiceType'.  'MyServiceType' is provided by the *ServicePackage* 'MyServicePackage', which has a *CodePackage* 'MyCodePackage'. 'MyCodePackage' registers *ServiceType* 'MyServiceType' when it runs.
+To understand the hosting model, let's walk through an example. Let's say we have an *ApplicationType* 'MyAppType', which has a *ServiceType* 'MyServiceType'. 'MyServiceType' is provided by the *ServicePackage* 'MyServicePackage', which has a *CodePackage* 'MyCodePackage'. 'MyCodePackage' registers *ServiceType* 'MyServiceType' when it runs.
 
-Let's say we have a three node cluster and we create an *application* **fabric:/App1** of type 'MyAppType'. Inside this *application* **fabric:/App1** we create a service **fabric:/App1/ServiceA** of type 'MyServiceType' which has two partitions (say **P1** & **P2**) and three replicas per partition. The following diagram shows the view of this application as it ends up deployed on a node.
+Let's say we have a three-node cluster, and we create an *application* **fabric:/App1** of type 'MyAppType'. Inside this *application* **fabric:/App1**, we create a service **fabric:/App1/ServiceA** of type 'MyServiceType'. This service has two partitions (for example, **P1** and **P2**), and three replicas per partition. The following diagram shows the view of this application as it ends up deployed on a node.
 
-<center>
-![Node view of deployed application][node-view-one]
-</center>
 
-Service Fabric activated 'MyServicePackage' which started 'MyCodePackage' which is hosting replicas from both the partitions.  For example, **P1** & **P2**. All the nodes in the cluster will have the same view since we chose the number of replicas per partition to be equal to the number of nodes in the cluster. Let's create another service **fabric:/App1/ServiceB** in the application **fabric:/App1**, which has one partition (say **P3**) and three replicas per partition. The following diagram shows the new view on the node:
+![Diagram of node view of deployed application][node-view-one]
 
-<center>
-![Node view of deployed application][node-view-two]
-</center>
 
-As we can see Service Fabric placed the new replica for partition **P3** of service **fabric:/App1/ServiceB** in the existing activation of 'MyServicePackage'. Now lets create another *application* **fabric:/App2** of type 'MyAppType'. Inside **fabric:/App2**, create a service **fabric:/App2/ServiceA** which has two partitions (say **P4** & **P5**) and three replicas per partition. The following diagrams shows the new node view:
+Service Fabric activated 'MyServicePackage', which started 'MyCodePackage', which is hosting replicas from both the partitions. All the nodes in the cluster have the same view, because we chose the number of replicas per partition to be equal to the number of nodes in the cluster. Let's create another service, **fabric:/App1/ServiceB**, in the application **fabric:/App1**. This service has one partition (for example, **P3**), and three replicas per partition. The following diagram shows the new view on the node:
 
-<center>
-![Node view of deployed application][node-view-three]
-</center>
 
-Service Fabric activates a new copy of 'MyServicePackage', which starts a new copy of 'MyCodePackage'. Replicas from both partitions of service **fabric:/App2/ServiceA** (for example, **P4** & **P5**) are placed in this new copy 'MyCodePackage'.
+![Diagram of node view of deployed application][node-view-two]
 
-## Shared process model
-What we saw above is the default hosting model provided by Service Fabric and is referred to as **Shared Process** model. In this model, for a given *application*, only one copy of a given *ServicePackage* is activated on a *Node* (which starts all the *CodePackages* contained in it) and all the replicas of all services of a given  *ServiceType* are placed in the *CodePackage* that registers that *ServiceType*. In other words, all the replicas of all services on a node of a given *ServiceType* share the same process.
 
-## Exclusive process model
-The other hosting model provided by Service Fabric is **Exclusive Process** model. In this model, on a given *Node*, for placing each replica, Service Fabric activates a new copy of *ServicePackage* (which starts all the *CodePackages* contained in it) and replica is placed in the *CodePackage* that registered the *ServiceType* of the service to which replica belongs. In other words, each replica lives in its own dedicated process. 
+Service Fabric placed the new replica for partition **P3** of service **fabric:/App1/ServiceB** in the existing activation of 'MyServicePackage'. Now. let's create another *application* **fabric:/App2** of type 'MyAppType'. Inside **fabric:/App2**, create a service **fabric:/App2/ServiceA**. This service has two partitions (**P4** and **P5**), and three replicas per partition. The following diagram shows the new node view:
 
-This model is supported starting version 5.6 of Service Fabric. **Exclusive Process** model can be chosen at the time of creating the service (using [PowerShell][p1], [REST][r1], or [FabricClient][c1]) by specifying **ServicePackageActivationMode** as 'ExclusiveProcess'.
+
+![Diagram of node view of deployed application][node-view-three]
+
+
+Service Fabric activates a new copy of 'MyServicePackage', which starts a new copy of 'MyCodePackage'. Replicas from both partitions of service **fabric:/App2/ServiceA** (**P4** and **P5**) are placed in this new copy 'MyCodePackage'.
+
+## Shared Process model
+The preceding section describes the default hosting model provided by Service Fabric, referred to as the Shared Process model. In this model, for a given application, only one copy of a given *ServicePackage* is activated on a node (which starts all the *CodePackages* contained in it). All the replicas of all services of a given *ServiceType* are placed in the *CodePackage* that registers that *ServiceType*. In other words, all the replicas of all services on a node of a given *ServiceType* share the same process.
+
+## Exclusive Process model
+The other hosting model provided by Service Fabric is the Exclusive Process model. In this model, on a given node, each replica lives in its own dedicated process. Service Fabric activates a new copy of *ServicePackage* (which starts all the *CodePackages* contained in it). Replicas are placed in the *CodePackage* that registered the *ServiceType* of the service to which the replica belongs. 
+
+If you are using Service Fabric version 5.6 or later, you can choose the Exclusive Process model at the time you create a service (by using [PowerShell][p1], [REST][r1], or [FabricClient][c1]). Specify **ServicePackageActivationMode** as 'ExclusiveProcess'.
 
 ```powershell
 PS C:\>New-ServiceFabricService -ApplicationName "fabric:/App1" -ServiceName "fabric:/App1/ServiceA" -ServiceTypeName "MyServiceType" -Stateless -PartitionSchemeSingleton -InstanceCount -1 -ServicePackageActivationMode "ExclusiveProcess"
@@ -76,7 +76,7 @@ var fabricClient = new FabricClient(clusterEndpoints);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-If you have a default service in your application manifest, you can choose **Exclusive Process** model by specifying **ServicePackageActivationMode** attribute as shown below:
+If you have a default service in your application manifest, you can choose the Exclusive Process model by specifying the **ServicePackageActivationMode** attribute:
 
 ```xml
 <DefaultServices>
@@ -87,26 +87,26 @@ If you have a default service in your application manifest, you can choose **Exc
   </Service>
 </DefaultServices>
 ```
-Continuing with the preceding example, lets create another service **fabric:/App1/ServiceC** in application **fabric:/App1** which has two partitions (say **P6** & **P7**) and three replicas per partition with **ServicePackageActivationMode** set to 'ExclusiveProcess'. Following diagram shows new view on the node:
+Now let's create another service, **fabric:/App1/ServiceC**, in application **fabric:/App1**. This service has two partitions (for example, **P6** and **P7**), and three replicas per partition. You set **ServicePackageActivationMode** to 'ExclusiveProcess'. The following diagram shows new view on the node:
 
-<center>
-![Node view of deployed application][node-view-four]
-</center>
 
-As you can see, Service Fabric activated two new copies of 'MyServicePackage' (one for each replica from partition **P6** & **P7**) and placed each replica in its dedicated copy of *CodePackage*. Another thing to note here is, when **Exclusive Process** model is used, for a given *application*, multiple copies of a given *ServicePackage* can be active on a *Node*. In above example, we see that three copies of 'MyServicePackage' are active for **fabric:/App1**. Each of these active copies of 'MyServicePackage' has a **ServicePackageActivationId** associated with which it identifies that copy within *application* **fabric:/App1**.
+![Diagram of node view of deployed application][node-view-four]
 
-When only **Shared Process** model is used for an *application*, like **fabric:/App2** in above example, there is only one active copy of *ServicePackage* on a *Node* and **ServicePackageActivationId** for this activation of *ServicePackage* is 'empty string'.
+
+As you can see, Service Fabric activated two new copies of 'MyServicePackage' (one for each replica from partition **P6** & **P7**). Service Fabric placed each replica in its dedicated copy of *CodePackage*. When you use the Exclusive Process model, for a given application, multiple copies of a given *ServicePackage* can be active on a node. In the preceding example, three copies of 'MyServicePackage' are active for **fabric:/App1**. Each of these active copies of 'MyServicePackage' has a **ServicePackageActivationId** associated with it. This ID identifies that copy within *application* **fabric:/App1**.
+
+When you use only the Shared Process model for an application, there is only one active copy of *ServicePackage* on a node. The **ServicePackageActivationId** for this activation of *ServicePackage* is an empty string. This is the case, for example, with **fabric:/App2**.
 
 > [!NOTE]
->- **Shared Process** hosting model corresponds to **ServicePackageActivationMode** equal **SharedProcess**. This is the default hosting model and **ServicePackageActivationMode** need not be specified at the time of creating the service.
+>- The Shared Process hosting model corresponds to **ServicePackageActivationMode** equals **SharedProcess**. This is the default hosting model, and **ServicePackageActivationMode** need not be specified at the time of creating the service.
 >
->- **Exclusive Process** hosting model corresponds to **ServicePackageActivationMode** set to **ExclusiveProcess** and needs to be explicitly specified at the time of creating the service. 
+>- The Exclusive Process hosting model corresponds to **ServicePackageActivationMode** equals **ExclusiveProcess**. To use this setting, you should specify it explicitly at the time of creating the service. 
 >
->- Hosting model of a service can be known by querying the [service description][p2] and looking at value of **ServicePackageActivationMode**.
+>- To view the hosting model of a service, query the [service description][p2], and look at the value of **ServicePackageActivationMode**.
 >
 >
 
-## Working with deployed service package
+## Work with a deployed service package
 An active copy of a *ServicePackage* on a node is referred as [deployed service package][p3]. As previously mentioned, when **Exclusive Process** model is used for creating services, for a given *application*, there could be multiple deployed service packages for the same *ServicePackage*. While performing operations specific to a deployed service package (for example, [reporting health of a deployed service package][p4] or [restarting code package of a deployed service package][p5]), **ServicePackageActivationId** needs to be provided to identify a specific deployed service package.
 
 **ServicePackageActivationId** of a deployed service package can be obtained by querying the list of [deployed service packages][p3] on a node. When querying [deployed service types][p6], [deployed replicas][p7], and [deployed code packages][p8] on a node, the query result also contains the **ServicePackageActivationId** of the parent deployed service package.
