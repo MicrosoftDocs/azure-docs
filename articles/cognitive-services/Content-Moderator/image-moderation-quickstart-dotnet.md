@@ -214,6 +214,11 @@ Add the following code to the **Main** method.
 
 The following JSON object contains output for the program.
 
+> [!NOTE]
+> `isImageAdultClassified` represents the potential presence of images that may be considered sexually explicit or adult in certain situations.
+> `isImageRacyClassified` represents the potential presence of images that may be considered sexually suggestive or mature in certain situations.
+>
+
 	[
 	{
     "ImageUrl": "https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg",

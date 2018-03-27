@@ -57,7 +57,7 @@ An indexer can have multiple field mappings. For example, here's how you can "fo
 
 "fieldMappings" : [
     { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }
 ]
 ```
 
