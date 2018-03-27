@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/23/2018
+ms.date: 03/27/2018
 ms.author: alkohli
 
 ---
@@ -267,13 +267,15 @@ The following are some questions and answers about security and Microsoft Azure 
 
 ## GDPR compliance
 
-[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents. 
+[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR contains many requirements about how you collect, store, and use personal information. The GDPR rules are imposed on companies, government agencies, and other organizations that operate in EU and collect, analyze data tied to EU residents. 
 
-The StorSimple Device Manager service is GDPR compliant along with the rest of Microsoft’s services and features. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+The StorSimple Device Manager for both physical and virtual series is GDPR compliant. There are two key instances where personal information is collected and displayed in the service:
 
-For you to stay GDPR compliant you can delete and export requests as they arise. 
-1. You can view all the entities and export the details from the portal like the alert user settings, users who has persmissions on the share etc.
-2. You can delete or clear the relevant entities also from the portal.
+- Alert user settings where email address of users are configured. This information can be cleared by the administrator. This applies to both the StorSimple 8000 series devices and StorSimple Virtual Arrays.
+
+- Users who can access the data residing on the shares. A list of users who can access the share data is displayed and can be exported. This list is also deleted when the shares is deleted. This applies only to StorSimple Virtual Arrays.
+
+For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
 ## Next steps
 
