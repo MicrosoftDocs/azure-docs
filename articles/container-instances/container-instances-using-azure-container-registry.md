@@ -24,7 +24,7 @@ The Azure Container Registry is an Azure-based, private registry for your Docker
 
 ## Configure registry authentication
 
-In any production scenario, access to an Azure container registry should be provided by using [service principals](../container-registry/container-registry-auth-service-principal.md). Service principals allow you to provide role-based access control to your container images. For example, you can configure a service principal with `pull`-only access to a registry.
+In any production scenario, access to an Azure container registry should be provided by using [service principals](../container-registry/container-registry-auth-service-principal.md). Service principals allow you to provide role-based access control to your container images. For example, you can configure a service principal with pull-only access to a registry.
 
 In this section, you create an Azure key vault and a service principal, and store the service principal's credentials in the vault.
 
