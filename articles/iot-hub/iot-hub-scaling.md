@@ -23,8 +23,6 @@ ms.custom: H1Hack27Feb2017
 Every IoT solution is different, so Azure IoT Hub offers several options based on pricing and scale. This article is meant to help you evaluate your IoT Hub needs. For pricing information about IoT Hub tiers refer to [IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub). 
 
 To decide which IoT Hub tier is right for your solution, ask yourself two questions:
-* What features do I plan do use?
-* How much data do I plan to move daily?
 
 **What features do I plan to use?**
 Azure IoT Hub offers two tiers, basic and standard, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally then the basic tier is probably right for you. If you want to use more advanced configurations to control IoT devices remotely or distribute some of your workloads onto the devices themselves then you should consider the standard tier. For a detailed breakdown of which features are included in each tier continue to [Basic and standard tiers](#basic-and-standard-tiers).
