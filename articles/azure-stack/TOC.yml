@@ -89,6 +89,8 @@
       href: azure-stack-connect-azure-stack.md
     - name: Enable CLI for users
       href: azure-stack-cli-admin.md
+    - name: Access Azure Stack API
+      href: azure-stack-api.md
     - name: Set up management environment
       items:
       - name: Install Azure Stack PowerShell
