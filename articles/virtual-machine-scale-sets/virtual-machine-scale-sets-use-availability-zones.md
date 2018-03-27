@@ -62,7 +62,7 @@ az vmss create \
 For a complete example of a single-zone scale set and network resources, see [this sample CLI script](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh.)
 
 ### Zone-redundant scale set
-To create a zone-redundant scale set, you use a *Standard* SKU public IP address and load balancer. For enhanced redundancy, the *Standard* SKU creates zone-redundant network resources. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-standard-overview.md). 
+To create a zone-redundant scale set, you use a *Standard* SKU public IP address and load balancer. For enhanced redundancy, the *Standard* SKU creates zone-redundant network resources. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-standard-overview.md).
 
 To create a zone-redundant scale set, specify multiple zones with the `--zones` parameter. The following example creates a zone-redundant scale set named *myScaleSet* across zones *1,2,3*:
 
@@ -81,39 +81,40 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Use Azure PowerShell
-The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](virtual-machine-scale-sets-create-powershell.md). To use Availability Zones, you must create your scale set in a supported Azure region. Add the `-Zone` parameter to the [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) command and specify which zone to use (such as zone *1*, *2*, or *3*). 
+To use Availability Zones, you must create your scale set in a supported Azure region. Add the `-Zone` parameter to the [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) command and specify which zone to use (such as zone *1*, *2*, or *3*).
 
-The following example creates a single-zone scale set config named *vmssConfig* in *East US 2* zone *1*:
+The following example creates a single-zone scale set named *myScaleSet* in *East US 2* zone *1*. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
 ```powershell
-$vmssConfig = New-AzureRmVmssConfig `
-    -Location "East US 2" `
-    -SkuCapacity 2 `
-    -SkuName "Standard_DS2" `
-    -UpgradePolicyMode Automatic `
-    -Zone "1"
+New-AzureRmVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS2" `
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicy "Automatic" `
+  -Zone "1"
 ```
-
-For a complete example of a single-zone scale set and network resources, see [this sample PowerShell script](https://github.com/Azure/azure-docs-powershell-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.ps1)
 
 ### Zone-redundant scale set
 To create a zone-redundant scale set, you use a *Standard* SKU public IP address and load balancer. For enhanced redundancy, the *Standard* SKU creates zone-redundant network resources. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-standard-overview.md).
 
-To create a zone-redundant scale set, specify multiple zones with the `-Zone` parameter. The following example creates a zone-redundant scale set config named *myScaleSet* across *East US 2* zones *1, 2, 3*:
+To create a zone-redundant scale set, specify multiple zones with the `-Zone` parameter. The following example creates a zone-redundant scale set named *myScaleSet* across *East US 2* zones *1, 2, 3*. The zone-redundant Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
 ```powershell
-$vmssConfig = New-AzureRmVmssConfig `
-    -Location "East US 2" `
-    -SkuCapacity 2 `
-    -SkuName "Standard_DS2" `
-    -UpgradePolicyMode Automatic `
-    -Zone "1", "2", "3"
+New-AzureRmVmss `
+  -ResourceGroupName "myResourceGroupZR" `
+  -Location "EastUS2" `
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicy "Automatic" `
+  -Zone "1", "2", "3"
 ```
-
-If you create a public IP address with [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) or a load balancer with [New-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/New-AzureRmLoadBalancer), specify the *-SKU "Standard"* to create zone-redundant network resources. You also need to create a Network Security Group and rules to permit any traffic. For more information, see [Azure Load Balancer Standard overview](../load-balancer/load-balancer-standard-overview.md).
-
-For a complete example of a zone-redundant scale set and network resources, see [this sample PowerShell script](https://github.com/Azure/azure-docs-powershell-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.ps1)
-
 
 ## Use Azure Resource Manager templates
 The process to create a scale set that uses an Availability Zone is the same as detailed in the getting started article for [Linux](virtual-machine-scale-sets-create-template-linux.md) or [Windows](virtual-machine-scale-sets-create-template-windows.md). To use Availability Zones, you must create your scale set in a supported Azure region. Add the `zones` property to the *Microsoft.Compute/virtualMachineScaleSets* resource type in your template and specify which zone to use (such as zone *1*, *2*, or *3*).
