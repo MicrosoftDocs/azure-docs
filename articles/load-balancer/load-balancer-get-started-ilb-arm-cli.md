@@ -134,7 +134,7 @@ Create a network security group rule to allow inbound connections through port 8
 Create two network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create) and associate them with the private IP address and the network security group. 
 
 ```azurecli-interactive
-for i in `seq 1 3`; do
+for i in `seq 1 2`; do
   az network nic create \
     --resource-group myResourceGroupILB \
     --name myNic$i \
@@ -233,9 +233,10 @@ To test the load balancer, create a virtual machine, *myVMTest*, and associate i
     --image win2016datacenter \
     --admin-username azureuser \
     --admin-password myPassword123456!
- --
+```
 
-## Test the load balancer
+## Test the internal load balancer
+
 To test the load balancer, you must first obtain the private IP address of the load balancer. Next, sign in to virtual machine *myVMTest* and type the private IP address into the address bar of its web browser.
 
 To get the private IP address of the load balancer, use [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Copy the private IP address, and then paste it into the address bar of a web browser of your virtual machine - *myVMTest*.
