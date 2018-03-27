@@ -21,6 +21,7 @@ ms.author: mimig
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
+> * [Async Java](performance-tips-rx-java.md)
 > 
 > 
 
@@ -77,7 +78,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
    <a id="max-connection"></a>
 3. **Increase MaxPoolSize per host when using Gateway mode**
 
-    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Java SDK, the default value for [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) is 100. Use [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) to change the value.
+    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Java SDK, the default value for [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.getmaxpoolsize) is 100. Use [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) to change the value.
 
 4. **Tuning parallel queries for partitioned collections**
 
@@ -102,7 +103,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 7. **Use name based addressing**
 
-    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid retrieving ResourceIds of all the resources used to construct the link. Also, as these resources get recreated (possibly with same name), caching these may not help.
+    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (\_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid retrieving ResourceIds of all the resources used to construct the link. Also, as these resources get recreated (possibly with same name), caching these may not help.
 
    <a id="tune-page-size"></a>
 8. **Tune the page size for queries/read feeds for better performance**
