@@ -61,20 +61,20 @@ So if you're asking "How can I improve my database performance?" consider the fo
     It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
 
     (b) ***Tuning setMaxBufferedItemCount\:***
-    Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. By setting setMaxBufferedItemCount to the expected number of results returned (or a higher number), this enables the query to receive maximum benefit from pre-fetching.
+    Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
     Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.  
 
 5. **Implement backoff at getRetryAfterInMilliseconds intervals**
 
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. For more information, see [Exceeding reserved throughput limits](request-units.md#RequestRateTooLarge) and DocumentClientException.getRetryAfterInMilliseconds.
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. For more information, see [Exceeding reserved throughput limits](request-units.md#RequestRateTooLarge) and DocumentClientException.getRetryAfterInMilliseconds.
 6. **Scale out your client-workload**
 
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 
 7. **Use name based addressing**
 
-    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (\_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid retrieving ResourceIds of all the resources used to construct the link. Also, as these resources get recreated (possibly with same name), caching these may not help.
+    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (\_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid retrieving ResourceIds of all the resources used to construct the link. Also, as these resources get recreated (possibly with same name), caching them may not help.
 
    <a id="tune-page-size"></a>
 8. **Tune the page size for queries/read feeds for better performance**
@@ -122,12 +122,12 @@ So if you're asking "How can I improve my database performance?" consider the fo
       });
     ```
 
-    Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Please read here
+    Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Read here
     [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
 
 10. **Disable netty's logging**
-    Netty library logging is very chatty and need to be turned off (suppressing log in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
+    Netty library logging is chatty and needs to be turned off (suppressing log in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
@@ -140,7 +140,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     ulimit -a
     ```
 
-    The number of open files (nofile) need to be large enough to have enough room for your configured connection pool size and other open files by the OS. It can be modified to allow for a larger connection pool size.
+    The number of open files (nofile) needs to be large enough to have enough room for your configured connection pool size and other open files by the OS. It can be modified to allow for a larger connection pool size.
 
     Open the limits.conf file:
 
@@ -173,7 +173,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     </dependency>
     ```
 
-For other platforms (Redhat, Windows, Mac, etc) please refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
+For other platforms (Redhat, Windows, Mac, etc.,) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
 
 ## Indexing Policy
  
