@@ -71,6 +71,7 @@ Creating your own scaling service provides the highest degree of control and cus
 How you should approach Service Fabric scaling depends on your scenario. If scaling is uncommon, the ability to add or remove nodes manually is probably sufficient. For more complex scenarios, auto-scale rules and SDKs exposing the ability to scale programmatically offer powerful alternatives.
 
 ## Scaling a standalone cluster in or out
+Standalone clusters allow you to deploy Service Fabric cluster on-premises or in the cloud provider of your choice.  Node types are comprised of physical machines or virtual machines, depending on your deployment. Compared to clusters running in Azure, the process of scaling a standalone cluster is a little more involved.  You must manually change the number of nodes in the cluster and then run a cluster configuration upgrade.
 
 Removal of nodes may initiate multiple upgrades. Some nodes are marked with `IsSeedNode=”true”` tag and can be identified by querying the cluster manifest using [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Removal of such nodes may take longer than others since the seed nodes will have to be moved around in such scenarios. The cluster must maintain a minimum of three primary node type nodes.
 
@@ -93,6 +94,7 @@ When scaling an Azure cluster, keep the following guidelines in mind:
 - If scaling down a primary node type, you should never scale it down more than what the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) allows. 
 
 ## Scaling a standalone cluster up or down
+Standalone clusters allow you to deploy Service Fabric cluster on-premises or in the cloud provider of your choice.  Node types are comprised of physical machines or virtual machines, depending on your deployment. Compared to clusters running in Azure, the process of scaling a standalone cluster is a little more involved.
 
 When scaling a standalone cluster, keep the following guidelines in mind:
 - If scaling down a primary node type, you should never scale it down more than what the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) allows.
