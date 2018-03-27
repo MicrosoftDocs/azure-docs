@@ -173,4 +173,4 @@ In the classic deployment model, some VM size names are slightly different in CL
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16x300|
 
 
-Please note that the number of Data Disks for Classic VMs might be lower than the number of Data Disks for ARM VMs.
+Note that the number of Data Disks for Classic VMs might be lower than the number of Data Disks for Azure Resource Manager VMs.
