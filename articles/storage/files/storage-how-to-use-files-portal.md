@@ -102,11 +102,7 @@ To delete a share snapshot, [navigate to the list of share snapshots](#list-and-
 ![A screenshot of deleting a share snapshot](media/storage-how-to-use-files-portal/delete-snapshot-1.png)
 
 ## Clean up resources
-When you're done, you can delete the resource group, which deletes the storage account, the Azure file share, and any other resources you deployed inside the resource group.
-
-1. In the left menu, click **Resource groups**.
-2. Right-click the resource group and select **Delete resource group**. A page opens, warning you about what resources will be deleted along with the resource group.
-3. Type the name of the resource group and then click **Delete**.
+[!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## Next steps
 - [Managing file shares with the Azure PowerShell](storage-how-to-use-files-powershell.md)
