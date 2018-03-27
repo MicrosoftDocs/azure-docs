@@ -33,7 +33,7 @@ You can manage Machine Learning workspaces in the Azure portal.
 To manage a workspace in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using an Azure subscription administrator account.
-2. In the search box at the top of the page, enter "machine learning workspaces" and then select **Machine Learning Workspaces**.
+2. In the search box at the top of the page, enter "machine learning workspaces" and then select **Machine Learning Studio Workspaces**.
 3. Click the workspace you want to manage.
 
 In addition to the standard resource management information and options available, you can:
