@@ -114,6 +114,7 @@ The following table helps you understand the differences between these two tiers
 |IO throughput (approximate)|500 IOPS per vCore with 7500 maximum IOPS|5000 IOPS per core|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
 |Backups|RA-GRS, 7-35 days (7 days by default)|RA-GRS, 7-35 days (7 days by default)*|
+|In-Memory|N/A|Supported|
 |||
 
 \* During preview, the backups retention period is not configurable and is fixed to 7 days.
@@ -135,25 +136,20 @@ The following table helps you understand how to select the optimal configuration
 
 The supported performance levels are shown in the following table.
 
-|Performance level|H/W Generation|vCores|Memory (GB)|Storage type|Max pool size|Max single DB size|Compute redundancy
-|---|:------------:|:----:|:---------:|:----------:|:-----------:|:----------------:|:---------:|
-|GP_Gen4_1|4|1|7|XIO|512|1024|1X|
-|GP_Gen4_2|4|2|14|XIO|756|1024|1X|
-|GP_Gen4_4|4|4|28|XIO|1536|1024|1X|
-|GP_Gen4_8|4|8|56|XIO|2048|1024|1X|
-|GP_Gen4_16|4|16|112|XIO|3584|1024|1X|
-|GP_Gen4_24*|4|24|154|XIO|4096|4096|1X|
-|BC_Gen4_1|4|1|7|Attached SSD|1024|1024|3X|
-|BC_Gen4_2|4|2|14|Attached SSD|1024|1024|3X|
-|BC_Gen4_4|4|4|28|Attached SSD|1024|1024|3X|
-|BC_Gen4_8|4|8|56|Attached SSD|1536|1024|3X|
-|BC_Gen4_16|4|16|112|Attached SSD|2048|1024|3X|
-|BC_Gen4_22|4|22|154|Attached SSD|2048|1024|3X|
-|BC_Gen5_2|5|2|11|Attached SSD|1024|1024|3X|
-|BC_Gen5_4|5|4|22|Attached SSD|1024|1024|3X|
-|BC_Gen5_8|5|8|44|Attached SSD|1024|2048|3X|
-|BC_Gen5_16|5|16|88|Attached SSD|1024|3072|3X|
-|BC_Gen5_24*|5|24|121|Attached SSD|2048|3584|3X|
+|Performance level|H/W Generation|vCores|Memory (GB)|In-memory OLTP|(GB)Storage type|Max pool size|Max single DB size|Max log size|TempDB size|Compute redundancy|
+|-----------------|:------------:|:----:|:---------:|:------------:|:--------------:|:-----------:|:---------:|:----:|:----------:|:----------|:-----------------:|
+|GP_Gen4_1|4|1|7|N/A|XIO|512|1024|307|32|1X|
+|GP_Gen4_2|4|2|14|N/A|XIO|756|1024|307|64|1X|
+|GP_Gen4_4|4|4|28|N/A|XIO|1536|1024|461|128|1X|
+|GP_Gen4_8|4|8|56|N/A|XIO|2048|1024|614|256|1X|
+|GP_Gen4_16|4|16|112|N/A|XIO|3584|1024|1X|
+|GP_Gen4_24*|4|24|154|N/A|XIO|4096|4096|1X|
+|BC_Gen4_1|4|1|7|1|Attached SSD|1024|1024|3X|
+|BC_Gen4_2|4|2|14|2|Attached SSD|1024|1024|3X|
+|BC_Gen4_4|4|4|28|4|Attached SSD|1024|1024|3X|
+|BC_Gen4_8|4|8|56|8|Attached SSD|1536|1024|3X|
+|BC_Gen4_16|4|16|112|20|Attached SSD|2048|1024|3X|
+|BC_Gen4_22|4|24|154|32|Attached SSD|2048|1024|3X|
 |||||||||
 
 \* Coming soon

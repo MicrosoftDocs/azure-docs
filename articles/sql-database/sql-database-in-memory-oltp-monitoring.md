@@ -1,6 +1,6 @@
 ---
-title: Monitor XTP in-memory storage | Microsoft Docs
-description: Estimate and monitor XTP in-memory storage use, capacity; resolve capacity error 41823
+title: Monitor XTP In-memory storage | Microsoft Docs
+description: Estimate and monitor XTP In-memory storage use, capacity; resolve capacity error 41823
 services: sql-database
 author: jodebrui
 manager: craigg
@@ -22,13 +22,13 @@ Estimating memory requirements for a memory-optimized table works the same way f
 Table and table variable rows, as well as indexes, count toward the max user data size. In addition, ALTER TABLE needs enough room to create a new version of the entire table and its indexes.
 
 ## Monitoring and alerting
-You can monitor in-memory storage use as a percentage of the storage cap for your performance tier in the [Azure portal](https://portal.azure.com/): 
+You can monitor In-memory storage use as a percentage of the storage cap for your performance tier in the [Azure portal](https://portal.azure.com/): 
 
 1. On the Database blade, locate the Resource utilization box and click on Edit.
 2. Select the metric `In-Memory OLTP Storage percentage`.
 3. To add an alert, click on the Resource Utilization box to open the Metric blade, then click on Add alert.
 
-Or use the following query to show the in-memory storage utilization:
+Or use the following query to show the In-memory storage utilization:
 
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
@@ -44,7 +44,7 @@ To resolve this error, either:
 * Upgrade the service tier to one with enough in-memory storage for the data you need to keep in memory-optimized tables.
 
 > [!NOTE] 
-> In rare cases, errors 41823 and 41840 can be transient, meaning there is enough available In-Memory OLTP storage, and retrying the operation succeeds. We therefore recommend to both monitor the overall available In-Memory OLTP storage and to retry when first encountering error 41823 or 41840. For more information about retry logic, see [Conflict Detection and Retry Logic with In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> In rare cases, errors 41823 and 41840 can be transient, meaning there is enough available In-Memory OLTP storage, and retrying the operation succeeds. We therefore recommend to both monitor the overall available In-Memory OLTP storage and to retry when first encountering error 41823 or 41840. For more information about retry logic, see [Conflict Detection and Retry Logic with In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## Next steps
 For monitoring guidance, see [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md).
