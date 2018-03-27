@@ -136,44 +136,38 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-<!--    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/x.png)
--->
 2. Select the **Publish to product slot**. 
 
-<!--    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/x.png)
--->
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-<!--    ![All message utterances labeled](./media/luis-quickstart-intents-regex-entity/x.png)
--->
 2. Go to the end of the URL in the address and enter `When were KB123456 and kb234567 published?`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindKnowledgeBase` intent with the two KBarticles of `KB123456` and `kb234567`.
 
-```
-{
-    "query": "when were kb123456 and kb234567 published?",
-    "topScoringIntent": {
-        "intent": "FindKnowledgeBase",
-        "score": 1.0
-     },
-    "entities": [
-        {
-            "entity": "kb123456",
-            "type": "KBarticle",
-            "startIndex": 10,
-            "endIndex": 17
-        },
-        {
-            "entity": "kb234567",
-            "type": "KBarticle",
-            "startIndex": 23,
-            "endIndex": 30
-        }
-    ]
-}
-```
+    ```
+    {
+        "query": "when were kb123456 and kb234567 published?",
+        "topScoringIntent": {
+            "intent": "FindKnowledgeBase",
+            "score": 1.0
+         },
+        "entities": [
+            {
+                "entity": "kb123456",
+                "type": "KBarticle",
+                "startIndex": 10,
+                "endIndex": 17
+            },
+            {
+                "entity": "kb234567",
+                "type": "KBarticle",
+                "startIndex": 23,
+                "endIndex": 30
+            }
+        ]
+    }
+    ```
 
 ## What has this LUIS app accomplished?
 This app, with just two intents and a regular expression entity, identified the intention and returned the extracted data. 
