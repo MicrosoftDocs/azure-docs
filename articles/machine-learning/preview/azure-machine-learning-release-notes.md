@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning release notes
-description: This document details the updates Azure Machine Learning
+title: What's new in Azure Machine Learning
+description: This document details the updates to Azure Machine Learning.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -119,7 +119,8 @@ You can now create and access a remotedocker or cluster type compute target usin
     ```azure-cli
     $ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
     ```
-[!NOTE] -k (or --use-azureml-ssh-key) option in the command specifies to generate and use SSH-key.
+>[!NOTE]
+>-k (or --use-azureml-ssh-key) option in the command specifies to generate and use SSH-key.
 
 - Azure ML Workbench will generate a public key and output that in your console. Log into the compute target using the same username and append ~/.ssh/authorized_keys file with this public key.
 
@@ -154,7 +155,7 @@ For more information on creating compute targets, see [Configuring Azure Machine
 ### Sample projects
 - [Iris](https://github.com/Azure/MachineLearningSamples-Iris) and [MMLSpark](https://github.com/Azure/mmlspark) samples updated with the new Azure ML SDK version
 
-### BREAKING CHANGES
+### Breaking changes
 - Promoted the `--type` switch in `az ml computetarget attach` to a subcommand. 
 
     - `az ml computetarget attach --type remotedocker` is now `az ml computetarget attach remotedocker`

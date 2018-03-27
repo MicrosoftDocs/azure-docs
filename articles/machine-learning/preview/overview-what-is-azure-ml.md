@@ -145,5 +145,5 @@ Besides Azure Machine Learning, there are a wide variety of options in Azure to 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## Next Steps
+## Next steps
 * [Install and create Azure Machine Learning](quickstart-installation.md)

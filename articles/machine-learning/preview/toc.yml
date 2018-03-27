@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: About Azure Machine Learning?
+  - name: About Azure Machine Learning
     href: overview-what-is-azure-ml.md
   - name: Model Management overview
     href: model-management-overview.md
