@@ -69,27 +69,7 @@ By default, all tracking events are emitted. The volume of data can be reduced b
 
 ### Single instance query
 
-The following query shows historical tracking data for a single instance of the [Hello Sequence](durable-functions-sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). It filters out replay execution so that only the *logical* execution path is shown.
-
-```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
-traces
-| where timestamp > start and timestamp < start + 30m
-| where customDimensions.Category == "Host.Triggers.DurableTask"
-| extend functionName = customDimensions["prop__functionName"]
-| extend instanceId = customDimensions["prop__instanceId"]
-| extend state = customDimensions["prop__state"]
-| extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
-| where isReplay == false
-| where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
-```
-The result is a list of tracking events that show the execution path of the orchestration, including any activity functions.
-
-![Application Insights query](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
-
-Some of these tracking events may be out of order due to the lack of precision in the `timestamp` column. Events can be ordered by sorting by `timestamp` and `sequenceNumber` as shown in the query below: 
+The following query shows historical tracking data for a single instance of the [Hello Sequence](durable-functions-sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). It filters out replay execution so that only the *logical* execution path is shown. Some of these tracking events may be out of order due to the lack of precision in the `timestamp` column. Events can be ordered by sorting by `timestamp` and `sequenceNumber` as shown in the query below: 
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
