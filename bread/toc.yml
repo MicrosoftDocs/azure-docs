@@ -18,6 +18,9 @@
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
+      - name: Managed Service Identity
+        tocHref: /azure/active-directory/managed-service-identity/
+        topicHref: /azure/active-directory/managed-service-identity/
   - name: Active Directory B2C
     tocHref: /azure/active-directory-b2c/
     topicHref: /azure/active-directory-b2c/
@@ -245,6 +248,9 @@
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/
+  - name: IoT Hub Device Provisioning Service
+    tocHref: /azure/iot-dps/
+    topicHref: /azure/iot-dps/
   - name: IoT Suite
     tocHref: /azure/iot-suite/
     topicHref: /azure/iot-suite/

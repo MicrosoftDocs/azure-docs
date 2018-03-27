@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -33,8 +33,6 @@ ms.custom: H1Hack27Feb2017
 > 
 > 
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 <table>
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -51,9 +49,8 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
-### <a name="1.21.0"/>1.21.0
+### <a name="1.21.1"/>1.21.1
 
-* Single NuGet package for .NET Framework and .NET Standard. [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) package has been deprecated. 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
 * Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
 
@@ -293,7 +290,8 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.21.0](#1.21.0) |March 05, 2018 |--- |
+| [1.21.1](#1.20.1) |March 09, 2018 |--- |
+| [1.20.2](#1.20.1) |February 21, 2018 |--- |
 | [1.20.1](#1.20.1) |February 05, 2018 |--- |
 | [1.19.1](#1.19.1) |November 16, 2017 |--- |
 | [1.19.0](#1.19.0) |November 10, 2017 |--- |

@@ -83,7 +83,7 @@ When replicating VMware virtual machines:
 
 ## View and manage VM properties
 
-Next, you verify the properties of the source machine. Remember that the Azure VM name needs to conform with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Next, you verify the properties of the source machine. Remember that the Azure VM name needs to conform with [Azure virtual machine requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. Click **Settings** > **Replicated items** >, and then select the machine. The **Essentials** page shows information about machine settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
@@ -109,15 +109,15 @@ Next, you verify the properties of the source machine. Remember that the Azure V
     For example, if a source machine has two network adapters and the target machine size supports four, the target machine has two adapters. If the source machine has two adapters but the supported target size only supports one, then the target machine has only one adapter.
     - If the virtual machine has multiple network adapters, they all connect to the same network. Also, the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
 
-### Azure Hybrid Use Benefit
+### Azure Hybrid Benefit
 
-Microsoft Software Assurance customers can use Azure Hybrid Use Benefit to save on licensing costs for Windows Server machines that are migrated to Azure, or to use Azure for disaster recovery. If you're eligible to use the Azure Hybrid Use Benefit, you can specify that the virtual machine assigned this benefit is the one Azure Site Recovery creates if there's a failover. To do this:
+Microsoft Software Assurance customers can use Azure Hybrid Benefit to save on licensing costs for Windows Server machines that are migrated to Azure, or to use Azure for disaster recovery. If you're eligible to use the Azure Hybrid Benefit, you can specify that the virtual machine assigned this benefit is the one Azure Site Recovery creates if there's a failover. To do this:
 - Go to the Compute and Network properties section of the replicated virtual machine.
-- Answer the question that asks if you have a Windows Server License that makes you eligible for Azure Hybrid Use Benefit.
-- Select the check box to confirm that you have an eligible Windows Server license with Software Assurance, which you can use to apply the Hybrid Use Benefit on the machine that will be created on failover.
+- Answer the question that asks if you have a Windows Server License that makes you eligible for Azure Hybrid Benefit.
+- Select the check box to confirm that you have an eligible Windows Server license with Software Assurance, which you can use to apply the Azure Hybrid Benefit on the machine that will be created on failover.
 - Save settings for the replicated machine.
 
-Learn more about [Azure Hybrid Use Benefit](https://aka.ms/azure-hybrid-use-benefit-pricing).
+Learn more about [Azure Hybrid Benefit](https://aka.ms/azure-hybrid-benefit-pricing).
 
 ## Common issues
 

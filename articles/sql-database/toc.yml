@@ -16,9 +16,12 @@
   - name: Create DB - Azure PowerShell
     href: sql-database-get-started-powershell.md
   - name: Connect & query
+    href: sql-database-connect-query.md
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
+    - name: SQL Operations Studio
+      href: https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
     - name: Azure portal
       href: sql-database-connect-query-portal.md
     - name: VS Code
@@ -101,8 +104,10 @@
       href: sql-database-manage-logins.md
     - name: Multi-factor auth
       href: sql-database-ssms-mfa-authentication.md
-    - name: Auditing
+    - name: Auditing - SQL Database
       href: sql-database-auditing.md
+    - name: Auditing - Managed Instance
+      href: sql-database-managed-instance-auditing.md
     - name: Threat detection - SQL Database
       href: sql-database-threat-detection.md
     - name: Threat detection - Managed Instance
@@ -380,7 +385,6 @@
       - name: Provision tenants
         href: saas-standaloneapp-provision-and-catalog.md
     - name: Database per tenant
-      href: saas-dbpertenant-wingtip-app-overview.md
       items:
       - name: Tutorial intro
         href: saas-dbpertenant-wingtip-app-overview.md

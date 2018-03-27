@@ -4,7 +4,7 @@ description: Learn how to read or write partitioned data in Azure Data Factory v
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory

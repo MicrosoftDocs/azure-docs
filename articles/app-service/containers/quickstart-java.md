@@ -46,19 +46,7 @@ To complete this quickstart:
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-
-## Create a resource group
-
-In the Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *West Europe* location. To see all supported locations for App Service, run the [`az appservice list-locations`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-You generally create your resource group and the resources in a region near you. 
-
-When the command finishes, a JSON output shows you the resource group properties.
-
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
@@ -130,26 +118,19 @@ Depending on which method of deployment you use, the relative path to browse to 
 
 ### Deploy with WarDeploy 
 
-To deploy your WAR file with WarDeploy, create a new bash script using the following example script:
+To deploy your WAR file with WarDeploy, use the following cURL example commandline to send a POST request to *https://<your app name>.scm.azurewebsites.net/api/wardeploy*. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. For more information on WarDeploy, see [Deploy your app to Azure App Service with a ZIP or WAR file](../app-service-deploy-zip.md).
 
 ```bash
-#!/bin/bash 
-
-# change the following variables to use your web app name, App Service deployment credentials, and local war file path.
-sitename='your web app name'
-username='your deployment username'
-password='your deployment user password'
-warFilePath='local-path-to-war-file' 
-
-# deploy to App Service on Linux
-curl -X POST -u $username:$password https://$sitename.scm.azurewebsites.net/api/wardeploy --data-binary @$warFilePath
+curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
 ```
 
-Change the variables in the script to the values for your web app name, deployment credientials, and WAR file path.
+Update the following:
 
-After making the required changes, run the script to deploy the WAR file.
+* `username` - Use the deployment credential username you created earlier.
+* `war_file_path` - Use the local WAR file path.
+* `app_name` - Use the app name your created earlier.
 
-![WarDploy script execution](media/quickstart-java/wardeploy.png)
+Execute the command. When prompted by cURL, type in the password for your deployment credentials.
 
 Browse to the deployed application using the following URL in your web browser.
 
@@ -181,23 +162,21 @@ The servlet is running in a web app with built-in image.
 
 Alternatively, you can also use FTP to deploy the WAR file. 
 
-FTP the file to the `/home/site/wwwroot/webapps` directory of your web app. The following example commandline uses CURL:
+FTP the file to the */home/site/wwwroot/webapps* directory of your web app. The following example commandline uses cURL:
 
 ```bash
-curl -T ./helloworld.war -u "webappname\deploymentuser:deploymentpassword" ftp://webappFTPURL/site/wwwroot/webapps/
+curl -T war_file_path -u "app_name\username" ftp://webappFTPURL/site/wwwroot/webapps/
 ```
 
-Replace the following text in the example commandline:
+Update the following:
 
-- *webappname* - Use your app name.
-- *deploymentuser* - Use the deployment username you created earlier.
-- *deploymentpassword* - Use the password for your deployment user.
-- *webappFTPURL* - Use the **FTP hostname** value for your web app. The FTP hostname is also listed on **Overview** blade for your web app in the [Azure portal](https://portal.azure.com/).
+* `war_file_path` - Use the local WAR file path.
+* `app_name` - Use the app name your created earlier.
+* `username` - Use the deployment credential username you created earlier.
+* `webappFTPURL` - Use the **FTP hostname** value for your web app which you copied earlier. The FTP hostname is also listed on **Overview** blade for your web app in the [Azure portal](https://portal.azure.com/).
 
+Execute the command. When prompted by cURL, type in the password for your deployment credentials.
 
-Run the curl command.
-
-![CURL deployment](media/quickstart-java/curl-deploy.png)
 
 Browse to the deployed application using the following URL in your web browser.
 

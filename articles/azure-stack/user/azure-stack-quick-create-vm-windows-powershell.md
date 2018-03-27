@@ -195,7 +195,7 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   -CreateOption FromImage | `
   Add-AzureRmVMNetworkInterface -Id $nic.Id 
 
-#Create the virtual machine.
+# Create the virtual machine.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 03/16/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -92,17 +92,9 @@ This section lists the possible values for MFA result status string.
 
     - satisfied by claim in the token 
 
-    - satisfied by claim in the token 
-
-    - satisfied by claim in the token 
-
-    - satisfied by claim in the token 
-
     - satisfied by claim provided by external provider 
 
     - satisfied by strong authentication 
-
-    - skipped as flow exercised was Windows broker logon flow 
 
     - skipped as flow exercised was Windows broker logon flow 
 

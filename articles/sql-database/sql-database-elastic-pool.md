@@ -3,17 +3,12 @@ title: Manage multiple SQL databases with elastic pools- Azure | Microsoft Docs
 description: Manage and scale multiple SQL databases - hundreds and thousands - using elastic pools. One price for resources you can distribute where needed.
 keywords: multiple databases, database resources, database performance
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: NA
 ms.date: 03/02/2018
 ms.author: carlrab
-ms.workload: "Active"
 ms.topic: article
 ---
 
@@ -310,7 +305,7 @@ To create and manage SQL Database elastic pools with Azure PowerShell, use the f
 
 ## Manage elastic pools and databases using the Azure CLI
 
-To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure/overview), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. 
+To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. 
 
 > [!TIP]
 > For Azure CLI example scripts, see [Use CLI to move an Azure SQL database in a SQL elastic pool](scripts/sql-database-move-database-between-pools-cli.md) and [Use Azure CLI to scale a SQL elastic pool in Azure SQL Database](scripts/sql-database-scale-pool-cli.md).

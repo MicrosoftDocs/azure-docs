@@ -28,8 +28,6 @@ ms.author: mimig
 > 
 > 
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) GitHub repository. This article provides:
 
 * Links to the tasks in each of the example Java project files. 

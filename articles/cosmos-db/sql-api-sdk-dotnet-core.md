@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -32,10 +32,6 @@ ms.custom: H1Hack27Feb2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
-This package has been deprecated and replaced by Microsoft.Azure.DocumentDB https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/
 
 <table>
 
@@ -56,12 +52,8 @@ This package has been deprecated and replaced by Microsoft.Azure.DocumentDB http
 
 The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
 
-> [!NOTE] 
-> The Azure Cosmos DB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+### <a name="1.9.1"/>1.9.1
 
-### <a name="1.9.0"/>1.9.0
-
-* This package has been deprecated and replaced by Microsoft.Azure.DocumentDB https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
 * Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
 
@@ -175,7 +167,7 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.9.0](#1.9.0) |March 05, 2018 |--- |
+| [1.9.1](#1.9.1) |March 09, 2018 |--- |
 | [1.8.2](#1.8.2) |February 21, 2018 |--- |
 | [1.8.1](#1.8.1) |February 05, 2018 |--- |
 | [1.7.1](#1.7.1) |November 16, 2017 |--- |

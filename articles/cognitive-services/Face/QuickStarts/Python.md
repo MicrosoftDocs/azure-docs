@@ -4,7 +4,7 @@ titleSuffix: "Microsoft Cognitive Services"
 description: Get information and code samples to help you quickly get started using the Face API with Python in Cognitive Services.
 services: cognitive-services
 author: SteveMSFT
-manager: CorneliaKara
+manager: corncar
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
@@ -54,7 +54,7 @@ The next few lines of code call into the Face API to detect the faces in the ima
 import requests
 from IPython.display import HTML
 
-headers = { 'Ocp-Apim-Subscription-Key': '<Subscription Key>' }
+headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
     
 params = {
     'returnFaceId': 'true',
