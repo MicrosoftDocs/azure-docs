@@ -29,9 +29,9 @@ When you have more devices and need more capabilities, there are three ways to a
 
 These changes can all occur without interrupting existing operations.
 
-If you want to downgrade your IoT hub, you can remove units and reduce the size of the IoT hub. However, you cannot downgrade to a lower tier. For example, you can move from the S2 tier to the S1 tier, but not to the B1 tier. 
+If you want to downgrade your IoT hub, you can remove units and reduce the size of the IoT hub. However, you cannot downgrade to a lower tier. For example, you can move from the S2 tier to the S1 tier, but not from the S2 tier to the B1 tier. 
 
-These examples are meant to help you understand how to adjust your IoT hub as your solution changes, but for specific information about each tier's capabilities you should always refer to [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/). 
+These examples are meant to help you understand how to adjust your IoT hub as your solution changes. For specific information about each tier's capabilities you should always refer to [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
 ## Upgrade your existing IoT hub 
 
