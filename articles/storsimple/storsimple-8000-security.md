@@ -265,6 +265,16 @@ The following are some questions and answers about security and Microsoft Azure 
 
 **A:** Because all of the data is encrypted on the service and the private key is kept with the device, the governmental entity must ask the customer for the data.
 
+## GDPR compliance
+
+[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents. 
+
+The StorSimple Device Manager service is GDPR compliant along with the rest of Microsoft’s services and features. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+
+For you to stay GDPR compliant you can delete and export requests as they arise. 
+1. You can view all the entities and export the details from the portal like the alert user settings, users who has persmissions on the share etc.
+2. You can delete or clear the relevant entities also from the portal.
+
 ## Next steps
 
 [Deploy your StorSimple device](storsimple-8000-deployment-walkthrough-u2.md).
