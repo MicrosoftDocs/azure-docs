@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 03/27/2018
 ms.author: shvija;sethm
 
 ---
@@ -61,7 +61,7 @@ Event Hubs supports real time and microbatch streaming. Microbatching is enabled
 
 With a broad ecosystem available in various [languages (.NET, Java)](https://github.com/Azure/azure-event-hubs), you can easily send and receive data from Event Hubs. All supported client languages provide low-level integration.
 
-## Next Steps
+## Next steps
 
 To get started using Event Hubs, see the following articles:
 
