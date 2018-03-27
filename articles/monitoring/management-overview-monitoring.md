@@ -1,5 +1,5 @@
 ---
-title: Azure security + operations management | Microsoft Docs
+title: Azure Management - Monitoring | Microsoft Docs
 description: Azure has multiple services and tools that work together to provide complete management for not only your applications running in Azure but also in other clouds and on-premises.  This article provides a high level description of the different areas of management and links to content on Azure tools for managing your cloud applications and resources.
 documentationcenter: ''
 author: bwren
@@ -11,12 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 03/27/2018
 ms.author: bwren
 
 ---
 
-# Azure security + operations management
+# Azure Management - Monitoring
+
+Monitoring in Azure is one aspect of Azure Management.  This article briefly describes the different areas of management required to deploy and maintain your applications and resources in Azure with links to documentation to get you started.
+
+## Management in Azure
 
 Management refers to the tasks and processes required to maintain your business applications and the resources that support them.  Azure has multiple services and tools that work together to provide complete management for not only your applications running in Azure but also in other clouds and on-premises.  Understanding the different tools available and how they can be used together for a variety of management scenarios is the first step in designing a complete management environment.
 
