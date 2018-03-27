@@ -131,12 +131,12 @@ To deploy the template, follow these steps:
    Use at least SLES4SAP 12 SP1, in this example we will use the SLES4SAP 12 SP2 image
    https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
    SLES for SAP 12 SP2 (Premium)  
-   Select Availability Set created ealier  
+   Select Availability Set created earlier  
 1. Create Virtual Machine 2  
    Use at least SLES4SAP 12 SP1, in this example we will use the SLES4SAP 12 SP1 BYOS image
    https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM  
    SLES for SAP 12 SP2 (Premium)  
-   Select Availability Set created ealier  
+   Select Availability Set created earlier  
 1. Add Data Disks
 1. Configure the load balancer
     1. Create a frontend IP pool
@@ -367,7 +367,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
    </code></pre>
 
-1. **[2]** Configure System Replication on Ssecond Node
+1. **[2]** Configure System Replication on Second Node
     
     Register the second node to start the system replication. Log in as `<hanasid`>adm and run the following command
 
