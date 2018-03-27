@@ -16,7 +16,7 @@ ms.author: janeng
 In the DTU-based resourcing model, Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
 
 > [!IMPORTANT]
-> Azure SQL Database also now supports a vCore-based resourcing model (preview). For information, see [vCore-based resourcing model (preview)](sql-database-service-tiers.md#-preview).
+> Azure SQL Database also now supports a vCore-based resourcing model (preview). For information, see [vCore-based resourcing model (preview)](sql-database-service-tiers.md#vcore-based-resourcing-model-preview).
 
 It is important to be able to quantify how the increasing power of each performance level translates into increased database performance. To do this Microsoft has developed the Azure SQL Database Benchmark (ASDB). The benchmark exercises a mix of basic operations found in all OLTP workloads. We measure the throughput achieved for databases running in each performance level.
 
