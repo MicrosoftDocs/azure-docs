@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/06/2017
+ms.date: 02/22/2018
 ms.author: bsiva
 
 ---
@@ -143,7 +143,7 @@ An infrastructure view scoped to the context of a single replicating machine is 
 **A.** The infrastructure view feature is only available for virtual machines that are replicating to Azure. The feature is currently not available for virtual machines that are replicating between on-premises sites.
 
 **Q.** Why is the count of virtual machines in the vault infrastructure view different from the total count shown in the replicated items donut?</br>
-**A.** The vault infrastructure view is scoped by replication scenarios. Only virtual machines participating in the currently selected replication scenario are included in the count of virtual machines shown in the infrastructure view. Also, for the selected scenario, only virtual machines that are currently configured to replicate to Azure are included in the count of virtual machines shown in the infrastructure view (For for example: failed over virtual machines, virtual machines replicating back to an on-premise site are not included in the infrastructure view.)
+**A.** The vault infrastructure view is scoped by replication scenarios. Only virtual machines participating in the currently selected replication scenario are included in the count of virtual machines shown in the infrastructure view. Also, for the selected scenario, only virtual machines that are currently configured to replicate to Azure are included in the count of virtual machines shown in the infrastructure view (Fo example: failed over virtual machines, virtual machines replicating back to an on-premise site are not included in the infrastructure view.)
 
 **Q.** Why is the count of replicated items shown in the essentials drawer on the overview page different from the total count of replicated items shown in the donut chart on the dashboard?</br>
 **A.** Only those virtual machines for which initial replication has completed are included in the count shown in the essentials drawer. The replicated items donut total includes all virtual machines in the vault including servers for which initial replication is currently in progress.

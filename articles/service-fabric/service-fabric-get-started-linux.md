@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/5/2018
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -26,6 +26,10 @@ ms.author: subramar
 >  
 
 To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development.
+
+> [!NOTE]
+> Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is not supported. However, the Azure Service Fabric command-line interface (CLI), which enables you to manage Service Fabric entities hosted elsewhere in the cloud or on-premises, is supported. For information about how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
+>
 
 ## Prerequisites
 
@@ -104,6 +108,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
+
+The Service Fabric runtime which comes with the above installation includes the packages in the table below. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
   Once the installation completes, you should be able to start a local cluster.
@@ -228,6 +238,7 @@ sudo apt-get install -f
 * [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
+* [Automate operating system patching on your Linux cluster](service-fabric-patch-orchestration-application-linux.md)
 * [Get started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->

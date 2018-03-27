@@ -1,3 +1,5 @@
+# [IoT Suite Documentation](index.md)
+
 # Overview
 ## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
 ## [Compare Azure IoT options](iot-suite-options.md)
@@ -25,6 +27,7 @@
 ###### [Simulated data](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Use real sensors](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implement firmware update](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [Connect your MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### How-to guides
 #### Connect a simulated device
@@ -63,6 +66,7 @@
 ### [Create a new simulated device](iot-suite-remote-monitoring-test.md)
 ### [Customize the solution](iot-suite-remote-monitoring-customize.md)
 ### [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md)
+### [Deploy locally](iot-suite-remote-monitoring-deploy-local.md)
 ### Connect a physical device
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
@@ -76,7 +80,7 @@
 ## Connected factory
 ### [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
 ### [Customize connected factory](iot-suite-connected-factory-customize.md)
-### [Use the OPC publisher for connected factory](iot-suite-connected-factory-publisher.md)
+### [Use the OPC publisher for connected factory](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Configure connected factory](iot-suite-connected-factory-configure.md)
 ## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
 
@@ -98,5 +102,7 @@
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
+## [Remote monitoring FAQ](iot-suite-faq-rm-v2.md)
 ## [Connected factory FAQ](iot-suite-faq-cf.md)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [IoT Suite learning path](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

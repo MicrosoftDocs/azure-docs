@@ -4,8 +4,9 @@ description: Use a web app template in Azure Marketplace to consume a predictive
 keywords: web service,operationalization,REST API,machine learning
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye;raymondl
 
 ---
 # Consume an Azure Machine Learning web service by using a web app template

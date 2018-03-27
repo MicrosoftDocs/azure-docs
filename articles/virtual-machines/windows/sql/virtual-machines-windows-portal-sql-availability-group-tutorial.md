@@ -4,7 +4,7 @@ description: "This tutorial shows how to create a SQL Server Always On Availabil
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 
@@ -354,7 +354,7 @@ On Azure virtual machines, a SQL Server Availability Group requires a load balan
    | **Virtual network** |Use the name of the Azure virtual network. |
    | **Subnet** |Use the name of the subnet that the virtual machine is in.  |
    | **IP address assignment** |Static |
-   | **IP address** |Use an available address from subnet. |
+   | **IP address** |Use an available address from subnet. Note that this is different from your cluster IP address |
    | **Subscription** |Use the same subscription as the virtual machine. |
    | **Location** |Use the same location as the virtual machine. |
 

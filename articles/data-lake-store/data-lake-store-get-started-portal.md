@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/23/2018
 ms.author: nitinme
 
 ---
@@ -35,7 +35,7 @@ Before you begin this tutorial, you must have the following items:
 ## Create an Azure Data Lake Store account
 
 1. Sign on to the new [Azure portal](https://portal.azure.com).
-2. Click **NEW**, click **Data + Storage**, and then click **Azure Data Lake Store**. Read the information in the **Azure Data Lake Store** blade, and then click **Create** in the bottom left corner of the blade.
+2. Select **Create a resource** > **Data + Analytics** > **Data Lake Store**. 
 3. In the **New Data Lake Store** blade, provide the values as shown in the following screenshot:
    
     ![Create a new Azure Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")

@@ -84,7 +84,7 @@ You can install these packages using `pip`, `easy_install` or through standard `
 
 ### Test the Microsoft Genomics client
 To test the Microsoft Genomics client, download the config file from your genomics account. 
-Navigate to your genomics account by clicking **More services** in the bottom left, filtering, and selecting for genomics accounts.
+Navigate to your genomics account by clicking **All services** in the top left, filtering, and selecting for genomics accounts.
 
 
 ![Filter for Microsoft Genomics on Azure portal](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Filter for Microsoft Genomics on Azure portal")

@@ -1,3 +1,5 @@
+# [Azure Network Watcher Documentation](index.md)
+
 # Overview
 ## [What is Network Watcher?](network-watcher-monitoring-overview.md)
 ## [Topology](network-watcher-topology-overview.md)
@@ -61,6 +63,7 @@
 # How to
 ## [Monitor VPN Gateway with Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnose On-Premises connectivity via VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
+## [Monitor network connections](connection-monitor.md)
 ## [Perform compliance and audit on your network using PowerShell](network-watcher-nsg-auditing-powershell.md)
 ## [Analyze Application gateway logs in Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Packet capture
@@ -70,6 +73,9 @@
 ### [Visualize network traffic patterns using open source tools](network-watcher-using-open-source-tools.md)
 ## Analyze NSG flow logs
 ### [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md)
+### Traffic analytics
+#### [Use traffic analytics](traffic-analytics.md)
+#### [Frequently asked questions](traffic-analytics-faq.md)
 ### [Use Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Use Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Use Grafana](network-watcher-nsg-grafana.md)

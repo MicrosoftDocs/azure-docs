@@ -7,12 +7,12 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Scale application in Azure Container Service (AKS)
+# Tutorial: Scale application in Azure Container Service (AKS)
 
 If you've been following the tutorials, you have a working Kubernetes cluster in AKS and you deployed the Azure Voting app.
 
@@ -23,7 +23,7 @@ In this tutorial, part five of eight, you scale out the pods in the app and try 
 > * Manually scaling Kubernetes pods
 > * Configuring Autoscale pods running the app front end
 
-In subsequent tutorials, the Azure Vote application is updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
+In subsequent tutorials, the Azure Vote application is updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 

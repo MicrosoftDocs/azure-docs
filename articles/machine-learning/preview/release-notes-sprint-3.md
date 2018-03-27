@@ -3,8 +3,8 @@
 title: Azure ML Workbench release notes for sprint 3 January 2018
 description: This document details the updates for the sprint 3 release of Azure ML 
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -17,7 +17,7 @@ ms.date: 01/22/2018
 
 #### Version number: 0.1.1712.18263
 
->Here is how you can [find the version number](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Here is how you can [find the version number](known-issues-and-troubleshooting-guide.md).
 
 Welcome to the fourth update of Azure Machine Learning Workbench. The following are the updates and improvements in this sprint. Many of these updates are made as direct result of user feedback. 
 

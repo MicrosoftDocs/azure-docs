@@ -15,7 +15,7 @@ ms.author: cahann;v-geberr;
 
 
 # Publish your trained app
-When you finish building and testing your LUIS app, you publish it as a web service on Azure. The associated HTTP endpoint is then integrated into any client or backend application. 
+When you finish building and testing your LUIS app, you publish it as a web service on Azure. The associated HTTP [endpoint](luis-glossary.md#endpoint) is then integrated into any client or backend application. 
 
 You can optionally test your app before publishing it. For instructions, see [Train and test your app](Train-Test.md).
 

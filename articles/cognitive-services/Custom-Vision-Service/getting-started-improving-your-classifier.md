@@ -2,14 +2,14 @@
 title: Getting started improve your classifier using Custom Vision Service machine learning | Microsoft Docs
 description: Improve your classifier.
 services: cognitive-services
-author: v-royhar
-manager: juliakuz
+author: anrothMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: custom vision service
 ms.topic: article
 ms.date: 05/08/2017
-ms.author: v-royhar
+ms.author: anroth
 ---
 
 # Getting Started: Improving your classifier

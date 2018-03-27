@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
 
 ---
 # Quickstart: Scale compute in Azure SQL Data Warehouse using T-SQL
 
-Scale compute in Azure SQL Data Warehouse using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs. 
+Scale compute in Azure SQL Data Warehouse using T-SQL and SQL Server Management Studio (SSMS). [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -99,18 +99,9 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 ;
 ```
 
-## Check database state
+## Check data warehouse state
 
-To check the database state, run the following query against the **master** database.
-
-```sql
-SELECT name AS "Database Name", state_desc AS "Status" 
-FROM sys.databases db
-WHERE db.name = 'mySampleDataWarehouse'
-;
-```
-
-When you run this command, you should receive a Status value of Online, Pausing, Resuming, Scaling, or Paused.
+When a data warehouse is paused, you can't connect to it with T-SQL. To see the current state of the data warehouse, you can use a PowerShell cmdlet. For an example, see [Check data warehouse state - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state). 
 
 ## Check operation status
 

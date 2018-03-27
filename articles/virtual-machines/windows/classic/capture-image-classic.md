@@ -19,7 +19,7 @@ ms.date: 05/30/2017
 ms.author: cynthn
 
 ---
-# Capture an image of an Azure Windows virtual machine created with the classic deployment model.
+# Capture an image of an Azure Windows virtual machine created with the classic deployment model
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For Resource Manager model information, see [Capture a managed image of a generalized VM in Azure](../capture-image-resource.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -54,7 +54,7 @@ Prior to capturing an image of an Azure virtual machine, it is recommended the t
 
    ![Run Sysprep](./media/capture-image/SysprepGeneral.png)
 5. Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure portal to **Stopped**.
-6. In the Azure portal, click **Virtual Machines (classic)** and select the virtual machine you want to capture. The **VM images (classic)** group is listed under **Compute** when you view **More services**.
+6. In the Azure portal, click **Virtual Machines (classic)** and select the virtual machine you want to capture. The **VM images (classic)** group is listed under **Compute** when you view **All services**.
 
 7. On the command bar, click **Capture**.
 
@@ -71,7 +71,7 @@ Prior to capturing an image of an Azure virtual machine, it is recommended the t
     ![Image capture successful](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## Next steps
-The image is ready to be used to create virtual machines. To do this, you'll create a virtual machine by selecting the **More services** menu item at the bottom of the services menu, then **VM images (classic)** in the **Compute** group. For instructions, see [Create a virtual machine from an image](createportal.md).
+The image is ready to be used to create virtual machines. To do this, you'll create a virtual machine by selecting the **All services** menu item at the bottom of the services menu, then **VM images (classic)** in the **Compute** group. For instructions, see [Create a virtual machine from an image](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

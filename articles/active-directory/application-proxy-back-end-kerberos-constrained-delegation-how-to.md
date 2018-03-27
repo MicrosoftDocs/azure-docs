@@ -3,7 +3,7 @@ title: Troubleshoot Kerberos Constrained Delegation Configurations for Applicati
 description: Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: MarkusVi
 manager: mtillman
 
 ms.assetid: 
@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
 
 ---
 
@@ -31,7 +32,7 @@ This article makes the following assumptions:
 
 -   The published target application is based on IIS and Microsoft’s implementation of Kerberos.
 
--   The server and application hosts reside in a single Active Directory domain. Detailed information on cross domain and forest scenarios can be found in the [KCD whitepaper](http://aka.ms/KCDPaper).
+-   The server and application hosts reside in a single Active Directory domain. Detailed information on cross domain and forest scenarios can be found in the [KCD whitepaper](https://aka.ms/KCDPaper).
 
 -   The subject application is published in an Azure tenant with pre-authentication enabled, and users are expected to authenticate to Azure via forms-based authentication. Rich client authentication scenarios are not covered by this article, but be added at some point in the future.
 
@@ -49,7 +50,7 @@ Particularly the section on configuring KCD on 2012R2, as this employs a fundame
 
 -   Where possible, you should avoid placing any active IPS/IDS devices between connector hosts and DCs, as these are sometimes over intrusive and interfere with core RPC traffic
 
-It is recommended to test delegation in the simplest of scenarios. The more variables you introduce, the more you may have to contend with. For example, limiting your testing to a single connector can save valuable time, and additional connectors can be added after the issues has been resolved.
+You should test delegation in the simplest scenarios. The more variables you introduce, the more you may have to contend with. For example, limiting your testing to a single connector can save valuable time, and additional connectors can be added after the issues has been resolved.
 
 Some environmental factors may also be contributing to an issue. During testing, minimize the architecture to a bare minimum to avoid these environmental factors. For example, misconfigured internal firewall ACLs are not uncommon, so if possible have all traffic from a connector allowed straight through to the DCs and backend application. 
 
@@ -77,7 +78,7 @@ If you’ve got this far, then the main issue definitely exists. Start by separa
 
 **Client pre-authentication** - The external user authenticating to Azure via a browser.
 
-Being able to pre-authenticate to Azure is imperative for KCD SSO to function. This should be tested and addressed first, if there are any issues. The pre-authentication stage has no relation to KCD or the published application. It should be fairly easy to correct any discrepancies by sanity checking the subject account exists in Azure, and that it is not disabled/blocked. The error response in the browser is usually descriptive enough to understand the cause. You can also check our other Troubleshoot docs to verify if you aren’t sure.
+Being able to pre-authenticate to Azure is imperative for KCD SSO to function. You should test and address this  if there are any issues. The pre-authentication stage has no relation to KCD or the published application. It should be fairly easy to correct any discrepancies by sanity checking the subject account exists in Azure, and that it is not disabled/blocked. The error response in the browser is usually descriptive enough to understand the cause. You can also check our other Troubleshoot docs to verify if you aren’t sure.
 
 **Delegation service** - The Azure Proxy connector obtaining a Kerberos service ticket from a KDC (Kerberos Distribution Center), on behalf of users.
 
@@ -101,13 +102,13 @@ And the corresponding entries seen the event log would be seen as events 13019 o
 
 -   Check to see if a domain policy is enforced to limit the [max size of issued Kerberos tokens](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/), as this prevents the connector from obtaining a token if found to be excessive
 
-A network trace capturing the exchanges between the connector host and a domain KDC would then be the next best step in obtaining more low-level detail on the issues. For more details see, [deep dive Troubleshoot paper](https://aka.ms/proxytshootpaper).
+A network trace capturing the exchanges between the connector host and a domain KDC would then be the next best step in obtaining more low-level detail on the issues. For more information, see, [deep dive Troubleshoot paper](https://aka.ms/proxytshootpaper).
 
-If ticketing looks good, you should see an event in the logs stating that authentication failed due to the application returning a 401. This typically indicates that the target application rejecting your ticket, so proceed with the following next stage.
+If ticketing looks good, you should see an event in the logs stating that authentication failed due to the application returning a 401. This typically indicates that the target application rejecting your ticket, so proceed with the following next stage:
 
 **Target application** - The consumer of the Kerberos ticket provided by the connector
 
-At this stage the connector is expected to have sent a Kerberos service ticket to the backend, as a header within the first application request.
+At this stage, the connector is expected to have sent a Kerberos service ticket to the backend, as a header within the first application request.
 
 -   Using the application’s internal URL defined in the portal, validate that the application is accessible directly from the browser on the connector host. Then you can log in successfully. Details on doing this can be found on the connector Troubleshoot page.
 
@@ -123,7 +124,7 @@ At this stage the connector is expected to have sent a Kerberos service ticket t
 
 2.  Temporarily remove NTLM from the providers list on IIS site and access app directly from IE on connector host. With NTLM no longer in the providers list, you should be able to access the application using Kerberos only. If this fails, then that suggests that there is a problem with the application’s configuration and Kerberos authentication is not functioning.
 
-If Kerberos is not available, then check the application’s authentication settings in IIS to make sure negotiate is listed topmost, with NTLM just beneath it. (Not Negotiate: kerberos or Negotiate: PKU2U). Only continue if Kerberos is functional.
+If Kerberos is not available, then check the application’s authentication settings in IIS to make sure negotiate is listed topmost, with NTLM just beneath it. (Not Negotiate: Kerberos or Negotiate: PKU2U). Only continue if Kerberos is functional.
 
    ![Windows authentication providers](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
@@ -145,11 +146,21 @@ If Kerberos is not available, then check the application’s authentication sett
 
 -   Check that the SPN defined against the application’s settings in the portal is the same SPN configured against the target AD account used by the application’s app pool
 
-   ![SPN configuration in Azure Portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+   ![SPN configuration in Azure portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
 -   Go into IIS and select the **Configuration Editor** option for the application, and navigate to **system.webServer/security/authentication/windowsAuthentication** to make sure the value **UseAppPoolCredentials** is **True**
 
    ![IIS configuration app pools credential option](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+After changing this value to **True**, all cached Kerberos tickets need to be removed from the backend server. You can do this by running the following command:
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+For more information, see [Purge the Kerberos client ticket cache for all sessions](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf).
+
+
 
 While being useful in improving the performance of Kerberos operations, leaving Kernel mode enabled also causes the ticket for the requested service to be decrypted using machine account. This is also called the Local system, so having this set to true break KCD when the application is hosted across multiple servers in a farm.
 

@@ -1,6 +1,6 @@
 ---
 title: Create a Windows Service Fabric cluster in Azure | Microsoft Docs
-description: Learn how to deploy a Windows Service Fabric cluster into an existing Azure virtual network using PowerShell.
+description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an Azure virtual network and network security group using PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -18,7 +18,7 @@ ms.author: ryanwi
 ms.custom: mvc
 ---
 
-# Deploy a Service Fabric Windows cluster into an Azure virtual network
+# Tutorial: deploy a Service Fabric Windows cluster into an Azure virtual network
 This tutorial is part one of a series. You learn how to deploy a Service Fabric cluster running Windows into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) and [network security group](../virtual-network/virtual-networks-nsg.md) using PowerShell and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster using Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 This tutorial describes a production scenario.  If you want to quickly create a small cluster for testing purposes, see [Create a three node test cluster](./scripts/service-fabric-powershell-create-test-cluster.md).
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure cluster on Azure
-> * [Scale a cluster in or out](/service-fabric-tutorial-scale-cluster.md)
+> * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
@@ -63,7 +63,7 @@ The cluster certificate must:
 
 Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure.  When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
 
-This tutorial deplays a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
+This tutorial displays a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
 
 - The number of nodes and node types that your cluster needs 
 - The properties of each of node type (for example size, primary, internet facing, and number of VMs)
@@ -159,8 +159,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-linuxcluster.json" `
--ParameterFile "$templatepath\vnet-linuxcluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
+-ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
@@ -189,8 +189,8 @@ Set-AzureRmContext -SubscriptionId <guid>
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-linuxcluster.json" `
--ParameterFile "$templatepath\vnet-linuxcluster.parameters.json" -CertificatePassword $certpwd `
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\vnet-cluster.json" `
+-ParameterFile "$templatepath\vnet-cluster.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 
 ```

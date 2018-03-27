@@ -47,13 +47,13 @@ With Azure Functions Proxies, you can modify requests to and responses from the 
 
 By default, the back-end request is initialized as a copy of the original request. In addition to setting the back-end URL, you can make changes to the HTTP method, headers, and query string parameters. The modified values can reference [application settings] and [parameters from the original client request].
 
-Currently, there is no portal experience for modifying back-end requests. To learn how to apply this capability from *proxies.json*, see [Define a requestOverrides object].
+Back-end requests can be modified in the portal by expading the *request override* section of the proxy detail page. 
 
 ### <a name="modify-response"></a>Modify the response
 
 By default, the client response is initialized as a copy of the back-end response. You can make changes to the response's status code, reason phrase, headers, and body. The modified values can reference [application settings], [parameters from the original client request], and [parameters from the back-end response].
 
-Currently, there is no portal experience for modifying responses. To learn how to apply this capability from *proxies.json*, see [Define a responseOverrides object].
+Back-end requests can be modified in the portal by expading the *response override* section of the proxy detail page. 
 
 ## <a name="using-variables"></a>Use variables
 
@@ -62,7 +62,11 @@ The configuration for a proxy does not need to be static. You can condition it t
 ### <a name="reference-localhost"></a>Reference local functions
 You can use `localhost` to reference a function inside the same function app directly, without a roundtrip proxy request.
 
-`"backendurl": "localhost/api/httptriggerC#1"` will reference a local HTTP triggered function at the route `/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` will reference a local HTTP triggered function at the route `/api/httptriggerC#1`
+
+ 
+>[!Note]  
+>If your function uses *function, admin or sys* authorization levels, you will need to provide the code and clientId, as per the original function URL. In this case the reference would look like: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
 
 ### <a name="request-parameters"></a>Reference request parameters
 
@@ -99,7 +103,7 @@ For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* woul
 
 ## <a name="debugProxies"></a>Troubleshoot Proxies
 
-By adding the flag `"debug":true` to any proxy in your `proxy.json` you will enable debug logging. Logs are stored in `D:\home\LogFiles\Application\Proxies\DetailedTrace` and accessible through the advanced tools (kudu). Any HTTP responses will also contain a `Proxy-Trace-Location` header with a URL to access the log file.
+By adding the flag `"debug":true` to any proxy in your `proxies.json` you will enable debug logging. Logs are stored in `D:\home\LogFiles\Application\Proxies\DetailedTrace` and accessible through the advanced tools (kudu). Any HTTP responses will also contain a `Proxy-Trace-Location` header with a URL to access the log file.
 
 You can debug a proxy from the client side by adding a `Proxy-Trace-Enabled` header set to `true`. This will also log a trace to the file system, and return the trace URL as a header in the response.
 
@@ -107,11 +111,11 @@ You can debug a proxy from the client side by adding a `Proxy-Trace-Enabled` hea
 
 For security reasons you may not want to allow anyone calling your service to generate a trace. They will not be able to access the trace contents without your login credentials, but generating the trace consumes resources and exposes that you are using Function Proxies.
 
-Disable traces altogether by adding `"debug":false` to any particular proxy in your `proxy.json`.
+Disable traces altogether by adding `"debug":false` to any particular proxy in your `proxies.json`.
 
 ## Advanced configuration
 
-The proxies that you configure are stored in a *proxies.json* file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. The Azure Functions Proxies feature must be [enabled](#enable) for the file to be processed. 
+The proxies that you configure are stored in a *proxies.json* file, which is located in the root of a function app directory. You can manually edit this file and deploy it as part of your app when you use any of the [deployment methods](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) that Functions supports. 
 
 > [!TIP] 
 > If you have not set up one of the deployment methods, you can also work with the *proxies.json* file in the portal. Go to your function app, select **Platform features**, and then select **App Service Editor**. By doing so, you can view the entire file structure of your function app and then make changes.
@@ -226,16 +230,6 @@ An example configuration might look like the following:
 ```
 > [!NOTE] 
 > In this example, the response body is set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
-
-## <a name="enable"></a>Enable Azure Functions Proxies
-
-Proxies are now enabled by default! If you were using an older version of the proxies preview and disabled proxies, you will need to manually enable proxies once in order for proxies to execute.
-
-1. Open the [Azure portal], and then go to your function app.
-2. Select **Function app settings**.
-3. Switch **Enable Azure Functions Proxies (preview)** to **On**.
-
-You can also return here to update the proxy runtime as new features become available.
 
 [Azure portal]: https://portal.azure.com
 [HTTP triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

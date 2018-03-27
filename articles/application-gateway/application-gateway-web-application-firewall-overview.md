@@ -42,7 +42,7 @@ The following are the core benefits that Application Gateway and web application
 
 * Monitor your web application against attacks using a real-time WAF log. This log is integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) to track WAF alerts and logs and easily monitor trends.
 
-* WAF will be integrated with Azure Security Center soon. Azure Security Center allows for a central view of the security state of all your Azure resources.
+* WAF integrates with Azure Security Center. Azure Security Center allows for a central view of the security state of all your Azure resources.
 
 ### Customization
 
@@ -112,7 +112,7 @@ Application Gateway WAF can be configured to run in the following two modes:
 
 ### <a name="application-gateway-waf-reports"></a>WAF Monitoring
 
-Monitoring the health of your application gateway is important. Monitoring the health of your web application firewall and the applications that it protects are provided through logging and integration with Azure Monitor, Azure Security Center (coming soon), and Log Analytics.
+Monitoring the health of your application gateway is important. Monitoring the health of your web application firewall and the applications that it protects are provided through logging and integration with Azure Monitor, Azure Security Center, and Log Analytics.
 
 ![diagnostics](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
@@ -122,7 +122,7 @@ Each application gateway log is integrated with [Azure Monitor](../monitoring-an
 
 #### Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. Application gateway now [integrates into Azure Security Center](application-gateway-integration-security-center.md). Azure Security Center scans your environment to detect unprotected web applications. It can now recommend application gateway WAF to protect these vulnerable resources. You can directly create application gateway WAF from the Azure Security Center.  These WAF instances are integrated with Azure Security Center and will send alerts and health information back to Azure Security Center for reporting.
+[Azure Security Center](../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. Application gateway [integrates into Azure Security Center](application-gateway-integration-security-center.md). Azure Security Center scans your environment to detect unprotected web applications. It can now recommend application gateway WAF to protect these vulnerable resources. You can directly create application gateway WAF from the Azure Security Center.  These WAF instances are integrated with Azure Security Center and will send alerts and health information back to Azure Security Center for reporting.
 
 ![figure 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 

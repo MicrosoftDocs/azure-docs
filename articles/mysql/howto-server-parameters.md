@@ -1,14 +1,14 @@
 ---
-title: How To Configure Server Parameters in Azure Database for MySQL | Microsoft Docs
+title: How To Configure Server Parameters in Azure Database for MySQL
 description: This article describes how to configure MySQL server parameters in Azure Database for MySQL using the Azure portal.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/28/2018
 ---
 
 # How to configure server parameters in Azure Database for MySQL by using the Azure portal
@@ -17,11 +17,16 @@ Azure Database for MySQL supports configuration of some server parameters. This 
 
 ## Navigate to Server Parameters on Azure portal
 1. Sign in to the Azure portal, then locate your Azure Database for MySQL server.
-2. Under the **SETTINGS** section, click **Server parameters** to open the Server parameters page for the Azure Database for MySQL.
-3. Locate any settings you need to adjust. Review the **Description** column to understand the purpose and allowed values. 
-4. Click  **Save** to save your changes.
-
+2. Under the **SETTINGS** section, click **Server parameters** to open the 
+Server parameters page for the Azure Database for MySQL.
 ![Azure portal server parameters page](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+3. Locate any settings you need to adjust. Review the **Description** column to understand the purpose and allowed values. 
+![Enumerate drop down](./media/howto-server-parameters/3-toggle_parameter.png)
+4. Click  **Save** to save your changes.
+![Save or Discard changes](./media/howto-server-parameters/4-save_parameters.png)
+5. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
+![Reset all to default](./media/howto-server-parameters/5-reset_parameters.png)
+
 
 ## List of configurable server parameters
 
@@ -30,14 +35,26 @@ The list of supported server parameters is constantly growing. Use the server pa
 ## Nonconfigurable server parameters
 InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pricing tier](concepts-service-tiers.md). 
 
-| **Pricing tier** | **InnoDB Buffer Pool (MB)** | **Max Connections** |
-| :------------------------ | :-------- | :----------- |
-| Basic 50 | 1024 | 50 | 
-| Basic 100  | 2560 | 100 | 
-| Standard 100 | 2560 | 200 | 
-| Standard 200 | 5120 | 400 | 
-| Standard 400 | 10240 | 800 | 
-| Standard 800 | 20480 | 1600 |
+|**Pricing Tier**| **Compute Generation**|**vCore(s)**|**InnoDB Buffer Pool (MB)**| **Max Connections**|
+|---|---|---|---|--|
+|Basic| Gen 4| 1| 1024| 50|
+|Basic| Gen 4| 2| 2560| 100|
+|Basic| Gen 5| 1| 1024| 50|
+|Basic| Gen 5| 2| 2560| 100|
+|General Purpose| Gen 4| 2| 3584| 300|
+|General Purpose| Gen 4| 4| 7680| 625|
+|General Purpose| Gen 4| 8| 15360| 1250|
+|General Purpose| Gen 4| 16| 31232| 2500|
+|General Purpose| Gen 4| 32| 62976| 5000|
+|General Purpose| Gen 5| 2| 3584| 300|
+|General Purpose| Gen 5| 4| 7680| 625|
+|General Purpose| Gen 5| 8| 15360| 1250|
+|General Purpose| Gen 5| 16| 31232| 2500|
+|General Purpose| Gen 5| 32| 62976| 5000|
+|Memory Optimized| Gen 5| 2| 7168| 600|
+|Memory Optimized| Gen 5| 4| 15360| 1250|
+|Memory Optimized| Gen 5| 8| 30720| 2500|
+|Memory Optimized| Gen 5| 16| 62464| 5000|
 
 These additional server parameters are not configurable in the system:
 

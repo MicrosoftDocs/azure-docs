@@ -49,7 +49,7 @@ Following are the requirements for the Azure resources used in this scenario.
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. In the Azure portal, select **New**> **Internet of Things** > **Event Hubs**.
+1. In the Azure portal, select **Create a resource** > **Internet of Things** > **Event Hubs**.
 
    ![Marketplace new event hub](media/log-analytics-activity-logs-subscriptions/marketplace-new-event-hub.png)
 
@@ -109,7 +109,7 @@ Before creating your Logic App, make sure you have the following information fro
 - Log Analytics workspace ID
 - Log Analytics shared key
 
-To get the event Hub name and connection string, follow the steps in [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#check-event-hubs-namespace-permissions-and-find-the-connection-string).
+To get the event Hub name and connection string, follow the steps in [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs).
 
 
 ### Create a new blank Logic App

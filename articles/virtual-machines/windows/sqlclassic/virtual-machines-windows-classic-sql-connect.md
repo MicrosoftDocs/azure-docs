@@ -4,7 +4,7 @@ description: Learn how to connect to SQL Server running on a Virtual Machine in 
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 
 ms.assetid: 416948af-454f-4cfe-8fd2-7cf971cbd3e9

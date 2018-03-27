@@ -49,7 +49,7 @@
       - name: Use Beeline
         href: ../hadoop/apache-hadoop-use-hive-beeline.md
         maintainContext: true
-      - name: Use cURL
+      - name: Use REST API
         href: ../hadoop/apache-hadoop-use-hive-curl.md
         maintainContext: true
       - name: Use Azure PowerShell
@@ -227,6 +227,12 @@
       - name: Use Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Scale an HDInsight cluster
+      href: ../hdinsight-scaling-best-practices.md
+      maintainContext: true
+    - name: Use external metadata stores
+      href: ../hdinsight-use-external-metadata-stores.md
+      maintainContext: true   
     - name: Manage logs for an HDInsight cluster
       href: ../hdinsight-log-management.md
       maintainContext: true
