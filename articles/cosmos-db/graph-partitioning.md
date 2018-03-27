@@ -27,7 +27,7 @@ In this document, the specifics on how graph databases are partitioned will be d
 
 ## Considerations for partitioned graph databases
 
-For a graph database, the following are the specific implementation details for unlimited collections:
+For a graph database, the following are the specific implementation details that should be understood when partitioning a graph database:
 - **Setting up partitioning will be necessary** if the collection is expected to be more than 10 GB in size and/or if allocating more than 10,000 request units per second (RU/s) will be required.
 - **Both vertices and edges are stored as documents** in the back-end of Cosmos DB Graph API. These objects stored in the JSON format in the storage layer.
 - **Vertices require a partitioning key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The name of this partitioning key is a single-word string without spaces or special characters, and it is defined when creating a new collection using the format `/partitioning-key-name` on the portal.
