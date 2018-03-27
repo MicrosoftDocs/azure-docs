@@ -516,7 +516,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 ### Test cluster setup
-This chapter describes how you can test your setup. Every test assumes that you are root and the SAP HANA master is running on the virtual machine saphanavm1.
+This chapter describes how you can test your setup. Every test assumes that you are root and the SAP HANA master is running on the virtual machine hn1-db-0.
 
 #### Fencing Test
 
@@ -545,12 +545,12 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 #### Testing a manual failover
 
-You can test a manual failover by stopping the pacemaker service on node saphanavm1.
+You can test a manual failover by stopping the pacemaker service on node hn1-db-0.
 <pre><code>
 service pacemaker stop
 </code></pre>
 
-After the failover, you can start the service again. If you set AUTOMATED_REGISTER="false", the SAP HANA resource on saphanavm1 fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
+After the failover, you can start the service again. If you set AUTOMATED_REGISTER="false", the SAP HANA resource on hn1-db-0 fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
 
 <pre><code>
 service pacemaker start
@@ -558,31 +558,31 @@ su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
+hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 
 # Switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 #### Testing a migration
 
 You can migrate the SAP HANA master node by executing the following command
 <pre><code>
-crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>saphanavm2</b>
-crm resource migrate g_ip_<b>HN1</b>_HDB<b>03</b> <b>saphanavm2</b>
+crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
+crm resource migrate g_ip_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
 </code></pre>
 
-if you set AUTOMATED_REGISTER="false", this sequence of commands should migrate the SAP HANA master node and the group that contains the virtual IP address to saphanavm2.
-The SAP HANA resource on saphanavm1 fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
+if you set AUTOMATED_REGISTER="false", this sequence of commands should migrate the SAP HANA master node and the group that contains the virtual IP address to hn1-db-1.
+The SAP HANA resource on hn1-db-0 fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
 
 <pre><code>
 su - <b>hn1</b>adm
 
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
+hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
 The migration creates location constraints that need to be deleted again.
@@ -591,7 +591,7 @@ The migration creates location constraints that need to be deleted again.
 crm configure edited
 
 # Delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
-location cli-prefer-g_ip_<b>HN1</b>_HDB<b>03</b> g_ip_<b>HN1</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
+location cli-prefer-g_ip_<b>HN1</b>_HDB<b>03</b> g_ip_<b>HN1</b>_HDB<b>03</b> role=Started inf: <b>hn1-db-1</b>
 </code></pre>
 
 You also need to clean up the state of the secondary node resource
@@ -599,7 +599,7 @@ You also need to clean up the state of the secondary node resource
 <pre><code>
 # Switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 ## Next steps
