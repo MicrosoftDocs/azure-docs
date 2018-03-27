@@ -65,13 +65,13 @@
           href: qs-configure-powershell-windows-vm.md
         - name: Azure Resource Manager Template
           href: qs-configure-template-windows-vm.md
-        - name: Go
         - name: .NET
-          href: configure-identity-csharp.md
+          href: how-to-configure-identity-vm-csharp.md
         - name: Java
-        - name: Node.js
         - name: Python
         - name: Ruby
+        - name: Node.js
+        - name: Go
       - name: Configure Identity for Azure VMSS
         items:
         - name: Portal
@@ -79,10 +79,12 @@
         - name: PowerShell
         - name: Azure Resource Manager Template
         - name: .NET
+          href: how-to-configure-identity-vmss-csharp.md
         - name: Java
-        - name: Node.js
         - name: Python
         - name: Ruby
+        - name: Node.js
+        - name: Go
       - name: Configure Identity for Application Service
         items:
         - name: Portal
@@ -91,18 +93,20 @@
         - name: Azure Resource Manager Template
         - name: .NET
         - name: Java
-        - name: Node JS
         - name: Python
         - name: Ruby
+        - name: Node.js
+        - name: Go
       - name: Acquire an access token
         items:
         - name: PowerShell
         - name: Curl
         - name: .NET
         - name: Java
-        - name: Node.js
         - name: Python
         - name: Ruby
+        - name: Node.js
+        - name: Go
       - name: Sign-in to PowerShell and CLI using Managed Identity
         items:
         - name: CLI
@@ -115,9 +119,10 @@
         - name: Azure Resource Manager Template
         - name: .NET
         - name: Java
-        - name: Node JS
         - name: Python
         - name: Ruby
+        - name: Node.js
+        - name: Go
     - name: Reference
       items:
       - name: CLI
@@ -125,9 +130,10 @@
       - name: Azure Resource Manager Template
       - name: .NET
       - name: Java
-      - name: Node JS
       - name: Python
-      - name: Ruby 
+      - name: Ruby
+      - name: Node.js
+      - name: Go 
     - name: Resources
       items:
       - name: FAQs and known issues

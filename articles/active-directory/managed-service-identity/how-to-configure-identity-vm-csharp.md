@@ -1,6 +1,6 @@
 ---
 title: How to configure an MSI-enabled Azure VM using C#
-description: How to guidance for configuring an Azure VM, using C#.
+description: How to guidance for configuring an Azure VM using C#.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -20,14 +20,18 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
+In this article, you learn how to enable and remove MSI for an Azure VM, using C#.
+
 ## Prerequisites
+
+If you're unfamiliar with MSI, check out the [Managed Service Identity overview](overview.md). If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free) before continuing.
 
 If you are unfamiliar with creating an Azure VM using C#, refer to the following articles:
 
-- [Create and manage Windows VMs in Azure using C#] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)
+- [Create and manage Windows VMs in Azure using C#](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)
 - [Azure virtual machine libraries for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines?view=azure-dotnet)
 
-## Create the Azure VM with managed identity enabled
+## Enable Managed Identity during the creation of an Azure VM
 
 To enable Managed Identity during the creation of a VM, add the line `.WithSystemAssignedManagedServiceIdentity()` as seen in the following code sample:  
 
@@ -38,7 +42,7 @@ var virtualMachine = azure.VirtualMachines.Define("myVM")
     .Create();
 
 ```  
-## Enable managed identity for an Azure VM
+## Enable Managed Identity for an Azure VM
 
 To enable Managed identity on an existing VM, refer to the following code sample:
 
