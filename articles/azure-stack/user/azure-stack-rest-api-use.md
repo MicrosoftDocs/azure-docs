@@ -185,21 +185,21 @@ The path specifies the resource or resource collection, which may include multip
 - **Query string**:  
 The string provides additional simple parameters, such as the API version or resource selection criteria.
 
-## Azure Stack request URI Construct:
+## Azure Stack request URI construct
 ```
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version} 
 ```
 
-## URI Syntax:
+### URI syntax
 ```
 https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version} 
 ```
 
-## Query URI Example:
+### Query URI example
 ```
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
 
-Next steps:
+## Next steps:
 
 For more information about using the Azure RESTful endpoints, see [Azure REST API Reference](https://docs.microsoft.com/rest/api/).
