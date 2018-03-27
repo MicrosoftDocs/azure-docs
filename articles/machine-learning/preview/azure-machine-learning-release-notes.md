@@ -14,7 +14,7 @@ ms.date: 03/28/2018
 
 In this article, learn about the new capabilities and known issues for [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
 
-## 2018-01: Sprint 3 
+## 2018-01 (Sprint 3) 
 **Version number**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
 
 The following are the updates and improvements in this sprint. Many of these updates are made as direct result of user feedback. 
@@ -50,7 +50,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
   - Ownership of the subscription is no longer required for provisioning resources. Contributor access to the resource group will be sufficient to set up the deployment environment.
   - Enabled local environment setup for free subscriptions 
 
-## 2017-12: Sprint 2 QFE 
+## 2017-12 (Sprint 2 QFE) 
 **Version number**: 0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
 
 This is the QFE (Quick Fix Engineering) release, a minor release. It addresses several telemetry issues and helps the product team to better understand how the product is being used. The knowledge can go into future efforts for improving the product experience. 
@@ -60,7 +60,7 @@ In addition, there are two important updates:
 - Fixed a bug in data prep that prevented the time series inspector from displaying in data preparation packages.
 - In the command-line tool, you no longer need to be an Azure subscription owner to provision Machine Learning Compute ACS clusters. 
 
-## 2017-12:  &nbsp;Sprint 2 
+## 2017-12 (Sprint 2)
 **Version number**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
 
 
@@ -160,7 +160,7 @@ For more information on creating compute targets, see [Configuring Azure Machine
     - `az ml computetarget attach --type remotedocker` is now `az ml computetarget attach remotedocker`
     - `az ml computetarget attach --type cluster` is now `az ml computetarget attach cluster`
 
-## 2017-11:  &nbsp;Sprint 1 
+## 2017-11 (Sprint 1) 
 **Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
 
 In this release, we've made improvements around security, stability, and maintainability in the workbench app, the CLI, and the back-end services layer. Thanks very much for sending us smiles and frowns. Many of the below updates are made as direct results of your feedback. Keep them coming!
@@ -233,7 +233,7 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 #### Job execution
 - Argument is now included in run history record.
 - Jobs kicked off in CLI now shows up in Run history Job panel automatically.
-- Job panel now shows jobs created by guest users added to the AAD tenant.
+- Job panel now shows jobs created by guest users added to the Azure AD tenant.
 - Job panel cancel and delete actions are more stable.
 - When clicking on Run button, error message is triggered now if the configuration files are in bad format.
 - Terminating app no longer interferes with jobs kicked off in CLI.
@@ -282,7 +282,7 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 - New sample project [_Image Classification using CNTK_](./scenario-image-classification-using-cntk.md).
 
 
-## 2017-10:  &nbsp;Sprint 0 
+## 2017-10 (Sprint 0) 
 **Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md))
 
 Welcome to the first update of Azure Machine Learning Workbench following our initial public preview at the Microsoft Ignite 2017 conference. The main updates in this release are reliability and stabilization fixes.  Some of the critical issues we addressed include:
@@ -327,3 +327,7 @@ We made a number of updates to improve various login and authentication issues r
 - Reusing a manifest to update a web service causes a new Docker image built with a random name.
 - Web service logs cannot be retrieved from Kubernetes cluster.
 - Misleading error message is printed when user attempts to create a Model Management account or an ML Compute account and encounters permissions issues.
+
+## Next steps
+
+Read the overview for [Azure Machine Learning](overview-what-is-azure-ml.md).

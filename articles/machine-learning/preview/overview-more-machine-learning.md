@@ -84,3 +84,7 @@ Microsoft Cognitive Services is a set of 30 APIs that enable you build apps that
 Microsoft Cognitive Services can be used to develop apps across devices and platforms. The APIs keep improving, and are easy to set up. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
+## Next steps
+
+Read the overview for [Azure Machine Learning](overview-what-is-azure-ml.md).
