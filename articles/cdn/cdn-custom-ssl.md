@@ -121,7 +121,7 @@ The following table shows the operation progress that occurs when you enable HTT
 | 1 Submitting request | Submitting request |
 | | Your HTTPS request is being submitted. |
 | | Your HTTPS request has been submitted successfully. |
-| 2 Domain validation | We have sent you an email asking you to validate the domain ownership. Waiting for your confirmation. ** |
+| 2 Domain validation | Domain is automatically validated if it is CNAME mapped to the CDN Endpoint. Otherwise, a verification request will be sent to the email listed in your domain’s registration record (WHOIS registrant). Please verify the domain as soon as possible. |
 | | Your domain ownership has been successfully validated. |
 | | Domain ownership validation request expired (customer likely didn't respond within 6 days). HTTPS will not be enabled on your domain. * |
 | | Domain ownership validation request was rejected by the customer. HTTPS will not be enabled on your domain. * |
@@ -132,7 +132,6 @@ The following table shows the operation progress that occurs when you enable HTT
 
 \* This message does not appear unless an error has occurred. 
 
-\** This message does not appear if you have a CNAME entry for your custom domain that points directly to your CDN endpoint hostname.
 
 If an error occurs before the request is submitted, the following error message is displayed:
 
