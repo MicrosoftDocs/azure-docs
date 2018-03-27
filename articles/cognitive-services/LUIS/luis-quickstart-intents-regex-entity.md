@@ -1,6 +1,6 @@
 ---
 title: Create a LUIS app to get regular-expression matched data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and a regex entity to extract data. 
+description: Learn how to create a simple LUIS app using intents and a regular expression entity to extract data. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
@@ -12,15 +12,15 @@ ms.date: 03/26/2018
 ms.author: v-geberr;
 --- 
 
-# Simple app with intents and a regex entity
-This simple app has two [intents](luis-concept-intent.md) and one regex [entity](luis-concept-entity-types.md). Its purpose is to pull out Knowledge Base (KB) article numbers from an utterance. 
+# Simple app with intents and a regular expression entity
+This simple app has two [intents](luis-concept-intent.md) and one regular expression [entity](luis-concept-entity-types.md). Its purpose is to pull out Knowledge Base (KB) article numbers from an utterance. 
 
 ## App intents
 The intents are categories of what the user wants. This app has two intents: FindArticle and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
 
-## Regex entity is a regular expression match
+## Regular expression entity is a regular expression match
 The purpose of an entity is to find and categorize parts of the text in the utterance. 
-A [regex](luis-concept-entity-types.md) entity allows for a regex match of words or phrases in the utterance. It is not machine-learned.   
+A [regular expression](luis-concept-entity-types.md) entity allows for a regular expression match of words or phrases in the utterance. It is not machine-learned.   
 
 For this Knowledge Base app, LUIS extracts the KB document number in such as way that a standard order can be created and filled. LUIS allows utterances to have variations, abbreviations, and slang. 
 
@@ -40,7 +40,7 @@ kb123456 date?
 Kb123456 title?
 ```
  
-The regex entity to match is `kb[0-9]{6,}`. This regex matches the characters `kb` literally but ignores case and culture variants. It matches digits 0-9, which can have between 6 and an unlimited number of digits. This doesn't match any number without `kb` or with a space between `kb` and the digits. And it doesn't match when there are fewer than six digits. The point is that the regular expression is a work in progress. When you review endpoint utterances or query logs, you notice variations in the usage of the KB number. 
+The regular expression entity to match is `kb[0-9]{6,}`. This regular expression matches the characters `kb` literally but ignores case and culture variants. It matches digits 0-9, which can have between 6 and an unlimited number of digits. This doesn't match any number without `kb` or with a space between `kb` and the digits. And it doesn't match when there are fewer than six digits. The point is that the regular expression is a work in progress. When you review endpoint utterances or query logs, you notice variations in the usage of the KB number. 
 
 ## What LUIS does
 When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
@@ -103,7 +103,7 @@ In your LUIS-calling application (such as a chat bot), when LUIS returns the **N
 
 Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chat bot, your chat bot can follow up with a question that focuses the customer's intent. 
 
-## Create a KnowledgeBase article regex entity from the Intent page
+## Create a KnowledgeBase article regular expression entity from the Intent page
 Now that the two intents have utterances, LUIS needs to understand what a KB number is. Navigate back to the `FindKnowledgeBase` intent and label (mark) the KB number in an utterance by following the steps:
 
 1. Return to the `FindKnowledgeBase` intent by selecting **Intents** in the left panel.
@@ -112,7 +112,7 @@ Now that the two intents have utterances, LUIS needs to understand what a KB num
 
 3. In the utterance, `When was kb135135 released?`, select the word `kb135135`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `KBarticle` in the text box then select **Create new entity** in the drop-down menu. 
 
-4. In the pop-up window, select the **Regex** entity type with `kb[0-9]{6,}` as the regex. Select **Done**.
+4. In the pop-up window, select the **Regular expression** entity type with `kb[0-9]{6,}` as the regular expression. Select **Done**.
 
     ![Verify entity type](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
@@ -176,7 +176,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 ```
 
 ## What has this LUIS app accomplished?
-This app, with just two intents and a regex entity, identified the intention and returned the extracted data. 
+This app, with just two intents and a regular expression entity, identified the intention and returned the extracted data. 
 
 Your chat bot now has enough information to determine the primary action, `FindKnowledgeBase`, and which KB articles were in the search. 
 
