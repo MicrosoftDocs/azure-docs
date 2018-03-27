@@ -51,7 +51,7 @@ At a high level, here is how push works:
 
 ![Push notification workflow](./media/notification-hubs-overview/registration-diagram.png)
 
-## The Challenges of push notifications
+## The challenges of push notifications
 PNSes are powerful. However, they leave much work to the app developer to implement even common push notification scenarios, such as broadcasting push notifications to segmented users.
 
 Pushing notifications requires complex infrastructure that is unrelated to the application's main business logic. Some of the infrastructural challenges are:
@@ -65,7 +65,7 @@ Pushing notifications requires complex infrastructure that is unrelated to the a
     - Though PNSes provide a way to send messages to devices, most apps notifications are targeted at users or interest groups. The backend must maintain a registry to associate devices with interest groups, users, properties, etc. This overhead adds to the time to market and maintenance costs of an app.
 
 ## Why use Azure Notification Hubs?
-Notification Hubs eliminates all complexities associated with enabling push on your own in your app back-end. Its multi-platform, scaled-out push notification infrastructure reduces push-related coding and simplifies your backend. With Notification Hubs, devices are merely responsible for registering their PNS handles with a hub, while the backend sends messages to users or interest groups, as shown in the following figure:
+Notification Hubs eliminates all complexities associated with pushing notifications on your own from your app back-end. Its multi-platform, scaled-out push notification infrastructure reduces push-related coding and simplifies your backend. With Notification Hubs, devices are merely responsible for registering their PNS handles with a hub, while the backend sends messages to users or interest groups, as shown in the following figure:
 
 ![Notification Hub diagram](./media/notification-hubs-overview/notification-hub-diagram.png)
 
