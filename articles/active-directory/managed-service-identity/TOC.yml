@@ -128,6 +128,7 @@
     - name: Reference
       items:
       - name: CLI
+        href: /cli/azure/identity
       - name: PowerShell
       - name: Azure Resource Manager Template
       - name: .NET
