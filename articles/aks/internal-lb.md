@@ -18,7 +18,7 @@ Internal load balancing makes a Kubernetes service accessible to applications ru
 
 ## Create internal load balance
 
-To create an internal load balancer, build a service manifest with the service type `LoadBalancer` and add an annotation as seen in the following sample.
+To create an internal load balancer, build a service manifest with the service type `LoadBalancer` and add the `azure-load-balancer-internal` annotation as seen in the following sample.
 
 ```yaml
 apiVersion: v1
@@ -50,6 +50,12 @@ azure-vote-front   LoadBalancer   10.0.184.168   10.240.0.7    80:30225/TCP   2m
 
 When all services using the internal load balancer have been deleted, the load balancer itself is also deleted.
 
-<!-- LINKS - External -->
+## Next steps
 
-<!-- LINKS - Internal -->
+Learn more about Kubernetes services at the Kubernetes services documentation.
+
+> [!div class="nextstepaction"]
+> [Kubernetes services][kubernetes-services]
+
+<!-- LINKS - External -->
+[kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
