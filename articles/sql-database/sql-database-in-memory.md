@@ -66,7 +66,7 @@ In-depth videos about the technologies:
 
 In-Memory OLTP includes memory-optimized tables, which are used for storing user data. These tables are required to fit in memory. Because you manage memory directly in the SQL Database service, we have the  concept of a quota for user data. This idea is referred to as *In-Memory OLTP storage*.
 
-Each supported standalone database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP storage. At the time of writing, you get a gigabyte of storage for every 125 database transaction units (DTUs) or elastic database transaction units (eDTUs). For more information, see [Resource limits](sql-database-resource-limits.md).
+Each supported standalone database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP storage. See [single database DTU-based resource limits](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels), [elastic pool DTU-bsed resource limits](sql-database-resource-limits.md#elastic-pool-change-storage-size), and [vCore-based resource limits](sql-database-service-tiers.md#choosing-compute-memory-storage-and-io-resources).
 
 The following items count toward your In-Memory OLTP storage cap:
 
@@ -82,8 +82,8 @@ For details about monitoring In-Memory OLTP storage utilization and configuring 
 
 With elastic pools, the In-Memory OLTP storage is shared across all databases in the pool. Therefore, the usage in one database can potentially affect other databases. Two mitigations for this are:
 
-- Configure a Max-eDTU for databases that is lower than the eDTU count for the pool as a whole. This maximum caps the In-Memory OLTP storage utilization, in any database in the pool, to the size that corresponds to the eDTU count.
-- Configure a Min-eDTU that is greater than 0. This minimum guarantees that each database in the pool has the amount of available In-Memory OLTP storage that corresponds to the configured Min-eDTU.
+- Configure a `Max-eDTU` or `MaxvCore` for databases that is lower than the eDTU or vCore count for the pool as a whole. This maximum caps the In-Memory OLTP storage utilization, in any database in the pool, to the size that corresponds to the eDTU count.
+- Configure a `Min-eDTU` or `MinvCore` that is greater than 0. This minimum guarantees that each database in the pool has the amount of available In-Memory OLTP storage that corresponds to the configured `Min-eDTU` or `vCore`.
 
 ### Data size and storage for columnstore indexes
 
