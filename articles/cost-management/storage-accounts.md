@@ -31,8 +31,8 @@ If you don't have an AWS simple storage service (S3) bucket, you need to create 
 Configuring you Azure storage for use by Cost Management is straightforward. Gather details about the storage account and copy them in the Cloudyn portal.
 
 1. Log in to the Azure portal at http://portal.azure.com.
-2. Click **All Services** , select **Storage accounts**, scroll to the storage account that you want to use, and then select the account.
-3. On your storage account page under **Settings** , click **Access Keys**.
+2. Click **All Services**, select **Storage accounts**, scroll to the storage account that you want to use, and then select the account.
+3. On your storage account page under **Settings**, click **Access Keys**.
 4. Copy your **Storage account name** and **Connection string** under key1.  
 ![Azure storage access keys](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com and log in.
@@ -48,9 +48,9 @@ You can now save reports to Azure storage. In any report, click **Actions** and 
 
 ## Configure an AWS storage bucket
 
-The Cloudyn uses existing AWS credentials: User or Role, to save the reports to the desired bucket. To test the access, Cloudyn tries to save a simple text file to the bucket with the file name _check-bucket-permission.txt_.
+The Cloudyn uses existing AWS credentials: User or Role, to save the reports to your bucket. To test the access, Cloudyn tries to save a small text file to the bucket with the file name _check-bucket-permission.txt_.
 
-You provide the Cloudyn role or user with the PutObject permission to the desired bucket. You can use an existing bucket or create a new one to save reports. You decide how to manage the storage class, set lifecycle rules, or remove any unnecessary files.
+You provide the Cloudyn role or user with the PutObject permission to your bucket. Then, use an existing bucket or create a new one to save reports. Finally, decide how to manage the storage class, set lifecycle rules, or remove any unnecessary files.
 
 ###  Assign permissions to your AWS user or role
 
@@ -90,7 +90,7 @@ bucket.
 
 To attach the new policy, you open the AWS console and edit the Cloudyn role or user.
 
-1. Sign in to the AWS console and select **Services** , then select **IAM** from the list of services.
+1. Sign in to the AWS console and select **Services**, then select **IAM** from the list of services.
 2. Select either **Roles** or **Users** from the left side of the console.
 
 **For roles:**
@@ -98,7 +98,7 @@ To attach the new policy, you open the AWS console and edit the Cloudyn role or 
   1. Click your Cloudyn role name.
   2. On the **Permissions** tab, click **Attach Policy**.
   3. Search for the policy that you created and select it, then click **Attach Policy**.
-    ![AWS attach policy for a role](./media/storage-accounts/aws-attach-policy-role.png)
+    ![AWS - Attach policy for a role](./media/storage-accounts/aws-attach-policy-role.png)
 
 **For users:**
 
@@ -107,16 +107,16 @@ To attach the new policy, you open the AWS console and edit the Cloudyn role or 
 3. In the **Grant Permission** section, select **Attach existing policies directly**.
 4. Search for the policy that you created and select it, then click **Next: Review**.
 5. On the Add permissions to role name page, click **Add permissions**.  
-    ![AWS attach policy for a user](./media/storage-accounts/aws-attach-policy-user.png)
+    ![AWS - Attach policy for a user](./media/storage-accounts/aws-attach-policy-user.png)
 
 
 ### Optional: Set permission with bucket policy
 
-Alternatively, you can set permission to create reports on your S3 bucket using a bucket policy. In the classic S3 view:
+You can also set permission to create reports on your S3 bucket using a bucket policy. In the classic S3 view:
 
 1. Create or select an existing bucket.
 2. Select the **Permissions** tab and then click **Bucket policy**.
-3. Copy and paste the following policy sample and replace &lt;bucket\_name&gt; and &lt;Cloudyn\_principle&gt; with the ARN of your bucket and the ARN of either the Role or User used by Cloudyn.
+3. Copy and paste the following policy sample. Replace &lt;bucket\_name&gt; and &lt;Cloudyn\_principle&gt; with the ARN of your bucket. Replace the ARN of either the role or user used by Cloudyn.
 
   ```
 {
