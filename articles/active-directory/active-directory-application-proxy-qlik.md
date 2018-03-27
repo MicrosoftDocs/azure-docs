@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/26/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -20,7 +20,7 @@ Azure Active Directory Application Proxy and Qlik Sense have partnered together 
 ## Prerequisites 
 The remainder of this scenario assumes you done the following:
  
-- Configured [Qlik Sense](https://help.qlik.com/sense/1.1/Content/Introduction.htm). 
+- Configured [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
 - Installed an Application Proxy connector 
 
 ## Install an Application Proxy connector 
