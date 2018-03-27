@@ -43,9 +43,12 @@ sections:
       - title: Create app with intents
         values:
         - href: luis-quickstart-intents-only
-      - title: Create app with intents and entities
+      - title: Create app with intents and simple entity
         values:
         - href: luis-quickstart-primary-and-secondary-data
+      - title: Create app with intents and list entity
+        values:
+        - href: luis-quickstart-intent-and-list-entity
       - title: Create app from prebuilt domain
         values:
         - href: luis-get-started-create-app
