@@ -25,15 +25,15 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
       text: Azure Portal
-      href: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal
+      href: /azure/virtual-machine-scale-sets/quick-create-portal
     - image: 
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: Azure CLI 2.0
-      href: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create-cli
+      href: /azure/virtual-machine-scale-sets/quick-create-cli
     - image: 
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create-powershell  
+      href: /azure/virtual-machine-scale-sets/quick-create-powershell 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
