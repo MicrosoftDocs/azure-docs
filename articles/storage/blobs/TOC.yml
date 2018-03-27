@@ -92,6 +92,8 @@
         href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Geo-redundant storage
         href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: ZRS Classic
+        href: ../common/storage-redundancy-zrs-classic.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json        
     - name: Hot, cool, and archive tiers
       href: storage-blob-storage-tiers.md
     - name: Reacting to events
