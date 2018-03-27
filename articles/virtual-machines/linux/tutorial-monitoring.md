@@ -307,7 +307,7 @@ az vm extension set \
   --settings '{"workspaceId": "<workspace-id>"}'
 ```
 
-After a few minutes, you should see the new VM in the Log Anaytics workspace.
+After a few minutes, you should see the new VM in the Log Analytics workspace.
 
 ![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
