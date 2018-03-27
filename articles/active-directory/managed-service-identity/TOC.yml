@@ -110,9 +110,9 @@
       - name: Sign-in to PowerShell and CLI using Managed Identity
         items:
         - name: CLI
-          href: how-to-sign-in-cli
+          href: how-to-sign-in-cli.md
         - name: Powershell
-          href: how-to-sign-in-powershell
+          href: how-to-sign-in-powershell.md
       - name: Manage user-assigned identities
         items:
         - name: Portal
