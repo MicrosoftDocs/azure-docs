@@ -167,7 +167,7 @@ You can also [set it in code](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
 
-    telemetryClient.InstrumentationKey = "...";
+    telemetryClient.getContext().setInstrumentationKey("...");
 ```
 
 ## 4. Add an HTTP filter
