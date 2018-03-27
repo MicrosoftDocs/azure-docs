@@ -79,7 +79,7 @@ For each value:
   curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
   ```
  
-  response:
+  Response:
   ```
   {
   "galleryEndpoint":"https://adminportal.local.azurestack.external:30015/",
@@ -200,6 +200,6 @@ https://adminmanagement.local.azurestack.external/{subscription id}/resourcegrou
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
 
-## Next steps:
+## Next steps
 
 For more information about using the Azure RESTful endpoints, see [Azure REST API Reference](https://docs.microsoft.com/rest/api/).
