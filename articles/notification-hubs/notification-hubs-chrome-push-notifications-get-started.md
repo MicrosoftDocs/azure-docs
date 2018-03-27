@@ -13,8 +13,9 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-chrome
 ms.devlang: JavaScript
-ms.topic: hero-article
-ms.date: 10/03/2016
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 03/26/2018
 ms.author: yuaxu
 
 ---
@@ -29,20 +30,20 @@ This article shows you how to use Azure Notification Hubs to send push notificat
 > 
 > 
 
-The tutorial walks you through these basic steps to enable push notifications:
+In this tutorial, you perform the following steps:
 
-* [Enable Google Cloud Messaging](#register)
-* [Configure your notification hub](#configure-hub)
-* [Connect your Chrome App to the notification hub](#connect-app)
-* [Send a push notification to your Chrome App](#send)
-* [Additional functionality & capabilities](#next-steps)
+> [!div class="checklist"]
+> * [Enable Google Cloud Messaging](#register)
+> * [Configure your notification hub](#configure-hub)
+> * [Connect your Chrome App to the notification hub](#connect-app)
+> * [Send a push notification to your Chrome App](#send)
 
 > [!NOTE]
 > Chrome app push notifications are not generic in-browser notifications - they are specific to the browser extensibility model (see [Chrome Apps Overview] for details). In addition to the desktop browser, Chrome apps run on mobile (Android and iOS) through Apache Cordova. For more information, see [Chrome Apps on Mobile].
-> 
-> 
-
+ 
 Configuring GCM and Azure Notification Hubs is identical to configuring for Android, since [Google Cloud Messaging for Chrome] has been deprecated and the same GCM now supports both Android devices and Chrome instances.
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## <a id="register"></a>Enable Google Cloud Messaging
 1. Navigate to the [Google Cloud Console] website, sign in with your Google account credentials, and then click the **Create Project** button. Provide an appropriate **Project Name**, and then click the **Create** button.
@@ -61,7 +62,7 @@ Configuring GCM and Azure Notification Hubs is identical to configuring for Andr
    
     ![Google Cloud Console - API Key][5]
 
-## <a id="configure-hub"></a>Configure your notification hub
+## <a id="configure-hub"></a>Create your notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 6.   On the **Settings** page, select **Notification Services** and then **Google (GCM)**. Enter the API key and save.
