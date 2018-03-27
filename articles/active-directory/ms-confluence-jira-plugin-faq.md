@@ -23,7 +23,7 @@ ms.author: jeedes
 
 The plug-in provides single sign-on (SSO) capability for Atlassian Jira (including Jira Core, Jira Software, Jira Service Desk) and Confluence on-premises software. The plug-in works with Azure Active Directory (Azure AD) as an identity provider (IdP).
 
-## The plug-in works with which Atlassian products?
+## Which Atlassian products does the plug-in work with?
 
 The plug-in works with on-premises versions of Jira and Confluence.
 

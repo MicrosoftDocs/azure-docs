@@ -31,7 +31,7 @@ After the users are authenticated, they should be able to sign in to the applica
 
 Sign-in works across Jira and Confluence. If users are signed in to the Jira application and Confluence is opened in the same browser window, they don't have to provide the credentials for the other app. 
 
-The users can also get to the Atlassian product through My Apps under the work or school account. They should be signed in without being asked for credentials.
+Users can also get to the Atlassian product through My Apps under the work or school account. They should be signed in without being asked for credentials.
 
 > [!NOTE]
 > User provisioning is not done through the plug-in.
@@ -62,7 +62,7 @@ Note the following information before you install the plug-in:
 
 ## Supported versions of Jira and Confluence
 
-As of now, the following versions of Jira and Confluence are supported:
+The plug-in supports the following versions of Jira and Confluence:
 
 * Jira Core and Software: 6.0 to 7.2.0
 * Jira Service Desk: 3.0 to 3.2
@@ -110,15 +110,15 @@ The following image shows the configuration screen in both Jira and Confluence:
  
 *   **Login Button Name**: The name of the sign-in button that your organization wants users to see on the sign-in page.
  
-*   **SAML User ID Locations**: The location where the Jira/Confluence user ID is expected in the SAML response. It can be in **NameID** or in a custom attribute name.
+*   **SAML User ID Locations**: The location where the Jira or Confluence user ID is expected in the SAML response. It can be in **NameID** or in a custom attribute name.
  
 *   **Attribute Name**: The name of the attribute where the user ID is expected.
  
-*   **Enable Home Realm Discovery**: Selection to make if the company is using Active Directory Federation Services (AD FS)-based sign-in.
+*   **Enable Home Realm Discovery**: The selection to make if the company is using Active Directory Federation Services (AD FS)-based sign-in.
  
 *   **Domain Name**: The domain name if sign-in is AD FS based.
  
-*   **Enable Single Signout**: Selection to make if you want to sign out from Azure AD when a user signs out from Jira or Confluence.
+*   **Enable Single Signout**: The selection to make if you want to sign out from Azure AD when a user signs out from Jira or Confluence.
 
 ## Troubleshooting
 
