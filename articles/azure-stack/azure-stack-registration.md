@@ -22,7 +22,7 @@ ms.reviewer: avishwan
 Registering [Azure Stack](azure-stack-poc.md) with Azure allows you to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the subscription used for registration. 
 
 > [!IMPORTANT]
-> Registration is mandatory if you choose the pay-as-you-use billing model. Otherwise, you will be in violation of the licensing terms of the Azure Stack deployment as usage will otherwise not be reported.
+> Registration is mandatory. Otherwise, you will be in violation of the licensing terms of the Azure Stack deployment as usage will otherwise not be reported.
 
 ## Prerequisites
 Before registering Azure Stack with Azure, you must have:
@@ -43,7 +43,7 @@ You need to use the latest PowerShell for Azure Stack to register with Azure.
 If not already installed, [install PowerShell for Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install). 
 
 ### <a name="bkmk_tools"></a>Download the Azure Stack tools
-The Azure Stack tools GitHub repository contains PowerShell modules that support Azure Stack functionality; including registration functionality. During the registration process you will need to import and use the RegisterWithAzure.psm1 PowerShell module, found in the Azure Stack tools repository, to register your Azure Stack instance with Azure. 
+The Azure Stack tools GitHub repository contains PowerShell modules that support Azure Stack functionality; including registration functionality. During the registration process, you need to import and use the RegisterWithAzure.psm1 PowerShell module, found in the Azure Stack tools repository, to register your Azure Stack instance with Azure. 
 
 To ensure you are using the latest version, you should delete any existing versions of the Azure Stack tools and [download the latest version from GitHub](azure-stack-powershell-download.md) before registering with Azure.
 
@@ -80,7 +80,7 @@ To register the Azure Stack resource provider with Azure, start Powershell ISE a
    ```
 
 ### Register Azure Stack with Azure using the pay-as-you-use billing model
-Use the these steps to register Azure Stack with Azure using the pay-as-you-use billing model.
+Use these steps to register Azure Stack with Azure using the pay-as-you-use billing model.
 
 Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **RegisterWithAzure.psm1** module using PowerShell: 
 
@@ -89,10 +89,16 @@ PowerShell to run:
 ```powershell
 Import-Module .\RegisterWithAzure.psm1
 ```
-Next, in the same PowerShell session, run the **Set-AzsRegistration** cmdlet. PowerShell to run:  
+
+Next, in the same PowerShell session, ensure you are logged in to the correct Azure Powershell Context. This is the azure account that was used to register the Azure Stack resource provider above. Powershell to run: 
+
+```powershell 
+Login-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
+``` 
+
+In the same PowerShell session, run the **Set-AzsRegistration** cmdlet. PowerShell to run:  
 
 ```powershell
-$AzureContext = Get-AzureRmContext
 $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 Set-AzsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
@@ -107,7 +113,7 @@ Set-AzsRegistration `
 |BillingModel|The billing model that your subscription uses. Allowed values for this parameter are: Capacity, PayAsYouUse, and Development.|
 |  |  |
 
-When the script completes, you will see a message similar to **Activating Azure Stack (this step may take up to 10 minutes to complete).**
+The process will take between 10 and 15 minutes. When the command completes, you will see the message **"Your environment is now registered and activated using the provided parameters."**
 
 ### Register Azure Stack with Azure using the capacity billing model
 Follow the same instructions used for registering using the pay-as-you-use billing model, but add the agreement number under which capacity was purchased and change the **BillingModel** parameter to **Capacity**. All other parameters are unchanged.
@@ -115,7 +121,6 @@ Follow the same instructions used for registering using the pay-as-you-use billi
 PowerShell to run:
 
 ```powershell
-$AzureContext = Get-AzureRmContext
 $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 Set-AzsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
@@ -130,26 +135,28 @@ Set-AzsRegistration `
 If you are registering Azure Stack in a disconnected environment (with no internet connectivity), you need to get a registration token from the Azure Stack environment and then use that token on a computer that can connect to Azure and has [PowerShell for Azure Stack installed](#bkmk_powershell).  
 
 ### Get a registration token from the Azure Stack environment
-  1. To get the registration token, run the following PowerShell commands:  
 
-     ```Powershell
-        $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-        $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<your agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
-      ```
-      > [!TIP]  
-      > The registration token is saved in the file specified for *$env:SystemDrive\RegistrationToken.txt*.
+1. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **RegisterWithAzure.psm1** module:  
 
-  2. Save this registration token for use on the Azure connected machine.
+PowerShell to run: 
+```powershell 
+Import-Module .\RegisterWithAzure.psm1 
+``` 
+
+2. To get the registration token, run the following PowerShell commands:  
+
+```Powershell
+$FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+$RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<your agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+```
+  > [!TIP]  
+  > The registration token is saved in the file specified for *$FilePathForRegistrationToken*. You can change the filepath or filename at your discretion. 
+
+3. Save this registration token for use on the Azure connected machine. You can copy the file or the text from $FilePathForRegistrationToken.
 
 
 ### Connect to Azure and register
-Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **RegisterWithAzure.psm1** module: 
-
-PowerShell to run:
-```powershell
-Import-Module .\RegisterWithAzure.psm1
-```
-Next, in the same PowerShell session, specify the registration token to register with Azure:
+On the computer that is internet connected, perform the same steps to import the RegisterWithAzure.psm1 module and login to the correct Azure Powershell context. Then call Register-AzsEnvironment and specify the registration token to register with Azure:
 
 ```Powershell  
 $registrationToken = "<Your Registration Token>"
@@ -161,20 +168,50 @@ Optionally, you can use the Get-Content cmdlet to point to a file that contains 
  $registrationToken = Get-Content -Path '<Path>\<Registration Token File>'
  Register-AzsEnvironment -RegistrationToken $registrationToken  
  ```
-> [!NOTE]  
-> Save the registration resource name or the registration token for future reference.
+  > [!NOTE]  
+  > Save the registration resource name and the registration token for future reference.
+
+## Retrieve an Activation Key from Azure Registration Resource 
+Next, you need to retrieve an activation key from the registration resource created in Azure during Register-AzsEnvironment. 
+ 
+1. To get the activation key, run the following powershell commands:  
+
+```Powershell 
+$RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>" 
+$KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt" 
+$ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath 
+``` 
+  > [!TIP]   
+  > The activation key is saved in the file specified for *$KeyOutputFilePath*. You can change the filepath or filename at your discretion. 
+
+## Create an Activation Resource in Azure Stack 
+Finally, return to the Azure Stack environment with the file or text from the activation key created from Get-AzsActivationKey. Next you will create an activation resource in Azure Stack using that activation key. 
+
+1. to create an activation resource run the following powershell commands:  
+
+```Powershell 
+$ActivationKey = "<activation key>" 
+New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey 
+``` 
+
+Optionally, you can use the Get-Content cmdlet to point to a file that contains your registration token: 
+
+```Powershell   
+$ActivationKey = Get-Content -Path '<Path>\<Activation Key File>' 
+New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey 
+``` 
 
 ## Verify Azure Stack registration
 Use these steps to verify that Azure Stack has successfully registered with Azure.
 1. Sign in to the Azure Stack [administrator portal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;//adminportal.*&lt;region>.&lt;fqdn>*.
 2. Click **More Services** > **Marketplace Management** > **Add from Azure**.
 
-If you see a list of items available from Azure (such as WordPress), your activation was successful.
+If you see a list of items available from Azure (such as WordPress), your activation was successful. However, in disconnected environments you will not see Azure marketplace items in the Azure Stack marketplace.
 
 > [!NOTE]
 > After registration is complete, the active warning for not registering will no longer appear.
 
-## Renew or change registration
+## Renew or change registration in connected environments
 You’ll need to update or renew your registration in the following circumstances:
 - After you renew your capacity-based yearly subscription.
 - When you change your billing model.
@@ -195,6 +232,44 @@ If you would like to change the billing model or syndication features for your i
 ```powershell
 Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
+
+## Renew or change registration in disconnected environments 
+You’ll need to update or renew your registration in the following circumstances: 
+- After you renew your capacity-based yearly subscription. 
+- When you change your billing model. 
+- When you scale changes (add/remove nodes) for capacity-based billing. 
+
+### Remove the activation resource from Azure Stack 
+You will first need to remove the activation resource from Azure Stack, and then the registration resource in Azure.  
+
+1. To remove the activation resource in Azure Stack you must run the following Powershell commands in your Azure Stack environment:  
+
+```Powershell 
+Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint 
+``` 
+
+### Remove the registration resource from Azure 
+You will also need to remove the registration resource from Azure. 
+ 
+To remove the registration resource in Azure, ensure you are on an Azure connected computer, log in to the correct Azure Powershell context, and run the appropriate Powershell commands as described below.
+
+You can use the registration token used to create the resource:  
+
+  ```Powershell 
+  $registrationToken = "<registration token>" 
+  Unregister-AzsEnvironment -RegistrationToken $registrationToken 
+  ``` 
+  
+Or you can use the registration name: 
+
+  ```Powershell 
+  $registrationName = "AzureStack-<Cloud Id of Azure Stack Environment>" 
+  Unregister-AzsEnvironment -RegistrationName $registrationName 
+  ``` 
+
+### Re-register using disconnected steps 
+You have now completely unregistered in a disconnected scenario and must repeat the steps for registering an Azure Stack environment in a disconnected scenario. 
+
 ## Next steps
 
 [Download marketplace items from Azure](azure-stack-download-azure-marketplace-item.md)
