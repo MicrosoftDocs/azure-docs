@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/25/2018
 ms.author: johnkem
 
 ---
@@ -57,7 +57,7 @@ Azure Monitor is the platform service that provides a single source for monitori
     ![Metric blade](./media/monitoring-get-started/monitor-metric-blade.png)
 
    > [!NOTE]
-   > Some metrics are only available by enabling [Application Insights](../application-insights/app-insights-overview.md) and/or Windows or Linux Azure Diagnostics on your resource.
+   > Some metrics are only available by enabling [Application Insights](../application-insights/app-insights-overview.md) and/or Windows or Linux Azure Diagnostics extension on your resource.
    >
    >
 9. When you are happy with your chart, you can use the **Pin** button to pin it to your dashboard.
@@ -77,18 +77,19 @@ Azure Monitor is the platform service that provides a single source for monitori
     ![Enable diagnostic logs](./media/monitoring-get-started/monitor-diaglogs-enable.png)
 
     If you have set up diagnostic logs to Log Analytics, you can then search them in the **Log search** section of the portal.
-12. Navigate to the **Alerts** section of the Monitor page.
+12. Navigate to the **Alerts (Classic)** section of the Monitor page.
 
     ![alerts blade for public](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
-    Here you can manage all [**alerts**](monitoring-overview-alerts.md) on your Azure resources. This includes alerts on metrics, activity log events, Application Insights web tests (Locations), and Application Insights proactive diagnostics. Alerts can trigger an email to be sent or an HTTP POST to a webhook URL.
+    Here you can manage all [**classic alerts**](monitoring-overview-alerts.md) on your Azure resources. This includes alerts on metrics, activity log events, Application Insights web tests (Locations), and Application Insights proactive diagnostics. Alerts connect to action groups. [Action groups](monitoring-action-groups.md) provide a way to notify people or perform specific actions when an alert fires. 
+    
 13. Click **Add metric alert** to create an alert.
 
     ![add metric alert](./media/monitoring-get-started/monitor-alerts-add.png)
 
     You can then pin an alert to your dashboard to easily see its state at any time.
 
-    Azure Monitor now also has [**near-real-time metric alerts**](https://aka.ms/azuremonitor/near-real-time-alerts)(preview) that can be evaluated at a frequency as low as every minute!
+    Azure Monitor now also has [**newer alerts**](https://aka.ms/azuremonitor/near-real-time-alerts) that can be evaluated at a frequency as low as every minute.
     
 14. The Monitor section also includes links to [Application Insights](../application-insights/app-insights-overview.md) applications and [Log Analytics](../log-analytics/log-analytics-overview.md) management solutions. These other Microsoft products have deep integration with Azure Monitor.
 15. If you are not using Application Insights or Log Analytics, chances are that Azure Monitor has a partnership with your current monitoring, logging, and alerting products. See our [partners page](monitoring-partners.md) for a full list and instructions for how to integrate.
@@ -98,4 +99,6 @@ By following these steps and pinning all relevant tiles to a dashboard, you can 
 ![Azure Monitor dashboard](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## Next steps
-* Read the [Overview of Azure Monitor](monitoring-overview.md)
+* Read the [Overview of all Azure monitoring tools](monitoring-overview.md) to understand how Azure Monitor works with them. 
+
+
