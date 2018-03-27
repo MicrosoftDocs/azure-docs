@@ -218,7 +218,7 @@ Schedule a new Update Deployment for the VM by clicking **Schedule update deploy
 
   ![Update Schedule Settings screen](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
 
-* **Maintenance window (minutes)** - Specify the period of time you want the update deployment to occur within.  This helps ensure changes are performed within your defined service windows.
+* **Maintenance window (minutes)** - Specify the period of time you want the update deployment to occur within. This helps ensure changes are performed within your defined service windows.
 
 After you have completed configuring the schedule, click **Create** button and you return to the status dashboard.
 Notice that the **Scheduled** table shows the deployment schedule you created.
@@ -260,21 +260,21 @@ Enable Change and Inventory management for your VM:
 2. From the list, select a VM.
 3. On the VM screen, in the **Operations** section, click **Inventory** or **Change tracking**. The **Enable Change Tracking and Inventory** screen opens.
 
-Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used. Eventhough the solutions are separate on the menu, they are the same solution. Enabling one enables both for your VM.
+Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used. Even though the solutions are separate on the menu, they are the same solution. Enabling one enables both for your VM.
 
 ![Enable Change and Inventory tracking](./media/tutorial-monitoring/manage-inventory-enable.png)
 
-After the solution has been enabled it may take some time while inventory is being collected on the VM before data appears.
+After the solution has been enabled, it may take some time while inventory is being collected on the VM before data appears.
 
 ### Track changes
 
-On your VM select **Change Tracking** under **OPERATIONS**. Click **Edit Settings**, the **Change Tracking** page is displayed. Select the type of setting you want to track and then click **+ Add** to configure the settings. The available option Linux is **Linux Files**
+On your VM, select **Change Tracking** under **OPERATIONS**. Click **Edit Settings**, the **Change Tracking** page is displayed. Select the type of setting you want to track and then click **+ Add** to configure the settings. The available option Linux is **Linux Files**
 
 For detailed information on Change Tracking see, [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md)
 
 ### View inventory
 
-On your VM select **Inventory** under **OPERATIONS**. On the **Software** tab, there is a table list the software that had been found. The high-level details for each software record are viewable in the table. These details include the software name, version, publisher, last refreshed time.
+On your VM, select **Inventory** under **OPERATIONS**. On the **Software** tab, there is a table list the software that had been found. The high-level details for each software record are viewable in the table. These details include the software name, version, publisher, last refreshed time.
 
 ![View inventory](./media/tutorial-monitoring/inventory-view-results.png)
 
