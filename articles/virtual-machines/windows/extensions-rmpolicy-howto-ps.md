@@ -31,7 +31,7 @@ This example shows you how to deny extensions published by 'Microsoft.Compute' b
 
 In a [Cloud Shell](https://shell.azure.com/powershell), type:
 
-``` 
+```azurepowershell-interactive-interactive 
 nano $home/clouddrive/rules.json
 ```
 
@@ -71,7 +71,7 @@ This example shows you how to create a parameters file for VMs in Cloud Shell, b
 
 In [Cloud Shell](https://shell.azure.com/powershell), type:
 
-```
+```azurepowershell-interactive
 nano $home/clouddrive/parameters.json
 ```
 
@@ -138,7 +138,7 @@ $assignment
 
 To test the policy, try to use the VM Access extension. The following should fail with the message "Set-AzureRmVMAccessExtension : Resource 'myVMAccess' was disallowed by policy."
 
-```
+```azurepowershell-interactive
 Set-AzureRmVMAccessExtension `
    -ResourceGroupName "myResourceGroup" `
    -VMName "myVM" `
