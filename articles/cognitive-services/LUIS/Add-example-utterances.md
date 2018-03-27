@@ -9,7 +9,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: v-geberr;
 ---
 
@@ -76,8 +76,8 @@ book me 2 adult business tickets to Paris tomorrow on Air France
  
     ![Simple Entity Labeling](./media/add-example-utterances/create-airline-simple-entity.png)
 
-## Add regex entity label
-In the following procedure, you create a custom regex entity within the following utterance on the intent page to pull out the flight number `AFR1185`:
+## Add regular expression entity label
+In the following procedure, you create a custom regular expression entity within the following utterance on the intent page to pull out the flight number `AFR1185`:
 
 ```
 book me 2 adult business tickets to Paris tomorrow on Air France (AFR1185)
@@ -90,7 +90,7 @@ book me 2 adult business tickets to Paris tomorrow on Air France (AFR1185)
     > * For a single word, just select it. 
     > * For a set of two or more words, select at the beginning and then at the end of the set.
 
-2. In the entity drop-down box that appears, add a new entity by typing its name in the text box, `AirFrance flight number`, and selecting **Create new entity**. Select entity type of **RegEx**, enter Regex "AFR[0-9]{3,4}" in the text box and then select **Done**.
+2. In the entity drop-down box that appears, add a new entity by typing its name in the text box, `AirFrance flight number`, and selecting **Create new entity**. Select entity type of **Regular expression**, enter regular expression "AFR[0-9]{3,4}" in the text box and then select **Done**.
  
     ![Simple Entity Labeling](./media/add-example-utterances/create-airline-simple-entity.png)
  
