@@ -54,7 +54,7 @@ In the **SQL Server configuration** blade, click the **Edit** button in the Auto
 When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
 
 > [!NOTE]
-> The credential name we created here, will be mapped to an SQL login later, this allows the SQL login to access to the key vault. 
+> The credential name we created here will be mapped to an SQL login later. This allows the SQL login to access the key vault. 
 >
 >
 
