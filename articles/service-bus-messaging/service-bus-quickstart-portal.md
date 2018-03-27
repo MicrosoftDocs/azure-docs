@@ -105,6 +105,138 @@ To run the code, do the following:
 
 When no longer needed, delete the namespace and queue. To do so, select these resources on the portal and click **Delete**. 
 
+## Understand the sample code
+
+This section contains more details about what the sample code does. 
+
+### Get connection string and queue
+
+First, the code declares two string variables that are passed to the program as arguments on the command line:
+
+```java
+String ConnectionString = null;
+String QueueName = null;
+```
+
+These values are passed to `main()` after being parsed by the `runApp()` method:
+
+```java
+public static void main(String[] args) {
+    QuickStartJMS app = new QuickStartJMS();
+    try {
+        app.runApp(args);
+        app.run();
+    } catch (Exception e) {
+        System.out.printf("%s", e.toString());
+    }
+    System.exit(0);
+}
+
+public void runApp(String[] args) {
+    try {
+        // parse connection string from command line             
+        Options options = new Options();
+        options.addOption(new Option("c", true, "Connection string"));
+        options.addOption(new Option("q", true, "Queue Name"));
+        CommandLineParser clp = new DefaultParser();
+        CommandLine cl = clp.parse(options, args);
+        if (cl.getOptionValue("c") != null && cl.getOptionValue("q") != null) {
+            ConnectionString = cl.getOptionValue("c");
+            QueueName =  cl.getOptionValue("q");
+        }
+        else
+        {
+            HelpFormatter formatter = new HelpFormatter();
+            formatter.printHelp("run jar with", "", options, "", true);
+        }
+
+    } catch (Exception e) {
+        System.out.printf("%s", e.toString());
+    }
+}
+```
+
+### Create JMS queue connection
+
+The `run()` method uses the Java Messaging Service queue creation mechanics to create the queue context and send messages to it. It also uses the `ConnectionStringBuilder()` API from the Service Bus library to ensure robust parsing of the connection string:
+
+```java
+public void run() throws Exception {
+    ConnectionStringBuilder csb = new ConnectionStringBuilder(ConnectionString);
+        
+    // set up JNDI context
+    Hashtable<String, String> hashtable = new Hashtable<>();
+    hashtable.put("connectionfactory.SBCF", "amqps://" + csb.getEndpoint().getHost() + "?amqp.idleTimeout=120000&amqp.traceFrames=true");
+    hashtable.put("queue.QUEUE", QueueName);
+    //hashtable.put("queue.QUEUE", "testqueue");
+    hashtable.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
+    Context context = new InitialContext(hashtable);
+    ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
+        
+    // Look up queue
+    Destination queue = (Destination) context.lookup("QUEUE");
+
+    // we create a scope here so we can use the same set of local variables cleanly 
+    // again to show the receive side separately with minimal clutter
+    {
+        // Create Connection
+        Connection connection = cf.createConnection(csb.getSasKeyName(), csb.getSasKey());
+        // Create Session, no transaction, client ack
+        Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+
+        // Create producer
+        MessageProducer producer = session.createProducer(queue);
+
+        // Send messages
+        for (int i = 0; i < totalSend; i++) {
+            BytesMessage message = session.createBytesMessage();
+            message.writeBytes(String.valueOf(i).getBytes());
+            producer.send(message);
+            System.out.printf("Sent message %d.\n", i + 1);
+        }
+
+        producer.close();
+        session.close();
+        connection.stop();
+        connection.close();
+    }
+
+    {
+        // Create Connection
+        Connection connection = cf.createConnection(csb.getSasKeyName(), csb.getSasKey());
+        connection.start();
+        // Create Session, no transaction, client ack
+        Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+        // Create consumer
+        MessageConsumer consumer = session.createConsumer(queue);
+        // create a listener callback to receive the messages
+        consumer.setMessageListener(message -> {
+            try {
+                // receives message is passed to callback
+                System.out.printf("Received message %d with sq#: %s\n",
+                        totalReceived.incrementAndGet(), // increments the tracking counter
+                        message.getJMSMessageID());
+                message.acknowledge();
+            } catch (Exception e) {
+                logger.error(e);
+            }
+        });
+
+        // wait on the main thread until all sent messages have been received
+        while (totalReceived.get() < totalSend) {
+            Thread.sleep(1000);
+        }
+        consumer.close();
+        session.close();
+        connection.stop();
+        connection.close();
+    }
+
+    System.out.printf("Received all messages, exiting the sample.\n");
+    System.out.printf("Closing queue client.\n");
+}
+```
+
 ## Next steps
 
 In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about sending and receiving messages, continue with the following articles:
