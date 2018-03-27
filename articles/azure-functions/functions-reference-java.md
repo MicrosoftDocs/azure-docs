@@ -321,9 +321,33 @@ public class Function {
 }
 ```
 
+## Environment variables
+
+It is often desirable to extract out secret information from source code for security reasons. This allows code to be published to source code repos without accidentally providing credentials to other developers. This can be achieved simply by using environment variables, both when running Azure Functions locally, and when deploying your functions to Azure.
+
+To easily set environment variables when running Azure Functions locally, you may choose to add these variables to the local.settings.json file. If one is not present in the root directory of your function project, feel free to create one. Here is what the file should look like:
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+Each key / value mapping in the `values` map will be made available at runtime as an environment variable, accessible by calling `System.getenv("<keyname>")`, for example, `System.getenv("AzureWebJobsStorage")`. Adding additional key / value pairs is accepted and recommended practice.
+
+> [!NOTE]
+> If this approach is taken, be sure to consider whether adding the local.settings.json file to your repository ignore file, so that it is not committed.
+
+With your code now depending on these environment variables, you can log in to the Azure Portal to set the same key / value pairs in your function app settings, so that your code functions equivalently when testing locally and when deployed to Azure.
+
 ## Next steps
 For more information, see the following resources:
 
 * [Best practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Remote Debug Java Azure Functions with Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
