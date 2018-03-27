@@ -17649,6 +17649,51 @@
         "redirect_document_id": false
     },
     {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-use-disks-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-cli.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-portal.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-powershell.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-template-linux.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-template-windows.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-windows",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/azure-stack/azure-stack-redeploy.md",
         "redirect_url": "/azure/azure-stack/asdk/asdk-redeploy",
         "redirect_document_id": false

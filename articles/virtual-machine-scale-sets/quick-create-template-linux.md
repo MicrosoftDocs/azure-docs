@@ -1,5 +1,5 @@
 ---
-title: Create a Linux virtual machine scale set with an Azure template | Microsoft Docs
+title: Quickstart - Create a Linux virtual machine scale set with an Azure template | Microsoft Docs
 description: Learn how to quickly create a Linux virtual machine scale with an Azure Resource Manager template that deploys a sample app and configures autoscale rules
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -13,20 +13,21 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/19/2017
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 03/27/18
 ms.author: iainfou
 
 ---
 
-# Create a Linux virtual machine scale set with an Azure template
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this getting started article, you create a Linux virtual machine scale set with an Azure Resource Manager template. You can also create a scale set with the [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), or the [Azure portal](virtual-machine-scale-sets-create-portal.md).
+# Quickstart: Create a Linux virtual machine scale set with an Azure template
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with an Azure Resource Manager template.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## Define a scale set in a template
@@ -91,8 +92,8 @@ To create a scale with a template, you define the appropriate resources. The cor
  To keep the sample short, the virtual network interface card (NIC) configuration is not shown. Additional components, such as a load balancer, are also not shown. A complete scale set template is shown [at the end of this article](#deploy-the-template).
 
 
-## Install an application
-When you deploy a scale set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. To apply an extension to your scale set, you add the *extensionProfile* section to the preceding resource example. The extension profile typically defines the following properties:
+## Add a sample application
+To test your scale set, install a basic web application. When you deploy a scale set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. To apply an extension to your scale set, you add the *extensionProfile* section to the preceding resource example. The extension profile typically defines the following properties:
 
 - Extension type
 - Extension publisher
@@ -148,8 +149,8 @@ az group deployment create \
 Answer the prompts to provide a scale set name, instance count, and admin credentials for the VM instances. It takes a few minutes for the scale set and supporting resources to be created.
 
 
-## Test your sample application
-To see your app in action, obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) as follows:
+## Test your scale set
+To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip#show) as follows:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -163,16 +164,15 @@ Enter the public IP address of the load balancer in to a web browser in the form
 
 
 ## Clean up resources
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group, scale set, and all related resources as follows:
+When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group, scale set, and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
-```azurecli-interactive 
-az group delete --name myResourceGroup
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
 ```
 
 
 ## Next steps
-In this getting started article, you created a Linux scale set with an Azure template and used the Custom Script Extension to install a basic Python web server on the VM instances. For greater scalability and automation, expand your scale set with the following how-to articles:
+In this quickstart, you created a Linux scale set with an Azure template and used the Custom Script Extension to install a basic Python web server on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure virtual machine scale sets.
 
-- [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
-- Automatically scale with the [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md), [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), or the [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Use automatic OS upgrades for your scale set VM instances](virtual-machine-scale-sets-automatic-upgrade.md)
+> [!div class="nextstepaction"]
+> [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-cli.md)
