@@ -61,7 +61,7 @@ Azure Stream Analytics is easy to get started, you can setup a streaming job in 
 
 Stream Analytics can route job output to many storage systems such as [Azure Blob](https://docs.microsoft.com/azure/storage/storage-introduction), [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [Azure Data Lake Stores](https://docs.microsoft.com/azure/data-lake-store/), or [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction). After storing, you can run batch analytics with Azure HDInsight or send the output to another service such as event hubs for consumption or to [Power BI](https://docs.microsoft.com/power-bi/) for real-time visualization by using Power Bi streaming API.
 
-## Programmer Productivity
+### Programmer Productivity
 
 Azure Stream Analytics uses a simple SQL based query language that has been augmented with powerful temporal constraints to analyze data in motion. To define job transformations, you use a simple, declarative [Stream Analytics query language](https://msdn.microsoft.com/library/azure/dn834998.aspx) that lets you author complex temporal queries and analytics using simple SQL constructs. Stream Analytics query language is consistent to the SQL language, familiarity with SQL language is sufficient to get started with creating jobs. You can also create jobs by using developer tools like Azure PowerShell, [Stream Analytics Visual Studio tools](stream-analytics-tools-for-visual-studio-install.md) or Azure Resource Manager templates. Using developer tools allow you to develop transformation queries offline and use the [CI/CD pipeline](stream-analytics-tools-for-visual-studio-cicd.md) to submit jobs to Azure. 
 
