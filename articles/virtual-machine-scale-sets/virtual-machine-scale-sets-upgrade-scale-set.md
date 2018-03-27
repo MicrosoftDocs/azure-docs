@@ -443,3 +443,4 @@ Let's say you have a scale set with an Azure Load Balancer, and you want to repl
 
 
 ## Next steps
+You can also perform common management tasks on scale sets with the [Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
