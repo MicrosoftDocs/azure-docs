@@ -21,7 +21,7 @@ ms.author: isacabe
 
 In this tutorial, you learn how to run a sample app on your DevKit to send sensor data to your Azure IoT Suite.
 
-The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino compatible board with rich peripherals and sensors. You can develop for it using [Visual Studio Code extension for Arduino](https://aka.ms/arduino). And it comes with a growing [projects catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) to guide you prototype Internet of Things (IoT) solutions that take advantage of Microsoft Azure services.
+The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino compatible board with rich peripherals and sensors. You can develop for it using [Visual Studio Code extension for Arduino](https://aka.ms/arduino). And it comes with a growing [projects catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) to guide your prototype Internet of Things (IoT) solutions that take advantage of Microsoft Azure services.
 
 ## What you need
 
@@ -136,7 +136,7 @@ If you click on the sensor name (AZ3166) a tab opens on the right side of the da
 
 ## Send a C2D message
 Remote Monitoring v2 allows you to invoke remote method on the device.
-The MX Chip example code publishes three methods that you can see in the Method section when you the sensor is selected.
+The MX Chip example code publishes three methods that you can see in the Method section when the sensor is selected.
 
 ![Methods  MX Chip](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
