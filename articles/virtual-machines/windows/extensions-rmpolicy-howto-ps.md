@@ -31,7 +31,7 @@ This example shows you how to deny extensions published by 'Microsoft.Compute' b
 
 In a [Cloud Shell](https://shell.azure.com/powershell), type:
 
-```azurepowershell-interactive-interactive 
+```azurepowershell-interactive
 nano $home/clouddrive/rules.json
 ```
 
