@@ -12,7 +12,7 @@ ms.author: marsma
 ms.custom: mvc
 ---
 
-# Deploy web app from Azure Container Registry
+# Tutorial: Deploy web app from Azure Container Registry
 
 This is part two in a three-part tutorial series. In [part one](container-registry-tutorial-prepare-registry.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you deploy the container into two Web App instances in two different Azure regions to take advantage of the network-close aspect of the geo-replicated registry.
 
