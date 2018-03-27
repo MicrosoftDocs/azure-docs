@@ -406,7 +406,21 @@
       - name: Use internal DNS
         href: static-dns-name-resolution-for-linux-on-azure.md
   - name: Use VM extensions
-    href: ../extensions/overview.md
+    items:
+    - name: VM Extension overview
+      href: extensions-features.md
+    - name: Custom Script Extension
+      href: extensions-customscript.md
+    - name: OMS Agent Extension
+      href: extensions-oms.md
+    - name: Linux Diagnostic Extension
+      href: diagnostic-extension.md
+    - name: Network Watcher Agent
+      href: extensions-nwa.md
+    - name: VMAccess Extension
+      href: using-vmaccess-extension.md
+    - name: Restrict extension installation
+      href: extensions-rmpolicy-howto-cli.md   
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
