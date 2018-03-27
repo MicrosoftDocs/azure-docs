@@ -324,13 +324,21 @@ Adding `/f` will force running applications to close without warning users.
 
 ## Windows Commands - PowerShell
 
-WARNING: There is a known issue with pasting text into PowerShell in SAC where an extra character may be introduced into the pasted text. Typically this occurs when pasting duplicate consecutive characters, for example "boot" is pasted as "booot" and "install" is pasted as "installl". The issue does not exist when pasting text in CMD in SAC, only when using PowerShell in SAC, and only on Windows Server 2016 and later. Also, this issue does not impact commands that you are typing directly, only commands being pasted from the clipboard.
-
-Carefully review text pasted in PowerShell in SAC for extra characters, or use CMD instead where this issue does not occur.
-
 To run PowerShell in SAC, after you reach a CMD prompt, type:
 
 `powershell <enter>`
+
+WARNING: Remove the PSReadLine module from the PowerShell session before running any other PowerShell commands. There is a known issue where extra characters may be introduced in text pasted from the clipboard if PSReadLine is running in a PowerShell session in SAC.
+
+First check if PSReadLine is loaded. It is loaded by default on Windows Server 2016, Windows 10, and later versions of Windows. It would only be present on earlier Windows versions if it had been manually installed. 
+
+If this command returns to a prompt with no output, then the module was not loaded and you can continue using the PowerShell session in SAC as normal.
+
+`get-module psreadline`
+
+If the above command returns the PSReadLine module version, run the following command to unload it. This command does not delete or uninstall the module, it only unloads it from the current PowerShell session.
+
+`remove-module psreadline`
 
 ### View and Edit Windows Registry Settings
 #### Verify RDP is enabled
