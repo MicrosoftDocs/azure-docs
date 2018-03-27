@@ -1,6 +1,6 @@
 ---
-title: Create a LUIS app to get secondary data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and entities to extract data. 
+title: Create a LUIS app to extract data - Azure | Microsoft Docs 
+description: Learn how to create a simple LUIS app using intents and a simple entity to extract machine-learned data. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
@@ -12,8 +12,8 @@ ms.date: 03/24/2018
 ms.author: v-geberr;
 --- 
 
-# Simple app with intents and machine-learned entities
-This simple app has two intents and one entity . This app demonstrates how to pull data out of an utterance. In the utterance, `Send a message telling them to stop`, the intent (primary data) is to send a message and the entity (secondary data) is the content of the message, `telling them to stop`.  
+# Simple app with intents and a simple entity
+This simple app has two intents and one entity . This app demonstrates how to pull data out of an utterance. In the utterance, `Send a message telling them to stop`, the intent (primary data) is to send a message and the simple entity (secondary data) is the content of the message, `telling them to stop`.  
 
 When the intent and entities of the utterance are identified, LUIS is done. The calling application or chat bot takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
 
@@ -64,7 +64,7 @@ Select **Intents** from the left panel. Select the **None** intent. Add three ut
 
 In your LUIS-calling application, such as a chat bot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
-## Create a message entity 
+## Create a simple entity to extract message 
 1. Select **Intents** from the left menu.
 
 2. Select `SendMessage` from the intents list.
