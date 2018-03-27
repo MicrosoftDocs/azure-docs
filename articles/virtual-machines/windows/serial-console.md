@@ -194,10 +194,14 @@ To remove the telnet client
 When limited to methods available in Windows by default, PowerShell can be a better approach for testing port connectivity. See the PowerShell section below for examples.
 #### Test DNS name resolution
 `nslookup bing.com`
-#### Show Windows firewall rule
+#### Show Windows Firewall rule
 `netsh advfirewall firewall show rule name="Remote Desktop - User Mode (TCP-In)"`
-#### Disable Windows firewall
+#### Disable Windows Firewall
 `netsh advfirewall set allprofiles state off`
+
+You can use this command when troubleshooting to temporarily rule out the Windows Firewall. It will be enable on next restart or when you enaable it using the command below. Do not stop the Windows Firewall service (MPSSVC) or Base Filtering Engine (BFE) service as way to rule out the Windows Firewall. Stopping MPSSVC or BFE will result in all connectivity being blocked.
+#### Enable Windows Firewall
+`netsh advfirewall set allprofiles state on`
 ### Manage Users and Groups
 #### Create local user account
 `net user /add <username> <password>`
@@ -256,6 +260,7 @@ Replace `<name>` with the name returned in the above command for the application
 ### File System Management
 #### Get file version
 `wmic datafile where "drive='C:' and path='\\windows\\system32\\drivers\\' and filename like 'netvsc%'" get version /format:list`
+
 This example returns the file version of the virtual NIC driver, which is netvsc.sys, netvsc63.sys, or netvsc60.sys depending on the Windows version.
 #### Scan for system file corruption
 `sfc /scannow`
@@ -373,6 +378,8 @@ or
 #### Enable NIC
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | enable-netadapter`
 
+or
+
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
 `Get-NetAdapter` is available in 2012+, for 2008R2 use `Get-WmiObject`.
@@ -385,21 +392,35 @@ or
 #### Ping
 `test-netconnection`
 
+or
+
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
 `Test-Netconnection` without any parameters will try to ping `internetbeacon.msedge.net`. It is available on 2012+. For 2008R2 use `Get-WmiObject` as in the second example.
 #### Port Ping
-`test-netconnection -ComputerName bing.com -Port 80` `(new-object Net.Sockets.TcpClient).BeginConnect('bing.com','80',$null,$null).AsyncWaitHandle.WaitOne(300)`
+`test-netconnection -ComputerName bing.com -Port 80`
+
+or
+
+`(new-object Net.Sockets.TcpClient).BeginConnect('bing.com','80',$null,$null).AsyncWaitHandle.WaitOne(300)`
 
 `Test-NetConnection` is available on 2012+. For 2008R2 use `Net.Sockets.TcpClient`
 #### Test DNS name resolution
-`resolve-dnsname bing.com` `[System.Net.Dns]::GetHostAddresses('bing.com')`
+`resolve-dnsname bing.com` 
+
+or 
+
+`[System.Net.Dns]::GetHostAddresses('bing.com')`
 
 `Resolve-DnsName` is available on 2012+. For 2008R2 use `System.Net.DNS`.
 #### Show Windows firewall rule by name
 `get-netfirewallrule -name RemoteDesktop-UserMode-In-TCP` 
 #### Show Windows firewall rule by port
-`get-netfirewallportfilter | where {$_.localport -eq 3389} | foreach {Get-NetFirewallRule -Name $_.InstanceId} | format-list Name,Enabled,Profile,Direction,Action` `(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
+`get-netfirewallportfilter | where {$_.localport -eq 3389} | foreach {Get-NetFirewallRule -Name $_.InstanceId} | format-list Name,Enabled,Profile,Direction,Action`
+
+or
+
+`(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
 
 `Get-NetFirewallPortFilter` is available on 2012+. For 2008R2 use the `hnetcfg.fwpolicy2` COM object. 
 #### Disable Windows firewall
@@ -410,7 +431,11 @@ or
 #### Create local user account
 `new-localuser <name>`
 #### Verify user account is enabled
-`(get-localuser | where {$_.SID -like "S-1-5-21-*-500"}).Enabled` `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
+`(get-localuser | where {$_.SID -like "S-1-5-21-*-500"}).Enabled`
+
+or 
+
+`(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
 `Get-LocalUser` is available on 2012+. For 2008R2 use `Get-WmiObject`. This example shows the built-in local administrator account, which always has SID `S-1-5-21-*-500`. Azure VMs created from generalized image will have the local administrator account renamed to the name specified during VM provisioning. So it will usually not be `Administrator`.
 #### Add local user to local group
@@ -421,6 +446,8 @@ or
 This example enables the built-in local administrator account, which always has SID `S-1-5-21-*-500`. Azure VMs created from generalized image will have the local administrator account renamed to the name specified during VM provisioning. So it will usually not be `Administrator`.
 #### View user account properties
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`
+
+or 
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 
