@@ -89,16 +89,12 @@ In the vCore-based purchasing model customers pay for:
 - Number of IOs**
 - Backup storage (RA-GRS)** 
 
-Customers can choose between these generations of hardware:
-- Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors
-- Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors*
-
-\* Gen 5 availability will be announced separately
+\* In the initial public preview, the Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors
 
 \*\* During preview, 7 days of backups and IOs are free
 
 > [!IMPORTANT]
-> Compute, IO’s, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 
 ### Choosing a service tier in the vCore resources model
 
@@ -109,8 +105,8 @@ The following table helps you understand the differences between these two tiers
 ||**General Purpose**|**Business Critical**|
 |---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|
-|Compute|1 to 24 vCore|1 to 24 vCore|
-|Storage|Premium remote storage, 5 GB – 4 TB per instance|Super-fast local SSD storage, 5 GB – 4 TB per instance|
+|Compute|1 to 16 vCore|1 to 16 vCore|
+|Storage|Premium remote storage, 5 GB – 1 TB per instance|Super-fast local SSD storage, 5 GB – 1.5 TB per instance|
 |IO throughput (approximate)|500 IOPS per vCore with 7500 maximum IOPS|5000 IOPS per core|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
 |Backups|RA-GRS, 7-35 days (7 days by default)|RA-GRS, 7-35 days (7 days by default)*|
@@ -129,9 +125,9 @@ The following table helps you understand how to select the optimal configuration
 ||Gen 4|Gen 5|
 |---|---|---|
 |Hardware|Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core)|Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread)|
-|Performance levels|1, 2, 4, 8, 16, 24 vCores|2, 4, 8, 16, 24, 32, 48, 80 vCores|
+|Performance levels|1, 2, 4, 8, 16 vCores|2, 4, 8, 16 vCores|
 |Memory|7 GB per vCore|5.5 GB per vCore|
-|Storage|Up to 1.6 TB local SSD storage|Up to 5.5 TB local SSD storage
+|Storage|Up to 1 TB local SSD storage|Up to 1.5 TB local SSD storage
 ||||
 
 The supported performance levels are shown in the following table.
