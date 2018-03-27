@@ -240,7 +240,7 @@
     items:
     - name: Monitoring overview
       href: service-fabric-diagnostics-overview.md
-    - name: Cluster logging
+    - name: Cluster events
       href: service-fabric-diagnostics-event-generation-infra.md
       items:
       - name: Operational channel
