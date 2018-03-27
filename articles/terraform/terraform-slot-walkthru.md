@@ -123,7 +123,7 @@ resource "azurerm_app_service_active_slot" "slotDemoActiveSlot" {
 }
 ```
 
-![Create the swap.tf file with nano](./media/cloud-shell-swap.png)
+![Create the swap.tf file with nano](./media/terraform-slot-walkthru/cloud-shell-swap.png)
 
 You now have the Terraform code to swap the `Production slot` with the `Deployment slot`. In the cloud shell command prompt, enter the following commands.
 
@@ -133,6 +133,6 @@ terraform plan
 terraform apply
 ```
 
-Once Terraform has finished swapping the slots, return to the browser that is rendering the `slotAppService web app` and refresh the page. You will notice that the `web app` that was in your `slotAppServiceSlotOne` deployment slot has been swapped with the `Production slot` and that the page now renders green. To bring back the original bits that were originally in the `Production slot`, re-run the `swap.tf` by typing `terraform apply` and the original code will be swapped again from the `Deployment slot` to the `Production slot`.
+Once Terraform has finished swapping the slots, return to the browser that is rendering the `slotAppService web app` and refresh the page. You will notice that the `web app` that was in your `slotAppServiceSlotOne` deployment slot has been swapped with the `Production slot` and that the page now renders green. To bring back the original bits that were originally in the `Production slot`, rerun the `swap.tf` by typing `terraform apply` and the original code will be swapped again from the `Deployment slot` to the `Production slot`.
 
 ## Next steps
