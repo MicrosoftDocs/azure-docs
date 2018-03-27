@@ -240,55 +240,29 @@
         href: service-fabric-cluster-resource-manager-movement-cost.md
   - name: Monitoring and diagnostics
     items:
-    - name: Monitor and diagnose applications
+    - name: Monitoring overview
       href: service-fabric-diagnostics-overview.md
-    - name: Generate events
+    - name: Cluster logging
+      href: service-fabric-diagnostics-event-generation-infra.md
       items:
-      - name: Generate platform level events
-        href: service-fabric-diagnostics-event-generation-infra.md
-        items:
-        - name: Operational channel
-          href: service-fabric-diagnostics-event-generation-operational.md
-        - name: Reliable Services events
-          href: service-fabric-reliable-services-diagnostics.md
-        - name: Reliable Actors events
-          href: service-fabric-reliable-actors-diagnostics.md
-        - name: Performance metrics
-          href: service-fabric-diagnostics-event-generation-perf.md
-        - name: Monitoring Service Remoting
-          href: service-fabric-reliable-serviceremoting-diagnostics.md
-      - name: Generate application level events
-        href: service-fabric-diagnostics-event-generation-app.md
-    - name: Inspect application and cluster health
-      items:
-      - name: Monitor Service Fabric health
-        href: service-fabric-health-introduction.md
-      - name: Report and check service health
-        href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-      - name: Add custom health reports
-        href: service-fabric-report-health.md
-      - name: Troubleshoot with system health reports
-        href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-      - name: View health reports
-        href: service-fabric-view-entities-aggregated-health.md
-    - name: Aggregate events
-      items:
-      - name: Aggregate events with EventFlow
-        href: service-fabric-diagnostics-event-aggregation-eventflow.md
-      - name: Aggregate events with Azure Diagnostics
-        items:
-        - name: Windows
-          href: service-fabric-diagnostics-event-aggregation-wad.md
-        - name: Linux
-          href: service-fabric-diagnostics-event-aggregation-lad.md
-    - name: Analyze events
-      items:
-      - name: Analyze events with Application Insights
-        href: service-fabric-diagnostics-event-analysis-appinsights.md
-      - name: Analyze events with OMS
-        href: service-fabric-diagnostics-event-analysis-oms.md
-    - name: Troubleshoot your local cluster
-      href: service-fabric-troubleshoot-local-cluster-setup.md
+      - name: Operational channel
+        href: service-fabric-diagnostics-event-generation-operational.md
+      - name: Reliable Services events
+        href: service-fabric-reliable-services-diagnostics.md
+      - name: Reliable Actors events
+        href: service-fabric-reliable-actors-diagnostics.md
+      - name: Performance metrics
+        href: service-fabric-diagnostics-event-generation-perf.md
+      - name: Monitoring Service Remoting
+        href: service-fabric-reliable-serviceremoting-diagnostics.md
+    - name: Application logging
+      href: service-fabric-diagnostics-event-generation-app.md
+    - name: Health model overview
+      href: service-fabric-health-introduction.md
+    - name: Report health events
+      href: service-fabric-report-health.md
+    - name: Monitor with OMS
+      href: service-fabric-diagnostics-event-analysis-oms.md
   - name: Integration with API Management
     href: service-fabric-api-management-overview.md
 - name: How-to guides
@@ -537,6 +511,8 @@
         href: service-fabric-cluster-security-update-certs-azure.md
       - name: Delete
         href: service-fabric-cluster-delete.md
+      - name: Remote connect to cluster node VM
+        href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
     - name: Standalone clusters
       items:
       - name: Create
@@ -571,7 +547,7 @@
       href: service-fabric-patch-orchestration-application.md
   - name: Monitor and diagnose
     items:
-    - name: OMS
+    - name: Analyze with OMS
       items:
       - name: Set up OMS Log Analytics
         href: service-fabric-diagnostics-oms-setup.md
@@ -579,10 +555,26 @@
         href: service-fabric-diagnostics-oms-agent.md
       - name: Monitor containers
         href: service-fabric-diagnostics-oms-containers.md
-    - name: Performance monitoring
+    - name: Analyze with Application Insights
+      href: service-fabric-diagnostics-event-analysis-appinsights.md
+    - name: Aggregate events - EventFlow
+      href: service-fabric-diagnostics-event-aggregation-eventflow.md
+    - name: Aggregate events - Azure Diagnostics
       items:
-      - name: Performance monitoring with WAD
-        href: service-fabric-diagnostics-perf-wad.md
+      - name: Windows
+        href: service-fabric-diagnostics-event-aggregation-wad.md
+      - name: Linux
+        href: service-fabric-diagnostics-event-aggregation-lad.md
+    - name: Performance monitoring with WAD
+      href: service-fabric-diagnostics-perf-wad.md
+    - name: Report and check health
+      href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+    - name: Troubleshoot with system health reports
+      href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+    - name: View health reports
+      href: service-fabric-view-entities-aggregated-health.md
+    - name: Troubleshoot your local cluster
+      href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Reference
   items:
   - name: Azure PowerShell
