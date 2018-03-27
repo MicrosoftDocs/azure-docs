@@ -20,7 +20,7 @@ The intents are categories of what the user wants. This app has two intents: Boo
 
 ## Hierarchical entity is contextually learned 
 The purpose of the entity is to find and categorize parts of the text in the utterance. 
-A [hierarchical](luis-concept-entity-types.md) entity is learned based on the context of the usage.  
+A [hierarchical](luis-concept-entity-types.md) entity is learned based on the context of the usage. A person can determine the origin and destination cities in an utterance based on the usage of `to` and `from`. These are an example of contextual usage.  
 
 For this Travel app, LUIS extracts the origin and destination locations in such as way that a standard reservation can be created and filled. LUIS allows utterances to have variations, abbreviations, and slang. 
 
@@ -40,7 +40,7 @@ SEA to NYC next Monday
 LA to MCO spring break
 ```
  
-The hierarchical entity matches destination location. If the origin location is specified, this is also extracted from the utterance.  
+The hierarchical entity matches origin and destination location. If only one child (origin or destination) of an hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
 
 ## What LUIS does
 When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
@@ -110,7 +110,7 @@ Now that the two intents have utterances, LUIS needs to understand what a locati
 
 2. Select `BookFlight` from the intents list.
 
-3. In the utterance, `Book 2 flights from Seattle to Cairo next Monday`, select the word `Seattle`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `Location` in the text box then select **Create new entity** in the drop-down menu then select enter. 
+3. In the utterance, `Book 2 flights from Seattle to Cairo next Monday`, select the word `Seattle`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `Location` in the text box then select **Create new entity** in the drop-down menu. 
 
     ![Label utterance](./media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png)
 
@@ -118,7 +118,7 @@ Now that the two intents have utterances, LUIS needs to understand what a locati
 
     ![Verify entity type](./media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png)
 
-    The label says Location because LUIS didn't know if the term was the origin or destination. Select `Seattle`, then select Location, then follow the menu to the right and select `Origin`.
+    The label for `Seattle` is marked as `Location` because LUIS doesn't know if the term was the origin or destination, or neither. Select `Seattle`, then select Location, then follow the menu to the right and select `Origin`.
 
 5. Now that the entity is created, and one utterance is labeled, label the other cities by selecting the city name, then selecting Location, then following the menu to the right to select `Origin` or `Destination`.
 
