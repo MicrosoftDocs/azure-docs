@@ -1,20 +1,18 @@
 ---
-title: Configure end-to-end SSL with Azure Application Gateway | Microsoft Docs
+title: Configure end-to-end SSL with Azure Application Gateway
 description: This article describes how to configure end-to-end SSL with Azure Application Gateway by using PowerShell
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 
-ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
+ms.date: 3/27/2018
+ms.author: victorh
 
 ---
 # Configure end-to-end SSL by using Application Gateway with PowerShell
@@ -157,8 +155,8 @@ All configuration items are set before creating the application gateway. The fol
    5. Configure the certificate for the application gateway. This certificate is used to decrypt and reencrypt the traffic on the application gateway.
 
    ```powershell
-   $password = ConvertTo-SecureString -String "Azure12345!" -AsPlainText -Force
-   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $password
+   $password = ConvertTo-SecureString  <password for certificate file> -AsPlainText -Force 
+   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $password 
    ```
 
    > [!NOTE]
