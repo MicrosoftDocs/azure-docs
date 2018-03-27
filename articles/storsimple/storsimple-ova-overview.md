@@ -202,6 +202,15 @@ StorSimple uses deduplication and data compression to further reduce storage req
 
 StorSimple data protection features enable you to create on-demand backups. Additionally, a default backup schedule ensures that data is backed up daily. Backups are taken in the form of incremental snapshots, which are stored in the cloud. Snapshots, which record only the changes since the last backup, can be created and restored quickly. These snapshots can be critically important in disaster recovery scenarios because they replace secondary storage systems (such as tape backup), and allow you to restore data to your datacenter or to alternate sites if necessary.
 
+### GDPR compliance
+[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR contains many requirements about how you collect, store, and use personal information. The GDPR rules are imposed on companies, government agencies, and other organizations that operate in EU and collect, analyze data tied to EU residents.
+
+The StorSimple Device Manager for virtual series is GDPR compliant. There are two key instances where personal information is collected and displayed in the service:
+ - Alert user settings where email addresses of users are configured. This information can be cleared by the administrator. 
+ - Users who can access the data residing on the shares. A list of users who can access the share data is displayed and can be exported. This list is also deleted when the shares is deleted.
+
+For more information, review the [Microsoft Privacy policy at Trust Center](https://www.microsoft.com/trustcenter).
+
 ## Next steps
 
 Learn how to [prepare the virtual array portal](storsimple-virtual-array-deploy1-portal-prep.md).
