@@ -58,21 +58,21 @@ All data is sent back and forth is encrypted on the wire.
 All access to the serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.  
 
 >[!CAUTION] 
-While no access passwords for the console are logged, if commands run within the console contain or output passwords, secrets, user names or any other form of Personally Identifiable Information (PII), those will be written to the virtual machine boot diagnostics logs, along with all other visible text, as part of the implementation of the serial console's scrollback functionality. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them, however we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII. 
+While no access passwords for the console are logged, if commands run within the console contain or output passwords, secrets, user names or any other form of Personally Identifiable Information (PII), those will be written to the virtual machine boot diagnostics logs, along with all other visible text, as part of the implementation of the serial console's scroll back functionality. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them, however we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII. 
 
 ### Concurrent usage
 If a user is connected to serial console and another user successfully requests access to that same virtual machine, the first user will be disconnected and the second user connected in a manner akin to the first user standing up and leaving the physical console and a new user sitting down.
 
 >[!CAUTION] 
-This means that the user who gets disconnected will not be logged out! The ability to enforce a logout upon disconnect (via SIGHUP or similar mechanism) is still in the roadmap. For Windows there is an automatic timeout enabled in SAC, however for Linux you can configure terminal timeout setting. 
+This means that the user who gets disconnected will not be logged out! The ability to enforce a logout upon disconnect (via SIGHUP or similar mechanism) is still in the roadmap. For Windows, there is an automatic timeout enabled in SAC, however for Linux you can configure terminal timeout setting. 
 
 
 ## Accessing serial console for Windows 
-Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (e.g. Windows 10, Windows 8 or Windows 7). 
-To enable Serial console for Windows virtual machines created with using Feb2018 or lower images please the following steps: 
+Newer Windows Server images on Azure will have [Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) enabled by default. SAC is supported on server versions of Windows but is not available on client versions (for example, Windows 10, Windows 8, or Windows 7). 
+To enable Serial console for Windows virtual machines created with using Feb2018 or lower images please use the following steps: 
 
 1. Connect to your Windows virtual machine via Remote Desktop
-2. From an Administrative command prompt run the following commands 
+2. From an Administrative command prompt, run the following commands 
 * `bcdedit /ems {current} on`
 * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 3. Reboot the system for the SAC console to be enabled
@@ -82,7 +82,7 @@ To enable Serial console for Windows virtual machines created with using Feb2018
 If needed SAC can be enabled offline as well, 
 
 1. Attach the windows disk you want SAC configured for as a data disk to existing VM. 
-2. From an Administrative command prompt run the following commands 
+2. From an Administrative command prompt, run the following commands 
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
@@ -92,7 +92,7 @@ If [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) is not e
 
 ### Enabling boot menu to show in the serial console 
 
-If you need to enable Windows boot loader prompts to show in the serial console you can add the following additional options to Windows boot loader.
+If you need to enable Windows boot loader prompts to show in the serial console, you can add the following additional options to Windows boot loader.
 
 1. Connect to your Windows virtual machine via Remote Desktop
 2. From an Administrative command prompt run the following commands 
@@ -108,11 +108,11 @@ If you need to enable Windows boot loader prompts to show in the serial console 
 
 The table below shows examples of how to accomplish tasks in scenarios where you may need to use SAC to access the VM, such as when you need to troubleshoot RDP connection failures.
 
-SAC has been included in all versions of Windows since Windows Server 2003 but is disabled by default. SAC relies on the `sacdrv.sys` kernel driver, the `Special Administration Console Helper` service (`sacsvr`), and the `sacsess.exe` process. For more information see [Emergency Management Services Tools and Settings](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+SAC has been included in all versions of Windows since Windows Server 2003 but is disabled by default. SAC relies on the `sacdrv.sys` kernel driver, the `Special Administration Console Helper` service (`sacsvr`), and the `sacsess.exe` process. For more information, see [Emergency Management Services Tools and Settings](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 SAC allows you to connect to your running OS via serial port. When you launch CMD from SAC, `sacsess.exe` launches `cmd.exe` within your running OS. You can see that in Task Manager if you RDP to your VM at the same time you are connected to SAC via the serial console feature. The CMD you access via SAC is the same `cmd.exe` you use when connected via RDP. All the same commands and tools are available, including the ability to launch PowerShell from that CMD instance. That is a major difference between SAC and the Windows Recovery Environment (WinRE) in that SAC is letting you manage your running OS, where WinRE boots into a different, minimal OS. While Azure VMs do not support the ability to access WinRE, with the serial console feature, Azure VMs can be managed via SAC.
 
-Because SAC is limited to an 80x24 screen buffer with no scrollback, add `| more` to commands to display the output one page at a time. Use `<spacebar>` to see the next page, or `<enter>` to see the next line.  
+Because SAC is limited to an 80x24 screen buffer with no scroll back, add `| more` to commands to display the output one page at a time. Use `<spacebar>` to see the next page, or `<enter>` to see the next line.  
 
 `SHIFT+INSERT` is the paste shortcut for the serial console window.
 
@@ -140,7 +140,7 @@ Show Windows firewall rule | `netsh advfirewall firewall show rule name="Remote 
 Disable Windows firewall | `netsh advfirewall set allprofiles state off` | 
 Create local user account | `net user /add <username> <password>` |
 Add local user to local group | `net localgroup Administrators <username> /add` | 
-Verify user account is enabled | `net user <username> | find /i "active"` | Note that Azure VMs created from generalized image will have the local administrator account renamed to the name specified during VM provisioning. So it will usually not be `Administrator`.
+Verify user account is enabled | `net user <username> | find /i "active"` | Azure VMs created from generalized image will have the local administrator account renamed to the name specified during VM provisioning. So it will usually not be `Administrator`.
 Enable user account | `net user <username> /active:yes` | 
 View user account properties | `net user <username>` | Example lines of interest from a local admin account<br>`Account active Yes`<br>`Account expires Never`<br>`Password expires Never`<br>`Workstations allowed All`<br>`Logon hours allowed All`<br>`Local Group Memberships *Administrators`
 View local groups | `net localgroup` |
@@ -157,7 +157,7 @@ Scan for system file corruption | `dism /online /cleanup-image /scanhealth` | Se
 Remove non-present PNP devices | `%windir%\System32\RUNDLL32.exe %windir%\System32\pnpclean.dll,RunDLL_PnpClean /Devices /Maxclean` |
 Export file permissions to text file | `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 Save file permissions to ACL file | `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /save %temp%\MachineKeys_permissions_before.aclfile /t` | 
-Restore file permissions from ACL file | `icacls %programdata%\Microsoft\Crypto\RSA /save %temp%\MachineKeys_permissions_before.aclfile /t` | Note that the path when using `/restore` needs to be the parent folder of the folder you specified when using `/save`. In this example, `\RSA` is the parent of the `\MachineKeys` folder specified in the `/save` example above.
+Restore file permissions from ACL file | `icacls %programdata%\Microsoft\Crypto\RSA /save %temp%\MachineKeys_permissions_before.aclfile /t` | The path when using `/restore` needs to be the parent folder of the folder you specified when using `/save`. In this example, `\RSA` is the parent of the `\MachineKeys` folder specified in the `/save` example above.
 Take NTFS ownership of a folder | `takeown /f %programdata%\Microsoft\Crypto\RSA\MachineKeys /a /r` | 
 Grant NTFS permissions to a folder recursively | `icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"` | 
 Show IPSec configuration | `netsh nap client show configuration` | 
@@ -171,9 +171,9 @@ View time zone | `systeminfo | find /i "time zone"`<br><br>or<br><br>`wmic timez
 
 ## Windows Commands - PowerShell
 
-WARNING: There is a known issue with pasting text into PowerShell in SAC where an extra character may be introducted into the text being pasted. Typically this occurs when pasting consecutive characters that are the same, e.g. "boot" is pasted as "booot" and "install" is pasted as "installl". The issue does not exist when pasting text in CMD in SAC, only when using PowerShell in SAC, and only on Windows Server 2016 and later.
+WARNING: There is a known issue with pasting text into PowerShell in SAC where an extra character may be introduced into the text being pasted. Typically this occurs when pasting consecutive characters that are the same, for example "boot" is pasted as "booot" and "install" is pasted as "installl". The issue does not exist when pasting text in CMD in SAC, only when using PowerShell in SAC, and only on Windows Server 2016 and later.
 
-Please carefully review text pasted in PowerShell in SAC for extra characters, or use CMD instead where this issue does not occur.
+Carefully review text pasted in PowerShell in SAC for extra characters, or use CMD instead where this issue does not occur.
 
 To run PowerShell in SAC, after you reach a CMD prompt, type:
 
@@ -184,7 +184,7 @@ Task | Command | Notes
 Verify RDP is enabled | `get-itemproperty -path 'hklm:\system\curRentcontrolset\control\terminal server' -name 'fdenytsconNections'`<br><br>`get-itemproperty -path 'hklm:\software\policies\microsoft\windows nt\terminal services' -name 'fdenytsconNections'` | The second key (under \Policies) will only exist if the relevant group policy setting is configured.
 Enable RDP | `set-itemproperty -path 'hklm:\system\curRentcontrolset\control\terminal server' -name 'fdenytsconNections' 0 -type dword`<br><br>`set-itemproperty -path 'hklm:\software\policies\microsoft\windows nt\terminal services' -name 'fdenytsconNections' 0 -type dword` | The second key (under \Policies) would only be needed if the relevant group policy setting had been configured. Value will be rewritten at next group policy refresh if it is configured in group policy.
 View service details | `get-wmiobject win32_service -filter "name='termservice'" | fl Name,DisplayName,State,StartMode,StartName,PathName,ServiceType,Status,ExitCode,ServiceSpecificExitCode,ProcessId` | `Get-Service` can be used but doesn't include the service logon account. `Get-WmiObject win32-service` does.
-Set service logon account | `(get-wmiobject win32_service -filter "name='termservice'").Change($null,$null,$null,$null,$null,$false,'NT Authority\NetworkService')` | When specifying a service account other than `NT AUTHORITY\LocalService`, `NT AUTHORITY\NetworkService`, or `LocalSystem` you need to specify the account's password as the last (8th) argument after the account name.
+Set service logon account | `(get-wmiobject win32_service -filter "name='termservice'").Change($null,$null,$null,$null,$null,$false,'NT Authority\NetworkService')` | When using a service account other than `NT AUTHORITY\LocalService`, `NT AUTHORITY\NetworkService`, or `LocalSystem`, specify the account password as the last (eighth) argument after the account name.
 Set service startup type | `set-service termservice -startuptype Manual`| `Set-service` accepts `Automatic`, `Manual`, or `Disabled` for startup type.
 Set service dependencies | `Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\TermService' -Name DependOnService -Value @('RPCSS','TermDD')` | 
 Start service | `start-service termservice` | 
@@ -200,10 +200,10 @@ Show Windows firewall rule by name | `get-netfirewallrule -name RemoteDesktop-Us
 Show Windows firewall rule by port | `get-netfirewallportfilter | where {$_.localport -eq 3389} | foreach {Get-NetFirewallRule -Name $_.InstanceId} | format-list Name,Enabled,Profile,Direction,Action`<br><br>`(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled` | `Get-NetFirewallPortFilter` is available on 2012+. For 2008R2 use the `hnetcfg.fwpolicy2` COM object. 
 Disable Windows firewall | `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False` | `Set-NetFirewallProfile` is available on 2012+. For 2008R2 use `netsh advfirewall` as referenced in the CMD section above.
 Create local user account | `new-localuser <name>`|
-Verify user account is enabled | `(get-localuser | where {$_.SID -like "S-1-5-21-*-500"}).Enabled`<br><br>`(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled` | `Get-LocalUser` is available on 2012+. For 2008R2 use `Get-WmiObject`. This example shows the builtin local administrator account, which always has SID `S-1-5-21-*-500`. Note that Azure VMs created from generalized image will have the local administrator account renamed to the name specified during VM provisioning. So it will usually not be `Administrator`.
+Verify user account is enabled | `(get-localuser | where {$_.SID -like "S-1-5-21-*-500"}).Enabled`<br><br>`(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled` | `Get-LocalUser` is available on 2012+. For 2008R2 use `Get-WmiObject`. This example shows the built-in local administrator account, which always has SID `S-1-5-21-*-500`. Azure VMs created from generalized image will have the local administrator account renamed to the name specified during VM provisioning. So it will usually not be `Administrator`.
 Add local user to local group | `add-localgroupmember -group Administrators -member <username>` |
-Enable local user account | `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | enable-localuser` | This example enables the builtin local administrator account, which always has SID `S-1-5-21-*-500`. Note that Azure VMs created from generalized image will have the local administrator account renamed to the name specified during VM provisioning. So it will usually not be `Administrator`.
-View user account properties | `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`<br><br>`get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" | fl Name,Disabled,Status,Lockout,Description,SID` | `Get-LocalUser` is available on 2012+. For 2008R2 use `Get-WmiObject`. This example shows the builtin local administrator account, which always has SID `S-1-5-21-*-500`.
+Enable local user account | `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | enable-localuser` | This example enables the built-in local administrator account, which always has SID `S-1-5-21-*-500`. Azure VMs created from generalized image will have the local administrator account renamed to the name specified during VM provisioning. So it will usually not be `Administrator`.
+View user account properties | `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`<br><br>`get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" | fl Name,Disabled,Status,Lockout,Description,SID` | `Get-LocalUser` is available on 2012+. For 2008R2 use `Get-WmiObject`. This example shows the built-in local administrator account, which always has SID `S-1-5-21-*-500`.
 View local groups | `(get-localgroup).name | sort`<br><br>`(get-wmiobject win32_group).Name | sort` | `Get-LocalUser` is available on 2012+. For 2008R2 use `Get-WmiObject`.
 Query event log errors | `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Level=2]]" | more` | Change `/c:10` to the desired number of events to return, or move it to return all events matching the filter.
 Query event log by Event ID | `get-winevent -logname system -maxevents 1 -filterxpath "*[System[EventID=11]]" | more` |
