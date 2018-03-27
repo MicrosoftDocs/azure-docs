@@ -20,7 +20,7 @@ ms.author: cherylmc
 
 # Create a route-based VPN gateway using the Azure portal
 
-This article helps you quickly create a route-based Azure VPN gateway using the Azure portal.  A VPN gateway is used when creating a VPN connection to your on-premises network, or between VNets.
+This article helps you quickly create a route-based Azure VPN gateway using the Azure portal.  A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
   - **Name**: TestVNet1
   - **Address space**: 10.1.0.0/16
-  - **Subscription**: Verify that the subscription listed is the one you want to use You can change subscriptions by using the drop-down.
+  - **Subscription**: Verify that the subscription listed is the one you want to use. You can change subscriptions by using the drop-down.
   - **Resource group**: TestRG1
   - **Location**: East US
   - **Subnet**: Frontend
