@@ -1,11 +1,9 @@
-
-
 ---
 title: Azure Stack Public Key Infrastructure certificate requirements for Azure Stack integrated systems | Microsoft Docs
 description: Describes the Azure Stack PKI certificate deployment requirements for Azure Stack integrated systems.
 services: azure-stack
 documentationcenter: ''
-author: mabrigg
+author: mabriggs
 manager: femila
 editor: ''
 
