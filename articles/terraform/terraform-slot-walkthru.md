@@ -17,7 +17,7 @@ Using the [Azure portal](https://portal.azure.com/) deploys a [Cloud Shell](http
 
 In Cloud Shell, navigate to your `clouddrive` directory and create two directories, one called `deploy` and the other called `swap` as seen in the following image.
 
-![Creat the Cloud Shell directories](./media/terraform-slot-walkthru/cloud-shell.png)
+![Create the Cloud Shell directories](./media/terraform-slot-walkthru/cloud-shell.png)
 
 Navigate to your deploy directory and - using `nano` - copy and paste the following HCL (HashiCorp Configuration Language) into a file name `deploy.tf`.
 
@@ -67,7 +67,7 @@ Once Terraform has completed provisioning the resources, you can use the **Resou
 
 ![Azure portal Resource Groups](./media/terraform-slot-walkthru/resource-groups.png)
 
-Select the `slotDemoResourceGroup` and this will show each of the resources that were created.
+Select `slotDemoResourceGroup` to display each of the created resources.
 
 ![Azure portal Resources](./media/terraform-slot-walkthru/resources.png)
 
@@ -96,14 +96,14 @@ Deploying Bits from GitHub to your Deployment Slots
 
 Once you select **OK**, the Azure portal will begin building the project and deploy it to your `slotAppService` production slot. 
 
-To set up deployment to our `slotAppServiceSlotOne`, follow the preceding steps except in **Step 1** select the `slotAppServiceSlotOne` resource and in **Step 5** select the `working` branch instead of the `master` branch.
+To set up deployment to `slotAppServiceSlotOne`, follow the preceding steps except in **Step 1** select the `slotAppServiceSlotOne` resource and in **Step 5** select the `working` branch instead of the `master` branch.
 
 ![Choose Working Branch](./media/terraform-slot-walkthru/choose-branch-working.png)
 
 Putting It All Together
 ---
 
-At this point, you have set up our `slotAppService` and our `slotAppServiceSlotOne` to deploy our `web app` from different branches in `GitHub`. You can now preview the `web app` to validate that it was successfully deployed to the `slots` by selecting the `URL` on the resources `Overview` page, as seen in the image below.
+At this point, you have set up `slotAppService` and `slotAppServiceSlotOne` to deploy `web app` from different branches in GitHub. You can now preview the `web app` to validate that it was successfully deployed to the `slots` by selecting the `URL` on the resources `Overview` page, as seen in the image below.
 
 ![Resource URL](./media/terraform-slot-walkthru/resource-url.png)
 
@@ -133,6 +133,6 @@ terraform plan
 terraform apply
 ```
 
-Once Terraform has finished swapping the slots go back to the browser session/tab that is rendering the `slotAppService web app` and refresh the page. You will notice that the `web app` that was in your `slotAppServiceSlotOne` deployment slot has been swapped with the `Production slot` and that the page now renders green. To bring back the original bits that were originally in the `Production slot` just run the `swap.tf` again by typing terraform apply and the original code will be swapped again from the `Deployment slot` to the `Production slot`.
+Once Terraform has finished swapping the slots, return to the browser that is rendering the `slotAppService web app` and refresh the page. You will notice that the `web app` that was in your `slotAppServiceSlotOne` deployment slot has been swapped with the `Production slot` and that the page now renders green. To bring back the original bits that were originally in the `Production slot`, re-run the `swap.tf` by typing `terraform apply` and the original code will be swapped again from the `Deployment slot` to the `Production slot`.
 
 ## Next steps
