@@ -118,6 +118,7 @@ Native integration between Azure Cosmos DB and Azure Functions is available in t
 *   In the Azure Cosmos DB portal, you can add an Azure Cosmos DB trigger to an existing Azure Function app in the same resource group.
     ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/cosmos-db-portal.png)
 * In Visual Studio 2017, you can create an Azure Cosmos DB trigger using the integrated template:
+
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
 
 
