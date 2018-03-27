@@ -5,6 +5,31 @@
             "redirect_document_id": true
         },     
         {
+            "source_path": "articles/machine-learning/preview/release-notes-sprint-0.md",
+            "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/preview/release-notes-sprint-1.md",
+            "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/preview/release-notes-sprint-2.1.md",
+            "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-3",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/preview/release-notes-sprint-2.md",
+            "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-2.1",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/preview/release-notes-sprint-3.md",
+            "redirect_url": "/azure/machine-learning/preview/azure-machine-learning-release-notes",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/studio/live-chat.md",
             "redirect_url": "https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning",
             "redirect_document_id": true
@@ -17621,6 +17646,51 @@
     {
         "source_path": "articles/azure-stack/azure-stack-provision-vm.md",
         "redirect_url": "/azure/azure-stack/asdk/asdk-create-vm-template",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-use-disks-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-cli.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-portal.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-powershell.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-template-linux.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-create-template-windows.md",
+        "redirect_url": "/azure/virtual-machine-scale-sets/quick-create-template-windows",
         "redirect_document_id": false
     },
     {

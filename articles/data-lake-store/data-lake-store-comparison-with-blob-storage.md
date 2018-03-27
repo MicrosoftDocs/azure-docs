@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
 
 ---
@@ -43,7 +43,4 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Regional availability |See [here](https://azure.microsoft.com/regions/#services) |Available in all Azure regions |
 | Price |See [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/) |See [Pricing](https://azure.microsoft.com/pricing/details/storage/) |
 
-### Next steps
-* [Overview of Azure Data Lake Store](data-lake-store-overview.md)
-* [Get Started with Data Lake Store](data-lake-store-get-started-portal.md)
 
