@@ -73,7 +73,7 @@ To change the cluster size on a running premium cache with clustering enabled, c
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
 
-Increasing the cluster size increases max throughput and cache size. Increasing tje cluster size doesn't increase the max. connections available to clients.
+Increasing the cluster size increases max throughput and cache size. Increasing the cluster size doesn't increase the max. connections available to clients.
 
 > [!NOTE]
 > Scaling a cluster runs the [MIGRATE](https://redis.io/commands/migrate) command, which is an expensive command, so for minimal impact, consider running this operation during non-peak hours. During the migration process, you will see a spike in server load. Scaling a cluster is a long running process and the amount of time taken depends on the number of keys and size of the values associated with those keys.
