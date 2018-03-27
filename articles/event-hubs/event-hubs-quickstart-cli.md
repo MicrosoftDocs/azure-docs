@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2018
+ms.date: 03/27/2018
 ms.author: sethm
 
 ---
@@ -47,26 +47,26 @@ Once CLI is installed, perform the following steps to install the Event Hubs CLI
 
 ## Provision resources
 
-After logging in to Azure, issue the following commands to provision Event Hubs resources. Be sure to replace all placeholders with the appropriate values:
+After logging in to Azure, issue the following commands to provision Event Hubs resources. Be sure to replace the placeholders `myResourceGroup`, `namespaceName`, `eventHubName`, and `storageAccountName` with the appropriate values:
 
 ```azurecli
 # Create a resource group
-az group create --name eventhubsResourceGroup --location eastus
+az group create --name myResourceGroup --location eastus
 
 # Create an Event Hubs namespace
-az eventhubs namespace create --name <namespace_name> --resource-group <my_resourceGroup> -l eastus2
+az eventhubs namespace create --name namespaceName --resource-group myResourceGroup -l eastus2
 
 # Create an event hub
-az eventhubs eventhub create --name <event_hub_name> --resource-group <my_resourceGroup> --namespace-name <namespace_name>
+az eventhubs eventhub create --name eventHubName --resource-group myResourceGroup --namespace-name namespaceName
 
 # Create a general purpose standard storage account
-az storage account create --name <storage_account_name> --resource-group <my_resourceGroup> --location eastus2 --sku Standard_RAGRS --encryption blob
+az storage account create --name storageAccountName --resource-group myResourceGroup --location eastus2 --sku Standard_RAGRS --encryption blob
 
 # List the storage account access keys
-az storage account keys list --resource-group <my_resourceGroup> --account-name <storage_account_name>
+az storage account keys list --resource-group myResourceGroup --account-name storageAccountName
 
 # Get namespace connection string
-az eventhubs namespace authorization-rule keys list --resource-group <my_resourceGroup> --namespace-name <namespace_name> --name RootManageSharedAccessKey
+az eventhubs namespace authorization-rule keys list --resource-group myResourceGroup --namespace-name namespaceName --name RootManageSharedAccessKey
 ```
 
 Copy and paste the connection string to a temporary location, such as Notepad, to use later.
@@ -126,10 +126,10 @@ After running both programs, you can check the Azure portal overview page for th
 
 ## Clean up deployment
 
-Run the following command to remove the resource group, namespace, storage account, and all related resources:
+Run the following command to remove the resource group, namespace, storage account, and all related resources. Replace `myResourceGroup` with the name of the resource group you created:
 
 ```azurecli
-az group delete --name <my_resourceGroup>
+az group delete --resource-group myResourceGroup
 ```
 
 ## Next steps

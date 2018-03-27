@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 03/27/2018
 ms.author: sethm
 
 ---
 
 # Process event streams using PowerShell
 
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to use PowerShell to deploy resources, and use sample clients to ingest and process events into Event Hubs. 
+Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to use PowerShell to deploy resources, and how to use sample clients to ingest and process events into Event Hubs. 
 
 If you do not have an Azure subscription, start by creating a [free account][].
 
@@ -61,28 +61,27 @@ Once PowerShell is installed, perform the following steps to install the Event H
 
 ## Provision resources
 
-After logging in to Azure, issue the following commands to provision Event Hubs resources. Be sure to replace all placeholders with the appropriate values:
+After logging in to Azure, issue the following commands to provision Event Hubs resources. Be sure to replace the placeholders `myResourceGroup`, `namespaceName`, `eventHubName`, and `storageAccountName` with the appropriate values:
 
 ```azurepowershell
 # Create a resource group 
-New-AzureRmResourceGroup -Name eventhubsResourceGroup -Location eastus
+New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
 
 # Create an Event Hubs namespace
-New-AzureRmEventHubNamespace -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -Location eastus
+New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespaceName -Location eastus
 
 # Get the connection string, which contains the credentials you need to connect to the event hub
-Get-AzureRmEventHubKey -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -EventHubName <eventhub_name> -Name RootManageSharedAccessKey
+Get-AzureRmEventHubKey -ResourceGroupName myResourceGroup -NamespaceName namespaceName -EventHubName <eventhub_name> -Name RootManageSharedAccessKey
 
 # Create an event hub
-New-AzureRmEventHub -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -EventHubName <eventhub_name> -Location eastus
+New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespaceName -EventHubName eventHubName -Location eastus
 
 # Create a storage account for Event Processor Host
-New-AzureRmStorageAccount -ResourceGroupName eventhubsResourceGroup -Name <storage_account_name> -Location eastus -SkuName Standard_LRS
+New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name storageAccountName -Location eastus -SkuName Standard_LRS
 
 # retrieve the first storage account key and display it
 $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup -Name $storageAccountName).Value[0]
 Write-Host "storage account key 1 = " $storageAccountKey
-
 ```
 
 ## Stream into Event Hubs
@@ -138,10 +137,10 @@ You can view the incoming and outgoing message count in the portal metrics windo
 
 ## Clean up deployment
 
-Run the following command to remove the resource group, namespace, storage account, and all related resources
+Run the following command to remove the resource group, namespace, storage account, and all related resources. Replace `myResourceGroup` with the name of the resource group you created:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name eventhubsResourceGroup
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## Next steps
