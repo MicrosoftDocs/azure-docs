@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -27,9 +27,10 @@ Cosmos DB supports both explicit and policy driven failovers that allow you to c
 * How do automatic failovers work in Cosmos DB and what happens when a data center goes down?
 * How can you use manual failovers in application architectures?
 
-You can also learn about regional failovers in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
+You can also learn about regional failovers in this video by Azure Cosmos DB Program Manager Andrew Liu, which demonstrates the global distribution features including regional failover.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://youtu.be/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>Configuring multi-region applications
 Before we dive into failover modes, we look at how you can configure an application to take advantage of multi-region availability and be resilient in the face of regional failovers.

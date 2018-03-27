@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 03/26/2018
 ms.author: arramac
 
 ---
@@ -34,6 +34,11 @@ In this article, we provide an overview of Azure Cosmos DB's global distribution
 
 ## <a id="EnableGlobalDistribution"></a>Enabling turnkey global distribution
 Azure Cosmos DB provides the following capabilities to enable you to easily write planet scale applications. These capabilities are available via the Azure Cosmos DB's resource provider-based [REST APIs](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) as well as the Azure portal.
+
+In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates the turnkey global distribution features.
+
+> [!VIDEO https://youtu.be/embed/1D06yjTVxt8]
+>
 
 ### <a id="RegionalPresence"></a>Ubiquitous regional presence 
 Azure is constantly growing its geographical presence by bringing [new regions](https://azure.microsoft.com/regions/) online. Azure Cosmos DB is available in all new Azure regions by default. This allows you to associate a geographical region with your Azure Cosmos DB database account as soon as Azure opens the new region for business.

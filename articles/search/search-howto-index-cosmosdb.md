@@ -31,6 +31,10 @@ In this article, learn how to:
 > [!NOTE]
 > Azure Cosmos DB is the next generation of DocumentDB. Although the product name is changed, the `documentdb` syntax in Azure Search indexers still exists for backwards compatibility in both the Azure Search APIs and portal pages. When configuring indexers, be sure to specify the `documentdb` syntax as instructed in this article.
 
+In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates how to add an Azure Search index to an Azure Cosmos DB container.
+
+>[!VIDEO https://youtu.be/embed/OyoYu1Wzk4w]
+
 <a name="supportedAPIs"></a>
 ## Supported API types
 

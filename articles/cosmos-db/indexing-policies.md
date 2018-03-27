@@ -4,7 +4,7 @@ description: Understand how indexing works in Azure Cosmos DB. Learn how to conf
 keywords: how indexing works, automatic indexing, indexing database
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: rafats
 manager: jhubbard
 editor: monicar
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
+ms.date: 03/26/2018
+ms.author: rafats
 
 ---
 # How does Azure Cosmos DB index data?
@@ -23,6 +23,10 @@ ms.author: arramac
 By default, all Azure Cosmos DB data is indexed. Although many customers are happy to let Azure Cosmos DB automatically handle all aspects of indexing, you can specify a custom *indexing policy* for collections during creation in Azure Cosmos DB. Indexing policies in Azure Cosmos DB are more flexible and powerful than secondary indexes that are offered in other database platforms. In Azure Cosmos DB, you can design and customize the shape of the index without sacrificing schema flexibility. 
 
 To learn how indexing works in Azure Cosmos DB, it's important to understand that when you manage indexing policy, you can make fine-grained trade-offs between index storage overhead, write and query throughput, and query consistency.  
+
+In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates the Azure Cosmos DB automatic indexing capabilities, and how to tune and configure the indexing policy on your Azure Cosmos DB container. 
+
+>[!VIDEO https://youtu.be/embed/uFu2D-GscG0]
 
 In this article, we take a close look at Azure Cosmos DB indexing policies, at how to customize indexing policy, and associated trade-offs. 
 

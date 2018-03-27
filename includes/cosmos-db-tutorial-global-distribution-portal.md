@@ -1,7 +1,18 @@
+---
+ title: Azure Cosmos DB global distribution
+ description: Learn how to replicate data globally with Azure Cosmos DB in the Azure portal
+ services: cosmos-db
+ author: mimig1
+ ms.service: cosmos-db
+ ms.topic: include
+ ms.date: 03/26/2018
+ ms.author: mimig
+ ms.custom: include file
+---
 
-You can learn about Azure Cosmos DB global distribution in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
+You can learn about Azure Cosmos DB global distribution in this video with Azure Cosmos DB Program Manager Andrew Liu.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://youtu.be/embed/1D06yjTVxt8]
 
 For more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
 

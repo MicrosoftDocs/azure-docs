@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
 
@@ -29,6 +29,12 @@ This article answers the following questions:
 * How do I address a resource?
 * How do I work with collections?
 * How do I work with stored procedures, triggers and User Defined Functions (UDFs)?
+
+In the following video, Azure Cosmos DB Program Manager Andrew Liu walks you through the Azure Cosmos DB resource model. 
+
+> [!VIDEO https://youtu.be/embed/luWFgTP0IL4]
+>
+>
 
 ## Hierarchical resource model
 As the following diagram illustrates, the Azure Cosmos DB hierarchical **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources are referred to as a **feed** in this article. 

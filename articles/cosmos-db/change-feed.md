@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: rafats
 
 ---
@@ -31,7 +31,13 @@ The **change feed support** in Azure Cosmos DB enables you to build efficient an
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. 
+> Change feed support is provided for all data models and containers in Azure Cosmos DB. However, the change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed.
+
+In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates how the Azure Cosmos DB change feed works.
+
+> [!VIDEO https://youtu.be/embed/mFnxoxeXlaU]
+>
+>
 
 ## How does change feed work?
 
