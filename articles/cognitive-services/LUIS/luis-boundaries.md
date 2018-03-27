@@ -9,7 +9,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/26/2018
 ms.author: v-geberr;
 ---
 # LUIS boundaries
@@ -29,7 +29,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | Total machine-learned entities:<br> simple, composite parent(s) and hierarchical parent(s) | 100, or 30 parent entities with 10   children each|
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
 | [Prebuilt entities](./Pre-builtEntities.md) | no limit|
-| [RegEx entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per RegEx entity|
+| [Regular expression entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per regular expression entity|
 | [Simple](./luis-concept-entity-types.md)| 30|
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000|
