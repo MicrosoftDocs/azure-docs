@@ -37,7 +37,7 @@ To enable Managed Identity during the creation of a VM, add the line `.WithSyste
 
 ```csharp
 var virtualMachine = azure.VirtualMachines.Define("myVM")
-    // code for configuration settings
+    // code for other configuration settings
     .WithSystemAssignedManagedServiceIdentity()
     .Create();
 
@@ -48,7 +48,7 @@ To enable Managed identity on an existing VM, refer to the following code sample
 
 ```csharp
 virtualMachine.Update()
-    //code for configuration updates
+    //code for other configuration updates
     .WithSystemAssignedManagedServiceIdentity()
     .Apply();
 

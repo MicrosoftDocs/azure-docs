@@ -36,7 +36,7 @@ To enable Managed Identity during the creation of an Azure VMSS, add the line `.
 
 ```csharp
 var virtualMachineScaleSet = azure.VirtualMachineScaleSets.Define("myVM")
-    // code for configuration settings
+    // code for other configuration settings
     .WithSystemAssignedManagedServiceIdentity()
     .Create();
 
@@ -47,7 +47,7 @@ To enable Managed identity on an existing VM, refer to the following code sample
 
 ```csharp
 virtualMachineScaleSet.Update()
-    //code for configuration updates
+    //code for other configuration updates
     .WithSystemAssignedManagedServiceIdentity()
     .Apply();
 
