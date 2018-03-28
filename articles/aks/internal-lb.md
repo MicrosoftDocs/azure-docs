@@ -16,7 +16,7 @@ ms.custom: mvc
 
 Internal load balancing makes a Kubernetes service accessible to applications running in the same virtual network as the Kubernetes cluster. This document details creating an internal load balancer with Azure Container Service (AKS).
 
-## Create internal load balance
+## Create internal load balancer
 
 To create an internal load balancer, build a service manifest with the service type `LoadBalancer` and add the `azure-load-balancer-internal` annotation as seen in the following sample.
 
@@ -46,16 +46,40 @@ NAME               TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AG
 azure-vote-front   LoadBalancer   10.0.184.168   10.240.0.7    80:30225/TCP   2m
 ```
 
+## Specify an IP address
+
+If you would like to use a specific IP address with the internal load balancer, add `loadBalancerIP` to the load balancer spec. The IP address must reside in the same subenet as the AKS cluster and must not already be assigned to a resource.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.240.0.25
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+```
+
+When retrieving the service details, the IP address in the `EXTERNAL-IP` should be set to the specified IP address. 
+
+```console
+NAME               TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+azure-vote-front   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
+```
+
 ## Delete the load balancer
 
 When all services using the internal load balancer have been deleted, the load balancer itself is also deleted.
 
 ## Next steps
 
-Learn more about Kubernetes services at the Kubernetes services documentation.
-
-> [!div class="nextstepaction"]
-> [Kubernetes services][kubernetes-services]
+Learn more about Kubernetes services at the [Kubernetes services documentation][kubernetes-services].
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
