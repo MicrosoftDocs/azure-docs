@@ -71,6 +71,8 @@
       href: luis-tutorial-bot-csharp-appinsights.md
   - name: Build a LUIS app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
+  - name: Use composite entity to extract grouped data
+    href: luis-tutorial-composite-entity.md
   - name: Add list entity for increased entity detection using Node.js
     href: luis-tutorial-list-entity.md
   - name: Learn synonyms with a phrase list
