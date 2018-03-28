@@ -1,5 +1,5 @@
 ---
-title: 'Create a route-based VPN gateway: PowerShell | Microsoft Docs'
+title: 'Create a route-based Azure VPN gateway: PowerShell | Microsoft Docs'
 description: Quickly create a route-based VPN Gateway using PowerShell
 services: vpn-gateway
 documentationcenter: na
