@@ -41,7 +41,7 @@ The account you log into Azure with must be assigned, at a minimum, permissions 
 
 When creating a virtual machine using the Azure portal, the portal creates a network interface with default settings for you. If you'd rather specify all your network interface settings, you can create a network interface with custom settings and attach the network interface to a virtual machine when creating the virtual machine (using PowerShell or the Azure CLI). You can also create a network interface and add it to an existing virtual machine (using PowerShell or the Azure CLI). To learn how to create a virtual machine with an existing network interface or to add to, or remove network interfaces from existing virtual machines, see [Add or remove network interfaces](virtual-network-network-interface-vm.md). Before creating a network interface, you must have an existing [virtual network](manage-virtual-network.md#create-a-virtual-network) in the same location and subscription you create a network interface in.
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, select it.
+1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
 2. Select **+ Add** under **Network interfaces**.
 3. Enter, or select values for the following settings, then select **Create**:
 
@@ -74,7 +74,7 @@ The portal doesn't provide the option to assign a public IP address to the netwo
 
 You can view and change most settings for a network interface after it's created. The portal does not display the DNS suffix for the network interface. You can use the PowerShell or Azure CLI [commands](#view-settings-commands) to view the DNS suffix.
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, select it.
+1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
 2. Select the network interface you want to view or change settings for from the list.
 3. The following items are listed for the network interface you selected:
 	- **Overview:** Provides information about the network interface, such as the IP addresses assigned to it, the virtual network/subnet the network interface is assigned to, and the virtual machine the network interface is attached to (if it's attached to one). The following picture shows the overview settings for a network interface named **mywebserver256**:
@@ -101,7 +101,7 @@ If an IPv6 address is assigned to a network interface, the PowerShell output ret
 
 The DNS server is assigned by the Azure DHCP server to the network interface within the virtual machine operating system. The DNS server assigned is whatever the DNS server setting is for a network interface. To learn more about name resolution settings for a network interface, see [Name resolution for virtual machines](virtual-networks-name-resolution-for-vms-and-role-instances.md). The network interface can inherit the settings from the virtual network, or use its own unique settings that override the setting for the virtual network.
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, select it.
+1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
 2. Select the network interface that you want to change a DNS server for from the list.
 3. Select **DNS servers** under **SETTINGS**.
 4. Select either:
@@ -124,7 +124,7 @@ IP forwarding enables the virtual machine a network interface is attached to:
 
 The setting must be enabled for every network interface that is attached to the virtual machine that receives traffic that the virtual machine needs to forward. A virtual machine can forward traffic whether it has multiple network interfaces or a single network interface attached to it. While IP forwarding is an Azure setting, the virtual machine must also run an application able to forward the traffic, such as firewall, WAN optimization, and load balancing applications. When a virtual machine is running network applications, the virtual machine is often referred to as a network virtual appliance. You can view a list of ready to deploy network virtual appliances in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). IP forwarding is typically used with user-defined routes. To learn more about user-defined routes, see [User-defined routes](virtual-networks-udr-overview.md).
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, select it.
+1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
 2. Select the network interface that you want to enable or disable IP forwarding for.
 3. Select **IP configurations** in the **SETTINGS** section.
 4. Select **Enabled** or **Disabled** (default setting) to change the setting.
@@ -141,7 +141,7 @@ The setting must be enabled for every network interface that is attached to the 
 
 You can change the subnet, but not the virtual network, that a network interface is assigned to.
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, select it.
+1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
 2. Select the network interface that you want to change subnet assignment for.
 3. Select **IP configurations** under **SETTINGS**. If any private IP addresses for any IP configurations listed have **(Static)** next to them, you must change the IP address assignment method to dynamic by completing the steps that follow. All private IP addresses must be assigned with the dynamic assignment method to change the subnet assignment for the network interface. If the addresses are assigned with the dynamic method, continue to step five. If any IPv4 addresses are assigned with the static assignment method, complete the following steps to change the assignment method to dynamic:
 	- Select the IP configuration you want to change the IPv4 address assignment method for from the list of IP configurations.
@@ -162,7 +162,7 @@ You can change the subnet, but not the virtual network, that a network interface
 
 You can delete a network interface as long as it's not attached to a virtual machine. If it is attached to a virtual machine, you must first place the virtual machine in the stopped (deallocated) state, then detach the network interface from the virtual machine, before you can delete the network interface. To detach a network interface from a virtual machine, complete the steps in [Detach a network interface from a virtual machine](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). Deleting a virtual machine detaches all network interfaces attached to it, but does not delete the network interfaces.
 
-1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, select it.
+1. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appear in the search results, select it.
 2. Select **...** on the right side of the network interface you want to delete from the list of network interfaces.
 3. Select **Delete**.
 4. Select **Yes** to confirm deletion of the network interface.
@@ -177,7 +177,7 @@ When you delete a network interface, any MAC or IP addresses assigned to it are 
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
 ## Next steps
-To create a virtual machine with multiple network interfaces or IP addresses, see the following:
+To create a virtual machine with multiple network interfaces or IP addresses, see the following articles:
 
 **Commands**
 
