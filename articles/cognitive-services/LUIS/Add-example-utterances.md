@@ -76,6 +76,9 @@ book me 2 adult business tickets to Paris tomorrow on Air France
  
     ![Simple Entity Labeling](./media/add-example-utterances/create-airline-simple-entity.png)
 
+> [!TIP]
+> Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more.
+
 ## Add regular expression entity label
 In the following procedure, you create a custom regular expression entity within the following utterance on the intent page to pull out the flight number `AFR1185`:
 
@@ -94,6 +97,9 @@ book me 2 adult business tickets to Paris tomorrow on Air France (AFR1185)
  
     ![Regular Expression Entity Labeling](./media/add-example-utterances/create-airline-regex-entity.png)
  
+> [!TIP]
+> Try the regular expression [quickstart](luis-quickstart-intents-regex-entity.md) to learn more.
+
 ## Add hierarchical entity and label
 
 The city "Paris" can be either a ToLocation or a FromLocation when booking a plane ticket. In order for LUIS to understand both entity types, this step builds a hierarchical entity. 
@@ -109,6 +115,9 @@ The city "Paris" can be either a ToLocation or a FromLocation when booking a pla
     ![Create Hierarchical Entity Labeling](./media/add-example-utterances/label-tolocation.png)
 
     To learn more about hierarchical entities and how to add them, see [Add entities](Add-entities.md).
+
+> [!TIP]
+> Try the hierarchical [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more.
 
 ## Add list entity and label
 
@@ -127,6 +136,9 @@ select "business," then create a new entity named "Seat".
 3. Select **Done**.
 
 The **Seat** list entity contains one item of business with synonyms: `Bus.`, `bus`, and `biz` . 
+
+> [!TIP]
+> Try the list entity [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more.
 
 ## Add synonyms to the list entity 
 Add a list to the list entity by selecting the word or phrase in the utterance.
