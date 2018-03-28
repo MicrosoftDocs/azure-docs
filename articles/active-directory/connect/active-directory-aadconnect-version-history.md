@@ -48,6 +48,7 @@ Status 3/22/2018: Released for auto-upgrade and download.
 #### Fixed issues
 
 * Set-ADSyncAutoUpgrade cmdlet would previously block Autoupgrade if auto-upgrade state is set to Suspended. This is now changed so it does not block AutoUpgrade of future builds.
+* Changed the **User Sign-in** page option "Password Synchronization" to "Password Hash Synchronization".  Azure AD Connect synchronizes password hashes, not passwords, so this aligns with what is actually occurring.  For more information see [Implement password hash synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 
 ## 1.1.749.0
 Status: Released to select customers
