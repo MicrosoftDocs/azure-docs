@@ -17627,7 +17627,6 @@
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-concurrency.md",
         "redirect_url": "/azure/sql-data-warehouse/resource-classes-for-workload-management",
         "redirect_document_id": false
-<<<<<<< HEAD
      }
      ,{
         "source_path": "articles/stream-analytics/stream-analytics-data-lake-output.md",
@@ -17638,8 +17637,6 @@
         "source_path": "articles/stream-analytics/stream-analytics-sample-data-input.md",
         "redirect_url": "/azure/stream-analytics/stream-analytics-test-query",
         "redirect_document_id": false
-     }
-=======
      },
      {
         "source_path": "articles/azure-stack/azure-stack-asdk-release-notes.md",
@@ -17762,7 +17759,6 @@
         "redirect_document_id": false
     }
 
->>>>>>> 4f9264efee98b8cfd4a10ea6f664537b58ae7189
    ]
 }
 
