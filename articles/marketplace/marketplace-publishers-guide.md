@@ -622,5 +622,5 @@ If you have issues with Developer Center registration, log a support ticket:
 
 3. Select **Help with Dev Center** as **Problem type**, and select **Publish and manage apps** as **Category**. After that, select the **Start email** button.   
 
-4. On the sign-in page, use any Microsoft account to sign in. If you don't have a Microsoft account, create one by using this link. 
+4. On the sign-in page, use any Microsoft account to sign in. If you don't have a Microsoft account, create one by using the link. 
 5. Fill in the details of the issue, and submit the ticket by selecting the **Submit** button.
