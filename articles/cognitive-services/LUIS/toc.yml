@@ -17,6 +17,10 @@
       href: luis-quickstart-primary-and-secondary-data.md
     - name: List entity
       href: luis-quickstart-intent-and-list-entity.md
+    - name: Hierarchical entity
+      href: luis-quickstart-intent-and-hier-entity.md
+    - name: Regular expresion entity
+      href: luis-quickstart-intents-regex-entity.md
   - name: Create a new app with Prebuilt Domain
     href: luis-get-started-create-app.md
   - name: Call LUIS endpoint API

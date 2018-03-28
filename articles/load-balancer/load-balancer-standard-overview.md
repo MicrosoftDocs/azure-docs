@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
 ---
 
@@ -27,7 +27,7 @@ This article is focused on Standard Load Balancer.  For a more general overview 
 
 Standard Load Balancer is a new Load Balancer product for all TCP and UDP applications with an expanded and more granular feature set over Basic Load Balancer.  While there are many similarities, it is important to familiarize yourself with the differences as outlined in this article.
 
-You can use Standard Load Balancer Standard as a public or internal Load Balancer. And a virtual machine can be connected to one public and one internal Load Balancer resource.
+You can use Standard Load Balancer as a public or internal Load Balancer. And a virtual machine can be connected to one public and one internal Load Balancer resource.
 
 The Load Balancer resource's functions are always expressed as a frontend, a rule, a health probe, and a backend pool definition.  A resource can contain multiple rules. You can place virtual machines into the backend pool by specifying the backend pool from the virtual machine's NIC resource.  In the case of a virtual machine scale set, this parameter is passed through the network profile and expanded.
 
@@ -172,6 +172,9 @@ You can modify Standard Load Balancer resources and move a Standard public IP ad
 ## Migration between SKUs
 
 SKUs are not mutable. Follow the steps in this section to move from one resource SKU to another.
+
+>[!IMPORTANT]
+>Review this document in its entirety to understand the differences between SKUs and have carefully examined your scenario.  You may need to make additional changes to align your scenario.
 
 ### Migrate from Basic to Standard SKU
 
