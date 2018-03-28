@@ -229,7 +229,7 @@ This article answers common questions about Azure Files features and functionali
 ## Backup
 * <a id="backup-share"></a>
 **How do I back up my Azure file share?**  
-    You can use periodic [share snapshots](storage-how-to-use-files-snapshots.md) for protection against accidental deletions. You also can use AzCopy, Robocopy, or a third-party backup tool that can back up a mounted file share. 
+    You can use periodic [share snapshots](storage-snapshots-files.md) for protection against accidental deletions. You also can use AzCopy, Robocopy, or a third-party backup tool that can back up a mounted file share. 
 
 ## Share snapshots
 ### Share snapshots: General
