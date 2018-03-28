@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
 ---
 
@@ -172,6 +172,9 @@ You can modify Standard Load Balancer resources and move a Standard public IP ad
 ## Migration between SKUs
 
 SKUs are not mutable. Follow the steps in this section to move from one resource SKU to another.
+
+>[!IMPORTANT]
+>Review this document in its entirety to understand the differences between SKUs and have carefully examined your scenario.  You may need to make additional changes to align your scenario.
 
 ### Migrate from Basic to Standard SKU
 
