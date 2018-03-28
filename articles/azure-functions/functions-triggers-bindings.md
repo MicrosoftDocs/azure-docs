@@ -46,7 +46,7 @@ In version 2.x of the Azure Functions runtime, you must explicitly register the 
 
 Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  The way you install and register binding extensions depends on how you develop your functions: 
 
-+ [Locally in C# using Visual Studio or VS Code](#precompiled-functions-c)
++ [Locally in C# using Visual Studio or VS Code](#local-c-development-using-visual-studio-or-vs-code)
 + [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [In the Azure portal](#azure-portal-development) 
 
