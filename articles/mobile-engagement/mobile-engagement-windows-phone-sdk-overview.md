@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Windows Phone Silverlight SDK Overview for Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 Start here to get the details on how to integrate Azure Mobile Engagement in a Windows Phone Silverlight App. If you'd like to give it a try first, make sure you complete our [15 minutes tutorial](mobile-engagement-windows-phone-get-started.md).
 
 Click to see the [SDK Content](mobile-engagement-windows-phone-sdk-content.md)

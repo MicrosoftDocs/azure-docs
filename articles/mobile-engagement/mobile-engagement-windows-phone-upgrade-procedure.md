@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Windows Phone Silverlight SDK Upgrade Procedures
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.
 
 You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.

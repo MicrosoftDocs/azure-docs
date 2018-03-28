@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Upgrade procedures
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 If you already have integrated an older version of our SDK into your application, you have to consider the following points when upgrading the SDK.
 
 You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.

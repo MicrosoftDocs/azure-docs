@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to get started using and managing pushes to reach out to your end users
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 Once the SDK is fully integrated into your app, you can get started using the the Reach section of the UI to Push notifications to the users of your app.  
 
 ## Do Your First Push Notification Campaign

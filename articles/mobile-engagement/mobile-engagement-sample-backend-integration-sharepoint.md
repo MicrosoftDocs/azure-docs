@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement - API integration
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 In an automated marketing system, creating and activating the marketing campaigns also occur automatically. For this purpose - Azure Mobile Engagement enables creating such automated marketing campaigns using APIs as well. 
 
 Typically customers use the Mobile Engagement front end interface to create announcements/polls etc as part of their marketing campaigns. However as the marketing campaigns become mature, there is a need to leverage the data locked in the backend systems (like any CRM system or CMS system like SharePoint) so that a fully automated pipeline can be created which creates campaigns in Mobile Engagement dynamically based on the data flowing in from the backend systems. 

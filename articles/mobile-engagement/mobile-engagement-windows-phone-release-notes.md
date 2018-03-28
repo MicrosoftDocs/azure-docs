@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Windows Phone Silverlight SDK Release Notes
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 ##3.3.1 (11/03/2016)
 Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.4.1**
 

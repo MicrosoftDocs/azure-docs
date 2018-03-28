@@ -18,6 +18,10 @@ ms.author: wesmc;ricksal
 
 ---
 # Authenticate with Mobile Engagement REST APIs
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 ## Overview
 This document describes how to get a valid AAD Oauth token to authenticate with the Mobile Engagement REST APIs. 
 

@@ -18,6 +18,10 @@ ms.author: piyushjo;ricksal
 
 ---
 # Android SDK Integration for Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universal Windows](mobile-engagement-windows-store-sdk-overview.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-sdk-overview.md)

@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement demo app
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 We've published an Azure Mobile Engagement demo app for **iOS**, **Android**, and **Windows** platforms to help you to find useful resources and learn more about Mobile Engagement.
 
 The app helps you to:

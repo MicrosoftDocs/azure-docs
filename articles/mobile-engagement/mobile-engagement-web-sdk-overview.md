@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement Web SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 Start here for all the details about how to integrate Azure Mobile Engagement in a web app. If you'd like to give it a try before getting started with your own web app, see our [15-minute tutorial](mobile-engagement-web-app-get-started.md).
 
 ## Integration procedures
