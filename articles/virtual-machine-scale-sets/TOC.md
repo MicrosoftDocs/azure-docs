@@ -1,15 +1,38 @@
-# [Virtual Machines Scale Sets Documentation](index.md)
+# [Virtual Machines Scale Sets Documentation](index.yml)
 
 # Overview
-## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
+## [What are virtual machine scale sets?](overview.md)
 
-# Get Started
-## [Create in the Azure portal](virtual-machine-scale-sets-create-portal.md)
-## [Create with the Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
-## [Create with Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+# Quickstarts
+## [Create in the Azure portal](quick-create-portal.md)
+## [Create with the Azure CLI 2.0](quick-create-cli.md)
+## [Create with Azure PowerShell](quick-create-powershell.md)
 ## Create with a template
-### [Linux scale set](virtual-machine-scale-sets-create-template-linux.md)
-### [Windows scale set](virtual-machine-scale-sets-create-template-windows.md)
+### [Linux scale set](quick-create-template-linux.md)
+### [Windows scale set](quick-create-template-windows.md)
+
+# Tutorials
+## 1 - Create / manage scale set
+### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2 - Use data disks
+### [Azure CLI 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
+## 3 - Use a custom VM image
+### [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+## 4 - Deploy apps to a scale set
+### [Azure CLI 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [Template](tutorial-install-apps-template.md)
+## 5 - Autoscale a scale set
+### [Azure CLI 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
+### [Template](tutorial-autoscale-template.md)
+
+# Samples
+## [Azure CLI 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # How To
 ## Plan and design
@@ -24,12 +47,9 @@
 
 ## Deploy
 ### [Create with Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Use Availability Zones](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Autoscale a scale set](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Use the Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
-#### [Use the Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
-#### [Use Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Applications on scale sets](virtual-machine-scale-sets-deploy-app.md)
 ### [Use data disks with scale sets](virtual-machine-scale-sets-attached-disks.md)
