@@ -11,8 +11,17 @@ ms.topic: get-started-article
 ms.date: 09/21/2017
 ---
 
-# What is Azure Machine Learning?
+# What is Machine Learning?
 
+
+## What is machine learning?
+Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends. Using machine learning, computers learn without being explicitly programmed.
+
+Forecasts or predictions from machine learning can make apps and devices smarter. When you shop online, machine learning helps recommend other products you might like based on what you've purchased. When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. When your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
+
+For a brief overview, try the video series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md). Without using jargon or math, Data Science for Beginners introduces machine learning and steps you through a simple predictive model.
+
+## What is Azure Machine Learning?
 Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution. It enables data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 The main components of Azure Machine Learning are:
@@ -25,6 +34,7 @@ The main components of Azure Machine Learning are:
 Together, these applications and services help significantly accelerate your data science project development and deployment. 
 
 ![Azure Machine Learning Concepts](media/overview-what-is-azure-ml/aml-concepts.png)
+
 
 ## Open source compatible
 
