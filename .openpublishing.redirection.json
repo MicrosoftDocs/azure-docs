@@ -35,6 +35,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/machine-learning/studio/what-is-machine-learning.md",
+            "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
+            "redirect_document_id": true
+        },
+	{
             "source_path": "articles/machine-learning/studio/live-chat.md",
             "redirect_url": "https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning",
             "redirect_document_id": true
