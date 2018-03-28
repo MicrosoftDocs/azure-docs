@@ -275,7 +275,8 @@ The StorSimple Device Manager for both physical and virtual series is GDPR compl
  * To view and clear the settings for StorSimple 8000 series, follow the steps in [View and manage StorSimple alerts](storsimple-8000-manage-alerts.md#configure-alert-settings)
  * To view and clear the settings for StorSimple Virtual Array, follow the steps in [View and manage StorSimple alerts](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
 - Users who can access the data residing on the shares. A list of users who can access the share data is displayed and can be viewed. This list is also deleted when the shares is deleted. This applies only to StorSimple Virtual Arrays.
- * To view and manage shares, follow the steps in [Manage shares on the StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
+ * To view the list of user who can access or to delete a share, follow the steps in [Manage shares on the StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
+
 For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
 ## Next steps
