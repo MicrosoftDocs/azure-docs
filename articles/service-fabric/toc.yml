@@ -242,7 +242,7 @@
     items:
     - name: Monitoring overview
       href: service-fabric-diagnostics-overview.md
-    - name: Cluster logging
+    - name: Cluster events
       href: service-fabric-diagnostics-event-generation-infra.md
       items:
       - name: Operational channel
@@ -569,6 +569,8 @@
       href: service-fabric-diagnostics-perf-wad.md
     - name: Report and check health
       href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+    - name: Add logging to your service
+      href: service-fabric-how-to-diagnostics-log.md
     - name: Troubleshoot with system health reports
       href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
     - name: View health reports

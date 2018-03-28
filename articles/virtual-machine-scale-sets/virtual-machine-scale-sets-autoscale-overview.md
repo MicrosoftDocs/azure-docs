@@ -37,8 +37,9 @@ You can create autoscale rules that built-in host metrics available from your VM
 Autoscale rules that use host-based metrics can be created with one of the following tools:
 
 - [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure template](tutorial-autoscale-template.md)
 
 To create autoscale rules that use more detailed performance metrics, you can [install and configure the Azure diagnostics extension](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) on VM instances, or [configure your application use App Insights](#application-level-metrics-with-app-insights).
 
@@ -133,9 +134,9 @@ The following examples are scenarios that may benefit the use of schedule-based 
 ## Next steps
 You can create autoscale rules that use host-based metrics with one of the following tools:
 
-- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure template](tutorial-autoscale-template.md)
 
 This overview detailed how to use autoscale rules to scale horizontally and increase or decrease the *number* of VM instances in your scale set. You can also scale vertically to increase or decrease the VM instance *size*. For more information, see [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
