@@ -1,5 +1,5 @@
---
-title: Link partner ID to your account in Azuure | Microsoft Docs
+---
+title: Link Azure account to partner ID | Microsoft Docs
 description: Track engagements with Azure customers by linking partner ID to the user account that you use to manage the customer's resources. 
 services: billing
 author: dhirajgandhi
@@ -13,26 +13,26 @@ ms.workload: na
 ---
 
 # Link partner ID to your account in Azure
-As a partner that does consulting work or provide managed services on Azure, track your impact across your customer engagements by linking your partner ID to the accounts that you use to manage customer's resources.
+As a partner that does consulting work or provides managed services on Azure, track your impact across your customer engagements by linking your partner ID to the accounts that you use to manage customer's resources.
 
 This feature is available in a public preview. 
 
-## Prerequisites 
+## Get access from your customer 
 Before you link your partner ID, your customer must give you access to their Azure resources by using one of the following options:
 
-- **Guest user:** Customer can add you as a guest user and assign any RBAC role. See [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) for information.
+- **Guest user:** Your customer can add you as a guest user and assign any RBAC roles. For more information, see [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Directory account:**  Customer can create a new user from your organization in their directory and assign any RBAC role. 
+- **Directory account:**  Your customer can create a new user from your organization in their directory and assign any RBAC role. 
 
-- **Service principal:**  Customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as service principal.
+- **Service principal:**  Your customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as service principal.
 
-When you have access to the customer's resources, use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You need to link partner ID for each customer tenant. 
+When you have access to the customer's resources, use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You need to link the partner ID for each customer tenant. 
 
-## PowerShell - Link new partner ID
+## Use PowerShell to Link new partner ID
 
 1. Install the [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview) PowerShell Module.
 
-2. Sign in to the customer's tenant either with the user account or service principal, For more information, see[Login with Powershell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Sign in to the customer's tenant either with the user account or service principal, For more information, see [Login with Powershell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  
 ```azurepowershell-interactive
 C:\> Login-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
@@ -46,28 +46,29 @@ C:\> new-AzureRmManagementPartner -PartnerId 12345
 ```
 
 
-### Get the linked partner ID.
+### Get the linked partner ID
 
 ```azurepowershell-interactive
 C:\> get-AzureRmManagementPartner 
 ```
-### Update the linked partner ID.
+
+### Update the linked partner ID
 
 ```azurepowershell-interactive
 C:\> Update-AzureRmManagementPartner -PartnerId 12345 
 ```
-### Delete the linked partner ID.
+### Delete the linked partner ID
 
 ```azurepowershell-interactive
 C:\> remove-AzureRmManagementPartner -PartnerId 12345 
 ```
 
-## CLI - Link new partner ID.
+## Use CLI to link new partner ID
 1.  Install the CLI Extension.
 
-```azure-cli
-C:\ az extension add --name managementpartner
-``` 
+   ```azure-cli
+  C:\ az extension add --name managementpartner
+  ``` 
 
 2.  Sign in to the customer's tenant with the user account or service principal. For more information, see [Log in with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
@@ -82,19 +83,19 @@ C:\ az login --tenant <tenant>
 C:\ az managementpartner create --partner-id 12345
 ```  
 
-### Get the linked partner ID.
+### Get the linked partner ID
 
 ```azure-cli
 C:\ az managementpartner show
 ``` 
 
-### Update the linked partner ID.
+### Update the linked partner ID
 
 ```azure-cli
 C:\ az managementpartner update --partner-id 12345
 ``` 
 
-### Delete the linked partner ID.
+### Delete the linked partner ID
 
 ```azure-cli
 C:\ az managementpartner delete --partner-id 12345
@@ -105,18 +106,18 @@ C:\ az managementpartner delete --partner-id 12345
 
 **Who can link the partner ID?**
 
-Any user from partner organization can link a partner ID to the account, which is used for managing customer's resources. 
+Any user from the partner organization who is managing customer's resource can link a partner ID to the account.
   
 
-**Once a partner ID has been linked can it be changed? **
+**Once a partner ID is linked can it be changed?**
 
 Yes, linked partner ID can be changed, added, or removed.
 
-**What if a user has account in multiple customer tenants?**
+**What if a user has an account in multiple customer tenants?**
 
-The link between the Partner ID and the account is done per customer tenant.  You have to link partner ID in each customer tenant.
+The link between the partner ID and the account is done for each customer tenant.  You have to link the partner ID in each customer tenant.
 
-**Can other partner or customer edit or remove the link to the Partner ID**
+**Can other partner or customer edit or remove the link to the Partner ID?**
 
 The link is associated at the account level. Only you can edit or remove the link to the partner ID. The customer and other partner can't change the link to the partner ID. 
 
