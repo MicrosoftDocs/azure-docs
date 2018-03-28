@@ -49,7 +49,7 @@ Any of the selected options allow connectivity to a SQL endpoint only through pr
 
 ## Deploy to an optimally sized Managed Instance
 
-Managed Instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a new purchasing model that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores. The new purchasing model for Managed Instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. THis new model enables you to right-size your destination environment in the cloud.
+Managed Instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a new purchasing model that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores. The new purchasing model for Managed Instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This new model enables you to right-size your destination environment in the cloud.
 
 You can select compute and storage resources at deployment time and then change it afterwards without introducing downtime for your application.
 
