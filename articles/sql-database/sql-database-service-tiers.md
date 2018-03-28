@@ -72,10 +72,10 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 > [!IMPORTANT]
 > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
-For details on specific performance levels and storage size choices available, see [SQL Database resource limits](sql-database-resource-limits.md).
+For details on specific performance levels and storage size choices available, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md) and [SQL Database vCore-based resource limits](sql-database-vcore-resource-limits.md).
 
 ## vCore-based purchasing model (preview)
 
@@ -106,7 +106,7 @@ The following table helps you understand the differences between these two tiers
 |---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|
 |Compute|1 to 16 vCore|1 to 16 vCore|
-|Storage|Premium remote storage, 5 GB – 1 TB per instance|Super-fast local SSD storage, 5 GB – 1.5 TB per instance|
+|Storage|Premium remote storage, 5 GB – 1 TB|Local SSD storage, 5 GB – 1.5 TB|
 |IO throughput (approximate)|500 IOPS per vCore with 7500 maximum IOPS|5000 IOPS per core|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
 |Backups|RA-GRS, 7-35 days (7 days by default)|RA-GRS, 7-35 days (7 days by default)*|
@@ -130,27 +130,6 @@ The following table helps you understand how to select the optimal configuration
 |Storage|Up to 1 TB local SSD storage|Up to 1.5 TB local SSD storage
 ||||
 
-The supported performance levels are shown in the following table.
-
-|Performance level|H/W Generation|vCores|Memory (GB)|In-memory OLTP(GB)|Storage type|Max pool size|Max single DB size|Max log size|TempDB size|Compute redundancy|
-|-----------------|:------------:|:----:|:---------:|:------------:|:--------------:|:-----------:|:---------:|:----:|:----------:|:----------|:-----------------:|
-|GP_Gen4_1|4|1|7|N/A|XIO|512|1024|307|32|1X|
-|GP_Gen4_2|4|2|14|N/A|XIO|756|1024|307|64|1X|
-|GP_Gen4_4|4|4|28|N/A|XIO|1536|1024|461|128|1X|
-|GP_Gen4_8|4|8|56|N/A|XIO|2048|1024|614|256|1X|
-|GP_Gen4_16|4|16|112|N/A|XIO|3584|1024|922|384|1X|
-|BC_Gen4_1*|4|1|7|1|Attached SSD|1024|1024|307|32|3X|
-|BC_Gen4_2|4|2|14|2|Attached SSD|1024|1024|307|64|3X|
-|BC_Gen4_4|4|4|28|4|Attached SSD|1024|1024|307|128|3X|
-|BC_Gen4_8|4|8|56|8|Attached SSD|1536|1024|307|256|3X|
-|BC_Gen4_16|4|16|112|20|Attached SSD|2048|1024|1229|384|3X|
-|||||||||
-
-\* Single database only
-
-> [!IMPORTANT]
-> Business critical service tier supports the zone redundant deployment choice in regions that support multiple Availability Zones (this is a preview feature). For more information, see [Zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration-preview).
-
 ### Storage considerations
 
 Consider the following:
@@ -171,19 +150,13 @@ To monitor the current total size of MDF and LDF, use [space_used](https://docs.
 Storage for database backups is allocated to support the Point in Time Restore (PITR) and Long Term Retention (LTR) capabilities of SQL Database. This storage is allocated separately for each database and billed as two separate per databases charges. 
 
 - **PITR**: Individual database backups are copied to RA-GRS storage are automatically. The storage size increases dynamically as the new backups are created.  The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 1x of data size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups.
-- **LTR**: SQL Database offers the option configuring long-term retention of full backups for up to 10 years. If LTR policy is enabled, theses backups are stored in RA-GRS storage automatically but you can control how often the backups are copied. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. This configuration will define how much storage will be used for the LTR backups. You can use the LTR pricing calculator to estimate the cost of LTR storage. For more information, see [Long-term retention](sql-database-long-term-retention.md).
+- **LTR**: SQL Database offers the option configuring long-term retention of full backups for up to 10 years. If LTR policy is enabled, theses backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. This configuration will define how much storage will be used for the LTR backups. You can use the LTR pricing calculator to estimate the cost of LTR storage. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 ### Azure Hybrid Use Benefit
 
 In the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
-
-### Geo-replication considerations
-
-[Geo-replication](sql-database-geo-replication-overview.md) is only supported between two databases in the same purchasing model. 
-
-At any point in time, the secondary in a geo-replication relationship cannot have less than 50% of the compute capacity of the primary. Because the secondary can become primary at any point, the secondary compute must be >=50% and <=200% of the primary compute. This is called the **one click-stop** rule.
 
 #### Migration of single databases with geo-replication links
 
@@ -195,8 +168,8 @@ The following table provides guidance for the specific migration scenarios:
 
 |Current service tier|Target service tier|Migration type|User actions|
 |---|---|---|---|
-|Standard|General purpose|Lateral|Can migrate in any order but need to ensure an appropriate vCore sizing|
-|Premium|Business critical|Lateral|Can migrate in any order but need to ensure appropriate vCore sizing|
+|Standard|General purpose|Lateral|Can migrate in any order, but need to ensure an appropriate vCore sizing*|
+|Premium|Business critical|Lateral|Can migrate in any order, but need to ensure appropriate vCore sizing*|
 |Standard|Business critical|Upgrade|Must migrate secondary first|
 |Business critical|Standard|Downgrade|Must migrate primary first|
 |Premium|General purpose|Downgrade|Must migrate primary first|
@@ -205,9 +178,19 @@ The following table provides guidance for the specific migration scenarios:
 |General purpose|Business critical|Upgrade|Must migrate secondary first|
 ||||
 
+\* 100 DTU requires at least 1 vCore
+
+#### Migration of failover groups 
+
+Migration of failover groups with multiple databases requires individual migration of the primary and secondary databases. During that process, the same considerations and sequencing rules apply. After the databases are converted to the vCore-based model, the failover group will remain in effect with the same policy settings. 
+
 #### Creation of a geo-replication secondary
 
 You can only create a geo-secondary using the same service tier as the primary. For database with high log generation rate, it is strongly advised that the secondary is created with the same performance level as the primary. If you are creating a geo-secondary in the elastic pool for a single primary database, it is strongly advised that the pool has the `maxVCore` setting that matches the primary database performance level. If you are creating a geo-secondary in the elastic pool for a primary in another elastic pool, it is strongly advised that the pools have the same `maxVCore` settings
+
+####Using database copy to convert a DTU-based database to a vCore-based database.
+
+You can copy any database with a DTU-based performance level to a database with a vCore-based performance level without restrictions or special sequencing as long as the target performance level supports the maximum database size of the source database. This is because the database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target. 
 
 ## Next steps
 

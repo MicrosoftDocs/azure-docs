@@ -8,7 +8,7 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
 
 ---
@@ -26,7 +26,7 @@ Intelligent Insights automatically detects performance issues with SQL Database 
 
 | Detectable performance patterns | Details outputted |
 | :------------------- | ------------------- |
-| [Reaching Resource Limits](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Consumption of available resources (DTUs), database worker threads, or database login sessions available on the monitored subscription has reached limits, which causes SQL Database performance issues. |
+| [Reaching resource limits](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Consumption of available resources (DTUs), database worker threads, or database login sessions available on the monitored subscription has reached limits, which causes SQL Database performance issues. |
 | [Workload Increase](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Workload increase or continuous accumulation of workload on the database was detected, which causes SQL Database performance issues. |
 | [Memory Pressure](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Workers that requested memory grants have to wait for memory allocations for statistically significant amounts of time. Or an increased accumulation of workers that requested memory grants exists, which affects SQL Database performance. |
 | [Locking](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Excessive database locking was detected, which affects SQL Database performance. |
@@ -48,7 +48,7 @@ Intelligent Insights automatically detects performance issues with SQL Database 
 
 The following section describes the previously listed detectable performance patterns in more detail.
 
-## Reaching Resource Limits
+## Reaching resource limits
 
 ### What is happening
 

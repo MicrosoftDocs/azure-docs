@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.author: jodebrui
 ---
 # Optimize performance by using In-Memory technologies in SQL Database
@@ -66,7 +66,7 @@ In-depth videos about the technologies:
 
 In-Memory OLTP includes memory-optimized tables, which are used for storing user data. These tables are required to fit in memory. Because you manage memory directly in the SQL Database service, we have the  concept of a quota for user data. This idea is referred to as *In-Memory OLTP storage*.
 
-Each supported standalone database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP storage. See [single database DTU-based resource limits](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels), [elastic pool DTU-bsed resource limits](sql-database-resource-limits.md#elastic-pool-change-storage-size), and [vCore-based resource limits](sql-database-service-tiers.md#choosing-compute-memory-storage-and-io-resources).
+Each supported standalone database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP storage. See [DTU-based resource limits](sql-database-dtu-resource-limits.md) and [vCore-based resource limits](sql-database-vcore-resource-limits.md).
 
 The following items count toward your In-Memory OLTP storage cap:
 

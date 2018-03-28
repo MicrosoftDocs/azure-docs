@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database DTU-based Resource Limits | Microsoft Docs
+title: Azure SQL Database DTU-based resource limits | Microsoft Docs
 description: This page describes some common DTU-based resource limits for Azure SQL Database.
 services: sql-database
 author: CarlRabeler
@@ -20,7 +20,63 @@ ms.author: carlrab
 
 For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), the [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli), or the [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
 
-[!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
+### Basic service tier
+| **Performance level** | **Basic** |
+| :--- | --: |
+| Max DTUs | 5 |
+| Included storage (GB) | 2 |
+| Max storage choices (GB) | 2 |
+| Max in-memory OLTP storage (GB) |N/A |
+| Max concurrent workers (requests) | 30 |
+| Max concurrent logins | 30 |
+| Max concurrent sessions | 300 |
+|||
+
+### Standard service tier
+| **Performance level** | **S0** | **S1** | **S2** | **S3** |
+| :--- |---:| ---:|---:|---:|---:|
+| Max DTUs** | 10 | 20 | 50 | 100 |
+| Included storage (GB) | 250 | 250 | 250 | 250 |
+| Max storage choices (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
+| Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
+| Max concurrent logins | 60 | 90 | 120 | 200 |
+| Max concurrent sessions |600 | 900 | 1200 | 2400 |
+||||||
+
+### Standard service tier (continued)
+| **Performance level** | **S4** | **S6** | **S7** | **S9** | **S12** |
+| :--- |---:| ---:|---:|---:|---:|---:|
+| Max DTUs** | 200 | 400 | 800 | 1600 | 3000 |
+| Included storage (GB) | 250 | 250 | 250 | 250 | 250 |
+| Max storage choices (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
+| Max concurrent workers (requests)| 400 | 800 | 1600 | 3200 |6000 |
+| Max concurrent logins | 400 | 800 | 1600 | 3200 |6000 |
+| Max concurrent sessions |4800 | 9600 | 19200 | 30000 |30000 |
+|||||||
+
+### Premium service tier 
+| **Performance level** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+| :--- |---:|---:|---:|---:|---:|---:|
+| Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
+| Included storage (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
+| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
+| Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
+| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Max concurrent logins | 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+|||||||
+
+
+> [!IMPORTANT]
+> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+>
+>\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](../articles/sql-database/sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> 
+>\*\* Max DTUs per database starting at 200 DTUs and higher in Standard are in preview.
+>
+
 
 ## Single database: change storage size
 
@@ -47,8 +103,8 @@ The duration of the entire scale-up process depends on both the size and service
 * If you are upgrading to a higher service tier or performance level, the database max size does not increase unless you explicitly specify a larger size (maxsize).
 * To downgrade a database, the database used space must be smaller than the maximum allowed size of the target service tier and performance level. 
 * When downgrading from **Premium** to the **Standard** tier, an extra storage cost applies if both (1) the max size of the database is supported in the target performance level, and (2) the max size exceeds the included storage amount of the target performance level. For example, if a P1 database with a max size of 500 GB is downsized to S3, then an extra storage cost applies since S3 supports a max size of 500 GB and its included storage amount is only 250 GB. So, the extra storage amount is 500 GB – 250 GB = 250 GB. For pricing of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount. 
-* When upgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, upgrade its secondary databases to the desired performance tier before upgrading the primary database (general guidance). When upgrading to a different, upgrading the secondary database first is required.
-* When downgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, downgrade its primary databases to the desired performance tier before downgrading the secondary database (general guidance). When downgrading to a different edition, downgrading the primary database first is required.
+* When upgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, upgrade its secondary databases to the desired performance tier before upgrading the primary database (general guidance for best performance). When upgrading to a different, upgrading the secondary database first is required.
+* When downgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, downgrade its primary databases to the desired performance tier before downgrading the secondary database (general guidance for best performance). When downgrading to a different edition, downgrading the primary database first is required.
 * The restore service offerings are different for the various service tiers. If you are downgrading to the **Basic** tier, there is a lower backup retention period - see [Azure SQL Database Backups](sql-database-automated-backups.md).
 * The new properties for the database are not applied until the changes are complete.
 
@@ -73,7 +129,91 @@ For SQL Database elastic pools, the following tables show the resources availabl
 > [!NOTE]
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
+### Basic elastic pool limits
+
+| eDTUs per pool | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
+| Included storage per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Max storage choices per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+| Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
+| Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
+| Min eDTUs choices per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Max eDTUs choices per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Max storage per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 
+||||||||
+
+### Standard elastic pool limits
+
+| eDTUs per pool | **50** | **100** | **200** | **300** | **400** | **800**| 
+|:---|---:|---:|---:| ---: | ---: | ---: | 
+| Included storage per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
+| Max storage choices per pool (GB)* | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
+| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | N/A | 
+| Max number DBs per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
+| Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Min eDTUs choices per database | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Max eDTUs choices per database | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
+| Max storage per database (GB)* | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
+||||||||
+
+### Standard elastic pool limits (continued) 
+
+| eDTUs per pool | **1200** | **1600** | **2000** | **2500** | **3000** |
+|:---|---:|---:|---:| ---: | ---: |
+| Included storage per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
+| Max storage choices per pool (GB)* | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
+| Max In-Memory OLTP storage per pool (GB) | N/A | N/A | N/A | N/A | N/A | 
+| Max number DBs per pool | 500 | 500 | 500 | 500 | 500 | 
+| Max concurrent workers (requests) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Max concurrent logins per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Min eDTUs choices per database | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Max eDTUs choices per database | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
+| Max storage choices per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
+||||||||
+
+### Premium elastic pool limits
+
+| eDTUs per pool | **125** | **250** | **500** | **1000** | **1500**| 
+|:---|---:|---:|---:| ---: | ---: | 
+| Included storage per pool (GB) | 250 | 500 | 750 | 1024 | 1536 | 
+| Max storage choices per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
+| Max In-Memory OLTP storage per pool (GB) | 1 | 2 | 4 | 10 | 12 | 
+| Max number DBs per pool | 50 | 100 | 100 | 100 | 100 | 
+| Max concurrent workers per pool (requests) | 200 | 400 | 800 | 1600 | 2400 | 
+| Max concurrent logins per pool | 200 | 400 | 800 | 1600 | 2400 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Min eDTUs per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
+| Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
+||||||||
+
+### Premium elastic pool limits (continued) 
+
+| eDTUs per pool | **2000** | **2500** | **3000** | **3500** | **4000**|
+|:---|---:|---:|---:| ---: | ---: | 
+| Included storage per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
+| Max storage choices per pool (GB)* | 2048 | 2560 | 3072 | 3548 | 4096|
+| Max In-Memory OLTP storage per pool (GB) | 16 | 20 | 24 | 28 | 32 |
+| Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 
+| Max concurrent workers (requests) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Max concurrent logins per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Min eDTUs choices per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Max eDTUs choices per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Max storage per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
+||||||||
+
+> [!IMPORTANT]
+> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/).
+>
+> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](../articles/sql-database/sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
@@ -133,7 +273,7 @@ When database space used reaches the max size limit, database inserts and update
 
 When encountering high space utilization, mitigation options include:
 
-- Increasing the max size of the database or elastic pool, or change the performance level to obtain more included storage. See [SQL Database Resource Limits](sql-database-resource-limits.md).
+- Increasing the max size of the database or elastic pool, or change the performance level to obtain more included storage. See [SQL Database resource limits](sql-database-dtu-resource-limits.md).
 - If the database is in an elastic pool, then alternatively the database can be moved outside of the pool so that its storage space is not shared with other databases.
 
 ### Sessions and workers (requests) 
@@ -147,7 +287,6 @@ When encountering high session or worker utilization, mitigation options include
 ## Next steps
 
 - For information about service tiers, see [Service tiers](sql-database-service-tiers.md).
-- For information about single databases, see [Single database resources](sql-database-resource-limits.md).
 - For information about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 - For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
