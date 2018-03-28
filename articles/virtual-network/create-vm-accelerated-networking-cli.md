@@ -55,7 +55,7 @@ D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2, and Ms/Mms.
 For more information on VM instances, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Regions
-Available in all public Azure regions with the exception of East Asia.   Azure Government Cloud is not yet supported.
+Available in all public Azure regions as well as Azure Government Clouds.
 
 ## Limitations
 The following limitations exist when using this capability:
