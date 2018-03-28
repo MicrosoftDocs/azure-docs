@@ -308,10 +308,6 @@ items:
             href: local-emulator.md
           - name: Export certificates
             href: local-emulator-export-ssl-certificates.md
-      - name: Concepts
-        items:
-        - name: Azure Cosmos DB concepts
-          href: distribute-data-globally.md
       - name: How To Guides
         items:
         - name: Connect to your MongoDB account
@@ -350,10 +346,6 @@ items:
           href: tutorial-query-graph.md
         - name: 3 - Distribute globally
           href: tutorial-global-distribution-graph.md
-      - name: Concepts
-        items:
-        - name: Azure Cosmos DB concepts
-          href: distribute-data-globally.md
       - name: How To Guides
         items:
         - name: Integrate
