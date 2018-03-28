@@ -135,7 +135,7 @@ grant_type=authorization_code
 | grant_type |required |Must be `authorization_code` for the authorization code flow. |
 | code |required |The `authorization_code` that you acquired in the previous section |
 | redirect_uri |required |The same `redirect_uri` value that was used to acquire the `authorization_code`. |
-| client_secret |required for web apps |The application secret that you created in the app registration portal for your app.  It should not be used in a native app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the `client_secret` securely on the server side. |
+| client_secret |required for web apps <br> not allowed for public clients |The application secret that you created in the app registration portal for your app.  It cannot be used in a native app (public client), because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs (all confidential clients), which have the ability to store the `client_secret` securely on the server side. |
 | resource |required if specified in authorization code request, else optional |The App ID URI of the web API (secured resource). |
 | code_verifier | optional              | The same code_verifier that was used to obtain the authorization_code.  Required if PKCE was used in the authorization code grant request.  For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
 
