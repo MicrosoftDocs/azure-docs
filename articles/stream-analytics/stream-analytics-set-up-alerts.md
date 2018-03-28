@@ -18,7 +18,6 @@ ms.date: 06/26/2017
 ms.author: samacha
 
 ---
-
 # Tutorial: Set up alerts for Azure Stream Analytics jobs
 You can set up alerts to trigger an alert when a metric reaches a condition that you specify. For example, you might set up an alert for a condition like the following:
 
