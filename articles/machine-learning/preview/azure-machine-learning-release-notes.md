@@ -20,14 +20,16 @@ In this article, learn about the new releases for [Azure Machine Learning Servic
 
 Welcome to the fifth update of Azure Machine Learning Workbench. Many of the following updates are made as direct results of your feedback. Please keep them coming!
 
-## Notable New Features and Changes
+**Notable New Features and Changes**
+
 - Support for running your scripts on remote Ubuntu VMs natively on your own environment in addition to remote-docker based execution.
 - New environment experience in Workbench App allows you to create compute targets and run configurations in addition to our CLI-based experience.
 ![Environments Tab](media/azure-machine-learning-release-notes/environment-page.png)
 - Customizable Run History reports
 ![Image of new Run History Reports](media/azure-machine-learning-release-notes/new-run-history-reports.png)
 
-## Detailed Updates
+**Detailed Updates**
+
 Following is a list of detailed updates in each component area of Azure Machine Learning in this sprint.
 
 ### Workbench UI
