@@ -75,9 +75,12 @@
       - name: Configure Identity for Azure VMSS
         items:
         - name: Portal
+          href: qs-configure-cli-windows-vm.md
         - name: CLI
+          href: qs-configure-cli-windows-vmss.md
         - name: PowerShell
         - name: Azure Resource Manager Template
+          href: qs-configure-template-windows-vmss.md
         - name: .NET
           href: how-to-configure-identity-vmss-csharp.md
         - name: Java
@@ -100,6 +103,7 @@
       - name: Acquire an access token
         items:
         - name: PowerShell
+          href: how-to-acquire-vm-acess-token-powershell.md
         - name: Curl
         - name: .NET
         - name: Java
