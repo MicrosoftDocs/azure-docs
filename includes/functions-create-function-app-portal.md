@@ -25,5 +25,5 @@
 4. Select **Go to resource** to view your new function app.
 
 >[!TIP]
->Having trouble finding your function apps in the portal, try [adding Function Apps to your favorites in the Azure portal](functions-how-to-use-azure-function-app-settings.md#favorite).   
+>Having trouble finding your function apps in the portal, try [adding Function Apps to your favorites in the Azure portal](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).   
 
