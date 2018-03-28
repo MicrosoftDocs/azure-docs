@@ -7,14 +7,14 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 03/24/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Use Draft with Azure Container Service (AKS)
 
-Draft is an open-source tool that helps package and run code in a Kubernetes cluster. Draft is targeted at the development iteration cycle; as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur. For more information on Draft, see the [Draft documentation on Github][draft-documentation].
+Draft is an open-source tool that helps contain and deploy those containers in a Kubernetes cluster, leaving you free to concentrate on the dev cycle -- the "inner loop" of concentrated development. Draft works as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur. For more information on Draft, see the [Draft documentation on Github][draft-documentation].
 
 This document details using Draft with a Kubernetes cluster on AKS.
 
@@ -28,22 +28,25 @@ Helm must also be installed in your AKS cluster. For more information on install
 
 ## Install Draft
 
-The Draft CLI is a client that runs on your development system and allows you to quicky deploy code into a Kubernetes cluster.
+The Draft CLI is a client that runs on your development system and allows you to quicky deploy code into a Kubernetes cluster. 
+
+> [!NOTE] If you've installed Draft prior to version 0.12, you should first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`.
 
 To install the Draft CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide][install-draft].
 
 ```console
+brew tap azure/draft
 brew install draft
 ```
 
-Output:
+Output is similar to the following:
 
 ```
 ==> Installing draft from azure/draft
-==> Downloading https://azuredraft.blob.core.windows.net/draft/draft-v0.7.0-darwin-amd64.tar.gz
-Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.7.0.tar.gz
-==> /usr/local/Cellar/draft/0.7.0/bin/draft init --client-only
-🍺  /usr/local/Cellar/draft/0.7.0: 6 files, 61.2MB, built in 1 second
+==> Downloading https://azuredraft.blob.core.windows.net/draft/draft-v0.12.0-darwin-amd64.tar.gz
+Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.12.0.tar.gz
+==> /usr/local/Cellar/draft/0.12.0/bin/draft init --client-only
+🍺  /usr/local/Cellar/draft/0.12.0: 6 files, 61.2MB, built in 1 second
 ```
 
 ## Configure Draft
@@ -70,20 +73,15 @@ Initialize Draft with the `draft init` command.
 draft init
 ```
 
-During this process, you are prompted for the container registry credentials. When using an Azure Container Registry, the registry URL is the ACR login server name, the username is the ACR instance name, and the password is the ACR password.
+Draft is now configured for use locally, but you must now set which registry to which you want to push the container images and from which you want to pull them into the deployment. This example uses Azure Container Registry (ACR), which if it is deployed in the same Azure subscription is automatically trusted by AKS. (If it is not, you can enable access to ACR from your Kubernetes cluster by [authenticating with ACR](../container-registry/container-registry-auth-aks.md))
 
-```console
-1. Enter your Docker registry URL (e.g. docker.io/myuser, quay.io/myuser, myregistry.azurecr.io): <ACR Login Server>
-2. Enter your username: <ACR Name>
-3. Enter your password: <ACR Password>
-```
+### Setting ACR as the container registry
 
-Once complete, Draft is configured in the Kubernetes cluster and is ready to use.
+The following steps enable the use of ACR from your AKS cluster.
+1. Set the Draft container `registry` value by running `draft config set registry <registry name>.azurecr.io`. 
+2. Log on to the ACR registry by running `az acr login -n <registry name>`. 
 
-```
-Draft has been installed into your Kubernetes Cluster.
-Happy Sailing!
-```
+In this case, no password is needed if the AKS cluster and ACR are in the same Azure subscription.
 
 ## Run an application
 
@@ -114,6 +112,8 @@ Output:
 
 To run the application on a Kubernetes cluster, use the `draft up` command. This command uploads the application code and configuration files to the Kubernetes cluster. It then runs the Dockerfile to create a container image, pushes the image to the container registry, and finally runs the Helm chart to start the application.
 
+The first time this is run, pushing and pulling the container image may take some time; once the base layers are cached, the time taken is dramatically reduced.
+
 ```console
 draft up
 ```
@@ -121,11 +121,12 @@ draft up
 Output:
 
 ```
-Draft Up Started: 'open-jaguar'
-open-jaguar: Building Docker Image: SUCCESS ⚓  (28.0342s)
-open-jaguar: Pushing Docker Image: SUCCESS ⚓  (7.0647s)
-open-jaguar: Releasing Application: SUCCESS ⚓  (4.5056s)
-open-jaguar: Build ID: 01BW3VVNZYQ5NQ8V1QSDGNVD0S
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (3.0007s)
+example-java: Releasing Application: SUCCESS ⚓  (0.9322s)
+example-java: Build ID: 01C9NPDYQQH2CZENDMZW7ESJAM
+Inspect the logs with `draft logs 01C9NPDYQQH2CZENDMZW7ESJAM`
 ```
 
 ## Test the application
@@ -245,20 +246,30 @@ public class Hello {
 }
 ```
 
-Run the `draft up` command to redeploy the application.
+Run the `draft up --auto-connect` command to redeploy the application just as soon as a pod is ready to respond.
 
 ```console
-draft up
+draft up --auto-connect
 ```
 
 Output
 
 ```
-Draft Up Started: 'deadly-squid'
-deadly-squid: Building Docker Image: SUCCESS ⚓  (18.0813s)
-deadly-squid: Pushing Docker Image: SUCCESS ⚓  (7.9394s)
-deadly-squid: Releasing Application: SUCCESS ⚓  (6.5005s)
-deadly-squid: Build ID: 01BWK8C8X922F5C0HCQ8FT12RR
+Draft Up Started: 'example-java'
+example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (4.0010s)
+example-java: Releasing Application: SUCCESS ⚓  (1.1336s)
+example-java: Build ID: 01C9NPMJP6YM985GHKDR2J64KC
+Inspect the logs with `draft logs 01C9NPMJP6YM985GHKDR2J64KC`
+Connect to java:4567 on localhost:39249
+Your connection is still active.
+Connect to java:4567 on localhost:39249
+[java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
+[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: == Spark has ignited ...
+[java]: >> Listening on 0.0.0.0:4567
+
 ```
 
 Finally, view the application to see the updates.
