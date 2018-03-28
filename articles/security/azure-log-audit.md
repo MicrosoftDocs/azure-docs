@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Logging and Auditing | Microsoft Docs
 description: Learn about how you can use logging data to gain deep insights about your application.

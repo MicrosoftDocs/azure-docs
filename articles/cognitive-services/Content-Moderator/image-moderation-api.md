@@ -34,6 +34,8 @@ Example extract:
 	  ............
       ],
 
+- `isImageAdultClassified` represents the potential presence of images that may be considered sexually explicit or adult in certain situations.
+- `isImageRacyClassified` represents the potential presence of images that may be considered sexually suggestive or mature in certain situations.
 
 ## Detecting text with Optical Character Recognition (OCR)
 
