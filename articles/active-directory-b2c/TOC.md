@@ -33,7 +33,7 @@
 ### [Protect an ASP.NET API](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.js](active-directory-b2c-devquickstarts-api-node.md)
 ### [Call a .NET Web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Guides
@@ -67,6 +67,7 @@
 ## [Custom policies](active-directory-b2c-overview-custom.md)
 ## Guides
 ### [Get started](active-directory-b2c-get-started-custom.md)
+### [Starter pack](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### Configure OIDC/OAUTH providers
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft Account](active-directory-b2c-custom-setup-msa-idp.md)

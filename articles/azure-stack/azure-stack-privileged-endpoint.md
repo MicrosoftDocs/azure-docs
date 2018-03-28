@@ -73,6 +73,8 @@ We recommend that you connect to the PEP only from the hardware lifecycle host o
 
       - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.) 
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
+    > [!NOTE]
+    > If you are unable to connect to the ERCS endpoint, try steps one and two again with the IP address of an ERCS VM to which you haven't already tried to connect.
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
 
