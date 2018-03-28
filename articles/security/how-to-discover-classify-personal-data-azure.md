@@ -1,6 +1,6 @@
 ﻿---
 title: Discover, identify, and classify personal data in Microsoft Azure | Microsoft Docs
-description: Learn about searching, classifying, discovering, and identifying data
+description: searching, classifying, discovering, and identifying data in Azure may help you comply with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: barclayn
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 
 ---
 # Discover, identify, and classify personal data in Microsoft Azure
 
-This article provides guidance on how to discover, identify, and classify personal data in several Azure tools and services, including using Azure Data Catalog, Azure Active Directory, SQL Database, Power Query for Hadoop clusters in Azure HDInsight, Azure Information Protection, Azure Search, and SQL queries for Azure Cosmos DB.
+This article provides guidance on how to discover, identify, and classify personal data in several Azure tools and services, including using Azure Data Catalog, Azure Active Directory, SQL Database, Power Query for Hadoop clusters in Azure HDInsight, Azure Information Protection, Azure Search, and SQL queries for Azure Cosmos DB. These tools and processes can be used to comply with General Data Protection Regulation (GDPR)
 
 ## Scenario, problem statement, and goal
 
@@ -113,7 +113,7 @@ To learn how to create your database this way, visit the [Create a single Azure 
 >[!Note]
 Windows admins tend to use PowerShell, but some of them prefer Azure CLI.
 
-### How do I search for personal data in SQL database in the Azure portal?**
+### How do I search for personal data in SQL database in the Azure portal?
 
 You can use the built-in query editor tool inside the Azure portal to search for personal data. You’ll log in to the tool using your SQL server admin login and password, and then enter a query.
 

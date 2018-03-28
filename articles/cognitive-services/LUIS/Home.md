@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 03/23/2017
 ms.author: v-geberr
 ---
 
@@ -47,9 +47,9 @@ After the model is designed, trained, and published, it is ready to receive and 
 
 ## Accessing LUIS
 
-LUIS has two ways to build a model: the [Authoring APIs][authoring-apis] and the [LUIS][luis-reference-regions.md] website. Both methods give you and your collaborators control of your LUIS model definition. You can use either the [LUIS][luis-reference-regions.md] website or the Authoring APIs or a combination of both to build your model. This management includes models, versions, collaborators, external APIs, testing, and training. 
+LUIS has two ways to build a model: the [Authoring REST-based APIs][authoring-apis] and the [LUIS][LUIS] website. Both methods give you and your collaborators control of your LUIS model definition. You can use either the [LUIS][LUIS] website or the Authoring APIs or a combination of both to build your model. This management includes models, versions, collaborators, external APIs, testing, and training. 
 
-Once your model is built and published, you pass the utterance to LUIS and receive the JSON object results with the [Endpoint APIs][endpoint-apis].
+Once your model is built and published, you pass the utterance to LUIS and receive the JSON object results with the [Endpoint REST-based APIs][endpoint-apis].
 
 > [!NOTE]
 > * The Authoring APIs and the [LUIS](luis-reference-regions.md) website use the authoring key found in your LUIS account page.
@@ -99,3 +99,4 @@ Create a [new LUIS app](LUIS-get-started-create-app.md).
 [add-entities]:Add-entities.md
 [authoring-apis]:https://aka.ms/luis-authoring-api
 [endpoint-apis]:https://aka.ms/luis-endpoint-apis
+[LUIS]:luis-reference-regions.md

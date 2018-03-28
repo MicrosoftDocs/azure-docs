@@ -50,7 +50,7 @@ Extensions are delivered as NuGet packages, where the package name typically sta
 + [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
 + [In the Azure portal](#azure-portal-development) 
 
-There are a core set of bindings in version 2.x that are not provided as extensions. You do not need to register extensions for the following triggers and bindings: HTTP, timer, and Azure Storage. 
+There is a core set of bindings in version 2.x that are not provided as extensions. You do not need to register extensions for the following triggers and bindings: HTTP, timer, and Azure Storage. 
 
 For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md). Version 2.x of the Functions runtime is currently in preview. 
 

@@ -6,7 +6,7 @@ author: markgalioto
 ms.service: backup
 ms.topic: "include"
 ms.date: 2/7/2018
-ms.author: trinadhk
+ms.author: trinadhk;sogup
 ms.custom: "include file"
 --- 
 
@@ -20,8 +20,8 @@ The following limits apply to Azure Backup.
 | Number of backup vaults that can be created in each Azure subscription |25 Recovery Services vaults per region |
 | Number of times backup can be scheduled per day |3 per day for Windows Server/Client <br/> 2 per day for SCDPM <br/> Once a day for IaaS VMs |
 | Data disks attached to an Azure virtual machine for backup |16 |
-| Size of individual data disk attached to an Azure virtual machine for backup| 1024 GB <sup>2</sup>|
+| Size of individual data disk attached to an Azure virtual machine for backup| 4095 GB <sup>2</sup>|
 
 * <sup>1</sup>The 54400 GB limit does not apply to IaaS VM backup.
-* <sup>2</sup> We have a [private preview](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) for supporting disks upto 4TB. 
+ 
 

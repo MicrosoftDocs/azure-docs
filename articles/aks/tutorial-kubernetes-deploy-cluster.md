@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Deploy an Azure Container Service (AKS) cluster
+# Tutorial: Deploy an Azure Container Service (AKS) cluster
 
 Kubernetes provides a distributed platform for containerized applications. With AKS, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part three of eight, a Kubernetes cluster is deployed in AKS. Steps completed include:
 
@@ -21,7 +21,7 @@ Kubernetes provides a distributed platform for containerized applications. With 
 > * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
-In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Operations Management Suite is configured to monitor the Kubernetes cluster.
+In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 
@@ -46,60 +46,6 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 
 After several minutes, the deployment completes, and returns json formatted information about the AKS deployment.
-
-```azurecli
-{
-  "additionalProperties": {},
-  "agentPoolProfiles": [
-    {
-      "additionalProperties": {},
-      "count": 1,
-      "dnsPrefix": null,
-      "fqdn": null,
-      "name": "nodepool1",
-      "osDiskSizeGb": null,
-      "osType": "Linux",
-      "ports": null,
-      "storageProfile": "ManagedDisks",
-      "vmSize": "Standard_DS1_v2",
-      "vnetSubnetId": null
-    }
-    ...
-```
-
-## Getting information about your cluster
-
-Once your cluster has been deployed you are able to use `az aks show` to query your cluster and retrieve important information. This data can be used as a parameter 
-when performing more complex operations on your cluster. For example, if you wanted information about the Linux profile running in your cluster, you can run the following command.
-
-```azurecli
-az aks show --name myAKSCluster --resource-group myResourceGroup --query "linuxProfile"
-
-{
-  "additionalProperties": {},
-  "adminUsername": "azureuser",
-  "ssh": {
-    "additionalProperties": {},
-    "publicKeys": [
-      {
-        "additionalProperties": {},
-        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADA...
-      }
-    ]
-  }
-}
-```
-
-This will show you information about the admin user and your SSH public keys. You can also run more detailed queries by appending JSON properties to your query string, like below.
-
-```azurecli
-az aks show -n myakscluster  -g my-group --query "{name:agentPoolProfiles[0].name, nodeCount:agentPoolProfiles[0].count}"
-{
-  "name": "nodepool1",
-  "nodeCount": 1
-}
-```
-This can be helpful for quickly accessing data about your deployed cluster. Read more about JMESPath queries [here](http://jmespath.org/tutorial.html).
 
 ## Install the kubectl CLI
 
@@ -136,18 +82,18 @@ At tutorial completion, you have an AKS cluster ready for workloads. In subseque
 
 ## Configure ACR authentication
 
-Authentication needs to be configured between the AKS cluster and the ACR registry. This involves granting the ACS identity the proper rights to pull images from the ACR registry.
+Authentication needs to be configured between the AKS cluster and the ACR registry. This involves granting the AKS identity the proper rights to pull images from the ACR registry.
 
 First, get the ID of the service principal configured for AKS. Update the resource group name and AKS cluster name to match your environment.
 
 ```azurecli
-$CLIENT_ID = $(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
 ```
 
 Get the ACR registry resource id. Update the regsitry name to that of your ACR registry and the resource group to the resource group where the ACR registry is located.
 
 ```azurecli
-$ACR_ID = $(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Create the role assignment, which grants the proper access.

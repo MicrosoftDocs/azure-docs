@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/01/2017
+ms.date: 03/27/2018
 ms.author: shawn.tabrizi
 
 ---
@@ -74,7 +74,7 @@ If you believe that the current health status is incorrect, you can let us know 
 ![Box for submitting information about an incorrect status](./media/resource-health-overview/incorrect-status.png)
 
 ## Historical information
-You can access up to 14 days of health history by selecting **View History** in Resource Health. 
+You can access up to 14 days of health history in the **Health history** section of Resource Health. 
 
 ![List of Resource Health events over the last two weeks](./media/resource-health-overview/history-blade.png)
 

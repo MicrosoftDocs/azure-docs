@@ -32,7 +32,6 @@
 ## Administer a managed domain
 ### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
-
 ### Configure secure LDAP for a managed domain
 #### [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

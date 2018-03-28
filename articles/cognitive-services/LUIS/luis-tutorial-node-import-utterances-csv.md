@@ -19,7 +19,7 @@ LUIS provides a programmatic API that does everything that the [LUIS][LUIS] webs
 
 ## Prerequisites
 
-* Log in to the [LUIS][LUIS] website and find your [authoring key](manage-keys.md#authoring-key) in Account Settings. You use this key to call the Authoring APIs.
+* Log in to the [LUIS][LUIS] website and find your [authoring key](luis-concept-keys.md#authoring-key) in Account Settings. You use this key to call the Authoring APIs.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * This tutorial starts with a CSV for a hypothetical company's log files of user requests. Download it [here](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).

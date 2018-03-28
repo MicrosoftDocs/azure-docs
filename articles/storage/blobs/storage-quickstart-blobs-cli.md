@@ -2,14 +2,14 @@
 title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using the Azure CLI | Microsoft Docs
 description: In this quickstart, you use the Azure CLI to create a storage account and a container. Then you use the CLI to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
-ms.author: tamram
+ms.author: rogarana
 ---
 
 # Quickstart: Upload, download, and list blobs using the Azure CLI

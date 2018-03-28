@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
 ---
 # Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI
@@ -42,6 +42,26 @@ Add the updated Azure Database for PostgreSQL management extension using the fol
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+Check you have the correct extension version installed. 
+```azurecli-interactive
+az extension list
+```
+
+The return JSON should include the following: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.4"
+}
+```
+
+If version 0.0.4 is not returned, run the following to update the extension: 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
 ## Create an Azure Database for PostgreSQL server
 
 Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command. A server contains a group of databases managed as a group. 
@@ -67,7 +87,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 ```
 
 > [!NOTE]
-> Azure PostgreSQL server communicates over port 5432. When connecting from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. Have your IT department open port 5432 to connect to your Azure SQL Database server.
+> Azure PostgreSQL server communicates over port 5432. When connecting from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. Have your IT department open port 5432 to connect to your Azure PostgreSQL server.
 
 ## Get the connection information
 

@@ -1,20 +1,13 @@
 ---
-title: Azure Automation Windows Hybrid Runbook Worker | Microsoft Docs
+title: Azure Automation Windows Hybrid Runbook Worker
 description: This article provides information on installing an Azure Automation Hybrid Runbook Worker that allows you to run runbooks on Windows-based computers in your local datacenter or cloud environment.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: tysonn
-
-ms.assetid: 
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte
+manager: carmonm
 ---
 
 # How to deploy a Windows Hybrid Runbook Worker
@@ -71,7 +64,7 @@ Perform the following steps to automate the installation and configuration of th
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
 
-4. You are prompted to agree to install **NuGet** and you are prompted to authenticate with your Azure credentials.<br><br> ![Execution of New-OnPremiseHybridWorker script](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+4. You are prompted to agree to install **NuGet** and you are prompted to authenticate with your Azure credentials.<br><br>![Execution of New-OnPremiseHybridWorker script](/media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
 5. After the script is complete, the Hybrid Worker Groups page will show the new group and number of members or if an existing group, the number of members is incremented.  You can select the group from the list on the **Hybrid Worker Groups** page and select the **Hybrid Workers** tile.  On the **Hybrid Workers** page, you see each member of the group listed.  
 
