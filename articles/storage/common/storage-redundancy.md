@@ -33,16 +33,16 @@ When you create a storage account, you can select one of the following replicati
 > You can change how your data is replicated after your storage account has been created. However, you may incur an additional one-time data transfer cost if you switch from LRS or ZRS to GRS or RA-GRS.
 >
 
-The following table provides a quick overview of the differences between LRS, ZRS, GRS, and RA-GRS:
+The following table provides a quick overview of the scope of durability and availability that each replication strategy will provide you for a given type of event (or event of similar impact).
 
 | Replication strategy | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Data is replicated (3x) within a single data center. |Yes |No |Yes (secondary) |Yes (secondary)
-| Data is asynchronously replicated (3x) across multiple datacenters in two different regions (i.e. primary and secondary). |No |Yes |Yes |Yes |
-| Data is synchronously replicated (3x) across multiple Availability Zones within a region. |No |Yes |No |No |
-| Data can be read from a secondary location as well as the primary location. |No |No |No |Yes |
+| Node failures within a data center |Yes |Yes |Yes |Yes
+| An entire zone or data center goes down |No |Yes |Yes |Yes |
+| A region-wide outage |No |No |Yes |Yes |
+| A region-wide outage *and* a backup endpoint to access your data |No |No |No |Yes |
 | Designed to provide ___ durability of objects over a given year. |at least 99.999999999% (11 9's)|at least 99.9999999999% (12 9's)|at least 99.99999999999999% (16 9's)|at least 99.99999999999999% (16 9's)|
-| Available in ___ storage account types |GPv1, GPv2 |GPv2 |GPv1, GPv2 |GPv1, GPv2
+| Available in ___ storage account types |GPv1, GPv2, Blob |GPv2 |GPv1, GPv2, Blob |GPv1, GPv2, Blob
 
 See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different redundancy options.
 

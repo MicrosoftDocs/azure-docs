@@ -47,3 +47,15 @@ We are always pushing ZRS into other regions so stay tuned!
 >
 ## What happens when a zone goes down?
 ZRS will remain resilient when one zone goes down, and you should still continue to follow practices for transient fault handling and so on. When a zone is considered 'down', there are networking updates such as DNS re-pointing which could affect you if you are hitting storage before these updates are completely pushed through. We recommend that you implement retry policies with exponential backoff.
+
+# ZRS Classic: A legacy option for redundancy of block blobs
+> [!NOTE]
+> ZRS Classic accounts are planned for deprecation and required migration on March 31, 2021. Microsoft will send more details to ZRS Classic customers prior to deprecation. We plan to provide an automated migration process from ZRS Classic to ZRS in the future.
+
+ZRS Classic is available only for block blobs in general-purpose V1 (GPv1) storage accounts. ZRS Classic asynchronously replicates data across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
+
+ZRS Classic accounts cannot be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also do not support metrics or logging.
+
+Once ZRS is generally available in a region, you will no longer be able to create a ZRS Classic account from the portal in that region, but you can create one through other means like PowerShell, CLI and so on.
+
+You can manually migrate ZRS account data to or from an LRS, ZRS Classic, GRS, or RA-GRS account. You can perform this manual migration using AzCopy, Azure Storage Explorer, Azure PowerShell, Azure CLI, or building your own atop one of the Azure Storage client libraries.
