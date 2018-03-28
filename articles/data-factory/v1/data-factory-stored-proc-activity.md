@@ -4,8 +4,8 @@ description: Learn how you can use the SQL Server Stored Procedure Activity to i
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory

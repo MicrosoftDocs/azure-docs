@@ -26,13 +26,13 @@ Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you
 When you start a runbook on a Hybrid Runbook Worker, you specify the group that it runs on. The members of the group determine which worker services the request. You cannot specify a particular worker.
 
 ## Installing Linux Hybrid Runbook Worker
-To install and configure a Hybrid Runbook Worker on your Linux computer, you follow a straight forward process to manually install and configure the role. It requires enabling the **Automation Hybrid Worker** solution in your OMS workspace and then running a set of commands to register the computer as a worker and add it to a new or existing group. 
+To install and configure a Hybrid Runbook Worker on your Linux computer, you follow a straight forward process to manually install and configure the role. It requires enabling the **Automation Hybrid Worker** solution in your Log Analytics workspace and then running a set of commands to register the computer as a worker and add it to a new or existing group. 
 
 Before you proceed, you need to note the Log Analytics workspace your Automation account is linked to and also the primary key for your Automation account. You can find both from the portal by selecting your Automation account, and selecting **Workspace** for the Workspace ID, and selecting **Keys** for the primary key.  
 
-1.	Enable the “Automation Hybrid Worker” solution in OMS. This can be done by either:
+1.	Enable the “Automation Hybrid Worker” solution in Azure. This can be done by either:
 
-   1. From the Solutions Gallery in the [OMS portal](https://mms.microsoft.com), enable the **Automation Hybrid Worker** solution
+   1. Add the **Automation Hybrid Worker** solution to your subscription using the procedure at [Add Log Analytics management solutions to your workspace](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
    2. Run the following cmdlet:
 
         ```powershell
@@ -41,18 +41,18 @@ Before you proceed, you need to note the Log Analytics workspace your Automation
 
 2.	Run the following command, changing the values for parameters *-w*, *-k*, *-g*, and *-e*. For the *-g* parameter replace the value with the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook Worker should join. If the name does not exist already in your Automation account, a new Hybrid Runbook Worker group is made with that name.
     
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
+    ```python
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. After the command is complete, the Hybrid Worker Groups blade in the Azure portal will show the new group and number of members or if an existing group, the number of members is incremented. You can select the group from the list on the **Hybrid Worker Groups** blade and select the **Hybrid Workers** tile. On the **Hybrid Workers** blade, you see each member of the group listed.  
 
 
 ## Turning off signature validation 
-By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you see an error containing "Signature validation failed". To turn off signature validation, run the following command, replacing the second parameter with your OMS workspace ID:
+By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you see an error containing "Signature validation failed". To turn off signature validation, run the following command, replacing the second parameter with your Log Analytics workspace ID:
 
-    ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
-    ```
+ ```python
+ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
+ ```
 
 ## Supported runbook types
 
