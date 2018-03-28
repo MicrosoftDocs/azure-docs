@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Run Azure Functions with Azure Stream Analytics jobs"  | Microsoft Docs
+title: "Tutorial: Run Azure Functions with Azure Stream Analytics jobs  | Microsoft Docs "
 description: In this tutorial, you learn how to configure Azure Functions as an output sink to Stream Analytics jobs.
 keywords: data output, streaming data, Azure Function
 documentationcenter: ''

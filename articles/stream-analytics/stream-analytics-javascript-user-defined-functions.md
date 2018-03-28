@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Stream Analytics JavaScript user-defined functions" | Microsoft Docs
+title: "Tutorial: Azure Stream Analytics JavaScript user-defined functions | Microsoft Docs "
 description: In this tutorial, you perform advanced query mechanics with JavaScript user-defined functions
 keywords: javascript, user defined functions, udf
 services: stream-analytics
