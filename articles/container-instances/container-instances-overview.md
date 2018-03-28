@@ -22,9 +22,9 @@ Azure Container Instances is a great solution for any scenario that can operate 
 
 Containers offer significant startup benefits over virtual machines. Azure Container Instances can start containers in Azure in seconds, without the need to provision and manage VMs.
 
-## Public DNS and IP connectivity
+## Public IP connectivity and DNS name
 
-Azure Container Instances enables exposing your containers directly to the internet with a DNS name label and IP address. In the future, we will expand our networking capabilities to include integration with virtual networks, load balancers, and other core parts of the Azure networking infrastructure.
+Azure Container Instances enables exposing your containers directly to the internet with an IP address and a fully qualified domain name (FQDN). When you create a container instance, you can specify a custom DNS name label so your application is reachable at *customlabel*.*azureregion*.azurecontainer.io.
 
 ## Hypervisor-level security
 
