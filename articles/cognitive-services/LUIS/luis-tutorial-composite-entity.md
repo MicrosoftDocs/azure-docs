@@ -84,7 +84,7 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
     ![Create composite entity on intents page](./media/luis-tutorial-composite-entity/validate-composite-entity.png)
 
 ## Wrap the entities in the composite entity
-Once the composite entity is created, label the remaining utterances in the composite entity. In order to wrap a phrase as a composite entity, you need to select the left-most word, then select **Wrap in composite entity** from the list that appears, then select the right-most word, then select the named composite entity `FlightReservation`. This is a quick, smooth step of selections, broken down into the following steps.
+Once the composite entity is created, label the remaining utterances in the composite entity. In order to wrap a phrase as a composite entity, you need to select the left-most word, then select **Wrap in composite entity** from the list that appears, then select the right-most word, then select the named composite entity `FlightReservation`. This is a quick, smooth step of selections, broken down into the following steps:
 
 1. In the utterance `schedule 4 seats from paris to london for april 1`, select the 4 as number prebuilt entity.
 
@@ -231,10 +231,12 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 }
 ```
 
-## What has this LUIS app accomplished?
-This app, with just two intents and a hierarchical entity, identified a natural language query intention and returned the extracted data. 
+This utterance returns a composite entities array including the **flightreservation** object with the data extracted.  
 
-Your chat bot now has enough information to determine the primary action, `BookFlight`, and the location information found in the utterance. 
+## What has this LUIS app accomplished?
+This app, with just two intents and a compositie entity, identified a natural language query intention and returned the extracted data. 
+
+Your chat bot now has enough information to determine the primary action, `BookFlight`, and the reservation information found in the utterance. 
 
 ## Where is this LUIS data used? 
 LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
