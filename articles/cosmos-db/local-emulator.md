@@ -479,7 +479,7 @@ You can check the version number by right clicking the local emulator icon on th
 
 ### 1.21.0.6 Released on March 27, 2018
 
-In addition to updating Emulator services for parity with Cosmos DB cloud services, we've include one new feature and two bug fixes in this release.
+In addition to updating Emulator services for parity with Cosmos DB cloud services, we've included one new feature and two bug fixes in this release.
 
 #### Features
 
