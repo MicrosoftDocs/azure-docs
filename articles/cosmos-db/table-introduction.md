@@ -17,7 +17,7 @@ ms.date: 11/20/2017
 ms.author: mimig
 
 ---
-# Introduction to Azure Cosmos DB Table API
+# Introduction to Azure Cosmos DB: Table API
 
 [Azure Cosmos DB](introduction.md) provides the Table API for applications that are written for Azure Table storage and that need premium capabilities like:
 
@@ -29,7 +29,7 @@ ms.author: mimig
 
 Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has client SDKs available for .NET, Java, Python, and Node.js.
 
-We recommend that you watch the following video, where Aravind Ramachandran explains how to get started with the Azure Cosmos DB Table API:
+We recommend that you watch the following video, where Aravind Krishna explains how to get started with the Azure Cosmos DB Table API:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 

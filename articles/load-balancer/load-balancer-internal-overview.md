@@ -19,7 +19,7 @@ ms.author: kumud
 
 # Overview of Azure Internal Load Balancer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure Internal Load Balancer (ILB) only directs traffic to resources that are inside a cloud service or that use a VPN to access Azure infrastructure. In this respect, ILB differs from an internet-facing load balancer. Azure infrastructure restricts access to the load-balanced virtual IP (VIP) addresses of a cloud service or to a virtual network. VIP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
 

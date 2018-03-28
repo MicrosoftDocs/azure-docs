@@ -80,7 +80,6 @@ Before you begin this procedure for an integrated system, make sure you can acce
 > [!NOTE]
 > As best practice, for proper auditing, we strongly recommend to create a CloudAdmin account for each user that requires access to the Privileged Endpoint.
     
-    
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
 
     Many of these cmdlets are intended only for integrated system environments (such as the cmdlets related to datacenter integration). In the ASDK, the following cmdlets have been validated:
