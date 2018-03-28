@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: yzhong94
 ms.author: yizhon
-ms.date: 02/14/2018
+ms.date: 03/28/2018
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # How to use different Hardware Security Modules with Device Provisioning Service Client SDK for C
 
-This article shows you how to use different [Hardware Security Modules (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) with the Device Provisioning Service Client SDK for C. You can use either a physical device or a simulator. The provisioning service supports two authentication modes: X**.**509 and Trusted Platform Module (TPM).
+This article shows you how to use different [Hardware Security Modules (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) with the Device Provisioning Service Client SDK for C. You can use either a physical device or a simulator. The provisioning service supports authentication for two types of attestation mechanisms: X**.**509 and Trusted Platform Module (TPM).
 
 ## Prerequisites
 
@@ -136,10 +136,10 @@ Build the SDK prior to creating device enrollment.
     - The provisioning service: dps_http_transport, dps_client, dps_security_client
     - IoTHub Security: iothub_security_client
 
-## Create a device enrollment entry in DPS
+## Create a device enrollment entry in Device Provisioning Services
 
 ### TPM
-If you are using TPM, follow instructions in ["Create and provision a simulated device using IoT Hub Device Provisioning Service"](./quick-create-simulated-device.md) to create a device enrollment entry in DPS and simulate first boot.
+If you are using TPM, follow instructions in ["Create and provision a simulated device using IoT Hub Device Provisioning Service"](./quick-create-simulated-device.md) to create a device enrollment entry in your Device Provisioning Service and simulate first boot.
 
 ### X**.**509
 1. To enroll a device in the provisioning service, you need note down the Endorsement Key and Registration ID for each device, which are displayed in the Provisioning Tool provided by Client SDK. Run the following command to print out the root CA certificate (for enrollment groups) and the signer certificate (for individual enrollment):
@@ -153,7 +153,7 @@ If you are using TPM, follow instructions in ["Create and provision a simulated 
 ## Enable authentication for custom TPM and X.509 devices (optional)
 
 > [!NOTE]
-> This section is only applicable to devices that require support for a custom platform or HSM, that is not currently supported by the DPS Client SDK for C.
+> This section is only applicable to devices that require support for a custom platform or HSM, that is not currently supported by the Device Provisioning Service Client SDK for C.
 
 First you need to develop your custom HSM repository and library:
 

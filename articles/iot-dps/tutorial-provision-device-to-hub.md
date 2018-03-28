@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 02/13/2018
+ms.date: 03/28/2018
 ms.topic: tutorial
 ms.service: iot-dps
 
@@ -26,12 +26,14 @@ In the previous tutorial, you learned how to set up a device to connect to your 
 
 ## Prerequisites
 
-Before you proceed, make sure to configure your device and its *Hardware Security Module* as discussed in the tutorial [Setup a device to provision using Azure IoT Hub Device Provisioning Service](./tutorial-set-up-device.md).
+Before you proceed, make sure to configure your device as discussed in the tutorial [Setup a device to provision using Azure IoT Hub Device Provisioning Service](./tutorial-set-up-device.md).
+
+If you're unfamiliar with the process of auto-provisioning, be sure to review [Auto-provisioning concepts](concepts-auto-provisioning.md) before continuing.
 
 <a id="enrolldevice"></a>
 ## Enroll the device
 
-This step involves adding the device's unique security artifacts to the Device Provisioning Service. These security artifacts are as follows:
+This step involves adding the device's unique security artifacts to the Device Provisioning Service. These security artifacts are based on the device's [Attestation mechanism](concepts-device.md#attestation-mechanism) as follows:
 
 - For TPM-based devices you need:
     - The *Endorsement Key* that is unique to each TPM chip or simulation, which is obtained from the TPM chip manufacturer.  Read the [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) for more information.
@@ -54,7 +56,7 @@ There are two ways to enroll the device to the Device Provisioning Service:
 - **Individual Enrollments**
     This represents an entry for a single device that may register with the Device Provisioning Service. Individual enrollments may use either x509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices that require unique initial configurations, and devices that can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
 
-Now you enroll the device with your Device Provisioning Service instance, using the required security artifacts for the  device's HSM: 
+Now you enroll the device with your Device Provisioning Service instance, using the required security artifacts based on the device's attestation mechanism: 
 
 1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
@@ -71,10 +73,9 @@ After enrollment, the provisioning service then waits for the device to boot and
 At this point, the following setup is ready for device registration:
 
 1. Your device or group of devices are enrolled to your Device Provisioning service, and 
-2. Your device is ready with the HSM chip configured and accessible through the application using the Device Provisioning Service client SDK.
+2. Your device is ready with attestation mechanism configured and accessible through the application using the Device Provisioning Service client SDK.
 
 Start the device to allow your client application to start the registration with your Device Provisioning service.  
-
 
 ## Verify the device is registered
 
