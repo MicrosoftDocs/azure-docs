@@ -27,7 +27,7 @@ Application Insights supports Java apps running on Linux, Unix, or Windows.
 
 You need:
 
-* Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
+* Oracle or Zulu JRE version 1.7 or 1.8
 * A subscription to [Microsoft Azure](https://azure.microsoft.com/).
 
 *If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](app-insights-java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
@@ -166,8 +166,7 @@ Application Insights SDK looks for the key in this order:
 You can also [set it in code](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## 4. Add an HTTP filter
