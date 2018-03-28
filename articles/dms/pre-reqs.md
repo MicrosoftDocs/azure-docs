@@ -16,7 +16,7 @@ ms.date: 03/29/2018
 # Overview of prerequisites for using the Azure Database Migration Service
 There are several prerequisites required to ensure that the Azure Database Migration Service runs smoothly when performing database migrations. Some of the prerequisites apply across all scenarios (source-target pairs) supported by the service, while other prerequisites are unique to a specific scenario.
 
-Prerequisites associated with using the Azure Database Migration Service are listed in the following sections:
+Prerequisites associated with using the Azure Database Migration Service are listed in the following sections.
 
 ## Prerequisites common across migration scenarios
 Azure Database Migration Service prerequisites that are common across all supported migration scenarios include the need to:
