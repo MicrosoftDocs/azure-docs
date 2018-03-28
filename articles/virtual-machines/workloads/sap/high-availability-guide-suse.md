@@ -84,9 +84,10 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/img_001.png)
 
-The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer.
+The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the (A)SCS and ERS load balancer.
 
 ### (A)SCS
+
 * Frontend configuration
   * IP address 10.0.0.10
 * Backend configuration
@@ -103,6 +104,7 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
   * 5**&lt;nr&gt;**16 TCP
 
 ### ERS
+
 * Frontend configuration
   * IP address 10.0.0.11
 * Backend configuration
@@ -115,25 +117,15 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
   * 5**&lt;nr&gt;**14 TCP
   * 5**&lt;nr&gt;**16 TCP
 
-### SAP HANA
-* Frontend configuration
-  * IP address 10.0.0.12
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the HANA cluster
-* Probe Port
-  * Port 625**&lt;nr&gt;**
-* Loadbalancing rules
-  * 3**&lt;nr&gt;**13 TCP
-  * 3**&lt;nr&gt;**15 TCP
-  * 3**&lt;nr&gt;**17 TCP
-
 ## Setting up a highly available NFS server
 
 SAP NetWeaver requires a shared storage for the transport and profile directory. Read [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][nfs-ha] on how to set up an NFS server for SAP NetWeaver.
 
 ## Setting up (A)SCS
 
-### Deploying Linux
+You can either use a Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
+
+### Deploy Linux via Azure Template
 
 The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 that you can use to deploy new virtual machines. The marketplace image contains the resource agent for SAP NetWeaver.
 
@@ -161,6 +153,67 @@ Follow these steps to deploy the template:
       A new user is created that can be used to log on to the machine.
    10. Subnet ID  
    The ID of the subnet to which the virtual machines should be connected to.  Leave empty if you want to create a new virtual network or select the same subnet that you used or created as part of the NFS server deployment. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
+
+### Deploy Linux manually via Azure portal
+
+You first need to create the virtual machines for this NFS cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+
+1. Create a Resource Group
+1. Create a Virtual Network
+1. Create an Availability Set  
+   Set max update domain
+1. Create Virtual Machine 1   
+   Use at least SLES4SAP 12 SP1, in this example the SLES4SAP 12 SP1 image
+   https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
+   SLES For SAP Applications 12 SP1 is used  
+   Select Availability Set created earlier  
+1. Create Virtual Machine 2   
+   Use at least SLES4SAP 12 SP1, in this example the SLES4SAP 12 SP1 image
+   https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
+   SLES For SAP Applications 12 SP1 is used  
+   Select Availability Set created earlier  
+1. Add at least one data disk to both virtual machines  
+   The data disks are used for the /usr/sap/`<SAPSID`> directory
+1. Create a Load Balancer (internal)  
+   1. Create the frontend IP addresses
+      1. IP address 10.0.0.7 for the ASCS
+         1. Open the load balancer, select frontend IP pool, and click Add
+         1. Enter the name of the new frontend IP pool (for example **nw1-ascs-frontend**)
+         1. Set the Assignment to Static and enter the IP address (for example **10.0.0.7**)
+         1. Click OK
+      1. IP address 10.0.0.8 for the ASCS ERS
+         * Repeat the steps above to create an IP address for the ERS (for example **10.0.0.8** and **nw1-aers-backend**)
+   1. Create the backend pools
+      1. Create a backend pool for the ASCS
+         1. Open the load balancer, select backend pools, and click Add
+         1. Enter the name of the new backend pool (for example **nw1-ascs-backend**)
+         1. Click Add a virtual machine.
+         1. Select the Availability Set you created earlier
+         1. Select the virtual machines of the (A)SCS cluster
+         1. Click OK
+      1. Create a backend pool for the ASCS ERS
+         * Repeat the steps above to create a backend pool for the ERS (for example **nw1-aers-backend**)
+   1. Create the health probes
+      1. Port 620**00** for ASCS
+         1. Open the load balancer, select health probes, and click Add
+         1. Enter the name of the new health probe (for example **nw1-ascs-hp**)
+         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
+         1. Click OK
+      1. Port 621**02** for ASCS ERS
+         * Repeat the steps above to create a health probe for the ERS (for example 621**02** and **nw1-aers-hp**)
+   1. Loadbalancing rules
+      1. 32**00** TCP for ASCS
+         1. Open the load balancer, select load balancing rules and click Add
+         1. Enter the name of the new load balancer rule (for example **nw1-lb-3200**)
+         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**)
+         1. Keep protocol **TCP**, enter port **3200**
+         1. Increase idle timeout to 30 minutes
+         1. **Make sure to enable Floating IP**
+         1. Click OK    
+      1. Additional ports for the ASCS
+         * Repeat the steps above for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
+      1. Additional ports for the ASCS ERS
+         * Repeat the steps above for ports 33**02**, 5**02**13, 5**02**14, 5**02**16 and TCP for the ASCS ERS
 
 ### Installation
 
@@ -209,10 +262,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
+   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
    <b>10.0.0.11 nw1-ascs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.12 nw1-ers</b>
+   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
+   <b>10.0.0.12 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    </code></pre>
@@ -371,7 +424,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[2]** Install SAP NetWeaver ERS  
 
-   Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example <b>nw1-ers</b>, <b>10.0.0.12</b> and the instance number that you used for the probe of the load balancer, for example <b>02</b>.
+   Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example <b>nw1-aers</b>, <b>10.0.0.12</b> and the instance number that you used for the probe of the load balancer, for example <b>02</b>.
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
@@ -405,7 +458,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    * ERS profile
 
    <pre><code> 
-   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-ers</b>
+   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>
    
    # Add the following lines
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
@@ -455,7 +508,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
     operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
     op monitor interval=11 timeout=60 on_fail=restart \
-    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-ers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-ers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
     meta priority=1000
    
    sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
@@ -520,7 +573,7 @@ Follow these steps to install an SAP application server. The steps bellow assume
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
    <b>10.0.0.11 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.12 nw1-ers</b>
+   <b>10.0.0.12 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    # IP address of the application server
@@ -615,7 +668,7 @@ Follow these steps to install an SAP application server. The steps bellow assume
      DATABASE: HN1
    </code></pre>
 
-   The output shows that the IP address of the default entry is pointing to the virtual machine and not to the load balancer's IP address. This entry needs to be changed to point to the virtual hostname of the load balancer. Make sure to use the same port (30313 in the output above)!
+   The output shows that the IP address of the default entry is pointing to the virtual machine and not to the load balancer's IP address. This entry needs to be changed to point to the virtual hostname of the load balancer. Make sure to use the same port (**30313** in the output above)!
 
    <pre><code>
    su - <b>nw1</b>adm
