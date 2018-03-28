@@ -42,16 +42,6 @@ brew tap azure/draft
 brew install draft
 ```
 
-Output is similar to the following:
-
-```
-==> Installing draft from azure/draft
-==> Downloading https://azuredraft.blob.core.windows.net/draft/draft-v0.12.0-darwin-amd64.tar.gz
-Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.12.0.tar.gz
-==> /usr/local/Cellar/draft/0.12.0/bin/draft init --client-only
-🍺  /usr/local/Cellar/draft/0.12.0: 6 files, 61.2MB, built in 1 second
-```
-
 ## Configure Draft
 
 Draft builds the container images locally, and then either deploys them from the local registry (in the case of Minikube), or you must specify the image registry to use. This example uses the Azure Container Registry (ACR), so you must configure Draft to use that.
