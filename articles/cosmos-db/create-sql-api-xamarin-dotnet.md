@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Build a To Do app with Xamarin | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a todo app with Xamarin | Microsoft Docs'
 description: Presents a Xamarin code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 11/29/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a To Do app with Xamarin
+# Azure Cosmos DB: Build a todo app with Xamarin
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -27,7 +27,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quickstart demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [SQL .NET API](sql-api-sdk-dotnet.md) and [Xamarin](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=Cross-Platform) utilizing [Xamarin.Forms](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=XamarinForms) and the [MVVM architectural pattern](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
-![Xamarin ToDo app running on iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
+![Xamarin todo app running on iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ If you are using a Mac, you can download the **free** [Visual Studio for Mac](ht
 
 You can now add data to your new collection using Data Explorer.
 
-1. In Data Explorer, the new database appears in the Collections pane. Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**.
+1. From the Data Explorer > Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-new-document.png)
 
@@ -91,7 +91,7 @@ Now let's clone the Xamarin SQL API app from github, review the code, obtain the
 
 ## Review the code
 
-This solution demonstrates how to create a To Do app using the Cosmos DB SQL API. The app has 2 tabs, the first tab contains a list view showing to do items that are not yet complete. The second tab displays to do items that have been completed. In addition to viewing not completed to do items in the first tab, you can also add new to do items, edit existing ones, and mark items as completed.
+This solution demonstrates how to create a ToDo app using the Cosmos DB SQL API. The app has 2 tabs, the first tab contains a list view showing todo items that are not yet complete. The second tab displays todo items that have been completed. In addition to viewing not completed todo items in the first tab, you can also add new todo items, edit existing ones, and mark items as completed.
 
 ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-sql-api-xamarin-dotnet/android-todo-screen.png)
 
@@ -137,7 +137,7 @@ The URL and authentication key of your Cosmos DB account are parameters. A discu
     }
     ```
 
-The `CreateDocumentQuery<T>` takes a URI that points to the collection created in the previous section. And you are also able to specify LINQ operators such as a `Where` clause. In this case only To Do items that are not completed are returned.
+The `CreateDocumentQuery<T>` takes a URI that points to the collection created in the previous section. And you are also able to specify LINQ operators such as a `Where` clause. In this case only todo items that are not completed are returned.
 
 > [!INFO]
 > Several functions that operate on Cosmos DB collections and documents take an URI as a parameter which specifies the address of the collection or document. This URI is constructed using the `URIFactory` class. URIs for databases, collections, and documents can all be created with this class.
