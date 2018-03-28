@@ -165,7 +165,7 @@
     href: /rest/api/monitor/
   - name: Supported metrics
     href: monitoring-supported-metrics.md
-  - name: Support metrics for newer alerts
+  - name: Supported metrics for newer alerts
     href: monitoring-near-real-time-metric-alerts.md
   - name: Diagnostic logs services, categories, and schemas
     href: monitoring-diagnostic-logs-schema.md
