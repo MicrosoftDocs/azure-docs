@@ -77,7 +77,7 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
 
     The number and datetimeV2 prebuilt entities are labeled on the utterances.
 
-3. For the utterance `book 2 flights from seattle to cairo next monday`, select the blue `number` entity, then select **Wrap in composite entity" from the list. A green line, under the words, follows the cursor as it moves to the right, indicating a composite entity. Then move to the right to select the last prebuilt entity `datetimeV2`, then enter `FlightReservation` in the text box of the pop-up window, then select **Create new composite**. 
+3. For the utterance `book 2 flights from seattle to cairo next monday`, select the blue `number` entity, then select **Wrap in composite entity** from the list. A green line, under the words, follows the cursor as it moves to the right, indicating a composite entity. Then move to the right to select the last prebuilt entity `datetimeV2`, then enter `FlightReservation` in the text box of the pop-up window, then select **Create new composite**. 
 
     ![Create composite entity on intents page](./media/luis-tutorial-composite-entity/create-new-composite.png)
 
@@ -135,7 +135,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
     ![Select endpoint URL](./media/luis-tutorial-composite-entity/publish-select-endpoint.png)
 
-2. Go to the end of the URL in the address and enter `reserve 3 seats from London to Cairo on Sunday`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `BookFlight` intent with the hierarchical entity extracted.
+2. Go to the end of the URL in the address and enter `reserve 3 seats from London to Cairo on Sunday`. The last querystring parameter is `q`, the utterance query. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `BookFlight` intent with the hierarchical entity extracted.
 
 ```
 {
