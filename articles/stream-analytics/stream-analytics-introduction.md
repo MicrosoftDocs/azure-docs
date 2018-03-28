@@ -80,7 +80,7 @@ As a cloud service, Stream Analytics is optimized for cost. There are no upfront
 ### Reliability 
 
 As a managed service, Stream Analytics guarantees event processing with a 99.9% availability, helps prevent data loss and provides business continuity refer to the [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) page for more details. Stream Analytics can process millions of events every second and it can deliver results with low latency.
-Stream Analytics guarantees only once event processing and at least once delivery of events. It has built-in recovery capabilities in case the delivery of an events fails. Stream Analytics can internally maintain the state of your job, you can start a job from its last output time, provides repeatable results by providing same results all the time. This feature of Stream Analytics enables you to go back in time and investigate computations when doing root-cause analysis. 
+Stream Analytics guarantees exactly once event processing and at least once delivery of events. It has built-in recovery capabilities in case the delivery of an events fails. Stream Analytics can internally maintain the state of your job, you can start a job from its last output time, provides repeatable results by providing same results all the time. This feature of Stream Analytics enables you to go back in time and investigate computations when doing root-cause analysis. 
 
 ### Performance
 
