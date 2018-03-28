@@ -148,7 +148,7 @@ When you install Azure AD Connect by using the **Express Settings** option, pass
 
 If you use custom settings when you install Azure AD Connect, password hash synchronization is available on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
-![Enabling password hash synchronization](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
+![Enabling password hash synchronization](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
 
 ### Password hash synchronization and FIPS
 If your server has been locked down according to Federal Information Processing Standard (FIPS), then MD5 is disabled.
