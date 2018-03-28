@@ -2,22 +2,16 @@
 title: 'Azure AD Connect: Getting Started using express settings | Microsoft Docs'
 description: Learn how to download, install and run the setup wizard for Azure AD Connect.
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
-
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-<<<<<<< HEAD
 ms.date: 03/27/2018
-=======
-ms.date: 03/21/2018
->>>>>>> 5dd67725da71d39b8f6f26514459fda7b0b6fc88
 ms.author: billmath
 
 ---
