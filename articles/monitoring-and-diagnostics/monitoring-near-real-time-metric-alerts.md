@@ -32,6 +32,9 @@ Azure Monitor now supports a new metric alert type. The Newer alerts differ from
 To learn how to create a newer metric alert in Azure portal, see [Create an alert rule in the Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). After creation, you can manage the alert by using the steps described in [Manage your alerts in the Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 
+## Portal, PowerShell, CLI, REST support
+Currently, you can create newer metric alerts only in the Azure portal or REST API. Support for configuring newer alerts  using PowerShell and the the Azure command-line interface (Azure CLI 2.0) is coming soon.
+
 ## Metrics and Dimensions Supported
 Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
 
@@ -58,13 +61,10 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Storage/storageAccounts/services     |     Yes    | [Blob Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [File Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [Queue Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) and [Table Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 |Microsoft.CognitiveServices/accounts     |    N/A     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.OperationalInsights/workspaces (Preview) | Yes|[Log Analytics workspaces](#support-for-oms-logs-as-metrics-for-alerting)|
+|Microsoft.OperationalInsights/workspaces (Preview) | Yes|[Log Analytics workspaces](#log-analytics-logs-as-metrics-for-alerting)|
 
 
-## Portal, PowerShell, CLI, REST support
-Currently, you can create newer metric alerts only in the Azure portal or REST API. Support for configuring newer alerts  using PowerShell and the the Azure command-line interface (Azure CLI 2.0) is coming soon.
-
-## Logs converted to metrics for alerting 
+## Log Analytics logs as metrics for alerting 
 
 You can also use newer metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs Preview.  
 - [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
