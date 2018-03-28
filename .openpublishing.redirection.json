@@ -17762,6 +17762,11 @@
         "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization.md",
         "redirect_url": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-deploy.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
+        "redirect_document_id": false
     }
 
    ]
