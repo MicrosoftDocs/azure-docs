@@ -49,63 +49,80 @@ ms.topic: article
     cd deploy
     ```
 
-1. Open the vi editor.
+1. Using the [vi editor][https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html], create a file named `deploy.tf`.
 
     ```bash
-    vi
+    vi deploy.tf
     ```
 
+1. Enter insert mode.
 
+    ```bash
+    i
+    ```
 
+1. Paste the following code into the editor:
 
+    ```HCL
+    # Configure the Azure Provider
+    provider "azurerm" { }
 
-Navigate to your deploy directory and - using `nano` - copy and paste the following HCL (HashiCorp Configuration Language) into a file name `deploy.tf`.
+    resource "azurerm_resource_group" "slotDemo" {
+    name = "slotDemoResourceGroup"
+    location = "westus2"
+    }
 
-```HCL
-# Configure the Azure Provider
-provider "azurerm" { }
+    resource "azurerm_app_service_plan" "slotDemo" {
+    name                = "slotAppServicePlan"
+    location            = "${azurerm_resource_group.slotDemo.location}"
+    resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+    sku {
+        tier = "Standard"
+        size = "S1"
+    }
+    }
 
-resource "azurerm_resource_group" "slotDemo" {
-  name = "slotDemoResourceGroup"
-  location = "westus2"
-}
+    resource "azurerm_app_service" "slotDemo" {
+    name                = "slotAppService"
+    location            = "${azurerm_resource_group.slotDemo.location}"
+    resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+    app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+    }
 
-resource "azurerm_app_service_plan" "slotDemo" {
-  name                = "slotAppServicePlan"
-  location            = "${azurerm_resource_group.slotDemo.location}"
-  resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-  sku {
-    tier = "Standard"
-    size = "S1"
-  }
-}
+    resource "azurerm_app_service_slot" "slotDemo" {
+    name                = "slotAppServiceSlotOne"
+    location            = "${azurerm_resource_group.slotDemo.location}"
+    resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+    app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+    app_service_name    = "${azurerm_app_service.slotDemo.name}"
+    }
+    ```
 
-resource "azurerm_app_service" "slotDemo" {
-  name                = "slotAppService"
-  location            = "${azurerm_resource_group.slotDemo.location}"
-  resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-  app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
-}
+    1. Press the **&lt;Esc** key to exit to leave insert/append mode.
 
-resource "azurerm_app_service_slot" "slotDemo" {
-  name                = "slotAppServiceSlotOne"
-  location            = "${azurerm_resource_group.slotDemo.location}"
-  resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-  app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
-  app_service_name    = "${azurerm_app_service.slotDemo.name}"
-}
-```
-Once you have created the `deploy.tf` file, you can now provision your resources to `Azure` using Terraform by typing the following commands.
+    1. Save the file and exit vi by entering the following command, followed by pressing **&lt;Enter>:
 
-```bash
-terraform init
-terraform plan
-terraform apply
-```
+    ```bash
+    :wq
+    ```
 
-Once Terraform has completed provisioning the resources, you can use the **Resource Groups** tab in the Azure portal to see the resources that were provisioned by Terraform.
+    1. Once created, you can verify the contents of the file as follows:
 
-![Azure portal Resource Groups](./media/terraform-slot-walkthru/resource-groups.png)
+    ```bash
+    cat deploy.tf
+    ```
+
+    1. Provision the resources defined in `deploy.tf`.
+
+    ```bash
+    terraform init
+    terraform plan
+    terraform apply
+    ```
+
+    1. Once Terraform has completed provisioning the resources, use the **Resource Groups** tab in the Azure portal to see the resources that were provisioned by Terraform.
+
+    ![Azure portal Resource Groups](./media/terraform-slot-walkthru/resource-groups.png)
 
 Select `slotDemoResourceGroup` to display each of the created resources.
 
