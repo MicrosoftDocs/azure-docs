@@ -26,11 +26,14 @@ You also need a private Docker registry in Azure Container Registry (ACR). For i
 
 Helm must also be installed in your AKS cluster. For more information on installing helm, see [Use Helm with Azure Container Service (AKS)][aks-helm].
 
+Finally, you must install [Docker](https://www.docker.com).
+
 ## Install Draft
 
 The Draft CLI is a client that runs on your development system and allows you to quicky deploy code into a Kubernetes cluster. 
 
-> [!NOTE] If you've installed Draft prior to version 0.12, you should first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`.
+> [!NOTE] 
+> If you've installed Draft prior to version 0.12, you should first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`. If you are on MacOS, you can run `brew upgrade draft`.
 
 To install the Draft CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide][install-draft].
 
@@ -51,7 +54,9 @@ Already downloaded: /Users/neilpeterson/Library/Caches/Homebrew/draft-0.12.0.tar
 
 ## Configure Draft
 
-When configuring Draft, a container registry needs to be specified. In this example Azure Container Registry is used.
+Draft builds the container images locally, and then either deploys them from the local registry (in the case of Minikube), or you must specify the image registry to use. This example uses the Azure Container Registry (ACR), so you must configure Draft to use that.
+
+## Obtain ACR credentials and initialize Draft
 
 Run the following command to get the name and login server name of your ACR instance. Update the command with the name of the resource group containing your ACR instance.
 
