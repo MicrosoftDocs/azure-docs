@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ---
 
-# Link partner ID to your account in Azure
-As a partner that does consulting work or provides managed services on Azure, track your impact across your customer engagements by linking your partner ID to the accounts that you use to manage customer's resources.
+# Link partner ID to your Azure account 
+As a partner, you can track your impact across your customer engagements by linking your partner ID to the accounts used for managing customer's resources.
 
 This feature is available in a public preview. 
 
@@ -26,87 +26,88 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 - **Service principal:**  Your customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as service principal.
 
+## Link partner ID
 When you have access to the customer's resources, use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You need to link the partner ID for each customer tenant. 
 
-## Use PowerShell to Link new partner ID
+### Use PowerShell to Link new partner ID
 
 1. Install the [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview) PowerShell Module.
 
 2. Sign in to the customer's tenant either with the user account or service principal, For more information, see [Login with Powershell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  
-```azurepowershell-interactive
-C:\> Login-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-```
+   ```azurepowershell-interactive
+    C:\> Login-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+   ```
 
 
 3. Link the new partner ID. The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.
 
-```azurepowershell-interactive
-C:\> new-AzureRmManagementPartner -PartnerId 12345 
-```
+    ```azurepowershell-interactive
+    C:\> new-AzureRmManagementPartner -PartnerId 12345 
+    ```
 
 
-### Get the linked partner ID
+#### Get the linked partner ID
 
-```azurepowershell-interactive
-C:\> get-AzureRmManagementPartner 
-```
+    ```azurepowershell-interactive
+    C:\> get-AzureRmManagementPartner 
+    ```
 
-### Update the linked partner ID
+#### Update the linked partner ID
 
-```azurepowershell-interactive
-C:\> Update-AzureRmManagementPartner -PartnerId 12345 
-```
-### Delete the linked partner ID
+    ```azurepowershell-interactive
+    C:\> Update-AzureRmManagementPartner -PartnerId 12345 
+    ```
+#### Delete the linked partner ID
 
-```azurepowershell-interactive
-C:\> remove-AzureRmManagementPartner -PartnerId 12345 
-```
+    ```azurepowershell-interactive
+    C:\> remove-AzureRmManagementPartner -PartnerId 12345 
+    ```
 
-## Use CLI to link new partner ID
+### Use CLI to link new partner ID
 1.  Install the CLI Extension.
 
-   ```azure-cli
-  C:\ az extension add --name managementpartner
-  ``` 
+    ```azure-cli
+    C:\ az extension add --name managementpartner
+    ``` 
 
 2.  Sign in to the customer's tenant with the user account or service principal. For more information, see [Log in with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-```azure-cli
-C:\ az login --tenant <tenant>
-``` 
+    ```azure-cli
+    C:\ az login --tenant <tenant>
+    ``` 
 
 
 3.  Link the new partner ID. The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.
 
-```azure-cli
-C:\ az managementpartner create --partner-id 12345
-```  
+    ```azure-cli
+    C:\ az managementpartner create --partner-id 12345
+    ```  
 
-### Get the linked partner ID
+#### Get the linked partner ID
 
-```azure-cli
-C:\ az managementpartner show
-``` 
+    ```azure-cli
+    C:\ az managementpartner show
+    ``` 
 
-### Update the linked partner ID
+#### Update the linked partner ID
 
-```azure-cli
-C:\ az managementpartner update --partner-id 12345
-``` 
+    ```azure-cli
+    C:\ az managementpartner update --partner-id 12345
+    ``` 
 
-### Delete the linked partner ID
+#### Delete the linked partner ID
 
-```azure-cli
-C:\ az managementpartner delete --partner-id 12345
-``` 
+    ```azure-cli
+    C:\ az managementpartner delete --partner-id 12345
+    ``` 
 
 
 ## Frequently Asked Questions
 
 **Who can link the partner ID?**
 
-Any user from the partner organization who is managing customer's resource can link a partner ID to the account.
+Any user from the partner organization who is managing customer's resource can link the partner ID to the account.
   
 
 **Once a partner ID is linked can it be changed?**
