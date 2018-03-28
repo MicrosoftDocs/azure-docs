@@ -49,7 +49,6 @@ After you've created a CDN profile, you can use it to create an endpoint.
    
     ![Add endpoint pane](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
-
     | Setting | Value |
     | ------- | ----- |
     | **Name** | Enter *my-endpoint-123* for your endpoint name. This name must be globally unique; if it is already in use, you may enter a different one. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.|

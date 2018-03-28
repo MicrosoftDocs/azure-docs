@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # What is a content delivery network on Azure?
 
-A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers that are close to end users, to minimize latency. 
+A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. 
 
 Azure CDN offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. 
 
@@ -38,7 +38,7 @@ For a list of current CDN node locations, see [Azure CDN POP locations](cdn-pop-
 
 1. A user (Alice) requests a file (also called an asset) by using a URL with a special domain name, such as _&lt;endpoint name&gt_.azureedge.net. This name can be an endpoint hostname or a custom domain.
     
-    The DNS routes the request to the best performing point-of-presence (POP) location, which is usually the POP that is geographically closest to the user.
+    The DNS routes the request to the best performing POP location, which is usually the POP that is geographically closest to the user.
     
 2. If no edge servers in the POP have the file in their cache, the POP requests the file from the origin server. 
 
@@ -67,25 +67,14 @@ For more information about CDN subscription limits, see [CDN limits](https://doc
 To use Azure CDN, you also need to create at least one CDN profile. A CDN profile is a collection of CDN endpoints; each profile can contain one or more CDN endpoints. Every CDN endpoint in your profile represents a specific configuration of content deliver behavior and access. To organize your CDN endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. Because [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) is applied at the CDN profile level, you must create multiple CDN profiles if you want to use a mix of pricing tiers.
 
 ## Azure CDN features
-Azure CDN offers the following key features: 
+Azure CDN offers the following key features:
 
-### Dynamic site acceleration
-With the [dynamic site acceleration](cdn-dynamic-site-acceleration.md) (DSA) optimization, the performance of web pages with dynamic content is greatly improved. DSA optimization is an option that you can select when you create a CDN endpoint.
-
-### Caching Rules
-With [Azure CDN caching rules](cdn-caching-rules.md), you can set or modify default cache expiration behavior both globally and with custom conditions, such as a URL path and file extension. 
-
-### Custom domain HTTPS
-Azure CDN supports the HTTPS protocol for custom domains. With [HTTPS custom domain support](cdn-custom-ssl.md), you can deliver secure content via SSL by using your own domain name to improve the security of data while in transit. 
-
-### Diagnostics logs
-[Azure diagnostics logs](cdn-azure-diagnostic-logs.md) allow you to export basic usage metrics from your CDN endpoint to a variety of sources so that you can consume them in a customized way. 
-
-### Compression
-[File compression](cdn-improve-performance.md) is a simple and effective method to improve file transfer speed and increase page-load performance by reducing a file's size before it is sent from the server. WIth file compression, you can reduce bandwidth costs and provide a more responsive experience for your users.
-
-### Geo filtering
-You can use the [geo-filtering](cdn-restrict-access-by-country.md) feature to configure Azure CDN to allow or block access by country.
+- [Dynamic site acceleration](cdn-dynamic-site-acceleration.md)
+- [CDN caching rules](cdn-caching-rules.md)
+- [HTTPS custom domain support](cdn-custom-ssl.md)
+- [Azure diagnostics logs](cdn-azure-diagnostic-logs.md)
+- [File compression](cdn-improve-performance.md)
+- [Geo-filtering](cdn-restrict-access-by-country.md)
 
 For a complete list of features that each Azure CDN product supports, see [Azure CDN product features](cdn-features.md).
 
