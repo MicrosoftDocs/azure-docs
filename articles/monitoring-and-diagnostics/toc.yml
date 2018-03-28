@@ -115,7 +115,7 @@
       href: monitoring-service-notifications.md
     - name: Configure alerts on service notifications
       href: monitoring-activity-log-alerts-on-service-notifications.md
-  - name: Use REST API, PowerShell 
+  - name: Programmatic access 
     items:
     - name: Walkthrough using REST API
       href: monitoring-rest-api-walkthrough.md
