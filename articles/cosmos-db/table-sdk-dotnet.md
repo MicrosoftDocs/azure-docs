@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: mimig
 
 ---
@@ -38,6 +38,11 @@ ms.author: mimig
 
 ## Release notes
 
+### <a name="1.1.1"/>1.1.1
+* Added validation for malformed ETAGs in Direct Mode.
+* Fixed LINQ query bug in Gateway Mode.
+* Synchronous APIs now run on the thread pool with SynchronizationContext.
+
 ### <a name="1.1.0"/>1.1.0
 * Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism and TableQueryContinuationTokenLimitInKb to TableRequestOptions
 * Bug Fixes
@@ -60,6 +65,8 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.1.1](#1.1.1) |March 26, 2018|--- |
+| [1.1.0](#1.1.0) |February 21, 2018|--- |
 | [1.0.0](#1.0.0) |November 15, 2017|--- |
 | [0.9.0-preview](#0.9.0-preview) |November 11, 2017 |--- |
 

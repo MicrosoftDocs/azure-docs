@@ -54,6 +54,11 @@ In the **SQL Server configuration** blade, click the **Edit** button in the Auto
 When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
 
 > [!NOTE]
+> The credential name we created here will be mapped to an SQL login later. This allows the SQL login to access the key vault. 
+>
+>
+
+> [!NOTE]
 > You can also configure AKV integration using a template. For more information, see [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
 > 
 > 
