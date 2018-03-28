@@ -5,6 +5,11 @@
             "redirect_document_id": true
         },     
         {
+            "source_path": "articles/machine-learning/preview/aml-services-pricing.md",
+            "redirect_url": "/azure/machine-learning/preview/aml-pricing",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/preview/release-notes-sprint-0.md",
             "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-1",
             "redirect_document_id": true
@@ -17747,8 +17752,12 @@
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-reference.md",
         "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/storage/files/storage-how-to-use-files-snapshots.md",
+        "redirect_url": "/azure/storage/files/storage-snapshots-files",
+        "redirect_document_id": false
     }
-
    ]
 }
 
