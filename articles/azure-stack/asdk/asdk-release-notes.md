@@ -58,6 +58,7 @@ The new features and fixes released for Azure Stack integrated systems version 1
     This alert can be safely ignored. 
 
 
+
 #### Marketplace
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
  
@@ -160,6 +161,7 @@ See the [new features and fixes](.\.\azure-stack-update-1802.md#new-features-and
 
   As a workaround, use PowerShell to run the **Start-ResourceSynchronization.ps1** script to restore access to the storage account details. [The script is available from GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), and must run with service administrator credentials on the development kit host if you use the ASDK.  
 
+- The **Service Health** blade fails to load. When you open the Service Health blade in either the admin or user portal, Azure Stack displays an error and does not load information. This is expected behavior. Although you can select and open Service Health, this feature is not yet available but will be implemented in a future version of Azure Stack.
 
 #### Health and monitoring
 In the Azure Stack admin portal, you might see a critical alert with the name **Pending external certificate expiration**.  This alert can be safely ignored and does affect operations of the Azure Stack Development Kit. 
@@ -266,7 +268,7 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 - If the **Component** link is clicked from any **Infrastructure Role** alert, the resulting **Overview** blade tries to load and fails. Additionally the **Overview **blade does not time out.
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription by using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
- 
+- The **Service Health** blade fails to load. When you open the Service Health blade in either the admin or user portal, Azure Stack displays an error and does not load information. This is expected behavior. Although you can select and open Service Health, this feature is not yet available but will be implemented in a future version of Azure Stack.
 #### Marketplace
 - Some marketplace items are being removed in this release due to compatibility concerns. These will be re-enabled after further validation.
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
@@ -337,7 +339,8 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 - If the **Component** link is clicked from any **Infrastructure Role** alert, the resulting **Overview** blade tries to load and fails. Additionally the **Overview** blade does not time out.
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription by using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
- 
+- The **Service Health** blade fails to load. When you open the Service Health blade in either the admin or user portal, Azure Stack displays an error and does not load information. This is expected behavior. Although you can select and open Service Health, this feature is not yet available but will be implemented in a future version of Azure Stack.
+
 #### Marketplace
 - When you try to add items to the Azure Stack marketplace by using the **Add from Azure** option, not all items may be visible for download.
 - Users can browse the full marketplace without a subscription, and can see administrative items like plans and offers. These items are non-functional to users.
