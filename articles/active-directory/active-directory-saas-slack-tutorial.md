@@ -113,14 +113,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type the URL: `https://slack.com`
 
 	> [!NOTE] 
-	> The value is not real. You have to update the value with the actual Sign On URL. Contact [Slack support team](https://slack.com/help/contact) to get the value
+	> The value is not real. You have to update the value with the actual Sign On URL. Contact [Slack support team](https://slack.com/help/contact) to get the value.
 	 
 4. Slack application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
 	> [!NOTE] 
-	> If you have users who’s assigned **email address** is not on a Office365 license, the **User.Email** claim will not appear in the SAML Token. In these cases, we suggest using **user.userprincipalname** as the **User.Email** attribute value and **Unique Identifier** instead
+	> If you have users who’s assigned **email address** is not on a Office365 license, the **User.Email** claim will not appear in the SAML Token. In these cases, we suggest using **user.userprincipalname** as the **User.Email** attribute value and **Unique Identifier** instead.
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, select **user.mail**  as **User Identifier** and for each row shown in the table below, perform the following steps:
     
@@ -221,7 +221,7 @@ The objective of this section is to create a user called Britta Simon in Slack. 
 There is no action item for you in this section. A new user is created during an attempt to access Slack if it doesn't exist yet.
 
 > [!NOTE]
-> If you need to create a user manually, you need to Contact [Slack support team](https://slack.com/help/contact).
+> If you need to create a user manually, you need to contact [Slack support team](https://slack.com/help/contact).
 
 ### Assigning the Azure AD test user
 
