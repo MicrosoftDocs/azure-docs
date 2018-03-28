@@ -89,7 +89,7 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 ### (A)SCS
 
 * Frontend configuration
-  * IP address 10.0.0.10
+  * IP address 10.0.0.7
 * Backend configuration
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
@@ -106,7 +106,7 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 ### ERS
 
 * Frontend configuration
-  * IP address 10.0.0.11
+  * IP address 10.0.0.8
 * Backend configuration
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
