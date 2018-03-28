@@ -119,23 +119,23 @@ The following steps create a schema for the data in one or more collections usin
 
 ## (Optional) Set up linked server connection
 
-You can query an Azure Cosmos DB from SQL Server Management Studio (SSMS) by setting up a linked server connection.
+You can query Azure Cosmos DB from SQL Server Management Studio (SSMS) by setting up a linked server connection.
 
 1. Create a system data source as described in [Step 2](#connect), named for example `SDS Name`.
 2. [Install SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
-3. In the SSMS query editor, create a linked server object `DEMOCOSMOS` for the data source with the following commands:
+3. In the SSMS query editor, create a linked server object `DEMOCOSMOS` for the data source with the following commands. Replace `DEMOCOSMOS` with the name for your linked server, and `SDS Name` with the name of your system data source.
 
-```sql
-USE [master]
-GO
-
-EXEC master.dbo.sp_addlinkedserver @server = N'DEMOCOSMOS', @srvproduct=N'', @provider=N'MSDASQL', @datasrc=N'SDS Name'
-
-EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname=N'DEMOCOSMOS',@useself=N'False',@locallogin=NULL,@rmtuser=NULL,@rmtpassword=NULL
-
-GO
-```
-
+    ```sql
+    USE [master]
+    GO
+    
+    EXEC master.dbo.sp_addlinkedserver @server = N'DEMOCOSMOS', @srvproduct=N'', @provider=N'MSDASQL', @datasrc=N'SDS Name'
+    
+    EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname=N'DEMOCOSMOS', @useself=N'False', @locallogin=NULL, @rmtuser=NULL, @rmtpassword=NULL
+    
+    GO
+    ```
+    
 To see the new linked server name, refresh the Linked Servers list.
 
 ![Linked Server in SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
