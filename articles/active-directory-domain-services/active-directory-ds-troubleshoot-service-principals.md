@@ -93,7 +93,7 @@ Azure AD Domain Services can detect when this specific service principal is miss
 
 ## Alert AADDS105: Password synchronization application is out of date
 
-**Alert message:** The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted and then recreated. This service principal manages another service principal and an application that are used for password synchronization. The managed service principal and/or application was not authorized under the newly created service principal so they cannot be managed by our service. This means that the newly created service principal will be unable to update the old managed applications and synchronization of passwords will be affected.
+**Alert message:** The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted and then recreated. The recreation leaves behind inconsistent permissions on Azure AD Domain Services resources needed to service your managed domain. Synchronization of passwords on your managed domain could be affected.
 
 
 **Resolution:**
