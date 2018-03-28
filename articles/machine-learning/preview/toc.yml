@@ -197,6 +197,6 @@
   - name: Pricing
     href: aml-pricing.md
   - name: Region availability
-    href: aml-regions.md
+    href: https://azure.microsoft.com/regions/services/
   - name: Team Data Science Process
     href: ../team-data-science-process/overview.md
