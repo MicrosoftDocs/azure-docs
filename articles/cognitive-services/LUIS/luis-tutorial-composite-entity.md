@@ -12,7 +12,7 @@ ms.date: 03/28/2018
 ms.author: v-geberr;
 --- 
 
-# Use composite entity to exact complex data
+# Use composite entity to extract complex data
 This simple app has two [intents](luis-concept-intent.md) and several entities. Its purpose is to book flights such as '1 ticket from Seattle to Cairo on Friday` and return all the specifics of the reservation as a single piece of data. 
 
 In this tutorial, you learn how to:
