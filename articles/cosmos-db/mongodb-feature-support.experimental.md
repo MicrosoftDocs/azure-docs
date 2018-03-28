@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-experimental: true
+experimental: false
 experiment_id: "662dc5fd-886f-4a"
 ---
 # MongoDB API support for MongoDB features and syntax
