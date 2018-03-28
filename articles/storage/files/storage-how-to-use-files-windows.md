@@ -18,7 +18,7 @@ ms.author: renash
 ---
 
 # Mount an Azure File share and access the share in Windows
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
 
 In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
 
@@ -83,7 +83,7 @@ Once the credentials have been persisted, you no longer have to supply them when
     
     ![A screenshot of the "Map network drive" drop down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Copy the UNC path from the "Connect" pane in the Azure portal**: A detailed description of how to find this information can be found [here](storage-how-to-use-files-portal.md#connect-to-file-share).
+3. **Copy the UNC path from the "Connect" pane in the Azure portal.** 
 
     ![The UNC path from the Azure Files Connect pane](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
