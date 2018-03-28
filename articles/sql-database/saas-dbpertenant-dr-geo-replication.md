@@ -96,6 +96,7 @@ In this task, you start a process to create a duplicate app instance and databas
 ## Failover the application into the recovery region
 
 ### Geo-replication disaster recovery process overview
+
 The failover DR script performs the following tasks:
 
 1. Disables the Traffic Manager endpoint for the web app in the original region. Disabling the endpoint prevents users from connecting to the app in an invalid state should the original region come online during recovery.
@@ -130,15 +131,14 @@ Now imagine there is an outage in the region in which the application is deploye
 	* The recovery region is the _paired region_ associated with the Azure region in which you deployed the application. For more information, see [Azure paired regions](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). 
 
 3. Monitor the status of the recovery process in the PowerShell window.
-
-![failover process](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
+	![failover process](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
 
 ### Review the application state during recovery
-While the application endpoint is disabled in Traffic Manager, the application is unavailable. After the catalog is restored and all the tenants marked offline, the application is brought back online. Although the application is available, tenants appear offline in the events hub until their databases are failed over. It's important to design your application to handle offline tenant databases.
+While the application endpoint is disabled in Traffic Manager, the application is unavailable. After the catalog is failed over to the recovery region and all the tenants marked offline, the application is brought back online. Although the application is available, tenants appear offline in the events hub until their databases are failed over. It's important to design your application to handle offline tenant databases.
 
 1. After the catalog database has been recovered but before the tenants are back online, refresh the Wingtip Tickets Events Hub in your web browser.
 	* In the footer, notice that the catalog server name now has a _-recovery_ suffix and is located in the recovery region.
-	* Notice that tenants that are not yet restored are marked as offline and are not selectable.   
+	* Notice that tenants that are not yet restored, are marked as offline, and are not selectable.   
  
 	![Events hub offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png)	
 
@@ -200,22 +200,16 @@ This task repatriates the application to its original region. In a real scenario
 
 ### Repatriation process overview
 
+![Repatriation Architecture](media/saas-dbpertenant-dr-geo-replication/repatriation-architecture.png)
+
 The repatriation process:
-1. Reactivates tenant databases in the original region that have not been restored to the recovery region and restored databases that have not been changed. These databases will be exactly as last accessed by their tenants and are immediately available to the application.
-1. Causes new tenant onboarding to occur in the original region so no further tenant databases are created in the recovery region.
 1. Cancels any outstanding or in-flight database restore requests.
-1. Copies all restored databases _that have been changed post-restore_ to the original region.
-1. Cleans up resources created in the recovery region during the restore process.
+2. Updates the newtenant alias to point to the tenants' server in the origin region. Changing this alias ensures that the databases for any new tenants will now be provisioned in the origin region.
+3. Seeds any changed tenant data to the original region
+4. Failover tenant databases in priority order.
 
-To limit the number of tenant databases that need to be repatriated, steps 1-3 are done promptly.  
+Failover effectively moves the database to the original region. When the database fails over, any open connections are dropped and the database is unavailable for a few seconds. Applications should be written with retry logic to ensure they connect again.  Although this brief disconnect is often not noticed, you may choose to repatriate databases out of business hours. 
 
-It's important that step 4 causes no further disruption to tenants and no data loss. To achieve this goal, the process uses _geo-replication_ to 'move' changed databases to the original region.
-
-Once each database being repatriated has been replicated to the original region, it is failed over.  Failover effectively moves the database to the original region. When the database fails over, any open connections are dropped and the database is unavailable for a few seconds. Applications should be written with retry logic to ensure they connect again.  Although this brief disconnect is often not noticed, you may choose to repatriate databases out of business hours. 
-
-Once a database is failed over to its replica in the production region, the restored database in the recovery region can be deleted. The database in the production region then relies on geo-restore for DR protection again. 
-
-In step 5, resources in the recovery region, including the recovery servers and pools, are deleted.      
 
 ### Run the repatriation script
 Now let's imagine the outage is resolved and run the repatriation script.
