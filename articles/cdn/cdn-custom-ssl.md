@@ -1,6 +1,6 @@
 ---
-title: "Configure HTTPS on an Azure Content Delivery Network custom domain | Microsoft Docs"
-description: Learn how to enable or disable HTTPS on your Azure CDN endpoint with a custom domain.
+title: Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
+description: Learn how to enable or disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -17,13 +17,13 @@ ms.date: 03/22/2018
 ms.author: casoper
 
 ---
-# Configure HTTPS on an Azure Content Delivery Network custom domain
+# Configure HTTPS on an Azure CDN custom domain
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Microsoft supports the HTTPS protocol for custom domains on Azure Content Delivery Network (CDN). With HTTPS custom domain support, you can deliver secure content via SSL by using your own domain name to improve the security of data while in transit. The workflow to enable HTTPS for your custom domain is simplified via one-click enablement and complete certificate management, all with no additional cost.
 
-It's critical to ensure the privacy and data integrity of your web application's sensitive data while it is in transit. By using the HTTPS protocol, you ensure that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. By default, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (such as https:\//contoso.azureedge.net), HTTPS is automatically enabled. In addition, with custom domain HTTPS support, you can also enable secure delivery for a custom domain (for example, https:\//www.contoso.com). 
+It's critical to ensure the privacy and data integrity of your web application's sensitive data while it is in transit. By using the HTTPS protocol, you ensure that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. Azure CDN supports HTTPS on a CDN endpoint hostname by default. For example, if you create a CDN endpoint from Azure CDN (such as https:\//contoso.azureedge.net), HTTPS is automatically enabled. In addition, with custom domain HTTPS support, you can also enable secure delivery for a custom domain (for example, https:\//www.contoso.com). 
 
 Some of the key attributes of the HTTPS feature are:
 
