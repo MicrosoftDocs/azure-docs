@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 03/28/2018
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Elium, you need the following items:
 
 - An Azure AD subscription
-- A Elium single sign-on enabled subscription
+- An Elium single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with Elium, you need to complete t
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Elium test user](#create-a-elium-test-user)** - to have a counterpart of Britta Simon in Elium that is linked to the Azure AD representation of user.
+3. **[Create an Elium test user](#create-an-elium-test-user)** - to have a counterpart of Britta Simon in Elium that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -158,7 +158,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 7. In a different web browser window, log in to your Elium company site as an administrator.
 
-8. Click on the **AU** from right top corener and then select **Administration**.
+8. Click on the **AU** from right top corner and then select **Administration**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-elium-tutorial/user1.png)
 
@@ -228,7 +228,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a Elium test user
+### Create an Elium test user
 
 The objective of this section is to create a user called Britta Simon in Elium. Elium supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Elium if it doesn't exist yet.
 >[!Note]
