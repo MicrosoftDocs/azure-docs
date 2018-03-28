@@ -64,7 +64,7 @@ Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 
 
 **Component** | **Supported**
 --- | ---
-File systems | ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS.
+File systems | ext3, ext4, XFS.
 Volume manager | LVM2.
 Multipath software | Device Mapper.
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
