@@ -25,6 +25,32 @@
 ## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
 ## [Register your application](active-directory-b2c-app-registration.md)
 ## [Built-In policies](active-directory-b2c-reference-policies.md)
+## Mobile & desktop apps
+### [Overview](active-directory-b2c-reference-oauth-code.md)
+### iOS
+#### [iOS Swift using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
+#### [iOS ObjC using AppAuth](active-directory-b2c-devquickstarts-ios.md)
+### Android
+#### [Android using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
+#### [Android using AppAuth](active-directory-b2c-devquickstarts-android.md)
+### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
+### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
+## Web apps
+### [Overview](active-directory-b2c-reference-oidc.md)
+### [Authenticate users in ASP.NET](active-directory-b2c-tutorials-web-app.md)
+### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
+### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
+## Single page apps
+### [Overview](active-directory-b2c-reference-spa.md)
+### [JavaScript using MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+### [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
+## Web APIs
+### [Protect an ASP.NET API](active-directory-b2c-tutorials-web-api.md)
+### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
+### [Node.js](active-directory-b2c-devquickstarts-api-node.md)
+### [Call a .NET Web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 ## Configure identity providers
 ### [Microsoft Account](active-directory-b2c-setup-msa-app.md)
@@ -81,6 +107,7 @@
 ## [Custom policies](active-directory-b2c-overview-custom.md)
 ## Guides
 ### [Get started](active-directory-b2c-get-started-custom.md)
+### [Starter pack](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### Configure OIDC/OAUTH providers
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft Account](active-directory-b2c-custom-setup-msa-idp.md)

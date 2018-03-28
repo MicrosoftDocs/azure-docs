@@ -1,6 +1,6 @@
 ---
 title: Back up Azure Files FAQ
-description: This article provides details about how to protect your Azure Files in Azure. This abstract displays in the search result.
+description: This article provides details about how to protect your Azure file shares.
 services: backup
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: markgalioto
@@ -20,14 +20,14 @@ To quickly scan the sections in this article, use the links to the right, under 
 
 ## Configuring the backup job for Azure Files
 
-### Why can’t I see some of my Storage Accounts I want to protect, that contain valid File shares? <br/>
-During preview, Backup for Azure File Shares does not support all types of Storage Accounts. Refer to the list [here](troubleshoot-azure-files.md#preview-boundaries) to see the list of supported Storage Accounts.
+### Why can't I see some of my Storage Accounts I want to protect, that contain valid Azure file shares? <br/>
+During preview, Backup for Azure file Shares does not support all types of Storage Accounts. Refer to the list [here](troubleshoot-azure-files.md#preview-boundaries) to see the list of supported Storage Accounts.
 
-### Why can’t I see some of my File shares in the Storage Account when I’m trying to configure backup? <br/>
-Check if the File share is already protected in the same Recovery Services vault or has been deleted recently.
+### Why can't I see some of my Azure file shares in the Storage Account when I'm trying to configure backup? <br/>
+Check if the Azure file share is already protected in the same Recovery Services vault or has been deleted recently.
 
-### Why can’t I protect File Shares connected to a Sync Group in Azure Files Sync? <br/>
-Protection of Azure File Shares connected to Sync Groups is in limited preview. Please write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) with your Subscription ID to requested access. 
+### Why can't I protect File Shares connected to a Sync Group in Azure File Sync? <br/>
+Protection of Azure file shares connected to sync groups is in limited preview. Please write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) with your Subscription ID to requested access. 
 
 ### In which geos can I back up Azure File shares <br/>
 Backup for Azure File shares is currently in Preview and is available only in the following geos: 
@@ -54,8 +54,8 @@ Backup for Azure File shares is currently in Preview and is available only in th
 
 Please write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
 
-### How many file shares can I protect in a Vault?<br/>
-During the preview, you can protect File shares from up to 25 Storage Accounts per Vault. You can also protect up to 200 File shares in a single vault. 
+### How many Azure file shares can I protect in a Vault?<br/>
+During the preview, you can protect Azure file shares from up to 25 Storage Accounts per Vault. You can also protect up to 200 Azure file shares in a single vault. 
 
 ## Backup
 
@@ -63,27 +63,26 @@ During the preview, you can protect File shares from up to 25 Storage Accounts p
 At any point in time, you can have up to 200 Snapshots for a file share. The limit includes snapshots taken by Azure Backup as defined by your policy. If your backups start failing after reaching the limit, delete On-Demand restore points for successful future backups.
 
 ### After enabling Virtual Networks on my Storage Account, the Backup of file shares in the account started failing. Why?
-Backup for Azure File shares does not support Storage Accounts that have Virtual Networks enabled. Disable Virtual Networks in Storage Accounts to enable successful backups. 
+Backup for Azure file shares does not support Storage Accounts that have Virtual Networks enabled. Disable Virtual Networks in Storage Accounts to enable successful backups. 
 
 ## Restore
 
-### Can I recover from a deleted file share? <br/>
-When a file share is deleted, you are shown the list of backups that will also be deleted and a confirmation is sought. A deleted file share cannot be restored.
+### Can I recover from a deleted Azure file share? <br/>
+When a Azure file share is deleted, you are shown the list of backups that will also be deleted and a confirmation is sought. A deleted Azure file share cannot be restored.
 
-### Can I restore from backups if I stopped protection on a file share? <br/>
+### Can I restore from backups if I stopped protection on an Azure file share? <br/>
 Yes. If you chose **Retain Backup Data** when you stopped protection, then you can restore from all existing restore points.
 
 ## Manage Backup
 
 ### Can I access the snapshots taken by Azure Backups and mount it? <br/>
-All Snapshots taken by Azure Backup can be accessed by Viewing Snapshots in the portal, PowerShell, or CLI. You can mount them using the procedure [here](../storage/files/storage-how-to-use-files-snapshots.md#mount-a-file-share).
+All Snapshots taken by Azure Backup can be accessed by Viewing Snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files (preview)](../storage/files/storage-snapshots-files.md).
 
 ### What is the maximum retention I can configure for Backups? <br/>
-Backup for Azure File shares offers the ability to retain your daily backups up to 120 days.
+Backup for Azure file shares offers the ability to retain your daily backups up to 120 days.
 
-### What happens when I change the Backup policy for a file share? <br/>
+### What happens when I change the Backup policy for an Azure file share? <br/>
 When a new policy is applied on file share(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
-
 
 ## See also
 This information is just about backing up Azure Files, to learn more about other areas of Azure Backup, see some of these other Backup FAQs:

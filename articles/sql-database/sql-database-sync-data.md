@@ -88,6 +88,8 @@ Data Sync uses insert, update, and delete triggers to track changes. It creates 
 
 -   A table cannot have an identity column that is not the primary key.
 
+-   A primary key cannot have the datetime data type.
+
 -   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 
 -   Azure Active Directory authentication is not supported.

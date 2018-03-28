@@ -58,7 +58,7 @@ You have two options to pay for SQL Server licensing for these editions: *pay pe
 
 ### Pay per usage
 
-**Paying the SQL Server license per usage** means that the per-minute cost of running the Azure VM includes the cost of the SQL Server license. You can see the pricing for the different SQL Server editions (Web, Standard, Enterprise) in the [Azure VM pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). The cost is the same for all versions of SQL Server (2012 SP3 to 2017). As with SQL Server licensing in general, the per-minute licensing cost depends on the number of VM cores.
+**Paying the SQL Server license per usage** means that the per-second cost of running the Azure VM includes the cost of the SQL Server license. You can see the pricing for the different SQL Server editions (Web, Standard, Enterprise) in the [Azure VM pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). The cost is the same for all versions of SQL Server (2012 SP3 to 2017). As with SQL Server licensing in general, the per-second licensing cost depends on the number of VM cores.
 
 Paying the SQL Server licensing per usage is recommended for:
 
@@ -108,7 +108,7 @@ To create a SQL Server 2016 Azure VM with one of these bring-your-own-license im
 > Let us know within 10 days how many SQL Server licenses you’ll use in Azure. The links to the previous images have instructions on how to do this.
 
 > [!NOTE]
-> It is not possible to change the licensing model of a pay-per-minute SQL Server VM to use your own license. In this case, you must create a new BYOL VM and migrate your databases to the new VM. 
+> It is not possible to change the licensing model of a pay-per-second SQL Server VM to use your own license. In this case, you must create a new BYOL VM and migrate your databases to the new VM. 
 
 ## Avoid unnecessary costs
 
