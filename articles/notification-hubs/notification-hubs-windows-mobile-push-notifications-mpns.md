@@ -48,7 +48,6 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 ## Create your notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-
 6. Under **Notification Services**, select **Windows Phone (MPNS)**, and then select **Enable unauthenticated push**.
     ![Azure portal - Enable unauthenticated push notifications](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
