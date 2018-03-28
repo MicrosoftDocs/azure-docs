@@ -141,6 +141,7 @@
       - name: .NET
       - name: Java
       - name: Python
+        href: /python/api/azure.mgmt.msi
       - name: Ruby
       - name: Node.js
       - name: Go 
