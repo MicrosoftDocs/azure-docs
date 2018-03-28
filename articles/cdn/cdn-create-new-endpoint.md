@@ -51,7 +51,7 @@ After you've created a CDN profile, you can use it to create an endpoint.
 
     | Setting | Value |
     | ------- | ----- |
-    | **Name** | Enter *my-endpoint-123* for your endpoint name. This name must be globally unique; if it is already in use, you may enter a different one. This name is used to access your cached resources at the domain `<endpointname>.azureedge.net`.|
+    | **Name** | Enter *my-endpoint-123* for your endpoint hostname. This name must be globally unique; if it is already in use, you may enter a different one. This name is used to access your cached resources at the domain _&lt;endpoint name&gt;_.azureedge.net.|
     | **Origin type** | Select **Storage**. | 
     | **Origin hostname** | Enter *mystorageacct123.blob.core.windows.net* for your hostname. This name must be globally unique; if it is already in use, you may enter a different one |
     | **Origin path** | Leave blank. |
