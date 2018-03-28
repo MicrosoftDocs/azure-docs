@@ -172,7 +172,7 @@ To close the endpoint session:
 After the transcript log files are successfully transferred to the file share, they're automatically deleted from the PEP. 
 
 > [!NOTE]
-> If you close the PEP session by using the cmdlets `Exit-PSSession` or `Exit`, or you just close the PowerShell console, the transcript logs don't transfer to a file share. They remain in the PEP. The next time you run `Close-PrivilegedEndpoint` and include a file share, the transcript logs from the previous session(s) will also transfer. Do not use `Exit-PSSession` or `Exit` to close the PEP session and recommend to use `Close-PrivilegedEndpoint` instead.
+> If you close the PEP session by using the cmdlets `Exit-PSSession` or `Exit`, or you just close the PowerShell console, the transcript logs don't transfer to a file share. They remain in the PEP. The next time you run `Close-PrivilegedEndpoint` and include a file share, the transcript logs from the previous session(s) will also transfer. Do not use `Exit-PSSession` or `Exit` to close the PEP session; use `Close-PrivilegedEndpoint` instead.
 
 
 ## Next steps
