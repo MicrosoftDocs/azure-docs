@@ -26,7 +26,7 @@ The probability that you're blocked from getting your work done due to a forgott
 Password hash synchronization is a feature used to synchronize user passwords from an on-premises Active Directory instance to a cloud-based Azure AD instance.
 Use this feature to sign in to Azure AD services like Office 365, Microsoft Intune, CRM Online, and Azure Active Directory Domain Services (Azure AD DS). You sign in to the service by using the same password you use to sign in to your on-premises Active Directory instance.
 
-![What is Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)
+![What is Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)
 
 By reducing the number of passwords, your users need to maintain to just one. Password hash synchronization helps you to:
 
@@ -71,7 +71,7 @@ A user must enter their corporate credentials a second time to authenticate to A
 ### Detailed description of how password hash synchronization works
 The following describes in-depth how password hash synchronization works between Active Directory and Azure AD.
 
-![Detailed password flow](./media/active-directory-aadconnectsync-implement-password-synchronization/arch3.png)
+![Detailed password flow](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch3.png)
 
 
 1. Every two minutes, the password hash synchronization agent on the AD Connect server requests stored password hashes (the unicodePwd attribute) from a DC via the standard [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) replication protocol used to synchronize data between DCs. The service account must have Replicate Directory Changes and Replicate Directory Changes All AD permissions (granted by default on installation) to obtain the password hashes.
@@ -174,7 +174,7 @@ For reference, this snippet is what it should look like:
 For information about security and FIPS, see [AAD Password Sync, encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/).
 
 ## Troubleshoot password hash synchronization
-If you have problems with password hash synchronization, see [Troubleshoot password hash synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+If you have problems with password hash synchronization, see [Troubleshoot password hash synchronization](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 
 ## Next steps
 * [Azure AD Connect sync: Customizing synchronization options](active-directory-aadconnectsync-whatis.md)
