@@ -49,7 +49,7 @@ Here are some of the features of Premium Storage:
     * [Storage REST API](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 or a later version)
     * [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (version 2014-10-01 or a later version; for Azure classic deployments)
     * [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments)
-    * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (version 0.8.10 or a later version)
+    * [Using PowerShell with Azure Storage](../articles/storage/common/storage-powershell-guide-full.md)
 
     To learn about premium storage account limits, see [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
