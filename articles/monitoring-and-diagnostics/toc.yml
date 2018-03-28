@@ -7,10 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Alert on metric condition
-    href: monitor-quick-resource-metric-alert-portal.md
   - name: Alert (classic) on metric condition
-    href: monitor-quick-resource-metric-classic-alert-portal.md
+    href: monitor-quick-resource-metric-alert-portal.md
   - name: Alert on subscription activity
     href: monitor-quick-audit-notify-action-in-subscription.md
 - name: Tutorials
@@ -41,7 +39,7 @@
     href: monitor-alerts-unified-log.md
   - name: Activity log alerts (Preview)
     href: monitoring-activity-log-alerts-new-experience.md     
-  - name: Extend alerts from OMS to Azure
+  - name: Extend alerts from Log Analytics to Azure
     href: monitoring-alerts-extend.md 
   - name: Action groups
     href: monitoring-action-groups.md
@@ -59,8 +57,6 @@
     href: monitoring-metric-charts.md
   - name: Use alerts
     items:
-    - name: Configure new alerts in Azure portal
-      href: monitoring-near-real-time-metric-alerts.md
     - name: Configure new metric or log alerts in Azure portal
       href: monitor-alerts-unified-usage.md
     - name: Configure classic alerts in Azure portal
@@ -168,8 +164,10 @@
     href: /powershell/module/azurerm.insights
   - name: REST
     href: /rest/api/monitor/
-  - name: Metrics supported
+  - name: Supported metrics
     href: monitoring-supported-metrics.md
+  - name: Support metrics for newer alerts
+    href: monitoring-near-real-time-metric-alerts.md
   - name: Diagnostic logs services, categories, and schemas
     href: monitoring-diagnostic-logs-schema.md
   - name: Activity log event schema
