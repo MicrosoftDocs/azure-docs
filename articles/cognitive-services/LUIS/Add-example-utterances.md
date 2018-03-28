@@ -183,6 +183,9 @@ The composite entity contains three child entities: number (of tickets), Seat, a
 
     ![Verify composite entity](./media/add-example-utterances/composite-wrap-final.png)
 
+[!TIP]
+> Try the composite [tutorial](luis-tutorial-composite-entity.md.md) to learn more.
+
 ## Remove custom entity label
 
 In order to remove your own custom entity label from an utterance, select the entity in the utterance and select **Remove label** in the entity drop-down box that appears.
