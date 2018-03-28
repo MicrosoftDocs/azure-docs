@@ -25,6 +25,7 @@ This quickstart requires the Azure Storage Explorer to be installed. If you need
 In this article you learn how to:
 
 > [!div class="checklist"]
+> * Create a resource group and a storage account
 > * Create an Azure file share 
 > * Create a directory
 > * Upload a file
@@ -33,13 +34,10 @@ In this article you learn how to:
 
 If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Setup and clean-up resources 
-The Azure Storage Explorer doesn't have the ability to create new resources. For the purposes of this demo, please pre-create the following resources:
+## Create a storage account
+The Azure Storage Explorer doesn't have the ability to create new resources, so for the purposes of this demo, create the storage account with the [Azure portal](https://portal.azure.com/). 
 
-| Resource | | | |
-|----------|-|-|-|
-| An resource group | [Portal](storage-how-to-use-files-portal.md#create-a-storage-account) | [PowerShell](storage-how-to-use-files-powershell.md#create-a-resource-group) | [CLI](storage-how-to-use-files-cli.md#create-a-resource-group) |
-| A storage account | [Portal](storage-how-to-use-files-portal.md#create-a-storage-account) | [PowerShell](storage-how-to-use-files-powershell.md#create-a-storage-account) | [CLI](storage-how-to-use-files-cli.md#create-a-storage-account) |
+[!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
 ## Connecting Azure Storage Explorer to Azure resources
 On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown. Azure Storage Explorer provides several ways to connect to storage accounts: 
@@ -51,14 +49,6 @@ On first launch, the **Microsoft Azure Storage Explorer - Connect** window is sh
 For the purposes of this quickstart, login with your Azure account. Select **Add an Azure Account** and click **Sign in**. Follow the on-screen prompts to sign into your Azure account.
 
 ![Microsoft Azure Storage Explorer - Connect window](./media/storage-how-to-use-files-storage-explorer/connect-to-azure-storage-1.png)
-
-## Create a storage account
-The Azure Storage Explorer doesn't have the ability to create new resources, so for the purposes of this demo, create the storage account with the [Azure portal](https://portal.azure.com/). 
-
-[!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
-
-## Manipulating the contents of the Azure file share
-Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure portal. All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access.
 
 ### Create a file share
 To create your first Azure file share within the *storageacct<random number>*  storage account:
@@ -73,6 +63,9 @@ To create your first Azure file share within the *storageacct<random number>*  s
 > Share names need to be all lower case letters, numbers, and single hyphens but cannot start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 Once the file share has been created, the right pane will open a tab for your file share. 
+
+## Manipulating the contents of the Azure file share
+Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can manipulate your Azure file share with the Azure portal. All requests made via the Azure portal are made with the File REST API enabling you to create, modify, and delete files and directories on clients without SMB access.
 
 ### Create a directory
 Adding a directory provides a hierarchical structure for managing your file share. You can create multiple levels, but you must ensure that all parent directories exist before creating a subdirectory. For example, for path myDirectory/mySubDirectory, you must first create directory *myDirectory*, then create *mySubDirectory*. 
