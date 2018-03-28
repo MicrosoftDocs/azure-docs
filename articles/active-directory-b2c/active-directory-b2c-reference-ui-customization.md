@@ -3,18 +3,15 @@ title: 'User interface (UI) customization - Azure AD B2C | Microsoft Docs'
 description: A topic on the user interface (UI) customization features in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: saeedakhter-msft
-manager: krassk
-editor: parakhj
+author: davidmu1
+manager: mtillman
+editor: ''
 
-ms.assetid: 99f5a391-5328-471d-a15c-a2fafafe233d
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeedakhter-msft
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI)
@@ -22,8 +19,9 @@ ms.author: saeedakhter-msft
 User experience is paramount in a customer facing application.  Grow your customer base by crafting user experiences with the look and feel of your brand. Azure Active Directory B2C (Azure AD B2C) lets you customize sign-up, sign-in, profile editing, and password reset pages with pixel-perfect control.
 
 > [!NOTE]
-> The page UI customization feature described in this article does not apply to the sign-in only policy, its accompanying password reset page, and verification emails.  These features use the [company branding feature](../active-directory/active-directory-add-company-branding.md) instead.
+> The page UI customization feature described in this article does not apply to the sign-in only policy, its accompanying password reset page, and verification emails.  These features use the [company branding feature](../active-directory/customize-branding.md) instead.
 >
+> Similarly, if a user intiates an edit profile policy *before* signing in, the user will be redirected to a page that can be customized using the [company branding feature](../active-directory/customize-branding.md).
 
 This article covers the following topics:
 
@@ -34,7 +32,7 @@ This article covers the following topics:
 
 ## The page UI customization feature
 
-You can customize the look and feel of customer sign-up, sign-in, password reset, and profile-editing pages (by configuring [policies](active-directory-b2c-reference-policies.md)). Your customers get a seamless experience when navigating between your application and pages served by Azure AD B2C.
+You can customize the look and feel of customer sign-up, sign-in (see above note for exceptions related to branding), password reset, and profile-editing pages (by configuring [policies](active-directory-b2c-reference-policies.md)). Your customers get a seamless experience when navigating between your application and pages served by Azure AD B2C.
 
 Unlike other services where UI options, Azure AD B2C uses a simple and modern approach to UI customization.
 

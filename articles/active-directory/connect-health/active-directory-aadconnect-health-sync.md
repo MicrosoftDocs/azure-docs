@@ -4,7 +4,7 @@ description: This is the Azure AD Connect Health page that will discuss how to m
 services: active-directory
 documentationcenter: ''
 author: karavar
-manager: femila
+manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
 ms.workload: identity
@@ -79,11 +79,12 @@ The report categorizes the existing synchronization errors in the following cate
 | Duplicate Attribute |Errors when Azure AD Connect attempts create or update objects with duplicated values of one or more attributes in Azure AD that must be unique in a Tenant, such as proxyAddresses, UserPrincipalName. |
 | Data Mismatch |Errors when the soft-match fails to match objects that result in synchronization errors. |
 | Data Validation Failure |Errors due to invalid data, such as unsupported characters in critical attributes such as UserPrincipalName, format errors that fail validation before being written in Azure AD. |
+| Federated Domain Change | Errors when accounts use a different federated domain. |
 | Large Attribute |Errors when one or more attributes are larger than the allowed size, length or count. |
 | Other |All other errors that don't fit in the above categories. Based on feedback, this category will be split in sub categories. |
 
 ![Sync Error Report Summary](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![Sync Error Report Categories](./media/active-directory-aadconnect-health-sync/errorreport02.png)
+![Sync Error Report Categories](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.PNG)
 
 ### List of objects with error per category
 Drilling into each category will provide the list of objects having the error in that category.

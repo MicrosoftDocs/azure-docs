@@ -44,7 +44,7 @@ ms.author: rodsan
 
 ### Example
 Example policy: 
-```C#
+```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
 This policy allows scripts to load only from the web application’s server and google analytics server. Scripts loaded from any other site will be rejected. When CSP is enabled on a website, the following features are automatically disabled to mitigate XSS attacks. 
@@ -109,7 +109,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### Example
 The X-FRAME-OPTIONS header can be set via IIS web.config. Web.config code snippet for sites that should never be framed: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -121,7 +121,7 @@ The X-FRAME-OPTIONS header can be set via IIS web.config. Web.config code snippe
 
 ### Example
 Web.config code for sites that should only be framed by pages in the same domain: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -156,7 +156,7 @@ If access to Web.config is available, then CORS can be added through the followi
 
 ### Example
 If access to web.config is not available, then CORS can be configured by adding the following CSharp code: 
-```C#
+```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
 ```
 
@@ -224,7 +224,7 @@ Add the header in the web.config file if the application is hosted by Internet I
 
 ### Example
 Add the header through the global Application\_BeginRequest 
-```C#
+```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -233,7 +233,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### Example
 Implement custom HTTP module 
-```C#
+```csharp
 public class XContentTypeOptionsModule : IHttpModule
 {
 #region IHttpModule Members
@@ -260,7 +260,7 @@ application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
 ### Example
 You can enable the required header only for specific pages by adding it to individual responses: 
 
-```C#
+```csharp
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
@@ -299,7 +299,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### Example
 In the App_Start/WebApiConfig.cs, add the following code to the WebApiConfig.Register method 
-```C#
+```csharp
 using System.Web.Http;
 namespace WebService
 {
@@ -323,7 +323,7 @@ namespace WebService
 ### Example
 EnableCors attribute can be applied to action methods in a controller as follows: 
 
-```C#
+```csharp
 public class ResourcesController : ApiController
 {
   [EnableCors("http://localhost:55912", // Origin
@@ -363,7 +363,7 @@ Please note that it is critical to ensure that the list of origins in EnableCors
 
 ### Example
 To disable CORS on a particular method in a class, the DisableCors attribute can be used as shown below: 
-```C#
+```csharp
 [EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
@@ -398,7 +398,7 @@ Enabling CORS with middleware: To enable CORS for the entire application add the
 
 ### Example
 The first is to call UseCors with a lambda. The lambda takes a CorsPolicyBuilder object: 
-```C#
+```csharp
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
@@ -410,7 +410,7 @@ public void Configure(IApplicationBuilder app)
 
 ### Example
 The second is to define one or more named CORS policies, and then select the policy by name at run time. 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCors(options =>
@@ -434,7 +434,7 @@ Enabling CORS in MVC: Developers can alternatively use MVC to apply specific COR
 
 ### Example
 Per action: To specify a CORS policy for a specific action add the [EnableCors] attribute to the action. Specify the policy name. 
-```C#
+```csharp
 public class HomeController : Controller
 {
     [EnableCors("AllowSpecificOrigin")] 
@@ -446,7 +446,7 @@ public class HomeController : Controller
 
 ### Example
 Per controller: 
-```C#
+```csharp
 [EnableCors("AllowSpecificOrigin")]
 public class HomeController : Controller
 {
@@ -454,7 +454,7 @@ public class HomeController : Controller
 
 ### Example
 Globally: 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
@@ -468,7 +468,7 @@ Please note that it is critical to ensure that the list of origins in EnableCors
 
 ### Example
 To disable CORS for a controller or action, use the [DisableCors] attribute. 
-```C#
+```csharp
 [DisableCors]
     public IActionResult About()
     {

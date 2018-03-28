@@ -3,9 +3,9 @@ title: Monitor and manage data pipelines - Azure | Microsoft Docs
 description: Learn how to use the Monitoring and Management app to monitor and manage Azure data factories and pipelines.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: craigg
+
 
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
-ms.author: spelluru
+ms.date: 01/10/2018
+ms.author: shlo
 
 robots: noindex
 ---
@@ -24,6 +24,9 @@ robots: noindex
 > * [Using Monitoring and Management app](data-factory-monitor-manage-app.md)
 >
 >
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [monitor and manage Data Factory pipelines in version 2](../monitor-visually.md).
 
 This article describes how to use the Monitoring and Management app to monitor, manage, and debug your Data Factory pipelines. It also provides information on how to create alerts to get notified on failures. You can get started with using the application by watching the following video:
 

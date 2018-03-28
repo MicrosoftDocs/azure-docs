@@ -3,7 +3,7 @@ title: Introduction to FreeBSD on Azure | Microsoft Docs
 description: Learn about using FreeBSD virtual machines on Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
-ms.author: kyliel
+ms.author: huishao
 
 ---
 # Introduction to FreeBSD on Azure
@@ -131,4 +131,3 @@ The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2
 
 ## Next steps
 * Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) to create a FreeBSD VM.
-* If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](classic/freebsd-create-upload-vhd.md).

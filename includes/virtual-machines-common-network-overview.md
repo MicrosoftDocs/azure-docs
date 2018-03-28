@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/11/2018
+ms.author: cynthn
+ms.custom: include file
+---
+
 When you create an Azure virtual machine (VM), you must create a [virtual network](../articles/virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. You also need to decide how your VMs are intended to be accessed on the VNet. It is important to [plan before creating resources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../articles/azure-subscription-service-limits.md#networking-limits).
 
 In the following figure, VMs are represented as web servers and database servers. Each set of VMs are assigned to separate subnets in the VNet.
@@ -19,7 +31,7 @@ In addition to those basic resources, you should also consider these optional re
 
 A [network interface (NIC)](../articles/virtual-network/virtual-network-network-interface.md) is the interconnection between a VM and a virtual network (VNet). A VM must have at least one NIC, but can have more than one, depending on the size of the VM you create. Learn about how many NICs each VM size supports for [Windows](../articles/virtual-machines/windows/sizes.md) or [Linux](../articles/virtual-machines/linux/sizes.md).
 
-You can create a VM with multiple NICs, and add or remove NICs through the lifecycle of a VM. Multiple NICs allow a VM to connect to different subnets and send or receive traffic over the most appropriate interface. Learn more about how to use multiple NICs with a [Windows](../articles/virtual-machines/windows/multiple-nics.md) or [Linux](../articles/virtual-machines/linux/multiple-nics.md) VM.
+You can create a VM with multiple NICs, and add or remove NICs through the lifecycle of a VM. Multiple NICs allow a VM to connect to different subnets and send or receive traffic over the most appropriate interface.
 
 If the VM is added to an availability set, all VMs within the availability set must have one or multiple NICs. VMs with more than one NIC aren’t required to have the same number of NICs, but they must all have at least two.
 
@@ -30,8 +42,8 @@ This table lists the methods that you can use to create a network interface.
 | Method | Description |
 | ------ | ----------- |
 | Azure portal | When you create a VM in the Azure portal, a network interface is automatically created for you (you cannot use a NIC you create separately). The portal creates a VM with only one NIC. If you want to create a VM with more than one NIC, you must create it with a different method. |
-| [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) | Use [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) with the **-PublicIpAddressId** parameter to provide the identifer of the public IP address that you previously created. |
-| [Azure CLI](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md) | To provide the identifer of the public IP address that you previously created, use [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) with the **--public-ip-address** parameter. |
+| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Use [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) with the **-PublicIpAddressId** parameter to provide the identifer of the public IP address that you previously created. |
+| [Azure CLI](../articles/virtual-machines/linux/multiple-nics.md) | To provide the identifer of the public IP address that you previously created, use [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) with the **--public-ip-address** parameter. |
 | [Template](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) as a guide for deploying a network interface using a template. |
 
 ## IP addresses 
@@ -72,10 +84,10 @@ This table lists the methods that you can use to create a VNet and subnets.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md) | If you let Azure create a VNet when you create a VM, the name is a combination of the resource group name that contains the VNet and **-vnet**. The address space is 10.0.0.0/24, the required subnet name is **default**, and the subnet address range is 10.0.0.0/24. |
-| [Azure PowerShell](../articles/virtual-network/virtual-networks-create-vnet-arm-ps.md) | You use [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) and [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) to create a subnet and a VNet. You can also use [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) to add a subnet to an existing VNet. |
-| [Azure CLI](../articles/virtual-network/virtual-networks-create-vnet-arm-cli.md) | The subnet and the VNet are created at the same time. Provide a **--subnet-name** parameter to [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) with the subnet name. |
-| [Template](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | The easiest way to create a VNet and subnets is to download an existing template, such as [Virtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), and modify it for your needs. |
+| [Azure portal](../articles/virtual-network/quick-create-portal.md) | If you let Azure create a VNet when you create a VM, the name is a combination of the resource group name that contains the VNet and **-vnet**. The address space is 10.0.0.0/24, the required subnet name is **default**, and the subnet address range is 10.0.0.0/24. |
+| [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | You use [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) and [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) to create a subnet and a VNet. You can also use [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) to add a subnet to an existing VNet. |
+| [Azure CLI](../articles/virtual-network/quick-create-cli.md) | The subnet and the VNet are created at the same time. Provide a **--subnet-name** parameter to [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) with the subnet name. |
+| Template | The easiest way to create a VNet and subnets is to download an existing template, such as [Virtual Network with two subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), and modify it for your needs. |
 
 ## Network security groups
 
@@ -95,7 +107,7 @@ This table lists the methods that you can use to create a network security group
 | ------ | ----------- |
 | [Azure portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | When you create a VM in the Azure portal, an NSG is automatically created and associated to the NIC the portal creates. The name of the NSG is a combination of the name of the VM and **-nsg**. This NSG contains one inbound rule with a priority of 1000, service set to RDP, the protocol set to TCP, port set to 3389, and action set to Allow. If you want to allow any other inbound traffic to the VM, you must add additional rules to the NSG. |
 | [Azure PowerShell](../articles/virtual-network/virtual-networks-create-nsg-arm-ps.md) | Use [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) and provide the required rule information. Use [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) to create the NSG. Use [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) to configure the NSG for the subnet. Use [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) to add the NSG to the VNet. |
-| [Azure CLI](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md) | Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) to initially create the NSG. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) to add rules to the NSG. Use [az network vnet subnet update](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update) to add the NSG to the subnet. |
+| [Azure CLI](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md) | Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) to initially create the NSG. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) to add rules to the NSG. Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) to add the NSG to the subnet. |
 | [Template](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md) | Use [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) as a guide for deploying a network security group using a template. |
 
 ## Load balancers

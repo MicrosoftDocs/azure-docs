@@ -3,18 +3,16 @@ title: 'Azure AD B2C: Secure a web API by using Node.js | Microsoft Docs'
 description: How to build a Node.js web API that accepts tokens from a B2C tenant
 services: active-directory-b2c
 documentationcenter: ''
-author: dstrockis
-manager: mbaldwin
+author: davidmu1
+manager: mtillman
 editor: ''
 
-ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 01/07/2017
-ms.author: xerners
+ms.author: davidmu
 
 ---
 # Azure AD B2C: Secure a web API by using Node.js
@@ -32,7 +30,7 @@ With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OA
 To do this sample, you need to:
 
 1. Register an application with Azure AD.
-2. Set up your application to use Passport's `azure-ad-passport` plug-in.
+2. Set up your application to use Passport's `passport-azure-ad` plug-in.
 3. Configure a client application to call the "to-do list" web API.
 
 ## Get an Azure AD B2C directory
@@ -45,8 +43,6 @@ Next, you need to create an app in your B2C directory that gives Azure AD some i
 * Enter `http://localhost/TodoListService` as a **Reply URL**. It is the default URL for this code sample.
 * Create an **Application secret** for your application and copy it. You need this data later. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
 * Copy the **Application ID** that is assigned to your app. You need this data later.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains two identity experiences: sign up and sign in. You need to create one policy of each type, as described in the

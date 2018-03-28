@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 9/06/2017
+ms.date: 12/11/2017
 ms.author: tamram
 
 ---
@@ -23,7 +23,7 @@ A common feature of cloud-based infrastructures like Azure Storage is that they 
 
 Azure Storage offers four choices for redundancy for data in your storage account:
 
-– LRS (Locally Refdundant Storage)
+- LRS (Locally Redundant Storage)
 - ZRS (Zone Redundant Storage) 
 - GRS (Geo-Redundant Storage)
 - RA-GRS (Read Access Geo-Redundant Storage). 
@@ -34,7 +34,7 @@ There are code snippets included in this article, and a link to a complete sampl
 
 ## Key features of RA-GRS
 
-Keep in mind these key points when designing your ppplication for RA-GRS:
+Keep in mind these key points when designing your application for RA-GRS:
 
 * Azure Storage maintains a read-only copy of the data you store in your primary region in a secondary region. As noted above, the storage service determines the location of the secondary region.
 

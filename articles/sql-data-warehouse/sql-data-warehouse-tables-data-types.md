@@ -3,8 +3,8 @@ title: Data types guidance - Azure SQL Data Warehouse | Microsoft Docs
 description: Recommendations to define data types that are compatible with SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: ''
 
 ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 06/02/2017
-ms.author: shigu;barbkess
+ms.date: 03/17/2018
+ms.author: barbkess
 
 ---
 # Guidance for defining data types for tables in SQL Data Warehouse
 Use these recommendations to define table data types that are compatible with SQL Data Warehouse. In addition to compatibility, minimizing the size of data types improves query performance.
 
-SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) in the CREATE TABLE statement. 
+SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. 
 
 
 ## Minimize row length

@@ -4,8 +4,8 @@ description: Frequently asked questions about Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
@@ -13,12 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 01/10/2018
 ms.author: shlo
 
 robots: noindex
 ---
 # Azure Data Factory - Frequently Asked Questions
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [frequently asked question - Data Factory version 2](../frequently-asked-questions.md).
+
 ## General questions
 ### What is Azure Data Factory?
 Data Factory is a cloud-based data integration service that **automates the movement and transformation of data**. Just like a factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information.

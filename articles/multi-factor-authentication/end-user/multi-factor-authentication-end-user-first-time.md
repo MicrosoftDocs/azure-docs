@@ -5,8 +5,8 @@ services: multi-factor-authentication
 keywords: how to use azure directory, active directory in the cloud, active directory tutorial
 documentationcenter: ''
 author: barlanmsft
-manager: femila
-editor: pblachar
+manager: mtillman
+ms.reviewer: richagi
 
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
@@ -28,7 +28,7 @@ This article helps you set up your **work or school account**. If you want to en
 
 ## Set up your account
 
-When your IT department requires you to start using two-step verification, you'll see a screen that says **Your admin has required that you set up this account for additional secuirty verification**:
+When your company support requires you to start using two-step verification, you'll see a screen that says **Your admin has required that you set up this account for additional security verification**:
 
 ![Setup](./media/multi-factor-authentication-end-user-first-time/first.png)
 
@@ -42,7 +42,7 @@ The first question in the enrollment process is how you want us to contact you. 
 
 | Contact method | Description |
 | --- | --- |
-| [Mobile app](#use-a-mobile-app-as-the-contact-method) |- **Receive notifications for verification.** This option pushes a notification to the authenticator app on your smartphone or tablet. View the notification and, if it is legitimate, select **Authenticate** in the app. Your work or school may require that you enter a PIN before you authenticate.<br>- **Use verification code.** In this mode, the authenticator app generates a verification code that updates every 30 seconds. Enter the most current verification code in the sign-in interface.<br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Mobile app](#use-a-mobile-app-as-the-contact-method) |- **Receive notifications for verification.** This option pushes a notification to the authenticator app on your smartphone or tablet. View the notification and, if it is legitimate, select **Authenticate** in the app. Your work or school may require that you enter a PIN before you authenticate.<br>- **Use verification code.** In this mode, the authenticator app generates a verification code that updates every 30 seconds. Enter the most current verification code in the sign-in interface.<br>The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Mobile phone call or text](#use-your-mobile-phone-as-the-contact-method) |- **Phone call** places an automated voice call to the phone number you provide. Answer the call and press # in the phone keypad to authenticate.<br>- **Text message** ends a text message containing a verification code. Following the prompt in the text, either reply to the text message or enter the verification code provided into the sign-in interface. |
 | [Office Phone Call](#use-your-office-phone-as-the-contact-method) |Places an automated voice call to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate. |
 

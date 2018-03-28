@@ -3,30 +3,22 @@ title: Azure SQL Database firewall rules | Microsoft Docs
 description: Learn how to configure a SQL database firewall with server-level and database-level firewall rules to manage access.
 keywords: database firewall
 services: sql-database
-documentationcenter: ''
-author: BYHAM
+author: CarlRabeler
 manager: craigg
-editor: cgronlun
-tags: ''
-
-ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 09/15/2017
-ms.author: rickbyh
+ms.date: 10/11/2017
+ms.author: carlrab
 
 ---
 # Azure SQL Database server-level and database-level firewall rules 
 
 Microsoft Azure SQL Database provides a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request.
 
-#### Virtual netowrk rules as alternatives to IP rules
+#### Virtual network rules as alternatives to IP rules
 
-In addition to IP rules, the firewall also manages *virtual network rules*. Virtual netowrk rules are based on Virtual Network service endpoints. Virtual network rules might be preferable to IP rules in some cases. To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+In addition to IP rules, the firewall also manages *virtual network rules*. Virtual network rules are based on Virtual Network service endpoints. Virtual network rules might be preferable to IP rules in some cases. To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## Overview
 
@@ -42,6 +34,10 @@ Connection attempts from the Internet and Azure must first pass through the fire
 * **Database-level firewall rules:** These rules enable clients to access certain (secure) databases within the same logical server. You can create these rules for each database (including the **master** database) and they are stored in the individual databases. Database-level firewall rules for master and user databases can only be created and managed by using Transact-SQL statements and only after you have configured the first server-level firewall. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. For more information on configuring database-level firewall rules, see the example later in this article and see [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Recommendation:** Microsoft recommends using database-level firewall rules whenever possible to enhance security and to make your database more portable. Use server-level firewall rules for administrators and when you have many databases that have the same access requirements and you don't want to spend time configuring each database individually.
+
+> [!Important]
+> Windows Azure SQL Database supports a maximum of 128 firewall rules.
+>
 
 > [!Note]
 > For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md).
@@ -67,7 +63,7 @@ To allow applications from Azure to connect to your Azure SQL server, Azure conn
 > 
 
 ## Creating and managing firewall rules
-The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#create), or the [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules). Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. 
+The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create), or the [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules). Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. 
 
 > [!IMPORTANT]
 > Database-level firewall rules can only be created and managed using Transact-SQL. 
@@ -159,11 +155,11 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ## Manage firewall rules using Azure CLI
 | Cmdlet | Level | Description |
 | --- | --- | --- |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range.|
-| [az sql server firewall delete](/cli/azure/sql/server/firewall-rule#delete)| Deletes a firewall rule.|
-| [az sql server firewall list](/cli/azure/sql/server/firewall-rule#list)| Lists the firewall rules.|
-| [az sql server firewall rule show](/cli/azure/sql/server/firewall-rule#show)| Shows the details of a firewall rule.|
-| [ax sql server firewall rule update](/cli/azure/sql/server/firewall-rule#update)| Updates a firewall rule.
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Server|Creates a server firewall rule|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Server|Lists the firewall rules on a server|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Server|Shows the detail of a firewall rule|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Server|Updates a firewall rule|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Server|Deletes a firewall rule|
 
 The following example sets a server-level firewall rule using the Azure CLI: 
 

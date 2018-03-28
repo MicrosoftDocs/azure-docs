@@ -1,4 +1,5 @@
-- name: Team Data Science Process Documentation
+- name: Team Data Science Process Documentation 
+  href: index.yml
 - name: Overview
   href: overview.md
 - name: Lifecycle
@@ -29,14 +30,26 @@
     href: project-ic-tasks.md
 - name: Project structure
   href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
+- name: Project planning
+  href: team-data-science-process-project-templates.md
 - name: Project execution
-  href: project-execution.md
-- name: Tutorials
+  items:
+  - name: Agile development
+    href: agile-development.md
+  - name: Collaborative coding with Git
+    href: collaborative-coding-with-git.md
+  - name: Execute data science tasks
+    href: execute-data-science-tasks.md
+  - name: Track progress
+    href: track-progress.md
+- name: Examples
   href: walkthroughs.md
   items:
-  - name: Azure Machine Learning Workbench
+  - name: Azure Machine Learning
     href: walkthroughs-aml-with-tdsp.md
     items:
+    - name: Sentiment classification
+      href: predict-twitter-sentiment.md
     - name: US income classification
       href: ../preview/scenario-tdsp-classifying-us-incomes.md
       maintainContext: true
@@ -46,12 +59,12 @@
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
     items:
-    - name: Explore data
+    - name: Explore and model data
       href: spark-data-exploration-modeling.md
+    - name: Advanced data exploration and modeling
+      href: spark-advanced-data-exploration-modeling.md
     - name: Score models
       href: spark-model-consumption.md
-    - name: Advanced data exploration
-      href: spark-advanced-data-exploration-modeling.md
   - name: Hive with HDInsight Hadoop
     href: walkthroughs-hdinsight-hadoop.md
   - name: U-SQL with Azure Data Lake
@@ -60,6 +73,12 @@
     href: walkthroughs-sql-server.md
   - name: T-SQL and Python with SQL DW
     href: walkthroughs-sql-data-warehouse.md
+- name: Training
+  items:
+  - name: For data scientists
+    href: team-data-science-process-for-data-scientists.md
+  - name: For DevOps
+    href: team-data-science-process-for-devops.md
 - name: How To
   items:
   - name: Use TDSP in Azure ML
@@ -73,13 +92,40 @@
       maintainContext: true
     - name: Platforms and tools
       href: platforms-and-tools.md
-    - name: Customize Hadoop
-      href: customize-hadoop-cluster.md
+    - name: R and Python on HDInsight clusters
+      items:
+      - name: Introduction to Spark on HDInsight
+        href: ../../hdinsight/spark/apache-spark-overview.md
+        maintainContext: true
+      - name: Create an Apache Spark cluster in Azure HDInsight
+        href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
+        maintainContext: true
+      - name: PySpark kernels for Jupyter Notebook
+        href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
+        maintainContext: true
+      - name: R Server on HDInsight
+        href: ../../hdinsight/r-server/r-server-overview.md
+        maintainContext: true
+      - name: Get started using R Server on HDInsight
+        href: ../../hdinsight/r-server/r-server-get-started.md
+        maintainContext: true
     - name: Azure Machine Learning workspace
       href: ../studio/create-workspace.md
       maintainContext: true
-    - name: Set up virtual machines
-      href: virtual-machines.md
+    - name: Set up a Data Science VM
+      items:
+      - name: Create a Windows Data Science VM
+        href: ../data-science-virtual-machine/provision-vm.md
+        maintainContext: true
+      - name: Create an Ubuntu Data Science VM
+        href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
+        maintainContext: true
+      - name: Create a CentOS Data Science VM
+        href: ../data-science-virtual-machine/linux-dsvm-intro.md
+        maintainContext: true
+      - name: Create a Deep Learning VM
+        href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
+        maintainContext: true
   - name: Analyze business needs
     items:
     - name: Identify your scenario
@@ -97,7 +143,8 @@
       - name: Use AzCopy
         href: move-data-to-azure-blob-using-azcopy.md
       - name: Use Python
-        href: move-data-to-azure-blob-using-python.md
+        href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+        maintainContext: true
       - name: Use SSIS
         href: move-data-to-azure-blob-using-ssis.md
       - name: Move to a VM
@@ -172,18 +219,12 @@
       - name: Algorithm cheat sheet
         href: ../studio/algorithm-cheat-sheet.md
         maintainContext: true
-  - name: Deploy models
-    items:
-    - name: With a web service
-      href: ../studio/publish-a-machine-learning-web-service.md
-      maintainContext: true
-    - name: Consume a web service
-      href: ../studio/consume-web-services.md
-      maintainContext: true
+  - name: Deploy models in production
+    href: deploy-models-in-production.md
 - name: Related
   items:
   - name: Microsoft Cognitive Toolkit - CNTK
-    href: https://docs.microsoft.com/en-us/cognitive-toolkit/
+    href: https://docs.microsoft.com/cognitive-toolkit/
     maintainContext: true
   - name: Cortana Intelligence Partner Solutions
     items:
@@ -200,7 +241,7 @@
       - name: Anomaly detection
         href: apps-anomaly-detection-api.md
       - name: Cognitive Services
-        href: https://docs.microsoft.com/en-us/azure/cognitive-services/
+        href: https://docs.microsoft.com/azure/cognitive-services/
       - name: Predictive maintenance
         items:
         - name: Overview
@@ -219,16 +260,38 @@
           href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Resources
   items:
-  - name: TDSP tools and utilities - GitHub
-    href: https://github.com/Azure/Azure-TDSP-Utilities
+  - name: TDSP tools and utilities
     items:
-    - name: Latest utilities for the Team Data Science Process
+    - name: Download from GitHub
+      href: https://github.com/Azure/Azure-TDSP-Utilities
+    - name: Data Science Utilities v.0.11 for the TDSP
+      href: https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/
+    - name: Latest utilities for the TDSP
       href: https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/
-  - name: Cortana Intelligence and Machine Learning Blog
-    href: https://blogs.technet.microsoft.com/machinelearning/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-machine-learning
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
+  - name: Blogs
+    items:
+    - name: Recent Updates for the TDSP
+      href: https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/
+    - name: Using the TDSP in Azure Machine Learning
+      href: https://blogs.technet.microsoft.com/machinelearning/2017/09/25/using-the-team-data-science-process-tdsp-in-azure-machine-learning/
+    - name: Data Science Project Planning Template
+      href: https://blogs.msdn.microsoft.com/buckwoody/2017/10/24/a-data-science-microsoft-project-template-you-can-use-in-your-solutions/
+    - name: Cortana Intelligence and Machine Learning Blog
+      href: https://blogs.technet.microsoft.com/machinelearning/
+  - name: Organizations using TDSP
+    items:
+    - name: New Signature
+      href: https://newsignature.com/services/professional-services/advanced-analytics/
+    - name: Blue Granite
+      href: https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations
+    - name: Microsoft Consulting Services
+      href: https://www.microsoft.com/en-us/microsoftservices/business-analytics.aspx
+  - name: Related Microsoft resources
+    items:
+    - name: MSDN forum
+      href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
+    - name: Stack Overflow
+      href: http://stackoverflow.com/questions/tagged/azure-machine-learning
+    - name: Videos
+      href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
+

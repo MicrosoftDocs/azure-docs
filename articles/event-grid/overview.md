@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 01/30/2018
 ms.author: babanisa
 ---
 
@@ -17,13 +17,47 @@ Azure Event Grid allows you to easily build applications with event-based archit
 
 You can use filters to route specific events to different endpoints, multicast to multiple endpoints, and make sure your events are reliably delivered. Event Grid also has built in support for custom and third-party events.
 
-For the preview release, Event Grid supports **westus2** and **westcentralus** locations. Other regions will be added.
+Currently, Event Grid supports the following regions:
 
-This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
+* Asia Southeast
+* Asia East
+* Central US
+*	East US
+*	East US 2
+* Europe West
+* Europe North
+*	West Central US
+*	West US
+*	West US 2
 
-![Event Grid functional model](./media/overview/event-grid-functional-model.png)
+This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). The following image shows how Event Grid connects publishers and handlers, but it does not provide a comprehensive list of supported options.
 
-Currently, Blob Storage is not publicly available as a publisher. You must register for the preview release to react to storage blob events. For more information, see [Route Blob storage events to a custom web endpoint (preview)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+![Event Grid functional model](./media/overview/functional-model.png)
+
+## Event publishers
+
+Currently, the following Azure services have built-in publisher support for event grid:
+
+* Azure Subscriptions (management operations)
+* Custom Topics
+* Event Hubs
+* IoT Hub
+* Resource Groups (management operations)
+* Storage Blob
+* Storage General-purpose v2 (GPv2)
+
+## Event handlers
+
+Currently, the following Azure services have built-in handler support for Event Grid: 
+
+* Azure Automation
+* Azure Functions
+* Event Hubs
+* Logic Apps
+* Microsoft Flow
+* WebHooks
+
+When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](security-authentication.md#webhook-event-delivery).
 
 ## Concepts
 
@@ -50,32 +84,7 @@ Here are some of the key features of Azure Event Grid:
 * **Built-in Events** - Get up and running quickly with resource-defined built-in events.
 * **Custom Events** - use Event Grid route, filter, and reliably deliver custom events in your app.
 
-## Built-in publisher and handler integration
-
-Azure offers built-in event support using numerous services, including both publishers and handlers.
-
-### Publishers
-
-Currently, the following Azure services have built-in publisher support for event grid:
-
-* Resource Groups (management operations)
-* Azure Subscriptions (management operations)
-* Event Hubs
-* Custom Topics
-
-Other Azure services will be added this year.
-
-### Handlers
-
-Currently, the following Azure services have built-in handler support for Event Grid: 
-
-* Azure Functions
-* Logic Apps
-* Azure Automation
-* WebHooks
-* Microsoft Flow
-
-Other Azure services will be added this year.
+For a comparison of Event Grid, Event Hubs, and Service Bus, see [Choose between Azure services that deliver messages](compare-messaging-services.md).
 
 ## What can I do with Event Grid?
 
@@ -99,22 +108,14 @@ Event Grid allows you to speed automation and simplify policy enforcement. For e
 
 Event Grid connects your app with other services. For example, create a custom topic to send your app's event data to Event Grid, and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. 
 
-## How is Event Grid different from other Azure integration services?
-
-Event Grid is an eventing backplane that enables event-driven, reactive programming. It is deeply integrated with Azure services and can be integrated with third-party services. The event message contains the information you need to react to changes in services and applications. Event Grid is not a data pipeline, and does not deliver the actual object that was updated.
-
-Service Bus is well suited for traditional enterprise applications that require transactions, ordering, duplicate detection, and instantaneous consistency. Event Grid is designed for speed, scale, breadth, and low cost in a reactive model. It is well suited to serverless architecture.
-
-Event Grid complements other Azure services like Logic Apps and Event Hubs. Event Grid triggers the logic app to begin its workflow. Event Hubs works with Event Grid by enabling you to react to events from Event Hubs Capture, and build data ingress and transformation pipelines.
-
 ## How much does Event Grid cost?
 
-Azure Event Grid uses a pay-per-event pricing model, so you only pay for what you use.
-
-Event Grid costs $0.60 per million operations ($0.30 during preview) and the first 100,000 operation per month are free. Operations are defined as event ingress, advanced match, delivery attempt, and management calls.  More details can be found on the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
+Azure Event Grid uses a pay-per-event pricing model, so you only pay for what you use. The first 100,000 operations per month are free. Operations are defined as event ingress, advanced match, delivery attempt, and management calls. For details, see the [pricing page](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Next steps
 
+* [Route Storage Blob events](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+  Respond to storage blob events by using Event Grid.
 * [Create and subscribe to custom events](custom-event-quickstart.md)  
   Jump right in and start sending your own custom events to any endpoint using the Azure Event Grid quickstart.
 * [Using Logic Apps as an Event Handler](monitor-virtual-machine-changes-event-grid-logic-app.md)  

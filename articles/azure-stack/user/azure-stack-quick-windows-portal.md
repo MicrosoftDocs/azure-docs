@@ -2,12 +2,14 @@
 title: Azure Stack Quick Start - Create a Windows virtual machine
 description: Azure Stack Quick Start - Create a Windows VM using the portal
 services: azure-stack
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 
-ms.topic: azure-stack
+ms.service: azure-stack
+ms.topic: quickstart
 ms.date: 09/15/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
 ---
 
@@ -29,7 +31,7 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 2. Under **Basics**, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, select a **Location**, and then click **OK**.
 
     ![](media/azure-stack-quick-windows-portal/image02.png)
-3. Under **Choose a size**, click **A1 Standard** > **Select**.
+3. Under **Choose a size**, click **D1 Standard** > **Select**.
     ![](media/azure-stack-quick-windows-portal/image03.png)
 4. Under **Settings**, accept the defaults and click **OK**.
     ![](media/azure-stack-quick-windows-portal/image04.png)

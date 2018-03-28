@@ -2,7 +2,7 @@
 title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery (Preview)
 description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
 
 ms.service: site-recovery
@@ -10,8 +10,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
-ms.author: rajanaki
+ms.date: 03/16/2018
+ms.author: raynew
 ms.custom: mvc
 ---
 # Set up disaster recovery for Azure VMs to a secondary Azure region (Preview)
@@ -38,7 +38,7 @@ To complete this tutorial:
 Create the vault in any region, except the source region.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
+2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group or select an existing one. Specify an Azure region. To check supported
@@ -155,7 +155,11 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 Site Recovery creates default settings and replication policy for the target region. You can change the settings based on
 your requirements.
 
-![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+1. Click **Settings** to view the target and replication settings.
+2. To override the default target settings, click **Customize** next to **Resource group, Network, Storage and Availability Sets**.
+
+  ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+
 
 - **Target location**: The target region used for disaster recovery. We recommend that the target
   location matches the location of the Site Recovery vault.
@@ -171,11 +175,16 @@ your requirements.
 - **Cache storage accounts**: Site Recovery uses a storage account in the source region. Changes to
   source VMs are sent to this account before replication to the target location.
 
-- **Target storage accounts**: By default, Site Recovery creates a new storage account in the
+- **Target storage accounts (If source VM does not use managed disks)**: By default, Site Recovery creates a new storage account in the
   target region to mirror the source VM storage account.
 
+- **Replica managed disks (If source VM uses managed disks)**: By default, Site Recovery creates replica managed disks in the
+  target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
+
 - **Target availability sets**: By default, Site Recovery creates a new availability set in the
-  target region with the "asr" suffix.
+  target region with the "asr" suffix. You can only add availability sets if VMs are part of a set in the source region.
+
+To override the default replication policy settings, click **Customize** next to **Replication policy**.  
 
 - **Replication policy name**: Policy name.
 
@@ -184,6 +193,16 @@ your requirements.
 
 - **App-consistent snapshot frequency**: By default, Site Recovery takes an app-consistent snapshot
   every 4 hours. You can configure any value between 1 and 12 hours. A app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that app on the VM are in a consistent state when the snapshot is taken.
+
+- **Replication group**: If your application needs multi-VM consistency across VMs, you can create a replication group for those VMs. By default, the selected VMs are not part of any replication group.
+
+  Click **Customize** next to **Replication policy** and then select **Yes** for multi-VM consistency to make VMs part of a replication group. You can create a new replication group or use an existing replication group. Select the VMs to be part of the replication group and click **OK**.
+
+> [!IMPORTANT]
+  All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over. Enabling multi-VM consistency can impact workload performance and should be used only if machines are running the same workload and you need consistency across multiple machines.
+
+> [!IMPORTANT]
+  If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Ensure that there is no firewall appliance blocking the internal communication between the VMs over port 20004. If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened as per the guidance of the specific Linux version.
 
 ### Track replication status
 
@@ -197,7 +216,7 @@ your requirements.
 
 ## Next steps
 
-In this tutorial you configured disaster recovery for an Azure VM. Next step is to test your configuration.
+In this tutorial, you configured disaster recovery for an Azure VM. Next step is to test your configuration.
 
 > [!div class="nextstepaction"]
 > [Run a disaster recovery drill](azure-to-azure-tutorial-dr-drill.md)

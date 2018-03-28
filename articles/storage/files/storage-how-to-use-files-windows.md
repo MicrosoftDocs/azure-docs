@@ -18,7 +18,7 @@ ms.author: renash
 ---
 
 # Mount an Azure File share and access the share in Windows
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
 
 In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
 
@@ -26,7 +26,8 @@ You can mount Azure File shares on a Windows installation that is running either
 
 | Windows Version        | SMB Version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | Yes | Yes |
+| Windows Server semi-annual channel<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>2</sup>  | SMB 3.0 | Yes | Yes |
 | Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
 | Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
 | Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
@@ -34,7 +35,8 @@ You can mount Azure File shares on a Windows installation that is running either
 | Windows 7              | SMB 2.1     | Yes                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
-<sup>1</sup>Windows 10 versions 1507, 1511, 1607, 1703, and 1709.
+<sup>1</sup>Windows Server version 1709.  
+<sup>2</sup>Windows 10 versions 1507, 1607, 1703, and 1709.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
@@ -46,6 +48,31 @@ You can mount Azure File shares on a Windows installation that is running either
 
 * **Ensure port 445 is open**: Azure Files uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
+## Persisting connections across reboots
+### CmdKey
+The easiest way to establish a persistent connections is to save your storage account credentials into windows using the “CmdKey” command line utility. The following is an example command line for persisting your storage account credentials into your VM:
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> Domainname here will be "AZURE"
+
+CmdKey will also allow you to list the credentials it stored:
+
+```
+C:\>cmdkey /list
+```
+Output will be as follows:
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+Once the credentials have been persisted, you no longer have to supply them when connecting to your share. Instead you can connect without specifying any credentials.
+
 ## Mount the Azure File share with File Explorer
 > [!Note]  
 > Note that the following instructions are shown on Windows 10 and may differ slightly on older releases. 
@@ -56,7 +83,7 @@ You can mount Azure File shares on a Windows installation that is running either
     
     ![A screenshot of the "Map network drive" drop down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Copy the UNC path from the "Connect" pane in the Azure portal**: A detailed description of how to find this information can be found [here](storage-how-to-use-files-portal.md#connect-to-file-share).
+3. **Copy the UNC path from the "Connect" pane in the Azure portal.** 
 
     ![The UNC path from the Azure Files Connect pane](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 

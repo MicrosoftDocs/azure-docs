@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 03/09/2018
 ms.author: babanisa
 ---
 
@@ -16,13 +16,13 @@ ms.author: babanisa
 To create an Event Grid subscription, you send a request to the Create Event subscription operation. Use the following format:
 
 ```
-PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
+PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 For example, to create an event subscription for a storage account named `examplestorage` in a resource group named `examplegroup`, use the following format:
 
 ```
-PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2017-06-15-preview
+PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 The article describes the properties and schema for the body of the request.
@@ -39,7 +39,7 @@ The article describes the properties and schema for the body of the request.
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | endpointType | string | The type of endpoint for the subscription (webhook/HTTP, Event Hub, or queue). | 
-| endpointUrl | string |  | 
+| endpointUrl | string | The destination URL for events in this event subscription. | 
 
 ### filter object
 
@@ -63,7 +63,7 @@ The article describes the properties and schema for the body of the request.
       }
     },
     "filter": {
-      "includedEventTypes": [ "blobCreated", "blobDeleted" ],
+      "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
       "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "subjectIsCaseSensitive": "true"

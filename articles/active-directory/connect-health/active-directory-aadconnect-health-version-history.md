@@ -4,7 +4,7 @@ description: This document describes the releases for Azure AD Connect Health an
 services: active-directory
 documentationcenter: ''
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
@@ -20,17 +20,72 @@ ms.author: billmath
 # Azure AD Connect Health: Version Release History
 The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. This article lists the versions and features that have been released.
 
+## March 2018
+**New preview features:**
+* Azure AD Connect Health for AD FS - Risky IP report and alert.
+
+**Agent Update:**
+
+*	Azure AD Connect Health agent for AD DS (version 3.0.176.0)
+  1. Agent availability improvements 
+  2. Bug fixes and general improvements
+*	Azure AD Connect Health agent for AD FS (version 3.0.176.0)
+  1. Agent availability improvements 
+  2. Bug fixes and general improvements
+* Azure AD Connect Health agent for Sync (version 3.0.176.0)
+  1. Agent availability improvements 
+  2. Bug fixes and general improvements
+
+## December 2017
+**Agent Update:**
+
+*	Azure AD Connect Health agent for AD DS (version 3.0.145.0)
+  1. Agent availability improvements 
+  2. Added new agent troubleshooting commands
+  3. Bug fixes and general improvements
+*	Azure AD Connect Health agent for AD FS (version 3.0.145.0)
+  1. Added new agent troubleshooting commands
+  2. Agent availability improvements 
+  3. Bug fixes and general improvements
+  
+## October 2017
+**Agent Update:**
+
+ * Azure AD Connect Health agent for Sync (version 3.0.129.0) released with Azure AD Connect version 1.1.649.0
+<br></br> Fixed a version compatibility issue between Azure AD Connect and Azure AD Connect Health Agent for Sync. This issue affects customers who are performing Azure AD Connect in-place upgrade to version 1.1.647.0, but currently has Health Agent version 3.0.127.0. After the upgrade, the Health Agent can no longer send health data about Azure AD Connect Synchronization Service to Azure AD Health Service. With this fix, Health Agent version 3.0.129.0 is installed during Azure AD Connect in-place upgrade. Health Agent version 3.0.129.0 does not have compatibility issue with Azure AD Connect version 1.1.649.0.
+
+## July 2017
+**Agent Update:**
+
+*	Azure AD Connect Health agent for AD DS (version 3.0.68.0)
+  1. Bug fixes and general improvements
+  2. Sovereign cloud support
+*	Azure AD Connect Health agent for AD FS (version 3.0.68.0)
+  1. Bug fixes and general improvements
+  2. Sovereign cloud support
+* Azure AD Connect Health agent for Sync (version 3.0.68.0) released with Azure AD Connect version 1.1.614.0
+  1. Support for Microsoft Azure Government Cloud and Microsoft Cloud Germany
+
+## April 2017      
+**Agent Update:**
+
+*	Azure AD Connect Health agent for AD FS (version 3.0.12.0)
+  1. Bug fixes and general improvements
+*	Azure AD Connect Health agent for AD DS (version 3.0.12.0)
+  1. Performance counters upload improvements
+  2. Bug fixes and general improvements
+
 ## October 2016
 **Agent Update:**
 
 * Azure AD Connect Health agent for AD FS \(version 2.6.408.0\)
-  1. Improvements in detecting client IP addresses in authentication requests
-  2. Bug Fixes related to Alerts
+1. Improvements in detecting client IP addresses in authentication requests
+2. Bug Fixes related to Alerts
 * Azure AD Connect Health agent for AD DS (version 2.6.408.0)
-  1. Bug fixes related to Alerts.
+1. Bug fixes related to Alerts.
 * Azure AD Connect Health agent for Sync (version 2.6.353.0) released with Azure AD Connect version 1.1.281.0
-  1. Provide the required data for the Synchronization Error Reports
-  2. Bug fixes related to Alerts
+1. Provide the required data for the Synchronization Error Reports
+2. Bug fixes related to Alerts
 
 **New preview features:**
 

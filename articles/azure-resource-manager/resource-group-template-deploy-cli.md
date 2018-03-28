@@ -19,7 +19,7 @@ ms.author: tomfitz
 ---
 # Deploy resources with Resource Manager templates and Azure CLI
 
-This topic explains how to use Azure CLI 2.0 with Resource Manager templates to deploy your resources to Azure. If you are not familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).  
+This article explains how to use Azure CLI 2.0 with Resource Manager templates to deploy your resources to Azure. If you are not familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).  
 
 The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub. The template you deploy in this article is available in the [Sample template](#sample-template) section, or as a [storage account template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
@@ -75,58 +75,18 @@ az group deployment create \
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template should not include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you do not want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
 
-## Deploy template from Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-You can use [Cloud Shell](../cloud-shell/overview.md) to run the Azure CLI commands for deploying your template. However, you must first load your template into the file share for your Cloud Shell. If you have not used Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for information about setting it up.
+In the Cloud Shell, use the following commands:
 
-1. Log in to the [Azure portal](https://portal.azure.com).   
-
-2. Select your Cloud Shell resource group. The name pattern is `cloud-shell-storage-<region>`.
-
-   ![Select resource group](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
-
-3. Select the storage account for your Cloud Shell.
-
-   ![Select storage account](./media/resource-group-template-deploy-cli/select-storage.png)
-
-4. Select **Files**.
-
-   ![Select files](./media/resource-group-template-deploy-cli/select-files.png)
-
-5. Select the file share for Cloud Shell. The name pattern is `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Select file share](./media/resource-group-template-deploy-cli/select-file-share.png)
-
-6. Select **Add directory**.
-
-   ![Add directory](./media/resource-group-template-deploy-cli/select-add-directory.png)
-
-7. Name it **templates**, and select **Okay**.
-
-   ![Name directory](./media/resource-group-template-deploy-cli/name-templates.png)
-
-8. Select your new directory.
-
-   ![Select directory](./media/resource-group-template-deploy-cli/select-templates.png)
-
-9. Select **Upload**.
-
-   ![Select upload](./media/resource-group-template-deploy-cli/select-upload.png)
-
-10. Find and upload your template.
-
-   ![Upload file](./media/resource-group-template-deploy-cli/upload-files.png)
-
-11. Open the prompt.
-
-   ![Open Cloud Shell](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
-
-12. Enter the following commands in the Cloud Shell:
-
-   ```azurecli
+   ```azurecli-interactive
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
+
+## Deploy to more than one resource group or subscription
+
+Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. You can deploy to only five resource groups in a single deployment. For more information, see [Deploy Azure resources to more than one subscription or resource group](resource-manager-cross-resource-group-deployment.md).
 
 ## Parameter files
 
@@ -160,7 +120,7 @@ az group deployment create \
 
 ## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#validate). 
+To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#az_group_deployment_validate). 
 
 ```azurecli
 az group deployment validate \
@@ -224,7 +184,7 @@ az group deployment create \
 
 ## Sample template
 
-The following template is used for the examples in this topic. Copy and save it as a file named storage.json. To understand how to create this template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).  
+The following template is used for the examples in this article. Copy and save it as a file named storage.json. To understand how to create this template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).  
 
 ```json
 {

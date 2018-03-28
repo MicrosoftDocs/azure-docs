@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -26,6 +26,10 @@ ms.author: subramar
 >  
 
 To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development.
+
+> [!NOTE]
+> Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is not supported. However, the Azure Service Fabric command-line interface (CLI), which enables you to manage Service Fabric entities hosted elsewhere in the cloud or on-premises, is supported. For information about how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
+>
 
 ## Prerequisites
 
@@ -105,6 +109,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+The Service Fabric runtime which comes with the above installation includes the packages in the table below. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | latest |
+
 ## Set up a local cluster
   Once the installation completes, you should be able to start a local cluster.
 
@@ -125,28 +135,34 @@ sudo apt-get install servicefabricsdkcommon
   > Standalone clusters aren't supported in Linux.
   >
 
+
+>   [!TIP]
+    If you have an SSD disk avaiable, it is recommended to pass an SSD folder path using `--clusterdataroot` with devclustersetup.sh for superior performance.
+
 ## Set up the Service Fabric CLI
 
 The [Service Fabric CLI](service-fabric-cli.md) has commands for interacting with Service Fabric entities,
 including clusters and applications.
-Please follow the instructions at [Service Fabric CLI](service-fabric-cli.md) to install the CLI.
+Follow the instructions at [Service Fabric CLI](service-fabric-cli.md) to install the CLI.
 
 
 ## Set up Yeoman generators for containers and guest executables
-Service Fabric provides scaffolding tools which will help you create Service Fabric applications from a terminal using Yeoman template generators. Follow these steps to set up the Service Fabric Yeoman template generators:
+Service Fabric provides scaffolding tools that help you create Service Fabric applications from a terminal using Yeoman template generators. Follow these steps to set up the Service Fabric Yeoman template generators:
 
 1. Install nodejs and NPM on your machine
 
+Ubuntu
   ```bash
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
+
 2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
 
   ```bash
   sudo npm install -g yo
   ```
-3. Install the Service Fabric Yeo container generator and guest execuatble generator from NPM
+3. Install the Service Fabric Yeo container generator and guest executable generator from NPM
 
   ```bash
   sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
@@ -163,7 +179,7 @@ Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#li
 
 To build Service Fabric services using Java, install JDK 1.8 and Gradle to run build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 
-  ```bash
+ ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```
@@ -219,8 +235,10 @@ sudo apt-get install -f
 * [Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
+* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
+* [Automate operating system patching on your Linux cluster](service-fabric-patch-orchestration-application-linux.md)
 * [Get started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->

@@ -26,7 +26,7 @@ ms.author: rodsan
 | **Database** | <ul><li>[Ensure that least-privileged accounts are used to connect to Database server](#privileged-server)</li><li>[Implement Row Level Security RLS to prevent tenants from accessing each other's data](#rls-tenants)</li><li>[Sysadmin role should only have valid necessary users](#sysadmin-users)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Connect to Cloud Gateway using least-privileged tokens](#cloud-least-privileged)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Use a send-only permissions SAS Key for generating device tokens](#sendonly-sas)</li><li>[Do not use access tokens that provide direct access to the Event Hub](#access-tokens-hub)</li><li>[Connect to Event Hub using SAS keys that have the minimum permissions required](#sas-minimum-permissions)</li></ul> |
-| **Azure Document DB** | <ul><li>[Use resource tokens to connect to DocumentDB whenever possible](#resource-docdb)</li></ul> |
+| **Azure Document DB** | <ul><li>[Use resource tokens to connect to Azure Cosmos DB whenever possible](#resource-docdb)</li></ul> |
 | **Azure Trust Boundary** | <ul><li>[Enable fine-grained access management to Azure Subscription using RBAC](#grained-rbac)</li></ul> |
 | **Service Fabric Trust Boundary** | <ul><li>[Restrict client's access to cluster operations using RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Perform security modeling and use Field Level Security where required](#modeling-field)</li></ul> |
@@ -222,7 +222,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | A resource token is associated with a DocumentDB permission resource and captures the relationship between the user of a database and the permission that user has for a specific DocumentDB application resource (e.g. collection, document). Always use a resource token to access the DocumentDB if the client cannot be trusted with handling master or read-only keys - like an end user application like a mobile or desktop client.Use Master key or read-only keys from backend applications which can store these keys securely.|
+| **Steps** | A resource token is associated with an Azure Cosmos DB permission resource and captures the relationship between the user of a database and the permission that user has for a specific Azure Cosmos DB application resource (e.g. collection, document). Always use a resource token to access the Azure Cosmos DB if the client cannot be trusted with handling master or read-only keys - like an end user application like a mobile or desktop client.Use Master key or read-only keys from backend applications which can store these keys securely.|
 
 ## <a id="grained-rbac"></a>Enable fine-grained access management to Azure Subscription using RBAC
 
@@ -398,7 +398,7 @@ return result;
 | **Steps** | <p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p><p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p>
 
 ### Example
-```C#
+```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
 {
@@ -429,7 +429,7 @@ public bool ValidateRoles(actionContext)
 }
 ```
 All the controllers and action methods which needs to protected should be decorated with above attribute.
-```C#
+```csharp
 [ApiAuthorize]
 public class CustomController : ApiController
 {

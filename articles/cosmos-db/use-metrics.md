@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/25/2017
 ms.author: govindk
 
 ---
@@ -22,6 +22,11 @@ ms.author: govindk
 # Monitoring and debugging with metrics in Azure Cosmos DB
 
 Azure Cosmos DB provides metrics for throughput, storage, consistency, availability, and latency. The [Azure portal](https://portal.azure.com) provides an aggregated view of these metrics; for more granular metrics, both the client SDK and the [diagnostic logs](./logging.md) are available.
+
+To get an overview of the new metrics and learn find hot partitions in your database, watch the following  Azure Friday video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Cosmos-DB-Get-the-Most-Out-of-Provisioned-Throughput/player]
+> 
 
 This article walks through common use cases and how Azure Cosmos DB metrics can be used to analyze and debug these issues. Metrics are collected every five minutes and are retained for seven days.
 
@@ -67,7 +72,7 @@ If you would like to conserve index space, you can adjust the [indexing policy](
 
 ## Debugging why queries are running slow
 
-In the DocumentDB API SDKs, Azure Cosmos DB provides query execution statistics. 
+In the SQL API SDKs, Azure Cosmos DB provides query execution statistics. 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

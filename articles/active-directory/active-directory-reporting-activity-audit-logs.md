@@ -5,7 +5,7 @@ description: Introduction to the audit activity reports in the Azure Active Dire
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 

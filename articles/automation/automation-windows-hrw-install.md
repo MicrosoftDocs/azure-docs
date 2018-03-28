@@ -1,20 +1,13 @@
 ---
-title: Azure Automation Windows Hybrid Runbook Worker | Microsoft Docs
+title: Azure Automation Windows Hybrid Runbook Worker
 description: This article provides information on installing an Azure Automation Hybrid Runbook Worker that allows you to run runbooks on Windows-based computers in your local datacenter or cloud environment.
 services: automation
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-
-ms.assetid: 
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte
+manager: carmonm
 ---
 
 # How to deploy a Windows Hybrid Runbook Worker
@@ -47,14 +40,14 @@ Review the following information regarding the [hardware and software requiremen
 
 Perform the following steps to automate the installation and configuration of the Windows Hybrid Worker role.  
 
-1. Download the *New-OnPremiseHybridWorker.ps1* script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment and copy it to the worker.  
+1. Download the *New-OnPremiseHybridWorker.ps1* script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/) directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment and copy it to the worker.  
 
     The *New-OnPremiseHybridWorker.ps1* script requires the following parameters during execution:
 
   * *AutomationAccountName* (mandatory) - the name of your Automation account.  
   * *ResourceGroupName* (mandatory) - the name of the resource group associated with your Automation account.  
   * *HybridGroupName* (mandatory) - the name of a Hybrid Runbook Worker group that you specify as a target for the runbooks supporting this scenario. 
-  *  *SubscriptionID* (mandatory) - the Azure Subscription Id that your Automation account is in.
+  *  *SubscriptionID* (mandatory) - the Azure Subscription ID that your Automation account is in.
   *  *WorkspaceName* (optional) - the OMS workspace name.  If you do not have an OMS workspace, the script creates and configures one.  
 
      > [!NOTE]
@@ -71,9 +64,9 @@ Perform the following steps to automate the installation and configuration of th
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
 
-4. You are prompted to agree to install **NuGet** and you are prompted to authenticate with your Azure credentials.<br><br> ![Execution of New-OnPremiseHybridWorker script](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+4. You are prompted to agree to install **NuGet** and you are prompted to authenticate with your Azure credentials.<br><br>![Execution of New-OnPremiseHybridWorker script](/media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. After the script is complete, the Hybrid Worker Groups blade will show the new group and number of members or if an existing group, the number of members is incremented.  You can select the group from the list on the **Hybrid Worker Groups** blade and select the **Hybrid Workers** tile.  On the **Hybrid Workers** blade, you see each member of the group listed.  
+5. After the script is complete, the Hybrid Worker Groups page will show the new group and number of members or if an existing group, the number of members is incremented.  You can select the group from the list on the **Hybrid Worker Groups** page and select the **Hybrid Workers** tile.  On the **Hybrid Workers** page, you see each member of the group listed.  
 
 ### Manual deployment 
 
@@ -93,7 +86,7 @@ Follow the instructions at [To add a solution using the Solutions Gallery](../lo
 
 The Microsoft Monitoring Agent connects computers to Operations Management Suite.  When you install the agent on your on-premises computer and connect it to your workspace, it will automatically download the components required for Hybrid Runbook Worker.
 
-Follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agents.md) to install the agent on the on-premises computer.  You can repeat this process for multiple computers to add multiple workers to your environment.
+Follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agent.md) to install the agent on the on-premises computer.  You can repeat this process for multiple computers to add multiple workers to your environment.
 
 When the agent has successfully connected to Operations Management Suite, it will be listed on the **Connected Sources** tab of the Operations Management Suite **Settings** pane.  You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent.  To confirm the version of the Hybrid Runbook Worker, you can navigate to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.   
 
@@ -110,13 +103,13 @@ Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-You can get the information required for this cmdlet from the **Manage Keys** blade in the Azure portal.  Open this blade by selecting the **Keys** option from the **Settings** blade in your Automation account.
+You can get the information required for this cmdlet from the **Manage Keys** page in the Azure portal.  Open this page by selecting the **Keys** option from the **Settings** page in your Automation account.
 
 ![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 * **GroupName** is the name of the Hybrid Runbook Worker Group. If this group already exists in the automation account, then the current computer is added to it.  If it does not already exist, then it is added.
-* **EndPoint** is the **URL** field in the **Manage Keys** blade.
-* **Token** is the **Primary Access Key** in the **Manage Keys** blade.  
+* **EndPoint** is the **URL** field in the **Manage Keys** page.
+* **Token** is the **Primary Access Key** in the **Manage Keys** page.  
 
 Use the **-Verbose** switch with **Add-HybridRunbookWorker** to receive detailed information about the installation.
 
@@ -140,8 +133,8 @@ The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communica
 3. The Microsoft Monitoring Agent service is not running.  
     If the Microsoft Monitoring Agent Windows service is not running, this prevents the Hybrid Runbook Worker from communicating with Azure Automation.  Verify the agent is running by entering the following command in PowerShell: `get-service healthservice`.  If the service is stopped, enter the following command in PowerShell to start the service: `start-service healthservice`.  
 
-4. In the **Application and Services Logs\Operations Manager** event log, you see event 4502  and EventMessage containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description:  *The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication. The article KB3126513 has additional troubleshooting information for connectivity issues.*
-    This can be caused by your proxy or network firewall blockking communication to Microsoft Azure.  Verify the computer has outbound access to *.azure-automation.net on ports 443.
+4. In the **Application and Services Logs\Operations Manager** event log, you see event 4502  and EventMessage containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description:  *The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication. The article KB3126513 has additional troubleshooting information for connectivity issues.*
+    This can be caused by your proxy or network firewall blocking communication to Microsoft Azure.  Verify the computer has outbound access to *.azure-automation.net on ports 443.
 
 Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while performing normal operations.  
 

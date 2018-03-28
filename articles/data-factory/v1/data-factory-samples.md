@@ -4,8 +4,8 @@ description: Provides details about samples that ship with the Azure Data Factor
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: c0538b90-2695-4c4c-a6c8-82f59111f4ab
 ms.service: data-factory
@@ -13,12 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 01/10/2018
 ms.author: shlo
 
 robots: noindex
 ---
 # Azure Data Factory - Samples
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [PowerShell samples in Data Factory version 2](../samples-powershell.md) and [code samples in the Azure Code Samples gallery](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory).
+
+
 ## Samples on GitHub
 The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafactory) contains several samples that help you quickly ramp up with Azure Data Factory service (or) modify the scripts and use it in own application. The Samples\JSON folder contains JSON snippets for common scenarios.
 

@@ -3,8 +3,8 @@ title: Troubleshoot Application Proxy | Microsoft Docs
 description: Covers how to troubleshoot errors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: MarkusVi
+manager: mtillman
 
 ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
@@ -12,10 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
-ms.author: kgremban
+ms.date: 02/14/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
+
 ---
 
 
@@ -66,7 +67,7 @@ This table covers the more common errors that come from Kerberos setup and confi
 | 13016 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because there is no UPN in the edge token or in the access cookie. | There is a problem with the STS configuration. Fix the UPN claim configuration in the STS. |
 | 13019 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because of the following general API error. | This event may indicate incorrect configuration between Azure AD and the domain controller server, or a problem in time and date configuration on both machines. The domain controller declined the Kerberos ticket created by Azure AD. Verify that Azure AD and the backend application server are configured correctly, especially the SPN configuration. Make sure the Azure AD is domain joined to the same domain as the domain controller to ensure that the domain controller establishes trust with Azure AD. Make sure that the time and date configuration on the Azure AD and the domain controller are synchronized. |
 | 13020 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because the backend server SPN is not defined. | This event may indicate incorrect configuration between Azure AD and the domain controller server, or a problem in time and date configuration on both machines. The domain controller declined the Kerberos ticket created by Azure AD. Verify that Azure AD and the backend application server are configured correctly, especially the SPN configuration. Make sure the Azure AD is domain joined to the same domain as the domain controller to ensure that the domain controller establishes trust with Azure AD. Make sure that the time and date configuration on the Azure AD and the domain controller are synchronized. |
-| 13022 - Azure AD cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error. | This event may indicate incorrect configuration between Azure AD and the backend application server, or a problem in time and date configuration on both machines. The backend server declined the Kerberos ticket created by Azure AD. Verify that Azure AD and the backend application server are configured correctly. Make sure that the time and date configuration on the Azure AD and the backend application server are synchronized. |
+| 13022 - Azure AD cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error. | This event may indicate incorrect configuration between Azure AD and the backend application server, or a problem in time and date configuration on both machines. The backend server declined the Kerberos ticket created by Azure AD. Verify that Azure AD and the backend application server are configured correctly. Make sure that the time and date configuration on the Azure AD and the backend application server are synchronized. For more information, see [Troubleshoot Kerberos Constrained Delegation Configurations for Application Proxy](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## End-user errors
 
@@ -88,7 +89,7 @@ If you encounter an error or problem with Azure AD Application Proxy that isn't 
 * [Enable Application Proxy for Azure Active Directory](active-directory-application-proxy-enable.md)
 * [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
 * [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md)
-* [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+* [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md)
 
 
 <!--Image references-->

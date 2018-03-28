@@ -3,8 +3,8 @@ title: Azure Stack administration basics | Microsoft Docs
 description: Learn what you need to know to administer Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -14,13 +14,10 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 # Azure Stack administration basics
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as an Azure Stack operator, and what you need to tell your users for them to become productive quickly.
 
 ## Understand the builds

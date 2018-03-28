@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Self-service password reset | Microsoft Docs
 description: A topic demonstrating how to set up self-service password reset for your consumers in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: curtand
+author: davidmu1
+manager: mtillman
+editor: ''
 
-ms.assetid: c87ed86e-1520-42b1-8c31-46cd44ed5310
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Set up self-service password reset for your consumers
@@ -27,19 +24,16 @@ With the self-service password reset feature, your consumers (who have signed up
 
 By default, your directory will not have self-service password reset turned on. Use the following steps to turn it on:
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to create your directory.
-2. Navigate to the Active Directory extension on the navigation bar on the left side.
-3. Find your directory under the **Directory** tab and click it.
-4. Click the **Configure** tab.
-5. Scroll down to the **User password reset policy** section and toggle the **Users enabled for password reset** option to **YES**. Notice that the **Alternate Email Address** option is checked; leave it as it is.
-   
-    ![Self-service password reset](./media/active-directory-b2c-reference-sspr/sspr.png)
-6. Click **Save** at the bottom of the page. You're done!
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to create your directory.
+2. Open Active Directory (in the navigation bar on the left side).
+3. Select **Properties**.
+4. Scroll down to the **Self-service password reset enabled** section and toggle it to **All**. 
+5. Click **Save** at the top of the page. You're done!
 
 To test, use the "Run now" feature on any sign-in policy that has local accounts as an identity provider. On the local account sign-in page (where you enter an email address and password, or a username and password), click **Can't access your account?** to verify the consumer experience.
 
 > [!NOTE]
-> The self-service password reset pages can be customized by using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
+> The self-service password reset pages can be customized by using the [company branding feature](../active-directory/customize-branding.md).
 > 
 > 
 

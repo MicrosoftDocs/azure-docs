@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 03/26/2018
 ms.author: nitinme
 
 ---
@@ -121,15 +121,15 @@ Following are some common scenarios to help you understand which permissions are
 
 ## Viewing permissions in the Azure portal
 
-From the **Data Explorer** blade of the Data Lake Store account, click **Access** to see the ACLs for a file or a folder. Click **Access** to see the ACLs for the **catalog** folder under the **mydatastore** account.
+From the **Data Explorer** blade of the Data Lake Store account, click **Access** to see the ACLs for the file or folder being viewed in the Data Explorer. Click **Access** to see the ACLs for the **catalog** folder under the **mydatastore** account.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-On this blade, the top section shows an overview of the permissions that you have. (In the screenshot, the user is Bob.) Following that, the access permissions are shown. After that, from the **Access** blade, click **Simple View** to see the simpler view.
+On this blade, the top section shows the owners permissions. (In the screenshot, the owning user is Bob.) Following that, the assigned Access ACLs are shown. 
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Click **Advanced View** to see the more advanced view, where the concepts of Default ACLs, mask, and super-user are shown.
+Click **Advanced View** to see the more advanced view, where the Default ACLs, mask, and a description of super-users are shown.  This blade also provides a way to recursively set Access and Default ACLs for child files and folders based on the permissions of the current folder.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -161,7 +161,7 @@ The user who created the item is automatically the owning user of the item. An o
 * Change the owning group of a file that is owned, as long as the owning user is also a member of the target group.
 
 > [!NOTE]
-> The owning user *cannot* change the owning user of another owned file. Only super-users can change the owning user of a file or folder.
+> The owning user *cannot* change the owning user of a file or folder. Only super-users can change the owning user of a file or folder.
 >
 >
 
@@ -174,9 +174,14 @@ When a new filesystem item is created, Data Lake Store assigns a value to the ow
 * **Case 1**: The root folder "/". This folder is created when a Data Lake Store account is created. In this case, the owning group is set to the user who created the account.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent folder.
 
+The owning group otherwise behaves similarly to assigned permissions for other users/groups.
+
 The owning group can be changed by:
 * Any super-users.
 * The owning user, if the owning user is also a member of the target group.
+
+> [!NOTE]
+> The owning group *cannot* change the ACLs of a file or folder.
 
 ## Access check algorithm
 
@@ -206,7 +211,7 @@ For reference, here is where the mask for a file or folder appears in the Azure 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> For a new Data Lake Store account, the mask for the Access ACL and Default ACL of the root folder ("/") defaults to RWX.
+> For a new Data Lake Store account, the mask for the Access ACL of the root folder ("/") defaults to RWX.
 >
 >
 
@@ -305,7 +310,7 @@ A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this ha
 
 ### Does Data Lake Store support inheritance of ACLs?
 
-No.
+No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
 
 ### What is the difference between mask and umask?
 
@@ -314,7 +319,7 @@ No.
 | The **mask** property is available on every file and folder. | The **umask** is a property of the Data Lake Store account. So there is only a single umask in the Data Lake Store.    |
 | The mask property on a file or folder can be altered by the owning user or owning group of a file or a super-user. | The umask property cannot be modified by any user, even a super-user. It is an unchangeable, constant value.|
 | The mask property is used during the access check algorithm at runtime to determine whether a user has the right to perform on operation on a file or folder. The role of the mask is to create "effective permissions" at the time of access check. | The umask is not used during access check at all. The umask is used to determine the Access ACL of new child items of a folder. |
-| The mask is a 3-bit RWX value that applies to named user, named group, and owning user at the time of access check.| The umask is a 9-bit value that applies to the owning user, owning group, and **other** of a new child.|
+| The mask is a 3-bit RWX value that applies to named user, owning group, and named group at the time of access check.| The umask is a 9-bit value that applies to the owning user, owning group, and **other** of a new child.|
 
 ### Where can I learn more about POSIX access control model?
 

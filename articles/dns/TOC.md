@@ -1,18 +1,25 @@
+# [DNS Documentation](index.md)
+
 # Overview
 
 ## [What is Azure DNS?](dns-overview.md)
 ## [DNS zones and records](dns-zones-records.md)
 ## [DNS delegation with Azure DNS](dns-domain-delegation.md)
 ## [DNS FAQ](dns-faq.md)
+## [Using private DNS zones](private-dns-overview.md)
+## [Private DNS scenarios](private-dns-scenarios.md)
+
 
 # Get Started
 
 ## Create a DNS zone and record
 ### [Azure portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
+## Create a private DNS zone and record
+### [PowerShell](private-dns-getstarted-powershell.md)
+### [Azure CLI](private-dns-getstarted-cli.md)
 ## [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Create custom DNS records for a web app](dns-web-sites-custom-domain.md)
 
@@ -21,13 +28,11 @@
 ## Manage DNS zones
 ### [Azure portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## Manage DNS records
 ### [Azure portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## Manage reverse DNS
@@ -61,7 +66,7 @@
 ## [Virtual Machine](/azure/virtual-machines/)
 ## [Load Balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [Web apps](/azure/app-service-web/)
+## [Web apps](/azure/app-service/)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)

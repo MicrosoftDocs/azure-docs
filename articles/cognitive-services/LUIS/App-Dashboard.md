@@ -2,80 +2,91 @@
 title: Application dashboard for LUIS apps | Microsoft Docs
 description: Learn about the application dashboard, a visualized reporting tool that enables you to monitor your apps at a single glance.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.date: 03/01/2018
+ms.author: v-geberr
 ---
 
 # Application Dashboard
-The app dashboard is a visualized reporting tool which enables you to monitor your app at a single glance. The **Dashboard** is the main page that is displayed when you open an app by clicking the application name on **My Apps** page. Also, you can access the **Dashboard** page from inside your app by clicking **Dashboard** in the application's left panel. 
+The app dashboard enables you to monitor your app at a single glance. The **Dashboard** displays when you open an app by clicking the application name on **My Apps** page then select **Dashboard** from top panel. 
 
-The **Dashboard** page gives you an overview of the app and displays significant data compiled from multiple app pages. Some data are analyzed and visualized by graphs and charts to help you get more insight into the app. The dashboard incorporates the latest updates in the app up to the moment and reflects any model changes. The screenshot below shows the **Dashboard** page.
+> [!CAUTION]
+> If you want the most up-to-date metrics for LUIS, you need to:
+> * Use a LUIS [endpoint key](azureibizasubscription.md) created in Azure
+> * Use LUIS endpoint key for all endpoint requests including LUIS [API](https://aka.ms/luis-endpoint-apis) and bot
+> * Use different endpoint key for each LUIS app. Do not use a single endpoint key for all apps. The endpoint key is tracked at the key level, not at the app level.  
 
-![The Dashboard](./Images/Dashboard.JPG)
+The **Dashboard** page gives you an overview of the LUIS app including the current model state as well as [endpoint](luis-glossary.md#endpoint) usage over time. <!--The following image shows the **Dashboard** page.-->
 
-At the top of the **Dashboard** page, a contextual notification bar constantly displays notifications to update you on the required or recommended actions appropriate for the current state of your app. It also provides useful tips and alerts as needed. Below is a detailed description of the data reported on the **Dashboard** page.
- 
+<!-- TBD: Get a working screen shot
+![The Dashboard](./media/luis-app-dashboard/dashboard.png)
+-->
+
+<!-- TBD: IS THIS STILL TRUE?
+At the top of the **Dashboard** page, a contextual notification bar constantly displays notifications to update you on the required or recommended actions appropriate for the current state of your app. It also provides useful tips and alerts as needed. A detailed description of the data reported on the **Dashboard** page follows.
+-->
   
-## App Status
+## App status
 The dashboard displays the application's training and publishing status, including the date and time when the app was last trained and published.  
 
-![Dashboard - App Status](./Images/Dashboard-AppStatus.JPG)
+![Dashboard - App Status](./media/luis-app-dashboard/app-state.png)
 
-## Model Data Statistics
-The dashboard displays the total numbers of intents, entities & labeled utterances existing in the app. 
+## Model data statistics
+The dashboard displays the total numbers of intents, entities, and labeled utterances existing in the app. 
 
-![App Data Statistics](./Images/Dashboard-statistics.JPG)
+![App Data Statistics](./media/luis-app-dashboard/app-model-count.png)
 
-## Endpoint Hits
-The dashboard displays the total endpoint hits received to the app and enables you to display hits within a period that you specify.
+## Endpoint hits
+The dashboard displays the total endpoint hits that the LUIS app receives and enables you to display hits within a period that you specify. The total number of hits displayed is the sum of endpoint hits that use an [Endpoint key](./luis-concept-keys.md#endpoint-key) and endpoint hits that use an [Authoring key](./luis-concept-keys.md#authoring-key).
 
-![Endpoint Hits](./Images/Dashboard-endpointHits.JPG)
+<!-- TBD: this image is old but I don't have a new one based on usage -->
+![Endpoint Hits](./media/luis-app-dashboard/dashboard-endpointhits.png)
+
+> [!NOTE] 
+> The most current endpoint hit count is in the Azure portal on the LUIS service overview. 
  
 ### Total endpoint hits
 The total number of endpoint hits received to your app since app creation up to the current date.
 
 ### Endpoint hits per period
-The number of hits received within a past period, displayed per day. A visualized line chart shows the period span from the calculated start date up to the current date (end date). The points between the start and end dates represent the days falling in this period. Hover your mouse pointer over each point to see the hits count in each day within the period. The screenshot below shows the line chart.
+The number of hits received within a past period, displayed per day. The points between the start and end dates represent the days falling in this period. Hover your mouse pointer over each point to see the hits count in each day within the period. 
+
+To select a period to view on the chart:
  
-![Hits per Period](./Images/Dashboard-PeriodhitsChart.JPG)
+1. Click **Additional Settings** ![Additional Settings button](./media/luis-app-dashboard/Dashboard-Settings-btn.png) to access the periods list. You can select periods ranging from one week up to one year. 
 
-To select a period to view its hits on the chart:
- 
-1. Click **Additional Settings** ![Additional Settings button](./Images/Dashboard-Settings-btn.JPG) to access the periods list. You can select periods ranging from one week up to one year beforehand. 
+    ![Endpoint Hits per Period](./media/luis-app-dashboard/timerange.png)
 
-    ![Endpoint Hits per Period](./Images/Dashboard-hitsPerPeriod.JPG)
-
-2. Select a period from the list and then click the back arrow ![Back Arrow](./Images/Dashboard-backArrow.JPG) to display its hits on the chart.
+2. Select a period from the list and then click the back arrow ![Back Arrow](./media/luis-app-dashboard/Dashboard-backArrow.png) to display the chart.
 
 ### Key usage
-The number of hits consumed from the application's subscription key. For more details about subscription keys, see [Manage your keys](manage-keys.md). 
+The number of hits consumed from the application's subscription key. For more information about subscription keys, see [Keys in LUIS](luis-concept-keys.md). 
   
-## Intent Breakdown
-The dashboard displays a breakdown of intents based on labeled utterances or endpoint hits. It visualizes the distribution of intents across labeled utterances/endpoint hits, so that you can see the relative importance of each intent in the app. The intent breakdown is visualized by a pie chart with the slices representing intents. When you hover your mouse pointer over a slice, you'll see the intent name and the percentage it represents of the total count of labeled utterances/endpoint hits. 
+## Intent breakdown
+The **Intent Breakdown** displays a breakdown of intents based on labeled utterances or endpoint hits. This summary graph shows the relative importance of each intent in the app. When you hover your mouse pointer over a slice, you see the intent name and the percentage it represents of the total count of labeled utterances/endpoint hits. 
 
-![Intent Breakdown](./Images/Dashboard-IntentBreakdown.jpg)
-
-To control whether the breakdown is based on labeled utterances or endpoint hits:
-
-1. Click **Additional Settings** ![Additional Settings button](./Images/Dashboard-Settings-btn.JPG) to access the list as in the screenshot below.
-
-    ![Intent Breakdown List](./Images/Dashboard-IntentBreakdownlist.jpg)
-2. Select a value from the list and then click the back arrow ![Back Arrow](./Images/Dashboard-backArrow.JPG) to display the chart accordingly.
-
-## Entity Breakdown
-The dashboard displays a breakdown of entities based on labeled utterances or endpoint hits. It visualizes the distribution of entities across labeled utterances/endpoint hits, showing the usage of each entity in labeled utterances/endpoint hits compared to the other entities. The entity breakdown is visualized by a column chart where entities are displayed along the horizontal axis while their count in labeled utterances/endpoint hits along the vertical axis. When you hover your mouse pointer over a rectangular bar, you'll see the entity name and its count (number of occurrences) in labeled utterances/endpoint hits. 
-
-![Entity Breakdown](./Images/Dashboard-EntityBreakdown.jpg)
+![Intent Breakdown](./media/luis-app-dashboard/intent-breakdown.png)
 
 To control whether the breakdown is based on labeled utterances or endpoint hits:
 
-1. Click **Additional Settings** ![Additional Settings button](./Images/Dashboard-Settings-btn.JPG) to access the list as in the screenshot below.
+1. Click **Additional Settings** ![Additional Settings button](./media/luis-app-dashboard/Dashboard-Settings-btn.png) to access the list as in the following image:
 
-    ![Entity Breakdown List](./Images/Dashboard-EntityBreakdownlist.jpg)
-2. Select a value from the list and then click the back arrow ![Back Arrow](./Images/Dashboard-backArrow.JPG) to display the chart accordingly.
+    ![Intent Breakdown List](./media/luis-app-dashboard/intent-breakdown-based-on.png)
+2. Select a value from the list and then click the back arrow ![Back Arrow](./media/luis-app-dashboard/Dashboard-backArrow.png) to display the chart.
+
+## Entity breakdown
+The dashboard displays a breakdown of entities based on labeled utterances or endpoint hits. This summary graph shows the relative importance of each entity in the app. When you hover your mouse pointer over a slice, you see the entity name and the percentage in labeled utterances/endpoint hits. 
+
+![Entity Breakdown](./media/luis-app-dashboard/entity-breakdown.png)
+
+To control whether the breakdown is based on labeled utterances or endpoint hits:
+
+1. Click **Additional Settings** ![Additional Settings button](./media/luis-app-dashboard/Dashboard-Settings-btn.png) to access the list as in the following image:
+
+    ![Entity Breakdown List](./media/luis-app-dashboard/entity-breakdown-based-on.png)
+2. Select a value from the list and then click the back arrow ![Back Arrow](./media/luis-app-dashboard/Dashboard-backArrow.png) to display the chart accordingly.

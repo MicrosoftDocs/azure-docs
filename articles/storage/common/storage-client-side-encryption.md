@@ -3,8 +3,8 @@ title: Client-Side Encryption with .NET for Microsoft Azure Storage | Microsoft 
 description: The Azure Storage Client Library for .NET supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
 services: storage
 documentationcenter: .net
-author: robinsh
-manager: timlt
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: becfccca-510a-479e-a798-2044becd9a64
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
-ms.author: robinsh
+ms.date: 10/20/2017
+ms.author: cshoe
 
 ---
 # Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage
@@ -100,6 +100,10 @@ For tables, in addition to the encryption policy, users must specify the propert
 In batch operations, the same KEK will be used across all the rows in that batch operation because the client library only allows one options object (and hence one policy/KEK) per batch operation. However, the client library will internally generate a new random IV and random CEK per row in the batch. Users can also choose to encrypt different properties for every operation in the batch by defining this behavior in the encryption resolver.
 
 ### Queries
+> [!NOTE]
+> Because the entities are encrypted, you cannot run queries that filter on an encrypted property.  If you try, results will be incorrect, because the service would be trying to compare encrypted data with unencrypted data.
+> 
+> 
 To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server-side projections, the client library will add the special encryption metadata properties (_ClientEncryptionMetadata1 and _ClientEncryptionMetadata2) by default to the selected columns.
 
 ## Azure Key Vault
@@ -143,10 +147,11 @@ While creating an EncryptionPolicy object, users can provide only a Key (impleme
   * The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
   * If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.
 
-The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
+The code examples in this article demonstrate setting an encryption policy and working with encrypted data, but do not demonstrate working with Azure Key Vault. The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) on GitHub demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
 
 ### RequireEncryption mode
 Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **RequireEncryption** property of the request options object controls this behavior. If your application will encrypt all objects stored in Azure Storage, then you can set the **RequireEncryption** property on the default request options for the service client object. For example, set **CloudBlobClient.DefaultRequestOptions.RequireEncryption** to **true** to require encryption for all blob operations performed through that client object.
+
 
 ### Blob service encryption
 Create a **BlobEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.

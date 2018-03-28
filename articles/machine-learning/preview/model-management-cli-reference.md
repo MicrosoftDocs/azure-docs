@@ -2,15 +2,15 @@
 title: Azure Machine Learning Model Management command-line interface reference | Microsoft Docs
 description: Azure Machine Learning Model Management command-line interface reference.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: aashishb
+ms.author: aashishb
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 11/08/2017
 ---
 
 # Model management command-line interface reference
@@ -36,7 +36,7 @@ A model management account is required to use the services, which allow you to d
 
 **Create Model Management Account**
 
-Create a model management account using the following command. This account will be used for billing.
+Create a model management account for billing using the following command:
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -66,11 +66,13 @@ Local Arguments:
 
 **Set up the Deployment Environment**
 
+The setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
+
 There are two options for deployment: *local* and *cluster*. Setting the `--cluster` (or `-c`) flag enables cluster deployment, which provisions an ACS cluster. The basic setup syntax is as follows:
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-This initializes your Azure machine learning environment with a storage account, ACR registry, and App Insights service created in your subscription. By default, the environment is initialized for local deployments only (no ACS) if no flag is specified. If you need to scale service, specify the `--cluster` (or `-c`) flag to create an ACS cluster.
+This command initializes your Azure machine learning environment with a storage account, ACR registry, and App Insights service created in your subscription. By default, the environment is initialized for local deployments only (no ACS) if no flag is specified. If you need to scale service, specify the `--cluster` (or `-c`) flag to create an ACS cluster.
 
 Command details:
 
@@ -83,12 +85,12 @@ Command details:
     --cluster -c                   : Flag to provision ACS cluster. Off by default; specify this to force an ACS cluster deployment.
     --key-pem                      : Path to .pem file with certificate key.
     --master-count -m              : Number of master nodes to provision in the ACS cluster. Acceptable values: 1, 3, 5. Default: 1.
-    --resource-group -g            : Resource group in which to create compute resource. Will be created if it does not exist.
-                                     If not provided, resource group will be created with 'rg' appended to 'name.'.
+    --resource-group -g            : Resource group in which to create compute resource. Is created if it does not exist.
+                                     If not provided, resource group is created with 'rg' appended to 'name.'.
     --service-principal-app-id -a  : App ID of service principal to use for configuring ML compute.
     --service-principal-password -p: Password associated with service principal.
     --storage -s                   : ARM ID of storage account to associate with this environment.
-    --yes -y                       : Flag to answer 'yes' to any prompts. Command will fail if user is not logged in.
+    --yes -y                       : Flag to answer 'yes' to any prompts. Command fails if user is not logged in.
 
 Global Arguments
 ```
@@ -137,7 +139,7 @@ Global Arguments
 
 **Create manifest**
 
-Creates a manifest file for the model. 
+The following command creates a manifest file for the model. 
 
 `az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
 
@@ -187,7 +189,7 @@ Global Arguments
 
 You can create an image with the option of having created its manifest before. 
 
-`az ml image create -n [image name] -manifest-id [the manifest ID]`
+`az ml image create -n [image name] --manifest-id [the manifest ID]`
 
 Or you can create the manifest and image with a single command. 
 
@@ -217,6 +219,7 @@ Unregistered Manifest Arguments
 
 
 ## Service commands
+The following commands are supported for Service. To see the parameters for each command, use the -h option. For example, use `az ml service create realtime -h` to see create command details.
 
     create
     delete
@@ -282,7 +285,7 @@ Global Arguments
 
 Note on the `-d` flag for attaching dependencies: If you pass the name of a directory that is not already bundled (zip, tar, etc.), that directory automatically gets tar’ed and is passed along, then automatically unbundled on the other end. 
 
-If you pass in a directory that is already bundled, we treat it as a file and pass it along as is. It will not be unbundled automatically; you are expected to handle that in your code.
+If you pass in a directory that is already bundled, the directory is treated as a file and passed along as is. It is unbundled automatically; you are expected to handle that in your code.
 
 **Get service details**
 

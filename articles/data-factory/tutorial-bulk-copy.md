@@ -1,26 +1,25 @@
 ---
-title: Copy data in bulk using Azure Data Factory | Microsoft Docs
-description: Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk. 
+title: 'Copy data in bulk using Azure Data Factory | Microsoft Docs'
+description: 'Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-
 ---
-
 # Copy multiple tables in bulk by using Azure Data Factory
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Uing Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
-
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure SQL Data Warehouse**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 At a high level, this tutorial involves following steps:
 
@@ -59,7 +58,7 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 **Prepare the sink Azure SQL Data Warehouse**:
 
-1. If you don't have an Azure SQL Data Warehouse, see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md#create-a-sql-data-warehouse) article for steps to create one.
+1. If you don't have an Azure SQL Data Warehouse, see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) article for steps to create one.
 
 2. Create corresponding table schemas in SQL Data Warehouse. You can use [Migration Utility](https://www.microsoft.com/download/details.aspx?id=49100) to **migrate schema** from Azure SQL Database to Azure SQL Data Warehouse. You use Azure Data Factory to migrate/copy data in a later step.
 
@@ -67,7 +66,7 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your Azure SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure SQL Data Warehouse. To verify and turn on this setting, do the following steps:
 
-1. Click **More services** hub on the left and click **SQL servers**.
+1. Click **All services** on the left and click **SQL servers**.
 2. Select your server, and click **Firewall** under **SETTINGS**.
 3. In the **Firewall settings** page, click **ON** for **Allow access to Azure services**.
 
@@ -90,7 +89,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command.
+2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command. 
 
     ```powershell
 	$resourceGroupName = "<your resource group to create the factory>"
@@ -107,7 +106,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
         ```
 
     * To create Data Factory instances, you must be a Contributor or Administrator of the Azure subscription.
-    * Currently, Data Factory allows you to create data factory only in the East US region. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+    * Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ## Create linked services
 
@@ -492,19 +491,20 @@ This pipeline performs two steps:
 
     ```powershell
 	while ($True) {
-    $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
-    if ($run) {
-        if ($run.Status -ne 'InProgress') {
-            Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-            Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
-            $run
-            break
+        if ($run) {
+            if ($run.Status -ne 'InProgress') {
+                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+                Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
+                $run
+                break
+            }
+            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
         }
-    }
 
-    Write-Host  "Pipeline is running...status: " $run.Status -foregroundcolor "Yellow"
-    Start-Sleep -Seconds 15
+        Start-Sleep -Seconds 15
+    }
 
 	$result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
@@ -515,8 +515,8 @@ This pipeline performs two steps:
 
     ```json
 	Pipeline run details:
-    ResourceGroupName : adf
-    DataFactoryName   : lindaTutorialBulkCopy3
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
     RunId             : 0000000000-00000-0000-0000-000000000000
     PipelineName      : GetTableListAndTriggerCopyData
     LastUpdated       : 9/18/2017 4:08:15 PM

@@ -18,32 +18,56 @@
     href: storage-how-to-use-files-linux.md
   - name: Mount on Mac
     href: storage-how-to-use-files-mac.md
-  - name: Manage with the portal
+  - name: Manage with the Azure portal
     href: storage-how-to-use-files-portal.md
+  - name: Manage with PowerShell
+    href: storage-how-to-use-files-powershell.md
+  - name: Manage with the Azure CLI
+    href: storage-how-to-use-files-cli.md
+  - name: Manage with Storage Explorer
+    href: storage-how-to-use-files-storage-explorer.md
 - name: How To
   items:
-  - name: Plan and design
+  - name: Plan
     items:
     - name: Planning for an Azure Files deployment
       href: storage-files-planning.md
-    - name: How to deploy Azure Files
-      href: storage-files-deployment-guide.md
     - name: Planning for an Azure File Sync deployment
       href: storage-sync-files-planning.md
-    - name: How to deploy Azure File Sync
-      href: storage-sync-files-deployment-guide.md
-    - name: Replication
+    - name: Understanding storage accounts
+      href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Understanding file share snapshots
+      href: storage-snapshots-files.md
+    - name: Storage redundancy options
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Scalability and performance targets
-      href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
-    - name: Performance and scalability checklist
-      href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
-    - name: Concurrency
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: storage-files-scale-targets.md 
     - name: Disaster recovery guidance
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+    - name: Azure File Sync release notes
+      href: storage-files-release-notes.md
+  - name: Deploy
+    items:
+    - name: How to deploy Azure Files
+      href: storage-files-deployment-guide.md
+    - name: How to deploy Azure File Sync
+      href: storage-sync-files-deployment-guide.md
+    - name: Azure File Sync proxy and firewall settings
+      href: storage-sync-files-firewall-and-proxy.md
+  - name: Manage
+    items:
+    - name: Register a server with Azure File Sync
+      href: storage-sync-files-server-registration.md
+    - name: Add an Azure File Sync Server endpoint
+      href: storage-sync-files-server-endpoint.md
+    - name: PowerShell for China, Government, and German clouds
+      href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Azure Automation
+      href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
   - name: Develop
     items:
+    - name: Managing concurrency
+      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: .NET
       href: storage-dotnet-how-to-use-files.md
     - name: Java
@@ -60,22 +84,6 @@
         href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Configure connection strings
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
-  - name: Manage
-    items:
-    - name: PowerShell
-      href: storage-how-to-use-files-powershell.md
-    - name: Azure CLI 2.0
-      href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure CLI 1.0
-      href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Register a server with Azure File Sync
-      href: storage-sync-files-server-registration.md
-    - name: Add an Azure File Sync Server endpoint
-      href: storage-sync-files-server-endpoint.md
-    - name: Using Storage Explorer with Azure File storage
-      href: ../../vs-azure-tools-storage-explorer-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure Automation
-      href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
   - name: Secure
     items:
     - name: Security guide
@@ -128,14 +136,18 @@
     href: /cli/azure/storage
   - name: .NET
     items:
-    - name: Resource Manager
-      href: /dotnet/api/microsoft.azure.management.storage
-    - name: Data movement
-      href: /dotnet/api/microsoft.windowsazure.storage.datamovement
     - name: Blobs, Queues, Tables, and Files
-      href: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage?view=azure-dotnet
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet
+    - name: Data movement
+      href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet
+    - name: Resource Manager
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet
   - name: Java
-    href: http://azure.github.io/azure-storage-java/
+    items:
+    - name: Blobs, Queues, Tables, and Files
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary
+    - name: Resource Manager
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/managementapi
   - name: Node.js
     href: http://azure.github.io/azure-storage-node
   - name: Ruby
@@ -164,6 +176,8 @@
     href: https://azure.microsoft.com/roadmap/?category=storage
   - name: Azure Storage client tools
     href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Forum
     href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
   - name: Pricing
@@ -172,8 +186,6 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=storage
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
   - name: Azure Storage Explorer
@@ -184,6 +196,8 @@
       href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Troubleshoot Storage Explorer
       href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+    - name: Storage Explorer accessibility
+      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
   - name: NuGet packages
     items:
     - name: Azure Storage Client Library for .NET

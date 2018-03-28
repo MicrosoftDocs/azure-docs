@@ -3,9 +3,9 @@ title: Transform data using U-SQL script - Azure | Microsoft Docs
 description: Learn how to process or transform data by running U-SQL scripts on Azure Data Lake Analytics compute service.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: craigg
+
 
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
-ms.author: spelluru
+ms.date: 10/01/2017
+ms.author: douglasl
 
 robots: noindex
 ---
@@ -204,17 +204,18 @@ The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL A
 
 The following table describes names and descriptions of properties that are specific to this activity. 
 
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type |The type property must be set to **DataLakeAnalyticsU-SQL**. |Yes |
-| scriptPath |Path to folder that contains the U-SQL script. Name of the file is case-sensitive. |No (if you use script) |
-| scriptLinkedService |Linked service that links the storage that contains the script to the data factory |No (if you use script) |
-| script |Specify inline script instead of specifying scriptPath and scriptLinkedService. For example: `"script": "CREATE DATABASE test"`. |No (if you use scriptPath and scriptLinkedService) |
-| degreeOfParallelism |The maximum number of nodes simultaneously used to run the job. |No |
-| priority |Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. |No |
-| parameters |Parameters for the U-SQL script |No |
-| runtimeVersion | Runtime version of the U-SQL engine to use | No | 
-| compilationMode | <p>Compilation mode of U-SQL. Must be one of these values:</p> <ul><li>**Semantic:** Only perform semantic checks and necessary sanity checks.</li><li>**Full:** Perform the full compilation, including syntax check, optimization, code generation, etc.</li><li>**SingleBox:** Perform the full compilation, with TargetType setting to SingleBox.</li></ul><p>If you don't specify a value for this property, the server determines the optimal compilation mode. </p>| No | 
+| Property            | Description                              | Required                                 |
+| :------------------ | :--------------------------------------- | :--------------------------------------- |
+| type                | The type property must be set to **DataLakeAnalyticsU-SQL**. | Yes                                      |
+| linkedServiceName   | Reference to the Azure Data Lake Analytics registered as a linked service in Data Factory | Yes                                      |
+| scriptPath          | Path to folder that contains the U-SQL script. Name of the file is case-sensitive. | No (if you use script)                   |
+| scriptLinkedService | Linked service that links the storage that contains the script to the data factory | No (if you use script)                   |
+| script              | Specify inline script instead of specifying scriptPath and scriptLinkedService. For example: `"script": "CREATE DATABASE test"`. | No (if you use scriptPath and scriptLinkedService) |
+| degreeOfParallelism | The maximum number of nodes simultaneously used to run the job. | No                                       |
+| priority            | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. | No                                       |
+| parameters          | Parameters for the U-SQL script          | No                                       |
+| runtimeVersion      | Runtime version of the U-SQL engine to use | No                                       |
+| compilationMode     | <p>Compilation mode of U-SQL. Must be one of these values:</p> <ul><li>**Semantic:** Only perform semantic checks and necessary sanity checks.</li><li>**Full:** Perform the full compilation, including syntax check, optimization, code generation, etc.</li><li>**SingleBox:** Perform the full compilation, with TargetType setting to SingleBox.</li></ul><p>If you don't specify a value for this property, the server determines the optimal compilation mode. </p> | No                                       |
 
 See [SearchLogProcessing.txt Script Definition](#sample-u-sql-script) for the script definition. 
 

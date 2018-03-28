@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/18/2017
 ms.author: glenga
 
 ---
@@ -42,7 +42,7 @@ Now, let's look at some of the specific services that we recommend investigating
 
 Azure provides several cloud-based compute offerings to run your application so that you don't have to worry about the infrastructure details. You can easily scale up or scale out your resources as your application usage grows.
 
-Azure offers services that support your application development and hosting needs. Azure provides infrastructure-as-a-service (IaaS) to give you full control over your application hosting. Azure's platform-as-a-service (PaaS) offerings provide the fully managed  services needed to power your apps. There is even true serverless hosting in Azure where all you need to do is write your code.
+Azure offers services that support your application development and hosting needs. Azure provides Infrastructure as a Service (IaaS) to give you full control over your application hosting. Azure's Platform as a Service (PaaS) offerings provide the fully managed  services needed to power your apps. There is even true serverless hosting in Azure where all you need to do is write your code.
 
 ![Azure application hosting options](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -67,7 +67,7 @@ You can migrate your existing applications to App Service by using the [online m
 
 #### Azure Virtual Machines
 
-As an infrastructure-as-a-service (IaaS) provider, Azure lets you deploy to or migrate your application to either Windows or Linux VMs. Together with Azure Virtual Network, Azure Virtual Machines supports the deployment of Windows or Linux VMs to Azure. With VMs, you have total control over the configuration of the machine. When using VMs, you’re responsible for all server software installation, configuration, maintenance, and operating system patches.
+As an Infrastructure as a Service (IaaS) provider, Azure lets you deploy to or migrate your application to either Windows or Linux VMs. Together with Azure Virtual Network, Azure Virtual Machines supports the deployment of Windows or Linux VMs to Azure. With VMs, you have total control over the configuration of the machine. When using VMs, you’re responsible for all server software installation, configuration, maintenance, and operating system patches.
 
 Because of the level of control that you have with VMs, you can run a wide range of server workloads on Azure that don’t fit into a PaaS model. These workloads include database servers, Windows Server Active Directory, and Microsoft SharePoint. For more information, see the Virtual Machines documentation for either [Linux](/azure/virtual-machines/linux/) or [Windows](/azure/virtual-machines/windows/).
 
@@ -103,11 +103,10 @@ In addition to application hosting, Azure provides service offerings that can en
 
 Most applications must store data, so regardless of how you decide to host your application in Azure, consider one or more of the following storage and data services.
 
--   **Azure SQL Database**: An Azure-based version of the Microsoft SQL Server engine for storing relational tabular data in the cloud. SQL Database provides predictable performance, scalability with no downtime, business continuity, and data protection.
+-   **Azure Cosmos DB**: A globally distributed, multi-model database service that enables you to elastically scale throughput and storage across any number of geographical regions with a comprehensive SLA. 
+	>**When to use:** When your application needs document, table, or graph databases, including MongoDB databases, with multiple well-defined consistency models. 
 
-	>**When to use**: When your application requires data storage with referential integrity, transactional support, and support for TSQL queries.
-
-    >**Get started**: [Create a SQL database in minutes by using the Azure portal](../../sql-database/sql-database-get-started.md).
+    >**Get started**: [Build an Azure Cosmos DB web app](../../cosmos-db/create-sql-api-dotnet.md). If you’re a MongoDB developer, see [Build a MongoDB web app with Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Azure Storage**: Offers durable, highly available storage for blobs, queues, files, and other kinds of nonrelational data. Storage provides the storage foundation for VMs.
 
@@ -115,11 +114,12 @@ Most applications must store data, so regardless of how you decide to host your 
 
     >**Get started**: Choose from one of these types storage: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tables](../../cosmos-db/table-storage-how-to-use-dotnet.md),     [queues](../../storage/queues/storage-dotnet-how-to-use-queues.md), or [files](../../storage/files/storage-dotnet-how-to-use-files.md).
 
--   **Azure DocumentDB**: A fully managed and scalable NoSQL database service, which features SQL queries over object data. You can access DocumentDB by using existing MongoDB drivers.
-	>**When to use:** When your application needs to be able to execute SQL queries over JSON documents, or if you’re using MongoDB.
+-   **Azure SQL Database**: An Azure-based version of the Microsoft SQL Server engine for storing relational tabular data in the cloud. SQL Database provides predictable performance, scalability with no downtime, business continuity, and data protection.
 
-    >**Get started**: [Build a DocumentDB C# console application](../../documentdb/documentdb-get-started.md). If you’re a MongoDB developer, see [DocumentDB protocol support for
-    MongoDB](../../documentdb/documentdb-protocol-mongodb.md).
+	>**When to use**: When your application requires data storage with referential integrity, transactional support, and support for TSQL queries.
+
+    >**Get started**: [Create a SQL database in minutes by using the Azure portal](../../sql-database/sql-database-get-started.md).
+
 
 You can use [Azure Data Factory](../../data-factory/introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../biztalk-services/integration-hybrid-connection-overview.md) in BizTalk Services lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
 
@@ -149,7 +149,7 @@ Azure provides several ways to use containers in your applications.
 
 	>**When to use**: When deploying a web app on Linux to a Docker image.
 
-    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service/containers/quickstart-custom-docker-image.md).
+    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service/containers/quickstart-docker-go.md).
 
 ### Authentication
 
@@ -303,7 +303,7 @@ given task.
 
 -   **Service principal objects**: In addition to providing access to user principals and groups, you can grant the same access to a service principal.
 
-	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory supplication and service principal](../../resource-group-create-service-principal-portal.md).
+	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory application and service principal](../../resource-group-create-service-principal-portal.md).
 
 #### Tags
 

@@ -1,26 +1,20 @@
 ---
-title: Azure Container Service tutorial - Deploy Application | Microsoft Docs
+title: Azure Container Service tutorial - Deploy Application
 description: Azure Container Service tutorial - Deploy Application
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Run applications in Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
@@ -29,7 +23,7 @@ In this tutorial, part four of seven, a sample application is deployed into a Ku
 > * Run application in Kubernetes
 > * Test the application
 
-In subsequent tutorials, this application is scaled out, updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
+In subsequent tutorials, this application is scaled out, updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 This tutorial assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation](https://kubernetes.io/docs/home/).
 
@@ -45,7 +39,7 @@ If you have not done these steps, and would like to follow along, return to [Tut
 
 In this tutorial, Azure Container Registry (ACR) has been used to store a container image. Before running the application, the ACR login server name needs to be updated in the Kubernetes manifest file.
 
-Get the ACR login server name with the [az acr list](/cli/azure/acr#list) command.
+Get the ACR login server name with the [az acr list](/cli/azure/acr#az_acr_list) command.
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -62,7 +56,7 @@ Replace `microsoft` with the ACR login server name. This value is found on line 
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:redis-v1
+  image: microsoft/azure-vote-front:v1
 ```
 
 Save and close the file.
@@ -88,7 +82,7 @@ service "azure-vote-front" created
 
 A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) is created which exposes the application to the internet. This process can take a few minutes. 
 
-To monitor progress, use the [kubectl get service](https://review.docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) command with the `--watch` argument.
+To monitor progress, use the [kubectl get service](https://review.docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) command with the `--watch` argument.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

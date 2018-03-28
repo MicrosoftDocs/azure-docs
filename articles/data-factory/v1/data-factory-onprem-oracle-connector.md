@@ -4,8 +4,8 @@ description: Learn how to copy data to/from Oracle database that is on-premises 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 
 robots: noindex
@@ -571,7 +571,7 @@ When moving data from Oracle, the following mappings are used from Oracle data t
 | Oracle data type | .NET Framework data type |
 | --- | --- |
 | BFILE |Byte[] |
-| BLOB |Byte[] |
+| BLOB |Byte[]<br/>(only supported on Oracle 10g and higher when using Microsoft driver) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |

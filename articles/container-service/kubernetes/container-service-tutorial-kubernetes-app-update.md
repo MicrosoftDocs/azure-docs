@@ -1,26 +1,20 @@
 ---
-title: Azure Container Service tutorial - Update application | Microsoft Docs
+title: Azure Container Service tutorial - Update application
 description: Azure Container Service tutorial - Update Application
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Update an application in Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 After an application has been deployed in Kubernetes, it can be updated by specifying a new container image or image version. When doing so, the update is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update. It also provides a rollback mechanism if a deployment failure occurs. 
 
@@ -32,7 +26,7 @@ In this tutorial, part six of seven, the sample Azure Vote app is updated. Tasks
 > * Pushing the container image to Azure Container Registry
 > * Deploying the updated container image
 
-In subsequent tutorials, Operations Management Suite is configured to monitor the Kubernetes cluster.
+In subsequent tutorials, Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 
@@ -82,7 +76,7 @@ Browse to http://localhost:8080 to see the updated application.
 
 Tag the `azure-vote-front` image with the loginServer of the container registry. 
 
-Get the login server name with the [az acr list](/cli/azure/acr#list) command.
+Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -169,7 +163,7 @@ In this tutorial, you updated an application and rolled out this update to a Kub
 > * Pushed the container image to Azure Container Registry
 > * Deployed the updated application
 
-Advance to the next tutorial to learn about how to monitor Kubernetes with Operations Management Suite.
+Advance to the next tutorial to learn about how to monitor Kubernetes with Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Monitor Kubernetes with OMS](./container-service-tutorial-kubernetes-monitor.md)
+> [Monitor Kubernetes with Log Analytics](./container-service-tutorial-kubernetes-monitor.md)

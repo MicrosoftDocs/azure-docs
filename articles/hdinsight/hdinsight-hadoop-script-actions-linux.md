@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 01/17/2018
 ms.author: larryfr
 
 ---
@@ -65,7 +65,7 @@ Different versions of HDInsight have different versions of Hadoop services and c
 
 ### <a name="bps10"></a> Target the OS version
 
-Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Version 3.5 is based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
+Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Versions 3.5 and greater are based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
 
 Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8.
 
@@ -115,7 +115,7 @@ The best practice is to download and archive everything in an Azure Storage acco
 > [!IMPORTANT]
 > The storage account used must be the default storage account for the cluster or a public, read-only container on any other storage account.
 
-For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account. This is a public, read-only container maintained by the HDInsight team.
+For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account. This location is a public, read-only container maintained by the HDInsight team.
 
 ### <a name="bPS4"></a>Use pre-compiled resources
 
@@ -311,10 +311,10 @@ fi
 
 ## <a name="deployScript"></a>Checklist for deploying a script action
 
-Here are the steps we took when preparing to deploy these scripts:
+Here are the steps take when preparing to deploy a script:
 
 * Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment. For example, the default storage for the cluster. Files can also be stored in publicly readable hosting services.
-* Verify that the script is impotent. Doing so allows the script to be executed multiple times on the same node.
+* Verify that the script is idempotent. Doing so allows the script to be executed multiple times on the same node.
 * Use a temporary file directory /tmp to keep the downloaded files used by the scripts and then clean them up after scripts have executed.
 * If OS-level settings or Hadoop service configuration files are changed, you may want to restart HDInsight services.
 

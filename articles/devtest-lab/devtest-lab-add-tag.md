@@ -3,7 +3,7 @@ title: Add tags to a lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to add a tag to a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 # Add tags to a lab in Azure DevTest Labs
@@ -37,7 +37,7 @@ Every tag is made up of a **name**/**value** pair. For example, you might create
 ## Steps to manage tags in an existing lab
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. If necessary, select **More Services**, and then select **DevTest Labs** from the list. Your lab might already be shown on the Dashboard under **All Resources**.
+1. If necessary, select **All Services**, and then select **DevTest Labs** from the list. Your lab might already be shown on the Dashboard under **All Resources**.
 1. From the list of labs, select the lab in which you want to add or manage tags.  
 1. On the lab's **Overview** area, select **Configuration and policies**.  
 
@@ -60,6 +60,6 @@ The following limitations apply to tags:
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-### Next steps
+## Next steps
 * You can apply restrictions and conventions across your subscription by using customized policies. A policy that you define might require that all resources have a value for a particular tag. For more information, see [Set policies and schedules](devtest-lab-set-lab-policy.md).
 * Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

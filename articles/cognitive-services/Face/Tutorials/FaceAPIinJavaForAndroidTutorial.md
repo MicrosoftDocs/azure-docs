@@ -1,15 +1,16 @@
 ---
 title: Face API Java for Android tutorial | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Create a simple Android app that uses the Cognitive Services Face API to detect and frame human faces in an image.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: SteveMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 02/24/2017
-ms.author: anroth
+ms.date: 03/01/2018
+ms.author: sbowles
 ---
 
 # Getting Started with Face API in Java for Android Tutorial
@@ -132,7 +133,7 @@ The Face API is a cloud API which you can invoke using HTTPS requests. For a mor
 
 Follow the instructions below to configure the client library: 
 
-1. Locate the top-level build.gradle file of your project from the Project panel shown in the exapmle. Note that there are several other build.gradle files in your project tree, and you need to open the top-level build.gradle file at first. 		 
+1. Locate the top-level build.gradle file of your project from the Project panel shown in the example. Note that there are several other build.gradle files in your project tree, and you need to open the top-level build.gradle file at first. 		 
 2. Add mavenCentral() to your projects' repositories. You can also use jcenter(), which is the default repository of Android Studio, since jcenter() is a superset of mavenCentral().  
 
 		allprojects {
@@ -152,15 +153,20 @@ Follow the instructions below to configure the client library:
 
 5. Open MainActivity.java in your 'app' project and insert the following import directives: 
 	
-		import com.microsoft.projectoxford.face.\*;  
-		import com.microsoft.projectoxford.face.contract.\*;  
+		import com.microsoft.projectoxford.face.*;  
+		import com.microsoft.projectoxford.face.contract.*;  
 	
    And then insert the following code in the MainActivity class:
 
 	    private FaceServiceClient faceServiceClient =  
-	                new FaceServiceRestClient("your subscription key");  
+	                new FaceServiceRestClient("your API endpoint", "<Subscription Key>");
 
-   Replace the string above with the subscription key you obtained in step 1.  
+   Replace the first parameter above with the API endpoint that was assigned to your key in step 1. For example:
+   
+            `https://eastus2.api.cognitive.microsoft.com/face/v1.0`
+   
+   Replace the second parameter with the subscription key that you obtained in step 1.
+   
 6. Open the file called AndroidManifest.xml in your 'app' project (in the app/src/main directory). Insert the following element into the manifest element:  
 
 		<uses-permission android:name="android.permission.INTERNET" />  

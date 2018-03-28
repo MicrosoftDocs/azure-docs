@@ -8,6 +8,7 @@ manager: kristin.tolle
 editor: miprasad
 
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -72,7 +73,7 @@ Create a new project using this example as a template:
 
 ## Data description
 
-The data set used in the solution is from the SIDKDD 2009 competition. It is called `CATelcoCustomerChurnTrainingSample.csv` and is located in the [`Data`](https://github.com/mezmicrosoft/MachineLearningSamples-ChurnPrediction/tree/master/Data) folder. The dataset consists of heterogeneous noisy data (numerical/categorical variables) from French Telecom company Orange and is anonymized.
+The data set used in the solution is from the SIDKDD 2009 competition. It is called `CATelcoCustomerChurnTrainingSample.csv` and is located in the [`data`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/tree/master/data) folder. The dataset consists of heterogeneous noisy data (numerical/categorical variables) from French Telecom company Orange and is anonymized.
 
 The variables capture customer demographic information, call statistics (such as average call duration, call failure rate, etc.), contract information, complaint statistics. Churn variable is binary (0 - did not churn, 1 - did churn).
 
@@ -80,28 +81,26 @@ The variables capture customer demographic information, call statistics (such as
 
 The folder structure is arranged as follows:
 
-__Code__: Contains all the code related to churn prediction using Azure Machine Learning Workbench
+__data__: Contains the dataset used in the solution  
 
-__Data__: Contains the dataset used in the solution  
-
-__Labs__: Contains all the hands-on labs
+__docs__: Contains all the hands-on labs
 
 The order of Hands-on Labs to carry out the solution is as follows:
 1. Data Preparation:
-The files related to Data Preparation in the code folder are `CATelcoCustomerChurnTrainingSample.dprep`, `CATelcoCustomerChurnTrainingSample.dconn` and `CATelcoCustomerChurnTrainingSample.csv`
+The main file related to Data Preparation in the data folder is `CATelcoCustomerChurnTrainingSample.csv`
 2. Modeling and Evaluation:
-The main file related to modeling and evaluation in the code folder is `CATelcoCustomerChurnModeling.py`
-3. Modeling and Evaluation in Docker:
-The main file for this task in the code folder is `CATelcoCustomerChurnModelingDocker.py`
+The main file related to modeling and evaluation in the root folder is `CATelcoCustomerChurnModeling.py`
+3. Modeling and Evaluation without .dprep:
+The main file for this task in the root folder is `CATelcoCustomerChurnModelingWithoutDprep.py`
 4. Operationalization:
 The main files for deloyment are the model (`model.pkl`) and `churn_schema_gen.py`
 
 | Order| File Name | Realted Files |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/DataPreparation.md) | 'Data/CATelcoCustomerChurnTrainingSample.csv' |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluation.md) | 'Code/CATelcoCustomerChurnModeling.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluationDocker.md) | 'Code/CATelcoCustomerChurnModelingDocker.py' |
-| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/Operationalization.md) | 'Code/model.pkl'<br>'Code/churn_schema_gen.py' |
+| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
+| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
+| 3 | [`ModelingAndEvaluationWithoutDprep.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationWithoutDprep.md) | 'CATelcoCustomerChurnModelingWithoutDprep.py' |
+| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
 Follow the Labs in the sequential manner described above.
 

@@ -4,7 +4,7 @@ description: Azure Active Directory device management FAQ.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -30,7 +30,7 @@ ms.reviewer: jairoc
 
 **Remarks:**
 
-- The users that are included in your conditional access policy need a [supported version of Office for macOS](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients) to access resources. 
+- The users that are included in your conditional access policy need a [supported version of Office for macOS](active-directory-conditional-access-technical-reference.md#client-apps-condition) to access resources. 
 
 - During the first access attempt, your users are prompted to enroll the device using the company portal.
 

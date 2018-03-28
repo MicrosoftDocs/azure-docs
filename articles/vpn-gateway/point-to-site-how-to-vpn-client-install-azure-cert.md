@@ -1,10 +1,10 @@
 ---
 title: 'Install a P2S client certificate | Azure'
-description: This article helps you install a client cert for P2S certificate authentication.
+description: Install a Mac or Windows client cert for P2S certificate authentication.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager, azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/24/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
 
 ---
@@ -32,8 +32,10 @@ You can generate a client certificate from either a root certificate that was ge
 
 ## <a name="installmac"></a>Install a certificate on Mac clients
 
+Mac VPN clients are supported for the Resource Manager deployment model only. They are not supported for the classic deployment model.
+
 > [!NOTE]
-> Mac VPN clients are supported for the Resource Manager deployment model only. They are not supported for the classic deployment model.
+>  IKEv2 is currently in Preview.
 >
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]

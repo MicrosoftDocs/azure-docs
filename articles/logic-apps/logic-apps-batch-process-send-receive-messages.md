@@ -52,7 +52,7 @@ To follow this example, you need these items:
 Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Basic knowledge about 
-[how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md) 
+[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * An email account with any 
 [email provider supported by Azure Logic Apps](../connectors/apis-list.md)
@@ -103,7 +103,7 @@ and specify criteria for releasing the batch, for example:
 4. Add another action that sends an email when the batch trigger fires. 
 Each time the batch has five items or its past 5 minutes, the logic app sends an email.
 
-   1. Under the batch trigger, choose **+ New Step** > **Add an action**.
+   1. Under the batch trigger, choose **+ New step** > **Add an action**.
 
    2. In the search box, enter "email" as your filter.
    Based on your email provider, select an email connector.
@@ -120,7 +120,7 @@ Each time the batch has five items or its past 5 minutes, the logic app sends an
 
 5. If you didn't previously create a connection for your email provider, 
 provide your email credentials for authentication when prompted. 
-Learn more about [authenticating your email credentials](../logic-apps/logic-apps-create-a-logic-app.md).
+Learn more about [authenticating your email credentials](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Set the properties for the action you just added.
 
@@ -153,6 +153,12 @@ Learn more about [authenticating your email credentials](../logic-apps/logic-app
 7.  Now that you created a batch receiver logic app, save your logic app.
 
     ![Save your logic app](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > A partition has a limit of 5,000 messages or 80 MB. 
+    > If either condition is met, the batch might be released, 
+    > even when the user-defined condition is not met.
+
 
 <a name="batch-sender"></a>
 

@@ -4,8 +4,9 @@ description: How to import your data into Azure Machine Learning Studio from var
 keywords: import data,data format,data types,data sources,training data
 services: machine-learning
 documentationcenter: ''
-author: bradsev
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
@@ -14,8 +15,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: garye;bradsev
+ms.date: 11/29/2017
 
 ---
 # Import your training data into Azure Machine Learning Studio from various data sources

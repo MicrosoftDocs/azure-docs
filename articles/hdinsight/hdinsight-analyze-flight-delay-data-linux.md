@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -28,7 +28,7 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
 
 ## Prerequisites
 
-* **An HDInsight cluster**. See [Get started using Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) for steps on how to create a new Linux-based HDInsight cluster.
+* **An HDInsight cluster**. See [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) for steps on how to create a new Linux-based HDInsight cluster.
 
 * **Azure SQL Database**. You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).
 
@@ -163,9 +163,6 @@ Use the following steps to import data from the .csv file into a Hive table name
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
-   > [!NOTE]
-   > In this example, `localhost` is used because you're connected to the head node of the HDInsight cluster, which is where HiveServer2 is running.
-
 4. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
     ```
@@ -200,9 +197,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
 > There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
 
 
-1. Use SSH to connect to the Linux-based HDInsight cluster, and run the following steps from the SSH session.
-
-2. Use the following command to install FreeTDS:
+1. To install FreeTDS, use the following command from an SSH connection to the cluster:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +206,10 @@ If you don't already have a SQL database, use the information in [Create an Azur
 3. After the installation finishes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    When prompted, enter the password for the SQL Database admin login.
 
     You receive output similar to the following text:
 
@@ -306,15 +303,15 @@ To learn more ways to work with data in HDInsight, see the following articles:
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-streaming-python.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
+[hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
+[hdinsight-develop-streaming]:hadoop/apache-hadoop-streaming-python.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 

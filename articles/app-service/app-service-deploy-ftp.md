@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2016
+ms.date: 01/06/2016
 ms.author: cephalin;dariac
 
 ---
@@ -25,9 +25,6 @@ or API app to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
-> [!IMPORTANT]
-> We are continuously taking steps to improve Microsoft Azure Platform security. As part of this ongoing effort an upgrade of Web Applications is planned for Germany Central and Germany Northeast regions. During this Web Apps will be disabling the use of plain text FTP protocol for deployments. Our recommendation to our customers is to switch to FTPS for deployments. We do not expect any disruption to your service during this upgrade which is planned for 9/5. We appreciate you support in this effort.
-
 <a name="step1"></a>
 ## Step 1: Set deployment credentials
 
@@ -37,13 +34,13 @@ To set or reset your deployment credentials, see [Azure App Service Deployment C
 
 ## Step 2: Get FTP connection information
 
-1. In the [Azure portal](https://portal.azure.com), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
+1. In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Select **Overview** in the left menu, then note the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**. 
 
     ![FTP Connection Information](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
 
     > [!NOTE]
-    > The **FTP/Deployment User** user value as displayed by the Azure Portal including the app name in order to provide proper context for the FTP server.
+    > To provide proper context for the FTP server, the **FTP/Deployment User** value displayed by the Azure portal includes the app name.
     > You can find the same information when you select **Properties** in the left menu. 
     >
     > Also, the deployment password is never shown. If you forget your deployment password, go back to [step 1](#step1) and reset your deployment password.
@@ -52,7 +49,7 @@ To set or reset your deployment credentials, see [Azure App Service Deployment C
 
 ## Step 3: Deploy files to Azure
 
-1. From your FTP client ([Visual Studio](https://www.visualstudio.com/vs/community/), [FileZilla](https://filezilla-project.org/download.php?type=client), etc), 
+1. From your FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/) or [FileZilla](https://filezilla-project.org/download.php?type=client)), 
 use the connection information you gathered to connect to your app.
 3. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs).
 4. Browse to your app's URL to verify the app is running properly. 
@@ -60,11 +57,11 @@ use the connection information you gathered to connect to your app.
 > [!NOTE] 
 > Unlike [Git-based deployments](app-service-deploy-local-git.md), FTP deployment doesn't support the following deployment automations: 
 >
-> - dependency restore (such as NuGet, NPM, PIP, and Composer automations)
+> - dependency restores (such as NuGet, NPM, PIP, and Composer automations)
 > - compilation of .NET binaries
 > - generation of web.config (here is a [Node.js example](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
-> You must restore, build, and generate these necessary files manually on your local machine and deploy them together with your app.
+> Generate these necessary files manually on your local machine, and then deploy them together with your app.
 >
 >
 

@@ -1,15 +1,16 @@
 ---
 title: Real-time video analysis with the Face API | Microsoft Docs
+titleSuffix: "Microsoft Cognitive Services"
 description: Use the Face API in Cognitive Services to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: SteveMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: anroth
+ms.date: 03/01/2018
+ms.author: sbowles
 ---
 
 # How to Analyze Videos in Real-time
@@ -139,7 +140,7 @@ namespace VideoFrameConsoleApplication
 			FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
 			
 			// Create Face API Client. Insert your Face API key here.
-			FaceServiceClient faceClient = new FaceServiceClient("<subscription key>");
+			FaceServiceClient faceClient = new FaceServiceClient("<Subscription Key>");
 
 			// Set up our Face API call.
 			grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));
@@ -177,9 +178,9 @@ In most modes, there will be a visible delay between the live video on the left,
 To get started with this sample, follow these steps:
 
 1. Get API keys for the Vision APIs from [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). For video frame analysis, the applicable APIs are:
-	- [Computer Vision API](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home)
-	- [Emotion API](https://docs.microsoft.com/en-us/azure/cognitive-services/emotion/home)
-	- [Face API](https://docs.microsoft.com/en-us/azure/cognitive-services/face/overview)
+	- [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
+	- [Emotion API](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
+	- [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 2. Clone the [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub repo
 
 3. Open the sample in Visual Studio 2015, build and run the sample applications:

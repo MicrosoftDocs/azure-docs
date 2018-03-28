@@ -42,7 +42,7 @@ No.
 
 **Are there any scale limitations for customers that use managed disks?**
 
-Managed Disks eliminates the limits associated with storage accounts. However, the number of managed disks per subscription is limited to 2,000 by default. You can call support to increase this number.
+Managed Disks eliminates the limits associated with storage accounts. However, the maximum limit, and also the default limit, is 10,000 managed disks per region and per disk type for a subscription.
 
 **Can I take an incremental snapshot of a managed disk?**
 
@@ -54,7 +54,7 @@ No. The VMs in an availability set must use either all managed disks or all unma
 
 **Is Managed Disks the default option in the Azure portal?**
 
-Not currently, but it will become the default in the future.
+Yes. 
 
 **Can I create an empty managed disk?**
 
@@ -101,6 +101,10 @@ Azure Managed Disks currently supports only locally redundant storage managed di
 
 No. This feature is not supported currently. 
 
+**Can I break a lease on my disk?**
+
+No. This is not supported currently as a lease is present to prevent accidental deletion when the disk is being used.
+
 **Can I change the computer name property when a specialized (not created by using the System Preparation tool or generalized) operating system disk is used to provision a VM?**
 
 No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
@@ -108,6 +112,40 @@ No. You can't update the computer name property. The new VM inherits it from the
 **Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+## Migrate to Managed Disks 
+
+**What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?**
+
+No changes are required. 
+
+**Will my VM backups created via Azure Backup service before the migration continue to work?**
+
+Yes, backups work seamlessly.
+
+**What changes are required in a pre-existing Azure Disks Encryption configuration prior/after migration to Managed Disks?**
+
+No changes are required. 
+
+**Is automated migration of an existing VM Scale Sets (VMSS) from unmanaged disks to Managed Disks supported?**
+
+No. You can create a new VMSS with Managed Disks using the image from your old VMSS with unmanaged disks. 
+
+**Can I create a Managed Disk from a page blob snapshot taken before migrating to Managed Disks?**
+
+No. You can export a page blob snapshot as a page blob and then create a Managed Disk from the exported page blob. 
+
+**Can I fail over my on-premises machines protected by Azure Site Recovery to a VM with Managed Disks?**
+
+Yes, you can choose to failover to a VM with Managed Disks.
+
+**Is there any impact of migration on Azure VMs protected by Azure Site Recovery (ASR) via Azure to Azure replication?**
+
+Yes. Currently, ASR Azure to Azure protection for VMs with Managed Disks is only available as a public preview service.
+
+**Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
+
+Yes
 
 ## Managed Disks and Storage Service Encryption 
 

@@ -4,7 +4,7 @@ description: Learn how to use Shared Access Signatures to restrict HDInsight acc
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/11/2017
+ms.date: 01/25/2018
 ms.author: larryfr
 
 ---
@@ -23,7 +23,7 @@ ms.author: larryfr
 HDInsight has full access to data in the Azure Storage accounts associated with the cluster. You can use Shared Access Signatures on the blob container to restrict access to the data. For example, to provide read-only access to the data. Shared Access Signatures (SAS) are a feature of Azure storage accounts that allows you to limit access to data. For example, providing read-only access to data.
 
 > [!IMPORTANT]
-> For a solution using Apache Ranger, consider using domain-joined HDInsight. For more information, see the [Configure domain-joined HDInsight](hdinsight-domain-joined-configure.md) document.
+> For a solution using Apache Ranger, consider using domain-joined HDInsight. For more information, see the [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md) document.
 
 > [!WARNING]
 > HDInsight must have full access to the default storage for the cluster.
@@ -213,7 +213,7 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
    > [!IMPORTANT]
    > You must restart several services before the change takes effect.
 
-6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All** from the **Service Actions** drop down list on the right. When prompted, select **Turn on maintenance mode** and then select __Conform Restart All".
+6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All Affected** from the **Service Actions** drop down list on the right. When prompted, select __Confirm Restart All__.
 
     Repeat this process for MapReduce2 and YARN.
 
@@ -301,8 +301,8 @@ Once connected to the cluster, use the following steps to verify that you can on
 
 Now that you have learned how to add limited-access storage to your HDInsight cluster, learn other ways to work with data on your cluster:
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

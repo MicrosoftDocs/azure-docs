@@ -3,8 +3,8 @@ title: Enable multi-tenancy in Azure Stack | Microsoft Docs
 description: Learn how to support multiple Azure Active Directory directories in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: HeathL17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.service: azure-stack
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 02/28/2018
+ms.author: mabrigg
 
 ---
 
@@ -57,10 +57,14 @@ $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 ## Replace the value below with the guest tenant directory. 
 $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 
+## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
+$ResourceGroupName = "system.local"
+
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
- -Location "local"
+ -Location "local" `
+ -ResourceGroupName $ResourceGroupName
 ````
 
 
@@ -79,7 +83,7 @@ $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
 Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
- -DirectoryTenantName $guestDirectoryTenantName ` 
+ -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
 ````
 ## Direct users to sign in

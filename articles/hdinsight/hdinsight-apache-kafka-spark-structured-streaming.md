@@ -13,10 +13,10 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 01/30/2018
 ms.author: larryfr
 ---
-# Use Spark Structured Streaming with Kafka (preview) on HDInsight
+# Use Spark Structured Streaming with Kafka on HDInsight
 
 Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight.
 
@@ -48,7 +48,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
     This template creates the following resources:
 
-    * A Kafka on HDInsight 3.5 cluster.
+    * A Kafka on HDInsight 3.6 cluster.
     * A Spark on HDInsight 3.6 cluster.
     * An Azure Virtual Network, which contains the HDInsight clusters.
 
@@ -123,7 +123,7 @@ The code for the example described in this document is available at [https://git
 
 Use the following steps to upload the notebooks from the project to your Spark on HDInsight cluster:
 
-1. In your web browser, connect to the Jupyter notebook on your Spark cluster. In the following URL, replace `CLUSTERNAME` with the name of your Kafka cluster:
+1. In your web browser, connect to the Jupyter notebook on your Spark cluster. In the following URL, replace `CLUSTERNAME` with the name of your __Spark__ cluster:
 
         https://CLUSTERNAME.azurehdinsight.net/jupyter
 
@@ -154,4 +154,4 @@ From the Jupyter Notebook home page, select the __Spark-Structured-Streaming-Fro
 Now that you have learned how to use Spark Structured Streaming, see the following documents to learn more about working with Spark and Kafka:
 
 * [How to use Spark streaming (DStream) with Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Start with Jupyter Notebook and Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md)
+* [Start with Jupyter Notebook and Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md)

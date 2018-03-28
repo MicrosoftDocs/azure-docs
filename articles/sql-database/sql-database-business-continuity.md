@@ -3,18 +3,14 @@ title: Cloud business continuity - database recovery - SQL Database | Microsoft 
 description: Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running.
 keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
 services: sql-database
-documentationcenter: ''
 author: anosov1960
-manager: jhubbard
-editor: ''
-
-ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
+ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: "On Demand"
 ms.date: 08/25/2017
 ms.author: sashan
 
@@ -126,7 +122,7 @@ Regardless of the business continuity feature you use, you must:
 If you do not prepare properly, bringing your applications online after a failover or a database recovery takes additional time and likely also require troubleshooting at a time of stress - a bad combination.
 
 ### Fail over to a geo-replicated secondary database
-If you are using active geo-replication and auto-failover groups (in-preview) as your recovery mechanism, you can configure an automatic failover policy or use [manual failover](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-database). Once initiated, the failover causes the secondary to become the new primary and ready to record new transactions and respond to queries - with minimal data loss for the data not yet replicated. For information on designing the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+If you are using active geo-replication and auto-failover groups (in-preview) as your recovery mechanism, you can configure an automatic failover policy or use [manual failover](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Once initiated, the failover causes the secondary to become the new primary and ready to record new transactions and respond to queries - with minimal data loss for the data not yet replicated. For information on designing the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > When the data center comes back online the old primaries automatically reconnect to the new primary and become secondary databases. If you need to relocate the primary back to the original region, you can initiate a planned failover manually (failback). 

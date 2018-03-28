@@ -8,6 +8,7 @@
   - name: Supported languages
     href: text-analytics-supported-languages.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: C#
     href: Quickstarts/CSharp.md
@@ -25,6 +26,8 @@
   items: 
    - name: Text Analytics with Power BI
      href: Tutorials/tutorial-power-bi-key-phrases.md
+   - name: Text Analytics in Power Apps
+     href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
 - name: How-to guides
   items:
    - name: Sign up

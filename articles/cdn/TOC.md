@@ -1,3 +1,5 @@
+# [CDN Documentation](index.md)
+
 # [Overview](cdn-overview.md)
 ## [What is Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 
@@ -8,10 +10,12 @@
 ## Integrate
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Storage](cdn-create-a-storage-account-with-cdn.md)
+### Storage
+#### [Integrate a storage account](cdn-create-a-storage-account-with-cdn.md)
+#### [SAS storage support](cdn-sas-storage-support.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
-### [Map a custom domain to CDN](cdn-map-content-to-custom-domain.md)
-### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
+### [Add a custom domain to your CDN endpoint](cdn-map-content-to-custom-domain.md)
+### [Configure HTTPS on a custom domain](cdn-custom-ssl.md)
 ## Optimize content
 ### [Optimization overview](cdn-optimization-overview.md)
 ####[Large file optimization](cdn-large-file-optimization.md)
@@ -20,16 +24,19 @@
  
 ## Manage
 ### [Manage with Azure PowerShell](cdn-manage-powershell.md)
-### Configure time-to-live
-#### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
 ### [Restrict access by country](cdn-restrict-access-by-country.md)
 ### [Improve performance by compressing files](cdn-improve-performance.md)
-### Cache content by query string
-#### [Standard tier](cdn-query-string.md)
-#### [Premium tier](cdn-query-string-premium.md)
-### [Purge cached assets](cdn-purge-endpoint.md)
-### [Pre-load cached assets](cdn-preload-endpoint.md)
+### Control caching behavior
+#### [How caching works](cdn-how-caching-works.md)
+#### [Control caching behavior with caching rules](cdn-caching-rules.md)
+#### Cache content by query strings
+##### [Standard tier](cdn-query-string.md)
+##### [Premium tier](cdn-query-string-premium.md)
+#### [Purge cached assets](cdn-purge-endpoint.md)
+#### [Pre-load cached assets](cdn-preload-endpoint.md)
+### Configure time-to-live
+#### [Azure web content](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)
 ### [Token authentication](cdn-token-auth.md)
 ### [Monitor resources](cdn-resource-health.md)
 ### [Override behavior with rules](cdn-rules-engine.md)
@@ -37,11 +44,15 @@
 ### [HTTP/2 support](cdn-http2.md)
 
 ## Analyze
-### [Analyze usage patterns](cdn-analyze-usage-patterns.md)
-### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
-### [View real-time statistics](cdn-real-time-stats.md)
-### [Analyze edge node performance](cdn-edge-performance.md)
-### [Export metrics with Diagnostics Logs](cdn-log-analysis.md)
+### [Analyze Azure CDN usage patterns](cdn-log-analysis.md)
+#### [Azure diagnostics logs](cdn-azure-diagnostic-logs.md)
+#### Analytics tools for Azure CDN from Verizon
+##### [Core reports from Verizon](cdn-analyze-usage-patterns.md)
+##### [Custom reports from Verizon](cdn-verizon-custom-reports.md)
+#### Analytics tools for Azure CDN Premium from Verizon
+##### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
+##### [View real-time statistics](cdn-real-time-stats.md)
+##### [Analyze edge node performance](cdn-edge-performance.md)
 
 ## Develop
 ### [.NET](cdn-app-dev-net.md)
@@ -52,6 +63,10 @@
 ### [File compression](cdn-troubleshoot-compression.md)
 
 # Reference
+##  [Rules engine reference](cdn-rules-engine-reference.md)
+### [Rules engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
+### [Rules engine match conditions](cdn-rules-engine-reference-match-conditions.md)
+### [Rules engine features](cdn-rules-engine-reference-features.md)
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
@@ -59,11 +74,9 @@
 ## [REST](/rest/api/cdn/)
 
 # Resources
-##  [Rules Engine reference](cdn-rules-engine-reference.md)
-### [Rules Engine conditional expressions](cdn-rules-engine-reference-conditional-expressions.md)
-### [Rules Engine features](cdn-rules-engine-reference-features.md)
-### [Rules Engine match conditions](cdn-rules-engine-reference-match-conditions.md)
-## [Azure CDN POP locations](cdn-pop-locations.md)
+## Azure CDN POP locations
+### [POP locations by region](cdn-pop-locations.md)
+### [POP locations by abbreviation](cdn-pop-abbreviations.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)

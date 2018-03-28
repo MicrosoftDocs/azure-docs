@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: dendeli
 
 ---
@@ -115,11 +115,11 @@ In the package properties tab that just opened, choose **Capabilities** and be s
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
-As the location capability is declared, create a new folder in your solution named `Core`, and add a new file within it, called `LocationHelper.cs`:
+As the location capability is declared, create a new folder in your solution named `Core`, and add a new file within it, named `LocationHelper.cs`:
 
 ![](./media/notification-hubs-geofence/vs-location-helper.png)
 
-The `LocationHelper` class itself is fairly basic at this point – all it does is allow us to obtain the user location through the system API:
+The `LocationHelper` class itself is fairly basic at this point – all it does is let us obtain the user location through the system API:
 
     using System;
     using System.Threading.Tasks;
@@ -175,7 +175,7 @@ The implementation of the event handler is as follows:
         }
     }
 
-Notice that we declared the handler as async because `GetCurrentLocation` is awaitable, and therefore requires to be executed in an async context. Also, because under certain circumstances we might end up with a null location (e.g. the location services are disabled or the application was denied permissions to access location), we need to make sure that it is properly handled with a null check.
+Notice that we declared the handler as async because `GetCurrentLocation` is awaitable, and therefore requires to be executed in an async context. Also, because under certain circumstances we might end up with a null location (for example, the location services are disabled or the application was denied permissions to access location), we need to make sure that it is properly handled with a null check.
 
 Run the application. Make sure you allow location access:
 
@@ -377,7 +377,7 @@ Because we are not passing the real coordinates (which might not be within the b
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## What’s next?
+## Next steps
 There are a couple of steps that you might need to follow in addition to the above to make sure that the solution is production-ready.
 
 First and foremost, you might need to ensure that geofences are dynamic. This will require some extra work with the Bing API in order to be able to upload new boundaries within the existing data source. Consult the [Bing Spatial Data Services API documentation](https://msdn.microsoft.com/library/ff701734.aspx) for more details on the subject.

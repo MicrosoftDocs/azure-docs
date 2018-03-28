@@ -4,7 +4,7 @@ description: Explains how Azure AD enforces strong passwords and protects users 
 services: active-directory
 documentationcenter: ''
 author: barlanmsft
-manager: femila
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory
@@ -34,7 +34,7 @@ Azure AD incorporates the following common approaches to securing passwords:
 * Password complexity requirements
 * Regular and periodic password expiration
 
-For information about password reset in Azure Active Directory, see the topic [Azure AD self-service password reset for the IT professional](active-directory-passwords.md).
+For information about password reset in Azure Active Directory, see the topic [Azure AD self-service password reset for the IT professional](active-directory-passwords-update-your-own-password.md).
 
 ## Azure AD password protections
 
@@ -43,7 +43,7 @@ Azure AD and the Microsoft Account System use industry proven approaches to ensu
 * Dynamically banned passwords
 * Smart Password Lockout
 
-For information about password management based on current research, see the whitepaper [Password Guidance](http://aka.ms/passwordguidance).
+For information about password management based on current research, see the whitepaper [Password Guidance](https://aka.ms/passwordguidance).
 
 ### Dynamically banned passwords
 
@@ -71,7 +71,7 @@ For other Microsoft accounts, their screen looks similar to the one that follows
 
   ![Locked out of a Microsoft account](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-For information about password reset in Azure Active Directory, see the topic [Azure AD self-service password reset for the IT professional](active-directory-passwords.md).
+For information about password reset in Azure Active Directory, see the topic [Azure AD self-service password reset for the IT professional](active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >If you are an Azure AD administrator, you may want to use [Windows Hello](https://www.microsoft.com/windows/windows-hello) to avoid having your users create traditional passwords altogether.

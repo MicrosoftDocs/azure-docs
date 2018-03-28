@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2017 
+ms.date: 09/28/2017 
 ms.author: alkohli
 
 ---
@@ -35,7 +35,7 @@ Questions and answers are arranged in the following categories:
 
 ### Once I have moved to Azure portal, can I still create a StorSimple Manager service in the classic portal?
 
-No. Once you have migrated your StorSimple Manager service to the Azure portal, you cannot create a new service in the classic portal. Also, you cannot manage your device via the classic portal. For more information, go to [Move your service to Azure portal](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+No. Once you have migrated your StorSimple Manager service to the Azure portal, you cannot create a new service in the classic portal. Also, [the classic portal won't be available from January 8, 2018](https://azure.microsoft.com/updates/azure-portal-updates-for-classic-portal-users). 
 
 ### I have multiple StorSimple Managers running in the classic portal. Can I choose which ones to move to the Azure portal?
 
@@ -62,17 +62,20 @@ The StorSimple service move is independent of the management of the VMs for the 
 
 Yes. The VMs associated with existing 8010/8020 cloud appliances can be managed from the Azure portal.
 
-If you have created StorSimple Cloud appliances model 8010/8020 running Update 3.0 and above, you are not impacted by your service moving to the new Azure portal. You should be able to fully manage your cloud appliances without any issues. If you have cloud appliances running versions prior to Update 3.0 in the classic portal, then you only have limited functionality available.
+If you have created StorSimple Cloud appliances model 8010/8020 running Update 3.0 and above, you are not impacted by your service moving to the new Azure portal. You should be able to fully manage your cloud appliances without any issues. 
 
-For more information, go to the [list of unsupported operations for devices running versions prior to Update 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+If you have cloud appliances running versions prior to Update 3.0 in the classic portal, then you only have limited functionality available. For more information, go to the [list of unsupported operations for devices running versions prior to Update 3](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
+
+You cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance and then fail over the existing volume containers to the new cloud appliance created. For more information, go to [Fail over to the cloud appliance](storsimple-8000-cloud-appliance-u2.md#fail-over-to-the-cloud-appliance)
+
 
 ### My StorSimple 8000 series device is running Update 2.0. I migrated my service to new Azure portal. My device connected successfully but it seems that I am not able to fully manage my device. How do I resolve this behavior?
 
-The new Azure portal is supported only for StorSimple devices running Update 3.0 and higher. If your device was running Update 2.0, you only have limited functionality available for this device. For more information, go to the [list of unsupported operations for devices running versions prior to Update 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+The new Azure portal is supported only for StorSimple devices running Update 3.0 and higher. If your device was running Update 2.0, you only have limited functionality available for this device. For more information, go to the [list of unsupported operations for devices running versions prior to Update 3](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 To fully manage your device, install the latest update on your device. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md).
 
-### I just moved by StorSimple Manager service to the Azure portal. I am seeing some alerts related to my device. Is this behavior related to the move?
+### I just moved my StorSimple Manager service to the Azure portal. I am seeing some alerts related to my device. Is this behavior related to the move?
 
 No. The move itself should not result in errors or alerts. Follow the alert recommendations to resolve the alerts.
 
@@ -106,7 +109,7 @@ The move of the service is not related to the management of storage account. Bot
 
 ### Can I migrate StorSimple Device Manager from one resource group to another?
 
-No. You cannot move a StorSimple Device Manager created with a resource group to another resource group.
+No. You cannot move a StorSimple Device Manager created with one resource group to another resource group.
 
 ## Using Azure Resource Manager based cmdlets
 
@@ -120,15 +123,13 @@ The option to roll over the service data encryption key is not in the Azure port
 
 ### I am using Windows PowerShell for StorSimple cmdlets on the StorSimple device to perform operations such extract a Support package. Are these cmdlets affected when I move to the new Azure portal?
 
-No. With your service moving to new Azure portal, there should be no impact on the Windows PowerShell for StorSimple cmdlets associated with the on-premises StorSimple device (which itself is not affected in the move). You can continue to use these cmdlets to create a Support package without any issues even in the Azure portal. Only the Azure classic deployment model PowerShell cmdlets are impacted by this move.
+No. With your service moving to new Azure portal, there should be no impact on the Windows PowerShell for StorSimple cmdlets associated with the on-premises StorSimple device (which itself is not affected by the move). You can continue to use these cmdlets to create a Support package without any issues even in the Azure portal. Only the Azure classic deployment model PowerShell cmdlets are impacted by this move.
 
 ## Moving StorSimple Data Manager service
 
-### I am using StorSimple Data Manager service. How should I proceed with this move?
+### I am using StorSimple Data Manager service in classic Azure portal. How should I proceed with this move?
 
-If you are using StorSimple Data Manager service, you must move your StorSimple Device Managers first to the Azure portal. Once the move is complete, create new StorSimple Data Managers in the Azure portal. StorSimple Data Managers created prior to the move do not work.
-
-For more information on StorSimple Device Manager service migration, go to [Move your service to Azure portal](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). For more information on StorSimple Data Manager creation, go to [Create a StorSimple Data Manager service](storsimple-data-manager-ui.md).
+If you are using StorSimple Data Manager service, you have been automatically moved to the Azure portal.
 
 ## Miscellaneous
 
@@ -138,11 +139,11 @@ No. There is no impact to StorSimple Snapshot Manager when you move your service
 
 ### Can I rename my StorSimple device, volume containers, or volumes?
 
-No. You cannot renamed devices, volumes, volume containers, or backup policies in the Azure portal.
+No. You cannot rename devices, volumes, volume containers, or backup policies in the Azure portal.
 
 ## Next steps
 
-Learn step-by-step how to [move your StorSimple Device Manager service to Azure portal](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Learn more about [Supported operations on devices running versions prior to Update 5.0](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 
 
 

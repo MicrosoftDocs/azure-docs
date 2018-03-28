@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
 
 ---
 # About Point-to-Site VPN
 
-A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure VNets from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect to a VNet.
+A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure VNets from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect to a VNet. This article applies to the Resource Manager deployment model.
 
 ## <a name="protocol"></a>What protocol does P2S use?
 
@@ -28,9 +28,13 @@ Point-to-site VPN can use one of the following protocols:
 
 * Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
 
-* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above). Azure does not support IKEv2 VPN with Windows. 
+* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
 
 If you have a mixed client environment consisting of Windows and Mac devices, configure both SSTP and IKEv2.
+
+>[!NOTE]
+>IKEv2 for P2S is available for the Resource Manager deployment model only. It is not available for the classic deployment model.
+>
 
 ## <a name="authentication"></a>How are P2S VPN clients authenticated?
 
@@ -58,12 +62,16 @@ A RADIUS server can also integrate with other external identity systems. This op
 
 Users use the native VPN clients on Windows and Mac devices for P2S. Azure provides a VPN client configuration zip file that contains settings required by these native clients to connect to Azure.
 
-  * For Windows devices, the VPN client configuration consists of an installer package that users install on their devices.
-  * For Mac devices, it consists of the mobileconfig file that users install on their devices.
+* For Windows devices, the VPN client configuration consists of an installer package that users install on their devices.
+* For Mac devices, it consists of the mobileconfig file that users install on their devices.
 
 The zip file also provides the values of some of the important settings on the Azure side that you can use to create your own profile for these devices. Some of the values include the VPN gateway address, configured tunnel types, routes, and the root certificate for gateway validation.
 
-### Which Gateway SKUs Support P2S VPN?
+>[!NOTE]
+>For Windows clients, you must have administrator rights on the client device in order to initiate the VPN connection from the client device to Azure.
+>
+
+### <a name="gwsku"></a>Which Gateway SKUs Support P2S VPN?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
@@ -71,16 +79,28 @@ The zip file also provides the values of some of the important settings on the A
 * Pricing information can be found on the Pricing page 
 * SLA (Service Level Agreement) information can be found on the SLA page.
 
-## <a name="faqcert"></a>P2S FAQ for Azure certificate authentication
+>[!NOTE]
+>The Basic SKU does not support IKEv2 or RADIUS authentication.
+>
+
+## <a name="configure"></a>How do I configure a P2S connection?
+
+A P2S configuration requires quite a few specific steps. The following articles contain the steps to walk you through P2S configuration, and links to configure the VPN client devices:
+
+* [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
+
+* [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+## <a name="faqcert"></a>FAQ for native Azure certificate authentication
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="faqradius"></a>P2S FAQ for RADIUS authentication
+## <a name="faqradius"></a>FAQ for RADIUS authentication
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## Next Steps
 
-[Configure P2S connections - RADIUS authentication](point-to-site-how-to-radius-ps.md)
+* [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
-[Configure P2S connections - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)

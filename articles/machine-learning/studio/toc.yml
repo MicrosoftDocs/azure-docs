@@ -1,5 +1,5 @@
-- name: Machine Learning Studio Documentation
-  href: index.md
+- name: Machine Learning Studio Documentation 
+  href: index.yml
 - name: Overview
   expanded: true
   items:
@@ -195,7 +195,7 @@
     href: web-service-error-codes.md
 - name: Related
   items:
-  - name: Cortana Intelligence Gallery
+  - name: Azure AI Gallery
     items:
     - name: Overview
       href: gallery-how-to-use-contribute-publish.md
@@ -235,6 +235,4 @@
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-  - name: Get help from live chat
-    href: live-chat.md
 

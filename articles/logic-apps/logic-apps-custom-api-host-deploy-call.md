@@ -22,7 +22,7 @@ ms.author: LADocs; stepsic
 
 After you [create custom APIs](./logic-apps-create-api-app.md) 
 for use in logic app workflows, you must deploy your APIs before you can call them. 
-You can deploy your APIs as [web apps](../app-service-web/app-service-web-overview.md), 
+You can deploy your APIs as [web apps](../app-service/app-service-web-overview.md), 
 but consider deploying your APIs as [API apps](../app-service/app-service-web-tutorial-rest-api.md), 
 which make your job easier when you build, host, and consume APIs 
 in the cloud and on premises. You don't have to change any code in your 
@@ -67,7 +67,7 @@ Set the CORS policy for **Allowed origins** to **'*'** (allow all).
    ![Permit requests from Logic App Designer to your custom API](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
 For more information, see 
-[Build a Node.js RESTful API](../app-service/app-service-web-tutorial-rest-api.md).
+[Host a RESTful API with CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## Call your custom API from logic app workflows
 

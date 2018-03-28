@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Threat management | Microsoft Docs'
 description: Learn about detection and mitigation techniques for denial-of-service attacks and password attacks in Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
-author: vigunase
-manager: Ajith Alexander
+author: davidmu1
+manager: mtillman
 editor: ''
 
-ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2016
-ms.author: 
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Threat management

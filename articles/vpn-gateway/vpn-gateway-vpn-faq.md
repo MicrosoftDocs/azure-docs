@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2017
-ms.author: cherylmc,yushwang
+ms.date: 12/20/2017
+ms.author: cherylmc,yushwang,anzaman
 
 ---
 # VPN Gateway FAQ
@@ -38,7 +38,7 @@ You can connect to multiple sites by using Windows PowerShell and the Azure REST
 The following cross-premises connections are supported:
 
 * Site-to-Site – VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information, see [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
-* Point-to-Site – VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device. For more information, see [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* Point-to-Site – VPN connection over SSTP (Secure Socket Tunneling Protocol) or IKE v2. This connection does not require a VPN device. For more information, see [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * VNet-to-VNet – This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device. For more information, see [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multi-Site – This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network. For more information, see [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 * ExpressRoute – ExpressRoute is a direct connection to Azure from your WAN, not a VPN connection over the public Internet. For more information, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
@@ -66,6 +66,15 @@ Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and
 ### What is a route-based (dynamic-routing) gateway?
 
 Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
+
+### Can I update my Policy-based VPN gateway to Route-based?
+No. An Azure Vnet gateway type cannot be changed from policy-based to route-based or the other way. The gateway must be deleted and recreated, a process taking around 60 minutes. The IP address of the gateway will not be preserved nor will the Pre-Shared Key (PSK).
+1. Delete any connections associated with the gateway to be deleted.
+2. Delete the gateway:
+* [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+* [Azure Powershell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+3. [Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### Do I need a 'GatewaySubnet'?
 
@@ -107,7 +116,6 @@ We are limited to using pre-shared keys (PSK) for authentication.
 #### Classic deployment model
 
 * Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
-* Classic portal: add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
 ### Can I configure Force Tunneling?
 
@@ -157,9 +165,13 @@ Other software VPN solutions should work with our gateway as long as they confor
 
 ## <a name="P2S"></a>Point-to-Site - native Azure certificate authentication
 
+This section applies to the Resource Manager deployment model.
+
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## Point-to-Site - RADIUS authentication
+## <a name="P2SRADIUS"></a>Point-to-Site - RADIUS authentication
+
+This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

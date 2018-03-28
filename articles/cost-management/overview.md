@@ -1,20 +1,22 @@
 ---
-title: Overview of Azure Cost Management by Cloudyn | Microsoft Docs
-description: Azure Cost Management by Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
+title: Overview of Azure Cost Management | Microsoft Docs
+description: Azure Cost Management is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2017
+ms.date: 01/30/2018
 ms.topic: overview
-ms.service: Cost Management
+ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
 ---
 
 # What is Azure Cost Management?
 
-Azure Cost Management by Cloudyn allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cost Management helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
+Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cost Management helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
+
+To watch an introductory video, see [Introduction to Azure Cost Management](https://azure.microsoft.com/en-us/resources/videos/azure-cost-management-overview-and-demo).
 
 ## Monitor usage and spending
 
@@ -33,11 +35,11 @@ Cost allocation manages costs by analyzing your costs based on your tagging poli
 
 Access control helps manage costs by ensuring that users and teams access only the cost management data that they needed. You use entity structure, user management, and scheduled reports with recipient lists to assign access.
 
-Alerting helps manage costs by notifying you automatically when unusual spending or overspending occurs. Alerts can also notify other stakeholders automatically for spending anomalies and overspending risks. Various reports support alerts based on budget and cost thresholds.
+Alerting helps manage costs by notifying you automatically when unusual spending or overspending occurs. Alerts can also notify other stakeholders automatically for spending anomalies and overspending risks. Various reports support alerts based on budget and cost thresholds. However, alerts are not currently supported for CSP partner accounts or subscriptions.
 
 ## Improve efficiency
 
-You can determine optimal VM usage and identify idle VMs or remove idle VMs and unattached disks with Cost Management. Using information in Sizing Optimization and Inefficiency reports, you can create a plan to down-size or remove idle VMs.
+You can determine optimal VM usage and identify idle VMs or remove idle VMs and unattached disks with Cost Management. Using information in Sizing Optimization and Inefficiency reports, you can create a plan to down-size or remove idle VMs. However, optimization reports are not currently supported for CSP partner accounts or subscriptions.
 
 ![sizing recommendations](.\media\overview\sizing.png)
 

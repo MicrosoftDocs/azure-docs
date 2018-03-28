@@ -8,9 +8,9 @@
 | SQL Database servers per subscription |6 |150 |
 | DNS servers per subscription |9 |100 |
 | Reserved IPs per subscription |20 |100 |
-| Hosted service certificates per subscription |400 |400 |
+| Hosted service certificates per subscription |199 |199 |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |256 |256 |
-| Alert rules per subscription |250 |250 |
+
 
 <sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core.
 

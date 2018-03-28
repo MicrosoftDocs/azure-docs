@@ -9,23 +9,55 @@
   - name: Review tool
     href: quick-start.md
   - name: Moderation APIs
-    items: 
-    - name: Image API
+    items:
+    - name: Helper library - .NET
+      href: content-moderator-helper-quickstart-dotnet.md
+    - name: Images - API console
       href: try-image-api.md
-    - name: Image list API
+    - name: Images - .NET
+      href: image-moderation-quickstart-dotnet.md
+    - name: Custom images - API console
       href: try-image-list-api.md
-    - name: Text API
+    - name: Custom images - .NET
+      href: image-lists-quickstart-dotnet.md
+    - name: Text - API console
       href: try-text-api.md
-    - name: Term list API
+    - name: Text - .NET
+      href: text-moderation-quickstart-dotnet.md
+    - name: Custom terms - API console
       href: try-terms-list-api.md
+    - name: Custom terms - .NET
+      href: term-lists-quickstart-dotnet.md 
+    - name: Videos - .NET
+      href: video-moderation-api.md
   - name: Review APIs
     items: 
-    - name: Jobs
+    - name: Jobs - API console
       href: try-review-api-job.md
-    - name: Reviews
+    - name: Jobs - .NET
+      href: moderation-jobs-quickstart-dotnet.md
+    - name: Reviews - API console
       href: try-review-api-review.md
-    - name: Workflows
+    - name: Reviews - .NET
+      href: moderation-reviews-quickstart-dotnet.md
+    - name: Video reviews - .NET
+      href: video-reviews-quickstart-dotnet.md
+    - name: Video transcript reviews - .NET
+      href: video-transcript-reviews-quickstart-dotnet.md
+    - name: Workflows - API console
       href: try-review-api-workflow.md
+- name: Tutorials
+  items:
+  - name: Facebook content moderation
+    href: facebook-post-moderation.md
+  - name: eCommerce image moderation
+    href: ecommerce-retail-catalog-moderation.md
+  - name: Video and trancript moderation
+    href: video-transcript-moderation-review-tutorial-dotnet.md
+- name: Samples
+  items:
+  - name: .NET
+    href: samples-dotnet.md
 - name: Concepts
   items: 
   - name: Image moderation
@@ -35,9 +67,11 @@
   - name: Text moderation - languages
     href: Text-Moderation-API-Languages.md
   - name: Video moderation
-    href: video-moderation-api.md
-  - name: Review APIs
+    href: video-moderation-human-review.md
+  - name: Jobs and reviews
     href: review-api.md
+  - name: Workflows
+    href: workflow-api.md
 - name: How-to guides
   items:
   - name: Review tool
@@ -54,7 +88,7 @@
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
     - name: Review text
       href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Verify credentials
+    - name: Manage credentials
       href: Review-Tool-User-Guide/Credentials.md
     - name: Use connectors
       href: Review-Tool-User-Guide/Connectors.md
@@ -62,10 +96,6 @@
       href: Review-Tool-User-Guide/Workflows.md
     - name: View dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
-- name: Tutorials
-  items:
-  - name: Facebook post moderation
-    href: facebook-post-moderation.md
 - name: API References
   items: 
   - name: All APIs  
@@ -74,9 +104,9 @@
   items:  
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Windows SDK
-    href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
-  - name: Samples
-    href: https://github.com/MicrosoftContentModerator
+  - name: SDK and samples
+    href: sdk-and-samples.md 
   - name: FAQ
     href: FAQs.md
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator

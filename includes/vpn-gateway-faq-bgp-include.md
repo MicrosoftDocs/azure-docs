@@ -1,5 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 03/21/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 ### Is BGP supported on all Azure VPN Gateway SKUs?
-No, BGP is supported on Azure **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
+No, BGP is supported on Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
 
 ### Can I use BGP with Azure Policy-Based VPN gateways?
 No, BGP is supported on Route-Based VPN gateways only.
@@ -10,7 +21,7 @@ Yes, you can use your own public ASNs or private ASNs for both your on-premises 
 ### Are there ASNs reserved by Azure?
 Yes, the following ASNs are reserved by Azure for both internal and external peerings:
 
-* Public ASNs: 8075, 8076, 12076
+* Public ASNs: 8074, 8075, 12076
 * Private ASNs: 65515, 65517, 65518, 65519, 65520
 
 You cannot specify these ASNs for your on premises VPN devices when connecting to Azure VPN gateways.
@@ -72,4 +83,3 @@ Azure Local Network Gateway specifies the initial address prefixes for the on-pr
 
 ### What should I add to my on-premises VPN device for the BGP peering session?
 You should add a host route of the Azure BGP Peer IP address on your VPN device pointing to the IPsec S2S VPN tunnel. For example, if the Azure VPN Peer IP is "10.12.255.30", you should add a host route for "10.12.255.30" with a nexthop interface of the matching IPsec tunnel interface on your VPN device.
-
