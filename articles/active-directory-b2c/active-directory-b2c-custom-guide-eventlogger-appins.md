@@ -80,7 +80,7 @@ Open the extension file from the starter pack and add the following elements to 
         <AdminHelpText />
         <UserHelpText />
       </ClaimType>
-      <!--Additional claims used for passing claims to the Application Insights provider -->
+      <!-- Additional claims used for passing claims to the Application Insights provider. -->
       <ClaimType Id="federatedUser">
         <DisplayName>federatedUser</DisplayName>
         <DataType>boolean</DataType>
@@ -132,9 +132,7 @@ Add the profiles to the extension file from the starter pack by adding these ele
 
         <TechnicalProfile Id="AzureInsights-SignInRequest">
           <InputClaims>
-            <!-- 
-							An input claim with PartnerClaimType="eventName" is required. The Application Insights provider uses it to create an event with the specified value.
-						-->
+            <!-- An input claim with PartnerClaimType="eventName" is required. The Application Insights provider uses it to create an event with the specified value. -->
             <InputClaim ClaimTypeReferenceId="EventType" PartnerClaimType="eventName" DefaultValue="SignInRequest" />
           </InputClaims>
           <IncludeTechnicalProfile ReferenceId="AzureInsights-Common" />
@@ -162,19 +160,13 @@ Add the profiles to the extension file from the starter pack by adding these ele
           <Metadata>
             <!-- The Application Insights instrumentation key that will be used for logging the events. -->
             <Item Key="InstrumentationKey">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</Item>
-            <!-- 
-							A Boolean that indicates whether developer mode is enabled. This controls how events are buffered. In a development environment with minimal event volume, enabling developer mode results in events being sent immediately to Application Insights.
-						-->
+            <!-- A Boolean that indicates whether developer mode is enabled. This controls how events are buffered. In a development environment with minimal event volume, enabling developer mode results in events being sent immediately to Application Insights.	-->
             <Item Key="DeveloperMode">false</Item>
-            <!-- 
-							A Boolean that indicates whether telemetry should be enabled or not.
-						-->
+            <!-- A Boolean that indicates whether telemetry should be enabled or not.	-->
             <Item Key="DisableTelemetry ">false</Item>
           </Metadata>
           <InputClaims>
-            <!--
-							Properties of an event are added through the syntax {property:NAME}, where NAME is the name of the property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers.
-						-->
+            <!-- Properties of an event are added through the syntax {property:NAME}, where NAME is the name of the property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers. -->
             <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
             <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" />
             <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
@@ -185,7 +177,7 @@ Add the profiles to the extension file from the starter pack by adding these ele
 
 ```
 
-## Step 4. Add the technical profiles for Application Insights as orchestration steps in an existing user journey.
+## Step 4. Add the technical profiles for Application Insights as orchestration steps in an existing user journey
 
 Call `JournyeContextForInsights` as orchestration step 1:
 
