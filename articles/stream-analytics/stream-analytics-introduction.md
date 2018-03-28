@@ -18,7 +18,7 @@ ms.workload: data-services
 ms.date: 03/27/2018
 ms.author: sngun
 
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: "What is Azure Stream Analytics and why should I care?".
 ---
 
 # What is Stream Analytics?
