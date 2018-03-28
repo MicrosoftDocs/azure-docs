@@ -143,6 +143,7 @@
       - name: Python
         href: /python/api/azure.mgmt.msi
       - name: Ruby
+        href: https://rubygems.org/gems/azure_mgmt_msi
       - name: Node.js
       - name: Go 
     - name: Resources
