@@ -263,7 +263,8 @@ az group delete --name "myResourceGroup"
 ```
 
 You can alternatively remove resources one by one:
-- To remove the Azure file shares we created for this quickstart.  
+- To remove the Azure file shares we created for this quickstart.
+
 ```azurecli-interactive
 az storage share delete \
     --account-name $STORAGEACCT \
@@ -278,7 +279,8 @@ az storage share delete \
     --delete-snapshots include
 ```
 
-- To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any other storage resources you may have created such as an Azure Blob storage container).  
+- To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any other storage resources you may have created such as an Azure Blob storage container).
+
 ```azurecli-interactive
 az storage account delete \
     --resource-group "myResourceGroup" \
