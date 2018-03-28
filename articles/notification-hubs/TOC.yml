@@ -46,26 +46,31 @@
       href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
     - name: Windows
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md  
-  - name: 4 - Push location-based notifications
-    items:
-    - name: Windows
-      href: notification-hubs-push-bing-spartial-data-geofencing-notification.md
-  - name: 5 - Push personalized and localized notifications
+  - name: 4 - Push personalized and localized notifications
     items:
     - name: iOS
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
     - name: Windows
-      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md            
+      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md                 
+  - name: 5 - Push location-based notifications
+    items:
+    - name: Windows
+      href: notification-hubs-push-bing-spartial-data-geofencing-notification.md
 - name: Samples
   items:
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs
 - name: Concepts
   items: 
-  - name: Tags
-    href: notification-hubs-tags-segment-push-message.md
-  - name: Templates
-    href: notification-hubs-templates-cross-platform-push-messages.md    
+  - name: Enterprise push architecture guidance
+    href: notification-hubs-enterprise-push-notification-architecture.md
+  - name: Device registrations
+    href: notification-hubs-push-notification-registration-management.md    
+    items:
+    - name: Tags for registrations
+      href: notification-hubs-tags-segment-push-message.md
+    - name: Template registrations
+      href: notification-hubs-templates-cross-platform-push-messages.md    
 - name: How-to guides
   items: 
   - name: Send cross-platform notifications
@@ -88,9 +93,7 @@
       href: notification-hubs-python-push-notification-tutorial.md
   - name: Register with application backend
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
-  - name: Manage registrations
-    href: notification-hubs-push-notification-registration-management.md
-  - name: Use APNS HTTP/2 protocol with token-based authentication
+  - name: Use token-based authentication with Apple devices
     href: notification-hubs-push-notification-http2-token-authentification.md
   - name: Troubleshoot dropped notifications
     href: notification-hubs-push-notification-fixer.md
