@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Push notifications to Windows Phone apps using Azure Notification Hubs| Microsoft Docs
+title: Push notifications to Windows Phone apps using Azure Notification Hubs| Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight application.
 services: notification-hubs
 documentationcenter: windows
