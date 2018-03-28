@@ -17,7 +17,7 @@ experiment_id: "662dc5fd-886f-4a"
 ---
 # Azure Cosmos DB documentation experiment
 
-Azure Cosmos DB is a globally-distributed, multi-model database. Because you can do so much with Azure Cosmos DB - from creating a graph to creating a document database, or migrating your data from MongoDB, Cassandra, or Azure Table storage - organizing the documentation can be a challenge. So we'd like your help.
+Azure Cosmos DB is a globally distributed, multi-model database. Because you can do so much with Azure Cosmos DB - from creating a graph to creating a document database, or migrating your data from MongoDB, Cassandra, or Azure Table storage - organizing the documentation can be a challenge. So we'd like your help.
 
 We are testing the organization of the Azure Cosmos DB table of contents and [landing page](https://docs.microsoft.com/en-us/azure/cosmos-db/), as shown in the following images, and we'd like to get your feedback on these proposed changes. 
 
@@ -31,15 +31,15 @@ We are testing the organization of the Azure Cosmos DB table of contents and [la
 
 ## To load both views
 
-1. To open both views side-by-side, navigate to the [landing page](https://docs.microsoft.com/en-us/azure/cosmos-db/) from your favorite web browser. 
-2. Use the images above to determine which version you see, original or experimental. 
-3. Open an inprivate or incognito browswer window and load the [landing page](https://docs.microsoft.com/en-us/azure/cosmos-db/) in the new browser window and again use the images to determine which version you see. 
+1. To open both views side by side, navigate to the [landing page](https://docs.microsoft.com/en-us/azure/cosmos-db/) from your favorite web browser. 
+2. Use the images above to determine which version you see, original, or experimental. 
+3. Open an inprivate or incognito browser window and load the [landing page](https://docs.microsoft.com/en-us/azure/cosmos-db/) in the new browser window and again use the images to determine which version you see. 
 
-   If you don't have both views present, close and reopen a new inprivate or incognito window and load the [landing page](https://docs.microsoft.com/en-us/azure/cosmos-db/) again. It may take a few tries to get both versions loaded in separate windows. Note that refreshing the incognito window will not load the other version, you need to open a new window. 
+   If you don't have both views present, close and reopen a new inprivate or incognito window and load the [landing page](https://docs.microsoft.com/en-us/azure/cosmos-db/) again. It may take a few tries to get both versions loaded in separate windows. Refreshing the incognito window will not load the other version, you need to open a new window. 
 
-4. You can then resize the windows to fix side-by-side, or switch back and forth between views to compare. 
+4. You can then resize the windows to fix side by side, or switch back and forth between views to compare. 
 
-5. After you've had a chance to get familiar with the organization and layout of the experimental experience, click the **Experiment survey** button below to provide feedback. Please submit the form no later than midnight April 4th, 2018 so that the feedback can be reviewed and incorporated. 
+5. After you've had a chance to get familiar with the organization and layout of the experimental experience, click the **Experiment survey** button below to provide feedback. Submit the form no later than midnight April 4, 2018 so that the feedback can be reviewed and incorporated. 
 
 > [!div class="nextstepaction"]
 > [Experiment survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7nNByCFnW1EvwkPlRiTC3hUMDJUV0w2RDdXSVFPN1UzOEY0S1QxMU5YQy4u)
