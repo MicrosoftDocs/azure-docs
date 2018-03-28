@@ -28,7 +28,6 @@
         - name: Access Azure Key Vault
           href: tutorial-windows-vm-access-nonaad.md
         - name: Access Azure Resource Manager with a user-assigned MSI
-          href: overview.md
       - name: Linux VM/VMSS
         items:
         - name: Access Azure Data Lake Store
@@ -38,7 +37,6 @@
         - name: Access Azure Storage using SAS
           href: tutorial-linux-vm-access-storage-sas.md
         - name: Access Azure SQL
-          href: overview.md
         - name: Access Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
         - name: Access Azure Resource Manager with a user-assigned MSI
