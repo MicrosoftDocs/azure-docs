@@ -7,11 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-<<<<<<< HEAD
 ms.date: 03/29/2018
-=======
-ms.date: 03/24/2018
->>>>>>> 96388e53062e49b1c004bee5b99bfc33dbb7645d
 ms.author: sujayt
 
 ---
