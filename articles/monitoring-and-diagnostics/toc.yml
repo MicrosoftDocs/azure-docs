@@ -91,7 +91,7 @@
       href: monitor-stream-diagnostic-logs-log-analytics.md
     - name: Stream to Event Hubs
       href: monitoring-stream-diagnostic-logs-to-event-hubs.md
-    - name: Enable diagnostic settings using Resource Manager templates
+    - name: Enable diagnostic settings with Resource Manager templates
       href: monitoring-enable-diagnostic-logs-using-template.md
   - name: Use activity log
     items:
@@ -149,7 +149,6 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
     - name: Configure webhooks and email notifications on autoscale
       href: insights-autoscale-to-webhook-email.md
-
   - name: Route to other locations
     items:
     - name: Send metrics to Grafana
