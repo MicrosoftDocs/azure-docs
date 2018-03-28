@@ -3,7 +3,7 @@ title: Data science with the Deep Learning Data Science Virtual Machine on Azure
 description: How to perform several common data science tasks with the Deep Learning  Data Science VM.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 

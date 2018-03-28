@@ -2,13 +2,11 @@
 title: Learn how to onboard Update Management, Change Tracking, and Inventory solutions from an Azure Virtual Machine
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
-keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/19/2018
 ms.topic: article
 ms.service: automation
-
 ms.custom: mvc
 manager: carmonm
 ---
