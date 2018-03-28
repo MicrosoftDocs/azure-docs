@@ -103,7 +103,7 @@
       - name: Acquire an access token
         items:
         - name: PowerShell
-          href: how-to-acquire-vm-acess-token-powershell.md
+          href: how-to-acquire-vm-access-token-powershell.md
         - name: Curl
         - name: .NET
         - name: Java
