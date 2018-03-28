@@ -20,9 +20,7 @@ ms.custom:
 ---
 
 # Newer metric alerts for Azure services in the Azure portal
-Azure Monitor supports a new alert type called near real-time metric alerts. 
-
-Newer metric alerts differ from [classic metric alerts](insights-alerts-portal.md) in a few ways:
+Azure Monitor now supports a new metric alert type. The Newer alerts differ from [classic metric alerts](insights-alerts-portal.md) in a few ways:
 
 - **Improved latency**: Newer metric alerts can run as frequently as every one minute. Older metric alerts always run at a frequency of 5 minutes. Log alerts still have a longer than 1 minute delay due to the time is takes to ingest the logs. 
 - **Support for multi-dimensional metrics**: You can alert on dimensional metrics allowing you to monitor an only an interesting segment of the metric. 
