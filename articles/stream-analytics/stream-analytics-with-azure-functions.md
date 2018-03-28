@@ -14,7 +14,7 @@ ms.custom: mvc
 ms.workload: data-services
 ms.date: 03/19/2018
 ms.author: sngun
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: "As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs."
 ---
 
 # Tutorial: Run Azure Functions with Stream Analytics jobs 
@@ -208,4 +208,4 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 > [!div class="nextstepaction"]
-> [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
+> [Run JavaScript user-defined functions within Stream Analytics jobs](stream-analytics-javascript-user-defined-functions.md)
