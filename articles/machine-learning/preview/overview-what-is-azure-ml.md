@@ -17,8 +17,6 @@ Machine learning is a data science technique that allows computers to use existi
 
 Forecasts or predictions from machine learning can make apps and devices smarter. When you shop online, machine learning helps recommend other products you might like based on what you've purchased. When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. When your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
-For a brief overview, try the video series [Data Science for Beginners](https://docs.microsoft.com/azure/machine-learning/studio/data-science-for-beginners-the-5-questions-data-science-answers). Without using jargon or math, Data Science for Beginners introduces machine learning and steps you through a simple predictive model.
-
 ## What is Azure Machine Learning?
 Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution. It enables data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
