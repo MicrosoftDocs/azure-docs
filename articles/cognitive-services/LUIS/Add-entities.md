@@ -39,6 +39,9 @@ A simple entity is a generic entity that describes a single concept.
 
     ![Add Entity Dialog box - Simple](./media/add-entities/create-simple-airline-entity.png)
 
+> [!TIP]
+> Try the [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more.
+
 ## Add regular expression entities
 A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
 
@@ -48,6 +51,8 @@ A regular expression entity is used to pull out data from the utterance based on
 
     ![Add Entity Dialog box - Simple](./media/add-entities/regex-entity-create-dialog.png)
 
+> [!TIP]
+> Try the [quickstart](luis-quickstart-intents-regex-entity.md) to learn more.
 
 ## Add hierarchical entities
 A hierarchical entity defines a relationship between a category and its members.
@@ -69,6 +74,9 @@ To add hierarchical entities, complete the following steps: Make sure to add the
 
     >[!NOTE]
     >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
+
+> [!TIP]
+> Try the [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more.
 
 ## Add composite entities
 You can also define relationships between entities by creating composite entities. A composite entity is created by combining two or more existing entities and treating them as one entity. 
@@ -120,6 +128,9 @@ A list entity is an entity that is defined by a list of all its values.
 7. Click on "Type a synonym and press Enter" to add additional text values for a normalized value.
 
     ![List item synonyms](./media/add-entities/entity-list-synonyms-list.png)
+
+> [!TIP]
+> Try the [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more.
 
 ## Import list entity values
 
