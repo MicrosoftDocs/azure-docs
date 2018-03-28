@@ -18,7 +18,7 @@ Internal load balancing makes a Kubernetes service accessible to applications ru
 
 ## Create internal load balancer
 
-To create an internal load balancer, build a service manifest with the service type `LoadBalancer` and add the `azure-load-balancer-internal` annotation as seen in the following sample.
+To create an internal load balancer, build a service manifest with the service type `LoadBalancer` and the `azure-load-balancer-internal` annotation as seen in the following sample.
 
 ```yaml
 apiVersion: v1
@@ -42,13 +42,15 @@ Once deployed, an Azure load balancer is created and made available on the same 
 When retrieving the service details, the IP address in the `EXTERNAL-IP` column is the IP address of the internal load balancer. 
 
 ```console
-NAME               TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.184.168   10.240.0.7    80:30225/TCP   2m
+$ kubectl get service azure-vote-front
+
+NAME               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+azure-vote-front   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   10s
 ```
 
 ## Specify an IP address
 
-If you would like to use a specific IP address with the internal load balancer, add `loadBalancerIP` to the load balancer spec. The IP address must reside in the same subenet as the AKS cluster and must not already be assigned to a resource.
+If you would like to use a specific IP address with the internal load balancer, add the `loadBalancerIP` property to the load balancer spec. The specified IP address must reside in the same subnet as the AKS cluster and must not already be assigned to a resource.
 
 ```yaml
 apiVersion: v1
@@ -66,9 +68,11 @@ spec:
     app: azure-vote-front
 ```
 
-When retrieving the service details, the IP address in the `EXTERNAL-IP` should be set to the specified IP address. 
+When retrieving the service details, the IP address on the `EXTERNAL-IP` should be set to the specified IP address. 
 
 ```console
+$ kubectl get service azure-vote-front
+
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
