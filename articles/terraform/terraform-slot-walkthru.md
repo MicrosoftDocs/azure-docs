@@ -1,23 +1,29 @@
 ---
 title: Terraform with Azure provider deployment slot
 description: Terraform with Azure provider deployment slot tutorial
-keywords: terraform, devops, MSI, virtual machine, Azure, deployment slot
+keywords: terraform, devops, virtual machine, Azure, deployment slots
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 3/27/2018
+ms.date: 3/28/2018
 ms.topic: article
 ---
 
-# Terraform with Azure Provider Deployment Slot Walkthrough
+# Using Terraform to provision infrastructures with Azure deployment slots
 
-This tutorial illustrates how to deploy two web apps via `GitHub` on `Azure`. One app will be assigned to the `Production Slot` and the second one will be hosted in the additional [deployment slot](https://docs.microsoft.com/en-us/azure/app-service/web-sites-staged-publishing), which will be provisioned with Terraform. Finally, Terraform will be used to swap the inactive slot with the production slot.
+[Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between various versions of your app - such as production, development, and test - to minimize the impact of broken deployments. Using deployment slots, you can directly swap between slots  without any downtime. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in the production slot, while the second app is hosted in the deployment slot. Terraform is then used to swap the (inactive) deployment slot with the production slot.
 
-Using the [Azure portal](https://portal.azure.com/) deploys a [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), which is pre-configured with the latest version of Terraform. 
+## 
 
-In Cloud Shell, navigate to your `clouddrive` directory and create two directories, one called `deploy` and the other called `swap` as seen in the following image.
+1. Browse to the [Azure portal](http://www.portal.azure.com)
 
-![Create the Cloud Shell directories](./media/terraform-slot-walkthru/cloud-shell.png)
+1. Select Cloud Shell.
+
+    ![Cloud Shell prompt][./media/terraform-slot-walkthru/azure-portal-cloud-shell-button.png]
+
+1. In Cloud Shell, navigate to your `clouddrive` directory and create two directories, one called `deploy` and the other called `swap` as seen in the following image.
+
+    ![Create the Cloud Shell directories](./media/terraform-slot-walkthru/cloud-shell.png)
 
 Navigate to your deploy directory and - using `nano` - copy and paste the following HCL (HashiCorp Configuration Language) into a file name `deploy.tf`.
 
