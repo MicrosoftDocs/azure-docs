@@ -20,19 +20,21 @@ Before starting this tutorial, make sure the following prerequisites are complet
 
 ![Recovery Architecture](media/saas-dbpertenant-dr-geo-replication/recovery-architecture.png)
  
-Disaster recovery (DR) is an important consideration for many applications, whether for compliance reasons or business continuity.  Should there be a prolonged service outage, a well-prepared DR plan can minimize business disruption. A well-prepared DR strategy must accomplish several goals simultaneously:
+Disaster recovery (DR) is an important consideration for many applications, whether for compliance reasons or business continuity. Should there be a prolonged service outage, a well-prepared DR plan can minimize business disruption. A DR plan based on geo-replication must accomplish several goals:
+ * Replicate catalog and tenant databases in order to reserve all needed capacity in the recovery region.
+ * It must be possible to cancel the restore process in mid-flight if the original region comes back on-line.
+ * Enable tenant provisioning quickly so new tenant onboarding can restart as soon as possible  
+ * Be optimized for restoring tenants in priority order
+ * Be optimized for getting tenants online as soon as possible by doing steps in parallel where practical
+ * Be resilient to failure, restartable, and idempotent
+ * Repatriate databases to their original region with minimal impact to tenants when the outage is resolved.  
 
-* Reserve all needed capacity as quickly as possible in order to be able to recover tenants.		
-* Allow for the restore process to be cancelled mid-flight. There should be no penalty for attempting recovery when a region goes down and comes back online soon afterwards.
-* Optimized for restoring tenants in priority order.
-* Optimized for getting tenants online as soon as possible by doing steps in parallel where practical.
-* Be resilient to failure, restartable, and idempotent.
-* Repatriate the app deployment back to the original region with minimal impact to tenants when the initial outage is resolved.
+> Note: the application is recovered into the _paired region_ of the region in which the application is deployed. For more information, see [Azure paired regions](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). 
 
 In this tutorial, these challenges are addressed using features of Azure SQL Database and the Azure platform:
 
 * [Azure Resource Management (ARM) templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. ARM templates are used to provision a mirror image of the production servers and elastic pools in the recovery region.
-* [Asynchronous restore operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), sent in tenant priority order for each each elastic pool. These requests are queued for each pool by the system and are processed in batches so the pool is not overloaded. The asynchronous nature of these operations also allows them to be cancelled mid-flight if necessary.
+* [Asynchronous restore operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) sent in tenant-priority order, which are queued for each pool by the system and processed in batches so the pool is not overloaded. These operations can be canceled before or during execution if necessary.
 * [Shard management recovery features](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager), to change database entries in the catalog during recovery and repatriation. These features allow the app to connect to tenant databases regardless of location without reconfiguring the app.
 * [Azure SQL Server DNS alias](https://docs.microsoft.com/azure/sql-database/dns-alias-overview), to enable seamless provisioning of new tenants regardless of which region the app is operating in. DNS aliases are also used to allow the catalog sync process to connect to the active catalog regardless of its location.
 * [Geo-replication](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), to create replicas that will be activated during an outage. The replicas also seed changed data back to the original region to ensure that there is no data loss and minimal impact during repatriation. 
