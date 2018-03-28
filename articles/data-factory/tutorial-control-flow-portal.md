@@ -4,8 +4,8 @@ description: 'Learn how to control flow of data in Azure Data Factory by branchi
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -126,6 +126,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## Create a data factory
 
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 
    
    ![New->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -238,8 +239,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
         - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name. 
         - Receiver – Passing value of "@pipeline().parameters.receiver"). Accessing the pipeline parameters.
-    6. The **Settings** should look like the following image: 
-
+    
         ![Settings for the first Web activity](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Connect the **Copy** activity to the **Web** activity by dragging the green button next to the Copy activity and dropping on the Web activity. 
 
@@ -263,8 +263,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. The **Settings** should look like the following image: 
-    
+
         ![Settings for the second Web activity](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Select **Copy** activity in the pipeline designer, and click **+->** button, and select **Error**.  
 
@@ -275,7 +274,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 24. To validate the pipeline, click **Validate** button on the toolbar. Close the **Pipeline Validation Output** window by clicking the **>>** button.
 
     ![Validate pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. To publish the entities (datasets, pipelines, etc.) to Data Factory service, click **Publish**. Wait until you see the **Successfully published** message.
+24. To publish the entities (datasets, pipelines, etc.) to Data Factory service, select **Publish All**. Wait until you see the **Successfully published** message.
 
     ![Publish](./media/tutorial-control-flow-portal/publish-button.png)
  
@@ -307,7 +306,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 3. In the **Pipeline Run** window, do the following steps: 
 
     1. Enter **adftutorial/dummy/input** for the **sourceBlobContainer** parameter. Ensure that the dummy folder does not exist in the adftutorial container. 
-    2. Enter **adftutorial/dummy/inputt** for the **sinkBlobContainer** parameter. 
+    2. Enter **adftutorial/dummy/output** for the **sinkBlobContainer** parameter. 
     3. Enter an **email address** of the **receiver**. 
     4. Click **Finish**.
 

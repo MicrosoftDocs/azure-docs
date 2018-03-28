@@ -2,18 +2,12 @@
 title: Introduction to Azure Storage | Microsoft Docs
 description: Introduction to Azure Storage, Microsoft's data storage in the cloud.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/21/2018
+ms.date: 03/06/2018
 ms.author: tamram
 ---
 
@@ -128,21 +122,21 @@ The Blob Service allows you to provide public access to a container and its blob
 
 ## Encryption
 
-There are a couple of basic kinds of encryption available for the Storage services.
+There are two basic kinds of encryption available for the Storage services. For more information about security and encryption, see the [Azure Storage security guide](storage-security-guide.md).
 
 ### Encryption at rest
 
-You can enable Storage Service Encryption (SSE) on either the Files service (preview) or the Blob service for an Azure storage account. If enabled, all data written to the specific service is encrypted before it is written. When you read the data, it is decrypted before it is returned.
+Azure Storage Service Encryption (SSE) at rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption, and key management are totally transparent to users.
+
+SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). SSE does not affect Azure Storage performance.
+
+For more information about SSE encryption at rest, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
 ### Client-side encryption
 
 The storage client libraries have methods you can call to programmatically encrypt data before sending it across the wire from the client to Azure. It is stored encrypted, which means it also is encrypted at rest. When reading the data back, you decrypt the information after receiving it.
 
-### Encryption in transit with Azure File shares
-
-See [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) for more information on shared access signatures. See [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
-
-For more information about securing your storage account and encryption, see the [Azure Storage security guide](storage-security-guide.md).
+For more information about client-side encryption, see [Client-Side Encryption with .NET for Microsoft Azure Storage](storage-client-side-encryption.md).
 
 ## Replication
 
@@ -150,7 +144,7 @@ In order to ensure that your data is durable, Azure Storage will keep (and manag
 
 **Locally-redundant storage (LRS)**
 
-Locally-redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a give year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
+Locally-redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a given year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
 
 **Zone-redundant storage (ZRS) (Preview)**
 

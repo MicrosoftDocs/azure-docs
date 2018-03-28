@@ -1,14 +1,14 @@
 ---
-title: Server concepts in Azure Database for MySQL | Microsoft Docs
+title: Server concepts in Azure Database for MySQL
 description: This topic provides considerations and guidelines for working with Azure Database for MySQL servers.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 02/28/2018
 ---
 # Server concepts in Azure Database for MySQL
 This article provides considerations and guidelines for working with Azure Database for MySQL servers.
@@ -28,7 +28,7 @@ An Azure Database for MySQL server:
 - Provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
 - Is available in multiple versions. For more information, see [Supported Azure Database for MySQL database versions](./concepts-supported-versions.md).
 
-Within an Azure Database for MySQL server, you can create one or multiple databases. You can opt to create a single database per server to use all the resources or to create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, Compute Units, and storage (GB). For more information, see [Pricing tiers](./concepts-service-tiers.md).
+Within an Azure Database for MySQL server, you can create one or multiple databases. You can opt to create a single database per server to use all the resources or to create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of pricing tier, vCores, and storage (GB). For more information, see [Pricing tiers](./concepts-service-tiers.md).
 
 ## How do I connect and authenticate to an Azure Database for MySQL server?
 

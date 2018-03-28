@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/24/2018
 ms.author: dobett
 
 ---
@@ -44,7 +44,7 @@ You need SSH client on your desktop machine to enable you to remotely access the
 
 ### Required Raspberry Pi software
 
-If you haven't done so already, install Node.js version 4.0.0 or later on your Raspberry Pi. The following steps show you how to install Node.js v6.11.4 on your Raspberry Pi:
+If you haven't done so already, install Node.js version 4.0.0 or later on your Raspberry Pi. The following steps show you how to install Node.js v6 on your Raspberry Pi:
 
 1. Connect to your Raspberry Pi using `ssh`. For more information, see [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) on the [Raspberry Pi website](https://www.raspberrypi.org/).
 
@@ -54,16 +54,19 @@ If you haven't done so already, install Node.js version 4.0.0 or later on your R
     sudo apt-get update
     ```
 
-1. Use the following command to download the Node.js binaries to your Raspberry Pi:
+1. Use the following commands to remove any existing installation of Node.js from your Raspberry Pi:
 
     ```sh
-    wget https://nodejs.org/dist/v6.11.4/node-v6.11.4-linux-armv7l.tar.gz
+    sudo apt-get remove nodered -y
+    sudo apt-get remove nodejs nodejs-legacy -y
+    sudo apt-get remove npm  -y
     ```
 
-1. Use the following command to install the binaries:
+1. Use the following command to download and install Node.js v6 on your Raspberry Pi:
 
     ```sh
-    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.11.4-linux-armv7l.tar.gz
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
+    sudo apt-get install nodejs -y
     ```
 
 1. Use the following command to verify you have installed Node.js v6.11.4 successfully:
@@ -76,38 +79,37 @@ If you haven't done so already, install Node.js version 4.0.0 or later on your R
 
 Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
-1. Create a folder called `RemoteMonitoring` in your home folder on the Raspberry Pi. Navigate to this folder in your command line:
+1. Create a folder called `remotemonitoring` in your home folder on the Raspberry Pi. Navigate to this folder in your command line:
 
     ```sh
     cd ~
-    mkdir RemoteMonitoring
-    cd RemoteMonitoring
+    mkdir remotemonitoring
+    cd remotemonitoring
     ```
 
 1. To download and install the packages you need to complete the sample app, run the following commands:
 
     ```sh
     npm init
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. In the `RemoteMonitoring` folder, create a file called **remote_monitoring.js**. Open this file in a text editor. On the Raspberry Pi, you can use the `nano` or `vi` text editors.
+1. In the `remotemonitoring` folder, create a file called **remote_monitoring.js**. Open this file in a text editor. On the Raspberry Pi, you can use the `nano` or `vi` text editors.
 
 1. In the **remote_monitoring.js** file, add the following `require` statements:
 
     ```nodejs
-    'use strict';
-
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
     var ConnectionString = require('azure-iot-device').ConnectionString;
     var Message = require('azure-iot-device').Message;
+    var async = require('async');
     ```
 
-1. Add the following variable declarations after the `require` statements. Replace the placeholder values `{Device Id}` and `{Device Key}` with values you noted for the device you provisioned in the remote monitoring solution. Use the IoT Hub Hostname from the solution to replace `{IoTHub Name}`. For example, if your IoT Hub Hostname is `contoso.azure-devices.net`, replace `{IoTHub Name}` with `contoso`:
+1. Add the following variable declarations after the `require` statements. Replace the placeholder value `{device connection string}` with value you noted for the device you provisioned in the remote monitoring solution:
 
     ```nodejs
-    var connectionString = 'HostName={IoTHub Name}.azure-devices.net;DeviceId={Device Id};SharedAccessKey={Device Key}';
+    var connectionString = '{device connection string}';
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
@@ -135,6 +137,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
     var deviceLocation = "Building 44";
     var deviceLatitude = 47.638928;
     var deviceLongitude = -122.13476;
+    var deviceOnline = true;
     ```
 
 1. Add the following variable to define the reported properties to send to the solution. These properties include metadata to describe the methods and telemetry the device uses:
@@ -186,7 +189,8 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
       "FirmwareUpdateStatus": deviceFirmwareUpdateStatus,
       "Location": deviceLocation,
       "Latitude": deviceLatitude,
-      "Longitude": deviceLongitude
+      "Longitude": deviceLongitude,
+      "Online": deviceOnline
     }
     ```
 
@@ -208,7 +212,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
     }
     ```
 
-1. Add the following function to handle direct method calls from the solution. The solution uses direct methods to act on devices:
+1. Add the following generic function to handle direct method calls from the solution. The function displays information about the direct method that was invoked, but in this sample does not modify the device in any way. The solution uses direct methods to act on devices:
 
     ```nodejs
     function onDirectMethod(request, response) {
@@ -217,14 +221,116 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
       // Complete the response
       response.send(200, request.methodName + ' was called on the device', function (err) {
-        if (!!err) {
-          console.error('An error ocurred when sending a method response:\n' +
-            err.toString());
+        if (err) console.error('Error sending method response :\n' + err.toString());
+        else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+      });
+    }
+    ```
+
+1. Add the following function to handle the **FirmwareUpdate** direct method calls from the solution. The function verifies the parameters passed in the direct method payload and then asynchronously runs a firmware update simulation:
+
+    ```node.js
+    function onFirmwareUpdate(request, response) {
+      // Get the requested firmware version from the JSON request body
+      var firmwareVersion = request.payload.Firmware;
+      var firmwareUri = request.payload.FirmwareUri;
+      
+      // Ensure we got a firmware values
+      if (!firmwareVersion || !firmwareUri) {
+        response.send(400, 'Missing firmware value', function(err) {
+          if (err) console.error('Error sending method response :\n' + err.toString());
+          else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
+        });
+      } else {
+        // Respond the cloud app for the device method
+        response.send(200, 'Firmware update started.', function(err) {
+          if (err) console.error('Error sending method response :\n' + err.toString());
+          else {
+            console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+
+            // Run the simulated firmware update flow
+            runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
+          }
+        });
+      }
+    }
+    ```
+
+1. Add the following function to simulate a long-running firmware update flow that reports progress back to the solution:
+
+    ```node.js
+    // Simulated firmwareUpdate flow
+    function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
+      console.log('Simulating firmware update flow...');
+      console.log('> Firmware version passed: ' + firmwareVersion);
+      console.log('> Firmware URI passed: ' + firmwareUri);
+      async.waterfall([
+        function (callback) {
+          console.log("Image downloading from " + firmwareUri);
+          var patch = {
+            FirmwareUpdateStatus: 'Downloading image..'
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(10000, callback);
+        },
+        function (callback) {
+          console.log("Downloaded, applying firmware " + firmwareVersion);
+          deviceOnline = false;
+          var patch = {
+            FirmwareUpdateStatus: 'Applying firmware..',
+            Online: false
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(8000, callback);
+        },
+        function (callback) {
+          console.log("Rebooting");
+          var patch = {
+            FirmwareUpdateStatus: 'Rebooting..'
+          };
+          reportUpdateThroughTwin(patch, callback);
+          sleep(10000, callback);
+        },
+        function (callback) {
+          console.log("Firmware updated to " + firmwareVersion);
+          deviceOnline = true;
+          var patch = {
+            FirmwareUpdateStatus: 'Firmware updated',
+            Online: true,
+            Firmware: firmwareVersion
+          };
+          reportUpdateThroughTwin(patch, callback);
+          callback(null);
+        }
+      ], function(err) {
+        if (err) {
+          console.error('Error in simulated firmware update flow: ' + err.message);
         } else {
-          console.log('Response to method \'' + request.methodName +
-            '\' sent successfully.');
+          console.log("Completed simulated firmware update flow");
         }
       });
+
+      // Helper function to update the twin reported properties.
+      function reportUpdateThroughTwin(patch, callback) {
+        console.log("Sending...");
+        console.log(JSON.stringify(patch, null, 2));
+        client.getTwin(function(err, twin) {
+          if (!err) {
+            twin.properties.reported.update(patch, function(err) {
+              if (err) callback(err);
+            });      
+          } else {
+            if (err) callback(err);
+          }
+        });
+      }
+
+      function sleep(milliseconds, callback) {
+        console.log("Simulate a delay (milleseconds): " + milliseconds);
+        setTimeout(function () {
+          callback(null);
+        }, milliseconds);
+      }
     }
     ```
 
@@ -232,15 +338,19 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
     ```node.js
     function sendTelemetry(data, schema) {
-      var d = new Date();
-      var payload = JSON.stringify(data);
-      var message = new Message(payload);
-      message.properties.add('$$CreationTimeUtc', d.toISOString());
-      message.properties.add('$$MessageSchema', schema);
-      message.properties.add('$$ContentType', 'JSON');
+      if (deviceOnline) {
+        var d = new Date();
+        var payload = JSON.stringify(data);
+        var message = new Message(payload);
+        message.properties.add('$$CreationTimeUtc', d.toISOString());
+        message.properties.add('$$MessageSchema', schema);
+        message.properties.add('$$ContentType', 'JSON');
 
-      console.log('Sending device message data:\n' + payload);
-      client.sendEvent(message, printErrorFor('send event'));
+        console.log('Sending device message data:\n' + payload);
+        client.sendEvent(message, printErrorFor('send event'));
+      } else {
+        console.log('Offline, not sending telemetry');
+      }
     }
     ```
 
@@ -252,11 +362,11 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
 1. Add the following code to:
 
-    - Open the connection.
-    - Set up a handler for desired properties.
-    - Send reported properties.
-    - Register handlers for the direct methods.
-    - Start sending telemetry.
+    * Open the connection.
+    * Set up a handler for desired properties.
+    * Send reported properties.
+    * Register handlers for the direct methods. The sample uses a separate handler for the firmware update direct method.
+    * Start sending telemetry.
 
     ```nodejs
     client.open(function (err) {
@@ -279,13 +389,13 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
             // Send reported properties
             twin.properties.reported.update(reportedProperties, function (err) {
               if (err) throw err;
-              console.log('twin state reported');
+              console.log('Twin state reported');
             });
 
             // Register handlers for all the method names we are interested in.
             // Consider separate handlers for each method.
             client.onDeviceMethod('Reboot', onDirectMethod);
-            client.onDeviceMethod('FirmwareUpdate', onDirectMethod);
+            client.onDeviceMethod('FirmwareUpdate', onFirmwareUpdate);
             client.onDeviceMethod('EmergencyValveRelease', onDirectMethod);
             client.onDeviceMethod('IncreasePressure', onDirectMethod);
           }

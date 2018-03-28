@@ -1,8 +1,11 @@
+# [Data Lake Store Documentation](index.md)
+
 # Overview
 ## [Overview of Azure Data Lake Store](data-lake-store-overview.md)
 ## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
 ## [Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
 ## [Open source applications working with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+## [Best practices for using Data Lake Store](data-lake-store-best-practices.md)
 
 # Get started
 ## [Using Portal](data-lake-store-get-started-portal.md)
@@ -13,6 +16,7 @@
 # How to
 ## Load and move data
 ### [Using Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
+### [Using Storage Explorer](data-lake-store-in-storage-explorer.md)
 ### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)

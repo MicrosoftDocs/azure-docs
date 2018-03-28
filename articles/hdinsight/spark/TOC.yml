@@ -86,16 +86,17 @@
           href: apache-spark-use-with-data-lake-store.md
         - name: Connect to Azure SQL database
           href: apache-spark-connect-to-sql-database.md
+        - name: Implement a lambda architecture using Spark and Cosmos DB
+          href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
     - name: Spark streaming
       items:
-        - name: Overview
+        - name: Streaming overview
           href: apache-spark-streaming-overview.md
+        - name: Structured Streaming overview
+          href: apache-spark-structured-streaming-overview.md
         - name: Create highly available Spark streaming jobs in YARN
           href: apache-spark-streaming-high-availability.md
-        - name: Process streaming events
-          href: apache-spark-eventhub-streaming.md
-        - name: Structured streaming using Event Hubs
-          href: apache-spark-eventhub-structured-streaming.md
         - name: Structured streaming with Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true

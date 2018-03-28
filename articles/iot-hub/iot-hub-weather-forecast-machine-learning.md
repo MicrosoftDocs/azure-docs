@@ -77,7 +77,7 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
 
 ### Create a Stream Analytics job
 
-1. In the [Azure portal](https://ms.portal.azure.com/), click **New** > **Internet of Things** > **Stream Analytics job**.
+1. In the [Azure portal](https://portal.azure.com/), click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
 1. Enter the following information for the job.
 
    **Job name**: The name of the job. The name must be globally unique.

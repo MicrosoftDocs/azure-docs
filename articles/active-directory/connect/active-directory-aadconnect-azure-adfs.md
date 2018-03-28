@@ -282,8 +282,10 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
+<!--
 [comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
 [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
+-->
 
 **9.2. Securing the DMZ subnet**
 
@@ -360,7 +362,7 @@ You can use an existing virtual network or create a new VNET while deploying thi
 * [Internet Facing Load Balancer](https://aka.ms/Azure/ILB/Internet)
 * [Storage Accounts](https://aka.ms/Azure/Storage)
 * [Azure Virtual Networks](https://aka.ms/Azure/VNet)
-* [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks) 
+* [AD FS and Web Application Proxy Links](https://aka.ms/ADFSLinks) 
 
 ## Next steps
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 > 
 > 
 
-Management solutions include packaged management scenarios that customers can add to their environment.  In addition to [solutions provided by Microsoft](../log-analytics/log-analytics-add-solutions.md), partners and customers can create management solutions to be used in their own environment or made available to customers through the community.
+Management solutions include packaged management scenarios that customers can add to their Azure environment.  In addition to [solutions provided by Microsoft](../log-analytics/log-analytics-add-solutions.md), partners and customers can create management solutions to be used in their own environment or made available to customers through the community.
 
 ## Finding and installing management solutions
 There are multiple methods for locating and installing management solutions as described in the following sections.
@@ -34,13 +34,13 @@ There are multiple methods for locating and installing management solutions as d
 Management solutions provided by Microsoft and trusted partners may be installed from the Azure Marketplace in the Azure portal.
 
 1. Log in to the Azure portal.
-2. In the left pane, select **More services**.
+2. In the left pane, select **All services**.
 3. Either scroll down to **Solutions** or type *solutions* into the **Filter** dialog.
 4. Click the **+ Add** button.
 5. Search for solutions that you're interested in either by browsing, clicking the **Filter** button, or typing in the **Search Everthing** box.
 6. Click a marketplace item to view its detailed information.
 7. Click **Create** to open the **Add Solution** pane.
-8. You will be prompted to required information such as the [Log Analytics workspace and Automation account](#oms-workspace-and-automation-account) in addition to values for any parameters in the solution.
+8. You will be prompted to required information such as the [Log Analytics workspace and Automation account](#log-analytics-workspace-and-automation-account) in addition to values for any parameters in the solution.
 9. Click **Create** to install the solution.
 
 ### OMS Portal
@@ -90,7 +90,7 @@ You can verify the link between a Log Analytics workspace and an Automation acco
 Use the following procedure to to view the management solutions in the workspaces linked to your Azure subscription.
 
 1. Log in to the Azure portal.
-2. In the left pane, select **More services**.
+2. In the left pane, select **All services**.
 3. Either scroll down to **Solutions** or type *solutions* into the **Filter** dialog.
 4. Solutions installed in all your workspaces will be listed.
 

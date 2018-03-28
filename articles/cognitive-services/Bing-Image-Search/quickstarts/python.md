@@ -29,7 +29,7 @@ To continue with the walkthrough, set `subscription_key` to your API key for the
 
 
 ```python
-subscription_key = "96d05359d76f4e758906539daeab939e"
+subscription_key = None
 assert subscription_key
 ```
 

@@ -102,7 +102,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 4. Click on the blue text in order to set up the service principal. 
 	
     ![vsts3](./media/documentation-government-vsts-img14.png)
-5. Fill out the dialog with "USGovernment cloud" for the "Environment" parameter and choose a friendly name for "Connection Name". Fill out the rest of dialog with the Service Connection values generated in **Step 9 of the "Generate a Service Principal" section above**. Click "Verify Connection" in the bottom right corner, make sure it says "Verified", and then click "Ok".
+5. Fill out the dialog with "AzureUSGovernment" for the "Environment" parameter and choose a friendly name for "Connection Name". Fill out the rest of dialog with the Service Connection values generated in **Step 9 of the "Generate a Service Principal" section above**. Click "Verify Connection" in the bottom right corner, make sure it says "Verified", and then click "Ok".
 
     ![vsts4](./media/documentation-government-vsts-img15.png)
 6. Confirm your build has been created successfully.

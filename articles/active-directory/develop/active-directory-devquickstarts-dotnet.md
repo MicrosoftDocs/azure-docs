@@ -44,7 +44,7 @@ To enable your app to get tokens, you'll first need to register it in your Azure
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+3. Click on **All services** in the left hand nav, and choose **Azure Active Directory**.
 4. Click on **App registrations** and choose **Add**.
 5. Follow the prompts and create a new **Native Client Application**.
   * The **Name** of the application will describe your application to end-users

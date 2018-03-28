@@ -1,3 +1,5 @@
+# [Media Services Documentation](index.md)
+
 # [Overview](media-services-overview.md)
 ## [Scenarios and availability](scenarios-and-availability.md)
 ## [Concepts](media-services-concepts.md)
@@ -36,8 +38,9 @@
 #### [Manage assets across multiple storage accounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
 ## [Configure Postman](media-rest-apis-with-postman.md)
+### [On-demand streaming collection](postman-collection.md)
+### [Live streaming collection](postman-live-streaming-collection.md)
 ### [Environment](postman-environment.md)
-### [Collection](postman-collection.md)
 ## Upload content
 ### Upload files into an account
 #### [Azure portal](media-services-portal-upload-files.md)
@@ -116,7 +119,8 @@
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Configure on-premises encoders for use with cloud encoder](media-services-live-encoders-overview.md)
 #### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
-#### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
+#### [FMLE encoder](media-services-configure-fmle-live-encoder.md)
+#### [Haivision KB encoder](media-services-configure-kb-live-encoder.md)
 #### [NewTek TriCaster encoder](media-services-configure-tricaster-live-encoder.md)
 #### [Wirecast encoder](media-services-configure-wirecast-live-encoder.md)
 ### [Handle long-running operations](media-services-dotnet-long-operations.md)
@@ -170,6 +174,7 @@
 #### [Face Redactor walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
+### [Process with Content Moderator](media-services-content-moderation.md)
 
 ## [Configure telemetry](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)
@@ -228,7 +233,11 @@
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)  
+## [REST](/rest/api/media/mediaservice)
+## Specifications
+### [Live Ingest - Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
+### [Live Ingest - Signaling Timed Metadata in Live Streaming](media-services-specifications-live-timed-metadata.md)
+### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # Resources
 ## [Azure Media Services community](media-services-community.md)

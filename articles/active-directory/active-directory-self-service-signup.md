@@ -1,5 +1,5 @@
 ﻿---
-title: Self-service or viral signup in Azure Active Directory | Microsoft Docs
+title: Self-service or trial signup in Azure Active Directory | Microsoft Docs
 description: Use self-service signup in an Azure Active Directory (Azure AD) tenant
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 01/28/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -43,7 +43,12 @@ Admins have two self-service controls today. They can control whether:
 An admin can configure these capabilities using the following Azure AD cmdlet Set-MsolCompanySettings parameters:
 
 * **AllowEmailVerifiedUsers** controls whether a user can create or join an unmanaged directory. If you set that parameter to $false, no email-verified users can join the directory.
-* **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no users can perform self-service signup.
+* **AllowAdHocSubscriptions** controls the ability for users to perform self-service signup. If you set that parameter to $false, no users can perform self-service signup. 
+  
+  > [!NOTE]
+  > Flow and PowerApps trial signups are not controlled by the **AllowAdHocSubscriptions** setting. For more information, see the following articles:
+  > * [How can I prevent my existing users from starting to use Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+  > * [Flow in your organization Q&A](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### How do the controls work together?
 These two parameters can be used in conjunction to define more precise control over self-service signup. For example, the following command will allow users to perform self-service signup, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created first cannot perform self-service signup):

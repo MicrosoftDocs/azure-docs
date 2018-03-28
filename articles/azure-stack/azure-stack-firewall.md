@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
@@ -37,8 +37,8 @@ Some of the downsides of using NAT for Public VIP are:
 - While NAT usage limits the user experience, it gives full control to the operator over publishing requests.
 - For hybrid cloud scenarios with Azure, consider that Azure does not support setting up a VPN tunnel to an endpoint using NAT.
 
-### SSL dECRYPTION
-Currently our recommendation on SSL Decryption is to disable it on all Azure Stack traffic, in the future we will provide guidance on how to enable SSL Decryption for Azure Stack.
+### SSL decryption
+It is currently recommended to disable SSL decryption on all Azure Stack traffic. If it is supported in future updates, guidance will be provided about how to enable SSL decryption for Azure Stack.
 
 ## Edge firewall scenario
 In an edge deployment, Azure Stack is deployed directly behind the edge router or the firewall. In these scenarios, it is supported for the firewall to be above the border or acting as the border device if it supports Equal Cost Multi Path (ECMP) with either BGP or static routing.
@@ -56,7 +56,9 @@ In an enterprise intranet or perimeter deployment, Azure Stack is deployed on a 
 
 ![Azure Stack perimeter network example](.\media\azure-stack-firewall\perimeter-network-scenario.png)
 
+## Learn more
+Learn more about [ports and protocols used by Azure Stack endpoints](azure-stack-integrate-endpoints.md).
 
 ## Next steps
-Learn more about [ports and protocols used by Azure Stack endpoints](azure-stack-integrate-endpoints.md)
+[Azure Stack PKI requirements](azure-stack-pki-certs.md)
 

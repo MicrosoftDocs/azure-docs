@@ -1,5 +1,5 @@
 ---
-title: OMSManagement solution best practices | Microsoft Docs
+title: Management solution in Azure best practices | Microsoft Docs
 description: 
 services: operations-management-suite
 documentationcenter: ''
@@ -18,11 +18,11 @@ ms.author: bwren
 
 
 ---
-# Best practices for creating management solutions in Operations Management Suite (OMS) (Preview)
+# Best practices for creating management solutions in Azure (Preview)
 > [!NOTE]
-> This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.  
+> This is preliminary documentation for creating management solutions in Azure which are currently in preview. Any schema described below is subject to change.  
 
-This article provides best practices for [creating a management solution file](operations-management-suite-solutions-solution-file.md) in Operations Management Suite (OMS).  This information will be updated as additional best practices are identified.
+This article provides best practices for [creating a management solution file](operations-management-suite-solutions-solution-file.md) in Azure.  This information will be updated as additional best practices are identified.
 
 ## Data sources
 - Data sources can be [configured with a Resource Manager template](../log-analytics/log-analytics-template-workspace-configuration.md), but they should not be included in a solution file.  The reason is that configuring data sources is not currently idempotent meaning that your solution could overwrite existing configuration in the user's workspace.<br><br>For example, your solution may require Warning and Error events from the Application event log.  If you specify this as a data source in your solution, you risk removing Information events if the user had this configured in their workspace.  If you included all events, then you may be collecting excessive Information events in the user's workspace.

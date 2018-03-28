@@ -2,18 +2,15 @@
 title: Frequently asked questions - Azure Active Directory B2C
 description: Frequently asked questions (FAQ) about Azure Active Directory B2C
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: saeeda
+editor: ''
 
-ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
+ms.author: davidmu
 ---
 
 # Azure AD B2C: Frequently asked questions (FAQ) 
@@ -28,7 +25,9 @@ Azure AD B2C can't be used to authenticate users for Microsoft Office 365.  Azur
 ### What are local accounts in Azure AD B2C? How are they different from work or school accounts in Azure AD?
 In an Azure AD tenant, users that belong to the tenant sign-in with an email address of the form `<xyz>@<tenant domain>`.  The `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.
 
-In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account.  We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types by configuring Azure AD B2C in the Azure portal.
+In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account.  We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types when configuring identity providers for Azure AD B2C in the Azure portal. In your Azure AD B2C tenant, click **Identity providers** and then select **Username** under Local accounts. 
+
+User accounts for applications must always be created through a sign-up policy, sign-up or sign-in policy, or by using the Azure AD Graph API. User accounts created in the Azure portal are only used for administering the tenant.
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 We currently support Facebook, Google+, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (Preview). We will add support for other popular social identity providers based on customer demand.

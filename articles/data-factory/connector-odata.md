@@ -4,15 +4,15 @@ description: Learn how to copy data from OData sources to supported sink data st
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -51,7 +51,7 @@ The following properties are supported for OData linked service:
 | url | Root URL of the OData service. |Yes |
 | authenticationType | Type of authentication used to connect to the OData source.<br/>Allowed values are: **Anonymous**, **Basic**, and **Windows**. Note OAuth is not supported. | Yes |
 | userName | Specify user name if you are using Basic or Windows authentication. | No |
-| password | Specify password for the user account you specified for the userName. Mark this field as SecureString. | No |
+| password | Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example 1: using Anonymous authentication**

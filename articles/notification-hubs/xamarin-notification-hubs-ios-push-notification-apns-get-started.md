@@ -79,7 +79,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
 2. Enter your App Name and Organization identifier, then hit **Next**, then **Create**
 
-3. From the Solution view, double click *Into.plist* and under **Identity** make sure your Bundle Identifier matches the one used when creating your provisioning profile. Under **Signing** ensure that your Developer account is selected under **Team**, "Automatically manage signing" is selected and your Signing Certificate and Provisioning Profile are automatically selected.
+3. From the Solution view, double click *Info.plist* and under **Identity** make sure your Bundle Identifier matches the one used when creating your provisioning profile. Under **Signing** ensure that your Developer account is selected under **Team**, "Automatically manage signing" is selected and your Signing Certificate and Provisioning Profile are automatically selected.
 
     ![Visual Studio- iOS App Config][32]
 

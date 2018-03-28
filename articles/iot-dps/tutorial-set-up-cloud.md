@@ -36,7 +36,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 Follow these steps to create a new Device Provisioning Service instance.
 
-1. In the upper left-hand corner of the Azure portal, click **New**.
+1. In the upper left-hand corner of the Azure portal, click **Create a resource**.
 2. In the Search box, type **device provisioning**. 
 3. Click **IoT Hub Device Provisioning Service**.
 4. Fill out the **IoT Hub Device Provisioning Service** form with the following information:

@@ -4,8 +4,8 @@ description: 'In this tutorial, you create an Azure Data Factory pipeline that c
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -106,7 +106,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```
 
-### Create destination tables in your SQL database
+### Create destination tables in your Azure SQL database
 1. Open SQL Server Management Studio, and connect to your SQL Server database.
 
 2. In **Server Explorer**, right-click the database and choose **New Query**.
@@ -129,7 +129,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 	```
 
-### Create another table in the SQL database to store the high watermark value
+### Create another table in the Azure SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value: 
     
     ```sql
@@ -151,7 +151,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```
 
-### Create a stored procedure in the SQL database 
+### Create a stored procedure in the Azure SQL database 
 
 Run the following command to create a stored procedure in your SQL database. This stored procedure updates the watermark value after every pipeline run. 
 
@@ -169,7 +169,7 @@ END
 
 ```
 
-### Create data types and additional stored procedures
+### Create data types and additional stored procedures in the Azure SQL database
 Run the following query to create two stored procedures and two data types in your SQL database. 
 They're used to merge the data from source tables into destination tables.
 
@@ -701,7 +701,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **More services**, search with the keyword *Data factories*, and select **Data factories**. 
+2. Select **All services**, search with the keyword *Data factories*, and select **Data factories**. 
 
     ![Data factories menu](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
 

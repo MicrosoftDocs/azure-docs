@@ -76,7 +76,7 @@ Following the same steps above, input the necessary parameters, and kick off a d
 To view Perf Data from your nodes:
 
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 - Launch the Log Analytics workspace from the Azure portal.
   ![Service Fabric](./media/log-analytics-service-fabric/6.png)
