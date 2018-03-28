@@ -100,7 +100,7 @@ The walkthrough in this article uses Visual Studio 2017. You can also use Visual
 Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/) on your machine.
 
 ### Create an application in Azure Active Directory
-Following instructions in [this article](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) and subsequent sections to do the following tasks: 
+Following instructions from the sections in [this article](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) to do the following tasks: 
 
 1. **Create an Azure Active Directory application**. Create an application in Azure Active Directory that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
 2. Get the **application ID** and **authentication key**, and note down these values that you use later in this tutorial. 
