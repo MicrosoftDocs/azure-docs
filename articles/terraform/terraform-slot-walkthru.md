@@ -98,25 +98,35 @@ ms.topic: article
     }
     ```
 
-    1. Press the **&lt;Esc** key to exit to leave insert/append mode.
+1. Press the **&lt;Esc** key to exit to leave insert/append mode.
 
-    1. Save the file and exit vi by entering the following command, followed by pressing **&lt;Enter>:
+1. Save the file and exit vi by entering the following command, followed by pressing **&lt;Enter>:
 
     ```bash
     :wq
     ```
 
-    1. Once created, you can verify the contents of the file as follows:
+1. Once created, you can verify the contents of the file as follows:
 
     ```bash
     cat deploy.tf
     ```
 
-    1. Provision the resources defined in `deploy.tf`.
+1. Initialize Terraform.
 
     ```bash
     terraform init
+    ```
+
+1. Create the Terraform plan.
+
+    ```bash
     terraform plan
+    ```
+
+1. Provision the resources defined in `deploy.tf`.
+
+    ```bash
     terraform apply
     ```
 
