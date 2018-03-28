@@ -127,7 +127,7 @@ The output will look similar to this example:
 Name                   : VNet1GW
 ResourceGroupName      : TestRG1
 Location               : eastus
-Id                     : /subscriptions/086cfaa0-0d1d-4b1c-9455-c77/resourceGroups/TestRG1/provide
+Id                     : /subscriptions/<subscription ID>/resourceGroups/TestRG1/provide
                          rs/Microsoft.Network/virtualNetworkGateways/VNet1GW
 Etag                   : W/"0952d-9da8-4d7d-a8ed-28c8ca0413"
 ResourceGuid           : dc6ce1de-2c4494-9d0b-20b03ac595
@@ -137,16 +137,16 @@ IpConfigurations       : [
                            {
                              "PrivateIpAllocationMethod": "Dynamic",
                              "Subnet": {
-                               "Id": "/subscriptions/086cfaa0-0d1d-4b1c-9455-c77/resourceGroups/Te
+                               "Id": "/subscriptions/<subscription ID>/resourceGroups/Te
                          stRG1/providers/Microsoft.Network/virtualNetworks/VNet1/subnets/GatewaySubnet"
                              },
                              "PublicIpAddress": {
-                               "Id": "/subscriptions/086cfaa0-0d1d-4b1c-9455-c77/resourceGroups/Te
+                               "Id": "/subscriptions/<subscription ID>/resourceGroups/Te
                          stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP"
                              },
                              "Name": "default",
                              "Etag": "W/\"0952d-9da8-4d7d-a8ed-28c8ca0413\"",
-                             "Id": "/subscriptions/086cfaa0-0d1d-4b1c-9455-c77/resourceGroups/Test
+                             "Id": "/subscriptions/<subscription ID>/resourceGroups/Test
                          RG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/de
                          fault"
                            }
@@ -180,7 +180,7 @@ In the example response, the IpAddress value is the public IP address.
 Name                     : VNet1GWPIP
 ResourceGroupName        : TestRG1
 Location                 : eastus
-Id                       : /subscriptions/086cfaa0-0d1d-4b1c-9455-c77/resourceGroups/TestRG1/provi
+Id                       : /subscriptions/<subscription ID>/resourceGroups/TestRG1/provi
                            ders/Microsoft.Network/publicIPAddresses/VNet1GWPIP
 Etag                     : W/"5001666a-bc2a-484b-bcf5-ad488dabd8ca"
 ResourceGuid             : 3c7c481e-9828-4dae-abdc-f95b383
@@ -191,7 +191,7 @@ IpAddress                : 13.90.153.3
 PublicIpAddressVersion   : IPv4
 IdleTimeoutInMinutes     : 4
 IpConfiguration          : {
-                             "Id": "/subscriptions/086cfaa0-0d1d-4b1c-9455-c77/resourceGroups/Test
+                             "Id": "/subscriptions/<subscription ID>/resourceGroups/Test
                            RG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/
                            default"
                            }
