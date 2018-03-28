@@ -63,18 +63,17 @@ Two headers can be used to define cache freshness: `Cache-Control` and `Expires`
 > [!IMPORTANT]
 > By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. For **Azure CDN from Verizon Standard** and **Azure CDN from Akamai Standard** profiles, you can adjust how an Azure CDN endpoint treats these headers by using [CDN caching rules](cdn-caching-rules.md) to enable caching. For **Azure CDN from Verizon** profiles only, you use the [rules engine](cdn-rules-engine.md) to enable caching.
 
-Azure CDN supports the following HTTP cache-directive headers, which define cache duration and cache sharing: 
+Azure CDN supports the following HTTP cache-directive headers, which define cache duration and cache sharing.
 
 **Cache-Control:**
 - Introduced in HTTP 1.1 to give web publishers more control over their content and to address the limitations of the `Expires` header.
 - Overrides the `Expires` header, if both it and `Cache-Control` are defined.
-- When used in a request header, `Cache-Control` is ignored by Azure CDN, by default.
-- When used in a response header, Azure CDN supports the following `Cache-Control` directives, according to product: 
-   - **Azure CDN from Verizon**: Supports all `Cache-Control` directives. 
-   - **Azure CDN from Akamai**: Supports only the following `Cache-Control` directives; all others are ignored: 
-      - `max-age`: A cache can store the content for the number of seconds specified. For example, `Cache-Control: max-age=5`. This directive specifies the maximum amount of time the content is considered to be fresh.
-      - `no-cache`: Cache the content, but validate the content every time before delivering it from the cache. Equivalent to `Cache-Control: max-age=0`.
-      - `no-store`: Never cache the content. Remove content if it has been previously stored.
+- When used in an HTTP request, `Cache-Control` is ignored by Azure CDN, by default.
+- **Azure CDN from Verizon** profiles support all `Cache-Control` directives, when used in an HTTP response.
+- **Azure CDN from Akamai** profiles support only the following directives, when used in an HTTP response; all others are ignored:
+   - `max-age`: A cache can store the content for the number of seconds specified. For example, `Cache-Control: max-age=5`. This directive specifies the maximum amount of time the content is considered to be fresh.
+   - `no-cache`: Cache the content, but validate the content every time before delivering it from the cache. Equivalent to `Cache-Control: max-age=0`.
+   - `no-store`: Never cache the content. Remove content if it has been previously stored.
 
 **Expires:**
 - Legacy header introduced in HTTP 1.0; supported for backwards compatibility.
@@ -118,7 +117,7 @@ Not all resources can be cached. The following table shows what resources can be
 
 The following table describes the default caching behavior for the Azure CDN products and their optimizations.
 
-|                    | Verizon - general web delivery | Verizon – DSA | Akamai - general web delivery | Akamai - DSA | Akamai - large file download | Akamai - general or VOD media streaming |
+|                    | Verizon: general web delivery | Verizon: DSA | Akamai: general web delivery | Akamai: DSA | Akamai: large file download | Akamai: general or VOD media streaming |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Honor origin**   | Yes    | No   | Yes | No | Yes | Yes |
 | **CDN cache duration** | 7 days | None | 7 days | None | 1 day | 1 year |

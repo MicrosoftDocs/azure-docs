@@ -25,9 +25,9 @@ Standard content delivery network (CDN) capability includes the ability to cache
 **Azure CDN from Akamai** and **Azure CDN from Verizon** both offer DSA optimization through the **Optimized for** menu during endpoint creation.
 
 > [!Important]
-> For **Azure CDN from Akamai** profiles only, you are allowed you to change the optimization of a CDN endpoint after it has been created.
+> For **Azure CDN from Akamai** profiles, you are allowed to change the optimization of a CDN endpoint after it has been created.
 >   
-> **Azure CDN from Verizon** profiles, it is not possible to change the optimization of a CDN endpoint after it has been created.
+> For **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
 
 ## Configuring CDN endpoint to accelerate delivery of dynamic files
 
@@ -100,7 +100,7 @@ Transmission Control Protocol (TCP) is the standard of the Internet protocol sui
 
 TCP *slow start* is an algorithm of the TCP protocol that prevents network congestion by limiting the amount of data sent over the network. It starts off with small congestion window sizes between sender and receiver until the maximum is reached or packet loss is detected.
 
- Both **Azure CDN from Akamai** and **Azure CDN from Verizon** eliminate TCP slow start with the following three steps:
+ Both **Azure CDN from Akamai** and **Azure CDN from Verizon** profiles eliminate TCP slow start with the following three steps:
 
 1. Health and bandwidth monitoring is used to measure the bandwidth of connections between edge PoP servers.
     

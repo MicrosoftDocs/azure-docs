@@ -18,12 +18,12 @@ ms.author: v-deasim
 
 ---
 
-# Control Azure CDNk caching behavior with caching rules
+# Control Azure CDN caching behavior with caching rules
 
 > [!NOTE] 
 > Caching rules are available only for **Azure CDN from Verizon Standard** and **Azure CDN from Akamai Standard**. For **Azure CDN from Verizon Premium**, you can use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
  
-Azure Content Delivery Network offers two ways to control how your files are cached: 
+Azure Content Delivery Network (CDN) offers two ways to control how your files are cached: 
 
 - Caching rules: This article describes how you can use content delivery network (CDN) caching rules to set or modify default cache expiration behavior both globally and with custom conditions, such as a URL path and file extension. Azure CDN provides two types of caching rules:
    - Global caching rules: You can set one global caching rule for each endpoint in your profile, which affects all requests to the endpoint. The global caching rule overrides any HTTP cache-directive headers, if set.
