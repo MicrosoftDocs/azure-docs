@@ -7,6 +7,7 @@
 
 # Get Started
 ## [Create a route-based VPN gateway - Azure portal](create-routebased-vpn-gateway-portal.md)
+## [Create a route-based VPN gateway - PowerShell](create-routebased-vpn-gateway-powershell.md)
 
 # Concepts
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
