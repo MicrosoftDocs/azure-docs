@@ -1,16 +1,20 @@
 - name: Azure HDInsight documentation
   href: /azure/hdinsight
 - name: Kafka on HDInsight
+  href: /azure/hdinsight
+- name: Overview
   items:
-  - name: Overview
+  - name: About Kafka on HDInsight
     href: apache-kafka-introduction.md
   - name: Component versioning
     href: ../hdinsight-component-versioning.md
     maintainContext: true
-- name: Get started
+- name: Quickstarts
   items:
   - name: Create a Kafka cluster
     href: apache-kafka-get-started.md
+- name: Tutorials
+  items:
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true

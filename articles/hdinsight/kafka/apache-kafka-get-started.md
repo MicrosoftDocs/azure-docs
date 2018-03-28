@@ -1,6 +1,6 @@
 ---
-title: Start with Apache Kafka - Azure HDInsight | Microsoft Docs
-description: 'Learn how to create an Apache Kafka cluster on Azure HDInsight. Learn how to create topics, subscribers, and consumers.'
+title: Start with Apache Kafka - Azure HDInsight Quickstart | Microsoft Docs
+description: 'In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight. You also learn about Kafka topics, subscribers, and consumers.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -9,17 +9,23 @@ editor: cgronlun
 
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: mvc,hdinsightactive
 ms.devlang: ''
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/20/2018
 ms.author: larryfr
+#Customer intent: I need to create a Kafka cluster so that I can use it to process messages
 ---
-# Start with Apache Kafka on HDInsight
+# Quickstart: Create a Kafka on HDInsight cluster
 
-Learn how to create and use an [Apache Kafka](https://kafka.apache.org) cluster on Azure HDInsight. Kafka is an open-source, distributed streaming platform that is available with HDInsight. It is often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. Kafka is often used with Apache Spark and Apache Storm for messaging, activity tracking, stream aggregation, or data transformation.
+Kafka is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
+
+In this quickstart, you learn how to create an Apache Kafka](https://kafka.apache.org) cluster on Azure HDInsight. You also learn how to use included utilities to send and receive messages using Kafka.
+
+> [!IMPORTANT]
+> To use Kafka on HDInsight, you must have direct access to the cluster. The steps in this document use SSH to connect to the cluster and work with Kafka from the cluster head nodes. A more complex configuration, but more suited to production use, is to use Kafka on HDInsight with an Azure Virtual Network. For more information, see [TBD]().
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -60,9 +66,9 @@ To create a Kafka on HDInsight cluster, use the following steps:
 
     ![Set the storage account settings for HDInsight](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-5. From __Applications (optional)__, select __Next__ to continue. No applications are required for this example.
+5. From __Applications (optional)__, select __Next__ to continue with the default settings.
 
-6. From __Cluster size__, select __Next__ to continue.
+6. From __Cluster size__, select __Next__ to continue with the default settings.
 
     > [!WARNING]
     > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. For more information, see the [Data high availability](#data-high-availability) section.
@@ -70,7 +76,7 @@ To create a Kafka on HDInsight cluster, use the following steps:
     ![Set the Kafka cluster size](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
     > [!IMPORTANT]
-    > The **disks per worker node** entry configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and provide more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
+    > The **disks per worker node** entry configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
 7. From __Advanced settings__, select __Next__ to continue.
 
@@ -83,20 +89,22 @@ To create a Kafka on HDInsight cluster, use the following steps:
 
 ## Connect to the cluster
 
+Use the following commands to connect to the HDInsight cluster using SSH:
+
 > [!IMPORTANT]
-> When performing the following steps, you must use an SSH client. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
+> When prompted, enter the name of your HDInsight cluster and SSH user account. You must also enter the password for the SSH user account.
 
-To connect to the cluster using SSH, you must provide the SSH user account name and the name of your cluster. In the following example, replace `sshuser` and `clustername` with your account and cluster name:
+```azurecli
+read -p "Enter the HDInsight cluster name: " CLUSTERNAME; \
+read -p "Enter the SSH user account name: " SSHUSER; \
+ssh $SSHUSER@$CLUSTERNAME-ssh.azurehdinsight.net
+```
 
-```ssh sshuser@clustername-ssh.azurehdinsight.net```
-
-When prompted, enter the password you used for the SSH account.
-
-For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+For more information on using SSH, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
 ## <a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
 
-When working with Kafka, you must know the *Zookeeper* hosts and the *Broker* hosts. These hosts are used with the Kafka API and many of the utilities that ship with Kafka.
+When working with Kafka, you must know the *Zookeeper* and *Broker* hosts. These hosts are used with the Kafka API and many of the utilities that ship with Kafka.
 
 To create the environment variables that contain the host information, use the following steps:
 
@@ -221,13 +229,13 @@ To ensure the highest availability of your Kafka data, you should rebalance the 
 
 * You scale up a cluster
 
-## Delete the cluster
-
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
-
 ## Troubleshoot
 
 If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
+
+## Clean up resources
+
+[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Next steps
 
