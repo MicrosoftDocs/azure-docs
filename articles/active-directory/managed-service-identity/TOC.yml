@@ -105,12 +105,17 @@
         - name: PowerShell
           href: how-to-acquire-vm-access-token-powershell.md
         - name: Curl
+          href: how-to-acquire-vm-access-token-curl.md
         - name: .NET
+          href: how-to-acquire-vm-access-token-csharp.md
+        - name: HTTP
+          href: how-to-acquire-vm-access-token-http.md
         - name: Java
         - name: Python
         - name: Ruby
         - name: Node.js
         - name: Go
+          href: how-to-acquire-vm-access-token-go.md
       - name: Sign-in to PowerShell and CLI using Managed Identity
         items:
         - name: CLI
