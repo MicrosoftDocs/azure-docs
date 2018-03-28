@@ -14,7 +14,7 @@
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 
 # Concepts
-## Input types for a job
+## [Input types for a job](stream-analytics-add-inputs.md)
 ### [Streaming data inputs](stream-analytics-define-inputs.md)
 ### [Reference data inputs](stream-analytics-use-reference-data.md)
 ## [Output types for a job](stream-analytics-define-outputs.md)
@@ -93,7 +93,7 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Customer case studies](https://azure.microsoft.com/case-studies/?service=stream-analytics)
-## [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Whitepaper - Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
 
