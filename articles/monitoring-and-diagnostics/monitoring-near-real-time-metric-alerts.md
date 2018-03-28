@@ -29,6 +29,9 @@ Azure Monitor now supports a new metric alert type. The Newer alerts differ from
 - **Better notification system**: All newer alerts use [action groups](monitoring-action-groups.md), which are named groups of notifications and actions that can be reused in multiple alerts. Classic metric alerts and older Log Analytics alerts do not use action groups. 
 - **Metrics from Logs** (limited public preview): Log data going into Log Analytics can now be extracted and converted into Azure Monitor metrics and then alerted on just like other metrics. 
 
+To learn how to create a newer metric alert in Azure portal, see [Create an alert rule in the Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). After creation, you can manage the alert by using the steps described in [Manage your alerts in the Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+
+
 ## Metrics and Dimensions Supported
 Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
 
@@ -58,13 +61,8 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.OperationalInsights/workspaces (Preview) | Yes|[Log Analytics workspaces](#support-for-oms-logs-as-metrics-for-alerting)|
 
 
-## Create a newer metric alert
+## Portal, PowerShell, CLI, REST support
 Currently, you can create newer metric alerts only in the Azure portal or REST API. Support for configuring newer alerts  using PowerShell and the the Azure command-line interface (Azure CLI 2.0) is coming soon.
-
-To learn how to create a newer metric alert in Azure portal, see [Create an alert rule in the Azure portal](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## Manage newer metric alerts
-After you create a newer metric alert, you can manage the alert by using the steps described in [Manage your alerts in the Azure portal](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## Logs converted to metrics for alerting 
 
@@ -72,8 +70,11 @@ You can also use newer metric alerts on popular Log Analytics logs extracted as 
 - [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
 - [Heartbeat records for Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
 - [Update management](../operations-management-suite/oms-solution-update-management.md) records
+ 
+> [!NOTE]
+> Specific metric and/or dimension will only be shown if data for it exists in chosen period. These metrics are available for customers with workspaces in East US, West Central US and West Europe who have opted in to the preview. If you would like to be a part of this preview, sign up using [the survey](https://aka.ms/MetricLogPreview).
 
-The newer alerts support the follow list of Log Analytics log-based metric sources: 
+The following list of Log Analytics log-based metric sources is supported:
 
 Metric Name/Details  |Dimensions Supported  | Type of Log  |
 |---------|---------|---------|
@@ -146,8 +147,6 @@ Metric Name/Details  |Dimensions Supported  | Type of Log  |
 |	 Heartbeat	|     Yes - Computer, OSType, Version & SourceComputerId    |   Heartbeat Records |
 |	 Update	|     Yes - Computer, Product, Classification, UpdateState, Optional & Approved    |   Update Management |
 
-> [!NOTE]
-> Specific metric and/or dimension will only be shown if data for it exists in chosen period. These metrics are available for customers with workspaces in East US, West Central US and West Europe who have opted in to the preview. If you would like to be a part of this preview, sign up using [the survey](https://aka.ms/MetricLogPreview).
 
 
 ## Payload schema
