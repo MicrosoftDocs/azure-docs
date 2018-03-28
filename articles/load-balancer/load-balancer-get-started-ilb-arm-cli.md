@@ -56,7 +56,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer
 
-Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with the public IP address **myPublicIP** that you created in the preceding step.
+Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7** .
 
 ```azurecli-interactive
   az network lb create \
@@ -70,7 +70,7 @@ Create a public Azure Load Balancer with [az network lb create](https://docs.mic
   ```
 ### Create the health probe
 
-A health probe checks all virtual machine instances to make sure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) to monitor the health of the virtual machines. 
+A health probe checks all virtual machine instances to make sure they can receive network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) to monitor the health of the virtual machines. 
 
 ```azurecli-interactive
   az network lb probe create \
