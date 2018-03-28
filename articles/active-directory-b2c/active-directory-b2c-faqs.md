@@ -27,7 +27,7 @@ In an Azure AD tenant, users that belong to the tenant sign-in with an email add
 
 In an Azure AD B2C tenant, most apps want the user to sign-in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account.  We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types when configuring identity providers for Azure AD B2C in the Azure portal. In your Azure AD B2C tenant, click **Identity providers** and then select **Username** under Local accounts. 
 
-User accounts for applications must always be created through a sign-up policy or by using the Azure AD Graph API. User accounts created in the Azure portal are only used for administering the tenant.
+User accounts for applications must always be created through a sign-up policy, sign-up or sign-in policy, or by using the Azure AD Graph API. User accounts created in the Azure portal are only used for administering the tenant.
 
 ### Which social identity providers do you support now? Which ones do you plan to support in the future?
 We currently support Facebook, Google+, LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview), and QQ (Preview). We will add support for other popular social identity providers based on customer demand.
