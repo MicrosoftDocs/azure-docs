@@ -110,7 +110,7 @@ There are several tools that work together to monitor various aspects of your ne
 
 [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) is a cloud-based network monitoring solution that monitors connectivity across public clouds, datacenters, and on-premises environments.
 
-[ExpressRoute Monitor](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) is an  NPM capability that monitors the end-to-end connectivity and performance over Azure ExpressRoute circuits.
+[ExpressRoute Monitor](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) is an  NPM capability that monitors the end-to-end connectivity and performance over Azure ExpressRoute circuits.
 
 [DNS Analytics](../log-analytics/log-analytics-dns.md) is a solution that provides security, performance, and operations-related insights, based on your DNS servers.
 
