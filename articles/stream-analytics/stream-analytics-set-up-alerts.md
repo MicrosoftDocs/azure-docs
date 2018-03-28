@@ -1,20 +1,22 @@
 ---
-title: "Tutorial: Set up alerts for queries in Stream Analytics" | Microsoft Docs
-description: In this tutorial you set up alerts for a Stream Analytics job
+title: Set up alerts for queries in Stream Analytics | Microsoft Docs
+description: Understanding Stream Analytics Alerting
 keywords: set up alerts
 services: stream-analytics
-author: SnehaGunda
-manager: kfile
+documentationcenter: ''
+author: samacha
+manager: jhubbard
+editor: cgronlun
 
 ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
 ms.service: stream-analytics
-ms.topic: tutorial
-ms.custom: mvc
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/19/2018
-ms.author: sngun
+ms.date: 06/26/2017
+ms.author: samacha
 
-#Customer intent: "As an IT admin/developer I want to set up alerts for a Stream Analytics job."
 ---
 
 # Tutorial: Set up alerts for Azure Stream Analytics jobs
