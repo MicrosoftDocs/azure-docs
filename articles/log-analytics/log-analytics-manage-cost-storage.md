@@ -18,7 +18,7 @@ ms.author: magoedte
 
  
 # Manage cost by controlling data volume and retention of your Log Analytics workspace
-Log Analytics is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  The cost of a Log Analytisc workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
+Log Analytics is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, its important to understand that the cost of a Log Analytisc workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
 
 In this article we review how you can proactively monitor data volume and storage growth, and define limits to control those associated costs. 
 
