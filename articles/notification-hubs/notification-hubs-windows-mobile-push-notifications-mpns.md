@@ -26,7 +26,7 @@ ms.author: spelluru
 ## Overview
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight applications. If you are targeting Windows Phone 8.1 (non-Silverlight), see the [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) version of this tutorial.
 
-In this tutorial, you create a blank Windows Phone 8 app that receives push notifications by using the Microsoft Push Notification Service (MPNS). When you're finished, you can use your notification hub to broadcast push notifications to all the devices running your app.
+In this tutorial, you create a blank Windows Phone 8 app that receives push notifications by using the Microsoft Push Notification Service (MPNS). After you create the app, you use your notification hub to broadcast push notifications to all the devices running your app.
 
 > [!NOTE]
 > The Notification Hubs Windows Phone SDK does not support using the Windows Push Notification Service (WNS) with Windows Phone 8.1 Silverlight apps. To use WNS (instead of MPNS) with Windows Phone 8.1 Silverlight apps, follow the [Notification Hubs - Windows Phone Silverlight tutorial], which uses REST APIs.
@@ -41,19 +41,16 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-- [Visual Studio 2015 Express with mobile development components]
+- [Visual Studio 2015 Express with mobile development components](https://www.visualstudio.com/vs/older-downloads/)
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Windows Phone 8 apps.
 
 ## Create your notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="6">
-<li><p>Under <b>Notification Services</b>, select <b>Windows Phone (MPNS)</b> and then click the <b>Enable unauthenticated push</b> check box.</p>
-</li>
-</ol>
 
-&emsp;&emsp;![Azure portal - Enable unauthenticated push notifications](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
+6. Under **Notification Services**, select **Windows Phone (MPNS)**, and then select **Enable unauthenticated push**.
+    ![Azure portal - Enable unauthenticated push notifications](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
 Your hub is now created and configured to send unauthenticated notification for Windows Phone.
 
@@ -65,7 +62,7 @@ Your hub is now created and configured to send unauthenticated notification for 
 ## Create a Windows Phone application
 In this section, you create a Windows Phone application that registers itself with your notification hub. 
 
-1. In Visual Studio, create a new Windows Phone 8 application. For the target version, select **.NET Framework 4.5**. 
+1. In Visual Studio, create a new Windows Phone 8 application. 
    
     ![Visual Studio - New Project - Windows Phone App][13]
    
@@ -175,7 +172,6 @@ Learn more about how to use Notification Hubs in [Notification Hubs Guidance].
 
 
 <!-- URLs. -->
-[Visual Studio 2012 Express for Windows Phone]: https://www.visualstudio.com/vs/older-downloads/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
