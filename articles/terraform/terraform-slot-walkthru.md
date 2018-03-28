@@ -9,7 +9,7 @@ ms.date: 3/28/2018
 ms.topic: article
 ---
 
-# Using Terraform to provision infrastructures with Azure deployment slots
+# Using Terraform to provision infrastructure with Azure deployment slots
 
 [Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between various versions of your app - such as production, development, and test - to minimize the impact of broken deployments. Using deployment slots, you can directly swap between slots  without any downtime. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in the production slot, while the second app is hosted in the deployment slot. Terraform is then used to swap the (inactive) deployment slot with the production slot.
 
@@ -17,13 +17,47 @@ ms.topic: article
 
 1. Browse to the [Azure portal](http://www.portal.azure.com)
 
-1. Select Cloud Shell.
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview), and - if not done previously - select **Bash** as your environment.
 
-    ![Cloud Shell prompt][./media/terraform-slot-walkthru/azure-portal-cloud-shell-button.png]
+    ![Cloud Shell prompt](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button.png)
 
-1. In Cloud Shell, navigate to your `clouddrive` directory and create two directories, one called `deploy` and the other called `swap` as seen in the following image.
+1. Change directories to the `clouddrive` directory.
+
+    ```bash
+    cd clouddrive
+    ```
+
+1. Create a directory named `deploy`.
+
+    ```bash
+    mkdir deploy
+    ```
+
+1. Create a directory named `swap`.
+
+    ```bash
+    mkdir deploy
+    ```
+
+1. Verify that both directories have been successfully created using the `ls` bash command.
 
     ![Create the Cloud Shell directories](./media/terraform-slot-walkthru/cloud-shell.png)
+
+1. Change directories to the `deploy` directory.
+
+    ```bash
+    cd deploy
+    ```
+
+1. Open the vi editor.
+
+    ```bash
+    vi
+    ```
+
+
+
+
 
 Navigate to your deploy directory and - using `nano` - copy and paste the following HCL (HashiCorp Configuration Language) into a file name `deploy.tf`.
 
