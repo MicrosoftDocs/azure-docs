@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 * Query LUIS and receive composite entity data
 
 ## Before you begin
-* Your LUIS web app bot from the **[hierarchical quickstart](luis-tutorial-composite-entity.md)**. 
+* Your LUIS app from the **[hierarchical quickstart](luis-tutorial-composite-entity.md)**. 
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 The purpose of the entity is to find and categorize parts of the text in the utterance. 
 A [composite](luis-concept-entity-types.md) entity is composed of other entity types learned from context. For this travel app that takes flight reservations, there are several pieces of information such as dates, locations, and number of seats. 
 
-The information can exist as separate entities. Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the chat bot or other LUIS-consuming application. 
+The information exists as separate entities before a composite is created. Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the chat bot or other LUIS-consuming application. 
 
 Simple example utterances from users include:
 
@@ -42,7 +42,7 @@ Book a flight to London for next Monday
 Reserve a seat from New York to Paris on the first of April
 ```
  
-The composite entity matches seat count, origin and destination location, and date. 
+The composite entity matches seat count, origin location, destination location, and date. 
 
 ## What LUIS does
 When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
@@ -71,11 +71,13 @@ When the intent and entities of the utterance are identified, [extracted](luis-c
 
     ![Select Intents page](./media/luis-tutorial-composite-entity/intents-from-entities-page.png)
 
-2. Select `BookFlight` from the **Intents** list. The number and datetimeV2 prebuilt entities are labeled on the utterances. 
+2. Select `BookFlight` from the **Intents** list.  
 
     ![Select BookFlight intent from list](./media/luis-tutorial-composite-entity/intent-page-with-prebuilt-entities-labeled.png)
 
-3. To create a composite entity, select the first word and the last word that are part of the composite. For the utterance `book 2 flights from seattle to cairo next monday`, select the blue `number` entity, then move to the right to select the last prebuilt entity `datetimeV2`. A green line, under the words, follows the cursor as it moves to the right. Enter `FlightReservation` in the text box of the pop-up window, then select **Create new composite**. 
+    The number and datetimeV2 prebuilt entities are labeled on the utterances.
+
+3. For the utterance `book 2 flights from seattle to cairo next monday`, select the blue `number` entity, then select **Wrap in composite entity" from the list. A green line, under the words, follows the cursor as it moves to the right, indicating a composite entity. Then move to the right to select the last prebuilt entity `datetimeV2`, then enter `FlightReservation` in the text box of the pop-up window, then select **Create new composite**. 
 
     ![Create composite entity on intents page](./media/luis-tutorial-composite-entity/create-new-composite.png)
 
@@ -94,11 +96,11 @@ Once the composite entity is created, label the remaining utterances in the comp
 
     ![Select wrap from the list](./media/luis-tutorial-composite-entity/wrap-composite-step-2.png)
 
-3. Select the right-most word, then select the named composite entity `FlightReservation`. A green line appears under the phrase, indicating a composite entity.
+3. Select the right-most word. A green line appears under the phrase, indicating a composite entity.
 
     ![Select right-most word](./media/luis-tutorial-composite-entity/wrap-composite-step-3.png)
 
-4. Select composite name `FlightReservation`.
+4. Select composite name `FlightReservation` from the list that appears.
 
     ![Select named composite entity](./media/luis-tutorial-composite-entity/wrap-composite-step-4.png)
 
