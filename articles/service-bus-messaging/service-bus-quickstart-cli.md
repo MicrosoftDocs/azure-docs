@@ -119,7 +119,7 @@ String ConnectionString = null;
 String QueueName = null;
 ```
 
-These values are passed to `main()` after being parsed by the `runApp()` method:
+These values are added via command line parameters passed to `main()` and allocated in the `runApp()` method:
 
 ```java
 public static void main(String[] args) {

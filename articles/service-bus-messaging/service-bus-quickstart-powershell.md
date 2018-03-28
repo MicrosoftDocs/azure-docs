@@ -186,7 +186,7 @@ static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
 }
 ```
 
-The `RegisterOnMessageHandlerAndReceiveMessages()` method simply sets a few message handler options, then calls the queue client's `RegisterMessageHandler()` method:
+The `RegisterOnMessageHandlerAndReceiveMessages()` method simply sets a few message handler options, then calls the queue client's `RegisterMessageHandler()` method, which starts the receiving:
 
 ```csharp
 static void RegisterOnMessageHandlerAndReceiveMessages()
