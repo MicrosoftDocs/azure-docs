@@ -76,6 +76,7 @@ Before you begin this procedure for an integrated system, make sure you can acce
 
       - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
+
     > [!NOTE]
     > If you are unable to connect to the ERCS endpoint, try steps one and two again with the IP address of an ERCS VM to which you haven't already tried to connect.
 
