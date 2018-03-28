@@ -49,6 +49,12 @@ sections:
       - title: Create app with intents and list entity
         values:
         - href: luis-quickstart-intent-and-list-entity
+      - title: Create app with intents and hierarchical entity
+        values:
+        - href: luis-quickstart-intent-and-hier-entity
+      - title: Create app with intents and regular expression entity
+        values:
+        - href: luis-quickstart-intents-regex-entity
       - title: Create app from prebuilt domain
         values:
         - href: luis-get-started-create-app
