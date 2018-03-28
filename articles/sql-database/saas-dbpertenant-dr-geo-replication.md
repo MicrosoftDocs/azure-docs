@@ -223,12 +223,18 @@ Now let's imagine the outage is resolved and run the repatriation script.
 2. Verify that the Catalog Sync process is still running in its PowerShell instance.  If necessary, restart it by setting:
 	* **$DemoScenario = 1**, Start synchronizing tenant server, pool, and database configuration info into the catalog
 	* Press **F5** to run the script.
+
 3.  Then to start the repatriation process, set:
 	* **$DemoScenario = 6**, Repatriate the app into its original region
 	* Press **F5** to run the recovery script in a new PowerShell window.  Repatriation will take several minutes and can be monitored in the PowerShell window.
+	![Repatriation process](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
+
 4. While the script is running, refresh the Events Hub page (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)
 	* Notice that all the tenants are online and accessible throughout this process.
+
 5. After the repatriation is complete, refresh the Events hub and open the events page for Hawthorn Hall. Notice that this database has been repatriated to the original region.
+	![Events hub repatriated](media/saas-dbpertenant-dr-geo-replication/events-hub-repatriated.png)
+
 
 ## Designing the application to ensure app and database are colocated 
 The application is designed so that it always connects from an instance in the same region as the tenant database. This design reduces latency between the application and the database. This optimization assumes the app-to-database interaction is chattier than the user-to-app interaction.  
