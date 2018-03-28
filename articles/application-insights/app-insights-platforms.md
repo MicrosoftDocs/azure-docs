@@ -63,6 +63,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
+* [Logrus](https://github.com/jjcollinge/logrus-appinsights)
 
 ## Content Management Systems
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)

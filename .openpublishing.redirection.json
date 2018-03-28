@@ -5,11 +5,6 @@
             "redirect_document_id": true
         },     
         {
-            "source_path": "articles/machine-learning/preview/aml-services-pricing.md",
-            "redirect_url": "/azure/machine-learning/preview/aml-pricing",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/machine-learning/preview/release-notes-sprint-0.md",
             "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-1",
             "redirect_document_id": true
@@ -35,6 +30,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/machine-learning/studio/what-is-machine-learning.md",
+            "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
+            "redirect_document_id": true
+        },
+	{
             "source_path": "articles/machine-learning/studio/live-chat.md",
             "redirect_url": "https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning",
             "redirect_document_id": true
@@ -17751,6 +17751,21 @@
     {
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-reference.md",
         "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization.md",
+        "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization.md",
+        "redirect_url": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-deploy.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
         "redirect_document_id": false
     }
 
