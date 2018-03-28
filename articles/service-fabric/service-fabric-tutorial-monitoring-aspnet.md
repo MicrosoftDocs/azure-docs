@@ -100,7 +100,7 @@ Here are the steps to set up the NuGet:
     
     2. In the nested *return* statement of *CreateServiceInstanceListeners()* or *CreateServiceReplicaListeners()*, under *ConfigureServices* > *services*, in between the two Singleton services declared, add:
     `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`.
-    This will add the *Service Context* to your telemetry, allowing you to better understand the source of your telemetry in Application Insights. Your nested *return* statement in *VotingWeb.cs* should look like this:
+    This will add the *Service Context* to your telemetry, allowing you to better understand the source of your telemetry in Application Insights. Additionally, ensure that `.UseApplicationInsights()` is being called. This call is necessary to enable Application Insights in an ASP.NET Core application. Your nested *return* statement in *VotingWeb.cs* should look like this:
     
     ```csharp
     return new WebHostBuilder()
@@ -113,6 +113,7 @@ Here are the steps to set up the NuGet:
                 .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
+        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
