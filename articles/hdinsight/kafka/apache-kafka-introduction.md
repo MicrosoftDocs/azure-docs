@@ -27,7 +27,7 @@ Kafka on HDInsight provides the following features:
 
 * __99.9% Service Level Agreement (SLA) on Kafka uptime__: For more information, see the [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) document.
 
-* __Fault-tolerance and rack awareness__: Kafka was designed with a single dimensional view of a rack, which works well on some environments. However on environments such as Azure, a rack is separated out into two dimensions - Update Domains (UDs) and Fault Domains (FDs). Microsoft provides tools that ensure that rebalance Kafka partitions and replicas across UDs and FDs. 
+* __Fault-tolerance__: Kafka was designed with a single dimensional view of a rack, which works well on some environments. However on environments such as Azure, a rack is separated out into two dimensions - Update Domains (UDs) and Fault Domains (FDs). Microsoft provides tools that can rebalance Kafka partitions and replicas across UDs and FDs. 
 
     For more information, see [High availability with Kafka on HDInsight](apache-kafka-high-availability.md).
 
