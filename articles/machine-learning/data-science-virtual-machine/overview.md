@@ -27,7 +27,7 @@ This topic discusses what you can do with the Data Science VM, outlines some of 
 
 
 ## What can I do with the Data Science Virtual Machine?
-The goal of the Data Science Virtual Machine is to provide data professionals at all skill levels and roles with a friction-free data science environment. This VM saves you considerable time that you would spend if you had rolled out a comparable environment on your own. Instead, start your data science project immediately in a newly created VM instance. 
+The goal of the Data Science Virtual Machine (DSVM) is to provide data professionals at all skill levels and in all roles with a friction-free, pre-configured, and fully-integrated data science environment. Instead of rolling out a comparable workspace on your own, you can provision a DSVM - saving you days or even _weeks_ on the installation, configuration, and package management processes. After your DSVM has been allocated, you can immediately begin working on your data science project.
 
 The Data Science VM is designed and configured for working with a broad range of usage scenarios. You can scale your environment up or down as your project needs change. You are able to use your preferred language to program data science tasks. You can install other tools and customize the system for your exact needs.
 

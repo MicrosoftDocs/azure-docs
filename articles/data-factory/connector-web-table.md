@@ -141,6 +141,8 @@ To copy data from Web table, set the source type in the copy activity to **WebSo
 
 ## Get index of a table in an HTML page
 
+To get the index of a table which you need to configure in [dataset properties](#dataset-properties), you can use e.g. Excel 2016 as the tool as follows:
+
 1. Launch **Excel 2016** and switch to the **Data** tab.
 2. Click **New Query** on the toolbar, point to **From Other Sources** and click **From Web**.
 
