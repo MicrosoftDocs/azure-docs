@@ -8,7 +8,6 @@
 ## [2 - View results on a dashboard](stream-analytics-power-bi-dashboard.md)
 ## [3 - Run Azure Functions](stream-analytics-with-azure-functions.md)
 ## [4 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
-## [5 - Configure alerts](stream-analytics-set-up-alerts.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
@@ -29,6 +28,7 @@
 ## Manage
 ### [Update a job](stream-analytics-job-reliability.md)
 ### [Update credentials](stream-analytics-login-credentials-inputs-outputs.md)
+## [Configure alerts](stream-analytics-set-up-alerts.md)
 
 ## Build solutions
 ### [Twitter sentiment analysis](stream-analytics-twitter-sentiment-analysis-trends.md)
