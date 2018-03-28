@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/25/2018
+ms.date: 03/27/2018
 ms.author: juliako
 ms.custom: mvc
 
@@ -23,7 +23,7 @@ ms.custom: mvc
 # What is Azure Media Services?
 
 > [!NOTE]
-> The latest version of Azure Media Services (2018-03-30) is in preview. This version is also called v3.
+> The latest version of Azure Media Services (2018-03-30) is in **preview**. Find information about the previous (stable) version (2015-10-01)  [here](https://docs.microsoft.com/azure/media-services/media-services-overview).
 
 Azure Media Services is an extensible cloud-based platform that enables application developers to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. You do not need to be a media content creator to use Azure Media Services. You might be an expert in developing web or mobile apps but don’t have any experience working with and streaming videos. Media Services is for anybody who wants to deliver media experiences of outstanding quality to their viewers. Whether you are a call center, a government agency, an entertainment company, Media Services will help you to easily create media applications that can reach large audiences on today’s most popular mobile devices and browsers. 
 
@@ -46,13 +46,10 @@ The latest version of Media Services is based on a unified API surface which exp
 
 Media Services enables you to build a variety of media workflows in the cloud, the following are some examples of what can be accomplished with Media Services.  
 
-* Deliver adaptive bitrate content in HLS, MPEG DASH, and Smooth Streaming formats so it can be played on a wide variety of browsers and devices.
-  
-    For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. To see how to deliver adaptive bitrate content, see [Quickstart: Encode and stream files](stream-files-dotnet-quickstart.md).
+* Deliver videos in various formats so they can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. To see how to deliver and stream such content, see [Quickstart: Encode and stream files](stream-files-dotnet-quickstart.md).
 * Stream live sporting events to a large online audience, such as soccer, baseball, college and high school sports, and more. 
-* Broadcast public government meetings and events such as town halls, city council meetings, and legislative bodies (Parliament, House of Representatives).
-* Gain valuable insights from recorded audio. Embedded in the audio data is a large amount of customer information that can be analyzed to achieve higher customer satisfaction. Organizations can extract speech-to-text and build search indexes and dashboards. Then they can extract intelligence around common complaints, sources of complaints, and other relevant data.
-* Analyze surveillance videos. Manually reviewing surveillance videos is time intensive and prone to human error. You can utilize services such as motion detection and face detection to make the process of reviewing, managing, and creating derivatives easier.
+* Broadcast public meetings and events such as town halls, city council meetings, and legislative bodies.
+* Gain valuable insights from recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data. If these are surveillance videos, clients can utilize motion detection and face detection to make the process of reviewing videos fast and accurate.  
 * Create a subscription video service and stream DRM protected content when a customer (for example, a movie studio) needs to restrict the access and use of proprietary copyrighted work.
 * Deliver offline content for playback on airplanes, trains, and automobiles. A customer might need to download content onto their phone or tablet for playback when they anticipate to be disconnected from the network.
 * Add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language). 
