@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/27/2018
 ms.author: manayar
 
 ---
@@ -85,7 +85,7 @@ VPN Gateways utilize public IP addresses and gateway hops to establish connectio
 
 This feature is currently in public preview and is being expanded to more support regions—enabling direct VM-to-VM connectivity without any public internet involvement or any extra hops.
 
-For more information, refer to the [peering documentation](../virtual-network/virtual-network-create-peering.md#register) and [pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-network/).
+For more information, refer to the [peering documentation](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) and [pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ## On-premises-to-Azure connectivity
 

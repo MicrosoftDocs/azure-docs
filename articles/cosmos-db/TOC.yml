@@ -237,8 +237,6 @@
           href: sql-api-python-samples.md
       - name: Resources
         items:
-        - name: SQL grammar cheat sheet
-          href: sql-api-sql-query-cheat-sheet.md
         - name: Videos
           href: https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
         - name: Service updates
@@ -258,6 +256,10 @@
         href: mongodb-robomongo.md
       - name: Using Mongoose
         href: mongodb-mongoose.md
+      - name: Using Read Preference
+        href: mongodb-readpreference.md
+      - name: Indexing
+        href: mongodb-indexing.md
       - name: MongoDB feature support
         href: mongodb-feature-support.md
       - name: Angular tutorial series
@@ -373,8 +375,6 @@
       href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
     - name: Bind to Azure Functions
       href: ../azure-functions/functions-bindings-documentdb.md
-    - name: Analyze data with Hadoop
-      href: run-hadoop-with-hdinsight.md
     - name: Integrate with Azure Search
       href: ../search/search-howto-index-documentdb.md
     - name: Move data with Azure Data Factory
@@ -397,6 +397,8 @@
     href: https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db
   - name: SQL APIs
     items:
+    - name: Async Java
+      href: sql-api-sdk-async-java.md
     - name: Java
       href: sql-api-sdk-java.md
     - name: .NET
@@ -431,6 +433,8 @@
       href: graph-sdk-dotnet.md
 - name: Resources
   items:
+  - name: Query cheat sheet
+    href: query-cheat-sheet.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Try Azure Cosmos DB for free
@@ -441,3 +445,5 @@
     href: faq.md
   - name: Data consistency explained through baseball
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
+  - name: Troubleshoot Azure Cosmos DB
+    href: troubleshoot-azure-cosmosdb.md

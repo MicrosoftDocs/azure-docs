@@ -13,14 +13,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
 
 ---
 
 # sfctl 
 Commands for managing Service Fabric clusters and entities. This version is compatible
-    with Service Fabric 6.0 runtime. Commands follow the noun-verb pattern, see the following subgroups for more information.
+    with Service Fabric 6.1 runtime. Commands follow the noun-verb pattern, see the following subgroups for more information.
 
 ## Subgroups
 |Subgroup|Description|
@@ -32,6 +32,7 @@ Commands for managing Service Fabric clusters and entities. This version is comp
 | [is](service-fabric-sfctl-is.md)      | Query and send commands to the infrastructure service.|
 | [node](service-fabric-sfctl-node.md)    | Manage the nodes that form a cluster.|
 | [partition](service-fabric-sfctl-partition.md)  | Query and manage partitions for any service.|
+| property  | Store and query properties under Service Fabric names.|
 | [rpm](service-fabric-sfctl-rpm.md)        | Query and send commands to the repair manager service.|
 | [replica](service-fabric-sfctl-replica.md) | Manage the replicas that belong to service partitions.|
 | [service](service-fabric-sfctl-service.md) | Create, delete, and manage service, service types and service packages.|

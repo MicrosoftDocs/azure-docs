@@ -1,7 +1,7 @@
 ---
 title: Image search SDK Node quickstart | Microsoft Docs
 description: Setup for Image search SDK console application.
-titleSuffix: Azure cognitive services Image search SDK Node quickstart
+titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -12,15 +12,15 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-#Image Search SDK Node quickstart
+# Image Search SDK Node quickstart
 
 The Bing Image Search SDK contains the functionality of the REST API for image queries and parsing results. 
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing Image Search SDK, run `npm install azure-cognitiveservices-imagesearch` in your development environment.
 
-##Image Search client
+## Image Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -39,10 +39,11 @@ client.imagesOperations.search('El Capitan', function (err, result, request, res
 });
 
 ```
-The code prints `result.value` items to the console without parsing any text.
+The code prints `result.value` items to the console without parsing any text. The results will be:
+- _type: 'ImageObjectElementType'
 
 ![Imageresults](media/node-sdk-quickstart-image-results.png)
 
-##Next steps
+## Next steps
 
 [Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

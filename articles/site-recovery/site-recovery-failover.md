@@ -2,19 +2,12 @@
 title: Failover in Site Recovery | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
-ms.author: pratshar
+ms.date: 03/09/2018
+ms.author: ponatara
 
 ---
 # Failover in Site Recovery
@@ -93,18 +86,18 @@ When a  failover is triggered, it involves following steps:
 In certain cases, failover of virtual machines requires an extra intermediate step that usually takes around 8  to 10 minutes to complete. In the following cases, the time taken to failover will be higher than usual:
 
 * VMware virtual machines using mobility service of version older than 9.8
-* Physical servers 
+* Physical servers
 * VMware Linux virtual machines
 * Hyper-V virtual machines protected as physical servers
-* VMware virtual machines where following drivers are not present as boot drivers 
-	* storvsc 
-	* vmbus 
-	* storflt 
-	* intelide 
+* VMware virtual machines where following drivers are not present as boot drivers
+	* storvsc
+	* vmbus
+	* storflt
+	* intelide
 	* atapi
 * VMware virtual machines that don't have DHCP service enabled irrespective of whether they are using DHCP or static IP addresses
 
-In all the other cases, this intermediate step is not required and the time taken for the failover is lower. 
+In all the other cases, this intermediate step is not required and the time taken for the failover is lower.
 
 
 
@@ -115,7 +108,7 @@ You might want to automate certain actions while doing a failover. You can use s
 
 ## Post failover considerations
 Post failover you might want to consider the following recommendations:
-### Retaining drive letter after failover 
+### Retaining drive letter after failover
 To retain the drive letter on virtual machines after failover, you can set the **SAN Policy** for the virtual machine to **OnlineAll**. [Read more](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
@@ -123,8 +116,8 @@ To retain the drive letter on virtual machines after failover, you can set the *
 ## Next steps
 
 > [!WARNING]
-> Once you have failed over virtual machines and the on-premises data center is available, you should [**Reprotect**](site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
+> Once you have failed over virtual machines and the on-premises data center is available, you should [**Reprotect**](vmware-azure-reprotect.md) VMware virtual machines back to the on-premises data center.
 
-Use [**Planned failover**](site-recovery-failback-from-azure-to-hyper-v.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
+Use [**Planned failover**](hyper-v-azure-failback.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
 
 If you have failed over a Hyper-v virtual machine to another on-premises data center managed by a VMM server and the primary data center is available, then use **Reverse replicate** option to start the replication back to the primary data center.

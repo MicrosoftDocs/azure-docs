@@ -94,7 +94,7 @@ Which permissions you require depends on the optional features you enable. If yo
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:
 
 >[!IMPORTANT]
->Starting with build 1.1.484, Azure AD Connect introduced a regression bug which requires sysadmin permissions to upgrade the SQL database.  This bug is still present in the latest build 1.1.614.  If you are upgrading to this build, you will need sysadmin permissions.  Dbo permissions are not sufficient.  If you attempt to upgrade Azure AD Connect without having sysadmin permissions, the upgrade will fail and Azure AD Connect will no longer function correctly afterwards.  Microsoft is aware of this and is working to correct this.
+>Starting with build 1.1.484, Azure AD Connect introduced a regression bug which requires sysadmin permissions to upgrade the SQL database.  This bug is corrected in build 1.1.647.  If you are upgrading to this build, you will need sysadmin permissions.  Dbo permissions are not sufficient.  If you attempt to upgrade Azure AD Connect without having sysadmin permissions, the upgrade will fail and Azure AD Connect will no longer function correctly afterwards.  Microsoft is aware of this and is working to correct this.
 
 
 | Principal | Permissions required | Used for |

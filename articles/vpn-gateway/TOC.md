@@ -1,9 +1,14 @@
+# [VPN Gateway Documentation](index.md)
+
 # Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
 ## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Get Started
+## [Create a route-based VPN gateway - Azure portal](create-routebased-vpn-gateway-portal.md)
+
+# Concepts
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
 ## [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md)
 ## [About VPN devices](vpn-gateway-about-vpn-devices.md)
@@ -18,6 +23,8 @@
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
+
+## [Download VPN device configuration scripts](vpn-gateway-download-vpndevicescript.md)
 
 ## Configure Point-to-Site connections - native Azure certificate authentication
 ### Configure a P2S VPN
@@ -80,9 +87,10 @@
 ## [Troubleshoot](vpn-gateway-troubleshoot.md)
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Community-suggested VPN or firewall device settings](vpn-gateway-third-party-settings.md)
-### [Point-to-Site connection problem](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-### [Site-to-Site connection disconnects intermittently](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
-### [Site-to-Site connection cannot connect](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Point-to-Site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Point-to-Site connection problems - Mac OS X VPN client](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### [Site-to-Site connection problems](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Site-to-Site connection disconnects intermittently](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Configure and validate VNet or VPN connections](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Reference

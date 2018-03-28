@@ -3,8 +3,8 @@ title: Interactive Map Search with Azure Location Based Services | Microsoft Doc
 description: Azure Quickstart - Launch a demo interactive map search using Azure Location Based Services (preview)
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
+author: kgremban
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: quickstart
 ms.service: location-based-services

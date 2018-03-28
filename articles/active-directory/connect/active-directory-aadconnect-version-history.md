@@ -20,7 +20,7 @@ ms.author: billmath
 ---
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
-`
+
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
 This is a list of related topics:
@@ -34,6 +34,21 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.750.0
+Status 3/22/2018: Released for auto-upgrade and download.
+>[!NOTE]
+>When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
+
+>[!NOTE]
+>“AutoUpgrade functionality was incorrectly disabled for some tenants who deployed builds later than 1.1.524.0. To ensure that your Azure AD Connect instance is still eligible for AutoUpgrade, run the following PowerShell cmdlet:
+“Set-ADSyncAutoUpgrade -AutoupGradeState Enabled”
+
+
+### Azure AD Connect
+#### Fixed issues
+
+* Set-ADSyncAutoUpgrade cmdlet would previously block Autoupgrade if auto-upgrade state is set to Suspended. This is now changed so it does not block AutoUpgrade of future builds.
+
 ## 1.1.749.0
 Status: Released to select customers
 
@@ -42,23 +57,22 @@ Status: Released to select customers
 
 ### Azure AD Connect
 #### Fixed issues
-* Fix timing window on background tasks for Partition Filtering page when
 * Fix timing window on background tasks for Partition Filtering page when switching to next page.
 
-* Fixed a bug that caused Access violation during the ConfigDB custom action
+* Fixed a bug that caused Access violation during the ConfigDB custom action.
 
 * Fixed a bug to recover from SQL connection timeout.
 
-* Fixed a bug where certificates with SAN wildcards failed a prerequisite check
+* Fixed a bug where certificates with SAN wildcards failed a prerequisite check.
 
 * Fixed a bug which causes miiserver.exe to crash during an Azure AD connector export.
 
-* Fixed a bug which bad password attempt logged on DC when running the Azure AD Connect wizard to change configuration
+* Fixed a bug which bad password attempt logged on DC when running the Azure AD Connect wizard to change configuration.
 
 
 #### New features and improvements
 
-* Adding Privacy Settings for the General Date Protection Regulation (GDPR).  For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
+* Adding Privacy Settings for the General Data Protection Regulation (GDPR).  For GDPR we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to our customers to change their preferences.  This check-in adds the following:
 
 
 	- Data sharing and privacy notification on the clean install EULA page.

@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
 
 ---
@@ -41,125 +41,130 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 **To Submit jobs**
 
 1. Create a C# console application in Visual Studio.
-2. From the Nuget Package Manager Console, run the following command:
-   
-        Install-Package Microsoft.Azure.Management.HDInsight.Job
+2. From the NuGet Package Manager Console, run the following command:
+
+    ```   
+    Install-Package Microsoft.Azure.Management.HDInsight.Job
+    ```
 3. Use the following code:
-   
-        using System.Collections.Generic;
-        using System.IO;
-        using System.Text;
-        using System.Threading;
-        using Microsoft.Azure.Management.HDInsight.Job;
-        using Microsoft.Azure.Management.HDInsight.Job.Models;
-        using Hyak.Common;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Blob;
 
-        namespace SubmitHDInsightJobDotNet
+    ```csharp
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using System.Threading;
+    using Microsoft.Azure.Management.HDInsight.Job;
+    using Microsoft.Azure.Management.HDInsight.Job.Models;
+    using Hyak.Common;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
+
+    namespace SubmitHDInsightJobDotNet
+    {
+        class Program
         {
-            class Program
-            {
-                private static HDInsightJobManagementClient _hdiJobManagementClient;
-   
-                private const string existingClusterName = "<Your HDInsight Cluster Name>";
-                private const string existingClusterUri = existingClusterName + ".azurehdinsight.net";
-                private const string existingClusterUsername = "<Cluster Username>";
-                private const string existingClusterPassword = "<Cluster User Password>";
-   
-                private const string defaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.windows.net
-                private const string defaultStorageAccountKey = "<Default Storage Account Key>";
-                private const string defaultStorageContainerName = "<Default Blob Container Name>";
+            private static HDInsightJobManagementClient _hdiJobManagementClient;
 
-                private const string sourceFile = "/example/data/gutenberg/davinci.txt";  
-                private const string outputFolder = "/example/data/davinciwordcount";
-   
-                static void Main(string[] args)
+            private const string existingClusterName = "<Your HDInsight Cluster Name>";
+            private const string existingClusterUri = existingClusterName + ".azurehdinsight.net";
+            private const string existingClusterUsername = "<Cluster Username>";
+            private const string existingClusterPassword = "<Cluster User Password>";
+
+            private const string defaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.windows.net
+            private const string defaultStorageAccountKey = "<Default Storage Account Key>";
+            private const string defaultStorageContainerName = "<Default Blob Container Name>";
+
+            private const string sourceFile = "/example/data/gutenberg/davinci.txt";  
+            private const string outputFolder = "/example/data/davinciwordcount";
+
+            static void Main(string[] args)
+            {
+                System.Console.WriteLine("The application is running ...");
+
+                var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = existingClusterUsername, Password = existingClusterPassword };
+                _hdiJobManagementClient = new HDInsightJobManagementClient(existingClusterUri, clusterCredentials);
+
+                SubmitMRJob();
+
+                System.Console.WriteLine("Press ENTER to continue ...");
+                System.Console.ReadLine();
+            }
+
+            private static void SubmitMRJob()
+            {
+                List<string> args = new List<string> { { "/example/data/gutenberg/davinci.txt" }, { "/example/data/davinciwordcount" } };
+
+                var paras = new MapReduceJobSubmissionParameters
                 {
-                    System.Console.WriteLine("The application is running ...");
-   
-                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = existingClusterUsername, Password = existingClusterPassword };
-                    _hdiJobManagementClient = new HDInsightJobManagementClient(existingClusterUri, clusterCredentials);
-   
-                    SubmitMRJob();
-   
-                    System.Console.WriteLine("Press ENTER to continue ...");
-                    System.Console.ReadLine();
+                    JarFile = @"/example/jars/hadoop-mapreduce-examples.jar",
+                    JarClass = "wordcount",
+                    Arguments = args
+                };
+
+                System.Console.WriteLine("Submitting the MR job to the cluster...");
+                var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
+                var jobId = jobResponse.JobSubmissionJsonResponse.Id;
+                System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
+                System.Console.WriteLine("JobId is " + jobId);
+
+                System.Console.WriteLine("Waiting for the job completion ...");
+
+                // Wait for job completion
+                var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
+                while (!jobDetail.Status.JobComplete)
+                {
+                    Thread.Sleep(1000);
+                    jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
                 }
-   
-                private static void SubmitMRJob()
+
+                // Get job output
+                System.Console.WriteLine("Job output is: ");
+                var storageAccess = new AzureStorageAccess(defaultStorageAccountName, defaultStorageAccountKey,
+                    defaultStorageContainerName);
+    
+                if (jobDetail.ExitValue == 0)
                 {
-                    List<string> args = new List<string> { { "/example/data/gutenberg/davinci.txt" }, { "/example/data/davinciwordcount" } };
-   
-                    var paras = new MapReduceJobSubmissionParameters
+                    // Create the storage account object
+                    CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + 
+                        defaultStorageAccountName + 
+                        ";AccountKey=" + defaultStorageAccountKey);
+    
+                    // Create the blob client.
+                    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    
+                    // Retrieve reference to a previously created container.
+                    CloudBlobContainer container = blobClient.GetContainerReference(defaultStorageContainerName);
+    
+                    CloudBlockBlob blockBlob = container.GetBlockBlobReference(outputFolder.Substring(1) + "/part-r-00000");
+    
+                    using (var stream = blockBlob.OpenRead())
                     {
-                        JarFile = @"/example/jars/hadoop-mapreduce-examples.jar",
-                        JarClass = "wordcount",
-                        Arguments = args
-                    };
-   
-                    System.Console.WriteLine("Submitting the MR job to the cluster...");
-                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
-                    var jobId = jobResponse.JobSubmissionJsonResponse.Id;
-                    System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
-                    System.Console.WriteLine("JobId is " + jobId);
-   
-                    System.Console.WriteLine("Waiting for the job completion ...");
-   
-                    // Wait for job completion
-                    var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
-                    while (!jobDetail.Status.JobComplete)
-                    {
-                        Thread.Sleep(1000);
-                        jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
-                    }
-   
-                    // Get job output
-                    System.Console.WriteLine("Job output is: ");
-                    var storageAccess = new AzureStorageAccess(defaultStorageAccountName, defaultStorageAccountKey,
-                        defaultStorageContainerName);
-        
-                    if (jobDetail.ExitValue == 0)
-                    {
-                        // Create the storage account object
-                        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + 
-                            defaultStorageAccountName + 
-                            ";AccountKey=" + defaultStorageAccountKey);
-        
-                        // Create the blob client.
-                        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-        
-                        // Retrieve reference to a previously created container.
-                        CloudBlobContainer container = blobClient.GetContainerReference(defaultStorageContainerName);
-        
-                        CloudBlockBlob blockBlob = container.GetBlockBlobReference(outputFolder.Substring(1) + "/part-r-00000");
-        
-                        using (var stream = blockBlob.OpenRead())
+                        using (StreamReader reader = new StreamReader(stream))
                         {
-                            using (StreamReader reader = new StreamReader(stream))
+                            while (!reader.EndOfStream)
                             {
-                                while (!reader.EndOfStream)
-                                {
-                                    System.Console.WriteLine(reader.ReadLine());
-                                }
+                                System.Console.WriteLine(reader.ReadLine());
                             }
                         }
                     }
-                    else
+                }
+                else
+                {
+                    // fetch stderr output in case of failure
+                    var output = _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); 
+    
+                    using (var reader = new StreamReader(output, Encoding.UTF8))
                     {
-                        // fetch stderr output in case of failure
-                        var output = _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); 
-        
-                        using (var reader = new StreamReader(output, Encoding.UTF8))
-                        {
-                            string value = reader.ReadToEnd();
-                            System.Console.WriteLine(value);
-                        }
-        
+                        string value = reader.ReadToEnd();
+                        System.Console.WriteLine(value);
                     }
+    
                 }
             }
         }
+    }
+    ```
+
 4. Press **F5** to run the application.
 
 To run the job again, you must change the job output folder name, in the sample, it is "/example/data/davinciwordcount".

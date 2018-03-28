@@ -40,7 +40,7 @@ To complete this tutorial:
 # [Python] (#tab/python) 
 
 * Install [Python](https://www.python.org/downloads/)
-* Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
+* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 * (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
 
 ---
@@ -66,7 +66,7 @@ Follow these steps to create a read-access geo-redundant storage account:
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Name** | mystorageaccount | A unique value for your storage account |
    | **Deployment model** | Resource Manager  | Resource Manager contains the latest features.|
-   | **Account kind** | General purpose | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Account kind** | StorageV2 | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performance** | Standard | Standard is sufficient for the example scenario. |
    | **Replication**| Read-access geo-redundant storage (RA-GRS) | This is necessary for the sample to work. |
    |**Secure transfer required** | Disabled| Secure transfer is not required for this scenario. |
@@ -74,7 +74,7 @@ Follow these steps to create a read-access geo-redundant storage account:
    |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Location** | East US | Choose a location. |
 
-![create storage account](media/storage-create-geo-redundant-storage/figure1.png)
+![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## Download the sample
 

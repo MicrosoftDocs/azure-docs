@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
 
 ---
@@ -57,7 +57,7 @@ We recommend that you connect to the PEP only from the hardware lifecycle host o
       ````PowerShell
         $cred = Get-Credential
 
-        Enter-PSSession -ComputerName <IP_address_of_ERCS>`
+        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts the PEP. 
@@ -66,12 +66,12 @@ We recommend that you connect to the PEP only from the hardware lifecycle host o
       ````PowerShell
         $cred = Get-Credential
 
-        Enter-PSSession -ComputerName azs-ercs01`
+        Enter-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
    When prompted, use the following credentials:
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
+      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.) 
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
     
 3.	After you connect, the prompt will change to **[*IP address or ERCS VM name*]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment. From here, run `Get-Command` to view the list of available cmdlets.
@@ -126,7 +126,7 @@ To import the PEP session on your local machine, do the following steps:
       ````PowerShell
         $cred = Get-Credential
 
-        $session = New-PSSession -ComputerName <IP_address_of_ERCS>`
+        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts the PEP. 
@@ -135,12 +135,12 @@ To import the PEP session on your local machine, do the following steps:
       ````PowerShell
        $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName azs-ercs01`
+       $session = New-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ```` 
    When prompted, use the following credentials:
 
-      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\cloudadmin**. (For ASDK, the user name is **azurestack\cloudadmin**.)
+      - **User name**: Specify the CloudAdmin account, in the format **&lt;*Azure Stack domain*&gt;\accountname**. (For ASDK, the user name is **azurestack\accountname**.) 
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
 
 3. Import the PEP session into your local machine

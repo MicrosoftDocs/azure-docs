@@ -61,12 +61,14 @@ Face Detector uses techniques of fragmentation (where the metadata can be broken
 ### Task configuration (preset)
 When creating a task with **Azure Media Face Detector**, you must specify a configuration preset. The following configuration preset is just for face detection.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### Attribute descriptions
 | Attribute name | Description |
@@ -76,6 +78,7 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 ### JSON output
 The following example of JSON output was truncated.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -120,8 +123,8 @@ The following example of JSON output was truncated.
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## Emotion detection input and output example
 ### Input video
@@ -130,6 +133,7 @@ The following example of JSON output was truncated.
 ### Task configuration (preset)
 When creating a task with **Azure Media Face Detector**, you must specify a configuration preset. The following configuration preset specifies to create JSON based on the emotion detection.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -138,6 +142,7 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### Attribute descriptions
@@ -158,6 +163,7 @@ Below are recommended values for the aggregate window and interval settings. Agg
 ### JSON output
 JSON output for aggregate emotion (truncated):
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -308,6 +314,7 @@ JSON output for aggregate emotion (truncated):
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## Limitations
 * The supported input video formats include MP4, MOV, and WMV.
@@ -321,10 +328,12 @@ The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
 2. Create a job with a face detection task based on a configuration file that contains the following json preset: 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. Download the output JSON files. 
 
 #### Create and configure a Visual Studio project
@@ -333,7 +342,7 @@ Set up your development environment and populate the app.config file with connec
 
 #### Example
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
