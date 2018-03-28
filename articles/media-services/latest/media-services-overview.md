@@ -58,8 +58,6 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 
 ## How can I get started?
 
-### Supported client libraries 
-
 As a developer, you can use Media Services [REST API](https://docs.microsoft.com/rest/api/media/) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. Microsoft generates and supports the following client libraries: 
 
 * .NET languages
@@ -74,5 +72,5 @@ Media Services provides [Swagger files](https://github.com/Azure/azure-rest-api-
 
 ## Next steps
 
-The following quickstart shows you how to create an Azure Media Services account, upload a file based on the specified URL, encode it, and stream the video: [Stream your files](stream-files-dotnet-quickstart.md)
+The following quickstart shows how to stream video files: [Stream your files](stream-files-dotnet-quickstart.md)
 
