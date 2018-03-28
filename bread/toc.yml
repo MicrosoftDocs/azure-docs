@@ -150,6 +150,9 @@
     - name: Custom Vision Service
       tocHref: /azure/cognitive-services/custom-vision-service/
       topicHref: /azure/cognitive-services/custom-vision-service/
+    - name: Emotion
+      tocHref: /azure/cognitive-services/emotion/home
+      topicHref: /azure/cognitive-services/emotion/home
     - name: Face
       tocHref: /azure/cognitive-services/face/
       topicHref: /azure/cognitive-services/face/
