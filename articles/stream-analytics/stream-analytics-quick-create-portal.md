@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Azure portal."
 ---
 
 # Quickstart: Create a Stream Analytic job by using Azure portal
