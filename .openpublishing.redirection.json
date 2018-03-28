@@ -17762,6 +17762,11 @@
         "source_path": "articles/storage/files/storage-how-to-use-files-snapshots.md",
         "redirect_url": "/azure/storage/files/storage-snapshots-files",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-stack/azure-stack-deploy.md",
+        "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
+        "redirect_document_id": false
     }
    ]
 }
