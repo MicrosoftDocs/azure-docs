@@ -26,7 +26,7 @@ Log Analytics offers the following solutions for monitoring your networks:
  * Azure Application Gateway logs
  * Azure Application Gateway metrics
 * Solutions to monitor and audit network activity on your cloud network
-* [Traffic Analytics](../networking/network-monitoring-overview#traffic-analytics) 
+* [Traffic Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
 * Azure Network Security Group Analytics
 
 ## Network Performance Monitor (NPM)
