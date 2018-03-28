@@ -44,11 +44,8 @@ Visual Studio currently provides the best experience for developing apps that us
 Follow the same directions as for starting with the sample, but do the following steps instead of downloading the *.zip* file:
 
 1. Create a Function App project.
-2. Add the following NuGet package reference to your *.csproj* file:
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. Search for the following NuGet package reference using *Manage Nuget Packages* and add it to the project: 
+Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (check *Include prerelease* to search for this package)
    
 ## Visual Studio Code
 
