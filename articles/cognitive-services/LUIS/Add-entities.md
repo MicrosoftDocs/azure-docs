@@ -101,7 +101,7 @@ You can also define relationships between entities by creating composite entitie
     >[!NOTE]
     >To delete a child, click the trash button next to it.
 
-[!TIP]
+> [!TIP]
 > Try the composite [tutorial](luis-tutorial-composite-entity.md) to learn more.
 
 ## Add list entities

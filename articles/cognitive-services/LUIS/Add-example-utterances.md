@@ -183,7 +183,7 @@ The composite entity contains three child entities: number (of tickets), Seat, a
 
     ![Verify composite entity](./media/add-example-utterances/composite-wrap-final.png)
 
-[!TIP]
+> [!TIP]
 > Try the composite [tutorial](luis-tutorial-composite-entity.md) to learn more.
 
 ## Remove custom entity label
