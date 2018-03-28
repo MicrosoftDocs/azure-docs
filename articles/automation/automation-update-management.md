@@ -169,7 +169,7 @@ Click **Missing updates** to view the list of updates that are missing from your
 
 ## Viewing update deployments
 
-Click **Update Deployments** to view the list of existing Update Deployments. Clicking on any of the update deployments in the list opens up the **Update Deployment Run** page for that update deployment.
+Click the **Update Deployments** tab to view the list of existing Update Deployments. Clicking on any of the update deployments in the table opens up the **Update Deployment Run** page for that update deployment.
 
 ![Overview of Update Deployment Results](./media/automation-update-management/update-deployment-run.png)
 
@@ -182,7 +182,7 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 | Name |Unique name to identify the update deployment. |
 |Operating System| Linux or Windows|
 | Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines |
-|Update Classification|Select all the update classifications that you need|
+|Update classifications|Select all the update classifications that you need|
 |Updates to exclude|Enter all the KBs to exclude without the 'KB' prefix|
 |Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
 | Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
