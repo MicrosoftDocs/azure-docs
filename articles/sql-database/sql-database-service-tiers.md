@@ -122,21 +122,23 @@ The following table helps you understand the differences between these two tiers
 
 The following table helps you understand how to select the optimal configuration of your compute, memory, storage, and IO resources.
 
-||Gen 4|Gen 5|
+||Gen 4|
 |---|---|---|
-|Hardware|Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core)|Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread)|
-|Performance levels|1, 2, 4, 8, 16 vCores|2, 4, 8, 16 vCores|
-|Memory|7 GB per vCore|5.5 GB per vCore|
-|Storage|Up to 1 TB local SSD storage|Up to 1.5 TB local SSD storage
+|Hardware|Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core)|
+|Performance levels|1, 2, 4, 8, 16 vCores|
+|Memory|7 GB per vCore|
+|Storage|Up to 1 TB local SSD storage|
 ||||
 
 ### Storage considerations
 
 Consider the following:
 - The allocated storage is used by data files (MDF) and log files (LDF) files.
-- Each performance level supports a maximum database size.
+- Each performance level supports a maximum database size, with a default max size of 32 GB.
 - When you configure the required database size (size of MDF), 30% of additional storage is automatically added to support LDF
-- You can select any database size between 5 GB and the supported maximum with the 1 GB increments
+- You can select any database size between 10 GB and the supported maximum
+ - For Standard storage, increase or decrease size in 10 GB increments
+ - For Premium storage, increase or decrease size in 250 GB increments
 - In the General Purpose service tier, `tempdb` uses an attached SSD and this storage cost is included in the vCore price.
 - In the Business Critical service tier, `tempdb` shares the attached SSD with the MDF and LDF files and the tempDB storage cost is included in the vCore price.
 
