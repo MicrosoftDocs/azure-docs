@@ -57,7 +57,7 @@ Though the Backup policy has been created, it is good practice to create an init
 
 ## Using a Resource Manager template to deploy a protected VM
 
-The previous steps explain how to use the Azure portal to create a virtual machine, and protect it to a Recovery Services vault. If you want to quickly deploy one or more virtual machines, and protect them to a Recovery Services vault, see the template, [101-recovery-services-create-vm-and-configure-backup](https://github.com/azure/azure-quickstart-templates/101-recovery-services-create-vm-and-configure-backup/readme.md).
+The previous steps explain how to use the Azure portal to create a virtual machine, and protect it to a Recovery Services vault. If you want to quickly deploy one or more virtual machines, and protect them to a Recovery Services vault, see the template, [101-recovery-services-create-vm-and-configure-backup](https://github.com/azure/azure-quickstart-templates/101-recovery-services-create-vm-and-configure-backup/README.md).
 
 ## Frequently asked questions 
 
