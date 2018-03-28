@@ -278,7 +278,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 1. **[A]** Setup host name resolution   
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
-   Replace the IP address and the hostname in the following commands
+   Replace the IP address and the hostname in the following commands. The benefit of using /etc/hosts is that your cluster become independent of DNS which could be a single point of failuers too.
 
    <pre><code>
    sudo vi /etc/hosts
@@ -327,10 +327,16 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Add the following bold content to the file.
+   Add the following bold content to the file if the values are not there or different.
    
    <pre><code> 
    [...]
+     <b>token:          5000
+     token_retransmits_before_loss_const: 10
+     join:           60
+     consensus:      6000
+     max_messages:   20</b>
+     
      interface { 
         [...] 
      }
