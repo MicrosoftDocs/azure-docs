@@ -20,11 +20,11 @@
     href: quickstarts/php.md
   - name: Ruby
     href: quickstarts/ruby.md
-- name: SDK (preview)
+- name: SDK
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Entity Search C# quickstart (preview)
+  - name: Entity Search C# quickstart
     href: entity-search-sdk-quickstart.md
   - name: Entity Search Node.js quickstart (preview)
     href: entity-search-sdk-node-quickstart.md  
