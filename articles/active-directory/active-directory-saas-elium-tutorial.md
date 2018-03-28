@@ -152,11 +152,42 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-elium-tutorial/tutorial_general_400.png)
 	
-7. On the **Elium Configuration** section, click **Configure Elium** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. In a different web browser window, log in to your Elium company site as an administrator.
 
-	![Elium Configuration](./media/active-directory-saas-elium-tutorial/tutorial_elium_configure.png) 
+8. Click on the **AU** from right top corener and then select **Administration**.
 
+	![Configure Single Sign-On](./media/active-directory-saas-elium-tutorial/user1.png)
 
+9. Select **Security**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-elium-tutorial/user2.png)
+
+10. Scroll down to the **Single sign-on (SSO)** section, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-elium-tutorial/user3.png)
+
+	a. Copy the value of **Verify that SAML2 authentication works for your account:** and paste it in the **Sign-on URL** textbox On the **Elium Domain and URLs** section in the Azure portal.
+
+	> [!NOTE]
+	> The default login page can always be reached at the following URL: `https://demo-azure-ad.elium.com/login/regular/login`
+
+	b. Select **Enable SAML2 federation** checkbox.
+
+	c. Select **JIT Provisioning** checkbox.
+
+	d. Open the **SP Metadata** by clicking on the **Download** button.
+
+	e. Search for the **entityID** in the **SP Metadata** file, copy the **entityID** value and paste it in the **Identifier** textbox On the **Elium Domain and URLs** section in the Azure portal. 
+
+	![Configure Single Sign-On](./media/active-directory-saas-elium-tutorial/user4.png)
+
+	f. Search for the **AssertionConsumerService** in the **SP Metadata** file, copy the **AssertionConsumerService** value and paste it in the **Reply URL** textbox On the **Elium Domain and URLs** section in the Azure portal.
+
+	![Configure Single Sign-On](./media/active-directory-saas-elium-tutorial/user4.png)
+
+	g. Open the downloaded metadata file in notepad, copy the content and paste it into the **IdP Metadata** textbox.
+
+	h. Click **Save**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -197,7 +228,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Elium. Elium supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Elium if it doesn't exist yet.
 >[!Note]
->If you need to create a user manually, contact [Elium support team](support@elium.com).
+>If you need to create a user manually, contact [Elium support team](mailto:support@elium.com).
 
 ### Assign the Azure AD test user
 
