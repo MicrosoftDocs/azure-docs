@@ -220,10 +220,6 @@ This setting applies to the following client apps:
 
     - Only supports the iOS and Android for [device platform condition](#device-platforms-condition).
 
-    - Does not support the **Browser** option for the [client apps condition](#supported-browsers).
-    
-    - Supersedes the **Mobile apps and desktop clients** option for the [client apps condition](#supported-mobile-apps-and-desktop-clients) when that option is selected.
-
 
 ## Next steps
 

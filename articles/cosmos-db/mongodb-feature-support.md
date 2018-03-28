@@ -89,6 +89,7 @@ Azure Cosmos DB supports aggregation pipeline in public preview. See the [Azure 
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### Aggregation expressions
 

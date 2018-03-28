@@ -1,20 +1,13 @@
 ---
-title: Run runbooks on Azure Automation Hybrid Runbook Worker | Microsoft Docs
+title: Run runbooks on Azure Automation Hybrid Runbook Worker
 description: This article provides information about running runbooks on machines in your local datacenter or cloud provider with the Hybrid Runbook Worker role.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: tysonn
-
-ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/22/2017
-ms.author: magoedte
+manager: carmonm
 ---
 
 # Running runbooks on a Hybrid Runbook Worker 
@@ -23,7 +16,7 @@ There is no difference in the structure of runbooks that run in Azure Automation
 You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.  The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.  If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.
 
 ## Starting a runbook on Hybrid Runbook Worker
-[Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) describes different methods for starting a runbook.  Hybrid Runbook Worker adds a **RunOn** option where you can specify the name of a Hybrid Runbook Worker Group.  If a group is specified, then the runbook is retrieved and run by of the workers in that group.  If this option is not specified, then it is run in Azure Automation as normal.
+[Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) describes different methods for starting a runbook.  Hybrid Runbook Worker adds a **RunOn** option where you can specify the name of a Hybrid Runbook Worker Group.  If a group is specified, then the runbook is retrieved and run by one of the workers in that group.  If this option is not specified, then it is run in Azure Automation as normal.
 
 When you start a runbook in the Azure portal, you are presented with a **Run on** option where you can select **Azure** or **Hybrid Worker**.  If you select **Hybrid Worker**, then you can select the group from a dropdown.
 

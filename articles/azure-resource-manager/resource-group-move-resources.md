@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
 
 ---
@@ -84,6 +84,11 @@ There are some important steps to perform before moving a resource. By verifying
   az provider register --namespace Microsoft.Batch
   ```
 
+4. The account moving the resources must have at least the following permissions:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
+
 ## When to call support
 
 You can move most resources through the self-service operations shown in this article. Use the self-service operations to:
@@ -102,6 +107,7 @@ The services that enable moving to both a new resource group and subscription ar
 
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
+* App Service Certificates
 * Application Insights
 * Automation
 * Azure Cosmos DB
@@ -120,7 +126,7 @@ The services that enable moving to both a new resource group and subscription ar
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * IoT Hubs
 * Key Vault
-* Load Balancers
+* Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -129,6 +135,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Operational Insights
 * Operations Management
 * Power BI
+* Public IP - see [Public IP limitations](#pip-limitations)
 * Redis Cache
 * Scheduler
 * Search
@@ -158,8 +165,10 @@ The services that currently do not enable moving a resource are:
 * Express Route
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
+* Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Managed Applications
 * Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
+* Public IP - see [Public IP limitations](#pip-limitations)
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
 * StorSimple Device Manager
@@ -187,7 +196,9 @@ You cannot move a virtual network to a different subscription if the virtual net
 
 ## App Service limitations
 
-The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription.
+The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription. 
+
+The limitations described in these sections apply to uploaded certificates, not App Service Certificates. You can move App Service Certificates to a new resource group or subscription without limitations. If you have multiple web apps that use the same App Service Certificate, first move all the web apps, then move the certificate.
 
 ### Moving within the same subscription
 
@@ -318,6 +329,16 @@ When moving an HDInsight cluster to a new subscription, first move other resourc
 
 You cannot move multiple Search resources placed in different regions all at once.
 In such a case, you need to move them separately.
+
+## <a name="lb-limitations"></a> Load Balancer limitations
+
+Basic SKU Load Balancer can be moved.
+Standard SKU Load Balancer cannot be moved.
+
+## <a name="pip-limitations"></a> Public IP limitations
+
+Basic SKU Public IP can be moved.
+Standard SKU Public IP cannot be moved.
 
 ## Use portal
 
