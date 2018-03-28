@@ -195,8 +195,8 @@
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: aml-services-pricing.md
+    href: aml-pricing.md
   - name: Region availability
-    href: https://azure.microsoft.com/regions/services/
+    href: aml-regions.md
   - name: Team Data Science Process
     href: ../team-data-science-process/overview.md
