@@ -24,7 +24,7 @@ ms.author: juliako
 > 
 > 
 
-Media Services enables you to create new and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
+Media Services enables you to deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
 
 When you create a new asset (for example, before you [upload files](media-services-rest-upload-files.md)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
 

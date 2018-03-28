@@ -1,3 +1,5 @@
+# [Azure AD B2C Documentation](index.md)
+
 # [Overview](active-directory-b2c-overview.md)
 
 # Get started
@@ -19,6 +21,7 @@
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Web apps
 ### [Overview](active-directory-b2c-reference-oidc.md)
+### [Authenticate users in ASP.NET](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
@@ -27,9 +30,10 @@
 ### [JavaScript using MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web APIs
+### [Protect an ASP.NET API](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.js](active-directory-b2c-devquickstarts-api-node.md)
 ### [Call a .NET Web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Guides
@@ -40,6 +44,7 @@
 ### [Amazon](active-directory-b2c-setup-amzn-app.md)
 ### [LinkedIn](active-directory-b2c-setup-li-app.md)
 ### [Twitter](active-directory-b2c-setup-twitter-app.md)
+### [GitHub](active-directory-b2c-setup-github-app.md)
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
@@ -56,11 +61,13 @@
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
 ## [Use the reporting API](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Migrate users](active-directory-b2c-user-migration.md)
+## [Migrate social identities](active-directory-b2c-social-migration.md)
 
 # Identity Experience Framework
 ## [Custom policies](active-directory-b2c-overview-custom.md)
 ## Guides
 ### [Get started](active-directory-b2c-get-started-custom.md)
+### [Starter pack](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### Configure OIDC/OAUTH providers
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft Account](active-directory-b2c-custom-setup-msa-idp.md)
@@ -85,7 +92,8 @@
 #### [Password complexity](active-directory-b2c-reference-password-complexity-custom.md)
 #### [Password change](active-directory-b2c-reference-password-change-custom.md)
 #### [Enable keep me signed in](active-directory-b2c-reference-kmsi-custom.md)
-### Troubleshooting
+### Troubleshooting and Event Logs
+#### [Create custom events with Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Reference
 ### [Release notes](active-directory-b2c-developer-notes-custom.md)

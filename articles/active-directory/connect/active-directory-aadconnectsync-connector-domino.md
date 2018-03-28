@@ -1,9 +1,9 @@
-﻿---
+---
 title: Lotus Domino Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Lotus Domino Connector.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: ''
 

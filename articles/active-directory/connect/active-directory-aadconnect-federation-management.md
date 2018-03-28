@@ -1,5 +1,5 @@
 ---
-title: Active Directory Federation Services management and customization with Azure AD Connect | Microsoft Docs
+title: Azure AD Connect - AD FS management and customization | Microsoft Docs
 description: AD FS management with Azure AD Connect and customization of user AD FS sign-in experience with Azure AD Connect and PowerShell.
 keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party
 services: active-directory
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-
+ms.custom: seohack1
 ---
 # Manage and customize Active Directory Federation Services by using Azure AD Connect
 This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Azure Active Directory (Azure AD) Connect. It also includes other common AD FS tasks that you might need to do for a complete configuration of an AD FS farm.

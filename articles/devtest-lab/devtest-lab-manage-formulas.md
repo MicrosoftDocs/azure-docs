@@ -3,7 +3,7 @@ title: Manage formulas in Azure DevTest Labs to create VMs | Microsoft Docs
 description: Learn how to update and remove Azure DevTest Labs formulas
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ms.custom: H1Hack27Feb2017
 
@@ -39,7 +39,7 @@ The following steps guide you through the process of creating a formula from a c
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-2. Select **More Services**, and then select **DevTest Labs** from the list.
+2. Select **All Services**, and then select **DevTest Labs** from the list.
 
 3. From the list of labs, select the desired lab.  
 
@@ -86,7 +86,7 @@ The following steps guide you through the process of creating a formula based on
 > 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Select **More Services**, and then select **DevTest Labs** from the list.
+2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
 4. On the lab's **Overview** blade, select the VM from which you wish to create the formula.
    
@@ -103,7 +103,7 @@ The following steps guide you through the process of creating a formula based on
 To modify a formula, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Select **More Services**, and then select **DevTest Labs** from the list.
+2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
 4. On the lab's blade, select **Formulas (reusable bases)**.
    
@@ -115,7 +115,7 @@ To modify a formula, follow these steps:
 To delete a formula, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Select **More Services**, and then select **DevTest Labs** from the list.
+2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
 4. On the lab **Settings** blade, select **Formulas**.
    

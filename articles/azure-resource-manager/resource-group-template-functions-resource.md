@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/22/2018
 ms.author: tomfitz
 
 ---
@@ -248,7 +248,7 @@ Every resource type returns different properties for the reference function. The
 
 ### Remarks
 
-The reference function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template. 
+The reference function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template or [linked template](resource-group-linked-templates.md#link-or-nest-a-template). It cannot be used in the outputs section of a [nested template](resource-group-linked-templates.md#link-or-nest-a-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template. 
 
 By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the dependsOn property. The function is not evaluated until the referenced resource has completed deployment.
 

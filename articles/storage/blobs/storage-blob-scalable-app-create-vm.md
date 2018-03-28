@@ -3,17 +3,15 @@ title: Create a VM and storage account for a scalable application in Azure | Mic
 description: Learn how to deploy a VM to be used to run a scalable application using Azure blob storage
 services: storage
 documentationcenter: 
-author: georgewallace
+author: roygara
 manager: jeconnoc
-editor: ''
 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: rogarana
 ms.custom: mvc
 ---
 
@@ -114,7 +112,7 @@ For this tutorial, there are pre-requisites that must be installed on the virtua
 Run the following cmdlet to finalize configuration of the virtual machine. This step takes 5-15 minutes to complete.
 
 ```azurepowershell-interactive
-# Start a CustomScript extension to use a simple PowerShell script to instal .NET core, dependancies, and pre-create the files to upload.
+# Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
 Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location EastUS `

@@ -66,7 +66,7 @@ v1beta1.storage.k8s.io               10
 
 The next step is to install [Open Service Broker for Azure][open-service-broker-azure], which includes the catalog for the Azure-managed services. Examples of available Azure services are Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database, and others.
 
-Let's start by adding the Open Service Broker for Azure Helm repository:
+Start by adding the Open Service Broker for Azure Helm repository:
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure

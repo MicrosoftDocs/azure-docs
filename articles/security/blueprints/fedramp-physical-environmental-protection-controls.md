@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Azure Blueprint Automation - Physical and Environmental Protection
-description: Web Applications for FedRAMP - Physical and Environmental Protection
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Physical and Environmental Protection
+description: FedRAMP Web Applications Automation - Physical and Environmental Protection
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
@@ -427,7 +427,7 @@ ms.author: jomolesk
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure has implemented a long-term alternate power supply for the information system that is capable of maintaining a minimum required operational capability when an extended loss of the primary power source occurs. When power fails or drops to an unacceptable voltage level, Uninterruptable Power Supply (UPS) systems instantly kick in and take over the power load. This provides enough power for running the servers until the generators can take over. Emergency generators provide back-up power for extended outages and for planned maintenance, and can operate the data center with on-site fuel reserves in the event of a natural disaster. Azure maintains diesel generator at many of our datacenters. Backup generators are used when necessary to help maintain grid stability or in extraordinary repair, and maintenance situations that require us to take our datacenters off the power grid. |
+| **Provider (Microsoft Azure)** | Microsoft Azure has implemented a long-term alternate power supply for the information system that is capable of maintaining a minimum required operational capability when an extended loss of the primary power source occurs. When power fails or drops to an unacceptable voltage level, Uninterruptible Power Supply (UPS) systems instantly kick in and take over the power load. This provides enough power for running the servers until the generators can take over. Emergency generators provide back-up power for extended outages and for planned maintenance, and can operate the data center with on-site fuel reserves in the event of a natural disaster. Azure maintains diesel generator at many of our datacenters. Backup generators are used when necessary to help maintain grid stability or in extraordinary repair, and maintenance situations that require us to take our datacenters off the power grid. |
 
 
  ## NIST 800-53 Control PE-12

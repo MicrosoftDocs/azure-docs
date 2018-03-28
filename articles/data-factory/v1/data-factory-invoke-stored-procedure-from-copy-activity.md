@@ -4,7 +4,7 @@ description: 'Learn how to invoke a stored procedure in Azure SQL Database, or S
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 
 robots: noindex

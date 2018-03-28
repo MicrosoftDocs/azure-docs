@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -24,6 +24,7 @@ ms.custom: H1Hack27Feb2017
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -31,8 +32,6 @@ ms.custom: H1Hack27Feb2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -59,6 +58,13 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.14.2"/>1.14.2</a>
+* Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
+* Added Support for proxyUrl setting in ConnectionPolicy.
+
+### <a name="1.14.1"/>1.14.1</a>
+* Minor fix for case sensitive file systems.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Adds support for Session Consistency.
@@ -184,6 +190,8 @@ Any request to Cosmos DB using a retired SDK is be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.14.2](#1.14.2) |December 21, 2017 |--- |
+| [1.14.1](#1.14.1) |November 10, 2017 |--- |
 | [1.14.0](#1.14.0) |November 9, 2017 |--- |
 | [1.13.0](#1.13.0) |October 11, 2017 |--- |
 | [1.12.2](#1.12.2) |August 10, 2017 |--- |

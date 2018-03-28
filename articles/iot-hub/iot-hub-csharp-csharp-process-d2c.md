@@ -98,7 +98,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application supports routing messages based on message body.
 
 > [!NOTE]
 > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot-path example shown here.

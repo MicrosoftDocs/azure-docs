@@ -3,7 +3,7 @@ title: Generic SQL Connector step-by step | Microsoft Docs
 description: This article is walking you through a simple HR system step-by-step using the Generic SQL Connector.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: ''
 

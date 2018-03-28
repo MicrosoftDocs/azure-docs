@@ -19,7 +19,7 @@ ms.author: delhan
 
 # Azure Storage Explorer troubleshooting guide
 
-Microsoft Azure Storage Explorer (Preview) is a stand-alone app that enables you to easily work with Azure Storage data on Windows, macOS and Linux. The app can connect to Storage accounts hosted on Azure, Sovereign Clouds, and Azure Stack.
+Microsoft Azure Storage Explorer (Preview) is a stand-alone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux. The app can connect to Storage accounts hosted on Azure, National Clouds, and Azure Stack.
 
 This guide summarizes solutions for common issues seen in Storage Explorer.
 
@@ -56,7 +56,7 @@ When Storage Explorer encounters one of the issues, it can no longer know whethe
 
 6. Open Storage Explorer, click **Edit** > **SSL Certificates** > **Import Certificates**, and then use the file picker to find, select, and open the .cer files that you created.
 
-If you cannot find any self-signed certificates using the above steps, contact us through the feedback tool for more help.
+If you cannot find any self-signed certificates using the preceding steps, contact us through the feedback tool for more help.
 
 ### Unable to retrieve subscriptions
 
@@ -70,7 +70,7 @@ If you are unable to retrieve your subscriptions after you successfully sign in,
 
 - Try removing and readding the account.
 
-- Try deleting the following files from your root directory (that is, C:\Users\ContosoUser), and then re-adding the account:
+- Try deleting the following files from your root directory (that is, C:\Users\ContosoUser), and then readding the account:
 
     - .adalcache
 
@@ -113,7 +113,7 @@ If you are unable to remove an account, or if the reauthenticate link does not d
     - ~/.config/StorageExplorer for Linux
 
 > [!NOTE]
->  You will have to reenter all your credentials if you delete these files.
+>  After deleting the preceding files, you will need to sign back in to your accounts.
 
 ## Proxy issues
 
@@ -170,13 +170,21 @@ If you are connecting to a service using a SAS URL and experiencing this error:
 
 - If the SAS URL is based on an access policy, verify that the access policy has not been revoked.
 
-If your accidentally attached an invalid SAS URL and could not detach, please follow these steps:
+If you accidentally attached using an invalid SAS URL and cannot detach, follow these steps:
 1.	When running Storage Explorer, press F12 to open the developer tools window.
 2.	Click the Application tab, then click Local Storage > file:// in the tree on the left.
-3.	Find the key associated with the service type of the problematic SAS URI. For example, if the bad SAS URI is for a blob container, look for the key named “StorageExplorer_AddStorageServiceSAS_v1_blob”.
+3.	Find the key associated with the service type of the problematic SAS URI. For example, if the bad SAS URI is for a blob container, look for the key named `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4.	The value of the key should be a JSON array. Find the object associated with the bad URI and remove it.
 5.	Press Ctrl+R to reload Storage Explorer.
 
+## Linux Dependencies
+
+For Linux distros other than Ubuntu 16.04, you may need to manually install some dependencies. In general, the following packages are required:
+* libgconf-2-4
+* libsecret
+* Up-to-date GCC
+
+Depending on your distro, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distros.
 
 ## Next steps
 

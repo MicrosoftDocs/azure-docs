@@ -31,18 +31,25 @@ This quickstart guides through creating a [serverless](https://azure.microsoft.c
 ## Prerequisites
 To develop functions app with Java, you must have the following installed:
 
--  [.NET Core](https://www.microsoft.com/net/core), latest version.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
--  [Node.js](https://nodejs.org/download/), version 8.6 or higher.
+-  [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
 
 ## Install the Azure Functions Core Tools
 
-The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. Install the tools with [npm](https://www.npmjs.com/), included with [Node.js](https://nodejs.org/).
+The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. 
+
+To install, visit the [Installing](https://github.com/azure/azure-functions-core-tools#installing) section and find the specific instructions to your operating system of choice (Windows, Linux, Mac).
+
+You can also install it manually with [npm](https://www.npmjs.com/), included with [Node.js](https://nodejs.org/), after installing the following requirements:
+
+-  [.NET Core](https://www.microsoft.com/net/core), latest version.
+-  [Node.js](https://nodejs.org/download/), version 8.6 or higher.
+
+To proceed with an npm-based installation, run:
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -85,12 +92,29 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 
 ```java
 public class Function {
+    /**
+     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/hello
+     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     */
     @FunctionName("hello")
-    public String hello(@HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req,
-                        ExecutionContext context) {
-        return String.format("Hello, %s!", req);
+    public HttpResponseMessage<String> hello(
+            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        context.getLogger().info("Java HTTP trigger processed a request.");
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("name");
+        String name = request.getBody().orElse(query);
+
+        if (name == null) {
+            return request.createResponse(400, "Please pass a name on the query string or in the request body");
+        } else {
+            return request.createResponse(200, "Hello, " + name);
+        }
     }
 }
+
 ```
 
 ## Run the function locally
@@ -102,6 +126,9 @@ cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
+
+> [!NOTE]
+> If you're experiencing this exception: `javax.xml.bind.JAXBException` with Java 9, see the workaround on [GitHub](https://github.com/jOOQ/jOOQ/issues/6477).
 
 You see this output when the function is running:
 
@@ -163,6 +190,4 @@ You have created a Java function app with a simple HTTP trigger and deployed it 
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
 - Debug functions locally with Visual Studio Code. With the [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installed and with your Functions project open in Visual Studio Code, [attach the debugger](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) to port 5005. Then set a breakpoint in the editor and trigger your function while it's running locally:
     ![Debug functions in Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-
-
-
+- Debug functions remotely with Visual Studio Code. Check the [Writing serverless Java Applications](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) documentation for instructions.

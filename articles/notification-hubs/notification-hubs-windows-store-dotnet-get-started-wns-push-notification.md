@@ -3,9 +3,9 @@ title: Get started with Azure Notification Hubs for Universal Windows Platform a
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Windows Universal Platform application.
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: erikre
+author: jwhitedev
+manager: kpiteira
+editor: ''
 
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
+ms.date: 12/22/2017
+ms.author: jawh
 
 ---
 # Get started with Notification Hubs for Universal Windows Platform apps
@@ -78,8 +78,8 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 ## Configure your notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="5">
-<li><p>Select <b>Notification Services</b> > <b>Windows (WNS)</b>, and then enter the application secret password in the <b>Security Key</b> box. In the <b>Package SID</b> box, enter the value that you obtained from WNS in the previous section, and then select <b>Save</b>.</p>
+<ol start="6">
+<li><p>Under <b>Notification Services</b>, select <b>Windows (WNS)</b>, and then enter the application secret password in the <b>Security Key</b> box. In the <b>Package SID</b> box, enter the value that you obtained from WNS in the previous section, and then select <b>Save</b>.</p>
 </li>
 </ol>
 
@@ -91,11 +91,11 @@ Your notification hub is now configured to work with WNS. You have the connectio
 1. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**.  
     The **Manage NuGet Packages** window opens.
 
-2. In the search box, enter **WindowsAzure.Messaging.Managed**, select **Install**, and accept the terms of use.
+2. In the search box, enter **Microsoft.Azure.NotificationHubs**, select **Install**, and accept the terms of use.
    
     ![The Manage NuGet Packages window][20]
    
-    This action downloads, installs, and adds a reference to the Azure messaging library for Windows by using the [WindowsAzure.Messaging.Managed NuGet package](http://nuget.org/packages/WindowsAzure.Messaging).
+    This action downloads, installs, and adds a reference to the Azure Notification Hubs library for Windows by using the [Microsoft.Azure.NotificationHubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
 
 3. Open the App.xaml.cs project file, and add the following `using` statements: 
    
@@ -158,56 +158,6 @@ This tutorial demonstrates how to test your client app simply by sending notific
 * **Java or PHP**: For examples of how to send notifications by using the REST APIs, see:
     * [Java](notification-hubs-java-push-notification-tutorial.md)
     * [PHP](notification-hubs-php-push-notification-tutorial.md)
-
-## (Optional) Send notifications from a console app
-To send notifications by using a .NET console application, do the following: 
-
-1. Right-click the solution, select **Add** > **New Project**, under **Visual C#**, select **Windows** and **Console Application**, and then select **OK**.
-   
-    A new Visual C# console application is added to the solution. You can also add the project in a separate solution.
-
-2. In Visual Studio, select **Tools**, select **NuGet Package Manager**, and then select **Package Manager Console**.
-   
-    The Package Manager Console opens in Visual Studio.
-
-3. In the Package Manager Console window, set the **Default project** to your new console application project and then, in the console window, run the following command:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
-   
-    This action adds a reference to the Azure Notification Hubs SDK by using the [Microsoft.Azure.Notification Hubs NuGet package](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-   
-    ![The "Default project" name](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-
-4. Open the Program.cs file, and then add the following `using` statement:
-   
-        using Microsoft.Azure.NotificationHubs;
-
-5. In the **Program** class, add the following method:
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient
-                .CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello from a .NET App!</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast);
-        }
-   
-    >[!NOTE]
-    >* Replace the **hub name** placeholder with the name of the notification hub that appears in the Azure portal. 
-    >* Replace the connection string placeholder with the **DefaultFullSharedAccessSignature** connection string that you obtained from the **Access Policies** page of your Notification Hub in the "Configure your notification hub" section.
-    >* Use the connection string that has *full* access, not *listen* access. The listen-access string does not have permissions to send notifications.
-   > 
-   > 
-6. In the **Main** method, add the following lines:
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-
-7. Right-click the console application project in Visual Studio, and then select **Set as StartUp Project** to set it as the startup project. Then select the **F5** key to run the application.
-   
-    You will receive a toast notification on all registered devices. Selecting or tapping the toast banner loads the app.
-
-You can find all the supported payloads in the [toast catalog], [tile catalog], and [badge overview] topics on MSDN.
 
 ## Next steps
 In this simple example, you sent broadcast notifications to all your Windows devices by using the portal or a console app. For your next step, we recommend the [Use Notification Hubs to push notifications to users] tutorial. It demonstrates how to send notifications from an ASP.NET back end by using tags to target specific users.

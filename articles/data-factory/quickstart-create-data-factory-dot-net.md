@@ -1,18 +1,18 @@
 ---
 title: Create an Azure data factory using .NET | Microsoft Docs
-description: Create an Azure data factory to copy data from one location in in an Azure Blob Storage to another location in the same Blob Storage. 
+description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location. 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/06/2017
+ms.date: 03/28/2018
 ms.author: jingwang
 
 ---
@@ -100,12 +100,12 @@ The walkthrough in this article uses Visual Studio 2017. You can also use Visual
 Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/) on your machine.
 
 ### Create an application in Azure Active Directory
-Following instructions in [this article](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) to do the following tasks: 
+Following instructions from the sections in [this article](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) to do the following tasks: 
 
 1. **Create an Azure Active Directory application**. Create an application in Azure Active Directory that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
-2. Get the **application ID** and **authentication key**** by using instructions from the **Get application ID and authentication key** section in the article. Note down these values that you use later in this tutorial. 
-3. Get the **tenant ID** by using instructions from the **Get tenant ID** section in the article. Note down this value. 
-4. Assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription. Follow instructions in the **Assign application to role** section in the article. 
+2. Get the **application ID** and **authentication key**, and note down these values that you use later in this tutorial. 
+3. Get the **tenant ID** and note down this value that you use later in this tutorial.
+4. Assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
 
 ## Create a Visual Studio project
 

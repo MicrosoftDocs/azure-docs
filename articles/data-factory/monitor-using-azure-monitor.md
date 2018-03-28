@@ -4,15 +4,15 @@ description: Learn how to use Azure Monitor to monitor Data Factory pipelines by
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
 
 ---
@@ -378,7 +378,7 @@ More info here](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 |start| String | Start of trigger fire in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
 |status| String | Final status of whether trigger successfully fired (Succeeded or Failed) | `Succeeded`|
 
-### Metrics
+## Metrics
 
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
@@ -394,6 +394,53 @@ ADFV2 emits the following metrics
 | TriggerFailedRuns    | Failed trigger runs metrics     | Count    | Total                | Total trigger runs failed within a minute window      |
 
 To access the metrics, follow the instructions in the article - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## Alerts
+
+You can raise alerts on supported metrics in Data Factory. Click
+the **Alerts** button on the Data Factory **Monitor** page.
+
+![Alerts option](media/monitor-using-azure-monitor/alerts_image1.png)
+
+This takes you to the **Alerts** page.
+
+![Alerts page](media/monitor-using-azure-monitor/alerts_image2.png)
+
+You can also log in to the Azure portal and click **Monitor -&gt; Alerts** to
+reach the **Alerts** page directly.
+
+![Alerts in the portal menu](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### Create Alerts
+
+1.  Click **+ New Alert rule** to create a new alert.
+
+    ![New alert rule](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  Define the **Alert condition**.
+
+    > [!NOTE]
+    > Make sure to select **All** in the **Filter by resource type**.
+
+    ![Alert condition, screen 1 of 3](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![Alert condition, screen 2 of 3](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![Alert condition, screen 3 of 3](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  Define the **Alert details**.
+
+    ![Alert details](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  Define the **Action group**.
+
+    ![Action group, screen 1 of 4](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Action group, screen 2 of 4](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Action group, screen 3 of 4](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Action group, screen 4 of 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## Next steps
 See [Monitor and manage pipelines programmatically](monitor-programmatically.md) article to learn about monitoring and managing pipelines by running . 

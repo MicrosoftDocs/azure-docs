@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -38,11 +38,11 @@ Device-based conditional access ties **Azure AD conditional access** and **Azure
 
 In a mobile-first, cloud-first world, Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. For certain resources in your environment, granting access to the right users might not be good enough. In addition to the right users, you might also require a trusted device to be used to access a resource. In your environment, you can define what a trusted device is based on the following components:
 
-- The [device platforms](active-directory-conditional-access-azure-portal.md#device-platforms) on a device
+- The [device platforms](active-directory-conditional-access-conditions.md#device-platforms) on a device
 - Whether a device is compliant
 - Whether a device is domain-joined 
 
-The [device platforms](active-directory-conditional-access-azure-portal.md#device-platforms) is characterized by the operating system that is running on your device. In your device-based conditional access policy, you can limit access to certain resources to specific device platforms.
+The [device platforms](active-directory-conditional-access-conditions.md#device-platforms) is characterized by the operating system that is running on your device. In your device-based conditional access policy, you can limit access to certain resources to specific device platforms.
 
 
 

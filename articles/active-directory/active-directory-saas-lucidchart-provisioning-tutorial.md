@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuring LucidChart for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure LucidChart for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to LucidChart.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
 ---
 
-# Tutorial: Configuring LucidChart for Automatic User Provisioning
+# Tutorial: Configure LucidChart for automatic user provisioning
 
 
 The objective of this tutorial is to show you the steps you need to perform in LucidChart and Azure AD to automatically provision and de-provision user accounts from Azure AD to LucidChart. 
@@ -84,9 +84,9 @@ This section guides you through connecting your Azure AD to LucidChart's user ac
 
 12. Click **Save**. 
 
-This operation starts the initial synchronization of any users and/or groups assigned to LucidChart in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports, which describe all actions performed by the provisioning service.
+This operation starts the initial synchronization of any users and/or groups assigned to LucidChart in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 
 
 ## Additional resources

@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -38,11 +38,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 Application Insights can gather telemetry data from any internet-connected application, regardless of whether it's running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Select **New** > **Monitoring + Management** > **Application Insights**.
+1. Select **Create a resource** > **Monitoring + Management** > **Application Insights**.
 
    ![Adding Application Insights Resource](./media/app-insights-java-quick-start/001-j.png)
 
-   A configuration box will appear, use the table below to fill out the input fields.
+   A configuration box appears; use the following table to fill out the input fields.
 
     | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|

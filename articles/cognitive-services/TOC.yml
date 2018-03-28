@@ -56,8 +56,6 @@
     href: LUIS/index.yml
   - name: QnAMaker
     href: QnAMaker/Home.md
-  - name: Recommendations
-    href: Recommendations/overview.md
   - name: Speaker Recognition
     href: Speaker-recognition/Home.md
   - name: Text Analytics

@@ -13,27 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: trinadhk;markgal;jpallavi;
+ms.date: 01/21/2018
+ms.author: trinadhk;markgal;jpallavi;sogup
 
 ---
 # Troubleshoot Azure virtual machine backup
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
-
-## Backup
-
-### Error: The specified Disk Configuration is not supported
-
-> [!NOTE]
-> We have a private preview to support backups for VMs with >1TB unmanaged disks. For details refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
->
->
-
-Currently Azure Backup doesn’t support disk sizes [greater than 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- If you have disks greater than 1 TB , [attach new disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) which are less than 1 TB <br>
-- Then, copy the data from disk greater than 1TB into newly created disk(s) of size less than 1TB. <br>
-- Ensure that all data has been copied and remove the disks greater than 1TB
-- Initiate the backup.
 
 | Error details | Workaround |
 | --- | --- |

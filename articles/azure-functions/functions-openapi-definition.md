@@ -38,8 +38,6 @@ You must have a function app to host the execution of your functions. A function
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
 
 ## Create the function
 
@@ -59,7 +57,7 @@ This tutorial uses an HTTP triggered function that takes two parameters: the est
 
 1. Replace the contents of the run.csx file with the following code, then click **Save**:
 
-    ```c#
+    ```csharp
     using System.Net;
 
     const double revenuePerkW = 0.12; 

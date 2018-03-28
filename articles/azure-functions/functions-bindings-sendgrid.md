@@ -22,17 +22,23 @@ This article explains how to send email by using [SendGrid](https://sendgrid.com
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## Packages
+
+The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet package. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub repository.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
+
 ## Example
 
 See the language-specific example:
 
-* [Precompiled C#](#c-example)
-* [C# script](#c-script-example)
+* [C#](#c-example)
+* [C# script (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
+The following example shows a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
 
 ```cs
 [FunctionName("SendEmail")]
@@ -153,7 +159,7 @@ module.exports = function (context, input) {
 
 ## Attributes
 
-For [precompiled C#](functions-dotnet-class-library.md) functions, use the [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+In [C# class libraries](functions-dotnet-class-library.md), use the [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) attribute.
 
 For information about attribute properties that you can configure, see [Configuration](#configuration). Here's a `SendGrid` attribute example in a method signature:
 
@@ -167,7 +173,7 @@ public static void Run(
 }
 ```
 
-For a complete example, see [Precompiled C# example](#c-example).
+For a complete example, see [C# example](#c-example).
 
 ## Configuration
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 03/26/2018
 ms.author: nitinme
 
 ---
 # Accessing diagnostic logs for Azure Data Lake Store
 Learn to enable diagnostic logging for your Data Lake Store account and how to view the logs collected for your account.
 
-Organizations can enable diagnostic logging for their Azure Data Lake Store account to collect data access audit trails that provides information such as list of users accessing the data, how frequently the data is accessed, how much data is stored in the account, etc.
+Organizations can enable diagnostic logging for their Azure Data Lake Store account to collect data access audit trails that provides information such as list of users accessing the data, how frequently the data is accessed, how much data is stored in the account, etc. When enabled, the diagnostics and/or requests are logged on a best-effort basis. Both Requests and Diagnostics log entries are created only if there are requests made against the service endpoint.
 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -28,7 +28,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Store acco
 
 ## Enable diagnostic logging for your Data Lake Store account
 1. Sign on to the new [Azure portal](https://portal.azure.com).
-2. Open your Data Lake Store account, and from your Data Lake Store account blade, click **Settings**, and then click **Diagnostic logs**.
+2. Open your Data Lake Store account, and from your Data Lake Store account blade, click **Diagnostic logs**.
 3. In the **Diagnostics logs** blade, click **Turn on diagnostics**.
 
 	![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Enable diagnostic logs")
@@ -147,6 +147,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
+             "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
              "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
@@ -164,6 +165,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | category |String |The log category. For example, **Audit**. |
 | operationName |String |Name of the operation that is logged. For example, getfilestatus. |
 | resultType |String |The status of the operation, For example, 200. |
+| resultSignature |String |Additional details on the operation. |
 | correlationId |String |The ID of the log that can used to group together a set of related log entries |
 | identity |Object |The identity that generated the log |
 | properties |JSON |See below for details |

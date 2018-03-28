@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB: SQL syntax query reference | Microsoft Docs"
 description: Reference documentation for the Azure Cosmos DB SQL query language.
 services: cosmos-db
-author: mimig1
+author: LalithaMV
 manager: jhubbard
 editor: mimig
 documentationcenter: ''
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na 
 ms.topic: reference
 ms.date: 10/18/2017
-ms.author: mimig
+ms.author: laviswa
 
 ---
 
 # Azure Cosmos DB SQL syntax reference
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This topic provides reference documentation for the SQL query language, which is compatible with SQL API accounts.
 

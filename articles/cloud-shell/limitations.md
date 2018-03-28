@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/15/2018
 ms.author: juluk
 ---
 
@@ -30,7 +30,6 @@ The machine that provides your Cloud Shell session is temporary, and it is recyc
 * With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash, your `$Home` directory is also persisted.
 * Azure file shares can be mounted only from within your [assigned region](persisting-shell-storage.md#mount-a-new-clouddrive).
   * In Bash, run `env` to find your region set as `ACC_LOCATION`.
-* Azure Files supports only locally redundant storage and geo-redundant storage accounts.
 
 ### Browser support
 
@@ -38,7 +37,7 @@ Cloud Shell supports the latest versions of Microsoft Edge, Microsoft Internet E
 
 ### Copy and paste
 
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ### For a given user, only one shell can be active
 
@@ -53,15 +52,10 @@ Cloud Shell is intended for interactive use cases. As a result, any long-running
 ### User permissions
 
 Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory is not persisted.
-Although certain commands within the `clouddrive` directory, such as `git clone`, do not have proper permissions, your `$Home` directory does have permissions.
 
 ### Editing .bashrc
 
 Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud Shell.
-
-### .bash_history
-
-Your history of bash commands may be inconsistent because of Cloud Shell session disruption or concurrent sessions.
 
 ## PowerShell limitations
 
@@ -71,7 +65,7 @@ PowerShell in Azure Cloud Shell (Preview) could take up to 60 seconds to initial
 
 ### No $Home directory persistence
 
-Data written to `$Home` by any application (such as: git, vim, and others) does not persist across PowerShell sessions. For a workaround, [see here](troubleshooting.md#powershell-resolutions).
+Data written to `$Home` by any application (such as: git, vim, and others) does not persist across PowerShell sessions. For a workaround, [see here](troubleshooting.md#powershell-troubleshooting).
 
 ### Default file location when created from Azure drive:
 

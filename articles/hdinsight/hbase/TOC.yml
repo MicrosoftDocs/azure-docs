@@ -29,6 +29,8 @@
       maintainContext: true
   - name: Develop
     items:
+    - name: Use the HBase .NET SDK
+      href: apache-hbase-rest-sdk.md
     - name: Develop Java applications
       href: apache-hbase-build-java-maven-linux.md
     - name: Use empty edge nodes
@@ -37,8 +39,18 @@
     - name: Create non-interactive authentication .NET HDInsight applications
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
       maintainContext: true
+    - name: Apache Phoenix in HDInsight
+      href: ../hdinsight-phoenix-in-hdinsight.md
+      maintainContext: true
     - name: Use Phoenix and SQLLine
       href: apache-hbase-phoenix-squirrel-linux.md
+    - name: Use the Phoenix Query Server REST SDK
+      href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+  - name: Analyze big data
+    items:
+      - name: Use Spark to read and write HBase data
+        href: ../hdinsight-using-spark-query-hbase.md
+        maintainContext: true
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
@@ -59,6 +71,21 @@
         href: https://msdn.microsoft.com/library/mt706515.aspx
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
+        maintainContext: true
+      - name: Install published app - Cask Data Application Platform (CDAP)
+        href: ../hdinsight-apps-install-cask.md
+        maintainContext: true
+      - name: Install published app - Dataiku
+        href: ../hdinsight-apps-install-dataiku.md
+        maintainContext: true
+      - name: Install published app - Datameer
+        href: ../hdinsight-apps-install-datameer.md
+        maintainContext: true
+      - name: Install published app - H2O
+        href: ../hdinsight-apps-install-h2o.md
+        maintainContext: true
+      - name: Install published app - Streamsets
+        href: ../hdinsight-apps-install-streamsets.md
         maintainContext: true
   - name: Secure
     items:
@@ -112,15 +139,26 @@
       href: ../hdinsight-hadoop-manage-ambari.md
       maintainContext: true
       items:
+      - name: Optimize clusters with the Ambari web UI
+        href: ../hdinsight-changing-configs-via-ambari.md
+        maintainContext: true
       - name: Use Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Scale an HDInsight cluster
+      href: ../hdinsight-scaling-best-practices.md
+      maintainContext: true
+    - name: Manage logs for an HDInsight cluster
+      href: ../hdinsight-log-management.md
+      maintainContext: true
     - name: Add storage accounts
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
     - name: Upload data for Hadoop jobs
       href: ../hdinsight-upload-data.md
       maintainContext: true
+    - name: Bulk load data into Phoenix using psql
+      href: apache-hbase-phoenix-psql.md
     - name: Multiple HDInsight clusters with Data Lake Store
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
@@ -145,6 +183,8 @@
     - name: Upgrade HDInsight cluster to newer version
       href: ../hdinsight-upgrade-cluster.md
       maintainContext: true
+    - name: Migrate HBase cluster to newer version
+      href: apache-hbase-migrate-new-version.md
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
@@ -152,6 +192,9 @@
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
     items:
+    - name: Troubleshoot a slow or failing HDInsight cluster
+      href: ../hdinsight-troubleshoot-failed-cluster.md
+      maintainContext: true
     - name: HDFS troubleshooting
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
@@ -204,11 +247,15 @@
       href: apache-hbase-provision-vnet.md
     - name: HBase cluster replication in Azure VNet
       href: apache-hbase-replication.md
+    - name: Set up backup and replication for HBase and Phoenix
+      href: apache-hbase-backup-replication.md
   - name: Monitoring using OMS
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
+    - name: Monitor HBase with OMS
+      href: apache-hbase-monitor-with-oms.md
     - name: Cluster-specific dashboards
       href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
@@ -218,6 +265,8 @@
     - name: Monitor cluster performance
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true 
+    - name: Phoenix performance best practices
+      href: apache-hbase-phoenix-performance.md
 - name: Reference
   items:
   - name: Code samples

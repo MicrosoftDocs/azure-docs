@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 03/26/2018
 ms.author: mimig
 ---
 
@@ -31,6 +31,9 @@ Azure Cosmos DB and Azure Functions enable you to integrate your databases and s
 * Alternatively, bind an Azure Function to an Azure Cosmos DB collection using an **input binding**. Input bindings read data from a container when a function executes.
 * Bind a function to an Azure Cosmos DB collection using an **output binding**. Output bindings write data to a container when a function completes.
 
+> [!NOTE]
+> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only.
+
 The following diagram illustrates each of these three integrations: 
 
 ![How Azure Cosmos DB and Azure Functions integrate](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -39,9 +42,6 @@ The Azure Cosmos DB trigger, input binding, and output binding can be used in th
 * An Azure Cosmos DB trigger can be used with an output binding to a different Azure Cosmos DB container. After a function performs an action on an item in the change feed you can write it to another container (writing it to the same container it came from would effectively create a recursive loop). Or, you can use an Azure Cosmos DB trigger to effectively migrate all changed items from one container to a different container, with the use of an output binding.
 * Input bindings and output bindings for Azure Cosmos DB can be used in the same Azure Function. This works well in cases when you want to find certain data with the input binding, modify it in the Azure Function, and then save it to the same container or a different container, after the modification.
 * An input binding to an Azure Cosmos DB container can be used in the same function as an Azure Cosmos DB trigger, and can be used with or without an output binding as well. You could use this combination to apply up-to-date currency exchange information (pulled in with an input binding to an exchange container) to the change feed of new orders in your shopping cart service. The updated shopping cart total, with the current currency conversion applied, can be written to a third container using an output binding.
-
-> [!NOTE]
-> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only.
 
 ## Use cases
 
@@ -98,7 +98,7 @@ In retail implementations, when a user adds an item to their basket you now have
 
 **Implementation:** Multiple Azure Cosmos DB triggers listening to one collection
 
-1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function.
+1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function. For more information about lease collections, see [Understanding the Change Feed Processor library](change-feed.md#understand-cf).
 2. Whenever a new item is added to a users shopping cart, each function is independently invoked by the change feed from the shopping cart container.
     * One function may use the contents of the current basket to change the display of other items the user might be interested in.
     * Another function may update inventory totals.
@@ -110,13 +110,17 @@ In all of these use cases, because the function has decoupled the app itself, yo
 
 ## Tooling
 
-Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal.
+Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio 2017.
 * In the Azure Functions portal, you can create an Azure Cosmos DB trigger. For quickstart instructions, see [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
     ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
 * In the Azure Functions portal, you can also add Azure Cosmos DB input bindings and output bindings to other types of triggers. For quickstart instructions, see [Store unstructured data using Azure Functions and Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
     ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/function-portal-input-binding.png)
 *   In the Azure Cosmos DB portal, you can add an Azure Cosmos DB trigger to an existing Azure Function app in the same resource group.
     ![Create an Azure Cosmos DB trigger in the Azure Functions portal](./media/serverless-computing-database/cosmos-db-portal.png)
+* In Visual Studio 2017, you can create an Azure Cosmos DB trigger using the integrated template:
+
+    >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
+
 
 ## Why choose Azure Functions integration for serverless computing?
 
@@ -151,7 +155,7 @@ Now let's connect Azure Cosmos DB and Azure Functions for real:
 * [Create an Azure Cosmos DB trigger in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](https://aka.ms/cosmosdbinputbind)
 * [Store unstructured data using Azure Functions and Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-documentdb.md)
+* [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  

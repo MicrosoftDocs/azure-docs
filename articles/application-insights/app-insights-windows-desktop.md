@@ -45,7 +45,7 @@ ms.author: mbullwin
 6. Run your app, and see the telemetry in the resource you created in the Azure Portal.
 
 ## <a name="telemetry"></a>Example code
-```C#
+```csharp
 
     public partial class Form1 : Form
     {

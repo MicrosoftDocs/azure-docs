@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Logging and Auditing | Microsoft Docs
 description: Learn about how you can use logging data to gain deep insights about your application.
@@ -69,9 +69,9 @@ The following table list most important type of logs available in Azure.
 |[Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|frequent data about the operation of Azure Resource Manager resources in subscription|	Provide insight into operations that your resource performed itself| Azure Monitor, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[AAD Reporting](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Logs and Reports|User sign-in activities & System activity information about users and group management|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[Virtual Machine & Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows Event log & Linux Syslog|	Captures system data and logging data on the virtual machines and transfers that data into a storage account of your choice.|	Windows using [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics storage) and Linux in Azure monitor|
-|[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Storage logging and provides metrics data for a storage account|Provides insight into trace requests, analyze usage trends, and diagnose issues with your storage account.|	REST API or the [client library](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
+|[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Storage logging and provides metrics data for a storage account|Provides insight into trace requests, analyze usage trends, and diagnose issues with your storage account.|	REST API or the [client library](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG (Network Security Group) Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON format and shows outbound and inbound flows on a per rule basis|View information about ingress and egress IP traffic through a Network Security Group|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Application insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logs, exceptions,and custom diagnostics|	Application Performance Management (APM) service for web developers on multiple platforms.|	REST API, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
+|[Application insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logs, exceptions,and custom diagnostics|	Application Performance Management (APM) service for web developers on multiple platforms.|	REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |Process Data / Security Alert|	Azure Security Center Alert, OMS Alert|	Security information and alerts.| 	REST APIs, JSON|
 
 ### Activity Log

@@ -33,7 +33,7 @@ ms.author: juliako;milangada;
 
 ## Overview
 > [!IMPORTANT]
-> Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
+> Make sure to review the [Overview](media-services-scale-media-processing-overview.md) to get more information about scaling media processing.
 > 
 > 
 
@@ -50,20 +50,8 @@ To change the reserved unit type and the number of encoding reserved units using
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## Opening a Support Ticket
-By default every Media Services account can scale to up to 25 Encoding and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
 
-### Open a support ticket
-To open a support ticket do the following:
-
-1. Click [Get Support](https://manage.windowsazure.com/?getsupport=true). If you are not logged in, you will be prompted to enter your credentials.
-2. Select your subscription.
-3. Under support type, select "Technical".
-4. Click on "Create Ticket".
-5. Select "Azure Media Services" in the product list presented on the next page.
-6. Select a "Problem type" that is appropriate for your issue.
-7. Click Continue.
-8. Follow instructions on next page and then enter details about your issue.
-9. Click submit to open the ticket.
+By default every Media Services account can scale to up to 10 S2 or S3 Media Reserved Units (MRUs) or 25 S1 MRUs, and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
