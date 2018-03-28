@@ -27,6 +27,7 @@
           href: tutorial-windows-vm-access-sql.md
         - name: Access Azure Key Vault
           href: tutorial-windows-vm-access-nonaad.md
+        - name: Access Azure Cosmos DB
         - name: Access Azure Resource Manager with a user-assigned MSI
       - name: Linux VM/VMSS
         items:
@@ -47,6 +48,7 @@
         href: /azure/app-service/app-service-managed-service-identity
       - name: Azure Event Hubs
         href: /azure/event-hubs/event-hubs-managed-service-identity
+      - name: Access Azure Storage
     - name: Concepts
       items: 
       - name: Access Patterns using Managed Identities
@@ -137,6 +139,7 @@
       - name: CLI
         href: /cli/azure/identity
       - name: PowerShell
+        href: /powershell/module/azurerm.managedserviceidentity#managed_service_identity 
       - name: Azure Resource Manager Template
       - name: .NET
       - name: Java
