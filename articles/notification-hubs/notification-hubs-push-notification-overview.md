@@ -98,7 +98,7 @@ Notification hubs is your ready-to-use push engine with the following advantages
     - Shared Access Secret (SAS) or federated authentication.
 
 ## Integration with App Service Mobile Apps
-To facilitate a seamless and unifying experience across Azure services, [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) has built-in support for push notifications using Notification Hubs. [App Service Mobile Apps])(../app-service-mobile/app-service-mobile-value-prop.md) offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
+To facilitate a seamless and unifying experience across Azure services, [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) has built-in support for push notifications using Notification Hubs. [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
 
 Mobile Apps developers can utilize Notification Hubs with the following workflow:
 
@@ -114,9 +114,9 @@ Here are some conveniences brought to developers with this integration:
 - **Mobile Apps Client SDKs**: These multi-platform SDKs provide simple APIs for registration and talk to the notification hub linked up with the mobile app automatically. Developers do not need to dig through Notification Hubs credentials and work with an additional service.
     - *Push to user*: The SDKs automatically tag the given device with Mobile Apps authenticated User ID to enable push to user scenario.
     - *Push to device*: The SDKs automatically use the Mobile Apps Installation ID as GUID to register with Notification Hubs, saving developers the trouble of maintaining multiple service GUIDs.
-- Installation model**: Mobile Apps works with Notification Hubs' latest push model to represent all push properties associated with a device in a JSON Installation that aligns with Push Notification Services and is easy to use.
+- **Installation model**: Mobile Apps works with Notification Hubs' latest push model to represent all push properties associated with a device in a JSON Installation that aligns with Push Notification Services and is easy to use.
 - **Flexibility**: Developers can always choose to work with Notification Hubs directly even with the integration in place.
 - **Integrated experience in [Azure portal](https://portal.azure.com)**: Push as a capability is represented visually in Mobile Apps and developers can easily work with the associated notification hub through Mobile Apps.
 
-## Next Steps
+## Next steps
 Get started with creating and using a notification hub by following the [Tutorial: Push notifications to mobile applications](notification-hubs-android-push-notification-google-fcm-get-started.md). 
