@@ -72,13 +72,9 @@ The URLs for Function are different:
 | --- | --- | --- |
 | Functions | .azurewebsites.net | .azurewebsites.us|	
 
-### Variations
-Azure Container Service does not yet have Portal support in Azure Government. 
-
 ## Service Fabric
 For details on this service and how to use it, see [Azure Service Fabric documentation](../service-fabric/service-fabric-overview.md).
 
 ## Next Steps
-For supplemental information and updates, subscribe to the
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
 
