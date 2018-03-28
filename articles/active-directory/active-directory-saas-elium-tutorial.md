@@ -125,8 +125,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
       	   
 	| Attribute Name | Attribute Value |   
     | ---------------| ----------------|
-	| urn:oid:1.3.   |user.userprincipalname |
-
+	| email   |user.mail |
+	| first_name| user.givenname |
+	| last_name| user.surname|
+	| job_title| user.jobtitle|
+	| company| user.companyname|
+	
 	> [!NOTE]
 	> Only email claim is required. The custom claims can vary from one customer another customer.
 
