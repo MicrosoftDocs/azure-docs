@@ -18,7 +18,7 @@ ms.author: kumud
 ---
 # Create an internal load balancer to load balance VMs using Azure CLI 2.0
 
-This topic shows you how to create an internal load balancer to load balance VMs. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server to load balance a web app.
+This article shows you how to create an internal load balancer to load balance VMs. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server to load balance a web app.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -56,7 +56,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer
 
-Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7** .
+Create a public Basic Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \
@@ -237,7 +237,7 @@ To test the load balancer, create a virtual machine, *myVMTest*, and associate i
 
 ## Test the internal load balancer
 
-To test the load balancer, you must first obtain the private IP address of the load balancer. Next, sign in to virtual machine *myVMTest* and type the private IP address into the address bar of its web browser.
+To test the load balancer, you must first obtain the private IP address of the load balancer. Next, sign in to virtual machine myVMTest, and type the private IP address into the address bar of its web browser.
 
 To get the private IP address of the load balancer, use [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Copy the private IP address, and then paste it into the address bar of a web browser of your virtual machine - *myVMTest*.
 
@@ -258,4 +258,4 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az_gro
 
 
 ## Next steps
-In this topic, you created an internal Basic Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about load balancers and their associated resources, continue to the how-to articles.
+In this article, you created an internal Basic Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about load balancers and their associated resources, continue to the how-to articles.
