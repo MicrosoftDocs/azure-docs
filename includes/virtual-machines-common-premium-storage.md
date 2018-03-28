@@ -45,11 +45,11 @@ Here are some of the features of Premium Storage:
 
 * **Premium storage account**
 
-    To start using Premium Storage, create a premium storage account for unmanaged disks. In the [Azure portal](https://portal.azure.com), to create a premium storage account, choose the **Premium** performance tier. Select the **Locally-redundant storage (LRS)** replication option. You also can create a premium storage account by setting the type to **Premium_LRS** in one of the following locations:
-    * [Storage REST API](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 or a later version)
-    * [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (version 2014-10-01 or a later version; for Azure classic deployments)
-    * [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments)
-    * [Using PowerShell with Azure Storage](../articles/storage/common/storage-powershell-guide-full.md)
+    To start using Premium Storage, create a premium storage account for unmanaged disks. In the [Azure portal](https://portal.azure.com), to create a premium storage account, choose the **Premium** performance tier. Select the **Locally-redundant storage (LRS)** replication option. You also can create a premium storage account by setting the performance tier to **Premium_LRS**. To change the performance tier, use one of the following approaches:
+     
+    - [PowerShell for Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [Azure CLI for Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments) or one of the Azure Storage resource provider client libraries
 
     To learn about premium storage account limits, see [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
