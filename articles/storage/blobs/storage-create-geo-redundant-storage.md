@@ -151,9 +151,11 @@ The Storage object retry function is set to use a linear retry policy. The retry
 
 ---
 
-### Retry event handler
+## Understand the sample code
 
 # [.NET] (#tab/dotnet)
+
+### Retry event handler
 
 The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.
  
@@ -181,7 +183,32 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
+### Request completed event handler
+
+The `OperationContextRequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) back to `PrimaryThenSecondary` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
+ 
+```csharp
+private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
+{
+    if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
+    {
+        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times, 
+        //    then switch back to the primary and see if it's available now.
+        secondaryReadCount++;
+        if (secondaryReadCount >= secondaryThreshold)
+        {
+            blobClient.DefaultRequestOptions.LocationMode = LocationMode.PrimaryThenSecondary;
+            secondaryReadCount = 0;
+        }
+    }
+}
+```
+
+
 # [Python] (#tab/python) 
+
+### Retry event handler
+
 The `retry_callback` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) of the request is changed to `SECONDARY`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely.  
 
 ```python
@@ -203,46 +230,7 @@ def retry_callback(retry_context):
                             "Check your application's network connection.")
 ```
 
-# [Java] (#tab/java)
-
-With Java, defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. The application automatically switches between secondary and primary **LocationMode** as it fails or succeeds to download **HelloWorld.png** since the **LocationMode** is set to **PRIMARY\_THEN\_SECONDARY**.
-
-```java
-    BlobRequestOptions myReqOptions = new BlobRequestOptions();
-    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff,maxAttempts));
-    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
-    blobClient.setDefaultRequestOptions(myReqOptions);
-
-    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
-```
-
----
-
-
 ### Request completed event handler
- 
-# [.NET] (#tab/dotnet)
-
-The `OperationContextRequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) back to `PrimaryThenSecondary` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
- 
-```csharp
-private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
-{
-    if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
-    {
-        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times, 
-        //    then switch back to the primary and see if it's available now.
-        secondaryReadCount++;
-        if (secondaryReadCount >= secondaryThreshold)
-        {
-            blobClient.DefaultRequestOptions.LocationMode = LocationMode.PrimaryThenSecondary;
-            secondaryReadCount = 0;
-        }
-    }
-}
-```
-
-# [Python] (#tab/python) 
 
 The `response_callback` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) back to `PRIMARY` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
 
@@ -258,11 +246,21 @@ def response_callback(response):
             blob_client.location_mode = LocationMode.PRIMARY
             secondary_read_count = 0
 ```
+
 # [Java] (#tab/java)
 
-With Java, defining a callback handler is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. The application automatically switches between secondary and primary **LocationMode** as it fails or succeeds to download **HelloWorld.png** since the **LocationMode** is set to **PRIMARY\_THEN\_SECONDARY**.
+With Java, defining callback handlers is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. The application automatically switches between secondary and primary **LocationMode** as it fails or succeeds to download **HelloWorld.png** since the **LocationMode** is set to **PRIMARY\_THEN\_SECONDARY**.
 
+```java
+    BlobRequestOptions myReqOptions = new BlobRequestOptions();
+    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff,maxAttempts));
+    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
+    blobClient.setDefaultRequestOptions(myReqOptions);
+
+    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
+```
 ---
+
 
 ## Next steps
 
