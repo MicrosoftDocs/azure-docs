@@ -24,17 +24,17 @@ Azure Monitor is the platform service that provides a single source for monitori
 1. In the portal, navigate to **All services** and find the **Monitor** option. Click the star icon to add this option to your favorites list so that it is always easily accessible from the left-hand navigation bar.
 
     ![Monitor in the services list](./media/monitoring-get-started/monitor-more-services.png)
-2. Click the **Monitor** option to open up the **Monitor** page. This page brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
+2. Click the **Monitor** option to open up the **Monitor** page. This page brings together all your monitoring settings and data into one consolidated view. It first opens to the **Overview** section. The Overview shows you a rollup of all monitoring alerts, errors, and service health advisories that relate to resources in your subscription.  
 
     ![Monitor navigation](./media/monitoring-get-started/monitor-blade-nav.png)
 
     Azure Monitor has three basic categories of monitoring data: The **activity log**, **metrics**, and **diagnostic logs**.
 3. Click **Activity log** to ensure that the activity log section is displayed.
 
-    ![Activity Log](./media/monitoring-get-started/monitor-act-log-blade.png)
-
     The [**activity log**](monitoring-overview-activity-logs.md) describes all operations performed on resources in your subscription. Using the Activity Log, you can determine the ‘what, who, and when’ for any create, update, or delete operations on resources in your subscription. For example, the Activity Log tells you when a web app was stopped and who stopped it. Activity Log events are stored in the platform and available to query for 90 days.
 
+    ![Activity Log](./media/monitoring-get-started/monitor-act-log-blade.png)
+    
     You can create and save queries for common filters, then pin the most important queries to a portal dashboard so you'll always know if events that meet your criteria have occurred.
 4. Filter the view to a particular resource group over the last week, then click the **Save** button. Give your query a name. 
 
