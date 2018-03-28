@@ -1,5 +1,5 @@
 - name: Azure Monitoring Documentation
-  href: management-overview-monitoring.md
+  href: index.md
 - name: Overview 
   items:
   - name: Monitoring in Azure
