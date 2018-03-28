@@ -1,4 +1,4 @@
----
+l---
 title: Link Azure account to partner ID | Microsoft Docs
 description: Track engagements with Azure customers by linking partner ID to the user account that you use to manage the customer's resources. 
 services: billing
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ---
 
-# Link partner ID to your Azure account 
+# Link partner ID to your Azure accounts 
 As a partner, you can track your impact across your customer engagements by linking your partner ID to the accounts used for managing customer's resources.
 
 This feature is available in a public preview. 
@@ -29,7 +29,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 ## Link partner ID
 When you have access to the customer's resources, use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You need to link the partner ID for each customer tenant. 
 
-### Use PowerShell to Link new partner ID
+### Use PowerShell to link new partner ID
 
 1. Install the [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview) PowerShell Module.
 
@@ -118,7 +118,7 @@ Yes, linked partner ID can be changed, added, or removed.
 
 The link between the partner ID and the account is done for each customer tenant.  You have to link the partner ID in each customer tenant.
 
-**Can other partner or customer edit or remove the link to the Partner ID?**
+**Can other partner or customer edit or remove the link to the partner ID?**
 
 The link is associated at the account level. Only you can edit or remove the link to the partner ID. The customer and other partner can't change the link to the partner ID. 
 
