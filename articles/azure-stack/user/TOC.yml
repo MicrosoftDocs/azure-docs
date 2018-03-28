@@ -27,6 +27,8 @@
   items:
   - name: Use the Azure Stack Portal
     href: azure-stack-use-portal.md
+  - name: Use the Azure Stack API
+    href: azure-stack-rest-api-use.md
   - name: Security & compliance
     items:
     - name: Manage RBAC
@@ -131,6 +133,8 @@
   items:
   - name: Azure Stack Operator Documentation
     href: /azure/azure-stack/
+  - name: ASDK Documentation
+    href: /azure/azure-stack/asdk/
 - name: Resources
   items:
   - name: Azure Stack roadmap

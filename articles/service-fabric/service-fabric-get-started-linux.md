@@ -27,6 +27,10 @@ ms.author: subramar
 
 To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development.
 
+> [!NOTE]
+> Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is not supported. However, the Azure Service Fabric command-line interface (CLI), which enables you to manage Service Fabric entities hosted elsewhere in the cloud or on-premises, is supported. For information about how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
+>
+
 ## Prerequisites
 
 The following operating system versions are supported for development:
@@ -104,6 +108,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
+
+The Service Fabric runtime which comes with the above installation includes the packages in the table below. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
   Once the installation completes, you should be able to start a local cluster.
