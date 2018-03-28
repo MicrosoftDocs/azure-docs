@@ -6,6 +6,9 @@
 ## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Get Started
+## [Create a route-based VPN gateway - Azure portal](create-routebased-vpn-gateway-portal.md)
+
+# Concepts
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
 ## [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md)
 ## [About VPN devices](vpn-gateway-about-vpn-devices.md)

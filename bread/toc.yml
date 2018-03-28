@@ -162,6 +162,9 @@
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
+    - name: Content Moderator
+      tocHref: /azure/cognitive-services/content-moderator/overview
+      topicHref: /azure/cognitive-services/content-moderator/overview
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
