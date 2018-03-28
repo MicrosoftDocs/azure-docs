@@ -23,7 +23,7 @@ ms.custom: mvc
 # What is Azure Media Services?
 
 > [!NOTE]
-> The latest version of Azure Media Services (2018-03-30) is in **preview**. Find information about the previous (stable) version (2015-10-01)  [here](https://docs.microsoft.com/azure/media-services/media-services-overview).
+> The latest version of Azure Media Services (2018-03-30) is in **preview**. Find information about the previous (stable) version (2015-10-01) [here](https://docs.microsoft.com/azure/media-services/media-services-overview).
 
 Azure Media Services is an extensible cloud-based platform that enables application developers to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. You do not need to be a media content creator to use Azure Media Services. You might be an expert in developing web or mobile apps but don’t have any experience working with and streaming videos. Media Services is for anybody who wants to deliver media experiences of outstanding quality to their viewers. Whether you are a call center, a government agency, an entertainment company, Media Services will help you to easily create media applications that can reach large audiences on today’s most popular mobile devices and browsers. 
 
@@ -31,7 +31,7 @@ If you want to see how easy it is to start encoding and streaming video files, c
 
 If you want to first see more examples of what you can achieve with Azure Media Services, see [What can I do with Media Services?](#what-can-i-do-with-media-services).  
 
-### What is Media Services v3?
+### What is in the latest version of Media Services?
 
 The latest version of Media Services is based on a unified API surface which exposes both management and operations functionality built on Azure Resource Manager. This version provides the following capabilities:  
 
