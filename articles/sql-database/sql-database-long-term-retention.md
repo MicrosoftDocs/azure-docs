@@ -9,6 +9,7 @@ ms.custom: business continuity
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
+ms.reviewer: carlrab
 
 ---
 # Store Azure SQL Database backups for up to 10 years
@@ -21,7 +22,7 @@ Many applications have regulatory, compliance, or other business purposes that r
 
 ## How SQL Database long-term retention works
 
-With long-term backup retention, you can set up a flexible long term retention policy for each SQL database. You specify a flexible policy in the form of (W,M,Y,WeekOfYear) while W represents the retention policy of each weekly full backup (apply to each weekly full backup), M represents the retention policy of each monthly backup (apply to the first full backup of each month), Y represents the retention policy of each yearly backup (apply to the full backup taken in the week determined by WeekOfYear).
+Long-term backup retention leverages the [automatic SQL Database backups](sql-database-automated-backups.md) created takes for point-time restore (PITR). You can configure a long term retention policy for each SQL database and specify how frequently you need to copy the backups to the long-term storage. To enable that flexibility you can define the policy using a combination of four parameters: weekly backup retention (W), monthly backup retention (M), yearly backup retention (Y) and week of year (WeekOfYear). If you specify W, one backup every week will be copied to the long-term storage. If you specify M, one backup during the first week of each month will be copied to the long-term storage. If you specify Y, one backup during the week specified by WeekOfYear will be copied to the long-term storage. Each backup will be kept in the long-term storage for the period specified by these parameters. 
 
 Examples:
 
@@ -41,8 +42,15 @@ Examples:
 
    Each weekly full backup will be kept for 6 weeks. Except first full backup of each month, which will be kept for 12 months. Except the full backup taken on 16th week of year, which will be kept for 10 years. 
 
-You can then restore the database from any of these backups to a new database in any server in the subscription. Azure storage creates a copy from existing backups, and the copy has no performance impact on the existing database.
+The following table illustrates the cadence and expiration of the long-term backups for the following policy:
 
+W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear=15 (week after April 15)
+
+![ltr table](./media/sql-database-long-term-retention/ltr-table.png)
+ 
+If you were to modify the above policy and set W=0 (no weekly backups), the cadence of backup copies would change as shown in the above table by the highlighted dates. The storage amount needed to keep these backups would reduce accordingly. 
+Note: The LTR copies are created by Azure storage service so the copy process has no performance impact on the existing database.
+To restore a database from the LTR storage, you can select a specific backup based on its timestamp.   The database can be restored to any existing server under the same subscription as the original database. 
 
 ## Next steps
 

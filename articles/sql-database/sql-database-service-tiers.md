@@ -81,7 +81,7 @@ For details on specific performance levels and storage size choices available fo
 
 ## vCore-based purchasing model (preview)
 
-A virtual core represents the logical CPU offered with an option to choose between generations of hardware. The vCore-based purchasing model (preview) gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model, customers can choose between General purpose and Business critical service tiers for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). 
+A virtual core represents the logical CPU offered with an option to choose between generations of hardware. The vCore-based purchasing model (preview) gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model, customers can choose between General Purpose and Business critical service tiers (preview) for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). 
 
 Service tiers are differentiated by a range of performance levels, high availability design, fault isolation, types of storage and IO range. The customer  must separately configure the required storage and retention period for backups. When using the vCore model, single databases and elastic pools are eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
@@ -164,13 +164,13 @@ The following table provides guidance for the specific migration scenarios:
 |Current service tier|Target service tier|Migration type|User actions|
 |---|---|---|---|
 |Standard|General purpose|Lateral|Can migrate in any order, but need to ensure an appropriate vCore sizing*|
-|Premium|Business critical|Lateral|Can migrate in any order, but need to ensure appropriate vCore sizing*|
-|Standard|Business critical|Upgrade|Must migrate secondary first|
-|Business critical|Standard|Downgrade|Must migrate primary first|
+|Premium|Business Critical|Lateral|Can migrate in any order, but need to ensure appropriate vCore sizing*|
+|Standard|Business Critical|Upgrade|Must migrate secondary first|
+|Business Critical|Standard|Downgrade|Must migrate primary first|
 |Premium|General purpose|Downgrade|Must migrate primary first|
 |General purpose|Premium|Upgrade|Must migrate secondary first|
-|Business critical|General purpose|Downgrade|Must migrate primary first|
-|General purpose|Business critical|Upgrade|Must migrate secondary first|
+|Business Critical|General purpose|Downgrade|Must migrate primary first|
+|General purpose|Business Critical|Upgrade|Must migrate secondary first|
 ||||
 
 \* 100 DTU requires at least 1 vCore

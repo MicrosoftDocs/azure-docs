@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -22,7 +22,7 @@ This article uses the following canonical SaaS ISV application pattern:
 This article discusses DR strategies covering a range of scenarios from cost sensitive startup applications to ones with stringent availability requirements.
 
 > [!NOTE]
-> If you are using Premium databases and pools, you can make them resilient to regional outages by converting them to zone redundant deployment configuration (currently in preview). See [Zone-redundant databases](sql-database-high-availability.md).
+> If you are using Premium or Business Critical (preview) databases and elastic pools, you can make them resilient to regional outages by converting them to zone redundant deployment configuration (currently in preview). See [Zone-redundant databases](sql-database-high-availability.md).
 
 ## Scenario 1. Cost sensitive startup
 <i>I am a startup business and am extremely cost sensitive.  I want to simplify deployment and management of the application and I can have a limited SLA for individual customers. But I want to ensure the application as a whole is never offline.</i>

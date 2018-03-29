@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 04/04/2018
 ms.author: carlrab
 
 ---
@@ -63,7 +63,7 @@ For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/deta
 Unlike single databases, using [active geo-replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the resources provisioned for each of the pools (primary pool and secondary pool)
 
 ## How does the use of the auditing feature impact my bill?
-Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, and Premium databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
+Auditing is built into the SQL Database service at no extra cost and is available on all service tiers. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
 
 ## How do I find the right service tier and performance level for single databases and elastic pools?
 There are a few tools available to you: 
