@@ -44,7 +44,7 @@ Beginning in API version 2017-12-01, when you deploy a scale set into one or mor
 
 To use max spreading, set "platformFaultDomainCount" to 1. To use static 5 fault domain spreading, set "platformFaultDomainCount" to 5. In API version 2017-12-01, "platformFaultDomainCount" defaults to 1 for single-zone and cross-zone scale sets. Currently, only static 5 fault domain spreading is supported for regional scale sets.
 
-Additionally, when you deploy a scale set, you have the option of deploying with a single [placement group](./virtual-machine-scale-sets-placement-groups#placement-groups) per availability zone, or with multiple per zone (for regional scale sets, the choice is to have a single placement group in the region or to have multiple in the region). For most workloads, we recommend using multiple placement groups, which allows for greater scale. In API version 2017-12-01, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional scale sets.
+Additionally, when you deploy a scale set, you have the option of deploying with a single [placement group](./virtual-machine-scale-sets-placement-groups) per availability zone, or with multiple per zone (for regional scale sets, the choice is to have a single placement group in the region or to have multiple in the region). For most workloads, we recommend using multiple placement groups, which allows for greater scale. In API version 2017-12-01, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional scale sets.
 
 >[!NOTE]
 > If you use max spreading, you must use multiple placement groups.
