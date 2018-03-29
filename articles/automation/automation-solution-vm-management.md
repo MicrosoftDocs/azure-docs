@@ -50,7 +50,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
 
 1. The **Add Solution** page appears. You are prompted to configure the solution before you can import it into your Automation subscription.
    ![VM Management Add Solution page](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
-1. On the **Add Solution** page, select **Workspace**. Select an OMS workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** page, perform the following:
+1. On the **Add Solution** page, select **Workspace**. Select a Log Analytics workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** page, perform the following:
    * Specify a name for the new **OMS Workspace**.
    * Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    * For **Resource Group**, you can create a new resource group or select an existing one.
@@ -58,13 +58,13 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    * Select a **Pricing tier**. The solution offers two tiers: **Free** and **Per Node (OMS)**. The Free tier has a limit on the amount of data collected daily, the retention period, and the runbook job runtime minutes. The Per Node tier does not have a limit on the amount of data collected daily.
 
         > [!NOTE]
-        > Although the Per GB (Standalone) paid tier is displayed as an option, it is not applicable. If you select it and proceed with the creation of this solution in your subscription, it fails. This will be addressed when this solution is officially released. This solution only uses automation job minutes and log ingestion. It does not add additional OMS nodes to your environment.
+        > Although the Per GB (Standalone) paid tier is displayed as an option, it is not applicable. If you select it and proceed with the creation of this solution in your subscription, it fails. This will be addressed when this solution is officially released. This solution only uses automation job minutes and log ingestion. It does not add additional nodes to your environment.
 
 1. After providing the required information on the **OMS workspace** page, click **Create**. You can track its progress under **Notifications** from the menu, which returns you to the **Add Solution** page when done.
-1. On the **Add Solution** page, select **Automation account**. If you're creating a new OMS workspace, you need to also create a new Automation account to be associated with it. Select **Create an Automation account**, and on the **Add Automation account** page, provide the following:
+1. On the **Add Solution** page, select **Automation account**. If you're creating a new Log Analytics workspace, you need to also create a new Automation account to be associated with it. Select **Create an Automation account**, and on the **Add Automation account** page, provide the following:
    * In the **Name** field, enter the name of the Automation account.
 
-    All other options are automatically populated based on the OMS workspace selected. These options cannot be modified. An Azure Run As account is the default authentication method for the runbooks included in this solution. After you click **OK**, the configuration options are validated and the Automation account is created. You can track its progress under **Notifications** from the menu.
+    All other options are automatically populated based on the Log Analytics workspace selected. These options cannot be modified. An Azure Run As account is the default authentication method for the runbooks included in this solution. After you click **OK**, the configuration options are validated and the Automation account is created. You can track its progress under **Notifications** from the menu.
 
 1. Finally, on the **Add Solution** page, select **Configuration**. The **Parameters** page appears.
 
@@ -225,7 +225,7 @@ You should not enable all schedules, because this might create overlapping sched
 
 ## Log Analytics records
 
-Automation creates two types of records in the OMS repository: job logs and job streams.
+Automation creates two types of records in the Log Analytics workspace: job logs and job streams.
 
 ### Job logs
 
