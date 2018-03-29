@@ -45,7 +45,7 @@ With Azure Cosmos DB, reserved throughput is specified in terms of request units
 
 We recommend getting started by watching the following video, where Azure Cosmos DB Program Manager Andrew Liu discusses request units.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://www.youtube.com/embed/btiCR1sAyzl]
 > 
 > 
 
