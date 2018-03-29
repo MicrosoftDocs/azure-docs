@@ -108,6 +108,8 @@
           href: azure-stack-version-profiles-azurecli2.md
         - name: GO
           href: azure-stack-version-profiles-go.md
+        - name: Resource provider APIs supported by profiles
+          href: azure-stack-profiles-arm-versions.md
     - name: Use policy module
       href: azure-stack-policy-module.md
     - name: Use templates
