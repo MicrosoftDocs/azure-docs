@@ -5,7 +5,7 @@ keywords: data analytics processing
 documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
 ms.service: stream-analytics

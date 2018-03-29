@@ -5,7 +5,7 @@ keywords: analytics dashboard, real-time dashboard
 services: stream-analytics
 documentationcenter: ''
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics

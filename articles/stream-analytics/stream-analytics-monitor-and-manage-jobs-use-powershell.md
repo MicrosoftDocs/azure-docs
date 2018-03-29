@@ -5,7 +5,7 @@ keywords: azure powershell, azure powershell cmdlets, powershell command, powers
 services: stream-analytics
 documentationcenter: ''
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
 ms.service: stream-analytics

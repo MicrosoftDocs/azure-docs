@@ -5,7 +5,7 @@ keywords: data output, data movement
 documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: 3bbea3da-bfce-4af1-a15e-d4b23874034f
 ms.service: stream-analytics

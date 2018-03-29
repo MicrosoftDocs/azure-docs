@@ -5,7 +5,7 @@ keywords: tumbling window, sliding window, hopping window
 documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics

@@ -4,7 +4,7 @@ description: Perform advanced query mechanics with JavaScript user-defined funct
 keywords: javascript, user defined functions, udf
 services: stream-analytics
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid:
 ms.service: stream-analytics

@@ -5,7 +5,7 @@ keywords: data input, streaming data
 documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
+manager: ryanw
 editor: 
 
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd

@@ -5,7 +5,7 @@ keywords: event hub limit, consumer group
 services: stream-analytics
 documentationcenter: ''
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: 
 ms.service: stream-analytics

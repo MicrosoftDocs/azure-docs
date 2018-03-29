@@ -5,7 +5,7 @@ keywords: real-time twitter trend analysis, sentiment analysis, social media ana
 services: stream-analytics
 documentationcenter: ''
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: 42068691-074b-4c3b-a527-acafa484fda2
 ms.service: stream-analytics

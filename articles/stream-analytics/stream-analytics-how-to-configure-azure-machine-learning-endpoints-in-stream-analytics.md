@@ -5,7 +5,7 @@ keywords: ''
 documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
 ms.service: stream-analytics

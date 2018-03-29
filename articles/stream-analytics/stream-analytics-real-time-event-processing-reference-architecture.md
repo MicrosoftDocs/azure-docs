@@ -5,7 +5,7 @@ keywords: real-time processing, event processing, reference architecture
 services: stream-analytics,event-hubs,storage,sql-database
 documentationcenter: ''
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: 11af48bc-313c-4527-8c80-91088dc9f3c6
 ms.service: stream-analytics

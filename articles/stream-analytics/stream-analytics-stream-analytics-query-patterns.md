@@ -5,7 +5,7 @@ keywords: query examples
 services: stream-analytics
 documentationcenter: ''
 author: jseb225
-manager: jenniehubbard
+manager: ryanw
 
 ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
 ms.service: stream-analytics

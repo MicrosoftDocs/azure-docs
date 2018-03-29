@@ -4,7 +4,7 @@ description: Guidance on making your Stream Analytics jobs upgrade resilient.
 services: stream-analytics
 documentationCenter: ''
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.service: stream-analytics
 ms.devlang: na

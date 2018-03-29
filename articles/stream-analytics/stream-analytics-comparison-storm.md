@@ -5,7 +5,7 @@ keywords: analytics platform, analytics platforms, cloud analytics platform, sto
 services: stream-analytics
 documentationcenter: ''
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics

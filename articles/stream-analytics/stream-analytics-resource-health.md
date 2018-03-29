@@ -5,7 +5,7 @@ keywords: troubleshoot flowchart, resource blade
 documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 ms.assetid: 
 ms.service: stream-analytics
