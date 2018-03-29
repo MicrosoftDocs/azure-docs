@@ -1,4 +1,14 @@
-
+---
+ title: include file
+ description: include file
+ services: notification-hubs
+ author: spelluru
+ ms.service: notification-hubs
+ ms.topic: include
+ ms.date: 03/28/2018
+ ms.author: spelluru
+ ms.custom: include file
+---
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
