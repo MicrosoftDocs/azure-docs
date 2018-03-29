@@ -498,7 +498,7 @@ This is the list of the support options for the Azure Marketplace:
 |Support channel  |Description  |
 |---------|---------|
 |Email: cosell@microsoft.com    |  Support for onboarding processes and questions related to the Co-Sell program. Based in the Pacific time zone.        |
-|Email: gtm@microsoft.com    |  Support for go-to-market benefits and program questions. Business hours are in the Pacific Time Zone.        |
+|Email: gtm@microsoft.com    |  Support for go-to-market benefits and program questions. Business hours are in the Pacific time zone.        |
 |Email: CEBrand@Microsoft.com     |  Answers to questions about usage for Azure logos and branding.       |
 
 ## Guidelines and how-tos
