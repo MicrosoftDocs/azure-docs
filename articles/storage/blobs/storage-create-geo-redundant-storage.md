@@ -204,7 +204,6 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-
 # [Python] (#tab/python) 
 
 ### Retry event handler
