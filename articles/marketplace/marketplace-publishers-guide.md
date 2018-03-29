@@ -317,7 +317,7 @@ For AppSource apps that extend Office, Dynamics, and Power BI, you can learn mor
 |Product |Publishing information  |
 |---------|---------|
 |Office 365     |    Review the [publishing process and guidelines]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
-|Dynamics 365   for Finance and Operations  |   When you're building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)      |
+|Dynamics 365   for Finance and Operations  |   When you're building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
 |Dynamics 365 for Customer Engagement |Review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource). |
 |Power BI   |     Review the [publishing process and guidelines]( https://docs.microsoft.com/en-us/power-bi/developer/office-store).    |
 |Cortana Intelligence     |    Learn about [Cortana in AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
