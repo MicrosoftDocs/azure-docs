@@ -8,13 +8,13 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 03/29/2017
 ms.author: v-geberr;
 ---
 
 # Manage versions
 
-Create different models of the same app with [versions](luis-concept-version.md). 
+Each time you work on the model, create a different [version](luis-concept-version.md) of the app. 
 
 ## Set active version
 To work with versions, open your app by selecting its name on **My Apps** page, and then select **Settings** in the top bar.
@@ -28,18 +28,18 @@ The **Settings** page allows you to configure settings for the entire app includ
 
     ![Version row properties](./media/luis-how-to-manage-versions/version-section.png)
 
-2. Select **Clone Version** from the list.
+2. Select **Clone** from the list.
 
     ![Version row properties choice](./media/luis-how-to-manage-versions/version-three-dots-modal.png)
 
-3. In the **Clone Version** dialog box, type a name for the new version such as "0.2".
+3. In the **Clone version** dialog box, type a name for the new version such as "0.2".
 
    ![Clone Version dialog box](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
  
  > [!NOTE]
  > Version ID can consist only of characters, digits or '.' and cannot be longer than 10 characters.
  
- A new version with the specified name is created and added to the list.
+ A new version with the specified name is created and added to the list and set as the active version.
  
   ![Version is created and added to the list](./media/luis-how-to-manage-versions/new-version.png)
 
@@ -80,17 +80,25 @@ You can export a version to a JSON file.
 
 1. On the **Settings** page, in the **Versions** list, on the row of the version you want to clone, select the three dots (...) at the far right.
 
-2. Select **Export version** in the pop-up list of actions and select where you want to save the file.
+2. Select **Export** in the pop-up list of actions and select where you want to save the file.
 
 ## Delete a version
 You can delete versions, but you have to keep at least one version of the app. You can delete all versions except the active version. 
 
-**To delete a version:** 
-
 1. On the **Settings** page, in the **Versions** list, on the row of the version you want to delete, select the three dots (...) at the far right.
 
-2. Select **Delete version** in the pop-up list of actions and select where you want to save the file.
+2. Select **Delete** in the pop-up list of actions and select where you want to save the file.
 
-    ![Delete version confirmation](./media/luis-how-to-manage-versions/delete-version.png) 
+    ![Delete version confirmation](./media/luis-how-to-manage-versions/delete-menu.png) 
 
 
+## Rename a version
+You can rename versions as long as the version name is not already in use.  
+
+1. On the **Settings** page, in the **Versions** list, on the row of the version you want to rename, select the three dots (...) at the far right.
+
+2. Select **Rename** in the pop-up list of actions.
+
+3. Enter the new version name and select **Done**.
+
+    ![Rename version confirmation](./media/luis-how-to-manage-versions/rename-popup.png) 
