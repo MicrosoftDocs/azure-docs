@@ -28,7 +28,7 @@ The OMS Gateway supports:
 
 If your IT security policies don't allow certain computers on your network to connect to the internet (such as point-of-sale devices or servers that support IT services) but you need to connect them to Azure Automation or Log Analytics to manage and monitor them, they can be configured to communicate directly with the OMS Gateway.
 
- If these computers are configured with the OMS agent to directly connect to a Log Analytics workspace, all computers instead communicate with the OMS Gateway. The gateway transfers data from the agents to the service directly. It doesn't analyze any of the data while it's in transit.
+ If these computers are configured with the OMS agent to directly connect to a Log Analytics workspace, all computers instead communicate with the OMS Gateway. The OMS Gateway transfers data from the agents to the service directly. It doesn't analyze any of the data while it's in transit.
 
 When an Operations Manager management group is integrated with Log Analytics, the management servers can be configured to connect to the OMS Gateway to receive configuration information and send collected data. Operations Manager agents send some data, such as Operations Manager alerts, configuration assessment, instance space, and capacity data to the management server. Other high-volume data, such as IIS logs, performance information, and security events, are sent directly to the OMS Gateway.  
 
@@ -36,11 +36,11 @@ If you have one or more Operations Manager Gateway servers that are deployed in 
 
 When an Operations Manager management group is configured to communicate with the OMS Gateway, the proxy configuration information is automatically distributed to every agent-managed computer that is configured to collect data for Log Analytics, even if the setting is empty.    
 
-To provide high availability for direct-connected or Operations Management groups that communicate with Log Analytics through the gateway, you can use network load balancing to redirect and distribute the traffic across multiple gateway servers. If one gateway server goes down, the traffic is redirected to another available node.  
+To provide high availability for direct-connected or Operations Management groups that communicate with Log Analytics through the OMS Gateway, you can use network load balancing to redirect and distribute the traffic across multiple OMS Gateway servers. If one gateway server goes down, the traffic is redirected to another available node.  
 
 We recommended that you install the OMS agent on the computer that's running the OMS Gateway software to monitor it and analyze performance or event data. Additionally, the agent helps the OMS Gateway identify the service end points that it needs to communicate with.
 
-All agents must have network connectivity to their gateways so that they can automatically transfer data to and from the gateway. We don't recommend installing a gateway on a domain controller.
+All agents must have network connectivity to their gateway so that they can automatically transfer data to and from the gateway. We don't recommend installing a gateway on a domain controller.
 
 The following diagram shows data flow from direct agents to Azure Automation and Log Analytics using the gateway server. The proxy configuration of the agent must use the same port that the OMS Gateway uses to communicate with the service.  
 
@@ -135,7 +135,7 @@ To install a gateway, take the following steps. If you installed the previous ve
 
 5. If you don't have Microsoft Update enabled, the Microsoft Update page appears, and you can choose to enable it. Make a selection, and then select **Next**. Otherwise, continue to the next step.
 
-6. On the **Destination Folder** page, either leave the default folder as **C:\Program Files\OMS Gateway** or type the location where you want to install gateway. Then select **Next**.
+6. On the **Destination Folder** page, either leave the default folder as **C:\Program Files\OMS Gateway** or type the location where you want to install the OMS gateway. Then select **Next**.
 
 7. On the **Ready to install** page, select **Install**. User Account Control might appear requesting permission to install. If you get a request for permission, select **Yes**.
 
@@ -163,19 +163,19 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 ## Configure the OMS agent and the Operations Manager management group
 The following sections in this article include steps on how to configure directly connected OMS agents, an Operations Manager management group, or Azure Automation Hybrid Runbook workers with the OMS Gateway to communicate with Azure Automation or Log Analytics.  
 
-To understand requirements and steps for installing the OMS agent on Windows computers that directly connect to Log Analytics, see [Connect Windows computers to Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
+To understand requirements and steps for installing the OMS agent on Windows computers that directly connect to Log Analytics, see [Collect data from computers in your environment with Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
 
  For Linux computers, see [Connect Linux computers to Log Analytics](log-analytics-quick-collect-linux-computer.md). For information related to the Automation Hybrid Runbook Worker, see [Deploy Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
 
 ### Configure the standalone OMS agent
-For information about configuring an agent to use a proxy server (which in this case is the gateway), see [Configure proxy and firewall settings with the Microsoft Monitoring Agent](log-analytics-concept-hybrid.md#prerequisites). If you have deployed multiple gateway servers behind a network load balancer, the OMS agent proxy configuration is the virtual IP address of the NLB:
+For information about configuring an agent to use a proxy server (which in this case is the gateway), see [Collect data from computers in your environment with Log Analytics](log-analytics-concept-hybrid.md#prerequisites). If you have deployed multiple gateway servers behind a network load balancer, the OMS agent proxy configuration is the virtual IP address of the NLB:
 
 ![Microsoft Monitoring Agent Properties – proxy settings](./media/log-analytics-oms-gateway/nlb04.png)
 
 ### Configure Operations Manager: all agents use the same proxy server
 You configure Operations Manager to add the gateway server.  The Operations Manager proxy configuration is automatically applied to all agents that report to Operations Manager, even if the setting is empty.  
 
-To use the Gateway to support Operations Manager, the following components must be in place:
+To use the OMS Gateway to support Operations Manager, the following components must be in place:
 
 * Microsoft Monitoring Agent (agent version **8.0.10900.0** or later) installed on the gateway server and configured for the Log Analytics workspaces with which you want to communicate.
 
@@ -307,9 +307,9 @@ Cmdlets can help you complete tasks that are necessary for updating the configur
 2. Open a PowerShell console window.
 3. Import the module by typing this command: `Import-Module OMSGateway`.
 4. If no error occurred in the previous step, the module was successfully imported and the cmdlets can be used. Type `Get-Module OMSGateway`.
-5. After you make changes by using the cmdlets, ensure that you restart the Gateway service.
+5. After you make changes by using the cmdlets, ensure that you restart the OMS Gateway service.
 
-If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the Gateway's installation path: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
+If you get an error in step 3, the module wasn't imported. The error might occur when PowerShell is unable to find the module. You can find it in the OMS Gateway installation path: *C:\Program Files\Microsoft OMS Gateway\PowerShell*.
 
 | **Cmdlet** | **Parameters** | **Description** | **Example** |
 | --- | --- | --- | --- |  
