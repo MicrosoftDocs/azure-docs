@@ -5,7 +5,7 @@ keywords: terraform, devops, virtual machine, Azure, deployment slots
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 3/28/2018
+ms.date: 3/29/2018
 ms.topic: article
 ---
 
@@ -49,17 +49,13 @@ ms.topic: article
     cd deploy
     ```
 
-1. Using the [vi editor][https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html], create a file named `deploy.tf`.
+1. Using the [vi editor][https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html], create a file named `deploy.tf`, which will contain the [Terraform configuration][https://www.terraform.io/docs/configuration/index.html].
 
     ```bash
     vi deploy.tf
     ```
 
-1. Enter insert mode.
-
-    ```bash
-    i
-    ```
+1. Enter insert mode by pressing the letter `i` key.
 
 1. Paste the following code into the editor:
 
@@ -98,15 +94,15 @@ ms.topic: article
     }
     ```
 
-1. Press the **&lt;Esc** key to exit to leave insert/append mode.
+1. Press the **&lt;Esc>** key to exit to exit insert/append mode.
 
-1. Save the file and exit vi by entering the following command, followed by pressing **&lt;Enter>:
+1. Save the file and exit the vi editor by entering the following command, followed by pressing **&lt;Enter>**:
 
     ```bash
     :wq
     ```
 
-1. Once created, you can verify the contents of the file as follows:
+1. Once the file has been created, you can verify its contents.
 
     ```bash
     cat deploy.tf
@@ -124,7 +120,7 @@ ms.topic: article
     terraform plan
     ```
 
-1. Provision the resources defined in `deploy.tf`.
+1. Provision the resources defined in the `deploy.tf` configuration file.
 
     ```bash
     terraform apply
