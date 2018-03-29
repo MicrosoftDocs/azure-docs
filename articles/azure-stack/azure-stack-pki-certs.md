@@ -3,7 +3,7 @@ title: Azure Stack Public Key Infrastructure certificate requirements for Azure 
 description: Describes the Azure Stack PKI certificate deployment requirements for Azure Stack integrated systems.
 services: azure-stack
 documentationcenter: ''
-author: mabriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,13 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 03/29/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
 
 ---
 
 # Azure Stack Public Key Infrastructure certificate requirements
+
 Azure Stack has a public infrastructure network using externally accessible public IP addresses assigned to a small set of Azure Stack services and possibly tenant VMs. PKI certificates with the appropriate DNS names for these Azure Stack public infrastructure endpoints are required during Azure Stack deployment. This article provides information about:
 
 - What certificates are required to deploy Azure Stack
@@ -68,10 +69,8 @@ For your deployment, the [region] and [externalfqdn] values must match the regio
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) | Table Storage | table.&lt;region>.&lt;fqdn> |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
-| KeyVault | *.vault.&lt;region>.&lt;fqdn> |  |  |
-| (Wildcard SSL Certificate) | Key Vault | vault.&lt;region>.&lt;fqdn> |  |
-| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn> |  |  |
-| (Wildcard SSL Certificate) | Internal Keyvault | adminvault.&lt;region>.&lt;fqdn> |  |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) | Key Vault | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Wildcard SSL Certificate) |  Internal Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
 
 ### For Azure Stack environment on Pre-1803 versions
 

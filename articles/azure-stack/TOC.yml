@@ -58,9 +58,9 @@
       - name: Get Azure Stack PKI certificates
         href: azure-stack-get-pki-certs.md
       - name: Prepare Azure Stack PKI certificates
-        href: prepare-pki-certs.md
+        href: azure-stack-prepare-pki-certs.md
       - name: Validate Azure Stack PKI certificates
-        href: validate-pki-certs.md
+        href: azure-stack-validate-pki-certs.md
     - name: Identity integration
       href: azure-stack-integrate-identity.md
     - name: External monitoring
