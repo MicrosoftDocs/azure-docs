@@ -20,8 +20,6 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a web app with .NET, Xamarin, and Facebook authentication
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
 > [!NOTE]

@@ -6,7 +6,6 @@ documentationcenter:
 author: daveba
 manager: mtillman
 editor: 
-
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -39,7 +38,9 @@ A client application can request an MSI [app-only access token](~/articles/activ
 | [Get a token using CURL](#get-a-token-using-curl) | Example of using the MSI REST endpoint from a Bash/CURL client |
 | [Handling token expiration](#handling-token-expiration) | Guidance for handling expired access tokens |
 | [Error handling](#error-handling) | Guidance for handling HTTP errors returned from the MSI token endpoint |
+| [Throttling guidance](#throttling-guidance) | Guidance for handling throttling of the MSI token endpoint |
 | [Resource IDs for Azure services](#resource-ids-for-azure-services) | Where to get resource IDs for supported Azure services |
+
 
 ## Get a token using HTTP 
 
@@ -161,6 +162,16 @@ This section documents the possible error responses. A "200 OK" status is a succ
 |           | unsupported_response_type | The authorization server does not support obtaining an access token using this method. |  |
 |           | invalid_scope | The requested scope is invalid, unknown, or malformed. |  |
 | 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [Get a token using HTTP](#get-a-token-using-http) section for an example, or [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services and their respective resource IDs.
+
+## Throttling guidance 
+
+Throttling limits apply to the number of calls made to the MSI IMDS endpoint. When the throttling threshold is exceeded, the MSI IMDS endpoint limits any further requests while the throttle is in effect. During this period, the MSI IMDS endpoint will return the HTTP status code 429 ("Too many requests"), and the requests fail. 
+
+For retry, we recommend the following strategy: 
+
+| **Retry strategy** | **Settings** | **Values** | **How it works** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |Retry count<br />Min back-off<br />Max back-off<br />Delta back-off<br />First fast retry |5<br />0 sec<br />60 sec<br />2 sec<br />false |Attempt 1 - delay 0 sec<br />Attempt 2 - delay ~2 sec<br />Attempt 3 - delay ~6 sec<br />Attempt 4 - delay ~14 sec<br />Attempt 5 - delay ~30 sec |
 
 ## Resource IDs for Azure services
 

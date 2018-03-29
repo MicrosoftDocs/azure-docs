@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
 ---
 
@@ -22,8 +22,8 @@ ms.author: azfuncdf
 
 ## Prerequisites
 
-* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
-* This article assumes you have already gone through the [Hello Sequence](durable-functions-sequence.md) sample walkthrough.
+* [Install Durable Functions](durable-functions-install.md).
+* Complete the [Hello Sequence](durable-functions-sequence.md) walkthrough.
 
 ## Scenario overview
 
@@ -43,7 +43,7 @@ This article explains the following functions in the sample app:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
+The following sections explain the configuration and code that are used for C# scripting. The code for Visual Studio development is shown at the end of the article.
 
 ## The cloud backup orchestration (Visual Studio Code and Azure portal sample code)
 

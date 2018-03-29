@@ -24,11 +24,11 @@
     href: quickstarts/php.md
   - name: First query in Ruby
     href: quickstarts/ruby.md
-- name: SDK (preview)
+- name: SDK
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Web Search SDK C# quickstart (preview)
+  - name: Web Search SDK C# quickstart
     href: web-search-sdk-quickstart.md 
   - name: Web Search SDK Node.js quickstart (preview)
     href: web-search-sdk-node-quickstart.md 

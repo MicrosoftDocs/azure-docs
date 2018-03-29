@@ -64,7 +64,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 **Commands**
 
-- Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## Delete a subnet
@@ -79,7 +79,7 @@ You can delete a subnet only if there are no resources in the subnet. If there a
 
 **Commands**
 
-- Azure CLI: [az network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)
+- Azure CLI: [az network vnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell: [Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## Permissions

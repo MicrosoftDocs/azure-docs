@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Bridge Android WebView with native Mobile Engagement Android SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 > [!div class="op_single_selector"]
 > * [Android Bridge](mobile-engagement-bridge-webview-native-android.md)
 > * [iOS Bridge](mobile-engagement-bridge-webview-native-ios.md)
