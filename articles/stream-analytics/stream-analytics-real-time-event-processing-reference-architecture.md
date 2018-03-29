@@ -6,7 +6,6 @@ services: stream-analytics,event-hubs,storage,sql-database
 documentationcenter: ''
 author: samacha
 manager: jhubbard
-editor: ''
 
 ms.assetid: 11af48bc-313c-4527-8c80-91088dc9f3c6
 ms.service: stream-analytics

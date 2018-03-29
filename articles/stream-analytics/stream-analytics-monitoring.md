@@ -6,7 +6,6 @@ services: stream-analytics
 documentationcenter: ''
 author: jseb225
 manager: jhubbard
-editor: cgronlun
 
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
 ms.service: stream-analytics

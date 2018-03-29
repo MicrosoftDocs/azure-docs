@@ -5,7 +5,6 @@ keywords: javascript, user defined functions, udf
 services: stream-analytics
 author: samacha
 manager: jhubbard
-editor: cgronlun
 
 ms.assetid:
 ms.service: stream-analytics

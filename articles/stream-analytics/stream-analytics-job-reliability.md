@@ -5,7 +5,6 @@ services: stream-analytics
 documentationCenter: ''
 authors: samacha
 manager: jhubbard
-editor: cgronlun
 
 ms.service: stream-analytics
 ms.devlang: na

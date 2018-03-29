@@ -6,7 +6,6 @@ documentationcenter: ''
 services: stream-analytics
 author: zhongc
 manager: jhubbard
-editor: cgronlun
 
 ms.assetid: 997ccfc1-abaf-4c12-bef2-632481140f05
 ms.service: stream-analytics

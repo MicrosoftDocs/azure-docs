@@ -6,7 +6,6 @@ services: stream-analytics
 documentationcenter: ''
 author: samacha
 manager: jhubbard
-editor: cgronlun
 
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
 ms.service: stream-analytics
