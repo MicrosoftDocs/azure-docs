@@ -53,7 +53,7 @@ To archive the Activity Log using any of the methods below, you set the **Log Pr
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzureRmLogProfile -Name default -Location $locations -StorageAccountId $storageAccountId
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
    ```
 
 | Property | Required | Description |
