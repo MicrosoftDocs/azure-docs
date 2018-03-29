@@ -137,7 +137,7 @@ We recommend that you install at least two agents on each side of the ExpressRou
     ![Account](.\media\how-to-npm\10.png)
 6. On the **Ready to Install** page, review your choices, and then click **Install**.
 7. On the **Configuration completed successfully** page, click **Finish**.
-8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Operational Insights. When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
+8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Azure Log Analytics (OMS). When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
 
 9. Please repeat this for each VNET that you need to be monitored.
 

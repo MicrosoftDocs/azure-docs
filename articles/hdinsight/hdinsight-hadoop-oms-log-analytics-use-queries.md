@@ -83,7 +83,7 @@ Learn how to  look error messages during a specific time window. The steps here 
 
     ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS dashboard")
 
-2. In the OMS dashboard, from the home screen, click **Log Search**.
+2. In the OMS portal, from the home screen, click **Log Search**.
 
     ![Open Log Search](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Open Log Search")
 
@@ -123,7 +123,7 @@ You can use any query that you want to create an alert.
 
     ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS dashboard")
 
-2. In the dashboard, from the home screen, click **Log Search**.
+2. In the OMS portal, from the home screen, click **Log Search**.
 
     ![Open Log Search](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Open Log Search")
 
