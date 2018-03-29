@@ -59,7 +59,7 @@ Using the same diagram, here's an example of how a user-assigned MSI works with 
 6. The MSI VM Extension checks if the certificate for the requested client ID is configured, and requests an access token from Azure AD. Azure AD returns a JSON Web Token (JWT) access token.
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
-Each Azure service that supports Managed Service Identity has its own method for your code to obtain an access token. Check out the tutorials for each service to find out the specific method to get a token.
+Each Azure service that supports Managed Service Identity has its own method for your code to obtain an access token. Check out the [Step-by-Step Tutorials](/azure/active-directory/managed-service-identity#Step-by-Step-Tutorials) for each service to find out the specific method to get a token.
 
 ## Which Azure services support Managed Service Identity?
 
