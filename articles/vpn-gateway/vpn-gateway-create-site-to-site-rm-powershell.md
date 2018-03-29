@@ -138,7 +138,7 @@ Use the steps in this section if you already have a virtual network, but need to
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
 
-## 3. <a name="localnet"></a>Create the local network gateway
+## 2. <a name="localnet"></a>Create the local network gateway
 
 The local network gateway typically refers to your on-premises location. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which you will create a connection. You also specify the IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes, you can easily update the prefixes.
 
@@ -164,7 +164,7 @@ To add a local network gateway with multiple address prefixes:
 To modify IP address prefixes for your local network gateway:<br>
 Sometimes your local network gateway prefixes change. The steps you take to modify your IP address prefixes depend on whether you have created a VPN gateway connection. See the [Modify IP address prefixes for a local network gateway](#modify) section of this article.
 
-## <a name="PublicIP"></a>4. Request a Public IP address
+## <a name="PublicIP"></a>3. Request a Public IP address
 
 A VPN gateway must have a Public IP address. You first request the IP address resource, and then refer to it when creating your virtual network gateway. The IP address is dynamically assigned to the resource when the VPN gateway is created. VPN Gateway currently only supports *Dynamic* Public IP address allocation. You cannot request a Static Public IP address assignment. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 
@@ -174,7 +174,7 @@ Request a Public IP address that will be assigned to your virtual network VPN ga
 $gwpip= New-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="GatewayIPConfig"></a>5. Create the gateway IP addressing configuration
+## <a name="GatewayIPConfig"></a>4. Create the gateway IP addressing configuration
 
 The gateway configuration defines the subnet and the public IP address to use. Use the following example to create your gateway configuration:
 
@@ -184,7 +184,7 @@ $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNe
 $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
 
-## <a name="CreateGateway"></a>6. Create the VPN gateway
+## <a name="CreateGateway"></a>5. Create the VPN gateway
 
 Create the virtual network VPN gateway.
 
@@ -202,7 +202,7 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 
 After running this command, it can take up to 45 minutes for the gateway configuration to complete.
 
-## <a name="ConfigureVPNDevice"></a>7. Configure your VPN device
+## <a name="ConfigureVPNDevice"></a>6. Configure your VPN device
 
 Site-to-Site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following:
 
@@ -216,7 +216,7 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="CreateConnection"></a>8. Create the VPN connection
+## <a name="CreateConnection"></a>7. Create the VPN connection
 
 Next, create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Notice that the '-ConnectionType' for Site-to-Site is *IPsec*.
 
@@ -235,7 +235,7 @@ Next, create the Site-to-Site VPN connection between your virtual network gatewa
 
 After a short while, the connection will be established.
 
-## <a name="toverify"></a>9. Verify the VPN connection
+## <a name="toverify"></a>8. Verify the VPN connection
 
 There are a few different ways to verify your VPN connection.
 
@@ -246,13 +246,13 @@ There are a few different ways to verify your VPN connection.
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
 
-## <a name="modify"></a>Modify IP address prefixes for a local network gateway
+## <a name="modify"></a>To modify IP address prefixes for a local network gateway
 
 If the IP address prefixes that you want routed to your on-premises location change, you can modify the local network gateway. Two sets of instructions are provided. The instructions you choose depend on whether you have already created your gateway connection.
 
 [!INCLUDE [Modify prefixes](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="modifygwipaddress"></a>Modify the gateway IP address for a local network gateway
+## <a name="modifygwipaddress"></a>To modify the gateway IP address for a local network gateway
 
 [!INCLUDE [Modify gateway IP address](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
