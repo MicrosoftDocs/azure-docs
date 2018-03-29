@@ -6,7 +6,6 @@ services: stream-analytics
 documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
