@@ -5,7 +5,7 @@ ms.author: "ghogen"
 ms.date: "03/23/2018"
 ms.topic: "tutorial"
 description: "Call a web API from a web application across container boundaries in Kubernetes using Visual Studio Connected Environment in Azure."
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 manager: "douge"
 ---
 # Get Started on Connected Environment with .NET Core

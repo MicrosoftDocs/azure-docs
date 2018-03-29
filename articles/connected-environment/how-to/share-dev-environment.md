@@ -6,7 +6,7 @@ ms.date: "3/12/2018"
 ms.topic: "article"
 
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 manager: "douge"
 ---
 # Share a Development Environment

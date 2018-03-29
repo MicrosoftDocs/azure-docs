@@ -6,7 +6,7 @@ ms.date: "03/12/2018"
 ms.topic: "article"
 
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 manager: "douge"
 ---
 # Use `kubectl` with a Connected Environment

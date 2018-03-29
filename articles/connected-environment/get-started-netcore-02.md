@@ -6,7 +6,7 @@ ms.date: "03/23/2018"
 ms.topic: "tutorial"
 
 description: "Create a Kubernetes development environment for rapid development with containers in Azure using Visual Studio Connected Environment (VSCE)."
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 manager: "douge"
 ---
 # Get Started on Connected Environment with .NET Core
