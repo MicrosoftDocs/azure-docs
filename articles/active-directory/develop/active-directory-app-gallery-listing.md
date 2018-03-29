@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) is a cloud-based identity service. The [Azure 
 
 ##	Prerequisites: Implement federation protocol
 
-a. To list an application in the Azure AD app gallery, you first need to implement one of the following federation protocols supported by Azure AD. Read the terms and conditions of the Azure AD application gallery from here. 
+To list an application in the Azure AD app gallery, you first need to implement one of the following federation protocols supported by Azure AD. Read the terms and conditions of the Azure AD application gallery from here. 
 
 *   **OpenID Connect**: Create the multitenant application in Azure AD and implement the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) for your application. Send the login request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token. To integrate your application with Azure AD, follow the [developers' instructions](active-directory-authentication-scenarios.md).
 
@@ -50,7 +50,9 @@ a. To list an application in the Azure AD app gallery, you first need to impleme
 
 *   **Password SSO**: Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../active-directory-appssoaccess-whatis.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
 
-b. To update or remove an existing application in the Azure AD app gallery, you first need to submit the request in the [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
+##	Update/Remove existing listing
+
+To update or remove an existing application in the Azure AD app gallery, you first need to submit the request in the [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
 
 * Select appropriate option from the below image
 
@@ -61,12 +63,6 @@ b. To update or remove an existing application in the Azure AD app gallery, you 
     * If you want to remove an existing application from the Azure AD gallery, select **Remove existing application listing**
 
     * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
-
-## Submit the request in the portal
-
-After you've tested that your application integration works with Azure AD, submit your request for access on our [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
-
-*   **Password SSO**: Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../active-directory-appssoaccess-whatis.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts. 
 
 ## Submit the request in the portal
 
@@ -91,4 +87,3 @@ The timeline for the process of listing an OpenID Connect application in the gal
 ## Escalations
 
 For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com)  which is SaaSApplicationIntegrations@service.microsoft.com and we'll respond as soon as possible.
-
