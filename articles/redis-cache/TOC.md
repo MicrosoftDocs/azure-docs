@@ -4,7 +4,6 @@
 ## [About Azure Redis Cache](cache-overview.md)
 
 # Quickstarts
-## [Create a new cache](cache-create-first-cache.md)
 ## [ASP.NET](cache-web-app-howto.md)
 ## [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ## [Node](cache-nodejs-get-started.md)

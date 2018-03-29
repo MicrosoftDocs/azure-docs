@@ -56,7 +56,7 @@ With Azure Redis Cache, only the SSL port (6380) is enabled by default. The `red
 
 ### Connect using the Redis command-line tool.
 
-If you're using stunnel, run `redis-cli.exe`, and pass your *port*, and *access key* (primary or secondary) to connect to the cache.
+When using stunnel, run `redis-cli.exe`, and pass only your *port*, and *access key* (primary or secondary) to connect to the cache.
 
 ```
 redis-cli.exe -p 6380 -a YourAccessKey
