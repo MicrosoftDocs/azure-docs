@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 03/29/2018
 ms.author: tomfitz
 
 ---
@@ -128,7 +128,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Key Vault
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Logic Apps
-* Machine Learning
+* Machine Learning - Machine Learning Studio web services can only be moved a resource group in the same subscription. Other resources can be moved across subscriptions.
 * Media Services
 * Mobile Engagement
 * Notification Hubs
