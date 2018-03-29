@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: douglasl
 ---
-# Continuous Integration & Deployment in Azure Data Factory
+# Continuous integration and deployment in Azure Data Factory
 
 Continuous Integration is the practice of testing each change done to your codebase automatically and as early as possible. Continuous Deployment follows the testing that happens during Continuous Integration and pushes changes to a staging or production system.
 
@@ -61,17 +61,17 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
 ### Requirements
 
--   An Azure subscription linked to Team Foundation Server or VSTS using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   An Azure subscription linked to Team Foundation Server or VSTS using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
 -   A Data Factory with VSTS Git configured.
 
--   An [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) containing the secrets.
+-   An [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) containing the secrets.
 
 ### Set up a VSTS Release
 
 1.  Go to your VSTS page in the same project as the one configured with the Data Factory.
 
-2.  Click on the top menu **Build and Release** -&gt; **Releases** -&gt; **Create release definition**.
+2.  Click on the top menu **Build and Release** &gt; **Releases** &gt; **Create release definition**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -108,7 +108,7 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
         -   The parameters file needs to be in the publish branch as well.
 
-    b.  Add an [Azure Key Vault task](https://docs.microsoft.com/en-us/vsts/build-release/tasks/deploy/azure-key-vault):
+    b.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
         -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
 
@@ -168,8 +168,8 @@ You can follow similar steps and use similar code (with the `Start-AzureRmDataFa
 ## Sample template and script
 Here are two samples that you can use to get started with continuous integration and deployment for Data Factory:
 
-1.  A sample deployment template that you can import in VSTS.
-2.  A sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes the code to delete resources that have been removed.
+-   A sample deployment template that you can import in VSTS.
+-   A sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes the code to delete resources that have been removed.
 
 Here is a sample deployment template that you can import in VSTS.
 
@@ -709,7 +709,7 @@ Here is a sample deployment template that you can import in VSTS.
 }
 ```
 
-Here is  sample script to stop triggers before deployment and to restart triggers afterwards:
+Here is a sample script to stop triggers before deployment and to restart triggers afterwards:
 
 ```powershell
 param
