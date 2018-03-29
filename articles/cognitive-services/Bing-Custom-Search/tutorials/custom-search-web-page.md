@@ -39,7 +39,8 @@ To create a Bing Custom Search instance:
 4.  After signing in, click **New custom search**. In the **Create a new custom search instance** window, enter a name that’s meaningful and describes the type of content the search returns. You can change the name at any time.
  
     ![Screen shot of the Create a new custom search instance box](../media/newCustomSrch.png)
-Click OK, specify a URL and whether to include subpages of the base page:
+
+5.  Click OK, specify a URL and whether to include subpages of the base page:
 
     ![Screen shot of URL definition page](../media/newCustomSrch1-a.png)
 
