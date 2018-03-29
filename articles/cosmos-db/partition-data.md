@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 
 Partitioning and partition keys are discussed in this video with Azure Cosmos DB Program Manager, Andrew Liu:
 
-> [!VIDEO https: https://www.youtube.com/embed/btiCR1sAyzI]
+> [!VIDEO https://www.youtube.com/embed/btiCR1sAyzI]
 > 
 
 ## Partitioning in Azure Cosmos DB
