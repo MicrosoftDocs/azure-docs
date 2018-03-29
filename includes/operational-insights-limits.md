@@ -6,6 +6,9 @@ The following limits apply to Log Analytics resources per subscription:
 | Number of free workspaces per subscription | 10 | This limit cannot be increased. |
 | Number of paid workspaces per subscription | N/A | You are limited by the number of resources within a resource group and number of resource groups per subscription | 
 
+>[!NOTE]
+>As of April 2, 2018, new workspaces in a new subscription will automatically use the *Per GB* pricing plan and the option to select a pricing tier is not available.  For existing subscriptions created before April 2, or a subscription that was tied to an existing EA enrollment, you have the option to choose between three pricing tiers for new workspaces. 
+>
 
 The following limits apply to each Log Analytics workspace:
 
