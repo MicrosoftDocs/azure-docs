@@ -136,6 +136,8 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 > The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent. 
 >
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## Install and register the agent
 
 > [!NOTE]

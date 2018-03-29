@@ -201,8 +201,6 @@
       href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Accelerated maintenance FAQ
-      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
@@ -353,6 +351,8 @@
       href: extensions-diagnostics-template.md
     - name: Network Watcher Agent
       href: extensions-nwa.md
+    - name: Restrict extension installation
+      href: extensions-rmpolicy-howto-ps.md 
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
@@ -398,6 +398,8 @@
       href: reset-network-interface.md
     - name: Boot diagnostics
       href: boot-diagnostics.md
+    - name: Serial console 
+      href: serial-console.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Deployment issues

@@ -11,7 +11,7 @@ ms.topic: article
 ---
 
 # Use Ansible to manage your Azure dynamic inventories
-Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. In this article, you use the [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) to configure an Ansible Azure Dynamic Inventory in which you create two virtual machines, tag one those virtual machines, and install Nginx on the tagged virtual machine.
+Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. In this article, you use the [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) to configure an Ansible Azure Dynamic Inventory in which you create two virtual machines, tag one of those virtual machines, and install Nginx on the tagged virtual machine.
 
 ## Prerequisites
 
@@ -55,11 +55,11 @@ You can [use tags to organize your Azure resources](https://docs.microsoft.com/a
 Enter the following [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) command to tag the virtual machine `ansible-inventory-test-vm1` with the key `nginx`:
 
 ```azurecli-interactive
-az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## Generate a dynamic inventory
-Once you have your virtual machines defined (and tagged), it's time to generate the dynamic inventory. Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machine:
+Once you have your virtual machines defined (and tagged), it's time to generate the dynamic inventory. Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
 
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 

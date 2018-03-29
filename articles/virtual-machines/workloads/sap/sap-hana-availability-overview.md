@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2018
+ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -58,6 +58,12 @@ Azure has different availability SLAs for different components like networking, 
 - Multiple (at least two) VMs that are organized in an [Azure Availability Set](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) provide a monthly up-time percentage of 99.95%
 
 Measure your requirement of availability against the SLAs Azure components can provide and then decide on the different scenarios you need to implement with SAP HANA to achieve the availability you require to provide.
+
+## Next steps
+Continue to the documents:
+
+- [SAP HANA Availability within one Azure region](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
+- [SAP HANA Availability across Azure regions](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
 
 
 

@@ -100,4 +100,4 @@ After you have downloaded and validated the configuration script, the next step 
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
+Continue configuring your [Site-to-Site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md).

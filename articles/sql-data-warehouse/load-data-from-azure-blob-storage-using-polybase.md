@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: "Active"
-ms.date: 11/17/2017
+ms.date: 03/16/2018
 ms.author: cakarst
 ms.reviewer: barbkess
 
@@ -23,7 +23,7 @@ ms.reviewer: barbkess
 
 # Tutorial: Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
 
-PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
+PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -39,7 +39,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Before you begin
 
-Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
 ## Log in to the Azure portal
@@ -89,7 +89,7 @@ Follow these steps to create a blank SQL data warehouse.
     ![configure performance](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Click **Apply**.
-9. In the SQL Data Warehouse page, select a **collation** for the blank database. For this tutorial, use the default value. For more information about collations, see [Collations](/sql/t-sql/statements/collations.md)
+9. In the SQL Data Warehouse page, select a **collation** for the blank database. For this tutorial, use the default value. For more information about collations, see [Collations](/sql/t-sql/statements/collations)
 
 11. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
 
@@ -144,7 +144,7 @@ Get the fully qualified server name for your SQL server in the Azure portal. Lat
 
 ## Connect to the server as server admin
 
-This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to establish a connection to your Azure SQL server.
+This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to establish a connection to your Azure SQL server.
 
 1. Open SQL Server Management Studio.
 
@@ -219,7 +219,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 ## Create external tables for the sample data
 
-You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use [Polybase](/sql/relational-databases/polybase/polybase-guide.md) to load New York City taxi cab data from an Azure storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
+You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use [Polybase](/sql/relational-databases/polybase/polybase-guide) to load New York City taxi cab data from an Azure storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
 
 Run the following SQL scripts specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. 
 
@@ -235,7 +235,7 @@ Run the following SQL scripts specify information about the data you wish to loa
     CREATE MASTER KEY;
     ```
 
-4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
+4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -246,7 +246,7 @@ Run the following SQL scripts specify information about the data you wish to loa
     );
     ```
 
-5. Run the following [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL statement to specify formatting characteristics and options for the external data file. This  statement specifies the external data is stored as text and the values are separated by the pipe ('|') character. The external file is compressed with Gzip. 
+5. Run the following [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL statement to specify formatting characteristics and options for the external data file. This  statement specifies the external data is stored as text and the values are separated by the pipe ('|') character. The external file is compressed with Gzip. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -271,7 +271,7 @@ Run the following SQL scripts specify information about the data you wish to loa
     );
     ```
 
-6.  Run the following [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) statement to create a schema for your external file format. The schema provides a way to organize the external tables you are about to create.
+6.  Run the following [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) statement to create a schema for your external file format. The schema provides a way to organize the external tables you are about to create.
 
     ```sql
     CREATE SCHEMA ext;
@@ -454,7 +454,7 @@ This section uses the external tables you just defined to load the sample data f
 > This tutorial loads the data directly into the final table. In a production environment, you will usually use CREATE TABLE AS SELECT to load into a staging table. While data is in the staging table you can perform any necessary transformations. To append the data in the staging table to a production table, you can use the INSERT...SELECT statement. For more information, see [Inserting data into a production table](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table, SQL Data Warehouse imports the data into a relational table in the data warehouse. 
+The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table, SQL Data Warehouse imports the data into a relational table in the data warehouse. 
 
 1. Run the following script to load the data into new tables in your data warehouse.
 

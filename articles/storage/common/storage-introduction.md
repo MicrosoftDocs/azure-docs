@@ -2,18 +2,12 @@
 title: Introduction to Azure Storage | Microsoft Docs
 description: Introduction to Azure Storage, Microsoft's data storage in the cloud.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/21/2018
+ms.date: 03/06/2018
 ms.author: tamram
 ---
 
@@ -134,7 +128,7 @@ There are two basic kinds of encryption available for the Storage services. For 
 
 Azure Storage Service Encryption (SSE) at rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption, and key management are totally transparent to users.
 
-You can enable Storage Service Encryption (SSE) for Blob storage or for Azure Files (preview). If enabled, all data written to the specific service is encrypted before it is written. When you read the data, it is decrypted before it is returned.
+SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). SSE does not affect Azure Storage performance.
 
 For more information about SSE encryption at rest, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
@@ -150,7 +144,7 @@ In order to ensure that your data is durable, Azure Storage will keep (and manag
 
 **Locally-redundant storage (LRS)**
 
-Locally-redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a give year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
+Locally-redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a given year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
 
 **Zone-redundant storage (ZRS) (Preview)**
 

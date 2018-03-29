@@ -4,7 +4,7 @@ description: In this tutorial, you create a sample Azure Data Factory pipeline u
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory

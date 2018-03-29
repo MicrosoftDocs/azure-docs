@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/14/2018
 ms.author: mimig
 
 ---
@@ -73,7 +73,7 @@ You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop an
 ### How can I get additional help with Azure Cosmos DB?
 
 To ask a technical question, you can post to one of these two question and answer forums:
-* [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask). 
 
 To request new features, create a new request on [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -208,6 +208,7 @@ There are some behavior differences that users coming from Azure Table storage w
 * CORS is not currently supported
 * Table names in Azure Table storage are not case-sensitive, but they are in Azure Cosmos DB Table API
 * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full 1 Meg of a table entity to store binary data because the encoding increases the data's size.
+* Entity property name “Id” currently not supported
 
 In terms of the REST API there are a number of endpoints/query options that are not supported by Azure Cosmos DB Table API:
 | Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation |
@@ -240,7 +241,7 @@ If any of these differences are a problem for your project please contact [askco
 You can share your feedback in any of the following ways:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
-* [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 ### What is the connection string that I need to use to connect to the Table API?

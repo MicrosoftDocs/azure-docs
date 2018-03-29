@@ -5,8 +5,7 @@ keywords: ''
 documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
+manager: kfile
 
 ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
 ms.service: stream-analytics
@@ -145,7 +144,7 @@ The job gets its input from the CSV file that you uploaded earlier to blob stora
    |**Container**  | Select the container you created earlier (`azuresamldemoblob`)        |
    |**Event serialization format**  |  Select **CSV**       |
 
-    ![Settings for new job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
+   ![Settings for new job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
 4. Click **Save**.
 
@@ -187,7 +186,7 @@ In this section of the tutorial, you define a function in the Stream Analysis jo
    | **URL**| Paste the web service URL.|
    |**Key** | Paste the API key. |
   
-    ![Settings for adding a Machine Learning function to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Settings for adding a Machine Learning function to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
 4. Click **Save**.
 

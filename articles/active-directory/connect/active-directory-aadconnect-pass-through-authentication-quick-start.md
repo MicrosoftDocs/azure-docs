@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
 ---
 
@@ -112,20 +112,38 @@ At this stage, users from all the managed domains in your tenant can sign in by 
 
 ## Step 5: Ensure high availability
 
-If you plan to deploy Pass-through Authentication in a production environment, you should install a standalone Authentication Agent. Install this second Authentication Agent on a server _other_ than the one running Azure AD Connect and the first Authentication Agent. This setup provides you with high availability for requests to sign in. Follow these instructions to deploy a standalone Authentication Agent:
+If you plan to deploy Pass-through Authentication in a production environment, you should install atleast one more standalone Authentication Agent. Install these Authentication Agent(s) on server(s) _other_ than the one running Azure AD Connect. This setup provides you with high availability for user sign-in requests.
 
-1. Download the latest version of the Authentication Agent (version 1.5.193.0 or later). Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with your tenant's global administrator credentials.
+Follow these instructions to download the Authentication Agent software:
+
+1. To download the latest version of the Authentication Agent (version 1.5.193.0 or later), sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with your tenant's global administrator credentials.
 2. Select **Azure Active Directory** in the left pane.
 3. Select **Azure AD Connect**, select **Pass-through authentication**, and then select **Download Agent**.
 4. Select the **Accept terms & download** button.
-5. Install the latest version of the Authentication Agent by running the executable that was downloaded in the preceding step. Provide your tenant's global administrator credentials when prompted.
 
 ![Azure Active Directory admin center: Download Authentication Agent button](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Azure Active Directory admin center: Download Agent pane](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->You can also download the [Azure Active Directory Authentication Agent](https://aka.ms/getauthagent). Ensure that you review and accept the Authentication Agent's [Terms of Service](https://aka.ms/authagenteula) _before_ installing it.
+>You can also directly download the Authentication Agent software [here](https://aka.ms/getauthagent). Review and accept the Authentication Agent's [Terms of Service](https://aka.ms/authagenteula) _before_ installing it.
+
+There are two ways to deploy a standalone Authentication Agent:
+
+First, you can do it interactively by just running the downloaded Authentication Agent executable and providing your tenant's global administrator credentials when prompted.
+
+Second, you can create and run an unattended deployment script. This is useful when you want to deploy multiple Authentication Agents at once, or install Authentication Agents on Windows servers that don't have user interface enabled, or that you can't access with Remote Desktop. Here are the instructions on how to use this approach:
+
+1. Run the following command to install an Authentication Agent: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. You can register the Authentication Agent with our service using Windows PowerShell. Create a PowerShell Credentials object `$cred` that contains a global administrator username and password for your tenant. Run the following command, replacing *\<username\>* and *\<password\>*:
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. Go to **C:\Program Files\Microsoft Azure AD Connect Authentication Agent** and run the following script using the `$cred` object that you created:
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## Next steps
 - [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.

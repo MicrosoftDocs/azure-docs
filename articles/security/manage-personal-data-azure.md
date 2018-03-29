@@ -1,6 +1,6 @@
 ﻿---
   title: Manage personal data in Microsoft Azure | Microsoft Docs
-  description: guidance on how to correct, update, delete, and export personal data to comply with General Data Protection Regulation (GDPR) in Azure Active Directory and Azure SQL Database
+  description: how to correct, update, delete, and export personal data to help you comply with General Data Protection Regulation (GDPR) in Azure Active Directory and Azure SQL Database
   services: security
   documentationcenter: na
   author: barclayn
@@ -13,7 +13,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 03/04/2018
+  ms.date: 03/06/2018
   ms.author: barclayn
 
 

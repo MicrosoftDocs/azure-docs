@@ -40,7 +40,7 @@ To complete this tutorial:
 # [Python] (#tab/python) 
 
 * Install [Python](https://www.python.org/downloads/)
-* Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
+* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 * (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
 
 ---

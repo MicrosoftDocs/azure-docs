@@ -146,6 +146,8 @@ _\<compute target name>.compute_ file specifies connection and configuration inf
 
 **userManagedEnvironment**: This property specifies whether this compute target is managed by the user directly or managed through experimentation service.  
 
+**pythonLocation**: This property specifies the location of the python runtime to be used on the compute target to execute user's program. 
+
 ### \<run configuration name>.runconfig
 _\<run configuration name>.runconfig_ specifies the Azure ML experiment execution behavior. You can configure execution behavior such as tracking run history or what compute target to use along with many others. The names of the run configuration files are used to populate the execution context dropdown in the Azure ML Workbench desktop application.
 
@@ -202,7 +204,7 @@ The following example replaces the "mylocal.datasource" references in Azure ML d
  
 ```
 DataSourceSubstitutions:
-    myocal.dsource: myremote.dsource
+    mylocal.dsource: myremote.dsource
 ```
 
 Based on the substitution above, the following code sample now reads from "myremote.dsource" instead of "mylocal.dsource" without users changing their code.
