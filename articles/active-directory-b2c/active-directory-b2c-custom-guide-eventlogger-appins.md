@@ -114,7 +114,7 @@ Add the profiles to the extension file from the starter pack by adding these ele
 > Change the `Instrumentation Key` in the `ApplicationInsights-Common` technical profile to the GUID provided by your Application Insights resource.
 
 ```xml
-<ClaimsProvider>
+    <ClaimsProvider>
       <DisplayName>Application Insights</DisplayName>
       <TechnicalProfiles>
 
@@ -190,7 +190,7 @@ Call `JournyeContextForInsights` as orchestration step 1
 
 ```xml
 <!-- Initialize a session with Application Insights -->
-<OrchestrationStep Order="1" Type="ClaimsExchange">
+        <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="JourneyContextForInsights" TechnicalProfileReferenceId="JourneyContextForInsights" />
           </ClaimsExchanges>
@@ -227,6 +227,7 @@ Immediately **before** the `SendClaims` orchestration step, add a new step that 
           <ClaimsExchanges>
             <ClaimsExchange Id="TrackUserSignUp" TechnicalProfileReferenceId="AzureInsights-UserSignup" />
           </ClaimsExchanges>
+        </OrchestrationStep>
 ```
 
 Immediately after the `SendClaims` orchestration step, call `Azure-Insights-SignInComplete`.   This step will reflect a successfully completed journey.
