@@ -49,50 +49,41 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 ## Create an app in Windows Store
 To send push notifications to UWP apps, associate your app to the Windows Store. Then, configure your notification hub to integrate with WNS.
 
-1. If you have not already registered your app, navigate to the [Windows Dev Center](https://dev.windows.com/overview), sign in with your Microsoft account, and then select **Create a new app**.
+1. Navigate to the [Windows Dev Center](https://dev.windows.com/overview), sign in with your Microsoft account, and then select **Create a new app**.
 
-2. Type a name for your app, and then select **Reserve app name**. Doing so creates a new Windows Store registration for your app.
+    ![New app button](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
+1. Type a name for your app, and then select **Reserve product name**. Doing so creates a new Windows Store registration for your app.
 
-3. In Visual Studio, create a new Visual C# Store apps project by using the UWP **Blank App** template, and then select **OK**.
+    ![Store app name](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
+1. Expand **App Management**, select **WNS/MPNS**, select **WNS/MPNS**, and then select **Live Services site**. Sign-in to your Microsoft account. The **Application Registration Portal** opens in a new tab. Alternatively, you can navigate directly to the [Application Registration Portal](http://apps.dev.microsoft.com), select your application name to get to this page.
 
-4. Accept the defaults for the target and minimum platform versions.
+    ![WNS MPNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
+1.   Note the **Application Secret** password and the **Package security identifier (SID)**.
 
-5. In Solution Explorer, right-click the Windows Store app project, select **Store**, and then select **Associate App with the Store**. The **Associate Your App with the Windows Store** wizard appears.
-
-6. In the wizard, sign in with your Microsoft account.
-
-7. Select the app that you registered in step 2, select **Next**, and then select **Associate**. Doing so adds the required Windows Store registration information to the application manifest.
-
-8. Back on the [Windows Dev Center](http://dev.windows.com/overview) page for your new app, select **Services**, select **Push notifications**, and then select **WNS/MPNS**.
-
-9. Select **New Notification**.
-
-10. Select **Blank (Toast)** template, and then select **OK**.
-
-11. Enter a notification **Name** and Visual **Context** message, and then select **Save as draft**.
-
-12. Go to the [Application Registration Portal](http://apps.dev.microsoft.com) and sign in.
-
-13. Select your application name. In **Windows Store** platform settings, note the **Application Secret** password and the **Package security identifier (SID)**.
-
-    >[!WARNING]
-    >The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+        >[!WARNING]
+        >The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
 
 ## Create a notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="6">
-<li><p>Under <b>Notification Services</b>, select <b>Windows (WNS)</b>, and then enter the application secret password in the <b>Security Key</b> box. In the <b>Package SID</b> box, enter the value that you obtained from WNS in the previous section, and then select <b>Save</b>.</p>
-</li>
-</ol>
 
-![The Package SID and Security Key boxes](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
+### Configure WNS settings for the hub
+
+1. Select **Windows (WNS)** in the **NOTIFICATION SETTINGS** category. 
+2. Enter values for **Package SIS** and **Security Key** you noted from the previous section. 
+3. Select **Save** on the toolbar.
+
+    ![The Package SID and Security Key boxes](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
 Your notification hub is now configured to work with WNS. You have the connection strings to register your app and send notifications.
 
 ## Create a sample Windows app
-1. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**. The **Manage NuGet Packages** window opens.
-
+1. In Visual Studio, create a new Visual C# Store apps project by using the UWP **Blank App** template, and then select **OK**.
+2. Accept the defaults for the target and minimum platform versions.
+3. In Solution Explorer, right-click the Windows Store app project, select **Store**, and then select **Associate App with the Store**. The **Associate Your App with the Windows Store** wizard appears.
+2. In the wizard, sign in with your Microsoft account.
+3. Select the app that you registered in step 2, select **Next**, and then select **Associate**. Doing so adds the required Windows Store registration information to the application manifest.
+2. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**. The **Manage NuGet Packages** window opens.
 2. In the search box, enter **Microsoft.Azure.NotificationHubs**, select **Install**, and accept the terms of use.
    
     ![The Manage NuGet Packages window][20]
