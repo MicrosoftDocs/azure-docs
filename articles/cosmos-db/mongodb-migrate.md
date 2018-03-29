@@ -37,7 +37,7 @@ This tutorial covers the following tasks:
 
 You can learn more about the MongoDB shell, mongoimport, mongodump, mongorestore, and Robomongo by watching this video with Azure Cosmos DB Program Manager Andy Hoh:
 
-> [!VIDEO https: https://www.youtube.com/embed/_dhqsdx4oBQ]
+> [!VIDEO https://www.youtube.com/embed/_dhqsdx4oBQ]
 >
 
 ## Prerequisites
