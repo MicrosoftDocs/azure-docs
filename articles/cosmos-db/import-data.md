@@ -55,7 +55,7 @@ The Data Migration tool is an open source solution that imports data to Azure Co
 While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command line (dt.exe). In fact, there is an option to output the associated command after setting up an import through the UI. Tabular source data (e.g. SQL Server or CSV files) can be transformed such that hierarchical relationships (subdocuments) can be created during import. Keep reading to learn more about source options, sample command lines to import from each source, target options, and viewing import results.
 
 ## <a id="Install"></a>Installation
-The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, then run either:
+The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-comiled binary](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.22-1.8.1.5/dt-1.8.1.zip), then run either:
 
 * **Dtui.exe**: Graphical interface version of the tool
 * **Dt.exe**: Command-line version of the tool
