@@ -41,26 +41,12 @@ Notice that *upgrade* is not listed as an administrative task. Because resources
 ## Administrator rights
 Provisioning or decommissioning the service itself can be done by an Azure subscription administrator or co-administrator.
 
-Within a service, anyone with access to the service URL and an admin api-key has read-write access to the service. Read-write access provides the ability to add, delete, or modify server objects, including api-keys, indexes, indexers, data sources, schedules, and role assignments as implemented through [RBAC-defined roles](#rbac).
+Within a service, anyone with access to the service URL and an admin api-key has read-write access to the service. Read-write access provides the ability to add, delete, or modify server objects, including api-keys, indexes, indexers, data sources, schedules, and role assignments as implemented through [RBAC-defined roles](search-security-rbac.md).
 
-All user interaction with Azure Search falls within one of these modes: read-write access to the service (administrator rights), or read-only access to the service (query rights). For more information, see [Manage the api-keys](#manage-keys).
+All user interaction with Azure Search falls within one of these modes: read-write access to the service (administrator rights), or read-only access to the service (query rights). For more information, see [Manage the api-keys](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
-## Set RBAC roles for administrative access
-Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
-
-For Azure Search, RBAC permissions determine the following administrative tasks:
-
-| Role | Task |
-| --- | --- |
-| Owner |Create or delete the service or any object on the service, including api-keys, indexes, indexers, indexer data sources, and indexer schedules.<p>View service status, including counts and storage size.<p>Add or delete role membership (only an Owner can manage role membership).<p>Subscription administrators and service owners have automatic membership in the Owners role. |
-| Contributor |Same level of access as Owner, minus RBAC role management. For example, a Contributor can view and regenerate `api-key`, but cannot modify role memberships. |
-| Reader |View service status and query keys. Members of this role cannot change service configuration, nor can they view admin keys. |
-
-Roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. For more information, see "Authorization for management versus data operations" in [What is Role-based access control](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
 ## Logging and system information
 Azure Search does not expose log files for an individual service either through the portal or programmatic interfaces. At the Basic tier and above, Microsoft monitors all Azure Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams review the log files available to them and address the issue.
 
@@ -69,38 +55,6 @@ In terms of general information about your service, you can obtain information i
 * In the portal, on the service dashboard, through notifications, properties, and status messages.
 * Using [PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to [get service properties](https://docs.microsoft.com/rest/api/searchmanagement/services), or status on index resource usage.
 * Via [search traffic analytics](search-traffic-analytics.md), as noted previously.
-
-<a id="manage-keys"></a>
-
-## Manage api-keys
-All requests to a search service need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating access to your search service endpoint. 
-
-An api-key is a string composed of randomly generated numbers and letters. Through [RBAC permissions](#rbac), you can delete or read the keys, but you can't replace a key with a user-defined password. 
-
-Two types of keys are used to access your search service:
-
-* Admin (valid for any read-write operation against the service)
-* Query (valid for read-only operations such as queries against an index)
-
-An admin api-key is created when the service is provisioned. There are two admin keys, designated as *primary* and *secondary* to keep them straight, but in fact they are interchangeable. Each service has two admin keys so that you can roll one over without losing access to your service. You can regenerate either admin key, but you cannot add to the total admin key count. There is a maximum of two admin keys per search service.
-
-Query keys are designed for client applications that call Search directly. You can create up to 50 query keys. In application code, you specify the search URL and a query api-key to allow read-only access to the service. Your application code also specifies the index used by your application. Together, the endpoint, an api-key for read-only access, and a target index define the scope and access level of the connection from your client application.
-
-To get or regenerate api-keys, open the service dashboard. Click **KEYS** to slide open the key management page. Commands for regenerating or creating keys are at the top of the page. By default, only admin keys are created. Query api-keys must be created manually.
-
- ![][9]
-
-<a id="rbac"></a>
-
-## Secure api-keys
-Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command-line interface). As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
-
-1. In the service dashboard, click the Access icon to slide open the Users blade.
-   ![][7]
-2. In Users, review existing role assignments. As expected, Subscription admins already have full access to the service via the Owner role.
-3. To drill further, click **Subscription admins** and then expand the role assignment list to see who has co-administration rights on your search service.
-
-Another way to view access permissions is to click **Roles** on the Users blade. Doing so displays available roles and the number of users or groups assigned to each role.
 
 <a id="sub-5"></a>
 
@@ -181,9 +135,6 @@ We also recommend reviewing the [performance and optimization article](search-pe
 Another recommendation is to watch the video noted in the previous section. It provides deeper coverage of the techniques mentioned in this section.
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

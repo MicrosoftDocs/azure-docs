@@ -32,6 +32,7 @@ All users have a single home directory that authenticates them, but they can als
 
 * You must sign in with account that has RBAC Owner access to the subscription.
 * You must sign in with an account that exists in both the current directory with which the subscription is associated and in the directory you want to add it to. To learn more about getting access to another directory, see [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
+* This feature isn't available for CSP (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P) and Microsoft Imagine (MS-AZR-0144P) subscriptions.
 
 ## To associate an existing subscription to your Azure AD directory
 

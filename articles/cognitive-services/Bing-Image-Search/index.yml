@@ -6,7 +6,7 @@ metadata:
   title: Bing Image Search Documentation - Tutorials, API Reference
   description: Learn how to use Bing Image Search API to obtain images from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
   services: cognitive-services
-  author: jerrykindall
+  author: v-jerkin
   manager: carolz
   ms.service: bing-image-search
   ms.tgt_pltfrm: na

@@ -30,7 +30,7 @@ With Role-Based Access Control (RBAC), you define access for users, groups, and 
 
 To use the Azure CLI to manage RBAC, you must have the following prerequisites:
 
-* [Azure CLI 2.0](/cli/azure/overview). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
+* [Azure CLI 2.0](/cli/azure). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
 
 ## List roles
 

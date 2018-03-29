@@ -4,8 +4,8 @@ description: Get answers to frequently asked questions about Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory

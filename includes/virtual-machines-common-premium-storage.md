@@ -45,11 +45,11 @@ Here are some of the features of Premium Storage:
 
 * **Premium storage account**
 
-    To start using Premium Storage, create a premium storage account for unmanaged disks. In the [Azure portal](https://portal.azure.com), to create a premium storage account, choose the **Premium** performance tier. Select the **Locally-redundant storage (LRS)** replication option. You also can create a premium storage account by setting the type to **Premium_LRS** in one of the following locations:
-    * [Storage REST API](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 or a later version)
-    * [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (version 2014-10-01 or a later version; for Azure classic deployments)
-    * [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments)
-    * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (version 0.8.10 or a later version)
+    To start using Premium Storage, create a premium storage account for unmanaged disks. In the [Azure portal](https://portal.azure.com), to create a premium storage account, choose the **Premium** performance tier. Select the **Locally-redundant storage (LRS)** replication option. You also can create a premium storage account by setting the performance tier to **Premium_LRS**. To change the performance tier, use one of the following approaches:
+     
+    - [PowerShell for Azure Storage](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [Azure CLI for Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments) or one of the Azure Storage resource provider client libraries
 
     To learn about premium storage account limits, see [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
@@ -57,10 +57,12 @@ Here are some of the features of Premium Storage:
 
     A premium storage account supports only locally redundant storage as the replication option. Locally redundant storage keeps three copies of the data within a single region. For regional disaster recovery, you must back up your VM disks in a different region by using [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md). You also must use a geo-redundant storage (GRS) account as the backup vault. 
 
-    Azure uses your storage account as a container for your unmanaged disks. When you create an Azure DS-series, DSv2-series, GS-series, or Fs-series VM with unmanaged disks, and you select a premium storage account, your operating system and data disks are stored in that storage account.
+    Azure uses your storage account as a container for your unmanaged disks. When you create an Azure VM that supports Premium Storage with unmanaged disks, and you select a premium storage account, your operating system and data disks are stored in that storage account.
 
 ## Supported VMs
-Premium Storage supports DS-series, DSv2-series, GS-series, Ls-series, Fs-series and B-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
+
+Premium Storage supports B-series, DS-series, DSv2-series, DSv3-series, GS-series, Ls-series, M-series and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
+
 
 For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../articles/virtual-machines/windows/sizes.md). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../articles/virtual-machines/linux/sizes.md).
 

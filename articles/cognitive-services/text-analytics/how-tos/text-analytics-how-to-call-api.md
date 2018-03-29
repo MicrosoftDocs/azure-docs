@@ -3,12 +3,12 @@ title: Call the Text Analytics API (Microsoft Cognitive Services on Azure) | Mic
 description: Learn how to call the Text Analytics REST API.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: get-started-article
-ms.date: 08/24/2017
+ms.date: 03/07/2018
 ms.author: heidist
 ---
 

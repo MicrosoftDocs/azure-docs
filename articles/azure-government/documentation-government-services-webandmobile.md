@@ -37,6 +37,7 @@ Some App Service features available in the public cloud are not yet available
 in Azure Government:
 
 - App Service Environments
+- App Service Certificates
 - Settings
     - Security scanning
 - Development Tools

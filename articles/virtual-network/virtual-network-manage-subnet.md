@@ -20,7 +20,7 @@ ms.author: jdial
 ---
 # Add, change, or delete a virtual network subnet
 
-Learn how to add, change, or delete a virtual network subnet. If you're not familiar with virtual networks, before you add, change, or delete a subnet, we recommend that you read [Azure Virtual Network overview](virtual-networks-overview.md) and [Create, change, or delete a virtual network](virtual-network-manage-network.md). All Azure resources deployed into a virtual network are deployed into a subnet within a virtual network.
+Learn how to add, change, or delete a virtual network subnet. If you're not familiar with virtual networks, before you add, change, or delete a subnet, we recommend that you read [Azure Virtual Network overview](virtual-networks-overview.md) and [Create, change, or delete a virtual network](manage-virtual-network.md). All Azure resources deployed into a virtual network are deployed into a subnet within a virtual network.
  
 ## Before you begin
 
@@ -64,7 +64,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 **Commands**
 
-- Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## Delete a subnet
@@ -79,7 +79,7 @@ You can delete a subnet only if there are no resources in the subnet. If there a
 
 **Commands**
 
-- Azure CLI: [az network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_vnet_delete)
+- Azure CLI: [az network vnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell: [Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## Permissions

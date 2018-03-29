@@ -91,11 +91,11 @@ Your notification hub is now configured to work with WNS. You have the connectio
 1. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**.  
     The **Manage NuGet Packages** window opens.
 
-2. In the search box, enter **WindowsAzure.Messaging.Managed**, select **Install**, and accept the terms of use.
+2. In the search box, enter **Microsoft.Azure.NotificationHubs**, select **Install**, and accept the terms of use.
    
     ![The Manage NuGet Packages window][20]
    
-    This action downloads, installs, and adds a reference to the Azure messaging library for Windows by using the [WindowsAzure.Messaging.Managed NuGet package](http://nuget.org/packages/WindowsAzure.Messaging).
+    This action downloads, installs, and adds a reference to the Azure Notification Hubs library for Windows by using the [Microsoft.Azure.NotificationHubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
 
 3. Open the App.xaml.cs project file, and add the following `using` statements: 
    

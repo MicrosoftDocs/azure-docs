@@ -37,8 +37,6 @@
         href: log-analytics-log-search-faq.md
   - name: Log Analytics FAQ
     href: log-analytics-faq.md
-  - name: Data consumption
-    href: log-analytics-usage.md
   - name: Data security
     href: log-analytics-data-security.md
   - name: Manage access
@@ -50,7 +48,7 @@
   - name: Log Search
     items:
        - name: Log searches overview
-         href: log-analytics-log-search-new.md   
+         href: log-analytics-log-search.md   
        - name: Log Search portals
          href: log-analytics-log-search-portals.md   
 - name: How-to guides
@@ -117,20 +115,6 @@
       href: log-analytics-flow-tutorial.md
     - name: Log Search API
       href: https://dev.loganalytics.io/
-  - name: Legacy log search
-    items:
-    - name: Log searches overview
-      href: log-analytics-log-searches.md
-    - name: Search reference
-      href: log-analytics-search-reference.md
-      items:
-      - name: Regular expressions
-        href: log-analytics-log-searches-regex.md
-    - name: Log Search API
-      href: log-analytics-log-search-api.md
-      items:
-      - name: Python
-        href: log-analytics-log-search-api-python.md
   - name: Analyze data
     items:
     - name: Dashboards
@@ -170,7 +154,11 @@
     - name: Agent management
       href: log-analytics-agent-manage.md
     - name: Manage workspace cost
-      href: log-analytics-manage-cost-storage.md
+      items:
+      - name: Data volume and retention
+        href: log-analytics-manage-cost-storage.md
+      - name: Monitor usage
+        href: log-analytics-usage.md
     - name: Delete a workspace
       href: log-analytics-manage-del-workspace.md
   - name: Troubleshoot

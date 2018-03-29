@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/09/2018
 ms.author: babanisa
 ---
 
@@ -63,7 +63,7 @@ The article describes the properties and schema for the body of the request.
       }
     },
     "filter": {
-      "includedEventTypes": [ "blobCreated", "blobDeleted" ],
+      "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
       "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "subjectIsCaseSensitive": "true"

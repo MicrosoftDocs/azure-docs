@@ -69,7 +69,7 @@ Approximate time to Complete: one hour for less than 1,000 PoC users
 
 ### Considerations
 
-1. Look at  the security considerations of password hash sync [here](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  If password hash sync for pilot production users is definitively not an option, then consider the following alternatives:
+1. Look at  the security considerations of password hash sync [here](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  If password hash sync for pilot production users is definitively not an option, then consider the following alternatives:
    * Create test users in the production domain. Make sure you don't synchronize any other account
    * Move to an UAT environment
 2.	If you want to pursue federation, it is worthwhile to understand the costs associated a federated solution with on-premises Identity Provider beyond the POC and measure that against the benefits you are looking for:

@@ -1,19 +1,13 @@
 ﻿---
-title: Compiling configurations in Azure Automation DSC | Microsoft Docs
+title: Compiling configurations in Azure Automation DSC
 description: This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation.
 services: automation
-documentationcenter: na
-author: georgewallace
-manager: carmonm
-
-ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: na
-ms.date: 03/02/2018
-ms.author: magoedte; gwallace
+manager: carmonm
 ---
 
 # Compiling configurations in Azure Automation DSC
@@ -246,6 +240,7 @@ The following example shows a DSC configuration that uses an Automation credenti
 ```powershell
 Configuration CredentialSample
 {
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
     $Cred = Get-AutomationPSCredential "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
@@ -280,6 +275,9 @@ $ConfigData = @{
 
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
+
+> [!NOTE]
+> When compilation is complete you may receive an error stating: **The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported.** This warning can safely be ignored.
 
 ## Importing node configurations
 

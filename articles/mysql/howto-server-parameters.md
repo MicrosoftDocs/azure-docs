@@ -37,25 +37,24 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 
 |**Pricing Tier**| **Compute Generation**|**vCore(s)**|**InnoDB Buffer Pool (MB)**| **Max Connections**|
 |---|---|---|---|--|
-|Basic| Gen 4| 1| 1024| 50 |
-|Basic| Gen 4| 2| 2560| 100 |
-|Basic| Gen 5| 1| 1024| 50 |
-|Basic| Gen 5| 2| 2560| 100 |
-|General Purpose| Gen 4| 2| 2560| 200|
-|General Purpose| Gen 4| 4| 5120| 400|
-|General Purpose| Gen 4| 8| 10240| 800|
-|General Purpose| Gen 4| 16| 20480| 1600|
-|General Purpose| Gen 4| 32| 40960| 3200|
-|General Purpose| Gen 5| 2| 2560| 200|
-|General Purpose| Gen 5| 4| 5120| 400|
-|General Purpose| Gen 5| 8| 10240| 800|
-|General Purpose| Gen 5| 16| 20480| 1600|
-|General Purpose| Gen 5| 32| 40960| 3200|
+|Basic| Gen 4| 1| 1024| 50|
+|Basic| Gen 4| 2| 2560| 100|
+|Basic| Gen 5| 1| 1024| 50|
+|Basic| Gen 5| 2| 2560| 100|
+|General Purpose| Gen 4| 2| 3584| 300|
+|General Purpose| Gen 4| 4| 7680| 625|
+|General Purpose| Gen 4| 8| 15360| 1250|
+|General Purpose| Gen 4| 16| 31232| 2500|
+|General Purpose| Gen 4| 32| 62976| 5000|
+|General Purpose| Gen 5| 2| 3584| 300|
+|General Purpose| Gen 5| 4| 7680| 625|
+|General Purpose| Gen 5| 8| 15360| 1250|
+|General Purpose| Gen 5| 16| 31232| 2500|
+|General Purpose| Gen 5| 32| 62976| 5000|
 |Memory Optimized| Gen 5| 2| 7168| 600|
 |Memory Optimized| Gen 5| 4| 15360| 1250|
 |Memory Optimized| Gen 5| 8| 30720| 2500|
 |Memory Optimized| Gen 5| 16| 62464| 5000|
-|Memory Optimized| Gen 5| 32| 125952| 10000| 
 
 These additional server parameters are not configurable in the system:
 

@@ -1,21 +1,13 @@
 ---
-title: Target Updates using SCCM Collections in Azure Automation - Update Management | Microsoft Docs
+title: Target Updates using SCCM Collections in Azure Automation - Update Management
 description: This article is intended to help you configure System Center Configuration Manager with this solution to manage updates of SCCM managed computers.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: ''
-
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
-
+ms.date: 03/19/2018
+ms.topic: article
+manager: carmonm
 ---
 
 # Integrate System Center Configuration Manager with Update Management

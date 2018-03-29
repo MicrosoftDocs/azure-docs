@@ -23,13 +23,18 @@ Azure Privileged Identity Management (PIM) generates alerts when there is suspic
 
 ![PIM dashboard security alerts - screenshot][1]
 
-| Alert | Trigger | Recommendation |
-| --- | --- | --- |
-| **Roles are being assigned outside of PIM** |An administrator was permanently assigned to a role, outside of the PIM interface. |Review the new role assignment. Since other services can only assign permanent administrators, change it to an eligible assignment if necessary. |
-| **Roles are being activated too frequently** |There were too many reactivations of the same role within the time allowed in the settings. |Contact the user to see why they have activated the role so many times. Maybe the time limit is too short for them to complete their tasks, or maybe they're using scripts to automatically activate a role. |
-| **Roles don't require multi-factor authentication for activation** |There are roles without MFA enabled in the settings. |We require MFA for the most highly privileged roles, but strongly encourage that you enable MFA for activation of all roles. |
-| **Administrators aren't using their privileged roles** |There are eligible administrators that haven’t activated their roles recently. |Start an access review to determine the users that don't need access anymore. |
-| **There are too many global administrators** |There are more global administrators than recommended. |If you have a high number of global administrators, it's likely that users are getting more permissions than they need. Move users to less privileged roles, or make some of them eligible for the role instead of permanently assigned. |
+| Alert | Severity | Trigger | Recommendation |
+| --- | --- | --- | --- |
+| **Roles are being assigned outside of PIM** |High |A user was permanently assigned a privileged role, outside of the PIM interface. |Review the users in the list and un-assign them from privileged roles assigned outside of PIM. |
+| **Roles are being activated too frequently** |Medium |There were too many reactivations of the same role within the time allowed in the settings. |Contact the user to see why they have activated the role so many times. Maybe the time limit is too short for them to complete their tasks, or maybe they're using scripts to automatically activate a role. Make sure the activation duration for their role is set long enough for them to perform their tasks. |
+| **Roles don't require multi-factor authentication for activation** |Medium |There are roles without MFA enabled in the settings. |We require MFA for the most highly privileged roles, but strongly encourage that you enable MFA for activation of all roles. |
+| **Users aren't using their privileged roles** |Low |There are eligible administrators that haven’t activated their roles recently. |Start an access review to determine the users that don't need access anymore. |
+| **There are too many global administrators** |Low |There are more global administrators than recommended. |If you have a high number of global administrators, it's likely that users are getting more permissions than they need. Move users to less privileged roles, or make some of them eligible for the role instead of permanently assigned. |
+
+### Severity
+* **High**: Requires immediate action because of a policy violation. 
+* **Medium**: Does not require immediate action but signals a potential policy violation.
+* **Low**: Does not require immediate action but suggests a preferrable policy change.
 
 ## Configure security alert settings
 You can customize some of the security alerts in PIM to work with your environment and security goals. Follow these steps to reach the settings blade:
