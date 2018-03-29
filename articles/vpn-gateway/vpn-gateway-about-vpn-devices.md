@@ -78,6 +78,10 @@ To help configure your VPN device, refer to the links that correspond to appropr
 >
 > (**) ISR 7200 Series routers only support PolicyBased VPNs.
 
+## <a name="Download VPN device configuration scripts from Azure"></a>Download VPN device configuration scripts from Azure
+
+For certain devices, you can download configuration scripts directly from Azure. For more information and download instructions, see [Download VPN device configuration scripts](vpn-gateway-download-vpndevicescript.md).
+
 ## <a name="additionaldevices"></a>Non-validated VPN devices
 
 If you don’t see your device listed in the Validated VPN devices table, your device still may work with a Site-to-Site connection. Contact your device manufacturer for additional support and configuration instructions.
