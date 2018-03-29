@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: multiple
  ms.topic: include
- ms.date: 03/05/2018
+ ms.date: 03/28/2018
  ms.author: danlep;azcspmt;jonbeck
  ms.custom: include file
 ---
@@ -83,7 +83,7 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 | Standard_ND6s |6 |112 | 336 | 1 | 12 | 4 |
 | Standard_ND12s |12 |224 | 672 | 2 | 24 | 8 | 
 | Standard_ND24s |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 | 8 |
+| Standard_ND24rs* |24 |448 | 1344 | 4 | 32 | 8 |
 
 1 GPU = one P40 card.
 
