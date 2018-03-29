@@ -22,7 +22,7 @@ ms.custom: mvc
 # Quickstart: deploy an Azure Service Fabric Linux container application on Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
-This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a Python web front-end and a Redis back-end running in a Service Fabric cluster. You also learn how to fail over an application and how to scale an application in your cluster.
+This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a Python web front end and a Redis back end running in a Service Fabric cluster. You also learn how to fail over an application and how to scale an application in your cluster.
 
 ![Voting app web page][quickstartpic]
 
@@ -30,7 +30,7 @@ In this quickstart, you use the Bash environment in Azure Cloud Shell to run Ser
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If it is your first time running Cloud Shell, you are asked to set up your clouddrive file share. You can accept the defaults or attach an existing file share. To learn more, see [Set up a clouddrive file share](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share).
+If it is your first time running Cloud Shell, you are asked to set up your `clouddrive` file share. You can accept the defaults or attach an existing file share. To learn more, see [Set up a `clouddrive` file share](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share).
 
 ## Get the application package
 To deploy containers to Service Fabric, you need a set of manifest files (the application definition), which describe the individual containers and the application.
@@ -64,20 +64,20 @@ Service Fabric provides several tools that you can use to manage a cluster and i
 In this quickstart, you use the Service Fabric CLI in Cloud Shell and Service Fabric Explorer. The following sections show you how to install the certificate needed to connect to your secure cluster with these tools.
 
 ### Configure certificate for the Service Fabric CLI
-To use the CLI, you need to upload the certificate PFX file to the clouddrive associated with your Cloud Shell session and then use it to create a PEM file.
+To use the CLI, you need to upload the certificate PFX file to the `clouddrive` associated with your Cloud Shell session and then use it to create a PEM file.
 
-1. Upload the certificate to your clouddrive.
-    1. To determine the file share that is mounted as your clouddrive, enter the `df` command at the Cloud Shell prompt. In the command output, find the file system that is mounted on your clouddrive. Note the name of the Azure storage account and the name of the file share.
+1. Upload the certificate to your `clouddrive`.
+    1. To determine the file share that is mounted as your `clouddrive`, enter the `df` command at the Cloud Shell prompt. In the command output, find the file system that is mounted on your `clouddrive`. Note the name of the Azure storage account and the name of the file share.
 
         ![df command output](./media/service-fabric-quickstart-containers-linux/df-command-output.png) 
        
-    1.  From **All resources** in the Azure portal, search for the storage account name, then click the storage account. Under **Services**, click **Files** to open the **File service** view. From the list of file shares, click the share mounted as your clouddrive.
-    2.  Click **Upload** and follow the prompts to browse and upload the certificate to your clouddrive.
+    1.  From **All resources** in the Azure portal, search for the storage account name, then click the storage account. Under **Services**, click **Files** to open the **File service** view. From the list of file shares, click the share mounted as your `clouddrive`.
+    2.  Click **Upload** and follow the prompts to browse and upload the certificate to your `clouddrive`.
 
-        ![Upload certificate to clouddrive](./media/service-fabric-quickstart-containers-linux/upload-file.png) 
+        ![Upload certificate to `clouddrive`](./media/service-fabric-quickstart-containers-linux/upload-file.png) 
 
 1. Convert the PFX file that you uploaded to a PEM file. 
-    1. In Cloud Shell, change directories to your clouddrive:
+    1. In Cloud Shell, change directories to your `clouddrive`:
 
         ```bash
         cd ~/clouddrive
@@ -96,7 +96,7 @@ Use whatever method you are most comfortable with to import the certificate on y
 
 - On Windows: Double-click the PFX file and follow the prompts to install the certificate in your personal store, `Certificates - Current User\Personal\Certificates`. Alternatively, you can use the PowerShell command in the **ReadMe** instructions.
 - On Mac: Double-click the PFX file and follow the prompts to install the certificate in your Keychain.
-- On Ubuntu: Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, Select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
+- On Ubuntu: Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
  
    ![Install certificate on Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png) 
 
