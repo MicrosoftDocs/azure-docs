@@ -2,22 +2,16 @@
 title: Azure SQL Data Warehouse backup and restore - snapshots, geo-redundant | Microsoft Docs
 description: Learn how backup and restore works in Azure SQL Data Warehouse. Use data warehouse backups to restore your data warehouse to a restore point in the primary region, or use geo-redundant backups to restore to a different geographical region.
 services: sql-data-warehouse
-documentationcenter: ''
-author: barbkess
+author: ronortloff
 manager: jhubbard
-editor: ''
-
-ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.custom: backup-restore
-ms.date: 03/22/2018
-ms.author: jrj;barbkess
-
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: rortloff
+ms.reviewer: mausher,igorstan,jrj
 ---
+
 # Backup and restore in Azure SQL Data Warehouse
 Learn how backup and restore works in Azure SQL Data Warehouse. Use data warehouse backups to restore your data warehouse to a restore point in the primary region, or use geo-redundant backups to restore to a different geographical region. 
 

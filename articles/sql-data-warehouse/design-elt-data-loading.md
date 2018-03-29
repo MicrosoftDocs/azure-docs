@@ -1,26 +1,20 @@
 ---
-title: Design ELT for Azure SQL Data Warehouse | Microsoft Docs
-description: Combine technologies for moving data to Azure and loading data into SQL Data Warehouse to design an Extract, Load, and Transform (ELT) process for Azure SQL Data Warehouse.  
+title: Instead of ETL, design ELT for Azure SQL Data Warehouse | Microsoft Docs
+description: Instead of ETL, design an Extract, Load, and Transform (ELT) process for loading data or Azure SQL Data Warehouse.  
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: ''
-
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: cakarst
+ms.reviewer: mausher,igorstan,jrj
 
 ---
 # Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse
 
-Combine the technologies for landing data in Azure storage and loading data into SQL Data Warehouse to design an Extract, Load, and Transform (ELT) process for Azure SQL Data Warehouse. This article introduces the technologies that support loading with Polybase, and then focuses on designing an ELT process that uses PolyBase with T-SQL to load data into SQL Data Warehouse from Azure Storage.
+Instead of Extract, Transform, and Load (ETL), design an Extract, Load, and Transform (ELT) process for loading data into Azure SQL Data Warehouse. This article introduces ways to design an ELT process that moves data into an Azure data warehouse.
 
 ## What is ELT?
 
