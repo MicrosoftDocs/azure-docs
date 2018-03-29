@@ -6535,12 +6535,12 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-configure-long-term-retention.md",
-            "redirect_url": "/azure/sql-database/sql-database-long-term-backup-retention-configure",
+            "redirect_url": "/azure/sql-database/sql-database-long-term-retention",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-long-term-backup-retention-configure.md",
-            "redirect_url": "/azure/sql-database/sql-database-long-term-backup-retention",
+            "redirect_url": "/azure/sql-database/sql-database-long-term-retention",
             "redirect_document_id": false
         },
         {

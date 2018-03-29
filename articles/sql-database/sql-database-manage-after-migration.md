@@ -16,7 +16,7 @@ ms.component: migration
 
 # New DBA in the cloud – Managing your database in Azure SQL Database
 
-Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who: -
+Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who: 
 - Are evaluating migration of their application(s) to Azure SQL DB – Modernizing your application(s).
 - Are In the process of migrating their application(s) – On-going migration scenario.
 - Have recently completed the migration to Azure SQL DB – New DBA in the cloud.
