@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/22/2017
+ms.date: 03/29/2018
 ms.author: spelluru
 
 #Customer intent: As a developer, I want to develop backend applications that send notifications to Universal Windows Platform apps so that they users learn about current  so that users receive breaking news, location-based coupons, event-related notifications, etc.
@@ -70,7 +70,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 ### Configure WNS settings for the hub
 
 1. Select **Windows (WNS)** in the **NOTIFICATION SETTINGS** category. 
-2. Enter values for **Package SIS** and **Security Key** you noted from the previous section. 
+2. Enter values for **Package SID** and **Security Key** you noted from the previous section. 
 3. Select **Save** on the toolbar.
 
     ![The Package SID and Security Key boxes](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
@@ -78,13 +78,21 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 Your notification hub is now configured to work with WNS. You have the connection strings to register your app and send notifications.
 
 ## Create a sample Windows app
-1. In Visual Studio, create a new Visual C# Store apps project by using the UWP **Blank App** template, and then select **OK**.
-2. Accept the defaults for the target and minimum platform versions.
-3. In Solution Explorer, right-click the Windows Store app project, select **Store**, and then select **Associate App with the Store**. The **Associate Your App with the Windows Store** wizard appears.
-2. In the wizard, sign in with your Microsoft account.
-3. Select the app that you registered in step 2, select **Next**, and then select **Associate**. Doing so adds the required Windows Store registration information to the application manifest.
-2. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**. The **Manage NuGet Packages** window opens.
-2. In the search box, enter **Microsoft.Azure.NotificationHubs**, select **Install**, and accept the terms of use.
+1. In Visual Studio, select **File**, point to **New**, and select **Proect**. 
+2. In the **New Project** dialog box, do the following steps: 
+    a. Expand **Visual C#**.
+    b. Select **Windows Universal**. 
+    c. Select **Blank App (Universal Windows)**. 
+    d. Enter a **name** for the project. 
+    e. Select **OK**. 
+
+    ![New Project dialog](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
+1. Accept the defaults for the **target** and **minimum** platform versions, and select **OK**. 
+2. In Solution Explorer, right-click the Windows Store app project, select **Store**, and then select **Associate App with the Store**. The **Associate Your App with the Windows Store** wizard appears.
+3. In the wizard, sign in with your Microsoft account.
+4. Select the app that you registered in step 2, select **Next**, and then select **Associate**. Doing so adds the required Windows Store registration information to the application manifest.
+5. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**. The **Manage NuGet Packages** window opens.
+6. In the search box, enter **WindowsAzure.Messaging.Managed**, select **Install**, and accept the terms of use.
    
     ![The Manage NuGet Packages window][20]
    
@@ -128,29 +136,31 @@ Your notification hub is now configured to work with WNS. You have the connectio
    
     This action guarantees that the channel URI is registered in your notification hub each time the application is launched.
 
-6. To run the app, select the **F5** key. A dialog box that contains the registration key is displayed.
+6. To run the app, select the **F5** key. A dialog box that contains the registration key is displayed. To close the dialog, select **OK**. 
+
+    ![Registration successful](./media/notification-hubs-windows-store-dotnet-get-started/registration-successful.png)
 
 Your app is now ready to receive toast notifications.
 
 ## Send test notifications
-You can quickly test receiving notifications in your app by sending notifications in the [Azure portal](https://portal.azure.com/). Use the **Test Send** button on the notification hub, as shown in the following image:
+You can quickly test receiving notifications in your app by sending notifications in the [Azure portal](https://portal.azure.com/). 
 
-![The Test Send pane](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
+1. In the Azure portal, switch to the Overview tab, and select **Test Send** on the toolbar.     
 
-Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET by using a compatible library. If a library is not available for your back end, you can also send notification messages by using the REST API directly. 
+    ![Test Send button](./media/notification-hubs-windows-store-dotnet-get-started/test-send-button.png)
+2. In the **Test Send** window, do the following actions: 
+    1. For **Platforms**, select **Windows**.
+    2. For **Notification Type**, select **Toast**. 
+    3. Select **Send**. 
+    
+        ![The Test Send pane](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
+3. See the result of the Send operation in the **Result** list at the bottom of the window. You also see an alert message. 
 
-This tutorial demonstrates how to test your client app simply by sending notifications that use the .NET SDK for notification hubs in a console application instead of a back-end service. We recommend the [Use Notification Hubs to push notifications to users] tutorial as the next step for sending notifications from an ASP.NET back end. However, you can send notifications by using the following approaches:
+    ![Result of Send operation](./media/notification-hubs-windows-store-dotnet-get-started/result-of-send.png)
+1. You see the notification message: **Test message** on your desktop. 
 
-* **REST interface**: You can support notifications on any back-end platform by using the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+    ![Notification message](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 
-* **Microsoft Azure Notification Hubs .NET SDK**: In the NuGet Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-
-* **Node.js**: See [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Azure Mobile Apps**: For an example of how to send notifications from an Azure mobile app that's integrated with Notification Hubs, see [Add push notifications for Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
-
-* **Java or PHP**: For examples of how to send notifications by using the REST APIs, see:
-    * [Java](notification-hubs-java-push-notification-tutorial.md)
-    * [PHP](notification-hubs-php-push-notification-tutorial.md)
 
 ## Next steps
 In this simple example, you sent broadcast notifications to all your Windows devices by using the portal or a console app. For your next step, we recommend the [Use Notification Hubs to push notifications to users] tutorial. It demonstrates how to send notifications from an ASP.NET back end by using tags to target specific users.
