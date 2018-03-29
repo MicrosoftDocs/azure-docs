@@ -58,6 +58,8 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 | Maximum DTUs | 5 | 3000 | 4000 | |
 ||||||
 
+For details on specific performance levels and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels).
+
 #### Elastic pools
 
 | | **Basic** | **Standard** | **Premium** | 
@@ -75,7 +77,7 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 > \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
-For details on specific performance levels and storage size choices available, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md) and [SQL Database vCore-based resource limits](sql-database-vcore-resource-limits.md).
+For details on specific performance levels and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 ## vCore-based purchasing model (preview)
 
@@ -96,7 +98,7 @@ In the vCore-based purchasing model customers pay for:
 > [!IMPORTANT]
 > Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 
-### Choosing a service tier in the vCore resources model
+### Choosing service tier, compute, memory, storage, and IO resources
 
 Converting to the vCore-based purchasing model enables you to independently scale resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU requires at least 1 vCore.
 
@@ -106,7 +108,8 @@ The following table helps you understand the differences between these two tiers
 |---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|
 |Compute|1 to 16 vCore|1 to 16 vCore|
-|Storage|Premium remote storage, 5 GB – 1 TB|Local SSD storage, 5 GB – 1.5 TB|
+|Memory|7 GB per core |7 GB per core |
+|Storage|Premium remote storage, 5 GB – 4 TB|Local SSD storage, 5 GB – 1 TB|
 |IO throughput (approximate)|500 IOPS per vCore with 7500 maximum IOPS|5000 IOPS per core|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
 |Backups|RA-GRS, 7-35 days (7 days by default)|RA-GRS, 7-35 days (7 days by default)*|
@@ -118,17 +121,7 @@ The following table helps you understand the differences between these two tiers
 > [!IMPORTANT]
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
 
-### Choosing compute, memory, storage, and IO resources
-
-The following table helps you understand how to select the optimal configuration of your compute, memory, storage, and IO resources.
-
-||Gen 4|
-|---|---|---|
-|Hardware|Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core)|
-|Performance levels|1, 2, 4, 8, 16 vCores|
-|Memory|7 GB per vCore|
-|Storage|Up to 1 TB local SSD storage|
-||||
+For details on specific performance levels and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels) and for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 ### Storage considerations
 
@@ -145,7 +138,7 @@ Consider the following:
 > [!IMPORTANT]
 > You are charged for the total storage allocated for MDF and LDF.
 
-To monitor the current total size of MDF and LDF, use [space_used](https://docs.microsoft. To monitor the current size of the individual MDF and LDF files, use [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+To monitor the current total size of MDF and LDF, use [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). To monitor the current size of the individual MDF and LDF files, use [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 ### Backups and storage
 
@@ -190,12 +183,11 @@ Migration of failover groups with multiple databases requires individual migrati
 
 You can only create a geo-secondary using the same service tier as the primary. For database with high log generation rate, it is strongly advised that the secondary is created with the same performance level as the primary. If you are creating a geo-secondary in the elastic pool for a single primary database, it is strongly advised that the pool has the `maxVCore` setting that matches the primary database performance level. If you are creating a geo-secondary in the elastic pool for a primary in another elastic pool, it is strongly advised that the pools have the same `maxVCore` settings
 
-####Using database copy to convert a DTU-based database to a vCore-based database.
+#### Using database copy to convert a DTU-based database to a vCore-based database.
 
 You can copy any database with a DTU-based performance level to a database with a vCore-based performance level without restrictions or special sequencing as long as the target performance level supports the maximum database size of the source database. This is because the database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target. 
 
 ## Next steps
 
+- For details on specific performance levels and storage size choices available, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md) and [SQL Database vCore-based resource limits](sql-database-vcore-resource-limits.md).
 - Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
-- Learn about [Read Scale-out](sql-database-read-scale-out.md).
-- Learn about [Long-term retention](sql-database-long-term-retention.md)

@@ -76,7 +76,7 @@
     href: sql-database-read-scale-out.md
   - name: DTU-based resource limits
     href: sql-database-dtu-resource-limits.md  
-  - name: vcore-based resource limits
+  - name: vCore-based resource limits
     href: sql-database-vcore-resource-limits.md  
   - name: Single databases
     href: sql-database-single-database-resources.md
