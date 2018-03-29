@@ -34,16 +34,14 @@ ms.custom: mvc
 
 This quickstart shows how to create and deploy an ASP.NET web application to Azure App Service using Visual Studio 2017. The sample application connects to an Azure Redis Cache to store and retrieve data from the cache. When you complete the quickstart you have a running web app, hosted in Azure, that reads and writes to an Azure Redis Cache.
 
-![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png?classes=center)
+![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
 
 ## Prerequisites
 To complete the quickstart, you must have the following prerequisites:
 
 * [Visual Studio 2017 with the Azure SDK for .NET](https://www.visualstudio.com/downloads/)
-* You need an Azure account to complete the quickstart. You can:
-    * [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
-    * [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+* You need an Azure account to complete the quickstart. You can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 
 
 ## Create the Visual Studio project
@@ -232,15 +230,17 @@ Replace the code in the *RedisCache.cshtml* file with the following code:
 
 By default the project is configured to host the app locally in [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) for testing and debugging.
 
-In Visual Studio, click **Debug** > **Start Debugging** to build and start the app locally for testing and debugging.
+In Visual Studio on the menu, click **Debug** > **Start Debugging** to build and start the app locally for testing and debugging.
 
-Click **Azure Redis Cache Test** on the navigation bar.
+In the browser, click **Azure Redis Cache Test** on the navigation bar.
+
+In the example below, you can see the `Message` key previous had a cached value which was set using the Redis Console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
 ![Simple test completed local](./media/cache-web-app-howto/cache-simple-test-complete.png)
 
 
 
-## Publish and run the application to Azure
+## Publish and run in Azure
 
 Once you have successfully tested the app locally, you will deploy the app to Azure and run it in the cloud.
 
@@ -257,9 +257,6 @@ Click **Microsoft Azure App Service**, choose **Create New**, and click **Publis
 
 In the **Create App Service** dialog, make the following changes:
 
-![App Service Dialog](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
-
-
 | Setting | Recommended Value | Description |
 | ------- | :---------------: | ----------- |
 | App Name | Use default | The app name will be the host name for the app when deployed to Azure. The name may have a timestamp suffix added to it if necessary to make it unique. |
@@ -267,58 +264,58 @@ In the **Create App Service** dialog, make the following changes:
 | Resource Group | Use the same resource group where you created the cache. For example, *TestResourceGroup*. | The resource group helps you want to manage all resources as a group. Later when you want to delete the app, you can just delete the group. |
 | App Service Plan | Click **New** and create a new App Service Plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
 
-Once you have the App Service hosting settings configured, click **Create**.
+![App Service Dialog](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
-Monitor the **Output** window in Visual Studio to see the status of the publish to Azure. When publishing has successfully completed, the URL is logged as shown below:
+Once you have the App Service hosting settings configured, click **Create** to create a new App Service for your app.
+
+Monitor the **Output** window in Visual Studio to see the status of the publish to Azure. When publishing has successfully completed, the URL for the App Service is logged as shown below:
 
 ![Publishing Output](./media/cache-web-app-howto/cache-publishing-output.png)
 
 ### Add the app setting for the cache
 
-Once publishing has completed, add a new app setting for the cache connection information. Type the App Name in the search bar at the top of the Azure portal to find the new App Service for the app.
+Once publishing has completed, add a new app setting to the App Service. This setting will be used to store the cache connection information. Type the App Name in the search bar at the top of the Azure portal to find the new App Service you just created for the app.
 
 ![Find App Service](./media/cache-web-app-howto/cache-find-app-service.png)
    
-Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured in your *CacheSecrets.config* file.
+Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured for `CacheConnection` in your *CacheSecrets.config* file. The value contains the host name and access key to the cache.
 
 ![Add App Setting](./media/cache-web-app-howto/cache-add-app-setting.png)
 
 ### Run the app in Azure. 
 
-Browse to the web app URL. The web app URL is shown in the results of the publishing operation in the Output window in Visual Studio. It is also provided in the Azure portal on the Overview page of the App Service you created.
+In your browser, browse to the URL for the App Service. The URL is shown in the results of the publishing operation in the Output window in Visual Studio. It is also provided in the Azure portal on the Overview page of the App Service you created.
 
 Click **Azure Redis Cache Test** on the navigation bar to test cache access.
 
-![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png?classes=center)
+![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
 
 
-## Delete the resources when you are finished with the application
+## Clean up resources
 
 If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
 
 Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources used in order to conserve cost and resources. 
 
+> [!IMPORTANT]
+> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
+> 
+> 
+
 Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 
-Type the name of your resource group into the **Filter items...** textbox. The instructions for this topic used a resource group named *TestResources*.
+In the **Filter by name...** textbox, type the name of your resource group. The instructions for this topic used a resource group named *TestResources*. For your group, click **...** then **Delete resource group**.
 
-Click **...** to the right of your resource group.
-
-Click **Delete**.
    
 ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
-Type the name of your resource group and click **Delete**.
-   
-![Confirm delete](./media/cache-web-app-howto/cache-delete-confirm.png)
 
+
+You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
+   
 After a few moments the resource group and all of its contained resources are deleted.
 
-> [!IMPORTANT]
-> Note that deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group, you can delete each resource individually from their respective blades.
-> 
-> 
 
 
 ## Next steps
