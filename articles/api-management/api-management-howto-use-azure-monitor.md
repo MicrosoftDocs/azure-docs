@@ -151,9 +151,7 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
             "scope" : "", 
             "section" : "" ,
             "reason" : "", 
-            "message" : "", 
-
-
+            "message" : ""
         } 
     }      
 }  
