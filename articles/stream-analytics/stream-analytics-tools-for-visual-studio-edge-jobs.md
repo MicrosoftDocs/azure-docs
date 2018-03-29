@@ -6,7 +6,7 @@ documentationcenter: ''
 services: stream-analytics
 author: su-jie
 manager: 
-editor: 
+
 
 ms.assetid: 
 ms.service: stream-analytics
