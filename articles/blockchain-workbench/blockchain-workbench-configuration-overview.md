@@ -13,29 +13,28 @@ ms.topic: article
 
 # ms.custom: mvc
 ms.reviewer: zeyadr
-manager: zeyadr
+manager: femila
 ---
 # Azure Blockchain Workbench Configuration Reference
 
-Blockchain apps in app builder consist of two core pieces. configuration and business logic (one or more smart contracts)
-
-configuration is the representation of the application as one or more workflows. The app and workflow is a state machine.  You have different states. Roles can take different actions depending on the state. Once you have defined that these applications can consist of one or more workflows.
-
-for your configuration you can have one or more smart contract files that codify the configuration / workflow representation.  The smart contract is written in the appropriate language of the specified blockchain stack. solidity for etherium. go for hyperledger fabric. you can have one or more files that represent your business logic code.
-
-The setup information for the application built in Workbench, such as states and user permissions
+Blockchain applications are defined by configuration information and business logic. Configuration is the definition of the application as one or more workflows.
 
 REVISED: A file detailing the properties, states, actions and parameters, role permissions, and other specifications for the [smart contract(s)] in the application
-
-{The arrangement of parts, options, or features to produce a product that meets a specification, such as a customer order.}
-
-{image}
 
 App builder uses configuration schema to define blockchain applications and represents them as state machines. 
 
 Represents the application, the associated workflows, the state machine for each workflow, the roles that can particpate in those workflows.  the actions the roles can take at specific states. And provides hints to the UI to UI consumers for visually representing content on the blockchain. 
 
-represent state machine.  Action 1 has a table representing actions to next states.
+* Each workflow consists of one or more smart contracts that include business logic in code files.
+* Each smart contract flow is defined by one or more states. 
+* A smart contract's flow behaves as a state machine.
+* Authorized users can take actions to transition to the next state in the workflow. 
+* The smart contract is written in the appropriate language of the specified blockchain stack. solidity for etherium. go for hyperledger fabric.
+* You can have one or more files that represent your business logic code.
+* The setup information for the application built in Workbench, such as states and user permissions
+
+![Configuration](media/blockchain-workbench-configuration-overview/configuration.png)
+
 ## Application
 
 The application is comprised of one or more smart contracts and a configuration file that describes them.  The files are uploaded to the associated Workbench’s storage and SQL DB services via the Gateway API. 
