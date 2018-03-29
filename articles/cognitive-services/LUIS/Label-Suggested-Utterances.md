@@ -36,7 +36,7 @@ Endpoint utterances are taken from end-user queries on the application’s HTTP 
 ## Label entities
 LUIS replaces entity tokens (words) with entity names highlighted in blue. If an utterance has unlabeled entities, label them in the utterance. 
 
-1. select on the word(s) in the utterance. 
+1. Select on the word(s) in the utterance. 
 
 2. Select an entity from the list.
 
