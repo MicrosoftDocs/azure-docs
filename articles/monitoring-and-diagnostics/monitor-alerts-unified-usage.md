@@ -134,7 +134,7 @@ For **Log Alerts** alerts can be based on:
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts (Preview)**.  
 
 2. The **Alerts (Preview) Dashboard** is displayed - wherein all Azure Alerts are unified and displayed in a singular board
-   ![Alert Dashboard](./media/monitoring-overview-unified/alerts-preview-overview.png)
+   ![Alert Dashboard](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. From Top Left to Right, the Dashboard shows at a glance, the following - which can be clicked to see a detailed listing:
     - *Fired Alerts*: The number of Alerts currently, which have met logic and in fired state
     - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled
@@ -145,7 +145,7 @@ For **Log Alerts** alerts can be based on:
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts (Preview)**.  
 2. Select the **Manage rules** button on the top bar, to navigate to the rule management section - where all  alert rules created are listed; including alerts that have been disabled.
 3. To find for specific alert rules, one can either use the drop-down filters on top, which allow to shortlist alert rules for specific *Subscription, Resource Groups and/or Resource*. Alternatively on using the search pane above the alert rule list marked *Filter alerts*, one can provide keyword, which is matched against *Alert Name, Condition, and Target Resource*; to show only matching rules.
-   ![Alert Manage Rules](./media/monitoring-overview-unified/alerts-preview-rules.png)
+   ![Alert Manage Rules](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
 4. To view or modify specific Alert rule, click on its name that would be shown as a clickable link.
 5. Alert defined is shown - in the three stage structure of: 1) Alert Condition 2) Alert Detail 3) Action Group. **Target Criteria** can be clicked to modify the alert logic or  a new criteria can be added after using the bin icon to delete the earlier logic. Similarly, in Alert details section - **Description** and **Severity** can be modified. And the Action Group can be changed or a new one can be crafted to linking to the alert using the **New action group** button.
 
