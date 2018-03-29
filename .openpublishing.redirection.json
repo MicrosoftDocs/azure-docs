@@ -3490,7 +3490,7 @@
         },
         {
             "source_path": "articles/devtest-lab/devtest-lab-add-vm-with-artifacts.md",
-            "redirect_url": "/articles/devtest-lab/devtest-lab-add-vm",
+            "redirect_url": "/azure/devtest-lab/devtest-lab-add-vm",
             "redirect_document_id": false
         },
         {
@@ -7516,6 +7516,16 @@
         {
             "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
             "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-internal-overview.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-overview#internalloadbalancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-internet-overview.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-overview#publicloadbalancer",
             "redirect_document_id": false
         },
         {
@@ -17766,6 +17776,11 @@
     {
         "source_path": "articles/azure-stack/azure-stack-deploy.md",
         "redirect_url": "/azure/azure-stack/asdk/asdk-deploy",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/monitoring/management-overview-monitoring.md",
+        "redirect_url": "/azure/monitoring/",
         "redirect_document_id": false
     }
 
