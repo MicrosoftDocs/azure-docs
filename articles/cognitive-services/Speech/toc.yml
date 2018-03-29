@@ -1,49 +1,111 @@
+- name: Speech Documentation
+  href: index.yml
 - name: Overview
-  href: Home.md
-- name: Get started
   expanded: true
-  href: GetStarted/GetStarted.md
+  href: overview.md
   items:
-  - name: REST
-    href: GetStarted/GetStartedREST.md
-  - name: Client libraries
-    href: GetStarted/GetStartedClientLibraries.md
+  - name: REST endpoints
+    href: rest-endpoints.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Billing, meters, and scaling
+    href: concepts/billing-meters-scaling.md
+  - name: Speech recognition
+    href: concepts/speech-recognition-basic-concepts.md
     items:
-    - name: C# desktop library
-      href: GetStarted/GetStartedCSharpDesktop.md
-    - name: C# service library
-      href: GetStarted/GetStartedCSharpServiceLibrary.md
-    - name: JavaScript library
-      href: GetStarted/GetStartedJSWebsockets.md
-    - name: Java library for Android
-      href: GetStarted/GetStartedJavaAndroid.md
-    - name: Objective-C library for iOS
-      href: GetStarted/Get-Started-ObjectiveC-iOS.md 
+    - name: Audio streaming
+      href: concepts/speech-recognition-audio-streaming.md
+    - name: Recognition mode
+      href: concepts/speech-recognition-recognition-mode.md
+    - name: Normalization
+      href: concepts/speech-recognition-normalization.md
+    - name: Custom speech
+      href: concepts/speech-recognition-custom-speech.md
+  - name: Text to speech
+    href: concepts/text-to-speech-basic-concepts.md
+    items:
+    - name: Custom voice
+      href: concepts/text-to-speech-custom-voice.md
+  - name: Speaker recognition
+    href: concepts/speaker-recognition-basic-concepts.md
+  - name: Speech translation
+    href: concepts/speech-translation-basic-concepts.md
+- name: Quickstarts
+  items:
+  - name: Speech recognition
+  - name: Text to speech
+  - name: Speaker recognition
 - name: How-to guides
   items:
-  - name: Authentication for using the service 
-    href: How-to/how-to-authentication.md
-  - name: Choose recognition mode
-    href: How-to/how-to-choose-recognition-mode.md
-  - name: Chunked transfer of audio stream
-    href: How-to/how-to-chunked-transfer.md
-- name: Concepts
-  href: concepts.md
+  - name: Authentication 
+    href: How-to/authenticate.md
+  - name: Speech recognition
+    items:
+    - name: Transmit audio to the service
+      href: How-to/transmit-audio.md
+    - name: Customize acoustic model
+      href: How-to/customize-acoustic-model.md
+    - name: Customize language model
+      href: How-to/customize-language-model.md
+    - name: Create and use custom endpoints
+      href: How-to/create-and-use-custom-sr-endpoints.md
+    - name: Recognize speech offline
+      href: How-to/recognize-speech-offline.md
+  - name: Text to speech
+    items:
+    - name: Improve speech output with markup
+      href: How-to/improve-speech-output-markup.md
+    - name: Customize voice model
+      href: How-to/customize-voice-model.md
+    - name: Create and use custom endpoints
+      href: How-to/create-and-use-custom-tts-endpoints.md
+  - name: Speaker recognition
+    items:
+    - name: Enroll a speaker
+      href: How-to/enroll-speaker.md
+    - name: Verify speaker identity
+      href: How-to/verify-speaker-identity.md
+    - name: Recognize speakers in audio
+      href: How-to/recognize-speakers.md
+  - name: Integrate with other Azure services
+    href: How-to/integrate-with-other-azure-services.md
+  - name: Migrate from free to paid tier
+    href: How-to/migrate-free-to-paid.md
+- name: Tutorials
+  items:
+  - name: Speech recognition
+  - name: Text to speech
+  - name: Speaker recognition
+  - name: Speech translation
 - name: Samples
   href: samples.md
-- name: Troubleshooting
-  href: troubleshooting.md
 - name: Reference
   items: 
-  - name: Microsoft speech WebSocket protocol
-    href: API-Reference-REST/websocketprotocol.md
-  - name: Text-to-Speech API reference
-    href: API-Reference-REST/BingVoiceOutput.md
+  - name: .NET SDK
+  - name: Java SDK
+  - name: Python SDK
+  - name: Node.js SDK
+  - name: REST API
+  - name: WebSocket protocol
   - name: Supported languages
-    href: API-Reference-REST/supportedlanguages.md
+    href: supported-languages.md
+  - name: Compliance
+    href: compliance.md
+  - name: Swagger files
+    href: swagger-files.md
 - name: Resources
   items:
-  - name: Support
-    href: support.md
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127980-bing-speech
+  - name: Start free trial
+  - name: API keys
+  - name: Try it!
+  - name: Frequently-asked questions
+    href: frequently-asked-questions.md
+  - name: Glossary
+    href: glossary.md
+  - name: Knowledge base
+  - name: Stack Overflow
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/cognitive-services/
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
