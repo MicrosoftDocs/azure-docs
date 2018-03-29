@@ -78,7 +78,7 @@ Once you have the Data Lake Store account authenticated, you can configure the p
 </table>
 
 ## Renew Data Lake Store Authorization
-Currently, there is a limitation where the authentication token expires after 90 days for all jobs with Data Lake Store output. To renew authorization, you should regenerate the token and update the Stream Analytics job with the regenerated token. You will also need to re-authenticate your Data Lake Store account if you have changed your password since your job was created or last authenticated. A symptom of this issue is no job output and an error in the Operation Logs indicating need for re-authorization.
+Currently, there is a limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. You will also need to re-authenticate your Data Lake Store account if you have changed your password since your job was created or last authenticated. A symptom of this issue is no job output and an error in the Operation Logs indicating need for re-authorization.
 
 To resolve this issue, stop your running job and go to your Data Lake Store output. Click the “Renew authorization” link, and for a brief time a page will pop up indicating “Redirecting to authorization..”. The page will automatically close and if successful, will indicate “Authorization has been successfully renewed”. You then need to click “Save” at the bottom of the page, and can proceed by restarting your job from the Last Stopped Time to avoid data loss.
 
