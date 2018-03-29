@@ -89,7 +89,7 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 
 ### Step 7. Verify the Azure gateway health probe
 
-1. Open health probe by browsing to the following url:
+1. Open health probe by browsing to the following URL:
 
     `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
