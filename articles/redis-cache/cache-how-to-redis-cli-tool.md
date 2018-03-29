@@ -19,7 +19,7 @@ ms.author: wesmc
 
 # How to use the Redis command-line tool with Azure Redis Cache
 
-`redis-cli.exe` is a popular command-line tool for interacting with a Redis Cache as a client. This tool is also available for use with Azure Redis Cache.
+*redis-cli.exe* is a popular command-line tool for interacting with a Redis Cache as a client. This tool is also available for use with Azure Redis Cache.
 
 Download the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/). If you want to run the command-line tool on another platform, download the package from [http://redis.io/download](https://redis.io/download).
 
@@ -40,7 +40,7 @@ With Azure Redis Cache, only the SSL port (6380) is enabled by default. The `red
 
     On the stunnel Log Window menu, click **Configuration** > **Edit Configuration** to open the current configuration file.
 
-    Add the following entry for `redis-cli.exe` under the **Service definitions** section. Insert your actual cache name in place of `yourcachename`. 
+    Add the following entry for *redis-cli.exe* under the **Service definitions** section. Insert your actual cache name in place of `yourcachename`. 
 
     ```
     [redis-cli]
@@ -56,13 +56,13 @@ With Azure Redis Cache, only the SSL port (6380) is enabled by default. The `red
 
 ### Connect using the Redis command-line tool.
 
-When using stunnel, run `redis-cli.exe`, and pass only your *port*, and *access key* (primary or secondary) to connect to the cache.
+When using stunnel, run *redis-cli.exe*, and pass only your *port*, and *access key* (primary or secondary) to connect to the cache.
 
 ```
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![stunnel with redis-cli](media/cache-create-first-cache/cache-redis-cli-stunnel.png)
+![stunnel with redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
 If you're using a test cache with the **unsecure** non-SSL port, run `redis-cli.exe` and pass your *host name*, *port*, and *access key* (primary or secondary) to connect to the test cache.
 
@@ -70,7 +70,7 @@ If you're using a test cache with the **unsecure** non-SSL port, run `redis-cli.
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ```
 
-![stunnel with redis-cli](media/cache-create-first-cache/cache-redis-cli-non-ssl.png)
+![stunnel with redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-non-ssl.png)
 
 
 
