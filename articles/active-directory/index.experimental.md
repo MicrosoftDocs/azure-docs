@@ -131,7 +131,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
                 <div class="card">
                     <div class="cardText">
                         <h3>Authentication for developers</h3>
-                        <a href="/azure/active-directory/develop/active-directory-authentication-scenarios">Authentication basics</a><br/>
+                        <p><a href="/azure/active-directory/develop/active-directory-authentication-scenarios">Authentication basics</a><br/>
                         <a href="/azure/active-directory/develop/active-directory-integrating-applications">App integration</a><br/>
                         <a href="/azure/active-directory/managed-service-identity/overview">Managed identity</a><br/>
                         <a href="/azure/active-directory/develop/active-directory-code-samples">Code samples</a></p>
