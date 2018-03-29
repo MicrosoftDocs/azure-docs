@@ -28,7 +28,7 @@ ms.author: robb
 ## Overview
 
 > [!NOTE]
-> This article describes how to create older metric alerts. Azure Monitor now supports newer, better metric alerts. These alerts can monitor multiple metrics and allow for alerting on dimensional metrics. Learn more about [Near Real-Time Metric Alerts](monitoring-near-real-time-metric-alerts.md).
+> This article describes how to create older metric alerts. Azure Monitor now supports [newer metric alerts](monitoring-near-real-time-metric-alerts.md). 
 >
 >
 
