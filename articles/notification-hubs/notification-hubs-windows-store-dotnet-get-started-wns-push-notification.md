@@ -39,8 +39,6 @@ In this tutorial, you take the following steps:
 
 
 ## Prerequisites
-This tutorial requires the following:
-
 - **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Microsoft Visual Studio Community 2015 or later](https://www.visualstudio.com/products/visual-studio-community-vs) or later.
 - [UWP app-development tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
@@ -59,8 +57,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 
 4. Accept the defaults for the target and minimum platform versions.
 
-5. In Solution Explorer, right-click the Windows Store app project, select **Store**, and then select **Associate App with the Store**.  
-    The **Associate Your App with the Windows Store** wizard appears.
+5. In Solution Explorer, right-click the Windows Store app project, select **Store**, and then select **Associate App with the Store**. The **Associate Your App with the Windows Store** wizard appears.
 
 6. In the wizard, sign in with your Microsoft account.
 
@@ -94,8 +91,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 Your notification hub is now configured to work with WNS. You have the connection strings to register your app and send notifications.
 
 ## Create a sample Windows app
-1. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**.  
-    The **Manage NuGet Packages** window opens.
+1. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**. The **Manage NuGet Packages** window opens.
 
 2. In the search box, enter **Microsoft.Azure.NotificationHubs**, select **Install**, and accept the terms of use.
    
