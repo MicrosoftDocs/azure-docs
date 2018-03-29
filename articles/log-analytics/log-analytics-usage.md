@@ -17,7 +17,7 @@ ms.author: magoedte
 ---
 
 # Analyze data usage in Log Analytics
-Log Analytics includes information on the amount of data collected, which systems sent the data and the different types of data sent.  Use the **Log Analytics Usage** dashboard to see the amount of data sent to the Log Analytics service. The dashboard shows how much data is collected by each solution and how much data your computers are sending.
+Log Analytics includes information on the amount of data collected, which sources sent the data, and the different types of data sent.  Use the **Log Analytics Usage** dashboard to review and analyze data usage. The dashboard shows how much data is collected by each solution and how much data your computers are sending.
 
 ## Understand the Usage dashboard
 The **Log Analytics usage** dashboard displays the following information:
