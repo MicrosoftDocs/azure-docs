@@ -43,7 +43,7 @@
         - name: Access Azure Resource Manager with a user-assigned MSI
           href: /azure/active-directory/pp/msi-tutorial-linux-vm-access-arm
       - name: Azure Service Bus
-        href: /azure/service-bus-messaging/service-bus-managed-service-identity?toc=/active-directory/managed-service-identity/toc.yml&bc=/toc=/active-directory/managed-service-identity/breadcrumb/toc.yml
+        href: /azure/service-bus-messaging/service-bus-managed-service-identity
       - name: Azure App Service and Functions
         href: /azure/app-service/app-service-managed-service-identity
       - name: Azure Event Hubs
