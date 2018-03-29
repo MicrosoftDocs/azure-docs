@@ -1,6 +1,6 @@
 # Recover a multi-tenant SaaS application using database geo-replicas
 
-In this tutorial, you explore a full disaster recovery scenario for a multi-tenant SaaS application implemented using the database-per-tenant model. You use [geo-replication](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) to create replicas for the catalog and tenant databases in an alternate recovery region prior to an outage. During an outage, you failover to these replicas to resume normal business operations. After the outage is resolved, you failback to the original production region after any data modified in the recovery region is seeded back to the original region.
+In this tutorial, you explore a full disaster recovery scenario for a multi-tenant SaaS application implemented using the database-per-tenant model. You use [geo-replication](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) to create replicas for the catalog and tenant databases in an alternate recovery region prior to an outage. During an outage, you failover to these replicas to resume normal business operations. After the outage is resolved, you failback to the original production region.
 
 This tutorial explores both restore and repatriation workflows. You'll learn how to:
 
