@@ -199,5 +199,5 @@ Now that you've added a user as a Contributor for your enrollment account, they 
 ## Limitations of Azure Enterprise subscription creation API
 
 - There's a limit of 50 subscriptions per account. After that, subscriptions can only be created by using Account Center.
-- There needs to be one or more EA or EA Dev/Test subscriptions under the account which means the Account Owner has gone through manual sign-up at least once.
+- There needs to be one or more EA or EA Dev/Test subscriptions under the account, which means the Account Owner has gone through manual sign-up at least once.
 - Users who aren't Account Owners, but were added to an enrollment account, cannot create subscriptions using Account Center.
