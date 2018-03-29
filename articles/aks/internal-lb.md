@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 3/28/2018
+ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -68,7 +68,7 @@ spec:
     app: azure-vote-front
 ```
 
-When retrieving the service details, the IP address on the `EXTERNAL-IP` should be set to the specified IP address. 
+When retrieving the service details, the IP address on the `EXTERNAL-IP` should reflect the specified IP address. 
 
 ```console
 $ kubectl get service azure-vote-front
