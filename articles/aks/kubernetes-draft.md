@@ -99,7 +99,7 @@ Output:
 --> Ready to sail
 ```
 
-To run the application on a Kubernetes cluster, use the `draft up` command. This command uploads the application code and configuration files to the Kubernetes cluster. It then runs the Dockerfile to create a container image, pushes the image to the container registry, and finally runs the Helm chart to start the application.
+To run the application on a Kubernetes cluster, use the `draft up` command. This command builds the Dockerfile to create a container image, pushes the image to ACR, and finally installs the Helm chart to start the application in AKS.
 
 The first time this is run, pushing and pulling the container image may take some time; once the base layers are cached, the time taken is dramatically reduced.
 
