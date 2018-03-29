@@ -81,8 +81,8 @@ Detailed next is step-by-step guide to using Azure alerts .
     a. Choose a duration from the **Show History** dropdown to visualize a different period of time. You can choose dimensions for the supported metrics to filter on a time series; choosing dimensions is optional and up-to five dimensions can be used. 
 
     b. **Alert Logic** can be selected from shown options of *Condition*, *Aggregation* and  *Threshold*. As preview of the logic provided, the condition is shown in the visualization along with signal history, to indicate when the alert would have been triggered in the past. 
-1. 
-    a. To specify the time duration, chose **Period** along with how often alert should run by selecting **Frequency**.
+
+    c. To specify the time duration, chose **Period** along with how often alert should run by selecting **Frequency**.
 
     ![Configure signal logic for multi-dimensional metric](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
