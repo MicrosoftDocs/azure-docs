@@ -124,7 +124,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | Element Name  | Required | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Yes      | String | The display name of the subscription, which appears in the Azure portal.                                  |
-| `offerType`   | Yes      | String | The offer of the subscription. For internal use, the only supported offer is MS-AZR-0015P.                |
+| `offerType`   | Yes      | String | The offer of the subscription. The two options for EA are MS-AZR-0017P (production use) and MS-AZR-0148P (dev/test, need to be turned on using the EA portal).                |
 | `owners`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 
 # [PowerShell](#tab/azure-powershell)
