@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: log-analytics
+ author: MGoedtel
+ ms.service: log-analytics
+ ms.topic: include
+ ms.date: 03/29/2018
+ ms.author: magoedte
+ ms.custom: include file
+---
 
 The following limits apply to Log Analytics resources per subscription:
 
