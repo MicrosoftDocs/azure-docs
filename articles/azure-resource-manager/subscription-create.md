@@ -141,7 +141,7 @@ az sub create --offer "MS-AZR-0148P" --name "My New EA Subscription From API" --
 
 ----
 
-## Delegate Contributor access to an enrollment account
+## Delegate Contributor access to an enrollment account using RBAC
 
 To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner or Contributor role at the scope of the enrollment account](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-rest). The following example gives a user in the tenant with `principalId` of `5ac84765-1c8c-4994-94b2-629461bd191b` (for MobileOnboardingEng@contoso.com) a Contributor role on the enrollment account. 
 
@@ -200,4 +200,4 @@ Now that you've added a user as a Contributor for your enrollment account, they 
 
 - There's a limit of 50 subscriptions per account. After that, subscriptions can only be created by using Account Center.
 - There needs to be one or more EA or EA Dev/Test subscriptions under the account, which means the Account Owner has gone through manual sign-up at least once.
-- Users who aren't Account Owners, but were added to an enrollment account, cannot create subscriptions using Account Center.
+- Users who aren't Account Owners, but were added to an enrollment account via RBAC, cannot create subscriptions using Account Center.
