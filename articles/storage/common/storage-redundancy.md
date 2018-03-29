@@ -26,11 +26,6 @@ When you create a storage account, you can select one of the following replicati
 * [Geo-redundant storage (GRS)](storage-redundancy-grs.md)
 * [Read-access geo-redundant storage (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-
-> [!IMPORTANT]
-> You can change how your data is replicated after your storage account has been created. However, you may incur an additional one-time data transfer cost if you switch from LRS or ZRS to GRS or RA-GRS. 
->
-
 The following table provides a quick overview of the scope of durability and availability that each replication strategy will provide you for a given type of event (or event of similar impact).
 
 | Scenario | LRS | ZRS | GRS | RA-GRS |
@@ -58,10 +53,12 @@ It depends on your conversion path. Ordering from cheapest to the most expensive
 
 If you change from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
 
-## Next steps
-* [Designing highly available applications using RA-GRS Storage](../storage-designing-ha-apps-with-ragrs.md)
-* [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)
-* [About Azure storage accounts](../storage-create-storage-account.md)
-* [Azure Storage scalability and performance targets](storage-scalability-targets.md)
-* [Microsoft Azure Storage redundancy options and read access geo redundant storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-* [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+## See also
+
+- [Locally-redundant storage (LRS): Low-cost data redundancy for Azure Storage](storage-redundancy-lrs.md)
+- [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md)
+- [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md)
+- [Azure Storage scalability and performance targets](storage-scalability-targets.md)
+- [Designing highly available applications using RA-GRS Storage](../storage-designing-ha-apps-with-ragrs.md)
+- [Microsoft Azure Storage redundancy options and read access geo redundant storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
