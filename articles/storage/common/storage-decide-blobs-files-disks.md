@@ -2,18 +2,12 @@
 title: Deciding when to use Azure Blobs, Azure Files, or Azure Disks
 description: Learn about the different ways to store and access data in Azure to help you decide which technology to use.
 services: storage
-documentationcenter: ''
 author: tamram
 manager: timlt
-editor: tysonn
 
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
 ---
 
@@ -46,7 +40,7 @@ The following table compares Azure Files with Azure Blobs.
 |Case sensitivity of names|Case sensitive|Case insensitive, but case preserving|  
 |Capacity|Up to 500 TB containers|5 TB file shares|  
 |Throughput|Up to 60 MB/s per block blob|Up to 60 MB/s per share|  
-|Object Size|Up to 200 GB/block blob|Up to 1TB/file|  
+|Object Size|Up to about 4.75 TB/block blob|Up to 1 TB /file|  
 |Billed capacity|Based on bytes written|Based on file size|  
 |Client libraries|Multiple languages|Multiple languages|  
   
