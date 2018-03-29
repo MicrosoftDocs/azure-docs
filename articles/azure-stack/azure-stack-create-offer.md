@@ -35,7 +35,7 @@ ms.author: brenduns
    - **Private**: Only visible to cloud administrators. Useful while drafting the plan or offer, or if the cloud administrator wants to [create each subscription for users](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
    - **Decommissioned**: Closed to new subscribers. The cloud administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
 
-   > ![TIP]  
+   > [!TIP]  
    > Changes to the offer are not immediately visible to the user. To see the changes, users might have to logout and login again to the user portal to see the new offer. 
 
    To change the state of the offer: 
