@@ -4,7 +4,7 @@ description: Learn how to programmatically monitor Stream Analytics jobs created
 keywords: .net monitor, job monitor, monitoring app
 services: stream-analytics
 documentationcenter: ''
-author: samacha
+author: jseb225
 manager: jhubbard
 
 ms.assetid: 2ec02cc9-4ca5-4a25-ae60-c44be9ad4835
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Programmatically create a Stream Analytics job monitor

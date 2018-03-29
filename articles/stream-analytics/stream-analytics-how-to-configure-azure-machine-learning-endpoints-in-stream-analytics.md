@@ -4,7 +4,7 @@ description: Machine Language User defined functions in Stream Analytics
 keywords: ''
 documentationcenter: ''
 services: stream-analytics
-author: samacha
+author: jseb225
 manager: jhubbard
 
 ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Machine Learning integration in Stream Analytics

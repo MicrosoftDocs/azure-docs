@@ -4,7 +4,7 @@ description: Configure Outputs for Stream Analytics jobs | learning path segment
 keywords: data output, data movement
 documentationcenter: ''
 services: stream-analytics
-author: samacha
+author: jseb225
 manager: jhubbard
 
 ms.assetid: 3bbea3da-bfce-4af1-a15e-d4b23874034f
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/26/2017
-ms.author: samacha
+ms.author: jeanb
 ---
 
 # How to configure data outputs for Stream Analytics jobs

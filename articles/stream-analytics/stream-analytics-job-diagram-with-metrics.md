@@ -4,7 +4,7 @@ description: Troubleshoot your Stream Analytics job by using the job diagram and
 keywords: 
 documentationcenter: ''
 services: stream-analytics
-author: samacha
+author: jseb225
 manager: jhubbard
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 

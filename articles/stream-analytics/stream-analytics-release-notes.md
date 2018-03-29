@@ -3,7 +3,7 @@ title: Stream Analytics Release Notes | Microsoft Docs
 description: Stream Analytics Release Notes
 services: stream-analytics
 documentationcenter: ''
-author: samacha
+author: jseb225
 manager: jhubbard
 
 ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/03/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Stream Analytics release notes

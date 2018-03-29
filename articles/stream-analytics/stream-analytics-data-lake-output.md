@@ -4,7 +4,7 @@ description: Configuration of authentication and authorization of an Azure Data 
 keywords: ''
 services: stream-analytics
 documentationcenter: ''
-author: samacha
+author: jseb225
 manager: jhubbard
 
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Stream Analytics Data Lake Store output
