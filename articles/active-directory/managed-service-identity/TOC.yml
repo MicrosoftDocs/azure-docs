@@ -155,5 +155,6 @@
       items:
       - name: FAQs and known issues
         href: known-issues.md
-      - name: Resource IDs for Aure services
+      - name: Azure services that support Managed Identity
+        href: services-support-msi.md
     

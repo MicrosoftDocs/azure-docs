@@ -11,14 +11,13 @@ ms.service: active-directory
 ms.devlang: 
 ms.topic: overview
 ms.custom: mvc
-ms.tgt_pltfrm: 
-ms.workload: identity
-ms.date: 12/19/2017
-ms.author: skwan
+ms.date: 03/28/2018
+ms.author: daveba
 
+#As a developer, I would like to securely manage the credentials my application uses for authenticating to cloud services without having those credentials in my code or checked into source control.
 ---
 
-#  Managed Service Identity (MSI) for Azure resources
+#  What is Managed Service Identity (MSI) for Azure resources?
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -38,11 +37,11 @@ There are two types of Managed Service Identities available: *System Assigned* a
 
 Here's an example of how a system-assigned MSI works with Azure Virtual Machines.
 
-![Virtual Machine MSI example](~/articles/active-directory/media/msi-vm-example.png)
+![Virtual Machine MSI example](~/articles/active-directory/media/msi-vm-example.png)  
 
 1. Azure Resource Manager receives a message to enable the system-assigned MSI on a VM.
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the identity of the VM. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
-3. Azure Resource Manager configures the Service Principal details in the MSI VM Extension of the VM. This step includes configuring client ID and certificate used by the extension to get access tokens from Azure AD.
+3. Azure Resource Manager configures the Service Principal details in the MSI VM Extension of the VM. This step includes configuring client ID and certificate used by the extension to get access tokens from Azure AD.  
 4. Now that the Service Principal identity of the VM is known, it can be granted access to Azure resources. For example, if your code needs to call Azure Resource Manager, then you would assign the VM’s Service Principal the appropriate role using Role-Based Access Control (RBAC) in Azure AD.  If your code needs to call Key Vault, then you would grant your code access to the specific secret or key in Key Vault.
 5. Your code running on the VM requests a token from a local endpoint that is hosted by the MSI VM extension: http://localhost:50342/oauth2/token. The resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
 6. The MSI VM Extension uses its configured client ID and certificate to request an access token from Azure AD.  Azure AD returns a JSON Web Token (JWT) access token.
@@ -86,31 +85,8 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 
 ## Which Azure services support Managed Service Identity?
 
-Azure services that support Managed Service Identity can use MSI to authenticate to services that support Azure AD authentication.  We are in the process of integrating MSI and Azure AD authentication across Azure.  Check back often for updates.
-
-### Azure services that support Managed Service Identity
-
-The following Azure services support Managed Service Identity.
-
-| Service | Status | Date | Configure | Get a token |
-| ------- | ------ | ---- | --------- | ----------- |
-| Azure Virtual Machines | Preview | September 2017 | [Azure portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager templates](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| Azure App Service | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Functions | Preview | September 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager template](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Data Factory V2 | Preview | November 2017 | [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-
-### Azure services that support Azure AD authentication
-
-The following services support Azure AD authentication, and have been tested with client services that use Managed Service Identity.
-
-| Service | Resource ID | Status | Date | Assign access |
-| ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com | Available | September 2017 | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net | Available | September 2017 | |
-| Azure Data Lake | https://datalake.azure.net | Available | September 2017 | |
-| Azure SQL | https://database.windows.net | Available | October 2017 | |
-| Azure Event Hubs | https://eventhubs.azure.net | Available | December 2017 | |
-| Azure Service Bus | https://servicebus.azure.net | Available | December 2017 | |
+Azure services that support Managed Service Identity can use MSI to authenticate to services that support Azure AD authentication.  For a list of Azure services that support Managed Service Identity refer to the following article:
+- [Services that support Managed Service Identity](resource-ids-azure-services.md)
 
 ## How much does Managed Service Identity cost?
 
@@ -129,9 +105,3 @@ Get started with Azure Managed Service Identity with the following quickstarts:
 
 * [Use a Windows VM Managed Service Identity (MSI) to access Resource Manager - Windows VM](tutorial-windows-vm-access-arm.md)
 * [Use a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager - Linux VM](tutorial-linux-vm-access-arm.md)
-
-
-
-
-
-
