@@ -238,6 +238,8 @@ items:
             href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
       - name: Reference
         items:
+        - name: Async Java
+          href: sql-api-sdk-async-java.md
         - name: Java
           href: sql-api-sdk-java.md
         - name: .NET
@@ -258,8 +260,6 @@ items:
           href: sql-api-sql-query-reference.md
       - name: Resources
         items:
-        - name: SQL grammar cheat sheet
-          href: sql-api-sql-query-cheat-sheet.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: Schema agnostic indexing paper
@@ -308,10 +308,6 @@ items:
             href: local-emulator.md
           - name: Export certificates
             href: local-emulator-export-ssl-certificates.md
-      - name: Concepts
-        items:
-        - name: Azure Cosmos DB concepts
-          href: distribute-data-globally.md
       - name: How To Guides
         items:
         - name: Connect to your MongoDB account
@@ -350,10 +346,6 @@ items:
           href: tutorial-query-graph.md
         - name: 3 - Distribute globally
           href: tutorial-global-distribution-graph.md
-      - name: Concepts
-        items:
-        - name: Azure Cosmos DB concepts
-          href: distribute-data-globally.md
       - name: How To Guides
         items:
         - name: Integrate
@@ -460,6 +452,10 @@ items:
       href: time-to-live.md
   - name: Resources
     items:
+    - name: Query cheat sheet
+      href: query-cheat-sheet.md
+    - name: 20 days of tips
+      href: 20-days-of-tips.md
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
     - name: Azure Roadmap
@@ -472,7 +468,5 @@ items:
       href: faq.md
     - name: Data consistency explained through baseball
       href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
-    - name: 20 days of tips
-      href: 20-days-of-tips.md
     - name: Troubleshoot Azure Cosmos DB
       href: troubleshoot-azure-cosmosdb.md
