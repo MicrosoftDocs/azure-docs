@@ -16,7 +16,7 @@ ms.date: 02/14/2018
 ms.author: magoedte
 ---
 
-# Connect computers without internet access using the OMS Gateway
+# Connect computers without internet access by using the OMS Gateway
 This document describes how to configure communication with Azure Automation and Log Analytics by using the OMS Gateway when directly connected computers or Operations Manager-monitored computers don't have internet access. The OMS Gateway is an HTTP-forward proxy that supports HTTP tunneling by using the HTTP CONNECT command. It can collect data and send it to Azure Automation and Log Analytics on behalf of the computers without internet access.  
 
 The OMS Gateway supports:
@@ -190,8 +190,11 @@ If this is the first time your Operations Manager management group is registerin
 The management group has to be successfully registered with the service before this option is available. Update the system proxy configuration using Netsh on the same system on which you're running the Operations console and all management servers in the management group.
 
 1. Open an elevated command prompt.
+
     a. Go to **Start**. Then type **cmd**.
+    
     b. Right-click **Command prompt**. Then select **Run as administrator**.
+    
 2. Enter the following command, and then select **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
@@ -297,7 +300,7 @@ If you on-board your computer to Azure Automation by using the Hybrid Runbook Wo
 2. Add the Job Runtime Data service URLs to the Allowed Host list on the OMS Gateway. For example, type the following:
     `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 
-3. Restart the OMS Gateway service.
+3. Restart the OMS Gateway service:
     `Restart-Service OMSGatewayService`
 
 ## Useful PowerShell cmdlets
@@ -329,7 +332,7 @@ To collect events that are logged by the gateway, you need to also have the OMS 
 
 ![Event Viewer--OMS Gateway Log](./media/log-analytics-oms-gateway/event-viewer.png)
 
-**OMS Gateway Event IDs and descriptions**
+**OMS Gateway event IDs and descriptions**
 
 The following table shows the event IDs and descriptions for OMS Gateway log events:
 
