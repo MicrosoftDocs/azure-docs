@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 03/29/2017
 ms.author: v-geberr
 ---
 
@@ -69,7 +69,7 @@ For example, a "BookFlight" intent could trigger an API call to an external serv
 
 * **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities][prebuilt-entities]. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
 
-* **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including simple entities, composite entities, list entities, and hierarchical entities.
+* **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including simple entities, composite entities, list entities, regular expression, and hierarchical entities.
 
 * **Phrases** LUIS provides [phrase lists](luis-concept-feature.md), which also help identify entities. 
 
