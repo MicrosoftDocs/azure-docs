@@ -3,7 +3,7 @@ title: Send notifications to Universal Windows Platform apps using Azure Notific
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to a Windows Universal Platform application.
 services: notification-hubs
 documentationcenter: windows
-author: jwhitedev
+author: spelluru
 manager: kpiteira
 editor: ''
 
@@ -12,37 +12,43 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: tutorial
+ms.custom: mvc
 ms.date: 12/22/2017
-ms.author: jawh
+ms.author: spelluru
+
+#Customer intent: As a developer, I want to develop backend applications that send notifications to Universal Windows Platform apps so that they users learn about current  so that users receive breaking news, location-based coupons, event-related notifications, etc.
 
 ---
-# Get started with Notification Hubs for Universal Windows Platform apps
+# Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Overview
-This article shows you how to use Azure Notification Hubs to send push notifications to a Universal Windows Platform (UWP) app.
+In this tutorial, you create a notification hub to send push notifications to a Universal Windows Platform (UWP) app. You create a blank Windows Store app that receives push notifications by using the Windows Push Notification Service (WNS). Then, you can use your notification hub to broadcast push notifications to all devices that are running your app.
 
-In this article, you create a blank Windows Store app that receives push notifications by using the Windows Push Notification Service (WNS). When you're finished, you can use your notification hub to broadcast push notifications to all devices that are running your app.
+> [!NOTE]
+> You can find the completed code for this tutorial on [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
-## Before you begin
-[!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+In this tutorial, you take the following steps:
 
-You can find the completed code for this tutorial on [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
+> [!div class="checklist"]
+> * Create an app in Windows Store
+> * Create a notificaiton hub
+> * Create a sample Windows app
+> * Send test notifications
+
 
 ## Prerequisites
 This tutorial requires the following:
 
-* [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) or later
-* [UWP app-development tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
-* An active Azure account  
-    If you don't have an account, you can create a free trial account in just a couple of minutes. For more information, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
-* An active Windows Store account
+- **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- [Microsoft Visual Studio Community 2015 or later](https://www.visualstudio.com/products/visual-studio-community-vs) or later.
+- [UWP app-development tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+- An active Windows Store account
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for UWP apps.
 
-## Register your app for the Windows Store
+## Create an app in Windows Store
 To send push notifications to UWP apps, associate your app to the Windows Store. Then, configure your notification hub to integrate with WNS.
 
 1. If you have not already registered your app, navigate to the [Windows Dev Center](https://dev.windows.com/overview), sign in with your Microsoft account, and then select **Create a new app**.
@@ -75,7 +81,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
     >[!WARNING]
     >The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
 
-## Configure your notification hub
+## Create a notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
@@ -87,7 +93,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 
 Your notification hub is now configured to work with WNS. You have the connection strings to register your app and send notifications.
 
-## Connect your app to the notification hub
+## Create a sample Windows app
 1. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**.  
     The **Manage NuGet Packages** window opens.
 
@@ -139,7 +145,7 @@ Your notification hub is now configured to work with WNS. You have the connectio
 
 Your app is now ready to receive toast notifications.
 
-## Send notifications
+## Send test notifications
 You can quickly test receiving notifications in your app by sending notifications in the [Azure portal](https://portal.azure.com/). Use the **Test Send** button on the notification hub, as shown in the following image:
 
 ![The Test Send pane](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
