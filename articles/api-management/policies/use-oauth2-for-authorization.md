@@ -22,7 +22,7 @@ This article shows an Azure API management policy sample that demonstrates how t
 
 To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-samples.md).
 
-The following script uses properties that appear in {{property}}. To learn about properties and how to use them in API Management policies, see [this](api-management-howto-properties.md) topic.
+The following script uses properties that appear in {{property}}. To learn about properties and how to use them in API Management policies, see [this](../api-management-howto-properties.md) topic.
  
 ## Policy
 
