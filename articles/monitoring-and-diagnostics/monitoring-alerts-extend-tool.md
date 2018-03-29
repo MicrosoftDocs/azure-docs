@@ -152,7 +152,7 @@ If the POST is successful, it shall return a 200 OK response along with:
     "version": 2
 }
 ```
-Indicating that the alerts have been extended into Azure, as indicated by version 2. This version is only for checking if alerts have been extended into Azure and have no bearing in usage with [Log Analytics Search API](../log-analytics/log-analytics-api-alerts.md). Once the alerts are extended into Azure successfully, all users associated with administrator and contributor roles in the workspace will get an email with details of the changes done.
+Indicating that the alerts have been extended into Azure, as indicated by version 2. This version is only for checking if alerts have been extended into Azure and have no bearing in usage with [Log Analytics Search API](../log-analytics/log-analytics-api-alerts.md). Once the alerts are extended into Azure successfully, all email addresses provided during GET will be sent a report with details of the changes done.
 
 
 And finally, if all the alerts in the specified workspace, have already been scheduled to be extended into Azure - the response to POST will be 403 Forbidden.
