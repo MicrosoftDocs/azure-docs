@@ -46,13 +46,11 @@ The following steps enable connection monitoring to a destination VM over ports 
 
     Monitoring begins. Connection monitor probes every 60 seconds.
 6. Complete step 5 again, specifying the same source and destination VMs, and the following values:
-
     
-    |Setting  |Value  |
-    |---------|---------|
-    |Name     | AppToDB(1433)        |
-    |Port     | 1433        |
-
+    |Setting  |Value          |
+    |---------|---------      |
+    |Name     | AppToDB(1433) |
+    |Port     | 1433          |
 
 ## View connection monitoring
 
