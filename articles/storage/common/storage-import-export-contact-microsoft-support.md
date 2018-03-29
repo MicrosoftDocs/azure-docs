@@ -34,9 +34,9 @@ Perform the following steps to create a support request:
    
 2. In **New support request**, select **Basics**. In **Basics**, do the following steps:
     
-    1. From the **Issue type** drop-down list , select **Technical**.
+    1. From the **Issue type** dropdown list, select **Technical**.
     2. Choose your **Subscription**.
-    3. Under **Service**, check **My Services**. From the dropdown list, you can select one of then options - **Storage Account Management**, **Blob**, or **File**. 
+    3. Under **Service**, check **My Services**. From the dropdown list, you can select one of the options - **Storage Account Management**, **Blob**, or **File**. 
         - If you choose **Storage Account Management**, select **Resource**, and **Support plan**.
             ![Choose Storage Account Management](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
         - If you choose **Blob**, select **Resource**, **Container names** (optional), and **Support plan**.
@@ -79,7 +79,7 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
     ![Manage support requests](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
-2. A tabular listing of Recent support requests is displayed in the **Help + support** blade.
+2. A tabular listing of **Recent support requests** is displayed in **Help + support**.
 
     ![Manage support requests](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
