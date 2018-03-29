@@ -5,8 +5,7 @@ keywords: troubleshoot input, input sampling
 documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 
 ms.assetid: 
 ms.service: stream-analytics
