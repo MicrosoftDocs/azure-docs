@@ -28,7 +28,7 @@ This tutorial walks you through creating a notification hub and sending push not
 > [!NOTE]
 > Chrome app push notifications are not generic in-browser notifications - they are specific to the browser extensibility model (see [Chrome Apps Overview] for details). In addition to the desktop browser, Chrome apps run on mobile (Android and iOS) through Apache Cordova. For more information, see [Chrome Apps on Mobile].
 
-In this tutorial, you perform the following steps:
+In this tutorial, you take the following steps:
 
 > [!div class="checklist"]
 > * [Enable Google Cloud Messaging](#register)
@@ -398,7 +398,7 @@ For testing purposes, send Chrome push notifications by using a .NET console app
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   A reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package is automatically added to the project.</a>.
+   A reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package is automatically added to the project.</a>
 4. Open `Program.cs` and add the following `using` statement:
    
         using Microsoft.Azure.NotificationHubs;
