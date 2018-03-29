@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell samples for virtual network | Microsoft Docs
-description: Azure PowerShell samples vfor virtual networ
+description: Azure PowerShell samples for virtual network.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial

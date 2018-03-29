@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Deploy an Azure Container Service (AKS) cluster
+# Quickstart: Deploy an Azure Container Service (AKS) cluster
 
 In this quickstart, you deploy an AKS cluster using the Azure portal. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet.
 

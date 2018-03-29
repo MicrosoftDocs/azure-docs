@@ -3,7 +3,7 @@ title: Compute context options for R Server on HDInsight - Azure | Microsoft Doc
 description: Learn about the different compute context options available to users with R Server on HDInsight 
 services: HDInsight
 documentationcenter: ''
-author: bradsev
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 
@@ -14,8 +14,8 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/19/2017
-ms.author: bradsev
+ms.date: 03/22/2018
+ms.author: nitinme
 
 ---
 # Compute context options for R Server on HDInsight

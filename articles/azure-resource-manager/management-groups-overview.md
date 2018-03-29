@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
 ---
 
@@ -22,8 +22,6 @@ If your organization has many subscriptions, you may need a way to efficiently m
 
 The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section. 
 
-Azure Policy support for management groups is not available yet in the Public Preview and it is coming in the following weeks.  
-
 As an example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.
 
 ## Hierarchy of management groups and subscriptions 
@@ -31,7 +29,7 @@ As an example, you can apply policies to a management group that limits the regi
 You can build a flexible structure of management groups and subscriptions to organize your resources into a hierarchy for unified policy and access management. 
 The following diagram shows an example hierarchy that consists of management groups and subscriptions organized by departments.    
 
-![hierarchy](media/management-groups/MG_overview.png)
+![tree](media/management-groups/MG_overview.png)
 
 By creating a hierarchy that is grouped by departments, you are able to assign [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) roles that *inherit* to the departments under that management group. By using management groups, you can reduce your workload and reduces the risk of error by only having to assign the role once. 
 
@@ -41,6 +39,14 @@ By creating a hierarchy that is grouped by departments, you are able to assign [
     - This limit does not include the Root level or the subscription level.
 - Each management group can only support one parent.
 - Each management group can have multiple children. 
+
+### Preview subscription visibility limitation 
+There is currently a limitation within the preview where you are not able to view subscriptions that you have inherited access to. The access is inherited to the subscription, but the Azure Resource Manager is not able to honor the inheritance access yet.  
+
+Using the REST API to get information on the subscription returns details as you do have access, but within the Azure portal and Azure Powershell the subscriptions do not show. 
+
+This item is being worked on and will be resolved prior to Management Groups being announced as "General Availability."  
+
 
 ## Root management group for each directory
 

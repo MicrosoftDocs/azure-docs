@@ -69,8 +69,6 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
  
     ![Keys](media/functions-twitter-email/keys.png)
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
 ## Create the function app
 
 Functions provides a great way to offload processing tasks in a logic apps workflow. This tutorial uses an HTTP triggered function to process tweet sentiment scores from Cognitive Services and return a category value.  

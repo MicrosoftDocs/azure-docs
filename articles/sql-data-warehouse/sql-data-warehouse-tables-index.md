@@ -87,7 +87,7 @@ WITH ( CLUSTERED INDEX (id) );
 To add a non-clustered index on a table, simply use the following syntax:
 
 ```SQL
-CREATE INDEX zipCodeIndex ON t1 (zipCode);
+CREATE INDEX zipCodeIndex ON myTable (zipCode);
 ```
 
 ## Optimizing clustered columnstore indexes

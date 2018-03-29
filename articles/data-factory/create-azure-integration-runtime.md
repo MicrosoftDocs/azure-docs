@@ -4,8 +4,8 @@ description: Learn how to create Azure integration runtime in Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services

@@ -4,8 +4,8 @@ description: Describes basic security infrastructure that data movement services
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

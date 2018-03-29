@@ -4,8 +4,7 @@ description: This article compares Azure Data Factory V1 Azure Data Factory V2.
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
@@ -109,7 +108,7 @@ In V1, you implement (custom) DotNet activity code by creating a .NET class libr
 
 In a V2 custom activity, you don't have to implement a .NET interface. You can directly run commands, scripts, and your own custom code compiled as an executable. 
 
-For more information, see [Difference between custom activity in V1 and V2](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1).
+For more information, see [Difference between custom activity in V1 and V2](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
 ## SDKs
  Data Factory V2 provides a richer set of SDKs that can be used to author, manage, and monitor pipelines.
@@ -135,6 +134,13 @@ The SDKs that are updated for V2 are not backward-compatible with V1 clients.
 | Python SDK | [Yes](quickstart-create-data-factory-python.md) | No |
 | Resource Manager template | [Yes](quickstart-create-data-factory-resource-manager-template.md) | [Yes](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## Roles and permissions
+
+To create and manage child resources for a v2 Data Factory:
+
+-   The version 1 Data Factory Contributor role cannot be used to create and manage v2 resources.
+-   The standard ARM Contributor role, created on the Data Factory resource, is sufficient to create and manage child resources for a v2 Data Factory deployed with PowerShell or the SDKs. It is not sufficient to create and manage child resources for a v2 Data Factory deployed from the Azure portal or with ARM template deployment.
+-   To create and manage child resources for a v2 Data Factory deployed from the Azure portal or with ARM template deployment, you have to be a member of the ‘Automation Job Operator’ role at the resource group level or at the subscription level. Your organization can also create a custom role that contains "Microsoft.Resources/deployments/*" in the "Actions" list, as described in [Create custom roles for Azure Role-Based Access Control](../active-directory/role-based-access-control-custom-roles.md).
 
 ## Monitoring experience
 In V2, you can also monitor data factories by using [Azure Monitor](monitor-using-azure-monitor.md). The new PowerShell cmdlets support monitoring of [integration runtimes](monitor-integration-runtime.md). Both V1 and V2 support visual monitoring via a monitoring application that can be launched from the Azure portal.

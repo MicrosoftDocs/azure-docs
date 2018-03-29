@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
 
 ---
@@ -84,6 +84,11 @@ There are some important steps to perform before moving a resource. By verifying
   az provider register --namespace Microsoft.Batch
   ```
 
+4. The account moving the resources must have at least the following permissions:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
+
 ## When to call support
 
 You can move most resources through the self-service operations shown in this article. Use the self-service operations to:
@@ -102,6 +107,7 @@ The services that enable moving to both a new resource group and subscription ar
 
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
+* App Service Certificates
 * Application Insights
 * Automation
 * Azure Cosmos DB
@@ -190,7 +196,9 @@ You cannot move a virtual network to a different subscription if the virtual net
 
 ## App Service limitations
 
-The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription.
+The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription. 
+
+The limitations described in these sections apply to uploaded certificates, not App Service Certificates. You can move App Service Certificates to a new resource group or subscription without limitations. If you have multiple web apps that use the same App Service Certificate, first move all the web apps, then move the certificate.
 
 ### Moving within the same subscription
 

@@ -16,7 +16,7 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2017
 ms.author: kumud
 ---
-# Create a public load balancer to load balance VMS using Azure CLI 2.0
+# Create a public load balancer to load balance VMs using Azure CLI 2.0
 
 This quickstart shows you how to create an Azure Load Balancer. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server and load balance a web app between.
 

@@ -4,8 +4,8 @@ description: Learn how to create an Azure-SSIS integration runtime so that you c
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services
