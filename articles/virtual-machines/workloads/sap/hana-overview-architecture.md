@@ -201,7 +201,7 @@ When you look at the documentation, the advantage might not be visible immediate
 
 - SAP HANA sizing guidelines usually require double the amount of data volume as memory. When you run your SAP HANA instance with the hot data, you have only 50 percent or less of the memory filled with data. The remainder of the memory is ideally held for SAP HANA doing its work.
 - That means in a HANA Large Instance S192 unit with 2 TB of memory, running an SAP BW database, you only have 1 TB as data volume.
-- If you use an additional SAP HANA extension node of option-1, also a S192 HANA Large Instance SKU, it gives you an additional 2 TB capacity for data volume. In the option-2 configuration, you get an additional 4 TB for warm data volume. Compared to the hot node, the full memory capacity of the "warm" extension node can be used for data storing for option-1. Double the memory can be used for data volume in option-2 SAP HANA extension node configuration.
+- If you use an additional SAP HANA extension node of option-1, also a S192 HANA Large Instance SKU, it gives you an additional 2-TB capacity for data volume. In the option-2 configuration, you get an additional 4 TB for warm data volume. Compared to the hot node, the full memory capacity of the "warm" extension node can be used for data storing for option-1. Double the memory can be used for data volume in option-2 SAP HANA extension node configuration.
 - You end up with a capacity of 3 TB for your data and a hot-to-warm ratio of 1:2 for option-1. You have 5 TB of data and a 1:4 ratio with the option-2 extension node configuration.
 
 The higher the data volume compared to the memory, the higher the chances are that the warm data you are asking for is stored on disk storage.
@@ -315,7 +315,7 @@ For the support matrix of the different SAP HANA versions with the different Lin
 **Skills**
 
 - Experience with and knowledge of Azure IaaS and its components.
-- Experience with and knowledge of how to deploy a SAP workload in Azure.
+- Experience with and knowledge of how to deploy an SAP workload in Azure.
 - SAP HANA installation certified personnel.
 - SAP architect skills to design high availability and disaster recovery around SAP HANA.
 
@@ -327,7 +327,7 @@ For the support matrix of the different SAP HANA versions with the different Lin
 
 ## Storage
 
-The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on Azure Service Management through SAP recommended guidelines. The guidelines are documented in the [SAP HANA storage requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
+The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on the classic deployment model through SAP recommended guidelines. The guidelines are documented in the [SAP HANA storage requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
 
 The HANA Large Instance of the Type I class comes with four times the memory volume as storage volume. For the Type II class of HANA Large Instance units, the storage isn't four times more. The units come with a volume that is intended for storing HANA transaction log backups. For more information, see [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -430,7 +430,7 @@ The differences to SAP deployments in Azure are:
 - The SAP application architecture is more sensitive to network latency than typical scenarios where data is exchanged between on-premises and Azure.
 - The virtual network gateway has at least two ExpressRoute connections. Both connections share the maximum bandwidth for incoming data of the virtual network gateway.
 
-The network latency experienced between VMs and HANA Large Instance units can be higher than a typical VM-to-VM network round-trip latency. Dependent on the Azure region, the values measured can exceed the 0.7-ms round-trip latency classified as below average in [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E). Nevertheless, customers deploy SAP HANA-based production SAP applications very successfully on SAP HANA Large Instance. The customers who deployed report great improvements by running their SAP applications on SAP HANA by using HANA Large Instance units. You should test your business processes thoroughly in Azure HANA Large Instance.
+The network latency experienced between VMs and HANA Large Instance units can be higher than a typical VM-to-VM network round-trip latency. Dependent on the Azure region, the values measured can exceed the 0.7-ms round-trip latency classified as below average in [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E). Nevertheless, customers deploy SAP HANA-based production SAP applications successfully on SAP HANA Large Instance. The customers who deployed report great improvements by running their SAP applications on SAP HANA by using HANA Large Instance units. Make sure you test your business processes thoroughly in Azure HANA Large Instance.
  
 To provide deterministic network latency between VMs and HANA Large Instance, the choice of the virtual network gateway SKU is essential. Unlike the traffic patterns between on-premises and VMs, the traffic pattern between VMs and HANA Large Instance can develop small but high bursts of requests and data volumes to be transmitted. To handle such bursts well, we highly recommend the use of the UltraPerformance gateway SKU. For the Type II class of HANA Large Instance SKUs, the use of the UltraPerformance gateway SKU as a virtual network gateway is mandatory.
 
