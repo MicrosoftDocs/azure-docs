@@ -5,7 +5,7 @@ keywords: data stream, iot, edge
 services: stream-analytics
 documentationcenter: ''
 author: jseb225
-manager: jhubbard
+manager: ryanw
 
 
 ms.assetid: 

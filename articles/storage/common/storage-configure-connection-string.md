@@ -3,8 +3,8 @@ title: Configure a connection string for Azure Storage | Microsoft Docs
 description: Configure a connection string for an Azure storage account. A connection string contains the information needed to authenticate access to a storage account from your application at runtime.
 services: storage
 documentationcenter: ''
-author: tamram
-manager: timlt
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: tamram
+ms.author: cshoe
 
 ---
 # Configure Azure Storage connection strings

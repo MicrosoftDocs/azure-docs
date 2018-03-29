@@ -162,6 +162,9 @@
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/video-indexer-overview
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
+    - name: Content Moderator
+      tocHref: /azure/cognitive-services/content-moderator/overview
+      topicHref: /azure/cognitive-services/content-moderator/overview
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -181,7 +184,7 @@
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
-  - name: CosmosDB
+  - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
   - name: Data Catalog
