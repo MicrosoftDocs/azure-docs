@@ -165,7 +165,7 @@ ForEach-Object {
 }
 ```
 
-An even easier way to ensure the the Dependency Agent is on each of your VMs is to include the agent in your Azure Resource Manager template.  Note that the Dependency Agent still depends on the OMS Agent, so the [OMS Agent VM Extension](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) must be deployed first.  The following snippet of JSON can be added to the *resources* section of your template.
+An even easier way to ensure the Dependency Agent is on each of your VMs is to include the agent in your Azure Resource Manager template.  Note that the Dependency Agent still depends on the OMS Agent, so the [OMS Agent VM Extension](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) must be deployed first.  The following snippet of JSON can be added to the *resources* section of your template.
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",
