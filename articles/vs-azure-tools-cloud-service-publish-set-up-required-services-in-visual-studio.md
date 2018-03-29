@@ -3,8 +3,8 @@ title: Prepare to publish or deploy a Cloud Service from Visual Studio | Microso
 description: Learn the procedures to set up cloud and storage account services and configure your Azure application.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.service: multiple
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
-ms.author: kraigb
+ms.author: ghogen
 
 ---
 # Prepare to publish or deploy a cloud service from Visual Studio
