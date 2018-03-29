@@ -28,7 +28,7 @@ This quickstart shows how to deploy Linux containers to a Service Fabric cluster
 
 In this quickstart you use a Bash instance of Azure Cloud Shell as your Linux environment. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Get the application package
 To deploy containers to Service Fabric, you need a set of manifest files (the application definition), which describe the individual containers and the application.
