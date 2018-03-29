@@ -45,7 +45,7 @@
 ### [Debug SAML-based SSO](active-directory-saml-debugging.md)
 ### [Single sign-on SAML protocol](active-directory-single-sign-on-protocol-reference.md)
 ### [Single sign-out SAML protocol](active-directory-single-sign-out-protocol-reference.md)
-### [Create a tenant](active-directory-howto-tenant.md)
+## [Create a tenant](active-directory-howto-tenant.md)
 ## [Branding guidelines](active-directory-branding-guidelines.md)
 ## Mobile & Desktop SSO
 ### [Enable SSO on Android](active-directory-sso-android.md)

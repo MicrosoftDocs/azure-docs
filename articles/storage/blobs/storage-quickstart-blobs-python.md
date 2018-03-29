@@ -2,14 +2,14 @@
 title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Python | Microsoft Docs
 description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Python to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage  
-author: tamram
+author: craigshoemaker
 manager: jeconnoc 
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
-ms.author: tamram
+ms.author: cshoe
 ---
 
 # Quickstart: Upload, download, and list blobs using Python
