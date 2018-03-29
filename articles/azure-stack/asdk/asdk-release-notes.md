@@ -23,7 +23,7 @@ These release notes provide information about improvements, fixes, and known iss
 
 > Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## Build 20180323.2
+## Build 20180329.1
 
 ### New features and fixes
 The new features and fixes released for Azure Stack integrated systems version 1803 apply to the Azure Stack Development Kit. See the [new features](.\.\azure-stack-update-1803.md#new-features) and [fixed issues](.\.\azure-stack-update-1803.md#fixed-issues) sections of the Azure Stack 1803 update release notes for details.  
