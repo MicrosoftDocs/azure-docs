@@ -13,7 +13,7 @@ ms.author: v-geberr;
 ---
 
 # Security
-In order to secure the LUIS app, consider who has access to the app from the [authoring](https://aka.ms/luis-authoring-apis) APIs and the [endpoint](https://aka.ms/luis-endpoint-apis) APIs.  
+Authoring is restricted to the app owner and collaborators. Endpoint security can be expanded to the general public by configuring the app as public on the **Settings** page or updating settings with the [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58aeface39e2bb03dcd5909e). 
 
 ## Access to authoring
 Access to the app from the [LUIS][LUIS] website or the [authoring APIs](https://aka.ms/luis-authoring-apis) is controlled by the owner of the app. 
@@ -33,7 +33,7 @@ The owner and all collaborators have access to author the app.
 |Train|
 
 ## Access to endpoint
-Access to the endpoint to query LUIS is controlled by the **Public** setting of the app on the **Settings** page. A private app's endpoint query is checked for an authorized key with remaining quota hits. A public app's endpoint query is checked for remaining quota hits. 
+Access to the endpoint to query LUIS is controlled by the **Public** setting of the app on the **Settings** page. A private app's endpoint query is checked for an authorized key with remaining quota hits. A public app's endpoint query has to also provide an endpoint key (from whoever is making the query) which is also checked for remaining quota hits. 
 
 The endpoint key is passed either in the querystring of the GET request or the header of the POST request.
 
