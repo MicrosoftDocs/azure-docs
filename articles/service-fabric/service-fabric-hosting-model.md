@@ -29,7 +29,7 @@ Before proceeding further, be sure that you understand the various concepts and 
 
 To understand the hosting model, let's walk through an example. Let's say we have an *ApplicationType* 'MyAppType', which has a *ServiceType* 'MyServiceType'. 'MyServiceType' is provided by the *ServicePackage* 'MyServicePackage', which has a *CodePackage* 'MyCodePackage'. 'MyCodePackage' registers *ServiceType* 'MyServiceType' when it runs.
 
-Let's say we have a three-node cluster, and we create an *application* **fabric:/App1** of type 'MyAppType'. Inside this *application* **fabric:/App1**, we create a service **fabric:/App1/ServiceA** of type 'MyServiceType'. This service has two partitions (for example, **P1** and **P2**), and three replicas per partition. The following diagram shows the view of this application as it ends up deployed on a node.
+Let's say we have a three-node cluster, and we create an *application* **fabric:/App1** of type 'MyAppType'. Inside this application **fabric:/App1**, we create a service **fabric:/App1/ServiceA** of type 'MyServiceType'. This service has two partitions (for example, **P1** and **P2**), and three replicas per partition. The following diagram shows the view of this application as it ends up deployed on a node.
 
 
 ![Diagram of node view of deployed application][node-view-one]
@@ -41,7 +41,7 @@ Service Fabric activated 'MyServicePackage', which started 'MyCodePackage', whic
 ![Diagram of node view of deployed application][node-view-two]
 
 
-Service Fabric placed the new replica for partition **P3** of service **fabric:/App1/ServiceB** in the existing activation of 'MyServicePackage'. Now. let's create another *application* **fabric:/App2** of type 'MyAppType'. Inside **fabric:/App2**, create a service **fabric:/App2/ServiceA**. This service has two partitions (**P4** and **P5**), and three replicas per partition. The following diagram shows the new node view:
+Service Fabric placed the new replica for partition **P3** of service **fabric:/App1/ServiceB** in the existing activation of 'MyServicePackage'. Now. let's create another application **fabric:/App2** of type 'MyAppType'. Inside **fabric:/App2**, create a service **fabric:/App2/ServiceA**. This service has two partitions (**P4** and **P5**), and three replicas per partition. The following diagram shows the new node view:
 
 
 ![Diagram of node view of deployed application][node-view-three]
@@ -93,7 +93,7 @@ Now let's create another service, **fabric:/App1/ServiceC**, in application **fa
 ![Diagram of node view of deployed application][node-view-four]
 
 
-As you can see, Service Fabric activated two new copies of 'MyServicePackage' (one for each replica from partition **P6** & **P7**). Service Fabric placed each replica in its dedicated copy of *CodePackage*. When you use the Exclusive Process model, for a given application, multiple copies of a given *ServicePackage* can be active on a node. In the preceding example, three copies of 'MyServicePackage' are active for **fabric:/App1**. Each of these active copies of 'MyServicePackage' has a **ServicePackageActivationId** associated with it. This ID identifies that copy within *application* **fabric:/App1**.
+As you can see, Service Fabric activated two new copies of 'MyServicePackage' (one for each replica from partition **P6** and **P7**). Service Fabric placed each replica in its dedicated copy of *CodePackage*. When you use the Exclusive Process model, for a given application, multiple copies of a given *ServicePackage* can be active on a node. In the preceding example, three copies of 'MyServicePackage' are active for **fabric:/App1**. Each of these active copies of 'MyServicePackage' has a **ServicePackageActivationId** associated with it. This ID identifies that copy within application **fabric:/App1**.
 
 When you use only the Shared Process model for an application, there is only one active copy of *ServicePackage* on a node. The **ServicePackageActivationId** for this activation of *ServicePackage* is an empty string. This is the case, for example, with **fabric:/App2**.
 
@@ -107,7 +107,7 @@ When you use only the Shared Process model for an application, there is only one
 >
 
 ## Work with a deployed service package
-An active copy of a *ServicePackage* on a node is referred to as a [deployed service package][p3]. When you use the Exclusive Process model for creating services, for a given application, there could be multiple deployed service packages for the same *ServicePackage*. If you are performing operations specific to a deployed service package, you should provide **ServicePackageActivationId** to identify a specific deployed service package. For example, if you are [reporting the health of a deployed service package][p4] or [restarting the code package of a deployed service package][p5].
+An active copy of a *ServicePackage* on a node is referred to as a [deployed service package][p3]. When you use the Exclusive Process model for creating services, for a given application, there might be multiple deployed service packages for the same *ServicePackage*. If you are performing operations specific to a deployed service package, you should provide **ServicePackageActivationId** to identify a specific deployed service package. For example, if you are [reporting the health of a deployed service package][p4] or [restarting the code package of a deployed service package][p5].
 
 You can find out the **ServicePackageActivationId** of a deployed service package by querying the list of [deployed service packages][p3] on a node. When you are querying for the [deployed service types][p6], [deployed replicas][p7], and [deployed code packages][p8] on a node, the query result also contains the **ServicePackageActivationId** of the parent deployed service package.
 
