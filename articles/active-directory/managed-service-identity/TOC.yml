@@ -142,6 +142,7 @@
         href: /powershell/module/azurerm.managedserviceidentity#managed_service_identity 
       - name: Azure Resource Manager Template
       - name: .NET
+        href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
       - name: Java
       - name: Python
         href: /python/api/azure.mgmt.msi
