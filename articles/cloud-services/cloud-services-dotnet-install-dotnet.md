@@ -95,7 +95,7 @@ You can use startup tasks to perform operations before a role starts. Installing
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
-    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP47" *****
+    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" *****
     set netfx="NDP471"
     
     REM ***** Set script start timestamp *****

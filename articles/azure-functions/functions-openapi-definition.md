@@ -38,8 +38,6 @@ You must have a function app to host the execution of your functions. A function
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
 
 ## Create the function
 
