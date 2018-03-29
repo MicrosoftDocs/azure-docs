@@ -115,7 +115,7 @@ Heartbeat
 
 On a Windows computer, you can review the following to verify agent connectivity with Log Analytics:
 
-1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
+1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to Log Analytics**.   
 2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector. These events indicate the computer has registered with the Log Analytics workspace and is receiving configuration.  
 
 If the agent is not able to communicate with Log Analytics and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-agent-windows.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
@@ -127,7 +127,7 @@ If the agent is not able to communicate with Log Analytics and it is configured 
 
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+To confirm an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager Integration with Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## Data collection
 
@@ -169,7 +169,7 @@ Click **Missing updates** to view the list of updates that are missing from your
 
 ## Viewing update deployments
 
-Click **Update Deployments** to view the list of existing Update Deployments. Clicking on any of the update deployments in the list opens up the **Update Deployment Run** page for that update deployment.
+Click the **Update Deployments** tab to view the list of existing Update Deployments. Clicking on any of the update deployments in the table opens up the **Update Deployment Run** page for that update deployment.
 
 ![Overview of Update Deployment Results](./media/automation-update-management/update-deployment-run.png)
 
@@ -182,7 +182,7 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 | Name |Unique name to identify the update deployment. |
 |Operating System| Linux or Windows|
 | Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines |
-|Update Classification|Select all the update classifications that you need|
+|Update classifications|Select all the update classifications that you need|
 |Updates to exclude|Enter all the KBs to exclude without the 'KB' prefix|
 |Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
 | Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
@@ -209,7 +209,7 @@ The following table provides sample log searches for update records collected by
 
 Customers who have invested in System Center Configuration Manager to manage PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates as part of their software update management (SUM) cycle.
 
-To learn how to integrate the OMS Update Management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with OMS Update Management](oms-solution-updatemgmt-sccmintegration.md).
+To learn how to integrate the management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
 
 ## Patching Linux machines
 
