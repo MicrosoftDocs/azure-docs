@@ -24,9 +24,9 @@ But for some users, the use of Log Analytics and allied functionality like alert
 ## Benefits of extending your alerts
 Apart from the benefit accrued in not having to navigate out of Azure portal, there are other salient advantages in extending alerts from OMS into Azure
 
-- Unlike in OMS, where only 250 alerts could be created and viewed; in Azure alerts this limitation is not present
-- From Azure alerts, all you alerts types can be managed, enumerated, and viewed; not just Log Analytics alerts as the case with OMS
-- Azure alerts utilize [Action Groups](monitoring-action-groups.md), which allow you have for each alert more than one action including SMS, Voice Call, Automation Runbook, Webhook, ITSM Connector and more. Where in OMS alerts are limited in both the number as well as type of actions possible
+- Unlike in OMS, where only 250 alerts could be created and viewed; in Azure Alerts this limitation is not present
+- From Azure alerts, all your alert types can be managed, enumerated, and viewed; not just Log Analytics alerts as is the case with OMS
+- Azure Alerts utilize [Action Groups](monitoring-action-groups.md), which allow you to have more than one action for each alert including SMS, Voice Call, Automation Runbook, Webhook, ITSM Connector and more. Whereas OMS alerts are limited in both the number as well as type of actions possible
 
 ## Process of extending your alerts
 The process of extending alerts from OMS into Azure, does **not** involve changing your alert definition, query, or configuration in any way. The only change required is that in Azure, all actions such as email notification, webhook call, running automation runbook or connecting to ITSM tool are done via Action Group. Hence if appropriate action group are associated with your alert - they will become extended into Azure.
