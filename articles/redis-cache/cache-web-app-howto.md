@@ -234,10 +234,9 @@ In Visual Studio on the menu, click **Debug** > **Start Debugging** to build and
 
 In the browser, click **Azure Redis Cache Test** on the navigation bar.
 
-In the example below, you can see the `Message` key previous had a cached value which was set using the Redis Console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+In the example below, you can see the `Message` key previously had a cached value which was set using the Redis Console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
 ![Simple test completed local](./media/cache-web-app-howto/cache-simple-test-complete.png)
-
 
 
 ## Publish and run in Azure
@@ -259,10 +258,10 @@ In the **Create App Service** dialog, make the following changes:
 
 | Setting | Recommended Value | Description |
 | ------- | :---------------: | ----------- |
-| App Name | Use default | The app name will be the host name for the app when deployed to Azure. The name may have a timestamp suffix added to it if necessary to make it unique. |
-| Subscription | Choose your Azure subscription | This subscription will be charged for any related hosting charges. If you have multiple Azure subscriptions, Verify the desired subscription is selected.|
-| Resource Group | Use the same resource group where you created the cache. For example, *TestResourceGroup*. | The resource group helps you want to manage all resources as a group. Later when you want to delete the app, you can just delete the group. |
-| App Service Plan | Click **New** and create a new App Service Plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
+| **App Name** | Use default | The app name will be the host name for the app when deployed to Azure. The name may have a timestamp suffix added to it if necessary to make it unique. |
+| **Subscription** | Choose your Azure subscription | This subscription will be charged for any related hosting charges. If you have multiple Azure subscriptions, Verify the desired subscription is selected.|
+| **Resource Group** | Use the same resource group where you created the cache. For example, *TestResourceGroup*. | The resource group helps you want to manage all resources as a group. Later when you want to delete the app, you can just delete the group. |
+| **App Service Plan** | Click **New** and create a new App Service Plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
 
 ![App Service Dialog](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 

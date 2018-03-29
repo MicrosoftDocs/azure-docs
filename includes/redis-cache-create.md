@@ -15,9 +15,7 @@ To create a cache, first sign in to the [Azure portal](https://portal.azure.com)
 
 ![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
-In **New Redis Cache**, specify the desired configuration for the cache.
-
-![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
+In **New Redis Cache**, configure the settings for your new cache.
 
 | Setting      | Suggested value  | Description |
 | ------------ |  ------- | -------------------------------------------------- |
@@ -28,7 +26,9 @@ In **New Redis Cache**, specify the desired configuration for the cache.
 | **[Pricing tier](https://azure.microsoft.com/pricing/details/cache/)** |  Basic C0 (250 MB Cache) |  The pricing tier determines the size, performance, and features available for the cache. For more information, see [Azure Redis Cache Overview](../articles/redis-cache/cache-overview.md). |
 | **Pin to dashboard** |  Selected | Click pin the new cache to your dashboard making it easy to find. |
 
-Configure the cache based on the table. Once the new cache options are configured, click **Create**. 
+![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
+
+Once the new cache settings are configured, click **Create**. 
 
 It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the dashboard. After the cache has been created, your new cache has a **Running** status and is ready for use.
 
