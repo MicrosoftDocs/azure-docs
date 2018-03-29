@@ -17,7 +17,7 @@ ms.author: jlian
 
 # Programmatically create Azure Enterprise subscriptions (preview)
 
-As an [Azure Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) customer and Account Owner, you can create EA (Enterprise Agreement) and EA Dev/Test subscriptions programmatically. To give another user or service principal the permission to create subscriptions billed to your account, give them [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) access to your enrollment account. The subscriptions created via this API are governed by your enterprise agreement. 
+As an [Azure Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) customer and Account Owner, you can create EA (MS-AZR-0017P) and EA Dev/Test (MS-AZR-0148P) subscriptions programmatically. To give another user or service principal the permission to create subscriptions billed to your account, give them [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) access to your enrollment account. The subscriptions created via this API are governed by your enterprise agreement. 
 
 In this article you will:
 
@@ -92,7 +92,7 @@ Use the `principalName` property to identify the account that you want subscript
 
 Use the `id` of the `enrollmentAccount` you've determined from above to make a request to create subscriptions.
 
-The following example creates a request to create subscription named *My New EA Subscription From API* and subscription offer is *MS-AZR-0143P* (EA Dev/Test). The enrollment account is `e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556`, which is the enrollment account for MobileOnboardingEng@contoso.com. It also adds two users as RBAC Owners for the subscription.
+The following example creates a request to create subscription named *My New EA Subscription From API* and subscription offer is *MS-AZR-0148P* (EA Dev/Test). The enrollment account is `e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556`, which is the enrollment account for MobileOnboardingEng@contoso.com. It also adds two users as RBAC Owners for the subscription.
 
 # [REST](#tab/rest)
 
@@ -101,7 +101,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 {
   "displayName": "My New EA Subscription From API",
-  "offerType": "MS-AZR-0143P",
+  "offerType": "MS-AZR-0148P",
   "owners": [
     {
       "objectId": "973034ff-acb7-409c-b731-e789672c7b31"
@@ -122,13 +122,13 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzureSubscription -Offer "MS-AZR-0143P" -Name "My New EA Subscription From API" -Owners "973034ff-acb7-409c-b731-e789672c7b31"
+New-AzureSubscription -Offer "MS-AZR-0148P" -Name "My New EA Subscription From API" -Owners "973034ff-acb7-409c-b731-e789672c7b31"
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive 
-az sub create --offer "MS-AZR-0143P" --name "My New EA Subscription From API" --owners "973034ff-acb7-409c-b731-e789672c7b31"
+az sub create --offer "MS-AZR-0148P" --name "My New EA Subscription From API" --owners "973034ff-acb7-409c-b731-e789672c7b31"
 ```
 
 ----
