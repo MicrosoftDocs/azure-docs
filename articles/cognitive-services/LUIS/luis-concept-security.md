@@ -13,7 +13,7 @@ ms.author: v-geberr;
 ---
 
 # Security
-Authoring is restricted to the app owner and collaborators. Endpoint security can be expanded to the general public by configuring the app as public on the **Settings** page or updating settings with the [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58aeface39e2bb03dcd5909e). 
+Authoring is restricted to the app owner and collaborators. Access to the endpoint can be expanded to anyone by configuring the app as public on the **Settings** page or updating settings with the [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58aeface39e2bb03dcd5909e). 
 
 ## Access to authoring
 Access to the app from the [LUIS][LUIS] website or the [authoring APIs](https://aka.ms/luis-authoring-apis) is controlled by the owner of the app. 
