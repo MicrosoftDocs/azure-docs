@@ -24,7 +24,7 @@ Azure Service Fabric is a distributed systems platform for deploying and managin
 
 This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a Python web front-end and a Redis back-end running in a Service Fabric cluster. You also learn how to fail over an application and how to scale an application in your cluster.
 
-![quickstartpic][quickstartpic]
+![Voting app web page][quickstartpic]
 
 In this quickstart, you use the Bash environment in Azure Cloud Shell to run Service Fabric CLI commands. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -121,7 +121,7 @@ Use whatever method you are most comfortable with to import the certificate on y
 
 3. To connect to the running container, open a web browser and navigate to the URL of your cluster; for example, `http://linh1x87d1d.westus.cloudapp.azure.com:80`. You should see the Voting application in the browser.
 
-    ![quickstartpic][quickstartpic]
+    ![Voting app web page][quickstartpic]
 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Use whatever method you are most comfortable with to import the certificate on y
 > ```
 
 ## Fail over a container in a cluster
-Service Fabric ensures that your container instances automatically move to other nodes in the cluster if a failure occurs. You can also manually drain a node for containers and move then gracefully to other nodes in the cluster. Service Fabric offers multiple ways of scaling your services. In the following steps, you use Service Fabric Explorer.
+Service Fabric makes sure that your container instances automatically move to other nodes in the cluster if a failure occurs. You can also manually drain a node for containers and move then gracefully to other nodes in the cluster. Service Fabric provides several ways to scale your services. In the following steps, you use Service Fabric Explorer.
 
 To fail over the front-end container, do the following steps:
 
@@ -140,7 +140,7 @@ To fail over the front-end container, do the following steps:
 3. Expand the **Nodes** node in the tree view. Click the ellipsis (...) next to the node that is running the container.
 4. Choose **Restart** to restart that node and confirm the restart action. The restart causes the container to fail over to another node in the cluster.
 
-    ![sfxquickstartshownodetype][sfxquickstartshownodetype]
+    ![Node view in Service Fabric Explorer][sfxquickstartshownodetype]
 
 ## Scale applications and services in a cluster
 Service Fabric services can easily be scaled across a cluster to accommodate for the load on the services. You scale a service by changing the number of instances running in the cluster.
@@ -150,18 +150,18 @@ To scale the web front-end service, do the following steps:
 1. Open Service Fabric Explorer in your cluster; for example,`https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 2. Click the ellipsis (three dots) next to the **fabric:/Voting/azurevotefront** node in the treeview and choose **Scale Service**.
 
-    ![containersquickstartscale][containersquickstartscale]
+    ![Service Fabric Explorer scale service start][containersquickstartscale]
 
   You can now choose to scale the number of instances of the web front-end service.
 
 3. Change the number to **2** and click **Scale Service**.
 4. Click the **fabric:/Voting/azurevotefront** node in the tree-view and expand the partition node (represented by a GUID).
 
-    ![containersquickstartscaledone][containersquickstartscaledone]
+    ![Service Fabric Explorer scale service finished][containersquickstartscaledone]
 
     You can now see that the service has two instances. In the tree view, you can see which nodes the instances run on.
 
-Through this simple management task, you have doubled the resources available for the front-end service to process user load. It's important to understand that you do not need multiple instances of a service to have it run reliably. If a service fails, Service Fabric makes sure a new service instance runs in the cluster.
+Through this simple management task, you've doubled the resources available for the front-end service to process user load. It's important to understand that you don't need multiple instances of a service for it to run reliably. If a service fails, Service Fabric makes sure that a new service instance runs in the cluster.
 
 ## Clean up resources
 1. Use the uninstall script (uninstall.sh) provided in the template to delete the application instance from the cluster and unregister the application type. This script takes some time to clean up the instance, so you should not run the install script immediately after this script. You can use Service Fabric Explorer to determine when the instance has been removed and the application type unregistered. 
