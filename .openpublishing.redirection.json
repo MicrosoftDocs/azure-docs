@@ -17757,6 +17757,11 @@
         "source_path": "articles/storage/files/storage-how-to-use-files-snapshots.md",
         "redirect_url": "/azure/storage/files/storage-snapshots-files",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/monitoring/management-overview-monitoring.md",
+        "redirect_url": "/azure/monitoring/",
+        "redirect_document_id": false
     }
    ]
 }
