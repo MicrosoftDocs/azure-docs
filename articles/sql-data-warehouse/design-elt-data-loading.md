@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.component: design
 ms.date: 03/28/2018
 ms.author: cakarst
-ms.reviewer: mausher,igorstan,jrj
+ms.reviewer: igorstan
 
 ---
 # Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse

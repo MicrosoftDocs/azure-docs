@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.component: manage
 ms.date: 03/28/2018
 ms.author: joeyong
-ms.reviewer: jrj,mausher,igorstan
+ms.reviewer: jrj
 ---
 
 # Analyze your workload

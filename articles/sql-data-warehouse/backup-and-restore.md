@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.component: design
 ms.date: 03/28/2018
 ms.author: rortloff
-ms.reviewer: mausher,igorstan,jrj
+ms.reviewer: igorstan
 ---
 
 # Backup and restore in Azure SQL Data Warehouse

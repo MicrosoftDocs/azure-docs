@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.component: implement
 ms.date: 03/28/2018
 ms.author: elbutter
-ms.reviewer: mausher,igorstan,jrj
+ms.reviewer: jrj
 ---
 
 # Quickstart: Create and query an Azure SQL data warehouse in the Azure portal
