@@ -72,7 +72,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
     </dependencies>
 ```
 
-* *Build or checksum validation errors?* Try using a specific version, such as: `<version>2.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Build or checksum validation errors?* Try using a specific version, such as: `<version>2.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Need to update to a new SDK?* Refresh your project's dependencies.
 
 #### If you're using Gradle... <a name="gradle-setup" />
@@ -92,7 +92,7 @@ Then refresh the project dependencies to get the binaries downloaded.
     }
 ```
 
-* *Build or checksum validation errors?* Try using a specific version, such as: `version:'2.0.n'`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Build or checksum validation errors?* Try using a specific version, such as: `version:'2.0.n'`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *To update to a new SDK* Refresh your project's dependencies.
 
 #### Otherwise, if you are manually managing dependencies ...
@@ -106,7 +106,7 @@ Download the [latest version](https://github.com/Microsoft/ApplicationInsights-J
 * *How should I update the SDK to the latest version?*
   * If you are using Gradle or Maven...
     * Update your build file to specify the latest version or use Gradle/Maven's wildcard syntax to include the latest version automatically. Then, refresh your project's dependencies. The wildcard syntax can be seen in the examples above for [Gradle](#gradle-setup) or [Maven](#maven-setup).
-  * If you are manually managing depdnecies...
+  * If you are manually managing dependencies...
     * Download the latest [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and replace the old ones. Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## 3. Add an ApplicationInsights.xml file
@@ -145,7 +145,7 @@ Substitute the instrumentation key that you got from the Azure portal.
     </ApplicationInsights>
 ```
 
-Optionally, you can place the configuration file in any location accessible to your application by using the system property `-Dapplicationinsights.configurationDirectory`. This specifies the directory which contains ApplicationInsights.xml. For example, a configuration file located at `E:\myconfigs\appinsights\ApplicationInsights.xml` would be configured with the property `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
+Optionally, the configuration file can reside in any location accessible to your application.  The system property `-Dapplicationinsights.configurationDirectory` specifies the directory that contains ApplicationInsights.xml. For example, a configuration file located at `E:\myconfigs\appinsights\ApplicationInsights.xml` would be configured with the property `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
@@ -211,7 +211,7 @@ Add this item to the Struts configuration file (usually named struts.xml or stru
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
+If you have interceptors defined in a default stack, the interceptor can be added to that stack.
 
 ## 5. Run your application
 Either run it in debug mode on your development machine, or publish to your server.
