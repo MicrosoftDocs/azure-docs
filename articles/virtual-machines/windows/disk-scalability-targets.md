@@ -2,9 +2,9 @@
 title: Scalability and performance targets for VM disks on Windows - Microsoft Azure | Microsoft Docs 
 description: Learn about scalability and performance targets for virtual machine disks attached to VMs running Windows.
 services: virtual-machines 
-author: roygara
+author: tamram
 manager: jeconnoc
-ms.author: rogarana
+ms.author: tamram
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: virtual-machines
