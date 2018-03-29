@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics | Microsoft Docs
+title: Azure Government Log Analytics | Microsoft Docs
 description: This article describes how Log Analytics is applicable to US Government agencies and solution providers
 services: azure-government
 cloud: gov
@@ -25,7 +25,7 @@ A crucial concern for our customers who are moving to the cloud is retaining ass
 Setting up this kind of environment can be challenging. Onboarding your fleet of servers to any monitoring service is a hard operation to scale, and it can also be challenging to update the monitoring service. Monitoring infrastructure on different cloud providers as well as across the cloud and on-premises is difficult. Finally, keeping your monitoring up-to-date and enabling Azure Application Insights to monitor, detect, alert, and counter cybersecurity threats require time, resources, and computing power.
 
 ## Azure Log Analytics
-Log Analytics, now available in Azure Government, is a set of Azure services that enables you to do all these things quickly and easily. This article focuses on using Log Analytics which uses hyperscale log search to quickly analyze your data and expose threats in your environment.
+Log Analytics, now available in Azure Government, uses hyperscale log search to quickly analyze your data and expose threats in your environment. This article focuses on using Log Analytics which uses hyperscale log search to quickly analyze your data and expose threats in your environment.
 
 Azure Log Analytics can:
 
@@ -58,7 +58,7 @@ Log Analytics also supports collecting logging information from other monitoring
 
 Information about setting up Log Analytics with your existing Operations Manager implementation on-premises can be found in [Connect Operations Manager to Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents).
 
-## Applying intelligence through Log Analytics solution packs
+## Applying intelligence through management solutions
 Now that you have various sources for logging data, you have to make sense of all this data.
 
 Log Analytics, at its core, is a log search service that lets you write powerful queries to quickly search across thousands or even millions of logs. However, discovering the issues that you need to write queries can be difficult.
