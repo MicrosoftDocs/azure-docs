@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -59,7 +59,13 @@ To improve the readability of the descriptions, this topic uses the following te
 
 ## Prerequisites
 
-Before you start enabling hybrid Azure AD joined devices in your organization, you need to make sure that you are running an up-to-date version of Azure AD connect.
+Before you start enabling hybrid Azure AD joined devices in your organization, you need to make sure that:
+
+- You are running an up-to-date version of Azure AD connect.
+
+- Azure AD connect has synchronized the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OU), then these OUs need to be configured for synchronization in Azure AD connect as well.
+
+  
 
 Azure AD Connect:
 

@@ -36,7 +36,12 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
-
+1. Navigate to the root azure-iot-sdk-java directory and build the project to download all needed packages.
+   
+   ```cmd/sh
+   cd azure-iot-sdk-java
+   mvn install -DskipTests=true
+   ```
 1. Navigate to the certificate generator project and build the project. 
 
     ```cmd/sh

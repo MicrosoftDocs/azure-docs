@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: maquaran
 
 ---
@@ -30,8 +30,6 @@ ms.author: maquaran
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 |   |   |
 |---|---|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
@@ -41,7 +39,7 @@ ms.author: maquaran
 
 ## Release notes
 
-### <a name="1.3.0"/>1.3.0
+### <a name="1.3.1"/>1.3.1
 * Stability improvements.
 * Support for manual checkpointing.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
@@ -74,7 +72,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.3.0](#1.3.0) |March 07, 2018 |--- |
+| [1.3.1](#1.3.1) |March 13, 2018 |--- |
 | [1.2.0](#1.2.0) |October 31, 2017 |--- |
 | [1.1.1](#1.1.1) |August 29, 2017 |--- |
 | [1.1.0](#1.1.0) |August 13, 2017 |--- |

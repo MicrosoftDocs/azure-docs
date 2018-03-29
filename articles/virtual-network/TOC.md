@@ -56,7 +56,10 @@
 #### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
 
-### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
+### Virtual network service endpoints
+#### [Azure portal](tutorial-restrict-network-access-to-resources.md)
+#### [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### Virtual machines
 #### [Virtual machine network throughput](virtual-machine-network-throughput.md)
@@ -176,8 +179,12 @@
 ### [VM to VM connectivity problems](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [Configure PTR for SMTP Banner Check](create-ptr-for-smtp-service.md)
 
+## Sample scripts
+### [Azure CLI](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
+
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (Classic)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)

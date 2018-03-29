@@ -139,10 +139,10 @@ First, make sure that you have Azure CLI version 2.0 or later installed. [Downlo
 
 Execute the following code:
 
-```PowerShell-interactive
-Az login
+ ```azurecli-interactive
+az login
 
-Aa account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
 
 $namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
 
@@ -162,7 +162,7 @@ Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
 Install-Module AzureRM.ServiceBus
 
 $NSID = (Get-AzureRmServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
-mespaceName "<YOUR NAMESPACE NAME>").Id 
+mespaceName "<YOUR NAMESPACE NAME>").Id
 
 New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```

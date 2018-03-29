@@ -8,6 +8,7 @@ ms.service: "sql-database"
 author: "douglaslMS"
 ms.author: "douglasl"
 manager: "craigg"
+ms.custom: data-sync
 ---
 # Troubleshoot issues with SQL Data Sync (Preview)
 

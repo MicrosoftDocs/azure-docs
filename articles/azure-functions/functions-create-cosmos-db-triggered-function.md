@@ -70,7 +70,7 @@ Next, you create a function in the new function app.
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Name of database | Unique ID for the Azure Cosmos DB database  |
-    | **API** | SQL (DocumentDB) | This topic uses the document database API.  |
+    | **API** | SQL | This topic uses the SQL API.  |
     | **Subscription** | Azure Subscription | The subscription under which this new Cosmos DB account is created.  |
     | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
     | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |

@@ -210,5 +210,6 @@ _Performance Counters_ in this context refers to [server-side performance counte
 
 ## Next steps
 * [Explore Users Flows](app-insights-usage-flows.md) to understand how users navigate through your app.
+* [Configure Snapshot Collection](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](app-insights-api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
 * [Availability tests](app-insights-monitor-web-app-availability.md) check your app constantly from around the world.
