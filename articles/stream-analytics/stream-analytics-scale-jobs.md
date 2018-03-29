@@ -5,8 +5,7 @@ keywords: data streaming, streaming data processing, tune analytics
 services: stream-analytics
 documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
 ms.service: stream-analytics

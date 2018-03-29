@@ -138,7 +138,7 @@ The following figure shows a load-balanced endpoint for web traffic that is shar
 
 ![public load balancer example](./media/load-balancer-overview/IC727496.png)
 
-**Figure 1: Load balancing web traffic using a public Load Balancer**
+*Figure : Load balancing web traffic using a public Load Balancer*
 
 When Internet clients send web page requests to the public IP address of a web app on TCP port 80, the Azure Load Balancer distributes the requests between the three virtual machines in the load-balanced set. For more information about load balancer algorithms, see the [load balancer overview page](load-balancer-overview.md#load-balancer-features).
 
@@ -157,7 +157,7 @@ Internal Load Balancer enables the following types of load balancing:
 
 ![internal load balancer example](./media/load-balancer-overview/IC744147.png)
 
-**Figure 2 - Load balancing multi-tier applications using both public and internal load balancers**
+*Figure - Load balancing multi-tier applications using both public and internal load balancers*
 
 ## Pricing
 Standard Load Balancer is a charged product based on number of load balancing rules configured and all inbound and outbound data processed. For Standard Load Balancer pricing information, visit the [Load Balancer Pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.

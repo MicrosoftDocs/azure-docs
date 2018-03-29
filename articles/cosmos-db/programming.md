@@ -51,7 +51,7 @@ This approach of *“JavaScript as a modern day T-SQL”* frees application deve
   * It adds an abstraction layer on top of the raw data, which enables data architects to evolve their applications independently from the data. This layer of abstraction is advantageous when the data is schema-less, due to the brittle assumptions that may need to be baked into the application if they have to deal with data directly.  
   * This abstraction lets enterprises keep their data secure by streamlining the access from the scripts.  
 
-The creation and execution of database triggers, stored procedures, and custom query operators is supported through the [Azure portal](https://portal.azure.com), the [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](sql-api-sdk-dotnet.md) in many platforms including .NET, Node.js, and JavaScript.
+The creation and execution of database triggers, stored procedures, and custom query operators is supported through the [Azure portal](https://portal.azure.com), the [REST API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](sql-api-sdk-dotnet.md) in many platforms including .NET, Node.js, and JavaScript.
 
 This tutorial uses the [Node.js SDK with Q Promises](http://azure.github.io/azure-documentdb-node-q/) to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
 
