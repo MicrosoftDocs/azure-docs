@@ -334,7 +334,7 @@ Before starting the publishing process, it's helpful to understand the component
 |You'll Need this Publishing Artifact  |For this Offer Type  |
 |---------|---------|
 |**Offer Name (200 char) and Description (2000 char)**    |  All        |
-|**MPN ID and Competencies**   |  Consulting Services       |
+|**Microsoft Partner Network (MPN) ID**   |  All       |
 |**Country/Region availability**   | All        |
 |**Duration of engagement**     |   Consulting Services      |
 |**Applicable Industries, Categories, and search keywords**     |  All       |
@@ -363,6 +363,7 @@ Before starting the publishing process, it's helpful to understand the component
 |**Terms of Use and Privacy Policy URL**     |    All     |
 
 ### Test Drive
+
 
 
 |You'll Need this Publishing Artifact  |For this Offer Type  |
@@ -408,6 +409,7 @@ In this section, we explain the steps: to become a publisher in the Azure Market
 
 |Marketplace Registration Steps  |Time  |Description  |
 |---------|---------|---------|
+| Register in Microoft Partner Network | 15 min | Publishers need to be registered in Microsoft Partner Network (MPN) in order to have first level of account validation and receive additional benefits and support for being an Azure Marketplace Publisher |
 |Create a Microsoft ID     |   15 min      |   Partners need to have a Microsoft ID that is used to identify the Partner. This Microsoft ID will be used to access Cloud Partner Portal.       |
 |Marketplace Nomination Form     |  1-3 Days       |  Partners need to submit the Nomination Form to start the approval process for the Marketplace. Once the form is submitted the Marketplace Onboarding team will review the application and validate the request.       |
 |Register in Developer Center     |    5-10 Days     | Registration with the Microsoft Developer Center is required for Microsoft to validate that the Partner is a valid legal entity with a valid TAX ID for the country in which it is registered. Developer Center will enable the Partner to be a registered Microsoft Developer and provide them with access to the Azure developer program. <br><br>*Note: If you have not completed the Marketplace Nomination Form, you will be asked to pay a $99 registration fee. To have this fee waived, complete the Marketplace Nomination Form and you will receive a promotional code via email.*  |
@@ -419,6 +421,9 @@ Through the entire Marketplace publishing process, you will use an email address
 
 The email address selected should preferably be in your corporate domain and controlled by your IT team. Please review the sections in [Guidelines and How Tos](#Guidelines-and-How-Tos) including Guidelines for creating a Microsoft ID to Manage Marketplace Account and Guidance for Microsoft IDs in AAD Federated Domains for guidelines prior creating an ID. 
 
+#### Register in Microsoft Partner Network 
+Becoming an Azure Marketplace or AppSource Publisher your company will be partnering with Microsoft. By participating in Microsoft Partner Network (MPN) you will be getting access to set of core benefits to help your company develop the technical solutions   and grow your business (ex: includes technical support). By participating in the Marketplace as a publisher will accrue to your benefits in the Microsoft Partner Network. To register in MPN, please visit [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/). You should validate if your company is already registered in MPN. Once registered, we will ask for your MPN id to validate your account to validate your publisher profile in [Cloud Partner Portal](https://cloudpartner.azure.com/). 
+
 #### Submit the Marketplace Nomination Form
 As part of the Marketplace onboarding process, you will need to submit a nomination form, submitting information about your application or service offer, your company's information, and the level of support that you will be providing.  
 Once the form is submitted the Marketplace team will review the application and validate the request. Once the request is reviewed, you will be notified via email with the next steps that need to be completed to become an approved Partner in the Cloud Partner Portal. Please submit your nomination in:
@@ -428,7 +433,7 @@ AppSource Nomination: http://aka.ms/listonappsource
 
 #### Register in the Developer Center
 
-The [Microsoft Developer Center](https://developer.microsoft.com/) is used to register your company's information. The registrant must be a valid representative of the company and must provide their personal information to validate their identity. The person registering must use a Microsoft ID that is shared for the company, and the same account must be used in the [Cloud Partner Portal](https://cloudpartner.azure.com/). 
+The [Microsoft Developer Center](https://developer.microsoft.com/) is required for publishing applications that will have transact capabilities such as Virtual Machines, Solution Templates and Azure Managed Apps. This requirement will allow Microsoft to  validate your company information company's legal, tax and banking entities. The registrant must be a valid representative of the company and must provide their personal information to validate their identity. The person registering must use a Microsoft ID that is shared for the company, and the same account must be used in the [Cloud Partner Portal](https://cloudpartner.azure.com/). 
 
 >[!IMPORTANT]
 >You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one.
@@ -446,9 +451,10 @@ Refer to the Appendix: Instructions on how to register in the Developer Center f
 
 #### Log in to the Cloud Partner Portal
 
-Once you have received the approval from the Marketplace Team that the Nomination has been approved and you have registered in the [Microsoft Developer Center](https://dev.windows.com), an account will be created for you to access the [Cloud Partner Portal](https://cloudpartner.azure.com). First-time sign-in credentials will be included in the Nomination approval email. 
+Once you have received the approval from the Marketplace Team that the Nomination has been approved and you have registered in the
+[Microsoft Partner Network] ((https://partner.microsoft.com/en-us/membership/) and in [Microsoft Developer Center](https://dev.windows.com) (if required), an account will be created for you to access the [Cloud Partner Portal](https://cloudpartner.azure.com). First-time sign-in credentials will be included in the Nomination approval email. 
 
-Use your Marketplace account (Microsoft ID) to access your publisher profile. Once in the Cloud Partner Portal, the last step is to associate the Developer Center account with the respective Marketplace Publisher Profile to publish. This can be done in the Cloud Partner Portal in your Publisher Profile via the button at the bottom of the screen.
+Use your Marketplace account (Microsoft ID) to access your publisher profile. Once in the Cloud Partner Portal, the last step is to associate the Microsoft Partner Network and Developer Center account (if required) with the respective Marketplace Publisher Profile to publish. This can be done in the Cloud Partner Portal in your Publisher Profile via the button at the bottom of the screen.
 
 For detailed information on how to use the Cloud Partner Portal, please refer to the [Learn](https://cloudpartner.azure.com/#Learn) menu within the portal and click in the Documentation section. 
 
