@@ -65,7 +65,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 1. In the **API & Services** page, switch to the **Credentials** tab. Select **Create credentials**, and then select **API key**. 
 
     ![Create API key button](media/notification-hubs-chrome-get-started/create-api-key-button.png)
-1. On the **API key created** dialog box, select the copy button to copy the key to the clipboard. Save it somewhere. You use this value to coinfgure the notification hub in the next section to enable it to send push notifications to GCM.
+1. On the **API key created** dialog box, select the copy button to copy the key to the clipboard. Save it somewhere. You use this value to configure the notification hub in the next section to enable it to send push notifications to GCM.
 
     ![API page](media/notification-hubs-chrome-get-started/api-created-page.png)
 12. Select your API key in the **API keys** list. In the API key page, select **IP addresses (web servers, cron jobs, etc.)**, and enter **0.0.0.0/0** for the IP address, and click Save. 
@@ -361,10 +361,10 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
    * **registerWithNH** is the second button-click handler, which registers with Notification Hubs. It gets `hubName` and `connectionString` (which the user has specified) and crafts the Notification Hubs Registration REST API call.
    * **splitConnectionString** and **generateSaSToken** are helpers that represent the JavaScript implementation of a SaS token creation process, that must be used in all REST API calls. For more information, see [Common Concepts](http://msdn.microsoft.com/library/dn495627.aspx).
    * **sendNHRegistrationRequest** is the function that makes an HTTP REST call to Azure Notification Hubs.
-   * **registrationPayload** defines the registration XML payload. For more information, see [Create Registration NH REST API]. You need to update the registration ID in it with the value received from GCM.
+   * **registrationPayload** defines the registration XML payload. For more information, see [Create Registration NH REST API]. Update the registration ID in it with the value received from GCM.
    * **client** is an instance of **XMLHttpRequest** that the application uses to make the HTTP POST request. Update the `Authorization` header with `sasToken`. Successful completion of this call registers this Chrome App instance with Azure Notification Hubs.
 
-The overall folder structure for this project should resemble this:
+The overall folder structure for this project should be like the following structure:
        ![Google Chrome App - Folder Structure][21]
 
 ### Set up and test your Chrome App
@@ -398,7 +398,7 @@ For testing purposes, send Chrome push notifications by using a .NET console app
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-    This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
+   A reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package is automatically added to the project.</a>.
 4. Open `Program.cs` and add the following `using` statement:
    
         using Microsoft.Azure.NotificationHubs;
@@ -411,7 +411,7 @@ For testing purposes, send Chrome push notifications by using a .NET console app
             await hub.SendGcmNativeNotificationAsync(message);
         }
    
-    Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the [portal](https://portal.azure.com) in your Notification Hub blade. Also, replace the connection string placeholder with the connection string called `DefaultFullSharedAccessSignature` that you obtained in the notification hub configuration section.
+    Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the [portal](https://portal.azure.com) in your Notification Hub page. Also, replace the connection string placeholder with the connection string called `DefaultFullSharedAccessSignature` that you obtained in the notification hub configuration section.
    
     > [!NOTE]
     > Make sure that you use the connection string with **Full** access, not **Listen** access. The **Listen** access connection string does not grant permissions to send push notifications.
