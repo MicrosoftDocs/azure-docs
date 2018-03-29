@@ -17,7 +17,7 @@ ms.author: jlian
 
 # Programmatically create Azure Enterprise subscriptions (preview)
 
-As an [Azure Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) customer and Account Owner, you can create EA (MS-AZR-0017P) and EA Dev/Test (MS-AZR-0148P) subscriptions programmatically. To give another user or service principal the permission to create subscriptions billed to your account, give them [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) access to your enrollment account. The subscriptions created via this API are governed by your enterprise agreement. 
+As an [Azure Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) customer and Account Owner, you can create EA (MS-AZR-0017P) and EA Dev/Test (MS-AZR-0148P) subscriptions programmatically. To give another user or service principal the permission to create subscriptions billed to your account, give them [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) access to your enrollment account. The subscriptions created with this API are governed by your enterprise agreement. 
 
 In this article you will:
 
@@ -25,12 +25,16 @@ In this article you will:
 > * Learn how to create subscriptions programmatically using Azure Resource Manager (ARM)
 > * Understand how to share the ability to create subscriptions billed to your EA account
 
+## Ask your EA Enrollment Admin to add you as Account Owner
+
+To begin, ask your Enrollment Admin to [add you as an Account Owner in using the EA portal](https://ea.azure.com/helpdocs/addNewAccount) (log-in required). 
+
 ## Find accounts you have access to
 
 After you're added to an Azure EA enrollment as an Account Owner, Azure uses the account-to-enrollment relationship to determine where to bill the subscription charges. To create subscriptions, first find out what enrollment accounts you have access to. If you're currently an EA Account Owner and you try to use this API, Azure checks for the following conditions:
 
-1. Your account has been added to an EA enrollment
-1. You have one or more EA or EA Dev/Test subscriptions, meaning that you've gone through manual sign-up at least once
+- Your account has been added to an EA enrollment
+- You have one or more EA or EA Dev/Test subscriptions, meaning that you've gone through manual sign-up at least once
 
 If the above two conditions are met, an `enrollmentAccount` resource is returned and you can start creating subscriptions under that account. All subscriptions created under the account are billed towards the EA enrollment that the account is in.
 
@@ -49,14 +53,18 @@ GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 ```
 # [PowerShell](#tab/azure-powershell)
 
+Use the [Get-EnrollmentAccount command]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) to list all enrollment accounts you have access to.
+
 ```azurepowershell-interactive
-Get-EnrollmentAccounts
+Get-EnrollmentAccount
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
+Use the [az billing enrollment-accounts list]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) command to list all enrollment accounts you have access to.
+
 ```azurecli-interactive 
-az bill list enrollment-accounts
+az billing enrollment-accounts list
 ```
 
 ---
@@ -86,15 +94,15 @@ Azure responds with a list of all enrollment accounts you have access to:
 }
 ```
 
-Use the `principalName` property to identify the account that you want subscriptions to be billed to. Once you've decided, note down the `id` as that's the scope under which you can create subscriptions.
+Use the `principalName` property to identify the account that you want subscriptions to be billed to. Use the `id` as the `enrollmentAccount` value that you use to create the subscription in the next step.
 
 ## Create subscriptions under a specific enrollment account 
-
-Use the `id` of the `enrollmentAccount` you've determined from above to make a request to create subscriptions.
 
 The following example creates a request to create subscription named *My New EA Subscription From API* and subscription offer is *MS-AZR-0148P* (EA Dev/Test). The enrollment account is `e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556`, which is the enrollment account for MobileOnboardingEng@contoso.com. It also adds two users as RBAC Owners for the subscription.
 
 # [REST](#tab/rest)
+
+Use the `id` of the `enrollmentAccount` in the path of the request to create subscription.
 
 ```json
 POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556/providers/Microsoft.Subscription/createSubscription
@@ -190,6 +198,6 @@ Now that you've added a user as a Contributor for your enrollment account, they 
 
 ## Limitations of Azure Enterprise subscription creation API
 
-1. There's a limit of 50 subscriptions per account. After that, subscriptions can only be created via UI.
-1. There needs to be one or more EA or EA Dev/Test subscriptions under the account. The Account Owner has gone through manual sign-up at least once.
-1. Users who aren't Account Owners, but were added to an enrollment account, cannot create subscriptions via the UI.
+- There's a limit of 50 subscriptions per account. After that, subscriptions can only be created by using Account Center.
+- There needs to be one or more EA or EA Dev/Test subscriptions under the account which means the Account Owner has gone through manual sign-up at least once.
+- Users who aren't Account Owners, but were added to an enrollment account, cannot create subscriptions using Account Center.
