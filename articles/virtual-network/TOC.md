@@ -56,7 +56,10 @@
 #### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
 
-### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
+### Virtual network service endpoints
+#### [Azure portal](tutorial-restrict-network-access-to-resources.md)
+#### [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### Virtual machines
 #### [Virtual machine network throughput](virtual-machine-network-throughput.md)

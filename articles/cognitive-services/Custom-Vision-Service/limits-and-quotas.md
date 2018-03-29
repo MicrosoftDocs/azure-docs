@@ -21,7 +21,7 @@ Limited Trial project resources are attached to your Custom Vision login (ie an 
 ||**Limited Trial**|**F0 (Azure)**|**S0 (Azure)**|
 |-----|-----|-----|-----|
 |Projects|2|2|100|
-|Training images per project|5,000|5,000|25k|
+|Training images per project|5,000|5,000|25,000|
 |Predictions/ month|10,000 |10,000|Unlimited|
 |Tags/ project|50|50|100|
 |Iterations |10|10|10|
@@ -29,6 +29,6 @@ Limited Trial project resources are attached to your Custom Vision login (ie an 
 |[Prediction](https://go.microsoft.com/fwlink/?linkid=865445) operations with storage (Transactions Per Second)|2|2|10|
 |[Prediction](https://go.microsoft.com/fwlink/?linkid=865445) operations without storage (Transactions Per Second)|2|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (API calls Per Second)|2|2|10|
-|[Other API calls](https://go.microsoft.com/fwlink/?linkid=865446) (Transactions Per Second)|2|2|10|
+|[Other API calls](https://go.microsoft.com/fwlink/?linkid=865446) (Transactions Per Second)|10|10|10|
 
 Limitations on *# training images per project* and *# Tags/project* are expected to be increased over time for S0 projects. 

@@ -306,7 +306,7 @@ You successfully configured the "Vehicles Requiring Maintenance" real-time repor
 
     ![Details, Legend, Axis, and Size areas](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. Change the chart **Title** to **Average of fuel, Average of engineTemperature, and Count of vin by Model and Model**.
+25. Change the chart **Title** to **Average of fuel, Average of engineTemperature, and Count of vin by Model**.
 
     ![Scatter Chart title](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 
