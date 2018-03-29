@@ -4,7 +4,7 @@ description: Use stream analytics and machine learning to detect anomalies.
 services: stream-analytics
 documentationcenter: ''
 author: dubansal
-manager: jhubbard
+manager: katicad
 
 ms.service: stream-analytics
 ms.devlang: na
