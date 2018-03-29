@@ -1,5 +1,5 @@
 ---
-title: Managed Service Identity (MSI) for Azure Active Directory
+title: What is Managed Service Identity (MSI) for Azure Active Directory
 description: An overview of Managed Service Identity for Azure resources.
 services: active-directory
 documentationcenter: 
