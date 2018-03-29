@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -29,8 +29,6 @@ Learn how to use Azure Functions to create a [serverless](https://azure.microsof
 To complete this tutorial:
 
 + If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## Create an Azure Function app
 
