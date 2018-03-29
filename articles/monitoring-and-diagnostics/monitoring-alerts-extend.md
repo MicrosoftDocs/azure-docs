@@ -29,11 +29,11 @@ Apart from the benefit accrued in not having to navigate out of Azure portal, th
 - Azure Alerts utilize [Action Groups](monitoring-action-groups.md), which allow you to have more than one action for each alert including SMS, Voice Call, Automation Runbook, Webhook, ITSM Connector and more. Whereas OMS alerts are limited in both the number as well as type of actions possible
 
 ## Process of extending your alerts
-The process of extending alerts from OMS into Azure, does **not** involve changing your alert definition, query, or configuration in any way. The only change required is that in Azure, all actions such as email notification, webhook call, running automation runbook or connecting to ITSM tool are done via Action Group. Hence if appropriate action group are associated with your alert - they will become extended into Azure.
+The process of extending alerts from OMS into Azure, does **not** involve changing your alert definition, query, or configuration in any way. The only change required is that in Azure, all actions such as email notifications, webhook calls, running automation runbooks or connecting to ITSM tools are done via Action Groups. Hence if the appropriate Action Group is associated with your alert - they will become extended into Azure.
 
-Since the process of extending is nondestructive and not interruptive, Microsoft will extend alerts created in Operations Management Suite (OMS) to Azure alerts automatically - starting from **23 April 2018**. From this day, Microsoft will begin to schedule extending the alerts into Azure and gradually make all alerts present in OMS, manageable from Azure portal. 
+Since the process of extending is non-destructive and not interruptive, Microsoft will extend alerts created in Operations Management Suite (OMS) to Azure Alerts automatically - starting from **April 23, 2018**. From this day, Microsoft will begin to schedule extending the alerts into Azure and gradually make all alerts present in OMS manageable from the Azure portal. 
 
-When alerts in an OMS workspace get scheduled for extending into Azure, they will continue to work and will **not** in any way compromise your monitoring. When scheduled, your alerts may be unavailable for modification/editing temporarily; but new Azure alerts can continue to be created in this brief time. In this brief period, if any edit or creation of alert is done from OMS, users will have the option to continue into Azure Log Analytics or Azure Alerts.
+When alerts in an OMS workspace are scheduled for extending into Azure, they will continue to work and will **not** in any way compromise your monitoring. When scheduled, your alerts may be unavailable for modification/editing temporarily; but new Azure alerts can continue to be created in this brief time. In this brief period, if any edit or creation of alert is done from OMS, users will have the option to continue into Azure Log Analytics or Azure Alerts.
 
  ![During scheduled period, user action on alerts redirected to Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
@@ -43,19 +43,18 @@ When alerts in an OMS workspace get scheduled for extending into Azure, they wil
 Users can enjoy the benefits of extending alerts before this date; by voluntarily opting to make their alerts manageable in Azure.
 
 ### How to voluntarily extending your alerts
-To enable OMS users an easy pass into Azure alerts, Microsoft has created tools to enable extending the alerts. Microsoft Operations Management Suite (OMS) customers can extend their alerts to Azure either from a wizard in OMS portal (or) by a programmatic approach using a new API. For more information, see [Extending alerts into Azure using OMS portal and API](monitoring-alerts-extend-tool.md).
+To enable OMS users an easy progression into Azure alerts, Microsoft has created tools to enable extending the alerts. Microsoft Operations Management Suite (OMS) customers can extend their alerts to Azure either from a wizard in the OMS portal (or) by a programmatic approach using a new API. For more information, see [Extending alerts into Azure using OMS portal and API](monitoring-alerts-extend-tool.md).
 
 
 ## Usage after extending your alerts
-As stated, alerts created in Microsoft Operation Management Suite will be extended into Azure Alerts; after, which you can manage them from Azure. Alerts will continue to be listed in the OMS portal - Alert setting section. 
-As illustrated below:
+As stated, alerts created in Microsoft Operation Management Suite (OMS) will be extended into Azure Alerts; after which, you can manage them from Azure. Alerts will continue to be listed in the OMS portal via the Alerts setting section, as illustrated below:
 
  ![OMS Portal listing alerts after being extended into Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
-For any operation on alerts like edit or creation done in OMS portal, users will be transparently directed to Azure Alerts. Alert creation will continue from the existing [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) as earlier, with only minor change being that after alerts are extended into Azure - action groups would need to be associated in schedule.
+For any operation on alerts like edit or creation done in OMS portal, users will be transparently directed to Azure Alerts. Alert creation will continue from the existing [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) as earlier, with only minor changes, namely, that after alerts are extended into Azure - Action Groups will need to be associated to the Alert.
 
 ## Next steps
 
-* Learn of the tools to [initiate extending alerts from OMS into Azure](monitoring-alerts-extend-tool.md)
-* Learn more about the new [Azure alerts experience](monitoring-overview-unified-alerts.md).
-* Learn about [log alerts in Azure Alerts](monitor-alerts-unified-log.md).
+* Learn about the tools to [initiate extending alerts from OMS into Azure](monitoring-alerts-extend-tool.md)
+* Learn more about the new [Azure alerts experience](monitoring-overview-unified-alerts.md)
+* Learn about [log alerts in Azure Alerts](monitor-alerts-unified-log.md)
