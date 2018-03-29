@@ -26,7 +26,7 @@ This quickstart shows how to deploy Linux containers to a Service Fabric cluster
 
 ![quickstartpic][quickstartpic]
 
-In this quickstart you use a Bash instance of Azure Cloud Shell as your Linux environment. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+In this quickstart, you use a Bash instance of Azure Cloud Shell as your Linux environment. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -44,7 +44,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 ## Create a Service Fabric cluster
 To deploy the application to Azure, you need a Service Fabric cluster to run the application. 
 
-Party clusters offer an easy way to quickly create a Service Fabric cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. The cluster uses a single self-signed certificate for node-to-node as well as client-to-node security.
+Party clusters offer an easy way to quickly create a Service Fabric cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team. You can use party clusters to deploy applications and learn about the platform. The cluster uses a single self-signed certificate for node-to-node as well as client-to-node security.
 
 Sign in and join a [Linux cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. Click the **ReadMe** link to find the certificate password and instructions about how to configure various environments to use the certificate. Keep both the **Welcome** page and the **ReadMe** page open, you will use some of the instructions in the following steps. 
 
@@ -61,15 +61,15 @@ Service Fabric exposes several tools that you can use to perform management oper
 - Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI 2.0.
 - PowerShell commands. 
 
-In this quickstart you use the CLI (from Cloud Shell) and Service Fabric Explorer. The following sections show you how to install the certificate to connect to your secure cluster with these tools.
+In this quickstart, you use the CLI (from Cloud Shell) and Service Fabric Explorer. The following sections show you how to install the certificate to connect to your secure cluster with these tools.
 
 ### Configure certificate for the Service Fabric CLI
-To use the CLI you need to upload the certificate PFX file to the cloud drive associated with your Cloud Shell session and convert it to a PEM format.
+To use the CLI, you need to upload the certificate PFX file to the cloud drive associated with your Cloud Shell session and then use it to create a PEM file.
 
 1. Upload the certificate to your cloud drive.
-    1. To determine the Azure File Share that is mounted as your cloud drive, enter the `df` command at the Cloud Shell prompt. In the command output find the file system that is mounted on your cloud drive. Note the name of the Azure storage account and the name of the file share.
+    1. To determine the Azure File Share that is mounted as your cloud drive, enter the `df` command at the Cloud Shell prompt. In the command output, find the file system that is mounted on your cloud drive. Note the name of the Azure storage account and the name of the file share.
 
-        ![df commmand output](./media/service-fabric-quickstart-containers-linux/df-command-output.png) 
+        ![df command output](./media/service-fabric-quickstart-containers-linux/df-command-output.png) 
        
     1.  From **All resources** in the Azure portal, search for the storage account name, then click the storage account. Under **Services**, click **Files** to open the **File service** view. From the list of file shares, click the share mounted as your cloud drive.
     2.  Click **Upload** and follow the prompts to browse and upload the certificate to your cloud drive.
@@ -83,18 +83,11 @@ To use the CLI you need to upload the certificate PFX file to the cloud drive as
         cd ~/clouddrive
         ``` 
 
-    7. To convert the file use the following command. (For party clusters, you can copy the command specific to your PFX file from the instructions on the **ReadMe** page.)
+    7. To convert the file, use the following command. (For party clusters, you can copy a command specific to your PFX file from the instructions on the **ReadMe** page.)
 
         ```bash
         openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
         ``` 
-
-6. To connect to your secure cluster with the CLI, use the following command. The endpoint is the management endpoint for your cluster. (For party clusters, the endpoint is available on the Welcome page and you can copy a command specific to your PEM file from the instructions on the **ReadMe** page.)
-
-    ```bash
-    sfctl cluster select --endpoint https://lnx243cm44yjoi.westus.cloudapp.azure.com:19080 --pem ./party-cluster-1486790479-client-cert.pem --no-verify
-    ``` 
- 
 
 ### Configure certificate for Service Fabric Explorer
 To use Service Fabric Explorer, you need to import the certificate PFX file you downloaded from the Party Cluster website into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). You need the PFX private key password, which you can get from the **ReadMe** page. For example:
@@ -105,9 +98,8 @@ To use Service Fabric Explorer, you need to import the certificate PFX file you 
  
    ![Install certificate on Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png) 
 
-
 ## Deploy the Service Fabric application 
-1. In Cloud Shell, connect to the Service Fabric cluster in Azure using the CLI. The endpoint is the management endpoint for your cluster. You created the PEM file in the previous section. (For party clusters, the endpoint is available on the **Welcome** page and you can copy a command specific to your PEM file and endpoint from the instructions on the **ReadMe** page.)
+1. In Cloud Shell, connect to the Service Fabric cluster in Azure using the CLI. The endpoint is the management endpoint for your cluster. You created the PEM file in the previous section. (For party clusters, the endpoint is available on the **Welcome** page, and you can copy a command specific to your PEM file and endpoint from the instructions on the **ReadMe** page.)
 
     ```bash
     sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
@@ -121,7 +113,7 @@ To use Service Fabric Explorer, you need to import the certificate PFX file you 
 
 2. Open a web browser and navigate to the management endpoint for your cluster in Service Fabric Explorer at https://\<my-azure-service-fabric-cluster-url>:19080/Explorer; for example, `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. </br>(For party clusters, you can find the Service Fabric Explorer endpoint for your cluster on the **Welcome** page.) 
 
-3. Expand the Applications node to see that there is now an entry for the Voting application type and the instance you created.
+3. Expand the **Applications** node to see that there is now an entry for the Voting application type and the instance you created.
 
     ![Service Fabric Explorer][sfx]
 
@@ -137,12 +129,12 @@ To use Service Fabric Explorer, you need to import the certificate PFX file you 
 > ```
 
 ## Fail over a container in a cluster
-Service Fabric makes sure your container instances automatically move to other nodes in the cluster should a failure occur. You can also manually drain a node for containers and move then gracefully to other nodes in the cluster. There are multiple ways of scaling your services, in this example, we are using Service Fabric Explorer.
+Service Fabric makes sure your container instances automatically move to other nodes in the cluster should a failure occur. You can also manually drain a node for containers and move then gracefully to other nodes in the cluster. There are multiple ways of scaling your services, in this example, you use Service Fabric Explorer.
 
 To fail over the front-end container, do the following steps:
 
 1. In a web browser, open Service Fabric Explorer in your cluster; for example, `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
-2. Click on the **fabric:/Voting/azurevotefront** node in the tree view and expand the partition node (represented by a GUID). Notice the node name in the treeview, which shows you the nodes that the container is currently running on; for example `_nodetype_4`
+2. Click on the **fabric:/Voting/azurevotefront** node in the tree view and expand the partition node (represented by a GUID). Notice the node name in the treeview, which shows you the nodes that the container is currently running on; for example, `_nodetype_4`.
 3. Expand the **Nodes** node in the tree view. Click on the ellipsis (...) next to the node that is running the container.
 4. Choose **Restart** to restart that node and confirm the restart action. The restart causes the container to fail over to another node in the cluster.
 
@@ -167,10 +159,10 @@ To scale the web front-end service, do the following steps:
 
     You can now see that the service has two instances. In the tree view, you can see which nodes the instances run on.
 
-Through this simple management task, we have doubled the resources available for the front-end service to process user load. It's important to understand that you do not need multiple instances of a service to have it run reliably. If a service fails, Service Fabric makes sure a new service instance runs in the cluster.
+Through this simple management task, you have doubled the resources available for the front-end service to process user load. It's important to understand that you do not need multiple instances of a service to have it run reliably. If a service fails, Service Fabric makes sure a new service instance runs in the cluster.
 
 ## Clean up resources
-1. Use the uninstall.sh script provided in the template to delete the application instance from the cluster and unregister the application type. This command takes some time to clean up the instance and the install.sh script should not be run immediately after this script. 
+1. Use the uninstall script (uninstall.sh) provided in the template to delete the application instance from the cluster and unregister the application type. This script takes some time to clean up the instance, so you should not run the install script immediately after this script. You can use Service Fabric Explorer to determine when the instance has been removed and the application type unregistered. 
 
     ```bash
     ./uninstall.sh
