@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2018
+ms.date: 03/29/2018
 ms.author: alkohli;
 
 ---
-# Contact Microsoft Support
+# Open a Support ticket for an Import/Export job
 
 If you encounter any issues with your Import/Export service, you can create a service request for technical support. This article walks you through:
 
@@ -27,8 +27,6 @@ If you encounter any issues with your Import/Export service, you can create a se
 ## Create a support request
 
 Perform the following steps to create a support request:
-
-#### To create a support request
 
 1. Go to your import/export job. Navigate to **SUPPORT + TROUBLESHOOTING** section and then click **New support request**.
      
@@ -66,7 +64,7 @@ Perform the following steps to create a support request:
     2. In the Contact information, provide your name, email, optional contact, country. Select the **Save contact changes for future support requests** checkbox.
     3. Click **Create**.
    
-        ![Contact MS Support via new portal](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+        ![Contact information](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
     Microsoft Support will use this information to reach out to you for further information, diagnosis, and resolution.
 After you have submitted your request, a Support engineer will contact you as soon as possible to proceed with your request.
@@ -92,4 +90,4 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 ## Next steps
 
-Learn how to [diagnose and solve problems related to Azure Import/Export service](storsimple-8000-troubleshoot-deployment.md).
+Learn how to [Troubleshoot issues related to Import/Export service](storage-import-export-tool-troubleshooting-v1.md).
