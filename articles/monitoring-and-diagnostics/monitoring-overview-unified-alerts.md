@@ -59,12 +59,12 @@ The goal of the Alerts experience is to be the single place to view and manage a
 > [!NOTE]
 > Fired Alerts shown in Alerts are limited to supported metric and activity log alerts; Azure Monitor Overview shows count of fired alerts including those in older Azure Alerts
 
- ![alerts-overview](./media/monitoring-overview-unified/alerts-preview-overview.png) 
+ ![alerts-overview](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
 
 ### Alert rules management
 **Monitor - Alerts>Rules** is a single page to manage all alert rules across your Azure subscriptions. It lists all the alert rules (enabled or disabled) and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be disabled/enabled or edited from this page.  
 
- ![alerts-rules](./media/monitoring-overview-unified/alerts-preview-rules.png)
+ ![alerts-rules](./media/monitoring-overview-unified-alerts/alerts-preview-rules.png)
 
 
 ## One alert authoring experience across all monitoring sources
