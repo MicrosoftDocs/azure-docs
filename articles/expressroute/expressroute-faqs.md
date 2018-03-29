@@ -211,7 +211,7 @@ Yes. You will have to create an ExpressRoute gateway within your virtual network
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 
-The public IP address is used for internal management only. This public IP address is not exposed to the Internet, and does not constitute a security exposure of your virtual network.
+The public IP address is used for internal management only, and does not constitute a security exposure of your virtual network.
 
 ### What do I need to connect to Azure storage over ExpressRoute?
 
