@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/16/2018
+ms.date: 03/29/2018
 ms.author: mimig
 ms.custom: mvc
 
@@ -28,6 +28,10 @@ This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Querying data with MongoDB
+
+You can learn more about querying with MongoDB by watching the following video with Azure Cosmos DB Program Manager Andy Hoh:
+
+>[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## Sample document
 

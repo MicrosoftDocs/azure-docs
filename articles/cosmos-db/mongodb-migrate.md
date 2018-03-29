@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 03/29/2018
 ms.author: anhoh
 ms.custom: mvc
 ---
@@ -34,6 +34,11 @@ This tutorial covers the following tasks:
 > * Retrieving your connection string
 > * Importing MongoDB data by using mongoimport
 > * Importing MongoDB data by using mongorestore
+
+You can learn more about the MongoDB shell, mongoimport, mongodump, mongorestore, and Robomongo by watching this video with Azure Cosmos DB Program Manager Andy Hoh:
+
+> [!VIDEO https: https://www.youtube.com/embed/_dhqsdx4oBQ]
+>
 
 ## Prerequisites
 

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: mimig
 
 ---
@@ -43,7 +43,7 @@ Azure Cosmos DB delivers fast, predictable performance by *reserving* resources 
 
 With Azure Cosmos DB, reserved throughput is specified in terms of request units processing per second. You can think of request units as throughput currency, whereby you *reserve* an amount of guaranteed request units available to your application on per second basis.  Each operation in Azure Cosmos DB - writing a document, performing a query, updating a document - consumes CPU, memory, and IOPS.  That is, each operation incurs a *request charge*, which is expressed in *request units*.  Understanding the factors that impact request unit charges, along with your application's throughput requirements, enables you to run your application as cost effectively as possible. The Data Explorer in the Azure portal is also a wonderful tool to test the core of a query.
 
-We recommend getting started by watching the following video, where Aravind Ramachandran explains request units and predictable performance with Azure Cosmos DB.
+We recommend getting started by watching the following video, where Azure Cosmos DB Program Manager Andrew Liu discusses request units.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
 > 
