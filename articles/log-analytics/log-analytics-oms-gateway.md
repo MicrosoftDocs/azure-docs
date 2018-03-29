@@ -163,12 +163,12 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 ## Configure the OMS agent and the Operations Manager management group
 The following sections in this article include steps on how to configure directly connected OMS agents, an Operations Manager management group, or Azure Automation Hybrid Runbook workers with the OMS Gateway to communicate with Azure Automation or Log Analytics.  
 
-To understand requirements and steps for installing the OMS agent on Windows computers that directly connect to Log Analytics, see [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md).
+To understand requirements and steps for installing the OMS agent on Windows computers that directly connect to Log Analytics, see [Connect Windows computers to Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
 
  For Linux computers, see [Connect Linux computers to Log Analytics](log-analytics-quick-collect-linux-computer.md). For information related to the Automation Hybrid Runbook Worker, see [Deploy Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
 
 ### Configure the standalone OMS agent
-For information about configuring an agent to use a proxy server (which in this case is the gateway), see [Configure proxy and firewall settings with the Microsoft Monitoring Agent](log-analytics-proxy-firewall.md). If you have deployed multiple gateway servers behind a network load balancer, the OMS agent proxy configuration is the virtual IP address of the NLB:
+For information about configuring an agent to use a proxy server (which in this case is the gateway), see [Configure proxy and firewall settings with the Microsoft Monitoring Agent](log-analytics-concept-hybrid.md#prerequisites). If you have deployed multiple gateway servers behind a network load balancer, the OMS agent proxy configuration is the virtual IP address of the NLB:
 
 ![Microsoft Monitoring Agent Properties – proxy settings](./media/log-analytics-oms-gateway/nlb04.png)
 
