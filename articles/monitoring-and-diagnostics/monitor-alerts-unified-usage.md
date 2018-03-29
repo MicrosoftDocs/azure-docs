@@ -166,4 +166,4 @@ For **Log Alerts** alerts can be based on:
 - Learn more about the new [near real-time metric alerts](monitoring-near-real-time-metric-alerts.md)
 - Get an [overview of metrics collection](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 - Learn about [Log Alerts in Azure Alerts](monitor-alerts-unified-log.md)
-- [Learn about Activity log alerts in Alerts (Preview) experience](monitoring-activity-log-alerts-new-experience.md)   
+- [Learn about Activity log alerts in Alerts (Preview) experience](monitoring-activity-log-alerts-new-experience.md)
