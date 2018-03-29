@@ -109,7 +109,7 @@ Network Security Groups are supported on the Application Gateway subnet with the
 
 * Exceptions must be put in for incoming traffic on ports 65503-65534 for backend health to work correctly.
 
-* Outbound internet connectivity can not be blocked.
+* Outbound internet connectivity can't be blocked.
 
 * Traffic from the AzureLoadBalancer tag must be allowed.
 
@@ -319,7 +319,7 @@ Audit logs are available for Application Gateway. In the portal, click **Activit
 
 **Q. Can I set alerts with Application Gateway?**
 
-Yes, Application Gateway does support alerts, alerts are configured off metrics.  Application Gateway currently has a metric of "throughput", which can be configured to alert. To learn more about alerts, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Yes, Application Gateway does support alerts, alerts are configured off metrics. Application Gateway currently has a metric of "throughput", which can be configured to alert. To learn more about alerts, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **Q. Backend health returns unknown status, what could be causing this status?**
 
