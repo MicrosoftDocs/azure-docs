@@ -68,7 +68,7 @@ Perform the following steps to automate the installation and configuration of th
      > Currently the only Automation regions supported for integration with Log Analytics are - **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. If your Automation account is not in one of those regions, the script creates a Log Analytics workspace but it warns you that it cannot link them together.
 
 2. On your computer, start **Windows PowerShell** from the **Start** screen in Administrator mode.
-3. From the PowerShell command-line shell, navigate to the folder, which contains the script you downloaded and execute it changing the values for parameters *-AutomationAccountName*, *-ResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*.
+3. From the PowerShell command-line shell, navigate to the folder, which contains the script you downloaded and execute it changing the values for parameters *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*.
 
      > [!NOTE]
      > You are prompted to authenticate with Azure after you execute the script. You **must** sign in with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
@@ -101,7 +101,7 @@ The Microsoft Monitoring Agent connects computers to Log Analytics. When you ins
 
 Follow the instructions at [Connect Windows computers to Log Analytics](../log-analytics/log-analytics-windows-agent.md) to install the agent on the on-premises computer. You can repeat this process for multiple computers to add multiple workers to your environment.
 
-When the agent has successfully connected to Log Analytics, it is listed on the **Connected Sources** tab of the Log Analytics **Settings** pane. You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. To confirm the version of the Hybrid Runbook Worker, you can navigate to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.  
+You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent. To confirm the version of the Hybrid Runbook Worker, you can navigate to C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ and note the \\*version* subfolder.  
 
 #### 4. Install the runbook environment and connect to Azure Automation
 
