@@ -32,10 +32,13 @@ ms.author: brenduns
    ![](media/azure-stack-create-offer/image02.png)
 4. After creating the offer, you can change its state. Offers must be made *public* for users to get the full view when they subscribe. Offers can be:
    - **Public**: Visible to users.
-   - **Private**: Only visible to cloud administrators. This state is useful while drafting the plan or offer, or if want to [create each subscription for users](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Decommissioned**: Closed to new subscribers. The cloud administrator can use the decommissioned state to prevent future subscriptions, but leave current subscribers untouched.
+   - **Private**: Only visible to cloud administrators. Useful while drafting the plan or offer, or if the cloud administrator wants to [create each subscription for users](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+   - **Decommissioned**: Closed to new subscribers. The cloud administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
 
-   Changes to the offer are not immediately visible to the user. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
+   > ![TIP]  
+   > Changes to the offer are not immediately visible to the user. To see the changes, users might have to logout and login again to the user portal to see the new offer. 
+
+   To change the state of the offer: 
 
    - **Version 1803 and later**:  
      On the Overview blade for the offer, click **Accessibility state**, select the state you want to use, like *Public*, and then click **save**. 
@@ -48,8 +51,8 @@ ms.author: brenduns
      Click **All Resources**, search for your new offer, click on the new offer, click **Change State**, and then click **Public**.
 
   
-   > [!NOTE]
-   >You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack Service Administrator readme](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
+   > [!NOTE] 
+   > You can also use PowerShell to create default offers, plans, and quotas. For more information, see [Azure Stack Service Administrator readme](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
    >
 
 
