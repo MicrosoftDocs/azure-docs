@@ -5,7 +5,6 @@ keywords: javascript, user defined aggregates, uda
 services: stream-analytics
 author: minhe-msft
 manager: santoshb
-editor: cgronlun
 
 ms.assetid:
 ms.service: stream-analytics

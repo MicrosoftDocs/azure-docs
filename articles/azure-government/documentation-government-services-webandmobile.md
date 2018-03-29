@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/01/2018
+ms.date: 03/29/2018
 ms.author: gsacavdm
 ---
 # Azure Government Web + Mobile
@@ -36,7 +36,7 @@ Some App Service features available in Azure Government have variations:
 Some App Service features available in the public cloud are not yet available 
 in Azure Government:
 
-- App Service Environments
+- App Service Environments are not available via the portal experience, but can be [created via templates](../app-service/environment/create-from-template.md)
 - App Service Certificates
 - Settings
     - Security scanning
