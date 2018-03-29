@@ -1,9 +1,4 @@
 
->[!NOTE]
->Log Analytics was formerly known as Operational Insights.
->
->
-
 The following limits apply to Log Analytics resources per subscription:
 
 | Resource | Default Limit | Comments
@@ -14,14 +9,14 @@ The following limits apply to Log Analytics resources per subscription:
 
 The following limits apply to each Log Analytics workspace:
 
-|  | Free | Standard | Premium | Standalone | OMS |
-| --- | --- | --- | --- | --- | --- |
-| Data volume collected per day |500 MB<sup>1</sup> |None |None | None | None
-| Data retention period |7 days |1 month |12 months | 1 month<sup>2</sup> | 1 month <sup>2</sup>|
+|  | Free | Standard | Premium | Standalone | OMS | Per GB |
+| --- | --- | --- | --- | --- | --- |--- |
+| Data volume collected per day |500 MB<sup>1</sup> |None |None | None | None | None
+| Data retention period |7 days |1 month |12 months | 1 month<sup>2</sup> | 1 month <sup>2</sup>| 1 month <sup>2</sup>|
 
 <sup>1</sup> When customers reach their 500 MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC.
 
-<sup>2</sup> The data retention period for the Standalone and OMS pricing plans can be increased to 730 days.
+<sup>2</sup> The data retention period for the Standalone, OMS, and Per GB pricing plans can be increased to 730 days.
 
 | Category | Limits | Comments
 | --- | --- | --- |
