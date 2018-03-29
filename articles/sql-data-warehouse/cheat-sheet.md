@@ -5,7 +5,7 @@ services: sql-data-warehouse
 author: acomet
 manager: jhubbard
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: overview
 ms.component: design
 ms.date: 03/28/2018
 ms.author: acomet
