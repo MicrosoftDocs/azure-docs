@@ -91,14 +91,13 @@ ACU: 210-250
 
 ACU: 210-250
 
-| Size              | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
-|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1_v2    | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 750                 |
-| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1500                     |
-| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
-| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000  |
-
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
+| --- | --- | --- | --- | --- | --- | --- |
+| Standard_D1_v2 |1 |3.5 |4 |50 |3000 / 46 / 23 |4 / 4x500 |2 / 750 |
+| Standard_D2_v2 |2 |7 |8 |100 |6000 / 93 / 46 |8 / 8x500 |2 / 1500 |
+| Standard_D3_v2 |4 |14 |16 |200 |12000 / 187 / 93 |16 / 16x500 |4 / 3000 |
+| Standard_D4_v2 |8 |28 |32 |400 |24000 / 375 / 187  |32 / 32x500 |8 / 6000 |
+| Standard_D5_v2 |16 |56 |64 |800 |48000 / 750 / 375 |64 / 64x500 |8 / 12000 |
 
 <br>
 
@@ -132,6 +131,8 @@ ACU: 160
 ## Av2-series
 
 ACU: 100
+
+
 
 | Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -181,3 +182,6 @@ In the classic deployment model, some VM size names are slightly different in CL
 |A2\Basic_A2|2|3.5 GB|2| 60 GB|4|4x300|
 |A3\Basic_A3|4|7 GB|2| 120 GB |8|8x300|
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16x300|
+
+
+Note that the number of Data Disks for Classic VMs might be lower than the number of Data Disks for Azure Resource Manager VMs.

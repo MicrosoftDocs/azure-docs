@@ -85,7 +85,7 @@ VIP availability fails for the following reasons:
 - Your deployment has no healthy VMs remaining in the backend pool. 
 - An infrastructure outage has occurred that causes VIP availability to fail.
 
-You can use the [VIP availability metric together with the health probe status for diagnostic purposes](https://aka.ms/lbdiagnostics#vipavailabilityandhealthprobes).
+You can use the [VIP availability metric together with the health probe status for diagnostic purposes](#vipavailabilityandhealthprobes).
 
 Use **Average** as the aggregation for most scenarios.
 
