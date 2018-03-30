@@ -18,7 +18,7 @@ ms.custom: mvc
 # Get information from a coordinate
 
 ## Overview
-This tutorial shows you how to perform a reverse address search, and upon a mouse click render the address of the clicked location in a popup. 
+This tutorial shows you how to make a reverse address search, and upon a mouse click show the address of the clicked location in a popup. 
 
 ## Understand the code
 
