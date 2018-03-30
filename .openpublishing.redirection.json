@@ -3319,6 +3319,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/user/azure-stack-connect-cli.md",
+            "redirect_url": "/azure/user/azure-stack-version-profiles-azurecli2",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
             "redirect_url": "/azure/best-practices-network-security",
             "redirect_document_id": false
@@ -7546,6 +7551,21 @@
         {
             "source_path": "articles/virtual-network/virtual-network-accelerated-networking-portal.md",
             "redirect_url": "/azure/virtual-network/virtual-network-create-vm-accelerated-networking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/create-network-security-group-preview.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
             "redirect_document_id": false
         },
         {
