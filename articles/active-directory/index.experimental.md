@@ -87,7 +87,7 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Protect your org</h3>
+                        <h3>Protection</h3>
                         <p><a href="/azure/active-directory/active-directory-identityprotection">Identity protection</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Conditional access</a><br/>
                         <a href="/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access">Privileged identity management</a></p>
