@@ -63,7 +63,7 @@ The best way to add the OMS Agent to your cluster is via the virtual machine sca
     az vmss update-instances
     ```
 
-This should take less than 15 min to successfully add the agent to your nodes. You can verify that the agents have been added by using the `az vmss extension list` API:
+    This should take less than 15 min to successfully add the agent to your nodes. You can verify that the agents have been added by using the `az vmss extension list` API:
 
     ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
