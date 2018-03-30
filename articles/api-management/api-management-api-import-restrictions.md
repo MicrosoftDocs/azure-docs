@@ -26,7 +26,10 @@ If you are receiving errors importing your Open API document, ensure you have va
 
 * **Host Name** APIM requires a host name attribute.
 * **Base Path**  APIM requires a base path attribute.
-* **Schemes**  APIM requires a scheme array. 
+* **Schemes**  APIM requires a scheme array.
+
+> [!IMPORTANT]
+> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
 
 ## <a name="wsdl"> </a>WSDL
 WSDL files are used to generate SOAP Pass-through APIs or serve as the backend of a SOAP-to-REST API.
