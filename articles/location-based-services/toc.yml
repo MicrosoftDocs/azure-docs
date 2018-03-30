@@ -5,7 +5,6 @@
   - name: About Azure Location Based Services
     href: about-location-based-services.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Map app using Location Based Services
     href: quick-demo-map-app.md
@@ -32,16 +31,16 @@
 - name: How-to guides
   items:
   - name: Account Management
-  items:
+    items:
     - name: Manage account and keys
      href: how-to-manage-account-keys.md
   - name: Services APIs - REST
-  items:       
+    items:       
     - name: How to search for an address
       href: how-to-search-for-address.md
   - name: Map Control API - JavaScript
   expanded: true
-  items:          
+    items:          
     - name: Create a map
       href: map-create.md
     - name: Add a pin on the map
