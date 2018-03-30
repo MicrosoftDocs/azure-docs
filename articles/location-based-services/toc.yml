@@ -40,26 +40,26 @@
       href: how-to-search-for-address.md
   - name: Map Control JavaScript API
       items:
-      - name: Create a map
-        href: map-create.md
-      - name: Add a pin on the map
-        href: map-add-pin.md
-      - name: Add a popup on the map
-        href: map-add-popup.md
-      - name: Add a shape on the map
-        href: map-add-shape.md
-      - name: Add a custom HTML on the map
-        href: map-add-custom-html.md
-      - name: Show search results on the map 
-        href: map-search-location.md  
-      - name: Get information from a coordinate
-        href: map-get-information-from-coordinate.md
-      - name: Show direction from A to B
-        href: map-route.md   
-      - name: Show traffic on the map
-        href: map-show-traffic.md
-      - name: Interacting with the map (mouse events)
-        href: map-events.md   
+    - name: Create a map
+      href: map-create.md
+    - name: Add a pin on the map
+      href: map-add-pin.md
+    - name: Add a popup on the map
+      href: map-add-popup.md
+    - name: Add a shape on the map
+      href: map-add-shape.md
+    - name: Add a custom HTML on the map
+      href: map-add-custom-html.md
+    - name: Show search results on the map 
+      href: map-search-location.md  
+    - name: Get information from a coordinate
+      href: map-get-information-from-coordinate.md
+    - name: Show direction from A to B
+      href: map-route.md   
+    - name: Show traffic on the map
+      href: map-show-traffic.md
+    - name: Interacting with the map (mouse events)
+      href: map-events.md   
 - name: Reference
   items:
   - name: Functional API
