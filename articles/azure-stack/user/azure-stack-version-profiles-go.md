@@ -42,9 +42,9 @@ import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compu
   2. Install the [Go Programming Language](https://golang.org/dl).  
   API profiles for Azure will require Go version 1.9 or newer.
   3. Install the Go Azure SDK and its dependencies by running the following bash command:
-  ````go  
+  ```
     go get -u -d github.com/Azure/azure-sdk-for-go/...
-  ````  
+  ```
 
 ### The GO SDK
 
