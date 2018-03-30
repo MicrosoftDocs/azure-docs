@@ -16,19 +16,17 @@
     href: cache-java-get-started.md
   - name: Python
     href: cache-python-get-started.md
-  - name: Redis Cache FAQ
-    href: cache-faq.md
 - name: Tutorials
   items:
-  - name: Create a cache-aside leaderboard on ASP.NET
+  - name: Create a cache-aside leaderboard
     href: cache-web-app-cache-aside-leaderboard.md  
 - name: Samples
   items:
-    - name: Redis cache samples
+    - name: Redis Cache samples
       href: cache-redis-samples.md
-    - name: Azure PowerShell - Deployment and Management
+    - name: Azure PowerShell
       href: cache-howto-manage-redis-cache-powershell.md
-    - name: Azure CLI - Deployment and Management
+    - name: Azure CLI
       href: cli-samples.md
 - name: Concepts
   items:
