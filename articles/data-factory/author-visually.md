@@ -58,7 +58,7 @@ The pane shows the following VSTS code repository settings:
 | Setting | Description | Value |
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the VSTS code repository.<br/>**Note**: GitHub is not currently supported. | Visual Studio Team Services Git |
-| **Azure Active Directory** | Your AAD tenant name. | <your tenant name> |
+| **Azure Active Directory** | Your Azure AD tenant name. | <your tenant name> |
 | **Visual Studio Team Services Account** | Your VSTS account name. You can locate your VSTS account name at `https://{account name}.visualstudio.com`. You can [sign in to your VSTS account](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | \<your account name> |
 | **ProjectName** | Your VSTS project name. You can locate your VSTS project name at `https://{account name}.visualstudio.com/{project name}`. | \<your VSTS project name> |
 | **RepositoryName** | Your VSTS code repository name. VSTS projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | \<your VSTS code repository name> |

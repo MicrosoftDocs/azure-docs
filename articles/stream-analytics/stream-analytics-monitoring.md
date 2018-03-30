@@ -5,8 +5,7 @@ keywords: query monitor
 services: stream-analytics
 documentationcenter: ''
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
 ms.service: stream-analytics
@@ -15,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Understand Stream Analytics job monitoring and how to monitor queries
