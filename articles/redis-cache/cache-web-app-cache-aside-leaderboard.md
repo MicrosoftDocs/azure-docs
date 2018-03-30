@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/08/2018
+ms.date: 03/30/2018
 ms.author: wesmc
 
 ---
@@ -22,10 +22,11 @@ ms.author: wesmc
 
 This tutorial shows how to create and deploy an ASP.NET web application to a web app in Azure App Service using Visual Studio 2017. The sample application is a leaderboard ASP.NET application that demonstrates the cache-aside pattern with Azure Redis Cache. The sample application displays a list of team statistics from a database and shows different ways to use Azure Redis Cache to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
 
+This tutorial builds onto the ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md).
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an ASP.NET MVC 5 web application in Visual Studio.
 > * Access data from a database using Entity Framework.
 > * Improve data throughput and reduce database load by storing and retrieving data using Azure Redis Cache.
 > * Use a Redis sorted set to retrieve the top five teams.
@@ -34,50 +35,28 @@ In this tutorial, you learn how to:
 
 
 ## Prerequisites
-To complete the tutorial, you must have the following prerequisites:
 
-* [Azure account](#azure-account)
-* [Visual Studio 2017 with the Azure SDK for .NET](#visual-studio-2017-with-the-azure-sdk-for-net)
+To complete ththis tutorial, you must have the following prerequisites:
 
-### Azure account
-You need an Azure account to complete the tutorial. You can:
+* This tutorial continues to update the ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md). If you have not completed those steps to setup your cache and Azure App service, please complete that first.
+* [Visual Studio 2017 with the Azure SDK for .NET](https://www.visualstudio.com/downloads/)
+* You need an Azure account to complete the quickstart. You can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 
-* [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
-* [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+## Add a leaderboard to the project
 
-### Visual Studio 2017 with the Azure SDK for .NET
-The tutorial is written for Visual Studio 2017 with the [Azure SDK for .NET](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools). The Azure SDK 2.9.5 is included with the Visual Studio installer.
+In this section of the tutorial, you configure the *ContosoTeamStats* project with a leaderboard that reports the win, loss, and tie statistics for some fictional teams. 
 
-If you have Visual Studio 2015, you can follow the tutorial with the [Azure SDK for .NET](../dotnet-sdk.md) 2.8.2 or later. [Download the latest Azure SDK for Visual Studio 2015 here](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio is automatically installed with the SDK if you don't already have it. Some screens may look different from the illustrations shown in this tutorial.
+* [Add the Entity Framework to the project](#add-the-entity-framework-to-the-project)
+* [Add the Team model](#add-the-team-model)
+* [Add the TeamsController and views](#add-the-teamsController-and-views)
+* [Configure the Layout view](#configure-the-layout-view)
 
-If you have Visual Studio 2013, you can [download the latest Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Some screens may look different from the illustrations shown in this tutorial.
 
-## Create the Visual Studio project
-1. Open Visual Studio and click **File**, **New**, **Project**.
-2. Expand the **Visual C#** node in the **Templates** list, select **Cloud**, and click **ASP.NET Web Application**. Ensure that **.NET Framework 4.5.2** or higher is selected.  Type **ContosoTeamStats** into the **Name** textbox and click **OK**.
-   
-    ![Create project][cache-create-project]
-3. Select **MVC** as the project type. 
+### Add the Entity Framework to the project
 
-    Ensure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default may be set to something else. To change it, click **Change Authentication** and select **No Authentication**.
-
-    If you are following along with Visual Studio 2015, clear the **Host in the cloud** checkbox. You [provision the Azure resources](#provision-the-azure-resources) and [publish the application to Azure](#publish-the-application-to-azure) in subsequent steps in the tutorial. For an example of provisioning an App Service web app from Visual Studio by leaving **Host in the cloud** checked, see [Get started with Web Apps in Azure App Service, using ASP.NET and Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
-   
-    ![Select project template][cache-select-template]
-4. Click **OK** to create the project.
-
-## Create the ASP.NET MVC application
-In this section of the tutorial, you create the basic application that reads and displays team statistics from a database.
-
-* [Add the Entity Framework NuGet package](#add-the-entity-framework-nuget-package)
-* [Add the model](#add-the-model)
-* [Add the controller](#add-the-controller)
-* [Configure the views](#configure-the-views)
-
-### Add the Entity Framework NuGet package
-
-1. In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**.
-2. Run the following command from the **Package Manager Console** window:
+1. In Visual Studio, open the *ContosoTeamStats* Solution that you created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md).
+2. Click **Tools > NuGet Package Manager > Package Manager Console**.
+3. Run the following command from the **Package Manager Console** window to install EntityFramework:
     
     ```
     Install-Package EntityFramework
@@ -85,13 +64,16 @@ In this section of the tutorial, you create the basic application that reads and
 
 For more information about this package, see the [EntityFramework](https://www.nuget.org/packages/EntityFramework/) NuGet page.
 
-### Add the model
+### Add the Team model
+
 1. Right-click **Models** in **Solution Explorer**, and choose **Add**, **Class**. 
    
-    ![Add model][cache-model-add-class]
+    ![Add model](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class.png)
+
 2. Enter `Team` for the class name and click **Add**.
    
-    ![Add model class][cache-model-add-class-dialog]
+    ![Add model class](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png)
+
 3. Replace the `using` statements at the top of the `Team.cs` file with the following `using` statements:
 
 	```csharp
@@ -101,8 +83,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 	using System.Data.Entity.SqlServer;
 	```
 
-
-1. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](https://msdn.microsoft.com/data/jj193542).
+4. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. This tutorial is using the code first approach with Entity Framework. This approach allows Entity Framework to create the database from your code. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](https://msdn.microsoft.com/data/jj193542).
 
 	```csharp
 	public class Team
@@ -174,10 +155,11 @@ For more information about this package, see the [EntityFramework](https://www.n
 	```
 
 
-1. In **Solution Explorer**, double-click **web.config** to open it.
+5. In **Solution Explorer**, double-click **web.config** to open it.
    
-    ![Web.config][cache-web-config]
-2. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
+    ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
+
+6. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
 
 	```xml
 	<connectionStrings>
@@ -202,20 +184,27 @@ For more information about this package, see the [EntityFramework](https://www.n
     > [!NOTE]
     > Your connection string may be different depending on the version of Visual Studio and SQL Server Express edition used to complete the tutorial. The web.config template should be configured to match your installation, and may contain `Data Source` entries like `(LocalDB)\v11.0` (from SQL Server Express 2012) or `Data Source=(LocalDB)\MSSQLLocalDB` (from SQL Server Express 2014 and newer). For more information about connection strings and SQL Express versions, see [SQL Server 2016 Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) .
 
-### Add the controller
-1. Press **F6** to build the project. 
+
+### Add the TeamsController and views
+
+1. In Visual Studio, build the project. 
+
 2. In **Solution Explorer**, right-click the **Controllers** folder and choose **Add**, **Controller**.
    
-    ![Add controller][cache-add-controller]
-3. Choose **MVC 5 Controller with views, using Entity Framework**, and click **Add**. If you get an error after clicking **Add**, ensure that you have built the project first.
+    ![Add controller](./media/cache-web-app-cache-aside-leaderboard/cache-add-controller.png)
+
+3. Choose **MVC 5 Controller with views, using Entity Framework**, and click **Add**. If you get an error after clicking **Add**, ensure that you have built the project first. 
    
-    ![Add controller class][cache-add-controller-class]
+    ![Add controller class](./media/cache-web-app-cache-aside-leaderboard/cache-add-controller-class.png)
+
 4. Select **Team (ContosoTeamStats.Models)** from the **Model class** drop-down list. Select **TeamContext (ContosoTeamStats.Models)** from the **Data context class** drop-down list. Type `TeamsController` in the **Controller** name textbox (if it is not automatically populated). Click **Add** to create the controller class and add the default views.
    
-    ![Configure controller][cache-configure-controller]
+    ![Configure controller](./media/cache-web-app-cache-aside-leaderboard/cache-configure-controller.png)
+    
 5. In **Solution Explorer**, expand **Global.asax** and double-click **Global.asax.cs** to open it.
    
-    ![Global.asax.cs][cache-global-asax]
+    ![Global.asax.cs](./media/cache-web-app-cache-aside-leaderboard/cache-global-asax.png)
+
 6. Add the following two `using` statements at the top of the file under the other `using` statements:
 
 	```csharp
@@ -224,17 +213,17 @@ For more information about this package, see the [EntityFramework](https://www.n
 	```
 
 
-1. Add the following line of code at the end of the `Application_Start` method:
+7. Add the following line of code at the end of the `Application_Start` method:
 
 	```csharp
 	Database.SetInitializer<TeamContext>(new TeamInitializer());
 	```
 
-
-1. In **Solution Explorer**, expand `App_Start` and double-click `RouteConfig.cs`.
+8. In **Solution Explorer**, expand `App_Start` and double-click `RouteConfig.cs`.
    
-    ![RouteConfig.cs][cache-RouteConfig-cs]
-2. Replace `controller = "Home"` in the following code in the `RegisterRoutes` method with `controller = "Teams"` as shown in the following example:
+    ![RouteConfig.cs](./media/cache-web-app-cache-aside-leaderboard/cache-RouteConfig-cs.png)
+
+9. In the `RegisterRoutes` method, replace `controller = "Home"` in the `Default` route with `controller = "Teams"` as shown in the following example:
 
 	```csharp
 	routes.MapRoute(
@@ -245,10 +234,12 @@ For more information about this package, see the [EntityFramework](https://www.n
 	```
 
 
-### Configure the views
+### Configure the Layout view
+
 1. In **Solution Explorer**, expand the **Views** folder and then the **Shared** folder, and double-click **_Layout.cshtml**. 
    
-    ![_Layout.cshtml][cache-layout-cshtml]
+    ![_Layout.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml.png)
+
 2. Change the contents of the `title` element and replace `My ASP.NET Application` with `Contoso Team Stats` as shown in the following example:
 
 	```html
@@ -256,17 +247,21 @@ For more information about this package, see the [EntityFramework](https://www.n
 	```
 
 
-1. In the `body` section, update the first `Html.ActionLink` statement and replace `Application name` with `Contoso Team Stats` and replace `Home` with `Teams`.
-   
-   * Before: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
-   * After: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
-     
-     ![Code changes][cache-layout-cshtml-code]
-2. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. Note the **Create New**, **Edit**, **Details**, and **Delete** actions that were automatically added to the application by the **MVC 5 Controller with views, using Entity Framework** scaffold. In the next section of the tutorial, you'll add Redis Cache to optimize the data access and provide additional features to the application.
+3. In the `body` section, add the following new `Html.ActionLink` statement for *Contoso Team Stats* just below the link for *Azure Redis Cache Test*.
 
-![Starter application][cache-starter-application]
+   ```
+   @Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
+   ```    
+     
+    ![Code changes](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
+
+4. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. Note the **Create New**, **Edit**, **Details**, and **Delete** actions that were automatically added to the application by the **MVC 5 Controller with views, using Entity Framework** scaffold. In the next section of the tutorial, you'll add Redis Cache to optimize the data access and provide additional features to the application.
+
+    ![Starter application](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
+
 
 ## Configure the application to use Redis Cache
+
 In this section of the tutorial, you configure the sample application to store and retrieve Contoso team statistics from an Azure Redis Cache instance by using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
 
 * [Configure the application to use StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
@@ -275,18 +270,14 @@ In this section of the tutorial, you configure the sample application to store a
 * [Update the Teams Index view to work with the cache](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### Configure the application to use StackExchange.Redis
-1. To configure a client application in Visual Studio using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet package, click **Tools > NuGet Package Manager > Package Manager Console**.
-2. Run the following command from the `Package Manager Console` window:
-    
-    ```
-    Install-Package StackExchange.Redis
-    ```
+
+You already installed the StackExchange.Redis client library package in the quickstart. You also have already configured the *CacheConnection* app setting to be used locally, and with the published App Service. We will use this same client library and *CacheConnection* information in the *TeamsController*.
+
+1. In **Solution Explorer**, expand the **Controllers** folder and double-click **TeamsController.cs** to open it.
    
-    The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis.StrongName` package.
-3. In **Solution Explorer**, expand the **Controllers** folder and double-click **TeamsController.cs** to open it.
-   
-    ![Teams controller][cache-teamscontroller]
-4. Add the following two `using` statements to **TeamsController.cs**:
+    ![Teams controller](./media/cache-web-app-cache-aside-leaderboard/cache-teamscontroller.png)
+
+2. Add the following two `using` statements to **TeamsController.cs**:
 
 	```csharp   
 	using System.Configuration;
@@ -312,29 +303,8 @@ In this section of the tutorial, you configure the sample application to store a
 	}
 	```
 
-6. Create a file on your computer named `WebAppPlusCacheAppSecrets.config` and place it in a location that won't be checked in with the source code of your sample application, should you decide to check it in somewhere. In this example, the `AppSettingsSecrets.config` file is located at `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
-   
-    Edit the `WebAppPlusCacheAppSecrets.config` file and add the following contents:
-
-    ```xml
-    <appSettings>
-      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
-    </appSettings>
-    ```
-
-    If you run the application locally this information is used to connect to your Azure Redis Cache instance. Later in the tutorial you'll provision an Azure Redis Cache instance and update the cache name and password. If you don't plan to run the sample application locally you can skip the creation of this file and the subsequent steps that reference the file, because when you deploy to Azure the application retrieves the cache connection information from the app setting for the Web App and not from this file. Since the `WebAppPlusCacheAppSecrets.config` is not deployed to Azure with your application, you don't need it unless you are going to run the application locally.
-
-1. In **Solution Explorer**, double-click **web.config** to open it.
-   
-    ![Web.config][cache-web-config]
-2. Add the following `file` attribute to the `appSettings` element. If you used a different file name or location, substitute those values for the ones shown in the example.
-   
-   * Before: `<appSettings>`
-   * After: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
-  
-   The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the `WebAppPlusCacheAppSecrests.config` file won't be deployed (that's what you want). There are several ways to specify these secrets in Azure, and in this tutorial they are configured automatically for you when you [provision the Azure resources](#provision-the-azure-resources) in a subsequent tutorial step. For more information about working with secrets in Azure, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
-
 ### Update the TeamsController class to return results from the cache or the database
+
 In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample you'll query the sorted set for the top 5 teams ranked by number of wins.
 
 > [!NOTE]
@@ -594,7 +564,7 @@ The scaffolding code that was generated as part of this sample includes methods 
     ```
 
 
-1. Browse to the `Edit(Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example:
+2. Browse to the `Edit(Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example:
 
     ```csharp
     // POST: Teams/Edit/5
@@ -618,7 +588,7 @@ The scaffolding code that was generated as part of this sample includes methods 
     ```
 
 
-1. Browse to the `DeleteConfirmed(int id)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example:
+3. Browse to the `DeleteConfirmed(int id)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example:
 
     ```csharp
     // POST: Teams/Delete/5
@@ -640,10 +610,11 @@ The scaffolding code that was generated as part of this sample includes methods 
 ### Update the Teams Index view to work with the cache
 1. In **Solution Explorer**, expand the **Views** folder, then the **Teams** folder, and double-click **Index.cshtml**.
    
-    ![Index.cshtml][cache-views-teams-index-cshtml]
+    ![Index.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-views-teams-index-cshtml.png)
+
 2. Near the top of the file, look for the following paragraph element:
    
-    ![Action table][cache-teams-index-table]
+    ![Action table](./media/cache-web-app-cache-aside-leaderboard/cache-teams-index-table.png)
    
     This is the link to create a new team. Replace the paragraph element with the following table. This table has action links for creating a new team, playing a new season of games, clearing the cache, retrieving the teams from the cache in several formats, retrieving the teams from the database, and rebuilding the database with fresh sample data.
 
@@ -679,7 +650,7 @@ The scaffolding code that was generated as part of this sample includes methods 
     ```
 
 
-1. Scroll to the bottom of the **Index.cshtml** file and add the following `tr` element so that it is the last row in the last table in the file:
+3. Scroll to the bottom of the **Index.cshtml** file and add the following `tr` element so that it is the last row in the last table in the file:
    
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -687,8 +658,9 @@ The scaffolding code that was generated as part of this sample includes methods 
    
     This row displays the value of `ViewBag.Msg` which contains a status report about the current operation. The `ViewBag.Msg` is set when you click any of the action links from the previous step.   
    
-    ![Status message][cache-status-message]
-2. Press **F6** to build the project.
+    ![Status message](./media/cache-web-app-cache-aside-leaderboard/cache-status-message.png)
+
+4. Press **F6** to build the project.
 
 ## Provision the Azure resources
 To host your application in Azure, you must first provision the Azure services that your application requires. The sample application in this tutorial uses the following Azure services:
@@ -828,26 +800,11 @@ Once you have selected or created the cache to use, browse to the cache in the A
   * See the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches.
 
 <!-- IMAGES -->
-[cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png
 [cache-added-to-application]: ./media/cache-web-app-howto/cache-added-to-application.png
 [cache-create-project]: ./media/cache-web-app-howto/cache-create-project.png
 [cache-select-template]: ./media/cache-web-app-howto/cache-select-template.png
-[cache-model-add-class]: ./media/cache-web-app-howto/cache-model-add-class.png
-[cache-model-add-class-dialog]: ./media/cache-web-app-howto/cache-model-add-class-dialog.png
-[cache-add-controller]: ./media/cache-web-app-howto/cache-add-controller.png
-[cache-add-controller-class]: ./media/cache-web-app-howto/cache-add-controller-class.png
-[cache-configure-controller]: ./media/cache-web-app-howto/cache-configure-controller.png
-[cache-global-asax]: ./media/cache-web-app-howto/cache-global-asax.png
-[cache-RouteConfig-cs]: ./media/cache-web-app-howto/cache-RouteConfig-cs.png
-[cache-layout-cshtml]: ./media/cache-web-app-howto/cache-layout-cshtml.png
-[cache-layout-cshtml-code]: ./media/cache-web-app-howto/cache-layout-cshtml-code.png
 [redis-cache-manage-nuget-menu]: ./media/cache-web-app-howto/redis-cache-manage-nuget-menu.png
 [redis-cache-stack-exchange-nuget]: ./media/cache-web-app-howto/redis-cache-stack-exchange-nuget.png
-[cache-teamscontroller]: ./media/cache-web-app-howto/cache-teamscontroller.png
-[cache-web-config]: ./media/cache-web-app-howto/cache-web-config.png
-[cache-views-teams-index-cshtml]: ./media/cache-web-app-howto/cache-views-teams-index-cshtml.png
-[cache-teams-index-table]: ./media/cache-web-app-howto/cache-teams-index-table.png
-[cache-status-message]: ./media/cache-web-app-howto/cache-status-message.png
 [deploybutton]: ./media/cache-web-app-howto/deploybutton.png
 [cache-deploy-to-azure-step-1]: ./media/cache-web-app-howto/cache-deploy-to-azure-step-1.png
 [cache-deploy-to-azure-step-2]: ./media/cache-web-app-howto/cache-deploy-to-azure-step-2.png

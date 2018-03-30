@@ -18,7 +18,7 @@
     href: cache-python-get-started.md
 - name: Tutorials
   items:
-  - name: Create a cache-aside leaderboard
+  - name: Caching leaderboards
     href: cache-web-app-cache-aside-leaderboard.md  
 - name: Samples
   items:
