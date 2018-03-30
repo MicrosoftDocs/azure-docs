@@ -5,7 +5,7 @@ keywords: terraform, devops, virtual machine, Azure, deployment slots
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 3/29/2018
+ms.date: 3/30/2018
 ms.topic: article
 ---
 
@@ -13,7 +13,7 @@ ms.topic: article
 
 [Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between various versions of your app - such as production, development, and test - to minimize the impact of broken deployments. Using deployment slots, you can directly swap between slots  without any downtime. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in the production slot, while the second app is hosted in the deployment slot. Terraform is then used to swap the (inactive) deployment slot with the production slot.
 
-## 
+## Create and apply the Terraform plan
 
 1. Browse to the [Azure portal](http://www.portal.azure.com)
 
@@ -120,19 +120,22 @@ ms.topic: article
     terraform plan
     ```
 
-1. Provision the resources defined in the `deploy.tf` configuration file.
+1. Provision the resources defined in the `deploy.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
 
     ```bash
     terraform apply
     ```
 
-    1. Once Terraform has completed provisioning the resources, use the **Resource Groups** tab in the Azure portal to see the resources that were provisioned by Terraform.
+1. Select **Resource Groups** to see the resources that were provisioned by Terraform.
 
-    ![Azure portal Resource Groups](./media/terraform-slot-walkthru/resource-groups.png)
+![Azure portal Resource Groups](./media/terraform-slot-walkthru/resource-groups.png)
 
-Select `slotDemoResourceGroup` to display each of the created resources.
 
-![Azure portal Resources](./media/terraform-slot-walkthru/resources.png)
+1. Select **slotDemoResourceGroup** to display each of the created resources.
+
+![Resources created from the Terraform configuration file](./media/terraform-slot-walkthru/resources.png)
+
+## Deploying do deployment slots
 
 To deploy to the `deployment slots`, fork the [Fork the awesome-terraform repo](https://github.com/Azure/awesome-terraform) repository to your own personal organization by selecting **Fork** in GitHub.
 
