@@ -178,9 +178,9 @@ Click **Send** and you should be able to call the API successfully.
 
 ## Configure a JWT validation policy to pre-authorize requests
 
-At this point, when a user tries to make a call from the Developer Console, the user will be prompted to sign in and the Developer Console will obtain an Access Token on behalf of the user. Everything is working as expected. However, what if someone calls our API without a token or with an invalid token? For example, you can try deleting the `Authorization` header and will find you are still able to call the API. The reason is because APIM does not validate the Access Token at this point. It passes the `Auhtorization` header to the backend API.
+At this point, when a user tries to make a call from the Developer Console, the user will be prompted to sign in and the Developer Console will obtain an Access Token on behalf of the user. Everything is working as expected. However, what if someone calls our API without a token or with an invalid token? For example, you can try deleting the `Authorization` header and will find you are still able to call the API. The reason is because APIM does not validate the Access Token at this point. It simply passes the `Auhtorization` header to the backend API.
 
-We can use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize requests in APIM by validating the access tokens of each incoming request. If a request does not have a valid token, it is blocked by API Management and is not passed along to the backend. We can add the below policy to `Echo API`. 
+We can use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize requests in APIM by validating the access tokens of each incoming request. If a request does not have a valid token, it is blocked by API Management and is not passed along to the backend. For example, we can add the below policy to the `<inbound>` policy section of the `Echo API`. It checks the audience claim in an access token and returns an error message if the token is not valid. For information on how to configure policies, see [Set or edit policies](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -193,7 +193,12 @@ We can use the [Validate JWT](api-management-access-restriction-policies.md#Vali
 </validate-jwt>
 ```
 
+## Build an application to call the API
+
+In this guide, we used the Developer Console in APIM as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement the OAuth 2.0 flow, please see [Azure Active Directory code samples](../active-directory/develop/active-directory-code-samples.md).
+
 ## Next steps
+* Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
 * For other ways to secure your backend service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
 
