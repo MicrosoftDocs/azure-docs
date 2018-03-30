@@ -27,7 +27,7 @@ This tutorial shows you how to add a custom HTML such as an image file on the ma
 
 In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
 
-Second block of code creates an HTML element from an image.
+The second block of code creates an HTML element from an image.
 
 The last block of code uses [addHtml](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addhtml) function of the map class to add the image to the specified position of the map.
 
