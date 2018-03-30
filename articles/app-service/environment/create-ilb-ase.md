@@ -1,6 +1,6 @@
 ---
-title: Create and use an internal load balancer with an Azure App Service environment
-description: Details on how to create and use an internet-isolated Azure App Service environment
+title: Create and use an internal load balancer with an Azure App Service Environment
+description: Details on how to create and use an internet-isolated Azure App Service Environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -16,14 +16,14 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
 ---
-# Create and use an internal load balancer with an App Service environment #
+# Create and use an internal load balancer with an App Service Environment #
 
- Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service environment (ASE): 
+ Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE): 
 
 - With a VIP on an external IP address, often called an External ASE.
 - With a VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an internal load balancer (ILB). 
 
-This article shows you how to create an ILB ASE. For an overview on the ASE, see [Introduction to App Service environments][Intro]. To learn how to create an External ASE, see [Create an External ASE][MakeExternalASE].
+This article shows you how to create an ILB ASE. For an overview on the ASE, see [Introduction to App Service Environments][Intro]. To learn how to create an External ASE, see [Create an External ASE][MakeExternalASE].
 
 ## Overview ##
 
