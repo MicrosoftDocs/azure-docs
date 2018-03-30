@@ -188,55 +188,35 @@ This section provides you with a lists of all the activities that can be logged.
 
 |Service Name|Audit Category|Activity Resource Type|Activty|
 |---|---|---|---|
-|Terms Of Use|Policy Management|Policy|Accept Terms Of Use|
-|Privileged Identity Management|Role Management|Role|AccessReview_Review|
-|Privileged Identity Management|Role Management|Role|AccessReview_Update|
-|Privileged Identity Management|Role Management|Role|ActivationAborted|
-|Privileged Identity Management|Role Management|Role|ActivationApproved|
-|Privileged Identity Management|Role Management|Role|ActivationCanceled|
-|Privileged Identity Management|Role Management|Role|ActivationRequested|
-|Microsoft Identity Manager (MIM)|Group Management|Group|Add Member|
-|Core Directory|Application Management|Application|Add OAuth2PermissionGrant|
+|Account Provisioning|Application Management|Application|Administration|
+|Account Provisioning|Application Management|Application|Directory operation|
+|Account Provisioning|Application Management|Application|Export|
+|Account Provisioning|Application Management|Application|Import|
+|Account Provisioning|Application Management|Application|Other|
+|Account Provisioning|Application Management|Application|Process escrow|
+|Account Provisioning|Application Management|Application|Synchronization rule action|
+|Application Proxy|Application Management|Application|Add application|
+|Application Proxy|Resource|Resource|Add application SSL certificate|
+|Application Proxy|Resource|Resource|Delete SSL binding|
+|Application Proxy|Application Management|Application|Delete application|
+|Application Proxy|Directory Management|Directory|Disable Desktop Sso|
+|Application Proxy|Directory Management|Directory|Disable Desktop Sso for a specific domain|
+|Application Proxy|Directory Management|Directory|Disable application proxy|
+|Application Proxy|Directory Management|Directory|Disable passthrough authentication|
+|Application Proxy|Directory Management|Directory|Enable Desktop Sso|
+|Application Proxy|Directory Management|Directory|Enable Desktop Sso for a specific domain|
+|Application Proxy|Directory Management|Directory|Enable application proxy|
+|Application Proxy|Directory Management|Directory|Enable passthrough authentication|
+|Application Proxy|Resource|Resource|Register connector|
+|Application Proxy|Application Management|Application|Update application|
+|Application Proxy|Application Management|Application|Update application Single Sign-On Mode|
+|Automated Password Rollover|Application Management|Application|Automated Password Rollover|
 |B2C|Application Management|Application|Add V2 application permissions|
 |B2C|Authorization|Authorization|Add V2 application permissions|
 |B2C|Key|Key|Add a key based on ASCII secret to a CPIM key container|
 |B2C|Authorization|Authorization|Add a key based on ASCII secret to a CPIM key container|
 |B2C|Key|Key|Add a key to a CPIM key container|
 |B2C|Authorization|Authorization|Add a key to a CPIM key container|
-|Core Directory|Administrative Unit Management|AdministrativeUnit|Add administrative unit|
-|Core Directory|User Management|User|Add app role assignment grant to user|
-|Core Directory|Group Management|Group|Add app role assignment to group|
-|Core Directory|Application Management|Application|Add app role assignment to service principal|
-|Core Directory|Application Management|Application|Add application|
-|Application Proxy|Application Management|Application|Add application|
-|Application Proxy|Resource|Resource|Add application SSL certificate|
-|Core Directory|Resource|Resource|Add device|
-|Core Directory|Resource|Resource|Add device configuration|
-|Core Directory|Role Management|Role|Add eligible member to role|
-|Core Directory|Group Management|Group|Add group|
-|Core Directory|Administrative Unit Management|AdministrativeUnit|Add member to administrative unit|
-|Core Directory|Group Management|Group|Add member to group|
-|Core Directory|Role Management|Role|Add member to role|
-|Core Directory|Application Management|Application|Add owner to application|
-|Core Directory|Group Management|Group|Add owner to group|
-|Core Directory|Policy Management|Policy|Add owner to policy|
-|Core Directory|Application Management|Application|Add owner to service principal|
-|Core Directory|Directory Management|Directory|Add partner to company|
-|Core Directory|Policy Management|Policy|Add policy|
-|Core Directory|Application Management|Application|Add policy to service principal|
-|Core Directory|Resource|Resource|Add registered owner to device|
-|Core Directory|Resource|Resource|Add registered users to device|
-|Core Directory|Role Management|Role|Add role assignment to role definition|
-|Core Directory|Role Management|Role|Add role from template|
-|Core Directory|Role Management|Role|Add scoped member to role|
-|Core Directory|Application Management|Application|Add service principal|
-|Core Directory|Application Management|Application|Add service principal credentials|
-|Core Directory|Directory Management|Directory|Add unverified domain|
-|Core Directory|User Management|User|Add user|
-|Core Directory|User Management|User|Add users strong authentication phone app detail|
-|Core Directory|Directory Management|Directory|Add verified domain|
-|Privileged Identity Management|Role Management|Role|Added|
-|Identity Protection|User Management|User|Admin generates a temporary password|
 |B2C|Resource|Resource|AdminPolicyDatas-RemoveResources|
 |B2C|Authorization|Authorization|AdminPolicyDatas-SetResources|
 |B2C|Resource|Resource|AdminPolicyDatas-SetResources|
@@ -246,25 +226,8 @@ This section provides you with a lists of all the activities that can be logged.
 |B2C|Resource|Resource|AdminUserJourneys-RemoveResources|
 |B2C|Resource|Resource|AdminUserJourneys-SetResources|
 |B2C|Authorization|Authorization|AdminUserJourneys-SetResources|
-|Account Provisioning|Application Management|Application|Administration|
-|Identity Protection|User Management|User|Admins requires the user to reset their password|
-|Self-service Group Management|Group Management|Group|Approve a pending request to join a group|
-|Privileged Identity Management|Role Management|Role|Assign|
-|Invited Users|User Management|User|Assign external user to application|
-|Automated Password Rollover|Application Management|Application|Automated Password Rollover|
-|Invited Users|Other|Other|Batch invites processed|
-|Invited Users|Other|Other|Batch invites uploaded|
-|Self-service Password Management|User Management|User|Blocked from self-service password reset|
-|Self-service Group Management|Group Management|Group|Cancel a pending request to join a group|
-|Self-service Password Management|User Management|User|Change password (self-service)|
-|Core Directory|User Management|User|Change user license|
-|Core Directory|User Management|User|Change user password|
-|Core Directory|Application Management|Application|Consent to application|
-|Core Directory|User Management|User|Convert federated user to managed|
-|Microsoft Identity Manager (MIM)|Group Management|Group|Create Group|
 |B2C|Authorization|Authorization|Create IdentityProvider|
 |B2C|Resource|Resource|Create IdentityProvider|
-|Terms Of Use|Policy Management|Policy|Create Terms Of Use|
 |B2C|Authorization|Authorization|Create V1 application|
 |B2C|Application Management|Application|Create V1 application|
 |B2C|Application Management|Application|Create V2 application|
@@ -273,11 +236,6 @@ This section provides you with a lists of all the activities that can be logged.
 |B2C|Authorization|Authorization|Create a custom domains in the tenant|
 |B2C|Authorization|Authorization|Create a new AdminUserJourney|
 |B2C|Resource|Resource|Create a new AdminUserJourney|
-|Core Directory|User Management|User|Create application password for user|
-|Core Directory|Directory Management|Directory|Create company|
-|Core Directory|Directory Management|Directory|Create company settings|
-|Core Directory|Group Management|Group|Create group settings|
-|Self-service Group Management|Group Management|Group|Create lifecycle management policy|
 |B2C|Resource|Resource|Create localized resource json|
 |B2C|Authorization|Authorization|Create localized resource json|
 |B2C|Authorization|Authorization|Create new Custom IDP|
@@ -297,14 +255,10 @@ This section provides you with a lists of all the activities that can be logged.
 |B2C|Authorization|Authorization|CreateTrustFrameworkPolicy|
 |B2C|Resource|Resource|CreateTrustFrameworkPolicy|
 |B2C|Authorization|Authorization|Creates or Update an new AdminUserJourney|
-|Terms Of Use|Policy Management|Policy|Decline Terms Of Use|
-|Microsoft Identity Manager (MIM)|Group Management|Group|Delete Group|
 |B2C|Resource|Resource|Delete IDP|
 |B2C|Authorization|Authorization|Delete IDP|
 |B2C|Resource|Resource|Delete IdentityProvider|
 |B2C|Authorization|Authorization|Delete IdentityProvider|
-|Application Proxy|Resource|Resource|Delete SSL binding|
-|Terms Of Use|Policy Management|Policy|Delete Terms Of Use|
 |B2C|Application Management|Application|Delete V1 application|
 |B2C|Authorization|Authorization|Delete V1 application|
 |B2C|Application Management|Application|Delete V2 application|
@@ -315,54 +269,13 @@ This section provides you with a lists of all the activities that can be logged.
 |B2C|Authorization|Authorization|Delete a B2C directory resource|
 |B2C|Key|Key|Delete a CPIM key container|
 |B2C|Authorization|Authorization|Delete a CPIM key container|
-|Self-service Group Management|Group Management|Group|Delete a pending request to join a group|
-|Core Directory|Administrative Unit Management|AdministrativeUnit|Delete administrative unit|
-|Core Directory|Application Management|Application|Delete application|
-|Application Proxy|Application Management|Application|Delete application|
-|Core Directory|User Management|User|Delete application password for user|
-|Core Directory|Directory Management|Directory|Delete company settings|
-|Core Directory|Resource|Resource|Delete device|
-|Core Directory|Resource|Resource|Delete device configuration|
-|Core Directory|Group Management|Group|Delete group|
-|Core Directory|Group Management|Group|Delete group settings|
 |B2C|Key|Key|Delete key container|
-|Core Directory|Policy Management|Policy|Delete policy|
 |B2C|Resource|Resource|Delete trustFramework policy|
 |B2C|Authorization|Authorization|Delete trustFramework policy|
-|Core Directory|User Management|User|Delete user|
 |B2C|Resource|Resource|Delete user attribute|
 |B2C|Authorization|Authorization|Delete user attribute|
-|Core Directory|Directory Management|Directory|Demote partner|
-|Core Directory|Resource|Resource|Device no longer compliant|
-|Core Directory|Resource|Resource|Device no longer managed|
-|Core Directory|Directory Management|Directory|Directory deleted|
-|Core Directory|Directory Management|Directory|Directory deleted permanently|
-|Account Provisioning|Application Management|Application|Directory operation|
-|Core Directory|Directory Management|Directory|Directory scheduled for deletion|
-|Application Proxy|Directory Management|Directory|Disable Desktop Sso|
-|Application Proxy|Directory Management|Directory|Disable Desktop Sso for a specific domain|
-|Core Directory|User Management|User|Disable account|
-|Application Proxy|Directory Management|Directory|Disable application proxy|
-|Application Proxy|Directory Management|Directory|Disable passthrough authentication|
-|Self-service Password Management|Directory Management|Directory|Disable password writeback for directory|
-|Identity Protection|Other|Other|Download a single risk event type|
-|Identity Protection|Other|Other|Download admins and status of weekly digest opt-in|
-|Identity Protection|Other|Other|Download all risk event types|
-|Identity Protection|Other|Other|Download free user risk events|
-|Identity Protection|Other|Other|Download users flagged for risk|
-|Terms Of Use|Policy Management|Policy|Edit Terms Of Use|
-|Privileged Identity Management|Role Management|Role|Elevate|
-|Invited Users|User Management|User|Email not sent, user unsubscribed|
 |B2C|Authorization|Authorization|Enable B2C feature|
 |B2C|Directory Management|Directory|Enable B2C feature|
-|Application Proxy|Directory Management|Directory|Enable Desktop Sso|
-|Application Proxy|Directory Management|Directory|Enable Desktop Sso for a specific domain|
-|Core Directory|User Management|User|Enable Strong Authentication|
-|Application Proxy|Directory Management|Directory|Enable application proxy|
-|Application Proxy|Directory Management|Directory|Enable passthrough authentication|
-|Self-service Password Management|Directory Management|Directory|Enable password writeback for directory|
-|Account Provisioning|Application Management|Application|Export|
-|Core Directory|Group Management|Group|Finish applying group based license to users|
 |B2C|Resource|Resource|Get B2C directory resources in a resource group|
 |B2C|Resource|Resource|Get B2C directory resources in a subscription|
 |B2C|Authorization|Authorization|Get B2C directory resources in a subscription|
@@ -468,11 +381,6 @@ This section provides you with a lists of all the activities that can be logged.
 |B2C|Authorization|Authorization|Gets list of key containers in the tenant|
 |B2C|Authorization|Authorization|Gets the type of tenant|
 |B2C|Directory Management|Directory|Gets the type of tenant|
-|Core Directory|Application Management|Application|Hard Delete application|
-|Core Directory|Group Management|Group|Hard Delete group|
-|Core Directory|User Management|User|Hard Delete user|
-|Account Provisioning|Application Management|Application|Import|
-|Invited Users|User Management|User|Invite external user|
 |B2C|Authentication|Authentication|Issue an access token to the application|
 |B2C|Authentication|Authentication|Issue an authorization code to the application|
 |B2C|Other|Other|Issue an authorization code to the application|
@@ -481,25 +389,115 @@ This section provides you with a lists of all the activities that can be logged.
 |B2C|Authorization|Authorization|MigrateTenantMetadata|
 |B2C|Resource|Resource|MigrateTenantMetadata|
 |B2C|Resource|Resource|Move resources|
-|Identity Protection|Directory Management|Directory|Onboarding|
-|Account Provisioning|Application Management|Application|Other|
 |B2C|Authorization|Authorization|Patch IdentityProvider|
 |B2C|Resource|Resource|Patch IdentityProvider|
-|Account Provisioning|Application Management|Application|Process escrow|
-|Core Directory|Directory Management|Directory|Promote company to partner|
-|Terms Of Use|Policy Management|Policy|Publish Terms Of Use|
-|Core Directory|Directory Management|Directory|Purge rights management properties|
 |B2C|Resource|Resource|PutTrustFrameworkPolicy|
 |B2C|Authorization|Authorization|PutTrustFrameworkPolicy|
 |B2C|Authorization|Authorization|PutTrustFrameworkpolicy|
 |B2C|Resource|Resource|PutTrustFrameworkpolicy|
-|Invited Users|User Management|User|Redeem external user invite|
-|Application Proxy|Resource|Resource|Register connector|
-|Self-service Group Management|Group Management|Group|Reject a pending request to join a group|
-|Microsoft Identity Manager (MIM)|Group Management|Group|Remove Member|
-|Core Directory|Application Management|Application|Remove OAuth2PermissionGrant|
 |B2C|Resource|Resource|Remove a user journey|
 |B2C|Authorization|Authorization|Remove a user journey|
+|B2C|Authorization|Authorization|Restore a CPIM key container backup|
+|B2C|Key|Key|Restore a CPIM key container backup|
+|B2C|Application Management|Application|Retrieve V2 application permissions grants|
+|B2C|Authorization|Authorization|Retrieve V2 application permissions grants|
+|B2C|Application Management|Application|Retrieve V2 application service principals in the current tenant|
+|B2C|Authorization|Authorization|Retrieve V2 application service principals in the current tenant|
+|B2C|Key|Key|Save key container|
+|B2C|Authorization|Authorization|Update Custom IDP|
+|B2C|Resource|Resource|Update Custom IDP|
+|B2C|Resource|Resource|Update IDP|
+|B2C|Authorization|Authorization|Update IDP|
+|B2C|Resource|Resource|Update Local IDP|
+|B2C|Authorization|Authorization|Update Local IDP|
+|B2C|Application Management|Application|Update V1 application|
+|B2C|Authorization|Authorization|Update V1 application|
+|B2C|Application Management|Application|Update V2 application|
+|B2C|Authorization|Authorization|Update V2 application|
+|B2C|Application Management|Application|Update V2 application permission grant|
+|B2C|Authorization|Authorization|Update V2 application permission grant|
+|B2C|Resource|Resource|Update a B2C directory resource|
+|B2C|Resource|Resource|Update policy|
+|B2C|Authorization|Authorization|Update policy|
+|B2C|Resource|Resource|Update subscription status|
+|B2C|Resource|Resource|Update user attribute|
+|B2C|Authorization|Authorization|Update user attribute|
+|B2C|Key|Key|Upload a CPIM encrypted key|
+|B2C|Authorization|Authorization|Upload a CPIM encrypted key|
+|B2C|Authorization|Authorization|User Authorization: API is disabled for tenant featureset|
+|B2C|Authorization|Authorization|User Authorization: User granted access as 'Tenant Admin'|
+|B2C|Authorization|Authorization|User Authorization: User was granted 'Authenticated Users' access rights|
+|B2C|Authentication|Authentication|Validate local account credentials|
+|B2C|Resource|Resource|Validate move resources|
+|B2C|Authentication|Authentication|Validate user authentication|
+|B2C|Directory Management|Directory|Verify if B2C feature is enabled|
+|B2C|Authorization|Authorization|Verify if B2C feature is enabled|
+|B2C|Authorization|Authorization|Verify if feature is enalbed|
+|B2C|Directory Management|Directory|Verify if feature is enalbed|
+|Core Directory|Application Management|Application|Add OAuth2PermissionGrant|
+|Core Directory|Administrative Unit Management|AdministrativeUnit|Add administrative unit|
+|Core Directory|User Management|User|Add app role assignment grant to user|
+|Core Directory|Group Management|Group|Add app role assignment to group|
+|Core Directory|Application Management|Application|Add app role assignment to service principal|
+|Core Directory|Application Management|Application|Add application|
+|Core Directory|Resource|Resource|Add device|
+|Core Directory|Resource|Resource|Add device configuration|
+|Core Directory|Role Management|Role|Add eligible member to role|
+|Core Directory|Group Management|Group|Add group|
+|Core Directory|Administrative Unit Management|AdministrativeUnit|Add member to administrative unit|
+|Core Directory|Group Management|Group|Add member to group|
+|Core Directory|Role Management|Role|Add member to role|
+|Core Directory|Application Management|Application|Add owner to application|
+|Core Directory|Group Management|Group|Add owner to group|
+|Core Directory|Policy Management|Policy|Add owner to policy|
+|Core Directory|Application Management|Application|Add owner to service principal|
+|Core Directory|Directory Management|Directory|Add partner to company|
+|Core Directory|Policy Management|Policy|Add policy|
+|Core Directory|Application Management|Application|Add policy to service principal|
+|Core Directory|Resource|Resource|Add registered owner to device|
+|Core Directory|Resource|Resource|Add registered users to device|
+|Core Directory|Role Management|Role|Add role assignment to role definition|
+|Core Directory|Role Management|Role|Add role from template|
+|Core Directory|Role Management|Role|Add scoped member to role|
+|Core Directory|Application Management|Application|Add service principal|
+|Core Directory|Application Management|Application|Add service principal credentials|
+|Core Directory|Directory Management|Directory|Add unverified domain|
+|Core Directory|User Management|User|Add user|
+|Core Directory|User Management|User|Add users strong authentication phone app detail|
+|Core Directory|Directory Management|Directory|Add verified domain|
+|Core Directory|User Management|User|Change user license|
+|Core Directory|User Management|User|Change user password|
+|Core Directory|Application Management|Application|Consent to application|
+|Core Directory|User Management|User|Convert federated user to managed|
+|Core Directory|User Management|User|Create application password for user|
+|Core Directory|Directory Management|Directory|Create company|
+|Core Directory|Directory Management|Directory|Create company settings|
+|Core Directory|Group Management|Group|Create group settings|
+|Core Directory|Administrative Unit Management|AdministrativeUnit|Delete administrative unit|
+|Core Directory|Application Management|Application|Delete application|
+|Core Directory|User Management|User|Delete application password for user|
+|Core Directory|Directory Management|Directory|Delete company settings|
+|Core Directory|Resource|Resource|Delete device|
+|Core Directory|Resource|Resource|Delete device configuration|
+|Core Directory|Group Management|Group|Delete group|
+|Core Directory|Group Management|Group|Delete group settings|
+|Core Directory|Policy Management|Policy|Delete policy|
+|Core Directory|User Management|User|Delete user|
+|Core Directory|Directory Management|Directory|Demote partner|
+|Core Directory|Resource|Resource|Device no longer compliant|
+|Core Directory|Resource|Resource|Device no longer managed|
+|Core Directory|Directory Management|Directory|Directory deleted|
+|Core Directory|Directory Management|Directory|Directory deleted permanently|
+|Core Directory|Directory Management|Directory|Directory scheduled for deletion|
+|Core Directory|User Management|User|Disable account|
+|Core Directory|User Management|User|Enable Strong Authentication|
+|Core Directory|Group Management|Group|Finish applying group based license to users|
+|Core Directory|Application Management|Application|Hard Delete application|
+|Core Directory|Group Management|Group|Hard Delete group|
+|Core Directory|User Management|User|Hard Delete user|
+|Core Directory|Directory Management|Directory|Promote company to partner|
+|Core Directory|Directory Management|Directory|Purge rights management properties|
+|Core Directory|Application Management|Application|Remove OAuth2PermissionGrant|
 |Core Directory|Group Management|Group|Remove app role assignment from group|
 |Core Directory|Application Management|Application|Remove app role assignment from service principal|
 |Core Directory|User Management|User|Remove app role assignment from user|
@@ -522,75 +520,33 @@ This section provides you with a lists of all the activities that can be logged.
 |Core Directory|Directory Management|Directory|Remove unverified domain|
 |Core Directory|User Management|User|Remove users strong authentication phone app detail|
 |Core Directory|Directory Management|Directory|Remove verified domain|
-|Privileged Identity Management|Role Management|Role|Removed|
-|Self-service Group Management|Group Management|Group|Renew group|
-|Self-service Group Management|Group Management|Group|Request to join a group|
-|Self-service Password Management|User Management|User|Reset password (by admin)|
-|Self-service Password Management|User Management|User|Reset password (self-service)|
 |Core Directory|User Management|User|Reset user password|
 |Core Directory|Group Management|Group|Restore Group|
-|B2C|Authorization|Authorization|Restore a CPIM key container backup|
-|B2C|Key|Key|Restore a CPIM key container backup|
 |Core Directory|Application Management|Application|Restore application|
 |Core Directory|User Management|User|Restore user|
-|B2C|Application Management|Application|Retrieve V2 application permissions grants|
-|B2C|Authorization|Authorization|Retrieve V2 application permissions grants|
-|B2C|Application Management|Application|Retrieve V2 application service principals in the current tenant|
-|B2C|Authorization|Authorization|Retrieve V2 application service principals in the current tenant|
 |Core Directory|Application Management|Application|Revoke consent|
-|Privileged Identity Management|Role Management|Role|Role Setting changes|
-|B2C|Key|Key|Save key container|
-|Privileged Identity Management|Role Management|Role|ScanAlertsNow|
-|Self-service Password Management|User Management|User|Self-serve password reset flow activity progress|
-|Self-service Password Management|User Management|User|Self-service password reset flow activity progress|
 |Core Directory|Directory Management|Directory|Set Company Information|
 |Core Directory|Directory Management|Directory|Set DirSync feature|
 |Core Directory|Directory Management|Directory|Set DirSyncEnabled flag|
-|Identity Protection|Policy Management|Policy|Set MFA registration policy|
 |Core Directory|Directory Management|Directory|Set Partnership|
 |Core Directory|Directory Management|Directory|Set accidental deletion threshold|
 |Core Directory|Directory Management|Directory|Set company allowed data location|
 |Core Directory|Directory Management|Directory|Set company multinational feature enabled|
 |Core Directory|Directory Management|Directory|Set directory feature on tenant|
 |Core Directory|Directory Management|Directory|Set domain authentication|
-|Self-service Group Management|Group Management|Group|Set dynamic group properties|
 |Core Directory|Directory Management|Directory|Set federation settings on domain|
 |Core Directory|User Management|User|Set force change user password|
 |Core Directory|Group Management|Group|Set group license|
 |Core Directory|Group Management|Group|Set group to be managed by user|
 |Core Directory|Directory Management|Directory|Set password policy|
 |Core Directory|Directory Management|Directory|Set rights management properties|
-|Identity Protection|Policy Management|Policy|Set sign-in risk policy|
 |Core Directory|User Management|User|Set user manager|
-|Identity Protection|Policy Management|Policy|Set user risk policy|
 |Core Directory|User Management|User|Set users oath token metadata enabled|
-|Privileged Identity Management|Role Management|Role|Signup|
 |Core Directory|Group Management|Group|Start applying group based license to users|
-|Account Provisioning|Application Management|Application|Synchronization rule action|
 |Core Directory|Group Management|Group|Trigger group license recalculation|
-|Privileged Identity Management|Role Management|Role|Unelevate|
-|Self-service Password Management|User Management|User|Unlock user account (self-service)|
-|Terms Of Use|Policy Management|Policy|Unpublish Terms Of Use|
-|B2C|Authorization|Authorization|Update Custom IDP|
-|B2C|Resource|Resource|Update Custom IDP|
-|Microsoft Identity Manager (MIM)|Group Management|Group|Update Group|
-|B2C|Resource|Resource|Update IDP|
-|B2C|Authorization|Authorization|Update IDP|
-|B2C|Resource|Resource|Update Local IDP|
-|B2C|Authorization|Authorization|Update Local IDP|
 |Core Directory|User Management|User|Update StsRefreshTokenValidFrom Timestamp|
-|B2C|Application Management|Application|Update V1 application|
-|B2C|Authorization|Authorization|Update V1 application|
-|B2C|Application Management|Application|Update V2 application|
-|B2C|Authorization|Authorization|Update V2 application|
-|B2C|Application Management|Application|Update V2 application permission grant|
-|B2C|Authorization|Authorization|Update V2 application permission grant|
-|B2C|Resource|Resource|Update a B2C directory resource|
 |Core Directory|Administrative Unit Management|AdministrativeUnit|Update administrative unit|
-|Identity Protection|Directory Management|Directory|Update alert settings|
 |Core Directory|Application Management|Application|Update application|
-|Application Proxy|Application Management|Application|Update application|
-|Application Proxy|Application Management|Application|Update application Single Sign-On Mode|
 |Core Directory|Directory Management|Directory|Update company|
 |Core Directory|Directory Management|Directory|Update company settings|
 |Core Directory|Resource|Resource|Update device|
@@ -600,38 +556,82 @@ This section provides you with a lists of all the activities that can be logged.
 |Core Directory|Application Management|Application|Update external secrets|
 |Core Directory|Group Management|Group|Update group|
 |Core Directory|Group Management|Group|Update group settings|
-|Self-service Group Management|Group Management|Group|Update lifecycle management policy|
 |Core Directory|Policy Management|Policy|Update policy|
-|B2C|Resource|Resource|Update policy|
-|B2C|Authorization|Authorization|Update policy|
 |Core Directory|Role Management|Role|Update role|
 |Core Directory|Application Management|Application|Update service principal|
-|B2C|Resource|Resource|Update subscription status|
 |Core Directory|User Management|User|Update user|
-|B2C|Resource|Resource|Update user attribute|
-|B2C|Authorization|Authorization|Update user attribute|
-|Identity Protection|Directory Management|Directory|Update weekly digest settings|
-|Privileged Identity Management|Role Management|Role|UpdateAlertSettings|
-|Privileged Identity Management|Role Management|Role|UpdateCurrentState|
-|B2C|Key|Key|Upload a CPIM encrypted key|
-|B2C|Authorization|Authorization|Upload a CPIM encrypted key|
-|B2C|Authorization|Authorization|User Authorization: API is disabled for tenant featureset|
-|B2C|Authorization|Authorization|User Authorization: User granted access as 'Tenant Admin'|
-|B2C|Authorization|Authorization|User Authorization: User was granted 'Authenticated Users' access rights|
-|Microsoft Identity Manager (MIM)|User Management|User|User Password Registration|
-|Microsoft Identity Manager (MIM)|User Management|User|User Password Reset|
-|Self-service Password Management|User Management|User|User registered for self-service password reset|
-|B2C|Authentication|Authentication|Validate local account credentials|
-|B2C|Resource|Resource|Validate move resources|
-|B2C|Authentication|Authentication|Validate user authentication|
 |Core Directory|Directory Management|Directory|Verify domain|
 |Core Directory|Directory Management|Directory|Verify email verified domain|
-|B2C|Directory Management|Directory|Verify if B2C feature is enabled|
-|B2C|Authorization|Authorization|Verify if B2C feature is enabled|
-|B2C|Authorization|Authorization|Verify if feature is enalbed|
-|B2C|Directory Management|Directory|Verify if feature is enalbed|
+|Identity Protection|User Management|User|Admin generates a temporary password|
+|Identity Protection|User Management|User|Admins requires the user to reset their password|
+|Identity Protection|Other|Other|Download a single risk event type|
+|Identity Protection|Other|Other|Download admins and status of weekly digest opt-in|
+|Identity Protection|Other|Other|Download all risk event types|
+|Identity Protection|Other|Other|Download free user risk events|
+|Identity Protection|Other|Other|Download users flagged for risk|
+|Identity Protection|Directory Management|Directory|Onboarding|
+|Identity Protection|Policy Management|Policy|Set MFA registration policy|
+|Identity Protection|Policy Management|Policy|Set sign-in risk policy|
+|Identity Protection|Policy Management|Policy|Set user risk policy|
+|Identity Protection|Directory Management|Directory|Update alert settings|
+|Identity Protection|Directory Management|Directory|Update weekly digest settings|
+|Invited Users|User Management|User|Assign external user to application|
+|Invited Users|Other|Other|Batch invites processed|
+|Invited Users|Other|Other|Batch invites uploaded|
+|Invited Users|User Management|User|Email not sent, user unsubscribed|
+|Invited Users|User Management|User|Invite external user|
+|Invited Users|User Management|User|Redeem external user invite|
 |Invited Users|User Management|User|Viral tenant creation|
 |Invited Users|User Management|User|Viral user creation|
+|Microsoft Identity Manager (MIM)|Group Management|Group|Add Member|
+|Microsoft Identity Manager (MIM)|Group Management|Group|Create Group|
+|Microsoft Identity Manager (MIM)|Group Management|Group|Delete Group|
+|Microsoft Identity Manager (MIM)|Group Management|Group|Remove Member|
+|Microsoft Identity Manager (MIM)|Group Management|Group|Update Group|
+|Microsoft Identity Manager (MIM)|User Management|User|User Password Registration|
+|Microsoft Identity Manager (MIM)|User Management|User|User Password Reset|
+|Privileged Identity Management|Role Management|Role|AccessReview_Review|
+|Privileged Identity Management|Role Management|Role|AccessReview_Update|
+|Privileged Identity Management|Role Management|Role|ActivationAborted|
+|Privileged Identity Management|Role Management|Role|ActivationApproved|
+|Privileged Identity Management|Role Management|Role|ActivationCanceled|
+|Privileged Identity Management|Role Management|Role|ActivationRequested|
+|Privileged Identity Management|Role Management|Role|Added|
+|Privileged Identity Management|Role Management|Role|Assign|
+|Privileged Identity Management|Role Management|Role|Elevate|
+|Privileged Identity Management|Role Management|Role|Removed|
+|Privileged Identity Management|Role Management|Role|Role Setting changes|
+|Privileged Identity Management|Role Management|Role|ScanAlertsNow|
+|Privileged Identity Management|Role Management|Role|Signup|
+|Privileged Identity Management|Role Management|Role|Unelevate|
+|Privileged Identity Management|Role Management|Role|UpdateAlertSettings|
+|Privileged Identity Management|Role Management|Role|UpdateCurrentState|
+|Self-service Group Management|Group Management|Group|Approve a pending request to join a group|
+|Self-service Group Management|Group Management|Group|Cancel a pending request to join a group|
+|Self-service Group Management|Group Management|Group|Create lifecycle management policy|
+|Self-service Group Management|Group Management|Group|Delete a pending request to join a group|
+|Self-service Group Management|Group Management|Group|Reject a pending request to join a group|
+|Self-service Group Management|Group Management|Group|Renew group|
+|Self-service Group Management|Group Management|Group|Request to join a group|
+|Self-service Group Management|Group Management|Group|Set dynamic group properties|
+|Self-service Group Management|Group Management|Group|Update lifecycle management policy|
+|Self-service Password Management|User Management|User|Blocked from self-service password reset|
+|Self-service Password Management|User Management|User|Change password (self-service)|
+|Self-service Password Management|Directory Management|Directory|Disable password writeback for directory|
+|Self-service Password Management|Directory Management|Directory|Enable password writeback for directory|
+|Self-service Password Management|User Management|User|Reset password (by admin)|
+|Self-service Password Management|User Management|User|Reset password (self-service)|
+|Self-service Password Management|User Management|User|Self-serve password reset flow activity progress|
+|Self-service Password Management|User Management|User|Self-service password reset flow activity progress|
+|Self-service Password Management|User Management|User|Unlock user account (self-service)|
+|Self-service Password Management|User Management|User|User registered for self-service password reset|
+|Terms Of Use|Policy Management|Policy|Accept Terms Of Use|
+|Terms Of Use|Policy Management|Policy|Create Terms Of Use|
+|Terms Of Use|Policy Management|Policy|Decline Terms Of Use|
+|Terms Of Use|Policy Management|Policy|Delete Terms Of Use|
+|Terms Of Use|Policy Management|Policy|Edit Terms Of Use|
+|Terms Of Use|Policy Management|Policy|Publish Terms Of Use|
+|Terms Of Use|Policy Management|Policy|Unpublish Terms Of Use|
 
 
 
