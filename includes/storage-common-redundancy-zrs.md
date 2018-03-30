@@ -9,7 +9,7 @@
  ms.author: jeking
  ms.custom: include file
 ---
-Zone Redundant Storage (ZRS) synchronously replicates your data is across three storage clusters in a single region. Each storage cluster is physically separated from the others and resides in its own availability zone (AZ). Each availability zone, and the ZRS cluster within it, is autonomous, with separate utilities and networking capabilities.
+Zone Redundant Storage (ZRS) synchronously replicates your data across three storage clusters in a single region. Each storage cluster is physically separated from the others and resides in its own availability zone (AZ). Each availability zone, and the ZRS cluster within it, is autonomous, with separate utilities and networking capabilities.
 
 Storing your data in a ZRS account ensures that you will be able access and manage your data in the event that a zone becomes unavailable. ZRS provides excellent performance and extremely low latency.
 
@@ -24,7 +24,6 @@ ZRS currently supports standard, general-purpose v2 (GPv2) account types. ZRS is
 ZRS is generally available in the following regions:
 
 - US East 2
-- US East 2 EUAP (Canary)
 - US Central
 - North Europe
 - West Europe
