@@ -23,7 +23,6 @@ ms.author: spelluru
 # Tutorial: Push notifications to Windows Phone apps by using Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Overview
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Windows Phone 8 or Windows Phone 8.1 Silverlight applications. If you are targeting Windows Phone 8.1 (non-Silverlight), see the [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) version of this tutorial.
 
 In this tutorial, you create a blank Windows Phone 8 app that receives push notifications by using the Microsoft Push Notification Service (MPNS). After you create the app, you use your notification hub to broadcast push notifications to all the devices running your app.
@@ -146,13 +145,11 @@ In this section, you create a Windows Phone application that registers itself wi
     ![Notification on Windows phone](./media/notification-hubs-windows-phone-get-started/notification-on-windows-phone.png)
 
 ## Next steps
-In this simple example, you broadcasted push notifications to all your Windows Phone 8 devices. 
+In this simple example, you broadcasted push notifications to all your Windows Phone 8 devices. Advance to the following tutorial to learn how to push notifications to specific devices:
 
-To target specific users, refer to the [Use Notification Hubs to push notifications to users] tutorial. 
+> [!div class="nextstepaction"]
+>[Push notifications to specific devices](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 
-If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news]. 
-
-Learn more about how to use Notification Hubs in [Notification Hubs Guidance].
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
