@@ -34,7 +34,7 @@ The third block of code uses [setCameraBounds](https://docs.microsoft.com/en-us/
 
 The fourth block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Route API](https://docs.microsoft.com/en-us/rest/api/location-based-services/route/getroutedirections).
 
-The last block of code parses the incoming response. For a successful response, it collects the latitude and longitude information for each turn point. It creates an array of lines by connecting each turn point to its subsequent turn point. It adds all those lines onto the map to render the route. You can see [add a line on the map](./map-add-shape.md#addALine) for instructions.
+The last block of code parses the incoming response. For a successful response, it collects the latitude and longitude information for each waypoint. It creates an array of lines by connecting each waypoint to its subsequent waypoint. It adds all those lines onto the map to render the route. You can see [add a line on the map](./map-add-shape.md#addALine) for instructions.
 
 ## Related reference
 
