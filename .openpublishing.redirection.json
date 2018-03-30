@@ -17777,7 +17777,11 @@
         "source_path": "articles/monitoring/management-overview-monitoring.md",
         "redirect_url": "/azure/monitoring/",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cli-install-nodejs.md",
+        "redirect_url": "/cli/azure/install-cli-version-1.0",
+        "redirect_document_id": false
     }
-
    ]
 }
