@@ -35,13 +35,9 @@ Application monitoring tracks how features and components of your application ar
 * Figuring out what your users are doing with your application - collecting telemetry in your applications can help guide future feature development and better diagnostics for app errors
 * Monitoring what is happening inside your running containers
 
-Service Fabric supports many options to instrument your application code with the proper traces and telemetry. We recommend that you use Application Insights (AI). AI's integration with Service Fabric includes tooling experiences for Visual Studio and Azure portal and an understanding of Service Fabric service context and remoting in the AI dashboard and Application Map, leading to a comprehensive out-of-the-box logging experience. Though many logs are automatically created and collected for you when using AI, we recommend that you add further custom logging to your applications alongside what is already provided to create a richer diagnostics experience for handling issues in the future.
+Service Fabric supports many options to instrument your application code with the proper traces and telemetry. We recommend that you use Application Insights (AI). AI's integration with Service Fabric includes tooling experiences for Visual Studio and Azure portal and an understanding of Service Fabric service context and remoting in the AI dashboard and Application Map, leading to a comprehensive out-of-the-box logging experience. Though many logs are automatically created and collected for you when using AI, we recommend that you add further custom logging to your applications alongside what is already provided to create a richer diagnostics experience for handling issues in the future. See more about getting started with Application Insights with Service Fabric at [Event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 
 ![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
-
-![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/app-map.png)
-
-See more about getting started with Application Insights with Service Fabric at [Event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 
 ## Platform (Cluster) monitoring
 Monitoring your Service Fabric cluster is critical in ensuring that the platform and all workloads are running as intended. One of Service Fabric's goals is to keep applications resilient to hardware failures. This is achieved through the platform's system services' ability to detect infrastructure issues and rapidly failover workloads to other nodes in the cluster. But in this particular case, what if the system services themselves have issues? Or if in attempting to move a workload, rules for the placement of services are violated? Monitoring the cluster allows you to stay informed about activity taking place in your cluster, which helps in diagnosing issues and fixing them effectively. Some key things you want to be looking out for are:
@@ -81,14 +77,14 @@ In addition to seeing latest health reports in SFX, each report is also availabl
 
 ## Other logging solutions
 
-Although the two solutions we recommended, [OMS](service-fabric-diagnostics-event-analysis-oms.md) and [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) have built in integration with Service Fabric, many events are written out through etwproviders and are extensibile with other logging solutions. You should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Splunk](https://www.splunk.com/), [Dynatrace](https://www.dynatrace.com/) or any other platform of your preference. 
+Although the two solutions we recommended, [OMS](service-fabric-diagnostics-event-analysis-oms.md) and [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) have built in integration with Service Fabric, many events are written out through etw providers and are extensibile with other logging solutions. You should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Splunk](https://www.splunk.com/), [Dynatrace](https://www.dynatrace.com/) or any other platform of your preference. 
 
 The key points for any platform you choose should include how comfortable you are with the user interface and querying options, the ability to visualize data and create easily readable dashboards, and the additional tools they provide to enhance your monitoring, such as automated alerting.
 
 ## Next steps
 
-* For getting started with instrumenting your applications, see [Application level event and log generation](service-fabric-diagnostics-event-generation-app.md)
-* Learn more about monitoring the platform and the events Service Fabric provides for you at [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md)
-* Go through the steps to set up AI for your application with [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
-* Learn how to set up OMS Log Analytics for monitoring containers - [Monitoring and Diagnostics for Windows Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md)
+* For getting started with instrumenting your applications, see [Application level event and log generation](service-fabric-diagnostics-event-generation-app.md).
+* Learn more about monitoring the platform and the events Service Fabric provides for you at [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md).
+* Go through the steps to set up AI for your application with [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
+* Learn how to set up OMS Log Analytics for monitoring containers - [Monitoring and Diagnostics for Windows Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Learn about general monitoring recommendations for Azure resources - [Best Practices - Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 
