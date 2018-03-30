@@ -3,7 +3,7 @@ title: Push notifications to specific Windows phones using Azure Notification Hu
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to specific (not all) Windows Phone 8 or Windows Phone 8.1 devices registed with the application backend.
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
+author: spelluru
 manager: erikre
 editor: ''
 
@@ -12,21 +12,18 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 03/30/2018
+ms.author: spelluru
 
 ---
 # Tutorial: Push notifications to specific Windows Phone devices by using Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to a Windows Phone 8.0/8.1 Silverlight app. If you are targeting Windows Store or Windows Phone 8.1 app, please refer to to the [Windows Universal](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md) version. 
-
-Broadcast scenarios are enabled by including one or more *tags* when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md).
-
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to specific Windows Phone 8 or Windows Phone 8.1 devices. If you are targeting Windows Phone 8.1 (non-Silverlight), see the [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) version of this tutorial.
 
-In this tutorial, you create a blank Windows Phone 8 app that receives push notifications by using the Microsoft Push Notification Service (MPNS). After you create the app, you use your notification hub to broadcast push notifications to all the devices running your app.
+You enable this scenario by including one or more *tags* when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag receive the notification. For more information about tags, see [Tags in registrations](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
 > The Notification Hubs Windows Phone SDK does not support using the Windows Push Notification Service (WNS) with Windows Phone 8.1 Silverlight apps. To use WNS (instead of MPNS) with Windows Phone 8.1 Silverlight apps, follow the [Notification Hubs - Windows Phone Silverlight tutorial], which uses REST APIs.
@@ -40,7 +37,7 @@ In this tutorial, you learn how to:
 > * Test the app
 
 ## Prerequisites
-You must complete the [Tutorial: Tutorial: Push notifications to Windows Phone apps by using Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). In this tutorial, you update the mobile application so that you can register for breaking news categories you are interested in, and receive only push notifications for those categories. 
+Complete the [Tutorial: Tutorial: Push notifications to Windows Phone apps by using Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). In this tutorial, you update the mobile application so that you can register for breaking news categories you are interested in, and receive only push notifications for those categories. 
 
 ## Add category selection to the mobile app
 The first step is to add the UI elements to your existing main page that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags.
@@ -71,7 +68,7 @@ The first step is to add the UI elements to your existing main page that enable 
             <CheckBox Name="SportsCheckBox" Grid.Row="2" Grid.Column="1">Sports</CheckBox>
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
         </Grid>
-2. In the project, create a new class named **Notifications**, add the **public** modifier to the class definition, then add the following **using** statements to the new code file:
+2. Add a class named **Notifications** to the project. Add the **public** modifier to the class definition. Then, add the following **using** statements to the new code file:
    
         ```csharp
         using Microsoft.Phone.Notification;
@@ -132,7 +129,7 @@ The first step is to add the UI elements to your existing main page that enable 
                 channel.ShellToastNotificationReceived += channel_ShellToastNotificationReceived;
             }
    
-            // If channel.ChannelUri is not null, we will complete the registrationTask here.  
+            // If channel.ChannelUri is not null, complete the registrationTask here.  
             // If it is null, the registrationTask will be completed in the ChannelUriUpdated event handler.
             if (channel.ChannelUri != null)
             {
@@ -273,9 +270,9 @@ These steps register with the notification hub on startup using the categories t
         }
         ```
    
-    This updates the main page based on the status of previously saved categories.
+    This code updates the main page based on the status of previously saved categories.
 
-The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, we will define a backend that can send category notifications to this app.
+The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, define a backend that can send category notifications to this app.
 
 ## Send tagged notifications
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
@@ -285,18 +282,18 @@ The app is now complete and can store a set of categories in the device local st
    
     ![Mobile app with categories][1]
    
-    Note that the app UI provides a set of toggles that lets you choose the categories to subscribe to.
+    The app UI provides a set of toggles that lets you choose the categories to subscribe to.
 2. Enable one or more categories toggles, then click **Subscribe**.
    
     The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a dialog.
    
     ![Subscribed message][2]
-3. After receiving a confirmation that your categories were subscription completed, run the console app to send notifications for each categories. Verify you only receive a notification for the categories you have subscribed to.
+3. After receiving a confirmation that your categories were subscription completed, run the console app to send notifications for each category. Verify you only receive a notification for the categories you have subscribed to.
    
     ![Notification message][3]
 
 ## Next steps
-In this tutorial you learned how to push notifications to specific devices that have tags associated with their registrations. To learn how to push notifications to specific users who may be using multiple devices, advance to the following tutorial: 
+In this tutorial, you learned how to push notifications to specific devices that have tags associated with their registrations. To learn how to push notifications to specific users who may be using multiple devices, advance to the following tutorial: 
 
 > [!div class="nextstepaction"]
 >[Push notifications to specific users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
