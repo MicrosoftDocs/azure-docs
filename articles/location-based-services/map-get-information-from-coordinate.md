@@ -18,7 +18,7 @@ ms.custom: mvc
 # Get information from a coordinate
 
 ## Overview
-This tutorial shows you how to perform a reverse address search and upon a mouse click render the address of the clicked location in a popup. 
+This tutorial shows you how to perform a reverse address search, and upon a mouse click render the address of the clicked location in a popup. 
 
 ## Understand the code
 
@@ -31,7 +31,7 @@ The second block of code updates the style of mouse cursor to a pointer.
 
 The third block of code creates a popup. You can see [add a popup on the map](./map-add-popup.md) for instructions.
 
-The last code block adds an event listener for mouse clicks. Upon a mouse click, it sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Reverse Address Search API](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse). For a successful response, it collects the address for the clicked location, and define the popup content and position via [setPopupOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#location_based_services_javascript_Popup_setPopupOptions) function of the popup class
+The last code block adds an event listener for mouse clicks. Upon a mouse click, it sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Reverse Address Search API](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse). For a successful response, it collects the address for the clicked location, and defines the popup content and position via [setPopupOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#location_based_services_javascript_Popup_setPopupOptions) function of the popup class
 
 ## Related reference
 * [Azure Maps Reverse Address Search API](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse)
