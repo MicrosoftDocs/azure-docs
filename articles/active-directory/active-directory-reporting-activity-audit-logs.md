@@ -181,9 +181,9 @@ You can filter this view further down to just **groups** or just **users**.
 
 
 
-## Heading
+## Azure AD audit activity list
 
-Why should I read this?
+This section provides you with a lists of all the activities that can be logged. 
 
 
 |Service Name|Audit Category|Activity Resource Type|Activty|
