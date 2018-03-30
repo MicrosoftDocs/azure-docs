@@ -57,7 +57,6 @@ The following information identifies the Azure Government International Traffic 
 | --- | --- |
 | Data entered, transmitted, and processed within ExpressRoute dedicated connections can contain export-controlled data. | Azure ExpressRoute metadata is not permitted to contain export-controlled data. This metadata includes configuration data entered when creating and maintaining your ExpressRoute circuit. Do not enter regulated/controlled data into the Circuit name field when configuring the initial ExpressRoute circuit. |
 
-
 ## Support for BGP communities
 This section provides an overview of how BGP communities will be used with ExpressRoute in AzureGov. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
