@@ -28,13 +28,12 @@ Like Azure, Azure Stack innovates rapidly so we'll regularly release new builds 
 ## What account should I use?
 There are a few account considerations you should be aware of when managing Azure Stack. Especially in deployments using Windows Server Active Directory Federation Services (AD FS) as the identity provider instead of Azure Active Directory (Azure AD). The following account considerations apply to both Azure Stack integrated systems and ASDK deployments:
 
-
 |Account|Azure AD|AD FS|
 |-----|-----|-----|
 |Local Administrator (.\Administrator)|ASDK host administrator|ASDK host administrator|
-|AzureStack\AzureStackAdmin|ASDK host administrator<br>Can be used to log in to the Azure Stack administration portal<br>Access to view and administer Service Fabric rings|ASDK host administrator<br>No access to the Azure Stack administration portal<br>Access to view and administer Service Fabric rings<br>No longer owner of the Default Provider Subscription (DPS)<br>|
-|AzureStack\CloudAdmin|Can access and run permitted commands within the Privileged Endpoint|Can access and run permitted commands within the Privileged Endpoint<br>Can not log in to the ASDK host<br>Owner of the Default Provider Subscription (DPS)|
-|Azure AD Global Administrator|Used during installation<br>Owner of the Default Provider Subscription (DPS)|Not applicable|
+|AzureStack\AzureStackAdmin|ASDK host administrator<br><br>Can be used to log in to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings|ASDK host administrator<br><br>No access to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings<br><br>No longer owner of the Default Provider Subscription (DPS)|
+|AzureStack\CloudAdmin|Can access and run permitted commands within the Privileged Endpoint|Can access and run permitted commands within the Privileged Endpoint<br><br>Can not log in to the ASDK host<br><br>Owner of the Default Provider Subscription (DPS)|
+|Azure AD Global Administrator|Used during installation<br><br>Owner of the Default Provider Subscription (DPS)|Not applicable|
 |
 
 ## What tools do I use to manage?
