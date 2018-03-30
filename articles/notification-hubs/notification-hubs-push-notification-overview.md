@@ -79,15 +79,15 @@ Notification hubs is your ready-to-use push engine with the following advantages
     - Cloud or on-premises
     - .NET, Node.js, Java, etc.
 - **Rich set of delivery patterns**
-    - *Broadcast to one or multiple platforms*: You can instantly broadcast to millions of devices across platforms with a single API call.
-    - *Push to device*: You can target notifications to individual devices.
-    - *Push to user*: Tags and templates features help you reach all cross-platform devices of a user.
-    - *Push to segment with dynamic tags*: Tags feature helps you segment devices and push to them according to your needs, whether you are sending to one segment or an expression of segments (For example, active AND lives in Seattle NOT new user). Instead of being restricted to pub-sub, you can update device tags anywhere and anytime.
-    - *Localized push*: Templates feature helps achieve localization without affecting backend code.
-    - *Silent push*: You can enable the push-to-pull pattern by sending silent notifications to devices and triggering them to complete certain pulls or actions.
-    - *Scheduled push*: You can schedule to send out notifications anytime.
-    - *Direct push*: You can skip registering devices with the Notification Hubs service and directly batch push to a list of device handles.
-    - *Personalized push*: Device push variables helps you send device-specific personalized push notifications with customized key-value pairs.
+    - Broadcast to one or multiple platforms: You can instantly broadcast to millions of devices across platforms with a single API call.
+    - Push to device: You can target notifications to individual devices.
+    - Push to user: Tags and templates features help you reach all cross-platform devices of a user.
+    - Push to segment with dynamic tags: Tags feature helps you segment devices and push to them according to your needs, whether you are sending to one segment or an expression of segments (For example, active AND lives in Seattle NOT new user). Instead of being restricted to pub-sub, you can update device tags anywhere and anytime.
+    - Localized push: Templates feature helps achieve localization without affecting backend code.
+    - Silent push: You can enable the push-to-pull pattern by sending silent notifications to devices and triggering them to complete certain pulls or actions.
+    - Scheduled push: You can schedule to send out notifications anytime.
+    - Direct push: You can skip registering devices with the Notification Hubs service and directly batch push to a list of device handles.
+    - Personalized push: Device push variables helps you send device-specific personalized push notifications with customized key-value pairs.
 - **Rich telemetry**
     - General push, device, error, and operation telemetry are available in the Azure portal and programmatically.
     - Per Message Telemetry tracks each push from your initial request call to the Notification Hubs service successfully batching the pushes out.
