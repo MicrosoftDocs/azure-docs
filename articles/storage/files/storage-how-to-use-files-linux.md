@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/29/2018
 ms.author: renash
 ---
 
@@ -47,13 +47,13 @@ ms.author: renash
     On **RHEL** and **CentOS**, use the `yum` package manager:
 
     ```
-    sudo yum install samba-client samba-common cifs-utils
+    sudo yum install cifs-utils
     ```
 
     On **openSUSE**, use the `zypper` package manager:
 
     ```
-    sudo zypper install samba*
+    sudo zypper install cifs-utils
     ```
 
     On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
