@@ -71,11 +71,12 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 If you don't have the LUIS app ID, log in to the [LUIS](luis-reference-regions.md) website using the same account you use to log in to Azure. Click on **My apps**. 
 
 1. Find the LUIS app you previously created, that contains the intents and entites from the HomeAutomation domain.
+
 2. In the **Settings** page for the LUIS app, find and copy the app ID.
+
 3. If you haven't trained the app, click the **Train** button in the upper right to train your app.
+
 4. If you haven't published the app, click **PUBLISH** in the top navigation bar to open the **Publish** page. Click the **Publish to production slot** button. 
-
-
 
 
 ## Modify the bot code
