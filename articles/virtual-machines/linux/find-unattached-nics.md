@@ -46,3 +46,7 @@ do
        echo $id
    fi
 done
+
+## Next steps
+The next step would be to learn how to manage virtual networks and linux virtual machines with Azure CLI.
+- https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-virtual-network
