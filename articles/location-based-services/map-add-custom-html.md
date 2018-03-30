@@ -35,4 +35,4 @@ The last block of code uses [addHtml](https://docs.microsoft.com/en-us/javascrip
 
 To add a custom HTML to the map, you need to use the following class and method:
 * [Map](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addhtml
+    * [addHtml](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addhtml)
