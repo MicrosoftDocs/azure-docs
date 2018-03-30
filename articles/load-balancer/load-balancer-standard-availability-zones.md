@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: kumud
 ---
 
@@ -22,7 +22,7 @@ ms.author: kumud
 Azure Load Balancer's Standard SKU supports [Availability Zones](../availability-zones/az-overview.md) scenarios. Several new concepts are available with Standard Load Balancer, which allow you to optimize availability in your end-to-end scenario by aligning resources with zones as well as distribute them across zones.  Review [Availability Zones](../availability-zones/az-overview.md) for guidance on what Availability Zones are, which regions currently support Availability Zones, and other related concepts and products. Availability Zones in combination with Standard Load Balancer is an expansive and flexible feature set that can create many different scenarios.  Review this document to understand these [concepts](#concepts) and fundamental scenario [design guidance](#design).
 
 >[!NOTE]
->You need to [sign up for Availability Zones Preview](https://aka.ms/availabilityzones) to use this ability. 
+>Review [Availability Zones](https://aka.ms/availabilityzones) for other related topics. 
 
 ## <a name="concepts"></a> Availability Zones concepts applied to Load Balancer
 
@@ -40,7 +40,7 @@ A Load Balancer resource itself is regional and never zonal.  And a VNet and sub
 
 A Load Balancer frontend is a Frontend IP configuration referencing either a public IP address resource or a private IP address within the subnet of a virtual network resource.  It forms the load balanced endpoint where your service is exposed.
 
-A Load Balancer resource can contain both zonal and zone-redundant frontends simultaneously.
+A Load Balancer resource can contain both zonal and zone-redundant frontends simultaneously. 
 
 When a public IP resource has been guaranteed to a zone, the zonality (or lack thereof) is not mutable.  If you wish to change or omit the zonality of a public IP frontend, you need to recreate the public IP in the appropriate zone.  
 
@@ -216,3 +216,5 @@ There is no general guidance that one is a better choice than the other without 
 ## Next steps
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
+- Learn how to [load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](load-balancer-standard-public-zonal-cli.md)
+- Learn how to [load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](load-balancer-standard-public-zone-redundant-cli.md)
