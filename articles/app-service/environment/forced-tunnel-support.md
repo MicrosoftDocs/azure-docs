@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 3/6/2018
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
 ---
