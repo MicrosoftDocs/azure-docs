@@ -150,8 +150,10 @@ To invoke a Python interactive session, just type **python** in the shell. If yo
 
 To install additional Python libraries, you need to run ```conda``` or ````pip```` command under sudo and provide full path of the Python package manager (conda or pip) to install to the correct Python environment. For example:
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install <package> #pip for Python 2.7
+    sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
+    sudo /anaconda/bin/conda install [-n py27] <package> #conda for Python 2.7, default behavior
+    sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
 ### Jupyter notebook

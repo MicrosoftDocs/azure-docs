@@ -3,7 +3,7 @@ title: Troubleshoot attached VHDs on Azure Linux virtual machines | Microsoft Do
 description: How to troubleshoot issues such as unexpected reboots of Linux VMs or problems deleting a storage account containing attached VHDs.
 keywords: ssh connection refused, ssh error, azure ssh, SSH connection failed
 services: virtual-machines-linux
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
@@ -11,7 +11,7 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: iainfou
+ms.author: rogarana
 ---
 
 # Troubleshoot attached VHDs on Azure Linux virtual machines
