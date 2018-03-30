@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 03/06/2018
 ms.author: v-geberr
 ---
 
@@ -40,14 +40,15 @@ Build a chat bot with integrated language understanding.
 
 3. In the Web App Bot window, click **Create**.
 
-4. In **Bot Service**, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. 
+4. In **Bot Service**, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
     * Select the **Language understanding (C#)** template for the **Bot template** field.
+    * Select the **LUIS App Location**. This is the authoring [region][LUIS] the app is created in.
+    * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
 
     ![Bot Service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
-    * Check the box to confirm to the notice. The terms of the notice are below the checkbox.
 
 5. Confirm that the bot service has been deployed.
     * Click Notifications (the bell icon that is located along the top edge of the Azure portal). The notification changes from **Deployment started** to **Deployment succeeded**.
@@ -58,7 +59,7 @@ Build a chat bot with integrated language understanding.
 
 ## Try the default bot
 
-Confirm that the bot has been deployed by checking the **Notifications**. The notifications changes from **Deployment in progress...** to **Deployment succeeded**. Click **Go to resource** button to open the bot's resources.
+Confirm that the bot has been deployed by selecting the **Notifications** checkbox. The notifications changes from **Deployment in progress...** to **Deployment succeeded**. Click **Go to resource** button to open the bot's resources.
 
 Once the bot is deployed, click **Test in Web Chat** to open the Web Chat pane. Type "hello" in Web Chat.
 
@@ -94,27 +95,29 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
    [!code-csharp[Default BasicLuisDialog.cs](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/Default_BasicLuisDialog.cs "Default BasicLuisDialog.cs")]
 
 ## Change code to HomeAutomation intents
-Remove the three intent attributes and methods for **Greeting**, **Cancel**, and **Help**. These intents are not used in the HomeAutomation prebuilt domain. Make sure to keep the **None** intent attribute and method. 
 
-1. Add dependencies:
+
+1. Remove the three intent attributes and methods for **Greeting**, **Cancel**, and **Help**. These intents are not used in the HomeAutomation prebuilt domain. Make sure to keep the **None** intent attribute and method. 
+
+2. Add dependencies to the top of the file, with the other dependencies:
 
    [!code-csharp[Dependencies](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=4-5&dedent=8 "dependencies")]
 
-2. Add constants to manage strings:
+3. Add constants to manage strings at the top of the `BasicLuisDialog ` class:
 
    [!code-csharp[Add Intent and Entity Constants](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=23-32&dedent=8 "Add Intent and Entity Constants")]
 
-3. Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff`:
+4. Add the code for the new intents of `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` inside the `BasicLuisDialog ` class:
 
-   [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=59-69&dedent=8 "Add Intents")]
+   [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=61-71&dedent=8 "Add Intents")]
 
-4. Add the code to get any entities found by LUIS:
+5. Add the code to get any entities found by LUIS inside the `BasicLuisDialog ` class:
 
-   [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-51&dedent=8 "Collect entities")]
+   [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-53&dedent=8 "Collect entities")]
 
-5. Change **ShowLuisResult** method to round the score, collect the entities, and display the response message in the chat bot:
+6. Change **ShowLuisResult** method in the `BasicLuisDialog ` class to round the score, collect the entities, and display the response message in the chat bot:
 
-   [!code-csharp[Display message in chat bot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=71-81&dedent=8 "Display message in chat bot")]
+   [!code-csharp[Display message in chat bot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=73-83&dedent=8 "Display message in chat bot")]
 
 ## Build the bot
 In the code editor, right-click on `build.cmd` and select **Run from Console**.
@@ -152,7 +155,7 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 
 > [!div class="nextstepaction"]
 > [Add intents](./add-intents.md)
-
+> [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
 <!-- Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
@@ -163,5 +166,5 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 [BotFramework]: https://docs.microsoft.com/bot-framework/
 [AssignedEndpointDoc]:https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-
+[LUIS]:luis-reference-regions.md
 <!-- tested on Win10 -->

@@ -1,27 +1,23 @@
 ---
 title: 'Azure SQL Database service | Microsoft Docs'
 description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
-keywords: 
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Active"
-ms.date: 02/12/2018
+ms.date: 03/21/2018
+manager: craigg
+ms.topic: article
 ms.author: carlrab
 
 ---
 # What are Azure SQL Database service tiers?
 
-[Azure SQL Database](sql-database-technical-overview.md) offers **Basic**, **Standard**, and **Premium** service tiers for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). Service tiers are primarily differentiated by a range of performance level and storage size choices, and price.  All service tiers provide flexibility in changing performance level and storage size.  Single databases and elastic pools are billed hourly based on service tier, performance level, and storage size.   
+[Azure SQL Database](sql-database-technical-overview.md) offers **Basic**, **Standard**, and **Premium** service tiers for both [single databases](sql-database-single-database-resources.md) and [elastic pools](sql-database-elastic-pool.md). SQL Database offers a General Purpose service tier for [Azure SQL Database Managed Instance](sql-database-managed-instance.md#managed-instance-service-tier). Service tiers are primarily differentiated by a range of performance level and storage size choices, and price.  All service tiers provide flexibility in changing performance level and storage size.  Single databases and elastic pools are billed hourly based on service tier, performance level, and storage size.   
+
+> [!IMPORTANT]
+> SQL Database Managed Instance, currently in public preview, offers a single general-purpose service tier. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md). The remainder of this article does not apply to Managed Instance.
 
 ## Choosing a service tier
 
@@ -32,9 +28,10 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |Uptime SLA|99.99%|99.99%|99.99%|N/A while in preview|
 |Backup retention|7 days|35 days|35 days|
 |CPU|Low|Low, Medium, High|Medium, High|
-|IO throughput|Low	| Medium | Order of magnitude higher than Standard|
-|IO latency|Higher than Premium|Higher than Premium|Lower than Basic and Standard|
-|Columnstore indexing and in-memory OLTP|N/A|N/A|Supported|
+|IO throughput (approximate) |2.5 IOPS per DTU	| 2.5 IOPS per DTU | 48 IOPS per DTU|
+|IO latency (approximate)|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
+|Columnstore indexing |N/A|S3 and above|Supported|
+|In-memory OLTP|N/A|N/A|Supported|
 |||||
 
 ## Performance level and storage size limits

@@ -14,9 +14,9 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 03/27/2018
 ms.author: glenga
-ms.custom: 
+ms.custom: cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Cosmos DB
 
@@ -29,8 +29,6 @@ Learn how to create a function triggered when data is added to or changed in Azu
 To complete this tutorial:
 
 + If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## Create an Azure Function app
 
@@ -70,8 +68,8 @@ Next, you create a function in the new function app.
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Name of database | Unique ID for the Azure Cosmos DB database  |
-    | **API** | SQL (DocumentDB) | This topic uses the document database API.  |
-    | **Subscription** | Azure Subscription | Azure Subscription  |
+    | **API** | SQL | This topic uses the SQL API.  |
+    | **Subscription** | Azure Subscription | The subscription under which this new Cosmos DB account is created.  |
     | **Resource Group** | myResourceGroup |  Use the existing resource group that contains your function app. |
     | **Location**  | WestEurope | Select a location near to either your function app or to other apps that use the stored documents.  |
 

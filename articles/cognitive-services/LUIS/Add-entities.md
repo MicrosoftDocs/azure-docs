@@ -9,7 +9,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 03/21/2018
 ms.author: v-geberr
 ---
 
@@ -39,6 +39,20 @@ A simple entity is a generic entity that describes a single concept.
 
     ![Add Entity Dialog box - Simple](./media/add-entities/create-simple-airline-entity.png)
 
+> [!TIP]
+> Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more.
+
+## Add regular expression entities
+A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
+
+1. Open the TravelAgent app by selecting its name on **My Apps** page, and then select **Entities** in the left panel. 
+2. On the **Entities** page, select **Create new entity**.
+3. In the **Add Entity** dialog box, type "AirFrance Flight" in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `AFR[0-9]{3,4}`, and then select **Done**. This regular expression expects three characters, literally `AFR`, then 3 or 4 digits. The digits can be any number between 0 and 9. The regular expression matches AirFrance flight numbers such as: "AFR101", "ARF1302", and "AFR5006". See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting the entity from the endpoint JSON query response. 
+
+    ![Add Entity Dialog box - Simple](./media/add-entities/regex-entity-create-dialog.png)
+
+> [!TIP]
+> Try the regular expression [quickstart](luis-quickstart-intents-regex-entity.md) to learn more.
 
 ## Add hierarchical entities
 A hierarchical entity defines a relationship between a category and its members.
@@ -60,6 +74,9 @@ To add hierarchical entities, complete the following steps: Make sure to add the
 
     >[!NOTE]
     >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
+
+> [!TIP]
+> Try the hierarchical [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more.
 
 ## Add composite entities
 You can also define relationships between entities by creating composite entities. A composite entity is created by combining two or more existing entities and treating them as one entity. 
@@ -84,6 +101,8 @@ You can also define relationships between entities by creating composite entitie
     >[!NOTE]
     >To delete a child, click the trash button next to it.
 
+> [!TIP]
+> Try the composite [tutorial](luis-tutorial-composite-entity.md) to learn more.
 
 ## Add list entities
 A list entity is an entity that is defined by a list of all its values. 
@@ -111,6 +130,9 @@ A list entity is an entity that is defined by a list of all its values.
 7. Click on "Type a synonym and press Enter" to add additional text values for a normalized value.
 
     ![List item synonyms](./media/add-entities/entity-list-synonyms-list.png)
+
+> [!TIP]
+> Try the list entity [quickstart](luis-quickstart-intent-and-list-entity.md) to learn more.
 
 ## Import list entity values
 

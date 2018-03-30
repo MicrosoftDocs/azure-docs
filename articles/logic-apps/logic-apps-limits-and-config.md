@@ -2,7 +2,7 @@
 title: Limits and configuration - Azure Logic Apps | Microsoft Docs
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -25,13 +25,13 @@ This article describes the current limits and configuration details for Azure Lo
 
 ### HTTP request limits
 
-These limits apply to a single HTTP request or a connector call.
+Here are the limits for a single HTTP request or a connector call:
 
 #### Timeout
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Request timeout | 120 seconds | An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](logic-apps-loops-and-scopes.md) can compensate as needed |
+| Request timeout | 120 seconds | An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](logic-apps-control-flow-loops.md) can compensate as needed | 
 |||| 
 
 #### Message size
@@ -53,7 +53,7 @@ These limits apply to a single HTTP request or a connector call.
 
 ### Run duration and retention
 
-These limits apply to a single logic app run.
+Here are the limits for a single logic app run:
 
 | Name | Limit | 
 | ---- | ----- | 
@@ -65,12 +65,12 @@ These limits apply to a single logic app run.
 
 To exceed the limits for run duration or 
 storage retention in your normal processing flow, 
-[contact the product team](mailto://logicappsemail@microsoft.com) 
-to get assistance with your requirements.
+[contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
+for help with your requirements.
 
 ### Looping and debatching limits
 
-These limits apply to a single logic app run.
+Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
@@ -82,11 +82,11 @@ These limits apply to a single logic app run.
 
 ### Throughput limits
 
-These limits apply to a single logic app resource.
+Here are the limits for a single logic app instance:
 
 | Name | Limit | Notes | 
 | ----- | ----- | ----- | 
-| Actions executions per 5 minutes | 100,000 |<p>The limit can be increased to 300,000 by running a logic app in `High Througput` mode. High throughput mode can be configured by setting the `operationOptions` property under`runtimeConfiguration` of the workflow resource to `OptimizedForHighThroughput`. <p>Note that high throughput mode is in preview. Also a workload can be distributed across multiple apps as needed. | 
+| Actions executions per 5 minutes | 100,000 | To increase the limit to 300,000, you can run a logic app in `High Throughput` mode. To configure high throughput mode, under the `runtimeConfiguration` of the workflow resource, set the `operationOptions` property to `OptimizedForHighThroughput`. <p>**Note**: High throughput mode is in preview. Also, you can distribute a workload across multiple apps as necessary. | 
 | Actions concurrent outgoing calls | ~2,500 | Decrease number of concurrent requests or reduce the duration as needed. | 
 | Runtime endpoint: Concurrent incoming calls |~1,000 | Decrease number of concurrent requests or reduce the duration as needed. | 
 | Runtime endpoint: Read calls per 5 minutes  | 60,000 | Can distribute workload across multiple apps as needed. | 
@@ -95,12 +95,12 @@ These limits apply to a single logic app resource.
 
 To exceed these limits in normal processing, 
 or run load testing that might exceed these limits, 
-[contact the product team](mailto://logicappsemail@microsoft.com) 
-to get assistance with your requirements.
+[contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
+for help with your requirements.
 
 ### Logic app definition limits
 
-These limits apply to a single logic app definition.
+Here are the limits for a single logic app definition:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
@@ -132,7 +132,7 @@ These limits apply to custom connectors that you can create from web APIs.
 
 ### Integration account limits
 
-These limits apply to artifacts that you can add to an integration account.
+Here are the limits for the artifacts that you can add to an integration account.
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
@@ -151,7 +151,7 @@ These limits apply to the number of artifacts that you can add to an integration
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
 | Agreements | 10 | | 
-| Other artifact types | 25 |Artifact types include partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts. | 
+| Other artifact types | 25 | Artifact types include partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts. | 
 |||| 
 
 #### Standard pricing tier
@@ -163,7 +163,7 @@ These limits apply to the number of artifacts that you can add to an integration
 
 ### B2B protocols (AS2, X12, EDIFACT) message size
 
-These limits apply to B2B protocols.
+Here are the limits that apply to B2B protocols:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 

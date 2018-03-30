@@ -3,13 +3,14 @@ title: Azure Stack Quick Start - Create VM Portal
 description: Azure Stack Quick Start - Create a Linux VM using the portal
 services: azure-stack
 cloud: azure-stack
-author: vhorne
-manager: byronr
+author: brenduns
+manager: femila
 
 ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 12/11/2017
-ms.author: victorh
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
 ---
 

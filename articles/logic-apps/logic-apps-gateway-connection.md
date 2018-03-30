@@ -102,7 +102,7 @@ This step also associates your gateway resource with your Azure subscription.
 Make sure to use the same Azure work or school email address used to install the gateway.
 
 2. On the main Azure menu, 
-choose **Create a resource** > **Enterprise Integration** > **On-premises data gateway**:
+choose **Create a resource** > **Enterprise Integration** > **On-premises data gateway**.
 
    ![Find "On-premises data gateway"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -146,10 +146,11 @@ provide these details to create your data gateway resource:
     ![Provide details to create your on-premises data gateway](./media/logic-apps-gateway-connection/createblade.png)
 
     To find or view your data gateway at any time, 
-    from the main Azure menu, go to 
-    **More Services** > **Enterprise Integration** > **On-premises Data Gateways**.
+    from the main Azure menu, choose **All services**. 
+    In the search box, enter "on-premises data gateways", 
+    then choose **On-premises Data Gateways**.
 
-    ![Go to "More services", "Enterprise Integration", "On-premises Data Gateways"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![Find "On-premises Data Gateways"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 

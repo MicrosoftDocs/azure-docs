@@ -18,15 +18,17 @@
     href: quickstarts/nodejs.md
   - name: First query in Python
     href: quickstarts/python.md
+  - name: First query in Go
+    href: quickstarts/go.md
   - name: First query in PHP
     href: quickstarts/php.md
   - name: First query in Ruby
     href: quickstarts/ruby.md
-- name: SDK (preview)
+- name: SDK
   items:
   - name: SDK samples overview 
     href: sdk.md
-  - name: Web Search SDK C# quickstart (preview)
+  - name: Web Search SDK C# quickstart
     href: web-search-sdk-quickstart.md 
   - name: Web Search SDK Node.js quickstart (preview)
     href: web-search-sdk-node-quickstart.md 
@@ -76,3 +78,5 @@
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: User Voice
     href: https://cognitive.uservoice.com/forums/555907-bing-search
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest

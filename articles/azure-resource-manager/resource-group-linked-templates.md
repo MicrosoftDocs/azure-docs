@@ -24,8 +24,6 @@ For small to medium solutions, a single template is easier to understand and mai
 
 When using linked template, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
 
-![linked templates](./media/resource-group-linked-templates/nestedTemplateDesign.png)
-
 ## Link or nest a template
 
 To link to another template, add a **deployments** resource to your main template.

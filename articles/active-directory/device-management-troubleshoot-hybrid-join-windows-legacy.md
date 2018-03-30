@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -52,7 +52,6 @@ This topic provides you with troubleshooting guidance on how to resolve potentia
 
 - A reinstall of the operating system or a manual unregister and re-register may create a new registration on Azure AD and results in multiple entries under the USER info tab in the Azure portal. 
 
-
 ## Step 1: Retrieve the registration status 
 
 **To verify the registration status:**  
@@ -84,13 +83,14 @@ If the hybrid Azure AD join was not successful, the dialog box provides you with
     
     1. If the user signed in is not a domain user (for example, a local user). Hybrid Azure AD join on down-level devices is supported only for domain users.
     
-    2. If, for any reason, Autoworkplace.exe is unable to silently authenticate with Azure AD or AD FS. A couple of possible reasons can be out-bound network connectivity issues to Azure AD URLs (check the prerequisites) or whether MFA is enabled/configured for the user, but WIAORMUTLIAUTHN is not configured at the federation server (check configuration steps). Another possibility is that home realm discovery (HRD) page is waiting for user interaction, preventing Autoworkplace.exe from silently obtaining a 
+    2. If, for any reason, Autoworkplace.exe is unable to silently authenticate with Azure AD or AD FS. A couple of possible reasons can be out-bound network connectivity issues to Azure AD URLs (check the prerequisites) or if MFA is enabled/configured for the user, but WIAORMUTLIAUTHN is not configured at the federation server (check configuration steps). Another possibility is that home realm discovery (HRD) page is waiting for user interaction, preventing Autoworkplace.exe from silently obtaining a token.
     
-    3. If the organization is using Azure AD Seamless Single Sign-On, the following URLs are not present on the device's IE intranet settings:
-    - https://autologon.microsoftazuread-sso.com
-    - https://aadg.windows.net.nsatc.net
+    3. If the organization is using Azure AD Seamless Single Sign-On, the following URL is not present on the device's IE intranet settings:
     
-    and the "Allow updates to status bar via script" setting must be enabled for the Intranet zone.
+       - https://autologon.microsoftazuread-sso.com
+
+    
+       and the "Allow updates to status bar via script" setting must be enabled for the Intranet zone.
 
 - A quota has been reached
 

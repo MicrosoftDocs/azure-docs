@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 02/21/2018
 ms.author: yurid
 
 ---
@@ -90,16 +90,11 @@ Security Center uses advanced analytics to identify compromised resources based 
 * **Disabling and deleting IIS log files**: This alert indicates that IIS log file were disabled and/or deleted, which is often used by attackers to try to cover their tracks.
 * **Suspicious file deletion**: This alert indicates suspicious deletion of files, which can be used by an attacker to remove evidence of malicious binaries.
 * **All file shadow copies have been deleted**: This alert indicates that shadow copies have been deleted.
-* **A history file has been cleared**: This alert indicates that the command history log file has been cleared, which could be used by an attacker to cover its tracks.
 * **Suspicious file cleanup commands**: This alert indicates a combination of systeminfo commands used to perform post-compromise self-cleanup activity.  While *systeminfo.exe* is a legitimate Windows tool, executing it twice in succession, followed by a delete command in the way that has occurred here is rare.
 * **Suspicious account creation**: This alert indicates that an account was created with a close resemblance of an existing built in administrative privilege account. This technique can be used by attackers to create a rogue account without being detected.
-* **Suspicious login activity**: This alert indicates an unusual login activity, which could indicate a Server Message Block (SMB) brute force attack. If the affected resource acts as an IIS server, this alert might be due to specific IIS authentication configuration that is legitimate.
 * **Suspicious volume shadow copy activity**: This alert indicates shadow copy deletion activity on the resource. Volume Shadow Copy (VSC) is an important artifact that stores data snapshots. This activity is usually associated with Ransowmare, but it could also be legitimate.
 * **Windows registry persistence method**: This alert indicates an attempt to persist an executable in the Windows registry. Malware often uses such a technique to survive a boot.
-* **Windows firewall was disabled**: This alert indicates that a Windows firewall was disabled.
 * **Suspicious new firewall rule**: This alert indicates that a new Firewall rule has been added via *netsh.exe* to allow traffic from an executable in a suspicious location.
-* **New user was added to administrators group**: This alert indicates that a new user was added to the local administrator’s group.
-* **A new service was created**: This alert indicates that a new service was created.
 * **Suspicious XCOPY executions**: This alert indicates a series of XCOPY executions which could signal that one of your machines has been compromised and was used to propagate malware.
 * **Suppression of legal notice displayed to users at logon**: This alert indicates a change to the registry key that controls whether a legal notice is displayed to users when they log on. This is a common activity undertaken by attackers after having compromised a host.
 * **Detected anomalous mix of upper and lower case characters in command line**: This alert indicates the use of a mix of upper and lower case characters at the command line, which is a technique used by attackers to hide from case-sensitive or hash-based machine rule.
@@ -120,15 +115,10 @@ Security Center uses advanced analytics to identify compromised resources based 
 * **Suspicious Set-ExecutionPolicy and WinRM changes**: This alert indicates configuration changes, which are associated with the use of the malicious ChinaChopper webshell.
 * **Disabling of critical services**: This alert indicates that "net.exe stop" command was used to stop critical services like SharedAccess or Windows Security Center.
 * **Suspicious use of FTP -s switch**: This alert indicates use of FTP's "-s" switch, which can be used by malware to connect to a remote FTP server and download additional malicious binaries.
-* **Preparation for document exfiltration via IIS backdoor**: This alert indicates documents are being gathered and prepared for exfiltration.
 * **Suspicious execution of VBScript.Encode command**: This alert indicates the *VBScript.Encode* command was executed, which encodes scripts into unreadable text, making it more difficult for users to examine the code.
 * **VBScript HTTP object allocation**: This alert indicates the creation of a VBScript file using Command Prompt; which can be used to download malicious files.
 * **Sticky keys attack**: This alert indicates that an attacker may be subverting an accessibility binary (for example sticky keys, onscreen keyboard, narrator) in order to provide backdoor access.
 * **Petya ransomware indicators**: This alert indicates the techniques associated with the Petya ransomware were observed.
-* **A kernel module was loaded**: This alert indicates that a kernel module was loaded.
-* **A kernel module was removed**: This alert indicates that a kernel module was removed.
-* **Anomalous login to a machine**: This alert indicates that a user logged in from an unusual IP address.
-* **A file was downloaded and executed**: This alert indicates a file was downloaded to the machine, given execution privileges, and then executed.
 * **Attempt to disable AMSI**: This alert indicates an attempt to disable the antimalware scan interface (AMSI), which would disable antimalware detection.
 * **Ransomware indicators**: This alert indicates suspicious activity traditionally associated with lock-screen and encryption ransomware.
 * **Suspicious trace collection output file**: This alert indicates that a trace (for example of network activity) was collected and output to an unusual file type.
@@ -142,14 +132,8 @@ Security Center uses advanced analytics to identify compromised resources based 
 * **Dynamic PS script construction**: This alert indicates a PowerShell script being constructed dynamically. Attackers use this technique to progressively build a script in order to evade IDS systems.
 * **Metaploit indicators**: This alert indicates activity associated with the Metasploit framework, which provides a range of attacker capabilities and tools.
 * **Suspicious account activity**: This alert indicates an attempt to connect to a machine using an account that was recently compromised.
-* **Possible suspicious scheduling tasks access**: This alert indicates that a cron job was executed, which can be used by attackers to execute malicious programs on a scheduled basis.
-* **Possible suspicious command history file access**: This alert indicates abnormal access to commands history file.
 * **Account creation**: This alert indicates a creation of a new account on the machine.
-* **Change of bash setting has been**: This alert indicates a Bash Profile file was accesses, which could be evidence that an attacker is trying to execute malicious programs on a scheduled basis.
-* **Suspicious sequence of failed sudo attempts**: This alert indicates a sequence of un-successful sudo commands, which is often observed in brute force attempts aimed to escalate privileges by un-authorized users.
-* **Suspicious successful sudo attempts**: This alert indicates a sequence of failed sudo attempts followed by a successful sudo attempt, which is often observed in brute force attempts aimed to escalate privileges by un-authorized users.
-* **A new user was added to the sudoers group**: This alert indicates a user was added to the sudoers group, which enables its members to run commands with high privileges.
-* **Network logon with plaintext credentials**: This alert indicates a network logon was observed where the password was sent over the network in clear text format. This is common for logons from an ASP script using the ADVAPI or when a user logs on to IIS using IIS’s basic authentication mode. Basic authentication is not the recommended method unless it is wrapped in an encryption layer such as SSL (i.e. by using HTTPS connections only).
+
 
 ### Crash analysis
 
@@ -203,6 +187,8 @@ If additional information is available, it will be shown in the Security Inciden
 - Log clear events
 - PNP device plugged from unknown device
 - Alerts which are not actionable
+- New account creation
+- File decoded using certutil tool 
 
 ![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

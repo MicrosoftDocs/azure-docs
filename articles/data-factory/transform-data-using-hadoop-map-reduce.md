@@ -4,8 +4,8 @@ description: Learn how to process data by running Hadoop MapReduce programs on a
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

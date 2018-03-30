@@ -2,7 +2,7 @@
 title: Simulate a failure in accessing read access redundant storage in Azure | Microsoft Docs 
 description: Simulate an error in accessing read access geo-redundant storage
 services: storage 
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
 
 ms.service: storage 
@@ -10,7 +10,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
-ms.author: v-ruogun 
+ms.author: tamram 
 ---  
 
 # Simulate a failure in accessing read-access redundant storage
@@ -158,7 +158,7 @@ route del <destination_ip> gw <gateway_ip>
 
 # [Windows](#tab/windows)
 
-route delete <destination_ip> <gateway_ip>
+route delete <destination_ip>
 
 ---
 

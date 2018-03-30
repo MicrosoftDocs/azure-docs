@@ -33,7 +33,7 @@ The following sample Azure CLI commands expect an existing simple environment ba
 
 To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow the steps following.
 
-1. If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#az_login). 
+1. If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). 
 
 2. Create an NSG using the [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) command. 
 

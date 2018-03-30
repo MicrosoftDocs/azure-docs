@@ -1,20 +1,15 @@
 ---
 title: Build a project in Azure using Jenkins and Azure Container Instances
 description:  Learn how to use the Azure Container Agent plugin for Jenkins to build a project in Azure with Azure Container Instances
-services: multiple
-documentationcenter: ''
 author: tomarcher
 manager: rloutlaw
-editor: ''
-
 ms.service: multiple
+ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 12/11/2017
+ms.date: 03/16/2018
 ms.author: tarcher
-ms.custom: jenkins
+ms.custom: Jenkins
 ---
 
 # Build a project in Azure using Jenkins and Azure Container Instances
@@ -69,6 +64,11 @@ This section walks you through setting the Jenkins URL.
 1. Select **Save**.
 
 ## Update Jenkins to allow Java Network Launch Protocol (JNLP)
+
+> [!NOTE]
+> This tutorial illustrates how to configure a JNLP agent. From version 0.4.x onwards, the [Jenkins Azure Container Agents plugin](https://plugins.jenkins.io/azure-container-agents) also supports SSH.
+>
+>
 
 The Jenkins agent connects with the Jenkins server via the Java Network Launch Protocol (JNLP). This section explains how to specify a port for JNLP agents to use when communicating with the Jenkins server.
 

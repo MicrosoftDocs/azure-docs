@@ -2,21 +2,15 @@
 title: Azure SQL Data Sync (Preview) | Microsoft Docs
 description: This overview introduces Azure SQL Data Sync (Preview)
 services: sql-database
-documentationcenter: ''
 author: douglaslms
 manager: craigg
-editor: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
+ms.custom: data-sync
 ---
 # Sync data across multiple cloud and on-premises databases with SQL Data Sync (Preview)
 
@@ -93,6 +87,8 @@ Data Sync uses insert, update, and delete triggers to track changes. It creates 
 ### General limitations
 
 -   A table cannot have an identity column that is not the primary key.
+
+-   A primary key cannot have the datetime data type.
 
 -   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 

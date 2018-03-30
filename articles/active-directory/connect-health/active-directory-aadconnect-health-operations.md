@@ -136,7 +136,7 @@ Now the listed users and groups have access, according to their assigned roles.
 >
 
 #### Step 3: Share the blade location with users or groups
-1. After you assign permissions, a user can access Azure AD Connect Health by going [here](http://aka.ms/aadconnecthealth).
+1. After you assign permissions, a user can access Azure AD Connect Health by going [here](https://aka.ms/aadconnecthealth).
 2. On the blade, the user can pin the blade, or different parts of it, to the dashboard. Simply click the **Pin to dashboard** icon.<br>
    ![Screenshot of Azure AD Connect Health RBAC pin blade, with pin icon highlighted](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
