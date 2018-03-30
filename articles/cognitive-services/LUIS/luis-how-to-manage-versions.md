@@ -21,10 +21,10 @@ To work with versions, open your app by selecting its name on **My Apps** page, 
 
 ![Versions page](./media/luis-how-to-manage-versions/settings.png)
 
-The **Settings** page allows you to configure settings for the entire app including versions, and contributors. 
+The **Settings** page allows you to configure settings for the entire app including versions, and collaborators. 
 
 ## Clone a version
-1. On the **Settings** page, after the App Settings and Contributors sections, find the row with the version you want to clone. Select the three dots (...) on the far-right. 
+1. On the **Settings** page, after the App Settings and Collaborators sections, find the row with the version you want to clone. Select the three dots (...) on the far-right. 
 
     ![Version row properties](./media/luis-how-to-manage-versions/version-section.png)
 
@@ -39,7 +39,7 @@ The **Settings** page allows you to configure settings for the entire app includ
  > [!NOTE]
  > Version ID can consist only of characters, digits or '.' and cannot be longer than 10 characters.
  
- A new version with the specified name is created and added to the list and set as the active version.
+ A new version with the specified name is created and set as the active version.
  
   ![Version is created and added to the list](./media/luis-how-to-manage-versions/new-version.png)
 
@@ -47,7 +47,7 @@ The **Settings** page allows you to configure settings for the entire app includ
  > As shown in the preceding image, a published version is associated with a colored mark, indicating the type of slot where it has been published: Production (green), Staging (red) and both (black). The training and publishing dates are displayed for each published version.
 
 ## Set active version
-1. On the **Settings** page, in the **Versions** list, on the row of the version you want to clone, select the three dots (...) at the far right.
+1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
 
 2. From the pop-up list, select **Set as active**.
 
@@ -78,14 +78,14 @@ You can export a version to a JSON file.
 
 **To export a version:**
 
-1. On the **Settings** page, in the **Versions** list, on the row of the version you want to clone, select the three dots (...) at the far right.
+1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
 
 2. Select **Export** in the pop-up list of actions and select where you want to save the file.
 
 ## Delete a version
 You can delete versions, but you have to keep at least one version of the app. You can delete all versions except the active version. 
 
-1. On the **Settings** page, in the **Versions** list, on the row of the version you want to delete, select the three dots (...) at the far right.
+1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
 
 2. Select **Delete** in the pop-up list of actions and select where you want to save the file.
 
@@ -95,7 +95,7 @@ You can delete versions, but you have to keep at least one version of the app. Y
 ## Rename a version
 You can rename versions as long as the version name is not already in use.  
 
-1. On the **Settings** page, in the **Versions** list, on the row of the version you want to rename, select the three dots (...) at the far right.
+1. On the **Settings** page, in the **Versions** list, select the three dots (...) at the far right.
 
 2. Select **Rename** in the pop-up list of actions.
 
