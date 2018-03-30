@@ -63,4 +63,4 @@ PaaS technologies that span the Azure platform.
 
 Check out the [5-minute Quickstarts section](#5-Minute-Quickstarts) to experience IoT features quickly and easily. Or for a more in-depth hands-on experience, try one of  the [Step-by-step Tutorials](#Step-by-step-Tutorials).
 
-[img-paas-saas-technologies-solutions]: media/iot-technologies-solutions/paas-saas-technologies-solutions.png
+[img-paas-saas-technologies-solutions]: media/iot-comparison/paas-saas-technologies-solutions.png
