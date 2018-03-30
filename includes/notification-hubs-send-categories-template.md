@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: notification-hubs
+ author: spelluru
+ ms.service: notification-hubs
+ ms.topic: include
+ ms.date: 03/30/2018
+ ms.author: spelluru
+ ms.custom: include file
+---
 
 In this section, you send breaking news as tagged template notifications from a .NET console app. 
 

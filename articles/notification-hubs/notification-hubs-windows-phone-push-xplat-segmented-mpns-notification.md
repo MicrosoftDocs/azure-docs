@@ -1,6 +1,6 @@
 ---
 title: Push notifications to specific Windows phones using Azure Notification Hubs | Microsoft Docs
-description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to specific (not all) Windows Phone 8 or Windows Phone 8.1 devices registed with the application backend.
+description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to specific (not all) Windows Phone 8 or Windows Phone 8.1 devices registered with the application backend.
 services: notification-hubs
 documentationcenter: windows
 author: spelluru
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 > * Test the app
 
 ## Prerequisites
-Complete the [Tutorial: Tutorial: Push notifications to Windows Phone apps by using Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). In this tutorial, you update the mobile application so that you can register for breaking news categories you are interested in, and receive only push notifications for those categories. 
+Complete the [Tutorial: Push notifications to Windows Phone apps by using Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). In this tutorial, you update the mobile application so that you can register for breaking news categories you are interested in, and receive only push notifications for those categories. 
 
 ## Add category selection to the mobile app
 The first step is to add the UI elements to your existing main page that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags.
