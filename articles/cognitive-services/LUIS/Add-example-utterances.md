@@ -44,7 +44,7 @@ To edit an utterance, select the three dots (...) icon at the right end of the l
 
 ## Delete an utterance
 
-To delete an utterance, select the three dots (...) icon at the right end of the line for that utterance then select **Delete utterance**. 
+To delete an utterance, select the three dots (...) icon at the right end of the line for that utterance then select **Delete**. 
 
 ![Delete utterance](./media/add-example-utterances/delete-utterance-ddl.png)
 
@@ -169,11 +169,11 @@ The composite entity contains three child entities: number (of tickets), Seat, a
 
 5. Select third word in phrase, `business`. A green bar appears below entire phrase. 
 
-6. Enter `TicketsOrder` then select **Create new composite entity**.
+6. Enter `TicketsOrder` then select **Create new composite**.
 
     ![Enter TicketsOrder](./media/add-example-utterances/composite-wrap-3.png)
 
-7. In the pop-up box, enter three existing entity children: number, Category, TravelClass. 
+7. In the pop-up box, enter three existing entity children: number, Category, Seat. 
 
     ![Enter Child entities](./media/add-example-utterances/composite-wrap-4.png)
 
@@ -198,7 +198,7 @@ Custom list entities cannot be removed because they are predicted by LUIS.
 
 Searching allows you to find utterances that contain text (words/phrases). For example, sometimes you notice an error that involves a particular word, and may want to find all the examples including that particular word. 
 
-Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. <!--[Fuzzy search](#switch-from-fuzzy-search-to-prefix-search) is turned on by default.-->
+Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. 
 
 To cancel the search and restore your full list of utterances, delete the search text you've typed.
 
@@ -216,19 +216,7 @@ Use the **Entity** drop-down list to filter the utterances by entity. The new fi
 Toggle **Tokens View** to view the tokens instead of the entity type names. The keyboard command, control + e, also switches between tokens and entities. 
 
 ![Token View](./media/add-example-utterances/tokens-view.png)
-<!--
-## Switch from fuzzy search to prefix search
-Fuzzy search is the default search method. This search method is the ability to search for letters in order but not necessarily in consecutive order. For example, a fuzzy search of 'fy' returns all utterances such as 'fly' because the 'f' and the 'y' are in non-consecutive, left-to-right order. A non-fuzzy search does not return 'fly' because the letters are not in consecutive order. 
 
-|utterance (search for 'fl') |found in fuzzy search|found in prefix search|
-|--|--|--|
-|book a **fl**ight to seattle| ✔ | ✔ |
-|book a trip to **F**ort Worth from **L**os Angeles | ✔ | X |
-
-The following list of utterances uses fuzzy search:
-
-![Search in utterances](./media/add-example-utterances/fuzzy-search.png)
--->
 ## Next steps
 
 After labeling utterances in your intents, now your next task is to create a [composite entity](Add-entities.md).
