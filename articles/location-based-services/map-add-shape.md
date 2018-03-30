@@ -46,7 +46,7 @@ In the second block of code, a circle is created. A circle is a [Feature](https:
 
 A circle layer is an array of circles. The last block of code uses [addCircle()](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#location_based_services_javascript_Map_addCircles) function of the map class to add the circle layer to the map and define the properties of the circle layer. See properties of a circle layer at [CircleLayerOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/circlelayeroptions?view=azure-iot-typescript-latest).
 
-<a id="addARectangle"></a>
+<a id="addAPolygon"></a>
 
 ### Add a polygon
 
