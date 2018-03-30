@@ -102,7 +102,7 @@ ms.topic: article
     }
     ```
 
-1. Press the **&lt;Esc>** key to exit to exit insert/append mode.
+1. Press the **&lt;Esc>** key to exit insert/append mode.
 
 1. Save the file and exit the vi editor by entering the following command, followed by pressing **&lt;Enter>**:
 
@@ -163,21 +163,37 @@ ms.topic: article
 
     ![Deployment options for an App Service resource](./media/terraform-slot-walkthru/deployment-options.png)
 
-3. Select **GitHub**.
+1. On the **Deployment option** tab, select **Choose Source**, and then select **GitHub**.
 
-    ![Select Deployment Source](./media/terraform-slot-walkthru/select-source.png)
+    ![Select deployment source](./media/terraform-slot-walkthru/select-source.png)
 
-4. Once you have set up your authorization and picked your personal organization, you need to tell the Azure portal which project you want to deploy from. Select **Choose Project**, then select **awesome-terraform** from the displayed menu items.
+1. Select **Authorization**.
 
-    ![Choose Project](./media/terraform-slot-walkthru/choose-project.png)
+1. Select **Authorize**, and supply the credentials needed for Azure to access your GitHub account. 
 
-5. Now that you have defined what project to deploy from, you also need to select which branch to deploy from. To do that, select **Choose branch**, select  **master** from the displayed menu items, and finally select **OK**.
+1. Once Azure has validated your GitHub credentials, a message displays indicating that the authorization process has completed. Select **OK** to close the **Authorization** tab.
 
-    ![Choose Branch](./media/terraform-slot-walkthru/choose-branch.png)
+1. Select **Choose your organization** and select your organization.
 
-Once you select **OK**, the Azure portal will begin building the project and deploy it to your `slotAppService` production slot. 
+1. Select **Choose project**.
 
-To set up deployment to `slotAppServiceSlotOne`, follow the preceding steps except in **Step 1** select the `slotAppServiceSlotOne` resource and in **Step 5** select the `working` branch instead of the `master` branch.
+1. On the **Choose project** tab, select the **awesome-terraform** project.
+
+    ![Choose the awesome-terraform project](./media/terraform-slot-walkthru/choose-project.png)
+
+1. Select **Choose branch**.
+
+1. On the **Choose branch** tab, select **master**.
+
+    ![Choose the master branch](./media/terraform-slot-walkthru/choose-branch.png)
+
+1. On the **Deployment option** tab, select **OK**. Once you select **OK**, the Azure portal builds the **awesome-terraform** project and deploys it to the **slotAppService-slotAppServiceSlotOne** production slot.
+
+
+
+
+
+1. To set up deployment to **slotAppServiceSlotOne**, follow steps except in **Step 1** select the `slotAppServiceSlotOne` resource and in **Step 5** select the `working` branch instead of the `master` branch.
 
 ![Choose Working Branch](./media/terraform-slot-walkthru/choose-branch-working.png)
 
