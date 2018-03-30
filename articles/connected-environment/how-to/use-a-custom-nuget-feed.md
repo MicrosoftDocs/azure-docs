@@ -1,5 +1,5 @@
 ---
-title: "How to use a custom NuGet feed in a connected environment| Microsoft Docs"
+title: "How to use a custom NuGet feed in a connected environment | Microsoft Docs"
 author: "johnsta"
 ms.author: "johnsta"
 ms.date: "03/27/2018"
