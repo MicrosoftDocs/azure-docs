@@ -111,6 +111,7 @@
         - name: HTTP
           href: how-to-acquire-vm-access-token-http.md
         - name: Java
+          href: how-to-acquire-vm-access-token-java.md
         - name: Python
         - name: Ruby
         - name: Node.js
@@ -140,7 +141,6 @@
         href: /cli/azure/identity
       - name: PowerShell
         href: /powershell/module/azurerm.managedserviceidentity#managed_service_identity 
-      - name: Azure Resource Manager Template
       - name: .NET
         href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
       - name: Java
