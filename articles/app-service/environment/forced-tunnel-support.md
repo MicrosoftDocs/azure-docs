@@ -56,13 +56,15 @@ If the network is already routing traffic on premises, then you need to create t
 ![Direct internet access][1]
 
 
-## Configure your ASE with Service Endpoints
+## Configure your ASE with Service Endpoints ##
 
 To route all outbound traffic from your ASE, except that which goes to Azure SQL and Azure Storage, perform the following steps:
 
 1. Create a route table and assign it to your ASE subnet. Find the addresses that match your region here [App Service Environment management addresses][management]. Create routes for those addresses with a next hop of internet. This is needed because the App Service Environment inbound management traffic must reply from the same address it was sent to.   
 
-2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet
+2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet.  After this step is completed, you can then configure your VNet with forced tunneling.
+
+To create your ASE in a virtual network that is already configured to route all traffic on premises you need to create your ASE using a resource manager template.  It is not possible to create an ASE with the portal into a pre-existing subnet.  When deploying your ASE into a VNet that is already configured to route outbound traffic on premises, you need to create your ASE using a resource manager template which does allow you to specify a pre-existing subnet. For details on deploying an ASE with a template please read [Creating an App Service Environment using a template][template].
 
 Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 
@@ -70,13 +72,7 @@ When you enable Service Endpoints on a resource, there are routes created with h
 
 When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another.  Azure Storage does not behave the same as Azure SQL.  When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
 
-If you configure forced tunneling with a network filter appliance, then remember that the ASE has a number of dependencies in addition to Azure SQL and Azure Storage. You must allow that traffic or the ASE will not function properly.
-
-It is not possible to create an ASE with the portal into a pre-existing subnet.  When deploying your ASE into a VNet that is already configured to route outbound traffic on premises, you need to:
-
-1. Create a subnet which you wish to deploy the ASE into. If you wish to use a pre-existing subnet then it must be completely empty.
-2. Enable Service Endpoints on Storage and SQL from the subnet you wish to use to host your ASE.
-3. Deploy your ASE using a resource manager template.  For details on deploying an ASE with a template please read [Creating an App Service Environment using a template][template].  
+If you configure forced tunneling with a network filter appliance, then remember that the ASE has dependencies in addition to Azure SQL and Azure Storage. You must allow traffic to those dependencies or the ASE will not function properly.
 
 ![Forced tunnel with service endpoints][2]
 
@@ -128,7 +124,7 @@ These changes send traffic to Azure Storage directly from the ASE and allow acce
 
 If communication between the ASE and its dependencies is broken, the ASE will go unhealthy.  If it remains unhealthy too long, then the ASE will become suspended. To unsuspend the ASE, follow the instructions in your ASE portal.
 
-In addition to simply breaking communication, you can adversely affect your ASE by introducing too much latency. Too much latency can happen if your ASE is too far from your on premises network.  Examples of too far would include going across an ocean or continent to reach your on premises network. Latency can also be introduced due to intranet congestion or outbound bandwidth constraints.
+In addition to simply breaking communication, you can adversely affect your ASE by introducing too much latency. Too much latency can happen if your ASE is too far from your on premises network.  Examples of too far would include going across an ocean or continent to reach the on premises network. Latency can also be introduced due to intranet congestion or outbound bandwidth constraints.
 
 
 <!--IMAGES-->
