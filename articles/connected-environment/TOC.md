@@ -30,7 +30,7 @@
 
 # How to
 ##[Share a development environment](how-to/share-dev-environment.md)
-##[Use a custom NuGet feed](how-to/use-custom-NuGet-feed.md)
+##[Use a custom NuGet feed](how-to/use-a-custom-nuget-feed.md)
 ##[Use kubectl with Visual Studio Connected Environment](how-to/use-kubectl-with-vsce.md)
 
 # [Troubleshoot](troubleshooting.md)
