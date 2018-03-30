@@ -18,7 +18,7 @@ ms.custom: mvc
 # Add a shape on a map
 
 ## Overview
-This tutorial shows you how to add a line, a circle or a polygon on the map. 
+This tutorial shows you how to add a line, a circle, and a polygon on the map. 
 
 <a id="addALine"></a>
 
