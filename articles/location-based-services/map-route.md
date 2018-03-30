@@ -30,7 +30,7 @@ In the code above, the first block of code constructs a map object. You can see 
 
 The second block of code creates and adds pins on the map to represent the start and end point of the route. You can see [add a pin on the map](map-add-pin.md) for instructions.
 
-The third block of code uses [setCameraBounds()](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#setCameraBounds) function of the map class to set the bounding box of the map based on the start and end point of the route.
+The third block of code uses [setCameraBounds](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#setCameraBounds) function of the map class to set the bounding box of the map based on the start and end point of the route.
 
 The fourth block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Route API](https://docs.microsoft.com/en-us/rest/api/location-based-services/route/getroutedirections).
 
