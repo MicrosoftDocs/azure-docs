@@ -28,7 +28,28 @@ This document details installation, detection, and removal of the Azure Virtual 
 
 ### Azure gallery image
 
-The Azure VM Agent is installed by default on any Windows virtual machine deployed from an Azure Gallery image. When deploying an Azure gallery image from the Portal, PowerShell, Command Line Interface, or an Azure Resource Manager template, the Azure VM Agent is also be installed. 
+The Azure VM Agent is installed by default on any Windows virtual machine deployed from an Azure Gallery image. When deploying an Azure gallery image from the Portal, PowerShell, Command Line Interface, or an Azure Resource Manager template, the Azure VM Agent will also be installed. 
+
+The Windows Guest Agent Package is broken into two parts, the Provisioning Agent (PA) and the Windows Guest Agent (WinGA). In order to boot a VM you must have the PA installed on the VM, however the WinGA does not need to be installed. At VM provisioning time, you can select not to install the WinGA, below shows an example selecting 'provisionVmAgent' option using an ARM Template.
+
+```json
+"resources": [{
+"name": "[parameters('virtualMachineName')]",
+"type": "Microsoft.Compute/virtualMachines",
+"apiVersion": "2016-04-30-preview",
+"location": "[parameters('location')]",
+"dependsOn": ["[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"],
+"properties": {
+    "osProfile": {
+    "computerName": "[parameters('virtualMachineName')]",
+    "adminUsername": "[parameters('adminUsername')]",
+    "adminPassword": "[parameters('adminPassword')]",
+    "windowsConfiguration": {
+        "provisionVmAgent": "false"
+}
+
+```
+As mentioned, if you do not have the Agents installed, then you will not be able to use some Azure Services, such as Azure Backup, Azure Security etc, as these all require an extension to be installed to support their service. If you have deployed a VM without the WinGA, you can install the latest version of the agent later.
 
 ### Manual installation
 
@@ -78,4 +99,4 @@ When logged in to a Windows Azure VM, task manager can be used to examine runnin
 
 ## Upgrade the VM Agent
 
-The Azure VM Agent for Windows is automatically upgraded. As new virtual machines are deployed to Azure, they receive the latest VM agent. Custom VM images should be manually updated to include the new VM agent.
+The Azure VM Agent for Windows is automatically upgraded. As new virtual machines are deployed to Azure, they receive the latest VM agent at VM provision time. Custom VM images should be manually updated to include the new VM agent at image creation time.
