@@ -5,7 +5,7 @@
   - name: Introduction to Azure IoT
     href: iot-introduction.md
   - name: Azure IoT services and technologies
-    href: iot-comparison.md    
+    href: iot-services-and-technologies.md    
 - name: IoT Hub 
   href: ../iot-hub/index.md
 - name: IoT Hub Device Provisioning Service
