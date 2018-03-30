@@ -34,12 +34,9 @@ The third block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) 
 
 The last block of code parses the incoming response. For a successful response, it collects the latitude and longitude information for each location returned. It adds all the location points to the map as pins and adjusts the bounds of the map to render all the pins.
 
-In the preceding code, a request is sent to the search service to get the coordinates of the gas stations, and then pins and popups are added to the map to represent those coordinates. Learn more about the [Map](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest) and [Popup](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest) classes and how to [addPins](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#location_based_services_javascript_Map_addPins) and [setPopupOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#location_based_services_javascript_Popup_setPopupOptions). 
-
 
 ## Related reference
 
-To add a pin to the map, you need to use the following API and class:
 * [Azure Maps Fuzzy Search API](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy)
 * [Map](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest)
     * [addPins](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#location_based_services_javascript_Map_addPins)
