@@ -253,9 +253,9 @@ items:
         - name: Python
           href: sql-api-sdk-python.md
         - name: REST
-          href: /rest/api/documentdb/
+          href: /rest/api/cosmos-db/
         - name: REST Resource Provider
-          href: /rest/api/documentdbresourceprovider/
+          href: /rest/api/cosmos-db-resource-provider/
         - name: SQL
           href: sql-api-sql-query-reference.md
       - name: Resources
