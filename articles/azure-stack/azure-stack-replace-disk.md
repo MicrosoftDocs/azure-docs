@@ -39,6 +39,9 @@ If you open the alert, the alert description contains the scale unit node and th
 
 Follow your OEM hardware vendor’s FRU instructions for actual disk replacement.
 
+> [[!note]
+> Replace disks for one scale unit node at a time. Wait for the virtual disk repair jobs to complete before moving on to the next scale unit node
+
 To prevent the use of an unsupported disk in an integrated system, the system blocks disks that are not supported by your vendor. If you try to use an unsupported disk, a new alert tells you that a disk has been quarantined because of an unsupported model or firmware.
 
 After you replace the disk, Azure Stack automatically discovers the new disk and starts the virtual disk repair process.  
