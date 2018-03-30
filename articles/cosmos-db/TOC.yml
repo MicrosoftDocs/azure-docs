@@ -189,6 +189,8 @@
         href: programming.md
       - name: Performance testing
         href: performance-testing.md
+      - name: Performance tips for Async Java
+        href: performance-tips-rx-java.md
       - name: Performance tips for .NET
         href: performance-tips.md
       - name: Performance tips for Java
