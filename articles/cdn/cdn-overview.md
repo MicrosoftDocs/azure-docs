@@ -22,7 +22,7 @@ ms.custom: mvc
 
 A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers in point-of-presence (POP) locations that are close to end users, to minimize latency. 
 
-Azure CDN offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. 
+Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. 
 
 The benefits of using Azure CDN to cache web site assets include:
 
@@ -36,7 +36,7 @@ For a list of current CDN node locations, see [Azure CDN POP locations](cdn-pop-
 ## How it works
 ![CDN Overview](./media/cdn-overview/cdn-overview.png)
 
-1. A user (Alice) requests a file (also called an asset) by using a URL with a special domain name, such as _&lt;endpoint name&gt_.azureedge.net. This name can be an endpoint hostname or a custom domain.
+1. A user (Alice) requests a file (also called an asset) by using a URL with a special domain name, such as _&lt;endpoint name&gt;_.azureedge.net. This name can be an endpoint hostname or a custom domain.
     
     The DNS routes the request to the best performing POP location, which is usually the POP that is geographically closest to the user.
     
@@ -81,6 +81,7 @@ For a complete list of features that each Azure CDN product supports, see [Azure
 
 ## Next steps
 - To get started with CDN, see [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
-- Manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md)- Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
+- Manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md)
+- Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
 - To see Azure CDN in action, watch the [Azure CDN videos](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
 

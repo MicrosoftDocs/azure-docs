@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Azure CDN product features
 
-There are three Azure content delivery network (CDN) products: **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**. The following table compares the features available with each product.
+There are three Azure Content Delivery Network (CDN) products: **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**. The following table compares the features available with each product.
 
 | **Performance features and optimizations** | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |

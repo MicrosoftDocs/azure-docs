@@ -17,7 +17,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=cdn.md
+    href: https://azure.microsoft.com/resources/samples/?service=cdn
 - name: Concepts
   items:
   - name: How caching works
@@ -137,8 +137,6 @@
       href: cdn-rules-engine-reference-match-conditions.md
     - name: Rules engine features
       href: cdn-rules-engine-reference-features.md
-  - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=cdn
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cdn
   - name: .NET
@@ -158,7 +156,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn
+    href: https://social.msdn.microsoft.com/Forums/home?forum=azurecdn
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cdn/
   - name: Pricing calculator
