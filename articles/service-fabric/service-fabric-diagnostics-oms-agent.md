@@ -59,7 +59,6 @@ The best way to add the OMS Agent to your cluster is via the virtual machine sca
  
 5. Run the command to apply this configuration to your VM instances that already exist:  
 
-
     ```sh
     az vmss update-instances
     ```
