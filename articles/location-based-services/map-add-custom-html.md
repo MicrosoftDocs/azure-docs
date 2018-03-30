@@ -29,10 +29,10 @@ In the code above, the first block of code constructs a map object. You can see 
 
 Second block of code creates an HTML element from an image.
 
-The last block of code uses [addHtml](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#location_based_services_javascript_Map_addHtml) function of the map class to add the image to the specified position of the map.
+The last block of code uses [addHtml](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addhtml) function of the map class to add the image to the specified position of the map.
 
 ## Related reference
 
 To add a custom HTML to the map, you need to use the following class and method:
 * [Map](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#location_based_services_javascript_Map_addHtml)
+    * [addHtml](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addhtml
