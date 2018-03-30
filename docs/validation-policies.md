@@ -252,7 +252,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
-|2.2|March 30, 2018|Added policy 5.9.|
+|2.2|March 30, 2018|Added policy 5.9. |
 |2.2|March 8, 2018|Added policy 14.18.|
 |2.2|August 9, 2017|Updated policy 10.8 to apply to Office for Android, and added policy 10.8.2.|
 |2.2|August 4, 2017|Added policies 14.15 and 14.16.|
