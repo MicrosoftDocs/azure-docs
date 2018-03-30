@@ -91,10 +91,10 @@
 ### [Community-suggested VPN or firewall device settings](vpn-gateway-third-party-settings.md)
 ### [Configure and validate VNet or VPN connections](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
-### Point-to-Site connections
+### Point-to-Site connection issues
 #### [Point-to-Site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 #### [Point-to-Site connection problems - Mac OS X VPN client](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
-### Site-to-Site connections
+### Site-to-Site connection issues
 #### [Site-to-Site connection problems](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
 #### [Site-to-Site connection disconnects intermittently](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 
