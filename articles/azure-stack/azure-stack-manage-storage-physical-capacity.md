@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 03/13/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
 
@@ -23,7 +23,7 @@ ms.reviewer: Thomas.Roettinger
 
 *Applies to: Azure Stack integrated systems*
 
-To increase the total available memory capacity for Azure Stack, you can add additional memory. In Azure Stack your physical server is also referred to as a *scale unit node*. All scale unit nodes that are member of a single scale unit must have the same amount of memory.
+To increase the total available memory capacity for Azure Stack, you can add additional memory. In Azure Stack your physical server is also referred to as a *scale unit node*. All scale unit nodes that are members of a single scale unit must have the same amount of memory.
 
 > [!note]  
 > Before you continue, consult your hardware manufacturer documentation to see if a memory upgrades your manufacturer supports a physical a memory upgrade. Your OEM hardware vendor support contract may require that the vendor perform the physical server rack placement and the device firmware update.

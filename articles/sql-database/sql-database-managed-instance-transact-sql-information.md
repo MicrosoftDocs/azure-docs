@@ -7,9 +7,9 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: article 
-ms.date: 03/07/2018 
+ms.date: 03/19/2018 
 ms.author: jovanpop 
-manager: cguyer 
+manager: craigg 
 --- 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server 
 
@@ -25,11 +25,11 @@ This section summarizes key differences in T-SQL syntax and behavior between Man
 ### Always-On availability
 
 [High availability](sql-database-high-availability.md) is built into Managed Instance and cannot be controlled by users. The following statements are not supported:
- - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql.md)
- - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql.md)
- - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql.md)
- - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql.md)
- - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) clause of the ALTER DATABASE statement
+ - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
+ - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
+ - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
+ - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
+ - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) clause of the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) statement
 
 ### Auditing 
  
@@ -52,7 +52,7 @@ For more information, see:
 ### Backup 
 
 Managed Instance has automatic backups, and enables users to create full database `COPY_ONLY` backups. Differential, log, and file snapshot backups are not supported.  
-- Managed Instance can back up a database only on Azure Blob Storage account: 
+- Managed Instance can back up a database only to an Azure Blob Storage account: 
  - Only `BACKUP TO URL` is supported 
  - `FILE`, `TAPE`, and backup devices are not supported  
 - Most of the general `WITH` options are supported 
@@ -62,11 +62,13 @@ Managed Instance has automatic backups, and enables users to create full databas
  - Log-specific options: `NORECOVERY`, `STANDBY`, and `NO_TRUNCATE` are not supported 
  
 Limitations:  
-- Managed Instance can back up a database to a backup with up to 32 stripes, which is enough for the databases up to 4 TB.
-- Max backup stripe size is 195 GB (PAGE blob size). Increase the number of stripes in the backup command to distribute stripe sizes. 
+- Managed Instance can back up a database to a backup with up to 32 stripes, which is enough for the databases up to 4 TB if backup compression is used.
+- Max backup stripe size is 195 GB (maximum blob size). Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit. 
 
 > [!TIP]
-> To work around this limitation on-premises, backup to `DISK` instead of backup to `URL`, upload backup file to blob, then restore. Restore support bigger files because a different blob type is used.  
+> To work around this limitation on-premises, backup to `DISK` instead of backup to `URL`, upload backup file to blob, then restore. Restore supports bigger files because a different blob type is used.  
+
+For information about backups using T-SQL, see [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
 ### Buffer pool extension 
  
@@ -131,14 +133,14 @@ Server collation is `SQL_Latin1_General_CP1_CI_AS` and cannot be changed. See [C
  
 - Multiple log files are not supported. 
 - In-memory objects are not supported in the General Purpose service tier.  
-- There is a limit of 280 files per instance implying max 280 files per database. Both data and log files are calculated against this limit.  
-- Database cannot contain file groups containing file stream data.  Restore will fail if .bak contains `FILESTREAM` data.  
-- Every file is placed on separate Azure Premium disk. IO and throughput depend on the size of each individual file. See [Azure Premium disk performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- There is a limit of 280 files per instance implying max 280 files per database. Both data and log files are counted toward this limit.  
+- Database cannot contain filegroups containing filestream data.  Restore will fail if .bak contains `FILESTREAM` data.  
+- Every file is placed in Azure Premium storage. IO and throughput per file depend on the size of each individual file, in the same way as they do for Azure Premium Storage disks. See [Azure Premium disk performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
  
 #### CREATE DATABASE statement
 
 The following are `CREATE DATABASE` limitations: 
-- Files and file groups cannot be defined.  
+- Files and filegroups cannot be defined.  
 - `CONTAINMENT` option is not supported.  
 - `WITH`options are not supported.  
    > [!TIP]
@@ -212,7 +214,7 @@ In-database R and Python external libraries are not yet supported. See [SQL Serv
 
 ### Filestream and Filetable
 
-- File stream data is not supported. 
+- filestream data is not supported. 
 - Database cannot contain filegroups with `FILESTREAM` data
 - `FILETABLE` is not supported
 - Tables cannot have `FILESTREAM` types
@@ -232,7 +234,7 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 ### Linked servers
  
 Linked servers in Managed Instance support limited number of targets: 
-- Supported targets: SQL Server, SQL Database Managed Instance, and SQL Server on a virtual machine.
+- Supported targets: SQL Server, SQL Database, Managed Instance, and SQL Server on a virtual machine.
 - Not supported targets: files, Analysis Services, and other RDBMS.
 
 Operations
@@ -272,23 +274,23 @@ Replication is not yet supported. For information about Replication, see [SQL Se
  - `FROM URL` (Azure blob storage) is only supported option.
  - `FROM DISK`/`TAPE`/backup device is not supported.
  - Backup sets are not supported. 
-- `WITH` options are not supported (No differential, `STATS`, etc.)     
-- `ASYNC RESTORE` - Restore continues even if client connection breaks. If you lose a connection, can check `sys.dm_operation_status` view for the status of a restore operation (as well as for CREATE and DROP database). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
+- `WITH` options are not supported (No `DIFFERENTIAL`, `STATS`, etc.)     
+- `ASYNC RESTORE` - Restore continues even if client connection breaks. If your connection is dropped, you can check `sys.dm_operation_status` view for the status of a restore operation (as well as for CREATE and DROP database). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
-The following database options that are set/overridden and cannot be changed later:  
+The following database options are set/overridden and cannot be changed later:  
 - `NEW_BROKER` (if broker is not enabled in .bak file)  
 - `ENABLE_BROKER` (if broker is not enabled in .bak file)  
 - `AUTO_CLOSE=OFF` (if a database in .bak file has `AUTO_CLOSE=ON`)  
 - `RECOVERY FULL` (if a database in .bak file has `SIMPLE` or `BULK_LOGGED` recovery mode)
-- Memory optimized file group is added and called XTP if it was not in the source .bak file  
-- Any existing memory optimized file group is renamed to XTP  
+- Memory optimized filegroup is added and called XTP if it was not in the source .bak file  
+- Any existing memory optimized filegroup is renamed to XTP  
 - `SINGLE_USER` and `RESTRICTED_USER` options are converted to `MULTI_USER`   
 Limitations:  
 - `.BAK` files containing multiple backup sets cannot be restored. 
 - `.BAK` files containing multiple log files cannot be restored. 
 - Restore will fail if .bak contains `FILESTREAM` data.
-- Backups containing databases that have active In-memory OLTP objects cannot currently be restored.  
-- Backups containing databases where at some point in-memory objects existed cannot currently be restored.   
+- Backups containing databases that have active In-memory objects cannot currently be restored.  
+- Backups containing databases where at some point In-Memory objects existed cannot currently be restored.   
 - Backups containing databases in read-only mode cannot currently be restored. This limitation will be removed soon.   
  
 For information about Restore statements, see [RESTORE Statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
@@ -362,7 +364,7 @@ The following are not supported:
 - `EXTERNAL TABLE` 
 - `MEMORY_OPTIMIZED`  
 
-For information about creating tables, see [CREATE TABLE statement](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql).
+For information about creating and altering tables, see [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
  
 ## <a name="Changes"></a> Behavior changes 
  
@@ -376,21 +378,25 @@ The following variables, functions, and views return different results:
 - `@@SERVICENAME` returns NULL, as it makes no sense in Managed Instance environment. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` is supported. Returns NULL if AAD login is not in sys.syslogins. See [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` is not supported. Returns wrong data (temporary known issue). See [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
-- `GETDATE()` always returns date in UTC time-zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
+- `GETDATE()` and other built-in date/time functions always returns time in UTC time zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Known issues and limitations
 
 ### TEMPDB size
 
-`tempdb` is split into 12 files each with max size 14 GB per file. This maximum size per file cannot be changed and new files cannot be added to `tempdb`. This limitation will be removed soon. Some queries might return an error if `tempdb` needs more than 168 GB.
+`tempdb` is split into 12 files each with max size 14 GB per file. This maximum size per file cannot be changed and new files cannot be added to `tempdb`. This limitation will be removed soon. Some queries might return an error if  they need more than 168 GB in `tempdb`.
 
 ### Exceeding storage space with small database files
 
-Each Managed Instance has up to 35 TB reserved storage space, and every database file is placed on 128 GB storage allocation unit. Databases with many small files might be placed on 128 GB units that in total exceed 35 TB limit. In this case, new databases cannot be created or restored, even if the total size of all databases do not reach the instance size limit. The error that is returned might not be clear.
+Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instnace that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation. 
+
+For example, a Managed Instance could have one file with 1.2 TB size that uses a 4 TB disk, and 248 files with 1 GB each that are placed on 248 disks with 128 GB size. In this example, the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB. However, total reserved instance size for databases is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB. This illustrates that under certain circumstance, due to a very specific distribution of files, a Managed Instance might reach Azure Premium Disk storage limit where you might not expect it to. 
+
+There would be no error on existing databases and they can grow without any problem if new files are not added, but the new databases cannot be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
 
 ### Incorrect configuration of SAS key during database restore
 
-`RESTORE DATABASE` that reads .bak file might be constantly retry to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring a database to be sure that SAS key is correct.
+`RESTORE DATABASE` that reads .bak file might be constantly retrying to read .bak file and return error after long period of time if Shared Access Signature in `CREDENTIAL` is incorrect. Execute RESTORE HEADERONLY before restoring a database to be sure that SAS key is correct.
 Make sure that you remove leading `?` from the SAS key generated using Azure portal.
 
 ### Tooling

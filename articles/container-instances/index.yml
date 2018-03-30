@@ -14,7 +14,7 @@ metadata:
   ms.date: 07/26/2017
   ms.author: carolz
 abstract:
-  description: Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service. If you require a complete container orchestration solution, see the <a href="/azure/container-service/kubernetes/">Kubernetes on Azure Container Service documentation</a>. Learn how to create and manage container instances with our quickstarts, tutorials, and samples.
+  description: Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service. Learn how to create and manage container instances with our quickstarts, tutorials, and samples.<p>If you require a complete container orchestration solution, see the <a href="/azure/aks/">Azure Container Service (AKS) documentation</a>.</p>
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -24,7 +24,7 @@ sections:
     style: icon48
     items:
     - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
       text: Azure CLI
       href: /azure/container-instances/container-instances-quickstart
     - image:
@@ -32,7 +32,7 @@ sections:
       text: Azure Portal
       href: /azure/container-instances/container-instances-quickstart-portal
     - image:
-        src: /azure/virtual-machines/linux/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/container-instances/container-instances-quickstart-powershell
 - title: Step-by-Step Tutorials
@@ -54,6 +54,6 @@ sections:
     - title: Command-Line
       html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.js</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstances">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/container-instances">REST API Reference</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Resource Manager template</a></p>

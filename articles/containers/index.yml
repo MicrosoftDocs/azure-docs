@@ -80,7 +80,7 @@ sections:
     style: unordered
     items:
     - html: <a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">Getting Started with Appservice - Manage Linux Web App With Container Registry - in Java</a>
-    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-containers/">Service Fabric Container Samples</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-containers/">Service Fabric Container Samples</a>
     - html: <a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">Deploy and connect to a Docker container in an Azure cluster</a>
 - title: Step-by-Step Tutorials
   items:

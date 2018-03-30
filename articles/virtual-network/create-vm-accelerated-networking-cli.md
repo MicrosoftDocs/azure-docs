@@ -55,7 +55,7 @@ D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2, and Ms/Mms.
 For more information on VM instances, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Regions
-Available in all public Azure regions with the exception of East Asia.   Azure Government Cloud is not yet supported.
+Available in all public Azure regions as well as Azure Government Clouds.
 
 ## Limitations
 The following limitations exist when using this capability:
@@ -68,7 +68,7 @@ Though this article provides steps to create a virtual machine with accelerated 
 
 ## Create a virtual network
 
-Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#az_login). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
+Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
 
 Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
 

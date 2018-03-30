@@ -128,7 +128,7 @@ There are two basic kinds of encryption available for the Storage services. For 
 
 Azure Storage Service Encryption (SSE) at rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption, and key management are totally transparent to users.
 
-SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). 
+SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). SSE does not affect Azure Storage performance.
 
 For more information about SSE encryption at rest, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
@@ -144,7 +144,7 @@ In order to ensure that your data is durable, Azure Storage will keep (and manag
 
 **Locally-redundant storage (LRS)**
 
-Locally-redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a give year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
+Locally-redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a given year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
 
 **Zone-redundant storage (ZRS) (Preview)**
 

@@ -3,7 +3,7 @@ title: Getting started improve your classifier using Custom Vision Service machi
 description: Improve your classifier.
 services: cognitive-services
 author: anrothMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: custom vision service

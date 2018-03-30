@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
 ---
 
@@ -22,8 +22,8 @@ ms.author: azfuncdf
 
 ## Prerequisites
 
-* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
-* This article assumes you have already gone through the [Hello Sequence](durable-functions-sequence.md) sample walkthrough.
+* [Install Durable Functions](durable-functions-install.md).
+* Complete the [Hello Sequence](durable-functions-sequence.md) walkthrough.
 
 ## Scenario overview
 
@@ -43,7 +43,7 @@ This article explains the following functions in the sample app:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
+The following sections explain the configuration and code that are used for C# scripting. The code for Visual Studio development is shown at the end of the article.
 
 ## The cloud backup orchestration (Visual Studio Code and Azure portal sample code)
 
@@ -154,7 +154,7 @@ Here is the orchestration as a single C# file in a Visual Studio project:
 
 ## Next steps
 
-This sample has shown how to implement the fan-out/fan-in pattern. The next sample shows how to implement the [stateful singleton](durable-functions-singletons.md) pattern in an [eternal orchestration](durable-functions-eternal-orchestrations.md).
+This sample has shown how to implement the fan-out/fan-in pattern. The next sample shows how to implement the monitor pattern using [durable timers](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Run the stateful singleton sample](durable-functions-counter.md)
+> [Run the monitor sample](durable-functions-monitor.md)

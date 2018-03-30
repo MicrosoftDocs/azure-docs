@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;deguhath
+ms.author: bradsev
 
 ---
 # Data Science using Scala and Spark on Azure

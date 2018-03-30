@@ -141,6 +141,9 @@ Now that you've created a vault, prepare your infrastructure to back up files an
 
   ![vault credentials finished downloading](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## Install and register the agent
 
 > [!NOTE]

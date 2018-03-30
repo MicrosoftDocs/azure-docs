@@ -46,7 +46,7 @@ If you are using Windows, continue with the following steps to connect OMS to th
 >[!NOTE]
 >Enabling this experience for Linux clusters is not yet available. 
 
-### Add the OMS Agent to your cluster 
+### Connect the OMS Workspace to your cluster 
 
 1. The workspace needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfOMSWorkspace\>** and go to its overview page. From there, you can change solution settings, workspace settings, and access the OMS portal.
 

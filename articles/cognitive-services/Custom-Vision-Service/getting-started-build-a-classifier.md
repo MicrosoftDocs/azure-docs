@@ -3,7 +3,7 @@ title: Get started building a classifier by using Custom Vision Service machine 
 description: Build a classifier to discern objects in photographs.
 services: cognitive-services
 author: anrothMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: custom vision service

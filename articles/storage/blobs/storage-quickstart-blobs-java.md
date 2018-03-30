@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: rogarana
 ---
 
@@ -199,6 +199,19 @@ downloadedFile.deleteOnExit();
 if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
+
+## Resources for developing Java applications with blobs
+
+See these additional resources for Java development with Blob storage:
+
+### Binaries and source code
+
+- View and download the [Java client library source code](https://github.com/Azure/azure-storage-java) for Azure Storage on GitHub.
+
+### Client library reference and samples
+
+- See the [Java API reference](https://docs.microsoft.com/en-us/java/api/overview/azure/storage) for more information about the Java client library.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) written using the Java client library.
 
 ## Next steps
 
