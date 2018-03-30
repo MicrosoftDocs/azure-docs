@@ -34,11 +34,11 @@
     items:
     - name: Manage account and keys
      href: how-to-manage-account-keys.md
-  - name: Services APIs - REST
+  - name: Services REST APIs 
     items:       
     - name: How to search for an address
       href: how-to-search-for-address.md
-  - name: Map Control API - JavaScript
+  - name: Map Control JavaScript API
   expanded: true
     items:          
     - name: Create a map
