@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: yzhong94
 ms.author: yizhon
-ms.date: 03/28/2018
+ms.date: 03/30/2018
 ms.topic: hero-article
 ms.service: iot-dps
 
@@ -29,7 +29,7 @@ As a device manufacturer, you first need to choose an attestation mechanism base
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this attestation mechanism if you have either of these OSes running on your devices, and you are looking for an established standard. With TPM chips, you can only enroll each device individually to the Device Provisioning Service. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509 certificates can be stored in relatively newer chips called [Hardware Security Modules (HSM)](concepts-security#hardware-security-module). Work is also progressing within Microsoft, on RIoT or DICE chips, which implement the X.509 certificates. With X.509 chips, you can do bulk device enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
+- [X.509](https://cryptography.io/en/latest/x509/): X.509 certificates can be stored in relatively newer chips called [Hardware Security Modules (HSM)](concepts-security.md#hardware-security-module). Work is also progressing within Microsoft, on RIoT or DICE chips, which implement the X.509 certificates. With X.509 chips, you can do bulk device enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
 
 For more information, see IoT Hub Device Provisioning Service [security concepts](concepts-security.md) and [auto-provisioning concepts](/azure/iot-dps/concepts-auto-provisioning.md).
 
@@ -142,13 +142,13 @@ Build the SDK prior to creating device enrollment.
 If you are using TPM, follow instructions in ["Create and provision a simulated device using IoT Hub Device Provisioning Service"](./quick-create-simulated-device.md) to create a device enrollment entry in your Device Provisioning Service and simulate first boot.
 
 ### X**.**509
-1. To enroll a device in the provisioning service, you need note down the Endorsement Key and Registration ID for each device, which are displayed in the Provisioning Tool provided by Client SDK. Run the following command to print out the root CA certificate (for enrollment groups) and the signer certificate (for individual enrollment):
+1. To enroll a device in the provisioning service, you need note down the Endorsement Key and Registration ID for each device, which are displayed in the Provisioning Tool provided by Client SDK. Run the following command to print out the root CA certificate (for enrollment groups) and the leaf certificate (for individual enrollment):
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your DPS service.
-   - X**.**509 Individual Enrollment: On the provisioning service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, upload the signer certificate as required by the blade. Once complete, click the **Save** button. 
-   - X**.**509 Group Enrollment: On the provisioning service  summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the root CA certificate as required by the blade. Once complete, click the **Save** button. 
+   - X**.**509 Individual Enrollment: On the provisioning service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, upload the leaf certificate as required by the blade. Once complete, click the **Save** button. 
+   - X**.**509 Group Enrollment: On the provisioning service  summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the CA/Intermediate certificate as required by the blade. Once complete, click the **Save** button. 
 
 ## Enable authentication for devices using a custom attestation mechanism (optional)
 

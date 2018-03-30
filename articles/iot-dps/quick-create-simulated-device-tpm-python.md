@@ -3,7 +3,7 @@ title: Provision a simulated TPM device to Azure IoT Hub using Python | Microsof
 description: Azure Quickstart - Create and provision a simulated TPM device using Java device SDK for IoT Hub Device Provisioning Service
 services: iot-dps 
 keywords: 
-author: msebolt
+author: bryanla
 ms.author: v-masebo
 ms.date: 12/12/2017
 ms.topic: quickstart

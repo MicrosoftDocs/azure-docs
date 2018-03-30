@@ -3,7 +3,7 @@ title: Provision a simulated TPM device to Azure IoT Hub using C# | Microsoft Do
 description: Azure Quickstart - Create and provision a simulated TPM device using C# device SDK for Azure IoT Hub Device Provisioning Service 
 services: iot-dps 
 keywords: 
-author: JimacoMS2
+author: bryanla
 ms.author: v-jamebr
 ms.date: 12/21/2017
 ms.topic: hero-article
