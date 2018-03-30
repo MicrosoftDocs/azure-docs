@@ -18,7 +18,7 @@ ms.custom: mvc
 # Show traffic on the map
 
 ## Overview
-This tutorial shows you how to show traffic and incidents on the map. 
+This tutorial shows you how to render traffic and incidents information on the map. 
 
 ## Understand the code
 
