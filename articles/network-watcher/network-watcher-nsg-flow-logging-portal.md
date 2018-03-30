@@ -66,7 +66,7 @@ Select a network security group from the list.
 
 ### Step 3 
 
-On the **Flow logs settings** blade, set the status to **On**, and then configure a storage account. Select an existing storage account that does not restrict network access to only Microsoft services or specific virtual networks in its firewall rules. When you're done, select **OK**. Then select **Save**.
+On the **Flow logs settings** blade, set the status to **On**, and then configure a storage account. Select an existing storage account that has **All networks** (default) selected under **Firewalls and virtual networks**, under the **SETTINGS** for the storage account. Once you've selected a storage account, select **OK**, and then select **Save**.
 
 ![Flow logs overview][3]
 
