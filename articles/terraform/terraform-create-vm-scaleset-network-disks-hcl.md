@@ -53,8 +53,7 @@ variable "location" {
 }
 
 variable "resource_group_name" {
-  description = "The name of the resource group in which the resources will be created"
-  default     = "myResourceGroup"
+  description = "The name of the resource group in which the resources will be created. This name will also be used for the fqdn of the vmss, select a unique name."
 }
 ```
 
