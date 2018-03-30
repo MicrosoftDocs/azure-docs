@@ -21,13 +21,13 @@ Azure Blockchain Workbench helps organizations build rich, integrated multi-part
 
 ## Components and capabilities
 
-Azure Blockchain Workbench is comprised of components that provide the capabilities needed to create create blockchain applications.
+Azure Blockchain Workbench is composed of components that provide the capabilities needed to create blockchain applications.
 
 ![Architecture](media/blockchain-workbench-overview/architecture.png)
 
 ### Federated identity
 
-Workbench provides the capability for a consortium to federate their Enterprise identities using Azure Active Directory (Azure AD). Workbench generates new user accounts for on-chain identities with the enterprise identities stored in Azure AD. The identity mapping facilitates authenticated login to client APIs and applications and leverages the authentication policies of organizations. Workbench also provides the ability to associate enterprise identities to specific roles within a given smart contract. In addition, Workbench also provides a mechanism to identify the actions those roles can take and at what time.
+Workbench enables a consortium to federate their Enterprise identities using Azure Active Directory (Azure AD). Workbench generates new user accounts for on-chain identities with the enterprise identities stored in Azure AD. The identity mapping facilitates authenticated login to client APIs and applications and leverages the authentication policies of organizations. Workbench also provides the ability to associate enterprise identities to specific roles within a given smart contract. Workbench also provides a mechanism to identify the actions those roles can take and at what time.
 
 ### Client applications
 
@@ -43,19 +43,19 @@ Workbench provides a REST-based API for client development, a message-based API 
 
 ### Off-chain data and storage
 
-Workbench automatically synchronizes data stored on the blockchain with an off-chain storage, such as a SQL database. In addition, Workbench relies on Azure Storage to store documents and other media associated with blockchain workflows. The database can be used to extend the system to leverage data visualization and intelligence as well as integration with other clients, services, or systems.
+Workbench automatically synchronizes data stored on the blockchain with an off-chain storage, such as a SQL database. In addition, Workbench relies on Azure Storage to store documents and other media associated with blockchain workflows. The database can be used to extend the system to enable data visualization and intelligence as well as integration with other clients, services, or systems.
 
 ### Key management
 
-Workbench leverages Key Vault for storage of keys and secrets used by client applications and establishment of on-chain identities.
+Workbench uses Key Vault for storage of keys and secrets. The generated client applications use Key Vault to store application keys and establishment of on-chain identities.
 
 ### Content hashing and storage
 
- Workbench supports the ability to add documents or media content to transactions by saving the hashed version of the document in blockchain and the original content in off-chain storage.
+Workbench supports adding documents or media content to transactions. A hashed version of the document is saved in blockchain and the original content is saved in off-chain storage.
 
 ### Event Publishing
 
-Workbench automatically delivers events to Event Hub to send messages to downstream consumers. Developers can integrate with Event Hub to drive transactions and to look at results. Capabilities for off-chain data and storage are built using this functionality.
+Workbench automatically delivers events to Event Hub to send messages to downstream consumers. Developers can integrate with Event Hub to drive transactions and to look at results. The ability for off-chain data and storage is built using this functionality.
 
 ### Monitoring
 
