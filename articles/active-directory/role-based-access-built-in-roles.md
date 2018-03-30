@@ -60,7 +60,7 @@ This article only addresses the different roles that exist today. When you assig
 | [Classic Network Contributor](#classic-network-contributor) | Lets you manage classic networks, but not access to them. |
 | [Classic Storage Account Contributor](#classic-storage-account-contributor) | Lets you manage classic storage accounts, but not access to them. |
 | [Classic Storage Account Key Operator Service Role](#classic-storage-account-key-operator-service-role) | Classic Storage Account Key Operators are allowed to list and regenerate keys on Classic Storage Accounts |
-| [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they\u2019re connected to. |
+| [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. |
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) | Lets you manage ClearDB MySQL databases, but not access to them. |
 | [Cosmos DB Account Reader Role](#cosmos-db-account-reader-role) | Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#documentdb-account-contributor) for managing Azure Cosmos DB accounts. |
 | [Data Factory Contributor](#data-factory-contributor) | Create and manage data factories, as well as child resources within them. |
@@ -99,7 +99,7 @@ This article only addresses the different roles that exist today. When you assig
 | [Traffic Manager Contributor](#traffic-manager-contributor) | Lets you manage Traffic Manager profiles, but does not let you control who has access to them. |
 | [User Access Administrator](#user-access-administrator) | Lets you manage user access to Azure resources. |
 | [Virtual Machine Administrator Login](#virtual-machine-administrator-login) | -	Users with this role have the ability to login to a virtual machine with Windows administrator or Linux root user privileges. |
-| [Virtual Machine Contributor](#virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. |
+| [Virtual Machine Contributor](#virtual-machine-contributor) | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they're connected to. |
 | [Virtual Machine User Login](#virtual-machine-user-login) | Users with this role have the ability to login to a virtual machine as a regular user. |
 | [Web Plan Contributor](#web-plan-contributor) | Lets you manage the web plans for websites, but not access to them. |
 | [Website Contributor](#website-contributor) | Lets you manage websites (not web plans), but not access to them. |
@@ -522,7 +522,7 @@ Classic Storage Account Key Operators are allowed to list and regenerate keys on
 | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Regenerates the existing access keys for the storage account. |
 
 ## Classic Virtual Machine Contributor
-Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they\u2019re connected to.
+Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to.
 
 | **Actions** |  |
 | --- | --- |
@@ -1272,7 +1272,7 @@ Lets you manage user access to Azure resources.
 | Microsoft.Compute/virtualMachine/logon/action |  |
 
 ## Virtual Machine Contributor
-Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to.
+Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they're connected to.
 
 | **Actions** |  |
 | --- | --- |
