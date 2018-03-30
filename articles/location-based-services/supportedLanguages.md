@@ -19,6 +19,9 @@ ms.custom: mvc
 Azure Location Based Services have been localized in a variety
 of languages across the services.  The following
 table provides the supported language codes for each service.  
+  
+<br>
+ 
 
 
 
