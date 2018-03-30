@@ -36,10 +36,10 @@ Network security group flow logs are a feature of Network Watcher that enables y
 
 ## Before you begin
 
-This scenario assumes that you have:
+To complete the steps in this article, you must already have the following resources:
 
-- Already have a Network Watcher. If you don't, see [Create a Network Watcher instance](network-watcher-create.md).
-- An existing resource group with a valid virtual machine.
+- An existing Network Watcher. To create a Network Watcher, see [Create a Network Watcher instance](network-watcher-create.md).
+- An existing resource group with a valid virtual machine. If you don't have a virtual machine, see Create a [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) or [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) virtual machine.
 
 ## Register Insights provider
 
