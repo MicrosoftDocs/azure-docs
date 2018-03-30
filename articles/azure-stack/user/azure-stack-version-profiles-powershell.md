@@ -1,6 +1,6 @@
 ---
-title: Using API version profiles in Azure Stack | Microsoft Docs
-description: Learn about API version profiles in Azure Stack.
+title: Using API version profiles with PowerShell in Azure Stack | Microsoft Docs
+description: Learn about using API version profiles with PowerShell in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
+ms.reviewer: sijuman
 
 ---
 
-# Manage API version profiles in Azure Stack
+# Use API version profiles for PowerShell in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -112,4 +113,4 @@ Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 
 ## Next steps
 * [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
-* [Configure the Azure Stack user's PowerShell environment](user/azure-stack-powershell-configure-user.md)  
+* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)  
