@@ -138,7 +138,7 @@ If you create other rules, specifying other application security groups as the d
  
 To learn about limits when creating application security groups and specifying them in security rules, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Application security groups are available in preview release. Features in preview do not have the same level of availability and reliability as features in general release. Before using application security groups, you must first register to use them by completing steps 1-5 in the Azure or PowerShell sections of [Create a network security group with application security groups](tutorial-filter-network-traffic.md). Application security groups have the following constraints:
+Application security groups have the following constraints:
 
 -	All network interfaces within an application security group must exist in the same virtual network. You cannot add network interfaces from different virtual networks to the same application security group. The virtual network the first network interface assigned to the application security group is in defines the virtual network all subsequently assigned network interfaces must exist in.
 - If you specify application security groups as the source and destination in a security rule, the network interfaces in both application security groups must exist in the same virtual network. For example, if ASG1 contained network interfaces from VNet1, and ASG2 contained network interfaces from VNet2, you could not assign ASG1 as the source and ASG2 as the destination in a rule, all network interfaces need to exist in VNet1.
