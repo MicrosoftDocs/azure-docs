@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 03/30/2018
 ms.author: mimig
 
 ---
@@ -45,7 +45,7 @@ With Azure Cosmos DB, reserved throughput is specified in terms of request units
 
 We recommend getting started by watching the following video, where Azure Cosmos DB Program Manager Andrew Liu discusses request units.
 
-> [!VIDEO https://www.youtube.com/embed/btiCR1sAyzl]
+> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
 

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 03/30/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 
 Partitioning and partition keys are discussed in this video with Azure Cosmos DB Program Manager, Andrew Liu:
 
-> [!VIDEO https://www.youtube.com/embed/btiCR1sAyzI]
+> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
 > 
 
 ## Partitioning in Azure Cosmos DB
