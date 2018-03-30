@@ -161,7 +161,7 @@ Within the PT1H.json file, each event is stored in the “records” array, foll
 > 
 
 ## Next steps
-* [Download blobs for analysis](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs)
+* [Download blobs for analysis](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Stream the Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 * [Read more about the Activity Log](monitoring-overview-activity-logs.md)
 

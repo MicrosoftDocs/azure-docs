@@ -351,6 +351,8 @@
       href: extensions-diagnostics-template.md
     - name: Network Watcher Agent
       href: extensions-nwa.md
+    - name: Restrict extension installation
+      href: extensions-rmpolicy-howto-ps.md 
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs

@@ -38,7 +38,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [Batch](documentation-government-compute.md#batch) | |
 | [Cloud Services](documentation-government-compute.md#cloud-services) | |
 | [Virtual Machine Scale Sets](documentation-government-compute.md#virtual-machine-scale-sets) | |
-| [Functions**](documentation-government-compute.md#azure-functions) | |
+| [Functions](documentation-government-compute.md#azure-functions) | |
 | [Service Fabric](documentation-government-compute.md#service-fabric) | |
 
 ## Networking
