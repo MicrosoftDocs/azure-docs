@@ -83,7 +83,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |5.6|Your app or add-in must not implement geo-blocking of customers without explicitly stating this in the description.|
 |5.7|Apps and add-ins must be secured with a valid and trusted SSL certificate (HTTPS). For more information, see  [Why do my apps and add-ins have to be SSL-secured?](office-store-submission-faq.md#bk_q7) in [AppSource submission FAQ](office-store-submission-faq.md).|
 |5.8|Apps and add-ins may not open pop-up windows unless they are triggered by explicit user interaction. Any pop-up windows that are triggered by user interaction must not be blocked by the browser's pop-up blocker when the pop-up blocker is set to the default value.|
-|5.9|Your app or add-in cannot request full-control permission. SharePoint Add-ins that request full-control permissions are not accepted in AppSource.<br/><br/>If your app or add-in requires full-control permission, your Store add-ins might be dependent on add-ins that are deployed to a customer's tenant outside the AppSource process. For more information, see  [Combining AppSource add-ins with high trust permissions now supported](https://dev.office.com/blogs/combining-store-add-ins-with-high-trust-permissions).|
+|5.9|Your app or add-in cannot request unreasonably high permissions or full-control permission.<br/><br/> SharePoint Add-ins that request full-control permissions are not accepted in AppSource.<br/><br/>If your app or add-in requires full-control permission, your Store add-ins might be dependent on add-ins that are deployed to a customer's tenant outside the AppSource process. For more information, see  [Combining AppSource add-ins with high trust permissions now supported](https://dev.office.com/blogs/combining-store-add-ins-with-high-trust-permissions).|
 |5.9.1|SharePoint Add-ins must prompt the administrator to explain that the add-in must install a full-control app. The administrator must be able to install this full-control app without interacting with the SharePoint Add-in provider, for example via email or web forms.|
 |5.9.2|The full-control app that is installed via the SharePoint Add-in must comply with all Store policies. |
 |5.9.3|If the full-control app meets the AppSource validation policies, the SharePoint Add-in submitted to AppSource can function only to install the full-control app.|
@@ -252,6 +252,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|March 30, 2018|Added policy 5.9. |
 |2.2|March 8, 2018|Added policy 14.18.|
 |2.2|August 9, 2017|Updated policy 10.8 to apply to Office for Android, and added policy 10.8.2.|
 |2.2|August 4, 2017|Added policies 14.15 and 14.16.|
