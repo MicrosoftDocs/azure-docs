@@ -62,7 +62,7 @@ To run a sample of Go code on Azure Stack:
   1. Install Azure SDK for Go and its dependencies. For instruction see the previous section, [Install Azure SDK for Go](#install-azure-sdk-for-go).
   2. Get the metadata information from the Resource Manager endpoint. The endpoint returns a JSON file with the information required to run your Go code.
   > [!note]  
-  > The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`
+  > The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`  
   > The **ResourceManagerUrl** in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
@@ -169,7 +169,7 @@ func CreateToken() (adal.OAuthTokenProvider, error) {
   
   Set `<activeDirectoryResourceID>` to one of the values in the "audience" list from the ResourceManagerUrl metadata retrieved on the previous section of this document.  
   Set `<clientID>` to the service principal application ID saved when service principal was created on the previous section of this document.  
-  Set `<clientSecret`> to the service principal application Secret saved when service principal was created on the previous section of this document.  
+  Set `<clientSecret>` to the service principal application Secret saved when service principal was created on the previous section of this document.  
 
 ## Example
 
@@ -177,7 +177,7 @@ This section shows a sample of Go code to create virtual network on Azure Stack.
 > [!note]  
 > To run the code in this example, verify that the subscription used has **Network** resource provider listed as **Registered**. To verify it, look for the Subscription in the Azure Stack portal, and click on **Resource providers.**
 
-  1. Import required packages in your code. You should use the latest available profile on Azure Stack to import the network module. 
+1. Import required packages in your code. You should use the latest available profile on Azure Stack to import the network module. 
   
 ````go
 package main
@@ -191,8 +191,8 @@ import (
     "github.com/Azure/go-autorest/autorest/to"
 )
 ````
-  
-  2. Define your environment variables. Note that to create a virtual network you need to have a resource group. 
+
+2. Define your environment variables. Note that to create a virtual network you need to have a resource group. 
 
 ````go
 var (
@@ -206,8 +206,8 @@ var (
     resourceGroupName = "existingResourceGroupName"
 )
 ````
-  
-  3. Now that you have defined your environment variables, add a method to create authentication token by using **adal** package. See details about authentication in previous section.
+
+3. Now that you have defined your environment variables, add a method to create authentication token by using **adal** package. See details about authentication in previous section.
   
 ````go
 //CreateToken creates a service principal token
@@ -223,7 +223,7 @@ func CreateToken() (adal.OAuthTokenProvider, error) {
 }
 ````
   
-  4. Add the main method. The main method first gets a token by using the method that is defined in previous step. Then, it creates a client by using network module from profile. Finally, it creates a virtual network. 
+4. Add the main method. The main method first gets a token by using the method that is defined in previous step. Then, it creates a client by using network module from profile. Finally, it creates a virtual network. 
   
 ````go
 package main

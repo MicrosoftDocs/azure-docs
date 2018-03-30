@@ -33,6 +33,19 @@ This topic helps you:
  - How you can use API profiles to develop your solutions.
  - Where to look for code-specific guidance.
 
+## Summary of API profiles
+
+- API Profiles are used to represent a set of Azure resource providers and their API versions.
+- API Profiles were created for developers to create templates across multiple Azure Clouds. They are designed to meet your need for a compatible and stable interfaces.
+- Profiles are released four times a year.
+- Three profile naming conventions are:
+    - **latest**  
+        Most recent API versions released in Azure.
+    - **yyyy-mm-dd-hybrid**  
+    Released at a biannual cadence, this release focused on consistency and stability across multiple clouds.
+    - **yyyy-mm-dd-profile**  
+    Sits between optimal stability and the latest features.
+
 ## Azure Resource Manager API profiles
 
 Azure Stack does not use the latest version of of the API versions found in global Azure. In creating your own solution, you need to find the API version for each resource provider in Azure that is compatible with Azure Stack.
@@ -46,19 +59,6 @@ For example, if use PowerShell to create a storage account using the **Microsoft
 Similarly, when using the Python SDK to build a Python-based application, you can specify the profile. The SDK loads the right modules for the resource providers that you have specified in your script.
 
 As a developer, you can focus on writing your solution. Rather than researching which api-versions, resource provider, and which cloud works together, you use a profile and know that your code will work across all clouds that support that profile.
-
-## Summary of API profiles
-
-- API Profiles are used to represent a set of Azure resource providers and their API versions.
-- API Profiles were created for developers to create templates across multiple Azure Clouds. They are designed to meet your need for a compatible and stable interfaces.
-- Profiles are released four times a year.
-- Three profile naming conventions are:
-    - **latest**  
-        Most recent API versions released in Azure.
-    - **yyyy-mm-dd-hybrid**  
-    Released at a biannual cadence, this release focused on consistency and stability across multiple clouds.
-    - **yyyy-mm-dd-profile**  
-    Sits between optimal stability and the latest features.
 
 ## API profile code samples
 
