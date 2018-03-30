@@ -105,7 +105,6 @@ Use the following steps to connect to Azure Stack:
         --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
         --suffix-storage-endpoint "local.azurestack.external" \ 
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
-        --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
@@ -117,7 +116,6 @@ Use the following steps to connect to Azure Stack:
         --endpoint-resource-manager "https://management.local.azurestack.external" \ 
         --suffix-storage-endpoint "local.azurestack.external" \ 
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
-        --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
