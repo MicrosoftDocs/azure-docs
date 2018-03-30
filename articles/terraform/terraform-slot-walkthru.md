@@ -136,32 +136,32 @@ ms.topic: article
 
 1. Select **Resource Groups** to see the resources that were provisioned by Terraform.
 
-![Azure portal Resource Groups](./media/terraform-slot-walkthru/resource-groups.png)
+    ![Azure portal Resource Groups](./media/terraform-slot-walkthru/resource-groups.png)
 
 
 1. Select **slotDemoResourceGroup** to display each of the created resources.
 
-![Resources created from the Terraform configuration file](./media/terraform-slot-walkthru/resources.png)
+    ![Resources created from the Terraform configuration file](./media/terraform-slot-walkthru/resources.png)
 
-## Deploying to deployment slots
+## Deploying from GitHub to your deployment slots
 
 1. Browse to the [awesome-terraform repo on GitHub](https://github.com/Azure/awesome-terraform).
 
-1. 
+1. Fork the **awesome-terraform repo**.
 
+    ![Fork the GitHub awesome-terraform repo](./media/terraform-slot-walkthru/fork-repo.png)
 
+1. Return to the Azure portal.
 
+1. Select **Resource Groups**
 
-To deploy to the `deployment slots`, fork the [Fork the awesome-terraform repo](https://github.com/Azure/awesome-terraform) repository to your own personal organization by selecting **Fork** in GitHub.
+1. Select **slotDemoResourceGroup**.
 
-![Fork GitHub Repository](./media/terraform-slot-walkthru/fork-repo.png)
+1. Select the **slotAppService** App Service resource. (Make sure to click the actual resource name, and not the checkbox next to it.)
 
-Deploying Bits from GitHub to your Deployment Slots
----
+1. Select **Deployment options**.
 
-1. At this point, you now have the needed bits. To deploy from GitHub via the [Azure portal](https://portal.azure.com/), locate **Resource Group**, as explained earlier. Select the **slotAppService** resource, then select `Deployment options`.
-
-    ![Deployment Options](./media/terraform-slot-walkthru/deployment-options.png)
+    ![Deployment options for an App Service resource](./media/terraform-slot-walkthru/deployment-options.png)
 
 3. Select **GitHub**.
 
