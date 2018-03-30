@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2018
+ms.date: 03/29/2018
 ms.author: cherylmc
 
 ---
@@ -68,11 +68,11 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Power BI
 * Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
 * Most of the Azure services. Please check directly with the service that you want to use to verify support.<br>
-  **The following services are not supported:**
-  * CDN
-  * Visual Studio Team Services Load Testing
-  * Multi-factor Authentication
-  * Traffic Manager
+  The following services are NOT supported:
+    * CDN
+    * Visual Studio Team Services Load Testing
+    * Multi-factor Authentication
+    * Traffic Manager
 
 ### Microsoft peering
 
@@ -86,7 +86,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
   * Power BI
   * Dynamics 365 for Finance and Operations
   * Most of the Azure services. Please check directly with the service that you want to use to verify support.<br>
-    **The following services are not supported:**
+  The following services are NOT supported:
     * CDN
     * Visual Studio Team Services Load Testing
     * Multi-factor Authentication
