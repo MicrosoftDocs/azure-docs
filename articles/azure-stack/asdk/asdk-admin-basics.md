@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Development Kit Basics| Microsoft Docs
-description: Describes how to perform basic administration of the Azure Stack Development Kit.
+description: Describes how to perform basic administration tasks for the Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb

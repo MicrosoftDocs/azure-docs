@@ -73,7 +73,6 @@ There are a few account considerations you should be aware of when managing Azur
 |Azure AD Global Administrator|Used during installation<br>Owner of the Default Provider Subscription (DPS)|Not applicable|
 |
 
-
 ## What tools do I use to manage?
  
 You can use the [administrator portal](azure-stack-manage-portals.md) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, there are preparation steps. You must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure-admin.md) PowerShell.
