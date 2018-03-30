@@ -18,7 +18,7 @@ ms.workload: na
 ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-experimental: true  
+experimental: false  
 experiment_id: 23113853-34f2-4f
 
 ---
@@ -43,8 +43,6 @@ To complete this tutorial:
     If you have already installed Visual Studio, make sure you have installed any pending updates. 
 
 * If you installed the Azure development workload with Visual Studio 2017 version 15.4 or earlier, you may also need to [update your Azure Functions tools](functions-develop-vs.md#check-your-tools-version). 
-    
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## Create a function app project
 
@@ -76,7 +74,9 @@ After you have verified that the function runs correctly on your local computer,
 
 ## Publish the project to Azure
 
-You must have a function app in your Azure subscription before you can publish your project. You can create a function app right from Visual Studio.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you continue.
+
+You must have a function app in your Azure subscription before you can publish your project. You can create a function app in your subscription right from Visual Studio.
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 

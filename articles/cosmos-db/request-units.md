@@ -13,21 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/30/2018
 ms.author: mimig
 
 ---
 # Request Units in Azure Cosmos DB
-Now available: Azure Cosmos DB [request unit calculator](https://www.documentdb.com/capacityplanner). Learn more in [Estimating your throughput needs](request-units.md#estimating-throughput-needs).
 
-![Throughput calculator][5]
-
-## Introduction
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is Microsoft's globally distributed multi-model database. With Azure Cosmos DB, you don't have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by Microsoft top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, such as the [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [Table API](table-introduction.md), and Gremlin via the [Graph API](graph-introduction.md) - are all natively supported. The currency of Azure Cosmos DB is the Request Unit (RU). With RUs, you do not need to reserve read/write capacities or provision CPU, memory, and IOPS.
 
 Azure Cosmos DB supports a number of APIs with different operations ranging from simple reads and writes to complex graph queries. Since not all requests are equal, they are assigned a normalized quantity of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in Azure Cosmos DB via a response header. 
 
-To provide predictable performance, you need to reserve throughput in units of 100 RU/second. 
+To provide predictable performance, you need to reserve throughput in units of 100 RU/second. You can [estimate your throughput needs](request-units.md#estimating-throughput-needs) by using the Azure Cosmos DB [request unit calculator](https://www.documentdb.com/capacityplanner).
+
+![Throughput calculator][5]
 
 After reading this article, you'll be able to answer the following questions:  
 
@@ -43,9 +41,9 @@ Azure Cosmos DB delivers fast, predictable performance by *reserving* resources 
 
 With Azure Cosmos DB, reserved throughput is specified in terms of request units processing per second. You can think of request units as throughput currency, whereby you *reserve* an amount of guaranteed request units available to your application on per second basis.  Each operation in Azure Cosmos DB - writing a document, performing a query, updating a document - consumes CPU, memory, and IOPS.  That is, each operation incurs a *request charge*, which is expressed in *request units*.  Understanding the factors that impact request unit charges, along with your application's throughput requirements, enables you to run your application as cost effectively as possible. The Data Explorer in the Azure portal is also a wonderful tool to test the core of a query.
 
-We recommend getting started by watching the following video, where Aravind Ramachandran explains request units and predictable performance with Azure Cosmos DB.
+We recommend getting started by watching the following video, where Azure Cosmos DB Program Manager Andrew Liu discusses request units.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
 
