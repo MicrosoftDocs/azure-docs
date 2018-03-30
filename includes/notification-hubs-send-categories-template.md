@@ -14,34 +14,34 @@ In this section, you send breaking news as tagged template notifications from a 
 
 4. Open the Program.cs file, and add the following `using` statement:
    
-        ```csharp
-        using Microsoft.Azure.NotificationHubs;
-        ```
+    ```csharp
+    using Microsoft.Azure.NotificationHubs;
+    ```
 
 5. In the `Program` class, add the following method, or replace it if it already exists:
    
-        ```csharp
-        private static async void SendTemplateNotificationAsync()
+    ```csharp
+    private static async void SendTemplateNotificationAsync()
+    {
+        // Define the notification hub.
+        NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
+
+        // Create an array of breaking news categories.
+        var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
+
+        // Send the notification as a template notification. All template registrations that contain
+        // "messageParam" and the proper tags will receive the notifications.
+        // This includes APNS, GCM, WNS, and MPNS template registrations.
+
+        Dictionary<string, string> templateParams = new Dictionary<string, string>();
+
+        foreach (var category in categories)
         {
-            // Define the notification hub.
-            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-   
-            // Create an array of breaking news categories.
-            var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
-   
-            // Send the notification as a template notification. All template registrations that contain
-            // "messageParam" and the proper tags will receive the notifications.
-            // This includes APNS, GCM, WNS, and MPNS template registrations.
-   
-            Dictionary<string, string> templateParams = new Dictionary<string, string>();
-   
-            foreach (var category in categories)
-            {
-                templateParams["messageParam"] = "Breaking " + category + " News!";
-                await hub.SendTemplateNotificationAsync(templateParams, category);
-            }
+            templateParams["messageParam"] = "Breaking " + category + " News!";
+            await hub.SendTemplateNotificationAsync(templateParams, category);
         }
-        ```   
+    }
+    ```   
    
     This code sends a template notification for each of the six tags in the string array. The use of tags ensures that devices receive notifications only for the registered categories.
 
@@ -49,10 +49,10 @@ In this section, you send breaking news as tagged template notifications from a 
 
 6. In the **Main** method, add the following lines:
    
-        ```csharp
-        SendTemplateNotificationAsync();
-        Console.ReadLine();
-        ```
+    ```csharp
+    SendTemplateNotificationAsync();
+    Console.ReadLine();
+    ```
 
 7. Build the console app.
 
