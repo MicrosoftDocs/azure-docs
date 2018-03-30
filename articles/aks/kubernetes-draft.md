@@ -70,7 +70,7 @@ Now that there is a trust relationship between AKS and ACR, the following steps 
 1. Set the Draft configuration `registry` value by running `draft config set registry <registry name>.azurecr.io`, where _&lt;registry name&lt;_ is the name of your ACR registry.
 2. Log on to the ACR registry by running `az acr login -n <registry name>`. 
 
-Because you are now logged on locally to ACR and you created a trust relationship with AKS and ACR, no passwords or secrets are required to push to or pull from ACR into AKS. Authentication happens at the Azure Resource Manager level, using AAD. 
+Because you are now logged on locally to ACR and you created a trust relationship with AKS and ACR, no passwords or secrets are required to push to or pull from ACR into AKS. Authentication happens at the Azure Resource Manager level, using Azure Active Directory. 
 
 ## Run an application
 
