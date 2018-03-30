@@ -19,7 +19,7 @@ You can create an Azure Database for PostgreSQL server in one of three different
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Memory per vCore | 1x | 2x Basic | 2x General Purpose |
+| Memory per vCore | Baseline | 2x Basic | 2x General Purpose |
 | Storage size | 5 GB to 1 TB | 5 GB to 1 TB | 5 GB to 1 TB |
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |

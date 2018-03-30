@@ -225,11 +225,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 
 Some applications, like Office 2010 or earlier and Apple Mail, don't support two-step verification. The apps aren't configured to accept a second verification. To use these applications, take advantage of the _app passwords_ feature. You can use an app password in place of your traditional password to allow an app to bypass two-step verification and continue working.
 
->[!NOTE]
->Modern authentication for the Microsoft Office 2013 clients and later
-> 
->The Office 2013 clients and later (including Outlook), support modern authentication protocols and can be enabled to work with two-step verification. After the client is enabled, app passwords aren't required for the client. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
->
+Modern authentication is supported for the Microsoft Office 2013 clients and later. Office 2013 clients including Outlook, support modern authentication protocols and can be enabled to work with two-step verification. After the client is enabled, app passwords aren't required for the client.
 
 ### Considerations about app passwords
 
