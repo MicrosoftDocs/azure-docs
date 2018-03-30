@@ -9,7 +9,7 @@
   items:
   - name: Create a service
     href: search-create-service-portal.md
-  - name: Learn cognitive search
+  - name: Try cognitive search
     href: cognitive-search-get-start-preview.md
   - name: Portal
     items:
@@ -151,7 +151,7 @@
       href: cognitive-search-output-field-mapping.md
     - name: Create a custom skill
       href: cognitive-search-creating-custom-skills.md
-  - name: Search
+  - name: Full text search
     items:
     - name: Basic query construction
       href: search-query-overview.md
@@ -204,7 +204,7 @@
     - name: 2017-11-11-Preview
       href: search-api-2017-11-11-preview.md
       items:
-      - name: Create Skillset (api-version=2017-11-11-Preview)
+      - name: Create Skillset (Preview)
         href: ref-create-skillset.md
       - name: Predefined skills 
         href: cognitive-search-concept-skills-skillsets.md
