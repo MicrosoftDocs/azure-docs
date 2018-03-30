@@ -140,35 +140,11 @@ For more information about client-side encryption, see [Client-Side Encryption w
 
 ## Replication
 
-In order to ensure that your data is durable, Azure Storage will keep (and manage) multiple copies of your data. This is called replication, or sometimes redundancy. When you set up your storage account, you select a replication type. In most cases, this setting can be modified after the storage account is set up.
+In order to ensure that your data is durable, Azure Storage replicates multiple copies of your data. When you set up your storage account, you select a replication type. In most cases, this setting can be modified after the storage account has been created. 
 
-**Locally-redundant storage (LRS)**
-
-Locally-redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a given year. This means multiple copies of your data are managed by Azure Storage in the data center specified when the storage account was set up. When changes are committed, all copies are updated before returning success. This means the replicas are always in sync. Also, the copies reside in separate fault domains and upgrade domains, which means your data is available even if a storage node holding your data fails or is taken offline to be updated.
-
-**Zone-redundant storage (ZRS) (Preview)**
-
-Zone-redundant storage (ZRS) is designed to simplify the development of highly available applications. ZRS provides durability for storage objects of at least 99.9999999999% (12 9's) over a given year. ZRS replicates your data synchronously across multiple availability zones. Consider ZRS for scenarios like transactional applications where downtime is not acceptable. ZRS enables customers to read and write data even if a single zone is unavailable or unrecoverable. Inserts and updates to data are made synchronously and are strongly consistent.    
-
-The previous ZRS capability is now referred to as ZRS Classic. ZRS Classic accounts are available only for block blobs in general-purpose V1 storage accounts. ZRS Classic replicates data asynchronously across datacenters within one to two regions. A replica may not be available unless Microsoft initiates failover to the secondary. A ZRS Classic account cannot be converted to or from LRS or GRS, and does not have metrics or logging capability.
-
-**Geo-redundant storage (GRS)**
-
-Geo-redundant storage (GRS) is designed to provide 99.99999999999999% (16 9's) durability of objects over a given year by maintaining the local copies of your data in a primary region plus another set of copies of your data in a secondary region hundreds of miles away from the primary region. In the event of a failure at the primary region, Azure Storage will fail over to the secondary region.
-
-**Read-access geo-redundant storage (RA-GRS)**
-
-Read-access geo-redundant storage is exactly like GRS except that you get read access to the data in the secondary location. If the primary data center becomes unavailable temporarily, you can continue to read the data from the secondary location. This can be very helpful. For example, you could have a web application that changes into read-only mode and points to the secondary copy, allowing some access even though updates are not available.
-
-> [!IMPORTANT]
-> You can change how your data is replicated after your storage account has been created. However, you may incur an additional one-time data transfer cost if you switch from LRS or ZRS to GRS or RA-GRS.
->
-
-For more information about replication options, see [Azure Storage replication](storage-redundancy.md).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 For disaster recovery information, see [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md).
-
-For an example of how to leverage RA-GRS storage to ensure high availability, see [Designing Highly Available Applications using RA-GRS](storage-designing-ha-apps-with-ragrs.md).
 
 ## Transferring data to and from Azure Storage
 
