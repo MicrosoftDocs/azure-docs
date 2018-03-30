@@ -89,6 +89,9 @@ After you sign in, you are prompted for the following information:
 
 After you have selected the appropriate information, select **Register** to complete the server registration. As part of the registration process, you are prompted for an additional sign-in.
 
+> [!Note]  
+> A server can only be registered with one Storage Sync Service at a time.
+
 ## Create a sync group
 A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share, and one server endpoint, which represents a path on Windows Server. To create a sync group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Sync group**:
 
