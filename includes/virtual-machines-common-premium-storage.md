@@ -144,11 +144,11 @@ Here are some important things to know about Premium Storage scalability and per
 
 * **Provisioned capacity and performance**
 
-    When you provision a premium storage disk, unlike standard storage, you are guaranteed the capacity, IOPS, and throughput of that disk. For example, if you create a P50 disk, Azure provisions 4,095-GB storage capacity, 7,500 IOPS, and 250 MB/s throughput for that disk. Your application can use all or part of the capacity and performance.
+    When you provision a premium storage disk, unlike standard storage, you are guaranteed the capacity, IOPS, and throughput of that disk. For example, if you create a P50 disk, Azure provisions 4,095-GB storage capacity, 7,500 IOPS, and 250-MB/s throughput for that disk. Your application can use all or part of the capacity and performance.
 
 * **Disk size**
 
-    Azure maps the disk size (rounded up) to the nearest premium storage disk option, as specified in the table in the preceding section. For example, a disk size of 100 GB is classified as a P10 option. It can perform up to 500 IOPS, with up to 100 MB/s throughput. Similarly, a disk of size 400 GB is classified as a P20. It can perform up to 2,300 IOPS, with 150 MB/s throughput.
+    Azure maps the disk size (rounded up) to the nearest premium storage disk option, as specified in the table in the preceding section. For example, a disk size of 100 GB is classified as a P10 option. It can perform up to 500 IOPS, with up to 100-MB/s throughput. Similarly, a disk of size 400 GB is classified as a P20. It can perform up to 2,300 IOPS, with 150-MB/s throughput.
     
     > [!NOTE]
     > You can easily increase the size of existing disks. For example, you might want to increase the size of a 30-GB disk to 128 GB, or even to 1 TB. Or, you might want to convert your P20 disk to a P30 disk because you need more capacity or more IOPS and throughput. 
@@ -160,7 +160,7 @@ Here are some important things to know about Premium Storage scalability and per
 
 * **Throughput**
 
-    The throughput limit includes writes to the disk, and it includes disk read operations that aren't served from the cache. For example, a P10 disk has 100 MB/s throughput per disk. Some examples of valid throughput for a P10 disk are shown in the following table:
+    The throughput limit includes writes to the disk, and it includes disk read operations that aren't served from the cache. For example, a P10 disk has 100-MB/s throughput per disk. Some examples of valid throughput for a P10 disk are shown in the following table:
 
     | Max throughput per P10 disk | Non-cache reads from disk | Non-cache writes to disk |
     | --- | --- | --- |
@@ -171,7 +171,7 @@ Here are some important things to know about Premium Storage scalability and per
 * **Cache hits**
 
     Cache hits are not limited by the allocated IOPS or throughput of the disk. For example, when you use a data disk with a **ReadOnly** cache setting on a VM that is supported by Premium Storage, 
-    reads that are served from the cache are not subject to the IOPS and throughput caps of the disk. If the workload of a disk is predominantly reads, you might get very high throughput. The cache is subject to separate IOPS and throughput limits at the VM level, based on the VM size. DS-series VMs have roughly 4,000 IOPS and 33 MB/s throughput per core for cache and local SSD I/Os. GS-series VMs have a limit of 5,000 IOPS and 50 MB/s throughput per core for cache and local SSD I/Os. 
+    reads that are served from the cache are not subject to the IOPS and throughput caps of the disk. If the workload of a disk is predominantly reads, you might get very high throughput. The cache is subject to separate IOPS and throughput limits at the VM level, based on the VM size. DS-series VMs have roughly 4,000 IOPS and 33-MB/s throughput per core for cache and local SSD I/Os. GS-series VMs have a limit of 5,000 IOPS and 50-MB/s throughput per core for cache and local SSD I/Os. 
 
 ## Throttling
 Throttling might occur, if your application IOPS or throughput exceeds the allocated limits for a premium storage disk. Throttling also might occur if your total disk traffic across all disks on the VM exceeds the disk bandwidth limit available for the VM. To avoid throttling, we recommend that you limit the number of pending I/O requests for the disk. Use a limit based on scalability and performance targets for the disk you have provisioned, and on the disk bandwidth available to the VM.  
@@ -187,7 +187,7 @@ Your application has processed 495 I/O units of 16-KB size in one second on a P1
 Your application has processed 400 I/O units of 256-KB size on a P10 disk. The total bandwidth consumed is (400 &#215; 256) / 1,024 KB = 100 MB/s. A P10 disk has a throughput limit of 100 MB/s. If your application tries to perform more I/O operations in that second, it is throttled because it exceeds the allocated limit.
 
 ### Example 3
-You have a DS4 VM with two P30 disks attached. Each P30 disk is capable of 200 MB/s throughput. However, a DS4 VM has a total disk bandwidth capacity of 256 MB/s. You cannot drive both attached disks to the maximum throughput on this DS4 VM at the same time. To resolve this, you can sustain traffic of 200 MB/s on one disk and 56 MB/s on the other disk. If the sum of your disk traffic goes over 256 MB/s, disk traffic is throttled.
+You have a DS4 VM with two P30 disks attached. Each P30 disk is capable of 200-MB/s throughput. However, a DS4 VM has a total disk bandwidth capacity of 256 MB/s. You cannot drive both attached disks to the maximum throughput on this DS4 VM at the same time. To resolve this, you can sustain traffic of 200 MB/s on one disk and 56 MB/s on the other disk. If the sum of your disk traffic goes over 256 MB/s, disk traffic is throttled.
 
 > [!NOTE]
 > If your disk traffic mostly consists of small I/O sizes, your application likely will hit the IOPS limit before the throughput limit. However, if the disk traffic mostly consists of large I/O sizes, your application likely will hit the throughput limit first, instead of the IOPS limit. You can maximize your application's IOPS and throughput capacity by using optimal I/O sizes. Also, you can limit the number of pending I/O requests for a disk.
