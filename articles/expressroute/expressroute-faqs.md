@@ -213,7 +213,7 @@ Yes. You will have to create an ExpressRoute gateway within your virtual network
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 
-The public IP address is used for internal management only. This public IP address is not exposed to the Internet, and does not constitute a security exposure of your virtual network.
+The public IP address is used for internal management only, and does not constitute a security exposure of your virtual network.
 
 ### What do I need to connect to Azure storage over ExpressRoute?
 
@@ -339,7 +339,10 @@ See [ExpressRoute partners and locations](expressroute-locations.md) for informa
 
 ### Can I access Office 365 over the Internet, even if ExpressRoute was configured for my organization?
 
-Yes. Office 365 service endpoints are reachable through the Internet, even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
+Yes. Office 365 service endpoints are reachable through the Internet, even though ExpressRoute has been configured for your network. Please check with your organization's networking team if the network at your location is configured to connect to Office 365 services through ExpressRoute.
+
+### How can I plan for high availability for Office 365 network traffic on Azure ExpressRoute?
+See the recommendation for [High availability and failover with Azure ExpressRoute](https://aka.ms/erhighavailability)
 
 ### Can I access Office 365 US Government Community (GCC) services over an Azure US Government ExpressRoute circuit?
 
