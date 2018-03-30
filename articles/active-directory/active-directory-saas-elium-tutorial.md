@@ -173,7 +173,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	a. Copy the value of **Verify that SAML2 authentication works for your account** and paste it in the **Sign-on URL** textbox on the **Elium Domain and URLs** section in the Azure portal.
 
 	> [!NOTE]
-	> After configuring SSO, you can always access the default remote login page at the following URL: 'https://<platform_domain>/login/regular/login' 
+	> After configuring SSO, you can always access the default remote login page at the following URL: `https://<platform_domain>/login/regular/login` 
 
 	b. Select **Enable SAML2 federation** checkbox.
 
@@ -187,14 +187,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	f. Search for the **AssertionConsumerService** in the **SP Metadata** file, copy the **Location** value and paste it in the **Reply URL** textbox on the **Elium Domain and URLs** section in the Azure portal.
 
-	![Configure Single Sign-On](./media/active-directory-saas-elium-tutorial/user4.png)
+	![Configure Single Sign-On](./media/active-directory-saas-elium-tutorial/user5.png)
 
 	g. Open the downloaded metadata file from Azure portal into notepad, copy the content and paste it into the **IdP Metadata** textbox.
 
 	h. Click **Save**.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Create an Azure AD test user
 
