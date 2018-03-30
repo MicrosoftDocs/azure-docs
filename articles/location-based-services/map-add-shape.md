@@ -1,0 +1,60 @@
+---
+title: How to add a shape to Azure Location Based Services' map | Microsoft Docs
+description: Add a shape on a map
+services: location-based-services
+keywords: 
+author: dsk-2015
+ms.author: shubhaj
+ms.date: 03/01/2018
+ms.topic: tutorial
+ms.service: location-based-services
+
+documentationcenter: ''
+manager: timlt
+ms.devlang: na
+ms.custom: mvc
+---
+
+# Add a shape on a map
+
+## Overview
+This tutorial shows you how to add a line, a circle or a polygon on the map. 
+
+<a id="addALine"></a>
+
+### Add a line
+
+<iframe height='501' scrolling='no' title='Add a line to a map - ' src='//codepen.io/azuremaps/embed/yvGVzr/?height=501&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/yvGVzr/'>Add a line to a map - </a> by Azure LBS (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
+
+In the second block of code, a line is created. A line is a [Feature](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/feature?view=azure-iot-typescript-latest) of LineString with LineStringProperties as its Feature property. Use new atlas.data.Feature(new atlas.data.LineString()) to create a line and define its properties. 
+
+A line layer is an array of lines. The last block of code uses [addLineStrings()](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addLinestrings) function of the map class to add the line layer to the map and define the properties of the line layer. See properties of a line layer at [LinestringLayerOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/linestringlayeroptions?view=azure-iot-typescript-latest).
+
+<a id="addACircle"></a>
+
+### Add a circle
+
+<iframe height='516' scrolling='no' title='Add a circle to a map -' src='//codepen.io/azuremaps/embed/PRmzJX/?height=516&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Add a circle to a map - JJ</a> by Azure LBS (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
+
+In the second block of code, a circle is created. A circle is a [Feature](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/feature?view=azure-iot-typescript-latest) of [Point](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/point?view=azure-iot-typescript-latest) with [CircleProperties](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/circleproperties?view=azure-iot-typescript-latest) as its Feature property. Use new atlas.data.Feature(new atlas.data.Point()) to create a circle and define its properties. Provide ordered coordinates of the polygon path in the polygon constructor.
+
+A circle layer is an array of circles. The last block of code uses [addCircle()](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#location_based_services_javascript_Map_addCircles) function of the map class to add the circle layer to the map and define the properties of the circle layer. See properties of a circle layer at [CircleLayerOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/circlelayeroptions?view=azure-iot-typescript-latest).
+
+<a id="addARectangle"></a>
+
+### Add a polygon
+
+<iframe height='537' scrolling='no' title='Add a polygon to a map ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=537&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Add a polygon to a map </a> by Azure LBS (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
+
+In the second block of code, a rectangle is created. A rectangle is a [Feature](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/feature?view=azure-iot-typescript-latest) of [Polygon](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/polygon?view=azure-iot-typescript-latest) with [PolygonProperties](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/polygonproperties?view=azure-iot-typescript-latest) as its Feature property. Use new atlas.data.Feature(new atlas.data.Polygon()) to create a polygon and define its properties. Provide ordered coordinates of the polygon path in the polygon constructor.
+
+A polygon layer is an array of polygons. The last block of code uses [addPolygons()]((https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#location_based_services_javascript_Map_addPolygons)) function of the map class to add the polygon layer to the map and define its properties. See properties of a polygon layer at [PolygonLayerOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/polygonlayeroptions?view=azure-iot-typescript-latest). 
