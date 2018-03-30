@@ -29,13 +29,14 @@
   - name: Routing Coverage
     href: routing-coverage.md
 - name: How-to guides
+  expanded: true
   items:
     - name: Manage account and keys
       href: how-to-manage-account-keys.md	     
     - name: How to search for an address
       href: how-to-search-for-address.md
     - name: Map Control JavaScript API
-    expanded: true
+      expanded: true
       items:
       - name: Create a map
         href: map-create.md
