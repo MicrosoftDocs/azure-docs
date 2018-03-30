@@ -34,7 +34,9 @@ You can add, edit, or delete entities in your app through the **Entities list** 
 A simple entity is a generic entity that describes a single concept. 
 
 1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
+
 2. On the **Entities** page, click **Create new entity**.
+
 3. In the **Add Entity** dialog box, type "Airline" in the **Entity name** box,  select **Simple** from the **Entity type** list, and then click **Done**.
 
     ![Add Entity Dialog box - Simple](./media/add-entities/create-simple-airline-entity.png)
@@ -46,7 +48,9 @@ A simple entity is a generic entity that describes a single concept.
 A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
 
 1. Open the TravelAgent app by selecting its name on **My Apps** page, and then select **Entities** in the left panel. 
+
 2. On the **Entities** page, select **Create new entity**.
+
 3. In the **Add Entity** dialog box, type "AirFrance Flight" in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `AFR[0-9]{3,4}`, and then select **Done**. This regular expression expects three characters, literally `AFR`, then 3 or 4 digits. The digits can be any number between 0 and 9. The regular expression matches AirFrance flight numbers such as: "AFR101", "ARF1302", and "AFR5006". See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting the entity from the endpoint JSON query response. 
 
     ![Add Entity Dialog box - Simple](./media/add-entities/regex-entity-create-dialog.png)
@@ -60,12 +64,15 @@ A hierarchical entity defines a relationship between a category and its members.
 To add hierarchical entities, complete the following steps: Make sure to add the child entities at the same time that you create the parent entity. You can add up to 10 child entities for each parent.
 
 1. Open the TravelAgent app by clicking its name on **My Apps** page, and then click **Entities** in the left panel. 
+
 2. On the **Entities** page, click **Create new entity**.
+
 3. In the **Add Entity** dialog box, type "Location" in the **Entity name** box, and then select **Hierarchical** from the **Entity type** list.
 
     ![Add hierarchical entity](./media/add-entities/hier-location-entity-creation.png)
 
 4. Click **Add Child**, and then type "FromLocation" in **Child #1** box. 
+
 5. Click **Add Child**, and then type "ToLocation" in **Child #2** box. 
     >[!NOTE]
     >To delete a child, click the trash bin icon next to it.
@@ -82,16 +89,23 @@ To add hierarchical entities, complete the following steps: Make sure to add the
 You can also define relationships between entities by creating composite entities. A composite entity is created by combining two or more existing entities and treating them as one entity. 
 
 1. Add the prebuilt entity "number". For instructions, see [Add Prebuilt Entities](#add-prebuilt-entity). 
+
 2. Add the hierarchical entity "Category", including the subtypes: "adult", "child" and "infant". 
 
 3. Add the hierarchical entity "TravelClass" including "first", "business" and "economy". For more instructions, see [Add hierarchical entities](#add-hierarchical-entities). 
 
 4. Open the TravelAgent app by clicking its name on **My Apps** page and click **Entities** in the app's left panel.
+
 5. On the **Entities** page, click **Create new entity** to create a custom entity.
+
 6. In the **Add Entity** dialog box, type "TicketsOrder" in the **Entity name** box, and then select **Composite** from the **Entity type** list.
+
 7. Click **Add Child** to add a new child.
+
 8. In **Child #1**, select the entity "number" from the list.
+
 9. In **Child #2**, select the parent entity "Category" from the list. 
+
 10. In **Child #3**, select the parent entity "TravelClass" from the list. 
 
     ![Add composite entity](./media/add-entities/ticketsorder-composite-entity.png)
@@ -137,6 +151,7 @@ A list entity is an entity that is defined by a list of all its values.
 ## Import list entity values
 
  1. On the "Menu" list entity page, click **Import Lists**.
+
  2. In **Import New Entries** dialog box, click **Choose File** and select the JSON file that includes the list.
 
     ![Import list entity values](./media/add-entities/menu-list-import-json-dialog-with-file.png)
@@ -170,13 +185,13 @@ A list entity is an entity that is defined by a list of all its values.
     ```
 
 ## Edit entity name
-On the **Entities** list page, select the entity in the list. This action takes you to the **Entity** page.
+1. On the **Entities** list page, select the entity in the list. This action takes you to the **Entity** page.
 
-* On the **Entity** page, you edit the entity name by selecting the edit icon next to the entity name. The entity type is not editable. 
+2. On the **Entity** page, you edit the entity name by selecting the edit icon next to the entity name. The entity type is not editable. 
 
 ## Delete entity
 
-* On the **Entity** page, click the **Delete Entity** button. Then, click **Ok** in the confirmation message to confirm deletion.
+On the **Entity** page, click the **Delete Entity** button. Then, click **Ok** in the confirmation message to confirm deletion.
  
     ![Delete Entity](./media/add-entities/entity-delete.png)
 
