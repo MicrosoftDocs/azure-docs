@@ -11405,6 +11405,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/prepare-pki-certs.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-prepare-pki-certs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/validate-pki-certs.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-validate-pki-certs",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md",
             "redirect_url": "/azure/virtual-machines/windows/about-disks-and-vhds",
             "redirect_document_id": false
