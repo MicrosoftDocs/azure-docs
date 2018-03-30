@@ -24,6 +24,9 @@ This article provides an introduction to Azure HDInsight. Azure HDInsight is a f
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
+> [!div class="nextstepaction"]
+> [Try Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)
+
 ## What is HDInsight and the Hadoop technology stack?
 
 [Apache Hadoop](http://hadoop.apache.org/) was the original open-source framework for distributed processing and analysis of big data sets on clusters. The Hadoop technology stack includes related software and utilities, including Apache Hive, HBase, Spark, Kafka, and many others.
@@ -43,7 +46,7 @@ This section lists the capabilities of Azure HDInsight.
 
 |Capability  |Description  |
 |---------|---------|
-|Cloud native     |     Azure HDInsight enables you to create optimized clusters for [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [Interactive query (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md), and [R Server](../r-server/r-server-get-started.md) on Azure. HDInsight also provides an end-to-end SLA on all your production workloads.  |
+|Cloud native     |     Azure HDInsight enables you to create optimized clusters for [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [Interactive query (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md), and [ML Services](../r-server/r-server-get-started.md) on Azure. HDInsight also provides an end-to-end SLA on all your production workloads.  |
 |Low-cost and scalable     | HDInsight enables you to [scale](../hdinsight-administer-use-portal-linux.md) workloads up or down. You can reduce costs by [creating clusters on demand](../hdinsight-hadoop-create-linux-clusters-adf.md) and paying only for what you use. You can also build data pipelines to operationalize your jobs. Decoupled compute and storage provide better performance and flexibility. |
 |Secure and compliant    | HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).        |
 |Monitoring    | Azure HDInsight integrates with [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) to provide a single interface with which you can monitor all your clusters.        |
@@ -63,25 +66,25 @@ Extract, transform, and load (ETL) is a process where unstructured or structured
 
 You can use HDInsight to perform interactive queries at petabyte scales over structured or unstructured data in any format. You can also build models connecting them to BI tools. For more information, [read this customer story](https://customers.microsoft.com/story/milliman). 
 
-![HDInsight architecture: Data warehousing](./media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png)
+![HDInsight architecture: Data warehousing](./media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "HDInsight Data warehousing architecture")
 
 ### Internet of Things (IoT)
 
 You can use HDInsight to process streaming data that's received in real time from a variety of devices. For more information, [read this blog post from Azure that announces the public preview of Apache Kafka on HDInsight with Azure Managed disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
-![HDInsight architecture: Internet of Things](./media/apache-hadoop-introduction/hdinsight-architecture-iot.png) 
+![HDInsight architecture: Internet of Things](./media/apache-hadoop-introduction/hdinsight-architecture-iot.png "HDInsight IoT architecture") 
 
 ### Data science
 
 You can use HDInsight to build applications that extract critical insights from data. You can also use Azure Machine Learning on top of that to predict future trends for your business. For more information, [read this customer story](https://customers.microsoft.com/story/pros).
 
-![HDInsight architecture: Data science](./media/apache-hadoop-introduction/hdinsight-architecture-data-science.png)
+![HDInsight architecture: Data science](./media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "HDInsight data science architecture")
 
 ### Hybrid
 
 You can use HDInsight to extend your existing on-premises big data infrastructure to Azure to leverage the advanced analytics capabilities of the cloud.
 
-![HDInsight architecture: Hybrid](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png)
+![HDInsight architecture: Hybrid](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "HDInsight hybrid architecture")
 
 ## Cluster types in HDInsight
 HDInsight includes specific cluster types and cluster customization capabilities, such as the capability to add components, utilities, and languages. HDInsight offers the following cluster types:
@@ -92,7 +95,7 @@ HDInsight includes specific cluster types and cluster customization capabilities
 
 * **[Apache HBase](http://hbase.apache.org/)**: A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data--potentially billions of rows times millions of columns. See [What is HBase on HDInsight?](../hbase/apache-hbase-overview.md)
 
-* **[Microsoft ML Services](https://msdn.microsoft.com/microsoft-r/rserver)**: A server for hosting and managing parallel, distributed R processes. It provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight. See [Overview of R Server on HDInsight](../r-server/r-server-overview.md).
+* **[Microsoft ML Services](https://msdn.microsoft.com/microsoft-r/rserver)**: A server for hosting and managing parallel, distributed R processes. It provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight. See [Overview of ML Services on HDInsight](../r-server/r-server-overview.md).
 
 * **[Apache Storm](https://storm.incubator.apache.org/)**: A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](../storm/apache-storm-sensor-data-analysis.md).
 
@@ -142,9 +145,10 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 * [Get started with Storm on HDInsight](../storm/apache-storm-tutorial-get-started-linux.md)
 * [Get started with HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Get started with Interactive Query (LLAP) on HDInsight](../interactive-query/apache-interactive-query-get-started.md)
-* [Get started with R Server on HDInsight](../r-server/r-server-get-started.md)
+* [Get started with ML Services on HDInsight](../r-server/r-server-get-started.md)
 
-
+> [!div class="nextstepaction"]
+> [Try Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)
 
 [component-versioning]: ../hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
