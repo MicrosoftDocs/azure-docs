@@ -39,4 +39,4 @@ The last block of code parses the incoming response. For a successful response, 
 
 * [Azure Maps Fuzzy Search API](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy)
 * [Map](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest)
-    * [addPins](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#location_based_services_javascript_Map_addPins)
+    * [addPins](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addpins)
