@@ -30,7 +30,7 @@ The bot responds to intents from the HomeAutomation domain that are in the LUIS 
 
 ## Create a Language Understanding bot with Bot Service
 
-1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and click **See all**.
+1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and select **See all**.
 
     ![Create new resource](./media/luis-tutorial-node-bot/bot-service-creation.png)
 
@@ -38,7 +38,7 @@ The bot responds to intents from the HomeAutomation domain that are in the LUIS 
 
     ![Create new resource](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
-3. In the **Bot Service** blade, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
+3. In the **Bot Service** blade, provide the required information, and select **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
     * Select the **Language understanding (Node.js)** template for the **Bot template** field.
@@ -49,14 +49,35 @@ The bot responds to intents from the HomeAutomation domain that are in the LUIS 
 
 
 4. Confirm that the bot service has been deployed.
-    * Click Notifications (the bell icon that is located along the top edge of the Azure portal). The notification will change from **Deployment started** to **Deployment succeeded**.
-    * After the notification changes to **Deployment succeeded**, click **Go to resource** on that notification.
+    * Select Notifications (the bell icon that is located along the top edge of the Azure portal). The notification will change from **Deployment started** to **Deployment succeeded**.
+    * After the notification changes to **Deployment succeeded**, select **Go to resource** on that notification.
 
 ## Try the default bot
 
-Confirm that the bot has been deployed by checking the **Notifications**. The notifications will change from **Deployment in progress...** to **Deployment succeeded**. Click **Go to resource** button to open the bot's resources blade.
+Confirm that the bot has been deployed by checking the **Notifications**. The notifications will change from **Deployment in progress...** to **Deployment succeeded**. Select **Go to resource** button to open the bot's resources blade.
 
-Once the bot is registered, click **Test in Web Chat** to open the Web Chat pane. Type "hello" in Web Chat.
+<!-- this step isn't supposed to be necessary -->
+## Install NPM resources
+Install NPM packages with the following steps:
+
+1. Select **Build** from the **Bot Management** section of the Web App Bot. 
+
+2. A new, second browser window opens. Select **Open online code editor**.
+
+3. In the top navigation bar, select the web app bot name `homeautomationluisbot`. 
+
+4. In the drop-down list, **Open Kudu Console**.
+
+5. A new browser window opens. In the console, enter the following command:
+
+    ```
+    cd site\wwwroot && npm install
+    ```
+
+    Wait for the install process to finish. Return to the first browser window. 
+
+## Test in Web Chat
+Once the bot is registered, select **Test in Web Chat** to open the Web Chat pane. Type "hello" in Web Chat.
 
   ![Test the bot in Web Chat](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
 
@@ -64,24 +85,24 @@ The bot responds by saying "You have reached Greeting. You said: hello". This co
 
 ## Connect your LUIS app to the bot
 
-Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app.
+Open **Application Settings** in the first browser window and edit the **LuisAppId** field to contain the application ID of your LUIS app.
 
   ![Update the LUIS app ID in Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-If you don't have the LUIS app ID, log in to the [LUIS](luis-reference-regions.md) website using the same account you use to log in to Azure. Click on **My apps**. 
+If you don't have the LUIS app ID, log in to the [LUIS](luis-reference-regions.md) website using the same account you use to log in to Azure. Select on **My apps**. 
 
-1. Find the LUIS app you previously created, that contains the intents and entites from the HomeAutomation domain.
+1. Find the LUIS app you previously created, that contains the intents and entities from the HomeAutomation domain.
 
 2. In the **Settings** page for the LUIS app, find and copy the app ID.
 
-3. If you haven't trained the app, click the **Train** button in the upper right to train your app.
+3. If you haven't trained the app, select the **Train** button in the upper right to train your app.
 
-4. If you haven't published the app, click **PUBLISH** in the top navigation bar to open the **Publish** page. Click the **Publish to production slot** button. 
+4. If you haven't published the app, select **PUBLISH** in the top navigation bar to open the **Publish** page. Select the **Publish to production slot** button. 
 
 
 ## Modify the bot code
 
-Click **Build** and then click **Open online code editor**.
+Go to the second browser window if it is still open or in the first browser window, select **Build** and then select **Open online code editor**.
 
    ![Open online code editor](./media/luis-tutorial-node-bot/bot-service-build.png)
 
@@ -172,6 +193,8 @@ bot.dialog('CancelDialog',
 })
 ```
 
+The existing intents in the app.js are ignored. You can leave them. 
+
 ## Add a dialog that matches HomeAutomation.TurnOn
 
 Copy the following code and add it to `app.js`.
@@ -205,7 +228,7 @@ bot.dialog('TurnOff',
 ```
 ## Test the bot
 
-In the Azure Portal, click on **Test in Web Chat** to test the bot. Try type messages like "Turn on the lights", and "turn off my heater" to invoke the intents that you added to it.
+In the Azure Portal, select on **Test in Web Chat** to test the bot. Try type messages like "Turn on the lights", and "turn off my heater" to invoke the intents that you added to it.
    ![Test HomeAutomation bot in Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
