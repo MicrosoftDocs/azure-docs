@@ -298,14 +298,3 @@ To create a backup job with time-based backups, easy VM restoration, and backup 
 
 ## Next steps
 For more information about Premium Storage, see the following articles.
-
-### Design and implement with Premium Storage
-* [Design for performance with Premium Storage](../articles/virtual-machines/windows/premium-storage-performance.md)
-* [Blob storage operations with Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-### Operational guidance
-* [Migrate to Azure Premium Storage](../articles/storage/common/storage-migration-to-premium-storage.md)
-
-### Blog posts
-* [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
