@@ -236,7 +236,7 @@ In the browser, click **Azure Redis Cache Test** on the navigation bar.
 
 In the example below, you can see the `Message` key previously had a cached value which was set using the Redis Console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-![Simple test completed local](./media/cache-web-app-howto/cache-simple-test-complete.png)
+![Simple test completed local](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
 
 
 ## Publish and run in Azure
