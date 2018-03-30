@@ -2,7 +2,7 @@
   href: index.md
 - name: Overview
   items:
-  - name: Introduction to Azure IoT
+  - name: Introduction
     href: iot-introduction.md
   - name: Azure IoT services and technologies
     href: iot-services-and-technologies.md    
