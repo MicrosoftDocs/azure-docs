@@ -46,12 +46,15 @@ To enable your ASE to go directly to the internet even if your Azure virtual net
 
 If you make these two changes, internet-destined traffic that originates from the App Service Environment subnet isn't forced down the ExpressRoute connection.
 
+If the network is already routing traffic on premises, then you need to create the subnet to host your ASE and configure the UDR for it before attempting to deploy the ASE.  
+
 > [!IMPORTANT]
 > The routes defined in a UDR must be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The preceding example uses the broad 0.0.0.0/0 address range. It can potentially be accidentally overridden by route advertisements that use more specific address ranges.
 >
 > App Service Environments aren't supported with ExpressRoute configurations that cross-advertise routes from the public-peering path to the private-peering path. ExpressRoute configurations with public peering configured receive route advertisements from Microsoft. The advertisements contain a large set of Microsoft Azure address ranges. If the address ranges are cross-advertised on the private-peering path, all outbound network packets from the App Service Environment's subnet are routed to a customer's on-premises network infrastructure. This network flow is not supported by default with App Service Environments. One solution to this problem is to stop cross-advertising routes from the public-peering path to the private-peering path. Another solution is to enable your App Service Environment to work in a forced tunnel configuration.
 
 ![Direct internet access][1]
+
 
 ## Configure your ASE with Service Endpoints
 
@@ -68,6 +71,12 @@ When you enable Service Endpoints on a resource, there are routes created with h
 When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another.  Azure Storage does not behave the same as Azure SQL.  When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
 
 If you configure forced tunneling with a network filter appliance, then remember that the ASE has a number of dependencies in addition to Azure SQL and Azure Storage. You must allow that traffic or the ASE will not function properly.
+
+It is not possible to create an ASE with the portal into a pre-existing subnet.  When deploying your ASE into a VNet that is already configured to route outbound traffic on premises, you need to:
+
+1. Create a subnet which you wish to deploy the ASE into. If you wish to use a pre-existing subnet then it must be completely empty.
+2. Enable Service Endpoints on Storage and SQL from the subnet you wish to use to host your ASE.
+3. Deploy your ASE using a resource manager template.  For details on deploying an ASE with a template please read [Creating an App Service Environment using a template][template].  
 
 ![Forced tunnel with service endpoints][2]
 
@@ -114,8 +123,6 @@ _To create your ASE with the egress addresses_: Follow the directions in [Create
 These changes send traffic to Azure Storage directly from the ASE and allow access to the Azure SQL from additional addresses other than the VIP of the ASE.
 
    ![Forced tunnel with SQL whitelist][3]
-
-
 
 ## Preventing issues ##
 
