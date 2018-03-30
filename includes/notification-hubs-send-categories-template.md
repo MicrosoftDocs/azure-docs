@@ -1,12 +1,5 @@
 
-In this section, you send breaking news as tagged template notifications from a .NET console app.
-
-If you are using the Mobile Apps feature of Microsoft Azure App Service, refer to the [Add push notifications for Mobile Apps] tutorial, and select your platform at the top.
-
-If you want to use Java or PHP, refer to [How to use Notification Hubs from Java or PHP]. You can send notifications from any back end by using the
-[Notification Hubs REST interface].
-
-If you created the console app for sending notifications when you completed [Get started with Notification Hubs], skip steps 1-3.
+In this section, you send breaking news as tagged template notifications from a .NET console app. 
 
 1. In Visual Studio, create a new Visual C# console application:
    
@@ -21,20 +14,20 @@ If you created the console app for sending notifications when you completed [Get
 
 4. Open the Program.cs file, and add the following `using` statement:
    
+        ```csharp
         using Microsoft.Azure.NotificationHubs;
+        ```
 
 5. In the `Program` class, add the following method, or replace it if it already exists:
    
+        ```csharp
         private static async void SendTemplateNotificationAsync()
         {
             // Define the notification hub.
-            NotificationHubClient hub =
-                NotificationHubClient.CreateClientFromConnectionString(
-                    "<connection string with full access>", "<hub name>");
+            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
    
             // Create an array of breaking news categories.
-            var categories = new string[] { "World", "Politics", "Business",
-                                            "Technology", "Science", "Sports"};
+            var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
    
             // Send the notification as a template notification. All template registrations that contain
             // "messageParam" and the proper tags will receive the notifications.
@@ -47,7 +40,8 @@ If you created the console app for sending notifications when you completed [Get
                 templateParams["messageParam"] = "Breaking " + category + " News!";
                 await hub.SendTemplateNotificationAsync(templateParams, category);
             }
-         }
+        }
+        ```   
    
     This code sends a template notification for each of the six tags in the string array. The use of tags ensures that devices receive notifications only for the registered categories.
 
@@ -55,8 +49,10 @@ If you created the console app for sending notifications when you completed [Get
 
 6. In the **Main** method, add the following lines:
    
-         SendTemplateNotificationAsync();
-         Console.ReadLine();
+        ```csharp
+        SendTemplateNotificationAsync();
+        Console.ReadLine();
+        ```
 
 7. Build the console app.
 
