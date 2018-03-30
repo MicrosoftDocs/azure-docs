@@ -1,4 +1,4 @@
----
+﻿---
 title: Using ranking to display answers | Microsoft Docs
 description: Shows how to use ranking to display the answers that the Bing Entity Search API returns.
 services: cognitive-services
