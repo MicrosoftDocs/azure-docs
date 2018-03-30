@@ -95,6 +95,29 @@ You use the **DefaultRunAsPolicy** section to specify a default user account for
 </Policies>
 ```
 
+## Debug a code package locally using console redirection
+Occasionally, it's useful for debugging purposes to see the console output from a running service. You can set a console redirection policy on the entry point in the service manifest, which writes the output to a file. The file output is written to the application folder called **log** on the cluster node where the application is deployed and run. 
+
+> [!WARNING]
+> Never use the console redirection policy in an application that is deployed in production because this can affect the application failover. *Only* use this for local development and debugging purposes.  
+> 
+> 
+
+The following service manifest example shows enabling console redirection with a FileRetentionCount value:
+
+```xml
+<CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <ExeHost>
+        <Program>VotingWeb.exe</Program>
+        <WorkingFolder>CodePackage</WorkingFolder>
+        <ConsoleRedirection FileRetentionCount="10"/>
+      </ExeHost>
+    </EntryPoint>
+</CodePackage>
+
+```
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 * [Understand the application model](service-fabric-application-model.md)
