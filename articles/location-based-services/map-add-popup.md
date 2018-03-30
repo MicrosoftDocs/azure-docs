@@ -33,17 +33,17 @@ The second block of code creates a pin and add it to the map. You can see [add a
 
 The third block of code creates content to be displayed within a popup. Popup content is HTML element. 
 
-The fourth block of code creates a [popup object](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Popup properties such as content and position are part of [PopupOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popupoptions?view=azure-iot-typescript-latest). PopupOptions can be defined in popup constructor or via [setPopupOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#location_based_services_javascript_Popup_setPopupOptions) function of the popup class.
+The fourth block of code creates a [popup object](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Popup properties such as content and position are part of [PopupOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popupoptions?view=azure-iot-typescript-latest). PopupOptions can be defined in popup constructor or via [setPopupOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions) function of the popup class.
 
-The last block of code uses [addEventListener](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addeventlistener) function of the map class to listen for mouseover event on the pins, and uses [open](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#location_based_services_javascript_Popup_open) function of the popup class to open the popup if the event occurs.
+The last block of code uses [addEventListener](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addeventlistener) function of the map class to listen for mouseover event on the pins, and uses [open](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#open) function of the popup class to open the popup if the event occurs.
 
 
 ## Related reference
 
 * [Map](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest)
-    * [addPins](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#location_based_services_javascript_Map_addPins)
-    * [addEventListener](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#location_based_services_javascript_Map_addEventListener)
+    * [addPins](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addpins)
+    * [addEventListener](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/map?view=azure-iot-typescript-latest#addeventlistener)
 * [Popup](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest)
-    * [setPopupOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#location_based_services_javascript_Popup_setPopupOptions)
-    * [open](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#location_based_services_javascript_Popup_open)
-    * [close](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#location_based_services_javascript_Popup_close)
+    * [setPopupOptions](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions)
+    * [open](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#open)
+    * [close](https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/popup?view=azure-iot-typescript-latest#close)
