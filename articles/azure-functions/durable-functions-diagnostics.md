@@ -46,7 +46,7 @@ Each lifecycle event of an orchestration instance causes a tracking event to be 
 * **reason**: Additional data associated with the tracking event. For example, if an instance is waiting for an external event notification, this field indicates the name of the event it is waiting for. If a function has failed, this will contain the error details.
 * **isReplay**: Boolean value indicating whether the tracking event is for replayed execution.
 * **extensionVersion**: The version of the Durable Task extension. This is especially important data when reporting possible bugs in the extension. Long-running instances may report multiple versions if an update occurs while it is running. 
-* **sequenceNumber**: Execution sequence number for an event. Combined with the timestamp helps to order the events by execution time. 
+* **sequenceNumber**: Execution sequence number for an event. Combined with the timestamp helps to order the events by execution time. *Note that this number will be reset to zero if the host restarts while the instance is running, so it's important to always sort by timestamp first, then sequenceNumber.*
 
 The verbosity of tracking data emitted to Application Insights can be configured in the `logger` section of the `host.json` file.
 
@@ -69,7 +69,7 @@ By default, all tracking events are emitted. The volume of data can be reduced b
 
 ### Single instance query
 
-The following query shows historical tracking data for a single instance of the [Hello Sequence](durable-functions-sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). It filters out replay execution so that only the *logical* execution path is shown. Some of these tracking events may be out of order due to the lack of precision in the `timestamp` column. Events can be ordered by sorting by `timestamp` and `sequenceNumber` as shown in the query below: 
+The following query shows historical tracking data for a single instance of the [Hello Sequence](durable-functions-sequence.md) function orchestration. It's written using the [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). It filters out replay execution so that only the *logical* execution path is shown. Events can be ordered by sorting by `timestamp` and `sequenceNumber` as shown in the query below: 
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
@@ -90,7 +90,7 @@ traces
 
 The result is a list of tracking events that shows the execution path of the orchestration, including any activity functions ordered by the execution time in ascending order.
 
-![Application Insights ordered query](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+![Application Insights query](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
 
 
 ### Instance summary query
