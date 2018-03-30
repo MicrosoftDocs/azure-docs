@@ -2,8 +2,8 @@
 title: Upgrade to the latest generation of Azure SQL Data Warehouse | Microsoft Docs
 description: Steps to upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
 services: sql-data-warehouse
-author: kevin
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
 ms.topic: conceptual
 ms.component: manage
 ms.date: 03/29/2018
