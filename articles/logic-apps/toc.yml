@@ -62,7 +62,7 @@
     - name: Handle errors and exceptions
       href: logic-apps-exception-handling.md
     - name: Handle large files
-      href: logic-apps-large-content.md
+      href: logic-apps-handle-large-messages.md
     - name: Secure your logic apps
       href: logic-apps-securing-a-logic-app.md
     - name: Develop custom connectors
