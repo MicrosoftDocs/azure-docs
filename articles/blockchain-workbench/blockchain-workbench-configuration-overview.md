@@ -17,27 +17,13 @@ manager: femila
 ---
 # Azure Blockchain Workbench Configuration Reference
 
-Blockchain applications are defined by configuration information and business logic. Configuration is the definition of the application as one or more workflows.
-
-REVISED: A file detailing the properties, states, actions and parameters, role permissions, and other specifications for the [smart contract(s)] in the application
-
-App builder uses configuration schema to define blockchain applications and represents them as state machines. 
-
-Represents the application, the associated workflows, the state machine for each workflow, the roles that can particpate in those workflows.  the actions the roles can take at specific states. And provides hints to the UI to UI consumers for visually representing content on the blockchain. 
-
-* Each workflow consists of one or more smart contracts that include business logic in code files.
-* Each smart contract flow is defined by one or more states. 
-* A smart contract's flow behaves as a state machine.
-* Authorized users can take actions to transition to the next state in the workflow. 
-* The smart contract is written in the appropriate language of the specified blockchain stack. solidity for etherium. go for hyperledger fabric.
-* You can have one or more files that represent your business logic code.
-* The setup information for the application built in Workbench, such as states and user permissions
+Azure Blockchain Workbench configuration files define blockchain applications. Blockchain applications are multi-party workflows defined as configuration metadata and smart contracts. Configuration metadata represents the high-level workflows and interaction model of the blockchain application. Smart contracts drive and represent the business logic of the blockchain application. Workbench uses the two inputs to automatically generate end-to-end blockchain application user experiences.
 
 ![Configuration](media/blockchain-workbench-configuration-overview/configuration.png)
 
 ## Application
 
-The application is comprised of one or more smart contracts and a configuration file that describes them.  The files are uploaded to the associated Workbench’s storage and SQL DB services via the Gateway API. 
+An application contains one or more workflows. In addition, each workflow specifies one or more user roles.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
@@ -49,7 +35,7 @@ The application is comprised of one or more smart contracts and a configuration 
 
 ## Workflows
 
- An application consists of one or more workflows. Each workflow consists of one or more smart contracts.
+A workflow is defined by one or more states that acts as a state machine. Each workflow consists of one or more smart contracts, which represent the business logic in code files.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
@@ -76,7 +62,7 @@ Defines input parameters for a new instance of a smart contract.
 
 ## Functions
 
-Functions that can be executied on the smart contract.
+Functions that can be executed on the smart contract.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
@@ -97,13 +83,12 @@ A collection smart contract states.
 | DisplayName | Friendly display name | Y | Active |
 | Description | Descriptive text | N | The initial state of the asset transfer workflow |
 | PercentComplete | Value representing the percent completion at this state. | Y | 20 |
-| Value | Order of the state - probably going away (calculated) | Y | 0 |
 | Style | Guessing some kind of representation in UI | Y | Success |
 | Transitions | Collection of available [transitions](#transitions) to the next state. | N | For sample, see [transitions](#transitions) |
 
 ## Transitions
 
-Available actions to the next state.
+Available actions to the next state. Each user role can initiate actions at each state, where an action may transition a state to another state in the workflow.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
@@ -131,15 +116,6 @@ Application roles control access by assigning users to actions in the workflow.
 | DisplayName | Friendly display name | Y | Asking Price |
 | Description | Descriptive text | N | The asking price for the asset |
 | Type | Collection of data types | Y | money |
-
-## Expressions
-
-An explaination of expressions.  Need to outline the syntax.
-
-| Field | Description | Required | Sample value  |
-|-------|-------------|:--------:|---------------|
-| Expression | Expression to evaluate | Y | `Equal(Properties('InstanceOwner'), Parameters('sender'))` |
-| Description | Descriptive text | N | Verify the sender is the instance owner? |
 
 ## Example configuration file
 
