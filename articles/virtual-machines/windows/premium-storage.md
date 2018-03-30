@@ -25,7 +25,7 @@ ms.author: ramankum
 * [Blob storage operations with Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
 
 ### Operational guidance
-* [Migrate to Azure Premium Storage](../articles/storage/common/storage-migration-to-premium-storage.md)
+* [Migrate to Azure Premium Storage](../../storage/common/storage-migration-to-premium-storage.md)
 
 ### Blog posts
 * [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
