@@ -19,7 +19,7 @@ ms.custom: mvc
 # Show search results on the map
 
 ## Overview
-This tutorial shows you how to perform a search request and render the search results on the map. 
+This tutorial shows you how to make a search request and show the search results on the map. 
 
 ## Understand the code
 
