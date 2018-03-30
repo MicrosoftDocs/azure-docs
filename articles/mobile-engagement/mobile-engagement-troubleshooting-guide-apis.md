@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Troubleshooting guide for API issues
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 The following are possible issues you may encounter with how administrators interact with Azure Mobile Engagement via the APIs.
 
 ## Syntax issues

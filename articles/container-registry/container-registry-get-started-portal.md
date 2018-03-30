@@ -11,7 +11,7 @@ ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
 ---
-# Create a container registry using the Azure portal
+# Quickstart: Create a container registry using the Azure portal
 
 An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a container registry with the Azure portal, push a container image into the registry and finally deploy the container from your registry into Azure Container Instances (ACI).
 

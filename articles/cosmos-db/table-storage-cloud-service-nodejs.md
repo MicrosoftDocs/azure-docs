@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
 
 ---
@@ -28,10 +28,10 @@ extend your application by creating a web-based task-list application
 that you can deploy to Azure. The task list allows a user to
 retrieve tasks, add new tasks, and mark tasks as completed.
 
-The task items are stored in Azure Storage. Azure
-Storage provides unstructured data storage that is fault-tolerant and
-highly available. Azure Storage includes several data structures
-where you can store and access data. You can use the storage
+The task items are stored in Azure Storage or Azure Cosmos DB. Azure
+Storage and Azure Cosmos DB provide unstructured data storage that is fault-tolerant and
+highly available. Azure Storage and Azure Cosmos DB include several data structures
+where you can store and access data. You can use storage and Azure Cosmos DB
 services from the APIs included in the Azure SDK for Node.js or
 via REST APIs. For more information, see [Storing and Accessing Data in Azure].
 
@@ -48,9 +48,8 @@ The following screenshot shows the completed application:
 ![The completed web page in internet explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## Setting Storage Credentials in Web.Config
-You must pass in storage credentials to access Azure Storage. This is done by utilizing the web.config application settings.
-The web.config settings are passed as environment variables to Node, which
-are then read by the Azure SDK.
+You must pass in storage credentials to access Azure Storage or Azure Cosmos DB. This is done by utilizing the web.config application settings.
+The web.config settings are passed as environment variables to Node, which are then read by the Azure SDK.
 
 > [!NOTE]
 > Storage credentials are only used when the application is
@@ -156,7 +155,7 @@ In this section, the basic application created by the **express** command is ext
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -193,7 +192,7 @@ In this section, the basic application created by the **express** command is ext
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -227,7 +226,7 @@ In this section, the basic application created by the **express** command is ext
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -236,7 +235,10 @@ In this section, the basic application created by the **express** command is ext
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -319,7 +321,7 @@ In this section, the basic application created by the **express** command is ext
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -337,9 +339,9 @@ In this section, the basic application created by the **express** command is ext
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -440,7 +442,7 @@ The following steps show you how to stop and delete your application.
    Deleting the service may take several minutes. After the service is deleted, you will receive a message indicating that the service was deleted.
 
 [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Storing and Accessing Data in Azure]: https://docs.microsoft.com/azure/storage/
 [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 
