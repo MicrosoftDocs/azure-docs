@@ -1,6 +1,5 @@
 ---
-layout: LandingPage
-title: Azure solutions for Internet of Things (IoT Suite) 
+title: Azure Internet of Things (IoT)
 description: Overview of a Azure IoT, a sample IoT solution architecture, and how it relates to devices, the Azure IoT Hub service, Azure IoT device SDKs, Azure IoT service SDKs, and other Azure services.
 services: iot
 documentationcenter: ''
@@ -10,7 +9,7 @@ editor: ''
 
 ms.service: iot
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018

@@ -1,5 +1,11 @@
-- name: Azure Internet of Things (IoT) Documentation
+- name: Azure IoT Documentation
   href: index.md
+- name: Overview
+  items:
+  - name: Introduction to Azure IoT
+    href: iot-introduction.md
+  - name: Compare Azure IoT options
+    href: iot-comparison.md    
 - name: IoT Hub 
   href: ../iot-hub/index.md
 - name: IoT Hub Device Provisioning Service
