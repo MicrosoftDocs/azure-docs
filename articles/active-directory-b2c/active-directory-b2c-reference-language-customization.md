@@ -24,12 +24,12 @@ ms.author: davidmu
 Language customization in Azure Active Directory B2C (Azure AD B2C) allows your policy to accommodate different languages to suit your customer needs.  Microsoft provides the translations for [36 languages](#supported-languages), but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages.  
 
 ## How language customization works
-You use language customization to select which languages your user journey is available in. After the feature is enabled, you can provide the query string parameter, `ui_locales`, from your application. When you call into Azure AD B2C, we translate your page to the locale that you have indicated. This type of configuration gives you complete control over the languages in your user journey and ignores the language settings of the customer's browser. 
+You use language customization to select which languages your user journey is available in. After the feature is enabled, you can provide the query string parameter, `ui_locales`, from your application. When you call into Azure AD B2C, your page is translated to the locale that you have indicated. This type of configuration gives you complete control over the languages in your user journey and ignores the language settings of the customer's browser. 
 
-Alternatively, you might not need that level of control over what languages your customer sees. If you don't provide a `ui_locales` parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your user journey is translated to by adding it as a supported language. If a customer's browser is set to show a language that you don't want to support, then the language that you selected as a default in supported cultures is shown instead.
+You might not need that level of control over what languages your customer sees. If you don't provide a `ui_locales` parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your user journey is translated to by adding it as a supported language. If a customer's browser is set to show a language that you don't want to support, then the language that you selected as a default in supported cultures is shown instead.
 
 - **ui-locales specified language**: After you enable language customization, your user journey is translated to the language that's specified here.
-- **Browser requested language**: If no `ui_locales` parameter was specified, your user journey is translated to the browser-requested language, *if the language is supported*.
+- **Browser-requested language**: If no `ui_locales` parameter was specified, your user journey is translated to the browser-requested language, *if the language is supported*.
 - **Policy default language**: If the browser doesn't specify a language, or it specifies one that is not supported, the user journey is translated to the policy default language.
 
 >[!NOTE]
