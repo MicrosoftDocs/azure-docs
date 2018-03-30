@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 Use the Azure portal to upgrade your Azure SQL Data Warehouse to use the latest generation of Azure hardware and storage architecture. By upgrading, you can take advantage of faster performance, greater scalability, and unlimited storage for columnstore indexes.  
 
 ## Applies to
-This upgrade applies to data warehouses that in the Optimized for Elasticity performance tier.  The instructions show you how to upgrade your data warehouse to the Optimized for Compute performance tier. 
+This upgrade applies to data warehouses in the Optimized for Elasticity performance tier.  The instructions upgrade a data warehouse from the Optimized for Elasticity performance tier to the Optimized for Compute performance tier. 
 
 ## Sign in to the Azure portal
 
