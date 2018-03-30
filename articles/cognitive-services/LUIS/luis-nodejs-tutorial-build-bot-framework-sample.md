@@ -87,62 +87,6 @@ Click **Build** and then click **Open online code editor**.
 In the code editor, open `app.js`. It contains the following code:
 
 ```javascript
-var restify = require('restify');
-var builder = require('botbuilder');
-var botbuilder_azure = require("botbuilder-azure");
-
-// Setup Restify Server
-var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
-   console.log('%s listening to %s', server.name, server.url); 
-});
-
-// Create chat connector for communicating with the Bot Framework Service
-var connector = new builder.ChatConnector({
-    appId: process.env.MicrosoftAppId,
-    appPassword: process.env.MicrosoftAppPassword,
-    openIdMetadata: process.env.BotOpenIdMetadata 
-});
-
-// Listen for messages from users 
-server.post('/api/messages', connector.listen());
-
-var tableName = 'botdata';
-var azureTableClient = new botbuilder_azure.AzureTableClient(tableName, process.env['AzureWebJobsStorage']);
-var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azureTableClient);
-
-// Create your bot with a function to receive messages from the user
-var bot = new builder.UniversalBot(connector);
-bot.set('storage', tableStorage);
-
-// Make sure you add code to validate these fields
-var luisAppId = process.env.LuisAppId;
-var luisAPIKey = process.env.LuisAPIKey;
-var luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com';
-
-const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey;
-
-// Main dialog with LUIS
-var recognizer = new builder.LuisRecognizer(LuisModelUrl);
-var intents = new builder.IntentDialog({ recognizers: [recognizer] })
-.matches('Greeting', (session) => {
-    session.send('You reached Greeting intent, you said \'%s\'.', session.message.text);
-})
-.matches('Help', (session) => {
-    session.send('You reached Help intent, you said \'%s\'.', session.message.text);
-})
-.matches('Cancel', (session) => {
-    session.send('You reached Cancel intent, you said \'%s\'.', session.message.text);
-})
-.onDefault((session) => {
-    session.send('Sorry, I did not understand \'%s\'.', session.message.text);
-});
-
-bot.dialog('/', intents);
-```
-<!-- template revisions -->
-<!-- 
-```javascript
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
@@ -187,8 +131,7 @@ var bot = new builder.UniversalBot(connector, function (session, args) {
 bot.set('storage', tableStorage);
 
 // Make sure you add code to validate these fields
-var luisAppId = process.env.LuisAppId;  
-
+var luisAppId = process.env.LuisAppId;
 var luisAPIKey = process.env.LuisAPIKey;
 var luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com';
 
@@ -199,8 +142,7 @@ var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
 
 // Add a dialog for each intent that the LUIS app recognizes.
-// See https://docs.microsoft.com/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
-
+// See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
 bot.dialog('GreetingDialog',
     (session) => {
         session.send('You reached the Greeting intent. You said \'%s\'.', session.message.text);
@@ -226,94 +168,17 @@ bot.dialog('CancelDialog',
     }
 ).triggerAction({
     matches: 'Cancel'
-}) 
-```
--->
-
-<!-- 
-> [!TIP] 
-> You can also find the sample code described in this article in the [HomeAutomation bot sample][IoTBotSample].
--->
-## Add a default message handler
-
-Remove this line of code.
-
-```javascript
-var bot = new builder.UniversalBot(connector);
-```
-
-Replace it with the following code that creates the bot with a default message handler.
-
-```javascript
-// Create your bot with a function to receive messages from the user
-// This default message handler is invoked if the user's utterance doesn't
-// match any intents handled by other dialogs.
-var bot = new builder.UniversalBot(connector, function (session, args) {
-    session.send('You reached the default message handler. You said \'%s\'.', session.message.text);
-});
-```
-
-## Add dialogs to handle the HomeAutomation intents
-
-Find line of code that creates a `LuisRecognizer`. 
-
-```javascript
-// Create a recognizer that gets intents from LUIS
-var recognizer = new builder.LuisRecognizer(LuisModelUrl);
-```
-
-Add this line of code right after it, to add the recognizer to the bot.
-```javascript
-// Add the recognizer to the bot
-bot.recognizer(recognizer); 
-```
-
-Delete the following code from the end of `app.js` in the code editor. You'll replace it with code for dialogs that handle the `HomeAutomation.TurnOn` and `HomeAutomation.TurnOff` intents.
-
-```javascript
-var intents = new builder.IntentDialog({ recognizers: [recognizer] })
-.matches('Greeting', (session) => {
-    session.send('You reached Greeting intent, you said \'%s\'.', session.message.text);
 })
-.matches('Help', (session) => {
-    session.send('You reached Help intent, you said \'%s\'.', session.message.text);
-})
-.matches('Cancel', (session) => {
-    session.send('You reached Cancel intent, you said \'%s\'.', session.message.text);
-})
-.onDefault((session) => {
-    session.send('Sorry, I did not understand \'%s\'.', session.message.text);
-});
-
-bot.dialog('/', intents);
-
 ```
 
-
-<!-- move this section to "Add TurnOn intent 
-The [matches][matches] option on the [triggerAction][triggerAction] attached to the dialog specifies the name of the intent. The recognizer runs each time the bot receives an utterance from the user. If the highest scoring intent that it detects matches a `triggerAction` bound to a dialog, the bot invokes that dialog.
--->
-
-### Add a dialog that matches HomeAutomation.TurnOn
+## Add a dialog that matches HomeAutomation.TurnOn
 
 Copy the following code and add it to `app.js`.
 
 ```javascript
-bot.dialog('TurnOnDialog',
-    (session, args) => {
-        // Resolve and store any HomeAutomation.Device entity passed from LUIS.
-        var intent = args.intent;
-        var device = builder.EntityRecognizer.findEntity(intent.entities, 'HomeAutomation.Device');
-
-        // Turn on a specific device if a device entity is detected by LUIS
-        if (device) {
-            session.send('Ok, turning on the %s.', device.entity);
-            // Put your code here for calling the IoT web service that turns on a device
-        } else {
-            // Assuming turning on lights is the default
-            session.send('Ok, turning on the lights');
-            // Put your code here for calling the IoT web service that turns on a device
-        }
+bot.dialog('TurnOn',
+    (session) => {
+        session.send('You reached the TurnOn intent. You said \'%s\'.', session.message.text);
         session.endDialog();
     }
 ).triggerAction({
@@ -323,26 +188,14 @@ bot.dialog('TurnOnDialog',
 
 The [matches][matches] option on the [triggerAction][triggerAction] attached to the dialog specifies the name of the intent. The recognizer runs each time the bot receives an utterance from the user. If the highest scoring intent that it detects matches a `triggerAction` bound to a dialog, the bot invokes that dialog.
 
-### Add a dialog that matches HomeAutomation.TurnOff
+## Add a dialog that matches HomeAutomation.TurnOff
 
 Copy the following code and add it to `app.js`.
 
 ```javascript
-bot.dialog('TurnOffDialog',
-    (session, args) => {
-        // Resolve and store any HomeAutomation.Device entity passed from LUIS.
-        var intent = args.intent;
-        var device = builder.EntityRecognizer.findEntity(intent.entities, 'HomeAutomation.Device');
-
-        // Turn off a specific device if a device entity is detected by LUIS
-        if (device) {
-            session.send('Ok, turning off the %s.', device.entity);
-            // Put your code here for calling the IoT web service that turns off a device
-        } else {
-            // Assuming turning off lights is the default
-            session.send('Ok, turning off the lights');
-            // Put your code here for calling the IoT web service that turns off a device
-        }
+bot.dialog('TurnOff',
+    (session) => {
+        session.send('You reached the TurnOff intent. You said \'%s\'.', session.message.text);
         session.endDialog();
     }
 ).triggerAction({
