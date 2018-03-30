@@ -13,6 +13,14 @@ ms.topic: article
 
 [Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between various versions of your app - such as production, development, and test - to minimize the impact of broken deployments. Using deployment slots, you can directly swap between slots  without any downtime. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in the production slot, while the second app is hosted in the deployment slot. Terraform is then used to swap the (inactive) deployment slot with the production slot.
 
+## Prerequisites
+
+- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+
+- **Azure credentials** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+
+- **GitHub account** - A [GitHub](http://www.github.com) is needed to fork and use the two web apps utilized in this tutorial.
+
 ## Create and apply the Terraform plan
 
 1. Browse to the [Azure portal](http://www.portal.azure.com)
@@ -49,7 +57,7 @@ ms.topic: article
     cd deploy
     ```
 
-1. Using the [vi editor][https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html], create a file named `deploy.tf`, which will contain the [Terraform configuration][https://www.terraform.io/docs/configuration/index.html].
+1. Using the [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), create a file named `deploy.tf`, which will contain the [Terraform configuration(https://www.terraform.io/docs/configuration/index.html).
 
     ```bash
     vi deploy.tf
@@ -135,7 +143,14 @@ ms.topic: article
 
 ![Resources created from the Terraform configuration file](./media/terraform-slot-walkthru/resources.png)
 
-## Deploying do deployment slots
+## Deploying to deployment slots
+
+1. Browse to the [awesome-terraform repo on GitHub](https://github.com/Azure/awesome-terraform).
+
+1. 
+
+
+
 
 To deploy to the `deployment slots`, fork the [Fork the awesome-terraform repo](https://github.com/Azure/awesome-terraform) repository to your own personal organization by selecting **Fork** in GitHub.
 
