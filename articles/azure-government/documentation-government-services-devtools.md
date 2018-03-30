@@ -26,7 +26,10 @@ For more information, see [DevTest Labs public documentation](../devtest-lab/dev
 
 ### Variations
 The following DevTest Labs features are not currently available in Azure Government:
-* Environment feature 
+* [Azure Resource Manager templates to create multi-VM environments and PaaS resources within a Lab](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-create-environment-from-arm).
+* Connect to an external GitHub repository to add Azure Resource Manager Templates, however [adding artifact repositories to leverage custom artifacts](../devtest-lab/devtest-lab-add-artifact-repo) is available.
+* Auto shutdown feature for Azure compute VMs, however, setting auto shutdown for a [Lab](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-auto-shutdown-notification/) and [Lab Virtual Machines](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-set-auto-shutdown-for-a-single-lab-vm/) is available.  
+ 
 
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
