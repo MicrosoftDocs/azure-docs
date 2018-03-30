@@ -35,8 +35,8 @@
     - name: How to search for an address
       href: how-to-search-for-address.md
     - name: Map Control JavaScript API
-    expanded:true
-      items:          
+    expanded: true
+      items:
       - name: Create a map
         href: map-create.md
       - name: Add a pin on the map
