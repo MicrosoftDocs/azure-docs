@@ -15,11 +15,15 @@ manager: femila
 
 [Azure Blockchain Workbench]() helps organizations build rich, integrated multi-party blockchain applications quickly and easily. Azure Blockchain Workbench provides the scaffolding for building blockchain applications. With Azure Blockchain Workbench you can:
 
-* [Create] blockchain applications. 
-* [Manage] Workbench blockchain apps and users.
-* [Extend] your existing application to use blockchain.
+* Create blockchain applications. 
+* Manage Workbench blockchain apps and users.
+* Extend your existing application to use blockchain ledgers.
 
-## Azure Blockchain Workbench capabilities
+## Components and capabilities
+
+Azure Blockchain Workbench is comprised of components that provide the capabilities needed to create create blockchain applications.
+
+![Architecture](media/blockchain-workbench-overview/architecture.png)
 
 ### Federated identity
 
@@ -43,8 +47,7 @@ Workbench automatically synchronizes data stored on the blockchain with an off-c
 
 ### Key management
 
-As part of its automated deployment generation of applications and establishment of on chain identities, Workbench
-leverages Key Vault for storage of keys and secrets today (and will use it eventually for signing of blockchain transactions).
+Workbench leverages Key Vault for storage of keys and secrets used by client applications and establishment of on-chain identities.
 
 ### Content hashing and storage
 
@@ -52,7 +55,7 @@ leverages Key Vault for storage of keys and secrets today (and will use it event
 
 ### Event Publishing
 
-Workbenchautomatically delivers events to Event Hub to send messages to downstream consumers. Developers can integrate with Event Hub to drive transactions and to look at results. Capabilities for off-chain data and storage are built using this functionality.
+Workbench automatically delivers events to Event Hub to send messages to downstream consumers. Developers can integrate with Event Hub to drive transactions and to look at results. Capabilities for off-chain data and storage are built using this functionality.
 
 ### Monitoring
 
