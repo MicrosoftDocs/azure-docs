@@ -318,10 +318,17 @@ Metrics are a feature for certain Azure resources where you can view performance
 - Current Connections
 - Failed Requests
 - Healthy Host Count
+
+   You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
+
 - Response Status
+
+   The response status code distribution can be further categoized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
 - Throughput
 - Total Requests
 - Unhealthy Host count
+
+   You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
 
 Browse to an application gateway, under **Monitoring** click **Metrics**. To view the available values, select the **METRIC** drop-down list.
 
