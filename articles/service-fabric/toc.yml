@@ -316,11 +316,7 @@
       - name: Deploy multiple guest executables
         href: service-fabric-deploy-multiple-apps.md
     - name: Build a container service
-      items:
-      - name: Use a certificate in a container
-        href: service-fabric-securing-containers.md
-      - name: Set up gMSA for Windows containers 
-        href: service-fabric-setup-gmsa-for-windows-containers.md
+      items:      
       - name: Docker compose (preview)
         href: service-fabric-docker-compose.md
       - name: Resource governance for containers and services
@@ -399,6 +395,14 @@
         href: service-fabric-application-runas-security.md      
       - name: Assign a security access policy for endpoints
         href: service-fabric-assign-policy-to-endpoint.md
+      - name: Run a service as an AD user or group
+        href: service-fabric-run-service-as-ad-user-or-group.md
+      - name: Run a service as a group Managed Service Account
+        href: service-fabric-run-service-as-gmsa.md
+      - name: Use a certificate in a container
+        href: service-fabric-securing-containers.md
+      - name: Set up gMSA for Windows containers 
+        href: service-fabric-setup-gmsa-for-windows-containers.md
   - name: Work in a Windows/VS dev environment
     items:
     - name: Manage applications in Visual Studio
@@ -525,14 +529,8 @@
           href: service-fabric-cluster-standalone-package-contents.md
       - name: Scale
         href: service-fabric-cluster-windows-server-add-remove-nodes.md
-      - name: Configure security
-        items:
-        - name: Set access control
-          href: service-fabric-cluster-security-roles.md
-        - name: Run a service as an AD user or group
-          href: service-fabric-run-service-as-ad-user-or-group.md
-        - name: Run a service as a group Managed Service Account
-          href: service-fabric-run-service-as-gmsa.md
+      - name: Set access control
+        href: service-fabric-cluster-security-roles.md        
       - name: Configure
         href: service-fabric-cluster-manifest.md
       - name: Upgrade
