@@ -22,7 +22,7 @@ ms.author: dekapur;srrengar
 
 This article provides an overview of monitoring and diagnostics for Azure Service Fabric. Monitoring and diagnostics are critical to developing, testing, and deploying workloads in any cloud environment. Monitoring enables you to track how your applications are used, your resource utilization, and the overall health of your cluster. You can use this information to diagnose and correct any issues, and prevent issues from occurring in the future. 
 
-In Service Fabric, monitoring and diagnostics covers four areas: 
+In Service Fabric, monitoring and diagnostics cover four areas: 
 1. Application monitoring
 2. Platform (cluster) monitoring
 3. Infrastructure monitoring
@@ -35,22 +35,22 @@ Application monitoring tracks how features and components of your application ar
 * Figuring out what your users are doing with your application - collecting telemetry in your applications can help guide future feature development and better diagnostics for app errors
 * Monitoring what is happening inside your running containers
 
-Service Fabric supports many options to instrument your application code with the proper traces and telemetry. We recommend that you use Application Insights (AI). AI's integration with Service Fabric includes tooling experiences for Visual Studio and Azure portal and an understanding of Service Fabric service context and remoting in the AI dashboard and Application Map, leading to a comprehensive out-of-the-box logging experience. Though many logs are automatically created and collected for you when using AI, we recommend that you add further custom logging to your applications alongside what is already provided to create a richer diagnostics experience for handling issues in the future. See more about getting started with Application Insights with Service Fabric at [Event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
+Service Fabric supports many options to instrument your application code with the proper traces and telemetry. We recommend that you use Application Insights (AI). AI's integration with Service Fabric includes tooling experiences for Visual Studio and Azure portal, as well as Service Fabric specific metrics, providing a comprehensive out-of-the-box logging experience. Though many logs are automatically created and collected for you with AI, we recommend that you add further custom logging to your applications to create a richer diagnostics experience. See more about getting started with Application Insights with Service Fabric at [Event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 
 ![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
 ## Platform (Cluster) monitoring
-Monitoring your Service Fabric cluster is critical in ensuring that the platform and all workloads are running as intended. One of Service Fabric's goals is to keep applications resilient to hardware failures. This is achieved through the platform's system services' ability to detect infrastructure issues and rapidly failover workloads to other nodes in the cluster. But in this particular case, what if the system services themselves have issues? Or if in attempting to move a workload, rules for the placement of services are violated? Monitoring the cluster allows you to stay informed about activity taking place in your cluster, which helps in diagnosing issues and fixing them effectively. Some key things you want to be looking out for are:
+Monitoring your Service Fabric cluster is critical in ensuring that the platform and all workloads are running as intended. One of Service Fabric's goals is to keep applications resilient to hardware failures. This goal is achieved through the platform's system services' ability to detect infrastructure issues and rapidly failover workloads to other nodes in the cluster. But in this particular case, what if the system services themselves have issues? Or if in attempting to move a workload, rules for the placement of services are violated? Monitoring the cluster allows you to stay informed about activity taking place in your cluster, which helps in diagnosing issues and fixing them effectively. Some key things you want to be looking out for are:
 * Is Service Fabric behaving the way you expect, in terms of placing your applications and balancing work around the cluster? 
-* Are actions being taken to modify the configuration of your cluster being acknowledged and acted on as expected? This is especially relevant when scaling a cluster.
+* Are user actions taken on your cluster acknowledged and executed on as expected? This is especially relevant when scaling a cluster.
 * Is Service Fabric handling your data and your service-service communication inside the cluster correctly?
 
 Service Fabric provides a comprehensive set of events out of the box, through the Operational and the Data & Messaging channels. In Windows, these are in the form of a single ETW provider with a set of relevant `logLevelKeywordFilters` used to pick between different channels. On Linux, all of the platform events come through LTTng and are put into one table, from where they can be filtered as needed. 
 
-These channels contain curated, structured events that can be used to better understand the state of your cluster. "Diagnostics" is enabled by default at the cluster creation time, which set you up with an Azure Storage table where the events from these channels are sent for you to query in the future. You can read more about monitoring your cluster at [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md).
+These channels contain curated, structured events that can be used to better understand the state of your cluster. Diagnostics are enabled by default at the cluster creation time, which create an Azure Storage table where the events from these channels are sent for you to query in the future. You can read more about monitoring your cluster at [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md).
 
 For collecting the logs and events being generated by your cluster, we generally recommend using the [Azure Diagnostics extension](service-fabric-diagnostics-event-aggregation-wad.md). This integrates well with
- OMS Log Analytics which offers a Service Fabric specific solution, Service Fabric Analytics, providing a custom dashboard for monitoring Service Fabric clusters, and allows you to query your cluster's events and set up alerts. Read more about this at [Event analysis with OMS](service-fabric-diagnostics-event-analysis-oms.md). 
+ OMS Log Analytics Service Fabric specific solution, Service Fabric Analytics, that provides a custom dashboard for monitoring Service Fabric clusters, and allows you to query your cluster's events and set up alerts. Read more about this at [Event analysis with OMS](service-fabric-diagnostics-event-analysis-oms.md). 
 
  ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
@@ -58,11 +58,11 @@ For collecting the logs and events being generated by your cluster, we generally
 Monitoring your underlying infrastructure is a key part of understanding the state of your cluster and your resource utilization. Measuring system performance depends on several factors, each of which is typically measured through a Key Performance Indicators (KPIs). Service Fabric relevant KPIs can be mapped to metrics that can be collected from the nodes in your cluster, as performance counters.
 These KPIs can help with:
 * understanding resource utilization and load - for the purpose of scaling your cluster, or optimizing your service processes
-* predicting infrastructure issues - many issues are preceded by sudden changes (drops) in performance, so you can use KPIs such as network I/O and CPU utilization, for predicting and diagnosing infrastructural issues
+* predicting infrastructure issues - many issues are preceded by sudden changes (drops) in performance, so you can use KPIs such as network I/O and CPU utilization to predict and diagnose infrastructural issues
 
 A list of performance counters that should be collected at the infrastructure level can be found at [Performance metrics](service-fabric-diagnostics-event-generation-perf.md). 
 
-Service Fabric provides a set of performance counters for the Reliable Services and Actors programming models. If you are using either of these models, these performance counters can provide KPIs that help ensure that your actors are spinning up and down correctly, or that your reliable service requests are being handled fast enough. See [Monitoring for Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) and [Performance monitoring for Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters) for more information on these. In addition to this, Application Insights also has a set of performance metrics it will collect, if configured with your application.
+Service Fabric provides a set of performance counters for the Reliable Services and Actors programming models. If you are using either of these models, these performance counters can provide KPIs that help ensure that your actors are spinning up and down correctly, or that your reliable service requests are being handled fast enough. For more information, see [Monitoring for Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) and [Performance monitoring for Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). In addition to this, Application Insights also has a set of performance metrics it will collect, if configured with your application.
 
 Use the [OMS agent](service-fabric-diagnostics-oms-agent.md) to collect the appropriate performance counters, and view these KPIs in OMS Log Analytics.
 
@@ -77,7 +77,7 @@ In addition to seeing latest health reports in SFX, each report is also availabl
 
 ## Other logging solutions
 
-Although the two solutions we recommended, [OMS](service-fabric-diagnostics-event-analysis-oms.md) and [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) have built in integration with Service Fabric, many events are written out through etw providers and are extensibile with other logging solutions. You should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Splunk](https://www.splunk.com/), [Dynatrace](https://www.dynatrace.com/) or any other platform of your preference. 
+Although the two solutions we recommended, [OMS](service-fabric-diagnostics-event-analysis-oms.md) and [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) have built in integration with Service Fabric, many events are written out through etw providers and are extensible with other logging solutions. You should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Splunk](https://www.splunk.com/), [Dynatrace](https://www.dynatrace.com/), or any other platform of your preference. 
 
 The key points for any platform you choose should include how comfortable you are with the user interface and querying options, the ability to visualize data and create easily readable dashboards, and the additional tools they provide to enhance your monitoring, such as automated alerting.
 
