@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: ''
+ author: rothja
+ ms.service: billing
+ ms.topic: include
+ ms.date: 03/30/2018
+ ms.author: jroth
+ ms.custom: include file
+---
+
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
 | Cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10,000 |
