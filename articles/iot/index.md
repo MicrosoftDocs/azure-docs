@@ -16,21 +16,19 @@ ms.date: 03/30/2018
 ms.author: bryanla
 
 ---
-[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
-
-## Azure IoT portfolio
+# Azure Internet of Things (IoT)
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the technologies and solutions available for creating your own solution.
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
-### Videos
+## Videos
 
 | Introduction to Azure IoT services and solutions. (4:07) | Codeless IoT Solutions. (11:08) | 
 |-|-|
 | [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | [![Codeless IoT Solutions][img-video-contoso-hvac-iot-part8]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player) | 
 
-### Technologies and solutions available 
+## Technologies and solutions available 
 
 | **Edge**<br>Client-side technologies | **Solutions**<br>Leverage Software as a Service (SaaS) offerings | **Platform services**<br>Build on Platform as a Service (PaaS) Offerings |
 |------|-----------|-------------------|
