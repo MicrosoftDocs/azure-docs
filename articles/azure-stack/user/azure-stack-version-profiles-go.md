@@ -88,17 +88,17 @@ To run a sample of Go code on Azure Stack:
     import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
   ````
   
-  6. In your function, create and authenticate a client with a **New** Client function call. To create a virtual network client, you can use the following code:    
-  
-````go
-package main 
+  6. In your function, create and authenticate a client with a **New** Client function call. To create a virtual network client, you can use the following code:  
 
-import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network" 
+  ````go
+  package main 
 
-func main() { 
-    vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
-    vnetClient.Authorizer = autorest.NewBearerAuthorizer(token)
-````
+  import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network" 
+
+  func main() { 
+      vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
+      vnetClient.Authorizer = autorest.NewBearerAuthorizer(token)
+  ````
 
   Set `<baseURI>` to the **ResourceManagerUrl** value used in step two.
   Set `<subscriptionID>` to the **SubscriptionID** value saved from step three.
@@ -131,43 +131,43 @@ This section presents a common way to get authorizer tokens on Azure Stack by us
 
   2. Import **adal** package from Go-AutoRest in your code. 
   
-````go
-package main
-import "github.com/Azure/go-autorest/autorest/adal" 
-````
-  
+  ````go
+  package main
+  import "github.com/Azure/go-autorest/autorest/adal" 
+  ````
+
   3. Create an oauthConfig by using NewOAuthConfig method from **adal** module. 
   
-````go
-package main 
+  ````go
+  package main 
 
-import "github.com/Azure/go-autorest/autorest/ada1" 
+  import "github.com/Azure/go-autorest/autorest/ada1" 
 
-func CreateToken() (adal.OAuthTokenProvider, error) {
-    var token adal.OAuthTokenProvider
-    oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
-````
+  func CreateToken() (adal.OAuthTokenProvider, error) {
+      var token adal.OAuthTokenProvider
+      oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
+  ````
    
   Set `<activeDirectoryEndpoint>` to the value of "loginEndpoint" property from the ResourceManagerUrl metadata retrieved on the previous section of this document.
   Set `<tenantID>` value to your Azure Stack tenant ID. 
 
   4. Finally, create a service principal token by using NewServicePrincipalToken method from adal module. 
 
-````go
-package main 
+  ````go
+  package main 
 
-import "github.com/Azure/go-autorest/autorest/adal" 
+  import "github.com/Azure/go-autorest/autorest/adal" 
 
-func CreateToken() (adal.OAuthTokenProvider, error) {
-    var token adal.OAuthTokenProvider
-    oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
-    token, err = adal.NewServicePrincipalToken(
-        *oauthConfig,
-        clientID,
-        clientSecret,
-        activeDirectoryResourceID)
-    return token, err
-````
+  func CreateToken() (adal.OAuthTokenProvider, error) {
+      var token adal.OAuthTokenProvider
+      oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
+      token, err = adal.NewServicePrincipalToken(
+          *oauthConfig,
+          clientID,
+          clientSecret,
+          activeDirectoryResourceID)
+      return token, err
+  ````
   
   Set `<activeDirectoryResourceID>` to one of the values in the "audience" list from the ResourceManagerUrl metadata retrieved on the previous section of this document.  
   Set `<clientID>` to the service principal application ID saved when service principal was created on the previous section of this document.  
@@ -181,50 +181,50 @@ This section shows a sample of Go code to create virtual network on Azure Stack.
 
 1. Import required packages in your code. You should use the latest available profile on Azure Stack to import the network module. 
   
-````go
-package main
+  ````go
+  package main
 
-import (
-    "context"
-    "fmt"
-    "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
-    "github.com/Azure/go-autorest/autorest"
-    "github.com/Azure/go-autorest/autorest/adal"
-    "github.com/Azure/go-autorest/autorest/to"
-)
-````
+  import (
+      "context"
+      "fmt"
+      "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+      "github.com/Azure/go-autorest/autorest"
+      "github.com/Azure/go-autorest/autorest/adal"
+      "github.com/Azure/go-autorest/autorest/to"
+  )
+  ````
 
 2. Define your environment variables. Note that to create a virtual network you need to have a resource group. 
 
-````go
-var (
-    activeDirectoryEndpoint = "yourLoginEndpointFromResourceManagerUrlMetadata"
-    tenantID = "yourAzureStackTenantID"
-    clientID = "yourServicePrincipalApplicationID"
-    clientSecret = "yourServicePrincipalSecret"
-    activeDirectoryResourceID = "yourAudienceFromResourceManagerUrlMetadata"
-    subscriptionID = "yourSubscriptionID"
-    baseURI = "yourResourceManagerURL"
-    resourceGroupName = "existingResourceGroupName"
-)
-````
+  ````go
+  var (
+      activeDirectoryEndpoint = "yourLoginEndpointFromResourceManagerUrlMetadata"
+      tenantID = "yourAzureStackTenantID"
+      clientID = "yourServicePrincipalApplicationID"
+      clientSecret = "yourServicePrincipalSecret"
+      activeDirectoryResourceID = "yourAudienceFromResourceManagerUrlMetadata"
+      subscriptionID = "yourSubscriptionID"
+      baseURI = "yourResourceManagerURL"
+      resourceGroupName = "existingResourceGroupName"
+  )
+  ````
 
 3. Now that you have defined your environment variables, add a method to create authentication token by using **adal** package. See details about authentication in previous section.
   
-````go
-//CreateToken creates a service principal token
-func CreateToken() (adal.OAuthTokenProvider, error) {
-    var token adal.OAuthTokenProvider
-    oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
-    token, err = adal.NewServicePrincipalToken(
-        *oauthConfig,
-        clientID,
-        clientSecret,
-        activeDirectoryResourceID)
-    return token, err
-}
-````
-
+  ````go
+  //CreateToken creates a service principal token
+  func CreateToken() (adal.OAuthTokenProvider, error) {
+      var token adal.OAuthTokenProvider
+      oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
+      token, err = adal.NewServicePrincipalToken(
+          *oauthConfig,
+          clientID,
+          clientSecret,
+          activeDirectoryResourceID)
+      return token, err
+  }
+  ````
+  
 4. Add the main method. The main method first gets a token by using the method that is defined in previous step. Then, it creates a client by using network module from profile. Finally, it creates a virtual network. 
   
 ````go
