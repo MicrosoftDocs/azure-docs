@@ -193,11 +193,11 @@ A list entity is an entity that is defined by a list of all its values.
 
 On the **Entity** page, click the **Delete Entity** button. Then, click **Ok** in the confirmation message to confirm deletion.
  
-    ![Delete Entity](./media/add-entities/entity-delete.png)
+![Delete Entity](./media/add-entities/entity-delete.png)
 
-    >[!NOTE]
-    >* Deleting a hierarchical entity deletes all its children entities.
-    >* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
+>[!NOTE]
+>* Deleting a hierarchical entity deletes all its children entities.
+>* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
 
 ## Search utterances
 You can [search and filter](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances#search-in-utterances) utterances. 
