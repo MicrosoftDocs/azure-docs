@@ -194,19 +194,11 @@ To create the same routes manually, follow these steps:
 
 ## Service Endpoints ##
 
-Service Endpoints 
+Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 
-### Deploy into existing Azure virtual networks that are integrated with ExpressRoute ###
+When you enable Service Endpoints on a resource, there are routes created with higher priority than all other routes. If you use Service Endpoints with a forced tunneled ASE, the Azure SQL and Azure Storage management traffic isn't forced tunneled. 
 
-To deploy your ASE into a VNet that's integrated with ExpressRoute, preconfigure the subnet where you want the ASE deployed. Then use a Resource Manager template to deploy it. To create an ASE in a VNet that already has ExpressRoute configured:
-
-- Create a subnet to host the ASE.
-
-    > [!NOTE]
-    > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/25` with 128 addresses.
-
-- Create UDRs (for example, route tables) as described earlier, and set that on the subnet.
-- Create the ASE by using a Resource Manager template as described in [Create an ASE by using a Resource Manager template][MakeASEfromTemplate].
+When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another. Azure Storage does not behave the same as Azure SQL. When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -239,3 +231,4 @@ To deploy your ASE into a VNet that's integrated with ExpressRoute, preconfigure
 [ASEManagement]: ./management-addresses.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
