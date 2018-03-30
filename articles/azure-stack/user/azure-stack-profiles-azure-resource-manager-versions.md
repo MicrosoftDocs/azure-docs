@@ -1,6 +1,6 @@
 ---
 title: Resource provider API versions supported by profiles in Azure Stack | Microsoft Docs
-description: Learn about the ARM version supported by profiles in Azure Stack.
+description: Learn about the Azure Resource Manager version supported by profiles in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -19,7 +19,7 @@ ms.reviewer: sijuman
 
 ---
 
-## Resource provider API versions supported by profiles in Azure Stack
+# Resource provider API versions supported by profiles in Azure Stack
 
 An Azure resource provider supplies resources you can deploy and manage through the Azure Resource Manager. Each provider offers operations for working with resources. Some common resource providers include Microsoft.Compute, which supplies virtual machines, Microsoft.Storage, which supplies storage account resources, and Microsoft.Web, which supplies resources related to web apps. For more information, see [Resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 

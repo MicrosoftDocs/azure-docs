@@ -77,4 +77,4 @@ For information see [Use API version profiles for GO](azure-stack-version-profil
 ## Next steps
 * [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
 * [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
-* [Review details about resource provider API versions supported by the profiles](azure-stack-profiles-arm-versions.md).
+* [Review details about resource provider API versions supported by the profiles](azure-stack-profiles-azure-resource-manager-versions.md).

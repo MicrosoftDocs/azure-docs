@@ -25,7 +25,7 @@ ms.reviewer: sijuman
 
 ## Go and version profiles
 
-A profile is a combination of different resource types with different versions from different services. Using a profile will help you mix and match between various resource types. Profiles can provide:
+A profile is a combination of different resource types with different versions from different services. Using a profile will help you mix and match between different resource types. Profiles can provide:
 
  - Stability for your application by locking to specific API versions.
  - Compatibility for your application with Azure Stack and regional Azure datacenters.
@@ -68,16 +68,17 @@ To run a sample of Go code on Azure Stack:
   
   Sample JSON file:
 
-```json
-{ "galleryEndpoint": "https://portal.local.azurestack.external:30015/",  
-  "graphEndpoint": "https://graph.windows.net/",  
-  "portal Endpoint": "https://portal.local.azurestack.external/", 
-  "authentication": {
-    "loginEndpoint": "https://login.windows.net/", 
-    "audiences": ["https://management.<yourtenant>.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
+  ```json
+  { "galleryEndpoint": "https://portal.local.azurestack.external:30015/",  
+    "graphEndpoint": "https://graph.windows.net/",  
+    "portal Endpoint": "https://portal.local.azurestack.external/", 
+    "authentication": {
+      "loginEndpoint": "https://login.windows.net/", 
+      "audiences": ["https://management.<yourtenant>.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
+    }
   }
-}
-```
+  ```
+
   3. If not available, create a subscription and save the subscription ID to be used later. For information on creating a subscription, see [Create subscriptions to offers in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
   4. Create a service principal with "Subscription" scope and "Owner" role. Save the service principal's ID and secret. For information on creating a service principal for Azure Stack, see [Create service principal](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Your Azure Stack environment is set up.
   5. Import a service module from Go SDK profile in your code. The current version of Azure Stack profile is **2017-03-09**. For example, to import network module from **2017-03-09** profile type: 
@@ -102,7 +103,7 @@ func main() {
   Set `<baseURI>` to the **ResourceManagerUrl** value used in step two.
   Set `<subscriptionID>` to the **SubscriptionID** value saved from step three.
   To create token, see Authentication section below.  
-  
+
   7. Invoke API methods by using the client that you created in the previous step. For example, to create a virtual network by using our client from previous step: 
   
 ````go
@@ -149,6 +150,7 @@ func CreateToken() (adal.OAuthTokenProvider, error) {
    
   Set `<activeDirectoryEndpoint>` to the value of "loginEndpoint" property from the ResourceManagerUrl metadata retrieved on the previous section of this document.
   Set `<tenantID>` value to your Azure Stack tenant ID. 
+
   4. Finally, create a service principal token by using NewServicePrincipalToken method from adal module. 
 
 ````go
@@ -222,7 +224,7 @@ func CreateToken() (adal.OAuthTokenProvider, error) {
     return token, err
 }
 ````
-  
+
 4. Add the main method. The main method first gets a token by using the method that is defined in previous step. Then, it creates a client by using network module from profile. Finally, it creates a virtual network. 
   
 ````go
