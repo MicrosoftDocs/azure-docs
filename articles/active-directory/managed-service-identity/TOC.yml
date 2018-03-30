@@ -41,7 +41,7 @@
         - name: Access Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
         - name: Access Azure Resource Manager with a user-assigned MSI
-          href: /azure/active-directory/pp/msi-tutorial-linux-vm-access-arm
+          href: msi-tutorial-linux-vm-access-arm
       - name: Azure Service Bus
         href: /azure/service-bus-messaging/service-bus-managed-service-identity
       - name: Azure App Service and Functions
