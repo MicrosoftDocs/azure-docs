@@ -273,11 +273,11 @@ Monitor the **Output** window in Visual Studio to see the status of the publish 
 
 ### Add the app setting for the cache
 
-Once publishing has completed, add a new app setting to the App Service. This setting will be used to store the cache connection information. Type the App Name in the search bar at the top of the Azure portal to find the new App Service you just created for the app.
+Once publishing has completed for the new App Service, add a new app setting. This setting will be used to store the cache connection information. Type the app name in the search bar at the top of the Azure portal to find the new App Service you just created.
 
 ![Find App Service](./media/cache-web-app-howto/cache-find-app-service.png)
    
-Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured for `CacheConnection` in your *CacheSecrets.config* file. The value contains the host name and access key to the cache.
+Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured for `CacheConnection` in your *CacheSecrets.config* file. The value contains the cache host name and access key.
 
 ![Add App Setting](./media/cache-web-app-howto/cache-add-app-setting.png)
 
@@ -295,7 +295,7 @@ Click **Azure Redis Cache Test** on the navigation bar to test cache access.
 
 If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
 
-Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources used in order to conserve cost and resources. 
+Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
@@ -304,7 +304,7 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 
 Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this topic used a resource group named *TestResources*. For your group, click **...** then **Delete resource group**.
+In the **Filter by name...** textbox, type the name of your resource group. The instructions for this topic used a resource group named *TestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
 
    
 ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)

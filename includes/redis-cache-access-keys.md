@@ -18,7 +18,7 @@ To retrieve the access keys using the [Azure portal](https://portal.azure.com), 
 
 ![Redis cache keys](media/redis-cache-access-keys/redis-cache-keys.png)
 
-To retrieve host name, ports, click **Properties.
+To retrieve host name, ports, click **Properties**.
 
 ![Redis cache properties](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 
