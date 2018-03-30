@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ---
 # Networking considerations for an App Service Environment #
