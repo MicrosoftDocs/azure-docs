@@ -13,7 +13,7 @@ manager: femila
 ---
 # What is Azure Blockchain Workbench?
 
-[Azure Blockchain Workbench]() helps organizations build rich, integrated multi-party blockchain applications quickly and easily. Azure Blockchain Workbench provides the scaffolding for building blockchain applications. With Azure Blockchain Workbench you can:
+Azure Blockchain Workbench helps organizations build rich, integrated multi-party blockchain applications quickly and easily. Azure Blockchain Workbench provides the scaffolding for building blockchain applications. With Azure Blockchain Workbench you can:
 
 * Create blockchain applications. 
 * Manage Workbench blockchain apps and users.
