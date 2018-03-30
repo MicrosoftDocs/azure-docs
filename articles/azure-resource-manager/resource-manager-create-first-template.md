@@ -25,7 +25,7 @@ To create and revise templates, you need a JSON editor. [Visual Studio Code](htt
 
 * Visual Studio Code. If needed, install it from [https://code.visualstudio.com/](https://code.visualstudio.com/).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* [Azure PowerShell](/powershell/azure/install-azurerm-ps) or [Azure CLI](/cli/azure/install-azure-cli) installed locally. You need a local installation for this tutorial because your template is saved as a local file. To use Cloud Shell, you must [load your template into the file share](azure-resource-manager/resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell) for your Cloud Shell.
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps) or [Azure CLI](/cli/azure/install-azure-cli) installed locally. You need a local installation for this tutorial because your template is saved as a local file. To use Cloud Shell, you must [load your template to a storage account](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell).
 
 ## Create template
 
