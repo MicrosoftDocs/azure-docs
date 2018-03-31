@@ -79,19 +79,23 @@ The **RunAsPolicy** section for a **ServiceManifestImport** specifies the accoun
 
 ```xml
 <Policies>
-<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+    <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ```
 
-If **EntryPointType** is not specified, the default is set to `EntryPointType=”Main”`. Specifying **SetupEntryPoint** is especially useful when you want to run certain high-privilege setup operations under a system account. For more information, see [Run a service startup script as a local user or system account](service-fabric-run-script-at-service-startup.md). The actual service code can run under a lower-privilege account.
+If **EntryPointType** is not specified, the default is set to `EntryPointType=”Main”`. Specifying EntryPointType="Setup" is also useful when you want to run certain high-privilege setup operations under a system account. For more information, see [Run a service startup script as a local user or system account](service-fabric-run-script-at-service-startup.md). The actual service code can run under a lower-privilege account.
 
 ## Apply a default policy to all service code packages
-You use the **DefaultRunAsPolicy** section to specify a default user account for all code packages that don’t have a specific **RunAsPolicy** defined. If most of the code packages that are specified in the service manifest used by an application need to run under the same user, the application can just define a default RunAs policy with that user account. The following example specifies that if a code package does not have a **RunAsPolicy** specified, the code package should run under the **MyDefaultAccount** specified in the principals section.
+You use the **DefaultRunAsPolicy** section to specify a default user account for all code packages that don’t have a specific **RunAsPolicy** defined. If most of the code packages that are specified in the service manifest used by an application need to run under the same user, the application can just define a default RunAs policy with that user account. The following example specifies that if a code package does not have a **RunAsPolicy** specified, the code package should run under the **MyDefaultAccount** user specified in the principals section.  Supported account types are LocalUser, NetworkService, LocalSystem, and LocalService.  If using a local user or service, also specify the account name and password.
 
 ```xml
+<Principals>
+  <Users>
+    <User Name="MyDefaultAccount" AccountType="NetworkService"  />
+  </Users>
+</Principals>
 <Policies>
-  <DefaultRunAsPolicy UserRef="MyDefaultAccount"/>
+  <DefaultRunAsPolicy UserRef="MyDefaultAccount" />
 </Policies>
 ```
 
