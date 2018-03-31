@@ -52,9 +52,9 @@ The preview of this feature is available only in the following Azure regions:
 ## Provision a Linux virtual machine
 Provision a new Azure Linux virtual machine using either the Azure portal or Azure CLI. Ensure that you pick a Linux distribution and version supported by the preview. Also pick the ‘South Central US’ region when provisioning your virtual machine.
 More information – provision an Azure Linux virtual machine using:
-•	[Azure portal](quick-create-portal.md)
-•	[Azure CLI](quick-create-cli.md)
-•	[Azure PowerShell](quick-create-powershell.md)
+- [Azure portal](quick-create-portal.md)
+-	[Azure CLI](quick-create-cli.md)
+- [Azure PowerShell](quick-create-powershell.md)
 
 
 ## Setup Azure PowerShell
@@ -122,7 +122,9 @@ ssh -l admin@contosomfg.onmicrosoft.com <VM_IP>
 ```
 Replace VM_IP above with the IP address of the Linux virtual machine to which you’d like to connect over SSH.
 
-You will be prompted to sign in to Azure AD with a one-time use code at [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Navigate to the page and enter the one-time use code you see on the SSH console. Authenticate by providing your credentials. If multi-factor authentication is configured for your account, you will be prompted to complete a second factor of authentication.
+You will be prompted to sign in to Azure AD with a one-time use code at [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). 
+
+Navigate to the page and enter the one-time use code you see on the SSH console. Authenticate by providing your credentials. If multi-factor authentication is configured for your account, you will be prompted to complete a second factor of authentication.
 
 When you are successfully signed in, return to the SSH prompt and press the ‘Enter’ key. You should be signed in to the Azure Linux virtual machine.
 
