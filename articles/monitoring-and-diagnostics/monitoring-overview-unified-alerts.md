@@ -31,7 +31,7 @@ Alerts has new experience. The older alerts experience is now under the Alerts (
 
 -	**Better notification system**: All newer alerts use [action groups]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups), which are named groups of notifications and actions that can be reused in multiple alerts.  Classic metric alerts and older Log Analytics alerts do not use action groups. 
 - **A unified authoring experience**  - All alert creation for metrics, logs and activity log across Azure Monitor, Log Analytics, and Application Insights is in one place. 
- - **View fired Log Analytics alerts in Azure portal** - You can now also see fired Log Analytics alerts in your subscription. Previously these were in a separate portal. 
+- **View fired Log Analytics alerts in Azure portal** - You can now also see fired Log Analytics alerts in your subscription. Previously these were in a separate portal. 
 - **Separation of Fired alerts and Alert Rules** - Alert Rules (the definition of condition that triggers an alert), and Fired Alerts (an instance of the alert rule firing) are differentiated, so the operational and configuration views are separated.
 - **Better workflow** - The new alerts authoring experience guides the user along the process of configuring an alert rule, which makes it simpler to discover the right things to get alerted on.
  
@@ -107,7 +107,7 @@ Alerts are available across several Azure monitoring services. For information o
 | Activity Log  | Service Health | Not supported in new alerts experience. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |
 | Logs  | Application Insights | Contains logs with the performance details of your application. Using analytics query, you can define the conditions for the actions to be taken - based on the application data. |
 | Metric | Application Insights | Not supported in new alerts experience. See [Metric alerts](../application-insights/app-insights-alerts.md) |
-| Web Availability Tests | Application Insights | Available to any website instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. Not supported in Alerts experience. See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md)  |
+| Web Availability Tests | Application Insights | Not supported in Alerts experience.  See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
 
 
