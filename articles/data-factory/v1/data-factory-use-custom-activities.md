@@ -143,7 +143,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 	using System.Text;
 	using System.Threading.Tasks;
 	// ---------------------
-
+        using System.Linq;
 	using Microsoft.Azure.Management.DataFactories.Models;
 	using Microsoft.Azure.Management.DataFactories.Runtime;
 
