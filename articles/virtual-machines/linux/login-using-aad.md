@@ -51,10 +51,11 @@ The preview of this feature is available only in the following Azure regions:
 
 ## Provision a Linux virtual machine
 Provision a new Azure Linux virtual machine using either the Azure portal or Azure CLI. Ensure that you pick a Linux distribution and version supported by the preview. Also pick the ‘South Central US’ region when provisioning your virtual machine.
+
 More information – provision an Azure Linux virtual machine using:
-- [Azure portal](quick-create-portal.md)
--	[Azure CLI](quick-create-cli.md)
-- [Azure PowerShell](quick-create-powershell.md)
+* [Azure portal](quick-create-portal.md)
+*	[Azure CLI](quick-create-cli.md)
+* [Azure PowerShell](quick-create-powershell.md)
 
 
 ## Setup Azure PowerShell
@@ -110,7 +111,8 @@ For more information on how to use Role-Based Access Control to manage access to
 
 
 ## Require multi-factor authentication to login to the virtual machine
-You can configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. 
+You can configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine.
+
 More information – [Getting started with Azure Multi-Factor Authentication in the cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
 
