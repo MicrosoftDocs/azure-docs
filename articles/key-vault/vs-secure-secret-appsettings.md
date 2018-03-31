@@ -97,7 +97,7 @@ If you are writing a quick prototype and don't want to provision Azure resources
 
 1. Install the following NuGet package to your project
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview.nupkg
     ```
 
 2. Create a file that's similar to the follow. Save it under a location outside of your project folder.
@@ -105,10 +105,10 @@ If you are writing a quick prototype and don't want to provision Azure resources
     ```xml
 
 	   <root>
-	          <secrets ver="1.0">
-	                 <secret name="secret1" value="foo_one" />
-	                    <secret name="secret2" value="foo_two" />
-	                   </secrets>
+	  	<secrets ver="1.0">
+			<secret name="secret1" value="foo_one" />
+			<secret name="secret2" value="foo_two" />
+	   	</secrets>
 	  </root>
       ```
 
@@ -117,12 +117,14 @@ If you are writing a quick prototype and don't want to provision Azure resources
     ```xml
     <configBuilders>
         <builders>
+	    <!-- Store your secrets file outside the application -->
             <add name="Secrets"
-                 secretsFile="C:\Users\AppData\MyWebApplication1\secret.xml" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder,
-                    Microsoft.Configuration.ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+                 userSecretsFile="C:\Users\AppData\MyWebApplication1\secret.xml" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder,
+                    Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=1.0.0.0, Culture=neutral" />
         </builders>
     </configBuilders>
     ```
+    The `userSecretsFile` can also be local to your application, for example `userSecretsFile="~/App_Config/Secrets.config"`
 
 4. Specify appSettings section is using the secret configuration builder. Make sure there is any entry for the secret setting with a dummy value.
 
@@ -143,7 +145,7 @@ Follow instructions from ASP.NET core section to configure a Key Vault for your 
 
 1. Install the following NuGet package to your project
 ```
-Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
+Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-preview.nupkg
 ```
 
 2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in public Azure, or full URI if you are using Sovereign cloud.
@@ -154,7 +156,7 @@ Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
     </configSections>
     <configBuilders>
         <builders>
-            <add name="KeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+            <add name="KeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral" />
         </builders>
     </configBuilders>
     ```
