@@ -17,16 +17,14 @@ ms.author: ccompy
 ---
 # App Service Environment management addresses
 
-The App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet).  The ASE must be accessible from the management plane used by the Azure App Service.  This ASE management traffic traverses the user controlled network. If this traffic is blocked or misrouted, the ASE will become suspended. The management traffic comes from Azure App Service management servers to the public VIP that is associated with the ASE and then from the public VIP to servers in the ASE itself. For details on the ASE networking dependencies read [Networking considerations and the App Service Environment][networking]. For general information on the ASE you can start with [Introduction to the App Service Environment][intro].
+The App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet).  The ASE must be accessible from the management plane used by the Azure App Service.  This ASE management traffic traverses the user-controlled network. If this traffic is blocked or misrouted, the ASE will become suspended. For details on the ASE networking dependencies read [Networking considerations and the App Service Environment][networking]. For general information on the ASE, you can start with [Introduction to the App Service Environment][intro].
 
-This document lists the App Service source addresses for management traffic to the ASE. 
-
-This information serves two important purposes.  
+This document lists the App Service source addresses for management traffic to the ASE and serves two important purposes.  
 
 1. You can use these addresses to create Network Security Groups to lock down incoming traffic.  
-2. You can create routes with these addresses to support forced tunnel deployments.  For details on how to configure your ASE to operate in an environment where the outbound traffic is sent first on premises, please read [Configure your ASE with forced tunneling][forcedtunnel]
+2. You can create routes with these addresses to support forced tunnel deployments. For details on how to configure your ASE to operate in an environment where outbound traffic is sent on premises, read [Configure your ASE with forced tunneling][forcedtunnel]
 
-All ASE's have a public VIP which management traffic comes into. The incoming management traffic from these addresses comes in from to ports 454 and 455 on the public VIP of your ASE.  
+All ASEs have a public VIP which management traffic comes into. The incoming management traffic from these addresses comes in from to ports 454 and 455 on the public VIP of your ASE.  
 
 | Region | Addresses |
 |--------|-----------|
