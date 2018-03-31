@@ -79,7 +79,7 @@ Use the [Get-EnrollmentAccount command]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) to lis
 Get-EnrollmentAccount
 ```
 
-Azure responds:
+Response:
 
 ```azurepowershell
 ObjectId                               | PrincipalName
@@ -94,7 +94,7 @@ Use the [az billing enrollment-account list]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) c
 ```azurecli-interactive 
 az billing enrollment-account list
 ```
-Azure responds:
+Response:
 
 ```json
 {
@@ -150,7 +150,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 | Element Name  | Required | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | No      | String | The display name of the subscription. If not specified, it is set to the name of the offer, like "Microsoft Azure Enterprise".                                 |
+| `displayName` | No      | String | The display name of the subscription. If not specified, it is set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
 | `offerType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 
@@ -164,7 +164,7 @@ New-AzureRmSubscription -OfferType MS-AZR-0148P -Name "Dev Team Subscription" -E
 
 | Element Name  | Required | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `Name` | No      | String | The display name of the subscription. If not specified, it is set to the name of the offer, like "Microsoft Azure Enterprise".                                 |
+| `Name` | No      | String | The display name of the subscription. If not specified, it is set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
 | `OfferType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `OwnerObjectId`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 
@@ -178,7 +178,7 @@ az account create --offer_type "MS-AZR-0148P" --display_name "Dev Team Subscript
 
 | Element Name  | Required | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `display_name` | No      | String | The display name of the subscription. If not specified, it is set to the name of the offer, like "Microsoft Azure Enterprise".                                 |
+| `display_name` | No      | String | The display name of the subscription. If not specified, it is set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
 | `offer_type`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owner_object_id`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 
@@ -200,7 +200,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
-When the Contributor role is successfully assigned at the enrollment account scope, Azure responds:
+When the Contributor role is successfully assigned at the enrollment account scope, Response:
 
 ```json
 {
@@ -237,7 +237,7 @@ az role assignment create --role Contributor --assignee-object-id 5ac84765-1c8c-
 
 ----
 
-Now that you've added a user as a Contributor for your enrollment account, they can create subscriptions under it programmatically as well. Subscriptions created by a delegated users still assigns the original Account Owner as Service Admin of the subscription, but it also assigns the delegated user as an Owner on the subscription. 
+Once a user as a Contributor for your enrollment account, they can create subscriptions under it programmatically as well. A subscription created by a delegated user still have the original Account Owner as Service Admin, but it also has the delegated user as an Owner by default. 
 
 ## Limitations of Azure Enterprise subscription creation API
 
