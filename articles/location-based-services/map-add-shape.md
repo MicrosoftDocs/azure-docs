@@ -1,6 +1,6 @@
 ---
 title: How to add a shape to Azure Location Based Services' map | Microsoft Docs
-description: Add a shape on a map
+description: Add a shape to a map
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Add a shape on a map
+# Add a shape to a map
 
 ## Overview
-This tutorial shows you how to add a line, a circle, and a polygon on the map. 
+This tutorial shows you how to add a line, a circle, and a polygon to the map. 
 
 <a id="addALine"></a>
 
