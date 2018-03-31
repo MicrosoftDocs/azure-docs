@@ -15,10 +15,10 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Add custom HTML on the map
+# Add custom HTML to the map
 
 ## Overview
-This tutorial shows you how to add a custom HTML such as an image file on the map. 
+This tutorial shows you how to add a custom HTML such as an image file to the map. 
 
 ## Understand the code
 
