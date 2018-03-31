@@ -23,7 +23,7 @@ In this article you will:
 
 > [!div class="checklist"]
 > * Learn how to create subscriptions programmatically using Azure Resource Manager (ARM)
-> * Understand how to share the ability to create subscriptions billed to your EA account
+> * Understand how to use RBAC to share the ability to create subscriptions billed to your EA account
 
 ## Ask your EA Enrollment Admin to add you as Account Owner
 
@@ -40,34 +40,11 @@ If the above two conditions are met, an `enrollmentAccount` resource is returned
 
 # [REST](#tab/rest)
 
-Request to list all enrollment accounts you have access to:
+Request to list all enrollment accounts:
 
 ```json
-GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
-
-{
-  "parameters": {
-    "api-version": "2018-03-01-preview"
-  }
-}
+GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
 ```
-# [PowerShell](#tab/azure-powershell)
-
-Use the [Get-EnrollmentAccount command]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) to list all enrollment accounts you have access to.
-
-```azurepowershell-interactive
-Get-EnrollmentAccount
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-Use the [az billing enrollment-account list]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) command to list all enrollment accounts you have access to.
-
-```azurecli-interactive 
-az billing enrollment-account list
-```
-
----
 
 Azure responds with a list of all enrollment accounts you have access to:
 
@@ -93,6 +70,56 @@ Azure responds with a list of all enrollment accounts you have access to:
   ]
 }
 ```
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the [Get-EnrollmentAccount command]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) to list all enrollment accounts you have access to.
+
+```azurepowershell-interactive
+Get-EnrollmentAccount
+```
+
+Azure responds:
+
+```azurepowershell
+ObjectId                               | PrincipalName
+e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556   | MobileOnboardingEng@contoso.com
+edd24053-07cd-4ed4-aa5b-326160a6680d   | MobileBackendEng@contoso.com
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the [az billing enrollment-account list]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) command to list all enrollment accounts you have access to.
+
+```azurecli-interactive 
+az billing enrollment-account list
+```
+Azure responds:
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556",
+      "name": "e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "MobileOnboardingEng@contoso.com"
+      }
+    },
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/edd24053-07cd-4ed4-aa5b-326160a6680d",
+      "name": "edd24053-07cd-4ed4-aa5b-326160a6680d",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "MobileBackendEng@contoso.com"
+      }
+    }
+  ]
+}
+```
+
+---
 
 Use the `principalName` property to identify the account that you want subscriptions to be billed to. Use the `id` as the `enrollmentAccount` value that you use to create the subscription in the next step.
 
@@ -157,7 +184,7 @@ az account create --offer_type "MS-AZR-0148P" --display_name "Dev Team Subscript
 
 ----
 
-## Delegate Contributor access to an enrollment account using RBAC
+## Delegate access to an enrollment account using RBAC
 
 To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner or Contributor role at the scope of the enrollment account](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-rest). The following example gives a user in the tenant with `principalId` of `5ac84765-1c8c-4994-94b2-629461bd191b` (for MobileOnboardingEng@contoso.com) a Contributor role on the enrollment account. 
 
