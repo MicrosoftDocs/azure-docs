@@ -15,10 +15,10 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Add a popup on the map
+# Add a popup to the map
 
 ## Overview
-This tutorial shows you how to add a popup on a map.  
+This tutorial shows you how to add a popup to a map.  
 
 ## Understand the code
 
@@ -29,7 +29,7 @@ This tutorial shows you how to add a popup on a map.
 
 In the code above, the first block of code constructs a map object. You can see [create a map](./map-create.md) for instructions.
 
-The second block of code creates a pin and add it to the map. You can see [add a pin on the map](./map-add-pin.md) for instructions.
+The second block of code creates a pin and add it to the map. You can see [add a pin to the map](./map-add-pin.md) for instructions.
 
 The third block of code creates content to be displayed within a popup. Popup content is HTML element. 
 
