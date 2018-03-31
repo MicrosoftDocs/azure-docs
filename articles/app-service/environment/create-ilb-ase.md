@@ -59,7 +59,7 @@ To create an ILB ASE:
 
 4. Select or create a VNet.
 
-5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a `/28`. After infrastructure needs, this size can be scaled to a maximum of 11 instances.
+5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a `/28`. After infrastructure needs, this size can only be scaled to a maximum of 3 instances.
 
 	* Go beyond the default maximum of 100 instances in your App Service plans.
 
