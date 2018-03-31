@@ -15,10 +15,10 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Add pins on the map
+# Add pins to the map
 
 ## Overview
-This tutorial shows you how to add a pin on a map.  
+This tutorial shows you how to add a pin to a map.  
 
 ## Understand the code
 
