@@ -14,6 +14,8 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
+featureFlags:
+- clicktale
 experimental: false
 experiment_id: "15364e34-28ea-48"
 ---
