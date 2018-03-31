@@ -3,7 +3,7 @@ title: Call and response - Ruby Quickstart for Azure Cognitive Services, Bing We
 description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: jerrykindall
+author: v-jerkin
 
 ms.service: cognitive-services
 ms.technology: bing-search

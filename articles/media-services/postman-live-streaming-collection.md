@@ -135,7 +135,7 @@ This article contains a definition of the **Postman** collection that contains g
 									"",
 									"var jsonData = pm.response.json();",
 									"tests[\"Has State\"] = jsonData.State !== null;",
-									"tests[\"Has Encoding\"] = jsonData.EncodingType == \"Basic\";",
+									"tests[\"Has Encoding\"] = jsonData.EncodingType == \"Standard\";",
 									"",
 									""
 								]
@@ -182,7 +182,7 @@ This article contains a definition of the **Postman** collection that contains g
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Name\": \"MyPostmanChannel\",\r\n    \"Description\": \"My Live Encoding channel from Postman\",\r\n    \"EncodingType\": \"Basic\",\r\n    \"Encoding\": null,\r\n    \"Slate\": null,\r\n    \"Input\": {\r\n        \"KeyFrameInterval\": null,\r\n        \"StreamingProtocol\": \"RTMP\",\r\n        \"AccessControl\": {\r\n            \"IP\": {\r\n                \"Allow\": [\r\n                    {\r\n                        \"Name\": \"Allow All\",\r\n                        \"Address\": \"0.0.0.0\",\r\n                        \"SubnetPrefixLength\": 0\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        \"Endpoints\": []\r\n    },\r\n    \"Preview\": {\r\n        \"AccessControl\": {\r\n            \"IP\": {\r\n                \"Allow\": [\r\n                    {\r\n                        \"Name\": \"Allow All\",\r\n                        \"Address\": \"0.0.0.0\",\r\n                        \"SubnetPrefixLength\": 0\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        \"Endpoints\": []\r\n    },\r\n    \"Output\": {\r\n        \"Hls\": {\r\n            \"FragmentsPerSegment\": \"1\"\r\n        }\r\n    },\r\n    \"CrossSiteAccessPolicies\": {\r\n        \"ClientAccessPolicy\": null,\r\n        \"CrossDomainPolicy\": null\r\n    }\r\n}\r\n"
+							"raw": "{\r\n    \"Name\": \"MyPostmanChannel\",\r\n    \"Description\": \"My Live Encoding channel from Postman\",\r\n    \"EncodingType\": \"Standard\",\r\n    \"Encoding\": null,\r\n    \"Slate\": null,\r\n    \"Input\": {\r\n        \"KeyFrameInterval\": null,\r\n        \"StreamingProtocol\": \"RTMP\",\r\n        \"AccessControl\": {\r\n            \"IP\": {\r\n                \"Allow\": [\r\n                    {\r\n                        \"Name\": \"Allow All\",\r\n                        \"Address\": \"0.0.0.0\",\r\n                        \"SubnetPrefixLength\": 0\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        \"Endpoints\": []\r\n    },\r\n    \"Preview\": {\r\n        \"AccessControl\": {\r\n            \"IP\": {\r\n                \"Allow\": [\r\n                    {\r\n                        \"Name\": \"Allow All\",\r\n                        \"Address\": \"0.0.0.0\",\r\n                        \"SubnetPrefixLength\": 0\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        \"Endpoints\": []\r\n    },\r\n    \"Output\": {\r\n        \"Hls\": {\r\n            \"FragmentsPerSegment\": \"1\"\r\n        }\r\n    },\r\n    \"CrossSiteAccessPolicies\": {\r\n        \"ClientAccessPolicy\": null,\r\n        \"CrossDomainPolicy\": null\r\n    }\r\n}\r\n"
 						},
 						"url": {
 							"raw": "{{ApiEndpoint}}/Channels",

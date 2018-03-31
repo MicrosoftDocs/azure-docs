@@ -2,7 +2,7 @@
   href: index.md
 - name: Architecture and design
   href: azure-security.md
-  expanded: true
+  expanded: false
   items:
   - name: Advanced threat detection
     href: azure-threat-detection.md
@@ -67,6 +67,8 @@
     items:
     - name: Best practices
       href: azure-security-identity-management-best-practices.md
+    - name: Enforce MFA on subscription administrators
+      href: azure-security-global-admin.md
   - name: Network security
     href: security-network-overview.md
     items:

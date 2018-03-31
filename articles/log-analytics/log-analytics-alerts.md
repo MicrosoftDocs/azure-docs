@@ -99,7 +99,7 @@ For example, if you wanted to alert when the processor runs over 90%, you would 
 
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query using the [measure command](log-analytics-search-reference.md#commands) like the following with the threshold for the alert rule **greater than 0**.
+If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query using the `measure` command like the following with the threshold for the alert rule **greater than 0**.
 
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
@@ -117,7 +117,7 @@ If you wanted to alert when the processor averaged over 90% for a particular tim
 **Metric measurement** alert rules create an alert for each object in a query with a value that exceeds a specified threshold.  They have the following distinct differences from **Number of results** alert rules.
 
 #### Log search
-While you can use any query for a **Number of results** alert rule, there are specific requirements the query for a metric measurement alert rule.  It must include a [Measure command](log-analytics-search-reference.md#commands) to group the results on a particular field. This command must include the following elements.
+While you can use any query for a **Number of results** alert rule, there are specific requirements the query for a metric measurement alert rule.  It must include a `measure` command to group the results on a particular field. This command must include the following elements.
 
 - **Aggregate function**.  Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** will return the number of records in the query, **avg(CounterValue)** will return the average of the CounterValue field over the interval.
 - **Group Field**.  A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer**.   

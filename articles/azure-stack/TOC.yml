@@ -63,8 +63,6 @@
         href: validate-pki-certs.md
     - name: Identity integration
       href: azure-stack-integrate-identity.md
-    - name: Register Azure Stack
-      href: azure-stack-registration.md
     - name: External monitoring
       href: azure-stack-integrate-monitor.md
     - name : Security integration
@@ -80,7 +78,7 @@
   - name: Configure telemetry collection
     href: azure-stack-telemetry.md
   - name: Register Azure Stack
-    href: azure-stack-register.md
+    href: azure-stack-registration.md
   - name: Manage
     items:
     - name: Region management

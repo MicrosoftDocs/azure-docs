@@ -4,8 +4,9 @@ description: An easy-to-understand overview of machine learning basics includes 
 keywords: machine learning basics,algorithm examples,machine learning for beginners,machine learning questions,popular algorithms,algorithm infographic
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: garye
 
 ---
 # Downloadable Infographic: Machine learning basics with algorithm examples

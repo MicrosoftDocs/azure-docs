@@ -190,17 +190,6 @@ In this section, you create a Python console app that sends cloud-to-device mess
     DEVICE_ID = "{deviceId}"
     ```
 
-1. Add the following function to print operation results to the console:
-   
-    ```python
-    function printResultFor(op) {
-      return function printResult(err, res) {
-        if (err) console.log(op + ' error: ' + err.toString());
-        if (res) console.log(op + ' status: ' + res.constructor.name);
-      };
-    }
-    ```
-
 1. Add the following function to print feedback messages to the console:
    
     ```python

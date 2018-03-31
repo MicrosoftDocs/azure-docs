@@ -40,11 +40,12 @@
 ### [OAuth 2.0 auth code grant](active-directory-protocols-oauth-code.md)
 ### [OAuth 2.0 implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
+### [Configuring Role claim](active-directory-enterprise-app-role-management.md)
 ### [Customize claims](active-directory-saml-claims-customization.md)
 ### [Debug SAML-based SSO](active-directory-saml-debugging.md)
 ### [Single sign-on SAML protocol](active-directory-single-sign-on-protocol-reference.md)
 ### [Single sign-out SAML protocol](active-directory-single-sign-out-protocol-reference.md)
-### [Create a tenant](active-directory-howto-tenant.md)
+## [Create a tenant](active-directory-howto-tenant.md)
 ## [Branding guidelines](active-directory-branding-guidelines.md)
 ## Mobile & Desktop SSO
 ### [Enable SSO on Android](active-directory-sso-android.md)

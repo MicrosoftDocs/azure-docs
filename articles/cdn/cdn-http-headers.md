@@ -26,8 +26,54 @@ Included in a client request is an HTTP method (such as GET), which indicates th
 The following table describes the most common request headers:
 
 Request header | Description | Example
-----------------|----------------------
-Via | Identifies the POP that proxied the request to an origin server. | HTTP/1.1 ECS (dca/1A2B)
+---------------|-------------|--------
+[Via](#via-request-header) | Identifies the POP edge server that proxied the request to an origin server. | HTTP/1.1 ECS (dca/1A2B)
+X-Forwarded-For | Indicates the requester's IP address.| 10.10.10.10
+X-Forwarded-Proto | Indicates the request's protocol. | http
+X-Host | Indicates the request's hostname. | cdn.mydomain.com
+X-Midgress | Indicates whether the request was proxied through an additional CDN server (for example, POP edge server-to-origin shield server or POP edge server-to-ADN gateway server). <br />This header will only be added to the request when midgress traffic takes place.| 1
+[Host](#host-request-header) | Identifies the host and the port where the requested content may be found. | marketing.mydomain.com:80
+[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifies the failover list of ADN Gateway servers assigned to a customer origin. <br />Origin shield: Indicates the set of origin shield servers assigned to a customer origin. | icn1,hhp1,hnd1
+X-EC-_&lt;name&gt;_ | Request headers that start with *X-EC* (for example, *X-EC-Tag*) are reserved for use by the CDN.| waf-production
+
+### Via request header
+The format through which the Via request header identifies a POP edge server is specified by the following syntax:
+`Via: Protocol from Platform (POP/ID)` 
+
+The terms used in the syntax are defined as follows:
+- Protocol: Indicates the version of the protocol (e.g., HTTP/1.1) used to proxy the request. 
+- Platform: Indicates the platform on which the content was requested. The following codes are valid for this field: 
+    Code | Platform
+    -----|---------
+    ECAcc | HTTP Large
+    ECS   | HTTP Small
+    ECD   | Application delivery network (ADN)
+
+- POP: Indicates the [POP](cdn-pop-abbreviations.md) that handled the request. 
+- ID: For internal use only.
+
+Example Via request header: `Via: HTTP/1.1 ECD (dca/1A2B)`
+
+### Host request header
+
+The POP edge servers will overwrite the Host header when both of the following conditions are true:
+- The source for the requested content is a customer origin server.
+- The corresponding customer origin's HTTP Host Header option is not blank.
+
+The Host request header will be overwritten to reflect the value defined in the HTTP Host Header option.
+If the customer origin's HTTP Host Header option is set to blank, then the Host request header submitted by the requester will be forwarded to that customer's origin server.
+
+### X-Gateway-List request Header
+
+A POP edge server will add/overwrite the X-Gateway-List request header when either of the following conditions are met:
+- The request points to the ADN platform.
+- The request is forwarded to a customer origin server that is protected by the Origin Shield feature.
+
+## HTTP request body
+
+Requests that are proxied through the network to an origin server will include a request body, unless either of the following conditions are true:
+- A GET request is submitted.
+- The request is redirected due to the Follow Redirects feature. 
 
 
 ## HTTP response headers

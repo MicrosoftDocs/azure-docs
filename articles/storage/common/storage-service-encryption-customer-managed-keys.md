@@ -108,11 +108,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### Step 5: Copy data to storage account
 
-To transfer data into your new storage account so that it’s encrypted, refer to Step 3 of [Getting Started in Storage Service Encryption for Data at Rest](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+To transfer data into your new storage account so that it’s encrypted. For more information see [FAQ for Storage Service Encryption](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### Step 6: Query the status of the encrypted data
 
-To query the status of the encrypted data, refer to Step 4 of [Getting Started in Storage Service Encryption for Data at Rest](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
+Query the status of the encrypted data.
 
 ## FAQ for SSE with customer-managed-keys
 

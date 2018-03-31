@@ -4,8 +4,8 @@ description: Learn how to join Azure-SSIS integration runtime to an Azure virtua
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services
@@ -50,7 +50,7 @@ Here are a few important points to note:
 - If there is an existing Azure Resource Manager virtual network connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md##create-a-virtual-network) for your Azure-SSIS IR to join. Then, configure an Azure Resource Manager-to-Azure Resource Manager virtual network connection. Or, you can create a [classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for your Azure-SSIS IR to join. Then, configure a [classic-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) connection.
 
 ## Domain Name Services server 
-If you need to use your own Domain Name Services (DNS) server in a virtual network joined by your Azure-SSIS integration runtime, follow guidance to [ensure that the nodes of your Azure-SSIS integration runtime in the virtual network can resolve Azure endpoints](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+If you need to use your own Domain Name Services (DNS) server in a virtual network joined by your Azure-SSIS integration runtime, follow the guidance in the section "Name resolution that uses your own DNS server" of the article [Name resolution for virtual machines and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## Network security group
 If you need to implement a network security group (NSG) in a virtual network joined by your Azure-SSIS integration runtime, allow inbound/outbound traffic through the following ports:
