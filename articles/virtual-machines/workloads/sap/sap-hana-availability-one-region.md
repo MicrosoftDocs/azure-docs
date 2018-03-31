@@ -57,7 +57,7 @@ This single-VM scenario might be improved by adding a cold failover node to an S
 
 ## Availability scenarios for two different VMs
 
-If you use two Azure VMs within an Azure availability set, you can increase the up-time between these two VMs if those VMs are placed in an Azure availability set within one Azure region. The base setup in Azure would look like this:
+If you use two Azure VMs within an Azure availability set, you can increase the uptime between these two VMs if those VMs are placed in an Azure availability set within one Azure region. The base setup in Azure would look like this:
 
 ![Diagram of two VMs with all layers](./media/sap-hana-availability-one-region/two_vm_all_shell.PNG)
 

@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to Use the Engagement API on Windows Phone Silverlight
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This document is an add-on to the document [How to integrate Mobile Engagement in your Windows Phone Silverlight app](mobile-engagement-windows-phone-integrate-engagement.md). It provides in depth details about how to use the Engagement API to report your application statistics.
 
 If you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your `PhoneApplicationPage` sub-classes inherit from the `EngagementPage` class.

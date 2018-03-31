@@ -26,7 +26,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Enabling AKS preview
 
-Ensure that the needed Azure service providers are enabled with the `az provider register` command. 
+Ensure that the needed Azure service providers are enabled with the `az provider register` command.
 
 ```azurecli-interactive
 az provider register -n Microsoft.Network
@@ -247,7 +247,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az aks install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

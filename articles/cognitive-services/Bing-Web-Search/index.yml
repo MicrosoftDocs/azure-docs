@@ -6,7 +6,7 @@ metadata:
   title: Bing Web Search Documentation - Tutorials, API Reference
   description: Learn how to use Bing Web Search API to obtain results from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
   services: cognitive-services
-  author: jerrykindall
+  author: v-jerkin
   manager: carolz
   ms.service: bing-web-search
   ms.tgt_pltfrm: na

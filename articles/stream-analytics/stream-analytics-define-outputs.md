@@ -6,7 +6,6 @@ services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storag
 documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
