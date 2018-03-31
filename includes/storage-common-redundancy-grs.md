@@ -23,7 +23,7 @@ Both the primary and secondary regions manage replicas across separate fault dom
 
 Keep these points in mind when deciding which replication option to use:
 
-* Zone-redundant storage (ZRS) provides highly availability with synchronous replication and may be a better choice for some scenarios than GRS or RA-GRS. For more information on ZRS, see [ZRS](storage-redundancy-zrs.md).
+* Zone-redundant storage (ZRS) provides highly availability with synchronous replication and may be a better choice for some scenarios than GRS or RA-GRS. For more information on ZRS, see [ZRS](../articles/storage/common/storage-redundancy-zrs.md).
 * Because asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
 * With GRS, the replica is not available unless Microsoft initiates failover to the secondary region. If Microsoft does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](../articles/storage/common/storage-disaster-recovery-guidance.md).
 * If your application needs to read from the secondary region, enable RA-GRS.
@@ -38,9 +38,9 @@ Some considerations to keep in mind when using RA-GRS:
 
 * Your application has to manage which endpoint it is interacting with when using RA-GRS.
 * Since asynchronous replication involves a delay, changes that have not yet been replicated to the secondary region may be lost if data cannot be recovered from the primary region, for example in the event of a regional disaster.
-* You can check the Last Sync Time of your storage account. Last Sync Time is a GMT date/time value. All primary writes before the Last Sync Time have been successfully written to the secondary location, meaning that they are available to be read from the secondary location. Primary writes after the Last Sync Time may or may not be available for reads yet. You can query this value using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), or from one of the Azure Storage client libraries.
+* You can check the Last Sync Time of your storage account. Last Sync Time is a GMT date/time value. All primary writes before the Last Sync Time have been successfully written to the secondary location, meaning that they are available to be read from the secondary location. Primary writes after the Last Sync Time may or may not be available for reads yet. You can query this value using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), or from one of the Azure Storage client libraries.
 * If Microsoft initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, see [Disaster Recovery Guidance](../articles/storage/common/storage-disaster-recovery-guidance.md).
-* For information on how to switch to the secondary region, see [What to do if an Azure Storage outage occurs](../storage-disaster-recovery-guidance.md).
+* For information on how to switch to the secondary region, see [What to do if an Azure Storage outage occurs](../articles/storage/common/storage-disaster-recovery-guidance.md).
 * RA-GRS is intended for high-availability purposes. For scalability guidance, review the [performance checklist](../articles/storage/common/storage-performance-checklist.md).
 * For suggestions on how to design for high availability with RA-GRS, see [Designing Highly Available Applications using RA-GRS storage](../articles/storage/common/storage-designing-ha-apps-with-ragrs.md).
 
