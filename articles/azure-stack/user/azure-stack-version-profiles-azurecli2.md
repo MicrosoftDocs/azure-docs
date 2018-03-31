@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/16/2018
 ms.author: mabrigg
+ms.reviewer: sijuman
 
 ---
-# Install and configure CLI for use with Azure Stack
+# Use API version profiles with Azure CLI 2.0 in Azure Stack
 
 In this article, we guide you through the process of using the Azure command-line interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
 
@@ -104,7 +105,6 @@ Use the following steps to connect to Azure Stack:
         --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
         --suffix-storage-endpoint "local.azurestack.external" \ 
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
-        --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
@@ -116,7 +116,6 @@ Use the following steps to connect to Azure Stack:
         --endpoint-resource-manager "https://management.local.azurestack.external" \ 
         --suffix-storage-endpoint "local.azurestack.external" \ 
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
-        --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
