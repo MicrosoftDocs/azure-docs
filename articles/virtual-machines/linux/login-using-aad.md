@@ -52,9 +52,9 @@ The preview of this feature is available only in the following Azure regions:
 ## Provision a Linux virtual machine
 Provision a new Azure Linux virtual machine using either the Azure portal or Azure CLI. Ensure that you pick a Linux distribution and version supported by the preview. Also pick the ‘South Central US’ region when provisioning your virtual machine.
 More information – provision an Azure Linux virtual machine using:
-•	[Azure portal](../virtual-machines/linux/quick-create-portal.md)
-•	[Azure CLI](../virtual-machines/linux/quick-create-cli.md)
-•	[Azure PowerShell](../azure/virtual-machines/linux/quick-create-powershell.md)
+•	[Azure portal](quick-create-portal.md)
+•	[Azure CLI](quick-create-cli.md)
+•	[Azure PowerShell](quick-create-powershell.md)
 
 
 ## Setup Azure PowerShell
