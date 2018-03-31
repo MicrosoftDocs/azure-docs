@@ -29,7 +29,7 @@ There are many benefits of using Azure AD authentication to log in to Azure Linu
   - By reducing your reliance on local administrator accounts, you do not need to worry about credential loss/theft, users configuring weak credentials etc.
   - The password complexity and password lifetime policies configured for your Azure AD directory help secure Linux VMs as well.
   - The VM is not susceptible to password brute force attacks on local administrator accounts.
-  - You can configure multiple factor authentication or conditional access control policies to further secure log in to Azure virtual machines.
+  - You can configure multiple factor authentication or conditional access control policies to further secure login to Azure virtual machines.
 
 2. **Seamless collaboration:** Using RBAC roles you can specify who has access to a given VM, as a regular user or with administrator privileges. When users join or leave your team, you can easily update the RBAC policy for the VM to grant or deny access as appropriate. This experience is much simpler than having to scrub VMs to remove unnecessary SSH public keys. When employees leave your organization, they no longer have access to your resources.
 
@@ -109,25 +109,25 @@ For more information on how to use Role-Based Access Control to manage access to
 * [Configure RBAC using Azure PowerShell](../../active-directory/role-based-access-control-manage-access-powershell.md)
 
 
-## Require multi-factor authentication to sign-in to the virtual machine
+## Require multi-factor authentication to login to the virtual machine
 You can configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. 
 More information – [Getting started with Azure Multi-Factor Authentication in the cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
 
 ## Log in to the Linux virtual machine
-You can now login to the Azure Linux virtual machine using your Azure AD credentials. Open an SSH prompt and type the following:
+You can now log in to the Azure Linux virtual machine using your Azure AD credentials. Open an SSH prompt and type the following:
 
 ```
 ssh -l admin@contosomfg.onmicrosoft.com <VM_IP>
 ```
 Replace VM_IP above with the IP address of the Linux virtual machine to which you’d like to connect over SSH.
 
-You will be prompted to sign-in to Azure AD with a one-time use code at [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Navigate to the page and enter the one-time use code you see on the SSH console. Authenticate by providing your credentials. If multi-factor authentication is configured for your account, you will be prompted to complete a second factor of authentication.
+You will be prompted to sign in to Azure AD with a one-time use code at [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Navigate to the page and enter the one-time use code you see on the SSH console. Authenticate by providing your credentials. If multi-factor authentication is configured for your account, you will be prompted to complete a second factor of authentication.
 
 When you are successfully signed in, return to the SSH prompt and press the ‘Enter’ key. You should be signed in to the Azure Linux virtual machine.
 
 ## Troubleshoot sign-in issues
-If you see the following error on your SSH prompt, ensure you have configured RBAC policies for the virtual machine to allow the user to sign-in. Specifically, ensure that the user has been granted the ‘Virtual Machine User Login’ role for the virtual machine.
+If you see the following error on your SSH prompt, ensure you have configured RBAC policies for the virtual machine to allow the user to sign in. Specifically, ensure that the user has been granted the ‘Virtual Machine User Login’ role for the virtual machine.
 
 ```
 login as: admin@contosomfg.onmicrosoft.com
