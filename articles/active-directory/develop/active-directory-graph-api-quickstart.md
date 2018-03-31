@@ -51,7 +51,7 @@ Or `https://graph.windows.net/contoso.com/users?api-version=1.6` lists all user 
 ## Using the Azure AD Graph Explorer
 You can use the Azure AD Graph Explorer for the Azure AD Graph API to query the directory data as you build your application.
 
-The following is the output you would see if you were to navigate to the Azure AD Graph Explorer, sign in, and enter `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` to display all the users in the signed-in user's directory:
+The following screenshot is the output you would see if you were to navigate to the Azure AD Graph Explorer, sign in, and enter `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` to display all the users in the signed-in user's directory:
 
 ![Azure AD graph api explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
@@ -63,8 +63,8 @@ Note the following features and limitations of the Azure AD Graph Explorer:
 
 * Autocomplete capability on resource sets. To see this functionality, click on the request text box (where the company URL appears). You can select a resource set from the dropdown list.
 * Request history.
-* Supports the “me” and “myorganization” addressing aliases. For example, you can use `https://graph.windows.net/me?api-version=1.6` to return the user object of the signed-in user or `https://graph.windows.net/myorganization/users?api-version=1.6` to return all users in the aigned-in user's directory.
-* Supports full CRUD operations against your own directory, using `POST`, `GET`, `PATCH` and `DELETE`.
+* Supports the “me” and “myorganization” addressing aliases. For example, you can use `https://graph.windows.net/me?api-version=1.6` to return the user object of the signed-in user or `https://graph.windows.net/myorganization/users?api-version=1.6` to return all users in the signed-in user's directory.
+* Supports full CRUD operations against your own directory using `POST`, `GET`, `PATCH` and `DELETE`.
 * A response headers section. This section can be used to help troubleshoot issues that occur when running queries.
 * A JSON viewer for the response with expand and collapse capabilities.
 * No support for displaying or uploading a thumbnail photo.
@@ -80,13 +80,13 @@ In the example below, you use Fiddler Web Debugger to create a new security grou
 
 1. Open Fiddler Web Debugger and switch to the **Composer** tab.
 2. Since you want to create a new security group, select **Post** as the HTTP method from the pull-down menu. For more information about operations and permissions on a group object, see [Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity) within the [Azure AD Graph REST API Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-3. In the field next to **Post**, type in the following as the request URL: `https://graph.windows.net/{mytenantdomain}/groups?api-version=1.6`.
+3. In the field next to **Post**, type in the following request URL: `https://graph.windows.net/{mytenantdomain}/groups?api-version=1.6`.
    
    > [!NOTE]
    > You must substitute {mytenantdomain} with the domain name of your own Azure AD directory.
    > 
    > 
-4. In the field directly below Post pull-down, type the following:
+4. In the field directly below Post pull-down, type the following HTTP header:
    
     ```
    Host: graph.windows.net
@@ -98,7 +98,7 @@ In the example below, you use Fiddler Web Debugger to create a new security grou
    > Substitute your &lt;your access token&gt; with the access token for your Azure AD directory.
    > 
    > 
-5. In the **Request body** field, type the following:
+5. In the **Request body** field, type the following JSON:
    
     ```
         {
