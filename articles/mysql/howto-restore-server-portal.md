@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/01/2018
 ---
 
 # How to backup and restore a server in Azure Database for MySQL using the Azure portal
@@ -45,7 +45,7 @@ In the screenshot below it has been increased to 34 days.
 
 The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. Point-in-time restore is described further in the following section. 
 
-## Point-in-time restore in the Azure portal
+## Point-in-time restore
 Azure Database for MySQL allows you to restore the server back to a point-in-time and into to a new copy of the server. You can use this new server to recover your data, or have your client applications point to this new server.
 
 For example, if a table was accidentally dropped at noon today, you could restore to the time just before noon and retrieve the missing table and data from that new copy of the server. Point-in-time restore is at the server level, not at the database level.
