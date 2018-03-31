@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/30/2018
 ms.author: maheshu
 
 ---
@@ -39,38 +39,33 @@ The following Linux distributions are supported for this functionality:
 
 | Distribution | Version |
 | --- | --- |
-| Ubuntu Server | Ubuntu 16.04 LTS |
+| Ubuntu Server | Ubuntu 16.04 LTS, Ubuntu Server 17.10 |
+
+## Supported Azure regions
+The preview of this feature is available only in the following Azure regions:
+1. South Central US
+
+>[!IMPORTANT]
+> To use this preview, you must provision your test virtual machine only in a supported Azure region listed above.
+>
+
+## Provision a Linux virtual machine
+Provision a new Azure Linux virtual machine using either the Azure portal or Azure CLI. Ensure that you pick a Linux distribution and version supported by the preview. Also pick the ‘South Central US’ region when provisioning your virtual machine.
+More information – provision an Azure Linux virtual machine using:
+•	[Azure portal](../virtual-machines/linux/quick-create-portal.md)
+•	[Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+•	[Azure PowerShell](../azure/virtual-machines/linux/quick-create-powershell.md)
 
 
-## Install the pre-requisite software
+## Setup Azure PowerShell
+Install Azure PowerShell by following the instructions at https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0. If you have an older version of Azure PowerShell, follow the instructions to update it.
 
-### Prepare the virtual machine
-Use the local administrator credentials you specified when provisioning the virtual machine to connect using *SSH*.
+When you are done, type the following command to sign-in to your Azure account.
 
-Type the following command to open the ```/etc/hosts``` file:
-```
-sudo vi /etc/hosts
-```
-
-Add an entry for the virtual machine's hostname to the ```/etc/hosts``` file. In this example, the hostname of the Linux virtual machine is 'contoso-linux'. Replace 'contoso-linux' with the hostname of your virtual machine. Save the file.
-```
-127.0.0.1 contoso-linux
+```PowerShell
+Add-AzureRmAccount
 ```
 
-Update DNS settings on the virtual machine by typing the following command in the ssh console:
-```
-echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null
-```
-
-### Install *libcurl3* on the virtual machine
-Type the following command in the SSH terminal to update the package repositories on the Ubuntu virtual machine.
-```
-sudo apt-get update
-```
-Now, install the ```libcurl3``` package on the virtual machine.
-```
-sudo apt-get install libcurl3
-```
 
 ### Install the Azure AD login VM extension
 Type the following PowerShell command to install the Azure AD VM login extension on the Linux virtual machine. Replace ```VM_NAME```, ```RESOURCE_GROUP_NAME```, and ```LOCATION``` as appropriate for your deployed virtual machine.
@@ -88,6 +83,7 @@ Set-AzureRmVMExtension -Publisher “Microsoft.Azure.ActiveDirectory.LinuxSSH.Ed
 
 If the command executes successfully, the VM extension is installed on the virtual machine. You see a ```StatusCode``` value of 'OK' in the PowerShell console.
 
+In the Azure portal, you should see the virtual machine extension installed successfully on the virtual machine.
 
 ## Configure RBAC policy for the Linux virtual machine
 Azure Role-Based Access Control (RBAC) policy determines who can log in to the virtual machine. Two new RBAC roles are used to authorize VM login:
@@ -112,4 +108,32 @@ For more information on how to use Role-Based Access Control to manage access to
 * [Configure RBAC using Azure portal](../../active-directory/role-based-access-control-configure.md)
 * [Configure RBAC using Azure PowerShell](../../active-directory/role-based-access-control-manage-access-powershell.md)
 
+
+## Require multi-factor authentication to sign-in to the virtual machine
+You can configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. 
+More information – [Getting started with Azure Multi-Factor Authentication in the cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
+
+
 ## Log in to the Linux virtual machine
+You can now login to the Azure Linux virtual machine using your Azure AD credentials. Open an SSH prompt and type the following:
+
+```
+ssh -l admin@contosomfg.onmicrosoft.com <VM_IP>
+```
+Replace VM_IP above with the IP address of the Linux virtual machine to which you’d like to connect over SSH.
+
+You will be prompted to sign-in to Azure AD with a one-time use code at [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Navigate to the page and enter the one-time use code you see on the SSH console. Authenticate by providing your credentials. If multi-factor authentication is configured for your account, you will be prompted to complete a second factor of authentication.
+
+When you are successfully signed in, return to the SSH prompt and press the ‘Enter’ key. You should be signed in to the Azure Linux virtual machine.
+
+## Troubleshoot sign-in issues
+If you see the following error on your SSH prompt, ensure you have configured RBAC policies for the virtual machine to allow the user to sign-in. Specifically, ensure that the user has been granted the ‘Virtual Machine User Login’ role for the virtual machine.
+
+```
+login as: admin@contosomfg.onmicrosoft.com
+Using keyboard-interactive authentication.
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FJX327AXD to authenticate. Press ENTER when ready.
+Using keyboard-interactive authentication.
+Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute/virtualMachines/login/action', for example 'Virtual Machine User Login'
+Access denied
+```
