@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/30/2018
 ms.author: ancav
 
 ---
@@ -808,11 +808,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |Throughput|Throughput|BytesPerSecond|Total|Number of bytes per second the Application Gateway has served|No Dimensions|
-|UnhealthyHostCount|Unhealthy Host Count|Count|Average|Number of unhealthy backend hosts|BackendSettingsPool|
-|HealthyHostCount|Healthy Host Count|Count|Average|Number of healthy backend hosts|BackendSettingsPool|
+|UnhealthyHostCount|Unhealthy Host Count|Count|Average|Number of unhealthy backend hosts. You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.|BackendSettingsPool|
+|HealthyHostCount|Healthy Host Count|Count|Average|Number of healthy backend hosts. You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.|BackendSettingsPool. |
 |TotalRequests|Total Requests|Count|Total|Count of successful requests that Application Gateway has served|BackendSettingsPool|
 |FailedRequests|Failed Requests|Count|Total|Count of failed requests that Application Gateway has served|BackendSettingsPool|
-|ResponseStatus|Response Status|Count|Total|Http response status returned by Application Gateway|HttpStatusGroup|
+|ResponseStatus|Response Status|Count|Total|Http response status returned by Application Gateway. The response status code distribution can be further categoized to show responses in 2xx, 3xx, 4xx, and 5xx categories.|HttpStatusGroup|
 |CurrentConnections|Current Connections|Count|Total|Count of current connections established with Application Gateway|No Dimensions|
 
 ## Microsoft.Network/virtualNetworkGateways
