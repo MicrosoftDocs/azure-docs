@@ -79,7 +79,6 @@ An Event Hubs namespace provides a unique fully qualified domain name in which y
 New-AzureRmEventHubNamespace -ResourceGroupName eventhubsResourceGroup  -NamespaceName <namespace_name> -Location eastus
 ```
 
-
 ### Create an event hub
 To create an event hub, specify the namespace under which you want it created. The following example shows how to create an event hub
 
@@ -128,12 +127,13 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 
 5. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained while provisioning the resources:
 
-```netcore-cli
-private const string EhConnectionString = "Event Hubs connection string";
-private const string EhEntityPath = "Event Hub name";
+  ```netcore-cli
+  private const string EhConnectionString = "Event Hubs connection string";
+  private const string EhEntityPath = "Event Hub name";
 
-```
+  ```
 6. Build and run the sample. You can see the events being ingested into your event hub.
+
 ![][3]
 
 ### Receive and process events
@@ -148,19 +148,21 @@ private const string EhEntityPath = "Event Hub name";
 
 5. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name and storage account key:
 
-```netcore-cli
+  ```netcore-cli
 
-private const string EventHubConnectionString = "Event Hubs connection string";
-private const string EventHubName = "Event Hub name";
-private const string StorageContainerName = "Storage account container name";
-private const string StorageAccountName = "Storage account name";
-private const string StorageAccountKey = "Storage account key";
+  private const string EventHubConnectionString = "Event Hubs connection string";
+  private const string EventHubName = "Event Hub name";
+  private const string StorageContainerName = "Storage account container name";
+  private const string StorageAccountName = "Storage account name";
+  private const string StorageAccountKey = "Storage account key";
 
-```
+  ```
 6. Build and run the sample. You can see the events being received on your sample application
+
 ![][4]
 
 You can view the incoming and outgoing events count in the portal for the Event Hubs namespace as shown below:
+
 ![][5]
 
 ## Clean up deployment
