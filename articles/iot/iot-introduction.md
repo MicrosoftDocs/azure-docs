@@ -3,7 +3,7 @@ title: Azure Internet of Things (IoT) Introduction
 description: Overview Azure IoT and related services and technologies.
 services: iot-hub
 documentationcenter: ''
-author: bryanla
+author: BryanLa
 manager: timlt
 editor: bryanla
 
