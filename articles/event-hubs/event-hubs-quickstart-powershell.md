@@ -119,10 +119,14 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 ### Ingest events
 
 1. Download the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
-2. Navigate to the \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleSender folder
-3. Load SampleSender.sln file from your downloaded location in Visual Studio
-4. Add [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) Nuget package to the project
-5. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained while provisioning the resources
+
+2. Navigate to the \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleSender folder.
+
+3. Load SampleSender.sln file from your downloaded location in Visual Studio.
+
+4. Add [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) Nuget package to the project.
+
+5. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained while provisioning the resources:
 
 ```netcore-cli
 private const string EhConnectionString = "Event Hubs connection string";
@@ -134,11 +138,15 @@ private const string EhEntityPath = "Event Hub name";
 
 ### Receive and process events
 
- 1. Download the [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs)
-2. Navigate to the \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleEphReceiver folder
-3. Load the SampleEphReceiver.sln solution file into Visual Studio
-4. Add the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) and [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) Nuget packages to the project
-5. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name and storage account key
+ 1. Download the [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
+
+2. Navigate to the \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleEphReceiver folder.
+
+3. Load the SampleEphReceiver.sln solution file into Visual Studio.
+
+4. Add the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) and [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) Nuget packages to the project.
+
+5. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name and storage account key:
 
 ```netcore-cli
 
@@ -149,10 +157,10 @@ private const string StorageAccountName = "Storage account name";
 private const string StorageAccountKey = "Storage account key";
 
 ```
-5. Build and run the sample. You can see the events being received on your sample application
+6. Build and run the sample. You can see the events being received on your sample application
 ![][4]
 
-You can view the incoming and outgoing events count in the portal metrics window for the Event Hubs namespace. The following example shows these results after running the programs twice (sending and receiving two sets of 100 messages):
+You can view the incoming and outgoing events count in the portal for the Event Hubs namespace as shown below:
 ![][5]
 
 ## Clean up deployment
