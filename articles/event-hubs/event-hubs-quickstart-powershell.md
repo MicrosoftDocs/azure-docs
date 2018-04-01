@@ -149,7 +149,6 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 5. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name and storage account key:
 
   ```netcore-cli
-
   private const string EventHubConnectionString = "Event Hubs connection string";
   private const string EventHubName = "Event Hub name";
   private const string StorageContainerName = "Storage account container name";
