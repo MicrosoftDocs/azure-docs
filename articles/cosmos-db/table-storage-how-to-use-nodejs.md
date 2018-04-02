@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/23/2018
 ms.author: mimig
 
 ---
@@ -359,8 +359,6 @@ dc.table.queryEntities(tableName,
 ```
 
 If you inspect the `continuationToken` object, you will find properties such as `nextPartitionKey`, `nextRowKey` and `targetLocation`, which can be used to iterate through all the results.
-
-There is also a continuation sample (continuationsample.js) in the [azure-storage-node repository](https://github.com/Azure/azure-storage-node/tree/master/examples/samples) on GitHub. 
 
 ## Work with shared access signatures
 Shared access signatures (SAS) are a secure way to provide granular access to tables without providing your Storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.

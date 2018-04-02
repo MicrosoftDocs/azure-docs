@@ -168,6 +168,18 @@ Then, update the `VirtualMachineProfile` section of the template.json file by ad
 
 After you modify the template.json file as described, republish the Resource Manager template. If the template was exported, running the deploy.ps1 file republishes the template. After you deploy, ensure that **ProvisioningState** is **Succeeded**.
 
+> [!TIP]
+> If you are going to deploy containers to your cluster, enable WAD to pick up docker stats by adding this to your **WadCfg > DiagnosticMonitorConfiguration** section.
+>
+>```json
+>"DockerSources": {
+>    "Stats": {
+>        "enabled": true,
+>        "sampleRate": "PT1M"
+>    }
+>},
+>```
+
 ## Log collection configurations
 Logs from additional channels are also available for collection, here are some of the most common configurations you can make in the template for clusters running in Azure.
 

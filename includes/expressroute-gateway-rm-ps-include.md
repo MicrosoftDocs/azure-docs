@@ -58,7 +58,7 @@ The steps for this task use a VNet based on the values in the following configur
 5. Set the configuration.
 
   ```powershell
-  Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+  $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
 6. Store the gateway subnet as a variable.
 
