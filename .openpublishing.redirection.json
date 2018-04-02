@@ -31,7 +31,7 @@
         },
         {
             "source_path": "articles/machine-learning/studio/what-is-machine-learning.md",
-            "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
+            "redirect_url": "/azure/machine-learning/preview/overview-what-is-azure-ml",
             "redirect_document_id": true
         },
 	{
