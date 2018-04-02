@@ -1,23 +1,30 @@
 ---
-title: Workbench Configuration Reference - Azure Blockchain
-description: Azure Blockchain Workbench configuration overview and reference.
-# services: service-name-with-dashes-AZURE-ONLY
+title: Azure Blockchain Workbench Configuration Reference - Azure Blockchain
+description: Overview of configuration needed to define a Azure Blockchain Workbench application.
+services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
 ms.date: 3/20/2018
 ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-# ms.service: service-name-from-white-list
-# product-name-from-white-list
-
-# ms.custom: mvc
+ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ---
 # Azure Blockchain Workbench Configuration Reference
 
-Azure Blockchain Workbench configuration files define blockchain applications. Blockchain applications are multi-party workflows defined as configuration metadata and smart contracts. Configuration metadata represents the high-level workflows and interaction model of the blockchain application. Smart contracts drive and represent the business logic of the blockchain application. Workbench uses the two inputs to automatically generate end-to-end blockchain application user experiences.
+Blockchain applications are multi-party workflows defined by a configuration and smart contract code. Configuration metadata define the high-level workflows and interaction model of the blockchain application. Smart contracts drive and define the business logic of the blockchain application. Workbench uses configuration and smart contract code to generate end-to-end blockchain application user experiences.
+
+Configuration metadata specifies the following information for each blockchain application: 
+
+* Name and description of the blockchain application.
+* Unique user roles who can act or participate within the blockchain application. 
+* One or more workflows, where each workflow acts as a state machine to control business logic flow. Workflows can be independent or interact with each other. 
+* Each defined workflow specifies the following:
+* Name and description of the workflow.
+* States within the workflow.
+* Actions, which can be taken at each state along with the user role who can take the action.
+
 
 ![Configuration](media/blockchain-workbench-configuration-overview/configuration.png)
 
