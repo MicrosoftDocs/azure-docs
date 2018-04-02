@@ -1,6 +1,6 @@
 ---
-title: How to manage your Azure Location Based Services account and keys | Microsoft Docs 
-description: You can use the Azure portal to manage your Azure Location Based Services account and manage your access keys.
+title: How to manage your Azure Maps account and keys | Microsoft Docs 
+description: You can use the Azure portal to manage your Azure Maps account and manage your access keys.
 services: location-based-services
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: kgremban
@@ -11,9 +11,9 @@ ms.service: location-based-services
 manager: timlt
 ---
 
-# How to manage your Azure Location Based Services account and keys
+# How to manage your Azure Maps account and keys
 
-You can manage your Azure Location Based Services account and keys through the Azure portal. Once you have an account and a key, you can implement the APIs in your web site or mobile application.
+You can manage your Azure Maps account and keys through the Azure portal. Once you have an account and a key, you can implement the APIs in your web site or mobile application.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -25,9 +25,9 @@ Log in to the Azure portal at http://portal.azure.com.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
-2. Search for and select **Location Based Services**, then click **Create**.
+2. Search for and select **Maps**, then click **Create**.
 
-3. Enter the Location Based Services Account information. 
+3. Enter the Maps Account information. 
 
 ![Enter account information in the portal](./media/how-to-manage-account-keys/new-account-portal.png)
 
@@ -37,7 +37,7 @@ On the left-hand menu, under settings, click **Keys**.
 
 ![Manage account keys in the portal](./media/how-to-manage-account-keys/account-keys-portal.png)
 
-Use keys to authenticate against Azure Location Based Services and start developing your location-based application.
+Use keys to authenticate against Azure Maps and start developing your location-based application.
 
 ## Delete an account
 

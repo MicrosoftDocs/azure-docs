@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Location Based Services (preview) Documentation
+title: Azure Maps Documentation
 metadata:
   document_id: 
-  title: Azure Location Based Services (preview) Documentation | Microsoft Docs
-  meta.description: Use Azure Location Based Services (preview) to provide geospatial services to your web or mobile application.
+  title: Azure Maps Documentation | Microsoft Docs
+  meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
   services: location-based-services
   author: philmea
   manager: timlt
@@ -12,15 +12,15 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/22/2017
+  ms.date: 05/07/2018
   ms.author: philmea
 abstract:
-  description: Azure Location Based Services (preview) provides developers from all industries, powerful geospatial capabilities, packed with fresh mapping data necessary to provide geographic context to web and mobile applications. This service is an Azure One API compliant set of REST APIs, accompanied with a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums.
+  description: Azure Maps provides developers from all industries, powerful geospatial capabilities, packed with fresh mapping data necessary to provide geographic context to web and mobile applications. This service is an Azure One API compliant set of REST APIs, accompanied with a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums.
 sections:
 - title: 5-minute quickstarts
   items:
   - type: paragraph
-    text: 'Launch a map search app using Azure Location Based Services (preview).'
+    text: 'Launch a map search app using Azure Maps.'
   - type: list
     style: icon48
     items: 
@@ -31,7 +31,7 @@ sections:
 - title: Step-by-step tutorials
   items:
   - type: paragraph
-    text: Build a geospatial web application to search for points of interest and route to locations using Azure Location Based Services (preview).
+    text: Build a geospatial web application to search for points of interest and route to locations using Azure Maps.
   - type: list
     style: ordered
     items:

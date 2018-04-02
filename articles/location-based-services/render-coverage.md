@@ -1,6 +1,6 @@
 ---
-title: Render Coverage in Azure Location Based Services | Microsoft Docs
-description: Learn about Render Coverage in Azure Location Based Services
+title: Render Coverage in Azure Maps | Microsoft Docs
+description: Learn about Render Coverage in Azure Maps
 services: location-based-services
 keywords: 
 author: jinzh-azureiot
@@ -16,9 +16,9 @@ ms.custom: mvc
 ---
 
 
-# Azure Location Based Services - Render Coverage
+# Azure Maps - Render Coverage
 
-This article provides coverage information for Azure Location Based Services Render. 
+This article provides coverage information for Azure Maps Render. 
 
 Check out coverage for [**Geocoding**](geocoding-coverage.md).  
 Check out coverage for [**Traffic**](traffic-coverage.md).  
@@ -37,7 +37,7 @@ Check out coverage for [**Routing**](routing-coverage.md).
 
 ## Render Coverage of Raster Tiles
 
-The following table provides coverage information for Azure Location Based Services Render of Raster Tiles.
+The following table provides coverage information for Azure Maps Render of Raster Tiles.
 
 |Region|Render - Raster Tiles Unified|
 |--- |:---: |
@@ -174,7 +174,7 @@ The following table provides coverage information for Azure Location Based Servi
 
 ## Render Coverage of Vector Tiles 
 
-The following table provides coverage information for Azure Location Based Services Render of Vector Tiles.
+The following table provides coverage information for Azure Maps Render of Vector Tiles.
 
 |Region|Render - Vector Tiles Unified|
 |--- |:---: |

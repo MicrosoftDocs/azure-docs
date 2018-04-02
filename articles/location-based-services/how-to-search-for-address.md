@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: How to search for an address using the Azure Location Based Services (preview) Search service  | Microsoft Docs 
-description: Learn how to search for an address using the Azure Location Based Services (preview) Search service
+title: How to search for an address using the Azure Maps Search service  | Microsoft Docs 
+description: Learn how to search for an address using the Azure Maps Search service
 services: location-based-services
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: kgremban
@@ -10,13 +10,13 @@ ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
 ---
-# How to find an address using the Azure Location Based Services (preview) Search service
-The Search service is a RESTful set of APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The Search Service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the Search service APIs can be used as parameters in other Azure Location Based Services such as the Route and Traffic Flow APIs.
+# How to find an address using the Azure Maps Search service
+The Search service is a RESTful set of APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The Search Service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the Search service APIs can be used as parameters in other Azure Maps such as the Route and Traffic Flow APIs.
 
 ## Prerequisites
 * Install the [Postman app](https://www.getpostman.com/apps).
 
-* Have an Azure Location Based Services account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Location Based Services account and keys](how-to-manage-account-keys.md). 
+* Have an Azure Maps account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md). 
 
 ## Using Fuzzy Search
 
@@ -40,7 +40,7 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
     | Request URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Authorization | No Auth |
 
-    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Location Based Services Functional API reference] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
+    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Maps Functional API reference] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 
@@ -49,7 +49,7 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<your Azure Location Based Services key\> |
+    | subscription-key | \<your Azure Maps key\> |
     | query | pizza |
 
 4. Click **Send** and review the response body. 
@@ -99,7 +99,7 @@ You can pass a complete or partial street address to the Search Address API and 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<your Azure Location Based Services key\> |
+    | subscription-key | \<your Azure Maps key\> |
     | query | 400 Broad St, Seattle, WA 98109 |
     
 3. Click **Send** and review the response body. 
@@ -139,7 +139,7 @@ You can pass a complete or partial street address to the Search Address API and 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<your Azure Location Based Services key\> |
+    | subscription-key | \<your Azure Maps key\> |
     | query | 47.59093,-122.33263 |
     
 3. Click **Send** and review the response body. 
@@ -205,7 +205,7 @@ You can pass a complete or partial street address to the Search Address API and 
     | Key | Value |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | \<your Azure Location Based Services key\> |
+    | subscription-key | \<your Azure Maps key\> |
     | query | 47.59093,-122.33263 |
     
 4. Click **Send** and review the response body. 
