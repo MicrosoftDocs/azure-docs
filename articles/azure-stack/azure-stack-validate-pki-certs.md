@@ -7,7 +7,6 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -19,32 +18,34 @@ ms.reviewer: ppacent
 ---
 
 # Validate Azure Stack PKI certificates
-The Azure Stack Certificate Checker tool described in this article is provided by the OEM included with the deploymentdata.json file in order to validate that the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. Certificates should be validated with enough time to test and get certificates reissued if necessary. 
+
+The Azure Stack Certificate Checker tool described in this article is provided by the OEM included with the deploymentdata.json file in order to validate that the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. Certificates should be validated with enough time to test and get certificates reissued if necessary.
 
 The Certificate Checker tool (Certchecker) performs the following checks:
 
 - **Read PFX**. Checks for valid PFX file, correct password and warns if public information is not protected by the password. 
-- **Signature Algorithm**. Checks the Signature Algorithm is not SHA1 
+- **Signature Algorithm**. Checks the Signature Algorithm is not SHA1.
 - **Private Key**. Checks the private key is present and is exported with the Local Machine attribute. 
 - **Cert Chain**. Checks certificate chain is in tact including for self-signed certificates. 
 - **DNS Names**. Checks the SAN contains relevant DNS names for each endpoint or if a supporting wildcard is present. 
-- **Key Usage**. Checks Key Usage contains Digital Signature and Key Encipherment and Enhanced Key Usage contains Server Authentication and Client Authentication. 
-- **Key Size**. Checks Key Size is 2048 or larger 
-- **Chain Order**. Checks the order of the other certificates making the chain is correct. 
-- **Other Certificates**. Ensure no other certificates have been packaged in PFX other than the relevant leaf certificate and its chain. 
-- **No Profile**. Checks a new user can load the PFX data without a user profile loaded, mimicking the behavior of gMSA accounts during certificate servicing.   
+- **Key Usage**. Checks Key Usage contains Digital Signature and Key Encipherment and Enhanced Key Usage contains Server Authentication and Client Authentication.
+- **Key Size**. Checks Key Size is 2048 or larger.
+- **Chain Order**. Checks the order of the other certificates making the chain is correct.
+- **Other Certificates**. Ensure no other certificates have been packaged in PFX other than the relevant leaf certificate and its chain.
+- **No Profile**. Checks a new user can load the PFX data without a user profile loaded, mimicking the behavior of gMSA accounts during certificate servicing.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The PKI certificate PFX file and password should be treated as sensitive information.
 
 ## Prerequisites
 Your system should meet the following prerequisites before validating PKI certificates for Azure Stack deployment:
-- CertChecker (in PartnerToolKit under \utils\certchecker)
+- CertChecker (in **PartnerToolKit** under **\utils\certchecker**)
 - SSL Certificate(s) exported following the [preparation instructions](prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 or Windows Server 2016
 
 ## Perform certificate validation
+
 Use these steps to prepare and validate the Azure Stack PKI certificates: 
 
 1. Extract the contents of <partnerToolkit>\utils\certchecker to a new directory, for example, **c:\certchecker**.
