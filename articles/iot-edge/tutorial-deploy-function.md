@@ -65,7 +65,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 2. Create a project for the new module. The following command creates the project folder, **FilterFunction**, with your container repository. The second parameter should be in the form of `<your container registry name>.azurecr.io` if you are using Azure container registry. Enter the following command in the current working folder:
 
     ```cmd/sh
-    dotnet new aziotedgefunction -n FilterModule -r <your container registry address>/filterfunction
+    dotnet new aziotedgefunction -n FilterFunction -r <your container registry address>/filterfunction
     ```
 
 3. Select **File** > **Open Folder**, then browse to the **FilterFunction**  folder and open the project in VS Code.
