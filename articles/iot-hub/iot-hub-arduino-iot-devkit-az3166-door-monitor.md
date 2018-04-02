@@ -18,7 +18,9 @@ ms.author: liydu
 
 ---
 
-# Door Monitor          The MXChip IoT DevKit contains 
+# Door Monitor          
+
+The MXChip IoT DevKit contains a built-in magnetic sensor. In this project, you detect the presence or absence of a nearby strong magnetic field--in this case, coming from a small. permanent magnet.
 
 ## What you learn
 
