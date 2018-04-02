@@ -4,6 +4,7 @@ description: Steps to upgrade Azure SQL Data Warehouse to latest generation of A
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
+ms.services: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/02/2018
