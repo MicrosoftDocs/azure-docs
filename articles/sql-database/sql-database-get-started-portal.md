@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: carlrab
 
 ---
@@ -71,7 +71,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    > [!IMPORTANT]
    > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
 7. For this quick start tutorial, select the **Standard** service tier and then use the slider to select **10 DTUs (S0)** and **1** GB of storage.
@@ -159,13 +159,7 @@ Save these resources if you want to go to [Next steps](#next-steps) and learn ho
 
 ## Next steps
 
-Now that you have a database, you can connect and query using your favorite tools. Learn more by choosing your tool below:
-
-- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [.NET](sql-database-connect-query-dotnet.md)
-- [PHP](sql-database-connect-query-php.md)
-- [Node.js](sql-database-connect-query-nodejs.md)
-- [Java](sql-database-connect-query-java.md)
-- [Python](sql-database-connect-query-python.md)
-- [Ruby](sql-database-connect-query-ruby.md)
+- Now that you have a database, you can [connect and query](sql-database-connect-query.md) using one of your favorite tools or languages. 
+- To learn how to design your first database, create tables, and insert data, see one of these tutorials:
+ - [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md)
+  - [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)

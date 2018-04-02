@@ -3,8 +3,9 @@ title: Consume a Machine Learning Web Service from Excel | Microsoft Docs
 description: Consume an Azure Machine Learning Web Service from Excel
 services: machine-learning
 documentationcenter: ''
-author: tedway
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 3f3cdd2f-1816-487e-ab78-530e01e9788f
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/1/2018
-ms.author: tedway
 
 ---
 # Consuming an Azure Machine Learning Web Service from Excel

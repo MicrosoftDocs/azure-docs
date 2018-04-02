@@ -4,8 +4,8 @@ description: Demonstrates how 1 TB of data can be loaded into Azure SQL Data War
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory

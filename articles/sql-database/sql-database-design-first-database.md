@@ -1,18 +1,18 @@
 ---
-title: Design your first Azure SQL database | Microsoft Docs
-description: Learn to design your first Azure SQL database in the Azure portal and with SQL Server Management Studio.
+title: Design your first Azure SQL database using SSMS | Microsoft Docs
+description: Learn to design your first Azure SQL database with SQL Server Management Studio.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: carlrab
 
 ---
 
-# Design your first Azure SQL database
+# Design your first Azure SQL database using SSMS
 
 Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to: 
 
@@ -82,7 +82,7 @@ Follow these steps to create a blank SQL database.
    > [!IMPORTANT]
    > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  

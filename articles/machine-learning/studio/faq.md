@@ -4,8 +4,9 @@ description: 'Azure Machine Learning introduction: FAQ covering billing, capabil
 keywords: machine learning introduction,predictive modeling,what is machine learning
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: paulettm
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
 
 ---
 # Azure Machine Learning frequently asked questions: Billing, capabilities, limitations, and support

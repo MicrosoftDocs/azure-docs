@@ -3,11 +3,12 @@ title: 'Azure SQL Database service | Microsoft Docs'
 description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
 services: sql-database
 author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
+manager: craigg
+ms.topic: article
 ms.author: carlrab
 
 ---
@@ -29,7 +30,8 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |CPU|Low|Low, Medium, High|Medium, High|
 |IO throughput (approximate) |2.5 IOPS per DTU	| 2.5 IOPS per DTU | 48 IOPS per DTU|
 |IO latency (approximate)|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
-|Columnstore indexing and in-memory OLTP|N/A|N/A|Supported|
+|Columnstore indexing |N/A|S3 and above|Supported|
+|In-memory OLTP|N/A|N/A|Supported|
 |||||
 
 ## Performance level and storage size limits
@@ -58,7 +60,7 @@ Performance levels are expressed in terms of Database Transaction Units (DTUs) f
 > [!IMPORTANT]
 > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
-> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> \* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 
 For details on specific performance levels and storage size choices available, see [SQL Database resource limits](sql-database-resource-limits.md).

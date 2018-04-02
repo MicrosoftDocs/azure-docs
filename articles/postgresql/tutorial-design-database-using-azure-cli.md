@@ -1,4 +1,4 @@
----
+--
 title: 'Tutorial: Design an Azure Database for PostgreSQL using Azure CLI'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL server using Azure CLI.
 services: postgresql
@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ---
 # Tutorial: Design an Azure Database for PostgreSQL using Azure CLI 
 In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
@@ -56,11 +56,11 @@ The return JSON should include the following:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
 ```
 
-If version 0.0.3 is not returned, run the following to update the extension: 
+If version 0.0.4 is not returned, run the following to update the extension: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -144,7 +144,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
   
   ```azurecli-interactive
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  Once you are connected to the server, create a blank database at the prompt:

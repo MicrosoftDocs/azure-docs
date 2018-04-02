@@ -90,11 +90,12 @@ The following items don't sync, but the rest of the system continues to operate 
 - A server endpoint can't be on the system volume. For example, C:\MyFolder isn't an acceptable path unless C:\MyFolder is a mount point.
 - Failover Clustering is supported only with clustered disks, but not with Cluster Shared Volumes (CSVs).
 - A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
-- Deleting a large number (over 10,000) of directories from a server at a single time can cause sync failures. Delete directories in batches of less than 10,000. Make sure the delete operations sync successfully before deleting the next batch.
 - This release adds support for the sync root at the root of a volume.
 - Don't store an OS or application paging file that's within a server endpoint.
 - Changed in this release: added new events to track the total runtime for cloud tiering (EventID 9016), sync upload progress (EventID 9302), and files that didn't sync (EventID 9900).
-- Changed in this release: fast DR namespace sync performance is increased dramatically.
+- Improved in this release: 
+- Fast DR namespace sync performance is increased dramatically.
+- Deleting large numbers (over 10,000) of directories does not need to be done in batches with v2*.
  
 ### Cloud tiering
 - Changed from the previous version: new files are tiered within 1 hour (previously 32 hours) subject to the tiering policy setting. We provide a PowerShell cmdlet to tier on demand. You can use the cmdlet to evaluate tiering more efficiently without waiting for the background process.
