@@ -3319,6 +3319,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/user/azure-stack-connect-cli.md",
+            "redirect_url": "/azure/user/azure-stack-version-profiles-azurecli2",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
             "redirect_url": "/azure/best-practices-network-security",
             "redirect_document_id": false
@@ -11417,6 +11422,16 @@
         {
             "source_path": "articles/azure-stack/azure-stack-vm-considerations.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-vm-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/prepare-pki-certs.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-prepare-pki-certs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/validate-pki-certs.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-validate-pki-certs",
             "redirect_document_id": false
         },
         {

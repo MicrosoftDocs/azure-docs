@@ -24,7 +24,7 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM agent can't communicate with Azure Backup
+## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM agent unable to communicate with Azure Backup
 
 Error message: "VM Agent unable to communicate with Azure Backup"
 
@@ -75,21 +75,6 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 4: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 6: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## Disk configuration is not supported
-
-Error message: "The specified Disk configuration is not supported"
-
-> [!NOTE]
-> We have a private preview to support backups for VMs that have disks larger than 1 TB. For details, see [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
->
->
-
-Currently, Azure Backup doesn’t support disks that are [larger than 1,023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). If you have disks that are larger than 1 TB:  
-1. [Attach new disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) that are smaller than 1 TB.  
-2. Copy the data from disks that are larger than 1 TB to the newly created disks that are smaller than 1 TB.  
-3. Ensure that all data has been copied. Then, remove the disks that are larger than 1 TB.  
-4. Initiate the backup.
 
 ## Causes and solutions
 
