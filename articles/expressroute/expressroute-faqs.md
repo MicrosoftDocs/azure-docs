@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 03/29/2018
 ms.author: cherylmc
 
 ---
@@ -67,11 +67,12 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 * Power BI
 * Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
-* Most of the Azure services, with the following few exceptions:
-  * CDN
-  * Visual Studio Team Services Load Testing
-  * Multi-factor Authentication
-  * Traffic Manager
+* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
+  The following services are NOT supported:
+    * CDN
+    * Visual Studio Team Services Load Testing
+    * Multi-factor Authentication
+    * Traffic Manager
 
 ### Microsoft peering
 
@@ -84,7 +85,8 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Using [route filters](#route-filters-for-microsoft-peering), you get access to the same public services with the Microsoft peering :
   * Power BI
   * Dynamics 365 for Finance and Operations
-  * Most of the Azure services, with the following few exceptions :
+  * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
+  The following services are NOT supported:
     * CDN
     * Visual Studio Team Services Load Testing
     * Multi-factor Authentication
@@ -211,7 +213,7 @@ Yes. You will have to create an ExpressRoute gateway within your virtual network
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 
-The public IP address is used for internal management only. This public IP address is not exposed to the Internet, and does not constitute a security exposure of your virtual network.
+The public IP address is used for internal management only, and does not constitute a security exposure of your virtual network.
 
 ### What do I need to connect to Azure storage over ExpressRoute?
 

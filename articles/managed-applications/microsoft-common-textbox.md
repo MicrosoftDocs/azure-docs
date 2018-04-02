@@ -1,6 +1,6 @@
 ---
-title: Azure Managed Application TextBox UI element | Microsoft Docs
-description: Describes the Microsoft.Common.TextBox UI element for Azure Managed Applications
+title: Azure TextBox UI element | Microsoft Docs
+description: Describes the Microsoft.Common.TextBox UI element for Azure portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
 
 ---
 
 # Microsoft.Common.TextBox UI element
-A control that can be used to edit unformatted text. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
+A control that can be used to edit unformatted text.
 
 ## UI sample
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
@@ -29,8 +29,8 @@ A control that can be used to edit unformatted text. You use this element when [
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
   "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Halp!",
+  "defaultValue": "my value",
+  "toolTip": "Use only allowed characters",
   "constraints": {
     "required": true,
     "regex": "^[a-z0-9A-Z]{1,30}$",
@@ -59,6 +59,5 @@ validation messages are used. The default value is **null**.
 ```
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

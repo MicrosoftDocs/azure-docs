@@ -33,7 +33,7 @@
     href: monitoring-overview-activity-logs.md
   - name: Alerts 
     href: monitoring-overview-unified-alerts.md
-  - name: Alerts (Classic)
+  - name: Alerts (classic)  
     href: monitoring-overview-alerts.md
   - name: Log alerts
     href: monitor-alerts-unified-log.md
@@ -189,3 +189,5 @@
     href: https://stackoverflow.com/search?q=monitoring
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=monitor
+  - name: Usage and estimated costs
+    href: monitoring-usage-and-estimated-costs.md 

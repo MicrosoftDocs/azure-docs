@@ -19,6 +19,10 @@ ms.author: piyushjo
 ---
 # How to Integrate Engagement Reach on Android
 > [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
+> [!IMPORTANT]
 > You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.
 > 
 > 

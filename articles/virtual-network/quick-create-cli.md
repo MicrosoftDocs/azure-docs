@@ -126,4 +126,4 @@ In this article, you created a default virtual network and two VMs. You connecte
 By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound SSH sessions to Linux VMs from the Internet. To learn how to allow or restrict different types of network communication to and from VMs, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Filter network traffic](virtual-networks-create-nsg-arm-cli.md)
+> [Filter network traffic](tutorial-filter-network-traffic-cli.md)
