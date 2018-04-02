@@ -111,7 +111,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 To receive a stream of tweets, you must create an application in Twitter. Follow the steps to create a Twitter application and record the values that you need to complete this tutorial.
 
-1. From a web browser, go to [Twitter Application Management](http://twitter.com/app), and select **Create New App**.
+1. From a web browser, go to [Twitter Application Management](https://apps.twitter.com/), and select **Create New App**.
 
     ![Create Twitter application](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Create Twitter application")
 
@@ -119,7 +119,7 @@ To receive a stream of tweets, you must create an application in Twitter. Follow
 
     ![Twitter application details](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Twitter application details")
 
-3. In the application page, select the **Keys and Access Tokens** tab and copy the values for **Consume Key** and **Consumer Secret**. Also, select **Create my access token** to generate the access tokens. Copy the values for **Access Token** and **Access Token Secret**.
+3. In the application page, select the **Keys and Access Tokens** tab and copy the values for **Consumer Key** and **Consumer Secret**. Also, select **Create my access token** to generate the access tokens. Copy the values for **Access Token** and **Access Token Secret**.
 
     ![Twitter application details](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Twitter application details")
 
