@@ -24,8 +24,6 @@ Azure Service Fabric is a distributed systems platform for deploying and managin
 
 This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a Python web front end and a Redis back end running in a Service Fabric cluster. You also learn how to fail over an application and how to scale an application in your cluster.
 
-![Voting app web page][quickstartpic]
-
 In this quickstart, you use the Bash environment in Azure Cloud Shell to run Service Fabric CLI commands. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -35,7 +33,7 @@ If it is your first time running Cloud Shell, you are asked to set up your `clou
 ## Get the application package
 To deploy containers to Service Fabric, you need a set of manifest files (the application definition), which describe the individual containers and the application.
 
-In the Cloud Shell, use git to clone a copy of the application definition.
+In the Cloud Shell, use git to clone a copy of the application definition; then change directories to the `Voting` directory in your clone. 
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
@@ -77,10 +75,10 @@ To use the CLI, you need to upload the certificate PFX file to the `clouddrive` 
         ![Upload certificate to `clouddrive`](./media/service-fabric-quickstart-containers-linux/upload-file.png) 
 
 1. Convert the PFX file that you uploaded to a PEM file. 
-    1. In Cloud Shell, change directories to your `clouddrive`:
+    1. In Cloud Shell, copy the PFX file from your your `clouddrive` to your working directory:
 
         ```bash
-        cd ~/clouddrive
+        cp ~/clouddrive/party-cluster-1486790479-client-cert.pfx .
         ``` 
 
     7. To convert the file, use the following command. (For party clusters, you can copy a command specific to your PFX file from the instructions on the **ReadMe** page.)
