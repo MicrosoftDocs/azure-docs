@@ -23,7 +23,7 @@ Application Insights can be used with any web pages - you just add a short piece
 
 ![In portal.azure.com, open your app's resource and click Browser](./media/app-insights-javascript/03.png)
 
-You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it. Development and small-scale use won't cost anything.
+You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it.
 
 ## Set up Application Insights for your web page
 Add the loader code snippet to your web pages, as follows.
