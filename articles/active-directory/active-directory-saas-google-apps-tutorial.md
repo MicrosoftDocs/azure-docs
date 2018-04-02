@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/02/2018
 ms.author: jeedes
 
 ---
@@ -44,11 +44,6 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-
-## Video tutorial
-How to Enable Single Sign-On to G Suite in 2 Minutes:
-
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enable-single-sign-on-to-Google-Apps-in-2-minutes-with-Azure-AD/player]
 
 ## Frequently Asked Questions
 1.	**Q: Does this integration support Google Cloud Platform SSO integration with Azure AD?**
