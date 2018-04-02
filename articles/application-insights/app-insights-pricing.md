@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/02/2018
 ms.author: mbullwin
 
 ---
@@ -45,7 +45,7 @@ Customers who purchase Microsoft Operations Management Suite E1 and E2 are able 
 > [!NOTE]
 > To ensure that you get this entitlement, you must have your Application Insights resources in the Enterprise pricing plan. This entitlement applies only as nodes, so Application Insights resources in the Basic plan will not realize any benefit. Note that this entitlement will not be visible on the estimated costs shown on the *Usage and estimated cost* page. Also, if you move a subscription to the new Azure monitoring pricing model of April 2018, the Basic plan will be the only plan available so it is not advised if you have an Operations Management Suite subscription.
 
-For more details on the Enterprise plan visit the [Enterprise pricing details page.](app-insights-pricing-enterprise-details.md#enterprise-pricing-details)
+For more details on the Enterprise plan visit the [Enterprise pricing details page.](app-insights-pricing-enterprise-details.md)
 
 ### Multi-step web tests
 
@@ -77,8 +77,8 @@ Application Insights charges are added to your Azure bill. You can see details o
 There are three ways in which the volume you send data is limited:
 
 * **Sampling:** This mechanism can be used reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics. This is the primary tool you have to tune the amount of data. Learn more about [sampling features](app-insights-sampling.md). 
-* **Daily cap:** When creating an Application Insights resource from the Azure portal this is set to 100 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day) which is intended only to facilitate testing. In this case it is intended that the user will raise the daily cap before deploying the app into production. The maximum cap is 1000 GB/day unless you have requested a higher maximum for a high traffic application. Use care when setting the daily cap, as your intent should be **never to hit the daily cap**, because you will then lose data for the remainder of the day and be unable to monitor your application. To change it, use the Daily volume cap option, linked from the Usage and estimated costs page (see below). Note that we've removed the restriction on some subscription types have credit which could not be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog will have instructions how to remove it and enable the daily cap to be raised beyond 32.3 MB/day.  
-* **Throttling:** This limits the data rate to 32,000 events per second, averaged over 1 minute. 
+* **Daily cap:** When creating an Application Insights resource from the Azure portal this is set to 100 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day) which is intended only to facilitate testing. In this case it is intended that the user will raise the daily cap before deploying the app into production. The maximum cap is 1000 GB/day unless you have requested a higher maximum for a high traffic application. Use care when setting the daily cap, as your intent should be **never to hit the daily cap**, because you will then lose data for the remainder of the day and be unable to monitor your application. To change it, use the Daily volume cap option, linked from the Usage and estimated costs page (see below). We've removed the restriction on some subscription types that have credit which could not be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog will have instructions how to remove it and enable the daily cap to be raised beyond 32.3 MB/day.
+* **Throttling:** This limits the data rate to 32,000 events per second, averaged over 1 minute.
 
 *What happens if my app exceeds the throttling rate?*
 
@@ -139,14 +139,12 @@ In each retained record, `itemCount` indicates the number of original records th
 You can write a script to set the price plan, using Azure Resource Management. [Learn how](app-insights-powershell.md#price).
 
 ## Limits summary
+
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 ## Next steps
 
 * [Sampling](app-insights-sampling.md)
-* [Intentional bad link to prevent accidental merge](app-insights-does-not-exist.md)
-
-<!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
