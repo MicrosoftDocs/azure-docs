@@ -17,7 +17,7 @@ Azure Database for MySQL servers are backed up periodically to enable Restore fe
 
 ## Prerequisites
 To complete this how-to guide, you need:
-- An [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-cli)
+- An [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -64,7 +64,7 @@ While creating a server via the `az mysql server create` command, the `--geo-red
 
 The backup retention period is set by the parameter `--backup-retention-days`. 
 
-For more information about setting these values during create, see the [Azure Database for MySQL server CLI Quickstart](quickstart-create-mysql-server-database-using-azure-cli).
+For more information about setting these values during create, see the [Azure Database for MySQL server CLI Quickstart](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 The backup retention period of a server can be changed as follows:
 
