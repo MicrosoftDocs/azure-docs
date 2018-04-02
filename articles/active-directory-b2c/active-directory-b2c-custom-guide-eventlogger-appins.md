@@ -22,6 +22,9 @@ Azure Active Directory B2C (Azure AD B2C) works well with Azure Application Insi
 * Measure performance.
 * Create notifications from Application Insights.
 
+> [!NOTE]
+> This feature is in preview.
+
 ## How it works
 The Identity Experience Framework in Azure AD B2C now includes the provider `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`. It sends event data directly to Application Insights by using the instrumentation key provided to Azure AD B2C. 
 
