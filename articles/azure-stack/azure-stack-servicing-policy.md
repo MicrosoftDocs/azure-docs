@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/02/2018
 ms.author: mabrigg
 
 ---
@@ -38,10 +38,11 @@ A Microsoft update package has the following naming convention to help you easil
 For example, a Microsoft software update released on June 15, 2017 would have the version "1.0.170615.1".
 
 ## Keep your system under support
+To continue to receive support, you must keep your Azure Stack deployment current. Our policy for deferral of updates is that for Azure Stack to remain in support, it must run the most recently released update version or run either of the two preceding major update versions.  Hotfixes are not considered major update versions.  If your Azure Stack cloud is behind by *more than two updates*, it is considered out of compliance and must update to at least the minimum supported version to receive support. 
 
-To receive support for your system, you must keep your Azure Stack updated within a specific time interval. Our policy for deferral of Microsoft software updates is three months. If your system is more than three months out of date, you’re considered out of compliance. You must update the system to at least the minimum supported version to receive support. 
+For example, if the most recently available update version is 1805, and the previous two update packages were versions 1804 and 1803, both 1803 and 1804 remain in support. However, 1802 is out of support. The policy holds true when there is no release for a month or two. For example, if the current release is 1805 and there was no 1804 release, the previous two update packages of 1803 and 1802 would remain in support.
 
-Microsoft software update packages are non-cumulative, and require the previous update package as a prerequisite. If you decide to defer one or more updates, consider the overall runtime if you want to get to the latest version.
+Microsoft software update packages are non-cumulative and require the previous update package as a prerequisite. If you decide to defer one or more updates, consider the overall runtime if you want to get  to the latest version. 
 
 The following table shows example update package releases, their prerequisite, and the minimum supported version that your system must be at to maintain support. The table is based on the initial release of Azure Stack integrated systems (build 1708), with the first update package release (1709) in September 2017. 
 
@@ -50,11 +51,12 @@ The following table shows example update package releases, their prerequisite, a
 | 1710 | 1709 | N/A |
 | 1711 | 1710 | 1709 |
 | 1712 | 1711 | 1710 |
-| 1802 | 1801 | 1712 |
-| 1803 | 1802 | 1801 |
+| 1802 | 1712 | 1711 |
+| 1803 | 1802 | 1712 |
 | 1804 | 1803 | 1802 |
 | 1805 | 1804 | 1803 |
 | | | 
+In the preceeding table, there is no release version 1801.
 
 ## Next steps
 

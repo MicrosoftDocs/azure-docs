@@ -183,6 +183,10 @@ The following are post-installation known issues for build  **20180323.2**.
 
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
 
+
+#### Usage  
+- Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+
 <!--
 #### Identity
 -->
