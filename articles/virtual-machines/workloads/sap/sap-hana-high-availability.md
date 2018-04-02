@@ -292,7 +292,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     
     ```
 
-To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-hana-ha-guide].
+To install SAP HANA System Replication, follow chapter 4 of the SAP HANA SR Performance Optimized Scenario guide at https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 
 1. **[A]** Run hdblcm from the HANA DVD
     * Choose installation -> 1

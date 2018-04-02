@@ -35,7 +35,7 @@ You can retrieve events from your Activity Log using the Azure portal, CLI, Powe
 
 > [!NOTE]
 
->  [Alerts (Preview)](monitoring-overview-unified-alerts.md) currently offers an enhanced experience in creating and managing activity log alert rules.  [Learn more](monitoring-activity-log-alerts-new-experience.md).
+>  [The newer alerts)](monitoring-overview-unified-alerts.md) offers an enhanced experience when creating and managing activity log alert rules.  [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
 
 View the following video introducing the Activity Log.
