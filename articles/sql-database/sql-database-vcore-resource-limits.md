@@ -64,7 +64,7 @@ For single databases, the following tables show the resources available for a si
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
-## Single database: change storage size
+## Single database: Change storage size
 
 - Storage can be provisioned up to the max size limit using 1GB increments. The minimum configurable data storage is 5GB 
 - Storage for a single database can be provisioned by increasing or decreasing its max size using the 
