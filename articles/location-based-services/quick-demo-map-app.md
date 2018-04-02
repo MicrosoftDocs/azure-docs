@@ -1,6 +1,6 @@
 ---
-title: Interactive Map Search with Azure Location Based Services | Microsoft Docs
-description: Azure Quickstart - Launch a demo interactive map search using Azure Location Based Services (preview)
+title: Interactive Map Search with Azure Maps | Microsoft Docs
+description: Azure Quickstart - Launch a demo interactive map search using Azure Maps
 services: location-based-services
 keywords: 
 author: kgremban
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Launch a demo interactive map search using Azure Location Based Services (preview)
+# Launch a demo interactive map search using Azure Maps
 
-This article demonstrates the capabilities of Azure Location Based Services (LBS) to perform an interactive search using Azure Maps. It also walks you through the basic steps of creating your own LBS account and getting your account's key to use in the demo web application. 
+This article demonstrates the capabilities of Azure Maps to perform an interactive search using Azure Maps. It also walks you through the basic steps of creating your own Maps account and getting your account's key to use in the demo web application. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -26,16 +26,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
-## Create a Location Based Services account and get account key
+## Create a Maps account and get account key
 
 1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
-2. In the *Search the Marketplace* box, type **location based services**.
-3. From the *Results*, click the **Location Based Services (preview)**. Click **Create** button that appears below the map. 
-4. On the **Create Location Based Services Account** page, enter the *Name* for your new account, select the *Subscription* to use, and enter the name of a new or existing *Resource group*. Select the location for your resource group, accept the *Preview Terms*, and click **Create**.
+2. In the *Search the Marketplace* box, type **Maps**.
+3. From the *Results*, select **Maps**. Click **Create** button that appears below the map. 
+4. On the **Create Maps Account** page, enter the *Name* for your new account, select the *Subscription* to use, and enter the name of a new or existing *Resource group*. Select the location for your resource group, accept the *Preview Terms*, and click **Create**.
 
-    ![Create Location Based Services account in portal](./media/quick-demo-map-app/create-lbs-account.png)
+    ![Create Maps account in portal](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Once your account is successfully created, open it and navigate to the account's **SETTINGS**. Click **Keys** to obtain the primary and secondary keys for your Azure Location Based Services account. Copy the **Primary Key** value to your local clipboard to use in the following section. 
+5. Once your account is successfully created, open it and navigate to the account's **SETTINGS**. Click **Keys** to obtain the primary and secondary keys for your Azure Maps account. Copy the **Primary Key** value to your local clipboard to use in the following section. 
 
 ## Download the demo application for Azure Maps
 
@@ -56,14 +56,14 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Clean up resources
 
-The tutorials go in details about how to use and configure the Azure Location Based Services for your account. If you plan to continue on to work with the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
+The tutorials go in details about how to use and configure the Azure Maps for your account. If you plan to continue on to work with the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
 1. Close the browser running the **AzureMapDemo.html** web application.
-2. From the left-hand menu in the Azure portal, click **All resources** and then select your LBS account. At the top of the **All resources** blade, click **Delete**.
+2. From the left-hand menu in the Azure portal, click **All resources** and then select your Maps account. At the top of the **All resources** blade, click **Delete**.
 
 ## Next steps
 
-In this Quickstart, you’ve created your Azure LBS account, and launched a demo app using your account. To learn how to create your own application using the Azure Location Based Services APIs, continue to the following tutorial.
+In this Quickstart, you’ve created your Azure Maps account, and launched a demo app using your account. To learn how to create your own application using the Azure Maps APIs, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial to user Azure Map and Search](./tutorial-search-location.md)

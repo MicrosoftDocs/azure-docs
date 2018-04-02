@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: How to use the Azure Location Based Services Map Control | Microsoft Docs 
-description: Learn how to use the Azure Location Based Services Map Control client-side Javascript library.
+title: How to use the Azure Maps Map Control | Microsoft Docs 
+description: Learn how to use the Azure Maps Map Control client-side Javascript library.
 services: location-based-services 
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: kgremban
@@ -12,18 +12,18 @@ ms.service: location-based-services
 manager: timlt
 ---
 
-# How to use the Azure Location Based Services Map Control
-The Map Control client-side Javascript library allows you to render maps and embedded Azure Location Based Services functionality into your web or mobile application. 
+# How to use the Azure Maps Map Control
+The Map Control client-side Javascript library allows you to render maps and embedded Azure Maps functionality into your web or mobile application. 
 
 ## Prerequisites
-An Azure Location Based Services account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Location Based Services account and keys](how-to-manage-account-keys.md). 
+An Azure Maps account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md). 
 
 ## Create a new map in a web page using the Map Control API
 You can embed a map in a web page by using the Map Control client-side Javascript library.
 
 1. Create a new file and name it MapSearch.html.
 
-2. Add the Azure Location Based Services stylesheet and script source references to the `<head>` element of the file:
+2. Add the Azure Maps stylesheet and script source references to the `<head>` element of the file:
 
     ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
@@ -39,7 +39,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
             }
     ``` 
     
-4. In order to initialize the map control, define a new section in the html body and create a script. Use your own Azure Location Based Services account key in the script. 
+4. In order to initialize the map control, define a new section in the html body and create a script. Use your own Azure Maps account key in the script. 
 
     ```html
     <div id="map">
