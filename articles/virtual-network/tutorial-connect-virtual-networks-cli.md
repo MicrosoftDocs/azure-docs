@@ -1,17 +1,18 @@
 ---
 title: Connect virtual networks with virtual network peering - Azure CLI | Microsoft Docs
-description: Learn how to connect virtual networks with virtual network peering.
+description: In this article, you learn how to connect virtual networks with virtual network peering, using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic:
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
@@ -23,17 +24,16 @@ ms.custom:
 
 You can connect virtual networks to each other with virtual network peering. Once virtual networks are peered, resources in both virtual networks are able to communicate with each other, with the same latency and bandwidth as if the resources were in the same virtual network. In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create two virtual networks
-> * Connect two virtual networks with a virtual network peering
-> * Deploy a virtual machine (VM) into each virtual network
-> * Communicate between VMs
+* Create two virtual networks
+* Connect two virtual networks with a virtual network peering
+* Deploy a virtual machine (VM) into each virtual network
+* Communicate between VMs
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## Create virtual networks
 
@@ -166,7 +166,7 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
 }
 ```
 
-Take note of the **publicIpAddress**. This address is used to access the VM from the Internet in a later step.
+Take note of the **publicIpAddress**. This address is used to access the VM from the internet in a later step.
 
 ## Communicate between VMs
 
@@ -194,30 +194,8 @@ When no longer needed, use [az group delete](/cli/azure/group#az_group_delete) t
 az group delete --name myResourceGroup --yes
 ```
 
-**<a name="register"></a>Register for the global virtual network peering preview**
-
-Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview. See [Virtual network updates](https://azure.microsoft.com/updates/?product=virtual-network) for available regions. To peer virtual networks across regions, you must first register for the preview, by completing the following steps (within the subscription each virtual network you want to peer is in):
-
-1. Register for the preview by entering the following commands:
-
-  ```azurecli-interactive
-  az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-  az provider register --name Microsoft.Network
-  ```
-
-2. Confirm that you are registered for the preview by entering the following command:
-
-  ```azurecli-interactive
-  az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-  ```
-
-  If you attempt to peer virtual networks in different regions before the **RegistrationState** output you receive after entering the previous command is **Registered** for both subscriptions, peering fails.
-
 ## Next steps
 
-In this article, you learned how to connect two networks with virtual network peering. In this article, you learned how to connect two networks, in the same Azure location, with virtual network peering. You can also peer virtual networks in [different regions](#register), in [different Azure subscriptions](create-peering-different-subscriptions.md#portal) and you can create [hub and spoke network designs](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with peering. Before peering production virtual networks, it's recommended that you thoroughly familiarize yourself with the [peering overview](virtual-network-peering-overview.md), [manage peering](virtual-network-manage-peering.md), and [virtual network limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+In this article, you learned how to connect two networks in the same Azure region, with virtual network peering. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region) and in [different Azure subscriptions](create-peering-different-subscriptions.md#cli), as well as create [hub and spoke network designs](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with peering. To learn more about virtual network peering, see [Virtual network peering overview](virtual-network-peering-overview.md) and [Manage virtual network peerings](virtual-network-manage-peering.md).
 
-You can [connect your own computer to a virtual network](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) through a VPN, and interact with resources in a virtual network, or in peered virtual networks. Continue to script samples for reusable scripts to complete many of the tasks covered in the virtual network articles.
-
-> [!div class="nextstepaction"]
-> [Virtual network script samples](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+You can [connect your own computer to a virtual network](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) through a VPN, and interact with resources in a virtual network, or in peered virtual networks. For reusable scripts to complete many of the tasks covered in the virtual network articles, see [script samples](cli-samples.md).

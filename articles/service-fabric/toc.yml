@@ -316,11 +316,7 @@
       - name: Deploy multiple guest executables
         href: service-fabric-deploy-multiple-apps.md
     - name: Build a container service
-      items:
-      - name: Use a certificate in a container
-        href: service-fabric-securing-containers.md
-      - name: Set up gMSA for Windows containers 
-        href: service-fabric-setup-gmsa-for-windows-containers.md
+      items:      
       - name: Docker compose (preview)
         href: service-fabric-docker-compose.md
       - name: Resource governance for containers and services
@@ -382,23 +378,31 @@
       - name: Configure communications settings
         href: service-fabric-reliable-actors-fabrictransportsettings.md
       - name: Configure ReliableDictionaryActorStateProvider
-        href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
-    - name: Migrate old Java Application to support Maven
-      href: service-fabric-migrate-old-javaapp-to-use-maven.md
-    - name: Configure reverse proxy for secure communication
-      href: service-fabric-reverseproxy-configure-secure-communication.md
+        href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md    
     - name: Build an ASP.NET Core service
       href: service-fabric-add-a-web-frontend.md
     - name: Configure security
       items:
       - name: Manage application secrets
         href: service-fabric-application-secret-management.md
+      - name: Configure reverse proxy for secure communication
+        href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Run a service startup script as a local user or system account
         href: service-fabric-run-script-at-service-startup.md
       - name: Run a service as a local user or system account
         href: service-fabric-application-runas-security.md      
       - name: Assign a security access policy for endpoints
         href: service-fabric-assign-policy-to-endpoint.md
+      - name: Run a service as an AD user or group
+        href: service-fabric-run-service-as-ad-user-or-group.md
+      - name: Run a service as a group Managed Service Account
+        href: service-fabric-run-service-as-gmsa.md
+      - name: Use a certificate in a container
+        href: service-fabric-securing-containers.md
+      - name: Set up gMSA for Windows containers 
+        href: service-fabric-setup-gmsa-for-windows-containers.md
+    - name: Migrate old Java Application to support Maven
+      href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: Work in a Windows/VS dev environment
     items:
     - name: Manage applications in Visual Studio
@@ -523,14 +527,8 @@
           href: service-fabric-cluster-standalone-package-contents.md
       - name: Scale
         href: service-fabric-cluster-windows-server-add-remove-nodes.md
-      - name: Configure security
-        items:
-        - name: Set access control
-          href: service-fabric-cluster-security-roles.md
-        - name: Run a service as an AD user or group
-          href: service-fabric-run-service-as-ad-user-or-group.md
-        - name: Run a service as a group Managed Service Account
-          href: service-fabric-run-service-as-gmsa.md
+      - name: Set access control
+        href: service-fabric-cluster-security-roles.md        
       - name: Configure
         href: service-fabric-cluster-manifest.md
       - name: Upgrade

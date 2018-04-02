@@ -194,7 +194,7 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
 > [!IMPORTANT]
-> Global prefixes are tagged with an appropriate community value and will be advertised only when ExpressRoute premium add-on is enabled.
+> Global prefixes are tagged with an appropriate community value.
 > 
 > 
 

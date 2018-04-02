@@ -1,20 +1,17 @@
 ---
-title: Monitor access logs, performance logs, back-end health, and metrics for Application Gateway | Microsoft Docs
+title: Monitor access logs, performance logs, back-end health, and metrics for Application Gateway
 description: Learn how to enable and manage access logs and performance logs for Application Gateway
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
 
 ---
@@ -26,7 +23,7 @@ By using Azure Application Gateway, you can monitor resources in the following w
 
 * [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
-* [Metrics](#metrics): Application Gateway currently has one metric. This metric measures the throughput of the application gateway in bytes per second.
+* [Metrics](#metrics): Application Gateway currently has seven metrics to view performance counters.
 
 ## Back-end health
 
@@ -315,13 +312,22 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 Metrics are a feature for certain Azure resources where you can view performance counters in the portal. For Application Gateway, the following metrics are available:
 
-- Current Connections
-- Failed Requests
-- Healthy Host Count
-- Response Status
-- Throughput
-- Total Requests
-- Unhealthy Host count
+- **Current Connections**
+- **Failed Requests**
+- **Healthy Host Count**
+
+   You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
+
+
+- **Response Status**
+
+   The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
+
+- **Throughput**
+- **Total Requests**
+- **Unhealthy Host count**
+
+   You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
 
 Browse to an application gateway, under **Monitoring** click **Metrics**. To view the available values, select the **METRIC** drop-down list.
 
