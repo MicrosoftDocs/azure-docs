@@ -76,21 +76,6 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 6: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
 
-## Disk configuration is not supported
-
-Error message: "The specified Disk configuration is not supported"
-
-> [!NOTE]
-> We have a private preview to support backups for VMs that have disks larger than 1 TB. For details, see [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
->
->
-
-Currently, Azure Backup doesn’t support disks that are [larger than 1,023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). If you have disks that are larger than 1 TB:  
-1. [Attach new disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) that are smaller than 1 TB.  
-2. Copy the data from disks that are larger than 1 TB to the newly created disks that are smaller than 1 TB.  
-3. Ensure that all data has been copied. Then, remove the disks that are larger than 1 TB.  
-4. Initiate the backup.
-
 ## Causes and solutions
 
 ### <a name="the-vm-has-no-internet-access"></a>The VM doesn't have internet access
