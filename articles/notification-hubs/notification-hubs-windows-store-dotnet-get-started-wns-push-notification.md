@@ -55,7 +55,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 1. Type a name for your app, and then select **Reserve product name**. Doing so creates a new Windows Store registration for your app.
 
     ![Store app name](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-1. Expand **App Management**, select **WNS/MPNS**, select **WNS/MPNS**, and then select **Live Services site**. Sign-in to your Microsoft account. The **Application Registration Portal** opens in a new tab. Alternatively, you can navigate directly to the [Application Registration Portal](http://apps.dev.microsoft.com), select your application name to get to this page.
+1. Expand **App Management**, select **WNS/MPNS**, select **WNS/MPNS**, and then select **Live Services site**. Sign in to your Microsoft account. The **Application Registration Portal** opens in a new tab. Alternatively, you can navigate directly to the [Application Registration Portal](http://apps.dev.microsoft.com), select your application name to get to this page.
 
     ![WNS MPNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 1.   Note the **Application Secret** password and the **Package security identifier (SID)**.
@@ -78,7 +78,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 Your notification hub is now configured to work with WNS. You have the connection strings to register your app and send notifications.
 
 ## Create a sample Windows app
-1. In Visual Studio, select **File**, point to **New**, and select **Proect**. 
+1. In Visual Studio, select **File**, point to **New**, and select **Project**. 
 2. In the **New Project** dialog box, do the following steps: 
 
     1. Expand **Visual C#**.
@@ -164,11 +164,12 @@ You can quickly test receiving notifications in your app by sending notification
 
 
 ## Next steps
-In this simple example, you sent broadcast notifications to all your Windows devices by using the portal or a console app. For your next step, we recommend the [Use Notification Hubs to push notifications to users] tutorial. It demonstrates how to send notifications from an ASP.NET back end by using tags to target specific users.
+In this tutorial, you sent broadcast notifications to all your Windows devices by using the portal or a console app. To learn how to push notifications to specific devices, advance to the following tutorial: 
 
-If you want to segment your users by interest groups, see [Use Notification Hubs to send breaking news]. 
+> [!div class="nextstepaction"]
+>[Push notifications to specific devices](
+notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 
-For more general information about Notification Hubs, see [Notification Hubs guidance](notification-hubs-push-notification-overview.md).
 
 <!-- Images. -->
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
