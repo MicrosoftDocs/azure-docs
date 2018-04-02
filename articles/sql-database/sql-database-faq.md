@@ -65,13 +65,8 @@ Unlike single databases, using [active geo-replication](sql-database-geo-replica
 ## How does the use of the auditing feature impact my bill?
 Auditing is built into the SQL Database service at no extra cost and is available on all service tiers. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
 
-## How do I find the right service tier and performance level for single databases and elastic pools?
-There are a few tools available to you: 
-
-* For on-premises databases being migrated to an Azure SQL Database using the DTU-based purchasing model, use the [DTU sizing advisor](http://dtucalculator.azurewebsites.net/) to recommend the databases and DTUs required, and evaluate multiple databases for elastic pools.
-* For on-premises databases being migrated to an Azure SQL Database using the vCore-based purchasing model, compare the vCores to your current compute resources. 
-* If a single database would benefit from being in a pool, Azure's intelligent engine recommends an elastic pool if it sees a historical usage pattern that warrants it. See [Monitor and manage an elastic pool with the Azure portal](sql-database-elastic-pool-manage-portal.md). For details about how to do the math yourself, see [Price and performance considerations for an elastic pool](sql-database-elastic-pool.md)
-* To see whether you need to dial a single database up or down, see [performance guidance for single databases](sql-database-performance-guidance.md).
+## vCore purchasing model billing for compute and storage
+The compute cost reflects the total compute capacity that is provisioned for the application. In the Business Critical service tier we automatically allocate at least 3 AlwaysON replicas. To reflect this additional allocation of compute resources, the vCore price is approximately 2.7x higher in Business Critical. For the same reason, the higher storage price per GB in the Business Critical tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different because in both cases we use a class of standard storage ([RA-GRS](../storage/common/storage-redundancy#read-access-geo-redundant-storage.md)).
 
 ## How often can I change the service tier or performance level of a single database?
 You can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) as often as you want. For earlier version databases, you can change the service tier or performance level a total of four times in a 24-hour period.
