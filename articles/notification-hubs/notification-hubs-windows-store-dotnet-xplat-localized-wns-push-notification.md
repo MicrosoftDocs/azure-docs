@@ -253,10 +253,10 @@ This simple call delivers the localized piece of news to **all** your devices, i
  
 
 ## Next steps
-In this tutorial, you learned how to push localized notifications to specific devices that have tags associated with their registrations. To learn how to push location-based notifications, advance to the following tutorial: 
+In this tutorial, you learned how to push localized notifications to specific devices that have tags associated with their registrations. To learn how to push notifications to specific users who may be using more than one device, advance to the following tutorial: 
 
 > [!div class="nextstepaction"]
->[Push location-based notifications](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[Push notifications to specific users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
 
 <!-- Anchors. -->

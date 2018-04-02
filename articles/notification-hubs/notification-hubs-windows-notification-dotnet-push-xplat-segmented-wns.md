@@ -232,7 +232,7 @@ The app is now complete. It can store a set of categories in the device local st
 In this article, you learned how to broadcast breaking news by category. The backend application pushes tagged notifications to devices that have registered to receive notifications for that tag. To learn how to push notifications to specific users irrespective of what device they use, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Push notification to specific users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
+> [Push localized notifications](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories

@@ -322,9 +322,11 @@ In this section, you update the code in the project you completed for the [Get s
    
     ![][15]
 
-## Next Steps
-* If you want to segment your users by interest groups, see [Use Notification Hubs to send breaking news].
-* To learn more about how to use Notification Hubs, see [Notification Hubs Guidance].
+## Next steps
+In this tutorial, you learned how to push notifications to specific users that have tags associated with their registrations. To learn how to push location-based notifications, advance to the following tutorial: 
+
+> [!div class="nextstepaction"]
+>[Push location-based notifications](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
 [10]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
