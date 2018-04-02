@@ -256,7 +256,7 @@ You can create a group containing all direct reports of a manager. When the mana
 1. Follow steps 1-5 from section [To create the advanced rule](#to-create-the-advanced-rule), and select a **Membership type** of **Dynamic User**.
 2. On the **Dynamic membership rules** blade, enter the rule with the following syntax:
 
-    *Direct Reports for "{obectID_of_manager}"*
+    *Direct Reports for "{objectID_of_manager}"*
 
     An example of a valid rule:
 ```
