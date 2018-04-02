@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/04/2018
 ms.author: bonova
 ---
 
@@ -65,6 +65,25 @@ The following table shows several properties, accessible through Transact SQL, t
 
 ![single sign-on](./media/sql-database-managed-instance/sso.png) 
 
+## vCore-based resourcing model
+
+The vCore-based resourcing model gives your flexibility, control, transparency and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+A virtual core represents the logical CPU offered with an option to choose between generations of hardware.
+- Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.
+- Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors.
+
+The following table helps you understand how to select the optimal configuration of your compute, memory, storage, and I/O resources.
+
+||Gen 4|Gen 5|
+|----|------|-----|
+|Hardware|Intel E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD vCore = 1 PP (physical core)|Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread)|
+|Performance levels	8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
+|Memory|7GB per vCore|5.5GB per vCore|
+||||
+
+
+
 ## Managed Instance service tier
 
 Managed Instance is initially available in a single service tier - General Purpose - that is designed for applications with typical availability and common IO latency requirements.
@@ -85,7 +104,7 @@ The following outlines the key features of the General Purpose service tier:
 
 |Feature | Description|
 |---|---|
-| Number of vCores* | 8, 16, 24|
+| Number of vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
 | SQL Server version / build | SQL Server (latest available) |
 | Min storage size | 32 GB |
 | Max storage size | 8 TB |
