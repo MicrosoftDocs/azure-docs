@@ -76,6 +76,7 @@ The Device Provisioning Service Client SDK helps you implement your device regis
 Now you're ready to use the SDK to build your device registration code. 
  
 <a id="extractsecurity"></a> 
+
 ## Extract the security artifacts 
 
 The next step is to extract the security artifacts for the HSM on your device. 
