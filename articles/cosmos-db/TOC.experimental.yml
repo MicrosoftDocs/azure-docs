@@ -203,7 +203,7 @@ items:
           - name: Performance test
             href: performance-testing.md
           - name: Performance tips for Async Java
-            href: performance-tips-rx-java.md
+            href: performance-tips-async-java.md
           - name: Performance tips for .NET
             href: performance-tips.md
           - name: Performance tips for Java

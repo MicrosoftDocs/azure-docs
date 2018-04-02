@@ -19,7 +19,7 @@ ms.author: mimig
 
 ---
 > [!div class="op_single_selector"]
-> * [Async Java](performance-tips-rx-java.md)
+> * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
@@ -49,7 +49,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
    <a id="max-connection"></a>
 3. **Increase MaxPoolSize per host when using Gateway mode**
 
-    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Async Java SDK, the default value for ConnectionPolicy.getMaxPoolSize is 1000. Use setMaxPoolSize to change the value.
+    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (2000-3000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Async Java SDK, the default value for ConnectionPolicy.getMaxPoolSize is 1000. Use setMaxPoolSize to change the value.
 
 4. **Tuning parallel queries for partitioned collections**
 
@@ -83,11 +83,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size using the [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header to up to 1000. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
 
-    You may also set the page size using the setPageSize method.
+    You may also set the page size using the setMaxItemCount method.
     
 9. **Use Appropriate Scheduler (Avoid stealing Eventloop IO Netty threads)**
 
-    The Rx Java SDK uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty eventloop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO eventloop netty threads. So it is important to not block the shared IO eventloop netty threads. Doing CPU intensive work or blocking operation on the IO eventloop netty thread may cause deadlock or significantly reduce SDK throughput.
+    The Async Java SDK uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty eventloop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO eventloop netty threads. So it is important to not block the shared IO eventloop netty threads. Doing CPU intensive work or blocking operation on the IO eventloop netty thread may cause deadlock or significantly reduce SDK throughput.
 
     For example the following code executes a cpu intensive work on the eventloop IO netty thread:
 
