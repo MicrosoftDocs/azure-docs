@@ -100,7 +100,7 @@ In the vCore-based purchasing model customers pay for:
 
 ### Choosing service tier, compute, memory, storage, and IO resources
 
-Converting to the vCore-based purchasing model enables you to independently scale resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU requires at least 1 vCore.
+Converting to the vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU requires at least 1 vCore.
 
 The following table helps you understand the differences between these two tiers:
 
@@ -122,6 +122,8 @@ The following table helps you understand the differences between these two tiers
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
 
 For details on specific performance levels and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels) and for elastic pools see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+
+See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions. 
 
 ### Storage considerations
 
@@ -190,4 +192,5 @@ You can copy any database with a DTU-based performance level to a database with 
 ## Next steps
 
 - For details on specific performance levels and storage size choices available, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md) and [SQL Database vCore-based resource limits](sql-database-vcore-resource-limits.md).
+- See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
 - Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)

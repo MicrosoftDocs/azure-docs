@@ -214,6 +214,5 @@ When encountering high session or worker utilization, mitigation options include
 
 ## Next steps
 
-- For information about service tiers, see [Service tiers](sql-database-service-tiers.md).
-- For information about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+- See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
