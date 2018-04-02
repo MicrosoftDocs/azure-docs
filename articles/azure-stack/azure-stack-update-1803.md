@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 1802 Update | Microsoft Docs
+title: Azure Stack 1803 Update | Microsoft Docs
 description: Learn about what's in the 1803 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
@@ -173,9 +173,9 @@ The following are post-installation known issues for build  **20180323.2**.
 
 
 > [!NOTE]  
-> After you update to Azure Stack 1802, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.      
+> After you update to Azure Stack 1803, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1711, first apply version 1712, then 1802, and then update to 1803.      
 >   
-> The install of update 1802 does not affect the current use of SQL or MySQL resource providers by your users.
+> The install of update 1803 does not affect the current use of SQL or MySQL resource providers by your users.
 > Regardless of the version of the resource providers you use, your users data in their databases is not touched, and remains accessible.    
 
 
