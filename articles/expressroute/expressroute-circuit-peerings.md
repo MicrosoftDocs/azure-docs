@@ -69,7 +69,7 @@ See the [FAQ page](expressroute-faqs.md) for more information on services suppor
 ## Routing domain comparison
 The following table compares the three routing domains:
 
-|  | **Private Peering** | **Public Peering** | **Microsoft Peering*** |
+|  | **Private Peering** | **Public Peering** (Deprecated for new creations) | **Microsoft Peering** |
 | --- | --- | --- | --- |
 | **Max. # prefixes supported per peering** |4000 by default, 10,000 with ExpressRoute Premium |200 |200 |
 | **IP address ranges supported** |Any valid IP address within your WAN. |Public IP addresses owned by you or your connectivity provider. |Public IP addresses owned by you or your connectivity provider. |
@@ -78,7 +78,7 @@ The following table compares the three routing domains:
 | **Routing Interface IP addresses** |RFC1918 and public IP addresses |Public IP addresses registered to you in routing registries. |Public IP addresses registered to you in routing registries. |
 | **MD5 Hash support** |Yes |Yes |Yes |
 
-(*) Requires the Premium add-on SKU tier
+
 
 You can choose to enable one or more of the routing domains as part of your ExpressRoute circuit. You can choose to have all the routing domains put on the same VPN if you want to combine them into a single routing domain. You can also put them on different routing domains, similar to the diagram. The recommended configuration is that private peering is connected directly to the core network, and the public and Microsoft peering links are connected to your DMZ.
 
