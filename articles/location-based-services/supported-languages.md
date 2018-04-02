@@ -25,7 +25,7 @@ table provides the supported language codes for each service. 
 
 
 
-| ID         | Name                   | Maps  | Search | Routing | Traffic Incidents | JS Map Control | Time Zone |
+| ID         | Name                   | Maps  | Search | Routing | Traffic incidents | JS map control | Time zone |
 |------------|------------------------|-------|--------|---------|-------------------|----------------|-----------|
 | af-ZA      | Afrikaans              | ✓     |        | ✓       |                   |                | ✓         |
 | ar-SA      | Arabic                 | ✓     | ✓      | ✓       | ✓                 | ✓              | ✓         |
