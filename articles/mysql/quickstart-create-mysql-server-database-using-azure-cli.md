@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 04/01/2018
 ms.custom: mvc
 ---
 
@@ -52,11 +52,11 @@ The return JSON should include the following:
 {
     "extensionType": "whl",
     "name": "rdbms",
-    "version": "0.0.4"
+    "version": "0.0.5"
 }
 ```
 
-If version 0.0.4 is not returned, run the following to update the extension: 
+If version 0.0.5 is not returned, run the following to update the extension: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
