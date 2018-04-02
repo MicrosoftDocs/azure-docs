@@ -20,12 +20,6 @@
       href: call-endpoint-nodejs.md 
     - name: Python
       href: call-endpoint-python.md
-- name: SDK
-  items:
-  - name: SDK samples overview 
-    href: sdk.md
-  - name: Custom Search SDK C# quickstart
-    href: custom-search-sdk-quickstart.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
@@ -41,7 +35,13 @@
     - name: Handle hit highlighting
       href: hit-highlighting.md
     - name: Page webpages
-      href: page-webpages.md    
+      href: page-webpages.md 
+- name: SDK
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Custom Search SDK C# quickstart
+    href: custom-search-sdk-quickstart.md   
 - name: References
   items:
     - name: Bing Custom Search API Reference

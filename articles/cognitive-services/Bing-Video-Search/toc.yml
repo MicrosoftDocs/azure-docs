@@ -23,18 +23,12 @@
     href: python.md
   - name: Ruby
     href: ruby.md
-- name: SDK
+- name: Tutorials
   items:
-  - name: SDK samples overview 
-    href: sdk.md
-  - name: Video Search SDK C# quickstart
-    href: video-search-sdk-quickstart.md 
-  - name: Video Search SDK Node quickstart (preview)
-    href: video-search-sdk-node-quickstart.md 
-  - name: Video Search SDK Python quickstart (preview)
-    href: video-sdk-python-quickstart.md
-  - name: Video Search SDK Java quickstart (preview)
-    href: video-sdk-java-quickstart.md 
+  - name: Single-page Video Search app
+    href: tutorial-bing-video-search-single-page-app.md
+  - name: Single-page Video Search app (source code)
+    href: tutorial-bing-video-search-single-page-app-source.md
 - name: How to
   items:
   - name: Use and display requirements
@@ -49,12 +43,18 @@
     href: resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7
     href: bing-video-upgrade-guide-v5-to-v7.md
-- name: Tutorials
+- name: SDK
   items:
-  - name: Single-page Video Search app
-    href: tutorial-bing-video-search-single-page-app.md
-  - name: Single-page Video Search app (source code)
-    href: tutorial-bing-video-search-single-page-app-source.md
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Video Search SDK C# quickstart
+    href: video-search-sdk-quickstart.md 
+  - name: Video Search SDK Node quickstart (preview)
+    href: video-search-sdk-node-quickstart.md 
+  - name: Video Search SDK Python quickstart (preview)
+    href: video-sdk-python-quickstart.md
+  - name: Video Search SDK Java quickstart (preview)
+    href: video-sdk-java-quickstart.md 
 - name: Reference
   items:
   - name: REST v7
