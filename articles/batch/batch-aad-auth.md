@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep

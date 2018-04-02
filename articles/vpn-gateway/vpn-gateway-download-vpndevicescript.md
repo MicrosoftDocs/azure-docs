@@ -24,6 +24,10 @@ This article walks you through downloading VPN device configuration scripts for 
 
 ![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
 
+The following devices have available scripts:
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
+
 ## <a name="about"></a>About VPN device configuration scripts
 
 A cross-premises VPN connection consists of an Azure VPN gateway, an on-premises VPN device, and an IPsec S2S VPN tunnel connecting the two. The typical work flow includes the following steps:
