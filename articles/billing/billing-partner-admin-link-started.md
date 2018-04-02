@@ -47,18 +47,15 @@ When you have access to the customer's resources, use PowerShell or CLI to link 
     ```
 
 #### Get the linked partner ID
-
 ```azurepowershell-interactive
 C:\> get-AzureRmManagementPartner 
 ```
 
 #### Update the linked partner ID
-
 ```azurepowershell-interactive
 C:\> Update-AzureRmManagementPartner -PartnerId 12345 
 ```
 #### Delete the linked partner ID
-
 ```azurepowershell-interactive
 C:\> remove-AzureRmManagementPartner -PartnerId 12345 
 ```
@@ -84,19 +81,16 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
       ```  
 
 #### Get the linked partner ID
-
 ```azure-cli
 C:\ az managementpartner show
 ``` 
 
 #### Update the linked partner ID
-
 ```azure-cli
 C:\ az managementpartner update --partner-id 12345
 ``` 
 
 #### Delete the linked partner ID
-
 ```azure-cli
 C:\ az managementpartner delete --partner-id 12345
 ``` 
