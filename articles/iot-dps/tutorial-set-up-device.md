@@ -83,7 +83,7 @@ The next step is to extract the security artifacts for the attestation mechanism
 
 ### Physical device 
 
-If you built the SDK for attestation from a physical TPM/HSM:
+If you built the SDK to use attestation from a physical TPM/HSM:
 
 - For a TPM device, you need to determine the **Endorsement Key** associated with it from the TPM chip manufacturer. You can derive a unique **Registration ID** for your TPM device by hashing the endorsement key.  
 
@@ -109,11 +109,13 @@ If you built the SDK to use attestation from a simulated TPM or X.509 certificat
    4. Run the solution using either of the "Start" commands on the "Debug" menu. The output window displays the TPM simulator's **_Registration ID_** and the **_Endorsement Key_**, needed for device enrollment and registration. Copy these values for use later. You can close this window (with Registration Id and Endorsement Key), but leave the TPM simulator window running that you started in step #1.
 
 - For a simulated X.509 device:
-  1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
+  1. Using Visual Studio, open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it using the "Build solution" command on the "Build" menu.
 
-  2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter **i** for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at the first *-----END CERTIFICATE-----*, making sure to include both of these lines as well. Note that you need only the first certificate from the output window.
+  2. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **dice\_device\_enrollment** project and select **Set as Startup Project**. 
+  
+  3. Run the solution using either of the "Start" commands on the "Debug" menu. In the output window, enter **i** for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at the first *-----END CERTIFICATE-----*, making sure to include both of these lines as well. Note that you need only the first certificate from the output window.
  
-  3. Create a file named **_X509testcert.pem_**, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file as you will use it later for device enrollment. When your registration software runs, it uses the same certificate during auto-provisioning.    
+  4. Create a file named **_X509testcert.pem_**, open it in a text editor of your choice, and copy the clipboard contents to this file. Save the file as you will use it later for device enrollment. When your registration software runs, it uses the same certificate during auto-provisioning.    
 
 These security artifacts are required during enrollment your device to the Device Provisioning Service. The provisioning service waits for the device to boot and connect with it at any later point in time. When your device boots for the first time, the client SDK logic interacts with your chip (or simulator) to extract the security artifacts from the device, and verifies registration with your Device Provisioning service. 
 
@@ -145,7 +147,10 @@ The last step is to write a registration application that uses the Device Provis
     hsm_type = SECURE_DEVICE_TYPE_TPM;
     //hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
+
 5. Save your changes and rebuild the **prov\_dev\_client\_sample** sample by selecting "Build solution" from the "Build" menu. 
+
+6. Right-click the **prov\_dev\_client\_sample** project under the **Provision\_Samples** folder, and select **Set as Startup Project**. DO NOT run the sample application yet.
 
 > [!IMPORTANT]
 > Do not run/start the device yet! You need to finish the process by enrolling the device with the Device Provisioning Service first, before starting the device. The Next steps section below will guide you to the next article.
