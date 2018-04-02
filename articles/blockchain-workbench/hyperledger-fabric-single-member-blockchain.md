@@ -62,7 +62,7 @@ The smallest possible deployment for one member will need:
 Once you have a subscription, go to the [Azure portal](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/private/f086574e-217b-4868-859c-9f8c6dcd9010). Select \'+\', select Blockchain, and select \'Hyperledger
 Fabric Single Member Blockchain\'.
 
-![](./picture/HFSMB1.jpg)
+![](./media/hyperledger-fabric-single-member-blockchain/HFSMB1.jpg)
 
 ## Deployment
 
@@ -96,7 +96,7 @@ Parameter Name| Description| Allowed Values|Default Value
 
 A sample deployment is shown below:
 
-![](./picture/HFSMB2.jpg)
+![](./media/hyperledger-fabric-single-member-blockchain/HFSMB2.jpg)
 
 ### Network size and performance
 
@@ -116,7 +116,7 @@ Parameter Name| Description| Allowed Values|Default Value
 
 A sample deployment is shown below:
 
-![](./picture/HFSMB3.jpg)
+![](./media/hyperledger-fabric-single-member-blockchain/HFSMB3.jpg)
 
 ### Fabric specific settings
 
@@ -132,14 +132,14 @@ Parameter Name| Description| Allowed Values|Default Value
 
 A sample deployment is shown below:
 
-![](./picture/HFSMB4.jpg)
+![](./media/hyperledger-fabric-single-member-blockchain/HFSMB4.jpg)
 
 
 ### Deploy
 
 Click through the summary blade to review the inputs specified and to run basic pre-deployment validation.
 
-![](./picture/HFSMB5.jpg)
+![](./media/hyperledger-fabric-single-member-blockchain/HFSMB5.jpg)
 
 Review legal and privacy terms and click \'Purchase\' to deploy. Depending on the number of VMs being
 provisioned, deployment time can vary from a few minutes to tens of minutes.
@@ -149,7 +149,7 @@ provisioned, deployment time can vary from a few minutes to tens of minutes.
 
 Once the deployment is finished, you should see an Overview screen much like the picture below.
 
-![](./picture/HFSMB6.jpg)
+![](./media/hyperledger-fabric-single-member-blockchain/HFSMB6.jpg)
 
 If the screen does not appear automatically (maybe because you moved around the management portal while
 the deployment was running), you can always find it in the Resource Groups tab in the left-side navigation bar.
@@ -163,11 +163,11 @@ Fabric network.
 To access the output parameters, first click on the Deployments tab in the Resource Group blade. This opens
 the Deployment History as shown below.
 
-![](./picture/HFSMB7.jpg)
+![](./media/hyperledger-fabric-single-member-blockchain/HFSMB7.jpg)
 
 From the Deployment History, click on the first deployment in the list to look at the details.
 
-![](./picture/HFSMB8.jpg)
+![](./media/hyperledger-fabric-single-member-blockchain/HFSMB8.jpg)
 
 The details screen will show you a summary of the deployment, followed by three useful output parameters:
 

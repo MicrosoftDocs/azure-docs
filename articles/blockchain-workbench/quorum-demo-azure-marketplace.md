@@ -28,12 +28,12 @@ through:
 - Constellation -- a peer based encrypted messaging exchange
 - Peer Security -- node and peer permissioning using smart contracts
 
-![](./picture/QDAM1.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM1.jpg)
 
 For the demonstration of 7 nodes, the architecture will include a series of transaction nodes (also
 referred to as observers), a single blockmaker and 3 voters.
 
-![](./picture/QDAM2.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM2.jpg)
 
 From a high level, transactions will flow in via the DAPP to the nodes running Ethereum (tx nodes). They
 will be passed to the blockmaker, who will generate the block and then voters will confirm the
@@ -64,12 +64,12 @@ will only require a single virtual machine, there is no need to increase quotas 
 Once you have a subscription, go to the Azure portal. Select the \'+\' symbol in the top left of the portal,
 and in the pane that appears, in the search box, enter \'Quorum Demo\'.
 
-![](./picture/QDAM3.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM3.jpg)
 
 Select the template that is returned in the search results to take you to the single vm deployment wizard
 and then click \'Create\'. This will open the \'Basics\' blade in the wizard.
 
-![](./picture/QDAM4.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM4.jpg)
 
 The template deployment will prompt you for a set of simple inputs to configure the deployment
 properly. On the first step, the \'Basics\' blade, specify the values for standard parameters such as
@@ -91,7 +91,7 @@ Parameter Name| Description| Allowed Values| Default Value
 
 A sample deployment is shown below:
 
-![](./picture/QDAM5.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM5.jpg)
 
 
 ### Size
@@ -101,7 +101,7 @@ Parameter Name| Description| Allowed Values| Default Value
 ---|---|---|---
 **Virtual Machine Size**| Choose the appropriate size of virtual machine.|NA |Recommended sizes are displayed.
 
-![](./picture/QDAM6.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM6.jpg)
 
 ### Settings
 
@@ -122,14 +122,14 @@ Parameter Name| Description| Allowed Values| Default Value
 
 A sample of this blade is below:
 
-![](./picture/QDAM7.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM7.jpg)
 
 
 Click through the summary blade, which displays the inputs that have been provided for the deployment
 of the virtual machine. This also validates the subscription and the inputs to ensure the deployment
 values will not cause an exception in provisioning.
 
-![](./picture/QDAM8.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM8.jpg)
 
 Finally, review the legal and privacy terms and click \'Purchase\' to deploy. This typically takes a few
 minutes to complete.
@@ -155,17 +155,17 @@ the credentials created in the deployment steps. You will need to retrieve the p
 listening for the login (port 22/ssh). You can find this the portal by clicking on your virtual machine and
 copying the value named public ip address to your clipboard.
 
-![](./picture/QDAM9.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM9.jpg)
 
 Then open putting and paste in the public ip address from above.
 
-![](./picture/QDAM10.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM10.jpg)
 
 Click \'Open\' and then enter you credentials (username/password) or if you chose public key instead of
 password, you will need to have the private key associated with this public key. These are the
 credentials that you specified while deploying the virtual machine.
 
-![](./picture/QDAM11.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM11.jpg)
 
 ### Run the commands to setup the 7 nodes demo
 
@@ -181,21 +181,21 @@ instance.
 
 This will take just a few moments to retrieve.
 
-![](./picture/QDAM12.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM12.jpg)
 
 After running this command, it will be required to move to the newly created directory, in order to use
 the demo. This is a very simple command
 
 **qrmadmin@armdemo:$ cd quorum-examples/examples/7nodes**
 
-![](./picture/QDAM13.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM13.jpg)
 
 Next we will need to run the remaining commands under elevated rights, specifically because various
 directories will be created inside the contained script. This is again a very simple command
 
 **qrmadmin@armdemo:$ sudo su**
 
-![](./picture/QDAM14.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM14.jpg)
 
 And finally we will initialize and start the 7 node cluster. The first command will initialize the nodes
 with a common genesis block. NOTE: This genesis block is for demo purposes only, and in anything
@@ -204,14 +204,14 @@ https://github.com/davebryson/quorum-genesis
 
 **qrmadmin@armdemo:$. init.sh**
 
-![](./picture/QDAM15.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM15.jpg)
 
 Lastly, we will now use the newly configured nodes to start the cluster and run the first transaction on
 the network by uploading a smart contract and transferring value to node 7 in the network.
 
 **qrmadmin@armdemo:$. start.sh**
 
-![](./picture/QDAM16.jpg)
+![](./media/quorum-demo-azure-marketplace/QDAM16.jpg)
 
 All should be successful at this point, along with a contract transactions, and result (true).
 Congratulations, you have a multi-node Quorum blockchain running, validated with a transactions
