@@ -17,7 +17,7 @@ ms.author: carlrab
 The current version of SQL Database is V12. Version V11 has been retired.
 
 ## What is the SLA for SQL Database?
-We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Microsoft Azure SQL Database and our Internet gateway. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
+We guarantee at least 99.99% of the time, you have connectivity between your Microsoft Azure SQL Database and our Internet gateway. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
 
 ## How do I reset the password for the server admin?
 In the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**.
@@ -65,32 +65,54 @@ Unlike single databases, using [active geo-replication](sql-database-geo-replica
 ## How does the use of the auditing feature impact my bill?
 Auditing is built into the SQL Database service at no extra cost and is available on all service tiers. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
 
-## Will the existing Basic, Standard and Premium editions be retired with the release of the new vCore-based model?
-The DTU-based Basic, Standard and Premium options will not be retired with the release of the vCore-based model. In many cases, applications can benefit from the simplicity of a preconfigured bundle of resources. Therefore, we will continue to offer and support these DTU-based choices to our customers. If you are using them and it meets your business requirements, you should continue to do so. See [Service tiers](sql-database-service-tiers.md).
+## Are the existing Basic, Standard and Premium editions being retired with the release of the new vCore-based model?
+The DTU-based Basic, Standard and Premium options are not being retired with the release of the vCore-based model. In many cases, applications can benefit from the simplicity of a preconfigured bundle of resources. Therefore, we continue to offer and support these DTU-based choices to our customers. If you are using them and it meets your business requirements, you should continue to do so. See [Service tiers](sql-database-service-tiers.md).
 
 ## How does the vCore-based usage show up in my bill? 
-In the vCore-based model, the service is billed on a predictable, hourly rate based on the service tier, provisioned compute in vCores, provisioned storage in GB/month, and consumed backup storage. If the storage for backups exceeds the total database size (that is, 100% of the database size), there will be additional charges. vCore hours, configured database storage, consumed IO, and backup storage are clearly itemized in the bill, making it easier for you to see the details of resources you have used. Backup storage up to 100% of the maximum database size is included, beyond which you will be billed in GB/month consumed in a month.
+In the vCore-based model, the service is billed on a predictable, hourly rate based on the service tier, provisioned compute in vCores, provisioned storage in GB/month, and consumed backup storage. If the storage for backups exceeds the total database size (that is, 100% of the database size), there are additional charges. vCore hours, configured database storage, consumed IO, and backup storage are clearly itemized in the bill, making it easier for you to see the details of resources you have used. Backup storage up to 100% of the maximum database size is included, beyond which you are billed in GB/month consumed in a month.
 
 For example:
-- If the SQL database exists for 12 hours in a month, the bill will show usage for 12 hours of vCore. If the SQL database provisioned an additional 100 GB of storage, the bill will show storage usage in units of GB/Month prorated hourly and number of IOs consumed in a month.
+- If the SQL database exists for 12 hours in a month, the bill shows usage for 12 hours of vCore. If the SQL database provisioned an additional 100 GB of storage, the bill shows storage usage in units of GB/Month prorated hourly and number of IOs consumed in a month.
 - If the SQL database is active for less than one hour, you are billed for each hour the database exists using the highest service tier selected, provisioned storage, and IO that applied during that hour, regardless of usage or whether the database was active for less than an hour.
 - If you create a Managed Instance and delete it five minutes later, you’ll be charged for one database hour.
 - If you create a Managed Instance in the General Purpose tier with 8 vCores, and then immediately upgrade it to 16 vCores, you’ll be charged at the 16 vCore rate for the first hour.
 
 > [!NOTE]
-> For a limited period through June 30th 2018, backup charges and IO charges will be free of charge.
+> For a limited period through June 30th 2018, backup charges and IO charges are free of charge.
 
 ## Is the vCore-based model available to SQL Database Managed Instance?
 [Managed Instance](sql-database-managed-instance.md) is available only with the vCore-based model. For more information, also see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 
-## vCore purchasing model billing for compute and storage in the Business Critical service tier
-The compute cost reflects the total compute capacity that is provisioned for the application. In the Business Critical service tier, we automatically allocate at least 3 Always ON replicas. To reflect this additional allocation of compute resources, the vCore price is approximately 2.7x higher in Business Critical. For the same reason, the higher storage price per GB in the Business Critical tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different because in both cases we use a class of standard storage ([RA-GRS](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage)).
+## Does the cost of compute and storage depend on the service tier that I choose?
+The compute cost reflects the total compute capacity that is provisioned for the application. In the Business Critical service tier, we automatically allocate at least 3 Always ON replicas. To reflect this additional allocation of compute resources, the vCore price is approximately 2.7x higher in Business Critical. For the same reason, the higher storage price per GB in the Business Critical tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different because in both cases we use a class of standard storage ([RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)).
 
-## How often can I change the service tier or performance level of a single database?
+## How am I charged for storage - based on what I configure upfront or on what the database uses?
+Different types of storage are billed differently. For data storage, you are be charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage is charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you pay for the additional 10 GBs.
+
+For backup storage of a single database, you are charged on a prorated basis for the storage that was allocated to the database backups minus the size of the database. For backup storage of an elastic pool, you are charged on a prorated basis for the storage that was allocated to the database backups of all the databases in the pool minus the maximum data size of the elastic pool. Any increase in the database size or elastic pool, or increase in the transaction rate, requires more storage and thus increases your backup storage bill.  When you increase the maximum data size, this new amount is deducted from the billed backup storage size.
+
+## How often can I change the DTU-based service tier or performance level of a single database ?
 You can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) as often as you want. For earlier version databases, you can change the service tier or performance level a total of four times in a 24-hour period.
 
+## How do I select the right SKU when converting an existing database to the new service tiers? 
+For existing SQL Database applications using the DTU-based model, the General Purpose service tier is comparable with the Standard tier. The Business Critical service tier is comparable with the Premium tier. In both cases, you should allocate at least 1 vCore for each 100 DTU that your application uses in the DTU-based model.
+
+## Do I need to take my application offline to convert from a DTU-based database to a vCore-based service tier? 
+The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using Portal, ARM, PowerShell, Azure CLI or T-SQL. See [Manage single databases](sql-database-single-database-resources.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+
+## Can I convert a database from a vCore-based service tier to a DTU-based one? 
+Yes, you can easily convert your database to any supported performance objective using Portal or programmatically using Portal, ARM, PowerShell, Azure CLI or T-SQL. See [Manage single databases](sql-database-single-database-resources.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+
+## Can I upgrade or downgrade between the General Purpose and Business Critical service tiers? 
+Yes, with some restrictions. Your destination SKU must meet the maximum database or elastic pool size you configured for your existing deployment. The [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) for the Business Critical SKU is only available to customers with Enterprise Edition licenses. Only customers who migrated from on-premises to General Purpose using Azure Hybrid Benefit for SQL Server with Enterprise Edition licenses can upgrade to Business Critical. For details see What are the specific rights of the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
+
+This conversion does not result in downtime and can be initiated using Portal, ARM, PowerShell, Azure CLI or T-SQL. See [Manage single databases](sql-database-single-database-resources.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+
+## I am using a Premium RS database that will not be Generally Available - can I upgrade it to a new tier and achieve a similar price/performance benefit?
+Because the vCore model allows independent control over the amount of provisioned compute and storage, you can more effectively manage the resulting costs, making it an attractive destination for Premium RS databases. In addition, the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) provides a substantial discount when the vCore-based model is used. 
+
 ## How often can I adjust the resources per pool?
-As often as you want.
+As often as you want. See [Manage elastic pools](sql-database-elastic-pool.md).
 
 ## How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic pool?
 Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. Changing the service tier can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases, see [Change the service tier of a database](sql-database-service-tiers.md). 
@@ -100,9 +122,6 @@ In general, elastic pools are designed for a typical [software-as-a-service (Saa
 
 ## What does it mean to have up to 200% of your maximum provisioned database storage for backup storage?
 Backup storage is the storage associated with your automated database backups that are used for [Point-In-Time-Restore](sql-database-recovery-using-backups.md#point-in-time-restore) and [geo-restore](sql-database-recovery-using-backups.md#geo-restore). Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you are provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
-
-## I'm moving from Web/Business to the new service tiers, what do I need to know?
-Azure SQL Web and Business databases are now retired. The Basic, Standard, and Premium, and Elastic tiers replace the retiring Web and Business databases. 
 
 ## What is an expected replication lag when geo-replicating a database between two regions within the same Azure geography?
 We are currently supporting an RPO of five seconds and the replication lag has been less than that when the geo-secondary is hosted in the Azure recommended paired region and at the same service tier.
