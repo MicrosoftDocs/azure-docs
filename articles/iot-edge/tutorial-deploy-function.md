@@ -140,7 +140,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    ```
    To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. 
 
-2. In VS Code explorer, Right-click the **module.json** file and click **Build and Push IoT Edge module Docker image**. In the pop-up dropdown box at the top of the VS Code window, select your container platform, either **amd64** for Linux container or **windows-amd64** for Windows container. VS Code then containerizes the your function codes and push it to the container registry you specified.
+2. In VS Code explorer, Right-click the **module.json** file and click **Build and Push IoT Edge module Docker image**. In the pop-up dropdown box at the top of the VS Code window, select your container platform, either **amd64** for Linux container or **windows-amd64** for Windows container. VS Code then containerizes your function codes and push it to the container registry you specified.
 
 
 3. You can get the full container image address with tag in the VS Code integrated terminal. For more infomation about the build and push definition, you can refer to the `module.json` file.
