@@ -197,6 +197,6 @@ Explore the following areas of technologies and solutions, or see the Table of C
 [lnk-iot-hub-land]: /azure/iot-hub/index.md
 [lnk-iot-lbs-land]: /azure/location-based-services/index.yml
 [lnk-iot-suite-land]: /azure/iot-suite/index.md
-[lnk-iot-tsi-land]: /azure/time-series-insights/index.yml---
+[lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
 
 

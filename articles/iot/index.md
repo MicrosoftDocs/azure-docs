@@ -3,7 +3,7 @@ title: Azure Internet of Things (IoT)
 description: Overview of a Azure IoT, a sample IoT solution architecture, and how it relates to devices, the Azure IoT Hub service, Azure IoT device SDKs, Azure IoT service SDKs, and other Azure services.
 services: iot
 documentationcenter: ''
-author: BryanLa; 
+author: BryanLa 
 manager: timlt
 editor: ''
 
