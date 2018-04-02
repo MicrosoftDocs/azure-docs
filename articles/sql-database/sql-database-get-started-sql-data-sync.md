@@ -34,6 +34,8 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
 
 3.  On the **SQL databases** page, select the existing SQL database that you want to use as the hub database for Data Sync. The SQL database page opens.
 
+    The hub database is the central endpoint of the sync topology, in which a sync group has multiple database endpoints. All other database endpoints in the same sync group - that is, all member databases - sync with the hub database.
+
 4.  On the SQL database page for the selected database, select **Sync to other databases**. The Data Sync page opens.
 
     ![Sync to other databases option](media/sql-database-get-started-sql-data-sync/datasync-preview-newsyncgroup.png)
@@ -62,6 +64,8 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
         ![Specify sync frequency](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  In the **Conflict Resolution** section, select "Hub wins" or "Member wins."
+
+        "Hub wins" means that, when a conflict occurs, the data in the hub database overwrites the conflicting data in the member database. "Member wins" means that, when a conflict occurs, the data in the member database overwrites the conflicting data in the hub database. 
 
         ![Specify how conflicts are resolved](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
