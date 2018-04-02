@@ -78,7 +78,7 @@ Before an application can send data to event hub, the event hub must have a poli
 3. After the policy has been deployed > click to open the policy > find the **Connection string–primary key** and click the copy button next to the connection string.  
 4. Paste the connection string into a text editor. You need this connection string in the next section.  
 
-   The connection string looks like this:
+   The connection string looks as follows:
 
    `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>` 
 
@@ -115,9 +115,9 @@ After a few seconds, the app starts displaying phone call records on the screen 
 |CallrecTime    |  The timestamp for the call start time.       |
 |SwitchNum     |  The telephone switch used to connect the call. For this example, the switches are strings that represent the country of origin (US, China, UK, Germany, or Australia).       |
 |CallingNum     |  The phone number of the caller.       |
-|CallingIMSI     |  The International Mobile Subscriber Identity (IMSI). This is the Unique identifier of the caller.       |
+|CallingIMSI     |  The International Mobile Subscriber Identity (IMSI). It's a unique identifier of the caller.       |
 |CalledNum     |   The phone number of the call recipient.      |
-|CalledIMSI     |  International Mobile Subscriber Identity (IMSI). This is the unique identifier of the call recipient.       |
+|CalledIMSI     |  International Mobile Subscriber Identity (IMSI). It's a unique identifier of the call recipient.       |
 
 ## Create a Stream Analytics job 
 
@@ -133,7 +133,7 @@ Now that you have a stream of call events, you can create a Stream Analytics job
    |Resource group   |   MyASADemoRG      |   Select Use existing and enter a new resource-group name for your account.      |
    |Location   |    West US2     |   	Location where the job can be deployed. It's recommended to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.      |
    |Hosting environment    | Cloud        |     Stream Analytics jobs can be deployed to cloud or edge. Cloud allows you to deploy to Azure Cloud, and Edge allows you to deploy to an IoT edge device.    |
-   |Streaming units     |    1	     |   	Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, refer to [understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) article.      |
+   |Streaming units     |    1	     |   	Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, see [understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) article.      |
 
    ![Create a job](media/stream-analytics-manage-job/create-a-job.png)   
 
@@ -141,7 +141,7 @@ Now that you have a stream of call events, you can create a Stream Analytics job
 
 ## Configure job input
 
-1. From the Azure portal open **All resources** pane, find and select the ASATutorial Stream Analytics job.  
+1. From the Azure portal open **All resources** pane, and find the ASATutorial Stream Analytics job.  
 2. In the **Job Topology** section of the Stream Analytics job pane, click the **Inputs** option.  
 3. Click **+ Add stream input** (Reference input refers to static lookup data, which you won't use in this tutorial) > **Event hub** and then fill out the pane with the following values:  
 
@@ -161,7 +161,7 @@ Now that you have a stream of call events, you can create a Stream Analytics job
 
 The last step is to define an output sink for the job where it can write the transformed data. For this tutorial, you'll output results to Power BI and visualize the date. Run the following steps to configure output to your job:
 
-1. From the Azure portal open **All resources** pane, find and select the ASATutorial Stream Analytics job.
+1. From the Azure portal open **All resources** pane, and  the ASATutorial Stream Analytics job.
 2. In the **Job Topology** section of the Stream Analytics job pane, click the **Outputs** option.
 3. Click **+Add** > **Power BI** and fill the form with the following details and click **Authorize**:
 
@@ -174,31 +174,31 @@ The last step is to define an output sink for the job where it can write the tra
 
    ![Configure output](media/stream-analytics-manage-job/configure-output.png) 
 
-   After you click on **Authorize**, A pop-up window opens, and you are asked to provide credentials to authenticate to your Power BI account. Once the authorization is successful, **Save** the settings. 
+   After you click on **Authorize**, a pop-up window opens, and you are asked to provide credentials to authenticate to your Power BI account. Once the authorization is successful, **Save** the settings. 
 
 ## Define a query to analyze input data
 
 After you have a Stream Analytics job setup to read an incoming data stream, the next step is to create a transformation that analyzes data in real time. You define the transformation query by using [Stream Analytics Query Language](https://msdn.microsoft.com/library/dn834998.aspx). In this tutorial, you define a query that detects fraud calls from the phone data. 
 
-For this example, we consider fraudulent calls are the ones that originate from the same user but in separate locations and the duration between both calls is 5 seconds. For example, the same user can't legitimately make a call from the US and Australia at the same time.
+For this example, we consider fraudulent calls are the ones that originate from the same user but in separate locations and the duration between both calls is five seconds. For example, the same user can't legitimately make a call from the US and Australia at the same time.
 
 To check for such fraudulent calls, you should self-join the streaming data based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country of origin) is different. When you use a JOIN operation with streaming data, the join must provide some limits on how far the matching rows can be separated in time. As the streaming data is endless, the time bounds for the relationship are specified within the ONclause of the join, using the [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) function. To define the transformation query for your Stream Analytics job, run the following steps:
 
-1. From the Azure portal open **All resources** pane, find and select the ASATutorial Stream Analytics job.  
+1. From the Azure portal open **All resources** pane, and the ASATutorial Stream Analytics job.  
 2. In the **Job Topology** section of the Stream Analytics job pane, click the **Query** option. The pop-up window lists the inputs and outputs that are configured for the job, and lets you create a query to transform the input stream.  
 3. Next replace the existing query in the editor with the following data, this query performs a self-join on a 5-second interval worth of call data:
 
-```sql
-    SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
-    INTO "MyPBIoutput"
-    FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
-    JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
-    ON CS1.CallingIMSI = CS2.CallingIMSI
-    AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
-    WHERE CS1.SwitchNum != CS2.SwitchNum
-    GROUP BY TumblingWindow(Duration(second, 1))
- ```
-    This query is just like a normal SQL join except for the DATEDIFF function. The DATEDIFF function used in this query is specific to Streaming Analytics, and it must appear within the `ON...BETWEEN` clause.  
+   ```sql
+   SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+   INTO "MyPBIoutput"
+   FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
+   JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
+   ON CS1.CallingIMSI = CS2.CallingIMSI
+   AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+   WHERE CS1.SwitchNum != CS2.SwitchNum
+   GROUP BY TumblingWindow(Duration(second, 1))
+   ```
+   This query is just like a normal SQL join except for the DATEDIFF function. The DATEDIFF function used in this query is specific to Streaming Analytics, and it must appear within the `ON...BETWEEN` clause.  
 4. Save the query. 
    ![define query](media/stream-analytics-manage-job/define-query.png) 
 
@@ -210,7 +210,7 @@ You can test a query from the query editor and you need sample data to test a qu
 2. In the **Query** pane, click the dots next to the CallStream input and then select **Sample data from input**. This opens a pane that lets you specify how much sample data to read from the input stream.  
    ![Sample input data](media/stream-analytics-manage-job/sample-input-data.png)
 
-3. Set **Minutes to 3** and click **OK**. 3 minutes’ worth of data is sampled from the input stream and notifies you when the sample data is ready. You can view the status of sampling from the notification bar. 
+3. Set **Minutes to 3** and click **OK**. Three minutes worth of data is sampled from the input stream and notifies you when the sample data is ready. You can view the status of sampling from the notification bar. 
 The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you'll have to create a new set of sample data. As an alternative, you can get a .json file that has sample data in it from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json), and then upload that .json file to use as sample data for the CallStream input.  
 4. Click **Test** to test the query, you should output resulted from the sample data as shown in this screenshot:
    ![Test output](media/stream-analytics-manage-job/test-output.png)
@@ -220,7 +220,7 @@ The sample data is stored temporarily and is available while you have the query 
 1. To start the job, navigate to the **Overview** pane of your job, and click **Start**. The job starts in few minutes and you can view the status in the notification bar.  
 2. Go to [Powerbi.com](https://powerbi.com/) and sign in with your work or school account. If the Stream Analytics job query outputs results, you see that your dataset is already created. Navigate to the **Datasets** tab, you can view a dataset named “ASAdataset”.  
 3. From your workspace, click **+Create**. Create a new dashboard and name it Fraudulent Calls. You will add two tiles to this dashboard, where one tile is used to view the count of fraudulent calls at a given instance and the other tile has a line chart visualization.  
-4. At the top of the window, click **Add tile** > and select **Custom Streaming Data** > Next > choose the **ASAdataset** > for Visualization type select **Card** > and Fields as fraudulentcalls. Click **Next** > enter a name for the tile click **Apply**.  
+4. At the top of the window, click **Add tile** > and select **Custom Streaming Data** > Next > choose the **ASAdataset** > for Visualization type select **Card** > and Fields as **fraudulentcalls**. Click **Next** > enter a name for the tile click **Apply**.  
 
    ![Create tiles](media/stream-analytics-manage-job/create-tiles.png)
 
@@ -234,11 +234,18 @@ The sample data is stored temporarily and is available while you have the query 
 
 ## Embedding your PowerBI Dashboard in a Web Application
 
-For this part of the demo, you'll use a sample [ASP.NET](http://asp.net/)  Web application created by the PowerBI team to embed your dashboard. For more information, about embedding dashboards, refer to [embedding with Power BI](https://docs.microsoft.com/power-bi/developer/embedding) topic.
+For this part of the demo, you'll use a sample [ASP.NET](http://asp.net/)  Web application created by the PowerBI team to embed your dashboard. For more information, about embedding dashboards, see [embedding with Power BI](https://docs.microsoft.com/power-bi/developer/embedding) article.
 
-In this tutorial, we'll follow the steps for the User Owns Data application. To setup the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples)  Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the integrate-dashboard-web-app sample code (located in `$\User Owns Data\integrate-dashboard-web-app`).
+In this tutorial, we'll follow the steps for the User Owns Data application. To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples)  Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the integrate-dashboard-web-app sample code (located in `$\User Owns Data\integrate-dashboard-web-app`).
 Once you've got the application running in your browser, follow these steps to embed the dashboard you created earlier into the web page:
 
-1. Click **Sign in to Power BI**. This grants the application access to the dashboards in your PowerBI account.  
-2. Click the **Get Dashboards** button. This will display your account's Dashboards in a table. Find the name of the dashboard you created earlier (powerbi-embedded-dashboard) and copy the corresponding **EmbedUrl**.  
+1. Click **Sign in to Power BI**, which grants the application access to the dashboards in your PowerBI account.  
+2. Click the **Get Dashboards** button, which displays your account's Dashboards in a table. Find the name of the dashboard you created earlier (powerbi-embedded-dashboard) and copy the corresponding **EmbedUrl**.  
 3. Finally, paste the **EmbedUrl** into the corresponding text field and click **Embed Dashboard**. You can now view the same dashboard embedded within a web application.
+
+## Next steps
+
+In this tutorial, you have created a simple Stream Analytics job, analyzed the incoming data and presented results in a Power BI dashboard. To learn more about Stream Analytics jobs, continue to the next tutorial:
+
+> [!div class="nextstepaction"]
+> [Run Azure Functions within Stream Analytics jobs](stream-analytics-with-azure-functions.md)

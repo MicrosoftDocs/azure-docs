@@ -207,5 +207,9 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.  
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
+## Next steps
+
+In this tutorial, you have create a simple Stream Analytics job, that runs an Azure Function, to learn more about Stream Analytics jobs, continue to the next tutorial:
+
 > [!div class="nextstepaction"]
 > [Run JavaScript user-defined functions within Stream Analytics jobs](stream-analytics-javascript-user-defined-functions.md)

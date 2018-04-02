@@ -4,11 +4,9 @@
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 
 # Tutorials
-## [1 - Create and manage a job](stream-analytics-manage-job.md)
-## [2 - Test your job](stream-analytics-test-query.md)
-## [3 - View results on a dashboard](stream-analytics-power-bi-dashboard.md)
-## [4 - Run Azure Functions](stream-analytics-with-azure-functions.md)
-## [5 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
+## [1 - Create / manage a job](stream-analytics-manage-job.md)
+## [2 - Run Azure Functions](stream-analytics-with-azure-functions.md)
+## [3 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
@@ -29,7 +27,9 @@
 ## Manage
 ### [Update a job](stream-analytics-job-reliability.md)
 ### [Update credentials](stream-analytics-login-credentials-inputs-outputs.md)
-## [Configure alerts](stream-analytics-set-up-alerts.md)
+### [Configure alerts](stream-analytics-set-up-alerts.md)
+### [Test your job](stream-analytics-test-query.md)
+### [View results on a dashboard](stream-analytics-power-bi-dashboard.md)
 
 ## Build solutions
 ### [Twitter sentiment analysis](stream-analytics-twitter-sentiment-analysis-trends.md)
