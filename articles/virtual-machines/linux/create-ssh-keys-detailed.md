@@ -19,10 +19,13 @@ ms.author: danlep
 
 ---
 
-# Create and use an SSH key pair for a Linux VM in Azure - background and steps
-With an SSH key pair, you can create a Linux virtual machine on Azure that defaults to using SSH keys for authentication, eliminating the need for passwords to log in. VMs created with the Azure portal, Azure CLI, Resource Manager templates, or other tools can include your SSH public key as part of the deployment, which allows you to to use SSH key authentication for SSH connections. 
+# Create and manage SSH keys for authentication to a Linux VM in Azure 
+With an SSH key pair, you can create a Linux virtual machine on Azure that defaults to using SSH keys for authentication, eliminating the need for passwords to log in. VMs created with the Azure portal, Azure CLI, Resource Manager templates, or other tools can include your SSH public key as part of the deployment, which sets up SSH key authentication for SSH connections. 
 
-This article provides detailed background and steps to create and manage an SSH RSA public and private key file pair (also referred to as *ssh-rsa* keys) for SSH connections from a client compute. If you want quick steps to create and use an SSH key pair, see [How to create an SSH public and private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
+This article provides detailed background and steps to create and manage an SSH RSA public and private key file pair (also referred to as *ssh-rsa* keys) for SSH connections from a client compute. If you want quick commands to create and use an SSH key pair, see [How to create an SSH public and private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
+
+For additional ways to generate and use SSH keys on a Windows computer, see [How to use SSH keys with Windows on Azure](ssh-from-windows.md).
+
 
 ## Overview of SSH and keys
 
@@ -36,6 +39,7 @@ These public and private keys can be used on multiple VMs and services. You do n
 
 Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key. 
 
+### Private key passphrase
 The SSH private key should have a very secure passphrase to safeguard it. This passphrase is just to access the private SSH key file and *is not* the user account password. When you add a passphrase to your SSH key, it encrypts the private key using 128-bit AES, so that the private key is useless without the passphrase to decrypt it. If an attacker stole your private key and that key did not have a passphrase, they would be able to use that private key to log in to any servers that have the corresponding public key. If a private key is protected by a passphrase, it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
@@ -123,11 +127,11 @@ It is *strongly* recommended to add a passphrase to your private key. Without a 
 
 
 
-## Generate SSH keys during deployment
+## Generate keys automatically during deployment
 
 If you use the [Azure CLI 2.0](/cli/azure) to create your VM, you can optionally generate SSH public and private key files (if they don't already exist) by using the `--generate-ssh-keys` option. The keys are stored in the ~/.ssh directory. 
 
-## Provide SSH public key for VM deployment
+## Provide SSH public key when deploying a VM
 
 To create a Linux VM that uses SSH keys for authentication, provide your SSH public key when creating the VM using the Azure portal, CLI, Resource Manager templates, or other methods. When using the portal, you enter the public key itself. If you use the [Azure CLI 2.0](/cli/azure) to create your VM with an existing public key, specify the value or location of this public key by running the [az vm create](/cli/azure/vm#az_vm_create) command with the `--ssh-key-value` option. 
 
@@ -143,7 +147,7 @@ Output is similar to the following (here redacted):
 ssh-rsa XXXXXXXXXXc2EAAAADAXABAAABAXC5Am7+fGZ+5zXBGgXS6GUvmsXCLGc7tX7/rViXk3+eShZzaXnt75gUmT1I2f75zFn2hlAIDGKWf4g12KWcZxy81TniUOTjUsVlwPymXUXxESL/UfJKfbdstBhTOdy5EG9rYWA0K43SJmwPhH28BpoLfXXXXXG+/ilsXXXXXKgRLiJ2W19MzXHp8z3Lxw7r9wx3HaVlP4XiFv9U4hGcp8RMI1MP1nNesFlOBpG4pV2bJRBTXNXeY4l6F8WZ3C4kuf8XxOo08mXaTpvZ3T1841altmNTZCcPkXuMrBjYSJbA8npoXAXNwiivyoe3X2KMXXXXXdXXXXXXXXXXCXXXXX/ azureuser@myserver
 ```
 
-If you copy and paste the contents of the public key file to use in the Azure portal or a Resource Manager template, make sure you don't copy any additional whitespace or introduce additional linebreaks. For example, if you use macOS, you can pipe the public key file (by default, `~/.ssh/id_rsa.pub`) to **pbcopy** to copy the contents (there are other Linux programs that do the same thing, such as **xclip**).
+If you copy and paste the contents of the public key file into the Azure portal or a Resource Manager template, make sure you don't copy any additional whitespace or introduce additional linebreaks. For example, if you use macOS, you can pipe the public key file (by default, `~/.ssh/id_rsa.pub`) to **pbcopy** to copy the contents (there are other Linux programs that do the same thing, such as **xclip**).
 
 If you prefer to use a public key that is in a multiline format, you can generate an RFC4716 formatted key in a pem container from the public key you previously created.
 

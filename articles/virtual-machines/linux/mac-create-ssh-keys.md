@@ -20,7 +20,11 @@ ms.author: iainfou
 ---
 
 # How to create and use an SSH public and private key pair for Linux VMs in Azure
-With a secure shell (SSH) key pair, you can create virtual machines (VMs) in Azure that use SSH keys for authentication, eliminating the need for passwords to log in. This article shows you how to quickly generate and use an SSH public and private key file pair for Linux VMs. You can complete these steps with the Azure Cloud Shell, a macOS or Linux host, the Windows Subsystem for Linux, and other tools. For more detailed steps, otions, and advanced examples, see [detailed steps to create SSH key pairs](create-ssh-keys-detailed.md).
+With a secure shell (SSH) key pair, you can create virtual machines (VMs) in Azure that use SSH keys for authentication, eliminating the need for passwords to log in. This article shows you how to quickly generate and use an SSH public and private key file pair for Linux VMs. You can complete these steps with the Azure Cloud Shell, a macOS or Linux host, the Windows Subsystem for Linux, and other tools. 
+
+For more background and examples, see [detailed steps to create SSH key pairs](create-ssh-keys-detailed.md).
+
+For additional ways to generate and use SSH keys on a Windows computer, see [How to use SSH keys with Windows on Azure](ssh-from-windows.md).
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
@@ -33,7 +37,7 @@ ssh-keygen -t rsa -b 2048
 
 If you use the [Azure CLI 2.0](/cli/azure) to create your VM, you can optionally generate SSH public and private key files (if they don't already exist) by using the `--generate-ssh-keys` option. The keys are stored in the ~/.ssh directory. 
 
-## Create a VM that uses SSH key authentication
+## Provide SSH public key when deploying a VM
 To create a Linux VM that uses SSH keys for authentication, specify your SSH public key when creating the VM using the Azure portal, CLI, Resource Manager templates, or other methods:
 
 * [Create a Linux virtual machine with the Azure portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
