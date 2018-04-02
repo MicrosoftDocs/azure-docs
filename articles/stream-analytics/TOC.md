@@ -8,13 +8,12 @@
 ## [2 - View results on a dashboard](stream-analytics-power-bi-dashboard.md)
 ## [3 - Run Azure Functions](stream-analytics-with-azure-functions.md)
 ## [4 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
-## [5 - Configure alerts](stream-analytics-set-up-alerts.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 
 # Concepts
-## Input types for a job
+## [Input types for a job](stream-analytics-add-inputs.md)
 ### [Streaming data inputs](stream-analytics-define-inputs.md)
 ### [Reference data inputs](stream-analytics-use-reference-data.md)
 ## [Output types for a job](stream-analytics-define-outputs.md)
@@ -29,6 +28,7 @@
 ## Manage
 ### [Update a job](stream-analytics-job-reliability.md)
 ### [Update credentials](stream-analytics-login-credentials-inputs-outputs.md)
+## [Configure alerts](stream-analytics-set-up-alerts.md)
 
 ## Build solutions
 ### [Twitter sentiment analysis](stream-analytics-twitter-sentiment-analysis-trends.md)
@@ -37,7 +37,7 @@
 ### [Toll booth sensor data analysis](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [Run a JavaScript UDA](stream-analytics-javascript-user-defined-aggregates.md)
 ### [High-frequency trading](stream-analytics-high-frequency-trading.md)
-## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
+### [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 
 ## Monitor
 
@@ -94,7 +94,7 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Customer case studies](https://azure.microsoft.com/case-studies/?service=stream-analytics)
-## [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Whitepaper - Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
 
