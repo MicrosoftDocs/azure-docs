@@ -989,19 +989,19 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    crm(live)configure# exit
    </code></pre>
 
-   Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
+   Make sure that the cluster status is ok and that all resources are started. The virtual IP should be owned by <b>nws-cl-0</b>. Both nodes should be online to make sure the disk change by SAP NetWeaver ASCS installation on nws-cl-0 can be synced to nws-cl-1.
 
    <pre><code>
+   sudo crm node online <b>nws-cl-1</b>
    sudo crm_mon -r
 
-   # Node nws-cl-1: standby
-   # <b>Online: [ nws-cl-0 ]</b>
+   # <b>Online: [ nws-cl-0 nws-cl-1 ]</b>
    # 
    # Full list of resources:
    # 
    #  Master/Slave Set: ms-drbd_NWS_ASCS [drbd_NWS_ASCS]
    #      <b>Masters: [ nws-cl-0 ]</b>
-   #      Stopped: [ nws-cl-1 ]
+   #      Slaves: [ nws-cl-1 ]
    #  Resource Group: g-NWS_ASCS
    #      nc_NWS_ASCS        (ocf::heartbeat:anything):      <b>Started nws-cl-0</b>
    #      vip_NWS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-0</b>
@@ -1022,7 +1022,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>
    sudo crm node standby <b>nws-cl-0</b>
-   sudo crm node online <b>nws-cl-1</b>
    sudo crm configure
 
    crm(live)configure# primitive drbd_<b>NWS</b>_ERS \
@@ -1066,26 +1065,26 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    </code></pre>
  
-   Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
+   Make sure that the cluster status is ok and that all resources are started. The virtual IP should be owned by <b>nws-cl-1</b>. Both nodes should be online to make sure the disk change by SAP NetWeaver ERS installation on nws-cl-1 can be synced to nws-cl-0.
 
    <pre><code>
    sudo crm_mon -r
+   sudo crm node online <b>nws-cl-0</b>
 
-   # Node <b>nws-cl-0: standby</b>
-   # <b>Online: [ nws-cl-1 ]</b>
+   # <b>Online: [ nws-cl-0 nws-cl-1 ]</b>
    # 
    # Full list of resources:
    # 
    #  Master/Slave Set: ms-drbd_NWS_ASCS [drbd_NWS_ASCS]
    #      <b>Masters: [ nws-cl-1 ]</b>
-   #      Stopped: [ nws-cl-0 ]
+   #      Slaves:  [ nws-cl-0 ]
    #  Resource Group: g-NWS_ASCS
    #      nc_NWS_ASCS        (ocf::heartbeat:anything):      <b>Started nws-cl-1</b>
    #      vip_NWS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-1</b>
    #      fs_NWS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nws-cl-1</b>
    #  Master/Slave Set: ms-drbd_NWS_ERS [drbd_NWS_ERS]
    #      <b>Masters: [ nws-cl-1 ]</b>
-   #      Stopped: [ nws-cl-0 ]
+   #      Slaves:  [ nws-cl-0 ]
    #  Resource Group: g-NWS_ERS
    #      nc_NWS_ERS (ocf::heartbeat:anything):      <b>Started nws-cl-1</b>
    #      vip_NWS_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-1</b>
@@ -1106,6 +1105,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > Use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
    > 
 
+1. **[A]** Integrating the cluster framework using sap_suse_cluster_connector
+   
+   <pre><code>
+   sudo zypper install sap_suse_cluster_connector
+   </code></pre>
+   
 1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
  
    * ASCS/SCS profile
@@ -1194,7 +1199,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    crm(live)configure# exit
 
    sudo crm configure property maintenance-mode="false"
-   sudo crm node online <b>nws-cl-0</b>
    </code></pre>
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
