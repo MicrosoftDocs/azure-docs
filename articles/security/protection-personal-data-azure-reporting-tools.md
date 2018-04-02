@@ -102,7 +102,7 @@ To create a Log Analytics workspace in the Azure portal, do the following:
 
 1. Select **Log Analytics** from the list of services in the Marketplace.
 
-2. Select **Create,** then specify the name of your OMS workspace, select your subscription, resource group, location, and pricing tier.
+2. Select **Create,** then specify the name of your Log Analytics workspace, select your subscription, resource group, location, and pricing tier.
 
 3. Click **OK** to display a list of your workspaces.
 
