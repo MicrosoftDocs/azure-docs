@@ -38,18 +38,18 @@ Here are some of the things you can do with resource diagnostic logs:
 
 * Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **resource diagnostic settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* Analyze them with [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
 ## Resource diagnostic settings
 Resource diagnostic logs for non-Compute resources are configured using resource diagnostic settings. **Resource diagnostic settings** for a resource control:
 
-* Where resource diagnostic logs and metrics are sent (Storage Account, Event Hubs, and/or OMS Log Analytics).
+* Where resource diagnostic logs and metrics are sent (Storage Account, Event Hubs, and/or Log Analytics).
 * Which log categories are sent and whether metric data is also sent.
 * How long each log category should be retained in a storage account
     - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
-    - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect.
+    - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
     - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
 These settings are easily configured via the diagnostic settings for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
