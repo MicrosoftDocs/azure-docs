@@ -319,7 +319,7 @@ built into the Blueprint outlined to:
 - **INGEST** data raw sources including FHIR data source
 - **STORE**  sensitive information
 - **ANALYZE** and predict outcomes
-- **INTERACT** with the results and perditions
+- **INTERACT** with the results and predictions
 - **IDENTITY** management of solution
 - **SECURITY** enabled features
 

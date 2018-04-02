@@ -4,9 +4,8 @@ description: Use a real-time streaming Power BI dashboard to gather business int
 keywords: analytics dashboard, real-time dashboard
 services: stream-analytics
 documentationcenter: ''
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 
 ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics
@@ -15,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
