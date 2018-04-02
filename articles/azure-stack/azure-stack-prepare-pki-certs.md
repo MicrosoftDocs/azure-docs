@@ -76,4 +76,4 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
   k.	Repeat this process for all of the certificates you imported for your deployment in step 2 above.
 
 ## Next steps
-[Validate PKI certificates](validate-pki-certs.md)
+[Validate PKI certificates](azure-stack-validate-pki-certs.md)
