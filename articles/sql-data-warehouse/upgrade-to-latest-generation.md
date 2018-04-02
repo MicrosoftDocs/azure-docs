@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg-msft
 ms.topic: conceptual
 ms.component: manage
-ms.date: 03/29/2018
+ms.date: 04/02/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -41,7 +41,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 Once your data warehouse is online, you can load data and run queries. However, performance can be slow at first because a background process is migrating the data to the new hardware. 
 
-To force the data to migrate as quickly as possible, we recommend rebuilding the columnstore indexes. To do this, see guidance for [Rebuilding columnstore indexes to improve segment quality](sql-data-warehouse-tables-index#rebuilding-indexes-to-improve-segment-quality). 
+To force the data to migrate as quickly as possible, we recommend rebuilding the columnstore indexes. To do this, see guidance for [Rebuilding columnstore indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). 
 
 ## Next steps
 Your data warehouse is online. To use the new performance features, see [Resource classes for Workload Management](resource-classes-for-workload-management.md).
