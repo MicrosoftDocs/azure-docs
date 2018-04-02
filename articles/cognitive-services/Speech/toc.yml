@@ -1,6 +1,6 @@
 - name: Overview
   href: Home.md
-- name: Quickstarts
+- name: Get Started
   expanded: true
   href: GetStarted/GetStarted.md
   items:
