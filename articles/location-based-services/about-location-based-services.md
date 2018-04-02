@@ -36,7 +36,7 @@ Azure Maps consists of five primary services to bolster Azure applications requi
 
 ![Azure Maps Search.png](media/about-location-based-services/Introduction_Search.png)
 
-**Time Zone Service** – The Time Zone Service allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](http://www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. A typical JSON response for a query to the Time Zone Service looks like the following:
+**Time Zone Service** – The Time Zone Service allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](http://www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. A typical JSON response for a query to the Time Zone Service looks like the following sample:
 
 ```JSON
 {
@@ -56,7 +56,7 @@ Azure Maps consists of five primary services to bolster Azure applications requi
 }
 ```
 
-**Traffic Service** – The Traffic Service is a suite of web services designed for developers to create web and mobile applications requiring traffic. The offering is split into the following:
+**Traffic Service** – The Traffic Service is a suite of web services designed for developers to create web and mobile applications requiring traffic. The offering is split into the following data types:
 1. Traffic Flow - provides real-time observed speeds and travel times for all key roads in the network; and, 
 2. Traffic Incidents - provides an accurate view about the traffic jams and incidents around the road network.
 
@@ -67,28 +67,28 @@ Azure Maps is built for mobility and can power cross-platform applications since
 Azure Maps uses a key-based authentication scheme, so accessing the services is a matter of navigating to the [Azure portal](http://portal.azure.com) and creating an Azure Maps account. Your account comes with two keys pre-generated for you. Start integrating these location capabilities directly into your applications by using either of your keys in the requests to the Azure Maps service.
 
 ## Unsupported Regions
-Our API is currently unavailable in below countries. Please check your current IP address and verify that your IP address' location is not in one of the unsupported countries below.
+The Azure Maps API is currently unavailable in below countries. Check your current IP address and verify that your IP address' location is not in one of the unsupported countries below.
 
 * Argentina
 * China
 * India
-* Morrocco
+* Morocco
 * Pakistan
 * South Korea
 
 ## Relationship With Bing Maps
 The Azure Maps described in this document are distinct from those provided by Bing Maps.  Although they share much of the same functionality, the two services are different and not related.  There is no impact to Bing Maps product offering or roadmap with the availability of this new service within Azure, which will be managed separately.
 
-Microsoft’s goal is to provide choice to the developer community in terms of location service offerings.  Below is some quick guidance for developers on which service to use for various use cases and customer situations.  Please note this guidance applies currently to Azure LBS as it is in Public Preview stage, and will be updated once it reaches General Availability later in 2018.
+Microsoft’s goal is to provide choice to the developer community in terms of location service offerings.  Below is some quick guidance for developers on which service to use for various use cases and customer situations. 
 
 | Customer Criteria | Use Azure Maps when… | Use Bing Maps when… |
 | ------------- | ------------- | ------------- |
-| Development Environment | Building in or leveraging other Azure services | Using a third party cloud or other developer environment |
+| Development Environment | Building in or leveraging other Azure services | Using a third-party cloud or other developer environment |
 | Development Stage  | Because Azure LBS is currently in Public Preview, it is optimized for early stage testing and Proof of Concept development | An enterprise grade SLA is required for a production environment |
 | Pricing Options | Preliminary developer pricing options suffice | Customized enterprise grade pricing is required |
 | Use Case Environment | In-vehicle usage is required | In-vehicle usage is not required |
 | Geographic Coverage | India, China, Japan and South Korea are not required | India, China, Japan and South Korean map coverage are required |
-| Mapping Content | Standard surface maps are sufficient | Satellite, aerial and street side imagery are required |
+| Mapping Content | Standard surface maps are sufficient | Satellite, aerial, and street side imagery are required |
 | Underlying Map Source | TomTom mapping data is preferred | HERE mapping data is preferred |
 
 Sign up for an [Azure Maps account today](http://aka.ms/azurelbsportal).

@@ -1,6 +1,6 @@
 ---
-title: Zoom Levels and Tile Grid in Azure Location Based Services | Microsoft Docs
-description: Learn about Zoom Levels and Tile Grid in Azure Location Based Services
+title: Zoom Levels and Tile Grid in Azure Maps | Microsoft Docs
+description: Learn about Zoom Levels and Tile Grid in Azure Maps
 services: location-based-services
 keywords: 
 author: jinzh-azureiot
@@ -10,13 +10,13 @@ ms.topic: article
 ms.service: location-based-services
 
 documentationcenter: ''
-manager: cpendle
+manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ---
 
 # Zoom Levels and Tile Grid
-Azure Location Based Services use the Spherical Mercator projection coordinate system (EPSG: 3857).
+Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857).
 
 The world is divided into square tiles. Render (Raster) has 19 zoom levels, numbered 0 through 18. Render (Vector) has 21 zoom levels, numbered 0 through 20. At zoom level 0, the entire world fits on a single tile:
 
