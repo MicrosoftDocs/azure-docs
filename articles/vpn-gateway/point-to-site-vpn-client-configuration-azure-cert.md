@@ -167,4 +167,4 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 
 Return to the article to [complete your P2S configuration](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md) and [Troubleshoot VPN connections from Mac OS X VPN clients](pn-gateway-troubleshoot-point-to-site-osx-ikev2.md).
+For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md) and [Troubleshoot VPN connections from Mac OS X VPN clients](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md).
