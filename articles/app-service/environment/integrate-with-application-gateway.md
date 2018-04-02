@@ -17,7 +17,7 @@ ms.author: ccompy
 ---
 # Integrate your ILB App Service Environment with an application gateway #
 
-The [App Service Environment for PowerApps](./intro.md) is a deployment of Azure App Service in the subnet of a customer's Azure virtual network. It can be deployed with a public or private endpoint for app access. The deployment of the App Service Environment with a private endpoint (that is, an internal load balancer) is called an ILB App Service Environment.  
+The [App Service Environment](./intro.md) is a deployment of Azure App Service in the subnet of a customer's Azure virtual network. It can be deployed with a public or private endpoint for app access. The deployment of the App Service Environment with a private endpoint (that is, an internal load balancer) is called an ILB App Service Environment.  
 
 Azure Application Gateway is a virtual appliance that provides layer 7 load balancing, SSL offloading, and web application firewall (WAF) protection. It can listen on a public IP address and route traffic to your application endpoint. 
 

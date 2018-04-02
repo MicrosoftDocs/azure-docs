@@ -3,13 +3,13 @@ title: Face API Python QuickStarts | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: Get information and code samples to help you quickly get started using the Face API with Python in Cognitive Services.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: SteveMSFT
+manager: corncar
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: anroth
+ms.author: sbowles
 ---
 
 # Face detection using Cognitive Services
@@ -54,7 +54,7 @@ The next few lines of code call into the Face API to detect the faces in the ima
 import requests
 from IPython.display import HTML
 
-headers = { 'Ocp-Apim-Subscription-Key': '<Subscription Key>' }
+headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
     
 params = {
     'returnFaceId': 'true',

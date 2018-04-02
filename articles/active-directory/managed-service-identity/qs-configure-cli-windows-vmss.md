@@ -40,7 +40,7 @@ To run the CLI script examples, you have three options:
 
 To create an MSI-enabled virtual machine scale set:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the virtual machine scale set:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the virtual machine scale set:
 
    ```azurecli-interactive
    az login
@@ -62,7 +62,7 @@ To create an MSI-enabled virtual machine scale set:
 
 If you need to enable MSI on an existing Azure virtual machine scale set:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription that contains the virtual machine scale set.
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
    ```azurecli-interactive
    az login
@@ -78,7 +78,7 @@ If you need to enable MSI on an existing Azure virtual machine scale set:
 
 If you have a virtual machine scale set that no longer needs an MSI:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#az_login). Use an account that is associated with the Azure subscription that contains the virtual machine scale set.
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
    ```azurecli-interactive
    az login

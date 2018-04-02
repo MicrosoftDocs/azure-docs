@@ -8,10 +8,10 @@
 # Get Started
 ## [Virtual Machines](documentation-government-quickstarts-vm.md) 
 ## [Azure App Services](documentation-government-howto-deploy-webandmobile.md)
-## [Azure Functions](documentation-government-functions.md)
 ## [Cognitive Services](documentation-government-cognitiveservices.md)
 ## [Integrate Azure AD Authentication](documentation-government-aad-auth-qs.md)
 ## [GPUs](documentation-government-gpu.md)
+## [Kubernetes](documentation-government-k8.md)
 
 # How To
 ## Plan

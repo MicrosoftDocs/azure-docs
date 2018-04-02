@@ -3,26 +3,16 @@ title: What is the Azure SQL Database service? | Microsoft Docs
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: 
-
-ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
+manager: craigg
 ms.service: sql-database
-ms.custom: overview
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.date: 02/12/2018
-ms.workload: "Active"
 ms.date: 03/07/2018
 ms.author: carlrab
-ms.reviewer: carlrab
 ---
 # What is the Azure SQL Database service? 
 
-SQL Database is a general-purpose relational database service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. It delivers [dynamically scalable performance](sql-database-service-tiers.md) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. 
+SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database offers managed [single SQL databases](sql-database-servers-databases.md), managed SQL databases in an [elastic pool](sql-database-elastic-pool.md), and managed SQL instances - called [SQL Database Managed Instance](sql-database-managed-instance.md) (in public preview). It delivers [dynamically scalable performance](sql-database-service-tiers.md) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. 
 
 SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). With Microsoft's cloud-first strategy, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. This approach provides you with the newest SQL Server capabilities with no overhead for patching or upgrading - and with these new features tested across millions of databases. For information about new capabilities as they are announced, see:
 
@@ -34,19 +24,23 @@ SQL Database shares its code base with the [Microsoft SQL Server database engine
 
 SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly, which enables you to run your database in a data center near you.
 
-> [!NOTE]
-> See [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
+> [!IMPORTANT]
+> SQL Database Managed Instance is currently in preview and is only available at a single service level. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
 >
 
 ## Scalable performance and pools
 
 With SQL Database, each database is isolated from each other and portable, each with its own [service tier](sql-database-service-tiers.md) with a guaranteed performance level. SQL Database provides different performance levels for different needs, and enables databases to be pooled to maximize the use of resources and save money.
 
+With SQL Database Managed Instance, each instance is isolated from other instances with guaranteed resources. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md) 
+
 ### Adjust performance and scale without downtime
 
 SQL Database offers three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
    ![scaling](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+
+SQL Database Managed Instance is in preview and offers a single service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md)
 
 ### Elastic pools to maximize resource utilization
 
@@ -55,6 +49,9 @@ For many businesses and applications, being able to create single databases and 
    ![elastic pools](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
 With elastic pools, you don’t need to focus on dialing database performance up and down as demand for resources fluctuates. The pooled databases consume the performance resources of the elastic pool as needed. Pooled databases consume but don’t exceed the limits of the pool, so your cost remains predictable even if individual database usage doesn’t. What’s more, you can [add and remove databases to the pool](sql-database-elastic-pool-manage-portal.md), scaling your app from a handful of databases to thousands, all within a budget that you control. You can also control the minimum and maximum resources available to databases in the pool to ensure that no database in the pool uses all the pool resources and that every pooled database has a guaranteed minimum amount of resources. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+> [!IMPORTANT]
+> SQL Database Managed Instance does not support elastic pools.
 
 ### Blend single databases with pooled databases
 
@@ -156,7 +153,7 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ask database administration questions
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ask development questions
-- [MSDN Forums](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Ask technical questions
+- [MSDN Forums](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ask technical questions
 - [Feedback](http://aka.ms/sqlfeedback): Report bugs and request feature
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuss SQL Server
 

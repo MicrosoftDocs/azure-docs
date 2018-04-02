@@ -3,7 +3,7 @@ title: Validate Azure Stack Public Key Infrastructure certificates for Azure Sta
 description: Describes how to validate the Azure Stack PKI certificates for Azure Stack integrated systems.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
 ---
 

@@ -36,7 +36,7 @@ The Marketplace image that you use to create the VMs is Oracle:Oracle-Database-E
 
 ### Sign in to Azure 
 
-Sign in to your Azure subscription by using the [az login](/cli/azure/#az_login) command and follow the on-screen directions.
+Sign in to your Azure subscription by using the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions.
 
 ```azurecli
 az login

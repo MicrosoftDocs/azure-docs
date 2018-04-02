@@ -4,8 +4,8 @@ description: Learn about how to move data from ODBC data stores using Azure Data
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory

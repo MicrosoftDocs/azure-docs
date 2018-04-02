@@ -84,7 +84,7 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modul
 Configure the runtime with your IoT Edge device connection string from the previous section.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Start the runtime.

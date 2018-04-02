@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/30/2018
 ms.author: v-geberr
 ---
 
@@ -49,13 +49,16 @@ You can set the name (50 char max), version (10 char max), and description of an
     ![Import a new app dialog](./media/luis-create-new-app/import-app.png)
 
 ## Export app
-1. On **My Apps** page, select the three dots (...) at the end of the app row. 
-2. Select **Export App** from the menu. 
+1. On **My Apps** page, select the three dots (...) at the end of the app row.
+
+    ![Import a new app dialog](./media/luis-create-new-app/three-dots.png)
+
+2. Select **Export app** from the menu. 
 
 ## Rename app
 
 1. On **My Apps** page, select the three dots (...) at the end of the app row. 
-2. Select **Rename App** from the menu.
+2. Select **Rename** from the menu.
 3. Enter the new name of the app and select **Done**.
 
 ## Delete app
@@ -64,7 +67,7 @@ You can set the name (50 char max), version (10 char max), and description of an
 > You are deleting the app for all collaborators and the owner. [Export](#export-app) the app before deleting it. 
 
 1. On **My Apps** page, select the three dots (...) at the end of the app row. 
-2. Select **Delete App** from the menu.
+2. Select **Delete** from the menu.
 3. Select **Ok** in the confirmation window.
 
 ## Export endpoint logs

@@ -115,7 +115,7 @@ However, you can always use `dir -Force` to get fresh data.
 
 ### Navigate storage resources
     
-By entering into the `StorageAccounts` folder you can easily navigate your storage resources
+By entering into the `StorageAccounts` directory you can easily navigate your storage resources
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -179,7 +179,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 #### Invoke PowerShell script across remote VMs
 
  > [!WARNING]
- > Please refer to [Troubleshooting remote management of Azure VMs](troubleshooting.md#powershell-resolutions).
+ > Please refer to [Troubleshooting remote management of Azure VMs](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
   Assuming you have a VM, MyVM1, let's use `Invoke-AzureRmVMCommand` to invoke a PowerShell script block on the remote machine.
 
@@ -224,7 +224,7 @@ You can also navigate to the `VirtualMachines` directory first and run `Enter-Az
 
 ### Discover WebApps
 
-By entering into the `WebApps` folder you can easily navigate your web apps resources
+By entering into the `WebApps` directory you can easily navigate your web apps resources
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -272,11 +272,11 @@ publish the public key to `authorized_keys` on the remote machine, such as `/hom
 
 ### Using a custom profile to persist GIT and SSH settings
 
-Since sessions do not persist upon sign-out, save your `$env:USERPROFILE\.ssh` folder to `CloudDrive` or create a symlink when Cloud Shell gets launched.
+Since sessions do not persist upon sign-out, save your `$env:USERPROFILE\.ssh` directory to `CloudDrive` or create a symlink when Cloud Shell gets launched.
 Add following code snippet in your profile.ps1 to create a symlink to CloudDrive.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -355,7 +355,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file will exist under the `CloudDrive` folder that mounts your Azure Files share.
+Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file will exist under the `CloudDrive` directory that mounts your Azure Files share.
 
 ## Use custom profile
 

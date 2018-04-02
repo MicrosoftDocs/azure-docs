@@ -14,7 +14,7 @@ ms.author: v-jaswel
 # Entity Search endpoints
 The **Entity Search API**  includes one endpoint.
 
-##Endpoint
+## Endpoint
 To request entity search results, send a request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
 Endpoint `GET`: 

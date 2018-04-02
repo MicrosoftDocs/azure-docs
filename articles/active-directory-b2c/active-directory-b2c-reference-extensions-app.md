@@ -3,19 +3,15 @@ title: 'Extensions app - Azure AD B2C | Microsoft Docs'
 description: Restoring the b2c-extensions-app
 services: active-directory-b2c
 documentationcenter: ''
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 'parakhj'
+editor: ''
 
-ms.assetid: f0392e32-0771-473c-a799-81438ca2bcff
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 9/06/2017
-
-ms.author: parja
+ms.author: davidmu
 
 ---
 # Azure AD B2C: Extensions app
