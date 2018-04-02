@@ -81,6 +81,8 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - <!--  2253274 --> **Fixed** - The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
 
+- **Fixed** - When you create a virtual machine, the message *Unable to display pricing* no longer appears when choosing a size for the VM size.
+
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 
