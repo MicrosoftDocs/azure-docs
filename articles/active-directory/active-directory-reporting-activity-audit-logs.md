@@ -183,7 +183,7 @@ You can filter this view further down to just **groups** or just **users**.
 
 ## Azure AD audit activity list
 
-This section provides you with a lists of all the activities that can be logged. 
+This section provides you with a list of all the activities that can be logged. 
 
 
 |Service Name|Audit Category|Activity Resource Type|Activty|
