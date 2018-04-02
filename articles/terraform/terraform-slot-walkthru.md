@@ -11,7 +11,7 @@ ms.topic: article
 
 # Using Terraform to provision infrastructure with Azure deployment slots
 
-[Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between various versions of your app - such as production, development, and test - to minimize the impact of broken deployments. Using deployment slots, you can directly swap between slots  without any downtime. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in the production slot, while the second app is hosted in the deployment slot. Terraform is then used to swap the (inactive) deployment slot with the production slot.
+[Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between various versions of your app - such as production, development, and test - to minimize the impact of broken deployments. Using deployment slots, you can directly swap between slots without any downtime. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in the production slot, while the second app is hosted in the deployment slot. Terraform is then used to swap the (inactive) deployment slot with the production slot.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ ms.topic: article
 
 - **Azure credentials** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **GitHub account** - A [GitHub](http://www.github.com) is needed to fork and use the two web apps utilized in this tutorial.
+- **GitHub account** - A [GitHub](http://www.github.com) account is needed to fork and use the two web apps utilized in this tutorial.
 
 ## Create and apply the Terraform plan
 
@@ -169,7 +169,7 @@ ms.topic: article
 
 1. Select **Authorization**.
 
-1. Select **Authorize**, and supply the credentials needed for Azure to access your GitHub account. 
+1. On the **Authorization** tab, select **Authorize**, and supply the credentials needed for Azure to access your GitHub account. 
 
 1. Once Azure has validated your GitHub credentials, a message displays indicating that the authorization process has completed. Select **OK** to close the **Authorization** tab.
 
@@ -187,7 +187,7 @@ ms.topic: article
 
     ![Choose the master branch](./media/terraform-slot-walkthru/choose-branch.png)
 
-1. On the **Deployment option** tab, select **OK**. Once you select **OK**, the Azure portal builds the **awesome-terraform** project and deploys it to the **slotAppService-slotAppServiceSlotOne** production slot.
+1. On the **Deployment option** tab, select **OK**. Once you select **OK**, the Azure portal builds the **awesome-terraform** project and deploys it to the **slotAppService** production slot.
 
 
 
