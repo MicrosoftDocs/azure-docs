@@ -62,8 +62,8 @@ The Device Provisioning Service Client SDK helps you implement your device regis
    cd azure-iot-sdk-c/cmake
    ```
 
-3. Build the SDK for your development platform and one of the supported attestation mechanisms, using one of the following commands (also note the 2 trailing period characters). Upon completion, CMake builds out the `/cmake` subdirectory with content specific to your device:
-    - For devices that use a physical TPM or X.509 certificate for attestation:
+3. Build the SDK for your development platform and one of the supported attestation mechanisms, using one of the following commands (also note the two trailing period characters). Upon completion, CMake builds out the `/cmake` subdirectory with content specific to your device:
+    - For devices that use a physical TPM/HSM, or a simulated X.509 certificate for attestation:
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
         ```
@@ -81,46 +81,75 @@ Now you're ready to use the SDK to build your device registration code.
 The next step is to extract the security artifacts for the HSM on your device. 
 
 ### Physical device 
+
+If you built the SDK for attestation with a physical TPM/HSM:
+
 - For a TPM device, you need to find out the **Endorsement Key** associated with it from the TPM chip manufacturer. You can derive a unique **Registration ID** for your TPM device by hashing the endorsement key.  
 
 - For an X.509 device, you need to obtain the certificates issued to your device(s) - end-entity certificates for individual device enrollments, while root certificates for group enrollments of devices. 
 
 ### Simulated device
-- For a simulated TPM device:
-   1. In a separate command prompt, navigate to the GitHub root folder and run the TPM simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
 
-      From the *cmake* folder, run the following commands:
+If you built the SDK to use attestation with a simulated TPM or X.509 certificate:
+
+- For a simulated TPM device:
+   1. In a separate/new command prompt, navigate to the `azure-iot-sdk-c` subdirectory again, and run the TPM simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+
+      From the *cmake* subdirectory, run the following commands:
 
       ```cmd/sh
       cd..
       .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
       ```
 
-   2. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
+   2. Using Visual Studio, open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it using the "Build solution" command on the "Build" menu.
 
    3. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
 
-   4. Run the solution. The output window displays the **_Registration ID_** and the **_Endorsement Key_** needed for device enrollment. Note these values and leave the simulator running.
+   4. Run the solution using either of the "Start" commands on the "Debug" menu. The output window displays the TPM simulator's **_Registration ID_** and the **_Endorsement Key_**, needed for device enrollment and registration. Copy these values for use later. You can close this window (with Registration Id and Endorsement Key), but leave the TPM simulator window running that you started in step #1.
 
 - For a simulated X.509 device:
   1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
   2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter **i** for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at the first *-----END CERTIFICATE-----*, making sure to include both of these lines as well. Note that you need only the first certificate from the output window.
  
-  3. Create a file named **_X509testcert.pem_**, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file as you will use it later for device enrollment. When your registration software runs, it will use the same certificate during auto-provisioning.    
+  3. Create a file named **_X509testcert.pem_**, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file as you will use it later for device enrollment. When your registration software runs, it uses the same certificate during auto-provisioning.    
 
-These security artifacts are required to enroll your devices to the Device Provisioning Service. The provisioning service then waits for any of these devices to boot and connect with it at any later point in time. See [How to manage device enrollments](how-to-manage-enrollments.md) for information on how to use these security artifacts to create enrollments.  
-
-When your device boots for the first time, the client SDK interacts with your chip (or simulator) to extract the security artifacts from the device, and verifies registration with your Device Provisioning service. 
+These security artifacts are required during creation of your registration software, and enrollment your devices to the Device Provisioning Service. The provisioning service waits for these devices to boot and connect with it at any later point in time. When your device boots for the first time, the client SDK logic interacts with your chip (or simulator) to extract the security artifacts from the device, and verifies registration with your Device Provisioning service. 
 
 ## Create the device registration software
 
 The last step is to write an application that uses the Device Provisioning Service client SDK to register the device with the service. 
 
-The SDK provides the following APIs for your applications to use:
+1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and copy the **_ID Scope_** value. The *ID Scope* is generated by the service and guarantees uniqueness. It is immutable and used to uniquely identify the registration IDs.
+
+    ![Extract DPS endpoint information from the portal blade](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+
+2. In the Visual Studio *Solution Explorer* on your machine, navigate to the folder **Provision\_Samples**. Select the sample project named **prov\_dev\_client\_sample** and open the source file **prov\_dev\_client\_sample.c**.
+
+3. Assign the _ID Scope_ value obtained in step #1, to the `id_scope` variable (removing the left/`[` and right/`]` brackets): 
+
+    ```c
+    static const char* global_prov_uri = "global.azure-devices-provisioning.net";
+    static const char* id_scope = "[ID Scope]";
+    ```
+
+    Also notice the `global_prov_uri` variable, which allows the IoT Hub client registration API `IoTHubClient_LL_CreateFromDeviceAuth` to connect with the designated Device Provisioning Service instance.
+
+4. In the **main()** function in the same file, comment/uncomment the `hsm_type` variable that matches the attestation mechanism being used by your device's registration software (TPM or X.509): 
+
+    ```c
+    //hsm_type = SECURE_DEVICE_TYPE_TPM;
+    hsm_type = SECURE_DEVICE_TYPE_X509;
+    ```
+
+> [!IMPORTANT]
+> Do not run/start the device yet! You need to finish the process by enrolling the device with the Device Provisioning Service first, before starting the device. The Next steps section below will guide you to the next article.
+
+For reference, the SDK provides the following APIs for your application to use during registration. These APIs help your device connect and register with the Device Provisioning Service when it boots up. In return, your device receives the information required to establish a connection to your IoT Hub instance:
 
 ```C
-// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service.  
 PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
 
 // Disposes of resources allocated by the provisioning Client.
@@ -136,54 +165,7 @@ void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
 PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-Remember to first initialize the `id_scope` constant and `hsm_type` variables as discussed in the [Simulate first boot sequence for the device section of this quick start](./quick-create-simulated-device.md#firstbootsequence). The Device Provisioning client registration API `Prov_Device_LL_Create` connects to the global Device Provisioning Service. The *ID Scope* is generated by the service and guarantees uniqueness. It is immutable and used to uniquely identify the registration IDs. The `iothub_uri` allows the IoT Hub client registration API `IoTHubClient_LL_CreateFromDeviceAuth` to connect with the right IoT hub. 
-
-These APIs help your device connect and register with the Device Provisioning Service when it boots up. In return, your device receives the information required to establish a connection to your IoT Hub instance. The file [`provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c`](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_ll_sample/prov_dev_client_ll_sample.c) shows how to use these APIs. In general, you need to create the following framework for the client registration:
-
-```C
-static const char* global_uri = "global.azure-devices-provisioning.net";
-static const char* id_scope = "[ID scope for your provisioning service]";
-...
-static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
-{
-    USER_DEFINED_INFO* user_info = (USER_DEFINED_INFO *)user_context;
-    ...
-    user_info. reg_complete = 1;
-}
-
-static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_context)
-{
-}
-
-int main()
-{
-    ...
-    SECURE_DEVICE_TYPE hsm_type;
-    hsm_type = SECURE_DEVICE_TYPE_TPM;
-    //hsm_type = SECURE_DEVICE_TYPE_X509;
-    prov_dev_security_init(hsm_type); // initialize your HSM 
-
-    prov_transport = Prov_Device_HTTP_Protocol;
-    
-    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
-
-    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
-	    do {
-   		// The register_callback is called when registration is complete or fails
-    		Prov_Client_LL_DoWork(handle);
-	    } while (user_info.reg_complete == 0);
-    }
-    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
-    ...
-    iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
-    ...
-}
-```
-
-You may refine your Device Provisioning Service client registration application using a simulated device at first, using a test service setup. Once your application is working in the test environment, you can build it for your specific device and copy the executable to your device image. 
-
-> [!IMPORTANT]
-> Do not start the device yet! You need to finish the process by enrolling the device with the Device Provisioning Service first, before starting the device. The Next steps section below will guide you to the next article.
+You may also find that you need to refine your Device Provisioning Service client registration application, using a simulated device at first, and a test service setup. Once your application is working in the test environment, you can build it for your specific device and copy the executable to your device image. 
 
 ## Clean up resources
 
