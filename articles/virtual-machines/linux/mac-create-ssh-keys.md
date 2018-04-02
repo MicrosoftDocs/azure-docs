@@ -35,7 +35,7 @@ Use the `ssh-keygen` command to generate SSH public and private key files that a
 ssh-keygen -t rsa -b 2048
 ```
 
-If you use the [Azure CLI 2.0](/cli/azure) to create your VM, you can optionally generate SSH public and private key files (if they don't already exist) by using the `--generate-ssh-keys` option. The keys are stored in the ~/.ssh directory. 
+If you use the [Azure CLI 2.0](/cli/azure) to create your VM, you can optionally generate SSH public and private key files (if they don't already exist) by running the [az vm create](/cli/azure/vm#az_vm_create) command with the `--generate-ssh-keys` option. The keys are stored in the ~/.ssh directory. 
 
 ## Provide SSH public key when deploying a VM
 To create a Linux VM that uses SSH keys for authentication, specify your SSH public key when creating the VM using the Azure portal, CLI, Resource Manager templates, or other methods:

@@ -20,20 +20,9 @@ ms.author: danlep
 ---
 # How to use SSH keys with Windows on Azure
 
-This article introduces ways to generate and use SSH keys on a Windows computer to create and connect to a Linux virtual machine (VM) in Azure.
+This article introduces ways to generate and use SSH keys on a Windows computer to create and connect to a Linux virtual machine (VM) in Azure. For detailed steps, options, and advanced examples of working with SSH keys, see [detailed steps to create SSH key pairs](create-ssh-keys-detailed.md).
 
-
-## Overview of SSH and keys
-
-SSH is an encrypted connection protocol that allows secure logins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks or guessing of passwords. A more secure and preferred method of connecting to a VM using SSH is by using public and private keys, also known as SSH keys. 
-
-* The *public key* is placed on your Linux VM, or any other service that you wish to use with public-key cryptography.
-
-* The *private key* is what you present to your Linux VM when you make an SSH connection, to verify your identity. Protect this private key. Do not share it.
-
-These public and private keys can be used on multiple VMs and services. You do not need a pair of keys for each VM or service you wish to access. 
-
-Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key. 
+[!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
