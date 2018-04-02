@@ -24,6 +24,8 @@ Azure Service Fabric is a distributed systems platform for deploying and managin
 
 This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a Python web front end and a Redis back end running in a Service Fabric cluster. You also learn how to fail over an application and how to scale an application in your cluster.
 
+![Voting app web page][quickstartpic]
+
 In this quickstart, you use the Bash environment in Azure Cloud Shell to run Service Fabric CLI commands. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
