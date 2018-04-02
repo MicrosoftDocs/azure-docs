@@ -28,7 +28,7 @@ To complete this how-to guide, you need:
 > This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Add the extension
-Add the updated Azure Database for PostgreSQL management extension using the following command:
+Add the updated Azure Database for MySQL management extension using the following command:
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 

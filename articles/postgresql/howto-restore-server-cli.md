@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 04/01/2018
 ---
 
-# How to back up and restore a server in Azure Database for MySQL using the Azure CLI
+# How to back up and restore a server in Azure Database for PostgreSQL using the Azure CLI
 
 ## Backup happens automatically
 Azure Database for PostgreSQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
