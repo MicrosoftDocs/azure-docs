@@ -29,7 +29,7 @@ This article describes the improvements and fixes in the 1803 update package, kn
 > This update package is only for Azure Stack integrated systems. Do not apply this update package to the Azure Stack Development Kit.
 
 ## Build reference    
-The Azure Stack 1803 update build number is **20180323.2**.  
+The Azure Stack 1803 update build number is **20180329.1**.
 
 
 ## Before you begin    
