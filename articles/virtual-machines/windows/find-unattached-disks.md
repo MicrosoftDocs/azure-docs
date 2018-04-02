@@ -126,8 +126,7 @@ foreach($storageAccount in $storageAccounts){
 
 ## Next steps
 
-[Delete storage account](../../storage/common/storage-create-storage-account.md)
-
+For more information, see [Delete storage account](../../storage/common/storage-create-storage-account.md) and [Identify Orphaned Disks Using PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
 
 
 
