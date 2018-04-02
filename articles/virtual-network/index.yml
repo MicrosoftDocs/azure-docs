@@ -71,7 +71,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: Script samples for common tasks
+    text: Script samples for common tasks.
   - type: list
     style: unordered
     className: spaced noBullet
