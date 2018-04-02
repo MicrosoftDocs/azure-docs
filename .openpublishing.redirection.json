@@ -3319,6 +3319,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/user/azure-stack-connect-cli.md",
+            "redirect_url": "/azure/user/azure-stack-version-profiles-azurecli2",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
             "redirect_url": "/azure/best-practices-network-security",
             "redirect_document_id": false
@@ -7549,6 +7554,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/create-network-security-group-preview.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-network-interface-overview.md",
             "redirect_url": "/azure/virtual-network/virtual-network-network-interface",
             "redirect_document_id": false
@@ -11402,6 +11422,16 @@
         {
             "source_path": "articles/azure-stack/azure-stack-vm-considerations.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-vm-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/prepare-pki-certs.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-prepare-pki-certs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/validate-pki-certs.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-validate-pki-certs",
             "redirect_document_id": false
         },
         {
@@ -17777,7 +17807,11 @@
         "source_path": "articles/monitoring/management-overview-monitoring.md",
         "redirect_url": "/azure/monitoring/",
         "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cli-install-nodejs.md",
+        "redirect_url": "/cli/azure/install-cli-version-1.0",
+        "redirect_document_id": false
     }
-
    ]
 }
