@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 03/28/2018
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
 
@@ -22,7 +22,7 @@ In the previous tutorial, you learned how to set up the Azure IoT Hub Device Pro
 > [!div class="checklist"]
 > * Build platform-specific Device Provisioning Services Client SDK
 > * Extract the security artifacts
-> * Set up the Device Provisioning Service configuration on the device
+> * Create the device registration software
 
 ## Prerequisites
 
@@ -74,12 +74,50 @@ The Device Provisioning Service Client SDK helps you implement your device regis
         ```
 
 Now you're ready to use the SDK to build your device registration code. 
+ 
+<a id="extractsecurity"></a> 
+## Extract the security artifacts 
+
+The next step is to extract the security artifacts for the HSM on your device. 
+
+### Physical device 
+- For a TPM device, you need to find out the **Endorsement Key** associated with it from the TPM chip manufacturer. You can derive a unique **Registration ID** for your TPM device by hashing the endorsement key.  
+
+- For an X.509 device, you need to obtain the certificates issued to your device(s) - end-entity certificates for individual device enrollments, while root certificates for group enrollments of devices. 
+
+### Simulated device
+- For a simulated TPM device:
+   1. In a separate command prompt, navigate to the GitHub root folder and run the TPM simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+
+      From the *cmake* folder, run the following commands:
+
+      ```cmd/sh
+      cd..
+      .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
+      ```
+
+   2. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
+
+   3. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
+
+   4. Run the solution. The output window displays the **_Registration ID_** and the **_Endorsement Key_** needed for device enrollment. Note these values and leave the simulator running.
+
+- For a simulated X.509 device:
+  1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
+
+  2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. In the output window, enter **i** for individual enrollment when prompted. The output window displays a locally generated X.509 certificate for your simulated device. Copy to clipboard the output starting from *-----BEGIN CERTIFICATE-----* and ending at the first *-----END CERTIFICATE-----*, making sure to include both of these lines as well. Note that you need only the first certificate from the output window.
+ 
+  3. Create a file named **_X509testcert.pem_**, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file as you will use it later for device enrollment. When your registration software runs, it will use the same certificate during auto-provisioning.    
+
+These security artifacts are required to enroll your devices to the Device Provisioning Service. The provisioning service then waits for any of these devices to boot and connect with it at any later point in time. See [How to manage device enrollments](how-to-manage-enrollments.md) for information on how to use these security artifacts to create enrollments.  
+
+When your device boots for the first time, the client SDK interacts with your chip (or simulator) to extract the security artifacts from the device, and verifies registration with your Device Provisioning service. 
 
 ## Create the device registration software
 
-The last step in the device manufacturing process is to write an application that uses the Device Provisioning Service client SDK to register the device with the service. 
+The last step is to write an application that uses the Device Provisioning Service client SDK to register the device with the service. 
 
-This SDK provides the following APIs for your applications to use:
+The SDK provides the following APIs for your applications to use:
 
 ```C
 // Creates a Provisioning Client for communications with the Device Provisioning Client Service
@@ -161,7 +199,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Build platform-specific Device Provisioning Service Client SDK
 > * Extract the security artifacts
-> * Set up the Device Provisioning Service configuration on the device
+> * Create the device registration software
 
 Advance to the next tutorial to learn how to provision the device to your IoT hub by enrolling it to the Azure IoT Hub Device Provisioning Service for auto-provisioning.
 
