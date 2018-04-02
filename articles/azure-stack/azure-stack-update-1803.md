@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 1802 Update | Microsoft Docs
+title: Azure Stack 1803 Update | Microsoft Docs
 description: Learn about what's in the 1803 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
@@ -29,7 +29,7 @@ This article describes the improvements and fixes in the 1803 update package, kn
 > This update package is only for Azure Stack integrated systems. Do not apply this update package to the Azure Stack Development Kit.
 
 ## Build reference    
-The Azure Stack 1803 update build number is **20180323.2**.  
+The Azure Stack 1803 update build number is **20180329.1**.
 
 
 ## Before you begin    
@@ -80,6 +80,8 @@ This update includes the following improvements and fixes for Azure Stack.
 - <!-- 1756324--> **Fixed** - Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
 
 - <!--  2253274 --> **Fixed** - The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
+
+- **Fixed** - When you create a virtual machine, the message *Unable to display pricing* no longer appears when choosing a size for the VM size.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
@@ -171,9 +173,9 @@ The following are post-installation known issues for build  **20180323.2**.
 
 
 > [!NOTE]  
-> After you update to Azure Stack 1802, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1710, first apply version 1711, then 1712, and then update to 1802.      
+> After you update to Azure Stack 1803, you can continue to use the SQL and MySQL resource providers that you previously deployed.  We recommend you update SQL and MySQL when a new release becomes available. Like Azure Stack, apply updates to SQL and MySQL resource providers sequentially.  For example, if you use version 1711, first apply version 1712, then 1802, and then update to 1803.      
 >   
-> The install of update 1802 does not affect the current use of SQL or MySQL resource providers by your users.
+> The install of update 1803 does not affect the current use of SQL or MySQL resource providers by your users.
 > Regardless of the version of the resource providers you use, your users data in their databases is not touched, and remains accessible.    
 
 
@@ -182,6 +184,10 @@ The following are post-installation known issues for build  **20180323.2**.
 - Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
+
+
+#### Usage  
+- Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 <!--
 #### Identity

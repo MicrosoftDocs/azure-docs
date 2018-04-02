@@ -107,7 +107,8 @@ The new features and fixes released for Azure Stack integrated systems version 1
 
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
  
-
+#### Usage  
+- Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 <!--
 #### Identity
 -->
@@ -219,7 +220,8 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 
 - In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
  
-
+#### Usage  
+- Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 <!--
 #### Identity
 -->
@@ -294,6 +296,9 @@ In the Azure Stack admin portal, you might see a critical alert with the name **
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
  
+#### Usage  
+- Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+
 #### Identity
 
 In Azure Active Directory Federation Services (ADFS) deployed environments, the **azurestack\azurestackadmin** account is no longer the owner of the Default Provider Subscription. Instead of logging into the **Admin portal / adminmanagement endpoint** with the **azurestack\azurestackadmin**, you can use the **azurestack\cloudadmin** account, so that you can manage and use the Default Provider Subscription.
@@ -368,7 +373,9 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
- 
+
+#### Usage  
+- Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
 
 #### Identity
 
