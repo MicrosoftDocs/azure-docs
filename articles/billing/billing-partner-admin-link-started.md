@@ -46,23 +46,22 @@ When you have access to the customer's resources, use PowerShell or CLI to link 
     C:\> new-AzureRmManagementPartner -PartnerId 12345 
     ```
 
-
 #### Get the linked partner ID
 
-    ```azurepowershell-interactive
-    C:\> get-AzureRmManagementPartner 
-    ```
+```azurepowershell-interactive
+C:\> get-AzureRmManagementPartner 
+```
 
 #### Update the linked partner ID
 
-    ```azurepowershell-interactive
-    C:\> Update-AzureRmManagementPartner -PartnerId 12345 
-    ```
+```azurepowershell-interactive
+C:\> Update-AzureRmManagementPartner -PartnerId 12345 
+```
 #### Delete the linked partner ID
 
-    ```azurepowershell-interactive
-    C:\> remove-AzureRmManagementPartner -PartnerId 12345 
-    ```
+```azurepowershell-interactive
+C:\> remove-AzureRmManagementPartner -PartnerId 12345 
+```
 
 ### Use CLI to link new partner ID
 1.  Install the CLI Extension.
@@ -80,27 +79,27 @@ When you have access to the customer's resources, use PowerShell or CLI to link 
 
 3.  Link the new partner ID. The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.
 
-    ```azure-cli
-    C:\ az managementpartner create --partner-id 12345
-    ```  
+     ```azure-cli
+     C:\ az managementpartner create --partner-id 12345
+      ```  
 
 #### Get the linked partner ID
 
-    ```azure-cli
-    C:\ az managementpartner show
-    ``` 
+```azure-cli
+C:\ az managementpartner show
+``` 
 
 #### Update the linked partner ID
 
-    ```azure-cli
-    C:\ az managementpartner update --partner-id 12345
-    ``` 
+```azure-cli
+C:\ az managementpartner update --partner-id 12345
+``` 
 
 #### Delete the linked partner ID
 
-    ```azure-cli
-    C:\ az managementpartner delete --partner-id 12345
-    ``` 
+```azure-cli
+C:\ az managementpartner delete --partner-id 12345
+``` 
 
 
 ## Frequently Asked Questions
