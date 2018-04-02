@@ -72,7 +72,7 @@ If an application requires that the user account and password are the same on al
 ```
 
 ## Create a local user group
-You can create user groups and add one or more users to be added to a group. This is useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The following application manifest example shows a local group named *LocalAdminGroup* that has administrator privileges. Two users, *Customer1* and *Customer2*, are made members of this local group. In the **ServiceManifestImport** section, a RunAs policy is applied to run the *Stateful1Pkg* code package as *Customer2*.  Another RunAs policy is applied to run the *Web1Pkg* code package as *Customer1*.
+You can create user groups and add one or more users to the group. This is useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The following application manifest example shows a local group named *LocalAdminGroup* that has administrator privileges. Two users, *Customer1* and *Customer2*, are made members of this local group. In the **ServiceManifestImport** section, a RunAs policy is applied to run the *Stateful1Pkg* code package as *Customer2*.  Another RunAs policy is applied to run the *Web1Pkg* code package as *Customer1*.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
