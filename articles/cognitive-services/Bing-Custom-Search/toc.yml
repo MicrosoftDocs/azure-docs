@@ -36,18 +36,18 @@
       href: hit-highlighting.md
     - name: Page webpages
       href: page-webpages.md 
-- name: SDK
-  items:
-  - name: SDK samples overview 
-    href: sdk.md
-  - name: Custom Search SDK C# quickstart
-    href: custom-search-sdk-quickstart.md   
 - name: References
   items:
     - name: Bing Custom Search API Reference
       href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
     - name: Bing Search API use and display requirements
       href: use-and-display-requirements.md
+    - name: SDK
+      items:
+      - name: SDK samples overview 
+        href: sdk.md
+      - name: Custom Search SDK C# quickstart
+        href: custom-search-sdk-quickstart.md   
 - name: Resources
   items:
   - name: Azure Roadmap
