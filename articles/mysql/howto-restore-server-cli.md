@@ -101,8 +101,6 @@ When you restore a server to an earlier point in time, a new server is created. 
 
 The location and pricing tier values for the restored server remain the same as the original server. 
 
-The `az mysql server restore` command is synchronous. After the server is restored, you can use it again to repeat the process for a different point-in-time. 
-
 After the restore process finishes, locate the new server and verify that the data is restored as expected.
 
 ## Geo restore
