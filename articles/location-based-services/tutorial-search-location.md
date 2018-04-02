@@ -1,6 +1,6 @@
 ---
-title: Search with Azure Location Based Services | Microsoft Docs
-description: Search nearby point of interest using Azure Location Based Services
+title: Search with Azure Maps | Microsoft Docs
+description: Search nearby point of interest using Azure Maps
 services: location-based-services
 keywords: 
 author: kgremban
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Search nearby points of interest using Azure Location Based Services
+# Search nearby points of interest using Azure Maps
 
-This tutorial shows how to set up an account with Azure Location Based Services, and then use the provided APIs to search for a point of interest. In this tutorial, you learn how to:
+This tutorial shows how to set up an account with Azure Maps, and then use the provided APIs to search for a point of interest. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an account with Azure Location Based Services
-> * Know the primary key for your Azure Location Based Services account
+> * Create an account with Azure Maps
+> * Know the primary key for your Azure Maps account
 > * Create a new web page using the Map Control API
 > * Use Search Service to find a nearby point of interest
 
@@ -32,14 +32,14 @@ Log in to the [Azure portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
-## Create an account with Azure Location Based Services
+## Create an account with Azure Maps
 
-Follow these steps to create a new Location Based Services account.
+Follow these steps to create a new Maps account.
 
 1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
-2. In the *Search the Marketplace* box, type **location based services**.
-3. From the *Results*, click the **Location Based Services (preview)**. Click **Create** button that appears below the map. 
-4. On the **Create Location Based Services Account** page, enter the following values:
+2. In the *Search the Marketplace* box, type **Maps**.
+3. From the *Results*, select **Maps**. Click **Create** button that appears below the map. 
+4. On the **Create Maps Account** page, enter the following values:
     - The *Name* of your new account. 
     - The *Subscription* that you want to use for this account.
     - The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
@@ -47,16 +47,16 @@ Follow these steps to create a new Location Based Services account.
     - Read the *Preview Terms* and check the checkbox to accept the terms. 
     - Finally, click the **Create** button.
    
-    ![Create Location Based Services account in portal](./media/tutorial-search-location/create-lbs-account.png)
+    ![Create Maps account in portal](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
 
 ## Get the primary key for your account
 
-Once your Location Based Services account is successfully created, follow the steps to link it to its map search APIs:
+Once your Maps account is successfully created, follow the steps to link it to its map search APIs:
 
-1. Open your Location Based Services account in the portal.
+1. Open your Maps account in the portal.
 2. Navigate to your account's **SETTINGS**, and then select **Keys**.
 3. Copy the **Primary Key** to your clipboard. Save it locally to use in the proceeding steps. 
 
@@ -66,7 +66,7 @@ Once your Location Based Services account is successfully created, follow the st
 <a id="createmap"></a>
 
 ## Create new web page using Azure Map Control API
-Azure Map Control API is a convenient client library that allows you to easily integrate Azure Location Based Services into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with styleable and customizable components. The following steps show you how to create a static HTML page embedded with the Location Based Services' Map Control API. 
+Azure Map Control API is a convenient client library that allows you to easily integrate Azure Maps into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with styleable and customizable components. The following steps show you how to create a static HTML page embedded with the Maps' Map Control API. 
 
 1. On your local machine, create a new file and name it **MapSearch.html**. 
 2. Add the following HTML components to the file:
@@ -110,7 +110,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
     ``` 
     Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the *script* segment added to the *body* of the HTML file. This segment will contain the inline JavaScript code to access the Azure Location Based Service's APIs.
  
-3.  Add the following JavaScript code to the *script* block of the HTML file. Use the primary key from your Location Based Services account in the script. 
+3.  Add the following JavaScript code to the *script* block of the HTML file. Use the primary key from your Maps account in the script. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
@@ -119,7 +119,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
         "subscription-key": LBSAccountKey
     });
     ```
-    This segment initiates the Map Control API for your Azure Location Based Services account key. **Atlas** is the namespace that contains the Azure Map Control API and related visual components. **atlas.Map** provides the control for a visual and interactive web map. You may observe how the map looks like by opening the HTML page in the browser. 
+    This segment initiates the Map Control API for your Azure Maps account key. **Atlas** is the namespace that contains the Azure Map Control API and related visual components. **atlas.Map** provides the control for a visual and interactive web map. You may observe how the map looks like by opening the HTML page in the browser. 
 
 4. Add the following JavaScript code to the *script* block, to add a layer of search pins to the Map Control:
 
@@ -140,7 +140,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
 
 ## Use Search Service to find nearby point of interest
 
-This section shows how to use the Azure Location Based Services' Search Service API to find a point of interest on your map. It is a RESTful API designed for developers to search for addresses, points of interest and other geographical information. The Search Service assigns a latitude and longitude information to a specified address. 
+This section shows how to use the Azure Maps' Search Service API to find a point of interest on your map. It is a RESTful API designed for developers to search for addresses, points of interest and other geographical information. The Search Service assigns a latitude and longitude information to a specified address. 
 
 1. Open the **MapSearch.html** file created in the preceding section, and add the following JavaScript code to the *script* block, to illustrate the Search Service. 
     ```JavaScript
@@ -184,7 +184,7 @@ This section shows how to use the Azure Location Based Services' Search Service 
     ```
     This code snippet creates an [XMLHttpRequest](https://xhr.spec.whatwg.org/), and adds an event handler to parse the incoming response. For a successful response, it collects the addresses, names, latitude and logitude information for each location returned, in the `searchPins` variable. Finally, it adds this collection of location points to the `map` control as pins. 
 
-2. Add the following code to the *script* block, to send the XMLHttpRequest to the Azure Location Based Services' Search Service:
+2. Add the following code to the *script* block, to send the XMLHttpRequest to the Azure Maps' Search Service:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
@@ -198,7 +198,7 @@ This section shows how to use the Azure Location Based Services' Search Service 
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    This snippet uses the basic search API of the Search Service, called the **Fuzzy Search**. It handles the most fuzzy of inputs handling any combination of address or *POI* tokens. It searches for the nearby **gasoline station**, for the given address in latitude and longitude, and within the specified radius. It uses your account's primary key provided earlier in the sample file, to make the call to the Location Based Services. It returns the results as latitude/longitude pairs for the locations found. You may observe the search pins by opening the HTML page in the browser. 
+    This snippet uses the basic search API of the Search Service, called the **Fuzzy Search**. It handles the most fuzzy of inputs handling any combination of address or *POI* tokens. It searches for the nearby **gasoline station**, for the given address in latitude and longitude, and within the specified radius. It uses your account's primary key provided earlier in the sample file, to make the call to the Maps. It returns the results as latitude/longitude pairs for the locations found. You may observe the search pins by opening the HTML page in the browser. 
 
 3. Add the following lines to the *script* block, to create pop-ups for the points of interest returned by the Search Service:
 
@@ -240,9 +240,9 @@ This section shows how to use the Azure Location Based Services' Search Service 
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create an account with Azure Location Based Services
+> * Create an account with Azure Maps
 > * Get the primary key for your account
 > * Create new web page using Map Control API
 > * Use Search Service to find nearby point of interest
 
-Proceed to the tutorial [Route to a point of interest using Azure Location Based Services](./tutorial-route-location.md) to learn how to use the Azure Location Based Services to route to your point of interest. 
+Proceed to the tutorial [Route to a point of interest using Azure Maps](./tutorial-route-location.md) to learn how to use the Azure Maps to route to your point of interest. 

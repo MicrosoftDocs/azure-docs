@@ -1,6 +1,6 @@
 ---
-title: Multiple routes with Azure Location Based Services | Microsoft Docs
-description: Find routes for different modes of travel using Azure Location Based Services
+title: Multiple routes with Azure Maps | Microsoft Docs
+description: Find routes for different modes of travel using Azure Maps
 services: location-based-services
 keywords: 
 author: kgremban
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Find routes for different modes of travel using Azure Location Based Services
+# Find routes for different modes of travel using Azure Maps
 
-This tutorial shows how to use your Azure Location Based Services account and the Route Service SDK, to find the route to your point of interest, prioritized by your mode of travel. In this tutorial, you learn how to:
+This tutorial shows how to use your Azure Maps account and the Route Service SDK, to find the route to your point of interest, prioritized by your mode of travel. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Configure your Route Service query
@@ -25,14 +25,14 @@ This tutorial shows how to use your Azure Location Based Services account and th
 
 ## Prerequisites
 
-Before you proceed, make sure to [create your Azure Location Based Services account](./tutorial-search-location.md#createaccount), and [get a key from your account](./tutorial-search-location.md#getkey). You may also observe how to use the Map Control and Search Service APIs as discussed in the tutorial [Search nearby point of interest using Azure Location Based Services](./tutorial-search-location.md), as well as learn the basic usage of the Route Service APIs as discussed in the tutorial [Route to a point of interest using Azure Location Based Services](./tutorial-route-location.md).
+Before you proceed, make sure to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get a key from your account](./tutorial-search-location.md#getkey). You may also observe how to use the Map Control and Search Service APIs as discussed in the tutorial [Search nearby point of interest using Azure Maps](./tutorial-search-location.md), as well as learn the basic usage of the Route Service APIs as discussed in the tutorial [Route to a point of interest using Azure Maps](./tutorial-route-location.md).
 
 
 <a id="queryroutes"></a>
 
 ## Configure your Route Service query
 
-Use the following steps to create a static HTML page embedded with the Location Based Services' Map Control API. 
+Use the following steps to create a static HTML page embedded with the Maps' Map Control API. 
 
 1. On your local machine, create a new file and name it **MapTruckRoute.html**. 
 2. Add the following HTML components to the file:
@@ -72,8 +72,8 @@ Use the following steps to create a static HTML page embedded with the Location 
 
     </html>
     ```
-    Note that the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Location Based Services library. Notice also the *script* segment added to the body of the HTML, to contain the inline JavaScript code to access the Azure Map Control API.
-3. Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key.
+    Note that the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. Notice also the *script* segment added to the body of the HTML, to contain the inline JavaScript code to access the Azure Map Control API.
+3. Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Maps account's primary key.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
@@ -165,7 +165,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 ## Render routes prioritized by mode of travel
 
-This section shows how to use the Azure Location Based Services' Route Service API to find multiple routes from a given start point to a destination, based on your mode of transport. The Route Service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the real-time traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
+This section shows how to use the Azure Maps' Route Service API to find multiple routes from a given start point to a destination, based on your mode of transport. The Route Service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the real-time traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
 
 1. Open the **MapTruckRoute.html** file created in the preceding section, and add the following JavaScript code to the *script* block, to get the route for a truck using the Route Service.
 
@@ -247,7 +247,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
     
     This code snippet also sends the query to the Route Service, to get the route for the specified start and end point, for your account key. Since no other parameters are used, the route for the default mode of travel *car* is returned. 
 
-3. Save the **MapTruckRoute.html** file locally, then open it in a web browser of your choice and observe the result. For a successful connection with the Location Based Services' APIs, you should see a map similar to the following. 
+3. Save the **MapTruckRoute.html** file locally, then open it in a web browser of your choice and observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following. 
 
     ![Prioritized routes with Azure Route Service](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
 
@@ -260,4 +260,4 @@ In this tutorial, you learned how to:
 > * Configure your Route Service query
 > * Render routes prioritized by mode of travel
 
-Proceed to the **Concepts** and **How To** articles to learn the Azure Location Based Services SDK in depth. 
+Proceed to the **Concepts** and **How To** articles to learn the Azure Maps SDK in depth. 
