@@ -3,7 +3,7 @@ title: Azure Internet of Things (IoT)
 description: Overview of a Azure IoT, a sample IoT solution architecture, and how it relates to devices, the Azure IoT Hub service, Azure IoT device SDKs, Azure IoT service SDKs, and other Azure services.
 services: iot
 documentationcenter: ''
-author: BryanLa
+author: BryanLa 
 manager: timlt
 editor: ''
 
@@ -13,80 +13,23 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
-ms.author: bryanla
+ms.author: bryanla; v-clay
 
 ---
 # Azure Internet of Things (IoT)
 
-Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. This section provides an overview of the technologies and solutions available for creating your own solution.
-
-![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
-
-## Videos
-
-| Introduction to Azure IoT services and solutions. (4:07) | Codeless IoT Solutions. (11:08) | 
-|-|-|
-| [![Introduction to Azure IoT services and solutions][img-video-contoso-hvac-iot-part1]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player) | [![Codeless IoT Solutions][img-video-contoso-hvac-iot-part8]](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player) | 
+Welcome to Microsoft Azure and the Internet of Things (IoT). Azure IoT is a comprehensive collection of services and solutions designed to help you create end-to-end IoT applications on Azure. From fully hosted and managed Software as a Service (SaaS) solutions to distinct and specialized Platform as a Service (PaaS) offerings, as well as technologies to build the intelligent edge, Azure IoT delivers a rich set of options and tools that are adapted to your industry needs and your company skills and resources.
 
 ## Technologies and solutions available 
 
-| **Edge**<br>Client-side technologies | **Solutions**<br>Leverage Software as a Service (SaaS) offerings | **Platform services**<br>Build on Platform as a Service (PaaS) Offerings |
+| **Solutions**<br>Get started faster with solution accelerators and SaaS offerings | **Platform services**<br>Build on Platform as a Service (PaaS) offerings |**Edge**<br>Build the intelligent edge|
 |------|-----------|-------------------|
-| &#9657; [IoT Edge][lnk-iot-edge-land]<br>&#9657; [IoT Device/Service SDKs][lnk-device-sdks] | &#9657; [Iot Suite Preconfigured Solutions][lnk-iot-suite-land]<br>&#9657; [IoT Central][lnk-iot-central-land] | &#9657; [IoT Hub][lnk-iot-hub-land]<br>&#9657; [IoT Hub Device Provisioning Service][lnk-iot-dps-land]<br>&#9657; [Location Based Services][lnk-iot-lbs-land]<br>&#9657; [Time Series Insights][lnk-iot-tsi-land]<br> |
+| &#9657; [Iot Suite Preconfigured Solutions][lnk-iot-suite-land]<br>&#9657; [IoT Central][lnk-iot-central-land] | &#9657; [IoT Hub][lnk-iot-hub-land]<br>&#9657; [IoT Hub Device Provisioning Service][lnk-iot-dps-land]<br>&#9657; [Location Based Services][lnk-iot-lbs-land]<br>&#9657; [Time Series Insights][lnk-iot-tsi-land]<br> |&#9657; [IoT Edge][lnk-iot-edge-land]<br>&#9657; [IoT Device/Service SDKs][lnk-device-sdks]|
 |    |    |    |
-
-<ul class="panelContent cardsF">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Edge</h3>
-                        <a href="/azure/iot-edge/index.yml">IoT Edge</a><br/>
-                        <a href="/azure/iot-edge/how-iot-edge-works">What is IoT Edge?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Solutions</h3>
-                        <a href="/azure/iot-suite/index.md">IoT Suite</a><br/>
-                        <a href="/microsoft-iot-central">IoT Central</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Platform services</h3>
-                        <a href="/azure/iot-hub/index.md">IoT Hub</a><br/>
-                        <a href="/azure/iot-dps/index.yml">IoT Hub Device Provisioning Service</a><br/>
-                        <a href="/azure/location-based-services/index.yml">Location Based Services</a><br/>
-                        <a href="/azure/time-series-insights/index.yml">Time Series Insights</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>        
-</ul>
-
-## Next steps
-
-See the Table of Contents to the left for the list of Azure IoT services to explore.
 
 [img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
 [img-video-contoso-hvac-iot-part1]: media/index/contoso-hvac-iot-part1.png
 [img-video-contoso-hvac-iot-part8]: media/index/contoso-hvac-iot-part8.png
-
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
@@ -96,3 +39,19 @@ See the Table of Contents to the left for the list of Azure IoT services to expl
 [lnk-iot-lbs-land]: /azure/location-based-services/index.yml
 [lnk-iot-suite-land]: /azure/iot-suite/index.md
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
