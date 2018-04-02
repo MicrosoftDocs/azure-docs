@@ -4,10 +4,11 @@
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 
 # Tutorials
-## [1 - Test your job](stream-analytics-test-query.md)
-## [2 - View results on a dashboard](stream-analytics-power-bi-dashboard.md)
-## [3 - Run Azure Functions](stream-analytics-with-azure-functions.md)
-## [4 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
+## [1 - Create and manage a job](stream-analytics-manage-job.md)
+## [2 - Test your job](stream-analytics-test-query.md)
+## [3 - View results on a dashboard](stream-analytics-power-bi-dashboard.md)
+## [4 - Run Azure Functions](stream-analytics-with-azure-functions.md)
+## [5 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)

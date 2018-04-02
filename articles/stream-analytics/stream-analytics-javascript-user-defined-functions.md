@@ -10,6 +10,7 @@ ms.assetid:
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
+ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: sngun
 
