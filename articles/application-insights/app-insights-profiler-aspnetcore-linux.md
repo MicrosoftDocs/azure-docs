@@ -90,7 +90,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
     ![Set up the Git repository](./media/app-insights-profiler-aspnetcore-linux/setup-git-repo.png)
 
-For more deployment options, see this [article](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
+For more deployment options, see [this article](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
 
 ## Deploy your project
 
@@ -157,7 +157,7 @@ You should see output similar to the following example:
 
 ## Known issues
 
-### The Enable action in the Profiler Configuration pane doesn't work.
+### The Enable action in the Profiler Configuration pane doesn't work
 
 > [!NOTE]
 > If you host your app by using App Service on Linux, you don't need to re-enable the Profiler in the **Performance** pane in the Application Insights portal. You can include the NuGet package in your project and set the Application Insights **iKey** value in your web app settings to enable the Profiler.
