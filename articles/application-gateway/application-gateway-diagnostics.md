@@ -2,10 +2,8 @@
 title: Monitor access logs, performance logs, back-end health, and metrics for Application Gateway
 description: Learn how to enable and manage access logs and performance logs for Application Gateway
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
 
 ms.service: application-gateway
@@ -13,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/30/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
 
 ---
@@ -25,7 +23,7 @@ By using Azure Application Gateway, you can monitor resources in the following w
 
 * [Logs](#diagnostic-logging): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
-* [Metrics](#metrics): Application Gateway currently has one metric. This metric measures the throughput of the application gateway in bytes per second.
+* [Metrics](#metrics): Application Gateway currently has seven metrics to view performance counters.
 
 ## Back-end health
 
@@ -323,7 +321,7 @@ Metrics are a feature for certain Azure resources where you can view performance
 
 - **Response Status**
 
-   The response status code distribution can be further categoized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
+   The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
 
 - **Throughput**
 - **Total Requests**
