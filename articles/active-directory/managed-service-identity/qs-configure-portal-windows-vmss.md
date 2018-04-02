@@ -32,7 +32,7 @@ In this article, you learn how to enable and remove MSI for an Azure virtual mac
 
 As of the time of this writing, enabling MSI during creation of a virtual machine scale set in the Azure portal is not supported. Instead, please refer to the following Azure virtual machine scale set creation Quickstart article to first create an Azure virtual machine scale set:
 
-- [Create a Virtual Machine Scale Set in the Azure portal](../../virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md)  
+- [Create a Virtual Machine Scale Set in the Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 Then proceed to the next section for details on enabling MSI on the virtual machine scale set.
 

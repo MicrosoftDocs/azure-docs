@@ -1,5 +1,5 @@
 ---
-title: Webhook actions for log alerts in Azure Alerts (Preview) | Microsoft Docs
+title: Webhook actions for log alerts in Azure Alerts  | Microsoft Docs
 description: This article describes how to an log alert rule using log analytics or application insights, will push data as HTTP webhook and details of the different customizations possible.
 author: msvijayn
 manager: kmadnani1
@@ -19,7 +19,7 @@ ms.author: vinagara
 ---
 
 # Webhook actions for log alert rules
-When an [alert is created in Azure (Preview)](monitor-alerts-unified-usage.md), you have the option of [configuring using action groups](monitoring-action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON-based webhook.
+When an [alert is created in Azure ](monitor-alerts-unified-usage.md), you have the option of [configuring using action groups](monitoring-action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON-based webhook.
 
 
 ## Webhook actions
@@ -31,7 +31,7 @@ Webhook actions require the properties in the following table:
 | Property | Description |
 |:--- |:--- |
 | Webhook URL |The URL of the webhook. |
-| Custom JSON payload |Custom payload to send with the webhook, when this option is chosen during alert creation. Details available at [Manage alerts using Azure Alerts (Preview)](monitor-alerts-unified-usage.md) |
+| Custom JSON payload |Custom payload to send with the webhook, when this option is chosen during alert creation. Details available at [Manage alerts using Azure Alerts ](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
 > Test Webhook button alongside *Include custom JSON payload for webhook* option for Log Alert, will trigger dummy call to test the webhook URL. It does not contain actual data and representative of JSON schema used for Log Alerts. 
@@ -155,6 +155,8 @@ Following is a sample payload for a standard webhook *without custom Json option
     }
     }
 
+> [!NOTE]
+> Log alerts for Application Insights, is currently in public preview - the functionality and user experience is subject to change.
 
 #### Log Alert with custom JSON Payload
 For example, to create a custom payload that includes just the alert name and the search results, you could use the following: 
@@ -192,7 +194,7 @@ Following is a sample payload for a custom webhook action for any log alert.
 
 
 ## Next steps
-- Learn about [Log Alerts in Azure Alerts (preview)](monitor-alerts-unified-log.md)
+- Learn about [Log Alerts in Azure Alerts ](monitor-alerts-unified-log.md)
 - Create and manage [action groups in Azure](monitoring-action-groups.md)
 - Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
 - Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md). 

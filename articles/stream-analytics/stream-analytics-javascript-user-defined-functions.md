@@ -11,9 +11,9 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
-ms.date: 03/19/2018
 ms.author: sngun
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
+
 ---
 
 # Tutorial: Azure Stream Analytics JavaScript user-defined functions

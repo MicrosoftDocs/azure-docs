@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 
@@ -54,6 +54,11 @@ See the [new features and fixes](.\.\azure-stack-update-1802.md#new-features-and
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.*
 
     This alert can be safely ignored. 
+
+- In both the admin portal and user portal, the Overview blade fails to load when you select the Overview blade for storage accounts that were created with an older API version (example: 2015-06-15). 
+
+  As a workaround, use PowerShell to run the **Start-ResourceSynchronization.ps1** script to restore access to the storage account details. [The script is available from GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), and must run with service administrator credentials on the development kit host if you use the ASDK.  
+
 
 #### Health and monitoring
 In the Azure Stack admin portal, you might see a critical alert with the name **Pending external certificate expiration**.  This alert can be safely ignored and does affect operations of the Azure Stack Development Kit. 
@@ -271,9 +276,11 @@ In Azure Active Directory Federation Services (ADFS) deployed environments, the 
 	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
 
 ### Known issues
+
  
 #### Deployment
 - You must specify a time server by IP address during deployment.
+- Beginning with version 1711, **CloudAdmin** is a reserved account name and should not be manually specified when you deploy the development kit. 
 
 #### Infrastructure management
 - Do not enable infrastructure backup on the **Infrastructure backup** blade.

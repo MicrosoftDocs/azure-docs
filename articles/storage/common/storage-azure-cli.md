@@ -3,8 +3,8 @@ title: Using the Azure CLI 2.0 with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure Command-Line Interface (Azure CLI) 2.0 with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI 2.0 is a cross-platform tool written in Python.
 services: storage
 documentationcenter: na
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: tamram
+ms.author: rogarana
 
 ---
 # Using the Azure CLI 2.0 with Azure Storage

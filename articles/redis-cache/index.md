@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-#Redis Cache Documentation
+# Redis Cache Documentation
 
 Learn how to use Azure Redis Cache, a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Tutorials, API references, and other documentation show you how to use Redis Cache from any application on Azure.
 

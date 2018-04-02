@@ -129,7 +129,7 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
 
 To make setting up a secure test cluster easy for you, we have provided the **Basic** option. If you already have a certificate and have uploaded it to your keyvault (and enabled the key vault for deployment), then use the **Custom** option
 
-#####Basic Option
+##### Basic Option
 Follow the screens to add or reuse an existing keyvault and add a certificate. The addition of the certificate is a synchronous process and so you will have to wait for the certificate to be created.
 
 
@@ -149,7 +149,7 @@ You are now ready to proceed to the rest of the create cluster process.
 
 ![CreateKeyVault4]
 
-#####Custom Option
+##### Custom Option
 Skip this section, if you have already performed the steps in the **Basic** Option.
 
 ![SecurityCustomOption]

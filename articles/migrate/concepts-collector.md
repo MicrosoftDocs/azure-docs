@@ -17,7 +17,7 @@ services: azure-migrate
 
 ## Overview
 
-An Azure Migrate Collector is a lighweight appliance that can be used to discover your on-premises vCenter environment. This appliance discovers on-premises VMware machines, and sends metadata about them to the Azure Migrate service.
+An Azure Migrate Collector is a lightweight appliance that can be used to discover your on-premises vCenter environment. This appliance discovers on-premises VMware machines, and sends metadata about them to the Azure Migrate service.
 
 The Collector appliance is an OVF that you can download from the Azure Migrate project. It instantiates a VMware virtual machine with 4 cores, 8 GB RAM and one disk of 80 GB. The Operating system of the appliance is Windows Server 2012 R2 (64 bit).
 
@@ -168,6 +168,15 @@ The following table lists the performance counters that are collected, and also 
 The Collector only discovers the machine data and sends it to the project. The project might take additional time before the discovered data is displayed on the portal and you can start creating an assessment.
 
 Based on the number of virtual machines in the selected scope, it takes upto 15 minutes to send the static metadata to the project. Once the static metadata is available on the portal, you can see the list of machines in the portal and start creating groups. A assessment cannot be created until the collection job completes and the project has processed the data. Once the collection job completed on the Collector, it can take upto one hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
+
+## Locking down the collector appliance
+We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 45 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 45 day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
+
+We also recommend the following steps to secure your appliance
+1. Do not share or misplace administrator passwords with unauthorized parties.
+2. Shut down the appliance when not in use.
+3. Place the appliance in a secured network.
+4. Once the migration work is complete, delete the appliance instance. Be sure to also delete the disk backing files (VMDKs), as the disks may have vCenter credentials cached on them.
 
 ## How to upgrade Collector
 

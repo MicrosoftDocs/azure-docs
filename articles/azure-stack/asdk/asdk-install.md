@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -52,8 +52,10 @@ The steps in this article show you how to deploy the ASDK using a graphical user
     - **DHCP** (default): The virtual machine gets the IP network configuration from the DHCP server.
     - **Static**: Only use this option if DHCP can’t assign a valid IP address for Azure Stack to access the Internet. **A static IP address must be specified with the subnetmask length in CIDR format (for example, 10.0.0.5/24)**.
     - Type in a valid **Time server IP** address. This required field sets the time server to be used by the development kit. This parameter must be provided as a valid time server IP address. Server names are not supported.
+
       > [!TIP]
       > To find a time server IP address, visit [pool.ntp.org](http:\\pool.ntp.org) or ping time.windows.com. 
+
     - **Optionally**, you set the following values:
         - **VLAN ID**: Sets the VLAN ID. Only use this option if the host and AzS-BGPNAT01 must configure VLAN ID to access the physical network (and internet). 
         - **DNS forwarder**: A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.
@@ -85,10 +87,10 @@ Congratulations, you've successfully installed the ASDK!
 
 If the deployment fails for some reason, you can [redeploy](asdk-redeploy.md) from scratch or use the following PowerShell commands, from the same elevated PowerShell window, to restart the deployment from the last successful step:
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ## Next steps
 [Post deployment configuration](asdk-post-deploy.md)

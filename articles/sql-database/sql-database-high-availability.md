@@ -6,7 +6,7 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
 ---
@@ -41,7 +41,7 @@ Key benefits:
 
 ## Data redundancy
 
-The high availability solution in SQL Database is based on [Always ON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, Always ON is used for persistence while in RS is it used for availability (low RTO). 
+The high availability solution in SQL Database is based on [Always ON Availability Groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, the Always ON availability group technology is used for persistence while in RS it is used for availability (low RTO). 
 
 ## Local storage configuration
 

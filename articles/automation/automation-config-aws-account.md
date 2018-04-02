@@ -9,8 +9,6 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
 ---
 # Authenticate Runbooks with Amazon Web Services
 Automating common tasks with resources in Amazon Web Services (AWS) can be accomplished with Automation runbooks in Azure.  You can automate many tasks in AWS using Automation runbooks just like you can with resources in Azure.  All that is required are two things:

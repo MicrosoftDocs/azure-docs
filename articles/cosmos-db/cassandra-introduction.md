@@ -16,7 +16,7 @@ ms.date: 11/20/2017
 ms.author: govindk
 ---
 
-# Introduction to Apache Cassandra API for Azure Cosmos DB
+# Introduction to Azure Cosmos DB: Apache Cassandra API
 
 Azure Cosmos DB provides the Cassandra API (preview) for applications that are written for Apache Cassandra that need premium capabilities like:
 

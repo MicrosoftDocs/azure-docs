@@ -4,8 +4,8 @@ description: Learn about how to move data from Salesforce by using Azure Data Fa
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory

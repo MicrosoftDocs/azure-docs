@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
 ---
 # Azure Active Directory Seamless Single Sign-On
@@ -23,7 +23,7 @@ Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatic
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods.
+Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods.
 
 ![Seamless Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -37,7 +37,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
   - Users don't have to enter their passwords repeatedly.
 - *Easy to deploy & administer*
   - No additional components needed on-premises to make this work.
-  - Works with any method of cloud authentication - [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md).
+  - Works with any method of cloud authentication - [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md).
   - Can be rolled out to some or all your users using Group Policy.
   - Register non-Windows 10 devices with Azure AD without the need for any AD FS infrastructure. This capability needs you to use version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -45,7 +45,8 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 
 - Sign-in username can be either the on-premises default username (`userPrincipalName`) or another attribute configured in Azure AD Connect (`Alternate ID`). Both use cases work because Seamless SSO uses the `securityIdentifier` claim in the Kerberos ticket to look up the corresponding user object in Azure AD.
 - Seamless SSO is an opportunistic feature. If it fails for any reason, the user sign-in experience goes back to its regular behavior - i.e, the user needs to enter their password on the sign-in page.
-- If an application forwards a `domain_hint` (OpenID Connect) or `whr` (SAML) parameter - identifying your tenant, or `login_hint` parameter - identifying the user, in its Azure AD sign-in request, users are automatically signed in without them entering usernames or passwords.
+- If an application (for example,  https://myapps.microsoft.com/contoso.com) forwards a `domain_hint` (OpenID Connect) or `whr` (SAML) parameter - identifying your tenant, or `login_hint` parameter - identifying the user, in its Azure AD sign-in request, users are automatically signed in without them entering usernames or passwords.
+- Users also get a silent sign-on experience if an application (for example, https://contoso.sharepoint.com) sends sign-in requests to Azure AD's tenanted endpoints - that is, https://login.microsoftonline.com/contoso.com/<..> or https://login.microsoftonline.com/<tenant_ID>/<..> - instead of Azure AD's common endpoint - that is, https://login.microsoftonline.com/common/<...>.
 - Sign out is supported. This allows users to choose another Azure AD account to sign in with, instead of being automatically signed in using Seamless SSO automatically.
 - Office 365 clients (16.0.8730.xxxx and above) are supported using a non-interactive flow.
 - It can be enabled via Azure AD Connect.
