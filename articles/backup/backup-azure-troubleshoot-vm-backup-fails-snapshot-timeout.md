@@ -24,7 +24,7 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM agent can't communicate with Azure Backup
+## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM agent unable to communicate with Azure Backup
 
 Error message: "VM Agent unable to communicate with Azure Backup"
 
