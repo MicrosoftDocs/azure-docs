@@ -166,7 +166,7 @@ items:
     - name: Security
       href: database-security.md
     - name: TCO
-      href: https://aka.ms/documentdb-tco-paper
+      href: https://aka.ms/cosmosdb-tco-paper
     - name: Use cases
       href: use-cases.md
       items:
@@ -186,7 +186,7 @@ items:
         - name: SQL query performance
           href: sql-api-sql-query-metrics.md        
         - name: SQL playground
-          href: https://www.documentdb.com/sql/demo
+          href: https://aka.ms/cosmos-db-playground
         - name: Partitioning
           href: sql-api-partition-data.md
         - name: Stored procedures, triggers, and UDFs
@@ -380,17 +380,17 @@ items:
       - name: Application logging with Logic Apps
         href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
       - name: Bind to Azure Functions
-        href: ../azure-functions/functions-bindings-documentdb.md
+        href: ../azure-functions/functions-bindings-cosmosdb.md
       - name: Integrate with Azure Search
-        href: ../search/search-howto-index-documentdb.md
+        href: ../search/search-howto-index-cosmosdb.md
       - name: Move data with Azure Data Factory
         href: ../data-factory/connector-azure-cosmos-db.md
       - name: Analyze real-time data with Azure Stream Analytics
-        href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
+        href: ../stream-analytics/stream-analytics-define-outputs#azure-cosmos-db
       - name: Get changed HL7 FHIR record using Logic Apps
         href: change-feed-hl7-fhir-logic-apps.md
       - name: Process sensor data in real time
-        href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+        href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Visualize your data with Power BI
         href: powerbi-visualize.md
       - name: Leverage the ODBC driver for data visualization
