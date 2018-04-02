@@ -22,18 +22,17 @@ ms.custom: mvc, devcenter
 # Quickstart: deploy a Java Spring Boot Application to Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
-This quickstart demonstrates how to deploy a Spring Boot application to Service Fabric. This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric. 
+This quickstart shows how to deploy a Spring Boot application to Service Fabric. This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric. 
 
 ![Application Screenshot](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
 In this quickstart, you learn how to:
 
-> [!div class="checklist"]
-> * Deploy a Spring Boot application to Service Fabric
-> * Deploy the application to your local cluster 
-> * Deploy the application to a cluster in Azure
-> * Scale-out the application across multiple nodes
-> * Perform failover of your service with no hit to availability
+* Deploy a Spring Boot application to Service Fabric
+* Deploy the application to your local cluster 
+* Deploy the application to a cluster in Azure
+* Scale-out the application across multiple nodes
+* Perform failover of your service with no hit to availability
 
 ## Prerequisites
 To complete this quickstart:
@@ -43,13 +42,13 @@ To complete this quickstart:
 4. [Set up Java Environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
 
 ## Download the sample
-In a command window, run the following command to clone the Spring Boot Getting Started sample app to your local machine.
-```
+In a terminal window, run the following command to clone the Spring Boot Getting Started sample app to your local machine.
+```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## Package the Spring Boot application 
-1. Inside the `gs-spring-boot` directory that was cloned, run the `yo azuresfguest` command. 
+1. Inside the `gs-spring-boot` directory in your clone, run the `yo azuresfguest` command. 
 
 2. Enter the following details for each prompt. 
 
@@ -190,13 +189,13 @@ To demonstrate service failover, a node restart is simulated by using Service Fa
 ## Next steps
 In this quickstart, you learned how to:
 
-> [!div class="checklist"]
-> * Deploy a Spring Boot application to Service Fabric
-> * Deploy the application to your local cluster 
-> * Deploy the application to a cluster in Azure
-> * Scale-out the application across multiple nodes
-> * Perform failover of your service with no hit to availability
+* Deploy a Spring Boot application to Service Fabric
+* Deploy the application to your local cluster 
+* Deploy the application to a cluster in Azure
+* Scale-out the application across multiple nodes
+* Perform failover of your service with no hit to availability
 
-* Learn more about [building Java microservices using Service Fabric Programming Models](service-fabric-quickstart-java-reliable-services.md)
-* Learn about [setting up your continuous integration & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-* Checkout other [Java Samples](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+To learn more about working with Java apps in Service Fabric, continue to the tutorial for Java apps.
+
+> [!div class="nextstepaction"]
+> [Deploy a Java app](./service-fabric-tutorial-create-java-app.md)
