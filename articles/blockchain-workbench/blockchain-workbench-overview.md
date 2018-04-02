@@ -1,6 +1,6 @@
 ---
 title: Azure Blockchain Workbench Overview
-description: Overview of Azure Blockchain Workbench and it's capabilities.
+description: Overview of Azure Blockchain Workbench and its capabilities.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
@@ -13,11 +13,13 @@ manager: femila
 ---
 # What is Azure Blockchain Workbench?
 
-Azure Blockchain Workbench helps organizations build rich, integrated multi-party blockchain applications quickly and easily. Azure Blockchain Workbench provides the scaffolding for building blockchain applications. With Azure Blockchain Workbench you can:
+ Azure Blockchain Workbench enables you can quickly start and scale blockchain projects. Azure Blockchain Workbench includes modular, pre-built networks and infrastructure to help you simplify development and ease experimentation of blockchain applications. 
 
-* Create blockchain applications. 
-* Manage Workbench blockchain apps and users.
-* Extend your existing application to use blockchain ledgers.
+With Azure Blockchain Workbench, quickly start:
+
+* Creating blockchain applications. 
+* Managing Workbench blockchain apps and users.
+* Extending your existing applications to use blockchain ledgers.
 
 ## Components and capabilities
 

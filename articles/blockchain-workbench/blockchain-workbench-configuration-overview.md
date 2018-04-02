@@ -1,5 +1,5 @@
 ---
-title: Azure Blockchain Workbench Configuration Reference - Azure Blockchain
+title: Azure Blockchain Workbench configuration reference
 description: Overview of configuration needed to define a Azure Blockchain Workbench application.
 services: azure-blockchain
 keywords: 
@@ -11,7 +11,7 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ---
-# Azure Blockchain Workbench Configuration Reference
+# Azure Blockchain Workbench configuration reference
 
 Blockchain applications are multi-party workflows defined by a configuration and smart contract code. Configuration metadata define the high-level workflows and interaction model of the blockchain application. Smart contracts drive and define the business logic of the blockchain application. Workbench uses configuration and smart contract code to generate end-to-end blockchain application user experiences.
 
@@ -20,7 +20,9 @@ Configuration metadata specifies the following information for each blockchain a
 * Name and description of the blockchain application.
 * Unique user roles who can act or participate within the blockchain application. 
 * One or more workflows, where each workflow acts as a state machine to control business logic flow. Workflows can be independent or interact with each other. 
-* Each defined workflow specifies the following:
+
+Each defined workflow specifies the following configuration:
+
 * Name and description of the workflow.
 * States within the workflow.
 * Actions, which can be taken at each state along with the user role who can take the action.
@@ -54,7 +56,7 @@ A workflow is defined by one or more states that acts as a state machine. Each w
 | Properties | Collection of [identifiers](#identifiers) declared for the smart contract | Y | State |
 | [Constructor](#constructor) | Defines input parameters for creating a smart contract instance | Y | For sample, see [constructor](#constructor) |
 | Functions | A collection of [functions](#functions) that can be executed on the smart contract. | N | Modify |
-| States | A collection smart contract [states](#states). | Y | For sample, see [states](#states) |
+| States | A collection of smart contract [states](#states). | Y | For sample, see [states](#states) |
 
 ## Constructor
 
@@ -82,7 +84,7 @@ Functions that can be executed on the smart contract.
 
 ## States
 
-A collection smart contract states.
+A collection of smart contract states.
 
 | Field | Description | Required | Sample value  |
 |-------|-------------|:--------:|---------------|
@@ -106,7 +108,7 @@ Available actions to the next state. Each user role can initiate actions at each
 | Function | Function to initiate for transition | Y | MakeOffer |
 | NextState | Next contract state after transition | Y | OfferPlaced |
 
-## Application Roles
+## Application roles
 
 Application roles control access by assigning users to actions in the workflow.
 
