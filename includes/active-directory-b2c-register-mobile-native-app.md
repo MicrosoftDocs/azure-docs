@@ -8,7 +8,7 @@ To register your mobile or native application, use the settings specified in the
 | ------------ | ------- | -------------------------------------------------- |
 | **Name** | Contoso B2C app | Enter a **Name** for the application that describes your application to consumers. |
 | **Native client** | Yes | Select **Yes** for a mobile or native application. |
-| **Custom Redirect URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Enter a redirect URI with a custom scheme. Make sure you choose a [good redirect URI](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-native-application-redirect-uri) and do not include special characters such as underscores. |
+| **Custom Redirect URI** | `com.onmicrosoft.contoso.appname://redirect/path` | Enter a redirect URI with a custom scheme. Make sure you choose a [good redirect URI](../articles/active-directory-b2c/active-directory-b2c-app-registration.md) and do not include special characters such as underscores. |
 
 Click **Create** to register your application.
 
