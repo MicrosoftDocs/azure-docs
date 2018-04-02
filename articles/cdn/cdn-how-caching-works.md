@@ -61,7 +61,7 @@ Two headers can be used to define cache freshness: `Cache-Control` and `Expires`
 ## Cache-directive headers
 
 > [!IMPORTANT]
-> By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. For **Azure CDN from Verizon Standard** and **Azure CDN from Akamai Standard** profiles, you can adjust how an Azure CDN endpoint treats these headers by using [CDN caching rules](cdn-caching-rules.md) to enable caching. For **Azure CDN from Verizon** profiles only, you use the [rules engine](cdn-rules-engine.md) to enable caching.
+> By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. For **Azure CDN from Verizon Standard** and **Azure CDN from Akamai Standard** profiles, you can adjust how an Azure CDN endpoint treats these headers by using [CDN caching rules](cdn-caching-rules.md) to enable caching. For **Azure CDN from Verizon Premium** profiles only, you use the [rules engine](cdn-rules-engine.md) to enable caching.
 
 Azure CDN supports the following HTTP cache-directive headers, which define cache duration and cache sharing.
 
