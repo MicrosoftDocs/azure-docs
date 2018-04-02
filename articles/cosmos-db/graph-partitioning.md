@@ -25,7 +25,7 @@ One of the key features of the Graph API in Azure Cosmos DB is the ability to ha
 
 In this document, the specifics on how graph databases are partitioned will be described along with its implications for both vertices (or nodes) and edges. The following are considerations that should be followed when creating a partitioned graph collection.
 
-## Considerations for partitioned graph databases
+## Necessary options for partitioned graph databases
 
 For a graph database, the following are details that need to be understood when partitioning a graph database:
 - **Setting up partitioning will be necessary** if the collection is expected to be more than 10 GB in size and/or if allocating more than 10,000 request units per second (RU/s) will be required.
