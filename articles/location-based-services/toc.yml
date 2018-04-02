@@ -29,8 +29,8 @@
     href: render-coverage.md
   - name: Routing Coverage
     href: routing-coverage.md
-  - name: Supported Languages
-    href: supportedLanguages.md
+  - name: Supported languages
+    href: supported-languages.md
 - name: How-to guides
   items:
   - name: Manage account and keys
