@@ -19,7 +19,7 @@ ms.author: sethm
 
 ---
 
-# Process event streams using PowerShell
+# Process events using PowerShell and .NET Standard
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to use PowerShell to deploy resources, and how to use sample clients to ingest and process events into Event Hubs. 
 
@@ -61,77 +61,106 @@ Once PowerShell is installed, perform the following steps to install the Event H
 
 ## Provision resources
 
-After logging in to Azure, issue the following commands to provision Event Hubs resources. Be sure to replace the placeholders `myResourceGroup`, `namespaceName`, `eventHubName`, and `storageAccountName` with the appropriate values:
+### Create a resource group
 
-```azurepowershell
-# Create a resource group 
-New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
+A resource group is a logical collection of Azure resources. All resources are deployed, managed into a resource group.
+The following example creates a resource group named eventhubsResourceGroup in the East US region
 
-# Create an Event Hubs namespace
-New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespaceName -Location eastus
+```powershell
+New-AzureRmResourceGroup –Name eventhubsResourceGroup –Location east
+```
 
-# Get the connection string, which contains the credentials you need to connect to the event hub
-Get-AzureRmEventHubKey -ResourceGroupName myResourceGroup -NamespaceName namespaceName -EventHubName <eventhub_name> -Name RootManageSharedAccessKey
+### Create an Event Hubs namespace
 
-# Create an event hub
-New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespaceName -EventHubName eventHubName -Location eastus
+An Event Hubs namespace provides a unique fully qualified domain name in which you can create your event hub. The following example creates a namespace in your resource group. Replace <namespace_name> with a unique name for your namespace.
 
-# Create a storage account for Event Processor Host
-New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name storageAccountName -Location eastus -SkuName Standard_LRS
 
-# retrieve the first storage account key and display it
-$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup -Name $storageAccountName).Value[0]
-Write-Host "storage account key 1 = " $storageAccountKey
+```powershell
+New-AzureRmEventHubNamespace -ResourceGroupName eventhubsResourceGroup  -NamespaceName <namespace_name> -Location eastus
+```
+
+### Create an event hub
+To create an event hub, specify the namespace under which you want it created. The following example shows how to create an event hub
+
+
+```powershell
+  New-AzureRmEventHub -ResourceGroupName eventhubsResourceGroup   -NamespaceName <eventhubs_namespace_name> -EventHubName <eventhub_name> -Location eastus 
+```
+
+### Create a storage account for Event Processor Host
+
+Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For check pointing, Event Processor Host requires a storage account. The following example shows how to create a storage account and how to get its keys for access.
+
+
+```powershell
+# create a standard general-purpose storage account 
+New-AzureRmStorageAccount -ResourceGroupName eventhubsResourceGroup   
+  -Name <storage_account_name>
+  -Location eastus
+  -SkuName Standard_LRS 
+
+# retrieve the storage account key for accessing it
+Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup -Name $storageAccountName).Value[0]
+
+```
+
+### Get the connection string
+Obtain the connection string required to connect to your Event Hubs for ingesting and processing the events.
+
+```powershell
+Get-AzureRmEventHubKey -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -EventHubName <eventhub_name> -Name RootManageSharedAccessKey
 ```
 
 ## Stream into Event Hubs
 
-The next step is to run the sample code that streams events to an event hub, and receives those events using the Event Processor Host. 
+You can now start streaming into your Event Hubs. The samples can be downloaded or Git cloned from the [Event Hubs repo](https://github.com/Azure/azure-event-hubs)
 
-First, download the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) and [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) samples from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
+### Ingest events
 
-## Stream events
+1. Download the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
 
-1. Open Visual Studio, then from the **File** menu, click **Open**, and then click **Project/Solution**.
+2. Navigate to the \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleSender folder.
 
-2. Locate the **SampleSender** sample folder you downloaded previously, then double-click the SampleSender.sln file to load the project in Visual Studio.
+3. Load SampleSender.sln file from your downloaded location in Visual Studio.
 
-3. In Solution Explorer, double-click Program.cs to open the file in the Visual Studio editor.
+4. Add [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) Nuget package to the project.
 
-4. Replace the `EventHubConnectionString` value with the connection string you obtained in the "Get namespace credentials" section of this article.
+5. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained while provisioning the resources:
 
-5. Replace `EventHubName` with the name of the event hub you created within that namespace.
+  ```netcore-cli
+  private const string EhConnectionString = "Event Hubs connection string";
+  private const string EhEntityPath = "Event Hub name";
 
-6. From the **Build** menu, click **Build Solution** to ensure there are no errors.
-
-## Receive and process events
-
-1. Open Visual Studio, then from the **File** menu, click **Open**, and then click **Project/Solution**.
-
-2. Locate the **SampleEphReceiver** sample folder you downloaded in step 1, then double-click the SampleEphReceiver.sln file to load the project in Visual Studio.
-
-3. In Solution Explorer, double-click Program.cs to open the file in the Visual Studio editor.
-
-4. Replace the following variable values:
-	1. `EventHubConnectionString`: Replace with the connection string you obtained when you created the namespace.
-	2. `EventHubName`: The name of the event hub you created within that namespace.
-	3. `StorageContainerName`: The name of a storage container. Give it a unique name, and the container is created for you when you run the app.
-	4. `StorageAccountName`: The name of the storage account you created.
-	5. `StorageAccountKey`: The storage account key you obtained from the Azure portal.
-
-5. From the **Build** menu, click **Build Solution** to ensure there are no errors.
-
-## Run the apps
-
-First, run the **SampleSender** application and observe 100 messages being sent. Press **Enter** to end the program.
+  ```
+6. Build and run the sample. You can see the events being ingested into your event hub.
 
 ![][3]
 
-Then, run the **SampleEphReceiver** app, and observe the messages being received.
+### Receive and process events
+
+ 1. Download the [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
+
+2. Navigate to the \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleEphReceiver folder.
+
+3. Load the SampleEphReceiver.sln solution file into Visual Studio.
+
+4. Add the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) and [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) Nuget packages to the project.
+
+5. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name and storage account key:
+
+  ```netcore-cli
+  private const string EventHubConnectionString = "Event Hubs connection string";
+  private const string EventHubName = "Event Hub name";
+  private const string StorageContainerName = "Storage account container name";
+  private const string StorageAccountName = "Storage account name";
+  private const string StorageAccountKey = "Storage account key";
+
+  ```
+6. Build and run the sample. You can see the events being received on your sample application
 
 ![][4]
 
-You can view the incoming and outgoing message count in the portal metrics window for the Event Hubs namespace. The following example shows these results after running the programs twice (sending and receiving two sets of 100 messages):
+You can view the incoming and outgoing events count in the portal for the Event Hubs namespace as shown below:
 
 ![][5]
 
