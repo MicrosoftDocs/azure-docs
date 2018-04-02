@@ -65,8 +65,26 @@ Unlike single databases, using [active geo-replication](sql-database-geo-replica
 ## How does the use of the auditing feature impact my bill?
 Auditing is built into the SQL Database service at no extra cost and is available on all service tiers. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
 
-## vCore purchasing model billing for compute and storage
-The compute cost reflects the total compute capacity that is provisioned for the application. In the Business Critical service tier we automatically allocate at least 3 AlwaysON replicas. To reflect this additional allocation of compute resources, the vCore price is approximately 2.7x higher in Business Critical. For the same reason, the higher storage price per GB in the Business Critical tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different because in both cases we use a class of standard storage ([RA-GRS](../storage/common/storage-redundancy#read-access-geo-redundant-storage.md)).
+## Will the existing Basic, Standard and Premium editions be retired with the release of the new vCore-based model?
+The DTU-based Basic, Standard and Premium options will not be retired with the release of the vCore-based model. In many cases, applications can benefit from the simplicity of a preconfigured bundle of resources. Therefore, we will continue to offer and support these DTU-based choices to our customers. If you are using them and it meets your business requirements, you should continue to do so. See [Service tiers](sql-database-service-tiers.md).
+
+## How does the vCore-based usage show up in my bill? 
+In the vCore-based model, the service is billed on a predictable, hourly rate based on the service tier, provisioned compute in vCores, provisioned storage in GB/month, and consumed backup storage. If the storage for backups exceeds the total database size (that is, 100% of the database size), there will be additional charges. vCore hours, configured database storage, consumed IO, and backup storage are clearly itemized in the bill, making it easier for you to see the details of resources you have used. Backup storage up to 100% of the maximum database size is included, beyond which you will be billed in GB/month consumed in a month.
+
+For example:
+- If the SQL database exists for 12 hours in a month, the bill will show usage for 12 hours of vCore. If the SQL database provisioned an additional 100 GB of storage, the bill will show storage usage in units of GB/Month prorated hourly and number of IOs consumed in a month.
+- If the SQL database is active for less than one hour, you are billed for each hour the database exists using the highest service tier selected, provisioned storage, and IO that applied during that hour, regardless of usage or whether the database was active for less than an hour.
+- If you create a Managed Instance and delete it five minutes later, you’ll be charged for one database hour.
+- If you create a Managed Instance in the General Purpose tier with 8 vCores, and then immediately upgrade it to 16 vCores, you’ll be charged at the 16 vCore rate for the first hour.
+
+> [!NOTE]
+> For a limited period through June 30th 2018, backup charges and IO charges will be free of charge.
+
+## Is the vCore-based model available to SQL Database Managed Instance?
+[Managed Instance](sql-database-managed-instance.md) is available only with the vCore-based model. For more information, also see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
+
+## vCore purchasing model billing for compute and storage in the Business Critical service tier
+The compute cost reflects the total compute capacity that is provisioned for the application. In the Business Critical service tier, we automatically allocate at least 3 Always ON replicas. To reflect this additional allocation of compute resources, the vCore price is approximately 2.7x higher in Business Critical. For the same reason, the higher storage price per GB in the Business Critical tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different because in both cases we use a class of standard storage ([RA-GRS](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage)).
 
 ## How often can I change the service tier or performance level of a single database?
 You can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) as often as you want. For earlier version databases, you can change the service tier or performance level a total of four times in a 24-hour period.
