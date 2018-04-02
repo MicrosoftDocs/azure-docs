@@ -96,7 +96,7 @@ Analysis tools in Log Analytics such as log searches, views, and solutions work 
 
 #### How do I use Log Analytics?
 
-You can access Log Analytics through the OMS portal or the Azure portal, from any web browser. Log Analytics includes a query language to quickly retrieve and consolidate data in the repository. You can create and save Log Searches to directly analyze data in the portal.
+You can access Log Analytics through the OMS portal or the Azure portal, from any web browser. Log Analytics includes a query language to quickly retrieve and consolidate data in the Log Analytics workspace. You can create and save Log Searches to directly analyze data in the portal.
 
 To create a Log Analytics workspace in the Azure portal, do the following:
 
