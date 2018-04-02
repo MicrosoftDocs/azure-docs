@@ -43,6 +43,34 @@ In this quickstart, you learn how to create an Apache Kafka](https://kafka.apach
     >
     > For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
+## Log in to Azure
+
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+
+## Create an Azure virtual network
+
+The Kafka API can only be accessed by resources inside the same virtual network as the Kafka cluster. Kafka on HDInsight will create an Azure virtual network automatically if one doesn't already exist, however you cannot join other services, networks, or virtual machines to this network. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the Kafka cluster.
+
+Use the following steps to create a new Azure Virtual Network:
+
+1. From the upper, left of the [Azure portal](https://portal.azure.com), select __+ Create a resource__.
+
+2. Select __Networking__, and then select __Virtual network__.
+
+    ![Image of the create a resource page](./media/apache-kafka-get-started/create-resource.png)
+
+3. Enter or select, the following information, accept the defaults for the remaining settings, and then select __Create__:
+
+    | Setting | Value |
+    | --- | --- |
+    | Name | A unique name for this virtual network. |
+    | Subscription | Select your subscription.
+    | Resource group | Select __Create new__ and enter a unique name for the resource group. |
+    | Location | Select the Azure region to create this resource in. |
+
+    ![Image of the create virtual network dialog](./media/apache-kafka-get-started/create-virtual-network.png
+)
+
 ## Create a Kafka cluster
 
 To create a Kafka on HDInsight cluster, use the following steps:
@@ -51,66 +79,86 @@ To create a Kafka on HDInsight cluster, use the following steps:
    
     ![Create a HDInsight cluster](./media/apache-kafka-get-started/create-hdinsight.png)
 
-2. From **Basics**, enter the following information:
+2. From **Basics**, enter or select the following information:
 
-    * **Cluster Name**: The name of the HDInsight cluster. This name must be unique.
-    * **Subscription**: Select the subscription to use.
-    * **Cluster Type**: Select this entry, and then set the following values from **Cluster configuration**:
+    | Setting | Value |
+    | --- | --- |
+    | Cluster Name | A unique name for the HDInsight cluster. |
+    | Subscription | Select your subscription. |
+    
+    Select __Cluster Type__ to display the **Cluster configuration**.
 
-        * **Cluster Type**: Kafka
-        * **Version**: Kafka 0.10.0 (HDI 3.6)
+    ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
 
-        Use the **Select** button to save the cluster type settings.
+3. From the __Cluster configuration__, select the following values:
 
-        ![Select cluster type](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+    | Setting | Value |
+    | Cluster Type | Kafka |
+    | Version | Kafka 0.10.0 (HDI 3.6) |
 
-    * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Ambari Web UI or REST API.
-    * **Secure Shell (SSH) username**: The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password.
-    * **Resource Group**: The resource group to create the cluster in.
-    * **Location**: The Azure region to create the cluster in.
+    Use the **Select** button to save the cluster type settings and return to __Basics__.
 
-        Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
+    ![Select cluster type](./media/apache-kafka-get-started/kafka-cluster-type.png)
 
-        > [!IMPORTANT]
-        > For high availability of data, select a region (location) that contains __three fault domains__.
+4. From __Basics__, enter or select the following information:
 
-        For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
-   
- ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
+    | Setting | Value |
+    | --- | --- |
+    | Cluster login username | The login name when accessing web services or REST APIs hosted on the cluster. Keep the default value (admin). |
+    | Cluster login password | The login password when accessing web services or REST APIs hosted on the cluster. |
+    | Secure Shell (SSH) username | The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password. |
+    | Resource Group | The resource group to create the cluster in. Use the same resource group as the virtual network created earlier. |
+    | Location | The Azure region to create the cluster in. Use the same region as the virtual network created earlier. |
 
-3. Use the __Next__ button to finish basic configuration.
+    > [!TIP]
+    > Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
+    >
+    > For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
-4. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration.
+    ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-    ![Set the storage account settings for HDInsight](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
+    Use the __Next__ button to finish basic configuration.
 
-5. From __Applications (optional)__, select __Next__ to continue with the default settings.
+5. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration.
 
-6. From __Cluster size__, select __Next__ to continue with the default settings.
+    ![Set the storage account settings for HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
+
+6. From __Applications (optional)__, select __Next__ to continue with the default settings.
+
+7. From __Cluster size__, select __Next__ to continue with the default settings.
 
     > [!IMPORTANT]
-    > To guarantee availability of Kafka on HDInsight, the __number of worker nodes__ entry must be set to 3 or greater.
+    > To guarantee availability of Kafka on HDInsight, the __number of worker nodes__ entry must be set to 3 or greater. The default value is 4.
     
     > [!TIP]
-    > The **disks per worker node** entry configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
+    > The **disks per worker node** entry configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
     ![Set the Kafka cluster size](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
-7. From __Advanced settings__, select __Next__ to continue.
+8. From __Advanced settings__, select the following values:
 
-8. From the **Summary**, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Create__ button to create the cluster.
+    | Setting | Value |
+    | --- | --- |
+    | Virtual network | Select the virtual network created earlier. |
+    | Subnet | Default |
+
+    ![Advanced configuration dialog for the cluster](./media/apache-kafka-get-started/kafka-advanced-configuration.png)
+
+    Select __Next__ to continue.
+
+9. From the **Summary**, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Create__ button to create the cluster.
    
-    ![Cluster configuration summary](./media/apache-kafka-get-started/hdinsight-configuration-summary.png)
+    ![Cluster configuration summary](./media/apache-kafka-get-started/kafka-configuration-summary.png)
    
     > [!NOTE]
     > It can take up to 20 minutes to create the cluster.
 
 ## Connect to the cluster
 
-1. To connect to the primary head node of the Kafka cluster, use the following command. Replace `sshuser` with the SSH user name. Replace `clustername` with the name of your Kafka cluster
+1. To connect to the primary head node of the Kafka cluster, use the following command. Replace `sshuser` with the SSH user name. Replace `mykafka` with the name of your Kafka cluster
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh sshuser@mykafka-ssh.azurehdinsight.net
     ```
 
 2. When you first connect to the cluster, your SSH client may display a warning that the authenticity of the host can't be established. When prompted type __yes__, and then press __Enter__ to add the host to your SSH client's trusted server list.
@@ -138,7 +186,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 Welcome to Kafka on HDInsight.
 
 Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-ssuhuser@hn0-mykafka:~$
+ssuhuser@hn0-mykafk:~$
 ```
 
 ## <a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
@@ -159,13 +207,15 @@ In this section, you get the host information from the Ambari REST API on the cl
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
     ```
 
+    When prompted, enter the name of the Kafka cluster. For example, mykafka.
+
 3. To set an environment variable with Zookeeper host information, use the following command:
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    When prompted, enter the password for the cluster login account (admin).
+    When prompted, enter the password for the cluster login account (not the SSH account).
 
     > [!NOTE]
     > This command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
@@ -186,7 +236,7 @@ In this section, you get the host information from the Ambari REST API on the cl
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    When prompted, enter the password for the cluster login account (admin).
+    When prompted, enter the password for the cluster login account (not the SSH account).
 
 6. To verify that the environment variable is set correctly, use the following command:
 
@@ -300,6 +350,11 @@ To remove the resource group using the Azure portal:
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and then choose __Resource Groups__ to display the list of your resource groups.
 2. Locate the resource group to delete, and then right-click the __More__ button (...) on the right side of the listing.
 3. Select __Delete resource group__, and then confirm.
+
+> [!WARNING]
+> HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
+> 
+> Deleting a Kafka on HDInsight cluster deletes any data stored in Kafka.
 
 ## Next steps
 

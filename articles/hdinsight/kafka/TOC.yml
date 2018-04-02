@@ -11,13 +11,14 @@
     maintainContext: true
 - name: Quickstarts
   items:
-  - name: Create a Kafka cluster
+  - name: Create a Kafka cluster - Portal
     href: apache-kafka-get-started.md
 - name: Tutorials
   items:
-  - name: Install HDInsight apps
-    href: ../hdinsight-apps-install-applications.md
-    maintainContext: true
+  - name: Kafka and Spark (Structured Streaming)
+    href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+- name: Concepts
+  items:
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
@@ -27,6 +28,9 @@
     href: apache-kafka-high-availability.md
 - name: How to
   items:
+  - name: Install HDInsight apps
+    href: ../hdinsight-apps-install-applications.md
+    maintainContext: true
   - name: Use Kafka in a virtual network
     href: apache-kafka-connect-vpn-gateway.md
   - name: Replicate Kafka data
@@ -35,8 +39,6 @@
     href: apache-kafka-log-analytics-operations-management.md
   - name: Create streaming pipelines
     items:
-    - name: Kafka and Spark (Structured Streaming)
-      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
       maintainContext: true
     - name: Structured streaming from Kafka to Azure Cosmos DB
       href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
