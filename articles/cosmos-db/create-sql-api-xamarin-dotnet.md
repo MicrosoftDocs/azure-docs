@@ -50,7 +50,7 @@ If you are using a Mac, you can download the **free** [Visual Studio for Mac](ht
 
 You can now add data to your new collection using Data Explorer.
 
-1. From the Data Explorer > Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**.
+1. From the Data Explorer > expand the **Tasks** database > expand the **Items** collection > click **Documents** > and then click **New Documents**.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-new-document.png)
 
@@ -209,7 +209,34 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB.
 
-You will be able to run it by selecting an Android emulator or iOS simulator and then pressing `F5` in Visual Studio or `cmd+Enter` in Visual Studio for Mac.
+The following steps will demonstrate how to run the app using the Visual Studio for Mac debugger.
+
+> [!INFO]
+> Usage of the Android version app is exactly the same, any differences will be called out in the steps below. If you wish to debug with Visual Studio on Windows, documentation todo so can be found for [iOS here](https://docs.microsoft.com/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) and [Android here](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/).
+
+1. First select the platform you wish to target by clicking on the dropdown highlighted and selecting either ToDoItems.iOS for iOS or ToDoItems.Android for Android.
+
+    ![Selecting a platform to debug in Visual Studio for Mac](./media/create-sql-api-xamarin-dotnet/ide-select-platform.png)
+
+2. To start debugging the app, either press cmd+Enter or click the play button.
+
+    ![Starting to debug in Visual Studio for Mac](./media/create-sql-api-xamarin-dotnet/ide-start-debug.png)
+
+3. When the iOS simulator or Android emulator finishes launching, the app will display 2 tabs. The first shows todo items which are not completed, the second shows todo items which are completed.
+
+    ![Launch screen of ToDo app](./media/create-sql-api-xamarin-dotnet/simulator-not-completed.png)
+
+4. To complete a todo item on iOS, slide it to the left > tap on the **Complete** button. To complete a todo item on Android, long press the item > then tap on the complete button.
+
+    ![Complete a todo item](./media/create-sql-api-xamarin-dotnet/simulator-complete.png)
+
+5. To edit a todo item > tap on the item > a new screen appears letting you enter new values. Tapping the save button will persist the changes to Azure Cosmos DB.
+
+    ![Edit todo item](./media/create-sql-api-xamarin-dotnet/simulator-edit.png)
+
+6. To add a todo item > tap on the **Add** button on the upper right of the home screen > a new, blank, edit page will appear.
+
+    ![Add todo item](./media/create-sql-api-xamarin-dotnet/simulator-add.png)
 
 ## Review SLAs in the Azure portal
 
