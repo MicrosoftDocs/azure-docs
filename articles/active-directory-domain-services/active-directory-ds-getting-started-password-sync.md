@@ -45,7 +45,7 @@ To authenticate users on the managed domain, Azure Active Directory Domain Servi
 
 This password change process causes the password hashes that are required by Azure Active Directory Domain Services for Kerberos and NTLM authentication to be generated in Azure AD. You can either expire the passwords for all users in the tenant who need to use Azure Active Directory Domain Services or instruct them to change their passwords.
 
-### Enable NTLM and Kerberos credential hash generation for a cloud-only user account
+### Enable NTLM and Kerberos password hash generation for a cloud-only user account
 Here are the instructions you need to provide users, so they can change their passwords:
 
 1. Go to the [Azure AD Access Panel](http://myapps.microsoft.com) page for your organization.
@@ -66,7 +66,7 @@ Here are the instructions you need to provide users, so they can change their pa
    >
 4. On the **change password** page, type your existing (old) password, type a new password, and then confirm it.
 
-    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
+    ![User changes password](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
 5. Click **submit**.
 
