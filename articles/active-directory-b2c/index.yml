@@ -1,0 +1,91 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Active Directory B2C Documentation
+metadata:
+  title: Azure Active Directory B2C Documentation
+  meta.description: Learn how to use Azure Active Directory B2C to customize and control how consumers sign up, sign in, and manage their profiles when using your applications.
+  services: active-directory-b2c
+  author: davidmu1
+  manager: mtillman
+  ms.service: active-directory-b2c
+  ms.topic: landing-page
+  ms.date: 03/29/2018
+  ms.author: davidmu
+abstract:
+  description: Azure Active Directory (Azure AD) B2C is an identity management service that enables you to customize and control how consumers sign up, sign in, and manage their profiles when using your applications. Azure AD B2C enables these actions while protecting your consumer identities at the same time. Learn how to use Azure AD B2C with our quickstarts, tutorials, and samples.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/business-to-consumer-identity-management-with-azure-active-directory-b2c.png
+      width: 250  
+    title: Business-to-Consumer Identity Management with Azure Active Directory B2C (12:56)
+    href: https://azure.microsoft.com/en-us/resources/videos/build-2016-business-to-consumer-identity-management-with-azure-active-directory-b2c/
+    width: 250
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to set up identity management for the consumers of your application:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_net.svg
+      text: .NET
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app
+    - image: 
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg
+      text: Desktop
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app
+    - image: 
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
+      text: Single page
+      href: https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa
+- title: Step-by-Step Tutorials
+  items:
+    - type: paragraph
+      text: Learn how to set up sign-up, sign-in, and profile management in your ASP.NET, desktop, or single-page Node.js applications
+    - type: list
+      style: cards
+      className: cardsD
+      items:
+      - title: ASP.NET
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant API access</a></p>
+    - title: Desktop
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Grant API access</a></p>
+    - title: Single page
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Grant API access</a></p>
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Manage identity, application, and network services
+      href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services
+    - title: Secure a serverless application
+      href: https://www.pluralsight.com/courses/azure-serverless-applications
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/azure-serverless-applications
+    - title: ASP.NET Core 2 and Azure AD B2C
+      href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook
+- title: Samples
+  items:
+  - type: paragraph
+    text: Find code samples for the the type of application you are developing.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/active-directory-b2c/code-samples#mobile-desktop-apps">Mobile and desktop apps</a>
+    - html: <a href="/azure/active-directory-b2c/code-samples#web-apps-and-apis">Web apps</a>
+    - html: <a href="/azure/active-directory-b2c/code-samples#single-page-apps">Single-page apps</a>
+   
