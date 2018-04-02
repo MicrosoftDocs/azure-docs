@@ -27,7 +27,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 - **Service principal:**  Your customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as service principal.
 
 ## Link partner ID
-When you have access to the customer's resources, use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You need to link the partner ID for each customer tenant. 
+When you have access to the customer's resources, use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You have to link the partner ID for each customer tenant. 
 
 ### Use PowerShell to link new partner ID
 
