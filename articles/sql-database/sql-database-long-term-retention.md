@@ -46,7 +46,35 @@ The following table illustrates the cadence and expiration of the long-term back
 
 W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear=15 (week after April 15)
 
-![ltr table](./media/sql-database-long-term-retention/ltr-table.png)
+|PITR backup copied to LTR|Expiration: W|Expiration: M|Expiration: Y|
+|-----------------------:|-----------:|-----------:|:-----------:|
+|3/7/2018||3/7/2019||
+|3/14/2018|6/6/2018|||
+|3/21/2018|6/13/2018|||
+|3/28/2018|6/20/2018|||
+|4/4/2018||4/25/2019||
+|4/11/2018|7/4/2018|||
+|4/18/2018|7/11/2018|||
+|4/25/2018|7/18/2018|||
+|5/2/2018||5/23/2019||
+|5/9/2018|8/1/2018|||
+|5/16/2018|||5/13/2028|
+|5/23/2018|8/15/2018|||
+|5/30/2018|8/22/2018|||
+|6/6/2018||6/20/2019||
+|6/13/2018|9/5/2018|||
+|6/20/2018|9/12/2018|||
+|6/27/2018|9/19/2018|||
+|7/4/2018||7/25/2019||
+|7/11/2018|10/3/2018|||
+|7/18/2018|10/10/2018|||
+|7/25/2018|10/17/2018|||
+|8/1/2018||8/22/2019||
+|8/8/2018|10/31/2018|||
+|8/15/2018|11/7/2018|||
+|8/22/2018|11/14/2018|||
+|8/29/2018|11/21/2018|||
+
  
 If you were to modify the above policy and set W=0 (no weekly backups), the cadence of backup copies would change as shown in the above table by the highlighted dates. The storage amount needed to keep these backups would reduce accordingly. 
 Note: The LTR copies are created by Azure storage service so the copy process has no performance impact on the existing database.
