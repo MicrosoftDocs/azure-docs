@@ -43,7 +43,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 ## Start the upgrade
 
 1. Go to your Optimized for Elasticity data warehouse in the Azure portal and click on **Upgrade to Optimized for Compute**:
-    ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade to Gen2_1.PNG)
+    ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
 
 2. By default, we select the suggested performance level for the data warehouse based on your current performance level on Optimized for Elasticity by using the mapping below:
 
@@ -57,10 +57,10 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 |          DW6000          |        DW6000c        |
 
 3. Click **Upgrade**. The price of the Optimized for Compute performance tier is currently half-off during the preview period:
-    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade to Gen2_2.PNG)
+    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
 4. Monitor your upgrade by checking the status in the Azure portal:
-    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade to Gen2_3.PNG)
+    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
 
 
 ## Upgrade downtime and data migration 
