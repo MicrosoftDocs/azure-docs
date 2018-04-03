@@ -1,6 +1,6 @@
 ---
-title: Use an Azure Marketplace image to create a Terraform Linux Virtual Machine with Managed Service Identity
-description: Use Marketplace image to create Terraform Linux Virtual Machine with Managed Service Identity and Remote State management to easily deploy resources to Azure.
+title: Use an Azure Marketplace image to create a Terraform Linux virtual machine with Managed Service Identity
+description: Use Marketplace image to create Terraform Linux virtual machine with Managed Service Identity and Remote State management to easily deploy resources to Azure.
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
 author: VaijanathB
 manager: rloutlaw
@@ -22,7 +22,7 @@ Before you can create a Linux Terraform virtual machine, you must have an Azure 
 
 ## Create your Terraform virtual machine 
 
-Following are the steps to create an instance of Linux Terraform virtual machine: 
+Following are the steps to create an instance of a Linux Terraform virtual machine: 
 
 1. In the Azure portal, go to the [Create a Resource](https://ms.portal.azure.com/#create/hub) listing.
 
@@ -74,7 +74,7 @@ After you create the VM, you can sign in to it by using SSH. Use the account cre
 
 After you use `SSH` to connect to the virtual machine, you need to give contributor permissions for the entire subscription to Managed Service Identity on the virtual machine. 
 
-Contributor permission helps MSI on VM to use Terraform to create resources outside the VM resource group. You can easily achieve this action by running a script once. Following is the command to do it:
+Contributor permission helps MSI on VM to use Terraform to create resources outside the VM resource group. You can easily achieve this action by running a script once. Following is the command to use:
 
 `. ~/tfEnv.sh`
 
