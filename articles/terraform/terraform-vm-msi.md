@@ -49,8 +49,8 @@ Enter the following details on the **Create Terraform** tab:
 
 2. **Additional settings**
 
-* **Size**: Size of the virtual machine. 
-* **VM disk type**: SSD or HDD.
+   * **Size**: Size of the virtual machine. 
+   * **VM disk type**: SSD or HDD.
 
 3. **Summary Terraform**
 
