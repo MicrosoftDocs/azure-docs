@@ -47,7 +47,7 @@ You can combine app-based conditional access policies with other policies such a
  
 
 
-##Before you begin
+## Before you begin
 
 This topic assumes that you are familiar with:
 

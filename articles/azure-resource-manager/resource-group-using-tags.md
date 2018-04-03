@@ -19,7 +19,7 @@ ms.author: tomfitz
 ---
 # Use tags to organize your Azure resources
 
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ## PowerShell
 

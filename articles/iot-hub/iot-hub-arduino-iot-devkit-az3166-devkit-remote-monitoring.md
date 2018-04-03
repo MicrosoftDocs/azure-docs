@@ -1,5 +1,5 @@
 ---
-title: 'IoT DevKit to cloud: Connect IoT DevKit AZ3166 to Azure IoT Hub | Microsoft Docs'
+title: 'IoT DevKit to cloud: Connect IoT MXChip DevKit to Azure IoT Hub | Microsoft Docs'
 description: In this tutorial, learn how to send status of sensors on IoT DevKit AZ3166 to Azure IoT Suite for monitoring and visualization.
 services: iot-hub
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 02/02/2018
 ms.author: liydu
 
 ---
-# Connect IoT DevKit AZ3166 to Azure IoT Suite for remote monitoring
+# Connect MXChip IoT DevKit to Azure IoT Suite for remote monitoring
 
 In this tutorial, you learn how to run a sample app on your DevKit to send sensor data to your Azure IoT Suite.
 
@@ -32,14 +32,14 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 
 An active Azure subscription. If you do not have one, you can register via one of these two methods:
 
-* Activate a [free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html)
+* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/)
 * Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
 
 ## Create an Azure IoT Suite
 
 1. Go to [Azure IoT Suite site](https://www.azureiotsuite.com/) and click **Create a new solution**.
   ![Select Azure IoT Suite type](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-  > [!NOTE]
+  > [!WARNING]
   > By default, this sample creates an S2 IoT Hub after it creates one IoT Suite. If this IoT hub is not used with massive number of devices, we highly recommend you downgrade it from S2 to S1, and delete the IoT Suite so the related IoT Hub can also be deleted, when you no longer need it. 
 
 2. Select **Remote monitoring**.

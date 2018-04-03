@@ -1,6 +1,6 @@
 ---
 title: Protect personal data in Microsoft Azure | Microsoft Docs
-description: First article in a series of articles to help you use Azure to protect personal data and to comply with General Data Protection Regulation (GDPR)
+description: This article should help you use Azure to protect personal data and comply with General Data Protection Regulation (GDPR)
 services: security
 documentationcenter: na
 author: Barclayn
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
 

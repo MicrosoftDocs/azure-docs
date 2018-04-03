@@ -473,13 +473,12 @@ This article contains a definition of the **Postman** collection that contains g
 						],
 						"body": {},
 						"url": {
-							"raw": "{{RESTAPIEndpoint}}/Assets/{{LastAssetId}}",
+							"raw": "{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')",
 							"host": [
 								"{{RESTAPIEndpoint}}"
 							],
 							"path": [
-								"Assets",
-								"{{LastAssetId}}"
+								"Assets('{{LastAssetId}}')"
 							]
 						},
 						"description": ""

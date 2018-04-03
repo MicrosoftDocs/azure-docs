@@ -3,7 +3,7 @@ title: Supported languages in Text Analytics API (Microsoft Cognitive Services o
 description: List of generally available and preview language support for Text Analytics API operations. Applies to sentiment analysis, key phrase extraction, and language detection.
 services: cognitive-services
 author: luiscabrer
-manager: jhubbard
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: text-analytics

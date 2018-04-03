@@ -4,17 +4,10 @@ description: Azure SQL Database and Azure SQL Data Warehouse support connections
 services: sql-database
 documentationcenter: ''
 author: GithubMirek
-manager: johammer
-editor: ''
-tags: ''
-
-ms.assetid: fbd6e644-0520-439c-8304-2e4fb6d6eb91
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
 ms.date: 09/29/2017
 ms.author: mireks
 ---
