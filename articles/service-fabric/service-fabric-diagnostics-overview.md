@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/27/2018
+ms.date: 4/03/2018
 ms.author: dekapur;srrengar
 
 ---
@@ -21,12 +21,6 @@ ms.author: dekapur;srrengar
 # Monitoring and diagnostics for Azure Service Fabric
 
 This article provides an overview of monitoring and diagnostics for Azure Service Fabric. Monitoring and diagnostics are critical to developing, testing, and deploying workloads in any cloud environment. Monitoring enables you to track how your applications are used, your resource utilization, and the overall health of your cluster. You can use this information to diagnose and correct any issues, and prevent issues from occurring in the future. 
-
-In Service Fabric, monitoring and diagnostics cover four areas: 
-1. Application monitoring
-2. Platform (cluster) monitoring
-3. Infrastructure monitoring
-4. Health monitoring
 
 ## Application monitoring
 Application monitoring tracks how features and components of your application are being used. You want to monitor your applications to make sure issues that impact users are caught. Monitoring your applications can be useful in the following scenarios:

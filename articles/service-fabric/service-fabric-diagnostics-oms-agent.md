@@ -43,15 +43,15 @@ The best way to add the OMS Agent to your cluster is via the virtual machine sca
 
     For a Windows cluster:
     
-```sh
+    ```sh
     az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
-```
+    ```
 
     For a Linux cluster:
 
-```sh
+    ```sh
     az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
-```
+    ```
 
     Here's an example of the OMS Agent being added to a Windows cluster.
 
@@ -59,15 +59,15 @@ The best way to add the OMS Agent to your cluster is via the virtual machine sca
  
 5. Run the command to apply this configuration to your VM instances that already exist:  
 
-```sh
+    ```sh
     az vmss update-instances
-```
+    ```
 
-This should take less than 15 min to successfully add the agent to your nodes. You can verify that the agents have been added by using the `az vmss extension list` API:
+    This should take less than 15 min to successfully add the agent to your nodes. You can verify that the agents have been added by using the `az vmss extension list` API:
 
-```sh
+    ```sh
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
-```
+    ```
 
 ## Add the agent via the Resource Manager template
 
