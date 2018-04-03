@@ -49,7 +49,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 ## Deploy the application to Azure
 
 ### Set up your Azure Service Fabric Cluster
-To deploy the application to a cluster in Azure, create your own cluster.
+To deploy the application to a cluster in Azure, create your own cluster. If using a Windows cluster, you should use WindowsServer2016DatacenterwithContainers. 
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
 
