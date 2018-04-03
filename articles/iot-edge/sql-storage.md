@@ -6,7 +6,8 @@ keywords:
 author: kgremban
 manager: timlt
 
-ms.author: kgremban, ebertrams
+ms.author: kgremban
+ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge

@@ -186,7 +186,7 @@ with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on
 **How do I change the secondary location to the Europe region for a storage account?**
 
 When you create a storage account, you select the primary region for the
-account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Azure Storage replication](storage-redundancy.md).
+account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy.md).
 
 **Where can I get more information about Azure Storage Service Encryption (SSE)?**  
   
