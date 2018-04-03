@@ -69,4 +69,6 @@ private static Asset CreateInputAsset(IAzureMediaServicesClient client, string a
 }
 ```
 
-Also, see [Create a job input from an HTTP(s) URL](job-input-from-http-how-to.md).
+## Nest steps
+
+[Create a job input from an HTTP(s) URL](job-input-from-http-how-to.md).
