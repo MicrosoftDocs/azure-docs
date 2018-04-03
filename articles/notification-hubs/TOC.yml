@@ -38,7 +38,13 @@
       href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
     - name: Windows Phone
       href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md     
-  - name: 3 - Push notifications to specific users 
+  - name: 3 - Push localized notifications
+    items:
+    - name: iOS
+      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
+    - name: Windows
+      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md                       
+  - name: 4 - Push notifications to specific users 
     items:
     - name: Android
       href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
@@ -46,12 +52,6 @@
       href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
     - name: Windows
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md  
-  - name: 4 - Push personalized and localized notifications
-    items:
-    - name: iOS
-      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: Windows
-      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md                 
   - name: 5 - Push location-based notifications
     items:
     - name: Windows
@@ -75,7 +75,7 @@
   items: 
   - name: Send cross-platform notifications
     href: notification-hubs-aspnet-cross-platform-notification.md
-  - name: Push rich content
+  - name: Push rich content to devices
     href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
   - name: Send scheduled notifications
     href: notification-hubs-send-push-notifications-scheduled.md                  
