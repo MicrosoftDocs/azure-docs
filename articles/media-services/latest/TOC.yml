@@ -7,8 +7,6 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an account - CLI
-    href: create-account-cli-quickstart.md
   - name: Stream video files
     items:
     - name: .NET with Visual Studio
@@ -35,6 +33,8 @@
     href: autogen-bitrate-ladder.md
 - name: How-to guides
   items:
+  - name: Create an account - CLI
+    href: create-account-cli-how-to.md  
   - name: Access APIs - CLI
     href: access-api-cli-how-to.md
 - name: Reference
