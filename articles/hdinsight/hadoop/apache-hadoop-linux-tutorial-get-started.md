@@ -32,6 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Log in to the [Azure  portal](https://portal.azure.com).
 
+<a name="create-cluster"></a>
 ## Create a Hadoop cluster
 
 Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md). The Resource Manager template used in this tutorial is located in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). Resource Manager template experience is not required for following this article. 
