@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/26/2018
+ms.date: 04/03/2018
 ms.author: heidist
 
 ---
@@ -34,6 +34,44 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 ## Service limits
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
+
+Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers.
+
+## Document limits
+
+In most regions, Azure Search pricing tiers (Basic, S1, S2, S3, S3HD) have unlimited document counts for all services created after November/December 2017. This section identifies the regions where limits apply, and how to determine whether your service is affected. 
+
+To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document limts are either unlimited, or subject to a limit based on tier.
+
+  ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
+
+### Regions and services having document limits
+
+Services having limits were either created before late 2017, or are running on data centers using lower-capacity clusters for hosting Azure Search services:
+
++ Australia East
++ East Asia
++ Central India
++ Japan West
++ West Central US
+
+For services subject to document limits, the following maximum thresholds apply:
+
+|  Free | Basic | S1 | S2 | S3 | S3 HD |
+|-------|-------|----|----|----|-------|
+|  10,000 |1 million |15 million per partition or 180 million per service |60 million per partition or 720 million per service |120 million per partition or 1.4 billion per service |1 million per index or 200 million per partition |
+
+> [!Note] 
+> For S3 High Density services created after late 2017, the 200 million document per partition has been removed but the 1 million document per index limit remains.
+
+
+### Document size limits per API call
+
+The maximum document size when calling an Index API is approximately 16 megabytes.
+
+Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit realistically depends on how many documents are in the batch. For a batch with a single document, the maximum document size is 16 MB of JSON.
+
+To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a URL reference to the resource.
 
 ## Index limits
 
@@ -57,16 +95,6 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 <sup>1</sup> S3 HD doesn't currently support indexers. Contact Azure Support if you have an urgent need for this capability.
 
 <sup>2</sup> Indexer maximum execution time for the Free tier is 3 minutes for blob sources and 1 minute for all other data sources.
-
-
-## Document size limits
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Individual document size per Index API |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |
-
-Refers to the maximum document size when calling an Index API. Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit actually depends on how many documents are in the batch. For a batch with a single document, the maximum document size is 16 MB of JSON.
-
-To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a URL reference to the resource.
 
 ## Queries per second (QPS)
 
