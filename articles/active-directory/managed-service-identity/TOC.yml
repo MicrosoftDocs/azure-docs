@@ -35,6 +35,7 @@
         items:
         - name: Access Azure Data Lake Store
           href: tutorial-linux-vm-access-datalake.md
+        - name: Access Azure Storage
         - name: Access Azure Storage using an access key
           href: tutorial-linux-vm-access-storage.md
         - name: Access Azure Storage using SAS
