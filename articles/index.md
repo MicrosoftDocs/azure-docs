@@ -4311,6 +4311,36 @@ featureFlags:
                                     </div>
                                 </div>
                             </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/Fabric.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    Service Fabric SDK and Tools
+                                                </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Download for Windows</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Download for Linux</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Download Mac OS X</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Download Service Fabric CLI </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </li>
                 </ul>
