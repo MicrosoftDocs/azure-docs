@@ -1,9 +1,9 @@
-- name: Azure AD B2C Documentation]
+- name: Azure AD B2C Documentation
   href: index.yml
 - name: Overview
   items:
-- name: About Azure AD B2C
-  href: active-directory-b2c-overview.md
+  - name: About Azure AD B2C
+    href: active-directory-b2c-overview.md
 - name: Quickstarts
   expanded: true
   items:
