@@ -19,6 +19,7 @@
   items:
   - name: Kafka and Spark (Structured Streaming)
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+    maintainContext: true
 - name: Concepts
   items:
   - name: Capacity planning
@@ -41,7 +42,6 @@
     href: apache-kafka-log-analytics-operations-management.md
   - name: Create streaming pipelines
     items:
-      maintainContext: true
     - name: Structured streaming from Kafka to Azure Cosmos DB
       href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
       maintainContext: true
