@@ -35,7 +35,7 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 3. Select **Add** at the top of the blade. 
 4. Select **On-premises application**. 
 5.       Fill out the required fields with information about your new app. Use the following guidance for the settings: 
-	- **Internal URL**: This application should have an internal URL that is the QlikSense URL itself. For example, **https&#58;//demo.qlikemm.com** 
+	- **Internal URL**: This application should have an internal URL that is the QlikSense URL itself. For example, **https&#58;//demo.qlikemm.com:4244** 
 	- **Pre-authentication method**: Azure Active Directory (Recommended but not required) 
 1.       Select **Add** at the bottom of the blade. Your application is added, and the quick start menu opens. 
 2.       In the quick start menu, select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application. 
@@ -45,7 +45,7 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 ### Application #2: 
 Follow the same steps as for Application #1, with the following exceptions: 
 
-**Step #5**: The Internal URL should now be the QlikSense URL with the authentication port used by the application. The default is **4244** for HTTPS, and 4248 for HTTP. Ex: **https&#58;//demo.qlik.com:4244** 
+**Step #5**: The Internal URL should now be the QlikSense URL with the authentication port used by the application. The default is **4244** for HTTPS, and 4248 for HTTP. Ex: **https&#58;//demo.qlik.com:4244**</br></br> 
 **Step #10:** Don’t set up SSO, and leave the **Single sign-on disabled**
  
  
