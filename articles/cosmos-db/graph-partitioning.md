@@ -19,9 +19,9 @@ ms.author: lbosq
 
 One of the key features of the Graph API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This process is achieved through the [partitioning capabilities in Cosmos DB](partition-data.md#how-does-partitioning-work), which make use of collections, also referred to as containers, that can scale independently in terms of storage and throughput. Cosmos DB Graph API uses the same types of collections for all Cosmos DB APIs:
 
-- Fixed Collection: These collections can store a graph database up to 10 GB in size with a maximum of 10,000 request units per second allocated to it. To create a fixed collection it isn't necessary to specify a partitioning key property in the data.
+- **Fixed Collection**: These collections can store a graph database up to 10 GB in size with a maximum of 10,000 request units per second allocated to it. To create a fixed collection it isn't necessary to specify a partitioning key property in the data.
 
-- Unlimited Collection: These collections can automatically scale to store a graph beyond the 10-GB limit through horizontal partitioning. Each partition will store 10 GB and the data will be automatically balanced based on the **specified partitioning key**, which will be a required parameter when using an unlimited collection. This type of collection can store a virtually unlimited data size and can allow up to 100,000 request units per second, or more [by contacting support](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+- **Unlimited Collection**: These collections can automatically scale to store a graph beyond the 10-GB limit through horizontal partitioning. Each partition will store 10 GB and the data will be automatically balanced based on the **specified partitioning key**, which will be a required parameter when using an unlimited collection. This type of collection can store a virtually unlimited data size and can allow up to 100,000 request units per second, or more [by contacting support](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
 
 In this document, the specifics on how graph databases are partitioned will be described along with its implications for both vertices (or nodes) and edges. The following are considerations that should be followed when creating a partitioned graph collection.
 
@@ -34,15 +34,23 @@ For a graph database, the following are details that need to be understood when 
 - **Edges will be stored with their source vertex**. In other words, for each vertex its partitioning key will define where they will be stored along with its outgoing edges. This is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
 - **Graph queries need to specify a partitioning key**. To take full advantage of the horizontal partitioning in Cosmos DB, the partitioning key should be specified whenever a single vertex is selected. The following are queries for inserting vertices in partitioned collections:
     - Selecting a vertex by ID, then **filtering by the partitioning key property**: 
+    
         `g.V('vertex_id').has('partitionKey', 'partitionKey_value')`
-    - Specifying an **array of tuples of partition key values and IDs**: 
-        `g.V(['pk0', 'id0'], ['pk1', 'id1'], ...)`
+        
     - Selecting a vertex by **specifying a tuple including partitioning key value and ID**: 
+    
         `g.V(['partitionKey_value', 'vertex_id'])`
+        
+    - Specifying an **array of tuples of partition key values and IDs**:
+    
+        `g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)`
+        
     - Selecting a set of vertices and **specifying a list of partitioning key values**: 
+    
         `g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)`
-    - **Specifying a Partition Strategy** before selecting a vertex: 
-        `g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V('vertex_id')`
+        
+    - **Specifying a Partition Strategy** before selecting a vertex:
+                `g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V('vertex_id')`
 
 ## Best practices when using a partitioned graph
 
