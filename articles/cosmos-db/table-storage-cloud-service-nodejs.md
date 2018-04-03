@@ -353,7 +353,8 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 1. Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/). Copy the **bootstrap.min.css** file from the **bootstrap\\dist\\css** folder to the **public\\stylesheets** directory of your tasklist application.
 2. From the **views** folder, open the **layout.jade** file in your text editor and replace the contents with the following:
-```
+ 
+```jade
     doctype html
     html
       head
@@ -366,7 +367,7 @@ The **layout.jade** file in the **views** directory is used as a global template
             a.navbar-brand(href='/') My Tasks
         block content
 ```
-3. Save the **layout.jade** file.
+1. Save the **layout.jade** file.
 
 ### Running the Application in the Emulator
 Use the following command to start the application in the emulator.
