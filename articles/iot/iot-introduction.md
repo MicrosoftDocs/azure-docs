@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
 ms.author: bryanla; v-clay
+layout: LandingPage
 ---
 
 # Introduction to Azure and the Internet of Things
