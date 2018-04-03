@@ -147,7 +147,7 @@ Prior to the download, the Service object [retry_callback](https://docs.microsof
 # [Java] (#tab/java)
 You can run the application by opening a terminal or command prompt scoped to the downloaded application folder. From there, enter `mvn compile exec:java` to run the application. The application then uploads the **HelloWorld.png** image from the directory to your storage account and checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Once the check is complete, the application will begin downloading the image repeatedly, while reporting back the endpoint it is downloading from.
 
-The Storage object retry function is set to use a linear retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. The application automatically switches between secondary and primary **LocationMode** as it fails or succeeds to download **HelloWorld.png** since the **LocationMode** is set to **PRIMARY\_THEN\_SECONDARY**.
+The Storage object retry function is set to use a linear retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. The **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
 
 ---
 
@@ -248,11 +248,11 @@ def response_callback(response):
 
 # [Java] (#tab/java)
 
-With Java, defining callback handlers is unnecessary if you are using the **PRIMARY\_THEN\_SECONDARY** LocationMode. The application automatically switches between secondary and primary **LocationMode** as it fails or succeeds to download **HelloWorld.png** since the **LocationMode** is set to **PRIMARY\_THEN\_SECONDARY**.
+With Java, defining callback handlers is unnecessary if the **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
 
 ```java
     BlobRequestOptions myReqOptions = new BlobRequestOptions();
-    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff,maxAttempts));
+    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
     myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
     blobClient.setDefaultRequestOptions(myReqOptions);
 
