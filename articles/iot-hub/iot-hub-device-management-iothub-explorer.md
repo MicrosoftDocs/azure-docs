@@ -26,6 +26,8 @@ ms.author: xshi
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) is a CLI tool that you run on a host computer to manage device identities in your IoT hub registry. It comes with management options that you can use to perform various tasks.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 | Management option          | Task                                                                                                                            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Direct methods             | Make a device act such as starting or stopping sending messages or rebooting the device.                                        |
@@ -37,8 +39,7 @@ ms.author: xshi
 
 For more detailed explanation on the differences and guidance on using these options, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](iot-hub-node-node-twin-getstarted.md).
+Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](iot-hub-node-node-twin-getstarted.md).
 
 ## What you learn
 

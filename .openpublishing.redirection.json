@@ -31,7 +31,7 @@
         },
         {
             "source_path": "articles/machine-learning/studio/what-is-machine-learning.md",
-            "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
+            "redirect_url": "/azure/machine-learning/preview/overview-what-is-azure-ml",
             "redirect_document_id": true
         },
 	{
@@ -3316,6 +3316,16 @@
         {
             "source_path": "articles/azure-stack/azure-stack-whats-new.md",
             "redirect_url": "/azure/azure-stack/azure-stack-asdk-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/user/azure-stack-connect-cli.md",
+            "redirect_url": "/azure/user/azure-stack-version-profiles-azurecli2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-manage-storage-physical-capacity.md",
+            "redirect_url": "/azure/user/azure-stack-manage-storage-physical-memory-capacity",
             "redirect_document_id": false
         },
         {
@@ -11417,6 +11427,16 @@
         {
             "source_path": "articles/azure-stack/azure-stack-vm-considerations.md",
             "redirect_url": "/azure/azure-stack/user/azure-stack-vm-considerations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/prepare-pki-certs.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-prepare-pki-certs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/validate-pki-certs.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-validate-pki-certs",
             "redirect_document_id": false
         },
         {

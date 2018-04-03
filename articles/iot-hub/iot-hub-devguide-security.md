@@ -21,13 +21,15 @@ ms.author: dobett
 
 This article describes the options for securing your IoT hub. IoT Hub uses *permissions* to grant access to each IoT hub endpoint. Permissions limit the access to an IoT hub based on functionality.
 
-This article describes:
+This article introduces:
 
 * The different permissions that you can grant to a device or back-end app to access your IoT hub.
 * The authentication process and the tokens it uses to verify permissions.
 * How to scope credentials to limit access to specific resources.
 * IoT Hub support for X.509 certificates.
 * Custom device authentication mechanisms that use existing device identity registries or authentication schemes.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 You must have appropriate permissions to access any of the IoT Hub endpoints. For example, a device must include a token containing security credentials along with every message it sends to IoT Hub.
 
