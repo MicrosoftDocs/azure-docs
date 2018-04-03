@@ -30,6 +30,8 @@ There are three categories of software development kits (SDKs) for working with 
 
 SDKs are provided to support multiple programming languages.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 ## Azure IoT device SDKs
 
 The Microsoft Azure IoT device SDKs contain code that facilitates building devices and applications that connect to and are managed by Azure IoT Hub services.
