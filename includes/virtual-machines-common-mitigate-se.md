@@ -5,13 +5,13 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/02/2018
+ ms.date: 04/03/2018
  ms.author: cynthn;kareni
  ms.custom: include file
 ---
 
 
-**Last document update**: April 2, 10:00 AM PST.
+**Last document update**: April 3, 3:00 PM PST.
 
 The recent disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
@@ -61,7 +61,7 @@ No additional customer action is needed unless you are running untrusted code. I
 
 
 ### Windows 
-If you are using Windows and hosting untrusted code, you should also enable a Windows feature called Kernel Virtual Address (KVA) Shadowing which provides additional protection against speculative execution side-channel vulnerabilities (specifically variant 3 Meltdown, [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754)). This feature is turned off by default and may impact performance if enabled. 
+If you are using Windows and hosting untrusted code, you should also enable a Windows feature called Kernel Virtual Address (KVA) Shadowing which provides additional protection against speculative execution side-channel vulnerabilities (specifically for variant 3 Meltdown, [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754), or rogue data cache load). This feature is turned off by default and may impact performance if enabled. 
 Follow [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instructions for Enabling Protections on the Server. If you are running Azure Cloud Services, verify that you are running WA-GUEST-OS-5.15_201801-01 or WA-GUEST-OS-4.50_201801-01 (available starting on January 10, 2018) and enable the registry key via a startup task.
 
 
