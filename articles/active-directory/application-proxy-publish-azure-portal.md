@@ -61,7 +61,7 @@ Follow these steps to publish your apps with Application Proxy. If you haven't a
    - **Connector Group**: Connectors process the remote access to your application, and connector groups help you organize connectors and apps by region, network, or purpose. If you don't have any connector groups created yet, your app is assigned to **Default**.
 
 >[!NOTE]
->If your application uses websockets to connect, make sure that you have connector version 1.5.612.0 oe higher with websocket support and the assigned Connector Group only uses these connectors.
+>If your application uses websockets to connect, make sure that you have connector version 1.5.612.0 or higher with websocket support and the assigned Connector Group only uses these connectors.
 
    ![Configure your application](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. If necessary, configure additional settings. For most applications, you should keep these settings in their default states. 
