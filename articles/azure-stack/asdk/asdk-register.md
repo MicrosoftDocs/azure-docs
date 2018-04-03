@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -46,9 +46,9 @@ Before using these steps to register the ASDK with Azure, ensure that you have i
 
     #Register Azure Stack
     $AzureContext = Get-AzureRmContext
-    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     Set-AzsRegistration `
-        -CloudAdminCredential $CloudAdminCred `
+        -PrivilegedEndpointCredential $CloudAdminCred `
         -PrivilegedEndpoint AzS-ERCS01 `
         -BillingModel Development
 

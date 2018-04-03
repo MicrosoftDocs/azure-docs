@@ -121,9 +121,9 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 - Downloadable reports for offline analysis and integration with other systems via automation
 
 > [!NOTE]
-> To use this report, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
->
->
+> To use this report, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
+> To access preview, Global Admin or [Security Reader](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#security-reader) permission is required.  
+> 
 
 ### What is in the report
 Each item in the Risky IP report shows aggregated information about failed AD FS sign-in activities which exceed designated threshold. It provides the following information:
