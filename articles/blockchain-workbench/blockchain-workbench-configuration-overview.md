@@ -29,19 +29,17 @@ Each defined workflow specifies the following configuration:
 * User roles permitted to initiate each action
 * Smart contracts that represent business logic in code files.
 
-![Configuration](media/blockchain-workbench-configuration-overview/configuration.png)
-
 ## Application
 
 A blockchain application contains configuration metadata, workflows, and user roles who can act or participate within the application.
 
-| Field | Description | Required | Sample value  |
-|-------|-------------|:--------:|---------------|
-| ApplicationName | Unique application name. The corresponding smart contract must use the same **ApplicationName** for the applicable contract class.  | Y | `"ApplicationName": "AssetTransfer"` |
-| DisplayName | Friendly display name of the application. | Y | `"DisplayName": "Asset Transfer"` |
-| Description | Description of the application. | N | `"Description": "Allows transfer of assets between a buyer and a seller"`|
-| ApplicationRoles | Collection of [ApplicationRoles](#application-roles). Unique user roles who can act or participate within the application.  | Y | `"ApplicationRoles": [{"Name": "Appraiser", "Description": "User that signs off on the asset price" }]` |
-| Workflows | Collection of  [Workflows](#workflows). Each workflow acts as a state machine to control business flow. | Y | `"Workflows": [{ "Name": "AssetTransfer", "DisplayName": "Asset Transfer", "Description": "Asset transfer business logic", "Initiators": [ "Owner" ], "StartState":  "Active", "Properties": [ ... ], "Constructor": { ... }, "Functions": [ ... ], "States": [ ... ] }]` |
+| Field | Description | Required |
+|-------|-------------|:--------:|
+| ApplicationName | Unique application name. The corresponding smart contract must use the same **ApplicationName** for the applicable contract class.  | Y |
+| DisplayName | Friendly display name of the application. | Y |
+| Description | Description of the application. | N |
+| ApplicationRoles | Collection of [ApplicationRoles](#application-roles). Unique user roles who can act or participate within the application.  | Y |
+| Workflows | Collection of  [Workflows](#workflows). Each workflow acts as a state machine to control business flow. | Y |
 
 For an example, see [configuration file example](#configuration-file-example).
 
@@ -49,17 +47,17 @@ For an example, see [configuration file example](#configuration-file-example).
 
 A workflow is defined by one or more states that acts as a state machine. Each workflow consists of one or more smart contracts, which represent the business logic in code files.
 
-| Field | Description | Required | Sample value  |
-|-------|-------------|:--------:|---------------|
-| Name | Unique workflow name. The corresponding smart contract must use the same **Name** for the applicable contract class. | Y | `"Name": "AssetTransfer"` |
-| DisplayName | Friendly display name of the workflow. | Y | `"DisplayName": "Asset Transfer"` |
-| Description | Description of the workflow. | N | `"Description": "Asset transfer business logic"` |
-| Initiators | Collection of [ApplicationRoles](#application-roles). User roles who can create contracts in the workflow. | Y | `"Initiators": [ "Owner" ]` |
-| StartState | Name of the initial state of the workflow. | Y | `"StartState":  "Active"` |
-| Properties | Collection of [identifiers](#identifiers). Represents data that can be synchronized off-chain or visualized in a user experience tool. | Y | `"Properties": [{ "Name": "AskingPrice", "DisplayName": "Asking Price", "Description": "The asking price for the asset", "Type": { "Name": "money" } }]` |
-| Constructor | Defines input parameters for creating a smart contract instance | Y | `"Constructor": { "Parameters": [{ "Name": "price", "Description": "The price of this asset", "DisplayName": "Price", "Type": { "Name": "money" }}]}` |
-| Functions | A collection of [functions](#functions) that can be executed on the smart contract. | N | `"Functions": [{ "Name": "Terminate", "DisplayName": "Terminate", "Description": "Cancel the asset transfer", "Parameters":[] }]` |
-| States | A collection of smart contract [states](#states). | Y | `"States": [{ "Name": "Active", "DisplayName": "Active", "Description": "The initial state of the asset transfer workflow", "PercentComplete": 20, "Style": "Success", "Transitions": [ ... ] }]` |
+| Field | Description | Required |
+|-------|-------------|:--------:|
+| Name | Unique workflow name. The corresponding smart contract must use the same **Name** for the applicable contract class. | Y |
+| DisplayName | Friendly display name of the workflow. | Y |
+| Description | Description of the workflow. | N |
+| Initiators | Collection of [ApplicationRoles](#application-roles). User roles who can create contracts in the workflow. | Y |
+| StartState | Name of the initial state of the workflow. | Y |
+| Properties | Collection of [identifiers](#identifiers). Represents data that can be synchronized off-chain or visualized in a user experience tool. | Y |
+| Constructor | Defines input parameters for creating a smart contract instance | Y |
+| Functions | A collection of [functions](#functions) that can be executed on the smart contract. | N |
+| States | A collection of smart contract [states](#states). | Y |
 
 For an example, see [configuration file example](#configuration-file-example).
 
@@ -67,13 +65,13 @@ For an example, see [configuration file example](#configuration-file-example).
 
 Defines input parameters for a new smart contract instance of a workflow.
 
-| Field | Description | Required | Sample value  |
-|-------|-------------|:--------:|---------------|
-| Parameters | Collection of [identifiers](#identifiers) required to initiate a smart contract. | Y | `"Parameters": [{ "Name": "price", "Description": "The price of this asset", "DisplayName": "Price", "Type": { "Name": "money" } }]` |
+| Field | Description | Required |
+|-------|-------------|:--------:|
+| Parameters | Collection of [identifiers](#identifiers) required to initiate a smart contract. | Y |
 
 ### Constructor example
 
-```json
+``` json
 {
   "Parameters": [
     {
@@ -101,16 +99,16 @@ Defines input parameters for a new smart contract instance of a workflow.
 
 Defines functions that can be executed on the workflow.
 
-| Field | Description | Required | Sample value  |
-|-------|-------------|:--------:|---------------|
-| Name | The unique name of the function. The corresponding smart contract must use the same **Name** for the applicable function. | Y | `"Name": "Modify"` |
-| DisplayName | Friendly display name of the function. | Y | `"DisplayName": "Modify"` |
-| Description | Description of the function | N | `"Description": "Modify the attributes of this asset transfer instance"` |
-| Parameters | Collection of [identifiers](#identifiers) required to initiate a smart contract. | Y | `"Parameters": [{ "Name": "price", "Description": "The price of this asset", "DisplayName": "Price", "Type": { "Name": "money" }}]` |
+| Field | Description | Required |
+|-------|-------------|:--------:|
+| Name | The unique name of the function. The corresponding smart contract must use the same **Name** for the applicable function. | Y |
+| DisplayName | Friendly display name of the function. | Y |
+| Description | Description of the function | N |
+| Parameters | Collection of [identifiers](#identifiers) required to initiate a smart contract. | Y |
 
-### Function examples
+### Functions example
 
-```json
+``` json
 "Functions": [
   {
     "Name": "Modify",
@@ -147,49 +145,180 @@ Defines functions that can be executed on the workflow.
 
 ## States
 
-A collection of smart contract states within a workflow.
+A collection of unique states within a workflow. States that define the status within the workflow.
 
-| Field | Description | Required | Sample value  |
-|-------|-------------|:--------:|---------------|
-| Name | Unique name of the state. The corresponding smart contract must use the same Name for the applicable state. | Y | Active |
-| DisplayName | Friendly display name | Y | Active |
-| Description | Descriptive text | N | The initial state of the asset transfer workflow |
-| PercentComplete | Value representing the percent completion at this state. | Y | 20 |
-| Style | Guessing some kind of representation in UI | Y | Success |
-| Transitions | Collection of available [transitions](#transitions) to the next state. | N | For sample, see [transitions](#transitions) |
+| Field | Description | Required |
+|-------|-------------|:--------:|
+| Name | Unique name of the state. The corresponding smart contract must use the same **Name** for the applicable state. | Y |
+| DisplayName | Friendly display name of the state. | Y |
+| Description | Description of the state. | N |
+| PercentComplete | Value representing the percent completion at this state. | Y |
+| Style | Visual hint indicating whether the state represents a success or failure state. There are two valid values: `Success` or `Failure`. | Y |
+| Transitions | Collection of available [transitions](#transitions) from the current state to the next set of states. | N |
+
+### States example
+
+``` json
+"States": [
+    {
+      "Name": "Active",
+      "DisplayName": "Active",
+      "Description": "The initial state of the asset transfer workflow",
+      "PercentComplete": 20,
+      "Style": "Success",
+      "Transitions": [
+        {
+          "AllowedRoles": [],
+          "AllowedInstanceRoles": [ "InstanceOwner" ],
+          "Description": "Cancels this instance of asset transfer",
+          "Function": "Terminate",
+          "NextState": "Terminated",
+          "DisplayName": "Terminate Offer"
+        },
+        {
+          "AllowedRoles": [ "Buyer" ],
+          "AllowedInstanceRoles": [],
+          "Description": "Make an offer for this asset",
+          "Function": "MakeOffer",
+          "NextState": "OfferPlaced",
+          "DisplayName": "Make Offer"
+        },
+        {
+          "AllowedRoles": [],
+          "AllowedInstanceRoles": [ "InstanceOwner" ],
+          "Description": "Modify attributes of this asset transfer instance",
+          "Function": "Modify",
+          "NextState": "Active",
+          "DisplayName": "Modify"
+        }
+      ]
+    },
+    {
+      "Name": "Accepted",
+      "DisplayName": "Accepted",
+      "Description": "Asset transfer process is complete",
+      "PercentComplete": 100,
+      "Style": "Success",
+      "Transitions": []
+    },
+    {
+      "Name": "Terminated",
+      "DisplayName": "Terminated",
+      "Description": "Asset transfer has been cancelled",
+      "PercentComplete": 100,
+      "Style": "Failure",
+      "Transitions": []
+    }
+  ]
+```
 
 ## Transitions
 
-Available actions to the next state. Each user role can initiate actions at each state, where an action may transition a state to another state in the workflow.
+Available actions to the next state. One or more user roles may perform an action at each state, where an action may transition a state to another state in the workflow. 
 
-| Field | Description | Required | Sample value  |
-|-------|-------------|:--------:|---------------|
-| AllowedRoles | List of roles allowed to initiate the transition? | N | Buyer |
-| AllowedInstanceRoles | List of instance roles allowed to initiate the transition? | N | InstanceOwner |
-| DisplayName | Friendly display name | Y | Make Offer |
-| Description | Descriptive text | N | Make an offer for this asset |
-| Function | Function to initiate for transition | Y | MakeOffer |
-| NextState | Next contract state after transition | Y | OfferPlaced |
+| Field | Description | Required |
+|-------|-------------|:--------:|
+| AllowedRoles | List of applications roles allowed to initiate the transition. All users of the specified role may be able to perform the action. | N |
+| AllowedInstanceRoles | List of user roles participating or specified in the smart contract. It is the allowed list to initiate the transition. Instance roles are defined in **Properties** within **Workflows**. | N |
+| DisplayName | Friendly display name of the transition. | Y |
+| Description | Description of the transition. | N |
+| Function | The name of the function to initiate the transition. | Y |
+| NextState | The next state after a successful transition. | Y |
+
+### Transitions example
+
+``` json
+"Transitions": [
+  {
+    "AllowedRoles": [],
+    "AllowedInstanceRoles": [ "InstanceOwner" ],
+    "Description": "Cancels this instance of asset transfer",
+    "Function": "Terminate",
+    "NextState": "Terminated",
+    "DisplayName": "Terminate Offer"
+  },
+  {
+    "AllowedRoles": [ "Buyer" ],
+    "AllowedInstanceRoles": [],
+    "Description": "Make an offer for this asset",
+    "Function": "MakeOffer",
+    "NextState": "OfferPlaced",
+    "DisplayName": "Make Offer"
+  },
+  {
+    "AllowedRoles": [],
+    "AllowedInstanceRoles": [ "InstanceOwner" ],
+    "Description": "Modify attributes of this asset transfer instance",
+    "Function": "Modify",
+    "NextState": "Active",
+    "DisplayName": "Modify"
+  }
+]
+
+```
 
 ## Application roles
 
-Application roles control access by assigning users to actions in the workflow.
+Application roles define the user roles who can act or participate within the blockchain application. Application roles can be used to restrict actions and participation within the blockchain application and corresponding workflows.
 
-| Field | Description | Required | Sample value  |
-|-------|-------------|:--------:|---------------|
-| Name | Unique name | Y | Appraiser |
-| Description | Descriptive text | N | User that signs off on the asset price |
+| Field | Description | Required |
+|-------|-------------|:--------:|
+| Name | The unique name of the application role. The corresponding smart contract must use the same **Name** for the applicable role. | Y |
+| Description | Description of the application role. | N |
 
+### Application roles example
+
+``` json
+"ApplicationRoles": [
+  {
+    "Name": "Appraiser",
+    "Description": "User that signs off on the asset price"
+  },
+  {
+    "Name": "Buyer",
+    "Description": "User that places an offer on an asset"
+  }
+]
+```
 ## Identifiers
 
-| Field | Description | Required | Sample value  |
-|-------|-------------|:--------:|---------------|
-| Name | Unique name | Y | AskingPrice |
-| DisplayName | Friendly display name | Y | Asking Price |
-| Description | Descriptive text | N | The asking price for the asset |
-| Type | Collection of data types | Y | money |
+Identifiers represent a collection of information used to describe workflow properties, constructor, and function parameters. 
+
+| Field | Description | Required |
+|-------|-------------|:--------:|
+| Name | The unique name of the property or parameter. The corresponding smart contract must use the same **Name** for the applicable property or parameter. | Y |
+| DisplayName | Friendly display name for the property or parameter. | Y |
+| Description | Description of the property or parameter. | N |
+| Type | The type of data specified in the **Identifier**. Supported types are:</br>`state` - Workflow state</br>`string` – string data type</br>`int` – integer data type</br>`money` – money data type | Y |
+
+### Identifiers example
+
+``` json
+"Properties": [
+  {
+    "Name": "State",
+    "DisplayName": "State",
+    "Description": "Holds the state of the contract",
+    "Type": {
+      "Name": "state"
+    }
+  },
+  {
+    "Name": "Description",
+    "DisplayName": "Description",
+    "Description": "Describes the asset being sold",
+    "Type": {
+      "Name": "string"
+    }
+  }
+]
+```
 
 ## Configuration file example
+
+The following example defines an asset transfer application. The application allows transfer of assets between a buyer and a seller and includes appraisal and inspection functionality.
+
+![Configuration](media/blockchain-workbench-configuration-overview/configuration.png)
 
 ``` json
 {
