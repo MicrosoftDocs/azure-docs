@@ -78,7 +78,7 @@ $ctx = $storageAccount.Context
 
 ## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. Hookbin is a third-party tools that enables you to create an endpoint, and view requests that are sent to it. Go to [Hookbin](https://hookbin.com/) and click **Create New Endpoint**. Copy the bin URL and replace `<bin URL>` in the following script.
+Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. Hookbin is a third-party tool that enables you to create an endpoint, and view requests that are sent to it. Go to [Hookbin](https://hookbin.com/) and click **Create New Endpoint**. Copy the bin URL and replace `<bin URL>` in the following script.
 
 ```powershell
 $binEndPoint = "<bin URL>"
