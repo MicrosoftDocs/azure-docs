@@ -20,7 +20,7 @@ You can create an Azure Database for MySQL server in one of three different pric
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memory per vCore | Baseline | 2x Basic | 2x General Purpose |
-| Storage size | 5 GB to 1 TB | 5 GB to 1 TB | 5 GB to 1 TB |
+| Storage size | 5 GB to 2 TB | 5 GB to 2 TB | 5 GB to 2 TB |
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
 
@@ -72,7 +72,7 @@ The storage you provision is the amount of storage capacity available to your Az
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 5 GB to 1 TB | 5 GB to 1 TB | 5 GB to 1 TB |
+| Storage size | 5 GB to 2 TB | 5 GB to 2 TB | 5 GB to 2 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS | 3 IOPS/GB<br/>Min 100 IOPS |
 
