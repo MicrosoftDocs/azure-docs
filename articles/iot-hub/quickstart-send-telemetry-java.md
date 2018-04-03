@@ -1,5 +1,5 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart | Microsoft Docs
+title: Send telemetry to Azure IoT Hub quickstart (Java) | Microsoft Docs
 description: In this quickstart, you run two sample Java applications to send simulated telemetry to an IoT hub and to read telemetry from from the IoT hub for processing in the cloud.
 services: iot-hub
 author: dominicbetts

@@ -1,5 +1,5 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart | Microsoft Docs
+title: Send telemetry to Azure IoT Hub quickstart (Node.js) | Microsoft Docs
 description: In this quickstart, you run two sample Node.js applications to send simulated telemetry to an IoT hub and to read telemetry from from the IoT hub for processing in the cloud.
 services: iot-hub
 author: dominicbetts
