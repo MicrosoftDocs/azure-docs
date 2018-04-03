@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
 ms.author: bryanla; v-clay
+layout: LandingPage
 ---
 
 # Introduction to Azure and the Internet of Things
@@ -148,7 +149,7 @@ Explore the following areas of technologies and solutions, or see the Table of C
                 <div class="card">
                     <div class="cardText">
                         <h3>Edge</h3>
-                        <a href="/azure/iot-edge/index.yml">IoT Edge</a><br/>
+                        <a href="/azure/iot-edge">IoT Edge</a><br/>
                         <a href="/azure/iot-edge/how-iot-edge-works">What is IoT Edge?</a>
                     </div>
                 </div>
@@ -161,8 +162,8 @@ Explore the following areas of technologies and solutions, or see the Table of C
                 <div class="card">
                     <div class="cardText">
                         <h3>Solutions</h3>
-                        <a href="/azure/iot-suite/index.md">IoT Suite</a><br/>
-                        <a href="/microsoft-iot-central">IoT Central</a>
+                        <a href="/azure/iot-suite">IoT Suite</a><br/>
+                        <a href="/azure/iot-central">IoT Central</a>
                     </div>
                 </div>
             </div>
@@ -174,10 +175,10 @@ Explore the following areas of technologies and solutions, or see the Table of C
                 <div class="card">
                     <div class="cardText">
                         <h3>Platform services</h3>
-                        <a href="/azure/iot-hub/index.md">IoT Hub</a><br/>
-                        <a href="/azure/iot-dps/index.yml">IoT Hub Device Provisioning Service</a><br/>
-                        <a href="/azure/location-based-services/index.yml">Location Based Services</a><br/>
-                        <a href="/azure/time-series-insights/index.yml">Time Series Insights</a>
+                        <a href="/azure/iot-hub">IoT Hub</a><br/>
+                        <a href="/azure/iot-dps">IoT Hub Device Provisioning Service</a><br/>
+                        <a href="/azure/location-based-services">Location Based Services</a><br/>
+                        <a href="/azure/time-series-insights">Time Series Insights</a>
                     </div>
                 </div>
             </div>
