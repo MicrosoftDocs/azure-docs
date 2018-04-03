@@ -120,7 +120,7 @@ Certificate thumbprint needs to be added to your application because it is using
 1. You will need the thumbprint of your certificate in the ```Voting/VotingApplication/ApplicationManiest.xml``` file when running on a secure cluster. Run the following command to extract the thumbprint of the certificate.
 
     ```bash
-    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
 2. In the ```Voting/VotingApplication/ApplicationManiest.xml```, add the following snippet under the **ApplicationManifest** tag. The **X509FindValue** should be the thumbprint from the previous step (no semicolons). 
