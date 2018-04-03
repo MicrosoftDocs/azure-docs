@@ -20,6 +20,10 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 
 This topic shows how to create a job with an HTTPS URL input. For a full example, see this [github sample](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/MediaServicesV3Quickstarts/MediaServicesV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
+## .Net sample
+
+The following code shows how to create a job with an HTTPS URL input.
+
 ```csharp
 private static Job SubmitJob(IAzureMediaServicesClient client, string transformName, string jobName)
 {
