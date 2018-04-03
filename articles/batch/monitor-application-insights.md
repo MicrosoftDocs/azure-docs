@@ -43,10 +43,10 @@ A sample C# solution with code to accompany this article is available on [GitHub
    * Copy the [instrumentation 
 key](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) from the portal. It is required later in this article.
   
-   > [!NOTE]
-   > You may be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for the data stored in Application Insights. 
-   > This includes the diagnostic and monitoring data discussed in this article.
-   > 
+  > [!NOTE]
+  > You may be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for the data stored in Application Insights. 
+  > This includes the diagnostic and monitoring data discussed in this article.
+  > 
 
 ## Add Application Insights to your project
 
@@ -300,7 +300,7 @@ The following image shows how Application Insights logs exceptions thrown from y
 
 ### Measure blob download time
 
-Custom metrics are also a valuable tool in the portal. For example, you can the average time it took each compute node to download the required text file it was processing.
+Custom metrics are also a valuable tool in the portal. For example, you can display the average time it took each compute node to download the required text file it was processing.
 
 To create the chart:
 1. In your Application Insights resource, click **Metrics Explorer** > **Add chart**.
@@ -315,7 +315,7 @@ To create the chart:
 ![Blob download time per node](./media/monitor-application-insights/blobdownloadtime.png)
 
 
-## Get performance counters from compute nodes when no tasks are running
+## Monitor compute nodes continuously
 
 You may have noticed that all metrics, including performance counters, are only 
 logged when the tasks are running. This behavior is useful because it limits the amount of
@@ -327,7 +327,7 @@ compute node.
 One way to achieve this behavior is to spawn a process that loads 
 the Application Insights library and runs in the background. In the example, the start task loads the 
 binaries on the machine and keeps a process running indefinitely. Configure the 
-Application Insights configuration file for this process to emit data you're interested in, such 
+Application Insights configuration file for this process to emit additional data you're interested in, such 
 as performance counters.
 
 ```csharp
@@ -360,7 +360,7 @@ pool.StartTask = new StartTask()
 > To increase the manageability of your solution, you can bundle the assembly in an [application package](./batch-application-packages.md). Then, to deploy the application package automatically to your pools, add an application package reference to the pool configuration.
 >
 
-## Throttle and sample data in Application Insights
+## Throttle and sample data 
 
 Due to the large-scale nature of Azure Batch workloads, for applications 
 running in production you might want to limit the amount of data collected by 
