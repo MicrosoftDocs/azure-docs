@@ -458,7 +458,7 @@ Specification](https://docs.microsoft.com/en-us/azure/media-services/media-servi
 **[ISO-14496-12]** ISO/IEC 14496-12: Part 12 ISO base media file format, Fourth
 Edition 2012-07-15.
 
-**[RTMP]** [“Adobe’s Real-Time Messaging Protocol”, December 21, 2012](http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf) 
+**[RTMP]** [“Adobe’s Real-Time Messaging Protocol”, December 21, 2012](https://www.adobe.com/devnet/rtmp.html) 
 
 ------------------------------------------
 
