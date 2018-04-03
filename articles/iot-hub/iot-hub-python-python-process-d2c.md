@@ -3,7 +3,7 @@ title: Routing messages with Azure IoT Hub (Python) | Microsoft Docs
 description: How to process Azure IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
-ms.author: v-masebo
+ms.author: v-masebo;kgremban
 
 ---
 # Routing messages with IoT Hub (Python)
