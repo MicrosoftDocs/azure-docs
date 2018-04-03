@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2018
+ms.date: 04/03/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
 
