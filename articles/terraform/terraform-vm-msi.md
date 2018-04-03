@@ -1,6 +1,6 @@
 ---
 title: Use an Azure Marketplace image to create a Terraform Linux virtual machine with Managed Service Identity
-description: Use Marketplace image to create Terraform Linux virtual machine with Managed Service Identity and Remote State management to easily deploy resources to Azure.
+description: Use Marketplace image to create Terraform Linux virtual machine with Managed Service Identity and Remote State Management to easily deploy resources to Azure.
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
 author: VaijanathB
 manager: rloutlaw
@@ -11,7 +11,7 @@ ms.topic: article
 
 # Use an Azure Marketplace image to create a Terraform Linux virtual machine with Managed Service Identity
 
-This article shows you how to use a [Terraform Marketplace image](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) to create an `Ubuntu Linux VM (16.04 LTS)` with the latest [Terraform](https://www.terraform.io/intro/index.html) version installed and configured using [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). This image also configures a remote back end to enable [remote state](https://www.terraform.io/docs/state/remote.html) management using Terraform. 
+This article shows you how to use a [Terraform Marketplace image](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) to create an Ubuntu Linux VM (16.04 LTS) with the latest [Terraform](https://www.terraform.io/intro/index.html) version installed and configured using [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). This image also configures a remote back end to enable [remote state](https://www.terraform.io/docs/state/remote.html) management using Terraform. 
 
 The Terraform Marketplace image makes it easy to get started using Terraform on Azure, without having to install and configure Terraform manually. 
 
@@ -22,11 +22,11 @@ Before you can create a Linux Terraform virtual machine, you must have an Azure 
 
 ## Create your Terraform virtual machine 
 
-Following are the steps to create an instance of a Linux Terraform virtual machine: 
+Here are the steps to create an instance of a Linux Terraform virtual machine: 
 
 1. In the Azure portal, go to the [Create a Resource](https://ms.portal.azure.com/#create/hub) listing.
 
-2. In the `Search the Marketplace` search bar, search for `Terraform`. Select the `Terraform` template. 
+2. In the **Search the Marketplace** search bar, search for **Terraform**. Select the **Terraform** template. 
 
 3. On the Terraform details tab on the lower right, select the **Create** button.
 
@@ -34,31 +34,31 @@ Following are the steps to create an instance of a Linux Terraform virtual machi
 
 4. The following sections provide inputs for each of the steps in the wizard to create the Terraform Linux virtual machine. The following section lists the inputs that are needed to configure each of these steps.
 
-## Details in the Create Terraform tab
+## Details on the Create Terraform tab
 
-Following are the details that need to be entered in the **Create Terraform** tab.
+Enter the following details on the **Create Terraform** tab:
 
-a. Basics
+1. **Basics**
     
-* **Name**: The name of your Terraform virtual machine.
-* **User Name**: The first account sign-in ID.
-* **Password**: The first account password (you can use an SSH public key instead of a password).
-* **Subscription**: The subscription on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
-* **Resource group**: A new or existing resource group.
-* **Location**: The data center that is most appropriate. Usually it is the data center that has most of your data, or the one that's closest to your physical location for fastest network access.
+   * **Name**: The name of your Terraform virtual machine.
+   * **User Name**: The first account sign-in ID.
+   * **Password**: The first account password. (You can use an SSH public key instead of a password.)
+   * **Subscription**: The subscription on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
+   * **Resource group**: A new or existing resource group.
+   * **Location**: The datacenter that is most appropriate. Usually it's the datacenter that has most of your data, or the one that's closest to your physical location for fastest network access.
 
-b. Additional settings
+2. **Additional settings**
 
-* **Size**: Size of the virtual machine 
-* **VM disk type**: SSD or HDD
+* **Size**: Size of the virtual machine. 
+* **VM disk type**: SSD or HDD.
 
-c. Summary Terraform
+3. **Summary Terraform**
 
-* Verify that all information that you entered is correct. 
+   * Verify that all information that you entered is correct. 
 
-d. Buy
+4. **Buy**
 
-* To start the provisioning process, select **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the size step.
+   * To start the provisioning process, select **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size that you chose in the size step.
 
 The Terraform VM image performs the following steps:
 
@@ -66,15 +66,15 @@ The Terraform VM image performs the following steps:
 * Installs the MSI extension on the VM to allow OAuth tokens to be issued for Azure resources.
 * Assigns RBAC permissions to the managed identity, granting owner rights for the resource group.
 * Creates a Terraform template folder (tfTemplate).
-* Pre-configures a Terraform remote state with the Azure backend.
+* Pre-configures a Terraform remote state with the Azure back end.
 
-## How to access and configure a Linux Terraform virtual machine
+## Access and configure a Linux Terraform virtual machine
 
 After you create the VM, you can sign in to it by using SSH. Use the account credentials that you created in the "Basics" section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org/).
 
-After you use `SSH` to connect to the virtual machine, you need to give contributor permissions for the entire subscription to Managed Service Identity on the virtual machine. 
+After you use SSH to connect to the virtual machine, you need to give contributor permissions for the entire subscription to Managed Service Identity on the virtual machine. 
 
-Contributor permission helps MSI on VM to use Terraform to create resources outside the VM resource group. You can easily achieve this action by running a script once. Following is the command to use:
+Contributor permission helps MSI on VM to use Terraform to create resources outside the VM resource group. You can easily achieve this action by running a script once. Use the following command:
 
 `. ~/tfEnv.sh`
 
@@ -87,7 +87,7 @@ The previous script uses the [AZ CLI v 2.0 interactive log-in](https://docs.micr
  For more information about Remote State Management, see [this page about the Terraform remote state](https://www.terraform.io/docs/state/remote.html). The storage access key is exposed in this file and needs to be carefully checked into source control.  
 
 ## Next steps
-In this article, you learned how to set up a Terraform Linux virtual machine on Azure. Following are some additional resources to help you learn more about Terraform on Azure: 
+In this article, you learned how to set up a Terraform Linux virtual machine on Azure. Here are some additional resources to help you learn more about Terraform on Azure: 
 
  [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
  [Terraform Azure provider documentation](http://aka.ms/terraform)  
