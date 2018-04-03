@@ -47,7 +47,6 @@ For Windows and Linux virtual machines already deployed in Azure, you install th
 >[!NOTE]
 >The OMS agent for Linux cannot be configured to report to more than one Log Analytics workspace. 
 
-![Log Analytics upgrade notice in the Azure portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select *DefaultLAWorkspace* created earlier.
 3. On the left-hand menu, under Workspace Data Sources, click **Virtual machines**.  
