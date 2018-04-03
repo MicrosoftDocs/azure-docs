@@ -159,6 +159,9 @@
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
+    - name: Custom Decision Service
+      tocHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview/
+      topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview/
     - name: Custom Speech Service
       tocHref: /azure/cognitive-services/custom-speech-service/
       topicHref: /azure/cognitive-services/custom-speech-service/
@@ -174,6 +177,9 @@
     - name: Language Understanding (LUIS)
       tocHref: /azure/cognitive-services/LUIS/
       topicHref: /azure/cognitive-services/LUIS/
+    - name: QnA Maker
+      tocHref: /azure/cognitive-services/qnamaker/home/
+      topicHref: /azure/cognitive-services/qnamaker/home/
     - name: Text Analytics
       tocHref: /azure/cognitive-services/text-analytics/
       topicHref: /azure/cognitive-services/text-analytics/
