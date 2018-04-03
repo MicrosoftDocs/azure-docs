@@ -237,7 +237,7 @@ From the management page of the AD application, copy the **Application ID** to a
 
 Follow the same steps for the front-end app, but skip the last step. You don't need the **Application ID** for the front-end app. Keep the **Azure Active Directory Settings** page open.
 
-If you like, navigate to `http://<front_end_app_name>.azurewebsites.net`. You should now be redirected to a sign-in page. After you sign in, you still can't access the data from the back-end app, because you still need to do three things:
+If you like, navigate to `http://<front_end_app_name>.azurewebsites.net`. It should now direct you to a sign-in page. After you sign in, you still can't access the data from the back-end app, because you still need to do three things:
 
 - Grant the front end access to the back end
 - Configure App Service to return a usable token
