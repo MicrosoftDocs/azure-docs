@@ -1,6 +1,6 @@
 ---
 title: Start with Apache Kafka - Azure HDInsight Quickstart | Microsoft Docs
-description: 'In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight. You also learn about Kafka topics, subscribers, and consumers.'
+description: 'In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using the Azure portal. You also learn about Kafka topics, subscribers, and consumers.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -22,7 +22,7 @@ ms.author: larryfr
 
 Kafka is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
 
-In this quickstart, you learn how to create an Apache Kafka](https://kafka.apache.org) cluster on Azure HDInsight. You also learn how to use included utilities to send and receive messages using Kafka.
+In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using the Azure portal. You also learn how to use included utilities to send and receive messages using Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
