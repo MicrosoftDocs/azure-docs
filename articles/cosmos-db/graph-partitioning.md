@@ -52,38 +52,6 @@ The following are guidelines that should be followed to ensure the most efficien
 - **Choose a partitioning key that will evenly distribute data across partitions**. This decision heavily depends on the model of the data. A partitioning key should be chosen when its value can be hashed evenly into different partitions. This behavior will increase the chances of queries not resorting to cross-partition lookups. A random value for the partition key would provide an approximate even distribution of the data for the partitions when no other attribute can be chosen.
 - **Optimize queries to obtain data within the boundaries of a partition**. An optimal partitioning strategy would be aligned to the querying patterns. Queries that obtain data from a single partition provide the best possible performance.
 
-## Example
-
-For example, for a collection of airports to be partitioned by the country they're in, defining the country property as a partitioning key will be required when creating the collection. In this case, this property would be `/country`, when creating the collection on the portal. The value of this property will be hashed and when vertices are inserted and that will define which partition they will be stored in. 
- 
-After setting up the unlimited collection with the aforementioned partitioning key, the insertion command in Gremlin should look like:
-
-```
-g.addV('airport')
-    .property('id', 'LAX')
-    .property('location', 'Los Angeles, CA')
-    .property('country', 'US')
-``` 
-
-In this example, the label (the parameter of the `addV()` step), ID and location  properties are arbitrary values. The `country` property name will need to match the predefined partitioning key and the value needs to be a string. This value will define in which of the back-end partitions this vertex will reside in. For more information about how the partitions themselves are created, read the following article: [How does partitioning work](partition-data.md#how-does-partitioning-work). 
-
-Assume that the following vertex is created and that given the value of its partitioning key, the `country` property, it is stored in a separate partition:
-
-```
-g.addV('airport')
-    .property('id', 'HND')
-    .property('location', 'Tokyo, Kanto')
-    .property('country', 'JP')
-``` 
-
-All the edges that originate from every one these vertices will be stored in their respective partitions. Assuming that the edges in this example represent flights, all flights documents would be stored in the same partition as their origin airport. The following Gremlin query would get all the flights from any given airport. Notice how the source vertex is obtained by specifying both its ID and partitioning key value:
-
-```
-g.V(['US', 'LAX']).outE('flights')
-``` 
-
-In this example, a flight between Tokyo and Los Angeles would result in a cross-partition query. This kind of query would involve a seek operation in every partition until the documents that are being searched for are found.
-
 ## Next steps
 In this article, an overview of concepts and best practices for partitioning with an Azure Cosmos DB Graph API was provided. 
 
