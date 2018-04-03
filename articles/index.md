@@ -4325,13 +4325,13 @@ featureFlags:
                                                     Service Fabric SDK and Tools
                                                 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Download SDK and Visual Studio tools for Windows</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Download for Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Download SDK and tools for Linux</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Download for Linux</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Download SDK and tools for Mac OS X</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Download Mac OS X</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Download Service Fabric CLI </a>
