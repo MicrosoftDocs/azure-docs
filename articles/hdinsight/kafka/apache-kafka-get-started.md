@@ -30,7 +30,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An SSH client. The steps in this document use SSH to connect to the cluster and work with Kafka from the cluster head nodes.
+* An SSH client. The steps in this document use SSH to connect to the cluster.
 
     The `ssh` command is provided by default on Linux, Unix, and macOS systems. On Windows 10, use one of the following methods to install the `ssh` command:
 
@@ -49,17 +49,17 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 
 ## Create an Azure virtual network
 
-The Kafka API can only be accessed by resources inside the same virtual network as the Kafka cluster. Kafka on HDInsight will create an Azure virtual network automatically if one doesn't already exist, however you cannot join other services, networks, or virtual machines to this network. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the Kafka cluster.
+The Kafka API can only be accessed by resources inside the same virtual network. To connect other services, networks, or virtual machines to Kafka, first create a virtual network and then create the Kafka cluster.
 
-Use the following steps to create a new Azure Virtual Network:
+To create a new Azure Virtual Network, use the following steps:
 
 1. From the upper, left of the [Azure portal](https://portal.azure.com), select __+ Create a resource__.
 
 2. Select __Networking__, and then select __Virtual network__.
 
-    ![Image of the create a resource page](./media/apache-kafka-get-started/create-resource.png)
+    ![Image of the resource creation page](./media/apache-kafka-get-started/create-resource.png)
 
-3. Enter or select, the following information, accept the defaults for the remaining settings, and then select __Create__:
+3. Use the following information to configurate the network, and then select __Create__:
 
     | Setting | Value |
     | --- | --- |
@@ -68,8 +68,7 @@ Use the following steps to create a new Azure Virtual Network:
     | Resource group | Select __Create new__ and enter a unique name for the resource group. |
     | Location | Select the Azure region to create this resource in. |
 
-    ![Image of the create virtual network dialog](./media/apache-kafka-get-started/create-virtual-network.png
-)
+    ![Image of the virtual network creation page](./media/apache-kafka-get-started/create-virtual-network.png)
 
 ## Create a Kafka cluster
 
@@ -165,7 +164,7 @@ To create a Kafka on HDInsight cluster, use the following steps:
 
 3. When prompted, enter the password for the SSH user.
 
-Once connected, you see information similiar to the following text:
+Once connected, you see information similar to the following text:
 
 ```text
 Authorized uses only. All activity may be monitored and reported.
@@ -207,7 +206,7 @@ In this section, you get the host information from the Ambari REST API on the cl
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
     ```
 
-    When prompted, enter the name of the Kafka cluster. For example, mykafka.
+    When prompted, enter the name of the Kafka cluster.
 
 3. To set an environment variable with Zookeeper host information, use the following command:
 
@@ -260,14 +259,14 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
 
     This command connects to Zookeeper using the host information stored in `$KAFKAZKHOSTS`. It then creates a Kafka topic named **test**. 
 
-    * Data stored in this topic is partitioned across 8 partitions.
+    * Data stored in this topic is partitioned across eight partitions.
 
     * Each partition is replicated across three worker nodes in the cluster.
 
         > [!IMPORTANT]
         > If you created the cluster in an Azure region that provides three fault domains, use a replication factor of 3. Otherwise, use a replication factor of 4.
         
-        In regions that contain three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions that contain two fault domains, a replication factor of 4 spreads the replicas evenly across the two fault domains.
+        In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
         
         For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
@@ -275,7 +274,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
 
         To ensure high availability, use the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Kafka cluster.
 
-        To ensure the highest availability of your Kafka data, you should rebalance the partition replicas for your topic when:
+        For the highest availability of your Kafka data, you should rebalance the partition replicas for your topic when:
 
         * You create a new topic or partition
 
@@ -295,7 +294,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
     ```
 
-    This command deletes the a topic named `topicname`.
+    This command deletes the topic named `topicname`.
 
     > [!WARNING]
     > If you delete the `test` topic created earlier, then you must recreate it. It is used by steps later in this document.
@@ -343,7 +342,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Clean up resources
 
-If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated HDInsight cluster, and any other resources associated with the resource group.
+If you wish to clean up the resources created by this quickstart, you can delete the resource group. Deleting the resource group also deletes the associated HDInsight cluster, and any other resources associated with the resource group.
 
 To remove the resource group using the Azure portal:
 
