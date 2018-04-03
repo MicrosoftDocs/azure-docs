@@ -19,6 +19,7 @@
         items:
         - name: Access Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
+        - name: Access Azure Storage
         - name: Access Azure Storage using an access key
           href: tutorial-windows-vm-access-storage.md
         - name: Access Azure Storage using SAS
@@ -28,6 +29,7 @@
         - name: Access Azure Key Vault
           href: tutorial-windows-vm-access-nonaad.md
         - name: Access Azure Cosmos DB
+          href: tutorial-windows-vm-access-cosmos-db.md
         - name: Access Azure Resource Manager with a user-assigned MSI
       - name: Linux VM/VMSS
         items:
@@ -40,6 +42,8 @@
         - name: Access Azure SQL
         - name: Access Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
+        -name: Access Azure Cosmos DB
+          href: tutorial-linux-vm-access-cosmos-db.md
         - name: Access Azure Resource Manager with a user-assigned MSI
           href: msi-tutorial-linux-vm-access-arm.md
       - name: Azure Service Bus
@@ -75,7 +79,7 @@
       - name: Configure Identity for Azure VMSS
         items:
         - name: Portal
-          href: qs-configure-cli-windows-vm.md
+          href: qs-configure-cli-windows-vmss.md
         - name: CLI
           href: qs-configure-cli-windows-vmss.md
         - name: PowerShell
