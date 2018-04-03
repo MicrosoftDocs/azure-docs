@@ -3,16 +3,10 @@ title: 'Azure PowerShell: Create a SQL database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal.
 keywords: sql database tutorial, create a sql database
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: quickstart
 ms.date: 04/17/2017
@@ -114,14 +108,8 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Next steps
 
-Now that you have a database, you can connect and query using your favorite tools. Learn more by choosing your tool below:
-
-- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [.NET](sql-database-connect-query-dotnet.md)
-- [PHP](sql-database-connect-query-php.md)
-- [Node.js](sql-database-connect-query-nodejs.md)
-- [Java](sql-database-connect-query-java.md)
-- [Python](sql-database-connect-query-python.md)
-- [Ruby](sql-database-connect-query-ruby.md)
+- Now that you have a database, you can [connect and query](sql-database-connect-query.md) using one of your favorite tools or languages. 
+- To learn how to design your first database, create tables, and insert data, see one of these tutorials:
+ - [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md)
+  - [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)
 

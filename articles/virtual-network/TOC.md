@@ -27,18 +27,13 @@
 ### [Network security groups](virtual-networks-nsg.md)
 
 ## Deploy
-### Virtual networks
-#### [Azure portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [Template](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Network security groups
-#### [Azure portal](virtual-networks-create-nsg-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
-#### [Template](virtual-networks-create-nsg-arm-template.md)
-#### [Application security groups](create-network-security-group-preview.md)
+#### [Azure PowerShell](tutorial-filter-network-traffic.md)
+#### [Azure CLI](tutorial-filter-network-traffic-cli.md)
+#### Without application security groups
+##### [Azure portal](virtual-networks-create-nsg-arm-pportal.md)
+##### [Template](virtual-networks-create-nsg-arm-template.md)
 #### Classic
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
@@ -61,7 +56,10 @@
 #### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
 
-### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)
+### Virtual network service endpoints
+#### [Azure portal](tutorial-restrict-network-access-to-resources.md)
+#### [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### Virtual machines
 #### [Virtual machine network throughput](virtual-machine-network-throughput.md)
@@ -181,8 +179,12 @@
 ### [VM to VM connectivity problems](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [Configure PTR for SMTP Banner Check](create-ptr-for-smtp-service.md)
 
+## Sample scripts
+### [Azure CLI](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
+
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (Classic)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)

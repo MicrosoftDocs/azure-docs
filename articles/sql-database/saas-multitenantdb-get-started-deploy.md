@@ -3,16 +3,11 @@ title: "Deploy a sharded multi-tenant database SaaS app that uses Azure SQL Data
 description: "Deploy and explore the sharded Wingtip Tickets SaaS multi-tenant database application, that demonstrates SaaS patterns by using Azure SQL Database."
 keywords: "sql database tutorial"
 services: "sql-database"
-documentationcenter: ""
 author: "MightyPen"
 manager: "craigg"
-editor: "billgib;anjangsh"
-
 ms.service: "sql-database"
 ms.custom: "scale out apps"
 ms.workload: "data-management"
-ms.tgt_pltfrm: "na"
-ms.devlang: "na"
 ms.topic: "article"
 ms.date: "12/18/2017"
 ms.author: "genemi"
@@ -172,7 +167,7 @@ The initial deployment includes three sample tenants in the *Tenants1* database.
 2. Press **F5** (not **F8**) to run the script (leave the default values for now).
 
    > [!NOTE]
-   > You must run the PowerShell scripts only by pressing the **F5** key, not by pressing **F8** to run a selected part of the script. The problem with **F8** is that the *$PSScriptRoot* variable is not evaluated. This variable is needed by many scripts to navigate of folders, or to invoke other scripts, or to import modules.
+   > You must run the PowerShell scripts only by pressing the **F5** key, not by pressing **F8** to run a selected part of the script. The problem with **F8** is that the *$PSScriptRoot* variable is not evaluated. This variable is needed by many scripts to navigate folders, invoke other scripts, or import modules.
 
 The new Red Maple Racing tenant is added to the *Tenants1* database and registered in the catalog. The new tenant's ticket-selling **Events** site opens in your browser:
 

@@ -44,9 +44,9 @@ Before you deploy Azure App Service on Azure Stack, you must complete the prereq
 
 ## High availability
 
-Due to the 1802 release of Azure Stack, which added support for fault domains, new deployments of Azure App Service on Azure Stack will be distributed across fault domains and provide fault tolerance.  For existing deployments of Azure App Service on Azure Stack which were deployed prior to the release of the 1802 update, please see the documentation (azure-stack-app-service-fault-domain-update.md) for how to rebalance the deployment.
+Due to the 1802 release of Azure Stack, which added support for fault domains, new deployments of Azure App Service on Azure Stack will be distributed across fault domains and provide fault tolerance.  For existing deployments of Azure App Service on Azure Stack which were deployed prior to the release of the 1802 update, please see the [documentation](azure-stack-app-service-fault-domain-update.md) for how to rebalance the deployment.
 
-in addition Azure App Service on Azure Stack for high availability, deploy the required file server and SQL Server instance in a highly available configuration. 
+In addition Azure App Service on Azure Stack for high availability, deploy the required file server and SQL Server instance in a highly available configuration. 
 
 ## Get certificates
 

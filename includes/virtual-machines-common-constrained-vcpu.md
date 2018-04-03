@@ -1,4 +1,14 @@
-
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: jonbeck7
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/09/2018
+ ms.author: azcspmt;jonbeck;cynthn
+ ms.custom: include file
+---
 
 Some database workloads like SQL Server or Oracle require high memory, storage, and I/O bandwidth, but not a high core count. Many database workloads are not CPU-intensive. Azure offers certain VM sizes where you can constrain the VM vCPU count to reduce the cost of software licensing, while maintaining the same memory, storage, and I/O bandwidth.
 

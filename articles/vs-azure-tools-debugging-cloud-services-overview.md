@@ -4,7 +4,7 @@ description: Debugging Azure cloud services
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 80755da7-8350-4f5c-97ce-2962beabb36d

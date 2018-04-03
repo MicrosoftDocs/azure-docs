@@ -4,8 +4,8 @@ description: Learn how to create custom activities and use them in an Azure Data
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -295,7 +295,7 @@ If you would like to consume the content of stdout.txt in downstream activities,
   > - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" path. If needed, you need to clean them up separately. 
   > - For Linked Services uses Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed. 
 
-## Compare v2 Custom Activity and version 1 (Custom) DotNet Activity
+## <a name="compare-v2-v1"></a> Compare v2 Custom Activity and version 1 (Custom) DotNet Activity
 
   In Azure Data Factory version 1, you implement a (Custom) DotNet Activity by creating a .Net Class Library project with a class that implements the `Execute` method of the `IDotNetActivity` interface. The Linked Services, Datasets, and Extended Properties in the JSON payload of a (Custom) DotNet Activity are passed to the execution method as strongly-typed objects. For details about the version 1 behavior, see [(Custom) DotNet in version 1](v1/data-factory-use-custom-activities.md). Because of this implementation, your version 1 DotNet Activity code has to target .Net Framework 4.5.2. The version 1 DotNet Activity also has to be executed on Windows-based Azure Batch Pool nodes. 
 

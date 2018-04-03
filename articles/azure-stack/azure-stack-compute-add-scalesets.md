@@ -9,7 +9,7 @@ editor: ''
 ms.assetid:
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/13/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords:
@@ -64,7 +64,6 @@ $Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
 
 $AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
 $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-Select-AzureRmProfile -Profile $AzsEnvContext
 
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 

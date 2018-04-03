@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/09/2017
-ms.author: edmaca
+ms.author: saveenr
 
 ---
 # Get started with the U-SQL Catalog
