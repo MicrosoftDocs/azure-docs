@@ -82,4 +82,5 @@ To restore a database from the LTR storage, you can select a specific backup bas
 
 ## Next steps
 
-Because database backups protect data from accidental corruption or deletion, they're an essential part of any business continuity and disaster recovery strategy. To learn about the other SQL Database business-continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
+- To learn how to configure long-term retention using the Azure portal or using PowerShell, see [Configure long-term backup retention](sql-database-long-term-backup-retention-configure.md).
+- Because database backups protect data from accidental corruption or deletion, they're an essential part of any business continuity and disaster recovery strategy. To learn about the other SQL Database business-continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
