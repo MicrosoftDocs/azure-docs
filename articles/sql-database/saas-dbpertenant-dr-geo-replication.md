@@ -3,15 +3,14 @@
 In this tutorial, you explore a full disaster recovery scenario for a multi-tenant SaaS application implemented using the database-per-tenant model. To protect the app from an outage, you use [_geo-replication_](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) to create replicas for the catalog and tenant databases in an alternate recovery region. If an outage occurs, you quickly fail over to these replicas to  resume normal business operations. On failover, the databases in the original region become secondary replicas of the databases in the recovery region. Once these replicas come back online they automatically catch up to the state of the databases in the recovery region. After the outage is resolved, you fail back to the databases in the original production region.
 
 This tutorial explores both the failover and failback workflows. You'll learn how to:
-
 > [div classs="checklist"]
 
-> * Sync database and elastic pool configuration info into the tenant catalog
-> * Set up a recovery environment in an alternate region, comprising application, servers, and pools
-> * Use _geo-replication_ to replicate the catalog and tenant databases to the recovery region
-> * Fail over the application and catalog and tenant databases to the recovery region 
-> * Later, fail over the application, catalog and tenant databases back to the original region after the outage is resolved
-> * Update the catalog as each tenant database is failed over to track the primary location of each tenant's database
+>* Sync database and elastic pool configuration info into the tenant catalog
+>* Set up a recovery environment in an alternate region, comprising application, servers, and pools
+>* Use _geo-replication_ to replicate the catalog and tenant databases to the recovery region
+>* Fail over the application and catalog and tenant databases to the recovery region 
+>* Later, fail over the application, catalog and tenant databases back to the original region after the outage is resolved
+>* Update the catalog as each tenant database is failed over to track the primary location of each tenant's database
 >* Ensure the application and primary tenant database are always colocated in the same Azure region to reduce latency  
  
 
@@ -27,7 +26,7 @@ Disaster recovery (DR) is an important consideration for many applications, whet
 
 A DR plan based on geo-replication comprises three distinct parts:
 * Set-up - creation and maintenance of the recovery environment
-* Recovery - failover of the app and databases to the recovery, environment if an outage occurs,
+* Recovery - failover of the app and databases to the recovery environment if an outage occurs,
 * Repatriation - failover of the app and databases back to the original region once the application is resolved 
 
 All parts have to be considered carefully, especially if operating at scale. Overall, the plan must accomplish several goals:
@@ -41,7 +40,7 @@ All parts have to be considered carefully, especially if operating at scale. Ove
  	* Be optimized for getting tenants online as fast as possible by doing steps in parallel where practical
  	* Be resilient to failure, restartable, and idempotent
  	* Be possible to cancel the process in mid-flight if the original region comes back on-line.
- * Repatriation 
+* Repatriation 
  	* Fail over databases from the recovery region to replicas in the original region with minimal impact to tenants: no data loss and minimum period off-line per tenant.   
 
 In this tutorial, these challenges are addressed using features of Azure SQL Database and the Azure platform:
@@ -62,7 +61,7 @@ The recovery scripts used in this tutorial and Wingtip application source code a
 ## Tutorial overview
 In this tutorial, you first use geo-replication to create replicas of the Wingtip Tickets application and its databases in a different region. Then, you fail over to this region to simulate recovering from an outage. When complete, the application is fully functional in the recovery region.
 
-Later, in a separate repatriation step, you fail over the catalog and tenant databases in the recovery region to the original region. The application and databases stay online and available throughout. When complete, the application is fully functional in the original region.
+Later, in a separate repatriation step, you fail over the catalog and tenant databases in the recovery region to the original region. The application and databases stay available throughout repatriation. When complete, the application is fully functional in the original region.
 
 > [!Note]
 > The application is recovered into the _paired region_ of the region in which the application is deployed. For more information, see [Azure paired regions](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
@@ -135,7 +134,7 @@ The recovery script performs the following tasks:
 
 1. Uses a force failover of the catalog database in the recovery region to make it the primary database, and updates the _activecatalog_ alias to point to the recovery catalog server.
 
-1. Updates the _newtenant_ alias to point to the _tenants1-_ server in the recovery region. Changing this alias ensures that the databases for any new tenants are provisioned in the recovery region. 
+1. Updates the _newtenant_ alias to point to the tenant server in the recovery region. Changing this alias ensures that the databases for any new tenants are provisioned in the recovery region. 
 
 1. Marks all existing tenants in the recovery catalog as offline to prevent access to tenant databases before they are failed over.
 
@@ -209,13 +208,10 @@ When the recovery process completes, the application and all tenants are fully f
 
 	![recovered and new tenants in the events hub](media/saas-dbpertenant-dr-geo-replication/events-hub-with-hawthorn-hall.png)
 
-2. Click on Contoso Concert Hall and open its Events page.
-	* In the footer, notice the database is located on the recovery server located in the recovery region.
-
-3. In the [Azure portal](https://portal.azure.com), open the list of resource groups.  
+2. In the [Azure portal](https://portal.azure.com), open the list of resource groups.  
 	* Notice the resource group that you deployed, plus the recovery resource group, with the _-recovery_ suffix.  The recovery resource group contains all the resources created during the recovery process, plus new resources created during the outage.  
 
-4. Open the recovery resource group and notice the following items:
+3. Open the recovery resource group and notice the following items:
 	* The recovery versions of the catalog and tenants1 servers, with _-recovery_ suffix.  The restored catalog and tenant databases on these servers all have the names used in the original region.
 
 	* The _tenants2-dpt-&lt;user&gt;-recovery_ SQL server.  This server is used for provisioning new tenants during the outage.
@@ -223,8 +219,11 @@ When the recovery process completes, the application and all tenants are fully f
 
 	![Azure recovery resources ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)	
 	
-5. Open the _tenants2-dpt-&lt;user&gt;-recovery_ SQL server.  Notice it contains the database _hawthornhall_ and the elastic pool, _Pool1_.  The _hawthornhall_ database is configured as an elastic database in _Pool1_ elastic pool.
+4. Open the _tenants2-dpt-&lt;user&gt;-recovery_ SQL server.  Notice it contains the database _hawthornhall_ and the elastic pool, _Pool1_.  The _hawthornhall_ database is configured as an elastic database in _Pool1_ elastic pool.
 
+5. Navigate back to the resource group and click on the Contoso Concert Hall database on the _tenants1-dpt-&lt;user&gt;-recovery_ server. Click on Geo-Replication on the left side.
+	
+	![Contoso database after failover](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication-after-failover.png)
 
 ## Change tenant data 
 In this task, you update one of the tenant databases. 
@@ -281,11 +280,13 @@ Tenant databases may be spread across recovery and original regions for some tim
 ## Next steps
 
 In this tutorial you learned how to:
+> [div classs="checklist"]
 
-* Sync tenant configuration data into the tenant catalog database
-* Use tenant aliases to ensure no application changes are required during the recovery process 
-* Failover Azure SQL servers, elastic pools, and Azure SQL databases into a recovery region
-* Repatriate tenant databases to the original production region
+>* Sync database and elastic pool configuration info into the tenant catalog
+>* Set up a recovery environment in an alternate region, comprising application, servers, and pools
+>* Use _geo-replication_ to replicate the catalog and tenant databases to the recovery region
+>* Fail over the application and catalog and tenant databases to the recovery region 
+>* Fail back the application, catalog and tenant databases to the original region after the outage is resolved
 
 ## Additional resources
 
