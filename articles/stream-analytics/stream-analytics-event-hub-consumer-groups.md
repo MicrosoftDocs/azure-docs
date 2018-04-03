@@ -57,9 +57,9 @@ FROM inputEventHub
 Use this query:
 
 ```
-WITH input (
+WITH data AS (
    SELECT * FROM inputEventHub
-) as data
+)
 
 SELECT foo
 INTO output1

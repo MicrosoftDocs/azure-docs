@@ -24,8 +24,6 @@ ExpressRoute supports using Microsoft peering with route filters for Azure PaaS 
 
 This article helps you move a public peering configuration to Microsoft peering with no downtime. For more information about routing domains and peerings, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
 
-> [!IMPORTANT]
-> You must have the ExpressRoute premium add-on in order to use Microsoft peering. For more information about the premium add-on, see the [ExpressRoute FAQ](expressroute-faqs.md#expressroute-premium).
 
 ## <a name="before"></a>Before you begin
 

@@ -3,7 +3,7 @@ title: Run Azure Batch jobs end-to-end without writing code (Preview) | Microsof
 description: Create template files for the Azure CLI to create Batch pools, jobs, and tasks. 
 services: batch
 author: mscurrell
-manager: timlt
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
