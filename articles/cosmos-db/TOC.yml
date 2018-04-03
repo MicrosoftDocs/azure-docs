@@ -290,7 +290,6 @@ items:
           href: gremlin-support.md
         - name: Using a partitioned graph in Azure Cosmos DB
           href: graph-partitioning.md
-    - name: Table API
       - name: Table API
         items:
         - name: Table development
