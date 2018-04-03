@@ -116,8 +116,12 @@
     href: concepts-integration-runtime.md
 - name: How-to guides
   items:
-  - name: Visually author data factories
-    href: author-visually.md
+  - name: Author
+    items:
+    - name: Visually author data factories
+      href: author-visually.md
+    - name: Continuous integration and deployment
+      href: continuous-integration-deployment.md
   - name: Copy data
     items:
     - name: Copy data using Copy Activity
