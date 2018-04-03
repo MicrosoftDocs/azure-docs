@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 1. Go to your Optimized for Elasticity data warehouse in the Azure portal and click on **Upgrade to Optimized for Compute**:
     ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
 
-2. By default, we select the suggested performance level for the data warehouse based on your current performance level on Optimized for Elasticity by using the mapping below:
+2. By default, select the suggested performance level for the data warehouse based on your current performance level on Optimized for Elasticity by using the mapping below:
     
 | Optimized for Elasticity | Optimized for Compute |
 | :----------------------: | :-------------------: |
@@ -69,11 +69,11 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 ## Upgrade downtime and data migration 
 The first step of the upgrade process goes through the scale operation ("Upgrading - Offline") where all sessions will be killed, and connections will be dropped. Ensure your workload has completed running and quiesced before upgrading. You will experience downtime for a few minutes before your data warehouse is back online as an Optimized for Compute data warehouse.  
 
-The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process which slowly moves columnar data from the old Gen1 storage architecture to the new Gen2 storage architecture to leverage the Gen2 local SSD cache. During this time, your data warehouse will be online for querying and loading. All your data will be available to query regardless of whether it has been migrated or not. The data migration happens at a varying rate depending on your data size, your performance level, and the number of your columnstore segments. 
+The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process, which slowly moves columnar data from the old Gen1 storage architecture to the new Gen2 storage architecture to leverage the Gen2 local SSD cache. During this time, your data warehouse will be online for querying and loading. All your data will be available to query regardless of whether it has been migrated or not. The data migration happens at a varying rate depending on your data size, your performance level, and the number of your columnstore segments. 
 
-To expedite the data migration background process, it is recommended to immediately force data movement by running [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) on all columnstore tables at a larger SLO and resource class. This is an offline operation compared to the trickle background process; however, data migration will be much quicker where you can then take full advantage of the Gen2 storage architecture once complete with high quality rowgroups. 
+To expedite the data migration background process, it is recommended to immediately force data movement by running [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) on all columnstore tables at a larger SLO and resource class. This operation is offline compared to the trickle background process; however, data migration will be much quicker where you can then take full advantage of the Gen2 storage architecture once complete with high-quality rowgroups. 
 
-This query generates the required Alter Index Rebuild commands to expedite the data migration processs:
+This query generates the required Alter Index Rebuild commands to expedite the data migration process:
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
