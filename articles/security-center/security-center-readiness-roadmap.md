@@ -91,7 +91,7 @@ Azure VMs can take advantage of advanced cloud defense capabilities in Security 
 
 Use the following resources to learn how to use these capabilities in Security Center.
 
-Video	
+Videos	
 * [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck)
 
