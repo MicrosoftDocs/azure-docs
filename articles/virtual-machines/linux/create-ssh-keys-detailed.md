@@ -19,7 +19,7 @@ ms.author: danlep
 
 ---
 
-# Create and manage SSH keys for authentication to a Linux VM in Azure 
+# Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure 
 With an SSH key pair, you can create a Linux virtual machine on Azure that defaults to using SSH keys for authentication, eliminating the need for passwords to log in. VMs created with the Azure portal, Azure CLI, Resource Manager templates, or other tools can include your SSH public key as part of the deployment, which sets up SSH key authentication for SSH connections. 
 
 This article provides detailed background and steps to create and manage an SSH RSA public and private key file pair (also referred to as *ssh-rsa* keys) for SSH client connections. If you want quick commands, see [How to create an SSH public and private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
@@ -41,11 +41,11 @@ If you do not wish to use SSH keys, you can set up your Linux VM to use password
 
 ## Generate keys with ssh-keygen
 
-To create the keys, a preferred command is `ssh-keygen`, which is available with OpenSSH tools in the Azure Cloud Shell, a macOS or Linux host, the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about), and other tools. `ssh-keygen` asks a series of questions and then writes a private key and a matching public key. 
+To create the keys, a preferred command is `ssh-keygen`, which is available with OpenSSH utilities in the Azure Cloud Shell, a macOS or Linux host, the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about), and other tools. `ssh-keygen` asks a series of questions and then writes a private key and a matching public key. 
 
 SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions.
 
-The following command creates a passphrase-secured (encrypted) SSH key pair using 2048-bit RSA, and it is commented for easy identification.  
+The following command creates a passphrase-secured (encrypted) SSH key pair using 2048-bit RSA, and it is commented for easy identification. If an SSH key pair exists in the current location, those files are overwritten. 
 
 ```bash
 ssh-keygen \
@@ -64,7 +64,7 @@ ssh-keygen \
 
 `-b 2048` = the number of bits in the key
 
-`-C "azureuser@myserver"` = a comment appended to the end of the public key file to easily identify it.  Normally an email is used as the comment, but use whatever works best for your infrastructure.
+`-C "azureuser@myserver"` = a comment appended to the end of the public key file to easily identify it. Normally an email is used as the comment, but use whatever works best for your infrastructure.
 
 ### Example of ssh-keygen
 
