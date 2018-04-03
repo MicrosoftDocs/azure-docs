@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/03/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -73,8 +73,6 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - <!-- 1766332 --> **Fixed** - Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
 
-- <!-- 2096388 --> **Fixed** - Unable to update Network Security Group Rules from the Portal is now fixed. 
-
 - <!-- 1868283 --> **Fixed** - Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
 
 - <!-- 1756324--> **Fixed** - Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
@@ -131,7 +129,9 @@ The following are post-installation known issues for build  **20180323.2**.
 #### Compute
 - Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1803. This is due to the change in support for using availability sets with virtual machine scale sets. This support is added with version 1803.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message Provisioning state failed. We are investigating a fix for this issue to enable an older VMSS to scale, and will update this content if and when that is available. 
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  To resolve this issue, contact Support to request Hotfix **1.0.180302.4** for Azure Stack. 
 
 - When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.
 
@@ -162,6 +162,69 @@ The following are post-installation known issues for build  **20180323.2**.
 - On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
 
 - Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
+
+- <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+
+    Workaround for App Service: If you need to remote desktop to the Controller instances, you modify the security rules within the network security groups with PowerShell.  Following are examples of how to *allow*, and then restore the configuration to *deny*:  
+    
+    - *Allow:*
+ 
+      ```powershell    
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+      
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+      
+      ##This doesn’t work. Need to set properties again even in case of edit
+      
+      #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
+      
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+      
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+    - *Deny:*
+
+        ```powershell
+        
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+        
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+        
+        ##This doesn’t work. Need to set properties again even in case of edit
+    
+        #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
+    
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+          
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg 
+        ```
 
 
 #### SQL and MySQL
