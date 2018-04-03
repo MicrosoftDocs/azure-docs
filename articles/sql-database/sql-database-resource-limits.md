@@ -109,7 +109,7 @@ You can increase or decrease the resources available to an elastic pool based on
 | Maximum | Value |
 | :--- | :--- |
 | Databases per server | 5000 |
-| Number of servers per subscription per region | 21 |
+| Number of servers per subscription per region | 20 |
 |||
 
 > [!IMPORTANT]

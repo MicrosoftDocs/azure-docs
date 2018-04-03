@@ -40,6 +40,7 @@ Related links:
 
 ### Fixed issues:
 * Resolved ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent(Message: A device attached to the system is not functioning)
+* In this release of connectors you will need to update binding redirect from 3.3.0.0-4.1.3.0 to 4.1.4.0 in miiserver.exe.config
 * Generic Web Services:
     * Resolved Valid JSON response could not be saved in configuration tool
 * Generic SQL:
@@ -48,7 +49,7 @@ Related links:
     * Added possibility to generate a delete query for case, when it is necessary to delete the last value of multivalued attribute and this row does not contain any other data except value which it is necessary to delete.
     * System.ArgumentException handling when implemented OUTPUT parameters by SP 
     * Incorrect query to make the operation of export into field which has varbinary(max) type
-    * The parameterList variable was initialized twice (in the functions ExportAttributes and GetQueryForMultiValue) instead of once in the main block of code (in the function ExportAttributes).
+    * Issue with parameterList variable was initialized twice (in the functions ExportAttributes and GetQueryForMultiValue)
 
 
 ## 1.1.649.0 (AADConnect 1.1.649.0)

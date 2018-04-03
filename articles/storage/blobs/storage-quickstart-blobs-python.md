@@ -2,14 +2,14 @@
 title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Python | Microsoft Docs
 description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Python to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage  
-author: tamram
+author: craigshoemaker
 manager: jeconnoc 
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
-ms.author: tamram
+ms.author: cshoe
 ---
 
 # Quickstart: Upload, download, and list blobs using Python
@@ -20,7 +20,7 @@ In this quickstart, you learn how to use Python to upload, download, and list bl
 
 To complete this quickstart: 
 * Install [Python](https://www.python.org/downloads/)
-* Download and install [Azure Storage SDK for Python](storage-python-how-to-use-blob-storage.md). 
+* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,6 +36,18 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 ```
 
 This command clones the repository to your local git folder. To open the Python program, look for the storage-blobs-python-quickstart folder, and example.py file.  
+
+## Copy your credentials from the Azure portal
+
+The sample application needs to authenticate access to your storage account. To authenticate, you provide the application with your storage account credentials in the form of a connection string. To view your storage account credentials:
+
+1. Navigate to the [Azure portal](https://portal.azure.com).
+2. Locate your storage account.
+3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+4. Note the name of your storage account, which you will need to provide to authenticate.   
+5. Find the **Key** value under **key1**, and click the **Copy** button to copy the account key.
+
+    ![Screen shot showing how to copy a connection string from the Azure portal](media/storage-quickstart-blobs-python/portal-connection-string.png)
 
 ## Configure your storage connection string
 In the application, you must provide your storage account name and account key to create a `BlockBlobService` object. Open the `example.py` file from the Solution Explorer in your IDE. Replace the **accountname** and **accountkey** values with your account name and key. 

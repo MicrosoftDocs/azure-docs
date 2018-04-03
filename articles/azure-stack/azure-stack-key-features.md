@@ -19,9 +19,6 @@ ms.reviewer:
 
 ---
 # Key features and concepts in Azure Stack
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 If you’re new to Microsoft Azure Stack, these terms and feature descriptions might be helpful.
 
 ## Personas
