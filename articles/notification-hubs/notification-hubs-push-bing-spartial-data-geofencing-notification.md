@@ -55,10 +55,8 @@ In this tutorial, you learn how to deliver location-based push notifications wit
     2. Browse and select **NotificationHubGeofence.pipe** file that you created in the previous step. 
     3. Select **Upload** button. 
     
-
     > [!NOTE]
     > You might be prompted to specify a new key for the **Master Key** that is different from the **Query Key**. Simply create a new key through the dashboard and refresh the data source upload page.
-
 6. Once you upload the data file, you need to make sure that you publish the data source. Select **Data sources** -> **Manage Data Sources** like you did before. 
 7. Select your data source in the list, and choose **Publish** in the **Actions** column. 
 
