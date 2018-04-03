@@ -186,6 +186,6 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     
 ## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
+- For an overview of MSI, see [Managed Service Identity overview](overview.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
