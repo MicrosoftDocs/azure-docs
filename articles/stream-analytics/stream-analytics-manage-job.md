@@ -14,7 +14,7 @@ ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: sngun
 
-#Customer intent: "As an IT admin/developer I want to run "
+#Customer intent: "As an IT admin/developer I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard."
 ---
 
 # Create and manage a Stream Analytics job by using Azure portal
@@ -46,7 +46,7 @@ Before you start, make sure you have the following:
 
 ## Create an Azure event hub 
 
-Before Stream Analytics can analyze the fraudulent calls data stream, you should send the data to Azure. You will send data to Azure by using  [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs). For this tutorial, you create an event hub and make the event generator app send call data to that event hub. Run the following steps to create an event hub:
+Before Stream Analytics can analyze the fraudulent calls data stream, you should send the data to Azure. In this tutorial, you will send data to Azure by using  [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs). For this tutorial, you create an event hub and make the event generator app send call data to that event hub. Run the following steps to create an event hub:
 
 1. Log in to the Azure portal and click **Create a resource** > **Internet of Things** > **Event Hub**.  
 2. Fill out the **Create namespace** blade with the following values:  
@@ -236,7 +236,7 @@ The sample data is stored temporarily and is available while you have the query 
 
 For this part of the demo, you'll use a sample [ASP.NET](http://asp.net/)  Web application created by the PowerBI team to embed your dashboard. For more information, about embedding dashboards, see [embedding with Power BI](https://docs.microsoft.com/power-bi/developer/embedding) article.
 
-In this tutorial, we'll follow the steps for the User Owns Data application. To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples)  Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the integrate-dashboard-web-app sample code (located in `$\User Owns Data\integrate-dashboard-web-app`).
+In this tutorial, we'll follow the steps for the User Owns Data application. To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples)  Github repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-dashboard-web-app** subsection). Since we are using the Dashboard example, use the integrate-dashboard-web-app sample code located in the [GitHub repository](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app).
 Once you've got the application running in your browser, follow these steps to embed the dashboard you created earlier into the web page:
 
 1. Click **Sign in to Power BI**, which grants the application access to the dashboards in your PowerBI account.  
