@@ -1,7 +1,7 @@
 ---
 title: Authenticate and authorize users end-to-end | Microsoft Docs 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps, including access to remote APIs.
-keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
+keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: cephalin
 ---
 
@@ -21,7 +21,17 @@ ms.author: cephalin
 
 [Azure App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](app-service-authentication-overview.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an ASP.NET Core app with an Angular.js front end, but it is only for an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
-In this tutorial, you learn how to:
+The tutorial uses the sample app to show you how to secure a self-contained app (in [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app)).
+
+![Simple authentication and authorization](./media/app-service-web-tutorial-auth-aad/simple-auth.png)
+
+It also shows you how to secure a multi-tiered app, by accessing a secured back-end API on behalf of the authenticated user, both [from server code](#call-api-securely-from-server-code) and [from browser code](#call-api-securely-from-browser-code).
+
+![Advanced authentication and authorization](./media/app-service-web-tutorial-auth-aad/advanced-auth.png)
+
+These are only some of the possible authentication and authorization scenarios in App Service. 
+
+Here's a more comprehensive list of things you learn in the tutorial:
 
 > [!div class="checklist"]
 > * Enable built-in authentication and authorization
@@ -191,11 +201,13 @@ Navigate to `http://<back_end_app_name>.azurewebsites.net` to see the items adde
 
 ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/remote-api-call-run.png)
 
-## Configure AuthN/AuthO
+## Configure auth
 
 In this step, you enable authentication and authorization for the two apps. You also configure the front-end app to generate an access token that you can use to make authenticated calls to the back-end app.
 
-### Enable AuthN/AuthO for back-end app
+You use Azure Active Directory as the identity provider. For more information, see [Configure Azure Active Directory authentication for your App Services application](app-service-mobile-how-to-configure-active-directory-authentication.md).
+
+### Enable authentication and authorization for back-end app
 
 In the [Azure portal](https://portal.azure.com), open your back-end app's management page by clicking from the left menu: **Resource groups** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
 
@@ -221,7 +233,7 @@ From the management page of the AD application, copy the **Application ID** to a
 
 ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
 
-### Enable AuthN/AuthO for front-end app
+### Enable authentication and authorization for front-end app
 
 Follow the same steps for the front-end app, but skip the last step. You don't need the **Application ID** for the front-end app. Keep the **Azure Active Directory Settings** page open.
 
@@ -252,7 +264,7 @@ Select the checkbox next to **Access _&lt;AD\_application\_name>_**. Click **Sel
 
 ### Configure App Service to return a usable access token
 
-The front-end app now has the required permissions. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's Application ID, which you copied from [Enable AuthN/AuthO for back-end app](#enable-authnautho-for-back-end-app).
+The front-end app now has the required permissions. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's Application ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
 
 Sign in to [Azure Resource Explorer](https://resources.azure.com). At the top of the page, click **Read/Write** to enable editing of your Azure resources.
 
@@ -276,7 +288,7 @@ Your apps are now configured. The front end is now ready to access the back end 
 
 In this step, you enable your previously modified server code to make authenticated calls to the back-end API.
 
-Your front-end app now has the required permission and also adds the back end's Application ID to the login parameters. Therefore, it can craft an access token for authentication with the back-end app. App Service supplies this token to your server code by injecting a `X-MS-TOKEN-AAD-ACCESS-TOKEN` header to each authenticated request.
+Your front-end app now has the required permission and also adds the back end's Application ID to the login parameters. Therefore, it can obtain an access token for authentication with the back-end app. App Service supplies this token to your server code by injecting a `X-MS-TOKEN-AAD-ACCESS-TOKEN` header to each authenticated request.
 
 > [!NOTE]
 > These headers are injected for all supported languages. You access them using the standard pattern for each respective language.
@@ -315,6 +327,10 @@ Congratulations! Your server code is now accessing the back-end data on behalf o
 In this step, you point the front-end Angular.js app to the back-end API. This way, you learn how to retrieve the access token and make API calls to the back-end app with it.
 
 While the server code has access to request headers, client code can access `GET /.auth/me` to get the same access tokens.
+
+> [!TIP]
+> This section uses the standard HTTP methods to demonstrate the secure HTTP calls. However, you can use [Active Directory Authentication Library (ADAL) for JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js) to help simplify the Angular.js application pattern.
+>
 
 ### Configure CORS
 
