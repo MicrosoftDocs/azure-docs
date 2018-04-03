@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Optimize performance by upgrading SQL Data Warehouse
 
-You can now seamlessly upgrade to the Optimized for Compute performance tier in the Azure portal. If you have an Optimized for Elasticity data warehouse, it is recommended you upgrade for the latest generation of Azure hardware and an enhanced storage architecture. You will be able to take advantage of faster performance, scalability, and unlimited columnar storage. 
+You can now seamlessly upgrade to the Optimized for Compute performance tier in the Azure portal. If you have an Optimized for Elasticity data warehouse, it is recommended you upgrade for the latest generation of Azure hardware and an enhanced storage architecture. You will be able to take advantage of faster performance, higher scalability, and unlimited columnar storage. 
 
 ## Applies to
 This upgrade applies to data warehouses in the Optimized for Elasticity performance tier.
@@ -67,11 +67,57 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 
 ## Upgrade downtime and data migration 
-The first step of the upgrade process goes through the scale operation where all sessions will be killed, and connections will be dropped. Ensure your workload has completed running and quiesced before upgrading. You will experience downtime for a few minutes before your data warehouse is back online as an Optimized for Compute data warehouse.  
+The first step of the upgrade process goes through the scale operation ("Upgrading - Offline") where all sessions will be killed, and connections will be dropped. Ensure your workload has completed running and quiesced before upgrading. You will experience downtime for a few minutes before your data warehouse is back online as an Optimized for Compute data warehouse.  
 
-The second step of the upgrade process is data migration. Data migration is an online trickle background process which slowly moves columnar data from the old Gen1 storage architecture to the new Gen2 storage architecture to leverage the Gen2 local SSD cache. During this time, your data warehouse will be online for querying and loading. All your data will be available to query regardless of whether it has been migrated or not. The data migration happens at a varying rate depending on your data size, your performance level, and the number of your columnstore segments. 
+The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process which slowly moves columnar data from the old Gen1 storage architecture to the new Gen2 storage architecture to leverage the Gen2 local SSD cache. During this time, your data warehouse will be online for querying and loading. All your data will be available to query regardless of whether it has been migrated or not. The data migration happens at a varying rate depending on your data size, your performance level, and the number of your columnstore segments. 
 
-To expedite the data migration background process, it is recommended to immediately force data movement by running [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) on all columnstore tables at a larger SLO and resource class. This is an offline operation compared to the trickle background process; however, data migration will be much quicker where you can then take full advantage of the Gen2 storage architecture once complete with high quality rowgroups.
+To expedite the data migration background process, it is recommended to immediately force data movement by running [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) on all columnstore tables at a larger SLO and resource class. This is an offline operation compared to the trickle background process; however, data migration will be much quicker where you can then take full advantage of the Gen2 storage architecture once complete with high quality rowgroups. 
+
+This query generates the required Alter Index Rebuild commands to expedite the data migration processs:
+
+```sql
+SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
+       + Schema_name(tbl.schema_id) + '].[' 
+       + Object_name(idx.object_id) + '] REBUILD ' + ( CASE 
+                                                         WHEN ( 
+                                                     (SELECT Count(*) 
+                                                      FROM   sys.partitions 
+                                                             part2 
+                                                      WHERE  part2.index_id 
+                                                             = idx.index_id 
+                                                             AND 
+                                                     idx.object_id = 
+                                                     part2.object_id) 
+                                                     > 1 ) THEN 
+              ' PARTITION = ' 
+              + Cast(part.partition_number AS NVARCHAR(256)) 
+              ELSE '' 
+                                                       END ) + '; SELECT ''[' + 
+              idx.NAME + '] ON [' + Schema_name(tbl.schema_id) + '].[' + 
+              Object_name(idx.object_id) + '] ' + ( 
+              CASE 
+                WHEN ( (SELECT Count(*) 
+                        FROM   sys.partitions 
+                               part2 
+                        WHERE 
+                     part2.index_id = 
+                     idx.index_id 
+                     AND idx.object_id 
+                         = part2.object_id) > 1 ) THEN 
+              ' PARTITION = ' 
+              + Cast(part.partition_number AS NVARCHAR(256)) 
+              + ' completed'';' 
+              ELSE ' completed'';' 
+                                                    END ) 
+FROM   sys.indexes idx 
+       INNER JOIN sys.tables tbl 
+               ON idx.object_id = tbl.object_id 
+       LEFT OUTER JOIN sys.partitions part 
+                    ON idx.index_id = part.index_id 
+                       AND idx.object_id = part.object_id 
+WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
+```
+
 
 
 ## Next steps
