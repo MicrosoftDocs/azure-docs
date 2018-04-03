@@ -22,7 +22,7 @@
     - name: Use a VM MSI to access Azure Resource Manager
       items:
       - name: From a Linux VM
-        href: msi-tutorial-linux-vm-access-arm.md
+        href: ../managed-service-identity/msi-tutorial-linux-vm-access-arm.md
     - name: Use a VM MSI to access Azure Cosmos DB
       items:
       - name: From a Linux VM
