@@ -1,6 +1,6 @@
 ---
-title: 'Pricing FAQ Network Performance Monitor | Microsoft Docs'
-description: Frequently Asked Questions - Network Performance Monitor
+title: 'Pricing FAQ - Azure Network Performance Monitor | Microsoft Docs'
+description: Frequently Asked Questions - Azure Network Performance Monitor
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
