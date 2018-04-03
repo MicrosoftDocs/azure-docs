@@ -278,7 +278,7 @@ When encountering high space utilization, mitigation options include:
 
 ### Sessions and workers (requests) 
 
-The maximum number of concurrent sessions and workers are determined by the service tier and performance level (DTUs and eDTUs).  New requests are rejected when session or worker limits are reached, and clients receive an error message. While the number of connections available can be controlled by the application, the number of concurrent workers is often harder to estimate and control. This is especially true during peak load periods when database resource limits are reached and workers pile up due to longer running queries. 
+The maximum number of sessions and workers are determined by the service tier and performance level (DTUs and eDTUs). New requests are rejected when session or worker limits are reached, and clients receive an error message. While the number of connections available can be controlled by the application, the number of concurrent workers is often harder to estimate and control. This is especially true during peak load periods when database resource limits are reached and workers pile up due to longer running queries. 
 
 When encountering high session or worker utilization, mitigation options include:
 - Increasing the service tier or performance level of the database or elastic pool. See [Single database: change storage size](#single-database-change-storage-size), [Single database: change DTUs](#single-database-change-dtus), [Elastic pool: change storage size](#elastic-pool-change-storage-size), and [Elastic pool: change eDTUs](#elastic-pool-change-edtus).

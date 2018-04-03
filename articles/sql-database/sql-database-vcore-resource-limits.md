@@ -28,14 +28,16 @@ For single databases, the following tables show the resources available for a si
 |Memory (GB)|7|14|28|56|112|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
-|Storage type|XIO|XIO|XIO|XIO|XIO|
+|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data size (GB)|1024|1024|1536|3072|4096|
 |Max log size|307|307|461|922|1229|
 |TempDB size(DB)|32|64|128|256|384|
 |Target IOPS|320|640|1280|2560|5120|
+|IO latency (approximate)|5-7 ms (write)
 |Max concurrent workers (requests)|200|400|800|1600|3200|
 |Max concurrent logins|200|400|800|1600|3200|
-|Max concurrent sessions|3000|3000|3000|3000|3000|
+|Max allowed sessions|3000|3000|3000|3000|3000|
 |Number of replicas|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
@@ -55,9 +57,10 @@ For single databases, the following tables show the resources available for a si
 |Max log size|307|307|307|307|307|
 |TempDB size(DB)|32|64|128|256|384|
 |Target IOPS|5000|10000|20000|40000|80000|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max concurrent workers (requests)|200|400|800|1600|3200|
 |Max concurrent logins|200|400|800|1600|3200|
-|Max concurrent sessions|3000|3000|3000|3000|3000|
+|Max allowed sessions|3000|3000|3000|3000|3000|
 |Number of replicas|3|3|3|3|3|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|
@@ -104,14 +107,15 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Memory (GB)|7|14|28|56|112|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
-|Storage type|XIO|XIO|XIO|XIO|XIO|
+|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |Max data size (GB)|512|756|1536|2048|3584|
 |Max log size|154|227|461|614|1075|
 |TempDB size(DB)|32|64|128|256|384|
 |Target IOPS|320|640|1280|2560|5120|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max concurrent workers (requests)|210|420|840|1680|3360|
 |Max concurrent logins|210|420|840|1680|3360|
-|Max concurrent sessions|3000|3000|3000|3000|3000|
+|Max allowed sessions|3000|3000|3000|3000|3000|
 |Max pool density|100|200|500|500|500|
 |Min/max elastic pool click-stops|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
 |Number of replicas|1|1|1|1|1|
@@ -133,9 +137,10 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Max log size|307|307|307|461|614|
 |TempDB size(DB)|32|64|128|256|384|
 |Target IOPS|320|640|1280|2560|5120|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max concurrent workers (requests)|210|420|840|1680|3360|
 |Max concurrent logins|210|420|840|1680|3360|
-|Max concurrent sessions|3000|3000|3000|3000|3000|
+|Max allowed sessions|3000|3000|3000|3000|3000|
 |Max pool density|N/A|50|100|100|100|
 |Min/max elastic pool click-stops|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|
@@ -206,7 +211,7 @@ When encountering high space utilization, mitigation options include:
 
 ### Sessions and workers (requests) 
 
-The maximum number of concurrent sessions and workers are determined by the service tier and performance level.  New requests are rejected when session or worker limits are reached, and clients receive an error message. While the number of connections available can be controlled by the application, the number of concurrent workers is often harder to estimate and control. This is especially true during peak load periods when database resource limits are reached and workers pile up due to longer running queries. 
+The maximum number of sessions and workers are determined by the service tier and performance level. New requests are rejected when session or worker limits are reached, and clients receive an error message. While the number of connections available can be controlled by the application, the number of concurrent workers is often harder to estimate and control. This is especially true during peak load periods when database resource limits are reached and workers pile up due to longer running queries. 
 
 When encountering high session or worker utilization, mitigation options include:
 - Increasing the service tier or performance level of the database or elastic pool. See [Single database: change storage size](#single-database-change-storage-size), [Single database: change vCores](#single-database-change-vcores), [Elastic pool: change storage size](#elastic-pool-change-storage-size), and [Elastic pool: change vCores](#elastic-pool-change-vcores).
