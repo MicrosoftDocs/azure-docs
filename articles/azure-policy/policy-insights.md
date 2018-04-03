@@ -329,6 +329,14 @@ Set-AzureRmPolicyAssignment -Id /subscriptions/<subscriptionId/resourceGroups/<r
 
 For more information about the cmdlet, see [Set-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment?view=azurermps-4.4.1).
 
+## GDPR compliance and Azure Policy
+
+The [General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents.
+
+Azure Policy is compliant with GDPR requirements. The information in this article describes how you view and export policy events and compliance data, meeting the requirements that GDPR has of the Azure Policy service.
+
+Other Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+
 ## Next steps
 
 Review the following articles for more information about the commands and queries in this article.
