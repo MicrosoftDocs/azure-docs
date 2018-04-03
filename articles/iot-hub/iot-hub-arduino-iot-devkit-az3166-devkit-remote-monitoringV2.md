@@ -42,7 +42,7 @@ An active Azure subscription. If you do not have one, you can register via one o
   ![Select Azure IoT Suite type](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-v2-solution-types.png)
  
 
-2. Select **Remote monitoring preview**.
+2. Click in ´Select´ button of the **Remote monitoring preview** project.
 
 3. Enter a solution name, select a subscription and a region, and then click **Create solution**. The solution may take a while to be provisioned.
 
@@ -75,47 +75,64 @@ An active Azure subscription. If you do not have one, you can register via one o
   > [!NOTE]
   > If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
-## Provision required Azure services
+## Add a new physical device
 
-In the solution window, run your task through `Ctrl+P` (macOS: `Cmd+P`) by entering `task cloud-provision` in the provided text box:
+In the portal, go to **Devices** section and there, click in the  **+New Device** button. 
+
+![Adding a new device](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-device.png)
+
+The *new device form* should be filled in.
+1. Click **Physical** in the *Devce type* section.
+2. Define your own Device ID (for example *MXChip* or *AZ3166*).
+3. Choose **Auto generate keys** in the *Autehtication key* section.
+4. Click *Apply* button.
+
+![Adding a new device form](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-new-device-form.png)
+
+Wait until the portal finishes the provisioning of the new device.
+
+![Provisioning a new device ](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-device-provisioning.png)
 
 
-![Provision Azure resources](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-task-cloud-provision.png)
+Then the configuration of the new device, will be shown.
+Copy the **Connection String** generated.
 
-In the VS Code terminal, an interactive command line guides you through provisioning the required Azure services.
+![Device Connection String](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-new-device-connstring.png)
 
-Sometimes you will receive a popup window asking you to introduce a code in order to log into your Azure account.
 
-![Login Azure with a code](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-task-cloud-provision-code.png)
+This connection string will be used in the next section.
 
-Then choose the subscritpion where you have your IoT Suite Remote Monitoring V2 solution and select the IoT Hub:
 
-![choose your Azure Subscription and your IoT Hub](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-task-cloud-provision-choose-iot-hub.png)
 
 
 
 ## Build and upload the device code
+
+Go back to the Visual Studio Code: 
 
 1. Use `Ctrl+P` (macOS: `Cmd + P`) and type **task config-device-connection**.
 
 ![choose your Azure Subscription and your IoT Hub](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-task-config-device-conexion.png)
 
 
-2. The terminal asks you whether you want to use connection string that retrieves from `task cloud-provision` step. 
+2. The terminal asks you whether you want to use connection string of iot device would you like to use. Select *create new*, and now paste it.
 
-![choose connection string](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-task-config-device-conexion-choose-iot-hub-press-button-A.png)
+![paste connection string](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-task-config-device-conexion-choose-iot-hub-press-button-A.png)
+
+> [!NOTE]
+> The connection string should be saved in your clipboard if you followed the last section of this tutorial. If not, you should go to the Azure portal and look for the IoT Hub of your Remote Monitoring resource group. There, you can see the IoT Hub connected devices and copy the Device connection string.
 
 
-3. The terminal prompts you to enter configuration mode. To do so, hold down button A, then push and release the reset button and then release the button A. 
+![look for the connection string](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-connection-string-of-a-device.png)
+
+
+
+3. The terminal sometimes prompts you to enter configuration mode. To do so, hold down button A, then push and release the reset button and then release the button A. 
 The screen displays the DevKit ID and 'Configuration'.
+
 ![Device DevKit Screen](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-screen.png)
 
 
-4. After `task config-device-connection` finished, use `Ctrl+P` (macOS: `Cmd + P`) and type **task device-upload**.
-
-![Writting task Device Upload](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-task-device-upload.png)
-
-The DevKit reboots and starts running the code.
 
 Now, you can see your new physical device in the VS Code section "Azure IoT Hub Devices"
 
