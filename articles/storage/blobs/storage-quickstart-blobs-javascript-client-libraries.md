@@ -1,8 +1,8 @@
 ---
-title: Upload, list, and delete blobs in Azure Storage using JavaScript client libraries
-description: 
+title: Quickstart: Upload, list and delete blobs with Azure Storage using JavaScript and HTML in the Browser
+description: Learn to use an instance of BlobService to upload, list and delete blobs using JavaScript in an HTML page.
 services: storage
-keywords: 
+keywords: storage, javascript, html
 author: craigshoemaker
 manager: jeconnoc
 
@@ -11,25 +11,18 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 03/31/2018
 ms.topic: quickstart
+
+# Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage.
 ---
 
-<!-- 
-
-    CUSTOMER INTENT:
-
-    As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage.
-    
--->
-
-
-# Quickstart: Upload, list, and delete blobs in Azure Storage using JavaScript client libraries
+# Quickstart: Upload, list and delete blobs with Azure Storage using JavaScript/HTML in the Browser
 This quickstart demonstrates how to manage blobs from code running entirely in the browser along with the required security measures to ensure protected access to your blob storage account. To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
-Once your storage account is created, you need a few security-related values in order to create a security token. From the portal, you can copy a few values into a text editor for later use. 
+Once your storage account is created, you need a few security-related values in order to create a security token. From the portal, you can copy the values into a text editor for later use. 
 
-Select the storage account in the portal and find the **Settings** section. Under Settings, select **Access keys** and set aside the **Storage account name** and the **Key** value under the **key1** heading.
+Select the storage account in the portal and find the **Settings** section. Under Settings, select **Access keys** and set aside the **Storage account name** and the **Key** value under the **key1** heading. (You can use the "copy" button just to the right of the input box to copy the value to your clipboard.)
 
 ## Setting storage account CORS rules 
 Before your web application can access a blob storage from the client, the account must be configured to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS. 
@@ -37,6 +30,8 @@ Before your web application can access a blob storage from the client, the accou
 Return to the Azure portal and select your storage account. To define a new CORS rule, return to the **Settings** section and click on the **CORS** link. Next, click the **Add** button to open the **Add CORS rule** window. For this quickstart, you create an open CORS rule:
 
 ![Azure Blob Storage Account CORS settings](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
+
+The following table describes each CORS setting and explains the values used to define the rule.
 
 |Setting  |Value  | Description |
 |---------|---------|---------|
@@ -46,17 +41,19 @@ Return to the Azure portal and select your storage account. To define a new CORS
 | Exposed headers | * | Lists the allowed response headers by the account. Setting the value to `*` allows the account to send any header.  |
 | Maximum age (seconds) | 86400 | The maximum amount of time the browser caches the preflight OPTIONS request. A value of *86400* allows the cache to remain for a full day. |
 
-The CORS settings described here are appropriate for a quickstart as it defines a lenient security policy. These settings, however, are not recommended for a real-world context. 
-
 > [!IMPORTANT]
-> Ensure any settings you use in production expose the minimum amount of access necessary to your storage account in order to maintain secure access.
+> Ensure any settings you use in production expose the minimum amount of access necessary to your storage account in order to maintain secure access. In production, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage.
+>
+>The CORS settings described here are appropriate for a quickstart as it defines a lenient security policy. These settings, however, are not recommended for a real-world context.
 
 Next, you use the Azure cloud shell to create a security token.
 
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a Shared Access Signature
-A shared access signature (SAS) allows code running in the browser to connect to blob storage without having to know anything about security credentials. You can create a SAS using the Azure CLI through the Azure cloud shell. The following table describes the parameters you need to provide values for in order to generate a SAS.
+The shared access signature (SAS) is used by the code running in the browser to authenticate requests to Blob storage. By using the SAS, the client can authenticate without having the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
+
+You can create a SAS using the Azure CLI through the Azure cloud shell. The following table describes the parameters you need to provide values for in order to generate a SAS.
 
 | Parameter      |Description  | Placeholder |
 |----------------|-------------|-------------|
@@ -64,7 +61,7 @@ A shared access signature (SAS) allows code running in the browser to connect to
 | *account-name* | The storage account name. Use the name set aside in an earlier step. | *YOUR_STORAGE_ACCOUNT_NAME* |
 | *account-key*  | The storage account key. Use the key set aside in an earlier step. | *YOUR_STORAGE_ACCOUNT_KEY* |
 
-The following code listing used the Azure CLI to create a SAS that you can pass to a JavaScript blob service.
+The following script used the Azure CLI to create a SAS that you can pass to a JavaScript blob service.
 
 > [!NOTE]
 > For best results remove the exta spaces between parameters before pasting the command into the Azure cloud shell.
@@ -91,7 +88,9 @@ Now that the SAS is generated, copy the value returned in the console into your 
 > [!IMPORTANT]
 > In production, always pass SAS tokens using SSL.
 
-## Set up the web application
+## Implement the HTML page
+
+### Set up the web application
 The Azure Storage JavaScript client libraries will not work directly from the file system and must be served from a web server. Therefore, the following steps detail how to use simple local web server with Node.js.
 
 > [!NOTE]
@@ -120,11 +119,11 @@ Finally, in your command prompt, enter `npm start` to start the web server:
 npm start
 ```
 
-## Get the blob storage client scripts
+### Get the blob storage client scripts
 [Download the JavaScript client libraries](https://aka.ms/downloadazurestoragejs), extract the contents of the zip, and place the script files from the *bundle* folder in a folder named *scripts*.
 
-## Add the client script reference to the page
-Create an HTML page at the root of the *azure-blobs-javascript* folder and name it *index.html*. Once created, add the following markup to the page.
+### Add the client script reference to the page
+Create an HTML page at the root of the *azure-blobs-javascript* folder and name it *index.html*. Once the page is created, add the following markup to the page.
 
 ```html
 <!DOCTYPE html>
@@ -139,7 +138,7 @@ Create an HTML page at the root of the *azure-blobs-javascript* folder and name 
         
         <button id="delete-button">Delete</button>
     </body>
-    <script src="scripts/azure-storage.blob.js"></script>
+    <script src="scripts/azure-storage.blob.min.js"></script>
     <script>
         // Blob-related code goes here
     </script>
@@ -152,8 +151,8 @@ This markup adds the following to the page:
 - an *INPUT* element used to upload a file
 - a placeholder for storage-specific code
 
-## Create a blob service 
-A blob service provides an interface to Azure Blob Storage. To create an instance of the blob service, you need to provide the storage account name and the SAS generated in a previous step.
+### Create a blob service 
+The [BlobService](https://azure.github.io/azure-storage-node/BlobService.html) provides an interface to Azure Blob Storage. To create an instance of the service, you need to provide the storage account name and the SAS generated in a previous step.
 
 ```javascript
 const account = {
@@ -165,7 +164,7 @@ const blobUri = 'https://' + account.name + '.blob.core.windows.net';
 const blobService = AzureStorage.Blob.createBlobServiceWithSas(blobUri, account.sas);
 ```
 
-## Create a blob container
+### Create a blob container
 With the blob service created you can now create a new container to hold an uploaded blob. The [createContainerIfNotExists](https://azure.github.io/azure-storage-node/BlobService.html#createContainerIfNotExists__anchor) method creates a new container and does not return an error if the container already exists.
 
 ```javascript
@@ -182,8 +181,8 @@ document.getElementById('create-button').addEventListener('click', () => {
 });
 ```
 
-## Upload a blob
-To upload a blob from an HTML form, you first get reference to the selected file via the `files` array of an *INPUT* element that has the *type* set to *file*.
+### Upload a blob
+To upload a blob from an HTML form, you first get a reference to the selected file via the `files` array of an *INPUT* element that has the *type* set to *file*.
 
 From script, you can reference the HTML element and pass the selected file to the blob service.
 
@@ -208,11 +207,7 @@ document.getElementById('upload-button').addEventListener('click', () => {
 
 The method [createBlockBlobFromBrowserFile](https://azure.github.io/azure-storage-node/BlobService.html#createBlockBlobFromBrowserFile__anchor) uses the browser file directly to upload to a blob container.
 
-> [!NOTE]
-> The code in this quickstart presumes you are uploading a relatively small file. See the [code samples](https://github.com/Azure/azure-storage-node/tree/master/browser/samples) for strategies that allow the blob service to handle files larger than 4MB.
-
-
-## List blobs
+### List blobs
 Once you have uploaded a file into the blob container, you access a list of blobs in the container using the [listBlobsSegmented](https://azure.github.io/azure-storage-node/BlobService.html#listBlobsSegmented__anchor) method.
 
 ```javascript
@@ -231,7 +226,7 @@ document.getElementById('list-button').addEventListener('click', () => {
 });
 ```
 
-## Delete blobs
+### Delete blobs
 You can delete the blob you uploaded by calling [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor).
 
 ```javascript
@@ -249,7 +244,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 });
 ```
 > [!WARNING]
-> In order for this code listing to work, you need to provide a string value for `blobName`;
+> In order for this code sample to work, you need to provide a string value for `blobName`.
 
 ## Clean up resources
 To clean up the resources created during this quickstart, return to the [Azure portal](https://portal.azure.com) and select your storage account. Once selected, you can delete the storage account by going to: **Overview > Delete storage account**.
