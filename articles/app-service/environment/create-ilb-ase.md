@@ -77,7 +77,7 @@ To create an ILB ASE:
 
 	* &lt;asename&gt;.p.azurewebsites.net
 
-   The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
+   There is a feature called custom domain names that allows you to map an existing DNS name to your web app. You can read more about that feature in the [Map an existing DNS name to your web app][customdomain] document. The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
 
 	* www.contoso.com
 
@@ -246,3 +246,4 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md
