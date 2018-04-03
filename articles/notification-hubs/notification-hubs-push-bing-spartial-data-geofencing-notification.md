@@ -100,7 +100,7 @@ In this tutorial, you learn how to deliver location-based push notifications wit
 
     http://spatial.virtualearth.net/REST/v1/data/
 
-    You must specify the following parameters to get it working:
+    Specify the following parameters to get it working:
 
     - **Data Source ID** and **Data Source Name** – in Bing Maps API, data sources contain various bucketed metadata, such as locations and business hours of operation.  
     - **Entity Name** – the entity you want to use as a reference point for the notification. 
@@ -254,7 +254,7 @@ In this tutorial, you learn how to deliver location-based push notifications wit
         }
     }
     ```
-6. Next, open `Controllers` > `NotificationsController.cs`. Updte the Post call to account for the target longitude and latitude. To do so, add two strings to the function signature – `latitude` and `longitude`.
+6. Next, open `Controllers` > `NotificationsController.cs`. Update the Post call to account for the target longitude and latitude. To do so, add two strings to the function signature – `latitude` and `longitude`.
 
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag, string latitude, string longitude)
