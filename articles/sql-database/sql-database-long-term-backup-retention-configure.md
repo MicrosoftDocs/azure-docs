@@ -122,7 +122,7 @@ This example shows how to list the LTR backups within a server. The server doesn
 # backup first.  
 $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location 
 
-# Get the list of long term retention backups from the Azure region under 
+# Get the list of long-term retention backups from the Azure region under 
 # the named server. 
 $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName
 
