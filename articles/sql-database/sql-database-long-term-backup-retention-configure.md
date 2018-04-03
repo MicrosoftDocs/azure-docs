@@ -117,7 +117,7 @@ $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $serve
 $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # get a specific long term retention backup
-$backupName = 'your_backup_name'  # you can get the backup name from the ltr backup object
+$backupName = '<your_backup_name>'  # you can get the backup name from the ltr backup object
 $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -DatabaseName $dbName -BackupName $backupName
 
 # variations
