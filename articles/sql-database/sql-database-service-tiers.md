@@ -100,7 +100,7 @@ In the vCore-based purchasing model customers pay for:
 
 ### Choosing service tier, compute, memory, storage, and IO resources
 
-Converting to the vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU requires at least 1 vCore.
+Converting to the vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU in Standard tier requires at least 1 vCore and each 125 DTU in Premium tier requires at least 1 vCore.
 
 The following table helps you understand the differences between these two tiers:
 
@@ -175,7 +175,7 @@ The following table provides guidance for the specific migration scenarios:
 |General purpose|Business Critical|Upgrade|Must migrate secondary first|
 ||||
 
-\* 100 DTU requires at least 1 vCore
+\* Each 100 DTU in Standard tier requires at least 1 vCore and each 125 DTU in Premium tier requires at least 1 vCore
 
 #### Migration of failover groups 
 

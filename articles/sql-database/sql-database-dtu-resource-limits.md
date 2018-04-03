@@ -14,7 +14,7 @@ ms.author: carlrab
 # Azure SQL Database DTU-based resource model limits
 
 > [!IMPORTANT]
-> For vCore-based resource limits, see [SQL Database Service Tiers](sql-database-service-tiers.md).
+> For vCore-based resource limits, see [SQL Database vCore-based resource limits](sql-database-vcore-resource-limits.md).
 
 ## Single database: Storage sizes and performance levels
 
