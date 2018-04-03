@@ -1,6 +1,6 @@
 ---
 title: Analyze data usage in Log Analytics | Microsoft Docs
-description: Use the Usage dashboard in Log Analytics to view how much data is being sent to the Log Analytics service and troubleshoot why large amounts of data are being sent.
+description: Use the Usage and estimated cost dashboard in Log Analytics to evaluate how much data is sent to Log Analytics and identify what may cause unforeseen increases.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2018
+ms.date: 03/29/2018
 ms.author: magoedte
-
 ---
+
 # Analyze data usage in Log Analytics
-Log Analytics includes information on the amount of data collected, which systems sent the data and the different types of data sent.  Use the **Log Analytics Usage** dashboard to see the amount of data sent to the Log Analytics service. The dashboard shows how much data is collected by each solution and how much data your computers are sending.
+Log Analytics includes information on the amount of data collected, which sources sent the data, and the different types of data sent.  Use the **Log Analytics Usage** dashboard to review and analyze data usage. The dashboard shows how much data is collected by each solution and how much data your computers are sending.
 
 ## Understand the Usage dashboard
 The **Log Analytics usage** dashboard displays the following information:
@@ -37,20 +37,17 @@ The **Log Analytics usage** dashboard displays the following information:
     - Time taken to collect and index data  
 - List of queries
 
-![usage dashboard](./media/log-analytics-usage/usage-dashboard01.png)
+![Usage and cost dashboard](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+)
 
 ### To work with usage data
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
-2. Click **All services** and in the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Click **Log Analytics**.  
-    ![Azure hub](./media/log-analytics-usage/hub.png)
-3. The **Log Analytics** dashboard shows a list of your workspaces. Select a workspace.
-4. In the *workspace* dashboard, click **Log Analytics usage**.
-5. On the **Log Analytics Usage** dashboard, click **Time: Last 24 hours** to change the time interval.  
-    ![time interval](./media/log-analytics-usage/time.png)
-6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).  
-    ![example data usage blade](./media/log-analytics-usage/blade.png)
-7. On the Log Search dashboard, review the results that are returned from the search.  
-    ![example usage log search](./media/log-analytics-usage/usage-log-search.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. In your list of Log Analytics workspaces, select a workspace.
+4. Select **Usage and estimated costs** from the list in the left pane.
+5. On the **Usage and estimated costs** dashboard, you can modify the time range by selecting the **Time: Last 24 hours** and change the time interval.<br><br> ![time interval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).<br><br> ![example data usage kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## Create an alert when data collection is higher than expected
 This section describes how to create an alert if:
