@@ -80,7 +80,10 @@ If you were to modify the above policy and set W=0 (no weekly backups), the cade
 Note: The LTR copies are created by Azure storage service so the copy process has no performance impact on the existing database.
 To restore a database from the LTR storage, you can select a specific backup based on its timestamp.   The database can be restored to any existing server under the same subscription as the original database. 
 
+## Configure long-term backup retention
+
+To learn how to configure long-term retention using the Azure portal or using PowerShell, see [Configure long-term backup retention](sql-database-long-term-backup-retention-configure.md).
+
 ## Next steps
 
-- To learn how to configure long-term retention using the Azure portal or using PowerShell, see [Configure long-term backup retention](sql-database-long-term-backup-retention-configure.md).
-- Because database backups protect data from accidental corruption or deletion, they're an essential part of any business continuity and disaster recovery strategy. To learn about the other SQL Database business-continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
+Because database backups protect data from accidental corruption or deletion, they're an essential part of any business continuity and disaster recovery strategy. To learn about the other SQL Database business-continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
