@@ -49,6 +49,7 @@
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
 ### [Create management groups](management-groups-create.md)
 ### [Manage your management groups](management-groups-manage.md)
+### [Programmatically create EA subscriptions](subscription-create.md)
 ### [Governance examples](resource-manager-subscription-examples.md)
 
 ## Control Access
