@@ -27,14 +27,14 @@ table provides the supported language codes for each service. 
 
 | ID         | Name                   |  Maps | Search | Routing | Traffic incidents | JS map control | Time zone |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
-| af-ZA      | Afrikaans              |   ✓   |        |    ✓    |                   |                |     ✓     |
+| af-ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arabic                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | eu-ES      | Basque                 |       |        |         |                   |                |     ✓     |
 | bg-BG      | Bulgarian              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | ca-ES      | Catalan                |       |    ✓   |         |                   |                |     ✓     |
 | zh-HanS    | Chinese (Simplified)   |       |  zh-CN |         |                   |                |     ✓     |
 | zh-HanT    | Chinese (Traditional)  | zh-TW |  zh-TW |  zh-TW  |                   |      Zh-TW     |     ✓     |
-| hr-HR      | Croatian               |   ✓   |        |         |                   |                |     ✓     |
+| hr-HR      | Croatian               |       |    ✓   |         |                   |                |     ✓     |
 | cs-CZ      | Czech                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | Danish                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl -NL     | Dutch                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
