@@ -187,3 +187,4 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
    * **-f (or --template-file)**. Path to your ARM template file.
    * **-e (or --parameters-file)**. Path to your ARM parameters file.
 
+Proposing removing sub category called "Without application security groups" on left unless it means something
