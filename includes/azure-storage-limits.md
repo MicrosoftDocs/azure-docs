@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: storage
+ author: tamram
+ ms.service: storage
+ ms.topic: include
+ ms.date: 04/03/2018
+ ms.author: tamram
+ ms.custom: include file
+---
+
 | Resource | Default Limit |
 | --- | --- |
 | Number of storage accounts per region | 200<sup>1</sup> |
