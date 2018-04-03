@@ -12,7 +12,7 @@ metadata:
   ms.date: 03/29/2018
   ms.author: davidmu
 abstract:
-  description: Azure Active Directory (Azure AD) B2C is an identity management service that enables you to customize and control how consumers sign up, sign in, and manage their profiles when using your applications. Azure AD B2C enables these actions while protecting your consumer identities at the same time. Learn how to use Azure AD B2C with our quickstarts, tutorials, and samples.
+  description: Azure Active Directory (Azure AD) B2C is an identity management service that enables you to customize and control how customers sign up, sign in, and manage their profiles when using your applications. Azure AD B2C enables these actions while protecting the identities of your customers at the same time. Learn how to use Azure AD B2C with our quickstarts, tutorials, and samples.
   aside:
     image:
       alt: 
@@ -26,7 +26,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to set up identity management for the consumers of your application:'
+    text: 'Learn how to set up identity management for the customers that use your application:'
   - type: list
     style: icon48
     items: 
@@ -40,12 +40,12 @@ sections:
       href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app
     - image: 
         src: https://review.docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg
-      text: Single page
+      text: Single-page
       href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa
 - title: Step-by-Step Tutorials
   items:
     - type: paragraph
-      text: Learn how to set up sign-up, sign-in, and profile management in your ASP.NET, desktop, or single-page Node.js applications
+      text: Learn how to manage sign-up, sign-in, and customer profiles in your ASP.NET, desktop, or single-page Node.js applications
     - type: list
       style: cards
       className: cardsD
@@ -54,7 +54,7 @@ sections:
         html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant API access</a></p>
       - title: Desktop
         html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Grant API access</a></p>
-      - title: Single page
+      - title: Single-page
         html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Register application</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Grant API access</a></p>
 - title: Free Pluralsight Video Training
   items:
@@ -80,7 +80,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: Find code samples for the the type of application you are developing.
+    text: Find code samples for the the type of application you're developing.
   - type: list
     style: unordered
     className: spaced noBullet
