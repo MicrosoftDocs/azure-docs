@@ -1,5 +1,5 @@
 ---
-title: Create a Stream Analytic job by using Azure portal | Microsoft Docs
+title: Create a Stream Analytics job by using Azure portal | Microsoft Docs
 description: This quickstart shows you how to get started by creating a Stream Analytic job, configuring inputs, outputs, and defining a query.
 services: stream-analytics
 keywords: Stream analytics, Cloud jobs, Azure portal, job input, job output, job transformation
@@ -14,7 +14,7 @@ manager: kfile
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Create a Stream Analytic job by using Azure portal
+# Quickstart: Create a Stream Analytics job by using Azure portal
 
 Azure Stream Analytics is a managed event processing engine that does real-time analytic computations on streaming data. This quickstart shows you how to get started by creating a Stream Analytic job, configuring inputs, outputs, and defining a query. The scenario in this article describes reading data from the blob storage, transforming the data and writing it back to a different container in the same blob storage.
 
