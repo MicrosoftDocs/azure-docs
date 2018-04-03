@@ -57,23 +57,22 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 |          DW6000          |        DW6000c        |
 
 
-3. Click **Upgrade**. The price of the Optimized for Compute performance tier is currently half-off during the preview period:
+3. Ensure your workload has completed running and quiesced before upgrading. You will experience downtime for a few minutes before your data warehouse is back online as an Optimized for Compute data warehouse. Click **Upgrade**. The price of the Optimized for Compute performance tier is currently half-off during the preview period:
     
     ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
 4. Monitor your upgrade by checking the status in the Azure portal:
 
    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
+   
+   The first step of the upgrade process goes through the scale operation ("Upgrading - Offline") where all sessions will be killed, and connections will be dropped. 
+   
+   The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process, which slowly moves columnar data from the old Gen1 storage architecture to the new Gen2 storage architecture to leverage the Gen2 local SSD cache. During this time, your data warehouse will be online for querying and loading. All your data will be available to query regardless of whether it has been migrated or not. The data migration happens at a varying rate depending on your data size, your performance level, and the number of your columnstore segments. 
 
-
-## Upgrade downtime and data migration 
-The first step of the upgrade process goes through the scale operation ("Upgrading - Offline") where all sessions will be killed, and connections will be dropped. Ensure your workload has completed running and quiesced before upgrading. You will experience downtime for a few minutes before your data warehouse is back online as an Optimized for Compute data warehouse.  
-
-The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process, which slowly moves columnar data from the old Gen1 storage architecture to the new Gen2 storage architecture to leverage the Gen2 local SSD cache. During this time, your data warehouse will be online for querying and loading. All your data will be available to query regardless of whether it has been migrated or not. The data migration happens at a varying rate depending on your data size, your performance level, and the number of your columnstore segments. 
-
+5. **Optional Recommendation:** 
 To expedite the data migration background process, it is recommended to immediately force data movement by running [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) on all columnstore tables at a larger SLO and resource class. This operation is offline compared to the trickle background process; however, data migration will be much quicker where you can then take full advantage of the Gen2 storage architecture once complete with high-quality rowgroups. 
 
-This query generates the required Alter Index Rebuild commands to expedite the data migration process:
+This following query generates the required Alter Index Rebuild commands to expedite the data migration process:
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
