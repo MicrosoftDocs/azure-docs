@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure Active Directory B2C: Reference: Customize the UI of a user journey with Custom Policies | Microsoft Docs'
 description: A topic on Azure Active Directory B2C custom policies
 services: active-directory-b2c
@@ -114,7 +114,7 @@ If you followed the preceding steps, the HTML5 and CSS files of the *UI-Customiz
 
 ## Ensure the storage account has CORS enabled
 
-CORS (Cross-Origin Resource Sharing) must be enabled on your endpoint for Azure AD B2C Premium to load your content because your content is hosted on a different domain than the domain Azure AD B2C Premium is serving the page from.
+CORS (Cross-Origin Resource Sharing) must be enabled on your endpoint for Azure AD B2C to load your content. This is because your content is hosted on a different domain than the domain Azure AD B2C will be serving the page from.
 
 To verify that the storage you are hosting your content on has CORS enabled, proceed with the following steps:
 
