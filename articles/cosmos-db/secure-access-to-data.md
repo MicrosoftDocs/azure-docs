@@ -148,7 +148,7 @@ The following code sample shows how to create a permission resource, read the re
 Permission docPermission = new Permission
 {
     PermissionMode = PermissionMode.Read,
-    ResourceLink = documentCollection.SelfLink,
+    ResourceLink = UriFactory.CreateDocumentCollectionUri("db", "collection"),
     Id = "readperm"
 };
   
