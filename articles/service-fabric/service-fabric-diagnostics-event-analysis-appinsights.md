@@ -3,7 +3,7 @@ title: Azure Service Fabric Event Analysis with Application Insights | Microsoft
 description: Learn about visualizing and analyzing events using Application Insights for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 
@@ -13,26 +13,37 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
+ms.date: 04/02/2018
+ms.author: dekapur; srrengar
 
 ---
 
 # Event analysis and visualization with Application Insights
 
-Azure Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. It is the recommended platform for monitoring and diagnostics for Service Fabric applications and services.
+Azure Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. It is the recommended platform for monitoring and diagnostics for Service Fabric applications and services. This article helps address the following commonly asked questions
 
-## Setting up Application Insights
+* How do I know what is going on inside my application and services and gather telemetry
+* How do I troubleshoot my application, especially services communicating with one another
+* How do I get metrics about how my services are performing e.g. page load time, http requests
 
-### Creating an AI Resource
 
-To create an AI resource, head over to the Azure Marketplace, and search for "Application Insights". It should show up as the first solution (it is under category "Web + Mobile"). Click **Create** when you are looking at the right resource (confirm that your path matches the image below).
+**The purpose of this article is to show how to gain insights and troubleshoot from within App Insights. If you'd like to learn how to set up and configure AI with service fabric, check out our [tutorial](service-fabric-tutorial-monitoring-aspnet.md).**
 
-![New Application Insights resource](media/service-fabric-diagnostics-event-analysis-appinsights/create-new-ai-resource.png)
+## Monitoring in App Insights
 
-You will need to fill out some information to provision the resource correctly. In the *Application Type* field, use "ASP.NET web application" if you will be using any of Service Fabric's programming models or publishing a .NET application to the cluster. Use "General" if you will be deploying guest executables and containers. In general, default to using "ASP.NET web application" to keep your options open in the future. The name is up to your preference, and both the resource group and subscription are changeable post-deployment of the resource. We recommend that your AI resource is in the same resource group as your cluster. If you need more information, please see [Create an Application Insights resource](../application-insights/app-insights-create-new-resource.md)
+Application Insights has a rich out of the box with Service Fabric. In the overview page below, AI provides key information about your service such as the response time and number of requests passing through. By clicking the 'Search' button above, you can see a list of recent requests in your application. Additionally, you would be able to see failed requests here and diagnose what errors may have occured. 
 
-You need the AI Instrumentation Key to configure AI with your event aggregation tool. Once your AI resource is set up (takes a few minutes after the deployment is validated), navigate to it and find the **Properties** section on the left navigation bar. A new blade will open up that shows an *INSTRUMENTATION KEY*. If you need to change the subscription or resource group of the resource, it can be done here as well.
+![AI Overview](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
+
+On the right panel in the picture above, there are 2 main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events which act as telemetry you can add anywhere in your code. You can further explore this in [Application Insights API for custom events and metrics](../application-insights/app-insights-api-custom-events-metrics.md). If you were to click on a request, you would see further details as shown in the picture below, including data specific to Service Fabric which is collected in the AI Service Fabric nuget package. This info is extremely useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
+
+![AI Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
+
+Application Insights has a designated view for querying against all the data that comes in. Click "Metrics Explorer" on the top of the Overview page to navigate to the AI portal. Here you can run queries against custom events mentioned before, requests, exceptions, performance counters, and other metrics using the kusto query language. Below is a basic example of all the requests in the last 1 hour.
+
+![AI Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
+
+To further explore the capabilities of the App Insights portal, head over to the [Application Insights portal documentation](../application-insights/app-insights-dashboards.md).
 
 ### Configuring AI with WAD
 
@@ -45,7 +56,7 @@ There are two primary ways to send data from WAD to Azure AI, which is achieved 
 
 ![Adding an AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
 
-When creating a cluster, if Diagnostics is turned "On", an optional field to enter an Application Insights Instrumentation key will show. If you paste your AI IKey here, the AI sink will be automatically configured for you in the Resource Manager template that is used to deploy your cluster.
+When creating a cluster, if Diagnostics is turned "On", an optional field to enter an Application Insights Instrumentation key will show. If you paste your AI Key here, the AI sink will be automatically configured for you in the Resource Manager template that is used to deploy your cluster.
 
 #### Add the AI Sink to the Resource Manager template
 
@@ -73,7 +84,7 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
 
 In both the code snippets above, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
 
-Currently, logs from the cluster will show up as traces in AI's log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error". This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Currently, logs from the cluster will show up as **traces** in AI's log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error". This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 >[!NOTE]
 >If you use an incorrect AI IKey either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it. 
@@ -86,8 +97,7 @@ If you are using EventFlow to aggregate events, make sure to import the `Microso
 "outputs": [
     {
         "type": "ApplicationInsights",
-        // (replace the following value with your AI resource's instrumentation key)
-        "instrumentationKey": "00000000-0000-0000-0000-000000000000"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
     }
 ]
 ```
