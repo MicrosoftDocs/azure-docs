@@ -68,11 +68,11 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and the
 
     ![HDInsight Linux get started resource group](./media/apache-hadoop-linux-tutorial-get-started/deployment-progress-tile.png "Azure HDInsight cluster resource group")
 
-4. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. Click the tile to see both the cluster and the default storage for the cluster listed.
+4. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. Select the tile to see both the cluster and the default storage for the cluster listed.
    
     ![HDInsight Linux get started resource group](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight cluster resource group")
     
-5. Click the cluster name to open the cluster.
+5. Select the cluster name to open the cluster.
 
    ![HDInsight Linux get started cluster settings](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight cluster properties")    
     
@@ -108,7 +108,7 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and the
    > 
    > 
 
-5. Click **Execute**. A **RESULTS** tab appears beneath the **QUERY** tab and displays information about the job. 
+5. Select **Execute**. A **RESULTS** tab appears beneath the **QUERY** tab and displays information about the job. 
    
     Once the query has finished, The **QUERY** tab displays the results of the operation. You shall see one table called **hivesampletable**. This sample Hive table comes with all the HDInsight clusters.
    
@@ -118,7 +118,7 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and the
    
         SELECT * FROM hivesampletable;
    
-7. You can also save the results of the query. Click the menu button on the right, and specify whether you want to download the results as a CSV file or store it to the storage account associated with the cluster.
+7. You can also save the results of the query. Select the menu button on the right, and specify whether you want to download the results as a CSV file or store it to the storage account associated with the cluster.
 
     ![Save result of Hive query](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-hive-view-save-results.png "Save result of Hive query")
 
@@ -144,7 +144,7 @@ After you complete the tutorial, you may want to delete the cluster. With HDInsi
 
 2. If you want to delete the cluster as well as the default storage account, select the resource group name (highlighted in the previous screenshot) to open the resource group page.
 
-3. Click **Delete resource group** to delete the resource group, which contains the cluster and the default storage account. Note deleting the resource group deletes the storage account. If you want to keep the storage account, choose to delete the cluster only.
+3. Select **Delete resource group** to delete the resource group, which contains the cluster and the default storage account. Note deleting the resource group deletes the storage account. If you want to keep the storage account, choose to delete the cluster only.
 
 ## Next steps
 In this tutorial, you learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Hive queries. If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
