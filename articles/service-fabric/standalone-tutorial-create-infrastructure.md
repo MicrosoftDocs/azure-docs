@@ -36,18 +36,23 @@ To complete this tutorial, you'll need both an Azure and an AWS account.
 ## Create EC2 instances
 
 Login to the AWS Console > Enter **EC2** in the search box > Select **EC2 Virtual Servers in the Cloud**
+
 ![AWS console search][aws-console]
 
 Select **Launch Instance**
+
 ![EC2 console][aws-ec2console]
 
 Click **Select** next to Microsoft Windows Server 2016 Base. Don't worry about the specific AMI number, it varies by region and as updates are pushed out.
+
 ![EC2 instance selection][aws-ec2instance]
 
 Select **t2.medium**, then click on **Next: Configure Instance Details**
+
 ![EC2 instance size selection][aws-ec2size]
 
 Change number of instances to **3**, then click on **Advanced Details** to expand that section.
+
 ![EC2 instance configuration][aws-ec2configure]
 
 To connect your virtual machines together in service fabric, the VMs that are hosting your infrastructure need to have the same credentials.  There are two common ways to get consistent credentials: join them all to the same domain, or set the same administrator password on each VM.  For this tutorial, you'll use a user data script to set the EC2 instances to all have the same password.  In a production environment, joining the hosts to a windows domain is more secure.
@@ -67,6 +72,7 @@ $user.SetInfo()
 Once you've entered the powershell script select **Review and Launch**, and then **Launch**.
 
 Change the drop-down to **Proceed without a key pair** and select the checkbox indicating that you know the password.
+
 ![AWS key pair selection][aws-keypair]
 
 Finally, click on **Launch Instances**, and then **View Instances**.  You have the basis for your Service Fabric cluster created, now you need to add a few final configurations to the instances themselves to prep them for the Service Fabric configuration.
@@ -80,8 +86,6 @@ Service Fabric requires a number of ports open between the hosts in your cluster
 To avoid opening these ports to the world, you'll instead open them only for hosts in the same security group. Take note of the security group ID, in the example it's **sg-c4fb1eba**.  Then select **Edit**.
 
 ![Edit security group][aws-ec2securityedit]
-
-### FIX ME
 
 You'll need to add four rules to the security group. The first rule is to allow ICMP traffic, for basic connectivity checks. The others rules will open the required ports to enable SMB and Remote Registry.
 
@@ -131,7 +135,7 @@ If it's in a stopped state, then you need to run:
 Start-Service -Name "Remote Registry"
 ```
 
-## Open Service Fabric ports 
+## Open ports in Windows Firewall
 
 To use SMB and Remote registry you'll need to open a number of ports, specifically: `135, 137-139, 445`. Opening these ports to the world isn't safe, so you'll restrict it down to the LocalSubnet.
 
@@ -166,5 +170,3 @@ Advance to part two of the series to configure service fabric on your cluster.
 [aws-ec2security]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2security.png
 [aws-ec2securityedit]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2securityedit.png
 [aws-ec2securityports]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2securityports.png
-
-<!-- https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-standalone-deployment-preparation -->

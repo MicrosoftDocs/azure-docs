@@ -27,7 +27,7 @@ In part three of the series, you learn how to:
 > * Create a set of EC2 instances
 > * VPC?
 > * Security Groups?
-> * Login to one of the instances
+> * Log in to one of the instances
 
 ## Download the Voting sample application
 
