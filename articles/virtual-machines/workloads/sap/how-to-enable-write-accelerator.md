@@ -30,7 +30,7 @@ The Azure Write Accelerator functionality is available for M-Series deployment a
 
 - West US2
 - Western Europe
-- Southaast Asia
+- Southeast Asia
 
 ## Planning for using Azure Write Accelerator
 Azure Write Accelerator should be used for the volumes, which contain the transaction log or redo logs of a DBMS. It is not recommended to use Azure Write Accelerator for the data volumes of a DBMS. Reason to this restriction is that Azure Write Accelerator requires the Azure Premium Storage VHDs to be mounted without the additional read caching that is available for Premium Storage. Larger advantages with this type of caching can be observed with traditional databases. Since Write Accelerator is only affecting the write activities and does not speed up reads, the supported design for SAP is to use Write Accelerator against the transaction log or redo log drives of SAP supported databases. 
