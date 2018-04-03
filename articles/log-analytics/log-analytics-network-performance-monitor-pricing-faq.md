@@ -78,14 +78,15 @@ You are not charged based on either the number of circuits or the type of peerin
 
 The volume of data generated per month, when monitoring a private peering connection using one agent on either side of the connection is as follows:
 
-|Percentile|Data/Month (MB)|
-|__________|_______________|
-|50th      |            192|
-|60th      |            256|
-|70th      |            360|
-|80th      |            498|
-|90th      |            870|
-|95th      |           1560|
+|Percentile      |Data/Month (MB)|
+|----------------|---------------|
+|50<sup>th</sup> |            192|
+|60<sup>th</sup> |            256|
+|70<sup>th</sup> |            360|
+|80<sup>th</sup> |            498|
+|90<sup>th</sup> |            870|
+|95<sup>th</sup> |           1560|
+
 
 Per the table above, customers at the 50th percentile pay for 192 MB of data. At USD $2.30/GB for the first month, the cost incurred for monitoring a circuit is USD 0.43 (= 192 * 2.30 / 1024) for the first month.
 
