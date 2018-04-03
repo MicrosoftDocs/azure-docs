@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Upload, list and delete blobs with Azure Storage using JavaScript and HTML in the Browser
-description: Learn to use an instance of BlobService to upload, list and delete blobs using JavaScript in an HTML page.
+title: Quickstart: Upload, list, and delete blobs with Azure Storage using JavaScript and HTML in the Browser
+description: Learn to use an instance of BlobService to upload, list, and delete blobs using JavaScript in an HTML page.
 services: storage
 keywords: storage, javascript, html
 author: craigshoemaker
@@ -15,7 +15,7 @@ ms.topic: quickstart
 # Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage.
 ---
 
-# Quickstart: Upload, list and delete blobs with Azure Storage using JavaScript/HTML in the Browser
+# Quickstart: Upload, list, and delete blobs with Azure Storage using JavaScript/HTML in the Browser
 This quickstart demonstrates how to manage blobs from code running entirely in the browser along with the required security measures to ensure protected access to your blob storage account. To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
@@ -83,7 +83,7 @@ You may find the series of values after each parameter a bit cryptic. These para
 | *resource-types* | sco     | The resources affected by the SAS are *service*, *container*, and *object*. |
 | *services*       | b       | The service affected by the SAS is the *blob* service. |
 
-Now that the SAS is generated, copy the value returned in the console into your text editor. You will use this value in an upcoming step.
+Now that the SAS is generated, copy the value returned in the console into your text editor. You use this value in an upcoming step.
 
 > [!IMPORTANT]
 > In production, always pass SAS tokens using SSL.
