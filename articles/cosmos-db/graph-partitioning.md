@@ -33,10 +33,11 @@ For a graph database, the following are details that need to be understood when 
 - **Vertices require a partitioning key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The name of this partitioning key is a single-word string without spaces or special characters, and it is defined when creating a new collection using the format `/partitioning-key-name` on the portal.
 - **Edges will be stored with their source vertex**. In other words, for each vertex its partitioning key will define where they will be stored along with its outgoing edges. This is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
 - **Graph queries need to specify a partitioning key**. To take full advantage of the horizontal partitioning in Cosmos DB, the partitioning key should be specified whenever a single vertex is selected. The following are queries for inserting vertices in partitioned collections:
-    - Selecting a vertex by ID, then **filtering by the partitioning key property**: 
+
+    - Selecting a vertex by ID, then **using the `.has()` step to specify the partitioning key property**: 
     
         `g.V('vertex_id').has('partitionKey', 'partitionKey_value')`
-        
+    
     - Selecting a vertex by **specifying a tuple including partitioning key value and ID**: 
     
         `g.V(['partitionKey_value', 'vertex_id'])`
