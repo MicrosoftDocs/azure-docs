@@ -45,7 +45,6 @@ You need:
 *Choose the appropriate way for your project.*
 
 #### If you're using Maven... <a name="maven-setup" />
-
 If your project is already set up to use Maven for build, merge the following code to your pom.xml file.
 
 Then, refresh the project dependencies to get the binaries downloaded.
@@ -219,7 +218,7 @@ package devCamp.WebApp.configurations;
 
 This class will configure the `WebRequestTrackingFilter` to be the first filter on the http filter chain. It will also pull the instrumentation key from the operating system environment variable if it is available.
 
-> We are using the web http filter configuration rather than the Spring MFC configuration because this is a Spring Boot application, and it has its own Spring MVC configuration. See the sections below for Spring MVC specific configuration.
+> We are using the web http filter configuration rather than the Spring MVC configuration because this is a Spring Boot application, and it has its own Spring MVC configuration. See the sections below for Spring MVC specific configuration.
 
 
 ### Applications Using Web.xml
