@@ -33,12 +33,12 @@ Welcome to Microsoft Azure and the Internet of Things (IoT). Azure IoT is a comp
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
-[lnk-iot-dps-land]: /azure/iot-dps/index.yml
-[lnk-iot-edge-land]: /azure/iot-edge/index.yml
-[lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-lbs-land]: /azure/location-based-services/index.yml
-[lnk-iot-suite-land]: /azure/iot-suite/index.md
-[lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+[lnk-iot-dps-land]: /azure/iot-dps
+[lnk-iot-edge-land]: /azure/iot-edge
+[lnk-iot-hub-land]: /azure/iot-hub
+[lnk-iot-lbs-land]: /azure/location-based-services
+[lnk-iot-suite-land]: /azure/iot-suite
+[lnk-iot-tsi-land]: /azure/time-series-insights
 
 
 
