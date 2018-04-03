@@ -77,7 +77,6 @@ View information about your database backups in [long-term backup retention](sql
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
 ```powershell
-
 $subId = '<your sub Id>'
 $serverName = '<your server name>'
 $resourceGroup = '<your resource group name>'
@@ -118,7 +117,7 @@ $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $serve
 $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # get a specific long term retention backup
-$backupName = 'ce7a35d2-cca6-4106-94c8-c4335ec13e2f;131634941160000000'  # you can get the backup name from the ltr backup object
+$backupName = 'your_backup_name'  # you can get the backup name from the ltr backup object
 $ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -LocationName $server.Location -ServerName $serverName -DatabaseName $dbName -BackupName $backupName
 
 # variations
