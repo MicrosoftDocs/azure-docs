@@ -236,7 +236,7 @@ Open the downloaded RDP file. If prompted, select **Connect**.
 
 Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection. 
 
-In a later step, trace route is used to test routing. Trace route uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell:
+In a later step, the tracert.exe command is used to test routing. Tracert uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPrivate* VM:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
@@ -244,35 +244,35 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 Though trace route is used to test routing in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
 
-Enable IP forwarding within the operating system of the *myVmNva* by completing the following steps from the *myVmPrivate* VM:
+You enabled IP forwarding within Azure for the VM's network interface in [Enable IP fowarding](#enable-ip-forwarding). Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the operating system of the *myVmNva*.
 
-Remote desktop to the *myVmNva* VM with the following command from PowerShell:
+From a command prompt on the *myVmPrivate* VM, remote desktop to the *myVmNva*:
 
 ``` 
 mstsc /v:myvmnva
 ```
     
-To enable IP forwarding within the operating system, enter the following command in PowerShell:
+To enable IP forwarding within the operating system, enter the following command in PowerShell from the *myVmNva* VM:
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-Restart the VM, which also disconnects the remote desktop session.
+Restart the *myVmNva* VM, which also disconnects the remote desktop session.
 
-While still connected to the *myVmPrivate* VM, after the *myVmNva* VM restarts, create a remote desktop session to the  *myVmPublic* VM with the following command:
+While still connected to the *myVmPrivate* VM, create a remote desktop session to the *myVmPublic* VM, after the *myVmNva* VM restarts:
 
 ``` 
 mstsc /v:myVmPublic
 ```
     
-Enable ICMP through the Windows firewall by entering the following command from PowerShell:
+Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPublic* VM:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-To test routing of network traffic to the *myVmPrivate* VM from the *myVmPublic* VM, enter the following command from PowerShell:
+To test routing of network traffic to the *myVmPrivate* VM  from the *myVmPublic* VM, enter the following command from PowerShell on the *myVmPublic* VM:
 
 ```
 tracert myVmPrivate
@@ -290,10 +290,11 @@ over a maximum of 30 hops:
 Trace complete.
 ```
       
-You can see that the first hop is 10.0.2.4, which is the network virtual appliance's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmPrivate* VM. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
+You can see that the first hop is 10.0.2.4, which is the NVA's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmPrivate* VM. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
 
 Close the remote desktop session to the *myVmPublic* VM, which leaves you still connected to the *myVmPrivate* VM.
-To test routing of network traffic to the *myVmPublic* VM from the *myVmPrivate* VM, enter the following command from a command prompt:
+
+To test routing of network traffic to the *myVmPublic* VM from the *myVmPrivate* VM, enter the following command from a command prompt on the *myVmPrivate* VM:
 
 ```
 tracert myVmPublic
@@ -306,7 +307,7 @@ Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net 
 over a maximum of 30 hops:
     
 1     1 ms     1 ms     1 ms  10.0.0.4
-    
+   
 Trace complete.
 ```
 
