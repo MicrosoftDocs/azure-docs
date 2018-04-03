@@ -46,6 +46,6 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string transformN
 }
 ```
 
-## Nest steps
+## Next steps
 
 [Create a job input from a local file](job-input-from-local-file-how-to.md).
