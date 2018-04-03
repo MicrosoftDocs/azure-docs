@@ -42,9 +42,9 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 |:---|:----------:|:--------------------:|
 | Central US |  | X |
 | East US | X | X |
-| East US 2 | X |  |
+| East US 2 | X | X |
 | North Central US | X |  |
-| South Central US | X |  |
+| South Central US | X | X |
 | West US | X | X |
 | West US 2 |  | X |
 | Canada Central | X | X |
@@ -59,8 +59,8 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Australia East |  | X |
 | Central India | X |  |
 | West India | X |  |
-| Japan East | X |  |
-| Japan West | X |  |
+| Japan East | X | X |
+| Japan West | X | X |
 | Korea South |  | X |
 
 Depending on the pricing tier, each vCore is provisioned with a specific amount of memory. When you increase or decrease the number of vCores for your server, the memory increases or decreases proportionally. The General Purpose tier provides double the amount of memory per vCore compared to the Basic tier. The Memory Optimized tier provides double the amount of memory compared to the General Purpose tier.
