@@ -187,7 +187,7 @@ In this tutorial, you learn how to deliver location-based push notifications wit
     ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 
     Now you know that location acquisition works, you can remove the Loaded event handler if you like because you won’t be using it anymore.
-8. The next step is to capture location changes. For that, let’s go back to the `LocationHelper` class and add the event handler for `PositionChanged`:
+8. The next step is to capture location changes. In the `LocationHelper` class, add the event handler for `PositionChanged`:
 
     ```csharp
     geolocator.PositionChanged += Geolocator_PositionChanged;
@@ -216,7 +216,7 @@ In this tutorial, you learn how to deliver location-based push notifications wit
 4. To configure the connection string, in the `Models` folder open `Notifications.cs`. The `NotificationHubClient.CreateClientFromConnectionString` function should contain the information about your notification hub that you can get in the [Azure portal](https://portal.azure.com) (look inside the **Access Policies** page in **Settings**). Save the updated configuration file.
 5. Create a model for the Bing Maps API result. The easiest way to do that is to open the `Models` folder and choose **Add** > **Class**. Name it `GeofenceBoundary.cs`. Once done, copy the JSON from the API response that you got in the first section. In Visual Studio, use **Edit** > **Paste Special** > **Paste JSON as Classes**. 
 
-    This way you ensure that the object is deserialized exactly as it was intended. Your resulting class set should resemble this:
+    This way you ensure that the object is deserialized exactly as it was intended. Your resulting class set should resemble the following class:
 
     ```csharp
     namespace AppBackend.Models
@@ -254,12 +254,12 @@ In this tutorial, you learn how to deliver location-based push notifications wit
         }
     }
     ```
-6. Next, open `Controllers` > `NotificationsController.cs`. You need to tweak the Post call to account for the target longitude and latitude. To do so, add two strings to the function signature – `latitude` and `longitude`.
+6. Next, open `Controllers` > `NotificationsController.cs`. Updte the Post call to account for the target longitude and latitude. To do so, add two strings to the function signature – `latitude` and `longitude`.
 
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag, string latitude, string longitude)
     ```
-7. Create a new class within the project called `ApiHelper.cs` – you use it to connect to Bing to check point boundary intersections. Implement a `IsPointWithinBounds` function, like this:
+7. Create a new class within the project called `ApiHelper.cs` – you use it to connect to Bing to check point boundary intersections. Implement a `IsPointWithinBounds` function as shown in the following code:
 
     ```csharp
     public class ApiHelper
@@ -379,11 +379,10 @@ In this tutorial, you learn how to deliver location-based push notifications wit
     ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
 ## Next steps
-There are a couple of steps that you might need to follow to make sure that the solution is production-ready.
+There are a couple of steps that you might need to follow to make the solution production-ready.
 
-First and foremost, you might need to ensure that geofences are dynamic. This requires some extra work with the Bing API in order to be able to upload new boundaries within the existing data source. Consult the [Bing Spatial Data Services API documentation](https://msdn.microsoft.com/library/ff701734.aspx) for more details on the subject.
-
-Second, as you are working to ensure that the delivery is done to the right participants, you might want to target them via [tagging](notification-hubs-tags-segment-push-message.md).
+1. First, you need to ensure that geofences are dynamic. It requires some extra work with the Bing API to be able to upload new boundaries within the existing data source. For more information, see [Bing Spatial Data Services API documentation](https://msdn.microsoft.com/library/ff701734.aspx).
+2. Second, as you are working to ensure that the delivery is done to the right participants, you might want to target them via [tagging](notification-hubs-tags-segment-push-message.md).
 
 The solution shown in this tutorial describes a scenario in which you might have a wide variety of target platforms, so it does not limit the geofencing to system-specific capabilities. That said, the Universal Windows Platform offers capabilities to [detect geofences right out-of-the-box](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
