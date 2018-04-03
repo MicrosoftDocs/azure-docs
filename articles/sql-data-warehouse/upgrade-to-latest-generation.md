@@ -46,7 +46,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
 
 2. By default, we select the suggested performance level for the data warehouse based on your current performance level on Optimized for Elasticity by using the mapping below:
-
+    
 | Optimized for Elasticity | Optimized for Compute |
 | :----------------------: | :-------------------: |
 |      DW100 – DW1000      |        DW1000c        |
@@ -56,11 +56,14 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 |          DW3000          |        DW3000c        |
 |          DW6000          |        DW6000c        |
 
+
 3. Click **Upgrade**. The price of the Optimized for Compute performance tier is currently half-off during the preview period:
+    
     ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
 4. Monitor your upgrade by checking the status in the Azure portal:
-    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
+
+   ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
 
 
 ## Upgrade downtime and data migration 
