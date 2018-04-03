@@ -64,30 +64,15 @@ Service Fabric provides several tools that you can use to manage a cluster and i
 In this quickstart, you use the Service Fabric CLI in Cloud Shell and Service Fabric Explorer. The following sections show you how to install the certificate needed to connect to your secure cluster with these tools.
 
 ### Configure certificate for the Service Fabric CLI
-To use the CLI, you need to upload the certificate PFX file to the `clouddrive` associated with your Cloud Shell session and then use it to create a PEM file.
+To use the CLI in Cloud Shell, you need to upload the certificate PFX file to Cloud Shell and then use it to create a PEM file.
 
-1. Upload the certificate to your `clouddrive`.
-    1. To determine the file share that is mounted as your `clouddrive`, enter the `df` command at the Cloud Shell prompt. In the command output, find the file system that is mounted on your `clouddrive`. Note the name of the Azure storage account and the name of the file share.
+1. To upload the certificate to your current working directory in Cloud Shell, drag the certificate PFX file from the folder where it downloaded on your local system and drop into your Cloud Shell window.  
 
-        ![df command output](./media/service-fabric-quickstart-containers-linux/df-command-output.png) 
-       
-    1.  From **All resources** in the Azure portal, search for the storage account name, then click the storage account. Under **Services**, click **Files** to open the **File service** view. From the list of file shares, click the share mounted as your `clouddrive`.
-    2.  Click **Upload** and follow the prompts to browse and upload the certificate to your `clouddrive`.
+2. To convert the PFX file to a PEM file, use the following command. (For party clusters, you can copy a command specific to your PFX file and password from the instructions on the **ReadMe** page.)
 
-        ![Upload certificate to `clouddrive`](./media/service-fabric-quickstart-containers-linux/upload-file.png) 
-
-1. Convert the PFX file that you uploaded to a PEM file. 
-    1. In Cloud Shell, copy the PFX file from your your `clouddrive` to your working directory:
-
-        ```bash
-        cp ~/clouddrive/party-cluster-1486790479-client-cert.pfx .
-        ``` 
-
-    7. To convert the file, use the following command. (For party clusters, you can copy a command specific to your PFX file from the instructions on the **ReadMe** page.)
-
-        ```bash
-        openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-        ``` 
+    ```bash
+    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+    ``` 
 
 ### Configure certificate for Service Fabric Explorer
 To use Service Fabric Explorer, you need to import the certificate PFX file you downloaded from the Party Cluster website into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). You need the PFX private key password, which you can get from the **ReadMe** page.
