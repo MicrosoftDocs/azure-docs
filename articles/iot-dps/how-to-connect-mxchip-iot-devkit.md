@@ -5,7 +5,7 @@ services: iot-dps
 keywords: 
 author: liydu
 ms.author: liydu
-ms.date: 04/02/2018
+ms.date: 04/04/2018
 ms.topic: article
 ms.service: iot-dps
 
@@ -107,17 +107,18 @@ To save a unique device secret on the DevKit:
 
 ## Create a device enrollment entry in the device provisioning service
 
-1. In the Azure portal, go to your provisioning service. Select **Manage enrollments**, and then select the **Individual Enrollments** tab.
+1. In the Azure portal, go to your Device Provisioning Service instance. Select **Manage enrollments**, and then select the **Individual Enrollments** tab.
   ![Individual enrollments](./media/how-to-connect-mxchip-iot-devkit/individual-enrollments.png)
 
 2. Select **Add**.
 
-3. In **Mechanism**, select **X.509**.
-  ![Upload certificate](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+3. On the "Add enrollment" panel:
+   - select **X.509** under **Mechanism**
+   - click "Select a file" under **Primary Certificate .pem or .cer file**
+   - on the File Open dialog, navigate to and upload the **.pem** certificate you just generated
+   - leave the rest as default and click **Save**
 
-4. In **Certificate .pem or .cer file**, upload the **.pem** certificate you just generated.
-
-5. Leave the rest as default and select **Save**.
+   ![Upload certificate](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
 
 ## Start the DevKit
 
