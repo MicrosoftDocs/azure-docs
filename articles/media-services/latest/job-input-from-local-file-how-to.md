@@ -20,6 +20,10 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 
 This topic shows how to create a job input from a local file. For a full example, see this [github sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/MediaServicesV3Tutorials/MediaServicesV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
 
+## .Net sample
+
+The following code shows how to create an input asset and use it as the input for the job.
+
 ```csharp
 private static Job SubmitJob(IAzureMediaServicesClient client, string transformName, string jobName, string outputAssetName)
 {
