@@ -367,7 +367,7 @@ The **layout.jade** file in the **views** directory is used as a global template
             a.navbar-brand(href='/') My Tasks
         block content
 ```
-1. Save the **layout.jade** file.
+3. Save the **layout.jade** file.
 
 ### Running the Application in the Emulator
 Use the following command to start the application in the emulator.
