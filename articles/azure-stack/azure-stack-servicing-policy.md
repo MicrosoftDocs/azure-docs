@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: mabrigg
 
 ---
@@ -44,19 +44,6 @@ For example, if the most recently available update version is 1805, and the prev
 
 Microsoft software update packages are non-cumulative and require the previous update package as a prerequisite. If you decide to defer one or more updates, consider the overall runtime if you want to get  to the latest version. 
 
-The following table shows example update package releases, their prerequisite, and the minimum supported version that your system must be at to maintain support. The table is based on the initial release of Azure Stack integrated systems (build 1708), with the first update package release (1709) in September 2017. 
-
-| Latest Update Package (*example*) | Prerequisite | Minimum Supported Version |
-| -- | -- | -- |
-| 1710 | 1709 | N/A |
-| 1711 | 1710 | 1709 |
-| 1712 | 1711 | 1710 |
-| 1802 | 1712 | 1711 |
-| 1803 | 1802 | 1712 |
-| 1804 | 1803 | 1802 |
-| 1805 | 1804 | 1803 |
-| | | 
-In the preceding table, there is no release version 1801.
 
 ## Next steps
 
