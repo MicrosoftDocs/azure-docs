@@ -122,7 +122,7 @@ This section will walk you through the options available to you in both storefro
 Use **Contact Me** when a Trial- or Transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be nurtured into the foundational deals to start your business flywheel. However, the drawback is that customer engagement is limited, as compared with other offer types.
 
 >[!IMPORTANT]
->Contact Me is not a recommended listing type, and should only be used in situations where there is no way to establish a trial experience. Customer engagement is best with Trial and Transact offers. If you have any type of trial experience, our onboarding process will guide you to one of those options, depending on your scenario.
+>Customer engagement is best with Trial and Transact offers. The value of Contact Me is the lead that you receive, so if you choose this type of listing, ensure that your lead destination is configured and you are ready to maximize the lead. 
 
 When the offer consists primarily of professional services (e.g., assessments, implementations, workshops), use the **Consulting Services** offer type. Offer scope, duration, and price must be fixed, must be for a single customer, and must be conducted on-site.
 
