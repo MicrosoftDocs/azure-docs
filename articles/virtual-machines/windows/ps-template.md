@@ -60,11 +60,17 @@ In this step, you create a template file that deploys the resources and a parame
       "contentVersion": "1.0.0.0",
       "parameters": {
         "adminUsername": { "type": "string" },
-        "adminPassword": { "type": "securestring" }
+        "adminPassword": { "type": "securestring" },
+        "dnsNameForPublicIP": {
+            "type": "string",
+            "metadata": {
+              "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+            }
+         }
       },
       "variables": {
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]"
       },
       "resources": [
         {
@@ -75,7 +81,7 @@ In this step, you create a template file that deploys the resources and a parame
           "properties": {
             "publicIPAllocationMethod": "Dynamic",
             "dnsSettings": {
-              "domainNameLabel": "myresourcegroupdns1"
+              "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
             }
           }
         },
@@ -165,7 +171,8 @@ In this step, you create a template file that deploys the resources and a parame
       "contentVersion": "1.0.0.0",
       "parameters": {
       "adminUserName": { "value": "azureuser" },
-        "adminPassword": { "value": "Azure12345678" }
+      "adminPassword": { "value": "Azure12345678" },
+      "dnsNameForPublicIP":  { "value": "myazurewinvm" }
       }
     }
     ```
