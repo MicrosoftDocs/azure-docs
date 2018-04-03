@@ -35,6 +35,8 @@ For a graph database, the following are details that need to be understood when 
 - **Graph queries need to specify a partitioning key**. To take full advantage of the horizontal partitioning in Cosmos DB, the partitioning key should be specified whenever a single vertex is selected. The following are queries for inserting vertices in partitioned collections:
     - Selecting a vertex by ID, then **filtering by the partitioning key property**: 
         `g.V('vertex_id').has('partitionKey', 'partitionKey_value')`
+    - Specifying an **array of tuples of partition key values and IDs**: 
+        `g.V(['pk0', 'id0'], ['pk1', 'id1'], ...)`
     - Selecting a vertex by **specifying a tuple including partitioning key value and ID**: 
         `g.V(['partitionKey_value', 'vertex_id'])`
     - Selecting a set of vertices and **specifying a list of partitioning key values**: 
