@@ -3,7 +3,7 @@ title: Azure IoT Hub direct methods (Python) | Microsoft Docs
 description: How to use Azure IoT Hub direct methods. You use the Azure IoT SDKs for Python to implement a simulated device app that includes a direct method and a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: ''
-author: msebolt
+author: kgremban
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
-ms.author: v-masebo
+ms.author: v-masebo;kgremban
 
 ---
 # Use direct methods on your IoT device with Python
