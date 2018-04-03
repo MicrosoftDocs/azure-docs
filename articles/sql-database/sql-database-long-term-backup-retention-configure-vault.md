@@ -16,7 +16,7 @@ ms.author: carlrab
 You can configure Azure SQL Database to store Azure SQL database backups in Azure SQL Storage for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
 
 > [!NOTE]
-> As part of the previous preview of this feature, backups were stored in the Azure Services Recovery Service vault. This preview is over, but if you need to interact with backups in the Azure Services Recovery vault, see [Long-term backup retention using Azure Services Recovery Service vault](sql-database-long-term-backup-retention-vault.md). 
+> As part of the previous preview of this feature, backups were stored in the Azure Services Recovery Service vault. This preview is over, but if you need to interact with backups in the Azure Services Recovery vault, see [Long-term backup retention using Azure Services Recovery Service vault](sql-database-long-term-backup-retention-configure-vault.md). 
 
 ## Azure portal
 
