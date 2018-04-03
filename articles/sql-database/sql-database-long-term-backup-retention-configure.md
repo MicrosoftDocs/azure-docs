@@ -30,7 +30,7 @@ You configure SQL Database to [retain automated backups](sql-database-long-term-
 
    ![long-term backup retention link](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. On the **Configure policies** tab, select the database to set or modify long-term backup retention policies.
+2. On the **Configure policies** tab, select the database on which you want to set or modify long-term backup retention policies.
 
    ![select database](./media/sql-database-long-term-retention/ltr-configure-select-database.png)
 
