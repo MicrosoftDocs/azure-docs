@@ -386,7 +386,7 @@ items:
       - name: Move data with Azure Data Factory
         href: ../data-factory/connector-azure-cosmos-db.md
       - name: Analyze real-time data with Azure Stream Analytics
-        href: ../stream-analytics/stream-analytics-define-outputs#azure-cosmos-db
+        href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
       - name: Get changed HL7 FHIR record using Logic Apps
         href: change-feed-hl7-fhir-logic-apps.md
       - name: Process sensor data in real time
