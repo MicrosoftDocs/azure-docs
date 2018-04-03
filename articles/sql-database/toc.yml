@@ -312,6 +312,10 @@
     items:
     - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
+    - name: Configure long-term backup retention - SQL storage
+      href: sql-database-long-term-backup-retention-configure.md
+    - name: Configure long-term backup retention - Azure vault
+      href: sql-database-long-term-retention-configure-vault.md
   - name: Load & move data
     items:
     - name: Load data with BCP
