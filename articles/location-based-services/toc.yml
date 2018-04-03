@@ -48,13 +48,13 @@
       href: map-add-popup.md
     - name: Add a shape
       href: map-add-shape.md
-    - name: Add a custom HTML
+    - name: Add custom HTML
       href: map-add-custom-html.md
     - name: Show search results 
       href: map-search-location.md  
     - name: Get information from a coordinate
       href: map-get-information-from-coordinate.md
-    - name: Show direction from A to B
+    - name: Show directions from A to B
       href: map-route.md   
     - name: Show traffic 
       href: map-show-traffic.md
