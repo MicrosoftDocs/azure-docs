@@ -32,9 +32,7 @@ To use the Azure CLI to manage role assignments, you must have the following pre
 
 * [Azure CLI 2.0](/cli/azure). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
 
-## List roles
-
-### List role definitions
+## List role definitions
 
 To list all available role definitions, use [az role definition list](/cli/azure/role/definition#az_role_definition_list):
 
