@@ -53,26 +53,24 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-This command clones the repository to your local git folder. To open the Visual Studio solution, look for the storage-blobs-dotnet-quickstart folder, open it, and double-click on storage-blobs-dotnet-quickstart.sln. 
+This command clones the repository to your local git folder. To open the Visual Studio solution, look for the *storage-blobs-dotnet-quickstart* folder, open it, and double-click on *storage-blobs-dotnet-quickstart.sln*. 
 
-## Configure your storage connection string
+## Copy your credentials from the Azure portal
 
-To run the application, you must provide the connection string for your storage account. Copy your connection string from the Azure portal, and write it to a new environment variable. The sample reads the connection string from the environment variable and uses it to authenticate your requests to Azure Storage.
-
-### Copy your connection string from the Azure portal
-
-To copy your connection string:
+The sample application needs to authenticate access to your storage account. To authenticate, you provide the application with your storage account credentials in the form of a connection string. To view your storage account credentials:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Locate your storage account.
-3. In the **Settings** section of the storage account overview, select **Access keys**.
-4. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.  
+3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.   
+4. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step.
 
     ![Screen shot showing how to copy a connection string from the Azure portal](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
 
-## Write your connection string to an environment variable
+## Configure your storage connection string
 
-Next, write the new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string:
+To run the application, you must provide the connection string for your storage account. The sample application reads the connection string from an environment variable and uses it to authenticate requests to Azure Storage.
+
+After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string:
 
 # [Windows](#tab/windows)
 
