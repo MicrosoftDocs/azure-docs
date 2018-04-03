@@ -48,7 +48,7 @@ In this section of the tutorial, you configure the *ContosoTeamStats* project wi
 
 * [Add the Entity Framework to the project](#add-the-entity-framework-to-the-project)
 * [Add the Team model](#add-the-team-model)
-* [Add the TeamsController and views](#add-the-teamsController-and-views)
+* [Add the TeamsController and views](#add-the-teamscontroller-and-views)
 * [Configure the Layout view](#configure-the-layout-view)
 
 
@@ -260,18 +260,18 @@ For more information about this package, see the [EntityFramework](https://www.n
     ![Starter application](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
 
 
-## Configure the application to use Redis Cache
+## Configure the app for Redis Cache
 
 In this section of the tutorial, you configure the sample application to store and retrieve Contoso team statistics from an Azure Redis Cache instance by using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
 
-* [Configure the application to use StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
-* [Update the TeamsController class to return results from the cache or the database](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
+* [Add a cache connection](#add-a-cache-connection)
+* [Update the TeamsController to read from the cache or the database](#update-the-teamscontroller-to-read-from-the-cache-or-the-database)
 * [Update the Create, Edit, and Delete methods to work with the cache](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
-* [Update the Teams Index view to work with the cache](#update-the-teams-index-view-to-work-with-the-cache)
+* [Add caching methods to the Teams Index view](#add-caching-methods-to-the-teams-index-view)
 
-### Configure the application to use StackExchange.Redis
+### Add a cache connection
 
-You already installed the StackExchange.Redis client library package in the quickstart. You also have already configured the *CacheConnection* app setting to be used locally, and with the published App Service. We will use this same client library and *CacheConnection* information in the *TeamsController*.
+You already installed the *StackExchange.Redis* client library package in the quickstart. You also have already configured the *CacheConnection* app setting to be used locally, and with the published App Service. We will use this same client library and *CacheConnection* information in the *TeamsController*.
 
 1. In **Solution Explorer**, expand the **Controllers** folder and double-click **TeamsController.cs** to open it.
    
@@ -303,7 +303,7 @@ You already installed the StackExchange.Redis client library package in the quic
 	}
 	```
 
-### Update the TeamsController class to return results from the cache or the database
+### Update the TeamsController to read from the cache or the database
 
 In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample you'll query the sorted set for the top 5 teams ranked by number of wins.
 
@@ -607,7 +607,7 @@ The scaffolding code that was generated as part of this sample includes methods 
     ```
 
 
-### Update the Teams Index view to work with the cache
+### Add caching methods to the Teams Index view
 1. In **Solution Explorer**, expand the **Views** folder, then the **Teams** folder, and double-click **Index.cshtml**.
    
     ![Index.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-views-teams-index-cshtml.png)
@@ -661,6 +661,36 @@ The scaffolding code that was generated as part of this sample includes methods 
     ![Status message](./media/cache-web-app-cache-aside-leaderboard/cache-status-message.png)
 
 4. Press **F6** to build the project.
+
+
+## Run the app locally
+
+To run the application locally on your machine, you need an Azure Redis Cache instance in which to cache your data. 
+
+* If you have published your application to Azure as described in the previous section, you can use the Azure Redis Cache instance that was provisioned during that step.
+* If you have another existing Azure Redis Cache instance, you can use that to run this sample locally.
+* If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+
+Once you have selected or created the cache to use, browse to the cache in the Azure portal and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+
+1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
+2. Edit the `value` attribute and replace `YourCacheName.redis.cache.windows.net` with the [host name](cache-configure.md#properties) of your cache, and replace `YourAccessKey` with either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password.
+
+    ```xml
+    <appSettings>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
+    </appSettings>
+    ```
+
+
+1. Press **Ctrl+F5** to run the application.
+
+> [!NOTE]
+> Note that because the application, including the database, is running locally and the Redis Cache is hosted in Azure, the cache may appear to under-perform the database. For best performance, the client application and Azure Redis Cache instance should be in the same location. 
+> 
+> 
+
+
 
 ## Provision the Azure resources
 To host your application in Azure, you must first provision the Azure services that your application requires. The sample application in this tutorial uses the following Azure services:
@@ -739,7 +769,7 @@ The following table describes each action link from the sample application:
 
 Click some of the actions and experiment with retrieving the data from the different sources. Not the differences in the time it takes to complete the various ways of retrieving the data from the database and the cache.
 
-## Delete the resources when you are finished with the application
+## Clean up resources
 When you are finished with the sample tutorial application, you can delete the Azure resources used in order to conserve cost and resources. If you use the **Deploy to Azure** button in the [Provision the Azure resources](#provision-the-azure-resources) section and all of your resources are contained in the same resource group, you can delete them together in one operation by deleting the resource group.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
@@ -756,32 +786,6 @@ After a few moments the resource group and all of its contained resources are de
 
 > [!IMPORTANT]
 > Note that deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group, you can delete each resource individually from their respective blades.
-> 
-> 
-
-## Run the sample application on your local machine
-To run the application locally on your machine, you need an Azure Redis Cache instance in which to cache your data. 
-
-* If you have published your application to Azure as described in the previous section, you can use the Azure Redis Cache instance that was provisioned during that step.
-* If you have another existing Azure Redis Cache instance, you can use that to run this sample locally.
-* If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
-
-Once you have selected or created the cache to use, browse to the cache in the Azure portal and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
-
-1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
-2. Edit the `value` attribute and replace `YourCacheName.redis.cache.windows.net` with the [host name](cache-configure.md#properties) of your cache, and replace `YourAccessKey` with either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password.
-
-    ```xml
-    <appSettings>
-      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
-    </appSettings>
-    ```
-
-
-1. Press **Ctrl+F5** to run the application.
-
-> [!NOTE]
-> Note that because the application, including the database, is running locally and the Redis Cache is hosted in Azure, the cache may appear to under-perform the database. For best performance, the client application and Azure Redis Cache instance should be in the same location. 
 > 
 > 
 
