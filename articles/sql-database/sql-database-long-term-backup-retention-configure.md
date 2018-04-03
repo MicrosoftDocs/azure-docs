@@ -1,5 +1,5 @@
 ---
-title: 'Long-term backup retention & ARS vault - Azure SQL database | Microsoft Docs' 
+title: 'Long-term backup retention & ARS vault - Azure SQL Database | Microsoft Docs' 
 description: "Learn how to store automated backups in the SQL Azure storage and then restore them"
 services: sql-database
 author: CarlRabeler
@@ -7,11 +7,11 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 04/10/2018
 ms.author: carlrab
 
 ---
-# Configure and restore from Azure SQL Database long-term backup retention
+# Configure and restore from Azure SQL Database long-term backup retention using Azure SQL storage
 
 You can configure Azure SQL Database to store [Azure SQL database backups in Azure SQL Storage](sql-database-long-term-retention.md)) for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
 
