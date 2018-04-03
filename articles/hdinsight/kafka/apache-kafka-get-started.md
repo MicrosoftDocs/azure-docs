@@ -359,5 +359,5 @@ To remove the resource group using the Azure portal:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use the Kafka Producer and Consumer API from Java](apache-kafka-producer-consumer-api.md)
+> [Use Apache Spark with Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
 

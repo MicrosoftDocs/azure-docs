@@ -87,10 +87,90 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 
 Write the subnet configuration to the virtual network with [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). This creates the subnet within the virtual network:
 
-```powerShell
+```powershell
 $virtualNetwork | Set-AzureRmVirtualNetwork
+```
+
+## Create a storage account
+
+While Kafka on HDInsight uses Azure Managed disks to store Kafka data, the cluster also uses Azure Storage to store information such as logs. Use [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) to create a new storage account.
+
+```powershell
+$storageName = Read-Host -Prompt "Enter the storage account name"
+
+New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroup `
+        -Name $storageName `
+        -Type Standard_LRS `
+        -Location $location
+```
+
+HDInsight stores data in the storage account in a blob container. Use [New-AzureStorageContainer](/powershell/module/Azure.Storage/New-AzureStorageContainer) to create a new container.
+
+```powershell
+$containerName = Read-Host -Prompt "Enter the container name"
+
+$storageKey = (Get-AzureRmStorageAccountKey `
+                -ResourceGroupName $resourceGroup `
+                -Name $storageName)[0].Value
+$storageContext = New-AzureStorageContext `
+                    -StorageAccountName $storageName `
+                    -StorageAccountKey $storageKey
+New-AzureStorageContainer -Name $containerName -Context $storageContext 
 ```
 
 ## Create a Kafka cluster
 
-Create a Kafka on HDinsight cluster with the 
+Create a Kafka on HDinsight cluster with [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+
+```powershell
+$clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
+$httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
+    -UserName "admin"
+$sshCredentials = Get-Credential -Message "Enter the SSH user credentials"
+
+$numberOfWorkerNodes = "4"
+$clusterVersion = "3.6"
+$clusterType="Kafka"
+$clusterOS="Linux"
+
+New-AzureRmHDInsightCluster `
+        -ResourceGroupName $resourceGroup `
+        -ClusterName $clusterName `
+        -Location $location `
+        -ClusterSizeInNodes $numberOfWorkerNodes `
+        -ClusterType $clusterType `
+        -OSType $clusterOS `
+        -Version $clusterVersion `
+        -HttpCredential $httpCredential `
+        -DefaultStorageAccountName "$storageAccount.blob.core.windows.net" `
+        -DefaultStorageAccountKey $storageKey `
+        -DefaultStorageContainer $clusterName `
+        -SshCredential $sshCredentials
+```
+
+> [!WARNING]
+> It can take up to 20 minutes to create the HDInsight cluster.
+
+> [!IMPORTANT]
+> If you plan to use more than 32 worker nodes (either at cluster creation or by scaling the cluster after creation), you must use the `-HeadNodeSize` parameter to specify a VM size with at least 8 cores and 14 GB of RAM.
+>
+> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+
+## Clean up resources
+
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, HDInsight, and all related resources.
+
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
+
+> [!WARNING]
+> HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
+> 
+> Deleting a Kafka on HDInsight cluster deletes any data stored in Kafka.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Use Apache Spark with Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

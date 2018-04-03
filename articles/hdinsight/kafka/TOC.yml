@@ -13,6 +13,8 @@
   items:
   - name: Create a Kafka cluster - Portal
     href: apache-kafka-get-started.md
+  - name: Create a Kafka cluster - PowerShell
+    href: apache-kafka-quickstart-powershell.md
 - name: Tutorials
   items:
   - name: Kafka and Spark (Structured Streaming)
