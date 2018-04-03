@@ -66,7 +66,7 @@ In this quickstart, you use the Service Fabric CLI in Cloud Shell and Service Fa
 ### Configure certificate for the Service Fabric CLI
 To use the CLI in Cloud Shell, you need to upload the certificate PFX file to Cloud Shell and then use it to create a PEM file.
 
-1. To upload the certificate to your current working directory in Cloud Shell, drag the certificate PFX file from the folder where it downloaded on your local system and drop into your Cloud Shell window.  
+1. To upload the certificate to your current working directory in Cloud Shell, drag the certificate PFX file from the folder where it downloaded on your computer and drop into your Cloud Shell window.  
 
 2. To convert the PFX file to a PEM file, use the following command. (For party clusters, you can copy a command specific to your PFX file and password from the instructions on the **ReadMe** page.)
 
