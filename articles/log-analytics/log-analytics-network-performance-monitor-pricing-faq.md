@@ -79,7 +79,7 @@ You are not charged based on either the number of circuits or the type of peerin
 The volume of data generated per month, when monitoring a private peering connection using one agent on either side of the connection is as follows:
 
 |Percentile      |Data/Month (MB)|
-|----------------|---------------|
+|----------------|           ---:|
 |50<sup>th</sup> |            192|
 |60<sup>th</sup> |            256|
 |70<sup>th</sup> |            360|
