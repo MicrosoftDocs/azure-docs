@@ -1,6 +1,6 @@
 ---
-title: Protect an API using OAuth 2.0 with Azure Active Directory and API Management | Microsoft Docs
-description: Learn how to protect a Web API backend with Azure Active Directory and API Management.
+title: Protect an API by using OAuth 2.0 with Azure Active Directory and API Management | Microsoft Docs
+description: Learn how to protect a web API back end with Azure Active Directory and API Management.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -16,86 +16,86 @@ ms.date: 03/18/2018
 ms.author: apimpm
 ---
 
-# How to protect an API using OAuth 2.0 with Azure Active Directory and API Management
+# Protect an API by using OAuth 2.0 with Azure Active Directory and API Management
 
-This guide shows you how to configure your API Management (APIM) instance to protect an API using the OAuth 2.0 protocol with Azure Active Directory (AAD). 
+This guide shows you how to configure your Azure API Management instance to protect an API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD). 
 
-## Prerequisite
+## Prerequisites
 To follow the steps in this article, you must have:
-* An APIM instance
-* An API being published using the APIM instance
+* An API Management instance
+* An API being published that uses the API Management instance
 * An Azure AD tenant
 
 ## Overview
 
-This guide shows you how to protect an API with OAuth 2.0 in APIM. In this article, Azure AD as the Authorization Server (OAuth Server) is used. Below is a quick overview of the steps:
+Here is a quick overview of the steps:
 
-1. Register an application (backend-app) in Azure AD to represent the API
-2. Register another application (client-app) in Azure AD to represent a client application that needs to call the API
-3. In Azure AD, grant permissions to allow client-app to call backend-app
-4. Configure the Developer Console to use OAuth 2.0 user authorization
-5. Add validate-jwt policy to validate the OAuth token for every incoming request
+1. Register an application (back-end app) in Azure AD to represent the API.
+2. Register another application in Azure AD to represent a client application that needs to call the API.
+3. In Azure AD, grant permissions to allow the client app to call the back-end app.
+4. Configure the Developer Console to use OAuth 2.0 user authorization.
+5. Add the **validate-jwt** policy to validate the OAuth token for every incoming request.
 
 ## Register an application in Azure AD to represent the API
 
 To protect an API with Azure AD, the first step is to register an application in Azure AD that represents the API. 
 
-Navigate to your Azure AD tenant, then navigate to **App registrations**.
+1. Browse to your Azure AD tenant, and then browse to **App registrations**.
 
-Select **New application registration**. 
+2. Select **New application registration**. 
 
-Provide a name of the application. In this example, `backend-app` is used.  
+3. Provide a name of the application. (For this example, the name is `backend-app`.)  
 
-Choose **Web app / API** as the **Application type**. 
+4. Choose **Web app / API** as the **Application type**. 
 
-For **Sign-on URL**, you can use `https://localhost` as a placeholder.
+5. For **Sign-on URL**, you can use `https://localhost` as a placeholder.
 
-Click on **Create**.
+6. Select **Create**.
 
-Once the application is created, make a note of the **Application ID** for use in a subsequent step. 
+When the application is created, make a note of the **Application ID**, for use in a subsequent step. 
 
 ## Register another application in Azure AD to represent a client application
 
-Every client application that needs to call the API needs to be registered as an application in Azure AD as well. In this guide, we will use the Developer Console in the APIM Developer Portal as the sample client application. 
+Every client application that calls the API needs to be registered as an application in Azure AD as well. For this example, the sample client application is the Developer Console in the API Management Developer Portal. Here's how to register another application in Azure AD to represent the Developer Console.
 
-We need to register another application in Azure AD to represent the Developer Console.
+1. Select **New application registration**. 
 
-Click on **New application registration** again. 
+2. Provide a name of the application. (For this example, the name is `client-app`.)
 
-Provide a name of the application and choose **Web app / API** as the **Application type**. In this example, `client-app` is used.  
+3. Choose **Web app / API** as the **Application type**.  
 
-For **Sign-on URL**, you can use `https://localhost` as a placeholder or use the sign-in URL of your APIM instance. In this example, `https://contoso5.portal.azure-api.net/signin` is used.
+4. For **Sign-on URL**, you can use `https://localhost` as a placeholder, or use the sign-in URL of your API Management instance. (For this example, the URL is `https://contoso5.portal.azure-api.net/signin`.)
 
-Click on **Create**.
+5. Select **Create**.
 
-Once the application is created, make a note of the **Application ID** for use in a subsequent step. 
+When the application is created, make a note of the **Application ID**, for use in a subsequent step. 
 
-Now we need to create a client secret for this application for use in a subsequent step.
+Now, create a client secret for this application, for use in a subsequent step.
 
-Click on **Settings** again and go to **Keys**.
+1. Select **Settings** again, and go to **Keys**.
 
-Under **Passwords**, provide a **Key description**, choose when the key should expire, and click on **Save**.
+2. Under **Passwords**, provide a **Key description**. Choose when the key should expire, and select **Save**.
 
 Make a note of the key value. 
 
-## Grant permissions in AAD
+## Grant permissions in Azure AD
 
-Now we have registered two applications to represent the API (that is, backend-app) and the Developer Console (that is, client-app), we need to grant permissions to allow the client-app to call the backend-app.  
+Now that you have registered two applications to represent the API and the Developer Console, you need to grant permissions to allow the client app to call the back-end app.  
 
-Navigate to **Application registrations** again. 
+1. Browse to **Application registrations**. 
 
-Click on `client-app` and go to **Settings**.
+2. Select `client-app`, and go to **Settings**.
 
-Click on **Required permissions** and then **Add**.
+3. Select **Required permissions** > **Add**.
 
-Click on **Select an API** and search for `backend-app`.
+4. Select **Select an API**, and search for `backend-app`.
 
-Check `Access backend-app` under **Delegated Permissions**. 
+5. Under **Delegated Permissions**, select `Access backend-app`. 
 
-Click on **Select** and then **Done**. 
+6. Select **Select**, and then select **Done**. 
 
 > [!NOTE]
-> If **Windows** **Azure Active Directory** is not listed under permissions to other applications, click **Add** and add it from the list.
+> If **Azure Active Directory** is not listed under permissions to other applications, select **Add** to add it from the list.
 > 
 > 
 
