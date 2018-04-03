@@ -40,7 +40,7 @@ The Certificate Checker tool (Certchecker) performs the following checks:
 ## Prerequisites
 Your system should meet the following prerequisites before validating PKI certificates for Azure Stack deployment:
 - CertChecker (in **PartnerToolKit** under **\utils\certchecker**)
-- SSL Certificate(s) exported following the [preparation instructions](prepare-pki-certs.md)
+- SSL Certificate(s) exported following the [preparation instructions](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 or Windows Server 2016
 
