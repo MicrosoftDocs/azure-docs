@@ -24,11 +24,11 @@ ms.reviewer: rqureshi
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-With Role-Based Access Control (RBAC), you define access for users, groups, and service principals by assigning roles at a particular scope. This article describes how to manage access using the Azure command-line interface (CLI).
+With role-based access control (RBAC), you define access for users, groups, and service principals by assigning roles at a particular scope. This article describes how to manage role assignments using the Azure command-line interface (CLI).
 
 ## Prerequisites
 
-To use the Azure CLI to manage RBAC, you must have the following prerequisites:
+To use the Azure CLI to manage role assignments, you must have the following prerequisites:
 
 * [Azure CLI 2.0](/cli/azure). You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can [install](/cli/azure/install-azure-cli) it on macOS, Linux, and Windows and run it from the command line.
 
@@ -179,7 +179,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## List access
+## List role assignments
 
 ### List role assignments for a user
 
@@ -237,11 +237,11 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## Assign access
+## Create role assignments
 
-### Assign a role to a user
+### Create a role assignment for a user
 
-To assign a role to a user at the resource group scope, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create):
+To create a role assignment for a user at the resource group scope, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create):
 
 ```azurecli
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
@@ -253,9 +253,9 @@ The following example assigns the *Virtual Machine Contributor* role to *patlong
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
 ```
 
-### Assign a role to a group
+### Create a role assignment for a group
 
-To assign a role to a group, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create):
+To create a role assignment for a group, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create):
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
@@ -273,9 +273,9 @@ The following example assigns the *Virtual Machine Contributor* role to the *Ann
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourcegroups/pharma-sales-projectforecast/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
 ```
 
-### Assign a role to an application
+### Create a role assignment for an application
 
-To assign a role to an application, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create):
+To create a role for an application, use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create):
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
@@ -287,9 +287,7 @@ The following example assigns the *Virtual Machine Contributor* role to an appli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## Remove access
-
-### Remove a role assignment
+## Remove a role assignment
 
 To remove a role assignment, use [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete):
 
