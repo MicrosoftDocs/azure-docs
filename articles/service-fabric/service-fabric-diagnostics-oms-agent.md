@@ -75,7 +75,7 @@ Sample Resource Manager templates that deploy an Azure Log Analytics workspace a
 
 You can download and modify this template to deploy a cluster that best suits your needs.
 
-## Next Steps
+## Next steps
 
 * Collect relevant [performance counters](service-fabric-diagnostics-event-generation-perf.md). To configure the OMS agent to collect specific performance counters, review [configuring data sources](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
 * Configure Log Analytics to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics
