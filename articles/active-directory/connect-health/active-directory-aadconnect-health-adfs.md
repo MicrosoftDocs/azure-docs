@@ -104,7 +104,7 @@ The report provides the following information:
 | User ID |Shows the user ID that was used. This value is what the user typed, which in some cases is the wrong user ID being used. |
 | Failed Attempts |Shows the total # of failed attempts for that specific user ID. The table is sorted with the most number of failed attempts in descending order. |
 | Last Failure |Shows the time stamp when the last failure occurred. |
-| Last Failure IP |Shows the Client IP address from the latest bad request. If you see more than one IP addresses in this column, the value includes forward client IP together with user's last attempt request IP.  |
+| Last Failure IP |Shows the Client IP address from the latest bad request. If you see more than one IP addresses in this value, it may include forward client IP together with user's last attempt request IP.  |
 
 > [!NOTE]
 > This report is automatically updated after every 12 hours with the new information collected within that time. As a result, login attempts within the last 12 hours may not be included in the report.
