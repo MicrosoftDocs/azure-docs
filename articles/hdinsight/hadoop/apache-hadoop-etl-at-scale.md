@@ -38,9 +38,7 @@ Orchestration is needed to run the appropriate job at the appropriate time.
 
 Apache Oozie is a workflow coordination system that manages Hadoop jobs. Oozie runs within an HDInsight cluster and is integrated with the Hadoop stack. Oozie supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. Oozie can also be used to schedule jobs that are specific to a system, such as Java programs or shell scripts.
 
-For more information, see [Use Oozie with Hadoop to define and run a workflow on HDInsight](../hdinsight-use-oozie-linux-mac.md)
-
-<!-- For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](hdinsight-operationalize-data-pipeline.md). -->
+For more information, see [Use Oozie with Hadoop to define and run a workflow on HDInsight](../hdinsight-use-oozie-linux-mac.md) For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](../hdinsight-operationalize-data-pipeline.md). 
 
 ### Azure Data Factory
 
@@ -141,4 +139,4 @@ Once data exists in the chosen location, you need to clean it, combine it, or pr
 ## Next steps
 
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-<!-- * [Using Apache Hive as an ETL Tool](hdinsight-using-apache-hive-as-an-etl-tool.md) -->
+* [Using Apache Hive as an ETL Tool](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

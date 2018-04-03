@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 04/03/2018
 ms.author: yurid
 
 ---
@@ -91,8 +91,9 @@ Azure VMs can take advantage of advanced cloud defense capabilities in Security 
 
 Use the following resources to learn how to use these capabilities in Security Center.
 
-Video	
+Videos	
 * [Azure Security Center – Just-in-Time VM Access](https://youtu.be/UOQb2FcdQnU)
+* [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck)
 
 Articles	
 * [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
@@ -102,6 +103,7 @@ Articles
 
 * [Security Center hands-on lab](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Web Application Firewall (WAF) recommendation playbook in Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
+* [Azure Security Center Playbook: Security Alerts](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## Additional resources
 * [Security Center Documentation Page](https://docs.microsoft.com/azure/security-center/)
@@ -112,8 +114,9 @@ Articles
 * [Network security best practices](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS recommendations](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Compliance](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [OMS customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
-##Community Resources
+## Community Resources
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
 * [Security Center community forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)

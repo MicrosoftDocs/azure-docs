@@ -5,8 +5,7 @@ keywords: out of order, late, events
 documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 
 ms.assetid: 
 ms.service: stream-analytics
@@ -67,6 +66,9 @@ Events that arrive out of order but within the set out-of-order tolerance window
 * **Dropped**: Discarded.
 
 When Stream Analytics reorders events that are received within the out-of-order tolerance window, the output of the query is delayed by the out-of-order tolerance window.
+
+### Early events
+When processing by application time, events whose application time is more than 5 minutes ahead of their arrival time are either dropped or adjusted according to the configuration option selected.
 
 ### Example
 

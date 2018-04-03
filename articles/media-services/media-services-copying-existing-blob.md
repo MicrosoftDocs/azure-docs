@@ -48,7 +48,7 @@ You can follow the steps in this article or you can download a sample that conta
 1. Set up your development environment as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 2. Add the appSettings section to the .config file and update the values based on your Media Services accounts, the destination storage account, and the source asset ID.  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -74,7 +74,7 @@ You can follow the steps in this article or you can download a sample that conta
 
 The following code uses extension **IAsset.Copy** method to copy all files in the source asset into the destination asset using a single extension.
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -164,7 +164,7 @@ namespace CopyExistingBlobsIntoAsset
 1. Set up your development environment as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 2. Add the appSettings section to the .config file and update the values based on your source storage and destination AMS accounts.
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -186,7 +186,7 @@ The following code copies blobs from a storage account into a Media Services ass
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -368,6 +368,7 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
+
 ## Next steps
 
 You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).

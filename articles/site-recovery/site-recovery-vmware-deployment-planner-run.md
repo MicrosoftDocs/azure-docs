@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
 
 ---
@@ -22,7 +22,7 @@ This article is the Azure Site Recovery Deployment Planner user guide for VMware
 
 
 ## Modes of running deployment planner
-You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following four modes: 
+You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following four modes:
 
 1.	[Profiling](#profile-vmware-vms)
 2.	[Report generation](#generate-report)
@@ -46,8 +46,8 @@ First, you need a list of the VMs to be profiled. You can get all the names of V
 			Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4. You may optionly need to run the following command if Connect-VIServer is not recognized as the name of cmdlet.
- 
-			Add-PSSnapin VMware.VimAutomation.Core 
+
+			Add-PSSnapin VMware.VimAutomation.Core
 
 5. To get all the names of VMs on a vCenter server/vSphere ESXi host and store the list in a .txt file, run the two commands listed here.
 Replace &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo;, &lsaquo;outputfile.txt&rsaquo;; with your inputs.
@@ -98,7 +98,7 @@ By default, the tool is configured to profile and generate report upto 1000 VMs.
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-With the default settings, to profile say 1500 VMs, create two VMList.txt files. One with 1000 VMs and other with 500 VM list. Run the two instances of ASR Deployment Planner, one with VMList1.txt and other with VMList2.txt. You can use the same directory path to store the profiled data of both the VMList VMs. 
+With the default settings, to profile say 1500 VMs, create two VMList.txt files. One with 1000 VMs and other with 500 VM list. Run the two instances of ASR Deployment Planner, one with VMList1.txt and other with VMList2.txt. You can use the same directory path to store the profiled data of both the VMList VMs.
 
 We have seen that based on the hardware configuration especially RAM size of the server from where the tool is run to generate the report, the operation may fail with insufficient memory. If you have good hardware, you can change the  MaxVMsSupported any higher value.  
 
@@ -176,7 +176,7 @@ By default, the tool is configurd to profile and generate report upto 1000 VMs. 
 
 #### Example 1: Generate a report with default values when the profiled data is on the local drive
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualiztion VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
 #### Example 2: Generate a report when the profiled data is on a remote server
@@ -290,4 +290,3 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## Next steps
 * [Analyze the generated report](site-recovery-vmware-deployment-planner-analyze-report.md).
-

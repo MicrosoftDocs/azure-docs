@@ -1,5 +1,5 @@
 ---
-title: Video Moderation in Azure Content Moderator | Microsoft Docs
+title: Azure Content Moderator - video moderation | Microsoft Docs
 description: Use video moderation to scan for possible adult and racy content.
 services: cognitive-services
 author: sanjeev3
@@ -8,7 +8,7 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 02/02/2018
 ms.author: sajagtap
 ---
 
@@ -16,7 +16,7 @@ ms.author: sajagtap
 
 Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you lower the cost of your moderation efforts.
 
-## Sign up for the Content Moderator media processor
+## Sign up for the Content Moderator media processor (public preview)
 
 ### Create a free Azure account
 
@@ -24,17 +24,9 @@ Today, online viewers generate billions of video views across popular and region
 
 ### Create an Azure Media Services account
 
-The Content Moderator's video capability is available as a private preview **media processor** in Azure Media Services (AMS) at no charge.
+The Content Moderator's video capability is available as a public preview **media processor** in Azure Media Services (AMS) at no charge.
 
 [Create an Azure Media Services account](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) in your Azure subscription.
-
-### Request access to Content Moderator private preview
-
-[Submit](https://cognitive.uservoice.com/ "Contact Us") the following information to request access to the private preview:
-
-   - Your Azure subscription ID
-   - Your Azure Media Services account name
-   - Your region
 
 ### Get Azure Active Directory credentials
 
@@ -44,7 +36,15 @@ The Content Moderator's video capability is available as a private preview **med
    > [!NOTE]
    > The sample code in this quickstart uses the **service principal authentication** method described in both the articles.
 
-## Create your Visual Studio project
+Once you get your AMS credentials, there are two ways to try the Content Moderator media processor.
+
+## Use Azure Media Services Explorer
+
+Use the interactive [Azure Media Services (AMS) explorer](https://azure.microsoft.com/en-us/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) to browse your AMS account, upload videos, and scan with the Content Moderator media processor. [Download and install it](https://github.com/Azure/Azure-Media-Services-Explorer/releases) from GitHub, and [browse the source code](http://github.com/Azure/Azure-Media-Services-Explorer) to dive into using the AMS SDK.
+
+![Azure Media Services explorer with Content Moderator](images/ams-explorer-content-moderator.PNG)
+
+## .NET QuickStart with Visual Studio and C#
 
 1. Add a new **Console app (.NET Framework)** project to your solution.
 
@@ -116,8 +116,6 @@ Create a JSON file in the current directory with the version number.
     //             "version": "2.0"
     //        }
     private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
-
-## Add code to moderate a video and get results
 
 ### Add the following code to the main method
 
@@ -353,7 +351,7 @@ These methods download the Content Moderator output file (JSON) from the Azure M
 		}
 	}
 
-## Run the program and review the output
+### Run the program and review the output
 
 After the Content Moderation job is completed, analyze the JSON response. It consists of these elements:
 
@@ -363,8 +361,8 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 - **Key frames** that include a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores (between 0 and 1).
  
 > [!NOTE]
-> Location of a keyframe in seconds = timestamp/timescale
 
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -418,4 +416,10 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) from your moderation output.
+
+Add [transcript moderation](video-transcript-moderation-review-tutorial-dotnet.md) to your video reviews.
+
+Check out the detailed tutorial on how to build a [complete video and transcript moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).
+
+[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.

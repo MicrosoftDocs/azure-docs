@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ---
-# Networking considerations for an App Service environment #
+# Networking considerations for an App Service Environment #
 
 ## Overview ##
 
@@ -50,6 +50,13 @@ The normal app access ports are:
 |  Visual Studio remote debugging  |  User configurable |  4016, 4018, 4020, 4022 |
 
 This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an effect on some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
+
+## ASE subnet size ##
+
+The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are 5 addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE then it will use 13 addresses before you create an app in that ASE. As you scale out your App Serivce plans it will require additional addresses for each Front End that is added.  By default, Front End servers are added for every 15 total App Service plan instances. 
+
+   > [!NOTE]
+   > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/25` with 128 addresses.
 
 ## ASE dependencies ##
 
@@ -146,7 +153,7 @@ In an ASE, you don't have access to the VMs used to host the ASE itself. They're
 
 NSGs can be configured through the Azure portal or via PowerShell. The information here shows the Azure portal. You create and manage NSGs in the portal as a top-level resource under **Networking**.
 
-When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. The VNet address range is _192.168.250.0/16_, and the subnet that the ASE is in is _192.168.251.128/25_.
+When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. The VNet address range is _192.168.250.0/23_, and the subnet that the ASE is in is _192.168.251.128/25_.
 
 The first two inbound requirements for the ASE to function are shown at the top of the list in this example. They enable ASE management and allow the ASE to communicate with itself. The other entries are all tenant configurable and can govern network access to the ASE-hosted applications. 
 
@@ -164,13 +171,13 @@ After your NSGs are defined, assign them to the subnet that your ASE is on. If y
 
 ## Routes ##
 
-Routes become problematic most commonly when you configure your VNet with Azure ExpressRoute. There are three types of routes in a VNet:
+Routes are a critical aspect of what forced tunneling is and how to deal with it. In an Azure virtual network, routing is done based on the longest prefix match (LPM). If there is more than one route with the same LPM match, a route is selected based on its origin in the following order:
 
--   System routes
--   BGP routes
--   User-defined routes (UDRs)
+- User-defined route (UDR)
+- BGP route (when ExpressRoute is used)
+- System route
 
-BGP routes override system routes. UDRs override BGP routes. For more information about routes in Azure virtual networks, see [User-defined routes overview][UDRs].
+To learn more about routing in a virtual network, read [User-defined routes and IP forwarding][UDRs].
 
 The Azure SQL database that the ASE uses to manage the system has a firewall. It requires communication to originate from the ASE public VIP. Connections to the SQL database from the ASE will be denied if they are sent down the ExpressRoute connection and out another IP address.
 

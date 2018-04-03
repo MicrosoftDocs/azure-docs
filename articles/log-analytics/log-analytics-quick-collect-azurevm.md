@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
 ---
@@ -26,16 +26,17 @@ This quickstart assumes you have an existing Azure virtual machine. If not you c
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Create a workspace
-1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. Click **Create**, and then select choices for the following items:
 
   * Provide a name for the new **OMS Workspace**, such as *DefaultLAWorkspace*. 
   * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
   * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
   * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
-  * You can choose from three different **pricing tiers** in Log Analytics, but for this quickstart you are going to select the **free** tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
+  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
-        ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
 3. After providing the required information on the **OMS Workspace** pane, click **OK**.  
 
 While the information is verified and the workspace is created, you can track its progress under **Notifications** from the menu. 
@@ -46,10 +47,7 @@ For Windows and Linux virtual machines already deployed in Azure, you install th
 >[!NOTE]
 >The OMS agent for Linux cannot be configured to report to more than one Log Analytics workspace. 
 
-If you created a workspace in Azure Government cloud, you may notice the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.  The upgrade is not needed for the purposes of this quickstart.<br>
-
-![Log Analytics upgrade notice in the Azure portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
-1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select *DefaultLAWorkspace* created earlier.
 3. On the left-hand menu, under Workspace Data Sources, click **Virtual machines**.  
 4. In the list of **Virtual machines**, select a virtual machine you want to install the agent on. Notice that the **OMS connection status** for the VM indicates that it is **Not connected**.
@@ -84,10 +82,6 @@ Now that you have enabled data collection, lets run a simple log search example 
 
 1. In the Azure portal, navigate to Log Analytics and select the workspace created earlier.
 2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br> ![Log Analytics log search query example](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
-
-   >[!NOTE]
-   >If your workspace is created in Azure Government cloud, you will use the query `Type=Perf`.  
-   >
 
 For example, the query in the following image returned 78,000 Performance records.  Your results will be significantly less.<br> ![Log Analytics log search result](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 

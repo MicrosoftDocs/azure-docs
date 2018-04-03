@@ -55,7 +55,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-pportal">
+        <a href="/azure/virtual-network/quick-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -73,7 +73,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-ps">
+        <a href="/azure/virtual-network/quick-create-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -91,7 +91,7 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-cli">
+        <a href="/azure/virtual-network/quick-create-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

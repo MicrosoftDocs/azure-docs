@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 09/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -26,7 +26,7 @@ In this tutorial, part six of seven, the sample Azure Vote app is updated. Tasks
 > * Pushing the container image to Azure Container Registry
 > * Deploying the updated container image
 
-In subsequent tutorials, Operations Management Suite is configured to monitor the Kubernetes cluster.
+In subsequent tutorials, Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 
@@ -76,7 +76,7 @@ Browse to http://localhost:8080 to see the updated application.
 
 Tag the `azure-vote-front` image with the loginServer of the container registry. 
 
-Get the login server name with the [az acr list](/cli/azure/acr#list) command.
+Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -163,7 +163,7 @@ In this tutorial, you updated an application and rolled out this update to a Kub
 > * Pushed the container image to Azure Container Registry
 > * Deployed the updated application
 
-Advance to the next tutorial to learn about how to monitor Kubernetes with Operations Management Suite.
+Advance to the next tutorial to learn about how to monitor Kubernetes with Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Monitor Kubernetes with OMS](./container-service-tutorial-kubernetes-monitor.md)
+> [Monitor Kubernetes with Log Analytics](./container-service-tutorial-kubernetes-monitor.md)

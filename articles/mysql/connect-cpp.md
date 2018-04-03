@@ -1,16 +1,16 @@
 ---
-title: 'Connect to Azure Database for MySQL from C++ | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL from C++'
 description: This quickstart provides a C++ code sample you can use to connect and query data from Azure Database for MySQL.
 services: mysql
-author: seanli1988
-ms.author: seal
-manager: janders
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
-ms.date: 09/22/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use Connector/C++ to connect and query data
@@ -47,11 +47,10 @@ The steps in this section assume that you are familiar with developing using .NE
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources**, and the search for the server you have created (such as **myserver4demo**).
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
-4. Select the server's **Properties** page, and then make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for MySQL server name](./media/connect-cpp/1_server-properties-name-login.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for MySQL server name](./media/connect-cpp/1_server-overview-name-login.png)
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data by using **CREATE TABLE** and **INSERT INTO** SQL statements. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method createStatement() and execute() to run the database commands. 
@@ -80,7 +79,7 @@ int main()
 	{
 		driver = get_driver_instance();
 		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+		con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
 	}
 	catch (sql::SQLException e)
 	{
@@ -148,7 +147,7 @@ int main()
 	{
 		driver = get_driver_instance();
 		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+		con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
 	}
 	catch (sql::SQLException e)
 	{
@@ -198,7 +197,7 @@ int main()
 	{
 		driver = get_driver_instance();
 		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+		con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
 	}
 	catch (sql::SQLException e)
 	{
@@ -250,7 +249,7 @@ int main()
 	{
 		driver = get_driver_instance();
 		//for demonstration only. never save password in the code!
-		con = driver>connect("tcp://myserver4demo.mysql.database.azure.com:3306/quickstartdb", "myadmin@myserver4demo", "server_admin_password");
+		con = driver>connect("tcp://mydemoserver.mysql.database.azure.com:3306/quickstartdb", "myadmin@mydemoserver", "server_admin_password");
 	}
 	catch (sql::SQLException e)
 	{

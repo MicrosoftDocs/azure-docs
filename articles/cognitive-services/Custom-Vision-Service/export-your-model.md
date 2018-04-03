@@ -3,7 +3,7 @@ title: Export your model to mobile  | Microsoft Docs
 description: Export your model to mobile 
 services: cognitive-services
 author: anrothMSFT
-manager: anroth
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: custom vision service

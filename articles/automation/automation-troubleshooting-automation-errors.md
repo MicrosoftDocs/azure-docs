@@ -2,22 +2,14 @@
 title: Troubleshooting common Azure Automation issues | Microsoft Docs
 description: This article provides information to help troubleshoot and fix common Azure Automation errors.
 services: automation
-documentationcenter: ''
+ms.service: automation
 author: georgewallace
-manager: stevenka
-editor: tysonn
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
 tags: top-support-issue
 keywords: automation error, troubleshooting, issue
-
-ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
-ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: sngun; v-reagie
-
 ---
 # Troubleshooting common issues in Azure Automation 
 This article provides help troubleshooting common errors you might experience in Azure Automation and suggests possible solutions to resolve them.
@@ -229,11 +221,19 @@ You can delete the query for this solution, and reonboard the solution, which re
 
 **Reason for the error:**
 
-This error code means that the deployment failed due to violation of a policy.
+This error code means that the deployment failed due to violation of one or more policies.
 
 **Troubleshooting tips:**
 
-Check the notifications in the top right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. For learn more about Azure Policy visit: [Overview of Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
+In order to successfully deploy the solution, you need to consider altering the indicated policy. As there are many different types of policies that can be defined, the specific changes required depend on the policy that is violated. For example, if a policy was defined on a resource group that denied permission to change the contents of certain types of resources within that resource group, you could, for example, do any of the following:
+
+*	Remove the policy altogether.
+* Try to onboard to a different resource group.
+* Revise the policy, by, for example:
+   * Re-targeting the policy to a a specific resource (such as to a specific Automation account).
+   * Revising the set of resources that policy was configured to deny.
+
+Check the notifications in the top right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy visit: [Overview of Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## Next steps
 

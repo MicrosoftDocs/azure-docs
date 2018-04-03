@@ -24,7 +24,7 @@ This article shows the keyboard shortcuts that work throughout the Azure portal.
 |To do this |Press |
 | --- | --- |
 |Create a new resource|G+N|
-|Open the 'More services' pane|G+B|
+|Open the 'All services' pane|G+B|
 |Search resources|G+/| 
 |Search resource menu items|CTRL+/ |
 |Move the selected left pane item up |ALT+Shift+Up Arrow|

@@ -87,7 +87,7 @@ with these settings:
    | **Replication** | Locally redundant storage (LRS) | This setting specifies how your data is copied, stored, managed, and synchronized. See [Replication](../storage/common/storage-introduction.md#replication). | 
    | **Secure transfer required** | Disabled | This setting specifies the security required for requests from connections. See [Require secure transfer](../storage/common/storage-require-secure-transfer.md). | 
    | **Subscription** | <*your-Azure-subscription-name*> | The name for your Azure subscription | 
-   | **Resource group** | LA-Tutorial-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize and manage related resources. <p>**Note:** A resource group exists inside a specific region. Although the items this tutorial might not be available in all regions, try to use the same region when possible. | 
+   | **Resource group** | LA-Tutorial-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize and manage related resources. <p>**Note:** A resource group exists inside a specific region. Although the items in this tutorial might not be available in all regions, try to use the same region when possible. | 
    | **Location** | East US 2 | The region where to store information about your storage account | 
    | **Configure virtual networks** | Disabled | For this tutorial, keep the **Disabled** setting. | 
    |||| 
@@ -255,7 +255,7 @@ Logic Apps also has an **HTML to Text** connector.
 
 ## Create your logic app
 
-1. On the main Azure menu, choose **New** > **Enterprise Integration** > **Logic App**.
+1. On the main Azure menu, choose **Create a resource** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/tutorial-process-email-attachments-workflow/create-logic-app.png)
 

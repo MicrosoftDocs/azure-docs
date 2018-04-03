@@ -4,15 +4,15 @@ description: Learn how to copy data from Amazon Marketplace Web Service to suppo
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -48,9 +48,9 @@ The following properties are supported for Amazon Marketplace Web Service linked
 | endpoint | The endpoint of the Amazon MWS server, (that is, mws.amazonservices.com)  | Yes |
 | marketplaceID | The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (`,`). (that is, A2EUQ1WTGCTBG2)  | Yes |
 | sellerID | The Amazon seller ID.  | Yes |
-| mwsAuthToken | The Amazon MWS authentication token. You can choose to mark this field as a SecureString to store it securely by the Data Factory service, or store password in Azure Key Vault and let the copy acitivity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| mwsAuthToken | The Amazon MWS authentication token. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | accessKeyId | The access key ID used to access data.  | Yes |
-| secretKey | The secret key used to access data. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy acitivity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| secretKey | The secret key used to access data. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |

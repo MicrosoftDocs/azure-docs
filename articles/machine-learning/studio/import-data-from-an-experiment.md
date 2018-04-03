@@ -4,7 +4,7 @@ description: How to save training data in Azure Machine Learning Studio and use 
 keywords: import data,data,data sources,training data
 services: machine-learning
 documentationcenter: ''
-author: garyericson
+author: bradsev
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye;bradsev
+ms.author: bradsev
 
 ---
 # Import your data into Azure Machine Learning Studio from another experiment

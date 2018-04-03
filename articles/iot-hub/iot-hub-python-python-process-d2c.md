@@ -115,6 +115,9 @@ In this section, you create both a Service Bus queue and a Storage account, conn
 
 1. Create a Service Bus queue as described in [Get started with queues][lnk-sb-queues-node]. Make a note of the namespace and queue name.
 
+    > [!NOTE]
+    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
+
 1. In the Azure portal, open your IoT hub and click **Endpoints**.
 
     ![Endpoints in IoT hub][30]

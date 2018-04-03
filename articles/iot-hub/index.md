@@ -38,7 +38,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
+        <a href="https://azure.microsoft.com/resources/videos/index/?sort=newest&tag=internet-of-things">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

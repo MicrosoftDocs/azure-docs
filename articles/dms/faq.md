@@ -78,6 +78,9 @@ You can do a few things to speed up your database migration using the service:
 ### Q. How do I set up an Azure Virtual Network?
 While multiple Microsoft tutorials that can walk you through the process of setting up an Azure VNET, the official documentation appears in the article [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
 
+### Q. Why is my Azure Database Migration Service unavailable or stopped?
+If the user explicitly stops the Azure Database Migration Service (DMS) or if the service is inactive for a period of 24 hours, the service will be in a stopped or auto paused state. In each case, the service will be unavailable and in a stopped status.  To resume active migrations, restart the service.
+
 ### Q. Where can I leave feedback about the Azure Database Migration Service?
 We want to hear from you. Please send any feedback and/ideas you have about the Azure Database Migration Service via User Voice, [here](https://feedback.azure.com/forums/906100-azure-database-migration-service).
 

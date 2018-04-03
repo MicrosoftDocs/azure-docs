@@ -37,9 +37,7 @@ Automatic OS upgrade has the following characteristics:
 While in preview, the following limitations and restrictions apply:
 
 - Automatic OS upgrades only support [four OS SKUs](#supported-os-images). There is no SLA or guarantees. We recommend you do not use automatic upgrades on production critical workloads during preview.
-- Support for scale sets in Service Fabric clusters is coming soon.
 - Azure disk encryption (currently in preview) is **not** currently supported with virtual machine scale set automatic OS upgrade.
-- A portal experience is coming soon.
 
 
 ## Register to use Automatic OS Upgrade
@@ -55,17 +53,23 @@ It takes approximately 10 minutes for registration state to report as *Registere
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-We recommend that your applications use health probes. To register the provider feature for health probes, use [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) as follows:
+> [!NOTE]
+> Service Fabric clusters have their own notion of application health, but scale sets without Service Fabric use the load balancer health probe to monitor application health. To register the provider feature for health probes, use [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) as follows:
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> Again, it takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Once registered ensure that the *Microsoft.Network* provider is registered with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) as follows:
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## Portal experience
+Once you follow the registration steps above, you can go to [the Azure portal](https://aka.ms/managed-compute) to enable automatic OS upgrades on your scale sets and to see the progress of upgrades:
 
-Again, it takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Once registered ensure that the *Microsoft.Network* provider is registered with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) as follows:
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## Supported OS images
@@ -82,7 +86,10 @@ The following SKUs are currently supported (more will be added):
 
 
 
-## Application Health
+## Application Health without Service Fabric
+> [!NOTE]
+> This section only applies for scale sets without Service Fabric. Service Fabric has its own notion of application health. When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+
 During an OS Upgrade, VM instances in a scale set are upgraded one batch at a time. The upgrade should continue only if the customer application is healthy on the upgraded VM instances. We recommend that the application provides health signals to the scale set OS Upgrade engine. By default, during OS Upgrades the platform considers VM power state and extension provisioning state to determine if a VM instance is healthy after an upgrade. During the OS Upgrade of a VM instance, the OS disk on a VM instance is replaced with a new disk based on latest image version. After the OS Upgrade has completed, the configured extensions are run on these VMs. Only when all the extensions on a VM are successfully provisioned, is the application considered healthy. 
 
 A scale set can optionally be configured with Application Health Probes to provide the platform with accurate information on the ongoing state of the application. Application Health Probes are Custom Load Balancer Probes that are used as a health signal. The application running on a scale set VM instance can respond to external HTTP or TCP requests indicating whether it is healthy. For more information on how Custom Load Balancer Probes work, see to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md). An Application Health Probe is not required for automatic OS upgrades, but it is highly recommended.

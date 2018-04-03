@@ -16,16 +16,13 @@ ms.custom: mvc
 ---
 
 # Create and provision a simulated X.509 device using Java device SDK for IoT Hub Device Provisioning Service
-> [!div class="op_single_selector"]
-> * [C](quick-create-simulated-device-x509.md)
-> * [Java](quick-create-simulated-device-x509-java.md)
-> * [C#](quick-create-simulated-device-x509-csharp.md)
-> * [Python](quick-create-simulated-device-x509-python.md)
+[!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
 Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
+[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
 ## Prepare the environment 
 
@@ -40,7 +37,12 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
-
+1. Navigate to the root azure-iot-sdk-java directory and build the project to download all needed packages.
+   
+   ```cmd/sh
+   cd azure-iot-sdk-java
+   mvn install -DskipTests=true
+   ```
 1. Navigate to the certificate generator project and build the project. 
 
     ```cmd/sh
@@ -77,6 +79,9 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
         1. Enter **Y** for _Do you want to input Verification Code_ and keep the program open for use later in the Quickstart. Note the _Client Cert_, _Client Cert Private Key_, _Signer Cert_, and _Root Cert_ values.
 
+        > [!NOTE]
+        > The `Root Cert` above is only applicable to certificates created in the console output and cannot be used to sign additional client certificates. If you require a more robust set of testing certificates, see the [Managing CA Certificates Sample](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+        >
 
 ## Create a device enrollment entry
 
@@ -190,7 +195,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
     		String rootPem = "<Your Root Certificate here>";
     			
     		signerCertificates.add(intermediatePem);
-    		signerCertificates.add(root);
+    		signerCertificates.add(rootPem);
             ```
     
             - Use the following format for including your certificates:

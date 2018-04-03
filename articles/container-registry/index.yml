@@ -24,15 +24,15 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
       text: Azure CLI
       href: /azure/container-registry/container-registry-get-started-azure-cli
     - image:
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
       href: /azure/container-registry/container-registry-get-started-portal
     - image:
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/container-registry/container-registry-get-started-powershell
 - title: Step-by-Step Tutorials
@@ -57,6 +57,6 @@ sections:
     - title: Command-Line
       html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/java/api/overview/azure/containerregistry">Java</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/containerregistry">REST API Reference</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Resource Manager template</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Webhook schema</a></p>

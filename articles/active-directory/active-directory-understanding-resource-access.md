@@ -20,7 +20,7 @@ ms.custom: it-pro;
 ---
 # Understanding resource access in Azure
 
-Access control in Azure starts from a billing perspective. The owner of an Azure account, accessed by visiting the  [Azure Accounts Center](https://account.windowsazure.com/subscriptions), is the Account Administrator (AA). Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the [Azure portal](https://portal.azure.com/). The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Accounts Center.
+Access control in Azure starts from a billing perspective. The owner of an Azure account, accessed by visiting the  [Azure Account Center](https://account.azure.com), is the Account Administrator (AA). Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the [Azure portal](https://portal.azure.com/). The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Account Center.
 
 <br><br>![Azure Accounts][1]
 

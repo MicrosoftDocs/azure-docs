@@ -21,7 +21,7 @@ ms.author: kuhussai
 
 ## Overview
 
-Azure storage offers three storage tiers for Blob object storage so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and stored for at least 30 days. The Azure **archive storage tier** is optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements (on the order of hours). The archive storage tier is only available at the blob level and not at the storage account level. Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool data, a slightly lower availability SLA and higher access costs compared to hot data are acceptable trade-offs for lower storage costs. Archive storage is offline and offers the lowest storage costs but also the highest access costs.
+Azure storage offers three storage tiers for Blob object storage so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and stored for at least 30 days. The Azure **archive storage tier** is optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements (on the order of hours). The archive storage tier is only available at the blob level and not at the storage account level. Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool data, a slightly lower availability SLA and higher access costs compared to hot data are acceptable trade-offs for lower storage costs. Archive storage is offline and offers the lowest storage costs but also the highest access costs. Only the hot and cool storage tiers (not archive) can be set at the account level. All three tiers can be set at the object level.
 
 Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency-of-access and planned retention period to optimize costs. Data stored in the cloud can be different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
 
@@ -56,7 +56,7 @@ While a blob is in archive storage, it is offline and cannot be read (except the
 
 Example usage scenarios for the archive storage tier include:
 
-* Long-term backup, archival, and disaster recovery datasets
+* Long-term backup, secondary backup, and archival datasets
 * Original (raw) data that must be preserved, even after it has been processed into final usable form. (*For example*, Raw media files after transcoding into other formats)
 * Compliance and archival data that needs to be stored for a long time and is hardly ever accessed. (*For example*, Security camera footage, old X-Rays/MRIs for healthcare organizations, audio recordings, and transcripts of customer calls for financial services)
 
@@ -76,11 +76,11 @@ Blobs in all three storage tiers can co-exist within the same account. Any blob 
 
 ### Blob-level tiering billing
 
-When a blob is moved to a cooler tier (hot->cool, hot->archive, or cool->archive), the operation is billed as a write into the destination tier, and the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. If a blob is moved to a warmer tier (archive->cool, archive->hot, or cool->hot), the operation is billed as a read from the source tier, and the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply.
+When a blob is moved to a cooler tier (hot->cool, hot->archive, or cool->archive), the operation is billed as a write of the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. If a blob is moved to a warmer tier (archive->cool, archive->hot, or cool->hot), the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply.
 
 If you toggle the account tier from hot to cool, you will be charged for write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only. There is no charge for this in Blob Storage accounts. You will be charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle your Blob Storage or GPv2 account from cool to hot. Early deletion charges for any blob moved out of the cool or archive tier may apply as well.
 
-### Cool and archive early deletion (effective February 1, 2018)
+### Cool and archive early deletion
 
 In addition to the per GB, per month charge, any blob that is moved into the cool tier (GPv2 accounts only) is subject to a cool early deletion period of 30 days, and any blob that is moved into the archive tier is subject to an archive early deletion period of 180 days. This charge is prorated. For example, if a blob is moved to archive and then deleted or moved to the hot tier after 45 days, you will be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in archive.
 
@@ -174,7 +174,7 @@ Each blob is always billed according to the tier indicated by **Access Tier** bl
 
 **How do I determine if I will incur an early deletion charge when deleting or moving a blob out of the cool or archive tier?**
 
-Any blob that is deleted or moved out of the cool (GPv2 accounts only) or archive tier before 30 days and 180 days respectively will incur a prorated early deletion charge (effective February 1, 2018). You can determine how long a blob has been in the cool or archive tier by checking the **Access Tier Change Time** blob property which provides a stamp of the last tier change. See [Cool and archive early deletion](#cool-and-archive-early-deletion) section for more details.
+Any blob that is deleted or moved out of the cool (GPv2 accounts only) or archive tier before 30 days and 180 days respectively will incur a prorated early deletion charge. You can determine how long a blob has been in the cool or archive tier by checking the **Access Tier Change Time** blob property which provides a stamp of the last tier change. See [Cool and archive early deletion](#cool-and-archive-early-deletion) section for more details.
 
 **Which Azure tools and SDKs support blob-level tiering and archive storage?**
 

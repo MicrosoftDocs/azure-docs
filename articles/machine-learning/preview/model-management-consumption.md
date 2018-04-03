@@ -4,41 +4,41 @@ description: This document describes the steps and concepts involved in consumin
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ---
 # Consuming web services
-Once you deploy a model as a realtime web service, you can send it data and get predictions from a variety of platforms and applications. THe realtime web service exposes a REST API for getting predictions. You can send data to the web service in the single or multi-row format to get one or more predictions at at time.
+Once you deploy a model as a realtime web service, you can send it data and get predictions from a variety of platforms and applications. THe realtime web service exposes a REST API for getting predictions. You can send data to the web service in the single or multi-row format to get one or more predictions at a time.
 
-With the [Azure Machine Learning Web service](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), an external application synchronously communicates with a predictive model by making HTTP POST call to the service URL. To make a web service call, the client application needs to specify the API key that is created when you deploy a prediction, and put the request data into the POST request body.
+With the [Azure Machine Learning Web service](model-management-service-deploy.md), an external application synchronously communicates with a predictive model by making HTTP POST call to the service URL. To make a web service call, the client application needs to specify the API key that is created when you deploy a prediction, and put the request data into the POST request body.
 
 Note that API keys are only available in the cluster deployment mode. Local web services do not have keys.
 
 ## Service deployment options
-Azure Machine Learning Web services can be deployed to the cloud based clusters for both production and test scenarios, and to local workstations using docker engine. The functionality of the predictive model in both cases remains the same. Cluster based deployment provides scalable and performant solution based on Azure Container Services, while the local deployment can be used for debugging. 
+Azure Machine Learning Web services can be deployed to the cloud-based clusters for both production and test scenarios, and to local workstations using docker engine. The functionality of the predictive model in both cases remains the same. Cluster-based deployment provides scalable and performant solution based on Azure Container Services, while the local deployment can be used for debugging. 
 
 The Azure Machine Learning CLI and API provides convenient commands for creating and managing compute environments for service deployments using the ```az ml env``` option. 
 
 ## List deployed services and images
-You can list the currently deployed services and Docker images using CLI command ```az ml service list realtime -o table```. Note that this command always works in the context of the current compute environment, and would not show services that are deployed in an environment that is not set to be the current. To set the environment use ```az ml env set```. 
+You can list the currently deployed services and Docker images using CLI command ```az ml service list realtime -o table```. Note that this command always works in the context of the current compute environment. It would not show services that are deployed in an environment that is not set to be the current. To set the environment use ```az ml env set```. 
 
 ## Get service information
 After the web service has been successfully deployed, use the following command to get the service URL and other details for calling the service endpoint. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
-This command will print out the service URL, required request headers, swagger URL, and sample data for calling the service if the service API schema was provided at the deployment time.
+This command prints out the service URL, required request headers, swagger URL, and sample data for calling the service if the service API schema was provided at the deployment time.
 
-You can test the service directly from the CLI without composing an HTTP requst, by entering the sample CLI command with the input data:
+You can test the service directly from the CLI without composing an HTTP request, by entering the sample CLI command with the input data:
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## Get the service API key
@@ -50,7 +50,7 @@ az ml service keys realtime -i <web service id>
 When creating HTTP request, use the key in the authorization header: "Authorization": "Bearer <key>"
 
 ## Get the service Swagger description
-If the service API schema was supplied the service endpoint would expose a Swagger document at ```http://<ip>/api/v1/service/<service name>/swagger.json```. The Swagger document can be used to automatically generate the service client and explore the expected input data and other details about the service.
+If the service API schema was supplied, the service endpoint would expose a Swagger document at ```http://<ip>/api/v1/service/<service name>/swagger.json```. The Swagger document can be used to automatically generate the service client and explore the expected input data and other details about the service.
 
 ## Get service logs
 To understand the service behavior and diagnose problems, there are several ways to retrieve the service logs:

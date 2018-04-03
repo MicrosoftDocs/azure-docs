@@ -38,7 +38,7 @@ This tutorial assumes you have code that looks like the following or that you ha
    [!code-javascript[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/nodejs/app.js "Web app bot with LUIS")]
 
 ## Add Application Insights library to web app bot
-Currently, Application Insights in this web app bot collects general state telemetry for the bot. It does not collect LUIS request and response information that you need to check and fix your intents and entities. 
+Currently, the Application Insights service, used in this web app bot, collects general state telemetry for the bot. It does not collect LUIS request and response information that you need to check and fix your intents and entities. 
 
 In order to capture the LUIS request and response, the web app bot needs the **[Application Insights](https://www.npmjs.com/package/applicationinsights)** NPM package installed and configured in the **app.js** file. Then the intent dialog handlers need to send the LUIS request and response information to Application Insights. 
 
@@ -151,7 +151,9 @@ Learn more about the [Kusto query language](https://docs.loganalytics.io/docs/Le
 
 ## Next steps
 
-You can edit the LUIS intents and entities for the HomeAutomation app based on the utterances in Application Insights. 
+Other information you may want to add to the application insights data includes app ID, version ID, last model change date, last train date, last publish date. These values can either be retrieved from the endpoint URL (app ID and version ID), or from an [authoring API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) call then set in the web app bot settings and pulled from there.  
+
+If you are using the same endpoint subscription for more than one LUIS app, you should also include the subscription ID and a property stating that it is a shared key. 
 
 > [!div class="nextstepaction"]
 > [Learn more about example utterances](Add-example-utterances.md)

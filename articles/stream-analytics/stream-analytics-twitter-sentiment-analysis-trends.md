@@ -4,9 +4,8 @@ description: Learn how to use Stream Analytics for real-time Twitter sentiment a
 keywords: real-time twitter trend analysis, sentiment analysis, social media analysis, trend analysis example
 services: stream-analytics
 documentationcenter: ''
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 
 ms.assetid: 42068691-074b-4c3b-a527-acafa484fda2
 ms.service: stream-analytics
@@ -15,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
-ms.author: samacha
+ms.author: jeanb
 ---
 
 # Real-time Twitter sentiment analysis in Azure Stream Analytics
@@ -48,7 +47,7 @@ The sample application generates events and pushes them to an Azure event hub. A
 ### Create an event hub namespace and event hub
 In this procedure, you first create an event hub namespace, and then you add an event hub to that namespace. Event hub namespaces are used to logically group related event bus instances. 
 
-1. Log  in to the Azure portal and click **New** > **Internet of Things** > **Event Hub**. 
+1. Log  in to the Azure portal and click **Create a resource** > **Internet of Things** > **Event Hub**. 
 
 2. In the **Create namespace** blade, enter a namespace name such as `<yourname>-socialtwitter-eh-ns`. You can use any name for the namespace, but the name must be valid for a URL and it must be unique across Azure. 
     
@@ -197,7 +196,7 @@ The following procedure documents both approaches.
 
 Now that tweet events are streaming in real time from Twitter, you can set up a Stream Analytics job to analyze these events in real time.
 
-1. In the Azure portal, click **New** > **Internet of Things** > **Stream Analytics job**.
+1. In the Azure portal, click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
 
 2. Name the job `socialtwitter-sa-job` and specify a subscription, resource group, and location.
 

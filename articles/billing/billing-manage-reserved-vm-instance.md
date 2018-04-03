@@ -24,7 +24,7 @@ After you buy an Azure Reserved VM Instance, you may want to apply the reservati
 
 To update the scope of a reservation: 
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. Select **More Services** > **Reservations**.
+2. Select **All Services** > **Reservations**.
 3. Select the reservation.
 4. Select **Settings** > **Configuration**.
 5. Change the scope. If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reservation, can be selected. The billing context is determined by the subscription that you selected when the reservation was bought. The scope only applies to Pay-As-You-Go offer MS-AZR-0003P subscriptions and Enterprise offer MS-AZR-0017P subscriptions. For enterprise agreements, dev/test subscriptions are not eligible to get the reservation discount.
@@ -65,12 +65,22 @@ You can manage access to reservations independently from the subscriptions that 
  
 To delegate access management for a reservation: 
 1.	Log in to the [Azure portal](https://portal.azure.com).
-2.	Select **More Services** > **Reservation** to list reservations that you have access to.
+2.	Select **All Services** > **Reservation** to list reservations that you have access to.
 3.	Select the reservation that you want to delegate access to other users.
 4.	Select **Access Control (IAM)** in the menu.
 5.	Select **Add** > **Role** > **Owner** (or a different role if you want to give limited access). 
 6. Type the email address of the user you want to add as Owner. 
 7. Select the user, and then select **Save**.
+
+## Next steps
+To learn more about Reserved Virtual Machine Instances, see the following articles.
+
+- [Prepay for Virtual Machines with Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Save money on virtual machines with Reserved Virtual Machine Instances](billing-save-compute-costs-reservations.md)
+- [Understand how the Reserved Virtual Machine Instance discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand Reserved Instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
+- [Understand Reserved Instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md)
 
 ## Need help? Contact support
 

@@ -408,7 +408,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attributes|Description|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | The maximum amount of local disk space that may be consumed by the various types of diagnostic data collected by Azure Diagnostics. The default setting is 5120 MB.<br />
+| **overallQuotaInMB** | The maximum amount of local disk space that may be consumed by the various types of diagnostic data collected by Azure Diagnostics. The default setting is 4096 MB.<br />
 |**useProxyServer** | Configure Azure Diagnostics to use the proxy server settings as set in IE settings.|  
 
 <br /> <br />

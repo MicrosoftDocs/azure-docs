@@ -22,7 +22,7 @@ ms.author: mimig
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use an existing [MongoDB](mongodb-introduction.md) app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
+This quickstart demonstrates how to use an existing MongoDB app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections by using the [MongoDB API](mongodb-introduction.md). In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
 When you are done, you will have a MEAN application (MongoDB, Express, Angular, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
@@ -64,7 +64,7 @@ The application will try to connect to a MongoDB source and fail, go ahead and e
 
 ## Log in to Azure
 
-If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
+If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -78,7 +78,7 @@ If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0]( /c
 
 ## Create a resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#az_group_create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
@@ -90,7 +90,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#create) command.
+Create an Azure Cosmos DB account with the [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command.
 
 In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb-name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.com/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 

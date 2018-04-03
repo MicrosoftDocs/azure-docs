@@ -1,6 +1,6 @@
 ---
 title: Deploy a Spring Boot application to Azure Service Fabric | Microsoft Docs
-description: Deploy a Spring Boot application for Azure Service Fabric using the Spring Boot Getting Started.
+description: In this quickstart, you deploy a Spring Boot application for Azure Service Fabric using a Spring Boot sample application.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -19,7 +19,7 @@ ms.custom: mvc, devcenter
 
 ---
 
-# Deploy a Spring Boot Application
+# Quickstart: deploy a Java Spring Boot Application to Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
 This quickstart demonstrates how to deploy a Spring Boot application to Service Fabric. This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric. 
@@ -100,6 +100,14 @@ You can now access the Spring Boot application that was deployed to a Service Fa
 To deploy the application to a cluster in Azure, create your own cluster.
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
+
+In order to perform management operations on the secure party cluster, you can use Service Fabric Explorer, CLI, or Powershell. To use Service Fabric Explorer, you will need to download the PFX file from the Party Cluster website and import the certificate into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). There is no password for the self-signed certificates from the party cluster. 
+
+To perform management operations with Powershell or CLI, you will need the PFX (Powershell) or PEM (CLI). To convert the PFX to a PEM file, please run the following command:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 For information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 

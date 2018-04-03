@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Service Fabric container application on Linux | Microsoft Docs
-description: Create your first Linux container application on Azure Service Fabric.  Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
+description: In this quickstart, you create your first Linux container application on Azure Service Fabric.  Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Deploy an Azure Service Fabric Linux container application on Azure
+# Quickstart: deploy an Azure Service Fabric Linux container application on Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
 This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a Python web front-end and a Redis back-end running in a Service Fabric cluster. 
@@ -32,50 +32,47 @@ In this quickstart, you learn how to:
 > * Scale and failover containers in Service Fabric
 
 ## Prerequisite
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-If you choose to install and use the command-line interface (CLI) locally, ensure you are running the Azure CLI version 2.0.4 or later. To find the version, run az --version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+2. If you choose to install and use the command-line interface (CLI) locally, ensure you are running the Azure CLI version 2.0.4 or later. To find the version, run az --version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Get application package
 To deploy containers to Service Fabric, you need a set of manifest files (the application definition), which describe the individual containers and the application.
 
 In the cloud shell, use git to clone a copy of the application definition.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
+## Deploy the application to Azure
 
-## Deploy the containers to a Service Fabric cluster in Azure
-To deploy the application to a cluster in Azure, use your own cluster, or use a Party cluster.
+### Set up your Azure Service Fabric Cluster
+To deploy the application to a cluster in Azure, create your own cluster.
 
-> [!Note]
-> The application must be deployed to a cluster in Azure and not to a Service Fabric cluster on your local development machine. 
->
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
+In order to perform management operations on the secure party cluster, you can use Service Fabric Explorer, CLI, or Powershell. To use Service Fabric Explorer, you will need to download the PFX file from the Party Cluster website and import the certificate into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). There is no password for the self-signed certificates from the party cluster. 
+
+To perform management operations with Powershell or CLI, you will need the PFX (Powershell) or PEM (CLI). To convert the PFX to a PEM file, please run the following command:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 For information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> The web front-end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. If you are using a Party cluster, this port is open.
+> The web front end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
 >
 
 ### Install Service Fabric Command Line Interface and Connect to your cluster
-Install the [Service Fabric CLI (sfctl)](service-fabric-cli.md) in your CLI environment
 
-```azurecli-interactive
-pip3 install --user sfctl 
-export PATH=$PATH:~/.local/bin
-```
+Connect to the Service Fabric cluster in Azure using the Azure CLI. The endpoint is the management endpoint of your cluster - for example, `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-Connect to the Service Fabric cluster in Azure using the Azure CLI. The endpoint is the management endpoint of your cluster - for example, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
-
-```azurecli-interactive
-sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
+```bash
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 ### Deploy the Service Fabric application 
@@ -84,13 +81,13 @@ Service Fabric container applications can be deployed using the described Servic
 #### Deploy using Service Fabric application package
 Use the install script provided to copy the Voting application definition to the cluster, register the application type, and create an instance of the application.
 
-```azurecli-interactive
+```bash
 ./install.sh
 ```
 
 #### Deploy the application using Docker compose
 Deploy and install the application on the Service Fabric cluster using Docker Compose with the following command.
-```azurecli-interactive
+```bash
 sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 

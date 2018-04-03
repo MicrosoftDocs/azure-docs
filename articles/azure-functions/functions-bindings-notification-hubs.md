@@ -26,6 +26,12 @@ Azure Notification Hubs must be configured for the Platform Notifications Servic
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## Packages
+
+The Notification Hubs bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet package. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/) GitHub repository.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
+
 ## Example - template
 
 The notifications you send can be native notifications or [template notifications](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Native notifications target a specific client platform as configured in the `platform` property of the output binding. A template notification can be used to target multiple platforms.   
@@ -263,7 +269,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## Attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) attribute.
 
 The attribute's constructor parameters and properties are described in the [configuration](#configuration) section.
 
@@ -317,6 +323,12 @@ To configure the connection string to an existing notification hub:
 The name of this application setting is what goes in the output binding connection setting in *function.json* or the .NET attribute. See the [Configuration section](#configuration) earlier in this article.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## Exceptions and return codes
+
+| Binding | Reference |
+|---|---|
+| Notification Hub | [Operations Guide](https://docs.microsoft.com/rest/api/notificationhubs/) |
 
 ## Next steps
 

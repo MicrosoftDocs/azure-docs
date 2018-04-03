@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/29/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
@@ -14,7 +14,7 @@ ms.custom:
 
 # Use Cost Management reports
 
-This article describes how to use various Cost Management reports in the Cloudyn portal. Most Cloudyn reports are intuitive and have a uniform look and feel. For an overview about Cloudyn reports, see [Understanding cost reports](understading-cost-reports.md). The article also describes various options and fields used in most reports.
+This article describes how to use various Cost Management reports in the Cloudyn portal. Most Cloudyn reports are intuitive and have a uniform look and feel. For an overview about Cloudyn reports, see [Understanding cost reports](understanding-cost-reports.md). The article also describes various options and fields used in most reports.
 
 ## Cost Analysis reports
 
@@ -148,7 +148,7 @@ Use the Cost Over Time report to:
 3. Add groups.
 4. Choose a cost model that you created previously.
 5. Select actual costs or amortized costs.
-6. Choose whether to apply allocation rules to view raw billing data view or to recalculated cost by Cloudyn view.
+6. Choose whether to apply allocation rules to view raw billing data view or to recalculated cost view.
 
 Here's an example of the report.
 
