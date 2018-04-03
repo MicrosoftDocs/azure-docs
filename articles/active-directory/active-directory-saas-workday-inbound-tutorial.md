@@ -560,7 +560,7 @@ For instructions on setting up Azure AD Connect, see the [Azure AD Connect docum
 The following sections describe setting up a connection between Workday and Azure AD to provision cloud-only users.
 
 > [!IMPORTANT]
-> Only follow the procedure below if you have cloud-only users that need to be provisioned to Azure AD and not on-premises Active Directory.
+> Only follow the procedure below if you have cloud-only users that need to be provisioned to Azure AD and not on-premises Active Directory. A hybrid scenario is not supported, only with deactivated DirSync the user provisioning can be configured from Workday to Azure Active Directory. This is checked during the connection test of the Workday credentials. Check your DirSync status with (Get-AzureADTenantDetail).DirSyncEnabled or (Get-MsolCompanyInformation).DirectorySynchronizationEnabled, continue only if your DirSync status is set to "False". Otherwise, the connection test will throw the following error message "You appear to have entered invalid credentials. Please confirm you are using the correct information for an administrative account.".
 
 ### Part 1: Adding the Azure AD provisioning connector app and creating the connection to Workday
 
