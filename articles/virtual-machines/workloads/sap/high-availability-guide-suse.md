@@ -215,6 +215,10 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
       1. Additional ports for the ASCS ERS
          * Repeat the steps above for ports 33**02**, 5**02**13, 5**02**14, 5**02**16 and TCP for the ASCS ERS
 
+### Create Pacemaker cluster
+
+Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) to create a basic Pacemaker cluster for this (A)SCS server.
+
 ### Installation
 
 The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
@@ -369,6 +373,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # 
    # Full list of resources:
    # 
+   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-0</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-0</b>
    #  Resource Group: g-NW1_ASCS
    #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
@@ -382,6 +388,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   </code></pre>
+
+   If the installation fails to create a subfolder in /usr/sap/**NW1**/ASCS**00**, try setting the owner and group of the ASCS**00** folder and retry.
+
+   <pre><code>
+   chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    </code></pre>
 
 1. **[1]** Create a virtual IP resource and health-probe for the ERS instance
@@ -413,7 +426,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # <b>Online: [ nw1-cl-1 ]</b>
    # 
    # Full list of resources:
-   # 
+   #
+   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ASCS
    #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
@@ -434,6 +449,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    > [!NOTE]
    > Use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
+
+   If the installation fails to create a subfolder in /usr/sap/**NW1**/ERS**02**, try setting the owner and group of the ERS**02** folder and retry.
+
+   <pre><code>
+   chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
+   chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
+   </code></pre>
    > 
 
 1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
@@ -528,38 +550,29 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm_mon -r
    
    # Online: <b>[ nw1-cl-0 nw1-cl-1 ]</b>
-   # 
+   #
    # Full list of resources:
-   # 
+   #
+   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ASCS
-   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
-   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
-   #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
+   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
+   #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ERS
-   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
-   #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
-   #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-1</b>
+   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
+   #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
+   #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
    </code></pre>
 
-## Install database
+## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>SAP NetWeaver application server preparation
 
-In this example, SAP NetWeaver is installed on SAP HANA. You can use every supported database for this installation. For more information on how to install SAP HANA in Azure, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
+Some databases require that the database instance installation is executed on an application server. Prepare the application server virtual machines to be able to use them in these cases.
 
-1. **[1]** Install the SAP NetWeaver database instance
+The steps bellow assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) are not needed.
 
-   Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database for example <b>nw1-db</b> and <b>10.0.0.13</b>.
+1. Setup host name resolution
 
-   You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
-
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
-   </code></pre>
-
-## SAP NetWeaver application server installation
-
-Follow these steps to install an SAP application server. The steps bellow assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) are not needed.
-
-1. Setup host name resolution    
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
    ```bash
@@ -576,8 +589,9 @@ Follow these steps to install an SAP application server. The steps bellow assume
    <b>10.0.0.12 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
-   # IP address of the application server
+   # IP address of all application servers
    <b>10.0.0.8 nw1-di-0</b>
+   <b>10.0.0.7 nw1-di-1</b>
    </code></pre>
 
 1. Create the sapmnt directory
@@ -638,6 +652,28 @@ Follow these steps to install an SAP application server. The steps bellow assume
    sudo service waagent restart
    </code></pre>
 
+## Install database
+
+In this example, SAP NetWeaver is installed on SAP HANA. You can use every supported database for this installation. For more information on how to install SAP HANA in Azure, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
+
+1. Run the SAP database instance installation
+
+   Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database for example <b>nw1-db</b> and <b>10.0.0.13</b>.
+
+   You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
+
+   <pre><code>
+   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   </code></pre>
+
+## SAP NetWeaver application server installation
+
+Follow these steps to install an SAP application server. 
+
+1. Prepare application server
+
+Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
+
 1. Install SAP NetWeaver application server
 
    Install a primary or additional SAP NetWeaver applications server.
@@ -663,8 +699,8 @@ Follow these steps to install an SAP application server. The steps bellow assume
    KEY FILE        : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.KEY
    
    KEY DEFAULT
-     ENV : 10.0.0.14:30313
-     USER: SAPABAP1
+     ENV : 10.0.0.14:<b>30313</b>
+     USER: <b>SAPABAP1</b>
      DATABASE: HN1
    </code></pre>
 
