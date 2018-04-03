@@ -16,13 +16,13 @@ manager: kfile
 
 # Quickstart: Create a Stream Analytics job by using Azure portal
 
-Azure Stream Analytics is a managed event processing engine that does real-time analytic computations on streaming data. This quickstart shows you how to get started by creating a Stream Analytic job, configuring inputs, outputs, and defining a query. The scenario in this article describes reading data from the blob storage, transforming the data and writing it back to a different container in the same blob storage.
+Azure Stream Analytics is a managed event processing engine which can do real-time analytic computations on streaming data. This quickstart shows you how to get started with creating a Stream Analytics job, configuring inputs, outputs, and defining a query to transform the input data. The scenario in this article describes reading data from blob storage, transforming the data and writing it back to a different container in the same blob storage.
 
 ## Before you begin
 
 * If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)
 * Log in to the [Azure portal](https://portal.azure.com/).
-* Download the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub.
+* Download the [sample sensor data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub.
 
 ## Create a Stream Analytics job
 
