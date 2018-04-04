@@ -149,6 +149,10 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a `.ps1` extension. Import it into your Automation account and edit the runbook, changing the value of the variable `$Password` with your own password. Publish and then run the runbook targeting the Hybrid Worker group that run and authenticate runbooks using the Run As account. The job stream reports the attempt to import the certificate into the local machine store, and follows with multiple lines depending on how many Automation accounts are defined in your subscription and if authentication is successful.
 
+## Job restart behavior
+
+Jobs ran on a Hybrid Runbook Worker are restarted from the beginning if the job does not complete. This could happen for example if the Hybrid Runbook Worker is restarted in the middle of job execution. This is a benefit provided to you if you use a Hybrid Runbook Worker as job state is being monitored on the server side. To further ensure that runbooks are resilient, PowerShell Workflow runbooks can be used with checkpoints to ensure that job state is tracked. In cases where checkpoints are used the runbook will restart at the latest checkpoint reached.
+
 ## Troubleshooting runbooks on Hybrid Runbook Worker
 
 Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Hybrid workers also records errors and events in the Windows event log under **Application and Services Logs\Microsoft-SMA\Operational**. Events related to runbooks executed on the worker are written to **Application and Services Logs\Microsoft-Automation\Operational**. The **Microsoft-SMA** log includes many more events related to the runbook job pushed to the worker and the processing of the runbook. While the **Microsoft-Automation** event log does not have many events with details assisting with the troubleshooting of runbook execution, you will at least find the results of the runbook job.
