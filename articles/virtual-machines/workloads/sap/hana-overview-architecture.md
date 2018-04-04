@@ -50,9 +50,9 @@ The different documents of HANA Large Instance guidance cover the following area
 
 Several common definitions are widely used in the Architecture and Technical Deployment Guide. Note the following terms and their meanings:
 
-- **IaaS**: Infrastructure as a service
-- **PaaS**: Platform as a service
-- **SaaS**: Software as a service
+- **IaaS**: Infrastructure as a service.
+- **PaaS**: Platform as a service.
+- **SaaS**: Software as a service.
 - **SAP component**: An individual SAP application, such as ERP Central Component (ECC), Business Warehouse (BW), Solution Manager, or Enterprise Portal (EP). SAP components can be based on traditional ABAP or Java technologies or a non-NetWeaver based application such as Business Objects.
 - **SAP environment**: One or more SAP components logically grouped to perform a business function, such as development, quality assurance, training, disaster recovery, or production.
 - **SAP landscape**: Refers to the entire SAP assets in your IT landscape. The SAP landscape includes all production and non-production environments.
@@ -464,7 +464,7 @@ For a more scalable network architecture:
 - Leverage multiple virtual networks for a single, larger SAP application layer.
 - Deploy one separate virtual network for each SAP system deployed, compared to combining these SAP systems in separate subnets under the same virtual network.
 
- A more scalable networking architecture for SAP HANA on Azure (Large Instances).
+ A more scalable networking architecture for SAP HANA on Azure (Large Instances):
 
 ![Deploy SAP application layer over multiple virtual networks](./media/hana-overview-architecture/image4-networking-architecture.png)
 
