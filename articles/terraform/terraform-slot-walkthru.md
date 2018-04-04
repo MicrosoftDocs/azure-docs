@@ -196,12 +196,12 @@ Once you have forked the test project repo, it's time to create and use the depl
 
     ![Choose the master branch](./media/terraform-slot-walkthru/choose-branch-master.png)
 
-1. On the **Deployment option** tab, select **OK**. Once you select **OK**, the Azure portal builds the **awesome-terraform** project and deploys it to the **slotAppService** production slot.
+1. On the **Deployment option** tab, select **OK**.
 
 At this point, you have deployed the production slot. To deploy the staging slot, perform all of the previous steps in this section with only the following modifications:
 
 - In step 3, **slotAppServiceSlotOne** resource.
-- In step 13, "working" branch instead of the master branch.
+- In step 13, select the "working" branch instead of the master branch.
     ![Choose Working Branch](./media/terraform-slot-walkthru/choose-branch-working.png)
 
 ## Putting it all together
