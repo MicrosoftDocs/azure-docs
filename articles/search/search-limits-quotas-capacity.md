@@ -25,7 +25,7 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 * **Basic** provides dedicated computing resources for production workloads at a smaller scale.
 * **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD.
 
-**S3 High Density (S3 HD)** is engineered for specific workloads: [multi-tenancy](search-modeling-multitenant-saas-applications.md) or a large number of small indexes. It does not provide the [indexer feature](search-indexer-overview.md). Data ingestion on S3 HD must leverage the push model, using API calls to push data from source to index.
+**S3 High Density (S3 HD)** is engineered for specific workloads: [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quanitites of small indexes (1 million documents per index, three thousand indexes per service). This tier does not provide the [indexer feature](search-indexer-overview.md), which means that data ingestion on S3 HD must leverage the push model, using API calls to push data from source to index. 
 
 > [!NOTE]
 > A service is provisioned at a specific tier. Jumping tiers to gain capacity involves provisioning a new service (there is no in-place upgrade). For more information, see [Choose a SKU or tier](search-sku-tier.md). To learn more about adjusting capacity within a service you've already provisioned, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
@@ -34,10 +34,10 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 ## Subscription limits
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## Storage limits per service
+## Storage limits
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## Index limits per service
+## Index limits
 
 | Resource | Free | Basic <sup>1</sup>  | S1 | S2 | S3 | S3 HD |
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
@@ -46,12 +46,11 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 | Maximum scoring profiles per index |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
-Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5.
+<sup>1</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5. Basic tier is the only SKU with a lower limit of 100 fields per index.
 
-## Document limits  per service
+## Document limits 
 
-In most regions, Azure Search pricing tiers (Basic, S1, S2, S3, S3HD) have unlimited document counts for all services created after November/December 2017. This section identifies the regions where limits apply, and how to determine whether your service is affected. 
+In most regions, Azure Search pricing tiers (Basic, S1, S2, S3, S3 HD) have unlimited document counts for all services created after November/December 2017. This section identifies the regions where limits apply, and how to determine whether your service is affected. 
 
 To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document limts are either unlimited, or subject to a limit based on tier.
 
@@ -59,7 +58,7 @@ To determine whether your service has document limits, check the Usage tile in t
 
 ### Regions and services having document limits
 
-Services having limits were either created before late 2017, or are running on data centers using lower-capacity clusters for hosting Azure Search services:
+Services having limits were either created before late 2017, or are running on data centers using lower-capacity clusters for hosting Azure Search services. Affected data centers are in the following regions:
 
 + Australia East
 + East Asia
@@ -67,7 +66,7 @@ Services having limits were either created before late 2017, or are running on d
 + Japan West
 + West Central US
 
-For services subject to document limits, the following volumes apply:
+For services subject to document limits, the following maximum limits apply:
 
 |  Free | Basic | S1 | S2 | S3 | S3 HD |
 |-------|-------|----|----|----|-------|
@@ -85,7 +84,7 @@ Document size is actually a limit on the size of the Index API request body. Sin
 
 To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a URL reference to the resource.
 
-## Indexer limits per service
+## Indexer limits
 
 Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers.
 
@@ -102,7 +101,7 @@ Basic services created after late 2017 have an increased limit of 15 indexes, da
 
 <sup>2</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5.
 
-<sup>3</sup> S3 High Density services do not include indexer support.
+<sup>3</sup> S3 HD services do not include indexer support.
 
 ## Queries per second (QPS)
 
