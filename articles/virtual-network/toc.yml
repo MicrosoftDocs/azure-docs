@@ -68,12 +68,10 @@
       items:
       - name: Azure CLI
         href: tutorial-filter-network-traffic-cli.md
-      - name: Without application security groups
-        items:
-        - name: Azure portal
-          href: virtual-networks-create-nsg-arm-pportal.md
-        - name: Template
-          href: virtual-networks-create-nsg-arm-template.md
+      - name: Azure portal
+        href: virtual-networks-create-nsg-arm-pportal.md
+      - name: Template
+        href: virtual-networks-create-nsg-arm-template.md
       - name: Classic
         items:
         - name: Azure PowerShell
