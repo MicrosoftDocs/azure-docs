@@ -5,13 +5,13 @@ keywords: terraform, devops, virtual machine, Azure, deployment slots
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 3/30/2018
+ms.date: 4/04/2018
 ms.topic: article
 ---
 
 # Using Terraform to provision infrastructure with Azure deployment slots
 
-[Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between various versions of your app - such as production, development, and test - to minimize the impact of broken deployments. Using deployment slots, you can directly swap between slots without any downtime. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in the production slot, while the second app is hosted in the deployment slot. Terraform is then used to swap the (inactive) deployment slot with the production slot.
+[Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between various versions of your app - such as production and staging - to minimize the impact of broken deployments. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a "production slot", while the second app is hosted in a "staging" slot. (The names "production" and "staging" are arbitrary and can be anything you want that represents your scenario.) Once your deployment slots have been configured, you can then use Terraform to swap between the two slots as required.
 
 ## Prerequisites
 
@@ -143,13 +143,21 @@ ms.topic: article
 
     ![Resources created from the Terraform configuration file](./media/terraform-slot-walkthru/resources.png)
 
-## Deploying from GitHub to your deployment slots
+## Fork the test project
+
+Before you can test the creation and swapping in and out of the deployment slots, you need to fork the test project from GitHub.
 
 1. Browse to the [awesome-terraform repo on GitHub](https://github.com/Azure/awesome-terraform).
 
 1. Fork the **awesome-terraform repo**.
 
     ![Fork the GitHub awesome-terraform repo](./media/terraform-slot-walkthru/fork-repo.png)
+
+1. Follow any prompts to fork to your environment.
+
+## Deploy from GitHub to your deployment slots
+
+Once you have forked the test project repo, it's time to create and use the deployment slots.
 
 1. Return to the Azure portal.
 
@@ -189,49 +197,71 @@ ms.topic: article
 
 1. On the **Deployment option** tab, select **OK**. Once you select **OK**, the Azure portal builds the **awesome-terraform** project and deploys it to the **slotAppService** production slot.
 
+At this point, you have deployed the production slot. To deploy the staging slot, perform all of the previous steps in this section with only the following modifications:
 
+- In step 4, **slotAppServiceSlotOne** resource.
+- In step 13, "working" branch instead of the master branch.
+    ![Choose Working Branch](./media/terraform-slot-walkthru/choose-branch-working.png)
 
+## Putting it all together
 
-
-1. To set up deployment to **slotAppServiceSlotOne**, follow steps except in **Step 1** select the `slotAppServiceSlotOne` resource and in **Step 5** select the `working` branch instead of the `master` branch.
-
-![Choose Working Branch](./media/terraform-slot-walkthru/choose-branch-working.png)
-
-Putting It All Together
----
-
-At this point, you have set up `slotAppService` and `slotAppServiceSlotOne` to deploy `web app` from different branches in GitHub. You can now preview the `web app` to validate that it was successfully deployed to the `slots` by selecting the `URL` on the resources `Overview` page, as seen in the image below.
+At this point, you have set up `slotAppService` and `slotAppServiceSlotOne` to deploy the web app from different branches in GitHub. You can now preview the web app to validate that it was successfully deployed to the slots by selecting the URL on the resource's overview page in the Azure portal.
 
 ![Resource URL](./media/terraform-slot-walkthru/resource-url.png)
 
- If everything was deployed correctly, `slotAppService` should render a Blue page with the page title of **Slot Demo App 1** and the `slotAppServiceSlotOne` should render a Green page with the page title of **Slot Demo App 2**.
+ If everything is deployed correctly, slotAppService should render a blue page with the page title **Slot Demo App 1** while the slotAppServiceSlotOne should render a green page with the page title **Slot Demo App 2**.
 
- In the browser, navigate to the `slotAppService` URL. Return to the Cloud Shell session and navigate to the `swap` directory created in the previous step. In Cloud Shell, type `nano swap.tf` and press **Enter**. Paste the below HCL code into the nano text editor and save the file.
+ To see this in action, perform the following steps:
+ 
+ 1. In your browser, open a new tab, and navigate to the slotAppService URL. 
+ 
+ 1. Return to the cloud shell in Azure portal.
 
-```HCL
-# Configure the Azure Provider
-provider "azurerm" { }
+ 1. Change directories to the **swap** directory.
 
-# Swap the Production Slot with the Deployment Slot
-resource "azurerm_app_service_active_slot" "slotDemoActiveSlot" {
-  resource_group_name   = "slotDemoResourceGroup"
-  app_service_name      = "slotAppService"
-  app_service_slot_name = "slotappServiceSlotOne"
-}
-```
+ 1. Using the vi editor, create a file named `swap.tf`.
+ 
+    ```bash
+    vi swap.tf
+    ```
 
-![Create the swap.tf file with nano](./media/terraform-slot-walkthru/cloud-shell-swap.png)
+1. Enter insert mode by pressing the letter `i` key.
 
-You now have the Terraform code to swap the `Production slot` with the `Deployment slot`. In the cloud shell command prompt, enter the following commands.
+1. Paste the following code into the editor:
 
-```bash
-terraform init
-terraform plan
-terraform apply
-```
+    ```HCL
+    # Configure the Azure Provider
+    provider "azurerm" { }
 
-Once Terraform has finished swapping the slots, return to the browser that is rendering the `slotAppService web app` and refresh the page. You will notice that the `web app` that was in your `slotAppServiceSlotOne` deployment slot has been swapped with the `Production slot` and that the page now renders green. To bring back the original bits that were originally in the `Production slot`, rerun the `swap.tf` by typing `terraform apply` and the original code will be swapped again from the `Deployment slot` to the `Production slot`.
+    # Swap the Production Slot with the Deployment Slot
+    resource "azurerm_app_service_active_slot" "slotDemoActiveSlot" {
+    resource_group_name   = "slotDemoResourceGroup"
+    app_service_name      = "slotAppService"
+    app_service_slot_name = "slotappServiceSlotOne"
+    }
+    ```
+
+1. Initialize Terraform.
+
+    ```bash
+    terraform init
+    ```
+
+1. Create the Terraform plan.
+
+    ```bash
+    terraform plan
+    ```
+
+1. Provision the resources defined in the `deploy.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
+
+    ```bash
+    terraform apply
+    ```
+1. Once Terraform has finished swapping the slots, return to the browser that is rendering the slotAppService web app and refresh the page. 
+
+Notice that the web app that was in your slotAppServiceSlotOne staging slot has been swapped with the production slot and that the page now renders green. To return to the original version that was originally in the production slot, rerun the swap.tf by typing `terraform apply` so the original code is swapped again from the staging slot to the production slot.
 
 ## Next steps
 
-- Add links here
+- [Use an Azure Marketplace image to create a Terraform Linux virtual machine with Managed Service Identity](./terraform-vm-msi.md)
