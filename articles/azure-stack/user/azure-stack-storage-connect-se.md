@@ -1,6 +1,6 @@
 ---
 title: Connect Storage Explorer to an Azure Stack subscription
-description: Learn how to connect Storage Exporer to an  Azure Stack subscription
+description: Learn how to connect Storage Explorer to an  Azure Stack subscription
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 04/04/2018
 ms.author: xiaofmao
 
 ---
@@ -20,11 +20,11 @@ ms.author: xiaofmao
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. There are several tools avaialble to move data to and from Azure Stack Storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
+Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. There are several tools available to move data to and from Azure Stack Storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
 
 In this article, you learn how to connect to your Azure Stack storage accounts using Storage Explorer. 
 
-If you haven't installed Storage Explorer yet, [download](http://www.storageexplorer.com/) and and install it.
+If you haven't installed Storage Explorer yet, [download](http://www.storageexplorer.com/) and install it.
 
 After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
 
