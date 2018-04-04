@@ -1,8 +1,6 @@
-Storage is constrained by disk space or by a hard limit on the *maximum number* of indexes, document, or other high-level resources, whichever comes first. 
+Storage is constrained by disk space or by a hard limit on the *maximum number* of indexes, document, or other high-level resources, whichever comes first. The following table documents storage limits. For maximum limits on indexes, documents, and other objects, see [Services limits (Azure Search)](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
-The following table documents storage limits. For maximum limits on indexes, documents, and other objects, see [Services limits (Azure Search)](../articles/search/search-limits-quotas-capacity.md/).
-
-| Resource | Free | Basic <sup>1</sup> | S1 | S2 | S3 | S3 HD <sup>2</sup> |
+| Resource | Free | Basic&nbsp;<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>2</sup> |
 | -------- | --- | --- | --- | --- | --- | --- |
 | Service Level Agreement (SLA) <sup>3</sup>  |No |Yes |Yes |Yes |Yes |Yes |
 | Storage per partition |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |

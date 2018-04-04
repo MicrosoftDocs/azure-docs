@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/03/2018
+ms.date: 04/04/2018
 ms.author: heidist
 
 ---
@@ -25,7 +25,7 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 * **Basic** provides dedicated computing resources for production workloads at a smaller scale.
 * **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD.
 
-**S3 High Density (S3 HD)** is engineered for specific workloads: [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quanitites of small indexes (1 million documents per index, three thousand indexes per service). This tier does not provide the [indexer feature](search-indexer-overview.md), which means that data ingestion on S3 HD must leverage the push model, using API calls to push data from source to index. 
+  **S3 High Density (S3 HD)** is engineered for specific workloads: [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quanitites of small indexes (1 million documents per index, three thousand indexes per service). This tier does not provide the [indexer feature](search-indexer-overview.md). On S3 HD, data ingestion must leverage the push approach, using API calls to push data from source to index. 
 
 > [!NOTE]
 > A service is provisioned at a specific tier. Jumping tiers to gain capacity involves provisioning a new service (there is no in-place upgrade). For more information, see [Choose a SKU or tier](search-sku-tier.md). To learn more about adjusting capacity within a service you've already provisioned, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
@@ -37,9 +37,11 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 ## Storage limits
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
+<a name="index-limits"></a>
+
 ## Index limits
 
-| Resource | Free | Basic <sup>1</sup>  | S1 | S2 | S3 | S3 HD |
+| Resource | Free | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |
 | Maximum fields per index |1000 |100 |1000 |1000 |1000 |1000 |
@@ -52,7 +54,7 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 In most regions, Azure Search pricing tiers (Basic, S1, S2, S3, S3 HD) have unlimited document counts for all services created after November/December 2017. This section identifies the regions where limits apply, and how to determine whether your service is affected. 
 
-To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document limts are either unlimited, or subject to a limit based on tier.
+To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document counts are either unlimited, or subject to a limit based on tier.
 
   ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
@@ -68,7 +70,7 @@ Services having limits were either created before late 2017, or are running on d
 
 For services subject to document limits, the following maximum limits apply:
 
-|  Free | Basic | S1 | S2 | S3 | S3 HD |
+|  Free | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10,000 |1 million |15 million per partition or 180 million per service |60 million per partition or 720 million per service |120 million per partition or 1.4 billion per service |1 million per index or 200 million per partition |
 
@@ -88,7 +90,7 @@ To keep document size down, remember to exclude non-queryable data from the requ
 
 Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers.
 
-| Resource | Free <sup>1</sup> | Basic <sup>2</sup>| S1 | S2 | S3 | S3 HD <sup>3</sup>|
+| Resource | Free&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |
 | Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |
