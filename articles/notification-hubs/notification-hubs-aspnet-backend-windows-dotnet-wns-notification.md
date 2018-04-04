@@ -1,8 +1,8 @@
 ---
-title: Azure Notification Hubs Notify Users with .NET backend
-description: Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API.
+title: Send notifications to specific users using Azure Notification Hubs | Microsoft Docs
+description: Learn how to send notifications to specific users using Universal Windows Platform (UWP) applications. 
 documentationcenter: windows
-author: ysxu
+author: spelluru
 manager: erikre
 services: notification-hubs
 editor: ''
@@ -12,40 +12,46 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/04/2018
+ms.author: spelluru
 
 ---
-# Azure Notification Hubs Notify Users with .NET backend
+# Tutorial: Send notifications to specific users by using Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## Overview
-Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients. Using the authenticated client user, and tag will be automatically added by the backend to notification registration. This tag will be used to send by the backend to generate notifications for a specific user. For more information on registering for notifications using an app backend, see the guidance article [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). This tutorial builds on the notification hub and project that you created in the [Get started with Notification Hubs] tutorial.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients. When the backend authenticates a client application user, it automatically adds a tag to the notification registration. The backend uses this tag to send notifications to the specific user. 
 
-This tutorial is also the prerequisite to the [Secure Push] tutorial. After you have completed the steps in this tutorial, you can proceed to the [Secure Push] tutorial, which shows how to modify the code in this tutorial to send a push notification securely.
+> [!NOTE]
+> The completed code for this tutorial can be found on [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). 
 
-## Before you begin
-We do take your feedback seriously. If you have any difficulties completing this tutorial, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page.
+In this tutorial, you take the following steps:
 
-The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). 
+> [!div class="checklist"]
+> * Create the WebAPI project
+> * Authenticate clients to the WebAPI backend
+> * Register for notifications by using the WebAPI backend
+> * Send notifications from the WebAPI backend
+> * Publish the new WebAPI backend
+> * Update the code for the client project
+> * Test the application
+
 
 ## Prerequisites
-Before you start this tutorial, you must have already completed these Mobile Services tutorials:
-
-* [Get started with Notification Hubs]<br/>You create your notification hub and reserve the app name and register to receive notifications in this tutorial. This tutorial assumes you have already completed these steps. If not, please follow the steps in [Getting Started with Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md); specifically, the sections [Register your app for the Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#create-an-app-in-windows-store) and [Configure your Notification Hub](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#create-a-notification-hub). In particular, make sure that you have entered the **Package SID** and **Client Secret** values in the portal, in the **Configure** tab for your notification hub. This configuration procedure is described in the section [Configure your Notification Hub](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#create-a-notification-hub). This is an important step: if the credentials on the portal do not match those specified for the app name you choose, the push notification will not succeed.
+This tutorial builds on the notification hub and Visual Studio project that you created in the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) tutorial. Therefore, complete it before starting on this tutorial. 
 
 > [!NOTE]
 > If you are using Mobile Apps in Azure App Service as your backend service, see the [Mobile Apps version](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) of this tutorial.
-> 
-> 
+
 
 &nbsp;
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Update the code for the client project
-In this section, you update the code in the project you completed for the [Get started with Notification Hubs] tutorial. They should already be associated with the store and configured for your notification hub. In this section, you will add code to call the new WebAPI backend and use it for registering and sending notifications.
+In this section, you update the code in the project you completed for the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) tutorial. They should already be associated with the store and configured for your notification hub. In this section, you add code to call the new WebAPI backend and use it for registering and sending notifications.
 
 1. In Visual Studio, open the solution you created for the [Get started with Notification Hubs] tutorial.
 2. In Solution Explorer, right-click the **(Windows 8.1)** project and then click **Manage NuGet Packages**.
@@ -55,7 +61,7 @@ In this section, you update the code in the project you completed for the [Get s
 6. Back in the NuGet **Search** box, type **Json.net**. Install the **Json.NET** package, and then close the NuGet Package Manager window.
 7. Repeat the steps above for the **(Windows Phone 8.1)** project to install the **JSON.NET** NuGet package for the Windows Phone project.
 8. In Solution Explorer, in the **(Windows 8.1)** project, double-click **MainPage.xaml** to open it in the Visual Studio editor.
-9. In the **MainPage.xaml** XML code, replace the `<Grid>` section with the following code. This code adds a username and password textbox that the user will authenticate with. It also adds textboxes for the notification message and the username tag that should receive the notification:
+9. In the **MainPage.xaml** XML code, replace the `<Grid>` section with the following code: This code adds a username and password textbox that the user authenticates with. It also adds textboxes for the notification message and the username tag that should receive the notification:
    
         <Grid>
             <Grid.RowDefinitions>
@@ -175,7 +181,7 @@ In this section, you update the code in the project you completed for the [Get s
             // The tag passed here can be whatever other tags you may want to use.
             try
             {
-                // The device handle used will be different depending on the device and PNS. 
+                // The device handle used is different depending on the device and PNS. 
                 // Windows devices use the channel uri as the PNS handle.
                 await new RegisterClient(BACKEND_ENDPOINT).RegisterAsync(channel.Uri, new string[] { "myTag" });
 
@@ -202,7 +208,7 @@ In this section, you update the code in the project you completed for the [Get s
 
 
 
-1. In Solution Explorer, under the **Shared** project, open the **App.xaml.cs** file. Find the call to `InitNotificationsAsync()` in the `OnLaunched()` event handler. Comment out or delete the call to `InitNotificationsAsync()`. The button handler added above will initialize notification registrations.
+1. In Solution Explorer, under the **Shared** project, open the **App.xaml.cs** file. Find the call to `InitNotificationsAsync()` in the `OnLaunched()` event handler. Comment out or delete the call to `InitNotificationsAsync()`. The button handler initializes notification registrations.
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -211,7 +217,7 @@ In this section, you update the code in the project you completed for the [Get s
 
 1. In Solution Explorer, right-click the **Shared** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class.
    
-   This class will wrap the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). Note that it uses an authorization token stored in local storage when you click the **Login and register** button.
+   This class wraps the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). It uses an authorization token stored in local storage when you click the **Login and register** button.
 2. Add the following `using` statements at the top of the RegisterClient.cs file:
    
        using Windows.Storage;
@@ -308,10 +314,10 @@ In this section, you update the code in the project you completed for the [Get s
        }
 4. Save all your changes.
 
-## Testing the Application
-1. Launch the application on both Windows 8.1 and Windows Phone 8.1. For Windows Phone 8.1 you can run the instance in the emulator or an actual device.
+## Test the Application
+1. Launch the application on both Windows 8.1 and Windows Phone 8.1. For Windows Phone 8.1, you can run the instance in the emulator or an actual device.
 2. In the Windows 8.1 instance of the app, enter a **Username** and **Password** as shown in the screen below. It should differ from the user name and password you enter on Windows Phone.
-3. Click **Log in and register** and verify a dialog shows that you have logged in. This will also enable the **Send Push** button.
+3. Click **Log in and register** and verify a dialog shows that you have logged in. This also enables the **Send Push** button.
    
     ![][14]
 4. On the Windows Phone 8.1 instance, enter a user name string in both the **Username** and **Password** fields then click **Login and register**.

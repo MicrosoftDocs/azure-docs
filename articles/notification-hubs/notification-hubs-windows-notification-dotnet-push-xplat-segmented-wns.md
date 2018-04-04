@@ -31,6 +31,14 @@ Broadcast scenarios are enabled by including one or more *tags* when you create 
 > [!NOTE]
 > Windows Store and Windows Phone project versions 8.1 and earlier are not supported in Visual Studio 2017. For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs). 
 
+In this tutorial, you take the following steps:
+
+> [!div class="checklist"]
+> * Add category selection to the mobile app
+> * Register for notifications
+> * Send tagged notification
+> * Run the app and generate notifications
+
 ## Prerequisites
 Complete the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs][get-started] before starting this tutorial.  
 
