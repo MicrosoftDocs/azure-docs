@@ -42,7 +42,9 @@ The Azure Stack 1803 update build number is **20180329.1**.
 
 
 ### Post-update steps
-*There are no post-update steps for update 1803.*
+After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-servicing-policy).
+
+•	[KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/en-us/help/4103348)
 
 
 ### New features 
