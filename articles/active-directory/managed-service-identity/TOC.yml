@@ -40,7 +40,6 @@
           href: tutorial-linux-vm-access-storage.md
         - name: Access Azure Storage using SAS
           href: tutorial-linux-vm-access-storage-sas.md
-        - name: Access Azure SQL
         - name: Access Azure Key Vault
           href: tutorial-linux-vm-access-nonaad.md
         - name: Access Azure Cosmos DB
@@ -53,10 +52,6 @@
       - name: Azure Event Hubs
         href: /azure/event-hubs/event-hubs-managed-service-identity
       - name: Access Azure Storage
-    - name: Concepts
-      items: 
-      - name: Access Patterns using Managed Identities
-      - name: Managed Identity REST protocol
     - name: How-to guides
       items:
       - name: Configure Identity for an Azure VM
