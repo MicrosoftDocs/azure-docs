@@ -37,8 +37,14 @@ There are two ways you can enroll your devices with the provisioning service:
        c. When the "Add Enrollment Group" panel appears, enter the information for the enrollment list entry.  **Group name** is required. Also select "CA or Intermediate" for **Certificate type**, and upload the root **Primary certificate** for the group of devices.  
        d. Click **Save**. On successful creation of your enrollment group, you should see the group name appear under the **Enrollment Groups** tab.  
 
-        [![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment-small.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+       ![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment.png)  
+
+       [![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment-small.png)]  (./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+       
+       [![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment.png)]  (./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
+       ![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment-full.png)  
+
 * An **Individual enrollment** is an entry for a single device that may register. Individual enrollments may use either x509 certificates or SAS tokens (from a physical or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices which require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
 
     You can create an individual enrollment in the portal using the following steps:
@@ -51,8 +57,11 @@ There are two ways you can enroll your devices with the provisioning service:
        c. When the "Add Enrollment" panel appears, enter the information for the enrollment list entry. First select the attestation **Mechanism** for the device (X.509 or TPM). X.509 attestation requires you to upload the leaf **Primary certificate** for the device. TPM requires you to enter the **Attestation Key** and **Registration ID** for the device.  
        d. Click **Save**. On successful creation of your enrollment group, you should see your device appear under the **Individual Enrollments** tab.  
 
-        [![Individual enrollment in the portal](./media/how-to-manage-enrollments/individual-enrollment-small.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+       ![Individual enrollment in the portal](./media/how-to-manage-enrollments/individual-enrollment.png)
 
+       [![Individual enrollment in the portal](./media/how-to-manage-enrollments/individual-enrollment-small.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+
+       [![Individual enrollment in the portal](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
 ## Update an enrollment entry
 You can update an existing enrollment entry in the portal using the following steps:
@@ -64,7 +73,6 @@ You can update an existing enrollment entry in the portal using the following st
 
     ![Update enrollment in the portal](./media/how-to-manage-enrollments/update-enrollment.png)
 
-
 ## Remove a device enrollment
 In cases where your device(s) do not need to be provisioned to any IoT hub, you can remove the related enrollment entry in the portal using the following steps:
 
@@ -74,6 +82,5 @@ In cases where your device(s) do not need to be provisioned to any IoT hub, you 
 5. Once the action is completed, you will see your entry removed from the list of device enrollments. 
  
     ![Remove enrollment in the portal](./media/how-to-manage-enrollments/remove-enrollment.png)
-
 
 
