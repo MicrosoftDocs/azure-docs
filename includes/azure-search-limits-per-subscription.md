@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: search
+ author: HeidiSteen
+ ms.service: search
+ ms.topic: include
+ ms.date: 04/04/2018
+ ms.author: heidist
+ ms.custom: include file
+---
+
 You can create multiple services within a subscription, each one provisioned at a specific tier, limited only by the number of services allowed at each tier. For example, you could create up to 12 services at the Basic tier and another 12 services at the S1 tier within the same subscription. For more information about tiers, see [Choose a SKU or tier for Azure Search](../articles/search/search-sku-tier.md).
 
 Maximum service limits can be raised upon request. Contact Azure Support if you need more services within the same subscription.

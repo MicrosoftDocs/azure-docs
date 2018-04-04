@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: search
+ author: HeidiSteen
+ ms.service: search
+ ms.topic: include
+ ms.date: 04/04/2018
+ ms.author: heidist
+ ms.custom: include file
+---
+
 Storage is constrained by disk space or by a hard limit on the *maximum number* of indexes, document, or other high-level resources, whichever comes first. The following table documents storage limits. For maximum limits on indexes, documents, and other objects, see [limits by resource](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
 | Resource | Free | Basic&nbsp;<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>2</sup> |
