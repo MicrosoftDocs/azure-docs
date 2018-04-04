@@ -84,5 +84,5 @@ As a managed service, Stream Analytics helps prevent data loss and provides busi
 
 * Get started by [experimenting with inputs and queries from IoT devices](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
 * Build an [end-to-end Stream Analytics solution](stream-analytics-real-time-fraud-detection.md) that examines telephone metadata to look for fraudulent calls.
-* Find answers to your Stream Analytics questions in the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+* Find answers to your Stream Analytics questions in the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
