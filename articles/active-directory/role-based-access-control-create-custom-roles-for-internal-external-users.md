@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 12/06/2017
+ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
@@ -50,11 +50,11 @@ There are two common examples when RBAC is used (but not limited to):
 * Working with users inside the organization (they are part of the user's Azure Active Directory tenant) but part of different teams or groups that need granular access either to the whole subscription or to certain resource groups or resource scopes in the environment
 
 ## Grant access at a subscription level for a user outside of Azure Active Directory
-RBAC roles can be granted only by **Owners** of the subscription therefore the admin user must be logged with a username which has this role pre-assigned or has created the Azure subscription.
+RBAC roles can be granted only by **Owners** of the subscription. Therefore, the administrator must be logged in as a user that has this role pre-assigned or has created the Azure subscription.
 
-From the Azure portal, after you sign-in as admin, select “Subscriptions” and chose the desired one.
+From the Azure portal, after you sign in as admin, select “Subscriptions” and chose the desired one.
 ![subscription blade in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png)
-By default, if the admin user has purchased the Azure subscription, the user will show up as **Account Admin**, this being the subscription role. For more details on the Azure subscription roles, see [Add or change Azure administrator roles that manage the subscription or services](/billing/billing-add-change-azure-subscription-administrator.md).
+By default, if the admin user has purchased the Azure subscription, the user will show up as **Account Admin**, this being the subscription role. For more information about the Azure subscription roles, see [Add or change Azure administrator roles that manage the subscription or services](/billing/billing-add-change-azure-subscription-administrator.md).
 
 In this example, the user "alflanigan@outlook.com" is the **Owner** of the "Free Trial" subscription in the AAD tenant "Default tenant Azure". Since this user is the creator of the Azure subscription with the initial Microsoft Account “Outlook” (Microsoft Account = Outlook, Live etc.) the default domain name for all other users added in this tenant will be **"@alflaniganuoutlook.onmicrosoft.com"**. By design, the syntax of the new domain is formed by putting together the username and domain name of the user who created the tenant and adding the extension **".onmicrosoft.com"**.
 Furthermore, users can sign in with a custom domain name in the tenant after adding and verifying it for the new tenant. For more information on how to verify a custom domain name in an Azure Active Directory tenant, see [Add a custom domain name to your directory](/active-directory/active-directory-add-domain).
@@ -183,154 +183,154 @@ For larger organizations, RBAC roles can be applied in the same way for Azure Ac
 These groups are security groups, which are provisioned and managed only within Azure Active Directory.
 
 ## Create a custom RBAC role to open support requests using PowerShell
-The built-in RBAC roles that are available in Azure ensure certain permission levels based on the available resources in the environment. However, if none of these roles suit the admin user's needs, there is the option to limit access even more by creating custom RBAC roles.
+The built-in roles that are available in Azure ensure certain permission levels based on the available resources in the environment. However, if the built-in roles do not meet your needs, you can create custom roles.
 
-Creating custom RBAC roles requires to take one built-in role, edit it and then import it back in the environment. The download and upload of the role are managed using either PowerShell or CLI.
+To create a custom role, you can start with a built-in role, edit it, and then create a new role. For this example, the built-in **Reader** role has been customized to allow the user the option of opening support requests.
 
-It is important to understand the prerequisites of creating a custom role that can grant granular access at the subscription level and also allow the invited user the flexibility of opening support requests.
+In PowerShell, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) command to export the **Reader** role in JSON format.
 
-For this example, the built-in role **Reader**, which allows users access to view all the resource scopes but not to edit them or create new ones, has been customized to allow the user the option of opening support requests.
-
-The first action of exporting the **Reader** role needs to be completed in PowerShell ran with elevated permissions as administrator.
-
-```
-Login-AzureRMAccount
-
-Get-AzureRMRoleDefinition -Name "Reader"
-
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
-
+```powershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
 ```
 
+The following shows the JSON output for the Reader role.
 
+```json
+{
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-
-
-![PowerShell screenshot for Reader RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/15.png)
-
-Then you need to extract the JSON template of the role.
-
-
-
-
-
-![JSON template for custom Reader RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/16.png)
-
-A typical RBAC role is composed out of three main sections, **Actions**, **NotActions** and **AssignableScopes**.
-
-In the **Action** section are listed all the permitted operations for this role. It's important to understand that each action is assigned from a resource provider. In this case, for creating support tickets the **Microsoft.Support** resource provider must be listed.
-
-To be able to see all the resource providers available and registered in your subscription, you can use PowerShell.
-```
-Get-AzureRMResourceProvider
-
-```
-Additionally, you can check for the all the available PowerShell cmdlets to manage the resource providers.
-    ![PowerShell screenshot for resource provider management](./media/role-based-access-control-create-custom-roles-for-internal-external-users/17.png)
-
-To restrict all the actions for a particular RBAC role, resource providers are listed under the section **NotActions**.
-Last, it's mandatory that the RBAC role contains the explicit subscription IDs where it is used. The subscription IDs are listed under the **AssignableScopes**, otherwise you will not be allowed to import the role in your subscription.
-
-After creating and customizing the RBAC role, it needs to be imported back the environment.
-
-```
-New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
-
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
+}
 ```
 
-In this example, the custom name for this RBAC role is "Reader support tickets access level" allowing the user to view everything in the subscription and also to open support requests.
+Next, you edit the JSON output to create your custom role.
+
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
+```
+
+A typical role is composed of three main sections, **Actions**, **NotActions**, and **AssignableScopes**.
+
+The **Action** section lists all the permitted operations for the role. In this case, to create support tickets, the **Microsoft.Support/&ast;** operation must be added. It's important to understand that each operation is made available from a resource provider. To get a list of the operations for a resource provider, you can use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command or see [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
+
+To restrict all the actions for a particular role, resource providers are listed under the **NotActions** section.
+It's mandatory that the role contains the explicit subscription IDs where it is used. The subscription IDs are listed under **AssignableScopes**, otherwise you will not be allowed to import the role into your subscription.
+
+To create the custom role, you use the [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) command and provide the updated JSON role definition file.
+
+```powershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+In this example, the name for this custom role is "Reader support tickets access level". It allows the user to view everything in the subscription and also open support requests.
 
 > [!NOTE]
-> The only two built-in RBAC roles allowing the action of opening of support requests are **Owner** and **Contributor**. For a user to be able to open support requests, he must be assigned an RBAC role only at the subscription scope, because all support requests are created based on an Azure subscription.
+> The only two built-in roles that allow a user to open support requests are **Owner** and **Contributor**. For a user to be able to open support requests, he must be assigned a role at the subscription scope, because all support requests are created based on an Azure subscription.
 
-This new custom role has been assigned to a user from the same directory.
+The new custom role is now available in the Azure portal and can be assigned to users.
 
+![screenshot of custom role imported in the Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
 
+![screenshot of assigning custom imported role to user in the same directory](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
 
+![screenshot of permissions for custom imported role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
+Users with this custom role can now create new support requests.
 
-![screenshot of custom RBAC role imported in the Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+![screenshot of custom role creating support requests](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
 
+Users with this custom role cannot perform other actions, such as create VMs or create resource groups.
 
+![screenshot of custom role not able to create VMs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
 
-
-
-![screenshot of assigning custom imported RBAC role to user in the same directory](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
-
-
-
-
-
-![screenshot of permissions for custom imported RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
-
-The example has been further detailed to emphasize the limits of this custom RBAC role as follows:
-* Can create new support requests
-* Can't create new resource scopes (for example: virtual machine)
-* Can't create new resource groups
-
-
-
-
-
-![screenshot of custom RBAC role creating support requests](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
-
-
-
-
-
-![screenshot of custom RBAC role not able to create VMs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
-
-
-
-
-
-![screenshot of custom RBAC role not able to create new RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
+![screenshot of custom role not able to create new RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
 ## Create a custom RBAC role to open support requests using Azure CLI
-Running on a Mac and without having access to PowerShell, Azure CLI is the way to go.
 
-The steps to create a custom role are the same, with the sole exception that using CLI the role can't be downloaded in a JSON template, but it can be viewed in the CLI.
+The steps to create a custom role using Azure CLI are similar to using PowerShell, except that the JSON output is different.
 
-For this example, I have chosen the built-in role of **Backup Reader**.
+For this example, you can start with the built-in **Reader** role. To list the actions of the Reader role, use the [az role definition list](/cli/azure/role/definition#az_role_definition_list) command.
 
+```azurecli
+az role definition list --name "Reader" --output json
 ```
 
-azure role show "backup reader" --json
-
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": []
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
 ```
 
+Create a JSON file with the following format. The **Microsoft.Support/&ast;** operation has been added in the **Actions** sections so that this user can open support requests while continuing to be a reader. You must add the subscription ID where this role will be used in the **AssignableScopes** section.
 
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-
-
-![CLI screenshot of backup reader role show](./media/role-based-access-control-create-custom-roles-for-internal-external-users/24.png)
-
-Editing the role in Visual Studio after copying the proprieties in a JSON template, the **Microsoft.Support** resource provider has been added in the **Actions** sections so that this user can open support requests while continuing to be a reader for the backup vaults. Again it is necessary to add the subscription ID where this role will be used in the **AssignableScopes** section.
-
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
 ```
 
-azure role create --inputfile <path>
+To create the custom role, use the [az role definition create](/cli/azure/role/definition#az_role_definition_create) command.
 
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
 ```
 
+The new custom role is now available in the Azure portal and the process to use this role is the same as in the previous PowerShell section.
 
-
-
-
-![CLI screenshot of importing custom RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/25.png)
-
-The new role is now available in the Azure portal and the assignation process is the same as in the previous examples.
-
-
-
-
-
-![Azure portal screenshot of custom RBAC role created using CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
-
-As of the latest Build 2017, the Azure Cloud Shell is generally available. Azure Cloud Shell is a complement to IDE and the Azure portal. With this service, you get a browser-based shell that is authenticated and hosted within Azure and you can use it instead of CLI installed on your machine.
-
-
-
-
-
-![Azure Cloud Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)
+![Azure portal screenshot of custom role created using CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
