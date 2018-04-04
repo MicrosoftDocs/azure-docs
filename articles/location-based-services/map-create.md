@@ -3,16 +3,16 @@ title: How to create Azure Location Based Services' map | Microsoft Docs
 description: Create a map
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: shubhaj
-ms.date: 02/22/2018
-ms.topic: tutorial
+author: kgremban
+ms.author: kgremban
+ms.date: 04/04/2018
+ms.topic: article
 ms.service: location-based-services
 
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
-ms.custom: mvc
+ms.custom: codepen
 ---
 
 # Create a map
