@@ -20,6 +20,8 @@ ms.author: yizhon
 # Azure IoT device SDK for C – more about IoTHubClient
 The [first article](iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C**. That article explained that there are two architectural layers in SDK. At the base is the **IoTHubClient** library which directly manages communication with IoT Hub. There's also the **serializer** library that builds on top of that to provide serialization services. In this article we'll provide additional detail on the **IoTHubClient** library.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 The previous article described how to use the **IoTHubClient** library to send events to IoT Hub and receive messages. This article extends that discussion by explaining how to more precisely manage *when* you send and receive data, introducing you to the **lower-level APIs**. We'll also explain how to attach properties to events (and retrieve them from messages) using the property handling features in the **IoTHubClient** library. Finally, we'll provide additional explanation of different ways to handle messages received from IoT Hub.
 
 The article concludes by covering a couple of miscellaneous topics, including more about device credentials and how to change the behavior of the **IoTHubClient** through configuration options.

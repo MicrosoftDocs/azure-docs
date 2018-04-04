@@ -2762,6 +2762,37 @@ featureFlags:
                                             </div>
                                         </div>
                                     </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Labs</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-gesture"><img src="media/index/labs-hand-gesture.svg" alt="" />Gesture</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-event-tracking"><img src="media/index/labs-event-tracker.svg" alt="" />Event Tracking</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge"><img src="media/index/API_Know_Academic.svg" alt="" />Academic Knowledge</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-local-insights"><img src="media/index/labs-local-insight.svg" alt="" />Local Insights</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration"><img src="media/index/API_KnowledgeExploration.svg" alt="" /><span>Knowledge Exploration Service</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-entity-linking"><img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Entity Linking</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -4274,6 +4305,36 @@ featureFlags:
                                                 </p>
                                                 <p>
                                                     <a href="https://code.visualstudio.com/docs/languages/python">Get Started with Visual Studio Code</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/Fabric.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    Service Fabric SDK and Tools
+                                                </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started">Download for Windows</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux">Download for Linux</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Download Mac OS X</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Download Service Fabric CLI </a>
                                                 </p>
                                             </div>
                                         </div>
