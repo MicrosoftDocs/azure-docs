@@ -20,4 +20,4 @@ The sample application needs to authenticate access to your storage account. To 
 4. Note the name of your storage account, which you will need to provide to authenticate.   
 5. Find the **Key** value under **key1**, and click the **Copy** button to copy the account key.
 
-    ![Screen shot showing how to copy your account key from the Azure portal](media/storage-quickstart-blobs-python/portal-account-key.png)
+    ![Screen shot showing how to copy your account key from the Azure portal](media/storage-copy-account-key-portal/portal-account-key.png)
