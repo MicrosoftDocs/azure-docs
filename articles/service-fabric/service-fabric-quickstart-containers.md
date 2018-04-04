@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 04/03/18
 ms.author: ryanwi
 ms.custom: mvc
 
