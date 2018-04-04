@@ -13,7 +13,7 @@ ms.author: jeanb
 ---
 # Stream Analytics release notes
 
-## Notes for June 14, 2017 update of Stream Analytics Tools for Visual Studio
+## Notes for 06/14/2017 update of Stream Analytics Tools for Visual Studio
 This update is for Visual Studio Tools. This release contains the following new features:
 
 | Title | Description |
@@ -22,12 +22,12 @@ This update is for Visual Studio Tools. This release contains the following new 
 | View job run time error message | If there are runtime errors during job execution, you can view them in the Errors tab by adjusting the display time window. By default it shows the error messages for last 30 minutes. |
 | CSV and Avro support for local testing input | Besides JSON, now you can use CSV and Avro file format for local testing input.|
 
-## Notes for May 3, 2017 update of Stream Analytics
+## Notes for 05/03/2017 update of Stream Analytics
 This update is for the troubleshooting documentation release.
 
 The [troubleshooting guide](stream-analytics-troubleshooting-guide.md) and other docs were released. Review this guide, and your feedback is welcome.
 
-## Notes for April 24, 2017 update of Stream Analytics Tools for Visual Studio
+## Notes for 04/24/2017 update of Stream Analytics Tools for Visual Studio
 This update is for Visual Studio Tools. This release contains the following new features:
 
 | Title | Description |
@@ -38,7 +38,7 @@ This update is for Visual Studio Tools. This release contains the following new 
 | View error message for inputs/outputs | If there is any runtime error related to the job's inputs or outputs, it is shown on the job diagram where you can hover on it to see the detailed error message.|
 
 
-## Notes for February 1, 2017 release of Stream Analytics
+## Notes for 02/01/2017 release of Stream Analytics
 This release contains the following update:
 
 | Title | Description |
@@ -48,7 +48,7 @@ This release contains the following update:
 | Introducing Diagnostic Logging |[Diagnostic logging](stream-analytics-job-diagnostic-logs.md) is now available for additional troubleshooting options. |
 | Introducing GeoSpatial Functions |[GeoSpatial Functions](http://msdn.microsoft.com/library/mt778980(Azure.100).aspx) are now generally available. |
 
-## Notes for April 15, 2016 release of Stream Analytics
+## Notes for 04/15/2016 release of Stream Analytics
 This release contains the following update:
 
 | Title | Description |
