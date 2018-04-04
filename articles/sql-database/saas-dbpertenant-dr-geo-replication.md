@@ -3,7 +3,7 @@
 In this tutorial, you explore a full disaster recovery scenario for a multi-tenant SaaS application implemented using the database-per-tenant model. To protect the app from an outage, you use [_geo-replication_](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) to create replicas for the catalog and tenant databases in an alternate recovery region. If an outage occurs, you quickly fail over to these replicas to  resume normal business operations. On failover, the databases in the original region become secondary replicas of the databases in the recovery region. Once these replicas come back online they automatically catch up to the state of the databases in the recovery region. After the outage is resolved, you fail back to the databases in the original production region.
 
 This tutorial explores both the failover and failback workflows. You'll learn how to:
-> [div classs="checklist"]
+> [!div classs="checklist"]
 
 >* Sync database and elastic pool configuration info into the tenant catalog
 >* Set up a recovery environment in an alternate region, comprising application, servers, and pools
@@ -280,7 +280,7 @@ Tenant databases may be spread across recovery and original regions for some tim
 ## Next steps
 
 In this tutorial you learned how to:
-> [div classs="checklist"]
+> [!div classs="checklist"]
 
 >* Sync database and elastic pool configuration info into the tenant catalog
 >* Set up a recovery environment in an alternate region, comprising application, servers, and pools
