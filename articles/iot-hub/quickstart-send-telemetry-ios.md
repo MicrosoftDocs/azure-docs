@@ -101,49 +101,61 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Download the sample
 
-Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstarts-node/archive/master.zip and extract the ZIP archive.
+In your terminal, navigate to the location where you want to store the sample. Clone the Azure IoT C SDK repo, which contains several samples including the one that this article walks through.
+
+```sh
+git clone https://github.com/Azure/azure-iot-sdk-c.git
+```
+
+Navigate to the Azure IoT Sample folder.
+
+```sh
+cd azure-iot-sdk-c/iothub-client/samples/ios/AzureIoTSample
+```
+
+Install the CocoaPods, which manage the dependencies for your Objective-C project. The install command reads the `podfile` in the AzureIoTSample project and installs the pods as instructed. Make sure that XCode is closed before you run this command. 
+
+```sh
+pod install
+```
+
+Copy the sample project code into your AzureIoTSample folder. 
+```sh
+cp ../../iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c ./AzureIoTSample/iothub_ll_telemetry_sample.c 
+```
 
 ## Run the simulated device application
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
 
-1. In a terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **simulated-device** folder.
+1. Open the sample workspace in XCode.
 
-1. Open the **SimulatedDevice.js** file in a text editor of your choice.
+   ```sh
+   open AzureIoTSampleWorkspace.xcworkspace
+   ```
 
-    Replace the value of the `connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.js** file.
+2. In the project navigator, expand the **AzureIoTSample** project.
+3. Right-click the **AzureIoTSample** folder and select **Add Files to "AzureIoTSample"**.
 
-1. In the terminal window, run the following commands to install the required libraries and run the simulated device application:
+   ![Add files to AzureIoTSample](media/quickstart-send-telemetry-ios/add-files.png)
 
-    ```cmd/sh
-    npm install
-    node SimulatedDevice.js
-    ```
+4. Select **iothub_ll_telemetry_sample.c** and click **Add**. 
+5. Expand the **AzureIoTSample** folder and open **iothub_ll_telemetry_sample.c** for editing in XCode. 
+6. Add the following include to line 12, after the other include files:
 
-    The following screenshot shows some example output as the application sends simulated telemetry to your IoT hub:
+   ```objc
+   #include "ios-sample.h"
+   ```
+7. In line 45 replace the value of the **connectionString** variable with the device connection string that you copied earlier. 
+8. Save your changes. 
+9. Run the project in the device emulator with the build and run button or the key combo **Command + r**. 
 
-    ![Run the simulated device](media/quickstart-send-telemetry-node/SimulatedDevice.png)
+   ![Run the project](media/quickstart-send-telemetry-ios/run-sample.png)
 
-## Run the back-end application
+The following screenshot shows some example output as the application sends simulated telemetry to your IoT hub:
 
-The back-end application connects to the service-side **Events** endpoint on your IoT Hub. The application receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
+![Run the simulated device](media/quickstart-send-telemetry-ios/view-results.png)
 
-1. In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **read-d2c-messages** folder.
-
-1. Open the **ReadDeviceToCloudMessages.js** file in a text editor of your choice.
-
-    Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **ReadDeviceToCloudMessages.js** file.
-
-1. In the terminal window, run the following commands to install the required libraries and run the back-end application:
-
-    ```cmd/sh
-    npm install
-    node ReadDeviceToCloudMessages.js
-    ```
-
-    The following screenshot shows some example output as the application receives telemetry from your simulated device:
-
-    ![Run the back-end application](media/quickstart-send-telemetry-node/ReadDeviceToCloud.png)
 
 ## Clean up resources
 
