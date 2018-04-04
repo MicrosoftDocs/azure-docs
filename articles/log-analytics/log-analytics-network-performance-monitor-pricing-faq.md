@@ -4,11 +4,11 @@ description: Frequently Asked Questions - Azure Network Performance Monitor
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
-manager: ''
+manager: cherylmc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 
-ms.service: monitoring-and-diagnostics
+ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +18,8 @@ ms.author: ajaycode
 
 ---
 # Pricing Changes for Azure Network Performance Monitor
+
+In response to your feedback, we have recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), for various monitoring services across Azure.
 
 This document captures the pricing changes related to Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM), in any easy to read Question and Answer format.
 
@@ -96,4 +98,4 @@ The volume of monitoring data generated depends on several factors such as:
 * number of hops on the network
 * number of paths between the source and the destination
 
-Customers at the higher percentiles (in the table above), usually monitor their circuits from several vantage points on their on-premises network.  The agents are also placed deeper in the network (i.e. farther from the service provider edge router), with the agents often located at user sites/branches and racks in data centers.
+Customers at the higher percentiles (in the table above), usually monitor their circuits from several vantage points on their on-premises network.  The agents are also placed deeper in the network (i.e. farther from the service provider edge router), with the agents often located at multiple user sites/branches and racks in data centers.
