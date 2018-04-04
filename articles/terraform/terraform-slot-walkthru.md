@@ -178,11 +178,11 @@ Once you have forked the test project repo, it's time to create and use the depl
 
     ![Select deployment source](./media/terraform-slot-walkthru/select-source.png)
 
-1. Select **Authorization**.
+1. After Azure makes the connection and displays all the options, select **Authorization**.
 
 1. On the **Authorization** tab, select **Authorize**, and supply the credentials needed for Azure to access your GitHub account. 
 
-1. Once Azure has validated your GitHub credentials, a message displays indicating that the authorization process has completed. Select **OK** to close the **Authorization** tab.
+1. After Azure validates your GitHub credentials, a message displays indicating that the authorization process has completed. Select **OK** to close the **Authorization** tab.
 
 1. Select **Choose your organization** and select your organization.
 
