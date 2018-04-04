@@ -74,15 +74,6 @@ A list of platforms are tested extensively with every release:
 
 The Azure IoT service SDKs contain code to facilitate building applications that interact directly with IoT Hub to manage devices and security.
 
-The following Azure IoT service SDKs are available to download from GitHub:
-
-* [Azure IoT Hub service SDK for .NET][lnk-dotnet-service-sdk]
-* [Azure IoT Hub service SDK for Java][lnk-java-service-sdk]
-* [Azure IoT Hub service SDK for Node.js][lnk-node-service-sdk]
-* [Azure IoT Hub service SDK for Python][lnk-python-service-sdk]
-* [Azure IoT Hub service SDK for C][lnk-c-service-sdk]
-
-
 * Azure IoT Hub service SDK for .NET: 
   * Download from [Nuget][lnk-nuget-csharp-service]
   * [Source code][lnk-dotnet-service-sdk]
