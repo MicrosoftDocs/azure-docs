@@ -39,7 +39,7 @@ The Microsoft Azure IoT device SDKs contain code that facilitates building devic
   * [Source code][lnk-dotnet-device-sdk]
   * [API reference][lnk-dotnet-ref]
 * Azure IoT Hub device SDK for C: written in ANSI C (C99) for portability and broad platform compatibility
-  * Download from [apt-get, MBED, Arduino IDE, or Nuget](lnk-c-package)
+  * Download from [apt-get, MBED, Arduino IDE, or Nuget][lnk-c-package]
   * [Source code][lnk-c-device-sdk]
   * [API reference][lnk-c-ref]
 * Azure IoT Hub device SDK for Java: 
@@ -90,7 +90,7 @@ The Azure IoT service SDKs contain code to facilitate building applications that
   * Download from [pip][lnk-pip-service]
   * [Source code][lnk-python-service-sdk]
 * Azure IoT Hub service SDK for C: 
-  * Download from [apt-get, MBED, Arduino IDE, or Nuget](lnk-c-package)
+  * Download from [apt-get, MBED, Arduino IDE, or Nuget][lnk-c-package]
   * [Source code][lnk-c-service-sdk]
 
 > [!NOTE]
@@ -136,7 +136,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-npm-service]: https://www.npmjs.com/package/azure-iothub
 [lnk-nuget-csharp-device]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-csharp-service]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-c-package]:https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#aptgetpackage
+[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md
 [lnk-pip-device]: https://pypi.python.org/pypi/azure-iothub-device-client/
 [lnk-pip-service]: https://pypi.python.org/pypi/azure-iothub-service-client/
 
