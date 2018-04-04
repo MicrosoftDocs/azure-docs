@@ -67,25 +67,20 @@ sections:
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services
+      html: <p>In module 6, see the creation of a tenant, registering of an app, and creation of policies.</p>
     - title: Secure a serverless application
       href: https://www.pluralsight.com/courses/azure-serverless-applications
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/azure-serverless-applications
+      html: <p>In module 6, hear why you should use Azure AD B2C to secure a serverless app.</p>
     - title: ASP.NET Core 2 and Azure AD B2C
       href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook
-- title: Samples
-  items:
-  - type: paragraph
-    text: Find code samples for the the type of application you're developing.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/active-directory-b2c/code-samples#mobile-desktop-apps">Mobile and desktop apps</a>
-    - html: <a href="/azure/active-directory-b2c/code-samples#web-apps-and-apis">Web apps</a>
-    - html: <a href="/azure/active-directory-b2c/code-samples#single-page-apps">Single-page apps</a>
+      html: <p>In module 8, see the how to add sign-up, sign-in, and profile editing to an ASP.NET Core 2 app.</p>
+- title: Find samples that show examples of identity management in applications.
+  href: https://docs.microsoft.com/azure/active-directory-b2c/code-samples
+
    

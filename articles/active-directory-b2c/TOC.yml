@@ -3,6 +3,7 @@
 - name: Overview
   items:
   - name: About Azure AD B2C
+    expanded: true
     href: active-directory-b2c-overview.md
 - name: Quickstarts
   expanded: true
@@ -34,13 +35,7 @@
     - name: Single page
       href: active-directory-b2c-tutorials-spa-webapi.md
 - name: Samples
-  items:
-  - name: Mobile & desktop apps
-    href: code-samples.md#mobile-and-desktop-apps
-  - name: Web apps
-    href: code-samples.md#web-apps-and-apis
-  - name: Single-page apps
-    href: code-samples.md#single-page-apps
+  href: code-samples.md
 - name: Concepts
   items:
   - name: OAuth 2.0 authorization
@@ -203,25 +198,7 @@
       href: active-directory-b2c-reference-password-change-custom.md
     - name: Enable keep me signed in
       href: active-directory-b2c-reference-kmsi-custom.md
-  - name: Resources
-    items:
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=security-identity
-    - name: Frequently asked questions
-      href: active-directory-b2c-faqs.md
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/active-directory-b2c/
-    - name: Pricing calculator
-      href: https://azure.microsoft.com/pricing/calculator/
-    - name: Service updates
-      href: https://azure.microsoft.com/updates/?product=active-directory-b2c
-    - name: Stack Overflow 
-      href: https://stackoverflow.com/questions/tagged/azure-ad-b2c
-    - name: Support
-      href: active-directory-b2c-support.md
-    - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-    - name: Troubleshooting and Event Logs
+  - name: Troubleshooting and Event Logs
       items:
       - name: Create custom events with Application Insights
         href: active-directory-b2c-custom-guide-eventlogger-appins.md
@@ -229,3 +206,21 @@
         href: active-directory-b2c-troubleshoot-custom.md
       - name: Issues when creating a directory
         href: active-directory-b2c-support-create-directory.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Frequently asked questions
+    href: active-directory-b2c-faqs.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/active-directory-b2c/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=active-directory-b2c
+  - name: Stack Overflow 
+    href: https://stackoverflow.com/questions/tagged/azure-ad-b2c
+  - name: Support
+    href: active-directory-b2c-support.md
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c

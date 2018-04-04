@@ -86,19 +86,19 @@ To configure an identity provider in your Azure AD B2C tenant, you must record t
 
 ### User Interface experience
 
-Azure AD B2C enables you to control how it interacts with a customer after they have already authenticated. This control is done through SSO session management. For example, you can control whether the selection of identity providers is displayed, or whether local account details need to be entered again. SSO session management uses the same semantics as any other technical profile in custom policies.
+Azure AD B2C enables you to control how it interacts with a customer after they have already authenticated. This control is done through SSO session management. For example, you can control whether the selection of identity providers is displayed, or whether local account details need to be entered again. SSO session management uses the same semantics as any other technical profile in built-in or custom policies.
 
-Most of the HTML and CSS content that's presented to customers can be controlled. When you use a custom policy, you configure UI customization in XML instead of using controls in the Azure portal. By using the page UI customization feature, you customize the look and feel of any custom policy. You can also maintain brand and visual consistency between your application and Azure AD B2C.
+Most of the HTML and CSS content that's presented to customers can be controlled. You configure UI customization in XML instead of using controls in the Azure portal. By using the page UI customization feature, you customize the look and feel of any policy. You can also maintain brand and visual consistency between your application and Azure AD B2C.
 
-Azure AD B2C runs code in the customer's browser and uses a modern approach called Cross-Origin Resource Sharing (CORS). First, you specify a URL in the custom policy with customized HTML content. Azure AD B2C merges UI elements with the HTML content that's loaded from your URL and then displays the page to the customer.
+Azure AD B2C runs code in the customer's browser and uses a modern approach called Cross-Origin Resource Sharing (CORS). First, you specify a URL in a policy with customized HTML content. Azure AD B2C merges UI elements with the HTML content that's loaded from your URL and then displays the page to the customer.
 
-By using Azure AD B2C custom policies, you can send a parameter in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application.
+You can send a parameters to Azure AD B2C in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application.
 
 ## How do I get started with Azure AD B2C?
 
-In Azure AD B2C, a tenant represents your organization and is a directory of users. Each Azure AD B2C tenant is distinct and separate from other Azure AD B2C tenants. A tenant contains information about the consumers that have signed up to use your application. For example, passwords, profile data, and permissions.
+In Azure AD B2C, a tenant represents your organization and is a directory of users. Each Azure AD B2C tenant is distinct and separate from other Azure AD B2C tenants. A tenant contains information about the customers that have signed up to use your application. For example, passwords, profile data, and permissions.
 
-You need to link your Azure AD B2C tenant to your Azure subscription to enable all functionality and pay for usage charges. To allow Azure AD B2C customers to sign in to your application, you must register your application in an Azure AD B2C tenant of your own.
+You need to link your Azure AD B2C tenant to your Azure subscription to enable all functionality and pay for usage charges. To allow Azure AD B2C customers to sign in to your application, you must register your application in an Azure AD B2C tenant.
 
 Before you configure your application to use Azure AD B2C, you first need to create an Azure AD B2C tenant and register your application. To register your application, complete the steps in [Tutorial: Register an application to enable sign-up and sign-in using Azure AD B2C](tutorial-register-applications.md).
   
