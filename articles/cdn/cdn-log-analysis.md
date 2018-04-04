@@ -24,7 +24,7 @@ After you enable CDN for your application, you can monitor CDN usage, check the 
 
 ## Core analytics via Azure diagnostic logs
 
-Core analytics is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN profiles. Azure diagnostics logs allow core analytics to be exported to Azure storage, event hubs, or Operations Management Suite (OMS) Log Analytics. OMS Log Analytics offers a solution with graphs that are user-configurable and customizable. For more information, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
+Core analytics is available for all CDN endpoints belonging to Verizon (Standard and Premium) and Akamai (Standard) CDN profiles. Azure diagnostics logs allow core analytics to be exported to Azure storage, event hubs, or Log Analytics. Log Analytics offers a solution with graphs that are user-configurable and customizable. For more information, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
 
 ## Verizon core reports
 
