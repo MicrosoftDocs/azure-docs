@@ -4,7 +4,7 @@ description: Quickly create a route-based VPN Gateway using the Azure portal
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
 ---
 
@@ -60,7 +60,7 @@ The gateway subnet contains the reserved IP addresses that the virtual network g
 
 ## <a name="gwvalues"></a>Configure gateway settings
 
-1. On the left side of the portal page, click **+ Create a resource** and type 'Virtual Network Gateway' in the search box. In **Results**, locate and click **Virtual network gateway**.
+1. On the left side of the portal page, click **+ Create a resource** and type 'Virtual Network Gateway' in the search box, then press **Enter**. In **Results**, locate and click **Virtual network gateway**.
 2. At the bottom of the 'Virtual network gateway' page, click **Create** to open the **Create virtual network gateway** page.
 3. On the **Create virtual network gateway** page, specify the values for your virtual network gateway.
 
@@ -83,7 +83,7 @@ A VPN gateway must have a dynamically allocated public IP address. When you crea
 2. On the **Choose public IP page**, click **+ Create new** to open the **Create public IP address** page.
 3. Configure the settings with the following values:
 
-  - **Name**: **VNet1GWPIP**
+  - **Name**: **VNet1GWIP**
   - **SKU**: **Basic**
 
   ![Create public IP](./media/create-routebased-vpn-gateway-portal/gw_ip.png "Create PIP")
