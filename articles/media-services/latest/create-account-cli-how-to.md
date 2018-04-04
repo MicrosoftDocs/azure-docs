@@ -19,7 +19,7 @@ ms.author: juliako
 
 When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. This storage account resource has to be located in the same geographic region as the Media Services account.  
 
-This quickstart describes steps for creating a new Azure Media Services account using CLI 2.0.  
+This topic describes steps for creating a new Azure Media Services account using CLI 2.0.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
