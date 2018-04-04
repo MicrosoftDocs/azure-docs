@@ -162,7 +162,7 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 
 You can view the incoming and outgoing events count in the portal for the Event Hubs namespace as shown below:
 
-    ![][5]
+   ![][5]
 
 ## Clean up deployment
 
