@@ -53,7 +53,7 @@
         href: how-to-vscode-develop-azure-function.md
       - name: Debug Azure Functions
         href: how-to-vscode-debug-azure-function.md
-      - name: Work with multiple modules in VS Code
+      - name: Work with multiple modules
         href: tutorial-multiple-modules-in-vscode.md
   - name: Store data at the edge
     href: sql-storage.md
