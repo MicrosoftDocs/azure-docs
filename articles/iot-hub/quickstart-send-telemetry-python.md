@@ -24,7 +24,7 @@ ms.author: dobett
 
 IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry from a simulated device application, through IoT Hub, to a back-end application for processing.
 
-The quickstart uses a pre-written Python application to send the telemetry and a CLI uitility to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
+The quickstart uses a pre-written Python application to send the telemetry and a CLI utility to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
