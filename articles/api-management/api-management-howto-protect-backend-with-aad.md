@@ -56,7 +56,7 @@ When the application is created, make a note of the **Application ID**, for use 
 
 ## Register another application in Azure AD to represent a client application
 
-Every client application that calls the API needs to be registered as an application in Azure AD as well. For this example, the sample client application is the Developer Console in the API Management Developer Portal. Here's how to register another application in Azure AD to represent the Developer Console.
+Every client application that calls the API needs to be registered as an application in Azure AD as well. For this example, the sample client application is the Developer Console in the API Management developer portal. Here's how to register another application in Azure AD to represent the Developer Console.
 
 1. Select **New application registration**. 
 
@@ -99,88 +99,82 @@ Now that you have registered two applications to represent the API and the Devel
 > 
 > 
 
-## Enable OAuth 2.0 User Authorization in the Developer Console
+## Enable OAuth 2.0 user authorization in the Developer Console
 
-At this point, we have created our applications in Azure AD and have granted proper permissions to allow the client-app to call the backend-app. 
+At this point, you have created your applications in Azure AD, and have granted proper permissions to allow the client app to call the back-end app. 
 
-In this guide, we will use the Developer Console as the client-app. Below steps describe how to enable OAuth 2.0 User Authorization in the Developer Console 
+In this example, the Developer Console is the client app. The following steps describe how to enable OAuth 2.0 user authorization in the Developer Console. 
 
-Navigate to your APIM instance.
+1. Browse to your API Management instance.
 
-Click on **OAuth 2.0** and then **Add**.
+2. Select **OAuth 2.0** > **Add**.
 
-Provide a **Display name** and **Description**.
+3. Provide a **Display name** and **Description**.
 
-For the Client registration page URL,** enter a placeholder value such as `http://localhost`.  The **Client registration page URL** points to the page that users can use to create and configure their own accounts for OAuth 2.0 providers that support user management of accounts. In this example,  users do not create and configure their own accounts so a placeholder is used.
+4. For the **Client registration page URL**, enter a placeholder value, such as `http://localhost`. The **Client registration page URL** points to the page that users can use to create and configure their own accounts for OAuth 2.0 providers that support this. In this example, users do not create and configure their own accounts, so you use a placeholder instead.
 
-Check **Authorization code** as the **Authorization grant types**.
+5. For **Authorization grant types**, select **Authorization code**.
 
-Next, specify **Authorization endpoint URL** and **Token endpoint URL**.
+6. Specify the **Authorization endpoint URL** and **Token endpoint URL**. Retrieve these values from the **Endpoints** page in your Azure AD tenant. Browse to the **App registrations** page again, and select **Endpoints**.
 
-These values can be retrieved from the **Endpoints** page in your Azure AD tenant. To access the endpoints, navigate to the **App registrations** page again and click on **Endpoints**.
+7. Copy the **OAuth 2.0 Authorization Endpoint**, and paste it into the **Authorization endpoint URL** text box.
 
-Copy the **OAuth 2.0 Authorization Endpoint** and paste it into the **Authorization endpoint URL** textbox.
+8. Copy the **OAuth 2.0 Token Endpoint**, and paste it into the **Token endpoint URL** text box. In addition to pasting in the token endpoint, add a body parameter named **resource**. For the value of this parameter, use the **Application ID** for the back-end app.
 
-Copy the **OAuth 2.0 Token Endpoint** and paste it into the **Token endpoint URL** textbox.
+9. Next, specify the client credentials. These are the credentials for the client app.
 
-In addition to pasting in the token endpoint, add an additional body parameter named **resource** and for the value use the **Application ID** for the backend-app.
+10. For **Client ID**, use the **Application ID** for the client app.
 
-Next, specify the client credentials. These are the credentials for the client-app.
+11. For **Client secret**, use the key you created for the client app earlier. 
 
-For **Client Id**, use the **Application ID** for the client-app.
+12. Immediately following the client secret is the **redirect_url** for the authorization code grant type. Make a note of this URL.
 
-For **Client secret**, use the key you created for the client-app earlier. 
+13. Select **Create**.
 
-Immediately following the client secret is the **redirect_url** for the authorization code grant type.
+14. Go back to the **Settings** page of your client app.
 
-Make a note of this URL.
+15. Select **Reply URLs**, and paste the **redirect_url** in the first row. In this example, you replaced `https://localhost` with the URL in the first row.  
 
-Click on **Create**.
+Now that you have configured an OAuth 2.0 authorization server, the Developer Console can obtain access tokens from Azure AD. 
 
-Navigate back to the **Settings** page of your client-app.
+The next step is to enable OAuth 2.0 user authorization for your API. This enables the Developer Console to know that it needs to obtain an access token on behalf of the user, before making calls to your API.
 
-Click on **Reply URLs** and paste the **redirect_url** in the first row. In this example, we replaced `https://localhost` with the URL in the first row.  
+1. Browse to your API Management instance, and go to **APIs**.
 
-Now we have configured an OAuth 2.0 Authorization Server, the Developer Console should be able to obtain access tokens from Azure AD. 
+2. Select the API you want to protect. In this example, you use the `Echo API`.
 
-The next step is to enable OAuth 2.0 user authorization for our API, so that the Developer Console knows it needs to obtain an access token on behalf of the user before making calls to our API.
+3. Go to **Settings**.
 
-Navigate to your APIM instance, go to **APIs**.
+4. Under **Security**, choose **OAuth 2.0**, and select the OAuth 2.0 server you configured earlier. 
 
-Click on the API you want to protect. In this example, we will use the `Echo API`.
-
-Go to **Settings**.
-
-Under **Security**, choose **OAuth 2.0** and select the OAuth 2.0 server we configured earlier. 
-
-Click on **Save**.
+5. Select **Save**.
 
 ## Successfully call the API from the developer portal
 
-Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console will obtain an access token on behalf of the user before calling the API.
+Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console obtains an access token on behalf of the user, before calling the API.
 
-Navigate to any operation under the `Echo API` in the Developer Portal and click **Try it**, which will bring us to the Developer Console.
+1. Browse to any operation under the `Echo API` in the developer portal, and select **Try it**. This brings you to the Developer Console.
 
-Note a new item in the **Authorization** section corresponding to the authorization server you just added.
+2. Note a new item in the **Authorization** section, corresponding to the authorization server you just added.
 
-Select **Authorization code** from the authorization drop-down list and you will be prompted to sign in to the Azure AD tenant. If you are already signed in with the account, you may not be prompted.
+3. Select **Authorization code** from the authorization drop-down list, and you are prompted to sign in to the Azure AD tenant. If you are already signed in with the account, you may not be prompted.
 
-After successful sign-in, an `Authorization` header will be added to the request with an access token from Azure AD. 
+4. After successful sign-in, an `Authorization` header is added to the request, with an access token from Azure AD. The following is a sample token (Base64 encoded):
 
-A sample token looks like below, it is Base64 encoded.
+   ```
+   Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCIsImtpZCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCJ9.eyJhdWQiOiIxYzg2ZWVmNC1jMjZkLTRiNGUtODEzNy0wYjBiZTEyM2NhMGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgvIiwiaWF0IjoxNTIxMTUyNjMzLCJuYmYiOjE1MjExNTI2MzMsImV4cCI6MTUyMTE1NjUzMywiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhHQUFBQUptVzkzTFd6dVArcGF4ZzJPeGE1cGp2V1NXV1ZSVnd1ZXZ5QU5yMlNkc0tkQmFWNnNjcHZsbUpmT1dDOThscUJJMDhXdlB6cDdlenpJdzJLai9MdWdXWWdydHhkM1lmaDlYSGpXeFVaWk9JPSIsImFtciI6WyJyc2EiXSwiYXBwaWQiOiJhYTY5ODM1OC0yMWEzLTRhYTQtYjI3OC1mMzI2NTMzMDUzZTkiLCJhcHBpZGFjciI6IjEiLCJlbWFpbCI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiSmlhbmciLCJnaXZlbl9uYW1lIjoiTWlhbyIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJpcGFkZHIiOiIxMzEuMTA3LjE3NC4xNDAiLCJuYW1lIjoiTWlhbyBKaWFuZyIsIm9pZCI6IjhiMTU4ZDEwLWVmZGItNDUxMS1iOTQzLTczOWZkYjMxNzAyZSIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInN1YiI6IkFGaWtvWFk1TEV1LTNkbk1pa3Z3MUJzQUx4SGIybV9IaVJjaHVfSEM1aGciLCJ0aWQiOiI0NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgiLCJ1bmlxdWVfbmFtZSI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsInV0aSI6ImFQaTJxOVZ6ODBXdHNsYjRBMzBCQUEiLCJ2ZXIiOiIxLjAifQ.agGfaegYRnGj6DM_-N_eYulnQdXHhrsus45QDuApirETDR2P2aMRxRioOCR2YVwn8pmpQ1LoAhddcYMWisrw_qhaQr0AYsDPWRtJ6x0hDk5teUgbix3gazb7F-TVcC1gXpc9y7j77Ujxcq9z0r5lF65Y9bpNSefn9Te6GZYG7BgKEixqC4W6LqjtcjuOuW-ouy6LSSox71Fj4Ni3zkGfxX1T_jiOvQTd6BBltSrShDm0bTMefoyX8oqfMEA2ziKjwvBFrOjO0uK4rJLgLYH4qvkR0bdF9etdstqKMo5gecarWHNzWi_tghQu9aE3Z3EZdYNI_ZGM-Bbe3pkCfvEOyA
+   ```
 
-```
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCIsImtpZCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCJ9.eyJhdWQiOiIxYzg2ZWVmNC1jMjZkLTRiNGUtODEzNy0wYjBiZTEyM2NhMGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgvIiwiaWF0IjoxNTIxMTUyNjMzLCJuYmYiOjE1MjExNTI2MzMsImV4cCI6MTUyMTE1NjUzMywiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhHQUFBQUptVzkzTFd6dVArcGF4ZzJPeGE1cGp2V1NXV1ZSVnd1ZXZ5QU5yMlNkc0tkQmFWNnNjcHZsbUpmT1dDOThscUJJMDhXdlB6cDdlenpJdzJLai9MdWdXWWdydHhkM1lmaDlYSGpXeFVaWk9JPSIsImFtciI6WyJyc2EiXSwiYXBwaWQiOiJhYTY5ODM1OC0yMWEzLTRhYTQtYjI3OC1mMzI2NTMzMDUzZTkiLCJhcHBpZGFjciI6IjEiLCJlbWFpbCI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiSmlhbmciLCJnaXZlbl9uYW1lIjoiTWlhbyIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJpcGFkZHIiOiIxMzEuMTA3LjE3NC4xNDAiLCJuYW1lIjoiTWlhbyBKaWFuZyIsIm9pZCI6IjhiMTU4ZDEwLWVmZGItNDUxMS1iOTQzLTczOWZkYjMxNzAyZSIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInN1YiI6IkFGaWtvWFk1TEV1LTNkbk1pa3Z3MUJzQUx4SGIybV9IaVJjaHVfSEM1aGciLCJ0aWQiOiI0NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgiLCJ1bmlxdWVfbmFtZSI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsInV0aSI6ImFQaTJxOVZ6ODBXdHNsYjRBMzBCQUEiLCJ2ZXIiOiIxLjAifQ.agGfaegYRnGj6DM_-N_eYulnQdXHhrsus45QDuApirETDR2P2aMRxRioOCR2YVwn8pmpQ1LoAhddcYMWisrw_qhaQr0AYsDPWRtJ6x0hDk5teUgbix3gazb7F-TVcC1gXpc9y7j77Ujxcq9z0r5lF65Y9bpNSefn9Te6GZYG7BgKEixqC4W6LqjtcjuOuW-ouy6LSSox71Fj4Ni3zkGfxX1T_jiOvQTd6BBltSrShDm0bTMefoyX8oqfMEA2ziKjwvBFrOjO0uK4rJLgLYH4qvkR0bdF9etdstqKMo5gecarWHNzWi_tghQu9aE3Z3EZdYNI_ZGM-Bbe3pkCfvEOyA
-```
-
-Click **Send** and you should be able to call the API successfully.
+5. Select **Send**, and you can call the API successfully.
 
 
 ## Configure a JWT validation policy to pre-authorize requests
 
-At this point, when a user tries to make a call from the Developer Console, the user will be prompted to sign in and the Developer Console will obtain an Access Token on behalf of the user. Everything is working as expected. However, what if someone calls our API without a token or with an invalid token? For example, you can try deleting the `Authorization` header and will find you are still able to call the API. The reason is because APIM does not validate the Access Token at this point. It simply passes the `Auhtorization` header to the backend API.
+At this point, when a user tries to make a call from the Developer Console, the user is prompted to sign in. The Developer Console obtains an access token on behalf of the user.
 
-We can use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize requests in APIM by validating the access tokens of each incoming request. If a request does not have a valid token, it is blocked by API Management and is not passed along to the backend. For example, we can add the below policy to the `<inbound>` policy section of the `Echo API`. It checks the audience claim in an access token and returns an error message if the token is not valid. For information on how to configure policies, see [Set or edit policies](set-edit-policies.md).
+But what if someone calls your API without a token or with an invalid token? For example, you can still call the API even if you delete the `Authorization` header. The reason is that API Management does not validate the access token at this point. It simply passes the `Authorization` header to the back-end API.
+
+You can use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize requests in API Management, by validating the access tokens of each incoming request. If a request does not have a valid token, API Management blocks it. For example, you can add the following policy to the `<inbound>` policy section of the `Echo API`. It checks the audience claim in an access token, and returns an error message if the token is not valid. For information on how to configure policies, see [Set or edit policies](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -195,12 +189,13 @@ We can use the [Validate JWT](api-management-access-restriction-policies.md#Vali
 
 ## Build an application to call the API
 
-In this guide, we used the Developer Console in APIM as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement the OAuth 2.0 flow, please see [Azure Active Directory code samples](../active-directory/develop/active-directory-code-samples.md).
+In this guide, you used the Developer Console in API Management as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement OAuth 2.0, see [Azure Active Directory code samples](../active-directory/develop/active-directory-code-samples.md).
 
 ## Next steps
-* Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)
+* Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
-* For other ways to secure your backend service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
+* For other ways to secure your back-end service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
 
-[Create an API Management service instance]: get-started-create-service-instance.md
-[Manage your first API]: import-and-publish.md
+* [Create an API Management service instance](get-started-create-service-instance.md).
+
+* [Manage your first API](import-and-publish.md).
