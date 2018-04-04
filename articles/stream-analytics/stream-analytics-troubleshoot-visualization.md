@@ -4,9 +4,8 @@ description: Learn how to visualize a Stream Analytics job pipeline for self-ser
 keywords: ''
 documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 
 ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
 ms.service: stream-analytics
@@ -15,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Visualize and troubleshoot Stream Analytics jobs

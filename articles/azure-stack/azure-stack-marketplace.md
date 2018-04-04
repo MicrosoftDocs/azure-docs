@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 04/03/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 
@@ -40,6 +40,8 @@ Every Marketplace item has:
 * Formatting information to display the item in the portal
 
 Every item published to the Marketplace uses a format called the Azure Gallery Package (azpkg). Add deployment or runtime resources (like code, zip files with software, or virtual machine images) to Azure Stack separately, not as part of the Marketplace Item. 
+
+Beginning with 1803, images are converted to sparse files during download from Azure or during the upload for custom images. This process adds time when adding an image, but saves space and speeds up the deployment of those images. Conversion only applies to new images. Existing images are not changed. 
 
 ## Next steps
 [Create and publish a marketplace item](azure-stack-create-and-publish-marketplace-item.md)

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2018
 ms.author: richrund
 
 ---
@@ -25,18 +25,19 @@ Log Analytics offers the following solutions for monitoring your networks:
 * Azure Application Gateway analytics to review
  * Azure Application Gateway logs
  * Azure Application Gateway metrics
-* Azure Network Security Group analytics to review
- * Azure Network Security Group logs
+* Solutions to monitor and audit network activity on your cloud network
+* [Traffic Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Azure Network Security Group Analytics
 
 ## Network Performance Monitor (NPM)
 
-The [Network Performance Monitor](log-analytics-network-performance-monitor.md) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
+The [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
 
 * Public cloud and on-premises
 * Data centers and user locations (branch offices)
 * Subnets hosting various tiers of a multi-tiered application.
 
-For more information, see [Network Performance Monitor](log-analytics-network-performance-monitor.md).
+For more information, see [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 ## Azure Application Gateway and Network Security Group analytics
 To use the solutions:
@@ -208,9 +209,9 @@ To use the updated solutions:
 
     | Instead of: | Use: |
     | --- | --- |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
-    | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
+    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
+    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
    + For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names.

@@ -27,7 +27,7 @@ Application Insights supports Java apps running on Linux, Unix, or Windows.
 
 You need:
 
-* Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
+* Oracle or Zulu JRE version 1.7 or 1.8
 * A subscription to [Microsoft Azure](https://azure.microsoft.com/).
 
 *If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](app-insights-java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
@@ -44,10 +44,10 @@ You need:
 ## 2. Add the Application Insights SDK for Java to your project
 *Choose the appropriate way for your project.*
 
-#### If you're using Eclipse to create a Maven or Dynamic Web project ...
+#### If you're using Eclipse to create a Dynamic Web project...
 Use the [Application Insights SDK for Java plug-in][eclipse].
 
-#### If you're using Maven...
+#### If you're using Maven... <a name="maven-setup" />
 If your project is already set up to use Maven for build, merge the following code to your pom.xml file.
 
 Then, refresh the project dependencies to get the binaries downloaded.
@@ -72,15 +72,15 @@ Then, refresh the project dependencies to get the binaries downloaded.
     </dependencies>
 ```
 
-* *Build or checksum validation errors?* Try using a specific version, such as: `<version>2.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in our [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Build or checksum validation errors?* Try using a specific version, such as: `<version>2.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Need to update to a new SDK?* Refresh your project's dependencies.
 
-#### If you're using Gradle...
+#### If you're using Gradle... <a name="gradle-setup" />
 If your project is already set up to use Gradle for build, merge the following code to your build.gradle file.
 
 Then refresh the project dependencies to get the binaries downloaded.
 
-```JSON
+```gradle
 
     repositories {
       mavenCentral()
@@ -92,27 +92,24 @@ Then refresh the project dependencies to get the binaries downloaded.
     }
 ```
 
-* *Build or checksum validation errors? Try using a specific version, such as:* `version:'2.0.n'`. *You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
-* *To update to a new SDK*
-  * Refresh your project's dependencies.
+* *Build or checksum validation errors?* Try using a specific version, such as: `version:'2.0.n'`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *To update to a new SDK* Refresh your project's dependencies.
 
-#### Otherwise ...
-Manually add the SDK:
-
-1. Download the [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
-2. Extract the binaries from the zip file and add them to your project.
+#### Otherwise, if you are manually managing dependencies ...
+Download the [latest version](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and copy the necessary files into your project, replacing any previous versions.
 
 ### Questions...
-* *What's the relationship between the `-core` and `-web` components in the zip?*
-
+* *What's the relationship between the `-core` and `-web` components?*
   * `applicationinsights-core` gives you the bare API. You always need this component.
   * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this component if you don't want this telemetry automatically collected. For example, if you want to write your own.
-* *To update the SDK when we publish changes*
+  
+* *How should I update the SDK to the latest version?*
+  * If you are using Gradle or Maven...
+    * Update your build file to specify the latest version or use Gradle/Maven's wildcard syntax to include the latest version automatically. Then, refresh your project's dependencies. The wildcard syntax can be seen in the examples above for [Gradle](#gradle-setup) or [Maven](#maven-setup).
+  * If you are manually managing dependencies...
+    * Download the latest [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and replace the old ones. Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
-  * Download the latest [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and replace the old ones.
-  * Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
-
-## 3. Add an Application Insights .xml file
+## 3. Add an ApplicationInsights.xml file
 Add ApplicationInsights.xml to the resources folder in your project, or make sure it is added to your project’s deployment class path. Copy the following XML into it.
 
 Substitute the instrumentation key that you got from the Azure portal.
@@ -124,12 +121,10 @@ Substitute the instrumentation key that you got from the Azure portal.
 
 
       <!-- The key from the portal: -->
-
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
 
       <!-- HTTP request component (not required for bare API) -->
-
       <TelemetryModules>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
@@ -150,11 +145,11 @@ Substitute the instrumentation key that you got from the Azure portal.
     </ApplicationInsights>
 ```
 
+Optionally, the configuration file can reside in any location accessible to your application.  The system property `-Dapplicationinsights.configurationDirectory` specifies the directory that contains ApplicationInsights.xml. For example, a configuration file located at `E:\myconfigs\appinsights\ApplicationInsights.xml` would be configured with the property `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"`.
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
-* Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
-* The Application Insights key can be passed dynamically from the Azure portal as a system property (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). If there is no property defined, it checks for environment variable (APPLICATION_INSIGHTS_IKEY) in Azure App Settings. If both the properties are undefined, the default InstrumentationKey is used from ApplicationInsights.xml. This sequence helps you to manage different InstrumentationKeys for different environments dynamically.
+* Event correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this identifier as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
 
 ### Alternative ways to set the instrumentation key
 Application Insights SDK looks for the key in this order:
@@ -166,8 +161,7 @@ Application Insights SDK looks for the key in this order:
 You can also [set it in code](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## 4. Add an HTTP filter
@@ -217,7 +211,7 @@ Add this item to the Struts configuration file (usually named struts.xml or stru
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
+If you have interceptors defined in a default stack, the interceptor can be added to that stack.
 
 ## 5. Run your application
 Either run it in debug mode on your development machine, or publish to your server.

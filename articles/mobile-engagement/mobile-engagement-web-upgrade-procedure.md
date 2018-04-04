@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement Web SDK upgrade procedures
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 If you have already integrated an earlier version of the Azure Mobile Engagement Web SDK into your web application, you need to consider the following points when you upgrade the SDK.
 
 If you skipped multiple versions of the Mobile Engagement Web SDK, you might need to complete several procedures during the upgrade process. For example, if you migrate from 1.4.0 to 1.6.0, first follow the procedures to upgrade from 1.4.0 to 1.5.0. Then, follow the procedures to upgrade from 1.5.0 to 1.6.0.

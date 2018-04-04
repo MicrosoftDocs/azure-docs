@@ -4,8 +4,8 @@ description: Learn how to create a predictive pipeline by using Azure Machine Le
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

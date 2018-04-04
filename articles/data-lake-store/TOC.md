@@ -9,7 +9,6 @@
 
 # Get started
 ## [Using Portal](data-lake-store-get-started-portal.md)
-## [Using Data Lake Store in Storage Explorer](data-lake-store-in-storage-explorer.md)
 ## [Using PowerShell](data-lake-store-get-started-powershell.md)
 ## [Using Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 
@@ -17,7 +16,7 @@
 # How to
 ## Load and move data
 ### [Using Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
-### [Using Data Lake Store in Storage Explorer](data-lake-store-in-storage-explorer.md)
+### [Using Storage Explorer](data-lake-store-in-storage-explorer.md)
 ### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)

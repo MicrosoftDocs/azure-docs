@@ -38,7 +38,6 @@ There is a maximum number of connections, Compute Units, and storage in each ser
 |Memory Optimized| Gen 5| 4| 1250|
 |Memory Optimized| Gen 5| 8| 2500|
 |Memory Optimized| Gen 5| 16| 5000|
-|Memory Optimized| Gen 5| 32| 10000| 
 
 When too many connections are reached, you may receive the following error:
 > ERROR 1040 (08004): Too many connections

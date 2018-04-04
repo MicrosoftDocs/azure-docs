@@ -55,7 +55,6 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 |Memory Optimized| Gen 5| 4| 15360| 1250|
 |Memory Optimized| Gen 5| 8| 30720| 2500|
 |Memory Optimized| Gen 5| 16| 62464| 5000|
-|Memory Optimized| Gen 5| 32| 125952| 10000| 
 
 These additional server parameters are not configurable in the system:
 
