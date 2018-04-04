@@ -32,7 +32,7 @@ associated tasks created, and the resulting output data downloaded – no code
 required, the CLI being used directly or being integrated into scripts.
 
 Batch templates build on the [existing Batch support in the Azure
-CLI](https://docs.microsoft.com/azure/batch/batch-cli-get-started#json-files-for-resource-creation)
+CLI](batch-cli-get-started.md#json-files-for-resource-creation)
 that allows JSON files to specify property values for the creation of pools,
 jobs, tasks, and other items. With Batch templates, the following capabilities
 are added over what is possible with the JSON files:
@@ -84,13 +84,13 @@ ffmpeg to transcode source video files to different resolutions.
 The template and file transfer capabilities require an extension to be
 installed.
 
-For instructions on how to install the Azure CLI see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+For instructions on how to install the Azure CLI see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 Once the Azure CLI has been installed, the latest version of the Batch extension can be installed using the
 following CLI command:
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
+az extension add --name azure-batch-cli-extensions
 ```
 
 For more information about the Batch extension, see [Microsoft Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
