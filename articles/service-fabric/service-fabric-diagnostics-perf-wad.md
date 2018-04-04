@@ -42,7 +42,9 @@ To collect performance counters via WAD, you need to modify the configuration ap
 
     The `scheduledTransferPeriod` defines how frquently the values of the counters that are collected are transferred to your Azure storage table and to any configured sink. 
 
-3. Add the performance counters you would like to collect to the `PerformanceCounterConfiguration` that was declared in the previous step. Each counter you would like to collect is defined with a `counterSpecifier`, `sampleRate`, `unit`, `annotation`, and any relevant `sinks`. Here is an example of a configuration with the counter for the *Total Processor Time* (the amount of time the CPU was in use for processing operations) and *Service Fabric Actor Method Invocations per Second*, one of the Service Fabric custom performance counters. Refer to [Reliable Actor Performance Counters](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) and [Reliable Service Performance Counters](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) for a full list of Service Fabric custom perf counters.
+3. Add the performance counters you would like to collect to the `PerformanceCounterConfiguration` that was declared in the previous step. Each counter you would like to collect is defined with a `counterSpecifier`, `sampleRate`, `unit`, `annotation`, and any relevant `sinks`.
+
+Here is an example of a configuration with the counter for the *Total Processor Time* (the amount of time the CPU was in use for processing operations) and *Service Fabric Actor Method Invocations per Second*, one of the Service Fabric custom performance counters. Refer to [Reliable Actor Performance Counters](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) and [Reliable Service Performance Counters](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) for a full list of Service Fabric custom perf counters.
 
  ```json
  "WadCfg": {
@@ -110,9 +112,8 @@ To collect performance counters via WAD, you need to modify the configuration ap
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Once the upgrade finishes rolling out (takes between 15-45 minutes), WAD should be collecting the performance counters and sending them to the table named WADPerformanceCountersTable in the storage account associated with your cluster.
+5. Once the upgrade finishes rolling out (takes between 15-45 minutes), WAD should be collecting the performance counters and sending them to the table named WADPerformanceCountersTable in the storage account associated with your cluster. See your performance counters in Application Insights by [adding the AI Sink to the Resource Manager template](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
 
 ## Next steps
-* See your performance counters in Application Insights by [adding the AI Sink to the Resource Manager template](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)
 * Collect more performance counters for your cluster. See [Performance metrics](service-fabric-diagnostics-event-generation-perf.md) for a list of counters you should collect.
 * [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/windows/extensions-diagnostics-template.md) to make further modifications to your `WadCfg`, including configuring additional storage accounts to send diagnostics data to.

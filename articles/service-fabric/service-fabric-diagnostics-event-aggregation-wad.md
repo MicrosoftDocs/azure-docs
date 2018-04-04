@@ -184,7 +184,7 @@ After you modify the template.json file as described, republish the Resource Man
 
 ### Update storage quota
 
-Since the tables populated by the extension will keep growing until the quota is hit, you may want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the **overallQuotainMB** field under **DiagnosticMonitorConfiguration**
+Since the tables populated by the extension will keep growing until the quota is hit, you may want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the `overallQuotainMB` field under `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -289,12 +289,8 @@ If you are using an Application Insights sink, as described in the section below
 
 ## Send logs to Application Insights
 
-Sending monitoring and diagnostics data to Application Insights (AI) can be done as part of the WAD configuration. If you decide to use AI for event analysis and visualization, read [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) to set up an AI Sink as part of your "WadCfg".
+Sending monitoring and diagnostics data to Application Insights (AI) can be done as part of the WAD configuration. If you decide to use AI for event analysis and visualization, read [how to set up an AI sink](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template) as part of your "WadCfg".
 
 ## Next steps
 
-Once you have correctly configured Azure diagnostics, you will see data in your Storage tables from the ETW and EventSource logs. If you choose to use OMS, Kibana, or any other data analytics and visualization platform that is not directly configured in the Resource Manager template, make sure to set up the platform of your choice to read in the data from these storage tables. For detailed steps, check out [How to set up Log Analytics](service-fabric-diagnostics-oms-setup.md).
-
-* [Learn how to collect performance counters or logs by using the Diagnostics extension](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md)
+Once you have correctly configured Azure diagnostics, you will see data in your Storage tables from the ETW and EventSource logs. If you choose to use OMS, Kibana, or any other data analytics and visualization platform that is not directly configured in the Resource Manager template, make sure to set up the platform of your choice to read in the data from these storage tables. Check out [how to set this up with log analytics](service-fabric-diagnostics-oms-setup.md).
