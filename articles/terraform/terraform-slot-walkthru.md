@@ -47,6 +47,8 @@ ms.topic: article
 
 1. Verify that both directories have been successfully created using the `ls` bash command.
 
+    ![Cloud shell after creating directories](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
+
 1. Change directories to the `deploy` directory.
 
     ```bash
