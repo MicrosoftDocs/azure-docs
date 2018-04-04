@@ -57,7 +57,7 @@ up your app, see [Scale up an app in Azure](web-sites-scale.md).
    > 
       
    > [!Note]
-   > Due to current technical limitations, you can only restore to apps in the same scale unit. We will remove that limitation in a future release.
+   > Due to current technical limitations, you can only restore to apps in the same scale unit. This limitation will be removed in a future release.
    > 
    > 
    
