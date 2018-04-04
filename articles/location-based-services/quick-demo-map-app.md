@@ -5,7 +5,7 @@ services: location-based-services
 keywords: 
 author: kgremban
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: location-based-services
 
