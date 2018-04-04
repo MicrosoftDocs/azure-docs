@@ -14,7 +14,19 @@ ms.author: juliako;
 ---
 # Embed Video Indexer widgets into your applications
 
-Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. A **Cognitive Insights** widget includes all visual insights that were extracted from your video indexing process. A **Player** widget enables you to stream the video using adaptive bit rate.
+Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. 
+
+* A **Cognitive Insights** widget includes all visual insights that were extracted from your video indexing process. 
+* A **Player** widget enables you to stream the video using adaptive bit rate.
+
+	The player widget supports the following optional URL params:
+
+	|Name|Definition|Description|
+	|---|---|---|
+	|t|Seconds from start|Makes the player start playing from the given time point.<br/>Example: t=60|
+	|captions|Language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/> Example:captions=en-Us|
+	|showCaptions|A boolean value|Makes the player load with the captions already enabled.<br/>Example:showCaptions=true|
+	|type||Activates an audio player skin (video part is removed). Example: type=audio|
 
 ## Embedding public content
 
@@ -50,7 +62,6 @@ The **Cognitive Insights** widget can interact with a video on your application.
 ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
 
 ### Cross-origin communications
-
 
 To get Video Indexer widgets to communicate with other components, the Video Indexer service does the following:
 
@@ -209,15 +220,6 @@ If you embed Video Indexer player you can choose the size of the player by speci
 For example :
 
     <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
-
-The player widget supports the following optional URL params:
-
-|Name|Definition|Description|
-|---|---|---|
-|t|Seconds from start|Makes the player start playing from the given time point.<br/>Example: t=60|
-|captions|Language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/> Example:captions=en-Us|
-|showCaptions|A boolean value|Makes the player load with the captions already enabled.<br/>Example:showCaptions=true|
-|type||Activates an audio player skin (video part is removed). Example: type=audio|
 
 By default Video Indexer player will have auto generated closed captions based on the transcript of the video that was extracted from the video with the source language that was selected when the video was uploaded.
 
