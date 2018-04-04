@@ -3,16 +3,16 @@ title: How to add a popup to Azure Location Based Services' map | Microsoft Docs
 description: Add a popup
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: shubhaj
-ms.date: 03/01/2018
-ms.topic: tutorial
+author: kgremban
+ms.author: kgremban
+ms.date: 04/04/2018
+ms.topic: article
 ms.service: location-based-services
 
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
-ms.custom: mvc
+ms.custom: codepen
 ---
 
 # Add a popup to the map
