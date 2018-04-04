@@ -54,7 +54,7 @@ depending on how you assign nodes.
 
             }
         }
-        }
+    }
     ```
 1. Save the file as `TestConfig.ps1`.
 

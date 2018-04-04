@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2018
+ms.date: 04/04/2018
 ms.author: pareshmu
 ---
 # ExpressRoute partners and peering locations
@@ -70,7 +70,7 @@ The following table shows connectivity locations and the service providers for e
 | **Busan** |LG CNS |
 | **Chennai** | Airtel+, Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Coresite, Equinix, PacketFabric, Level 3 Communications, Megaport, Verizon, Zayo |
-| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo|
+| **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Telmex Uninet+, Verizon, Zayo|
 | **Denver** |CoreSite, Megaport |
 | **Dublin** |Colt, eir, Interxion, Megaport, Telecity Group |
 | **Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
