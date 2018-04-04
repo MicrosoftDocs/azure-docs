@@ -34,13 +34,25 @@ Learn about the benefits of developing using Azure IoT SDKs [here][lnk-benefits-
 
 The Microsoft Azure IoT device SDKs contain code that facilitates building devices and applications that connect to and are managed by Azure IoT Hub services.
 
-The following Azure IoT device SDKs are available to download from GitHub:
-
-* [Azure IoT Hub device SDK for .NET][lnk-dotnet-device-sdk]
-* [Azure IoT Hub device SDK for Java][lnk-java-device-sdk]
-* [Azure IoT Hub device SDK for Node.js][lnk-node-device-sdk]
-* [Azure IoT Hub device SDK for Python][lnk-python-device-sdk]
-* [Azure IoT Hub device SDK for C][lnk-c-device-sdk] written in ANSI C (C99) for portability and broad platform compatibility. 
+* Azure IoT Hub device SDK for .NET: 
+  * Download from [Nuget][lnk-nuget-csharp-device]
+  * [Source code][lnk-dotnet-device-sdk]
+  * [API reference][lnk-dotnet-ref]
+* Azure IoT Hub device SDK for C: written in ANSI C (C99) for portability and broad platform compatibility
+  * Download from [apt-get, MBED, Arduino IDE, or Nuget](lnk-c-package)
+  * [Source code][lnk-c-device-sdk]
+  * [API reference][lnk-c-ref]
+* Azure IoT Hub device SDK for Java: 
+  * Add to [Maven][lnk-maven-device] project
+  * [Source code][lnk-java-device-sdk]
+  * [API reference][lnk-java-ref]
+* Azure IoT Hub device SDK for Node.js: 
+  * Download from [npm][lnk-npm-device]
+  * Source code [lnk-node-device-sdk]
+  * [API reference][lnk-node-ref]
+* Azure IoT Hub device SDK for Python: 
+  * Download from [pip][lnk-pip-device]
+  * [Source code][lnk-python-device-sdk]
 
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
@@ -70,22 +82,29 @@ The following Azure IoT service SDKs are available to download from GitHub:
 * [Azure IoT Hub service SDK for Python][lnk-python-service-sdk]
 * [Azure IoT Hub service SDK for C][lnk-c-service-sdk]
 
+
+* Azure IoT Hub service SDK for .NET: 
+  * Download from [Nuget][lnk-nuget-csharp-service]
+  * [Source code][lnk-dotnet-service-sdk]
+  * [API reference][lnk-dotnet-service-ref]
+* Azure IoT Hub service SDK for Java: 
+  * Add to [Maven][lnk-maven-service] project
+  * [Source code][lnk-java-service-sdk]
+  * [API reference][lnk-java-service-ref]
+* Azure IoT Hub service SDK for Node.js: 
+  * Download from [npm][lnk-npm-service]
+  * [Source code][lnk-node-service-sdk]
+  * [API reference][lnk-node-service-ref]
+* Azure IoT Hub service SDK for Python: 
+  * Download from [pip][lnk-pip-service]
+  * [Source code][lnk-python-service-sdk]
+* Azure IoT Hub service SDK for C: 
+  * Download from [apt-get, MBED, Arduino IDE, or Nuget](lnk-c-package)
+  * [Source code][lnk-c-service-sdk]
+
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
 
-
-## Online API reference documentation
-
-The following list contains links to online API reference documentation for Azure IoT device and service libraries:
-
-* [Azure IoT Hub device SDK for .NET][lnk-dotnet-ref]
-* [Azure IoT Hub service SDK for .NET][lnk-dotnet-service-ref]
-* [Azure IoT Hub device SDK for Java][lnk-java-ref]
-* [Azure IoT Hub service SDK for Java][lnk-java-service-ref]
-* [Azure IoT Hub device SDK for Node.js][lnk-node-ref]
-* [Azure IoT Hub service SDK for Node.js][lnk-node-service-ref]
-* [Azure IoT Hub device SDK for C][lnk-c-ref]
-* [IoT Hub REST][lnk-rest-ref]
 
 ## Next steps
 
@@ -95,6 +114,7 @@ Other reference topics in this IoT Hub developer guide include:
 * [IoT Hub query language for device twins, jobs, and message routing][lnk-devguide-query]
 * [Quotas and throttling][lnk-devguide-quotas]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
+* [IoT Hub REST API reference][lnk-rest-ref]
 
 <!-- Links and images -->
 
@@ -118,6 +138,17 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service
 [lnk-node-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service
+
+[lnk-maven-device]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk
+[lnk-maven-service]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk
+[lnk-npm-device]: https://www.npmjs.com/package/azure-iot-device
+[lnk-npm-service]: https://www.npmjs.com/package/azure-iothub
+[lnk-nuget-csharp-device]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
+[lnk-nuget-csharp-service]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-c-package]:https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#aptgetpackage
+[lnk-pip-device]: https://pypi.python.org/pypi/azure-iothub-device-client/
+[lnk-pip-service]: https://pypi.python.org/pypi/azure-iothub-service-client/
+
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
