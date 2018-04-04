@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, cc996988-fb4f-47
 ---
 
 # Create a function that integrates with Azure Logic Apps
@@ -68,8 +68,6 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
 5. In the left navigation column, click **Keys**, and then copy the value of **Key 1** and save it. You use this key to connect the logic app to your Cognitive Services API. 
  
     ![Keys](media/functions-twitter-email/keys.png)
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## Create the function app
 

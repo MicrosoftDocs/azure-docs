@@ -1,21 +1,13 @@
 ---
-title: Runbook input parameters| Microsoft Docs
+title: Runbook input parameters
 description: Runbook input parameters increase the flexibility of runbooks by allowing you to pass data to a runbook when it is started. This article describes different scenarios where input parameters are used in runbooks.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: tysonn
-
-ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/11/2016
-ms.author: sngun
-
+manager: carmonm
 ---
 # Runbook input parameters
 

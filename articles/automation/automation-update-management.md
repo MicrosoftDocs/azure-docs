@@ -1,21 +1,13 @@
 ---
-title: Update Management solution in Azure | Microsoft Docs
+title: Update Management solution in Azure
 description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: ''
-
-ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
-
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
 ---
 # Update Management solution in Azure
 
@@ -40,7 +32,7 @@ The following diagram shows a conceptual view of the behavior and data flow with
 
 After a computer performs a scan for update compliance, the agent forwards the information in bulk to Log Analytics. On a Window computer, the compliance scan is performed every 12 hours by default. In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes if the Microsoft Monitoring Agent (MMA) is restarted, prior to update installation, and after update installation. With a Linux computer, the compliance scan is performed every 3 hours by default, and a compliance scan is initiated within 15 minutes if the MMA agent is restarted.
 
-The solution reports how up-to-date the computer is based on what source you are configured to synchronize with. If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows. The same for Linux computers that are configured to report to a local repo versus a public repo.
+The solution reports how up-to-date the computer is based on what source you are configured to synchronize with. If the Windows computer is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results may differ from what Microsoft Updates shows. This is the same for Linux computers that are configured to report to a local repo versus a public repo.
 
 You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* are not included in the deployment scope for Windows computers, only required updates. The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or selecting a [computer group](../log-analytics/log-analytics-computer-groups.md) that is based off of log searches of a particular set of computers. You also specify a schedule to approve and designate a period of time when updates are allowed to be installed within. Updates are installed by runbooks in Azure Automation. You cannot view these runbooks, and they don’t require any configuration. When an Update Deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included computers. This master runbook starts a child runbook on each agent that performs installation of required updates.
 
@@ -123,7 +115,7 @@ Heartbeat
 
 On a Windows computer, you can review the following to verify agent connectivity with Log Analytics:
 
-1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics (OMS)** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
+1.  Open Microsoft Monitoring Agent in Control Panel, and on the **Azure Log Analytics** tab, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to Log Analytics**.   
 2.  Open the Windows Event Log, navigate to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and 5002 from source Service Connector. These events indicate the computer has registered with the Log Analytics workspace and is receiving configuration.  
 
 If the agent is not able to communicate with Log Analytics and it is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured by reviewing [Network configuration for Windows agent](../log-analytics/log-analytics-agent-windows.md) or [Network configuration for Linux agent](../log-analytics/log-analytics-agent-linux.md).
@@ -135,7 +127,7 @@ If the agent is not able to communicate with Log Analytics and it is configured 
 
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager Integration with OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+To confirm an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager Integration with Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## Data collection
 
@@ -158,7 +150,7 @@ Click on the **Update Management** on your automation account to view the status
 
 This view provides information on your machines, missing updates, update deployments, and scheduled update deployments.
 
-You can run a log search that returns information the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
+You can run a log search that returns information on the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
 
 ## Installing updates
 
@@ -177,7 +169,7 @@ Click **Missing updates** to view the list of updates that are missing from your
 
 ## Viewing update deployments
 
-Click **Update Deployments** to view the list of existing Update Deployments. Clicking on any of the update deployments in the list opens up the **Update Deployment Run** page for that update deployment.
+Click the **Update Deployments** tab to view the list of existing Update Deployments. Clicking on any of the update deployments in the table opens up the **Update Deployment Run** page for that update deployment.
 
 ![Overview of Update Deployment Results](./media/automation-update-management/update-deployment-run.png)
 
@@ -190,7 +182,7 @@ Create a new Update Deployment by clicking the **Schedule update deployment** bu
 | Name |Unique name to identify the update deployment. |
 |Operating System| Linux or Windows|
 | Machines to update |Select a Saved search or pick Machine from the drop-down and select individual machines |
-|Update Classification|Select all the update classifications that you need|
+|Update classifications|Select all the update classifications that you need|
 |Updates to exclude|Enter all the KBs to exclude without the 'KB' prefix|
 |Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
 | Maintenance window |Number of minutes set for updates. The value can be not be less than 30 minutes and no more than 6 hours |
@@ -217,7 +209,7 @@ The following table provides sample log searches for update records collected by
 
 Customers who have invested in System Center Configuration Manager to manage PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates as part of their software update management (SUM) cycle.
 
-To learn how to integrate the OMS Update Management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with OMS Update Management](oms-solution-updatemgmt-sccmintegration.md).
+To learn how to integrate the management solution with System Center Configuration Manager, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
 
 ## Patching Linux machines
 

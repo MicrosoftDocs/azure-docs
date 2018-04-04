@@ -59,8 +59,6 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 ### To create Microsoft peering
 
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
-
 1. Configure ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Microsoft peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 
   ![list Microsoft peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)

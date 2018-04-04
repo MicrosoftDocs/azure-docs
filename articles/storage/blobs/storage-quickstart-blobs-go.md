@@ -210,6 +210,13 @@ file.Close()
 os.Remove(fileName)
 ```
 
+## Resources for developing Go applications with blobs
+
+See these additional resources for Go development with Blob storage:
+
+- View and install the [Go client library source code](https://github.com/Azure/azure-storage-blob-go) for Azure Storage on GitHub.
+- Explore [Blob storage samples](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples) written using the Go client library.
+
 ## Next steps
  
 In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using Go. For more information about the Azure Storage Blob SDK, view the [Source Code](https://github.com/Azure/azure-storage-blob-go/) and [API Reference](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob).

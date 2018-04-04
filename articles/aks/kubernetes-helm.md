@@ -56,9 +56,12 @@ helm init
 Output:
 
 ```
-$HELM_HOME has been configured at /home/user/.helm.
+$HELM_HOME has been configured at /Users/neilpeterson/.helm.
 
 Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
+
+Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
+For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
 Happy Helming!
 ```
 

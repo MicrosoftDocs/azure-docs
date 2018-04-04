@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
 
-# Deploy an Azure Container Service (AKS) cluster
+# Quickstart: Deploy an Azure Container Service (AKS) cluster
 
 In this quickstart, an AKS cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet.
 
@@ -24,10 +24,14 @@ This quickstart assumes a basic understanding of Kubernetes concepts, for detail
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Enabling AKS preview for your Azure subscription
-While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the `az provider register` command to register the AKS provider:
+## Enabling AKS preview
+
+Ensure that the needed Azure service providers are enabled with the `az provider register` command.
 
 ```azurecli-interactive
+az provider register -n Microsoft.Network
+az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Compute
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -229,7 +233,7 @@ In this quick start, you deployed a Kubernetes cluster and deployed a multi-cont
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [ASK tutorial][aks-tutorial]:
+> [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
@@ -243,7 +247,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az aks install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

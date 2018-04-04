@@ -4,7 +4,7 @@ description: Learn how to set up diagnostics for debugging Azure cloude services
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26

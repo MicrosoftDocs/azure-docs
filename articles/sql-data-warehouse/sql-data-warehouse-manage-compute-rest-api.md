@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 02/13/2018
+ms.date: 03/22/2018
 ms.author: barbkess
 
 ---
@@ -58,5 +58,5 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 
 ## Next steps
-For other management tasks, see [Management overview](./sql-data-warehouse-overview-manage.md).
+For more information, see [Manage compute](sql-data-warehouse-manage-compute-overview.md).
 

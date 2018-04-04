@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 03/16/2018
 ms.author: vvasic
 
 ---
@@ -43,8 +43,8 @@ You can provision a new Azure resource or select an existing resource. After sel
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Contains information about the query runtime statistics, such as CPU usage and query duration.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Contains information about the query wait statistics, which tells you what your queries waited on, such as CPU, LOG, and LOCKING.
 - [Errors](sql-database-metrics-diag-logging.md#errors-dataset): Contains information about SQL errors that happened on this database.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): Contains information about how much time a database spent waiting on different wait types.
-- [Time-outs](sql-database-metrics-diag-logging.md#timeouts-dataset): Contains information about timeouts that happened on a database.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Contains information about how much time a database spent waiting on different wait types.
+- [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): Contains information about timeouts that happened on a database.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): Contains information about blocking events that happened on a database.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contains Intelligent Insights. [Learn more about Intelligent Insights](sql-database-intelligent-insights.md).
 

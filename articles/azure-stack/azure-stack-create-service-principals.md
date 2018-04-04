@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
 
 ---
@@ -49,14 +49,14 @@ In this section, you create an application (service principal) in Azure AD that 
 You have created a service principal for your application.
 
 ### Get credentials
-When programmatically logging in, you use the ID for your application and an authentication key. To get those values, use the following steps:
+When programmatically logging in, you use the ID for your application, and for a Web app / API, an authentication key. To get those values, use the following steps:
 
 1. From **App registrations** in Active Directory, select your application.
 
 2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
 
      ![client id](./media/azure-stack-create-service-principal/image12.png)
-3. To generate an authentication key, select **Keys**.
+3. To generate an authentication key for a Web app / API, select **Settings** > **Keys**. 
 
 4. Provide a description of the key, and a duration for the key. When done, select **Save**.
 
