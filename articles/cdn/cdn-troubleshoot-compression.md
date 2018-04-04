@@ -60,7 +60,7 @@ First, we should do a quick sanity check on the request.  You can use your brows
 
 ### Verify compression settings (standard CDN profiles)
 > [!NOTE]
-> This step applies only if your CDN profile is an **Azure CDN Standard**, **Azure CDN Standard from Verizon**, or **Azure CDN Standard from Akamai** profile. 
+> This step applies only if your CDN profile is an **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, or **Azure CDN Standard from Akamai** profile. 
 > 
 > 
 

@@ -44,7 +44,7 @@ The lifecycle of a stateless service is straightforward. Here's the order of eve
 2. Then, in parallel, two things happen:
     - `StatelessService.CreateServiceInstanceListeners()` is invoked and any returned listeners are opened. `ICommunicationListener.OpenAsync()` is called on each listener.
     - The service's `StatelessService.RunAsync()` method is called.
-3. If present, the service's `StatelessService.OnOpenAsync()` method is called. This call is an uncommon override, but it is available.
+3. If present, the service's `StatelessService.OnOpenAsync()` method is called. This call is an uncommon override, but it is available. Extended service initialization tasks can be started at this time.
 
 Keep in mind that there is no ordering between the calls to create and open the listeners and **RunAsync**. The listeners can open before **RunAsync** is started. Similarly, you can invoke **RunAsync** before the communication listeners are open or even constructed. If any synchronization is required, it is left as an exercise to the implementer. Here are some common solutions:
 
@@ -60,7 +60,7 @@ For shutting down a stateless service, the same pattern is followed, just in rev
 1. In parallel:
     - Any open listeners are closed. `ICommunicationListener.CloseAsync()` is called on each listener.
     - The cancellation token passed to `RunAsync()` is canceled. A check of the cancellation token's `IsCancellationRequested` property returns true, and if called, the token's `ThrowIfCancellationRequested` method throws an `OperationCanceledException`.
-2. After `CloseAsync()` finishes on each listener and `RunAsync()` also finishes, the service's `StatelessService.OnCloseAsync()` method is called, if present. It is uncommon to override `StatelessService.OnCloseAsync()`.
+2. After `CloseAsync()` finishes on each listener and `RunAsync()` also finishes, the service's `StatelessService.OnCloseAsync()` method is called, if present.  OnCloseAsync is called when the stateless service instance is going to be gracefully shut down. This can occur when the service's code is being upgraded, the service instance is being moved due to load balancing, or a transient fault is detected. It is uncommon to override `StatelessService.OnCloseAsync()`, but it  can be used to safely close resources, stop background processing, finish saving external state, or close down existing connections.
 3. After `StatelessService.OnCloseAsync()` finishes, the service object is destructed.
 
 ## Stateful service startup
@@ -125,10 +125,10 @@ Handling the exceptions that come from use of the `ReliableCollections` in conju
   - It is valid for a service to complete `RunAsync()` successfully and return from it. Completing is not a failure condition. Completing `RunAsync()` indicates that the background work of the service has finished. For stateful reliable services, `RunAsync()` is called again if the replica is demoted from Primary to Secondary and then promoted back to Primary.
   - If a service exits from `RunAsync()` by throwing some unexpected exception, this constitutes a failure. The service object is shut down and a health error is reported.
   - Although there is no time limit on returning from these methods, you immediately lose the ability to write to Reliable Collections, and therefore, cannot complete any real work. We recommended that you return as quickly as possible upon receiving the cancellation request. If your service does not respond to these API calls in a reasonable amount of time, Service Fabric can forcibly terminate your service. Usually this only happens during application upgrades or when a service is being deleted. This timeout is 15 minutes by default.
-  - Failures in the `OnCloseAsync()` path result in `OnAbort()` being called, which is a last-chance best-effort opportunity for the service to clean up and release any resources that they have claimed.
+  - Failures in the `OnCloseAsync()` path result in `OnAbort()` being called, which is a last-chance best-effort opportunity for the service to clean up and release any resources that they have claimed. This is generally called when a permanent fault is detected on the node, or when Service Fabric cannot reliably manage the service instance's lifecycle due to internal failures.
+  - `OnChangeRoleAsync()` is called when the stateful service replica is changing role, for example to primary or secondary. Primary replicas are given write status (are allowed to create and write to Reliable Collections). Secondary replicas are given read status (can only read from existing Reliable Collections). Most work in a stateful service is performed at the primary replica. Secondary replicas can perform read-only validation, report generation, data mining, or other read-only jobs.
 
 ## Next steps
 - [Introduction to Reliable Services](service-fabric-reliable-services-introduction.md)
 - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
-- [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
 - [Replicas and instances](service-fabric-concepts-replica-lifecycle.md)

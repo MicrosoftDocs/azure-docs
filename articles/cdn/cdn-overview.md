@@ -41,9 +41,9 @@ The benefits of using a CDN to cache web site assets include:
 6. If the TTL for the file hasn't expired, the edge server returns the file from the cache. This process results in a faster, more responsive user experience.
 
 ## Azure CDN features
-Azure CDN includes four products: **Azure CDN Standard**, **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**.  The following table lists the features available with each product.
+Azure CDN includes four products: **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**.  The following table lists the features available with each product.
 
-|  | Standard | Standard Akamai | Standard Verizon | Premium Verizon |
+|  | Standard Microsoft | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- | --- |
 | __Performance Features and Optimizations__ |
 | [Dynamic Site Acceleration](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | | **&#x2713;**  | **&#x2713;** | **&#x2713;** |

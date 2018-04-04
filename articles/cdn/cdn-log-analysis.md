@@ -34,7 +34,7 @@ As an Azure CDN user with an **Azure CDN Standard from Verizon** or **Azure CDN 
 
 As an Azure CDN user with an **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile, you can view Verizon custom reports in the Verizon supplemental portal. Verizon custom reports is accessible via the **Manage** option from the Azure portal. The Verizon custom reports page shows the number of hits or data transferred for each edge CName belonging to an Azure CDN profile. The data can be grouped by HTTP response code or cache status over any period of time. For more information, see [Custom Reports from Verizon](cdn-verizon-custom-reports.md).
 
-## Verizon premium reports
+## Azure CDN Premium from Verizon reports
 
 With **Azure CDN Premium from Verizon**, you can also access the following reports:
    * [Advanced HTTP reports](cdn-advanced-http-reports.md)

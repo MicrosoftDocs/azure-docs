@@ -274,9 +274,9 @@ You can drag and drop the types of charts and fill in the data details you want 
 	
 ## Log data delays
 
-The following table shows log data delays for **Azure CDN Standard**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**.
+The following table shows log data delays for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**.
 
-Standard log data delays | Verizon log data delays | Akamai log data delays
+Microsoft log data delays | Verizon log data delays | Akamai log data delays
 --- | --- | ---
 Delayed by 1 hour. | Delayed by 1 hour and can take up to 2 hours to start appearing after endpoint propagation completion. | Delayed by 24 hours; if it was created more than 24 hours ago, it takes up to 2 hours to start appearing. If it was recently created, it can take up to 25 hours for the logs to start appearing.
 
@@ -285,10 +285,10 @@ Delayed by 1 hour. | Delayed by 1 hour and can take up to 2 hours to start appea
 We currently offer only core analytics logs, which contain metrics showing HTTP response statistics and egress statistics as seen from the CDN POPs/edges.
 
 ### Core analytics metrics details
-The following table shows a list of metrics available in the core analytics logs for **Azure CDN Standard**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**. Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. Note that the metrics are available for only those CDN endpoints that have traffic on them.
+The following table shows a list of metrics available in the core analytics logs for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**. Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. Note that the metrics are available for only those CDN endpoints that have traffic on them.
 
 
-|Metric                     | Description | Standard | Verizon | Akamai |
+|Metric                     | Description | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|----------|---------|--------|
 | RequestCountTotal         | Total number of request hits during this period. | Yes | Yes |Yes |
 | RequestCountHttpStatus2xx | Count of all requests that resulted in a 2xx HTTP code (for example, 200, 202). | Yes | Yes |Yes |
@@ -368,7 +368,7 @@ All logs are stored in JSON format and each entry has string fields according to
 }
 ```
 
-Where the ‘time’ represents the start time of the hour boundary for which the statistics is reported. When a metric is not supported by a CDN provider, instead of a double or integer value, there is a null value. This null value indicates the absence of a metric, and is different from a value of 0. There is one set of these metrics per domain configured on the endpoint.
+Where *time* represents the start time of the hour boundary for which the statistics is reported. When a metric is not supported by a CDN provider, instead of a double or integer value, there is a null value. This null value indicates the absence of a metric, and is different from a value of 0. There is one set of these metrics per domain configured on the endpoint.
 
 Example properties:
 

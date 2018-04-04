@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 
@@ -123,7 +123,7 @@ The following table describes properties in the above JSON:
 Property | Description | Required |
 -------- | ----------- | -------- |
 name | Name of the dataset. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
-type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-types). | Yes |
+type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-type). | Yes |
 structure | Schema of the dataset. For details, see [Dataset structure](#dataset-structure). | No |
 typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes |
 

@@ -1,27 +1,28 @@
 ---
-title: Introduction to Azure Blob storage | Microsoft Docs
-description:  Introduction to Azure Blob storage 
+title: Introduction to Blob storage - Object storage in Azure | Microsoft Docs
+description: Azure Blob storage is designed to store massive amounts of unstructured object data, such as text or binary data. Your applications can access objects in Blob storage from PowerShell or the Azure CLI, from code via Azure Storage client libraries, or over REST.  
 services: storage
 author: tamram
 manager: jeconnoc
 
 ms.service: storage
 ms.topic: overview
-ms.date: 09/28/2017
+ms.date: 03/27/2018
 ms.author: tamram
 
 ---
 # Introduction to Blob storage
 
-Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.
+Azure Blob storage is Microsoft's cloud storage solution for data objects. Blob storage can store massive amounts of unstructured object data, such as text or binary data. Data in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.
 
 Common uses of Blob storage include:
 
 * Serving images or documents directly to a browser
 * Storing files for distributed access
 * Streaming video and audio
-* Storing data for backup and restore, disaster recovery, and archiving
+* Storing for backup and restore, disaster recovery, and archiving
 * Storing data for analysis by an on-premises or Azure-hosted service
+* Storing VHDs for use with Azure Virtual Machines
 
 ## Blob service concepts
 

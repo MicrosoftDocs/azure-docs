@@ -91,5 +91,5 @@ Rather than regular expressions, you can instead create a separate rule for each
 > 
 
 ### Azure CDN standard profiles
-On Azure CDN standard profiles (**Azure CDN Standard**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard from Verizon**), the only mechanism to allow for multiple origins without the use of the wildcard origin is to use [query string caching](cdn-query-string.md). Enable the query string setting for the CDN endpoint and then use a unique query string for requests from each allowed domain. Doing so will result in the CDN caching a separate object for each unique query string. This approach is not ideal, however, as it will result in multiple copies of the same file cached on the CDN.  
+On Azure CDN standard profiles (**Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard from Verizon**), the only mechanism to allow for multiple origins without the use of the wildcard origin is to use [query string caching](cdn-query-string.md). Enable the query string setting for the CDN endpoint and then use a unique query string for requests from each allowed domain. Doing so will result in the CDN caching a separate object for each unique query string. This approach is not ideal, however, as it will result in multiple copies of the same file cached on the CDN.  
 

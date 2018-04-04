@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Upgrade procedures
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 If you already have integrated an older version of Engagement into your application, you have to consider the following points when upgrading the SDK.
 
 For each new version of the SDK you must first replace (remove and re-import in xcode) the EngagementSDK and EngagementReach folders.

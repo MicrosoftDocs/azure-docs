@@ -35,6 +35,6 @@ See [Data storage and removal](luis-concept-data-storage.md#accounts) for inform
 
 ## Next steps
 
-Learn more about your [authoring key](manage-keys.md). 
+Learn more about your [authoring key](luis-concept-keys.md#authoring-key). 
 
 [LUIS]: luis-reference-regions.md

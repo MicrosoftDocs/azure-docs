@@ -61,7 +61,7 @@ The geo-filtering feature uses country codes to define the countries from which 
 
 ## Considerations
 * Changes to your country filtering configuration do not take effect immediately:
-   * For **Azure CDN Standard** profiles, propagation usually completes in two minutes. 
+   * For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in two minutes. 
    * For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
    * For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes.  
 * This feature does not support wildcard characters (for example, ‘*’).

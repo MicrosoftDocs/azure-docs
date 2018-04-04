@@ -337,7 +337,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2.	If data from ServiceNow is not getting synced to Log Analytics, ensure that the ServiceNow instance is not sleeping. ServiceNow Dev Instances sometimes go to sleep when idle for a long period. Else, report the issue.
 3.	If OMS Alerts fire but work items are not created in ITSM product or configuration items are not created/linked to work items or for any other generic information, look in the following places:
  -  ITSMC: The solution shows a summary of connections/work items/computers etc. Click the tile showing **Connector Status**, which takes you to **Log Search**  with the relevant query. Look at the log records with LogType_S as ERROR for more information.
- - **Log Search** page: view the errors/related information directly using the query *Type=ServiceDeskLog_CL*.
+ - **Log Search** page: view the errors/related information directly using the query `*`ServiceDeskLog_CL`*`.
 
 ## Troubleshoot Service Manager Web App deployment
 1.	In case of any issues with web app deployment, ensure you have sufficient permissions in the subscription mentioned to create/deploy resources.
