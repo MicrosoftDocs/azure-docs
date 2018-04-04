@@ -37,7 +37,7 @@ To temporarily blacklist the device by disabling its enrollment entry:
 4. Select the enrollment entry for the device that you want to blacklist. 
 5. Scroll up, and select **Disable** on the **Enable entry** switch, and then select **Save**.  
 
-   [![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+   [![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
 
 To permanently blacklist the device by deleting its enrollment entry:
 
@@ -47,7 +47,7 @@ To permanently blacklist the device by deleting its enrollment entry:
 4. Select the check box next to the enrollment entry for the device that you want to blacklist. 
 5. Select **Delete** at the top of the window, and then select **Yes** to confirm that you want to remove the enrollment. 
 
-   [![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png#lightbox)
+   [![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png#lightbox)
     
 After you finish the procedure, you should see your entry removed from the list of individual enrollments.  
 
