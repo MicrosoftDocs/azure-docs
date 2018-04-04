@@ -211,7 +211,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 The following steps will demonstrate how to run the app using the Visual Studio for Mac debugger.
 
-> [!INFO]
+> [!NOTE]
 > Usage of the Android version app is exactly the same, any differences will be called out in the steps below. If you wish to debug with Visual Studio on Windows, documentation todo so can be found for [iOS here](https://docs.microsoft.com/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) and [Android here](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/).
 
 1. First select the platform you wish to target by clicking on the dropdown highlighted and selecting either ToDoItems.iOS for iOS or ToDoItems.Android for Android.
