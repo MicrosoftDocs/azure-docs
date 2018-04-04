@@ -19,10 +19,6 @@ ms.custom: pim
 
 Configuring role settings defines the defaults applied to assignments in the PIM environment. To define these for your resource, select the Role Settings tab from the left navigation, or the role settings button from the action bar in any role to view the current options.
 
-![](media/azure-pim-resource-rbac/rbac-role-settings.png)
-
 
 ## Select a role
 Select a role you would like to make a change to. Next, select edit to make changes to any existing settings.
-
-![](media/azure-pim-resource-rbac/rbac-role-settings-details.png)

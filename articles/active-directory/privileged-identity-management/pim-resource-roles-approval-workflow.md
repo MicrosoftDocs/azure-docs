@@ -39,8 +39,6 @@ Navigate to PIM in the Azure portal, and select a resource from the list.
 
 From the left navigation menu, select **Role settings**.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_list.png)
-
 Search for and select a role, and click **Edit** to modify settings.
 
 ![](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)

@@ -35,9 +35,7 @@ Additionally, you can get to role settings from either the "Roles" or "Role sett
 
 If viewing a role's membership, select "Role settings" from the bar at the top of the screen to open the "Role setting detail".
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_role_setting_details.png)
-
-Click the "Edit" button at the top to modify the role settings.
+Click the **Edit** button at the top to modify the role settings.
 
 In the section under **Activate**, click the checkbox to **Require Multi-Factor Authentication to activate**, then click save.
 
