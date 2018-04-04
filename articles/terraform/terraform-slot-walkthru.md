@@ -134,7 +134,7 @@ ms.topic: article
 
 1. Close the Cloud Shell window.
 
-1. Select **Resource Groups**.
+1. On the Azure portal main menu, select **Resource Groups**.
 
     ![Azure portal Resource Groups](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
