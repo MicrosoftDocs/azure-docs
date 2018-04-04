@@ -20,6 +20,8 @@ ms.author: dobett
 
 # Quickstart: Send telemetry from a device to an IoT hub and read the telemetry from the hub with a back-end application (Node.js)
 
+[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
+
 IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry from a simulated device application, through IoT Hub, to a back-end application for processing.
 
 The quickstart uses two pre-written Node.js applications, one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
@@ -42,34 +44,7 @@ node --version
 
 Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstarts-node/archive/master.zip and extract the ZIP archive.
 
-## Create an IoT hub
-
-The first step is to use the Azure portal to create an IoT hub in your subscription. The IoT hub enables you to ingest high volumes of telemetry into the cloud from many devices. The hub then enables one or more back-end services running in the cloud to read and process that telemetry.
-
-1. Sign in to the [Azure portal](http://portal.azure.com).
-
-1. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
-
-    ![Select to install IoT Hub](media/quickstart-send-telemetry-node/selectiothub.png)
-
-1. To create your IoT hub, use the values in the following table:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | The following screenshot uses the name **qs-iot-hub**. You must choose your own unique name when you complete this step. |
-    | Pricing and scale tier | F1 Free |
-    | IoT Hub units | 1 |
-    | Device-to-cloud partitions | 2 partitions |
-    | Subscription | Select your Azure subscription in the drop-down. |
-    | Resource group | Create new. This quickstart uses the name **qs-iot-hub-rg**. |
-    | Location | This quickstart uses **West US**. You can choose the location closest to you. |
-    | Pin to dashboard | Yes |
-
-    ![Hub settings](media/quickstart-send-telemetry-node/hubdefinition.png)
-
-1. Click **Create**. It can take several minutes for the hub to be created.
-
-1. Make a note of the IoT hub name you chose. You use this value later in the quickstart.
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
 ## Register a device
 
@@ -148,9 +123,9 @@ If you don't need the IoT hub any longer, delete it and the resource group in th
 
 ## Next steps
 
-In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a Node.js application, and read the telemetry from the hub using a simple back-end app.
+In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a Node.js application, and read the telemetry from the hub using a simple back-end application.
 
-To learn how to control your simulated device from a back-end app, continue to the next quickstart.
+To learn how to control your simulated device from a back-end application, continue to the next quickstart.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-node.md)
