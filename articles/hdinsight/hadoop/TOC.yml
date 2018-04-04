@@ -12,7 +12,9 @@
     maintainContext: true
 - name: Get started
   items:
-  - name: Start with Hadoop
+  - name: Start with Hadoop - Portal
+    href: apache-hadoop-linux-create-cluster-get-started-portal.md
+  - name: Start with Hadoop - Resource Manager
     href: apache-hadoop-linux-tutorial-get-started.md
   - name: Hadoop sandbox
     href: apache-hadoop-emulator-get-started.md

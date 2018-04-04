@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template | Microsoft Docs'
-description: Learn how to create HDInsight clusters, and query data with Hive.
+title: 'Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Azure portal | Microsoft Docs'
+description: Learn how to create HDInsight clusters using the Azure portal, and query data with Hive.
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
 documentationcenter: ''
@@ -9,7 +9,6 @@ manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
-ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.devlang: na
@@ -20,9 +19,9 @@ ms.date: 05/07/2018
 ms.author: jgao
 
 ---
-# Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template
+# Quickstart: Get started with Hadoop and Hive in Azure HDInsight using the Azure portal
 
-In this article, you learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight using a Resource Manager template, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
+In this article, you learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight using Azure portal, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
 
 Currently HDInsight comes with [seven different cluster types](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 
@@ -32,49 +31,70 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Log in to the [Azure  portal](https://portal.azure.com).
 
-<a name="create-cluster"></a>
 ## Create a Hadoop cluster
 
-In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md). The Resource Manager template used in this tutorial is located in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). Resource Manager template experience is not required for following this article. 
+In this section, you create a Hadoop cluster in HDInsight using the Azure portal. 
 
-1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. 
-   
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+1. In the Azure portal, select **Create a resource** > **Data + Analytics** > **HDInsight**. 
 
-2. Enter or select the values as suggested in the following screenshot:
+    ![Databricks on Azure portal](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-hdinsight-on-portal.png "Databricks on Azure portal")
 
-    > [!NOTE]
-    > The values you provide must be unique and should follow the naming guidelines. The template does not perform validation checks. If the values you provide are already in use, or do not follow the guidelines, you get an error after you have submitted the template.       
-    > 
-    >
-    
-    ![HDInsight Linux get started Resource Manager template on portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Deploy Hadoop cluster in HDInsigut using the Azure portal and a resource group manager template")
+2. Under **HDInsight** > **Quick Create** > **Basics**, provide the values as suggested in the following screenshot:
+
+    ![HDInsight Linux get started provide cluster basic values](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-portal-provide-basic-values.png "Provide basic values for creating an HDInsight cluster")
 
     Enter or select the following values:
     
     |Property  |Description  |
     |---------|---------|
+    |**Cluster name**     | Enter a name for the Hadoop cluster. Because all clusters in HDInsight share the same DNS namespace this name needs to be unique. The name can consist of up to 59 characters includings letters, numbers, and hyphens. The first and last characters of the name cannot be hyphens. |
     |**Subscription**     |  Select your Azure subscription. |
+    |**Cluster Type**     | Skip this for now. You provide this input in the next step of this procedure.|
+    |**Cluster login username and password**     | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
+    |**SSH username** | The default username is **sshuser**.  You can provide another name for the SSH username. |
+    | **Use same password as cluster login** | Select this checkbox to use the same password for SSH user as the one you provided for the cluster login user.|
     |**Resource group**     | Create a resource group or select an existing resource group.  A resource group is a container of Azure components.  In this case, the resource group contains the HDInsight cluster and the dependent Azure Storage account. |
     |**Location**     | Select an Azure location where you want to create your cluster.  Choose a location closer to you for better performance. |
-    |**Cluster Type**     | Select **hadoop**. |
-    |**Cluster Name**     | Enter a name for the Hadoop cluster. Because all clusters in HDInsight share the same DNS namespace this name needs to be unique. The name can consist of up to 59 characters includings letters, numbers, and hyphens. The first and last characters of the name cannot be hyphens. |
-    |**Cluster login name and password**     | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
-    |**SSH username and password**     | The default username is **sshuser**.  You can rename the SSH username.  The SSH user password has the same requirements as the cluster login password.|
-       
-    Some properties have been hardcoded in the template.  You can configure these values from the template. For more explanation of these properties, see [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+        
+3. Select **Cluster type** and then provide the inputs as shown in the following screenshot:
 
-3. Select **I agree to the terms and conditions stated above** and **Pin to dashboard**, and then select **Purchase**. You shall see a new tile titled **Submitting deployment** on the portal dashboard. It takes about around 20 minutes to create a cluster.
+    ![HDInsight Linux get started provide cluster basic values](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-portal-provide-cluster-type.png "Provide basic values for creating an HDInsight cluster")
 
-    ![HDInsight Linux get started resource group](./media/apache-hadoop-linux-tutorial-get-started/deployment-progress-tile.png "Azure HDInsight cluster resource group")
-
-4. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. Select the tile to see both the cluster and the default storage for the cluster listed.
-   
-    ![HDInsight Linux get started resource group](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight cluster resource group")
+    Select the following values:
     
-5. Select the cluster name to open the cluster.
+    |Property  |Description  |
+    |---------|---------|
+    |**Cluster type**     | Enter a name for the Hadoop cluster. Because all clusters in HDInsight share the same DNS namespace this name needs to be unique. The name can consist of up to 59 characters includings letters, numbers, and hyphens. The first and last characters of the name cannot be hyphens. |
+    |**Operating system**     |  Select your Azure subscription. |
+    |**Version**     | Select **Hadoop 2.7.3 (HDI 3.6)**|
 
-   ![HDInsight Linux get started cluster settings](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight cluster properties")    
+    Click **Select** and then click **Next**.
+
+4. In the **Storage** tab, provide the inputs as shown in the following screenshot:
+
+    ![HDInsight Linux get started provide cluster storage values](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-portal-select-storage.png "Provide storage values for creating an HDInsight cluster")
+
+    Select the following values:
+    
+    |Property  |Description  |
+    |---------|---------|
+    |**Primary storage type**     | For this article, select **Azure storage** to use Azure Storage Blob as the default storage account. You can also use Azure Data Lake Store as the default storage. |
+    |**Selection method**     |  For this article, select **My subscriptions** to use a storage account from your Azure subscription. To use storage account from other subscriptions, select **Access key** and then provide the access key for that account. |
+    |**Create a new storage account**     | Provide a name for the storage account.|
+
+    Accept all other default values and then select **Next**.
+
+5. In the **Summary** tab, verify the values you selected in the earlier steps.
+
+    ![HDInsight Linux get started cluster summary](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-portal-summary.png "HDInsight Linux get started cluster summary")
+      
+4. Select **Create**. You shall see a new tile titled **Submitting deployment for HDInsight** on the portal dashboard. It takes about around 20 minutes to create a cluster.
+
+    ![HDInsight Linux get started resource group](./media/apache-hadoop-linux-create-cluster-get-started-portal/deployment-progress-tile.png "Azure HDInsight cluster resource group")
+
+4. Once the cluster is created, you see the cluster overview page in the Azure portal.
+   
+    ![HDInsight Linux get started cluster settings](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight cluster properties")    
     
     Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account.
 
