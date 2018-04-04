@@ -1,13 +1,11 @@
 ---
 title: Start with Apache Kafka - Azure HDInsight Quickstart | Microsoft Docs
-description: 'In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using the Azure portal. You also learn about Kafka topics, subscribers, and consumers.'
+description: 'In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure PowerShell. You also learn about Kafka topics, subscribers, and consumers.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
-ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: mvc,hdinsightactive
 ms.devlang: ''
@@ -22,13 +20,15 @@ ms.author: larryfr
 
 Kafka is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
 
-In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using the Azure portal. You also learn how to use included utilities to send and receive messages using Kafka.
+In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using Azure PowerShell. You also learn how to use included utilities to send and receive messages using Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Prerequisites
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Azure PowerShell. For more information, see the [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) document.
 
 * An SSH client. The steps in this document use SSH to connect to the cluster.
 
@@ -45,112 +45,117 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 ## Log in to Azure
 
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Log in to your Azure subscription with the `Login-AzureRmAccount` cmdlet and follow the on-screen directions.
 
-## Create an Azure virtual network
+```powershell
+Login-AzureRmAccount
+```
 
-The Kafka API can only be accessed by resources inside the same virtual network. To connect other services, networks, or virtual machines to Kafka, first create a virtual network and then create the Kafka cluster.
+## Create resource group
 
-To create a new Azure Virtual Network, use the following steps:
+Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. The following example prompts you for the name and location, and then creates a new resource group:
 
-1. From the upper, left of the [Azure portal](https://portal.azure.com), select __+ Create a resource__.
+```powershell
+$resourceGroup = Read-Input -Prompt "Enter the resource group name"
+$location = Read-Input -Prompt "Enter the Azure region to use"
 
-2. Select __Networking__, and then select __Virtual network__.
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+```
 
-    ![Image of the resource creation page](./media/apache-kafka-get-started/create-resource.png)
+## Create a virtual network
 
-3. Use the following information to configurate the network, and then select __Create__:
+Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). The following example prompts you for the network name, and then creates it in the resource group:
 
-    | Setting | Value |
-    | --- | --- |
-    | Name | A unique name for this virtual network. |
-    | Subscription | Select your subscription.
-    | Resource group | Select __Create new__ and enter a unique name for the resource group. |
-    | Location | Select the Azure region to create this resource in. |
+```powershell
+$networkName = Read-Input -Prompt "Enter the virtual network name"
 
-    ![Image of the virtual network creation page](./media/apache-kafka-get-started/create-virtual-network.png)
+$virtualNetwork = New-AzureRmVirtualNetwork `
+  -ResourceGroupName $resourceGroup `
+  -Location $location `
+  -Name $networkName `
+  -AddressPrefix 10.0.0.0/16
+```
+
+Azure resources are deployed to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). 
+
+```powershell
+$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name default `
+  -AddressPrefix 10.0.0.0/24 `
+  -VirtualNetwork $virtualNetwork
+```
+
+Write the subnet configuration to the virtual network with [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). This command creates the subnet within the virtual network:
+
+```powershell
+$virtualNetwork | Set-AzureRmVirtualNetwork
+```
+
+## Create a storage account
+
+While Kafka on HDInsight uses Azure Managed disks to store Kafka data, the cluster also uses Azure Storage to store information such as logs. Use [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) to create a new storage account.
+
+```powershell
+$storageName = Read-Host -Prompt "Enter the storage account name"
+
+New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroup `
+        -Name $storageName `
+        -Type Standard_LRS `
+        -Location $location
+```
+
+HDInsight stores data in the storage account in a blob container. Use [New-AzureStorageContainer](/powershell/module/Azure.Storage/New-AzureStorageContainer) to create a new container.
+
+```powershell
+$containerName = Read-Host -Prompt "Enter the container name"
+
+$storageKey = (Get-AzureRmStorageAccountKey `
+                -ResourceGroupName $resourceGroup `
+                -Name $storageName)[0].Value
+$storageContext = New-AzureStorageContext `
+                    -StorageAccountName $storageName `
+                    -StorageAccountKey $storageKey
+New-AzureStorageContainer -Name $containerName -Context $storageContext 
+```
 
 ## Create a Kafka cluster
 
-To create a Kafka on HDInsight cluster, use the following steps:
+Create a Kafka on HDInsight cluster with [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
-1. From the [Azure portal](https://portal.azure.com), select **+ Create a resource**, **Data + Analytics**, and then select **HDInsight**.
-   
-    ![Create a HDInsight cluster](./media/apache-kafka-get-started/create-hdinsight.png)
+```powershell
+$clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
+$httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
+    -UserName "admin"
+$sshCredentials = Get-Credential -Message "Enter the SSH user credentials"
 
-2. From **Basics**, enter or select the following information:
+$numberOfWorkerNodes = "4"
+$clusterVersion = "3.6"
+$clusterType="Kafka"
+$clusterOS="Linux"
 
-    | Setting | Value |
-    | --- | --- |
-    | Cluster Name | A unique name for the HDInsight cluster. |
-    | Subscription | Select your subscription. |
-    
-    Select __Cluster Type__ to display the **Cluster configuration**.
+New-AzureRmHDInsightCluster `
+        -ResourceGroupName $resourceGroup `
+        -ClusterName $clusterName `
+        -Location $location `
+        -ClusterSizeInNodes $numberOfWorkerNodes `
+        -ClusterType $clusterType `
+        -OSType $clusterOS `
+        -Version $clusterVersion `
+        -HttpCredential $httpCredential `
+        -DefaultStorageAccountName "$storageAccount.blob.core.windows.net" `
+        -DefaultStorageAccountKey $storageKey `
+        -DefaultStorageContainer $clusterName `
+        -SshCredential $sshCredentials
+```
 
-    ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
+> [!WARNING]
+> It can take up to 20 minutes to create the HDInsight cluster.
 
-3. From the __Cluster configuration__, select the following values:
-
-    | Setting | Value |
-    | Cluster Type | Kafka |
-    | Version | Kafka 0.10.0 (HDI 3.6) |
-
-    Use the **Select** button to save the cluster type settings and return to __Basics__.
-
-    ![Select cluster type](./media/apache-kafka-get-started/kafka-cluster-type.png)
-
-4. From __Basics__, enter or select the following information:
-
-    | Setting | Value |
-    | --- | --- |
-    | Cluster login username | The login name when accessing web services or REST APIs hosted on the cluster. Keep the default value (admin). |
-    | Cluster login password | The login password when accessing web services or REST APIs hosted on the cluster. |
-    | Secure Shell (SSH) username | The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password. |
-    | Resource Group | The resource group to create the cluster in. Use the same resource group as the virtual network created earlier. |
-    | Location | The Azure region to create the cluster in. Use the same region as the virtual network created earlier. |
-
-    > [!TIP]
-    > Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
-    >
-    > For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
-
-    ![Select subscription](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
-
-    Use the __Next__ button to finish basic configuration.
-
-5. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration.
-
-    ![Set the storage account settings for HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
-
-6. From __Applications (optional)__, select __Next__ to continue with the default settings.
-
-7. From __Cluster size__, select __Next__ to continue with the default settings.
-
-    > [!IMPORTANT]
-    > To guarantee availability of Kafka on HDInsight, the __number of worker nodes__ entry must be set to 3 or greater. The default value is 4.
-    
-    > [!TIP]
-    > The **disks per worker node** entry configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
-
-    ![Set the Kafka cluster size](./media/apache-kafka-get-started/kafka-cluster-size.png)
-
-8. From __Advanced settings__, select the following values:
-
-    | Setting | Value |
-    | --- | --- |
-    | Virtual network | Select the virtual network created earlier. |
-    | Subnet | Default |
-
-    ![Advanced configuration dialog for the cluster](./media/apache-kafka-get-started/kafka-advanced-configuration.png)
-
-    Select __Next__ to continue.
-
-9. From the **Summary**, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Create__ button to create the cluster.
-   
-    ![Cluster configuration summary](./media/apache-kafka-get-started/kafka-configuration-summary.png)
-   
-    > [!NOTE]
-    > It can take up to 20 minutes to create the cluster.
+> [!IMPORTANT]
+> If you plan to use more than 32 worker nodes (either at cluster creation or by scaling the cluster after creation), you must use the `-HeadNodeSize` parameter to specify a VM size with at least 8 cores and 14 GB of RAM.
+>
+> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Connect to the cluster
 
@@ -337,19 +342,13 @@ To store records into the test topic you created earlier, and then read them usi
 
 You can also programmatically create producers and consumers. For an example of using this API, see the [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) document.
 
-## Troubleshoot
-
-If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
-
 ## Clean up resources
 
-If you wish to clean up the resources created by this quickstart, you can delete the resource group. Deleting the resource group also deletes the associated HDInsight cluster, and any other resources associated with the resource group.
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, HDInsight, and all related resources.
 
-To remove the resource group using the Azure portal:
-
-1. In the Azure portal, expand the menu on the left side to open the menu of services, and then choose __Resource Groups__ to display the list of your resource groups.
-2. Locate the resource group to delete, and then right-click the __More__ button (...) on the right side of the listing.
-3. Select __Delete resource group__, and then confirm.
+```powershell
+Remove-AzureRmResourceGroup -Name $resourceGroup
+```
 
 > [!WARNING]
 > HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
@@ -360,4 +359,3 @@ To remove the resource group using the Azure portal:
 
 > [!div class="nextstepaction"]
 > [Use Apache Spark with Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
-
