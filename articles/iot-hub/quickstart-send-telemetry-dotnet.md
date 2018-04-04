@@ -44,6 +44,8 @@ dotnet --version
 
 Download the sample C# project from https://github.com/Azure-Samples/iot-hub-quickstarts-dotnet/archive/master.zip and extract the ZIP archive.
 
+## Create an IoT hub
+
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
 ## Register a device
@@ -123,7 +125,7 @@ The back-end application connects to the service-side **Events** endpoint on you
     dotnet restore
     ```
 
-1. In the terminal window, run the following commands to build and run the simulated device application:
+1. In the terminal window, run the following commands to build and run the back-end application:
 
     ```cmd/sh
     dotnet run

@@ -62,6 +62,8 @@ To install the `iothub-explorer` CLI utility, run the following command:
 npm install -g iothub-explorer
 ```
 
+## Create an IoT hub
+
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
 ## Register a device

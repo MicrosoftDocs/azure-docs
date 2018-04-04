@@ -52,6 +52,8 @@ mvn --version
 
 Download the sample Java project from https://github.com/Azure-Samples/iot-hub-quickstarts-java/archive/master.zip and extract the ZIP archive.
 
+## Create an IoT hub
+
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
 ## Register a device
@@ -131,10 +133,10 @@ The back-end application connects to the service-side **Events** endpoint on you
     mvn clean package
     ```
 
-1. In the terminal window, run the following commands to run the simulated device application:
+1. In the terminal window, run the following commands to run the back-end application:
 
     ```cmd/sh
-    java -jar target/simulated-device-1.0.0-with-deps.jar
+    java -jar target/read-d2c-messages-1.0.0-with-deps.jar
     ```
 
     The following screenshot shows the output as the back-end application receives telemetry sent by the simulated device to the hub:
