@@ -1,12 +1,13 @@
 ---
-title: Route network traffic - Azure PowerShell | Microsoft Docs
-description: Learn how to route network traffic with a route table using PowerShell.
+title: Route network traffic Azure PowerShell | Microsoft Docs
+description: In this article, learn how to route network traffic with a route table using PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 
 ms.assetid: 
 ms.service: virtual-network
@@ -16,21 +17,20 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom:
+ms.custom: 
 ---
 
 # Route network traffic with a route table using PowerShell
 
-Azure automatically routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this article you learn how to:
+Azure automatically routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a route table
-> * Create a route
-> * Create a virtual network with multiple subnets
-> * Associate a route table to a subnet
-> * Create an NVA that routes traffic
-> * Deploy virtual machines (VM) into different subnets
-> * Route traffic from one subnet to another through an NVA
+* Create a route table
+* Create a route
+* Create a virtual network with multiple subnets
+* Associate a route table to a subnet
+* Create an NVA that routes traffic
+* Deploy virtual machines (VM) into different subnets
+* Route traffic from one subnet to another through an NVA
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -239,14 +239,14 @@ Enter the user name and password you specified when creating the VM (you may nee
 In a later step, the tracert.exe command is used to test routing. Tracert uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPrivate* VM:
 
 ```powershell
-New-NetFirewallRule -DisplayName -"Allow ICMPv4-In" -Protocol ICMPv4
+New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 ```
 
-Though tracert is used to test routing in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
+Though trace route is used to test routing in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
 
 You enabled IP forwarding within Azure for the VM's network interface in [Enable IP fowarding](#enable-ip-forwarding). Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the operating system of the *myVmNva*.
 
-From the *myVmPrivate* VM, remote desktop to the *myVmNva*  with the following command, from a command prompt:
+From a command prompt on the *myVmPrivate* VM, remote desktop to the *myVmNva*:
 
 ``` 
 mstsc /v:myvmnva
@@ -260,7 +260,7 @@ Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters 
     
 Restart the *myVmNva* VM, which also disconnects the remote desktop session.
 
-While still connected to the *myVmPrivate* VM, create a remote desktop session to the *myVmPublic* VM from the *myVmPrivate* VM, after the *myVmNva* VM restarts:
+While still connected to the *myVmPrivate* VM, create a remote desktop session to the *myVmPublic* VM, after the *myVmNva* VM restarts:
 
 ``` 
 mstsc /v:myVmPublic
@@ -325,9 +325,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## Next steps
 
-In this article, you created a route table and associated it to a subnet. You created a simple network virtual appliance that routed traffic from a public subnet to a private subnet. Deploy a variety of pre-configured network virtual appliances that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Before deploying route tables for production use, it's recommended that you thoroughly familiarize yourself with [Routing in Azure](virtual-networks-udr-overview.md), [Manage route tables](manage-route-table.md), and [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+In this article, you created a route table and associated it to a subnet. You created a simple network virtual appliance that routed traffic from a public subnet to a private subnet. Deploy a variety of pre-configured network virtual appliances that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.md).
 
-While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. Advance to the next tutorial to learn how to restrict network access to Azure PaaS resources.
-
-> [!div class="nextstepaction"]
-> [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-powershell.md)
+While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. To learn how, see [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources-powershell.md).
