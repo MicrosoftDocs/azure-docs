@@ -28,7 +28,7 @@ Network Performance Monitor consists of three components:
 * [Service Endpoint Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor) and
 * [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-The section below explains the pricing changes for Performance Monitor, ExpressRoute Monitor and Service Endpoint Monitor.
+The section below explains the pricing changes for Performance Monitor, ExpressRoute Monitor, and Service Endpoint Monitor.
 
 ## Performance Monitor (PM)
 
@@ -51,7 +51,7 @@ The Performance Monitor feature in NPM is now billed on a combination of:
 
 Performance Monitor monitors connectivity between two or more locations on the network.  The connection between a group of nodes/agents on one subnet and a group of nodes on another subnet, is referred to as a subnet link.
 
-**I have two subnets (subnet A and B) and have multiple agents on each subnet.  Performance Monitor monitors connectivity from all agents on subnet A to all agents on subnet B.  Will I be charged based on the number of inter-subnet connections?**
+**I have two subnets (subnet A and B) and have several agents on each subnet.  Performance Monitor monitors connectivity from all agents on subnet A to all agents on subnet B.  Will I be charged based on the number of inter-subnet connections?**
 
 No. For billing purposes, all connections from subnet A to subnet B are grouped together into one subnet link and you are billed for a single connection.  Performance Monitor will continue to monitor connectivity between various agents on each subnet.
 
@@ -99,16 +99,15 @@ The volume of monitoring data generated depends on several factors such as:
 * number of hops on the network
 * number of paths between the source and the destination
 
-Customers at the higher percentiles (in the table above), usually monitor their circuits from several vantage points on their on-premises network.  The agents are also placed deeper in the network (farther from the service provider edge router), with the agents often located at multiple user sites/branches and racks in data centers.
+Customers at the higher percentiles (in the table above), usually monitor their circuits from several vantage points on their on-premises network.  Multiple agents are also placed deeper in the network, farther from the service provider edge router. The agents often placed at several user sites, branches and racks in data centers.
 
 ## Service Endpoint Monitor (SEPM)
 
 **What are the charges for usage of Service Endpoint Monitor?**
 
-Charges for usage of Service Endpoint Monitor, are computed based on the following:
-
-- number of connections
-- volume of data
+Charges for usage of Service Endpoint Monitor are computed based on :
+* number of connections
+* volume of data
 
 **What is a connection?**
 
