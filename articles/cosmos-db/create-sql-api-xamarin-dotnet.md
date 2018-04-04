@@ -222,9 +222,9 @@ The following steps will demonstrate how to run the app using the Visual Studio 
 
     ![Starting to debug in Visual Studio for Mac](./media/create-sql-api-xamarin-dotnet/ide-start-debug.png)
 
-3. When the iOS simulator or Android emulator finishes launching, the app will display 2 tabs. The first shows todo items which are not completed, the second shows todo items which are completed.
+3. When the iOS simulator or Android emulator finishes launching, the app will display 2 tabs at the bottom of the screen for iOS and the top of the screen for Android. The first shows todo items which are not completed, the second shows todo items which are completed.
 
-    ![Launch screen of ToDo app](./media/create-sql-api-xamarin-dotnet/simulator-not-completed.png)
+    ![Launch screen of ToDo app](./media/create-sql-api-xamarin-dotnet/ios-droid-started.png)
 
 4. To complete a todo item on iOS, slide it to the left > tap on the **Complete** button. To complete a todo item on Android, long press the item > then tap on the complete button.
 
