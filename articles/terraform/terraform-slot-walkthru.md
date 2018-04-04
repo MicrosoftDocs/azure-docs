@@ -166,7 +166,7 @@ Once you have forked the test project repo, it's time to create and use the depl
 
 1. Select **slotDemoResourceGroup**.
 
-1. Select **slotAppService**. (Make sure to click the actual resource name, and not the checkbox next to it.)
+1. Select **slotAppService**.
 
 1. Select **Deployment options**.
 
@@ -206,19 +206,35 @@ At this point, you have deployed the production slot. To deploy the staging slot
 
     ![Choose Working Branch](./media/terraform-slot-walkthru/choose-branch-working.png)
 
-## Putting it all together
+## Test the app deployments
 
-In the previous sections, you set up two slots -**slotAppService** and **slotAppServiceSlotOne** - to deploy the web app from different branches in GitHub. Let's preview the web app to validate that it was successfully deployed to the slots.
+In the previous sections, you set up two slots - **slotAppService** and **slotAppServiceSlotOne** - to deploy from different branches in GitHub. Let's preview the web apps to validate that they were successfully deployed.
 
-![Resource URL](./media/terraform-slot-walkthru/resource-url.png)
+Perform the following steps two times where in step 3 you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time:
 
- If everything is deployed correctly, slotAppService should render a blue page with the page title **Slot Demo App 1** while the slotAppServiceSlotOne should render a green page with the page title **Slot Demo App 2**.
+1. On the Azure portal main menu, select **Resource Groups**.
 
- To test swapping the deployment slots, perform the following steps:
+1. Select **slotDemoResourceGroup**.
+
+1. Select either **slotAppService** and **slotAppServiceSlotOne**.
+
+1. On the overview page, select **URL**.
+
+    ![Select the URL on the overview tab to render the app](./media/terraform-slot-walkthru/resource-url.png)
+
+For the **slotAppService** web app, you see a blue page with a page title of **Slot Demo App 1**. For the **slotAppServiceSlotOne** web app, you see a blue page with a page title of **Slot Demo App 2** (shown in your browser's tab for most tab-based browsers).
+
+![Preview the apps to test that they were deployed correctly](./media/terraform-slot-walkthru/app-preview.png)
+
+## Swap the two deployment slots
+
+To test swapping the two deployment slots, perform the following steps:
  
- 1. In your browser, open a new tab, and navigate to the slotAppService URL. 
+ 1. Switch to the browser tab running **slotAppService** (the app with the blue page). 
  
- 1. Return to the cloud shell in Azure portal.
+ 1. Return to the Azure portal in a separate tab.
+
+ 1. Open the Cloud Shell.
 
  1. Change directories to the **swap** directory.
 
