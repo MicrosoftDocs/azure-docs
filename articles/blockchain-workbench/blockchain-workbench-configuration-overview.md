@@ -38,7 +38,7 @@ A blockchain application contains configuration metadata, workflows, and user ro
 | ApplicationName | Unique application name. The corresponding smart contract must use the same **ApplicationName** for the applicable contract class.  | Y |
 | DisplayName | Friendly display name of the application. | Y |
 | Description | Description of the application. | N |
-| ApplicationRoles | Collection of [ApplicationRoles](#application-roles). Unique user roles who can act or participate within the application.  | Y |
+| ApplicationRoles | Collection of [ApplicationRoles](#application-roles). User roles who can act or participate within the application.  | Y |
 | Workflows | Collection of  [Workflows](#workflows). Each workflow acts as a state machine to control business flow. | Y |
 
 For an example, see [configuration file example](#configuration-file-example).
@@ -55,8 +55,8 @@ A workflow is defined by one or more states that acts as a state machine. Each w
 | Initiators | Collection of [ApplicationRoles](#application-roles). User roles who can create contracts in the workflow. | Y |
 | StartState | Name of the initial state of the workflow. | Y |
 | Properties | Collection of [identifiers](#identifiers). Represents data that can be synchronized off-chain or visualized in a user experience tool. | Y |
-| Constructor | Defines input parameters for creating a smart contract instance | Y |
-| Functions | A collection of [functions](#functions) that can be executed on the smart contract. | N |
+| Constructor | Defines input parameters for creating a smart contract instance of the workflow. | Y |
+| Functions | A collection of [functions](#functions) that can be executed in the workflow. | N |
 | States | A collection of smart contract [states](#states). | Y |
 
 For an example, see [configuration file example](#configuration-file-example).
@@ -104,7 +104,7 @@ Defines functions that can be executed on the workflow.
 | Name | The unique name of the function. The corresponding smart contract must use the same **Name** for the applicable function. | Y |
 | DisplayName | Friendly display name of the function. | Y |
 | Description | Description of the function | N |
-| Parameters | Collection of [identifiers](#identifiers) required to initiate a smart contract. | Y |
+| Parameters | Collection of [identifiers](#identifiers) corresponding to the parameters of the function. | Y |
 
 ### Functions example
 
@@ -219,7 +219,7 @@ Available actions to the next state. One or more user roles may perform an actio
 | Field | Description | Required |
 |-------|-------------|:--------:|
 | AllowedRoles | List of applications roles allowed to initiate the transition. All users of the specified role may be able to perform the action. | N |
-| AllowedInstanceRoles | List of user roles participating or specified in the smart contract. It is the allowed list to initiate the transition. Instance roles are defined in **Properties** within **Workflows**. | N |
+| AllowedInstanceRoles | List of user roles participating or specified in the smart contract allowed to initiate the transition. Instance roles are defined in **Properties** within Workflows. These users represent a user participating or specified in the smart contract as opposed to all users of a role type. | N |
 | DisplayName | Friendly display name of the transition. | Y |
 | Description | Description of the transition. | N |
 | Function | The name of the function to initiate the transition. | Y |
