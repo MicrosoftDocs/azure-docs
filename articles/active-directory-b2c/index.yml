@@ -81,4 +81,8 @@ sections:
   items:
   - type: paragraph
     text: Find samples that show you how to manage customer identities in your application.
-    href: https://docs.microsoft.com/azure/active-directory-b2c/code-samples
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/active-directory-b2c/code-samples">Mobile, desktop, web, and single-page apps</a>
