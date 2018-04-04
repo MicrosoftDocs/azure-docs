@@ -232,6 +232,8 @@
         href: log-analytics-network-performance-monitor-service-endpoint.md
       - name: ExpressRoute
         href: log-analytics-network-performance-monitor-expressroute.md
+      - name: Pricing
+        href: log-analytics-network-performance-monitor-pricing-faq.md
     - name: Office 365
       href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
     - name: SCOM Health Check
