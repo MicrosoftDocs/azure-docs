@@ -119,8 +119,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
       resourceResponse -> {
         // this is executed on threads provided by Scheduler.computation()
         // Schedulers.computation() should be used only when:
-		//   1. The work is cpu intensive 
-		//   2. You are not doing blocking IO, thread sleep, etc. in this thread against other resources.
+        //   1. The work is cpu intensive 
+        //   2. You are not doing blocking IO, thread sleep, etc. in this thread against other resources.
         veryCpuIntensiveWork();
       });
     ```
