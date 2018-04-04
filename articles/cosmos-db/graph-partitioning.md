@@ -48,10 +48,14 @@ For a graph database, the following are details that need to be understood when 
         
     - Selecting a set of vertices and **specifying a list of partitioning key values**: 
     
-        `g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)`
+        ```
+        g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
+        ```
         
     - **Specifying a Partition Strategy** before selecting a vertex:
-                `g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V('vertex_id')`
+        ```
+        g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V('vertex_id')
+        ```
 
 ## Best practices when using a partitioned graph
 
