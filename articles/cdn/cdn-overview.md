@@ -58,9 +58,9 @@ For a list of current CDN node locations, see [Azure CDN POP locations](cdn-pop-
 ## Requirements
 
 To use Azure CDN, you must own at lease one Azure subscription. Each Azure subscription has default limits for the following resources:
- - The number of CDN profiles that can be created
- - The number of endpoints that can be created in a CDN profile 
- - The number of custom domains that can be mapped to an endpoint
+ - The number of CDN profiles that can be created.
+ - The number of endpoints that can be created in a CDN profile. 
+ - The number of custom domains that can be mapped to an endpoint.
 
 For more information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
 
@@ -81,7 +81,7 @@ For a complete list of features that each Azure CDN product supports, see [Azure
 
 ## Next steps
 - To get started with CDN, see [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
-- Manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md)
+- Manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 - Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
 - To see Azure CDN in action, watch the [Azure CDN videos](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
 
