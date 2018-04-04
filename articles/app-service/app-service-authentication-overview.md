@@ -37,10 +37,10 @@ The authentication and authorization module runs in the same sandbox as your app
 
 This module handles several things for your app:
 
-- authenticates users with the specified provider
-- validates, stores, and refreshes tokens
-- manages the authenticated session
-- injects identity information into request headers
+- Authenticates users with the specified provider
+- Validates, stores, and refreshes tokens
+- Manages the authenticated session
+- Injects identity information into request headers
 
 The module runs separately from your application code and is configured using app settings. No SDKs, specific languages, or changes to your application code are required. 
 
@@ -74,11 +74,12 @@ If you [enable application logging](web-sites-enable-diagnostic-log.md), you wil
 App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_identity), in which a third-party identity provider manages the user identities and authentication flow for you. Five identity providers are available by default: 
 
 | Provider | Sign-in endpoint |
+| - | - |
 | [Azure Active Directory](../active-directory/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Microsoft Account](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoft` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
-| [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` | 
-| [Twitter](https://developer.twitter.com/docs/basics/authentication) | `/.auth/login/twitter` | 
+| [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
+| [Twitter](https://developer.twitter.com/docs/basics/authentication) | `/.auth/login/twitter` |
 
 When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options with ease. You can also integrate another identity provider or [your own custom identity solution][custom-auth].
 
@@ -114,7 +115,7 @@ In the [Azure portal](https://portal.azure.com), you can configure App Service a
 
 The following headings describe the options.
 
-### (default) Allow all requests
+### Allow all requests (default)
 
 Authentication and authorization is not managed by App Service (turned off). 
 

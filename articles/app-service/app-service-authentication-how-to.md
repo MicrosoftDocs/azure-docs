@@ -1,5 +1,5 @@
 ---
-title: Customize authentication and authorization in App Service | Microsoft Docs
+title: Customize authentication and authorization in Azure App Service | Microsoft Docs
 description: Shows how to customize authentication and authorization in App Service, and get user claims and different tokens.
 services: app-service
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 03/14/2018
 ms.author: cephalin
 ---
 
-# Customize authentication and authorization in App Service
+# Customize authentication and authorization in Azure App Service
 
 This article shows you how to customize authentication and authorization in App Service, and to manage identity from your application. 
 
