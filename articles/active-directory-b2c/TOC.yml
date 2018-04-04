@@ -199,13 +199,13 @@
     - name: Enable keep me signed in
       href: active-directory-b2c-reference-kmsi-custom.md
   - name: Troubleshooting and Event Logs
-      items:
-      - name: Create custom events with Application Insights
-        href: active-directory-b2c-custom-guide-eventlogger-appins.md
-      - name: Collect logs using Application Insights
-        href: active-directory-b2c-troubleshoot-custom.md
-      - name: Issues when creating a directory
-        href: active-directory-b2c-support-create-directory.md
+    items:
+    - name: Create custom events with Application Insights
+      href: active-directory-b2c-custom-guide-eventlogger-appins.md
+    - name: Collect logs using Application Insights
+      href: active-directory-b2c-troubleshoot-custom.md
+    - name: Issues when creating a directory
+      href: active-directory-b2c-support-create-directory.md
 - name: Resources
   items:
   - name: Azure Roadmap
