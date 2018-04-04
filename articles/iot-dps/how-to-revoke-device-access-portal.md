@@ -62,9 +62,8 @@ To temporarily blacklist the certificate by disabling its enrollment group:
 1. Sign in to the Azure portal and select **All resources** from the left menu.
 2. In the list of resources, select the provisioning service that you want to blacklist the signing certificate from.
 3. In your provisioning service, select **Manage enrollments**, and then select the **Enrollment Groups** tab.
-4. Select the enrollment group for the certificate that you want to blacklist.
-5. In the enrollment group entry, select **Edit group**.
-6. Select **Disable** on the **Enable entry** switch, and then select **Save**.  
+4. Select the enrollment group using the certificate that you want to blacklist.
+5. Select **Disable** on the **Enable entry** switch, and then select **Save**.  
 
    ![Disable enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
