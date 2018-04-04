@@ -13,33 +13,33 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/02/2018
+ms.date: 04/04/2018
 ms.author: dekapur; srrengar
 
 ---
 
 # Event analysis and visualization with Application Insights
 
-Azure Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. It is the recommended platform for monitoring and diagnostics for Service Fabric applications and services. This article helps address the following commonly asked questions
+Azure Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. It is the recommended platform for monitoring and diagnostics for Service Fabric applications and services. This article helps address the following common questions
 
 * How do I know what is going on inside my application and services and gather telemetry
 * How do I troubleshoot my application, especially services communicating with one another
-* How do I get metrics about how my services are performing e.g. page load time, http requests
+* How do I get metrics about how my services are performing, e.g. page load time, http requests
 
 
-**The purpose of this article is to show how to gain insights and troubleshoot from within App Insights. If you'd like to learn how to set up and configure AI with service fabric, check out our [tutorial](service-fabric-tutorial-monitoring-aspnet.md).**
+**The purpose of this article is to show how to gain insights and troubleshoot from within App Insights. If you'd like to learn how to set up and configure AI with service fabric, check out this [tutorial](service-fabric-tutorial-monitoring-aspnet.md).**
 
 ## Monitoring in App Insights
 
-Application Insights has a rich out of the box with Service Fabric. In the overview page below, AI provides key information about your service such as the response time and number of requests passing through. By clicking the 'Search' button above, you can see a list of recent requests in your application. Additionally, you would be able to see failed requests here and diagnose what errors may have occured. 
+Application Insights has a rich out of the box with Service Fabric. In the overview page below, AI provides key information about your service such as the response time and number of requests processed. By clicking the 'Search' button above, you can see a list of recent requests in your application. Additionally, you would be able to see failed requests here and diagnose what errors may have occurred. 
 
 ![AI Overview](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-On the right panel in the picture above, there are 2 main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events which act as telemetry you can add anywhere in your code. You can further explore this in [Application Insights API for custom events and metrics](../application-insights/app-insights-api-custom-events-metrics.md). If you were to click on a request, you would see further details as shown in the picture below, including data specific to Service Fabric which is collected in the AI Service Fabric nuget package. This info is extremely useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
+On the right panel in the picture above, there are two main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events, which act as telemetry you can add anywhere in your code. You can further explore this in [Application Insights API for custom events and metrics](../application-insights/app-insights-api-custom-events-metrics.md). Clicking on a request would display further details as shown in the picture below, including data specific to Service Fabric which is collected in the AI Service Fabric nuget package. This info is useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
 
 ![AI Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
-Application Insights has a designated view for querying against all the data that comes in. Click "Metrics Explorer" on the top of the Overview page to navigate to the AI portal. Here you can run queries against custom events mentioned before, requests, exceptions, performance counters, and other metrics using the kusto query language. Below is a basic example of all the requests in the last 1 hour.
+Application Insights has a designated view for querying against all the data that comes in. Click "Metrics Explorer" on the top of the Overview page to navigate to the AI portal. Here you can run queries against custom events mentioned before, requests, exceptions, performance counters, and other metrics using the Kusto query language. Below is a basic example of all the requests in the last 1 hour.
 
 ![AI Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
@@ -84,14 +84,14 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
 
 In both the code snippets above, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
 
-Currently, logs from the cluster will show up as **traces** in AI's log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error". This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Currently, logs from the cluster will show up as **traces** in AI's log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 >[!NOTE]
 >If you use an incorrect AI IKey either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it. 
 
 ### Configuring AI with EventFlow
 
-If you are using EventFlow to aggregate events, make sure to import the `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`NuGet package. The following has to be included in the *outputs* section of the *eventFlowConfig.json*:
+If you are using EventFlow to aggregate events, make sure to import the `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`NuGet package. The following code is required in the *outputs* section of the *eventFlowConfig.json*:
 
 ```json
 "outputs": [
@@ -106,7 +106,7 @@ Make sure to make the required changes in your filters, as well as include any o
 
 ## AI.SDK
 
-It is generally recommended to use EventFlow and WAD as aggregation solutions, because they allow for a more modular approach to diagnostics and monitoring, i.e. if you want to change your outputs from EventFlow, it requires no change to your actual instrumentation, just a simple modification to your config file. If, however, you decide to invest in using Application Insights and are not likely to change to a different platform, you should look into using AI's new SDK for aggregating events and sending them to AI. This means that you will no longer have to configure EventFlow to send your data to AI, but instead will install the ApplicationInsight's Service Fabric NuGet package. Details on the package can be found [here](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
+It is recommended to use EventFlow and WAD as aggregation solutions, because they allow for a more modular approach to diagnostics and monitoring, i.e. if you want to change your outputs from EventFlow, it requires no change to your actual instrumentation, just a simple modification to your config file. If, however, you decide to invest in using Application Insights and are not likely to change to a different platform, you should look into using AI's new SDK for aggregating events and sending them to AI. This means that you will no longer have to configure EventFlow to send your data to AI, but instead will install the ApplicationInsight's Service Fabric NuGet package. Details on the package can be found [here](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
 [Application Insights support for Microservices and Containers](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) shows you some of the new features that are being worked on (currently still in beta), which allow you to have richer out-of-the-box monitoring options with AI. These include dependency tracking (used in building an AppMap of all your services and applications in a cluster and the communication between them), and better correlation of traces coming from your services (helps in better pinpointing an issue in the workflow of an app or service).
 
