@@ -1,4 +1,6 @@
-Storage is constrained by disk space or by a hard limit on the *maximum number* of indexes or other high-level resources, whichever comes first.
+Storage is constrained by disk space or by a hard limit on the *maximum number* of indexes, document, or other high-level resources, whichever comes first. 
+
+The following table documents storage limits. For maximum limits on indexes, documents, and other objects, see [Services limits (Azure Search)](../articles/searchsearch-limits-quotas-capacity.md/).
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -7,9 +9,6 @@ Storage is constrained by disk space or by a hard limit on the *maximum number* 
 | Partitions per service |N/A |1 |12 |12 |12 |3 <sup>2</sup> |
 | Partition size |N/A |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Replicas |N/A |3 |12 |12 |12 |12 |
-| Maximum indexes |3 |5 <sup>3</sup>|50 |200 |200 |1000 per partition or 3000 per service |
-| Maximum indexers |3 |5 <sup>3</sup>|50 |200 |200 |No indexer support |
-| Maximum datasources |3 |5 <sup>3</sup>|50 |200 |200 |No indexer support |
 
 <sup>1</sup> Free tier and preview features do not come with service level agreements (SLAs). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. Two or more replicas are required for query (read) SLA. Three or more replicas are required for query and indexing (read-write) SLA. The number of partitions is not an SLA consideration. 
 

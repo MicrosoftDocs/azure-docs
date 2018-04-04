@@ -32,12 +32,22 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 ## Subscription limits
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## Service limits
+## Storage limits per service
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers.
+## Index limits per service
 
-## Document limits
+| Resource | Free | Basic <sup>1</sup>  | S1 | S2 | S3 | S3 HD |
+| -------- | ---- | ------------------- | --- | --- | --- | --- |
+| Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |
+| Maximum fields per index |1000 |100 |1000 |1000 |1000 |1000 |
+| Maximum scoring profiles per index |100 |100 |100 |100 |100 |100 |
+| Maximum functions per profile |8 |8 |8 |8 |8 |8 |
+
+<sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
+Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5.
+
+## Document limits  per service
 
 In most regions, Azure Search pricing tiers (Basic, S1, S2, S3, S3HD) have unlimited document counts for all services created after November/December 2017. This section identifies the regions where limits apply, and how to determine whether your service is affected. 
 
@@ -55,7 +65,7 @@ Services having limits were either created before late 2017, or are running on d
 + Japan West
 + West Central US
 
-For services subject to document limits, the following maximum thresholds apply:
+For services subject to document limits, the following volumes apply:
 
 |  Free | Basic | S1 | S2 | S3 | S3 HD |
 |-------|-------|----|----|----|-------|
@@ -73,28 +83,24 @@ Document size is actually a limit on the size of the Index API request body. Sin
 
 To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a URL reference to the resource.
 
-## Index limits
+## Indexer limits per service
 
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Maximum fields per index |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Maximum scoring profiles per index |100 |100 |100 |100 |100 |100 |
-| Maximum functions per profile |8 |8 |8 |8 |8 |8 |
+Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers.
 
-<sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
+| Resource | Free <sup>1</sup> | Basic <sup>2</sup>| S1 | S2 | S3 | S3 HD <sup>3</sup>|
+| -------- | ----------------- | ----------------- | --- | --- | --- | --- |
+| Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |
+| Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |
+| Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A |
+| Maximum running time | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
+| Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |
+| Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 million |4 million |4 million |N/A |
 
-## Indexer limits
+<sup>1</sup> Free services have indexer maximum execution time of 3 minutes for blob sources and 1 minute for all other data sources.
 
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A <sup>1</sup> |
-| Maximum running time | 1-3 minutes <sup>2</sup> |24 hours |24 hours |24 hours |24 hours |N/A <sup>1</sup> |
-| Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A <sup>1</sup> |
-| Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 million |4 million |4 million |N/A <sup>1</sup> |
+<sup>2</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5.
 
-<sup>1</sup> S3 HD doesn't currently support indexers. Contact Azure Support if you have an urgent need for this capability.
-
-<sup>2</sup> Indexer maximum execution time for the Free tier is 3 minutes for blob sources and 1 minute for all other data sources.
+<sup>3</sup> S3 High Density services do not include indexer support.
 
 ## Queries per second (QPS)
 
