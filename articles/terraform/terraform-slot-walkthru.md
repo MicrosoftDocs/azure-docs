@@ -42,7 +42,7 @@ ms.topic: article
 1. Create a directory named `swap`.
 
     ```bash
-    mkdir deploy
+    mkdir swap
     ```
 
 1. Verify that both directories have been successfully created using the `ls` bash command.
