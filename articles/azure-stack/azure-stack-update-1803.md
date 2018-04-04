@@ -34,7 +34,7 @@ The Azure Stack 1803 update build number is **20180329.1**.
 
 ## Before you begin    
 > [!IMPORTANT]    
-> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](/azure-stack-updates#plan-for-updates).
+> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
 
 
 ### Prerequisites
