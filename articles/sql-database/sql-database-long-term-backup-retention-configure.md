@@ -13,14 +13,14 @@ ms.reviewer: carlrab
 
 
 ---
-# Configure and restore from Azure SQL Database long-term backup retention using Azure SQL storage
+# Configure and restore backups from Azure SQL Database long-term backup retention using Azure SQL storage
 
-You can configure Azure SQL database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain backups in [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob storage for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
+You can configure an Azure SQL database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain backups in [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob storage for up to 10 years. You can then recover a database using these backups using the Azure portal or PowerShell.
 
 > [!NOTE]
 > As part of the initial release of the preview of this feature in October 2016, backups were stored in the Azure Services Recovery Service vault. This update removes this dependency, but for backward compatibility the original API is supported until May 31, 2018. If you need to interact with backups in the Azure Services Recovery vault, see [Long-term backup retention using Azure Services Recovery Service vault](sql-database-long-term-backup-retention-configure-vault.md). 
 
-## Azure portal
+## Use the Azure portal to configure long-term retention policies and restore backups
 
 The following sections show you how to use the Azure portal to configure the long-term retention, view backups in long-term retention, and restore backup from long-term retention.
 
@@ -74,7 +74,7 @@ View the backups that are retained for a specific database with a LTR policy, an
 > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](sql-database-recovery-using-backups.md#point-in-time-restore).
 >
 
-## PowerShell
+## Use PowerShell to configure long-term retention policies and restore backups
 
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
