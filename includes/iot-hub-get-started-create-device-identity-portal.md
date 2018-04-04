@@ -1,6 +1,6 @@
 ## Create a device identity
 
-In this section, you use the [Azure portal][lnk-azure-portal] to create a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. The **IoT Devices** panel in the portal helps you generate a unique device ID and key that your device can use to identify itself when it connects to IoT Hub. Device IDs are case sensitive.
+In this section, you use the [Azure portal][lnk-azure-portal] to create a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. USe the **IoT Devices** panel in the portal to generate a unique device ID and key for your device to use to identify itself to IoT Hub. Device IDs are case-sensitive.
 
 1. Make sure you are signed in to the [Azure portal][lnk-azure-portal].
 
@@ -12,7 +12,7 @@ In this section, you use the [Azure portal][lnk-azure-portal] to create a device
 
     ![Create device identity in portal][img-create-device]
 
-   This creates a new device identity for your IoT hub.
+   This action creates a new device identity for your IoT hub.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
