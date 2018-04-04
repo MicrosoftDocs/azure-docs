@@ -1,6 +1,6 @@
 ---
-title: 'Pricing FAQ Network Performance Monitor | Microsoft Docs'
-description: Frequently Asked Questions - Network Performance Monitor
+title: 'Pricing FAQ for Azure Network Performance Monitor | Microsoft Docs'
+description: Frequently Asked Questions - Azure Network Performance Monitor
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
@@ -18,7 +18,7 @@ ms.date: 04/02/2018
 ms.author: ajaycode
 
 ---
-# Overview 
+# Pricing Changes for Azure Network Performance Monitor
 
 This document captures the pricing changes related to Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM), in any easy to read Question and Answer format.
 
