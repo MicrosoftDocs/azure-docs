@@ -3,7 +3,7 @@ title: Run Azure Batch workloads on cost-effective low-priority VMs | Microsoft 
 description: Learn how to provision low-priority VMs to reduce the cost of Azure Batch workloads.
 services: batch
 author: mscurrell
-manager: timlt
+manager: jeconnoc
 
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
