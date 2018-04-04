@@ -1,17 +1,18 @@
 ---
 title: Restrict network access to PaaS resources - Azure PowerShell | Microsoft Docs
-description: Learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using PowerShell.
+description: In this article, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: 
-ms.topic:
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
@@ -24,13 +25,12 @@ ms.custom:
 
 Virtual network service endpoints enable you to limit network access to some Azure service resources to a virtual network subnet. You can also remove internet access to the resources. Service endpoints provide direct connection from your virtual network to supported Azure services, allowing you to use your virtual network's private address space to access the Azure services. Traffic destined to Azure resources through service endpoints always stays on the Microsoft Azure backbone network. In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a virtual network with one subnet
-> * Add a subnet and enable a service endpoint
-> * Create an Azure resource and allow network access to it from only a subnet
-> * Deploy a virtual machine (VM) to each subnet
-> * Confirm access to a resource from a subnet
-> * Confirm access is denied to a resource from a subnet and the internet
+* Create a virtual network with one subnet
+* Add a subnet and enable a service endpoint
+* Create an Azure resource and allow network access to it from only a subnet
+* Deploy a virtual machine (VM) to each subnet
+* Confirm access to a resource from a subnet
+* Confirm access is denied to a resource from a subnet and the internet
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -91,7 +91,7 @@ $subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## Restrict network access to and from a subnet
+## Restrict network access for a subnet
 
 Create network security group security rules with [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). The following rule allows outbound access to the public IP addresses assigned to the Azure Storage service: 
 
@@ -112,7 +112,7 @@ The following rule denies access to all public IP addresses. The previous rule o
 
 ```azurepowershell-interactive
 $rule2 = New-AzureRmNetworkSecurityRuleConfig `
-  -Name Deny-internet-All `
+  -Name Deny-Internet-All `
   -Access Deny `
   -DestinationAddressPrefix Internet `
   -DestinationPortRange * `
@@ -370,9 +370,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## Next steps
 
-In this tutorial, you enabled a service endpoint for a virtual network subnet. You learned that service endpoints can be enabled for resources deployed with multiple Azure services. You created an Azure Storage account and limited network access to the storage account to only resources within a virtual network subnet. Before creating service endpoints in production virtual networks, it's recommended that you thoroughly familiarize yourself with [service endpoints](virtual-network-service-endpoints-overview.md).
+In this article, you enabled a service endpoint for a virtual network subnet. You learned that service endpoints can be enabled for resources deployed with multiple Azure services. You created an Azure Storage account and limited network access to the storage account to only resources within a virtual network subnet. To learn more about service endpoints, see [Service endpoints overview](virtual-network-service-endpoints-overview.md) and [Manage subnets](virtual-network-manage-subnet.md).
 
-If you have multiple virtual networks in your account, you may want to connect two virtual networks together so the resources within each virtual network can communicate with each other. Advance to the next tutorial to learn how to connect virtual networks.
-
-> [!div class="nextstepaction"]
-> [Connect virtual networks](./tutorial-connect-virtual-networks-powershell.md)
+If you have multiple virtual networks in your account, you may want to connect two virtual networks together so the resources within each virtual network can communicate with each other. To learn how, see [Connect virtual networks](tutorial-connect-virtual-networks-powershell.md).
