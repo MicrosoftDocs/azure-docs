@@ -47,9 +47,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
     Each AsyncDocumentClient instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by AsyncDocumentClient, it is recommended to use a single instance of AsyncDocumentClient per AppDomain for the lifetime of the application.
 
    <a id="max-connection"></a>
-3. **Increase MaxPoolSize per host when using Gateway mode**
 
-    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (2000-3000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Async Java SDK, the default value for ConnectionPolicy.getMaxPoolSize is 1000. Use setMaxPoolSize to change the value.
+3. **Tuning ConnectionPolicy**
+
+    Azure Cosmos DB requests are made over HTTPS/REST when using the Async Java SDK, and are subjected to the default max connection pool size (1000). This default value should be ideal for the majority of use cases. However, in case you have a very large collection with many partitions, you can set the max connection pool size to a larger number (say, 1500) using setMaxPoolSize.
 
 4. **Tuning parallel queries for partitioned collections**
 
@@ -117,7 +118,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
     subscribe(
       resourceResponse -> {
         // this is executed on threads provided by Scheduler.computation()
-        // Schedulers.computation() should be used only the work is cpu intensive and you are not doing blocking IO, thread sleep, etc. in this thread against other resources.
+        // Schedulers.computation() should be used only when:
+		//   1. The work is cpu intensive 
+		//   2. You are not doing blocking IO, thread sleep, etc. in this thread against other resources.
         veryCpuIntensiveWork();
       });
     ```
@@ -125,6 +128,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Read here
     [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
+	For More Information, Please look at the [Github page](https://github.com/Azure/azure-cosmosdb-java) for Async Java SDK.
 
 10. **Disable netty's logging**
     Netty library logging is chatty and needs to be turned off (suppressing log in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
@@ -204,7 +208,7 @@ For other platforms (Redhat, Windows, Mac, etc.,) refer to these instructions ht
 
     The complexity of a query impacts how many request units are consumed for an operation. The number of predicates, nature of the predicates, number of UDFs, and the size of the source data set all influence the cost of query operations.
 
-    To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) header (or the equivalent RequestCharge property in ResourceResponse<T> or FeedResponse<T> to measure the number of request units consumed by these operations.
+    To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) header to measure the number of request units consumed by these operations. You can also look at the equivalent RequestCharge property in ResourceResponse<T> or FeedResponse<T>.
 
     ```Java
     ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null, false).toBlocking.single();
