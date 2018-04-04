@@ -1,5 +1,5 @@
 ---
-title: Log analytics for Apache Kafka - Azure HDInsight | Microsoft Docs
+title: Log Analytics for Apache Kafka - Azure HDInsight | Microsoft Docs
 description: 'Learn how to use Log Analytics to analyze logs from Apache Kafka cluster on Azure HDInsight.'
 services: hdinsight
 documentationcenter: ''
@@ -28,22 +28,22 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
 
 2. Create a Kafka on HDInsight cluster. For more information, see the [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) document.
 
-3. Configure the Kafka cluster to use log analytics. For more information, see the [Use Log Analytics to monitor HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
+3. Configure the Kafka cluster to use Log Analytics. For more information, see the [Use Log Analytics to monitor HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) document.
 
     > [!NOTE]
-    > You can also configure the cluster to use log analytics by using the `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. This cmdlet requires the following information:
+    > You can also configure the cluster to use Log Analytics by using the `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. This cmdlet requires the following information:
     >
     > * The HDInsight cluster name.
-    > * The workspace ID for log analytics. You can find the workspace ID in your log analytics workspace.
-    > * The primary key for the Log Analytics connection. To find the primary key, select your log analytics instance and then __OMS Portal__. From the OMS Portal, select __Settings__, __Connected Sources__, and then __Linux Servers__.
+    > * The workspace ID for Log Analytics. You can find the workspace ID in your Log Analytics workspace.
+    > * The primary key for the Log Analytics connection. To find the primary key, select your Log Analytics instance and then __OMS Portal__. From the OMS Portal, select __Settings__, __Connected Sources__, and then __Linux Servers__.
 
 
 > [!IMPORTANT]
-> it may take around 20 minutes before data is available for log analytics.
+> It may take around 20 minutes before data is available for Log Analytics.
 
 ## Query logs
 
-1. From the [Azure portal](https://portal.azure.com), select your log analytics workspace.
+1. From the [Azure portal](https://portal.azure.com), select your Log Analytics workspace.
 
 2. Select __Log Search__. From here, you can search the data collected from Kafka. The following are some example searches:
 
@@ -68,7 +68,7 @@ The steps to enable Log Analytics for HDInsight are the same for all HDInsight c
  
  ## Next steps
 
-For more information on log analytics, see the [Get started with a Log Analytics workspace](../../log-analytics/log-analytics-get-started.md) document.
+For more information on Log Analytics, see the [Get started with a Log Analytics workspace](../../log-analytics/log-analytics-get-started.md) document.
 
 For more information on working with Kafka, see the following documents:
 

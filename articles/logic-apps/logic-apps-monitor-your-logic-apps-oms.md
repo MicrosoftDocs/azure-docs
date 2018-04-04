@@ -39,7 +39,7 @@ view runtime events and data for your logic app run.
 ## Requirements
 
 Before you start, you need to have a Log Analytics workspace. 
-Learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-get-started.md). 
+Learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## Turn on diagnostics logging when creating logic apps
 
@@ -87,17 +87,12 @@ and choose **Log Analytics** as shown:
 
    ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. On your homepage, if the upgrade banner appears, choose the banner so that you 
-upgrade your Log Analytics workspace first. Then choose **Solutions Gallery**.
-
-   ![Choose "Solutions Gallery"](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
-
-5. Under **All solutions**, find and choose the tile 
+4. Under **All solutions**, find and choose the tile 
 for the **Logic Apps Management** solution.
 
    ![Choose "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
 
-6. To install the solution in your Log Analytics workspace, choose **Add**.
+5. To install the solution in your Log Analytics workspace, choose **Add**.
 
    ![Choose "Add" for "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
@@ -110,11 +105,6 @@ go to the overview page for your Log Analytics workspace.
 Review the details on the **Logic Apps Management** tile.
 
    ![Overview tile showing logic app run count and status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
-
-   > [!Note]
-   > If this upgrade banner appears instead of the Logic Apps Management tile, choose the banner so that you upgrade your Log Analytics workspace first.
-  
-   > ![Upgrade "Log Analytics Workspace"](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. To view a summary with more details about your logic app runs, 
 choose the **Logic Apps Management** tile.
