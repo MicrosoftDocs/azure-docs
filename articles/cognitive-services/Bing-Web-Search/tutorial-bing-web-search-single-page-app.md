@@ -2,7 +2,7 @@
 title: Bing Web Search single-page Web app | Microsoft Docs
 description: Shows how to use the Bing Web Search API in a single-page Web application.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 manager: ehansen
 
 ms.service: cognitive-services

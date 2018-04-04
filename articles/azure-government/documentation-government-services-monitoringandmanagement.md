@@ -145,6 +145,9 @@ The URLs for Log Analytics are different in Azure Government:
 | \*.ods.opinsights.azure.com |\*.ods.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.oms.opinsights.azure.com |\*.oms.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.blob.core.windows.net |\*.blob.core.usgovcloudapi.net |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
+| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
+| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
+| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../log-analytics/log-analytics-log-search-faq.md#portals) |
 
 The following Log Analytics features behave differently in Azure Government:
 
@@ -164,7 +167,7 @@ The following Log Analytics features behave differently in Azure Government:
 ### Frequently asked questions
 * Can I migrate data from Log Analytics in Microsoft Azure to Azure Government?
   * No. It is not possible to move data or your workspace from Microsoft Azure to Azure Government.
-* Can I switch between Microsoft Azure and Azure Government workspaces from the Operations Management Suite Log Analytics portal?
+* Can I switch between Microsoft Azure and Azure Government workspaces from the OMS portal?
   * No. The portals for Microsoft Azure and Azure Government are separate and do not share information.
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/07/2017
+ms.date: 03/27/2018
 ms.author: robb
 
 ---
@@ -28,17 +28,21 @@ Service Health tracks three types of health events that may impact your resource
 
 ## Get started with Service Health
 To launch your Service Health dashboard, select the Service Health tile on your portal dashboard. If you have previously removed the tile or you're using custom dashboard, search for Service Health service in "More services" (bottom left on your dashboard).
+
 ![Get started with Service Health](./media/service-health-overview/azure-service-health-overview-1.png)
 
 ## See current issues which impact your services
 The **Service issues** view shows any ongoing problems in Azure services that are impacting your resources. You can understand when the issue began, and what services and regions are impacted. You can also read the most recent update to understand what Azure is doing to resolve the issue. 
+
 ![Manage service issue](./media/service-health-overview/azure-service-health-overview-2.png)
 
 Choose the **Potential impact** tab to see the specific list of resources you own that might be impacted by the issue. You can download a CSV list of these resources to share with your team.
+
 ![Manage service issue - Impact](./media/service-health-overview/azure-service-health-overview-4.png)
 
 ## Get links and downloadable explanations 
 You can get a link for the issue to use in your problem management system. You can download PDF and sometimes CSV files to share with people who don’t have access to the Azure portal.   
+
 ![Manage service issue - Problem management](./media/service-health-overview/azure-service-health-overview-3.png)
 
 ## Get support from Microsoft
@@ -46,7 +50,9 @@ Contact support if your resource is left in a bad state even after the issue is 
 
 ## Pin a personalized health map to your dashboard
 Filter Service Health to show your business-critical subscriptions, regions, and resource types. Save the filter and pin a personalized health world map to your portal dashboard. 
+
 ![Filter personalized health map](./media/service-health-overview/azure-service-health-overview-6a.png)
+
 ![Pin a personalized health map](./media/service-health-overview/azure-service-health-overview-6b.png)
 
 ## Configure service health alerts

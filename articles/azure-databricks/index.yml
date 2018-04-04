@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Databricks Preview Documentation
+title: Azure Databricks Documentation
 metadata:
   title: Azure Databricks Documentation - Tutorials | Microsoft Docs
   description: Learn how to use Azure Databricks using the quickstart and other links provided here. Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
@@ -50,8 +50,12 @@ sections:
     - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Extract, transform, and load data</a>
     - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Stream data from Event Hubs</a>
     - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Sentiment analysis using Cognitive Services</a>    
-    - html: <a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Import data from Azure Storage</a>
-    - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
-    - html: <a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Work with notebooks</a>
-    - html: <a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Run Spark jobs</a>
-    - html: <a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Use Spark data sources</a>
+    - html: <a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">Stream data from HDInsight Kafka</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="/rest/api/databricks">REST API</a></p>

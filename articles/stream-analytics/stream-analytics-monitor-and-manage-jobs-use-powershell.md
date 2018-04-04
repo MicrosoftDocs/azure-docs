@@ -4,9 +4,8 @@ description: Learn how to use Azure PowerShell and cmdlets to monitor and manage
 keywords: azure powershell, azure powershell cmdlets, powershell command, powershell scripting
 services: stream-analytics
 documentationcenter: ''
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 
 ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
 ms.service: stream-analytics
@@ -15,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Monitor and manage Stream Analytics jobs with Azure PowerShell cmdlets
@@ -447,7 +446,7 @@ Azure PowerShell 1.0:
 This PowerShell command tests the connection status of the output Output in StreamingJob.  
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

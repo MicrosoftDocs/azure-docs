@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: anupams;v-bruham;garye
+ms.author: anupams
 --- 
 # Cortana Intelligence AppSource publishing guide
 

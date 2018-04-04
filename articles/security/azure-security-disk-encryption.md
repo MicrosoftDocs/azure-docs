@@ -783,14 +783,10 @@ Use the [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) comm
 > Prepare the VM with a separate data/resource VHD for getting the external key by using BitLocker.
 
 #### Encrypting an OS drive on a running Linux VM
-Encryption of an OS drive on a running Linux VM is supported on the following distributions:
-
-* RHEL 7.2
-* CentOS 7.2
-* Ubuntu 16.04
 
 ##### Prerequisites for OS disk encryption
 
+* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * The VM must be created from the Marketplace image in Azure Resource Manager.
 * Azure VM with at least 4 GB of RAM (recommended size is 7 GB).
 * (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.
