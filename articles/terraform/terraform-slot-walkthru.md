@@ -11,19 +11,17 @@ ms.topic: article
 
 # Using Terraform to provision infrastructure with Azure deployment slots
 
-[Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between various versions of your app - such as production and staging - to minimize the impact of broken deployments. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a "production slot", while the second app is hosted in a "staging" slot. (The names "production" and "staging" are arbitrary and can be anything you want that represents your scenario.) Once your deployment slots have been configured, you can then use Terraform to swap between the two slots as required.
+[Azure deployment slots](/azure/app-service/web-sites-staged-publishing) allow you to swap between different versions of your app - such as production and staging - to minimize the impact of broken deployments. This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a "production slot", while the second app is hosted in a "staging" slot. (The names "production" and "staging" are arbitrary and can be anything you want that represents your scenario.) Once your deployment slots have been configured, you can then use Terraform to swap between the two slots as needed.
 
 ## Prerequisites
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **Azure credentials** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
-
-- **GitHub account** - A [GitHub](http://www.github.com) account is needed to fork and use the two web apps utilized in this tutorial.
+- **GitHub account** - A [GitHub](http://www.github.com) account is needed to fork and use the test GitHub repo.
 
 ## Create and apply the Terraform plan
 
-1. Browse to the [Azure portal](http://www.portal.azure.com)
+1. Browse to the [Azure portal](http://portal.azure.com)
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview), and - if not done previously - select **Bash** as your environment.
 
@@ -256,6 +254,7 @@ At this point, you have set up `slotAppService` and `slotAppServiceSlotOne` to d
     ```bash
     terraform apply
     ```
+
 1. Once Terraform has finished swapping the slots, return to the browser that is rendering the slotAppService web app and refresh the page. 
 
 Notice that the web app that was in your slotAppServiceSlotOne staging slot has been swapped with the production slot and that the page now renders green. To return to the original version that was originally in the production slot, rerun the swap.tf by typing `terraform apply` so the original code is swapped again from the staging slot to the production slot.
