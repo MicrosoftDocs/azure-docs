@@ -19,7 +19,7 @@ ms.author: ajaycode
 ---
 # Pricing Changes for Azure Network Performance Monitor
 
-In response to your feedback, we have recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), for various monitoring services across Azure.
+We listened to you and have recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), for various monitoring services across Azure.
 
 This document captures the pricing changes related to Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM), in any easy to read Question and Answer format.
 
@@ -28,27 +28,28 @@ Network Performance Monitor consists of three components:
 * [Service Endpoint Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor) and
 * [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-The section below explains the pricing related changes for Performance Monitor and ExpressRoute Monitor.
+The section below explains the pricing changes for Performance Monitor, ExpressRoute Monitor and Service Endpoint Monitor.
 
 ## Performance Monitor (PM)
 
 **How was usage of Performance Monitor billed in the old scheme?**
 
 The billing for NPM was based on the usage/consumption of two components:
-a. Nodes: All synthetic transactions originate and terminate at the nodes. Nodes are also referred to as agents or MMA (Microsoft Management Agents).
-b. Data: The results of the various network tests are stored in Log Analytics repository.
+* Nodes: All synthetic transactions originate and terminate at the nodes. Nodes are also referred to as agents or MMA (Microsoft Management Agents).
+* Data: The results of the various network tests are stored in Log Analytics repository.
 
-Under the old model, the bill was computed based on the number of nodes (USD $15/node/month) and the volume of data generated (USD $2.30/GB).
+Under the old model, the bill was computed based on the number of nodes and the volume of data generated. 
 
 **How is usage of Performance Monitor, charged under the new model?**
 
-The Performance Monitor capability in NPM is now billed on a combination of: 
-a. subnet links monitored and
-b. data volume
+The Performance Monitor feature in NPM is now billed on a combination of: 
+
+* subnet links monitored and
+* data volume
 
 **What is a subnet link?**
 
-Performance Monitor, monitors connectivity between two or more locations on the network.  The connection between a group of nodes/agents on one subnet and a group of nodes on another subnet, is referred to as a subnet link.
+Performance Monitor monitors connectivity between two or more locations on the network.  The connection between a group of nodes/agents on one subnet and a group of nodes on another subnet, is referred to as a subnet link.
 
 **I have two subnets (subnet A and B) and have multiple agents on each subnet.  Performance Monitor monitors connectivity from all agents on subnet A to all agents on subnet B.  Will I be charged based on the number of inter-subnet connections?**
 
@@ -73,7 +74,7 @@ Charges for ExpressRoute Monitor are billed based on the volume of data generate
 
 **I use ERM to monitor multiple ExpressRoute circuits. Am I charged based on the number of circuits being monitored?**
 
-You are not charged based on either the number of circuits or the type of peering (for example, Private peering, Microsoft peering).  You are charged on the volume of data, as explained in the earlier answer.
+You are not charged based on either the number of circuits or the type of peering (for example, Private peering, Microsoft peering).  You are charged on the volume of data, as explained above.
 
 **What is the volume of data generated, when monitoring a single circuit?**
 
@@ -98,4 +99,22 @@ The volume of monitoring data generated depends on several factors such as:
 * number of hops on the network
 * number of paths between the source and the destination
 
-Customers at the higher percentiles (in the table above), usually monitor their circuits from several vantage points on their on-premises network.  The agents are also placed deeper in the network (i.e. farther from the service provider edge router), with the agents often located at multiple user sites/branches and racks in data centers.
+Customers at the higher percentiles (in the table above), usually monitor their circuits from several vantage points on their on-premises network.  The agents are also placed deeper in the network (farther from the service provider edge router), with the agents often located at multiple user sites/branches and racks in data centers.
+
+## Service Endpoint Monitor (SEPM)
+
+**What are the charges for usage of Service Endpoint Monitor?**
+
+Charges for usage of Service Endpoint Monitor, are computed based on the following:
+
+- number of connections
+- volume of data
+
+**What is a connection?**
+
+A connection is a test of reachability to one endpoint (URL or network service) from a single agent for the entire month. For example, monitoring a connection to bing.com from three agents constitutes three connections.
+
+**What are the costs for Service Endpoint Monitor?**
+
+- Refer to the [Connection Monitoring](https://azure.microsoft.com/pricing/details/network-watcher/) section, for the cost of monitoring an endpoint for the entire month.
+- The charge for data is available on the [pricing page](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.  (Section: Data Ingestion).
