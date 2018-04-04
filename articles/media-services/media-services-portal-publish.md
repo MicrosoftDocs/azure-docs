@@ -33,7 +33,7 @@ ms.author: juliako
 
 To provide your user with a URL that they can use to stream or download your content, first you must publish your asset by creating a locator. Locators provide access to asset files. Azure Media Services supports two types of locators: 
 
-* **Streaming (OnDemandOrigin) locators**. Streaming locators are used for adaptive streaming. Examples of adaptive streaming include Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming, and Dynamic Adaptive Streaming over HTTP (DASH, also called MPEG-DASH). To create a streaming locator, your asset must include an .ism file. 
+* **Streaming (OnDemandOrigin) locators**. Streaming locators are used for adaptive streaming. Examples of adaptive streaming include Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming, and Dynamic Adaptive Streaming over HTTP (DASH, also called MPEG-DASH). To create a streaming locator, your asset must include an .ism file. For example: http://amstest1.streaming.mediaservices.windows.net/125fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
 * **Progressive (shared access signature) locators**. Progressive locators are used to deliver video via progressive download.
 
 To build an HLS streaming URL, append *(format=m3u8-aapl)* to the URL:
