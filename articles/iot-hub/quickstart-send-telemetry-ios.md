@@ -165,7 +165,13 @@ If you don't need the IoT hub any longer, delete it and the resource group in th
 
 ## Next steps
 
-In this quickstart, you've setup an IoT hub, registered a device, sent simulated telemetry to the hub using a Node.js application, and read the telemetry from the hub using a simple back-end app. To learn how to control your simulated device from a back-end app, continue to the next quickstart.
+In this article, you set up an IoT hub, registered a device, sent simulated telemetry to the hub from an iOS device, and read the telemetry from the hub using a simple app. 
 
-> [!div class="nextstepaction"]
-> [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-node.md)
+To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+
+* [Connecting your device][lnk-connect-device]
+* [Getting started with device management][lnk-device-management]
+* [Getting started with IoT Edge][lnk-iot-edge]
+
+To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
+
