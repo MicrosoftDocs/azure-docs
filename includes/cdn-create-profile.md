@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: cdn
+author: dksimpson
+ms.service: cdn
+ms.topic: include
+ms.date: 04/04/2018
+ms.author: rli; v-deasim
+ms.custom: include file
+---
+
 ## Create a new CDN profile
 
 A CDN profile is a container for CDN endpoints and specifies a pricing tier.
