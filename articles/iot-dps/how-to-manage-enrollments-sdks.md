@@ -21,12 +21,12 @@ A *device enrollment* creates a record of a single device or a group of devices 
 ## Prerequisites
 * Obtain the connection string from your Device Provisioning Service instance.
 * Obtain the device security artifacts for the [attestation mechanism](concepts-security.md#attestation-mechanism) used:
-    * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security.md#trusted-platform-module):
+    * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Individual enrollment: Registration ID and TPM Endorsement Key from a physical device or from TPM Simulator.
         * Enrollment group does not apply to TPM attestation.
-    * [**X.509**](/azure/iot-dps/concepts-security.md):
-        * Individual enrollment: The [Leaf certificate](/azure/iot-dps/concepts-security.md#leaf-certificate) from physical device or from the SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) Emulator.
-        * Enrollment group: The [CA/root certificate](/azure/iot-dps/concepts-security.md#root-certificate) or the [intermediate certificate](/azure/iot-dps/concepts-security.md#intermediate-certificate), used to produce device certificate on a physical device.  It can also be generated from the SDK DICE emulator.
+    * [**X.509**](/azure/iot-dps/concepts-security):
+        * Individual enrollment: The [Leaf certificate](/azure/iot-dps/concepts-security#leaf-certificate) from physical device or from the SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) Emulator.
+        * Enrollment group: The [CA/root certificate](/azure/iot-dps/concepts-security#root-certificate) or the [intermediate certificate](/azure/iot-dps/concepts-security#intermediate-certificate), used to produce device certificate on a physical device.  It can also be generated from the SDK DICE emulator.
 * Exact API calls may be different due to language differences. Please review the samples provided on GitHub for details:
    * [Java Provisioning Service Client samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Node.js Provisioning Service Client samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)

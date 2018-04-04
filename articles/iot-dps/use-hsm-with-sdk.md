@@ -31,7 +31,7 @@ As a device manufacturer, you first need to choose an attestation mechanism base
 
 - [X.509](https://cryptography.io/en/latest/x509/): X.509 certificates can be stored in relatively newer chips called [Hardware Security Modules (HSM)](concepts-security.md#hardware-security-module). Work is also progressing within Microsoft, on RIoT or DICE chips, which implement the X.509 certificates. With X.509 chips, you can do bulk device enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
 
-For more information, see IoT Hub Device Provisioning Service [security concepts](concepts-security.md) and [auto-provisioning concepts](/azure/iot-dps/concepts-auto-provisioning.md).
+For more information, see IoT Hub Device Provisioning Service [security concepts](concepts-security.md) and [auto-provisioning concepts](/azure/iot-dps/concepts-auto-provisioning).
 
 ## Enable authentication for supported attestation mechanisms
 
