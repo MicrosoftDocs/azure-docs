@@ -52,7 +52,7 @@ There are two common examples when RBAC is used (but not limited to):
 ## Grant access at a subscription level for a user outside of Azure Active Directory
 RBAC roles can be granted only by **Owners** of the subscription. Therefore, the administrator must be logged in as a user that has this role pre-assigned or has created the Azure subscription.
 
-From the Azure portal, after you sign-in as admin, select “Subscriptions” and chose the desired one.
+From the Azure portal, after you sign in as admin, select “Subscriptions” and chose the desired one.
 ![subscription blade in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png)
 By default, if the admin user has purchased the Azure subscription, the user will show up as **Account Admin**, this being the subscription role. For more information about the Azure subscription roles, see [Add or change Azure administrator roles that manage the subscription or services](/billing/billing-add-change-azure-subscription-administrator.md).
 
@@ -182,7 +182,7 @@ For larger organizations, RBAC roles can be applied in the same way for Azure Ac
 
 These groups are security groups, which are provisioned and managed only within Azure Active Directory.
 
-## Create a custom role to open support requests using PowerShell
+## Create a custom RBAC role to open support requests using PowerShell
 The built-in roles that are available in Azure ensure certain permission levels based on the available resources in the environment. However, if the built-in roles do not meet your needs, you can create custom roles.
 
 To create a custom role, you can start with a built-in role, edit it, and then create a new role. For this example, the built-in **Reader** role has been customized to allow the user the option of opening support requests.
@@ -235,7 +235,7 @@ Next, you edit the JSON output to create your custom role.
 
 A typical role is composed of three main sections, **Actions**, **NotActions**, and **AssignableScopes**.
 
-The **Action** section lists all the permitted operations for the role. In this case, to create support tickets, the **Microsoft.Support/\*** operation must be added. It's important to understand that each operation is made available from a resource provider. To get a list of the operations for a resource provider, you can use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command or see [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
+The **Action** section lists all the permitted operations for the role. In this case, to create support tickets, the **Microsoft.Support/&ast;** operation must be added. It's important to understand that each operation is made available from a resource provider. To get a list of the operations for a resource provider, you can use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command or see [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
 
 To restrict all the actions for a particular role, resource providers are listed under the **NotActions** section.
 It's mandatory that the role contains the explicit subscription IDs where it is used. The subscription IDs are listed under **AssignableScopes**, otherwise you will not be allowed to import the role into your subscription.
@@ -269,7 +269,7 @@ Users with this custom role cannot perform other actions, such as create VMs or 
 
 ![screenshot of custom role not able to create new RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
-## Create a custom role to open support requests using Azure CLI
+## Create a custom RBAC role to open support requests using Azure CLI
 
 The steps to create a custom role using Azure CLI are similar to using PowerShell, except that the JSON output is different.
 
@@ -295,9 +295,7 @@ az role definition list --name "Reader" --output json
           "*/read"
         ],
         "additionalProperties": {},
-        "dataActions": [],
-        "notActions": [],
-        "notDataActions": []
+        "notActions": []
       }
     ],
     "roleName": "Reader",
@@ -307,7 +305,7 @@ az role definition list --name "Reader" --output json
 ]
 ```
 
-Edit the role definition to create a JSON file with the following format. The **Microsoft.Support/\*** operation has been added in the **Actions** sections so that this user can open support requests while continuing to be a reader. It is necessary to add the subscription ID where this role will be used in the **AssignableScopes** section.
+Create a JSON file with the following format. The **Microsoft.Support/&ast;** operation has been added in the **Actions** sections so that this user can open support requests while continuing to be a reader. You must add the subscription ID where this role will be used in the **AssignableScopes** section.
 
 ```json
 {
@@ -321,12 +319,6 @@ Edit the role definition to create a JSON file with the following format. The **
     "NotActions":  [
 
                    ],
-    "DataActions":  [
-
-                    ],
-    "NotDataActions":  [
-
-                       ],
     "AssignableScopes": [
                             "/subscriptions/11111111-1111-1111-1111-111111111111"
                         ]
@@ -339,6 +331,6 @@ To create the custom role, use the [az role definition create](/cli/azure/role/d
 az role definition create --role-definition ~/roles/rbacrole1.json
 ```
 
-The new custom role is now available in the Azure portal and the process to use this role is the same as in the previous examples.
+The new custom role is now available in the Azure portal and the process to use this role is the same as in the previous PowerShell section.
 
 ![Azure portal screenshot of custom role created using CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
