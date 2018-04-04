@@ -12,7 +12,7 @@
 1. Navigate to and open the page for your virtual network gateway. There are multiple ways to navigate. In our example, we navigated to the gateway 'VNet1GW' by going to **TestVNet1 -> Overview -> Connected devices -> VNet1GW**.
 2. On the page for VNet1GW, click **Connections**. At the top of the Connections page, click **+Add** to open the **Add connection** page.
 
-  ![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include/connection.png)
+  ![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-portal-include/configure-site-to-site-connection.png)
 3. On the **Add connection** page, fill in the values to create your connection.
 
   - **Name:** Name your connection. We use **VNet1toSite2** in our example.
