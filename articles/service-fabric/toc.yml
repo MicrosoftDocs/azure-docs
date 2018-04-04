@@ -547,7 +547,7 @@
         href: service-fabric-diagnostics-event-analysis-appinsights.md
       - name: Add logging to your application
         href: service-fabric-how-to-diagnostics-log.md
-      - name: Aggregate events - EventFlow
+      - name: Aggregate events with EventFlow
         href: service-fabric-diagnostics-event-aggregation-eventflow.md
       - name: Monitor containers
         href: service-fabric-diagnostics-oms-containers.md
@@ -560,11 +560,13 @@
       - name: Set up OMS Log Analytics
         href: service-fabric-diagnostics-oms-setup.md  
     - name: Monitor infrastructure
+      items:
       - name: Performance monitoring with WAD
         href: service-fabric-diagnostics-perf-wad.md
-      - name: Add the OMS Agent
+      - name: Performance monitoring with the OMS Agent
         href: service-fabric-diagnostics-oms-agent.md
     - name: Monitor health
+      items:
       - name: Report and check health
         href: service-fabric-diagnostics-how-to-report-and-check-service-health.md   
       - name: Troubleshoot with system health reports
