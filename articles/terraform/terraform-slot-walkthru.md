@@ -201,7 +201,9 @@ Once you have forked the test project repo, it's time to create and use the depl
 At this point, you have deployed the production slot. To deploy the staging slot, perform all of the previous steps in this section with only the following modifications:
 
 - In step 3, **slotAppServiceSlotOne** resource.
+
 - In step 13, select the "working" branch instead of the master branch.
+
     ![Choose Working Branch](./media/terraform-slot-walkthru/choose-branch-working.png)
 
 ## Putting it all together
