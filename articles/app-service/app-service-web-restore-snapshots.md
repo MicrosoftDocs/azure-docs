@@ -55,6 +55,11 @@ up your app, see [Scale up an app in Azure](web-sites-scale.md).
    > make sure that it is what you want to do.
    > 
    > 
+      
+   > [!Note]
+   > Due to current technical limitations, you can only restore to apps in the same scale unit. We will remove that limitation in a future release.
+   > 
+   > 
    
     You can select **Existing App** to restore to a slot. Before you use this option, you should have already created a slot in your app.
 
