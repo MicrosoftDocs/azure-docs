@@ -49,8 +49,6 @@ ms.topic: article
 
 1. Verify that both directories have been successfully created using the `ls` bash command.
 
-    ![Create the Cloud Shell directories](./media/terraform-slot-walkthru/cloud-shell.png)
-
 1. Change directories to the `deploy` directory.
 
     ```bash
@@ -211,7 +209,7 @@ At this point, you have set up `slotAppService` and `slotAppServiceSlotOne` to d
 
  If everything is deployed correctly, slotAppService should render a blue page with the page title **Slot Demo App 1** while the slotAppServiceSlotOne should render a green page with the page title **Slot Demo App 2**.
 
- To see this in action, perform the following steps:
+ To test swapping the deployment slots, perform the following steps:
  
  1. In your browser, open a new tab, and navigate to the slotAppService URL. 
  
