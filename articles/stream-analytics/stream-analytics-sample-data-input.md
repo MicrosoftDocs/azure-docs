@@ -1,11 +1,16 @@
 ---
-title:  Query testing in Azure Stream Analytics
+title:  Query testing in Azure Stream Analytics | Microsoft Docs
 description: Pinpoint issues when you troubleshoot Stream Analytics jobs.
+keywords: troubleshoot input, input sampling
 services: stream-analytics
 author: jseb225
 manager: ryanw
+
+ms.assetid: 
 ms.service: stream-analytics
+ms.devlang: na
 ms.topic: article
+ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
