@@ -222,54 +222,7 @@ For more design information on the use of autoscale, see [autoscale best practic
 ## Next steps
 In this tutorial, you created a virtual machine scale set. You learned how to:
 
-> [!div class="checklist# Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription)[0].Id
-$myResourceGroup = "myResourceGroupScaleSet"
-$myScaleSet = "myScaleSet"
-$myLocation = "East US"
-$myScaleSetId = (Get-AzureRmVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id ; 
 
-# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
-$myRuleScaleUp = New-AzureRmAutoscaleRule `
-  -MetricName "Percentage CPU" `
-  -MetricResourceId $myScaleSetId `
-  -Operator GreaterThan `
-  -MetricStatistic Average `
-  -Threshold 60 `
-  -TimeGrain 00:01:00 `
-  -TimeWindow 00:05:00 `
-  -ScaleActionCooldown 00:05:00 `
-  -ScaleActionDirection Increase `
-  -ScaleActionValue 1
-
-# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
-$myRuleScaleDown = New-AzureRmAutoscaleRule `
-  -MetricName "Percentage CPU" `
-  -MetricResourceId $myScaleSetId `
-  -Operator LessThan `
-  -MetricStatistic Average `
-  -Threshold 30 `
-  -TimeGrain 00:01:00 `
-  -TimeWindow 00:05:00 `
-  -ScaleActionCooldown 00:05:00 `
-  -ScaleActionDirection Decrease `
-  -ScaleActionValue 1
-
-# Create a scale profile with your scale up and scale down rules
-$myScaleProfile = New-AzureRmAutoscaleProfile `
-  -DefaultCapacity 2  `
-  -MaximumCapacity 10 `
-  -MinimumCapacity 2 `
-  -Rules $myRuleScaleUp,$myRuleScaleDown `
-  -Name "autoprofile"
-
-# Apply the autoscale rules
-Add-AzureRmAutoscaleSetting `
-  -Location $myLocation `
-  -Name "autosetting" `
-  -ResourceGroup $myResourceGroup `
-  -TargetResourceId $myScaleSetId `
-  -AutoscaleProfiles $myScaleProfile
 > * Use the Custom Script Extension to define an IIS site to scale
 > * Create a load balancer for your scale set
 > * Create a virtual machine scale set
