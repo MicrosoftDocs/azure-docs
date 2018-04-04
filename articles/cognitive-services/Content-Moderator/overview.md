@@ -24,9 +24,9 @@ Content moderation in Content Moderator consists of several web service APIs tha
 
 Content Moderator includes the following APIs and review tool:
   - [**Text moderation API**](text-moderation-api.md): Use this API to scan text for profanity filtering, detect potential personally identifiable information (PII) and classify it for undesirable content.
-  - [**Custom term lists**](try-terms-list-api.md): Use this API to match against custom lists of terms in addition to the built-in terms. Use these lists to block or allow content as per your content policies.  
+  - [**Custom term list API**](try-terms-list-api.md): Use this API to match against custom lists of terms in addition to the built-in terms. Use these lists to block or allow content as per your content policies.  
   - [**Image moderation API**](image-moderation-api.md): Use this API to scan images for adult and racy content, detect text in images with the Optical Character Recognition (OCR) capability, and detect faces.
-  - [**Custom image lists**](try-image-list-api.md): Use this API to match against custom lists of images, pre-identified content that you don’t need to classify again.
+  - [**Custom image list API**](try-image-list-api.md): Use this API to match against custom lists of images, pre-identified content that you don’t need to classify again.
   - [**Video moderation API**](video-moderation-api.md): Use this API to scan videos for potential adult and racy content.
   - [**Review APIs**](try-review-api-job.md): Use the [Jobs](try-review-api-job.md), [Reviews](try-review-api-review.md), and [Workflow](try-review-api-workflow.md) operations to create and automate human-in-the-loop workflows within the review tool.
 
