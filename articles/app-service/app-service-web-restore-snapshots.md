@@ -38,11 +38,11 @@ up your app, see [Scale up an app in Azure](web-sites-scale.md).
 
 ## Restore an app from a snapshot
 
-1. On the **Settings** page of your app in the [Azure portal](https://portal.azure.com), click **Backups** to display the **Backups** blade. Then click **Restore** under the **Snapshot(Preview)** section.
+1. On the **Settings** page of your app in the [Azure portal](https://portal.azure.com), click **Backups** to display the **Backups** page. Then click **Restore** under the **Snapshot(Preview)** section.
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 
-2. In the **Restore** blade, select the snapshot to restore.
+2. In the **Restore** page, select the snapshot to restore.
    
     ![](./media/app-service-web-restore-snapshots/2.png)
    
