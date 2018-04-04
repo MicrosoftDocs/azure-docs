@@ -81,7 +81,7 @@ Make sure to do the above steps for **both** of the services in the application 
 
 ## Add the Microsoft.ApplicationInsights.ServiceFabric.Native NuGet to the services
 
-Application Insights has two Service Fabric specific NuGets that can be used depending on the scenario. One is used with Service Fabric's native services, and the other with containers and guest executables. In this case, we'll be using the Microsoft.ApplicationInsights.ServiceFabric.Native NuGet to leverage the understanding of service context that it brings. To read more about the Application Insights SDK and the Service Fabric specific NuGets, see [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/develop/README.md). 
+Application Insights has two Service Fabric specific NuGets that can be used depending on the scenario. One is used with Service Fabric's native services, and the other with containers and guest executables. In this case, we'll be using the Microsoft.ApplicationInsights.ServiceFabric.Native NuGet to leverage the understanding of service context that it brings. To read more about the Application Insights SDK and the Service Fabric specific NuGets, see [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md). 
 
 Here are the steps to set up the NuGet:
 1. Right-click on the **Solution 'Voting'** at the top of your Solution Explorer, and click **Manage NuGet Packages for Solution...**.
