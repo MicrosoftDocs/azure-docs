@@ -31,23 +31,23 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you decide to install and use the Azure CLI locally, this article requires that you are running the Azure CLI version 2.0.4 or later. Run **az --version** to find your Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you decide to install and use the Azure CLI locally, for this article, you must be running Azure CLI version 2.0.4 or later. Run **az --version** to find your Azure CLI version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-By default, Azure CLI commands return JavaScript Object Notation (JSON). JSON is the standard way to send and receive messages from REST APIs. To facilitate working with the JSON responses, some of the examples in this article use the *query* parameter on Azure CLI commands. This parameter uses the [JMESPath query language](http://jmespath.org/) for parsing JSON. To learn more about how to use the results of the Azure CLI commands by following the JMESPath query language, see the [JMESPath tutorial](http://jmespath.org/tutorial.html).
+By default, Azure CLI commands return JavaScript Object Notation (JSON). JSON is the standard way to send and receive messages from REST APIs. To facilitate working with the JSON responses, some of the examples in this article use the *query* parameter on Azure CLI commands. This parameter uses the [JMESPath query language](http://jmespath.org/) to parse JSON. To learn more about how to use the results of Azure CLI commands by following the JMESPath query language, see the [JMESPath tutorial](http://jmespath.org/tutorial.html).
 
 ## Create a resource group
 A resource group is a logical container in which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can use the [az group create](/cli/azure/group#create) command to create a new one. 
 
-The following example creates a resource group named *myResourceGroup* in the *East US* location.
+The following example creates a resource group named *myResourceGroup* in the *East US* location:
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
 ## Create a storage account
-A storage account is a shared pool of storage in which you can deploy Azure file shares, or other storage resources such as blobs or queues. A storage account can contain an unlimited number of file shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
+A storage account is a shared pool of storage in which you can deploy Azure file shares or other storage resources, such as blobs or queues. A storage account can contain an unlimited number of file shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-The following example creates a storage account named `mystorageaccount<random number>` by using the [az storage account create](/cli/azure/storage/account#create) command. It then puts the name of that storage account in the variable `$STORAGEACCT`. Storage account names must be unique; using `$RANDOM` appends a number to the end of the storage account name to make it unique. 
+The following example creates a storage account named *mystorageaccount\<random number\>* by using the [az storage account create](/cli/azure/storage/account#create) command. It then puts the name of that storage account in the variable `$STORAGEACCT`. Storage account names must be unique; using `$RANDOM` appends a number to the end of the storage account name to make it unique. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -175,10 +175,10 @@ az storage file list \
 	--output table
 ```
 
-Although the `az storage file copy start` command is convenient for file moves between Azure file shares and Azure Blob storage containers, we recommend that you use AzCopy for larger moves. (Larger in terms of the number or size of files being moved.) Learn more about [AzCopy for Linux](../common/storage-use-azcopy-linux.md) and [AzCopy for Windows](../common/storage-use-azcopy.md). AzCopy must be installed locally. It's not available in Cloud Shell. 
+Although the `az storage file copy start` command is convenient for file moves between Azure file shares and Azure Blob storage containers, we recommend that you use AzCopy for larger moves. (Larger in terms of the number or size of files being moved.) Learn more about [AzCopy for Linux](../common/storage-use-azcopy-linux.md) and [AzCopy for Windows](../common/storage-use-azcopy.md). AzCopy must be installed locally. AzCopy isn't available in Cloud Shell. 
 
 ## Create and modify share snapshots
-Another useful task that you can do with an Azure file share is create share snapshots. A snapshot preserves a point-in-time copy of an Azure file share. Share snapshots are similar to operating system technologies that you might already be familiar with, such as:
+Another useful task that you can do with an Azure file share is create share snapshots. A snapshot preserves a point-in-time copy of an Azure file share. Share snapshots are similar to operating system technologies that you might already be familiar with:
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems.
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
 - [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS.
@@ -194,7 +194,7 @@ SNAPSHOT=$(az storage share snapshot \
 ```
 
 ### Browse share snapshot contents
-You can browse the contents of a share snapshot by passing the timestamp of the share snapshot that you captured in the `$SNAPSHOT` variable to the `az storage file list` command:
+You can browse the contents of a share snapshot by passing the time stamp of the share snapshot that you captured in the `$SNAPSHOT` variable to the `az storage file list` command:
 
 ```azurecli-interactive
 az storage file list \

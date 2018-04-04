@@ -92,7 +92,7 @@ To download a copy of a file from your file share, right-click the file, and the
 You will see the progress of the download in the **Activities** pane at the bottom of the window.
 
 ## Create and modify share snapshots
-A snapshot preserves a point-in-time copy of an Azure file share. File share snapshots are similar to other technologies that you might already be familiar with, such as:
+A snapshot preserves a point-in-time copy of an Azure file share. File share snapshots are similar to other technologies that you might already be familiar with:
 - [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems such as NTFS and ReFS.
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems.
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
