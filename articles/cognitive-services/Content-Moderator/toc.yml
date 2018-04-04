@@ -62,7 +62,7 @@
       href: try-review-api-workflow.md
 - name: Samples
   items:
-  - name: .NET
+  - name: SDK and samples
     href: samples-dotnet.md
 - name: How-to guides
   items:
