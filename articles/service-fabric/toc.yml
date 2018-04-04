@@ -433,6 +433,8 @@
       href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
     - name: Recommended practices
       href: /azure/architecture/service-fabric/migrate-from-cloud-services
+    - name: Refactor a migrated app
+      href: /azure/architecture/service-fabric/refactor-migrated-app
   - name: Manage application lifecycle
     items:
     - name: Package an application
