@@ -75,10 +75,10 @@ You are not charged based on either the number of circuits or the type of peerin
 
 **What is the volume of data generated, when monitoring a single circuit?**
 
-The volume of data generated per month, when monitoring a private peering connection using one agent on either side of the connection is as follows:
+The volume of data generated per month, when monitoring a private peering connection is as follows:
 
 |Percentile      |Data/Month (MB)|
-|----------------|           ---:|
+| :---:          |           ---:|
 |50<sup>th</sup> |            192|
 |60<sup>th</sup> |            256|
 |70<sup>th</sup> |            360|
@@ -89,3 +89,11 @@ The volume of data generated per month, when monitoring a private peering connec
 
 Per the table above, customers at the 50th percentile pay for 192 MB of data. At USD $2.30/GB for the first month, the cost incurred for monitoring a circuit is USD 0.43 (= 192 * 2.30 / 1024) for the first month.
 
+**What are some of the reasons for the variations in the volume of data?**
+
+The volume of monitoring data generated depends on several factors such as:
+* number of agents - the accuracy of fault isolation increases with an increase in the number of agents
+* number of hops on the network
+* number of paths between the source and the destination
+
+Customers at the higher percentiles (in the table above), usually monitor their circuits from several vantage points on their on-premises network.  The agents are also placed deeper in the network (i.e. farther from the service provider edge router), with the agents often located at user sites/branches and racks in data centers.
