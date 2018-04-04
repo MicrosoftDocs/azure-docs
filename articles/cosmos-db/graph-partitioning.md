@@ -36,15 +36,21 @@ For a graph database, the following are details that need to be understood when 
 
     - Selecting a vertex by ID, then **using the `.has()` step to specify the partitioning key property**: 
     
-        `g.V('vertex_id').has('partitionKey', 'partitionKey_value')`
+        ```
+        g.V('vertex_id').has('partitionKey', 'partitionKey_value')
+        ```
     
     - Selecting a vertex by **specifying a tuple including partitioning key value and ID**: 
     
-        `g.V(['partitionKey_value', 'vertex_id'])`
+        ```
+        g.V(['partitionKey_value', 'vertex_id'])
+        ```
         
     - Specifying an **array of tuples of partition key values and IDs**:
     
-        `g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)`
+        ```
+        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
+        ```
         
     - Selecting a set of vertices and **specifying a list of partitioning key values**: 
     
