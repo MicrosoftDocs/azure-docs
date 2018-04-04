@@ -8,21 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.date: 04/04/2018
-<<<<<<< HEAD
 ms.author: ninarn
-=======
-ms.author: carlrab
->>>>>>> upstream/master
 ms.topic: article
 ---
 
 # Elastic pools help you manage and scale multiple Azure SQL databases
 
-<<<<<<< HEAD
-SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources ([elastic Database Transaction Units](sql-database-what-is-a-dtu.md) (eDTUs)) at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database.
-=======
-SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. 
->>>>>>> upstream/master
+SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database.
 
 ## What are SQL elastic pools?
 
@@ -78,7 +70,7 @@ The following rules of thumb related to database count and database utilization 
 
 ### Minimum number of databases
 
-If the amount of resources for single databases is more than 1.5x the resources needed for the pool, then an elastic pool is more cost effective. 
+If the amount of resources for single databases is more than 1.5x the resources needed for the pool, then an elastic pool is more cost effective.
 
 ***DTU-based purchasing model example***<br>
 At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using performance levels for single databases.
@@ -121,7 +113,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
    MAX(<*Total number of DBs* X *average vCore utilization per DB*>,<br>
    <*Number of concurrently peaking DBs* X *Peak vCore utilization per DB*)
 
-2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage. 
+2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage.
 3. For the DTU-based purchasing model, take the larger of the eDTU estimates from Step 1 and Step 2. For the vCore-based purchasing model, take the vCore estimate from Step 1.
 4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest pool size that is greater than the estimate from Step 3.
 5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
@@ -153,39 +145,10 @@ There are two ways you can create an elastic pool in the Azure portal.
 
 > [!NOTE]
 > You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
-<<<<<<< HEAD
-=======
-> 
 
-The pool's pricing tier determines the features available to the elastics in the pool, and the maximum number of eDTUs (eDTU MAX) or vCores, and storage (GBs) available to each database.
+The pool's service tier determines the features available to the elastics in the pool, and the maximum amount of resources available to each database. For details, see [Resource limits for elastic pools](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
-To change the pricing tier for the pool, click **Pricing tier**, click the pricing tier you want, and then click **Select**.
-
-> [!IMPORTANT]
-> After you choose the pricing tier and commit your changes by clicking **OK** in the last step, you won't be able to change the pricing tier of the pool. To change the pricing tier for an existing elastic pool, create an elastic pool in the desired pricing tier and migrate the databases to this new pool.
->
-
-If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool.
-
-The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using single databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
-
-![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png) 
-
-The pool recommendation comprises:
-
-- A pricing tier for the pool (Basic, Standard, or Premium)
-- Appropriate **POOL eDTUs** or **vCores**
-- The **eDTU MAX** and **eDTU Min** per database or **minimum vCores** and **maximum vCores**
-- The list of recommended databases for the pool
-
-> [!IMPORTANT]
-> The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic pool, it must exist for at least 7 days. Databases that are already in an elastic pool are not considered as candidates for elastic pool recommendations.
->>>>>>> upstream/master
->
-
-The pool's pricing tier determines the features available to the elastics in the pool, and the maximum amount of resources available to each database. For details, see [Resource limits for elastic pools](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
-
-To configure the resources and pricing of the pool, click **Configure pool**. You can select a service tier, add databases to the pool, and configure the resource limits for the pool and its databases.
+To configure the resources and pricing of the pool, click **Configure pool**. Then select a service tier, add databases to the pool, and configure the resource limits for the pool and its databases.
 
 When you have completed configuring the pool, you can click 'Apply', name the pool, and click 'OK' to create the pool.
 
