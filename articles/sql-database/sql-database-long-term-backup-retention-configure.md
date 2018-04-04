@@ -108,7 +108,7 @@ This example shows how to list the LTR policies within a server
 $ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName  -ResourceGroupName $resourceGroup
 
 # Get the LTR policy of a specific database 
-Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup
+$ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup
 ```
 
 ### View LTR backups
