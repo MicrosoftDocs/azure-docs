@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: kumud
 ---
 
@@ -40,7 +40,7 @@ Load Balancer resources are objects within which you can express how Azure shoul
 
 ## Why use Standard Load Balancer?
 
-You can use Standard Load Balancer for the full range of virtual data centers, from small scale deployments to large and complex multi-zone architectures.
+Standard Load Balancer enables you to scale your applications and create high availability for small scale deployments to large and complex multi-zone architectures.
 
 Review the table below for an overview of the differences between Standard Load Balancer and Basic Load Balancer:
 
