@@ -134,17 +134,17 @@ ms.topic: article
 
 1. Close the Cloud Shell window.
 
-1. Select **Resource Groups** to see the **slotDemoResourceGroup** resource group that was created from the Terraform 'deploy.tf' configuration file.
+1. Select **Resource Groups**.
 
     ![Azure portal Resource Groups](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
 1. On the **Resource Groups** tab, select **slotDemoResourceGroup**.
 
-    ![Resource Group created by Terraform from the deploy.tf configuration file](./media/terraform-slot-walkthru/resource-group.png)
+    ![Resource group created by Terraform](./media/terraform-slot-walkthru/resource-group.png)
 
-When finished, you see a list of resources created by Terraform from the `deploy.tf` configuration file.
+When finished, you see all the resources created by Terraform.
 
-![Resources created by Terraform from the deploy.tf configuration file](./media/terraform-slot-walkthru/resources.png)
+![Resources created by Terraform](./media/terraform-slot-walkthru/resources.png)
 
 ## Fork the test project
 
