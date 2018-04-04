@@ -28,7 +28,7 @@ Content Moderator includes the following APIs and review tool:
   - [**Image moderation API**](image-moderation-api.md): Use this API to scan images for adult and racy content, detect text in images with the Optical Character Recognition (OCR) capability, and detect faces.
   - [**Custom image lists**](try-image-list-api.md): Use this API to match against custom lists of images, pre-identified content that you don’t need to classify again.
   - [**Video moderation API**](video-moderation-api.md): Use this API to scan videos for potential adult and racy content.
-  - [**Review APIs**](try-review-api-job.md): Use the Jobs, Reviews, and Workflow operations to create and automate human-in-the-loop workflows within the review tool.
+  - [**Review APIs**](try-review-api-job.md): Use the [Jobs]((try-review-api-job.md), [Reviews](try-review-api-review.md), and [Workflow](try-review-api-workflow.md) operations to create and automate human-in-the-loop workflows within the review tool.
 
 ## Built-in human-in-the-loop review tool
 
