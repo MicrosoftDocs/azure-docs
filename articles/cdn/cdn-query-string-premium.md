@@ -43,7 +43,8 @@ Three query string modes are available:
 
 - **unique-cache**: In this mode, each request with a unique URL, including the query string, is treated as a unique asset with its own cache. For example, the response from the origin server for a request for `example.ashx?q=test1` is cached at the POP node and returned for subsequent caches with the same query string. A request for `example.ashx?q=test2` is cached as a separate asset with its own time-to-live setting.
    
-    Do not use this mode when the query string contains parameters that will change with every request, such as a session ID or a user name, because it will result in a low cache-hit ratio.
+    >[!IMPORTANT] 
+    > Do not use this mode when the query string contains parameters that will change with every request, such as a session ID or a user name, because it will result in a low cache-hit ratio.
 
 ## Changing query string caching settings for premium CDN profiles
 1. Open a CDN profile, then click **Manage**.
