@@ -80,7 +80,7 @@ class GetMSIToken {
 ## Related content
 
 - To enable MSI on an Azure VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](qs-configure-portal-windows-vm.md).
-- For information on handling token expiration and errors, see [Handling token expiration](how-to-acquire-vm-access-token-http.md#handling-token-expiration) and [Error Handling](how-to-acquire-vm-access-token-http.md#error-handling)
+- For information on handling token expiration and errors, see [Handling token expiration](how-to-acquire-vm-access-token-http.md#handling-token-expiration) and [Error Handling](how-to-acquire-vm-access-token-http.md#error-handling).
 
 
 
