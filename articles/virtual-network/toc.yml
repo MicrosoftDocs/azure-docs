@@ -287,7 +287,8 @@
         href: virtual-network-nsg-manage-log.md
     - name: Route tables
       href: manage-route-table.md
-    - name: Network interfaces(virtual-network-network-interface.md)
+    - name: Network interfaces
+      href: virtual-network-network-interface.md
       items:
       - name: IP addresses
         href: virtual-network-network-interface-addresses.md
