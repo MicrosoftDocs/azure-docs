@@ -62,45 +62,27 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Manage identity, application, and network services
+    - title: Manage identity, application, and network services - In module 6, see the creation of a tenant, registering of an app, and creation of policies
       href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services 
-      items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-        - html: <p>In module 6, see the creation of a tenant, registering of an app, and creation of policies.</p>
-    - title: Secure a serverless application
+    - title: Secure a serverless application - In module 6, hear why you should use Azure AD B2C to secure a serverless app
       href: https://www.pluralsight.com/courses/azure-serverless-applications  
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/azure-serverless-applications
-      items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-        - html: <p>In module 6, hear why you should use Azure AD B2C to secure a serverless app.</p>
-    - title: ASP.NET Core 2 and Azure AD B2C
+    - title: ASP.NET Core 2 and Azure AD B2C - In module 8, see the how to add sign-up, sign-in, and profile editing to an ASP.NET Core 2 app
       href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook 
-      items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-        - html: <p>In module 8, see the how to add sign-up, sign-in, and profile editing to an ASP.NET Core 2 app.</p>
 - title: Samples
   items:
+  - type: paragraph
+    text: Find samples that show you how to manage customer identities in your application.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/active-directory-b2c/code-samples>Find samples that show examples of identity management in applications.</a>
-
-   
