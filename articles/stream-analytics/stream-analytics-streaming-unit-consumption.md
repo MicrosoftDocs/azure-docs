@@ -5,8 +5,7 @@ keywords: streaming unit, query performance
 services: stream-analytics
 documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 
 ms.assetid: 
 ms.service: stream-analytics
