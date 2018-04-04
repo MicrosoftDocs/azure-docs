@@ -36,11 +36,11 @@ The Microsoft Azure IoT device SDKs contain code that facilitates building devic
 
 The following Azure IoT device SDKs are available to download from GitHub:
 
-* [Azure IoT device SDK for .NET][lnk-dotnet-device-sdk]
-* [Azure IoT device SDK for Java][lnk-java-device-sdk]
-* [Azure IoT device SDK for Node.js][lnk-node-device-sdk]
-* [Azure IoT device SDK for Python][lnk-python-device-sdk]
-* [Azure IoT device SDK for C][lnk-c-device-sdk] written in ANSI C (C99) for portability and broad platform compatibility. 
+* [Azure IoT Hub device SDK for .NET][lnk-dotnet-device-sdk]
+* [Azure IoT Hub device SDK for Java][lnk-java-device-sdk]
+* [Azure IoT Hub device SDK for Node.js][lnk-node-device-sdk]
+* [Azure IoT Hub device SDK for Python][lnk-python-device-sdk]
+* [Azure IoT Hub device SDK for C][lnk-c-device-sdk] written in ANSI C (C99) for portability and broad platform compatibility. 
 
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
@@ -64,11 +64,11 @@ The Azure IoT service SDKs contain code to facilitate building applications that
 
 The following Azure IoT service SDKs are available to download from GitHub:
 
-* [Azure IoT service SDK for .NET][lnk-dotnet-service-sdk]
-* [Azure IoT service SDK for Java][lnk-java-service-sdk]
-* [Azure IoT service SDK for Node.js][lnk-node-service-sdk]
-* [Azure IoT service SDK for Python][lnk-python-service-sdk]
-* [Azure IoT service SDK for C][lnk-c-service-sdk]
+* [Azure IoT Hub service SDK for .NET][lnk-dotnet-service-sdk]
+* [Azure IoT Hub service SDK for Java][lnk-java-service-sdk]
+* [Azure IoT Hub service SDK for Node.js][lnk-node-service-sdk]
+* [Azure IoT Hub service SDK for Python][lnk-python-service-sdk]
+* [Azure IoT Hub service SDK for C][lnk-c-service-sdk]
 
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
@@ -76,15 +76,15 @@ The following Azure IoT service SDKs are available to download from GitHub:
 
 ## Online API reference documentation
 
-The following list contains links to online API reference documentation for Azure IoT device, service, and gateway libraries:
+The following list contains links to online API reference documentation for Azure IoT device and service libraries:
 
-* [Azure IoT device SDK for .NET][lnk-dotnet-ref]
-* [Azure IoT service SDK for .NET][lnk-dotnet-service-ref]
-* [Azure IoT device SDK for Java][lnk-java-ref]
-* [Azure IoT service SDK for Java][lnk-java-service-ref]
-* [Azure IoT device SDK for Node.js][lnk-node-ref]
-* [Azure IoT service SDK for Node.js][lnk-node-service-ref]
-* [Azure IoT device SDK for C][lnk-c-ref]
+* [Azure IoT Hub device SDK for .NET][lnk-dotnet-ref]
+* [Azure IoT Hub service SDK for .NET][lnk-dotnet-service-ref]
+* [Azure IoT Hub device SDK for Java][lnk-java-ref]
+* [Azure IoT Hub service SDK for Java][lnk-java-service-ref]
+* [Azure IoT Hub device SDK for Node.js][lnk-node-ref]
+* [Azure IoT Hub service SDK for Node.js][lnk-node-service-ref]
+* [Azure IoT Hub device SDK for C][lnk-c-ref]
 * [IoT Hub REST][lnk-rest-ref]
 
 ## Next steps
