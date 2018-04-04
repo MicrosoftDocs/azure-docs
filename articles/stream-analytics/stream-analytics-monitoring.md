@@ -55,7 +55,7 @@ Another interesting data point to monitor your job is the time of the last outpu
 This time is the application time (i.e. the time using the timestamp from the event data) of the latest output of your job.
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
