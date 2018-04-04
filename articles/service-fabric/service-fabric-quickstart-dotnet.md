@@ -179,8 +179,8 @@ You may receive a browser warning that the location is not trusted. This is beca
 
 To scale the web front-end service, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example,`http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. In the tree view, expand **Applications**->**VotingType**->**fabric:/Voting**.
-2. Click on the ellipsis (three dots) next to the **fabric:/Voting/VotingWeb** node in the treeview and choose **Scale Service**.
+1. Open Service Fabric Explorer in your cluster - for example,`http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+2. In the tree view, expand **Applications**->**VotingType**->**fabric:/Voting**. Click on the ellipsis (three dots) next to the **fabric:/Voting/VotingWeb** node in the treeview and choose **Scale Service**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
