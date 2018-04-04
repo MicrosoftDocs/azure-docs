@@ -62,7 +62,7 @@ View the backups that are retained for a specific database with a LTR policy, an
 
    ![restore](./media/sql-database-long-term-retention/ltr-restore.png)
 
-5. Click **OK** to restore your database from the backup in the vault to the new database.
+5. Click **OK** to restore your database from the backup in Azure SQL storage to the new database.
 
 6. On the toolbar, click the notification icon to view the status of the restore job.
 
@@ -105,7 +105,7 @@ This example shows how to list the LTR policies within a server
 
 ```powershell
 # Get all LTR policies within a server
-$ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName  -ResourceGroupName $resourceGroup
+$ltrPolicies = Get-AzureRmSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzureRmSqlDatabaseLongTermRetentionPolicy -Current 
 
 # Get the LTR policy of a specific database 
 $ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup
