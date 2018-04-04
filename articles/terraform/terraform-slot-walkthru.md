@@ -162,7 +162,7 @@ Before you can test the creation and swapping in and out of the deployment slots
 
 Once you have forked the test project repo, it's time to create and use the deployment slots.
 
-1. Select **Resource Groups**
+1. On the Azure portal main menu, select **Resource Groups**.
 
 1. Select **slotDemoResourceGroup**.
 
