@@ -3,9 +3,9 @@ title: Manage device access for Azure IoT Hub Device Provisioning Service | Micr
 description: How to revoke device access to your DPS service in the Azure Portal
 services: iot-dps
 keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 12/22/2017
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
 
