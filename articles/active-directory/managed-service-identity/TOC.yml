@@ -74,7 +74,7 @@
       - name: Configure Identity for Azure VMSS
         items:
         - name: Portal
-          href: qs-configure-cli-windows-vmss.md
+          href: qs-configure-portal-windows-vmss.md
         - name: CLI
           href: qs-configure-cli-windows-vmss.md
         - name: PowerShell
