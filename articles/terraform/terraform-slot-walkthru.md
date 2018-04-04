@@ -206,7 +206,7 @@ At this point, you have deployed the production slot. To deploy the staging slot
 
 ## Putting it all together
 
-At this point, you have set up `slotAppService` and `slotAppServiceSlotOne` to deploy the web app from different branches in GitHub. You can now preview the web app to validate that it was successfully deployed to the slots by selecting the URL on the resource's overview page in the Azure portal.
+In the previous sections, you set up two slots -`slotAppService` and `slotAppServiceSlotOne` - to deploy the web app from different branches in GitHub. Let's preview the web app to validate that it was successfully deployed to the slots.
 
 ![Resource URL](./media/terraform-slot-walkthru/resource-url.png)
 
