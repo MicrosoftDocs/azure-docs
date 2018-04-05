@@ -42,22 +42,12 @@ Run the `aks-ssh` container image, which will create a pod on one of the AKS clu
 
 ```azurecli-interactive
 $ kubectl run -it --rm aks-ssh --image=neilpeterson/aks-ssh
-
-If you don't see a command prompt, try pressing enter.
-root@aks-ssh-544454f56f-vhdzr:/#
 ```
 
-Once attached to the running container, create a file named `id_rsa` and copy into it the contents of the clipboard.
+Once attached to the running container, create a file named `id_rsa` and copy into it the contents of the clipboard. Save the file when done.
 
 ```azurecli-interactive
 $ vi id_rsa
-
------BEGIN RSA PRIVATE KEY-----
-MIIEowIBAAKCAQEA2K+qfbVo5iSn7qgOudfHJPlR+yhgyyWWs/FXs5MkZlQBRvPb
-oYrWprhFykizbAKjmjK1DrYEhIvRvrOe7Ul3Gc9G5fDvkgTGBKosJ1sIgmmtr3zo
-...
------END RSA PRIVATE KEY-----
-
 ```
 
 Modify the `id_rsa` file so that it is user read-only.
