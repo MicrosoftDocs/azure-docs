@@ -109,6 +109,12 @@ $ltrPolicies = Get-AzureRmSqlDatabase -ResourceGroupName Default-SQL-WestCentral
 # Get the LTR policy of a specific database 
 $ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
 ```
+### Clear an LTR policy
+This example shows how to clear an LTR policy from a database
+
+```powershell
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
+```
 
 ### View LTR backups
 
