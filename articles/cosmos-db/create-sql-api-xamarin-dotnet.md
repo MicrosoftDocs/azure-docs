@@ -3,9 +3,8 @@ title: 'Azure Cosmos DB: Build a todo app with Xamarin | Microsoft Docs'
 description: Presents a Xamarin code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 
 ms.service: cosmos-db
@@ -14,8 +13,8 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/29/2017
-ms.author: mimig
+ms.date: 04/04/2018
+ms.author: sngun
 
 ---
 # Azure Cosmos DB: Build a todo app with Xamarin

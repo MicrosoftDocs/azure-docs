@@ -99,6 +99,7 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
     ```powershell
     # Assign the values to the variables
     $app_role_name = "Analyst (Limited access)"
+    $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
     ```
 
 5. Run the following command to assign the user to the app role:

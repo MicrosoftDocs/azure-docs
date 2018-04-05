@@ -1,15 +1,14 @@
 ---
-title: Stream Analytics Release Notes
-description: Stream Analytics Release Notes
+title: Azure Stream Analytics - Release Notes
+description: This article describes the release history of Azure Stream Analytics and the corresponding Visual Studio tools.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.service: stream-analytics
-ms.topic: article
-ms.workload: data-services
-ms.date: 05/03/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/03/2017
 ---
 # Stream Analytics release notes
 
