@@ -4,7 +4,7 @@ description: Learn how to open a port / create an endpoint to your Linux VM usin
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
