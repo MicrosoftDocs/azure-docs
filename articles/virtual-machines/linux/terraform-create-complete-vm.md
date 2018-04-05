@@ -4,7 +4,7 @@ description: Learn how to use Terraform to create and manage a complete Linux vi
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: timlt
+manager: jeconnoc
 editor: na
 tags: azure-resource-manager
 
