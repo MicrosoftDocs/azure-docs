@@ -91,24 +91,26 @@
   items:
   - name: Connect MXChip IoT DevKit to IoT Hub
     href: how-to-connect-mxchip-iot-devkit.md
-  - name: Control access to Provisioning Service
-    href: how-to-control-access.md
-  - name: Manage device enrollments
+  - name: Manage device provisioning service
     items:
-    - name: Manage device enrollments with Azure portal
+    - name: Configure device provisioning service using Azure CLI
+      href: how-to-manage-dps-with-cli.md
+    - name: Control access to Provisioning Service APIs
+      href: how-to-control-access.md
+    - name: Perform proof-of-possession on X.509 CA certificates
+      href: how-to-verify-certificates.md
+  - name: Manage provisioning of devices
+    items:
+    - name: Deprovision devices
+      href: how-to-unprovision-devices.md    
+    - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
-    - name: Manage device enrollments with Service SDKs
+    - name: Manage enrollments - Service SDKs
       href: how-to-manage-enrollments-sdks.md
-  - name: Perform proof-of-possession on X.509 CA certificates
-    href: how-to-verify-certificates.md
-  - name: Revoke device access
-    href: how-to-revoke-device-access-portal.md
-  - name: Unprovision devices
-    href: how-to-unprovision-devices.md
+    - name: Revoke device access to provisioning
+      href: how-to-revoke-device-access-portal.md 
   - name: Use attestation mechanisms with SDK
     href: use-hsm-with-sdk.md
-  - name: Use Azure CLI to manage device provisioning service
-    href: how-to-manage-dps-with-cli.md
   - name: Use SDK tools for development
     href: how-to-use-sdk-tools.md
 - name: Reference
