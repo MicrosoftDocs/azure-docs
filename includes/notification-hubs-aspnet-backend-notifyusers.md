@@ -80,7 +80,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
    * The request uses *basic* authentication. 
    * The user name string and the password string are the same string.
      
-  Otherwise, the request is rejected. This is not a true authentication and authorization approach. It is only a simple example for this tutorial.
+  Otherwise, the request is rejected. This authentication is not a true authentication and authorization approach. It is only a simple example for this tutorial.
      
   If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
 
@@ -306,7 +306,7 @@ In this section, you add a new controller to the WebAPI backend to handle reques
 12. Save your changes.
 
 ## Send notifications from the WebAPI backend
-In this section, you add a new controller that exposes a way for client devices to send a notification. The notification is based on the username tag that uses Azure Notification Hubs Service Management Library in the ASP.NET WebAPI backend.
+In this section, you add a new controller that exposes a way for client devices to send a notification. The notification is based on the username tag that uses Azure Notification Hubs .NET Library in the ASP.NET WebAPI backend.
 
 1. Create another new controller named **NotificationsController** the same way you created **RegisterController** in the previous section.
 

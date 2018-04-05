@@ -51,7 +51,7 @@ This tutorial builds on the notification hub and Visual Studio project that you 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Update the code for the client project
-In this section, you update the code in the project you completed for the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) tutorial. They should already be associated with the store and configured for your notification hub. In this section, you add code to call the new WebAPI backend and use it for registering and sending notifications.
+In this section, you update the code in the project you completed for the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) tutorial. The project should already be associated with the Windows store. It also should be configured to use your notification hub. In this section, you add code to call the new WebAPI backend and use it for registering and sending notifications.
 
 1. In Visual Studio, open the solution you created for the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 2. In Solution Explorer, right-click the **WindowsApp** project and then click **Manage NuGet Packages**.
@@ -131,7 +131,7 @@ In this section, you update the code in the project you completed for the [Tutor
     
     The `PushClick` method is the click handler for the **Send Push** button. It calls the backend to trigger a notification to all devices with a username tag that matches the `to_tag` parameter. The notification message is sent as JSON content in the request body.
     
-    The `LoginAndRegisterClick` method is the click handler for the **Login and register** button. It stores the basic authentication token in local storage (note that this represents any token your authentication scheme uses), then uses `RegisterClient` to register for notifications using the backend.
+    The `LoginAndRegisterClick` method is the click handler for the **Login and register** button. It stores the basic authentication token (represents any token your authentication scheme uses) in local storage, then uses `RegisterClient` to register for notifications using the backend.
 
     ```csharp
     private async void PushClick(object sender, RoutedEventArgs e)
@@ -322,7 +322,7 @@ In this section, you update the code in the project you completed for the [Tutor
 ## Test the Application
 1. Launch the application on both Windows.
 2. Enter a **Username** and **Password** as shown in the screen below. It should differ from the user name and password you enter on Windows Phone.
-3. Click **Log in and register** and verify a dialog shows that you have logged in. This also enables the **Send Push** button.
+3. Click **Log in and register** and verify a dialog shows that you have logged in. This code also enables the **Send Push** button.
    
     ![][14]
 5. Then in the **Recipient Username Tag** field, enter the user name registered. Enter a notification message and click **Send Push**.
