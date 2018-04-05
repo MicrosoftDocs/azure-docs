@@ -19,7 +19,7 @@ ms.author: ajaycode
 ---
 # Pricing Changes for Azure Network Performance Monitor
 
-We listened to you and have recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), for various monitoring services across Azure.
+We have been listening to your feedback and have recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), for various monitoring services across Azure.
 
 This document captures the pricing changes related to Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM), in any easy to read Question and Answer format.
 
@@ -32,7 +32,7 @@ The section below explains the pricing changes for Performance Monitor, ExpressR
 
 ## Performance Monitor (PM)
 
-**How was usage of Performance Monitor billed in the old scheme?**
+**How was usage of Performance Monitor billed in the old model?**
 
 The billing for NPM was based on the usage/consumption of two components:
 * Nodes: All synthetic transactions originate and terminate at the nodes. Nodes are also referred to as agents or MMA (Microsoft Management Agents).
