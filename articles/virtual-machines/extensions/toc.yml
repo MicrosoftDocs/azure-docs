@@ -71,6 +71,8 @@
       href: vmsnapshot-windows.md
   - name: Third-party extensions
     items:
+    - name: Stackify Retrace
+      href: stackify-retrace-linux.md
     - name: Symantec
       href: symantec.md
     - name: Trend
