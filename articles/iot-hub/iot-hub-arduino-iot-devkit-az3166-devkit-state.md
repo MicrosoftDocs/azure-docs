@@ -40,8 +40,10 @@ You can use this example to monitor the MXChip IoT DevKit WiFi information and s
 2. Your progress is displayed under the **TERMINAL** tab of the **Welcome** panel.
 3. When prompted with the message *What subscription would you like to choose*, select a subscription.
 4. Select or choose a resource group. 
+ 
     > [!NOTE]
     > If you already have a free IoT Hub, this step will be skipped.
+
 5. When prompted with the message *What IoT hub would you like to choose*, select or create an IoT Hub.
 6. Something similar to *function app: function app name: xxx*, is displayed. Write down the function app name; it will be used in a later step.
 7. Wait for the Azure Resource Manager template deployment to finish, which is indicated when the message *Resource Manager template deployment: Done* is displayed.
