@@ -27,7 +27,6 @@ The third part of a rule is the feature. A feature defines the type of action th
 
 These features are designed to control access to content.
 
-
 Name | Purpose
 -----|--------
 [Deny Access (403)](#deny-access-403) | Determines whether all requests are rejected with a 403 Forbidden response.
@@ -310,7 +309,7 @@ Remove| This option ensures that a `Cache-Control` header is not included with
 
 Key information:
 
-- Specify one or more query string parameter name(s). Deliminate each parameter name with a single space.
+- Specify one or more query string parameter names and separate each parameter name with a single space.
 - This feature determines whether query string parameters are included or excluded from the cache-key. Additional information is provided for each option in the following table.
 
 Type|Description
@@ -1051,12 +1050,14 @@ Disabled| Restores the default behavior. The default behavior is to allow your T
 
 ---
 ### Token Auth Denial Code
-**Purpose:** Determines the type of response that will be returned to a user when a request is denied due to Token-Based Authentication.
+**Purpose:** Determines the type of response that will be returned to a user when a request is denied due to token-based authentication.
 
-The available response codes are listed below.
+Token Auth Denial Code cannot be used with an Always match condition. Instead, use the **Custom Denial Handling** section in the **Token Auth** page of the **Manage** portal. For more information, see [Securing Azure CDN assets with token authentication](cdn-token-auth.md).
+
+The available response codes are listed in the following table.
 
 Response Code|Response Name|Description
-----------------|-----------|--------
+-------------|-------------|--------
 301|Moved Permanently|This status code redirects unauthorized users to the URL specified in the Location header.
 302|Found|This status code redirects unauthorized users to the URL specified in the Location header. This status code is the industry standard method of performing a redirect.
 307|Temporary Redirect|This status code redirects unauthorized users to the URL specified in the Location header.
