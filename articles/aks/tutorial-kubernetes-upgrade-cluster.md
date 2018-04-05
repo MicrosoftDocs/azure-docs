@@ -111,7 +111,7 @@ Output:
 ```
 
 > [!NOTE]
-> When upgrading an AKS cluster, Kubernetes minor versions cannot be skipped. For example an upgrade between 1.7.x > 1.8.x and 1.8.x > 1.9.x is allowed, however 1.7 > 1.9 is not.
+> When upgrading an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between 1.7.x > 1.8.x or 1.8.x > 1.9.x are allowed, however 1.7 > 1.9 is not.
 
 ## Validate upgrade
 
