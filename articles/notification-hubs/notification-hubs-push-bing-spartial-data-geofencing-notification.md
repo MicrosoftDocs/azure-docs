@@ -22,6 +22,15 @@ ms.author: spelluru
 # Tutorial: Push location-based notifications with Azure Notification Hubs and Bing Spatial Data
 In this tutorial, you learn how to deliver location-based push notifications with Azure Notification Hubs and Bing Spatial Data. 
 
+In this tutorial, you take the following steps:
+
+> [!div class="checklist"]
+> * Set up the data source
+> * Set up the UWP application
+> * Set up the backend
+> * Test push notifications in the Universal Windows Platform (UWP) app
+
+
 ## Prerequisites
 
 - **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
