@@ -113,7 +113,6 @@ Built for DNS Administrators, this solution collects, analyzes, and correlates D
 Related links:
 * [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## Next steps
+## Miscellaneous
 
-* [Configure Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
+* [New Pricing](../log-analytics/log-analytics-network-performance-monitor)
