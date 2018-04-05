@@ -29,7 +29,7 @@
     href: app-service-web-get-started-html.md
 - name: Tutorials
   items:
-  - name: App with DB
+  - name: 1 - App with DB
     items:
     - name: .NET Core with SQL DB
       href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -43,16 +43,16 @@
       href: app-service-web-tutorial-java-mysql.md
     - name: Python with PostgreSQL
       href: app-service-web-tutorial-python-postgresql.md
-  - name: Host RESTful API
+  - name: 1 - Host RESTful API
     href: app-service-web-tutorial-rest-api.md
-  - name: Authenticate users
-    href: app-service-web-tutorial-auth-aad.md
-  - name: Map Custom Domain
+  - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
-  - name: Bind SSL Certificate
+  - name: 3 - Bind SSL Certificate
     href: app-service-web-tutorial-custom-ssl.md
-  - name: Add CDN
+  - name: 4 - Add CDN
     href: app-service-web-tutorial-content-delivery-network.md
+  - name: 5 - Authenticate users
+    href: app-service-web-tutorial-auth-aad.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -141,6 +141,8 @@
         href: app-service-mobile-how-to-configure-microsoft-authentication.md
       - name: Authenticate with Twitter
         href: app-service-mobile-how-to-configure-twitter-authentication.md
+    - name: Customize auth
+      href: app-service-authentication-how-to.md
     - name: Use Managed Service Identity
       href: app-service-managed-service-identity.md
     - name: Use SSL cert in application code
