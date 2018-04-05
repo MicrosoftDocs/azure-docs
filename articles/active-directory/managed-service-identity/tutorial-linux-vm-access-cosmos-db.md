@@ -18,14 +18,18 @@ ms.author: skwan
 ---
 # Use a Linux VM MSI to access Azure Cosmos DB 
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to create and use a user-assigned Managed Service Identity (MSI) from a Linux Virtual Machine, then use it to access Azure Cosmos DB. You learn how to:
+
+This tutorial shows you how to create and use a Linux VM MSI. You learn how to:
 
 > [!div class="checklist"]
-> * Create a User Assigned Managed Service Identity (MSI)
-> * Assign the user-assigned MSI to a Linux Virtual Machine
+> * Create a Linux VM with MSI enabled
+> * Create a Cosmos DB account
+> * Create a collection in the Cosmos DB account
 > * Grant the MSI access to an Azure Cosmos DB instance
+> * Retrieve the principalID of the of the Linux VM's MSI
+> * Get an access token and use it to call Azure Resource Manager
 > * Get an access token using the user-assigned MSI identity, and use it to access Azure Cosmos DB
 
 ## Prerequisites
@@ -57,47 +61,6 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 5. Under **Resource Group**, choose **Create New** and type the name of the resource group for this VM. When complete, click **OK**.
 6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. In the **Settings** blade, keep the defaults and click **OK**.
 
-## Create a user-assigned MSI
-
-1. If you are using the CLI console (instead of an Azure Cloud Shell session), start by signing in to Azure. Use an account that is associated with the Azure subscription under which you would like to create the new MSI:
-
-    ```azurecli
-    az login
-    ```
-
-2. Create a user-assigned MSI using [az identity create](/cli/azure/identity#az_identity_create). The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
-
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <MSI NAME>
-    ```
-
-    The response contains details for the user-assigned MSI created, similar to the following example (note the `clientId` and `id` values for your MSI, as they are used in later steps):
-
-    ```json
-    {
-    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=123444643-8088-4d70-9532-c3a0fdc190fz",
-    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-    "location": "westcentralus",
-    "name": "<MSI NAME>",
-    "principalId": "c0833082-6cc3-4a26-a1b1-c4b5f90a981f",
-    "resourceGroup": "<RESOURCE GROUP>",
-    "tags": {},
-    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
-    }
-    ```
-
-## Assign your user-assigned MSI to your Linux VM
-
-Unlike a system-assigned MSI, a user-assigned MSI can be used by clients on multiple Azure resources. For this tutorial, you assign it to a single VM. You can also assign it to more than one VM.
-
-Assign the user-assigned MSI to your Linux VM using [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value:
-
-```azurecli-interactive
-az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
-```
-
 ## Create a Cosmos DB account 
 
 If you don't already have one, now create a Cosmos DB account. You can also skip this step and use an existing Cosmos DB account, if you prefer. 
@@ -115,13 +78,31 @@ Next, add a data collection in the Cosmos DB account that you can query in later
 
 1. Navigate to your newly created Cosmos DB account.
 2. On the **Overview** tab click the **+/Add Collection** button, and an "Add Collection" panel slides out.
-3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).
+3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).  
 
-## Grant your User Assigned MSI access to the Cosmos DB account access keys
+## Retrieve the principalID of the Linux VM's MSI
 
-Cosmos DB does not natively support Azure AD authentication.  However, you can use an MSI to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB.  In this step, you grant your user assigned MSI access to the keys to the Cosmos DB account.
+To gain access to the Cosmos DB account access keys from the Resource Manager in the following section, you need to retrieve the `principalID` of the Linux VM's MSI.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which you VM resides), and `<VM NAME>` parameter values with your own values.
 
-First grant the MSI identity access to the Cosmos DB account in Azure Resource Manager using the Azure CLI. Update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az identity create` command in [Create a user-assigned MSI](#create-a-user-assigned-msi).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
+```azurecli-interactive
+az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
+```
+The response includes the details of the system-assigned MSI (note the principalID as it is used in the next section):
+
+```json
+{
+    "id": "/subscriptions/<SUBSCRIPTION ID>/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe>",
+  "identity": {
+    "principalId": "6891c322-314a-4e85-b129-52cf2daf47bd",
+    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533f8",
+    "type": "SystemAssigned"
+ }
+```
+## Grant your Linux VM MSI access to the Cosmos DB account access keys
+
+Cosmos DB does not natively support Azure AD authentication.  However, you can use an MSI to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB.  In this step, you grant your system assigned MSI access to the keys to the Cosmos DB account.
+
+To grant the MSI identity access to the Cosmos DB account in Azure Resource Manager using the Azure CLI, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MSI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in [Retrieve the principalID of the Linux VM's MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"
@@ -143,7 +124,7 @@ The response includes the details for the role assignment created:
 }
 ```
 
-## Get an access token using the User Assigned MSI and use it to call Azure Resource Manager
+## Get an access token using the Linux VM's MSI and use it to call Azure Resource Manager
 
 For the remainder of the tutorial, work from the VM created earlier.
 
@@ -152,14 +133,12 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
 2. Connect to your VM using your SSH client.  
 3. Next, you are prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
-4. Use CURL to get an access token for Azure Resource Manager.  
-
-    The CURL request and response for the access token is below.  Replace <CLIENT ID> with the clientId value of your user assigned MSI: 
-    
-    ```bash
-    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>" 
+4. Use CURL to get an access token for Azure Resource Manager: 
+     
+    ``bash
+    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
     ```
-    
+ 
     > [!NOTE]
     > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     > In the following response, the access_token element as been shortened for brevity.
@@ -176,7 +155,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     
 ## Get access keys from Azure Resource Manager to make Cosmos DB calls  
 
-Now use CURL to call Resource Manager using the access token we retrieved in the previous section, to retrieve the Cosmos DB account access key. Once we have the access key, we can query Cosmos DB. Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` parameter values with your own values. Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier.  If you want to retrieve read/write keys, use key operation type `listKeys`.  If you want to retrieve read-only keys, use the key operation type `readonlykeys`:
+Now use CURL to call Resource Manager using the access token retrieved in the previous section to retrieve the Cosmos DB account access key. Once we have the access key, we can query Cosmos DB. Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` parameter values with your own values. Replace the `<ACCESS TOKEN>` value with the access token you retrieved earlier.  If you want to retrieve read/write keys, use key operation type `listKeys`.  If you want to retrieve read-only keys, use the key operation type `readonlykeys`:
 
 ```bash 
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMOS DB ACCOUNT NAME>/<KEY OPERATION TYPE>?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
@@ -262,4 +241,3 @@ This CLI command returns details about the collection:
 
 - For an overview of MSI, see [Managed Service Identity (MSI) for Azure resources](msi-overview.md).
 
-Use the following comments section to provide feedback and help us refine and shape our content.
