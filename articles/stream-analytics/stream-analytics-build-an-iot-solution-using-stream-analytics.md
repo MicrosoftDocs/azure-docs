@@ -221,7 +221,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 ### Review the total time in the output
 Repeat the steps in the preceding section to review the CosmosDB output data from the streaming job. Review the latest JSON documents. 
 
-For example, this document shows an example car with a certain license plate, the entrytime and exit time, and the DATEDIFF calculated durationinminutes field showing the toll booth duration as 2 minutes: 
+For example, this document shows an example car with a certain license plate, the entrytime and exit time, and the DATEDIFF calculated durationinminutes field showing the toll booth duration as two minutes: 
 ```JSON
 {
     "tollid": 4,
