@@ -117,3 +117,8 @@ A connection is a test of reachability to one endpoint (URL or network service) 
 
 - Refer to the [Connection Monitoring](https://azure.microsoft.com/pricing/details/network-watcher/) section, for the cost of monitoring an endpoint for the entire month.
 - The charge for data is available on the [pricing page](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.  (Section: Data Ingestion).
+
+## References
+
+- [Log Analytics Pricing FAQ](https://azure.microsoft.com/pricing/details/log-analytics/) - The FAQ section has information on free tier,  per node pricing, etc.
+
