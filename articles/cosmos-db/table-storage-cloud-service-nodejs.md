@@ -66,7 +66,7 @@ and add them to the web.config settings:
 3. From the Azure Powershell window, enter the following cmdlet to retrieve the storage account information:
 
     ```powershell
-    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccount
     ```
 
    The preceding cmdlet retrieves the list of storage accounts and account keys associated with your hosted service.
@@ -353,7 +353,8 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 1. Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/). Copy the **bootstrap.min.css** file from the **bootstrap\\dist\\css** folder to the **public\\stylesheets** directory of your tasklist application.
 2. From the **views** folder, open the **layout.jade** file in your text editor and replace the contents with the following:
-
+ 
+```jade
     doctype html
     html
       head
@@ -365,7 +366,7 @@ The **layout.jade** file in the **views** directory is used as a global template
           div.navbar-header
             a.navbar-brand(href='/') My Tasks
         block content
-
+```
 3. Save the **layout.jade** file.
 
 ### Running the Application in the Emulator

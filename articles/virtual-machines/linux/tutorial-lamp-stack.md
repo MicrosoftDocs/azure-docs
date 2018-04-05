@@ -4,7 +4,7 @@ description: Tutorial - Install the LAMP stack on a Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
