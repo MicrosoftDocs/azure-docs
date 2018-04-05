@@ -4,7 +4,7 @@ description: Learn about tagging an Azure Linux virtual machine created in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: mmccrory
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
