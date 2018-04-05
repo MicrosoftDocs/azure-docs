@@ -54,7 +54,7 @@ You may need to adjust your network configuration allow connections to Stackify,
 ## Extension schema
 ---
 
-The following JSON shows the schema for the Stackify Retrace Agent extension. The extension requires the 'environment' and 'activationKey'.
+The following JSON shows the schema for the Stackify Retrace Agent extension. The extension requires the `environment` and `activationKey`.
 
 ```json
     {
@@ -88,7 +88,7 @@ The JSON for a virtual machine extension can be nested inside the virtual machin
 
 The following example assumes the Stackify Retrace Linux extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the "resources": [] object of the virtual machine.
 
-The extension requires the 'environment' and 'activationKey'.
+The extension requires the `environment` and `activationKey`.
 
 ```json
     {
@@ -145,7 +145,7 @@ When placing the extension JSON at the root of the template, the resource name i
 
 The `Set-AzureRmVMExtension` command can be used to deploy the Stackify Retrace Linux Agent virtual machine extension to an existing virtual machine. Before running the command, the public and private configurations need to be stored in a PowerShell hash table.
 
-The extension requires the 'environment' and 'activationKey'.
+The extension requires the `environment` and `activationKey`.
 
 ```
 $PublicSettings = @{"environment" = "myEnvironment"}
@@ -166,7 +166,7 @@ Set-AzureRmVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
 
 The Azure CLI tool can be used to deploy the Stackify Retrace Linux Agent virtual machine extension to an existing virtual machine.  
 
-The extension requires the 'environment' and 'activationKey'.
+The extension requires the `environment` and `activationKey`.
 
 ``` 
 az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --name 'StackifyLinuxAgentExtension' --protected-settings '{"activationKey":"myActivationKey"}' --settings '{"environment":"myEnvironment"}'  --resource-group 'myResourceGroup' --vm-name 'myVmName'
