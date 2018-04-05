@@ -5,7 +5,7 @@ keywords: terraform, devops, virtual machine, Azure, deployment slots
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 4/04/2018
+ms.date: 4/05/2018
 ms.topic: article
 ---
 
@@ -55,7 +55,7 @@ ms.topic: article
     cd deploy
     ```
 
-1. Using the [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), create a file named `deploy.tf`, which will contain the [Terraform configuration(https://www.terraform.io/docs/configuration/index.html).
+1. Using the [vi editor](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), create a file named `deploy.tf`, which will contain the [Terraform configuration](https://www.terraform.io/docs/configuration/index.html).
 
     ```bash
     vi deploy.tf
@@ -160,7 +160,7 @@ Before you can test the creation and swapping in and out of the deployment slots
 
 ## Deploy from GitHub to your deployment slots
 
-Once you have forked the test project repo, it's time to create and use the deployment slots.
+Once you fork the test project repo, configure the deployment slots via the following steps:
 
 1. On the Azure portal main menu, select **Resource Groups**.
 
@@ -221,6 +221,11 @@ Perform the following steps two times where in step 3 you select **slotAppServic
 1. On the overview page, select **URL**.
 
     ![Select the URL on the overview tab to render the app](./media/terraform-slot-walkthru/resource-url.png)
+
+> [!NOTE]
+> It can take several minutes for Azure to build and deploy the site from GitHub.
+>
+>
 
 For the **slotAppService** web app, you see a blue page with a page title of **Slot Demo App 1**. For the **slotAppServiceSlotOne** web app, you see a green page with a page title of **Slot Demo App 2**.
 
