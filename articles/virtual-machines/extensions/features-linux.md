@@ -90,7 +90,7 @@ az vm extension set `
   --vm-name myVM `
   --name customScript `
   --publisher Microsoft.Azure.Extensions `
-  --settings '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/me/project/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
 When the extension runs correctly, the output is similar to the following example:
@@ -403,7 +403,6 @@ You can also remove an extension in the Azure portal as follows:
 | Extension name | Description | More information |
 | --- | --- | --- |
 | Custom Script extension for Linux |Run scripts against an Azure virtual machine |[Custom Script extension for Linux](custom-script-linux.md) |
-| Docker extension |Install the Docker daemon to support remote Docker commands. |[Docker VM extension](../linux/dockerextension.md) |
 | VM Access extension |Regain access to an Azure virtual machine |[VM Access extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics extension |Manage Azure Diagnostics |[Azure Diagnostics extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access extension |Manage users and credentials |[VM Access extension for Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

@@ -31,4 +31,9 @@ In order to use extensions on Windows and Linux OSes, you need to have the Azure
 
 This article provides an overview of VM extensions, prerequisites for using Azure VM extensions, and guidance on how to detect, manage, and remove VM extensions. This article provides generalized information because many VM extensions are available, each with a potentially unique configuration. Extension-specific details can be found in each document specific to the individual extension.
 
-# Next steps
+## Next steps
+* For more information about how the Linux Agent and Extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
+* For more information about how the Windows Guest Agent and Extensions work, see [Azure VM extensions and features for Linux](features-windows.md).  
+* To install the Windows Guest Agent, see [Azure Virtual Machine Agent Overview ](agent-windows.md).  
+* To install the Linux Agent, see [Azure Virtual Machine Agent Overview ](linux-windows.md).  
+

@@ -31,14 +31,15 @@ Several different Azure VM extensions are available, each with a specific use ca
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](dsc-overview.md).
 - Configure monitoring of a VM with the Microsoft Monitoring Agent VM extension. For more information, see [Connect Azure VMs to Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](../windows/chef-automation.md).
+- Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on a VM. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Windows VM Custom Script extension](custom-script-windows.md).
 
 ## Prerequisites
 
-Each VM extension may have its own set of prerequisites. For instance, some extensions are only designed to work on Windows Server and not Windows Client OSes. Requirements of individual extensions are detailed in the extension-specific documentation.
+To handle the extension on the VM, you need the Azure Linux Agent installed. Some individual extensions have prerequisites, such as access to resources or dependencies.
 
 ### Azure VM agent
 
