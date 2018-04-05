@@ -4,7 +4,7 @@ description: Learn how to perform scale and performance testing with Azure Cosmo
 keywords: performance testing
 services: cosmos-db
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: ''
 documentationcenter: ''
 
