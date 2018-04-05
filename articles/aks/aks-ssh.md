@@ -18,7 +18,7 @@ Occasionally, you may need to access an Azure Container Service (AKS) node for m
 
 ## Get AKS node address
 
-Get the ip address of the AKS cluster nodes using the `az vm list-ip-addresses` command.
+Get the ip address of the AKS cluster nodes using the `az vm list-ip-addresses` command. Replace the resource group name with the name of you AKS resource group.
 
 ```console
 $ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
@@ -32,7 +32,7 @@ aks-nodepool1-42032720-2  10.240.0.4
 
 ## Configure SSH access
 
-Copy your SSH key to the host clip board.
+Copy your SSH key to the host clip board. The following example uses `pbcopy`, any method can be used.
 
 ```yaml
 $ cat ~/.ssh/id_rsa | pbcopy
@@ -42,12 +42,22 @@ Run the `aks-ssh` container image, which will create a pod on one of the AKS clu
 
 ```azurecli-interactive
 $ kubectl run -it --rm aks-ssh --image=neilpeterson/aks-ssh
+
+If you don't see a command prompt, try pressing enter.
+root@aks-ssh-544454f56f-vhdzr:/#
 ```
 
 Once attached to the running container, create a file named `id_rsa` and copy into it the contents of the clipboard.
 
 ```azurecli-interactive
 $ vi id_rsa
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEA2K+qfbVo5iSn7qgOudfHJPlR+yhgyyWWs/FXs5MkZlQBRvPb
+oYrWprhFykizbAKjmjK1DrYEhIvRvrOe7Ul3Gc9G5fDvkgTGBKosJ1sIgmmtr3zo
+...
+-----END RSA PRIVATE KEY-----
+
 ```
 
 Modify the `id_rsa` file so that it is user read-only.
