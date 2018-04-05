@@ -24,9 +24,9 @@ Video Indexer supports embedding two types of widgets into your application: **C
 	|Name|Definition|Description|
 	|---|---|---|
 	|t|Seconds from start|Makes the player start playing from the given time point.<br/>Example: t=60|
-	|captions|Language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/> Example:captions=en-Us|
-	|showCaptions|A boolean value|Makes the player load with the captions already enabled.<br/>Example:showCaptions=true|
-	|type||Activates an audio player skin (video part is removed). Example: type=audio|
+	|captions|Language code|Fetches the caption in the given language during the widget loading to be available in the captions menu.<br/>Example: captions=en-Us|
+	|showCaptions|A boolean value|Makes the player load with the captions already enabled.<br/>Example: showCaptions=true|
+	|type||Activates an audio player skin (video part is removed).<br/>Example: type=audio|
 
 ## Embedding public content
 
