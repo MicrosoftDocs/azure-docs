@@ -28,19 +28,17 @@ If you haven't installed Storage Explorer yet, [download](http://www.storageexpl
 
 After you connect to an Azure Stack subscription or a storage account, you can use the [Azure Storage Explorer articles](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
 
-## Prepare an Azure Stack subscription
+## Prepare for connecting to Azure Stack
 
 You need direct access to the Azure Stack or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
 
-## Export and then import the Azure Stack certificate
+### Export and then import the Azure Stack certificate
 
 1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
 
 2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **My user account**.
-
-
 
 3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackSelfSignedRootCert**.
 
@@ -57,7 +55,7 @@ For the Azure Stack Development Kit, you need to export the Azure Stack authorit
 
     ![Import the certificate into Storage Explorer](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. After Storage Explorer restarts, select the Edit menu, and then ensure that Target Azure Stack is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
+7. After Storage Explorer restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
     ![Ensure Target Azure Stack is selected](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -72,7 +70,7 @@ Now you are ready to connect Storage Explorer to an Azure Stack subscription.
 
     ![Add an Azure Stack account](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. In the Connect to Azure Storage dialog box, under **Azure environment**, select **Azure** or **Azure China, which depends on the Azure Stack account that is being used, and then select **Sign in**. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription.
+3. In the Connect to Azure Storage dialog box, under **Azure environment**, select **Azure** or **Azure China**, which depends on the Azure Stack account that is being used, and then select **Sign in**. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription.
 
     ![Connect to Azure Storage](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
@@ -94,6 +92,8 @@ You can also connect to an Azure Stack storage account using storage account nam
 
 2.  To connect to the Azure Stack subscription, select **Add an account**.
  
+    ![Add an account](./media/azure-stack-storage-connect-se/azure-stack-use-a-storage-and-key.png)
+
 3.  In the Connect to Azure Storage dialog box, select **Use a storage account name and key**.
 
 4. Input your account name in the **Account name**, paste account key into the **Account key** text box, select **Other (enter below)** in **Storage endpoints domain** and input the Azure Stack endpoint.  
