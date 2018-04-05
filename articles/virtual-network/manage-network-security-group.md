@@ -33,7 +33,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 ## Work with network security groups
 
-You can create, [view all](#view-all-network-security-groups), [view details of](#view-details-of-a-specific-network-security-group), [change](#change-a-network-security-group), and [delete](#delete-a-network-security-group) a network security group. You can also [associate or dissociate](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) a network security group from a network interface or subnet.
+You can create, [view all](#view-all-network-security-groups), [view details of](#view-details-of-a-network-security-group), [change](#change-a-network-security-group), and [delete](#delete-a-network-security-group) a network security group. You can also [associate or dissociate](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) a network security group from a network interface or subnet.
 
 ### Create a network security group
 
@@ -57,7 +57,7 @@ In the search box at the top of the portal, enter *network security groups*. Whe
 - Azure CLI: [az network nsg list](/cli/azure/network/nsg#az-network-nsg-list)
 - PowerShell: [Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)
 
-### View details of a specific network security group
+### View details of a network security group
 
 1. In the search box at the top of the portal, enter *network security groups*. When **network security groups** appear in the search results, select it.
 2. Select the network security group in the list that you want to view details for. Under **SETTINGS** you can view the **Inbound security rules** and **Outbound security rules**, the **Network interfaces** and **Subnets** the network security group is associated to. You can also enable or disable **Diagnostic logs** and view **Effective security rules**. To learn more, see [Diagnostic logs](virtual-network-nsg-manage-log.md) and [View effective security rules](virtual-network-nsg-troubleshoot-portal.md).
@@ -102,7 +102,7 @@ If a network security group is associated to any subnets or network interfaces, 
 
 ## Work with security rules
 
-A network security group contains zero or more security rules.
+A network security group contains zero or more security rules. You can create, [view all](#view-all-security-rules), [view details of](#view-details-of-a-security-rule), [change](#change-a-security-rule), and [delete](#delete-a-security-rule) a security rule.
 
 ### Create a security rule
 
@@ -111,7 +111,7 @@ There is a limit to how many rules per network security group can create per Azu
 1. In the search box at the top of the portal, enter *network security groups* in the search box. When **network security groups** appear in the search results, select it.
 2. Select the network security group from the list that you want to add a security rule to.
 3. Select **Inbound security rules** under **SETTINGS**. Several existing rules are listed. Some of the rules you may not have added. When a network security group is created, several default security rules are created in it. To learn more, see [default security rules](security-overview.md#default-security-rules).  You can't delete default security rules, but you can override them with rules that have a higher priority.
-<a name = "security-rule-settings"></a>4. Select **+ Add**.  Select or add values for the following settings and then select **OK**:
+4. <a name = "security-rule-settings"></a>Select **+ Add**.  Select or add values for the following settings and then select **OK**:
     
     |Setting  |Value  |Details  |
     |---------|---------|---------|
@@ -125,14 +125,14 @@ There is a limit to how many rules per network security group can create per Azu
     |Name     | A unique name for the rule within the network security group.        |  The name can be up to 80 characters. It must begin with a letter or number, end with a letter, number, or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.       |
     |Description     | An optional description.        |         |
 
-    You cannot specify an application security group for the **Source** or **Destination** settings using the portal. You can however, using the Azure CLI or PowerShell. The settings for **Outbound security rules** are similar, so they are not covered separately.
+    You cannot specify an [application security group](#work-with-application-security-groups) for the **Source** or **Destination** settings using the portal. You can however, using the Azure CLI or PowerShell. The settings for **Outbound security rules** are similar, so they are not covered separately.
 
 **Commands**
 
 - Azure CLI: [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)
 - PowerShell: [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
 
-### View security rules
+### View all security rules
 
 A network security group contains zero or multiple rules. To learn more about the information listed when viewing rules, see [Network security group overview](security-overview.md).
 
@@ -182,7 +182,7 @@ The list contains any rules you have created and the network security group [def
 
 ## Work with application security groups
 
-An application security group contains zero or more network interfaces. You cannot work with application security groups in the portal, but you can use PowerShell or the Azure CLI. All network interfaces in an application security group must exist in the same virtual network. The first network interface added to an application security group determines which virtual network all subsequent network interfaces must be in. To learn how to add a network interface to an application security group, see [Manage a network interface](virtual-network-network-interface.md).
+An application security group contains zero or more network interfaces. To learn more, see [application security groups](security-overview.md#application-security-groups). You cannot work with application security groups in the portal, but you can use PowerShell or the Azure CLI. All network interfaces in an application security group must exist in the same virtual network. The first network interface added to an application security group determines which virtual network all subsequent network interfaces must be in. To learn how to add a network interface to an application security group, see [Add a network interface to an application security group](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups).
 
 ### Create an application security group
 
