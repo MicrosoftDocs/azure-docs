@@ -9,7 +9,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.author: cshoe
-ms.date: 03/31/2018
+ms.date: 04/06/2018
 ms.topic: quickstart
 
 # Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage.
@@ -42,7 +42,7 @@ The following table describes each CORS setting and explains the values used to 
 | Maximum age (seconds) | 86400 | The maximum amount of time the browser caches the preflight OPTIONS request. A value of *86400* allows the cache to remain for a full day. |
 
 > [!IMPORTANT]
-> Ensure any settings you use in production expose the minimum amount of access necessary to your storage account in order to maintain secure access. In production, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage.
+> Ensure any settings you use in production expose the minimum amount of access necessary to your storage account in order to maintain secure access. 
 >
 >The CORS settings described here are appropriate for a quickstart as it defines a lenient security policy. These settings, however, are not recommended for a real-world context.
 
@@ -86,7 +86,7 @@ You may find the series of values after each parameter a bit cryptic. These para
 Now that the SAS is generated, copy the value returned in the console into your text editor. You use this value in an upcoming step.
 
 > [!IMPORTANT]
-> In production, always pass SAS tokens using SSL.
+> In production, always pass SAS tokens using SSL. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to genrate SAS tokens. The Azure Portal includes function templates include the ability to to generate a SAS with a JavaScript function.
 
 ## Implement the HTML page
 
@@ -250,7 +250,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 To clean up the resources created during this quickstart, return to the [Azure portal](https://portal.azure.com) and select your storage account. Once selected, you can delete the storage account by going to: **Overview > Delete storage account**.
 
 ## Next steps
-Downloading blobs using the JavaScript client libraries requires that a server-issued SAS is generated for the client script. The client script then passes the SAS back to Azure Storage in order to enable a blob download.
+Explore the samples to learn to download blobs and report progress during file uploads.
 
 > [!div class="nextstepaction"]
-> [Using blob storage Client Libraries to download blobs](storage-blobs-download-javascript-client-libraries.md)
+> [Using blob storage Client Libraries to download blobs](https://github.com/Azure/azure-storage-node/tree/master/browser)
