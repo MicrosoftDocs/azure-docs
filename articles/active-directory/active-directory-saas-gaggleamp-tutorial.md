@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/05/2017
 ms.author: jeedes
 
 ---
@@ -108,16 +108,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url.png)
 
-     In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.gaggleamp.com/auth/saml/callback`
+     In the **Identifier** textbox, type the URL: `https://accounts.gaggleamp.com/auth/saml/callback`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     ![Configure Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
 
-     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.gaggleamp.com`
+     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://gaggleamp.com/i/<customerid>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Sign-on URL. Contact [GaggleAMP Client support team](mailto:sales@gaggleamp.com) to get these values.
+    > The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [GaggleAMP Client support team](mailto:sales@gaggleamp.com) to get this value.
  
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -141,9 +141,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     b. In the **Identity Provider Single Sign-On URL** textbox, paste the  value of **Single Sign-On Service URL** which you have copied from Azure portal. 
 
-    c. Click **Save**      
+	c. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the textbox.
 
-    d. Send the **Certificate (Base64)** certificate to your [GaggleAMP support team](mailto:sales@gaggleamp.com).
+	d. Click **Save**.
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
