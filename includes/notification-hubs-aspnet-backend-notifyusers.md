@@ -14,7 +14,7 @@
 The following sections discuss the creation of a new ASP.NET WebAPI backend. This process has three main purposes:
 
 - **Authenticate clients**: You add a message handler to authenticate client requests and associate the user with the request.
-- **Register for notifications by using the WebAPI backend**: You add a controller to handle new registrations for a client device to receive notifications. The authenticated username is automatically added to the registration as a [tag](notification-hubs-tags-segment-push-message.md).
+- **Register for notifications by using the WebAPI backend**: You add a controller to handle new registrations for a client device to receive notifications. The authenticated username is automatically added to the registration as a [tag](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
 - **Send notifications to clients**: You add a controller to provide a way for users to trigger a secure push to devices and clients associated with the tag. 
 
 Create the new ASP.NET WebAPI backend by doing the following actions: 
