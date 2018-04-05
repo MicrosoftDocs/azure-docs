@@ -31,7 +31,7 @@
         },
         {
             "source_path": "articles/machine-learning/studio/what-is-machine-learning.md",
-            "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
+            "redirect_url": "/azure/machine-learning/preview/overview-what-is-azure-ml",
             "redirect_document_id": true
         },
 	{
@@ -381,6 +381,11 @@
         {
             "source_path": "articles/sql-database/sql-database-multi-tenant-application.md",
             "redirect_url": "/azure/sql-database/sql-database-wtp-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-resource-limits.md",
+            "redirect_url": "/azure/sql-database/sql-database-dtu-resource-limits",
             "redirect_document_id": false
         },
         {
@@ -3319,8 +3324,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/user/azure-stack-connect-cli.md",
+            "source_path": "articles/azure-stack/user/azure-stack-connect-cli.md",
             "redirect_url": "/azure/user/azure-stack-version-profiles-azurecli2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-stack/azure-stack-manage-storage-physical-capacity.md",
+            "redirect_url": "/azure/user/azure-stack-manage-storage-physical-memory-capacity",
             "redirect_document_id": false
         },
         {
@@ -4772,6 +4782,16 @@
             "source_path": "articles/cosmos-db/sql-api-sql-query-cheat-sheet.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/query-cheat-sheet",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/experiment.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/experiment.experimental.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/introduction",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
@@ -6530,7 +6550,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-configure-long-term-retention.md",
-            "redirect_url": "/azure/sql-database/sql-database-long-term-backup-retention-configure",
+            "redirect_url": "/azure/sql-database/sql-database-long-term-retention",
             "redirect_document_id": false
         },
         {
