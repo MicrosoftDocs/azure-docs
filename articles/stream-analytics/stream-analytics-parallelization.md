@@ -1,21 +1,14 @@
 ---
-title: Leverage query parallelization in Azure Stream Analytics| Microsoft Docs
-description: Learn how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
-keywords: data streaming, streaming data processing, tune analytics
+title: Use query parallelization and scale in Azure Stream Analytics
+description: This article describes how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
 ---
 # Leverage query parallelization in Azure Stream Analytics
 This article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.

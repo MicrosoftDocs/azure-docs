@@ -1,22 +1,14 @@
 ---
-title: Add a data input to your Stream Analytics jobs | Microsoft Docs
+title: Add a data input to your Azure Stream Analytics jobs
 description: Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blog storage.
-keywords: data input, streaming data
-documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: ryanw
-editor: 
-
-ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
 ---
 # Add a streaming data input or reference data to a Stream Analytics job
 Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blob storage.

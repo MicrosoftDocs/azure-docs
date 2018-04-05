@@ -4,7 +4,7 @@ description: Create a Windows virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

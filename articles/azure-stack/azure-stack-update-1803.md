@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/05/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -42,7 +42,7 @@ The Azure Stack 1803 update build number is **20180329.1**.
 
 
 ### Post-update steps
-After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-servicing-policy).
+After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).
 
 •	[KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/en-us/help/4103348)
 
@@ -90,7 +90,7 @@ This update includes the following improvements and fixes for Azure Stack.
 
 
 ### Known issues with the update process    
-During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations.  This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
 
 
 ### Known issues (post-installation)
