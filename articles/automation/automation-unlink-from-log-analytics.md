@@ -22,7 +22,7 @@ If you decide you no longer wish to integrate your Automation account with Log A
 After you remove these solutions you can perform the following steps to unlink your Automation account.
 
 > [!NOTE]
-> Some solutions including earlier versions of the Azure SQL monitoring solution may have created automation assets and need to be removed prior to unlinking the workspace.
+> Some solutions including earlier versions of the Azure SQL monitoring solution may have created automation assets and may also need to be removed prior to unlinking the workspace.
 
 ## Unlink workspace
 
