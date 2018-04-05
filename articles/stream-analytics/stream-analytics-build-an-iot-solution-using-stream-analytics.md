@@ -252,11 +252,26 @@ ON EntryStream.LicensePlate = Registration.LicensePlate
 WHERE Registration.Expired = '1'
 ```
 
-1. Update the TollApp streaming job query syntax using the preceding steps.
+1. Repeat the steps in the preceding section to update the TollApp streaming job query syntax.
 2. Repeat the steps in the preceding section to review the CosmosDB output data from the streaming job. 
 
+Example output:
+```json
+    {
+        "entrytime": "2018-04-05T08:01:28.0252168Z",
+        "licenseplate": "GMT 3221",
+        "tollid": 1,
+        "registrationid": "763220582",
+        "id": "47db0535-9716-4eb2-db58-de7886966cbf",
+        "_rid": "y+F8AJ9QWACSAQAAAAAAAA==",
+        "_self": "dbs/y+F8AA==/colls/y+F8AJ9QWAA=/docs/y+F8AJ9QWACSAQAAAAAAAA==/",
+        "_etag": "\"88007d8d-0000-0000-0000-5ac5d7e20000\"",
+        "_attachments": "attachments/",
+        "_ts": 1522915298
+    }
+```
 
-## Scale out Azure Stream Analytics jobs
+## Scale out the job
 Azure Stream Analytics is designed to elastically scale so that it can handle large volumes of data. The Azure Stream Analytics query can use a **PARTITION BY** clause to tell the system that this step scales out. **PartitionId** is a special column that the system adds to match the partition ID of the input (event hub).
 
 To scale out the query to partitions, edit the query syntax to the following code:
@@ -275,11 +290,11 @@ To scale up the streaming job to more streaming units:
 
 3. Under the CONFIGURE heading on the streaming job, select **Scale**.
    
-4. Slide the **Streaming units** slider from 1 to 6. **Streaming units** define the amount of compute power that the job can receive. Select **Save**.
+4. Slide the **Streaming units** slider from 1 to 6. Streaming units define the amount of compute power that the job can receive. Select **Save**.
 
-5. Start the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput. Notice that the TollApp application is also sending events partitioned by TollId.
+5. **Start** the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput. Notice that the TollApp application is sending events partitioned by TollId.
 
-## Monitor
+## Monitor the job
 The **MONITOR** area contains statistics about the running job. First-time configuration is needed to use the storage account in the same region (name toll like the rest of this document).   
 
 ![Screenshot of monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
@@ -288,7 +303,9 @@ You can access **Activity Logs** from the job dashboard **Settings** area as wel
 
 ## Clean up the TollApp resources from your Azure account
 1. Stop the Stream Analytics job in the Azure portal.
+
 2. Locate the resource group that contains eight resources related to the TollApp template.
+
 3. Select **Delete resource group** and type the name of the resource group to confirm deletion.
 
 ## Conclusion
