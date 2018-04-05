@@ -3,7 +3,6 @@ title: Troubleshoot Azure Files Backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
 services: backup
 ms.service: backup
-keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
@@ -18,7 +17,7 @@ You can troubleshoot issues and errors encountered while using Azure Files backu
 
 ## Preview boundaries
 Azure Files backup is in Preview. The following backup scenarios are not supported for Azure file shares:
-- Protecting Azure file shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) or [read-access geo-redundant storage](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) replication.
+- Protecting Azure file shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) or [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication.
 - Protecting Azure file shares in Storage Accounts that have Virtual Networks enabled.
 - Backing up Azure file shares using PowerShell or CLI.
 
