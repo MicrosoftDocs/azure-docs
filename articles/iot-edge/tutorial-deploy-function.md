@@ -139,7 +139,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    ```
    To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. 
 
-2. In VS Code explorer, Open the **module.json** file. In `"repository": "<registry>/<repo-name>"`, change registry and repo name into something like **\<ACR login server\>/filterfunction** (all in lower-case) 
+2. Open **module.json**. Optionally, you can update the `"version"` to eg. **"1.0"**. Also the name of the repository is shown which you entered in the `-r` parameter of `dotnet new aziotedgefunction`.
 
 3. Save the **module.json** file.
 
