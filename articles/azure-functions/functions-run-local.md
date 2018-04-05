@@ -28,21 +28,65 @@ If you are a Visual Studio C# developer, Azure Functions also [integrates with V
 
 ## Install the Azure Functions Core Tools
 
-[Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local development computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are two versions of Azure Functions Core Tools, one for version 1.x of the runtime and one for version 2.x. Both versions are provided as an [npm package](https://docs.npmjs.com/getting-started/what-is-npm).
+[Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local development computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are two versions of Azure Functions Core Tools:
 
->[!NOTE]  
-> Before you install either version, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported. 
++ [Version 1.x](#v1): supports version 1.x of the runtime. This version is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm).
++ [Version 2.x](#v2): supports version 2.x of the runtime. This version supports all major platforms and uses platform-specific package managers or [npm](#npm) for installation. 
 
-### Version 2.x runtime
+### <a name="v2"></a>Version 2.x
+
+>[!NOTE]
+> Azure Functions runtime 2.0 is in preview, and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
 
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports. Use this version for cross-platform development and when the Functions runtime 2.x is required. 
 
 >[!IMPORTANT]   
-> Before installing Azure Functions Core Tools, [install .NET Core 2.0](https://www.microsoft.com/net/core).  
->
-> Azure Functions runtime 2.0 is in preview, and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
+> Before installing Azure Functions Core Tools, install .NET Core 2.0 for [Windows](https://www.microsoft.com/net/download/windows), [Linux](https://www.microsoft.com/net/download/linux), or [macOS](https://www.microsoft.com/net/download/macos).  
 
- Use the following command to install the version 2.0 tools:
+#### MacOS with Homebrew
+
+Use the following commands to install Core Tools on macOS using [Homebrew](https://brew.sh/):
+
+```bash
+brew tap azure/functions
+brew install azure-functions-core-tools 
+```
+
+#### Linux 
+
+Use the following steps to install Core Tools on your Linux distribution:
+
+1. Register the Microsoft product key as trusted:
+
+  ```bash
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  ```
+
+2.  Set up the package feed, replacing `<version>` in the following code with the appropriate version name from the table below:
+
+  ```bash
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo apt-get update
+  ```
+
+  | Linux distribution | `<version>` |
+  | --------------- | ----------- |
+  | Ubuntu 17.10    | `artful`    |
+  | Ubuntu 17.04    | `zesty`     |
+  | Ubuntu 16.04/Linux Mint 18    | `xenial`     |
+
+3. Install the Core Tools package:
+
+  ```bash
+  sudo apt-get install azure-functions-core-tools
+  ```
+
+#### <a name="npm"></a>Windows and npm 
+
+You must use npm to install version 2.x of the Core Tools on Windows. You can also use npm to install on Linux or macOS. Before you install the tools, you must [install Node.js](https://docs.npmjs.com/getting-started/installing-node), which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
+
+ Use the following command to install the version 2.0 tools on Windows:
 
 ```bash
 npm install -g azure-functions-core-tools@core
@@ -60,9 +104,11 @@ When installing on macOS and Linux, you may need to include the `unsafe-perm` fl
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
 ```
 
-### Version 1.x runtime
+### <a name="v1"></a>Version 1.x
 
-The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework and is only supported on Windows computers. Use the following command to install the version 1.x tools:
+The original version of the tools uses the Functions 1.x runtime. This version uses the .NET Framework (4.7.1) and is only supported on Windows computers. Before you install the version 1.x tools, you must [install NodeJS](https://docs.npmjs.com/getting-started/installing-node), which includes npm.
+
+Use the following command to install the version 1.x tools:
 
 ```bash
 npm install -g azure-functions-core-tools
@@ -134,15 +180,19 @@ The file local.settings.json stores app settings, connection strings, and settin
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings used when running locally. **AzureWebJobsStorage** and **AzureWebJobsDashboard** are examples; for a complete list, see [app settings reference](functions-app-settings.md).  |
+| **Values** | Collection of application settings used when running locally. **AzureWebJobsStorage** and **AzureWebJobsDashboard** are examples; for a complete list, see [app settings reference](functions-app-settings.md). Most triggers and bindings have a **Connection** property that maps to the name of an environment variable or application setting. For each connection property, there must be application setting defined in the **Values** array. |
 | **Host** | Settings in this section customize the Functions host process when running locally. | 
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
 | **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
 | **ConnectionStrings** | Contains the database connection strings for your functions. Connection strings in this object are added to the environment with the provider type of **System.Data.SqlClient**.  | 
 
-Most triggers and bindings have a **Connection** property that maps to the name of an environment variable or app setting. For each connection property, there must be app setting defined in local.settings.json file. 
+These settings can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
 
-These settings can also be read in your code as environment variables. In C#, use [System.Environment.GetEnvironmentVariable](https://msdn.microsoft.com/library/system.environment.getenvironmentvariable(v=vs.110).aspx) or [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx). In JavaScript, use `process.env`. Settings specified as a system environment variable take precedence over values in the local.settings.json file. 
++ [C# precompiled](functions-dotnet-class-library.md#environment-variables)
++ [C# script (.csx)](functions-reference-csharp.md#environment-variables)
++ [F#](functions-reference-fsharp.md#environment-variables)
++ [Java](functions-reference-java.md#environment-variables) 
++ [JavaScript](functions-reference-node.md#environment-variables)
 
 Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure.
 
