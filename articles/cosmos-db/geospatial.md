@@ -4,8 +4,7 @@ description: Understand how to create, index and query spatial objects with Azur
 services: cosmos-db
 documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: monicar
+manager: kfile
 
 ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
