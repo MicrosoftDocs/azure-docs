@@ -52,7 +52,7 @@ brew tap azure/functions
 brew install azure-functions-core-tools 
 ```
 
-#### Linux 
+#### Linux distributions
 
 Use the following steps to install Core Tools on your Linux distribution:
 
