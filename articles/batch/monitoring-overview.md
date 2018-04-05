@@ -18,7 +18,7 @@ ms.author: danlep
 
 Azure and the Batch service provide a range of services, tools, and APIs to monitor your Batch solutions. This overview article helps you choose a monitoring approach that fits your needs.
 
-For an overview of the Azure components and services available to monitor Azure resources, see [Monitoring Azure applications and resources](../monitoring-and-diagnostics/monitoring-overview.md) .
+For an overview of the Azure components and services available to monitor Azure resources, see [Monitoring Azure applications and resources](../monitoring-and-diagnostics/monitoring-overview.md).
 
 ## Subscription-level monitoring
 
