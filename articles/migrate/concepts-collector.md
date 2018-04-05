@@ -122,7 +122,7 @@ Once connected to the vCenter, you can select a scope to discover. Selecting a s
 
 1. The scope can be either a datacenter, a folder, or a ESXi host. 
 2. You can only select one scope at a time. To select more virtual machines, you can complete one discovery, and restart the discovery process with a new scope.
-3. You can only select a scope that has *less than 1000 virtual machines*. If you select a scope that has more than 1000 virtual machines, you need to split the scope into smaller units by creating folders. Next, you need to run independent discoveries of the smaller folders.
+3. You can only select a scope that has *less than 1500 virtual machines*.
 
 ## Specify migration project
 
