@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/05/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -54,7 +54,9 @@ The Azure Stack 1802 update build number is **20180302.1**.
 
 
 ### Post-update steps
-*There are no post-update steps for update 1802.*
+After the installation of 1802, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+- [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/help/4103348)
+
 
 
 ### New features and fixes
@@ -80,7 +82,7 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - **Support is added for multiple fault domains**.  For more information, see [High availability for Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack).
 
-- **Various fixes** for performance, stability, security, and the operating system that is used by Azure stack.
+- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 <!--
 #### New features
@@ -127,6 +129,8 @@ The following are post-installation known issues for build  **20180302.1**
 - In both the admin portal and user portal, the Overview blade fails to load when you select the Overview blade for storage accounts that were created with an older API version (example: 2015-06-15). This includes system storage accounts like **updateadminaccount** that is used during patch and update. 
 
   As a workaround, use PowerShell to run the **Start-ResourceSynchronization.ps1** script to restore access to the storage account details. [The script is available from GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts), and must run with service administrator credentials on the privileged endpoint. 
+
+- The **Service Health** blade fails to load. When you open the Service Health blade in either the admin or user portal, Azure Stack displays an error and does not load information. This is expected behavior. Although you can select and open Service Health, this feature is not yet available but will be implemented in a future version of Azure Stack.
 
 
 #### Health and monitoring
