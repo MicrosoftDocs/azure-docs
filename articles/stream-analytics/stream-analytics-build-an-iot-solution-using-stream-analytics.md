@@ -15,9 +15,9 @@ ms.date: 03/21/2018
 # Build an IoT solution by using Stream Analytics
 
 ## Introduction
-In this tutorial, you will learn how to use Azure Stream Analytics to get real-time insights from your data. Developers can easily combine streams of data, such as click-streams, logs, and device-generated events, with historical records or reference data to derive business insights. As a fully managed, real-time stream computation service that's hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
+In this tutorial, you learn how to use Azure Stream Analytics to get real-time insights from your data. Developers can easily combine streams of data, such as click-streams, logs, and device-generated events, with historical records or reference data to derive business insights. As a fully managed, real-time stream computation service that's hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
 
-After completing this tutorial, you will be able to:
+After completing this tutorial, you are able to:
 
 * Familiarize yourself with the Azure Stream Analytics portal.
 * Configure and deploy a streaming job.
@@ -26,7 +26,7 @@ After completing this tutorial, you will be able to:
 * Use the monitoring and logging experience to troubleshoot issues.
 
 ## Prerequisites
-You will need the following prerequisites to complete this tutorial:
+You need the following prerequisites to complete this tutorial:
 * An [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 
 ## Scenario introduction: “Hello, Toll!”
@@ -117,7 +117,7 @@ There are several resources that can easily be deployed in a resource group toge
 
 2. Sign in to the Azure portal if prompted.
 
-3. Choose the subscription in which the various resources will be billed.
+3. Choose the subscription in which the various resources are billed.
 
 4. Specify a new resource group, with a unique name, for example `MyTollApp`. 
 
@@ -131,7 +131,7 @@ There are several resources that can easily be deployed in a resource group toge
 
 9. Select **Purchase** to deploy the sample template.
 
-10. After a few moments, a notification will appear to confirm the **Deployment succeeded**.
+10. After a few moments, a notification appears to confirm the **Deployment succeeded**.
 
 ### Review the Azure Stream Analytics TollApp resources
 1. Log in to the Azure portal
@@ -157,13 +157,13 @@ There are several resources that can easily be deployed in a resource group toge
    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
    ```
 
-   To paraphrase the intent of the query, let’s say that you need to count the number of vehicles that enter a toll booth. Because this is a continuous stream of events, you have to define a “period of time.” Let's modify the question to be “How many vehicles enter a toll booth every three minutes?” This is commonly referred to as the tumbling count.
+   To paraphrase the intent of the query, let’s say that you need to count the number of vehicles that enter a toll booth. Because a highway toll booth has a continuous stream of vehicles entering, those are entrance events are analogous to a stream that never stops. To quantify the stream, you have to define a "period of time" to measure over. Let's refine the question further, to "How many vehicles enter a toll booth every three minutes?" This is commonly referred to as the tumbling count.
 
    As you can see, Azure Stream Analytics uses a query language that's like SQL and adds a few extensions to specify time-related aspects of the query.  For more details, read about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) constructs used in the query.
 
 3. Examine the Inputs of the TollApp sample job. Only the EntryStream input is used in the current query.
    - **EntryStream** input is an Event Hub connection that queues data representing each time a car enters a tollbooth on the highway. A web app that is part of the sample is creating the data which is queued in this Event Hub. Note that this input is queried in the FROM clause of the streaming query.
-   - **ExitStream** intput is an Event Hub connection that queues data representing each time a car exits a tollbooth on the highway. This streaming input is used in later variations of the query syntax.
+   - **ExitStream** input is an Event Hub connection that queues data representing each time a car exits a tollbooth on the highway. This streaming input is used in later variations of the query syntax.
    - **Registration** input is an Azure Blob storage connection, pointing to a static registration.json file, used for lookups as needed. This reference data input is used in later variations of the query syntax.
 
 4. Examine the Outputs of the TollApp sample job.
@@ -241,7 +241,7 @@ For example, this document shows an example car with a certain license plate, th
 ## Report all commercial vehicles with expired registration
 Azure Stream Analytics can use static snapshots of reference data to join with temporal data streams. To demonstrate this capability, use the following sample question. The Registration input is a static blob json file that lists the expirations of license tags. By joining on the license plate, the reference data is compared to each vehicle passing through the toll both. 
 
-If a commercial vehicle is registered with the toll company, it can pass through the toll booth without being stopped for inspection. You will use Commercial Vehicle Registration lookup table to identify all commercial vehicles that have expired registrations.
+If a commercial vehicle is registered with the toll company, it can pass through the toll booth without being stopped for inspection. Use the registration lookup table to identify all commercial vehicles that have expired registrations.
 
 ```sql
 SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
@@ -257,7 +257,7 @@ WHERE Registration.Expired = '1'
 
 
 ## Scale out Azure Stream Analytics jobs
-Azure Stream Analytics is designed to elastically scale so that it can handle large volumes of data. The Azure Stream Analytics query can use a **PARTITION BY** clause to tell the system that this step will scale out. **PartitionId** is a special column that the system adds to match the partition ID of the input (event hub).
+Azure Stream Analytics is designed to elastically scale so that it can handle large volumes of data. The Azure Stream Analytics query can use a **PARTITION BY** clause to tell the system that this step scales out. **PartitionId** is a special column that the system adds to match the partition ID of the input (event hub).
 
 To scale out the query to partitions, edit the query syntax to the following code:
 ```sql
@@ -277,7 +277,7 @@ To scale up the streaming job to more streaming units:
    
 4. Slide the **Streaming units** slider from 1 to 6. **Streaming units** define the amount of compute power that the job can receive. Select **Save**.
 
-5. Start the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput. Note that the TollApp application is also sending events partitioned by TollId.
+5. Start the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput. Notice that the TollApp application is also sending events partitioned by TollId.
 
 ## Monitor
 The **MONITOR** area contains statistics about the running job. First-time configuration is needed to use the storage account in the same region (name toll like the rest of this document).   
@@ -288,7 +288,7 @@ You can access **Activity Logs** from the job dashboard **Settings** area as wel
 
 ## Clean up the TollApp resources from your Azure account
 1. Stop the Stream Analytics job in the Azure portal.
-2. Locate the resource group that contains 8 resources related to the TollApp template.
+2. Locate the resource group that contains eight resources related to the TollApp template.
 3. Select **Delete resource group** and type the name of the resource group to confirm deletion.
 
 ## Conclusion
