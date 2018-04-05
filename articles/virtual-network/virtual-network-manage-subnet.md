@@ -71,7 +71,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 You can delete a subnet only if there are no resources in the subnet. If there are resources in the subnet, you must delete the resources that are in the subnet before you can delete the subnet. The steps you take to delete a resource vary depending on the resource. To learn how to delete resources that are in subnets, read the documentation for each resource type that you want to delete.
 
-1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appears in the search results, select it.
+1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it.
 2. From the list of virtual networks, select the virtual network that contains the subnet you want to delete.
 3. Under **SETTINGS**, select **Subnets**.
 4. In the list of subnets, select **...**, on the right, for the subnet you want to delete

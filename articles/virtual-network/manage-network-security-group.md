@@ -122,10 +122,10 @@ There is a limit to how many rules per network security group can create per Azu
     |Protocol     | Select **Any**, **TCP**, or **UDP**.        |         |
     |Action     | Select **Allow** or **Deny**.        |         |
     |Priority     | Enter a value between 100-4096 that is unique for all security rules within the network security group. |Rules are processed in priority order. The lower the number, the higher the priority. It's recommended that you leave a gap between priority numbers when creating rules, such as 100, 200, 300. Leaving gaps makes it easier to add rules in the future that you may need to make higher or lower than existing rules.         |
-    |Name     | A unique name for the rule within the network security group.        |  The name can be up to 80 characters. It must begin with a letter or number, end with a letter, number, or underscore, and may contain only letters, numbers, underscores, periodis, or hyphens.       |
+    |Name     | A unique name for the rule within the network security group.        |  The name can be up to 80 characters. It must begin with a letter or number, end with a letter, number, or underscore, and may contain only letters, numbers, underscores, periods, or hyphens.       |
     |Description     | An optional description.        |         |
 
-    You cannot specify an application security group for the **Source** or **Destination** settings using the portal. You can however, using the Azure CLI or PowerShell. The settings for **Outbound security rules** are very similar, so they are not covered separately.
+    You cannot specify an application security group for the **Source** or **Destination** settings using the portal. You can however, using the Azure CLI or PowerShell. The settings for **Outbound security rules** are similar, so they are not covered separately.
 
 **Commands**
 
@@ -134,7 +134,7 @@ There is a limit to how many rules per network security group can create per Azu
 
 ### View security rules
 
-A network security group contains zero or multiple rules. To learn more about the information listed when viewing rules, see [Network security group overview](security-overview).
+A network security group contains zero or multiple rules. To learn more about the information listed when viewing rules, see [Network security group overview](security-overview.md).
 
 1. In the search box at the top of the portal, enter *network security groups*. When **network security groups** appear in the search results, select it.
 2. Select the network security group from the list that you want to view rules for.
@@ -161,7 +161,7 @@ The list contains any rules you have created and the network security group [def
 
 ### Change a security rule
 
-1. Complete the steps in [View details of a security rule](view-details-of-a-security-rule).
+1. Complete the steps in [View details of a security rule](#view-details-of-a-security-rule).
 2. Change the settings as desired, and then select **Save**. For a detailed explanation of all settings, see [security rule settings](#security-rule-settings).
 
 **Commands**
@@ -171,7 +171,7 @@ The list contains any rules you have created and the network security group [def
 
 ### Delete a security rule
 
-1. Complete the steps in [View details of a security rule](view-details-of-a-security-rule).
+1. Complete the steps in [View details of a security rule](#view-details-of-a-security-rule).
 2. Select **Delete**, and then select **Yes**.
 
 **Commands**
@@ -208,7 +208,7 @@ While you can change some settings such as tags and permissions for an existing 
 
 ### Delete an application security group
 
-You cannot delete an application security group if it has any network interfaces in it. You must first remove all network interfaces from the application security group by either changing network interface settings, or deleting the network interfaces. For details, see [Add to or remove a network interface from application security groups](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) or [delete a network interface](virtual-network-network-interface.md#delete-a-network-interface).
+You cannot delete an application security group if it has any network interfaces in it. You must remove all network interfaces from the application security group by either changing network interface settings, or deleting the network interfaces. For details, see [Add to or remove a network interface from application security groups](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) or [delete a network interface](virtual-network-network-interface.md#delete-a-network-interface).
 
 **Commands**
 

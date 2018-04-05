@@ -51,7 +51,7 @@ az vm show --resource-group MyResourceGroup5431 --name MyVM-Web
 
 ## Get the NICS
 
-The IP address of a NIC on the virtual machine is needed, in this example we retrieve the NICs on a virtual machine. If you already know the IP address that you want to test on the virtual machine, you can skip this step.
+The IP address of a NIC on the virtual machine is needed. Retrieve the NICs attached to a virtual machine with the command that follows. If you already know the IP address that you want to test on the virtual machine, you can skip this step.
 
 ```azurecli
 az network nic show --resource-group MyResourceGroup5431 --name MyNic-Web
@@ -59,7 +59,7 @@ az network nic show --resource-group MyResourceGroup5431 --name MyNic-Web
 
 ## Run IP flow verify
 
-Now that we have the information needed to run the cmdlet, we run the `az network watcher test-ip-flow` cmdlet to test the traffic. In this example, we are using the first IP address on the first NIC.
+Run the `az network watcher test-ip-flow` cmdlet to test the traffic. In this example, the first IP address of the first NIC is used.
 
 ```azurecli
 az network watcher test-ip-flow --resource-group resourceGroupName --direction directionInboundorOutbound --protocol protocolTCPorUDP --local ipAddressandPort --remote ipAddressandPort --vm vmNameorID --nic nicNameorID
