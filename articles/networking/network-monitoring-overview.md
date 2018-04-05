@@ -115,4 +115,4 @@ Related links:
 
 ## Miscellaneous
 
-* [New Pricing](../log-analytics/log-analytics-network-performance-monitor)
+* [New Pricing](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)
