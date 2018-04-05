@@ -4,7 +4,7 @@ description: Learn how to use the Azure load balancer to create a highly availab
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

@@ -1,20 +1,14 @@
 ---
-title: How to configure data outputs for Stream Analytics jobs | Microsoft Docs
+title: How to configure data outputs for Azure Stream Analytics jobs
 description: Configure Outputs for Stream Analytics jobs | learning path segment.
-keywords: data output, data movement
-documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: ryanw
-
-ms.assetid: 3bbea3da-bfce-4af1-a15e-d4b23874034f
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/26/2017
 ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/26/2017
 ---
 
 # How to configure data outputs for Stream Analytics jobs
