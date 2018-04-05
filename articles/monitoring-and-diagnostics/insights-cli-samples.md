@@ -79,7 +79,10 @@ az monitor activity-log list --caller myname@company.com
 Example to list logs by caller on a resource type, within a date range
 
 ```azurecli
-az monitor activity-log list --resource-provider Microsoft.Web --caller myname@company.com --start-time 2016-03-08T00:00:00Z --end-time 2016-03-16T00:00:00Z
+az monitor activity-log list --resource-provider Microsoft.Web \
+    --caller myname@company.com \
+    --start-time 2016-03-08T00:00:00Z \
+    --end-time 2016-03-16T00:00:00Z
 ```
 
 ## Work with alerts
@@ -162,7 +165,8 @@ az monitor diagnostic-settings list --resource <target resource ID>
 ### Create a diagnostic log setting 
 
 ```azurecli
-az monitor diagnostic-settings create --name <diagnostic name> --storage-account <storage account ID> \
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --storage-account <storage account ID> \
     --resource <target resource object ID> \
     --logs '[
     {
@@ -178,7 +182,8 @@ az monitor diagnostic-settings create --name <diagnostic name> --storage-account
 ### Delete a diagnostic setting
 
 ```azurecli
-az monitor diagnostic-settings delete --name <diagnostic name> --resource <target resource ID>
+az monitor diagnostic-settings delete --name <diagnostic name> \
+    --resource <target resource ID>
 ```
 
 ## Autoscale
@@ -200,5 +205,7 @@ az monitor autoscale show --name <settings name> --resource-group <group name>
 ### Set auotoscale settings
 
 ```azurecli
-az monitor autoscale create --name <settings name> --resource-group <group name> --count <# instances>  --resource <target resource ID>
+az monitor autoscale create --name <settings name> --resource-group <group name> \
+    --count <# instances> \
+    --resource <target resource ID>
 ```

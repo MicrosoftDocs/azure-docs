@@ -90,8 +90,10 @@ The Event Hub Authorization Rule ID is a string with this format: `{Event Hub na
 To enable streaming via the [Azure CLI 2.0](insights-cli-samples.md), you can use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli
-az monitor diagnostic-settings create --name <diagnostic name> --event-hub <event hub name> \
-    --event-hub-rule <event hub rule ID> --resource <target resource object ID> \
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --event-hub <event hub name> \
+    --event-hub-rule <event hub rule ID> \
+    --resource <target resource object ID> \
     --logs '[
     {
         "category": <category name>,

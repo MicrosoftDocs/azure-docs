@@ -72,8 +72,10 @@ Note that the workspaceID property takes the full Azure resource ID of the works
 To enable streaming via the [Azure CLI 2.0](insights-cli-samples.md), you can use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli
-az monitor diagnostic-settings create --name <diagnostic name> --workspace <log analytics name or object ID> \
-    --resource <target resource object ID> --resource-group <log analytics workspace resource group> \
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --workspace <log analytics name or object ID> \
+    --resource <target resource object ID> \
+    --resource-group <log analytics workspace resource group> \
     --logs '[
     {
         "category": <category name>,

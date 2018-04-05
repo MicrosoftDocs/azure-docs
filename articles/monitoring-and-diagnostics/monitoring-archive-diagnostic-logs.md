@@ -71,8 +71,10 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 ## Archive diagnostic logs via the Azure CLI 2.0
 
 ```azurecli
-az monitor diagnostic-settings create --name <diagnostic name> --storage-account <name or ID of storage account> \
-    --resource <target resource object ID> --resource-group <storage account resource group> \
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --storage-account <name or ID of storage account> \
+    --resource <target resource object ID> \
+    --resource-group <storage account resource group> \
     --logs '[
     {
         "category": <category name>,

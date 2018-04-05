@@ -131,8 +131,10 @@ To enable collection of resource diagnostic logs via the Azure CLI 2.0, you use 
 To enable storage of diagnostic logs in a Storage Account:
 
 ```azurecli
-az monitor diagnostic-settings create --name <diagnostic name> --storage-account <name or ID of storage account> \
-    --resource <target resource object ID> --resource-group <storage account resource group> \
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --storage-account <name or ID of storage account> \
+    --resource <target resource object ID> \
+    --resource-group <storage account resource group> \
     --logs '[
     {
         "category": <category name>,
@@ -149,8 +151,10 @@ The `--resource-group` argument is only required if `--storage-account` is not a
 To enable streaming of diagnostic logs to an event hub:
 
 ```azurecli
-az monitor diagnostic-settings create --name <diagnostic name> --event-hub <event hub name> \
-    --event-hub-rule <event hub rule ID> --resource <target resource object ID> \
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --event-hub <event hub name> \
+    --event-hub-rule <event hub rule ID> \
+    --resource <target resource object ID> \
     --logs '[
     {
         "category": <category name>,
@@ -164,8 +168,10 @@ The rule ID is a string with this format: `{Service Bus resource ID}/authorizati
 To enable sending of diagnostic logs to a Log Analytics workspace:
 
 ```azurecli
-az monitor diagnostic-settings create --name <diagnostic name> --workspace <log analytics name or object ID> \
-    --resource <target resource object ID> --resource-group <log analytics workspace resource group> \
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --workspace <log analytics name or object ID> \
+    --resource <target resource object ID> \
+    --resource-group <log analytics workspace resource group> \
     --logs '[
     {
         "category": <category name>,

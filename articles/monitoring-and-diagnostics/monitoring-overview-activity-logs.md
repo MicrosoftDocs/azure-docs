@@ -158,9 +158,6 @@ Remove-AzureRmLogProfile -name my_log_profile
 
 ```azurecli
 az monitor log-profiles list
-```
-
-```azurecli
 az monitor log-profiles show --name <profile name>
 ```
 
@@ -169,7 +166,10 @@ The `name` property should be the name of your log profile.
 #### Add a log profile
 
 ```azurecli
-az monitor log-profiles create --name <profile name> --locations <location1 location2 ...> --location <location> --categories <category1 category2 ...>
+az monitor log-profiles create --name <profile name> \
+    --locations <location1 location2 ...> \
+    --location <location> \
+    --categories <category1 category2 ...>
 ```
 
 For the full documentation for creating a monitor profile with the CLI, see the [CLI command reference](/cli/azure/monitor/log-profiles#az-monitor-log-profiles-create)
