@@ -433,9 +433,6 @@ The **TableRestProxy->batch** method allows you to execute multiple operations i
 
 The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request. 
 
-> [!NOTE]
-> Azure Cosmos DB does not yet support batch operations for tables. 
-
 ```php
 require_once 'vendor/autoload.php';
 
