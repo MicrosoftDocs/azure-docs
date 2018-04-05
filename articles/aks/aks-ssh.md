@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 2/28/2018
+ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -16,77 +16,52 @@ ms.custom: mvc
 
 Occasionally, you may need to access an Azure Container Service (AKS) node for maintenance, log collection, or other troubleshooting operations. Azure Container Service (AKS) nodes are not exposed to the internet. Use the steps detailed in this document to create an SSH connection with an AKS node.
 
+## Get AKS node address
+
+Get the ip address of the AKS cluster nodes using the `az vm list-ip-addresses` command.
+
+```console
+$ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
+
+VirtualMachine            PrivateIPAddresses
+------------------------  --------------------
+aks-nodepool1-42032720-0  10.240.0.6
+aks-nodepool1-42032720-1  10.240.0.5
+aks-nodepool1-42032720-2  10.240.0.4
+```
+
 ## Configure SSH access
 
- To SSH into a specific node, a pod is created with `hostNetwork` access. A service is also created for pod access. This configuration is privileged and should be removed after use.
-
-Create a file named `aks-ssh.yaml` and copy in this manifest. Update the node name with the name of the target AKS node.
+Copy your SSH key to the host clip board.
 
 ```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: aks-ssh
-spec:
-  selector:
-    app: aks-ssh
-  type: LoadBalancer
-  ports:
-  - protocol: TCP
-    port: 22
-    targetPort: 22
----
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: aks-ssh
-  labels:
-    app: aks-ssh
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aks-ssh
-  template:
-    metadata:
-      labels:
-        app: aks-ssh
-    spec:
-      containers:
-      - name: alpine
-        image: alpine:latest
-        ports:
-        - containerPort: 22
-        command: ["/bin/sh", "-c", "--"]
-        args: ["while true; do sleep 30; done;"]
-      hostNetwork: true
-      nodeName: aks-nodepool1-42032720-0
+$ cat ~/.ssh/id_rsa | pbcopy
 ```
 
-Run the manifest to create the pod and service.
+Run the `aks-ssh` container image, which will create a pod on one of the AKS cluster nodes. The `aks-ssh` image has been created from the debian image and includes vim and an SSH client.
 
 ```azurecli-interactive
-$ kubectl apply -f aks-ssh.yaml
+$ kubectl run -it --rm aks-ssh --image=neilpeterson/aks-ssh
 ```
 
-Get the external IP address of the exposed service. It may take a minute for IP address configuration to complete. 
+Once attached to the running container, create a file named `id_rsa` and copy into it the contents of the clipboard.
 
 ```azurecli-interactive
-$ kubectl get service
-
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
-kubernetes         ClusterIP      10.0.0.1      <none>          443/TCP        1d
-aks-ssh            LoadBalancer   10.0.51.173   13.92.154.191   22:31898/TCP   17m
+$ vi id_rsa
 ```
 
-Create the ssh connection. 
+Modify the `id_rsa` file so that it is user read-only.
 
-The default user name for an AKS cluster is `azureuser`. If this account was changed at cluster creation time, substitute the proper admin user name. 
+```console
+$ chmod 0600 id_rsa
+```
 
-If your key is not at `~/ssh/id_rsa`, provide the correct location using the `ssh -i` argument.
+## Create the ssh connection.
+
+Now create an SSH connection to any AKS node. The default user name for an AKS cluster is `azureuser`. If this account was changed at cluster creation time, substitute the proper admin user name.
 
 ```azurecli-interactive
-$ ssh azureuser@13.92.154.191
+$ ssh -i id_rsa azureuser@10.240.0.6
 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
@@ -111,8 +86,4 @@ azureuser@aks-nodepool1-42032720-0:~$
 
 ## Remove SSH access
 
-When done, delete the SSH access pod and service.
-
-```azurecli-interactive
-kubectl delete -f aks-ssh.yaml
-```
+When done, exit the SSH session and then the interactive container session. This action deletes the SSH pod from the AKS cluster.
