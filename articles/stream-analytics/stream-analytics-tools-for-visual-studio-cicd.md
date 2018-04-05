@@ -1,6 +1,6 @@
 ---
-title: Use Visual Studio tools for Azure Stream Analytics development
-description: This article describes how to use Visual Studio tools for Azure Stream Analytics to set up a continuous integration and deployment process
+title:  Continuously integrate and develop with Stream Analytics tools
+description: This article describes how to use Visual Studio tools for Azure Stream Analytics to set up a continuous integration and deployment process.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -10,7 +10,7 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 9/27/2017
 --- 
-# Use Stream Analytics tools for Visual Studio 
+# Continuously integrate and develop with Stream Analytics tools
 This article describes how to use to use the Azure Stream Analytics tools for Visual Studio to set up a continuous integration and deployment process.
 
 Use version 2.3.0000.0 or above of [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) to get support for MSBuild.
