@@ -17,7 +17,7 @@ ms.service: iot-edge
 This article provides detailed instructions for using [Visual Studio Code](https://code.visualstudio.com/) as the main development tool to develop and deploy Azure Functions on IoT Edge. 
 
 ## Prerequisites
-This tutorial assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device or you can simulate your IoT Edge device on your development machine.
+This article assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device or you can simulate your IoT Edge device on your development machine.
 
 Make sure you have completed following tutorials before you start this guidance.
 - Deploy Azure IoT Edge on a simulated device in [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) or [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
@@ -41,10 +41,10 @@ It is also suggested to install [Docker support for VS Code](https://marketplace
 > Currently, Azure Functions on IoT Edge only supports C#.
 
 ## Deploy Azure IoT Functions in VS Code
-In tutorial [Deploy Azure Functions](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function), you update, build, and publish your function module images in VS Code and then visit Azure portal to deploy Azure Functions. This section introduces how to use VS Code to deploy and monitor your Azure Functions.
+In the tutorial [Deploy Azure Functions](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function), you update, build, and publish your function module images in VS Code and then visit Azure portal to deploy Azure Functions. This section introduces how to use VS Code to deploy and monitor your Azure Functions.
 
 ### Start a local docker registry
-You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This section uses a [local Docker registry](https://docs.docker.com/registry/deploying/), which is easier for testing purpose during your early development.
+You can use any Docker-compatible registry for this article. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This section uses a [local Docker registry](https://docs.docker.com/registry/deploying/), which is easier for testing purpose during your early development.
 In VS Code **integrated terminal**(Ctrl + `), Run following commands to start a local registry.  
 
 ```cmd/sh
@@ -55,7 +55,7 @@ docker run -d -p 5000:5000 --name registry registry:2
 > Above example shows registry configurations that are only appropriate for testing. A production-ready registry must be protected by TLS and should ideally use an access-control mechanism. We recommend you use [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) to deploy production-ready IoT Edge modules.
 
 ### Create a function project
-The following steps show you how to create an IoT Edge module based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension. If you have completed this section in previous tutorial, you can safely skip this section.
+The following steps show you how to create an IoT Edge module based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension. If you have completed this section in a previous tutorial, you can safely skip this section.
 
 1. In Visual Studio Code, select **View** > **Integrated Terminal** to open the VS Code integrated terminal.
 2. To install (or update) the **AzureIoTEdgeFunction** template in dotnet, run the following command in the integrated terminal:
@@ -179,7 +179,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
        }
    ```
    > [!NOTE]
-   > Declarative rules in the runtime define where those messages flow. In this tutorial, you need two routes. The first route transports messages from the temperature sensor to the filter function via the "input1" endpoint, which is the endpoint that you configured with the FilterMessages handler. The second route transports messages from the filter function to IoT Hub. In this route, upstream is a special destination that tells Edge Hub to send messages to IoT Hub.
+   > Declarative rules in the runtime define where those messages flow. In this article, you need two routes. The first route transports messages from the temperature sensor to the filter function via the "input1" endpoint, which is the endpoint that you configured with the FilterMessages handler. The second route transports messages from the filter function to IoT Hub. In this route, upstream is a special destination that tells Edge Hub to send messages to IoT Hub.
 
 3. Save this file.
 4. In Command Palette, select **Edge: Create deployment for Edge device**. Then select your IoT Edge device ID to create a deployment. Or right-click the device ID in the device list and select **Create deployment for Edge device**.
@@ -199,7 +199,4 @@ The following steps show you how to create an IoT Edge module based on .NET core
 
 ## Next steps
 
-In this tutorial, you created an Azure Function on IoT Edge and deployed it to IoT Edge device in VS Code. You can continue on to either of the following tutorials to learn about other scenarios when developing Azure IoT Edge in VS Code.
-
-> [!div class="nextstepaction"]
-> [Debug Azure Functions in VS Code](how-to-vscode-debug-azure-function.md)
+[Debug Azure Functions in VS Code](how-to-vscode-debug-azure-function.md)
