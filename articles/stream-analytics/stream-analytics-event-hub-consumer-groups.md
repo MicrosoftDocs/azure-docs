@@ -57,9 +57,9 @@ FROM inputEventHub
 Use this query:
 
 ```
-WITH input (
+WITH data AS (
    SELECT * FROM inputEventHub
-) as data
+)
 
 SELECT foo
 INTO output1
@@ -77,7 +77,7 @@ For queries in which three or more inputs are connected to the same Event Hubs c
 
 
 ## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

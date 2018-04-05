@@ -3,7 +3,7 @@ title: Azure Service Fabric - Set up monitoring with OMS Log Analytics | Microso
 description: Learn how to set up Operations Management Suite for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: dekapur
+ms.date: 3/30/2018
+ms.author: dekapur; srrengar
 
 ---
 
@@ -73,7 +73,7 @@ You have added the Service Fabric Analytics solution in an OMS Log Analytics wor
 
 When you deploy a cluster by using a Resource Manager template, the template creates a new OMS workspace, adds the Service Fabric solution to the workspace, and configures it to read data from the appropriate storage tables.
 
-You can use and modify [this sample template](https://azure.microsoft.com/resources/templates/service-fabric-oms/) to meet your requirements. Templates that give you different options for setting up an OMS workspace can be found at [Service Fabric and OMS templates](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+You can use and modify [this sample template](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms) to meet your requirements.
 
 Make the following modifications:
 1. Add `omsWorkspaceName` and `omsRegion` to your parameters by adding the following snippet to the parameters defined in your *template.json* file. Feel free to modify the default values as you see fit. Also, add the two new parameters in your *parameters.json* file to define their values for the resource deployment:

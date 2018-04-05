@@ -3,18 +3,18 @@ title: Run tasks in parallel to use compute resources efficiently - Azure Batch 
 description: Increase efficiency and lower costs by using fewer compute nodes and running concurrent tasks on each node in an Azure Batch pool
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---

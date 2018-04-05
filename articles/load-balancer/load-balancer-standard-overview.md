@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: kumud
 ---
 
@@ -40,7 +40,7 @@ Load Balancer resources are objects within which you can express how Azure shoul
 
 ## Why use Standard Load Balancer?
 
-You can use Standard Load Balancer for the full range of virtual data centers, from small scale deployments to large and complex multi-zone architectures.
+Standard Load Balancer enables you to scale your applications and create high availability for small scale deployments to large and complex multi-zone architectures.
 
 Review the table below for an overview of the differences between Standard Load Balancer and Basic Load Balancer:
 
@@ -73,9 +73,6 @@ The backend pool can contain standalone virtual machines, availability sets, or 
 When considering how to design your backend pool, you can design for the least number of individual backend pool resources to further optimize the duration of management operations.  There is no difference in data plane performance or scale.
 
 ## <a name="az"></a>Availability Zones
-
->[!NOTE]
-> To use [Availability Zones Preview](https://aka.ms/availabilityzones) with Standard Load Balancer requires [sign-up for Availability Zones](https://aka.ms/availabilityzones).
 
 Standard Load Balancer supports additional abilities in regions where Availability Zones are available.  These features are incremental to all Standard Load Balancer provides.  Availability Zones configurations are available for public and internal Standard Load Balancer.
 

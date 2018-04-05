@@ -189,3 +189,5 @@
     href: https://stackoverflow.com/search?q=monitoring
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=monitor
+  - name: Usage and estimated costs
+    href: monitoring-usage-and-estimated-costs.md 

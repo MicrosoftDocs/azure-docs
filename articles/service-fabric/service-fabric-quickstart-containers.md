@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Service Fabric Windows container application | Microsoft Docs
 description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 04/03/2018
 ms.author: ryanwi
 ms.custom: mvc
 
