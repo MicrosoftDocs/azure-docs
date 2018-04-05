@@ -4,7 +4,7 @@ description: How to attach new or existing data disk to a Windows VM using Power
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
