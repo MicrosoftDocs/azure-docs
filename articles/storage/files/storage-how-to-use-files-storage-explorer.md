@@ -64,7 +64,7 @@ To create your first Azure file share in the *storageacct<random number>*  stora
 
 After the file share is created, a tab for your file share opens in the right pane. 
 
-## Work with the contents of the Azure file share
+## Work with the contents of an Azure file share
 Now that you have created an Azure file share, you can mount the file share with SMB on [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md), or [macOS](storage-how-to-use-files-mac.md). Alternatively, you can work with your Azure file share by using Azure CLI. The advantage of using Azure CLI instead of mounting the file share by using SMB is that all requests that are made with Azure CLI are made by using the File REST API. You can use the File REST API to create, modify, and delete files and directories on clients that don't have SMB access.
 
 ### Create a directory
@@ -93,9 +93,9 @@ The progress of the download appears in the **Activities** pane at the bottom of
 
 ## Create and modify share snapshots
 A snapshot preserves a point-in-time copy of an Azure file share. File share snapshots are similar to other technologies that you might already be familiar with:
-- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems, such as NTFS and ReFS.
-- [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems.
-- [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS. 
+- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) for Windows file systems, such as NTFS and ReFS
+- [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
+- [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS
 
 To create a share snapshot:
 
