@@ -14,17 +14,17 @@
 - name: Tutorials
   items:
   - name: Tutorial
-    href: tutorial.md
+    href: service-fabric-mesh-tutorial.md
 
 - name: Concepts
   items:
   - name: Conceptual
-    href: concepts.md
+    href: service-fabric-mesh-concepts.md
 
 - name: How-to guides
   items:
   - name: How?
-    href: where.md
+    href: service-fabric-mesh-how-to.md
 
 - name: Reference
   items:

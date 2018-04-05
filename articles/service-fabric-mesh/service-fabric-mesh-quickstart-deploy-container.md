@@ -201,9 +201,9 @@ az group delete --name $rg
 
 A brief sentence with a link surrounded by the blue box
 
-Advance to the next article to learn more
+Advance to the next article to learn more about service fabric mesh
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+> [Next steps button](service-fabric-mesh-overview.md)
 
 <!-- Images -->
 [sfm-app-browser]: ./media/service-fabric-mesh-quickstart-containers-01.png
