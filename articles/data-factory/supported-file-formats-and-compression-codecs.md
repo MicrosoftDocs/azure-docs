@@ -8,7 +8,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/28/2018
 ms.author: jingwang
 
 ---
@@ -442,6 +442,30 @@ Note the following points:
 * Complex data types are not supported (STRUCT, MAP, LIST, UNION)
 * ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
 
+### Data type mapping for ORC files
+
+| Data factory interim data type | ORC types |
+|:--- |:--- |
+| Boolean | Boolean |
+| SByte | Byte |
+| Byte | Short |
+| Int16 | Short |
+| UInt16 | Int |
+| Int32 | Int |
+| UInt32 | Long |
+| Int64 | Long |
+| UInt64 | String |
+| Single | Float |
+| Double | Double |
+| Decimal | Decimal |
+| String | String |
+| DateTime | Timestamp |
+| DateTimeOffset | Timestamp |
+| TimeSpan | Timestamp |
+| ByteArray | Binary |
+| Guid | String |
+| Char | Char(1) |
+
 ## Parquet format
 
 If you want to parse the Parquet files or write the data in Parquet format, set the `format` `type` property to **ParquetFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
@@ -461,6 +485,31 @@ Note the following points:
 
 * Complex data types are not supported (MAP, LIST)
 * Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
+
+### Data type mapping for Parquet files
+
+| Data factory interim data type | Parquet Primitive Type | Parquet Original Type (Deserialize) | Parquet Original Type (Serialize) |
+|:--- |:--- |:--- |:--- |
+| Boolean | Boolean | N/A | N/A |
+| SByte | Int32 | Int8 | Int8 |
+| Byte | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/Binary | UInt64 | Decimal |
+| Single | Float | N/A | N/A |
+| Double | Double | N/A | N/A |
+| Decimal | Binary | Decimal | Decimal |
+| String | Binary | Utf8 | Utf8 |
+| DateTime | Int96 | N/A | N/A |
+| TimeSpan | Int96 | N/A | N/A |
+| DateTimeOffset | Int96 | N/A | N/A |
+| ByteArray | Binary | N/A | N/A |
+| Guid | Binary | Utf8 | Utf8 |
+| Char | Binary | Utf8 | Utf8 |
+| CharArray | Not supported | N/A | N/A |
 
 ## Compression support
 

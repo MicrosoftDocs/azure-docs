@@ -4,9 +4,8 @@ description: Learn about the three Window functions in Stream Analytics (tumblin
 keywords: tumbling window, sliding window, hopping window
 documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 
 ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
@@ -15,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Introduction to Stream Analytics Window functions
@@ -39,7 +38,7 @@ Sliding window functions, unlike Tumbling or Hopping windows, produce an output 
 ![Stream Analytics Window functions sliding intro](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## Getting help with Window functions
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

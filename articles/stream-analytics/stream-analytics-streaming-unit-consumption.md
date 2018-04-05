@@ -5,8 +5,7 @@ keywords: streaming unit, query performance
 services: stream-analytics
 documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 
 ms.assetid: 
 ms.service: stream-analytics
@@ -122,7 +121,7 @@ When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)

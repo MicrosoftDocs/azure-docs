@@ -94,6 +94,19 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 > [!Note]  
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
+### Files Skipped
+| File/Folder | Note |
+|-|-|
+| Desktop.ini | File specific to system |
+| ethumbs.db$ | Temporary file for thumbnails |
+| ~$\*.\* | Office temporary file |
+| \*.tmp | Temporary file |
+| \*.laccdb | Access DB locking file|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\System Volume Information | Folder specific to volume |
+| $RECYCLE.BIN| Folder |
+| \\SyncShareState | Folder for Sync |
+
 ### Failover Clustering
 Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs).
 
@@ -157,6 +170,7 @@ Azure File Sync is available only in the following regions in preview:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Canada Central | Toronto |
+| Canada East | Quebec City |
 | Central US | Iowa |
 | East Asia | Hong Kong |
 | East US | Virginia |
@@ -164,7 +178,6 @@ Azure File Sync is available only in the following regions in preview:
 | North Europe | Ireland |
 | Southeast Asia | Singapore |
 | UK South | London |
-| West Cental US |
 | West Europe | Netherlands |
 | West US | California |
 

@@ -6,7 +6,6 @@ services: stream-analytics
 documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -174,7 +173,7 @@ FROM Input
 ````
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 You've learned about data connection options in Azure for your Stream Analytics jobs. To learn more about Stream Analytics, see:

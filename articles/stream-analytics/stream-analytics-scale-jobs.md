@@ -5,8 +5,7 @@ keywords: data streaming, streaming data processing, tune analytics
 services: stream-analytics
 documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
 ms.service: stream-analytics
@@ -150,7 +149,7 @@ And the following graph shows a visualization of the relationship between SUs an
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

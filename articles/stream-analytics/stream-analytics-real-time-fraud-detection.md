@@ -5,8 +5,7 @@ keywords: anomaly detection, fraud detection, real time anomaly detection
 services: stream-analytics 
 documentationcenter: '' 
 author: SnehaGunda 
-manager: jhubbard 
-editor: cgronlun 
+manager: kfile 
  
 ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb 
 ms.service: stream-analytics 
@@ -403,7 +402,7 @@ However, if you're done and you don't need the resources you've created, you can
 
 ## Get support
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

@@ -1,21 +1,16 @@
 ---
 title: Build an IoT solution by using Stream Analytics | Microsoft Docs
 description: Getting-started tutorial for the Stream Analytics IoT solution of a tollbooth scenario
-keywords: iot solution, window functions
-documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
+ms.author: sngun
+reviewer: jasonh, sngun
 manager: kfile
-editor: cgronlun
-
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na   
 ms.workload: data-services
 ms.date: 03/21/2018
-ms.author: sngun
+
 ---
 
 # Build an IoT solution by using Stream Analytics
@@ -35,10 +30,10 @@ After completing this tutorial, you will be able to:
 You will need the following prerequisites to complete this tutorial:
 
 * The latest version of [Azure PowerShell](/powershell/azure/overview)
-* Visual Studio 2017, 2015, or the free [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
+* Visual Studio 2017, 2015, or the free [Visual Studio Community](https://www.visualstudio.com/vs/community/)
 * An [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 * Administrative privileges on the computer
-* Download the source code for TollApp sensor data analysis from the [azure-stream-analytics GitHub repository.](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). This repository contains sample data and queries that you will use in the next sections. 
+* Download the source code for TollApp sensor data analysis from the [azure-stream-analytics GitHub repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). This repository contains sample data and queries that you will use in the next sections. 
 
 ## Scenario introduction: “Hello, Toll!”
 A toll station is a common phenomenon. You encounter them on many expressways, bridges, and tunnels across the world. Each toll station has multiple toll booths. At manual booths, you stop to pay the toll to an attendant. At automated booths, a sensor on top of each booth scans an RFID card that's affixed to the windshield of your vehicle as you pass the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
@@ -169,7 +164,7 @@ You will also see another window that's similar to the following screenshot. Thi
 
 ![Screenshot of "Sending event hub data"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
-You should be able to see your resources in Azure portal now. Go to <https://portal.azure.com>, and sign in with your account credentials. Note that currently some functionality utilizes the classic portal. These steps will be clearly indicated.
+You should be able to see your resources in Azure portal now. Go to <https://portal.azure.com>, and sign in with your account credentials. Currently some functionality utilizes the classic portal. These steps will be clearly indicated.
 
 ### Azure Event Hubs
 
@@ -236,7 +231,7 @@ However, if you are interested in implementation details, you can find the sourc
 4. Enter **EntryStream** as **INPUT ALIAS**.
 5. Source Type is **Data Stream**
 6. Source is **Event hub**.
-7. **Service bus namespace** should be the TollData one in the drop down.
+7. **Service bus namespace** should be the TollData one in the drop-down.
 8. **Event hub name** should be set to **entry**.
 9. **Event hub policy name*is **RootManageSharedAccessKey**  (the default value).
 10. Select **JSON** for **EVENT SERIALIZATION FORMAT** and **UTF8** for **ENCODING**.
@@ -258,7 +253,7 @@ However, if you are interested in implementation details, you can find the sourc
     Next, you will add reference data input for the blob file that contains car registration data.
 11. Click **ADD**, and then follow the same process for the stream inputs but select **REFERENCE DATA** instead of **Data Stream** and the **Input Alias** is **Registration**.
 
-12. storage account that starts with **tolldata**. The container name should be **tolldata**, and the **PATH PATTERN** should be **registration.json**. This file name is case sensitive and should be **lowercase**.
+12. storage account that starts with **tolldata**. The container name should be **tolldata**, and the **PATH PATTERN** should be **registration.json**. This file name is case-sensitive and should be **lowercase**.
     
     ![Blog storage settings](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image34.png)
 13. Click **Create** to finish the wizard.
@@ -288,7 +283,7 @@ Before you start your first Stream Analytics job, let’s explore a few scenario
 
 ## Introduction to Azure Stream Analytics query language
 - - -
-Let’s say that you need to count the number of vehicles that enter a toll booth. Because this is a continuous stream of events, you have to define a “period of time.” Let's modify the question to be “How many vehicles enter a toll booth every three minutes?”. This is commonly referred to as the tumbling count.
+Let’s say that you need to count the number of vehicles that enter a toll booth. Because this is a continuous stream of events, you have to define a “period of time.” Let's modify the question to be “How many vehicles enter a toll booth every three minutes?” This is commonly referred to as the tumbling count.
 
 Let’s look at the Azure Stream Analytics query that answers this question:
 
@@ -385,7 +380,7 @@ Starting the job can take a few minutes. You can see the status on the top-level
     ![Selection of "Show Table Data" in Server Explorer](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
 ## Scale out Azure Stream Analytics jobs
-Azure Stream Analytics is designed to elastically scale so that it can handle a lot of data. The Azure Stream Analytics query can use a **PARTITION BY** clause to tell the system that this step will scale out. **PartitionId** is a special column that the system adds to match the partition ID of the input (event hub).
+Azure Stream Analytics is designed to elastically scale so that it can handle large volumes of data. The Azure Stream Analytics query can use a **PARTITION BY** clause to tell the system that this step will scale out. **PartitionId** is a special column that the system adds to match the partition ID of the input (event hub).
 
     SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
     FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
@@ -394,15 +389,15 @@ Azure Stream Analytics is designed to elastically scale so that it can handle a 
 1. Stop the current job, update the query in the **QUERY** tab, and open the **Settings** gear in the job dashboard. Click **Scale**.
    
     **STREAMING UNITS** define the amount of compute power that the job can receive.
-2. Change the drop down from 1 from 6.
+2. Change the drop-down from 1 from 6.
    
-    ![Screenshot of selecting 6 streaming units](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image52.png)
+    ![Screenshot of selecting six streaming units](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image52.png)
 3. Go to the **OUTPUTS** tab and change the name of the SQL table to **TollDataTumblingCountPartitioned**.
 
-If you start the job now, Azure Stream Analytics can distribute work across more compute resources and achieve better throughput. Please note that the TollApp application is also sending events partitioned by TollId.
+If you start the job now, Azure Stream Analytics can distribute work across more compute resources and achieve better throughput. Note that the TollApp application is also sending events partitioned by TollId.
 
 ## Monitor
-The **MONITOR** area contains statistics about the running job. First time configuration is needed to use the storage account in the same region (name toll like the rest of this document).   
+The **MONITOR** area contains statistics about the running job. First-time configuration is needed to use the storage account in the same region (name toll like the rest of this document).   
 
 ![Screenshot of monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
 
@@ -425,5 +420,3 @@ Refer to the [online documentation](https://azure.microsoft.com/documentation/se
    > Resources are identified by the name. Make sure you carefully review each item before confirming removal.
    > 
    > 
-
-

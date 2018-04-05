@@ -44,6 +44,7 @@ NPM can monitor connectivity between networks and applications in any part of th
 * East US
 * South East Asia
 * South East Australia
+* South UK
 * US Government Virginia
 
 The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
@@ -245,7 +246,9 @@ The topology shown in the map is layer 3 topology and doesn't contain layer 2 de
 
 All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [Log Analytics search](log-analytics-log-search-new.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
 
- 
+##Pricing
+
+Information on pricing is available [online](log-analytics-network-performance-monitor-pricing-faq.md).
 
 ## Provide feedback 
 

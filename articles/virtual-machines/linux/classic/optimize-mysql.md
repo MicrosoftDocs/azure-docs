@@ -4,7 +4,7 @@ description: Learn how to optimize MySQL running on an Azure virtual machine (VM
 services: virtual-machines-linux
 documentationcenter: ''
 author: NingKuang
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 

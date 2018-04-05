@@ -30,6 +30,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 
 To open the application, look for the *storage-blobs-node-quickstart* folder and open it in your favorite code editing environment.
 
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
+
 ## Configure your storage connection string
 
 Before running the application, you must provide the connection string for your storage account. The sample repository includes a file named *.env.example*. You can rename this file by removing the *.example* extension, which results in a file named *.env*. Inside the *.env* file, add your connection string value after the *AZURE_STORAGE_CONNECTION_STRING* key.
