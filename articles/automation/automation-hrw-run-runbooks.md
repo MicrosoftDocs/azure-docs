@@ -13,7 +13,7 @@ manager: carmonm
 
 There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly though since runbooks targeting a Hybrid Runbook Worker typically manage resources on the local computer itself or against resources in the local environment where it is deployed, while runbooks in Azure Automation typically manage resources in the Azure cloud.
 
-When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook has been edited and tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it is available to run in the Hybrid worker.
+When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook has been edited and tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it is available to run in the Hybrid worker. It is important to know that jobs run under the Local System account which can introduce subtle differences, when authoring runbooks for a Hybrid Runbook Worker this should be taken into account.
 
 ## Starting a runbook on Hybrid Runbook Worker
 
