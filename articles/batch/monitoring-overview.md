@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 03/22/2018
+ms.date: 04/05/2018
 ms.author: danlep
 ---
 
@@ -18,15 +18,15 @@ ms.author: danlep
 
 Azure and the Batch service provide a range of services, tools, and APIs to monitor your Batch solutions. This overview article helps you choose a monitoring approach that fits your needs.
 
-See also [Monitoring Azure applications and resources](../monitoring-and-diagnostics/monitoring-overview.md) for an overview of the Azure components and service available to monitor Azure resources.
+For an overview of the Azure components and services available to monitor Azure resources, see [Monitoring Azure applications and resources](../monitoring-and-diagnostics/monitoring-overview.md) .
 
 ## Subscription-level monitoring
 
-The [Azure activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) collects operational event data in [several categories](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log) for resources at the subscription level, including Batch accounts.
+At the subscription level, which includes Batch accounts, the [Azure activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) collects operational event data in [several categories](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log).
 
-For Batch accounts, the activity log collects events related to account creation and deletion and key management.
+For Batch accounts specifically, the activity log collects events related to account creation and deletion and key management.
 
-One way to retrieve events from your activity log is using the Azure portal. Click **All services** > **Activity Log**. Or, query for events using the Azure CLI, PowerShell cmdlets, or the Azure Monitor REST API. You can also export the activity log, or configure [activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+One way to retrieve events from your activity log is to use the Azure portal. Click **All services** > **Activity Log**. Or, query for events using the Azure CLI, PowerShell cmdlets, or the Azure Monitor REST API. You can also export the activity log, or configure [activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
 
 ## Batch account-level monitoring
 
@@ -51,7 +51,9 @@ In your Batch applications, use the Batch APIs to monitor or query the status of
 
 ## Batch application-level monitoring
 
-* [Application Insights](../application-insights/app-insights-overview.md) is an Azure service you can use to programmatically monitor the availability, performance, and usage of your Batch jobs and tasks. Easily get performance counters from compute nodes (VMs) and custom information for tasks off of the VMs. See [Monitor and debug an Azure Batch application with Application Insights](monitor-application-insights.md) and the accompanying [code sample](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
+* [Application Insights](../application-insights/app-insights-overview.md) is an Azure service you can use to programmatically monitor the availability, performance, and usage of your Batch jobs and tasks. Easily get performance counters from compute nodes (VMs) and custom information for tasks off of the VMs. 
+
+  For an example, see [Monitor and debug a Batch .NET application with Application Insights](monitor-application-insights.md) and the accompanying [code sample](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
 
   > [!NOTE]
   > You may incur additional costs to use Application Insights. See the [pricing options](https://azure.microsoft.com/pricing/details/application-insights/). 
@@ -67,4 +69,4 @@ In your Batch applications, use the Batch APIs to monitor or query the status of
 ## Next steps
 
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
-* Learn more about [diagnostic logging](batch-diagnostics.md) with Batch
+* Learn more about [diagnostic logging](batch-diagnostics.md) with Batch.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 03/22/2018
+ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: 
 
@@ -24,13 +24,15 @@ This article explains how to monitor a Batch account using features of [Azure Mo
 
 ## Batch metrics
 
-Metrics are Azure telemetry data (also called performance counters) emitted by your Azure resources and consumed by the Azure Monitor service. Example metrics in a Batch account include: Pool Create Events, Low-Priority Node Count, and Task Complete Events. See the [list of supported Batch metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+Metrics are Azure telemetry data (also called performance counters) emitted by your Azure resources which are consumed by the Azure Monitor service. Example metrics in a Batch account include: Pool Create Events, Low-Priority Node Count, and Task Complete Events. 
 
-Metrics data is:
+See the [list of supported Batch metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+
+Metrics are:
 
 * Enabled by default in each Batch account without additional configuration
 * Generated every 1 minute
-* Not persisted automatically, but has a 30-day rolling history. You can persist activity metrics as part of [diagnostic logging](#work-with-diagnostic-logs).
+* Not persisted automatically, but have a 30-day rolling history. You can persist activity metrics as part of [diagnostic logging](#work-with-diagnostic-logs).
 
 ### View metrics
 
@@ -56,14 +58,18 @@ To configure a metric alert in the portal:
 
 1. Click **All services** > **Batch accounts**, and then click the name of your Batch account.
 2. Under **Monitoring**, click **Alert rules** > **Add metric alert**.
-3. Select a metric, an alert condition (such as when a metric exceeds a particular value during a period), and one or more notification mechanisms or actions.
+3. Select a metric, an alert condition (such as when a metric exceeds a particular value during a period), and one or more notifications.
 
 You can also configure a near real-time alert using the [REST API](). For more information, see [Use the newer metric alerts for Azure services in Azure portal](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
 ## Batch diagnostics
 
-Diagnostic logs contain information emitted by Azure resources that describe the operation of each resource. For Batch, you can collect **Service Logs** events emitted by the Azure Batch service during the lifetime of an individual Batch resource like a pool or task. You can also log account-level **Metrics**. 
+Diagnostic logs contain information emitted by Azure resources that describe the operation of each resource. For Batch, you can collect the following logs:
 
-Settings to enable collection of diagnostic logs are not enabled by default. You must explicitly enable diagnostic settings for each Batch account you want to monitor.
+* **Service Logs** events emitted by the Azure Batch service during the lifetime of an individual Batch resource like a pool or task. 
+
+* **Metrics** logs at the account level. 
+
+Settings to enable collection of diagnostic logs are not enabled by default. Explicitly enable diagnostic settings for each Batch account you want to monitor.
 
 ### Log destinations
 
@@ -112,7 +118,7 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Each PT1H.json blob file contains a JSON blob of events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since diagnostic log events are broken into individual blobs per hour. (All times are in UTC.)
+Each PT1H.json blob file contains JSON-formatted events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since diagnostic log events are broken into individual blobs per hour. (All times are in UTC.)
 
 
 For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
@@ -162,4 +168,4 @@ The Batch service currently emits the following Service Log events. This list ma
 ## Next steps
 
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
-* Learn more about [monitoring Batch solutions](monitoring-overview.md)
+* Learn more about [monitoring Batch solutions](monitoring-overview.md).

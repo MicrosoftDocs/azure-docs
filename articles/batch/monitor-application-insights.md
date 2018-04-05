@@ -1,6 +1,6 @@
 ---
 title: Monitor Batch with Azure Application Insights | Microsoft Docs
-description: Learn how to instrument Azure Batch application code using the Azure Application Insights library.
+description: Learn how to instrument an Azure Batch .NET application using the Azure Application Insights library.
 services: batch
 author: paselem
 manager: jeconnoc
@@ -10,35 +10,34 @@ ms.service: batch
 ms.devlang: .NET
 ms.topic: article
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 04/05/2018
 ms.author: danlep
 ---
 
 # Monitor and debug an Azure Batch .NET application with Application Insights
 
 [Application Insights](../application-insights/app-insights-overview.md) provides an elegant and powerful way for developers to monitor and debug 
-applications deployed to Azure services. Using Application Insights, you can 
+applications deployed to Azure services. Use Application Insights to 
 monitor performance counters and exceptions as well as instrument your code 
 with custom metrics and tracing. Integrating Application Insights with your 
 Azure Batch application allows you to gain deep insights into behaviors 
 and investigate issues in near-real time.
 
 This article shows how to add and configure the Application Insights library 
-into your Azure Batch .NET solution and instrument your application code. It also provides
-examples on how to monitor your application via the Azure portal and build 
+into your Azure Batch .NET solution and instrument your application code. It also shows ways to monitor your application via the Azure portal and build 
 custom dashboards. For Application Insights support in other languages, look at the 
 [languages, platforms, and integrations documentation](../application-insights/app-insights-platforms.md).
 
 A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). This example adds Application Insights instrumentation code to the [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) example. If you're not familiar with that example, try building and running TopNWords first. Doing this will help you understand a basic Batch workflow of processing a set of input blobs in parallel on multiple compute nodes. 
 
 ## Prerequisites
-* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 or a more recent version). 
+* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 or a more recent version)
 
 * [Batch account and linked storage account](batch-account-create-portal.md)
 
 * [Application Insights resource](../application-insights/app-insights-create-new-resource.md)
   
-   * To persist your application logs and performance counters, use the Azure portal to create an Application Insights *resource*. Select the *General* **Application type**.
+   * Use the Azure portal to create an Application Insights *resource*. Select the *General* **Application type**.
 
    * Copy the [instrumentation 
 key](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) from the portal. It is required later in this article.
@@ -73,7 +72,9 @@ The example in TopNWords.cs uses the following [instrumentation calls](../applic
 
 This example purposely leaves out exception 
 handling. Instead, Application Insights automatically reports unhandled 
-exceptions, which significantly improves the debugging experience. The 
+exceptions, which significantly improves the debugging experience. 
+
+The 
 following snippet illustrates how to use these methods.
 
 ```csharp
@@ -132,7 +133,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 When reporting telemetry for a given server and instance, Application Insights 
 uses the Azure VM Role and VM name for the default values. In the context of Azure Batch, the example shows how to use the pool name and compute 
 node name instead. Use a [telemetry initializer](../application-insights/app-insights-api-filtering-sampling.md#add-properties) to override the default 
-values. (See a code example on [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/WindowsServer/WindowsServer.Shared/AzureWebAppRoleEnvironmentTelemetryInitializer.cs).)
+values. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -181,7 +182,7 @@ namespace Microsoft.Azure.Batch.Samples.TelemetryInitializer
 }
 ```
 
-To enable the telemetry initializer, update the ApplicationInsights.config file in the TopNWordsSample project:
+To enable the telemetry initializer, the ApplicationInsights.config file in the TopNWordsSample project includes the following:
 
 ```xml
 <TelemetryInitializers>
@@ -195,7 +196,7 @@ In order for Application Insights to run correctly on your compute nodes, make s
 binaries to your task's resource files collection so that they get downloaded 
 at the time your task executes. The following snippets are similar to code in Job.cs.
 
-First, create a static list of files to upload.
+First, create a static list of Application Insights files to upload.
 
 ```csharp
 private static readonly List<string> AIFilesToUpload = new List<string>()
@@ -208,7 +209,7 @@ private static readonly List<string> AIFilesToUpload = new List<string>()
     "Microsoft.AI.PerfCounterCollector.dll",
     "Microsoft.AI.ServerTelemetryChannel.dll",
     "Microsoft.AI.WindowsServer.dll",
-
+    
     // custom telemetry initializer assemblies
     "Microsoft.Azure.Batch.Samples.TelemetryInitializer.dll",
  };
@@ -232,7 +233,7 @@ foreach (string aiFile in AIFilesToUpload)
 ...
 ```
 
-The `FileToStage` method is a helper function in the code sample that allows you to easily upload a file from local disk to an Azure Storage blob. This file is later downloaded to a compute node and referenced by a task.
+The `FileToStage` method is a helper function in the code sample that allows you to easily upload a file from local disk to an Azure Storage blob. Each file is later downloaded to a compute node and referenced by a task.
 
 Finally, add the tasks to the job and include the necessary Application Insights binaries.
 ```csharp
@@ -272,7 +273,7 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 
 Now that you've configured the job and tasks to use Application Insights, run 
 the example job in your pool. Navigate to the Azure portal and open the Application 
-Insghts resource that you provisioned. At this point, you should start to see 
+Insights resource that you provisioned. After the pool is provisioned, you should start to see 
 data flowing and getting logged. The rest of this article touches on only a few Application Insights
 features, but feel free to explore the full feature set.
 
@@ -294,7 +295,7 @@ The following screenshot shows how a single trace for a task is logged and later
 
 ### View unhandled exceptions
 
-The following image shows how Application Insights logs exceptions thrown from your application. In this case, within seconds of the application throwing the exception, you can drill into a specific exception and diagnose the issue.
+The following screenshots shows how Application Insights logs exceptions thrown from your application. In this case, within seconds of the application throwing the exception, you can drill into a specific exception and diagnose the issue.
 
 ![Unhandled exceptions](./media/monitor-application-insights/exception.png)
 
@@ -302,7 +303,7 @@ The following image shows how Application Insights logs exceptions thrown from y
 
 Custom metrics are also a valuable tool in the portal. For example, you can display the average time it took each compute node to download the required text file it was processing.
 
-To create the chart:
+To create a sample chart:
 1. In your Application Insights resource, click **Metrics Explorer** > **Add chart**.
 2. Click **Edit** on the chart that was added.
 2. Update the chart details as follows:
@@ -362,8 +363,8 @@ pool.StartTask = new StartTask()
 
 ## Throttle and sample data 
 
-Due to the large-scale nature of Azure Batch workloads, for applications 
-running in production you might want to limit the amount of data collected by 
+Due to the large-scale nature of Azure Batch applications 
+running in production, you might want to limit the amount of data collected by 
 Application Insights to manage costs. 
 See [Sampling in Application Insights](../application-insights/app-insights-sampling.md) for some mechanisms to achieve this.
 
