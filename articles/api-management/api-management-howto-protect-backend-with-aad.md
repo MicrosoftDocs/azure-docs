@@ -157,7 +157,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 
 2. Note a new item in the **Authorization** section, corresponding to the authorization server you just added.
 
-3. Select **Authorization code** from the authorization drop-down list, and you are prompted to sign in to the Azure AD tenant. If you are already signed in with the account, you may not be prompted.
+3. Select **Authorization code** from the authorization drop-down list, and you are prompted to sign in to the Azure AD tenant. If you are already signed in with the account, you might not be prompted.
 
 4. After successful sign-in, an `Authorization` header is added to the request, with an access token from Azure AD. The following is a sample token (Base64 encoded):
 
