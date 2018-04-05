@@ -25,7 +25,7 @@ ms.topic: article
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview), and - if not done previously - select **Bash** as your environment.
 
-    ![Cloud Shell prompt](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button.png)
+    ![Cloud Shell prompt](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
 1. Change directories to the `clouddrive` directory.
 
@@ -216,7 +216,7 @@ Perform the following steps two times where in step 3 you select **slotAppServic
 
 1. Select **slotDemoResourceGroup**.
 
-1. Select either **slotAppService** and **slotAppServiceSlotOne**.
+1. Select either **slotAppService** or **slotAppServiceSlotOne**.
 
 1. On the overview page, select **URL**.
 
