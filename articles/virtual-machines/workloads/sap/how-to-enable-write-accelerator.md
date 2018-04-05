@@ -289,7 +289,7 @@ The output could look like:
 
 ```
 
-Next step is to update the JSON file and to enable Write Accelerator on the disk called 'log1'. this can be done by adding this attribute into the JSON file after the cache entry of the disk. 
+Next step is to update the JSON file and to enable Write Accelerator on the disk called 'log1'. This step can be accomplished by adding this attribute into the JSON file after the cache entry of the disk. 
 
 ```
         {
