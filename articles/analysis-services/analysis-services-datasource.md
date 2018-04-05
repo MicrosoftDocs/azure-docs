@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 04/05/2018
 ms.author: owend
 
 ---
@@ -30,12 +30,10 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 |Azure SQL Data Warehouse     |   Yes      |   Yes       |
 |Azure Blob Storage*     |   Yes       |    No      |
 |Azure Table Storage*    |   Yes       |    No      |
-|Azure Cosmos DB (Beta)*     |  Yes        |  No        |
+|Azure Cosmos DB*     |  Yes        |  No        |
 |Azure Data Lake Store*     |   Yes       |    No      |
 |Azure HDInsight HDFS*     |     Yes     |   No       |
-|Azure HDInsight Spark (Beta)*     |   Yes       |   No       |
-|Azure Database for MySQL (Preview)*     |   Yes       |   No      |
-|Azure Database for PostgreSQL (Preview)*     | Yes         |  No       |
+|Azure HDInsight Spark*     |   Yes       |   No       |
 ||||
 
 \* Tabular 1400 models only.
