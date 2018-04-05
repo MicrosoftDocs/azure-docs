@@ -290,7 +290,7 @@ To test swapping the two deployment slots, perform the following steps:
     terraform apply
     ```
 
-1. Once Terraform has finished swapping the slots, return to the browser that is rendering the slotAppService web app and refresh the page. 
+1. Once Terraform has finished swapping the slots, return to the browser that is rendering the **slotAppService** web app and refresh the page. 
 
 The web app in your **slotAppServiceSlotOne** staging slot has been swapped with the production slot and now renders green. 
 
