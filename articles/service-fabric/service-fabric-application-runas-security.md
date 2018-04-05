@@ -61,16 +61,6 @@ In the **RunAsPolicy** section for a **ServiceManifestImport**, specify the user
 </ApplicationManifest>
 ```
 
-If an application requires that the user account and password are the same on all computers (for example, to enable NTLM authentication), the cluster manifest must set **NTLMAuthenticationEnabled** to true. The cluster manifest must also specify an **NTLMAuthenticationPasswordSecret** that is used to generate the same password across all machines.
-
-```xml
-<Section Name="Hosting">
-      <Parameter Name="EndpointProviderEnabled" Value="true"/>
-      <Parameter Name="NTLMAuthenticationEnabled" Value="true"/>
-      <Parameter Name="NTLMAuthenticationPassworkSecret" Value="******" IsEncrypted="true"/>
- </Section>
-```
-
 ## Create a local user group
 You can create user groups and add one or more users to the group. This is useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The following application manifest example shows a local group named *LocalAdminGroup* that has administrator privileges. Two users, *Customer1* and *Customer2*, are made members of this local group. In the **ServiceManifestImport** section, a RunAs policy is applied to run the *Stateful1Pkg* code package as *Customer2*.  Another RunAs policy is applied to run the *Web1Pkg* code package as *Customer1*.
 
