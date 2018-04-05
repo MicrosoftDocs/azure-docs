@@ -1,6 +1,6 @@
 ---
 title: Build an IoT solution by using Stream Analytics | Microsoft Docs
-description: Getting-started tutorial for the Stream Analytics IoT solution of a tollbooth scenario
+description: Getting-started solution for the Stream Analytics IoT solution of a tollbooth scenario
 services: stream-analytics
 author: SnehaGunda
 ms.author: sngun
@@ -15,9 +15,9 @@ ms.date: 03/21/2018
 # Build an IoT solution by using Stream Analytics
 
 ## Introduction
-In this tutorial, you learn how to use Azure Stream Analytics to get real-time insights from your data. Developers can easily combine streams of data, such as click-streams, logs, and device-generated events, with historical records or reference data to derive business insights. As a fully managed, real-time stream computation service that's hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
+In this solution, you learn how to use Azure Stream Analytics to get real-time insights from your data. Developers can easily combine streams of data, such as click-streams, logs, and device-generated events, with historical records or reference data to derive business insights. As a fully managed, real-time stream computation service that's hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
 
-After completing this tutorial, you are able to:
+After completing this solution, you are able to:
 
 * Familiarize yourself with the Azure Stream Analytics portal.
 * Configure and deploy a streaming job.
@@ -26,7 +26,7 @@ After completing this tutorial, you are able to:
 * Use the monitoring and logging experience to troubleshoot issues.
 
 ## Prerequisites
-You need the following prerequisites to complete this tutorial:
+You need the following prerequisites to complete this solution:
 * An [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 
 ## Scenario introduction: “Hello, Toll!”
@@ -35,7 +35,7 @@ A toll station is a common phenomenon. You encounter them on many expressways, b
 ![Picture of cars at toll booths](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
 ## Incoming data
-This tutorial works with two streams of data. Sensors installed in the entrance and exit of the toll stations produce the first stream. The second stream is a static lookup dataset that has vehicle registration data.
+This solution works with two streams of data. Sensors installed in the entrance and exit of the toll stations produce the first stream. The second stream is a static lookup dataset that has vehicle registration data.
 
 ### Entry data stream
 The entry data stream contains information about cars as they enter toll stations. The exit data events are live streamed into an Event Hub queue from a Web App included in the sample app.
@@ -85,7 +85,7 @@ Here is a short description of the columns:
 | LicensePlate |The license plate number of the vehicle |
 
 ### Commercial vehicle registration data
-The tutorial uses a static snapshot of a commercial vehicle registration database. This data is saved as a JSON file into Azure blob storage, included in the sample.
+The solution uses a static snapshot of a commercial vehicle registration database. This data is saved as a JSON file into Azure blob storage, included in the sample.
 
 | LicensePlate | RegistrationId | Expired |
 | --- | --- | --- |
@@ -105,12 +105,12 @@ Here is a short description of the columns:
 | Expired |The registration status of the vehicle: 0 if vehicle registration is active, 1 if registration is expired |
 
 ## Set up the environment for Azure Stream Analytics
-To complete this sample, you need a Microsoft Azure subscription. If you do not have an Azure account, you can [request a free trial version](http://azure.microsoft.com/pricing/free-trial/).
+To complete this solution, you need a Microsoft Azure subscription. If you do not have an Azure account, you can [request a free trial version](http://azure.microsoft.com/pricing/free-trial/).
 
 Be sure to follow the steps in the “Clean up your Azure account” section at the end of this article so that you can make the best use of your Azure credit.
 
-## Deploy the Azure resources required for the tutorial
-There are several resources that can easily be deployed in a resource group together with a few clicks. The sample definition is hosted in github repository at [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+## Deploy the sample 
+There are several resources that can easily be deployed in a resource group together with a few clicks. The solution definition is hosted in github repository at [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### Deploy the TollApp template in the Azure portal
 1. To deploy the TollApp environment to Azure, use this links to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -178,7 +178,7 @@ Follow these steps to start the streaming job:
 
 3. After a few moments, once the job is running, on the **Overview** page of the streaming job, view the **Monitoring** graph. The graph should show several thousand input events, and tens of output events.
 
-## Review the CosmosDB output data from the streaming job
+## Review the CosmosDB output data
 1. Locate the Resource Group that contains the TollApp resources.
 
 2. Select the Azure Cosmos DB Account with the name pattern **tollapp/<random/>-cosmos**
@@ -194,7 +194,7 @@ Follow these steps to start the streaming job:
 7. After an additional three minutes, another set of 4 documents is available, one document per tollid. 
 
 
-## Report total time for each car to pass through the toll booth
+## Report total time for each car
 The average time that's required for a car to pass through the toll helps to assess the efficiency of the process and the customer experience.
 
 To find the total time, join the EntryTime stream with the ExitTime stream. Join the two input streams on the equal matching TollId and LicencePlate columns. The **JOIN** operator requires you to specify temporal leeway that describes the acceptable time difference between the joined events. Use the **DATEDIFF** function to specify that events should be no more than 15 minutes from each other. Also apply the **DATEDIFF** function to exit and entry times to compute the actual time that a car spends in the toll station. Note the difference of the use of **DATEDIFF** when it's used in a **SELECT** statement rather than a **JOIN** condition.
@@ -238,7 +238,7 @@ For example, this document shows an example car with a certain license plate, th
 }
 ```
 
-## Report all commercial vehicles with expired registration
+## Report vehicles with expired registration
 Azure Stream Analytics can use static snapshots of reference data to join with temporal data streams. To demonstrate this capability, use the following sample question. The Registration input is a static blob json file that lists the expirations of license tags. By joining on the license plate, the reference data is compared to each vehicle passing through the toll both. 
 
 If a commercial vehicle is registered with the toll company, it can pass through the toll booth without being stopped for inspection. Use the registration lookup table to identify all commercial vehicles that have expired registrations.
@@ -301,7 +301,7 @@ The **MONITOR** area contains statistics about the running job. First-time confi
 
 You can access **Activity Logs** from the job dashboard **Settings** area as well.
 
-## Clean up the TollApp resources from your Azure account
+## Clean up the TollApp resources
 1. Stop the Stream Analytics job in the Azure portal.
 
 2. Locate the resource group that contains eight resources related to the TollApp template.
@@ -309,6 +309,6 @@ You can access **Activity Logs** from the job dashboard **Settings** area as wel
 3. Select **Delete resource group** and type the name of the resource group to confirm deletion.
 
 ## Conclusion
-This tutorial introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data scenario, the tutorial explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The tutorial described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
+This solution introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data scenario, the solution explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The solution described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
 
-Although this tutorial provides a good introduction, it is not complete by any means. You can find more query patterns using the SAQL language at [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md).
+Although this solution provides a good introduction, it is not complete by any means. You can find more query patterns using the SAQL language at [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md).
