@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
+ms.author: rli; v-deasim
 ---
 # Dynamic site acceleration via Azure CDN
 
@@ -148,7 +148,7 @@ With DSA, caching is turned off by default on the CDN, even when the origin incl
 
 If you have a website with a mix of static and dynamic assets, it is best to take a hybrid approach to get the best performance. 
 
-For **Azure CDN from Verizon Standard** and **Azure CDN from Akamai Standard** profiles, you can turn on caching for specific DSA endpoints by using [caching rules](cdn-caching-rules.md).
+For **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles, you can turn on caching for specific DSA endpoints by using [caching rules](cdn-caching-rules.md).
 
 To access caching rules:
 
@@ -160,7 +160,7 @@ To access caching rules:
 
 2. Create a global or custom caching rule to turn on caching for your DSA endpoint. 
 
-For **Azure CDN from Verizon Premium** profiles only, you turn on caching for specific DSA endpoints by using the [rules engine](cdn-rules-engine.md). Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
+For **Azure CDN Premium from Verizon** profiles only, you turn on caching for specific DSA endpoints by using the [rules engine](cdn-rules-engine.md). Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
 
 To access the rules engine:
     
