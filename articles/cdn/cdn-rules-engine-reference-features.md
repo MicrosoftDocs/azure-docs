@@ -323,6 +323,9 @@ The rules engine allows you to customize the manner in which query string cachin
 
 To duplicate the "no-cache" query string caching behavior on the Query-String Caching page, create a rule that contains a URL Query Wildcard match condition and a Bypass Cache feature. Set the URL Query Wildcard match condition to an asterisk (*).
 
+>[!IMPORTANT] 
+> If token authorization is enabled for any path on this account, standard-cache mode is the only mode that can be used for query string caching. For more information, see [Control Azure CDN caching behavior with query strings](cdn-query-string-premium.md).
+
 #### Sample Scenarios
 
 The following sample usage for this feature provides a sample request and the default cache-key:
