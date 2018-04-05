@@ -5,11 +5,10 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
 ---
-
 # Running runbooks on a Hybrid Runbook Worker
 
 There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly though since runbooks targeting a Hybrid Runbook Worker typically manage resources on the local computer itself or against resources in the local environment where it is deployed, while runbooks in Azure Automation typically manage resources in the Azure cloud.
@@ -149,9 +148,9 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a `.ps1` extension. Import it into your Automation account and edit the runbook, changing the value of the variable `$Password` with your own password. Publish and then run the runbook targeting the Hybrid Worker group that run and authenticate runbooks using the Run As account. The job stream reports the attempt to import the certificate into the local machine store, and follows with multiple lines depending on how many Automation accounts are defined in your subscription and if authentication is successful.
 
-## Job restart behavior
+## Job behavior
 
-Jobs ran on a Hybrid Runbook Worker are restarted from the beginning if the job does not complete. This could happen for example if the Hybrid Runbook Worker is restarted in the middle of job execution. This is a benefit provided to you if you use a Hybrid Runbook Worker as job state is being monitored on the server side. To further ensure that runbooks are resilient, PowerShell Workflow runbooks can be used with checkpoints to ensure that job state is tracked. In cases where checkpoints are used the runbook will restart at the latest checkpoint reached.
+Jobs are handled slightly different on Hybrid Runbook Workers than they are when they are ran on Azure sandboxes. There are no limits on job duration on Hybrid Runbook Workers. To ensure that runbooks are resilient, PowerShell Workflow runbooks can be used with checkpoints to ensure that job state is tracked. In cases where checkpoints are used the runbook will restart at the latest checkpoint reached. Jobs ran on a Hybrid Runbook Worker are restarted from the beginning if the job does not complete. This could happen for example if the Hybrid Runbook Worker is restarted in the middle of job execution. This is a benefit provided to you if you use a Hybrid Runbook Worker as job state is being monitored on the server side. After 3 failed attempts the job is still suspended.
 
 ## Troubleshooting runbooks on Hybrid Runbook Worker
 
