@@ -276,13 +276,8 @@
         - name: Migrate from an affinity group to a region
           href: virtual-networks-migrate-to-regional-vnet.md
     - name: Network security groups
+      href: manage-network-security-group.md
       items:
-      - name: Azure portal
-        href: virtual-network-manage-nsg-arm-portal.md
-      - name: Azure PowerShell
-        href: virtual-network-manage-nsg-arm-ps.md
-      - name: Azure CLI
-        href: virtual-network-manage-nsg-arm-cli.md
       - name: Logs
         href: virtual-network-nsg-manage-log.md
     - name: Route tables
