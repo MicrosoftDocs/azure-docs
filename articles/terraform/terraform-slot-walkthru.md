@@ -236,7 +236,7 @@ To test swapping the two deployment slots, perform the following steps:
 
  1. Open the Cloud Shell.
 
- 1. Change directories to the **swap** directory (within the clouddrive directory).
+ 1. Change directories to the **clouddrive/swap** directory.
 
     ```bash
     cd clouddrive/swap
@@ -264,6 +264,14 @@ To test swapping the two deployment slots, perform the following steps:
     }
     ```
 
+1. Press the **&lt;Esc>** key to exit insert/append mode.
+
+1. Save the file and exit the vi editor by entering the following command, followed by pressing **&lt;Enter>**:
+
+    ```bash
+    :wq
+    ```
+
 1. Initialize Terraform.
 
     ```bash
@@ -285,6 +293,8 @@ To test swapping the two deployment slots, perform the following steps:
 1. Once Terraform has finished swapping the slots, return to the browser that is rendering the slotAppService web app and refresh the page. 
 
 The web app in your **slotAppServiceSlotOne** staging slot has been swapped with the production slot and now renders green. 
+
+![The deployment slots have been swapped](./media/terraform-slot-walkthru/slots-swapped.png)
 
 To return to the original production version of the app, reapply the Terraform plan created from the `swap.tf` configuration file.
 
