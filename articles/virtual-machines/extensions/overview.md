@@ -34,6 +34,6 @@ This article provides an overview of VM extensions, prerequisites for using Azur
 ## Next steps
 * For more information about how the Linux Agent and Extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
 * For more information about how the Windows Guest Agent and Extensions work, see [Azure VM extensions and features for Linux](features-windows.md).  
-* To install the Windows Guest Agent, see [Azure Virtual Machine Agent Overview ](agent-windows.md).  
-* To install the Linux Agent, see [Azure Virtual Machine Agent Overview ](linux-windows.md).  
+* To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent Overview ](agent-windows.md).  
+* To install the Linux Agent, see [Azure Linux Virtual Machine Agent Overview ](agent-linux.md).  
 
