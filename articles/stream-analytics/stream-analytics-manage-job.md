@@ -8,7 +8,7 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/05/2018
+ms.date: 04/04/2018
 ms.workload: data-services
 ms.author: sngun
 
