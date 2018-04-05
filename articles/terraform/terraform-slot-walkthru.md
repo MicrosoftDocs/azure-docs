@@ -65,7 +65,7 @@ ms.topic: article
 
 1. Paste the following code into the editor:
 
-    ```HCL
+    ```JSON
     # Configure the Azure Provider
     provider "azurerm" { }
 
@@ -100,7 +100,7 @@ ms.topic: article
     }
     ```
 
-1. Press the **&lt;Esc>** key to exit insert/append mode.
+1. Press the **&lt;Esc>** key to exit insert mode.
 
 1. Save the file and exit the vi editor by entering the following command, followed by pressing **&lt;Enter>**:
 
@@ -235,20 +235,20 @@ For the **slotAppService** web app, you see a blue page with a page title of **S
 
 To test swapping the two deployment slots, perform the following steps:
  
- 1. Switch to the browser tab running **slotAppService** (the app with the blue page). 
- 
- 1. Return to the Azure portal in a separate tab.
+1. Switch to the browser tab running **slotAppService** (the app with the blue page). 
 
- 1. Open the Cloud Shell.
+1. Return to the Azure portal in a separate tab.
 
- 1. Change directories to the **clouddrive/swap** directory.
+1. Open the Cloud Shell.
+
+1. Change directories to the **clouddrive/swap** directory.
 
     ```bash
     cd clouddrive/swap
     ```
 
- 1. Using the vi editor, create a file named `swap.tf`.
- 
+1. Using the vi editor, create a file named `swap.tf`.
+
     ```bash
     vi swap.tf
     ```
@@ -257,11 +257,11 @@ To test swapping the two deployment slots, perform the following steps:
 
 1. Paste the following code into the editor:
 
-    ```HCL
+    ```JSON
     # Configure the Azure Provider
     provider "azurerm" { }
 
-    # Swap the Production Slot with the Deployment Slot
+    # Swap the production slot and the staging slot
     resource "azurerm_app_service_active_slot" "slotDemoActiveSlot" {
         resource_group_name   = "slotDemoResourceGroup"
         app_service_name      = "slotAppService"
@@ -269,7 +269,7 @@ To test swapping the two deployment slots, perform the following steps:
     }
     ```
 
-1. Press the **&lt;Esc>** key to exit insert/append mode.
+1. Press the **&lt;Esc>** key to exit insert mode.
 
 1. Save the file and exit the vi editor by entering the following command, followed by pressing **&lt;Enter>**:
 
