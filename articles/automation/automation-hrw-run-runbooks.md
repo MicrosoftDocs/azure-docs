@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2018
+ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -13,7 +13,7 @@ manager: carmonm
 
 There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly though since runbooks targeting a Hybrid Runbook Worker typically manage resources on the local computer itself or against resources in the local environment where it is deployed, while runbooks in Azure Automation typically manage resources in the Azure cloud.
 
-You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor. The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail. If you do install the required modules, then the runbook runs, but it is  not able to access local resources for a complete test.
+When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook has been edited and tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it is available to run in the Hybrid worker.
 
 ## Starting a runbook on Hybrid Runbook Worker
 
@@ -150,15 +150,15 @@ Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a
 
 ## Job behavior
 
-Jobs are handled slightly different on Hybrid Runbook Workers than they are when they are ran on Azure sandboxes. There are no limits on job duration on Hybrid Runbook Workers. To ensure that runbooks are resilient, PowerShell Workflow runbooks can be used with checkpoints to ensure that job state is tracked. In cases where checkpoints are used the runbook will restart at the latest checkpoint reached. Jobs ran on a Hybrid Runbook Worker are restarted from the beginning if the job does not complete. This could happen for example if the Hybrid Runbook Worker is restarted in the middle of job execution. This is a benefit provided to you if you use a Hybrid Runbook Worker as job state is being monitored on the server side. After 3 failed attempts the job is still suspended.
+Jobs are handled slightly different on Hybrid Runbook Workers than they are when they run on Azure sandboxes. One key difference is that there is no limit on job duration on Hybrid Runbook Workers. If you have a long-running runbook you want to ensure that it is resilient to possible restart, for example if the machine that hosts the Hybrid worker reboots. If the Hybrid worker host machine reboots, then any running runbook job restarts from the beginning, or from the last checkpoint for PowerShell Workflow runbooks. If a runbook job is restarted more than 3 times, then it is suspended.
 
 ## Troubleshooting runbooks on Hybrid Runbook Worker
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Hybrid workers also records errors and events in the Windows event log under **Application and Services Logs\Microsoft-SMA\Operational**. Events related to runbooks executed on the worker are written to **Application and Services Logs\Microsoft-Automation\Operational**. The **Microsoft-SMA** log includes many more events related to the runbook job pushed to the worker and the processing of the runbook. While the **Microsoft-Automation** event log does not have many events with details assisting with the troubleshooting of runbook execution, you will at least find the results of the runbook job.
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Hybrid workers also record errors and events in the Windows event log under **Application and Services Logs\Microsoft-SMA\Operational**. Events related to runbooks executed on the worker are written to **Application and Services Logs\Microsoft-Automation\Operational**. The **Microsoft-SMA** log includes many more events related to the runbook job pushed to the worker and the processing of the runbook. While the **Microsoft-Automation** event log does not have many events with details assisting with the troubleshooting of runbook execution, it contains the results of the runbook job.
 
 [Runbook output and messages](automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs run in the cloud. You can also enable the Verbose and Progress streams the same way you would for other runbooks.
 
-If your runbooks are not completing successfully and the job summary shows a status of **Suspended**, please review the troubleshooting article [Hybrid Runbook Worker: A runbook job terminates with a status of Suspended](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).
+If your runbooks are not completing successfully and the job summary shows a status of **Suspended**, review the troubleshooting article [Hybrid Runbook Worker: A runbook job terminates with a status of Suspended](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).
 
 ## Next steps
 
