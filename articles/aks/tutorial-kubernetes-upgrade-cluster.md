@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -109,6 +109,9 @@ Output:
   "type": "Microsoft.ContainerService/ManagedClusters"
 }
 ```
+
+> [!NOTE]
+> When upgrading an AKS cluster, Kubernetes minor versions cannot be skipped. For example an upgrade between 1.7.x > 1.8.x and 1.8.x > 1.9.x is allowed, however 1.7 > 1.9 is not.
 
 ## Validate upgrade
 
