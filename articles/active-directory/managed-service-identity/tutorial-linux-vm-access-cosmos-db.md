@@ -239,5 +239,5 @@ This CLI command returns details about the collection:
 
 ## Next steps
 
-- For an overview of MSI, see [Managed Service Identity (MSI) for Azure resources](msi-overview.md).
+- For an overview of MSI, see [Managed Service Identity (MSI) for Azure resources](overview.md).
 
