@@ -82,7 +82,7 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - **Support is added for multiple fault domains**.  For more information, see [High availability for Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack).
 
-- **Various fixes** for performance, stability, security, and the operating system that is used by Azure stack.
+- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 <!--
 #### New features
