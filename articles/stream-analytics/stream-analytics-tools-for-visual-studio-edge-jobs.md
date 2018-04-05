@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 03/13/2018
 --- 
 
-# Develop Stream Analytics Edge jobs by using Visual Studio tools
+# Develop Stream Analytics Edge jobs using Visual Studio tools
 
 In this tutorial, you learn how to use Stream Analytics tools for Visual Studio to author, debug, and create your Stream Analytics Edge jobs. After you create and test the job, you can go to the Azure portal to deploy it to your devices. 
 
