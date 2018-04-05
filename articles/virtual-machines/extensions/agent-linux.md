@@ -4,7 +4,7 @@ description: Learn how to install and configure Linux Agent (waagent) to manage 
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
 

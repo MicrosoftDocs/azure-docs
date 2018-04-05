@@ -85,7 +85,7 @@ sections:
         - image:
             src: media/index.experimental/logo_gremlin.svg
         - image:
-            src: media/index.experimental/logo_golang.png
+            src: https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg
         - image:
             src: media/index.experimental/logo_xamarin.svg
       rows:

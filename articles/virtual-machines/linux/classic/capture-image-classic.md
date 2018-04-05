@@ -4,7 +4,7 @@ description: Learn how to capture an image of a Linux-based Azure virtual machin
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
