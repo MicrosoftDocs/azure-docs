@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: automation
+author: georgewallace
+ms.service: automation
+ms.topic: "include"
+ms.date: 04/05/2018
+ms.author: gwallace
+ms.custom: "include file"
+---
+
 | Resource | Maximum Limit |
 | --- | --- |
 | Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs) |100 |
