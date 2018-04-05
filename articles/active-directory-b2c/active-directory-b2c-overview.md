@@ -90,7 +90,7 @@ Most of the HTML and CSS content that's presented to customers can be controlled
 
 Azure AD B2C runs code in the customer's browser and uses a modern approach called Cross-Origin Resource Sharing (CORS). First, you specify a URL in a policy with customized HTML content. Azure AD B2C merges UI elements with the HTML content that's loaded from your URL and then displays the page to the customer.
 
-You can send a parameters to Azure AD B2C in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application.
+You can send parameters to Azure AD B2C in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application.
 
 ## How do I get started with Azure AD B2C?
 
