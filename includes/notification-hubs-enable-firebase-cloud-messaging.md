@@ -1,6 +1,6 @@
 ---
  title: include file
- description: Create an app in Firebase console and add support for Firebase Cloud Messaging. 
+ description: include file
  services: notification-hubs
  author: spelluru
  ms.service: notification-hubs

@@ -1,6 +1,6 @@
 ---
  title: include file
- description: Add Google Play Services support to an Android project. 
+ description: include file
  services: notification-hubs
  author: spelluru
  ms.service: notification-hubs
@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-1. Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio or by clicking **Tools** -> **Android** -> **SDK Manager** on the menu. Locate the target version of the Android SDK that is used in your project, open it by clicking **Show Package Details**, and choose **Google APIs**, if it is not already installed.
+1. Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio or by clicking **Tools** > **Android** > **SDK Manager** on the menu. Locate the target version of the Android SDK that is used in your project, open it by clicking **Show Package Details**, and choose **Google APIs**, if it is not already installed.
 2. Click the **SDK Tools** tab. If you haven't already installed Google Play Service, click **Google Play Services** as shown below. Then click **Apply** to install. 
    
     Note the SDK path, for use in a later step. 
