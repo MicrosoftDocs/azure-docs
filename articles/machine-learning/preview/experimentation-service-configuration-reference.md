@@ -60,7 +60,7 @@ dependencies:
      # a package hosted in a public URL endpoint
      - https://cntk.ai/PythonWheel/CPU-Only/cntk-2.1-cp35-cp35m-win_amd64.whl
      
-     # a wheel file available locally on disk (this only works if you are executing against local target)
+     # a wheel file available locally on disk (this only works if you are executing against local Docker target)
      - C:\temp\my_private_python_pkg.whl
 ```
 

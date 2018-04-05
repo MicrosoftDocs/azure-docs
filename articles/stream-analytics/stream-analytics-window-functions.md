@@ -38,7 +38,7 @@ Sliding window functions, unlike Tumbling or Hopping windows, produce an output 
 ![Stream Analytics Window functions sliding intro](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## Getting help with Window functions
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
