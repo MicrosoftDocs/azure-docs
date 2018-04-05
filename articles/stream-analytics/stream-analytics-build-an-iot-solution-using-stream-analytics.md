@@ -109,7 +109,7 @@ To complete this sample, you need a Microsoft Azure subscription. If you do not 
 
 Be sure to follow the steps in the “Clean up your Azure account” section at the end of this article so that you can make the best use of your Azure credit.
 
-## Provision Azure resources required for the tutorial
+## Deploy the Azure resources required for the tutorial
 There are several resources that can easily be deployed in a resource group together with a few clicks. The sample definition is hosted in github repository at [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### Deploy the TollApp template in the Azure portal
@@ -134,136 +134,117 @@ There are several resources that can easily be deployed in a resource group toge
    - One Azure Event Hub
    - Two Web Apps
 
-### Start the TollApp streaming job
-The Azure Stream Analytics Job is not started upon deployment. Steps to start the job
+## Examine the sample TollApp job 
+1. From the resource group in the previous section, select the job starting with the name **tollapp** (name contains random characters for uniqueness).
+2. On the **Overview** page of the job, notice the **Query** box to view the query syntax.
 
-1. Log into Microsoft Azure Portal.
-2. Open the Stream Analytics jobs.
-3. Select the job starting with the name **tollapp\*** (name contains random characters for uniqueness).
-4. On the **Overview** page of the job, select **Start**.
-5. After a few moments, cnce the job is running, on the **Overview** page of the streaming job, view the **Monitoring** graph. The graph should show several thousand input events, and tens of output events.
+   ```sql
+   SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
+   INTO CosmosDB
+   FROM EntryStream TIMESTAMP BY EntryTime
+   GROUP BY TUMBLINGWINDOW(minute, 3), TollId
+   ```
 
-## Introduction to Azure Stream Analytics query language
-- - -
-Let’s say that you need to count the number of vehicles that enter a toll booth. Because this is a continuous stream of events, you have to define a “period of time.” Let's modify the question to be “How many vehicles enter a toll booth every three minutes?” This is commonly referred to as the tumbling count.
+   To paraphrase the intent of the query, let’s say that you need to count the number of vehicles that enter a toll booth. Because this is a continuous stream of events, you have to define a “period of time.” Let's modify the question to be “How many vehicles enter a toll booth every three minutes?” This is commonly referred to as the tumbling count.
 
-Let’s look at the Azure Stream Analytics query that answers this question:
+   As you can see, Azure Stream Analytics uses a query language that's like SQL and adds a few extensions to specify time-related aspects of the query.  For more details, read about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) constructs used in the query.
 
-```sql
-SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
-INTO CosmosDB
-FROM EntryStream TIMESTAMP BY EntryTime
-GROUP BY TUMBLINGWINDOW(minute, 3), TollId
-```
+3. Examine the Inputs of the TollApp sample job. Only the EntryStream input is used in the current query.
+   - **EntryStream** input is an Event Hub connection that queues data representing each time a car enters a tollbooth on the highway. A web app that is part of the sample is creating the data which is queued in this Event Hub. Note this input is queried in the FROM clause of the streaming query.
+   - **ExitStream** intput is an Event Hub connection that queues data representing each time a car exits a tollbooth on the highway.
+   - **Registration** input is an Azure Blob storage connection, pointing to a static registration.json file, used for lookups as needed.
 
-As you can see, Azure Stream Analytics uses a query language that's like SQL and adds a few extensions to specify time-related aspects of the query.
+4. Examine the Outputs of the TollApp sample job.
+   - **Cosmos DB** output is a Cosmos database collection that receives the output sink events. Note this output is used in INTO clause of the streaming query.
 
-For more details, read about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx)
-constructs used in the query.
+## Start the TollApp streaming job
+Follow these steps to start the streaming job:
 
-## Testing Azure Stream Analytics queries
-Now that you have written your first Azure Stream Analytics query, it is time to test it by using sample data files located in your TollApp folder in the following path:
+1. On the **Overview** page of the job, select **Start**.
+2. On the **Start job** pane, select **Now**.
+3. After a few moments, once the job is running, on the **Overview** page of the streaming job, view the **Monitoring** graph. The graph should show several thousand input events, and tens of output events.
 
-**..\\TollApp\\TollApp\\Data**
+## Review the CosmosDB output data from the streaming job
+1. Locate the Resource Group that contains the TollApp resources.
+2. Select the Azure Cosmos DB Account with the name pattern tollapp<random>-cosmos
+3. Select the **Data Explorer** heading to open the Data Explorer page.
+4. Expand the **tollAppDatabase** > **tollAppCollection** > **Documents**.
+5. In the list of ids, several guid values are shown once the output is available.
+6. Select each id, and review the JSON document. Notice each tollid, windowend time, and the count of cars from that window.
+7. After an additional three minutes, another set of 4 documents is available, one per tollid. 
 
-This folder contains the following files:
 
-* Entry.json
-* Exit.json
-* Registration.json
-
-## Question 1: Number of vehicles entering a toll booth
-1. Open the Azure portal and go to your created Azure Stream Analytics job. Click the **QUERY** tab and review the query syntax.
-
-2. Review the job input and output to familiarize yourself.
-
-3. To validate this query against sample data, upload the data into the EntryStream input by clicking the ... symbol and selecting **Upload sample data from file**.
-
-    ![Screenshot of the Entry.json file](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image41.png)
-
-4. In the pane that appears select the file (Entry.json) on your local machine and click **OK**. The **Test** icon will now illuminate and be clickable.
-   
-    ![Screenshot of the Entry.json file](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.png)
-
-5. Validate that the output of the query is as expected:
-   
-    ![Results of the test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image43.png)
-
-## Question 2: Report total time for each car to pass through the toll booth
+## Adjust the query: Report total time for each car to pass through the toll booth
 The average time that's required for a car to pass through the toll helps to assess the efficiency of the process and the customer experience.
 
 To find the total time, you need to join the EntryTime stream with the ExitTime stream. You will join the streams on TollId and LicencePlate columns. The **JOIN** operator requires you to specify temporal leeway that describes the acceptable time difference between the joined events. You will use **DATEDIFF** function to specify that events should be no more than 15 minutes from each other. You will also apply the **DATEDIFF** function to exit and entry times to compute the actual time that a car spends in the toll station. Note the difference of the use of **DATEDIFF** when it's used in a **SELECT** statement rather than a **JOIN** condition.
 
-    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTime
-    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
-    AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
+```sql
+SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
+INTO CosmosDB
+FROM EntryStream TIMESTAMP BY EntryTime
+JOIN ExitStream TIMESTAMP BY ExitTime
+ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
+AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
+```
 
-1. To test this query, update the query on the **QUERY** for the job. Add the test file for **ExitStream** just like **EntryStream** was entered above.
-   
-2. Click **Test**.
+To update the TollApp streaming job query syntax:
 
-3. Select the check box to test the query and view the output:
-   
-    ![Output of the test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
+1. On the **Overview** page of the job, select **Stop**. 
+2. Wait a few moments for the notification that the job has stopped.
+3. Under the JOB TOPOLOGY heading, select **/</> Query**
+4. Paste the adjusted streaming SQL query.
+5. Select **Save** to save the query. Confirm **Yes** to save the changes.
+6. On the **Overview** page of the job, select **Start**.
+7. On the **Start job** pane, select **Now**.
+8. Repeat the steps in the preceding section to review the CosmosDB output data from the streaming job. 
 
-## Question 3: Report all commercial vehicles with expired registration
+## Adjust the query: Report all commercial vehicles with expired registration
 Azure Stream Analytics can use static snapshots of data to join with temporal data streams. To demonstrate this capability, use the following sample question.
 
 If a commercial vehicle is registered with the toll company, it can pass through the toll booth without being stopped for inspection. You will use Commercial Vehicle Registration lookup table to identify all commercial vehicles that have expired registrations.
 
-```
+```sql
 SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
+INTO CosmosDB
 FROM EntryStream TIMESTAMP BY EntryTime
 JOIN Registration
 ON EntryStream.LicensePlate = Registration.LicensePlate
 WHERE Registration.Expired = '1'
 ```
 
-To test a query by using reference data, you need to define an input source for the reference data, which you have done already.
+To update the TollApp streaming job query syntax:
 
-To test this query, paste the query into the **QUERY** tab, click **Test**, and specify the two input sources and the registration sample data and click **Test**.  
-   
-![Output of the test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
-
-## Start the Stream Analytics job
-Now it's time to finish the configuration and start the job. Save the query from Question 3, which will produce output that matches the schema of the **TollDataRefJoin** output table.
-
-Go to the job **DASHBOARD**, and click **START**.
-
-![Screenshot of the Start button in the job dashboard](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image48.png)
-
-In the dialog box that opens, change the **START OUTPUT** time to **CUSTOM TIME**. Change the hour to one hour before the current time. This change ensures that all events from the event hub are processed since you started to generate the events at the beginning of the tutorial. Now click the **Start** button to start the job.
-
-![Selection of custom time](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image49.png)
-
-Starting the job can take a few minutes. You can see the status on the top-level page for Stream Analytics.
-
-![Screenshot of the status of the job](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.png)
-
-## Check results in Visual Studio
-1. Open Visual Studio Server Explorer, and right-click the **TollDataRefJoin** table.
-2. Click **Show Table Data** to see the output of your job.
-   
-    ![Selection of "Show Table Data" in Server Explorer](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
+1. On the **Overview** page of the job, select **Stop**. 
+2. Wait a few moments for the notification that the job has stopped.
+3. Under the JOB TOPOLOGY heading, select **/</> Query**
+4. Paste in the adjusted streaming SQL query.
+5. Select **Save** to save the query. Confirm **Yes** to save the changes.
+6. On the **Overview** page of the job, select **Start**.
+7. On the **Start job** pane, select **Now**.
+8. Repeat the steps in the preceding section to review the CosmosDB output data from the streaming job. 
 
 ## Scale out Azure Stream Analytics jobs
 Azure Stream Analytics is designed to elastically scale so that it can handle large volumes of data. The Azure Stream Analytics query can use a **PARTITION BY** clause to tell the system that this step will scale out. **PartitionId** is a special column that the system adds to match the partition ID of the input (event hub).
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
-    GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
+To scale out the query to partitions, edit the query syntax to the following code:
+```sql
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
+FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
+GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
+```
 
-1. Stop the current job, update the query in the **QUERY** tab, and open the **Settings** gear in the job dashboard. Click **Scale**.
+To scale up the streaming job to more streaming units:
+
+1. Stop the current job, update the query in the **QUERY** tab, and open the **Settings** gear in the job dashboard. 
+
+2. Click **Scale**.
    
     **STREAMING UNITS** define the amount of compute power that the job can receive.
-2. Change the drop-down from 1 from 6.
-   
-    ![Screenshot of selecting six streaming units](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image52.png)
-3. Go to the **OUTPUTS** tab and change the name of the SQL table to **TollDataTumblingCountPartitioned**.
 
-If you start the job now, Azure Stream Analytics can distribute work across more compute resources and achieve better throughput. Note that the TollApp application is also sending events partitioned by TollId.
+3. Slide the **Streaming Units** slider from 1 to 6, and select **Save**.
+
+4. Start the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput. Note that the TollApp application is also sending events partitioned by TollId.
 
 ## Monitor
 The **MONITOR** area contains statistics about the running job. First-time configuration is needed to use the storage account in the same region (name toll like the rest of this document).   
@@ -272,14 +253,12 @@ The **MONITOR** area contains statistics about the running job. First-time confi
 
 You can access **Activity Logs** from the job dashboard **Settings** area as well.
 
+## Clean up the TollApp resources from your Azure account
+1. Stop the Stream Analytics job in the Azure portal.
+2. Locate the resource group that contains 8 resources related to the TollApp template.
+3. Select **Delete resource group** and type the name of the resource group to confirm deletion.
 
 ## Conclusion
 This tutorial introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data scenario, the tutorial explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The tutorial described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
 
 Although this tutorial provides a good introduction, it is not complete by any means. You can find more query patterns using the SAQL language at [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md).
-Refer to the [online documentation](https://azure.microsoft.com/documentation/services/stream-analytics/) to learn more about Azure Stream Analytics.
-
-## Clean up the TollApp resources from your Azure account
-1. Stop the Stream Analytics job in the Azure portal.
-2. Locate the resource group that contains 8 resources related to the TollApp template.
-3. Select **Delete resource group** and type the name of the resource group to confirm deletion.
