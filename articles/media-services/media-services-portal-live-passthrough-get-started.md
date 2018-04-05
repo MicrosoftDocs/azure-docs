@@ -1,10 +1,10 @@
 ---
-title: Live stream with on-premise encoders using the Azure portal | Microsoft Docs
+title: Live stream with on-premises encoders using the Azure portal | Microsoft Docs
 description: This tutorial walks you through the steps of creating a Channel that is configured for a pass-through delivery.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 08/09/2017
 ms.author: juliako
 
 ---
-# How to perform live streaming with on-premise encoders using the Azure portal
+# How to perform live streaming with on-premises encoders using the Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -38,7 +38,7 @@ It is highly recommended to review the following articles:
 
 * [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Overview of Live Steaming using Azure Media Services](media-services-manage-channels-overview.md)
-* [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md)
+* [Live streaming with on-premises encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Common live streaming scenario
 The following steps describe tasks involved in creating common live streaming applications that use channels that are configured for pass-through delivery. This tutorial shows how to create and manage a pass-through channel and live events.
@@ -66,7 +66,7 @@ The following steps describe tasks involved in creating common live streaming ap
 9. Delete the event/program (and optionally delete the asset).     
 
 > [!IMPORTANT]
-> Please review [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) to learn about concepts and considerations related to live streaming with on-premise encoders and pass-through channels.
+> Please review [Live streaming with on-premises encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) to learn about concepts and considerations related to live streaming with on-premises encoders and pass-through channels.
 > 
 > 
 
@@ -97,7 +97,7 @@ If you do want to retain the archived content, but not have it available for str
 ### To use the portal to create a channel
 This section shows how to use the **Quick Create** option to create a pass-through channel.
 
-For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
+For more details about pass-through channels, see [Live streaming with on-premises encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
 2. In the **Settings** window, click **Live streaming**. 
@@ -131,7 +131,7 @@ To watch the event, click **Watch** in the Azure portal or copy the streaming UR
 Live event automatically get converted to on-demand content when stopped.
 
 ## Clean up
-For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
+For more details about pass-through channels, see [Live streaming with on-premises encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
 * A channel can be stopped only when all events/programs on the channel have been stopped.  Once the Channel is stopped, it does not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
 * A channel can be deleted only when all live events on the channel have been deleted.

@@ -4,7 +4,7 @@ description: Learn how to create a Windows HPC Pack cluster with size H16r, H16m
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,hpc-pack
 
@@ -14,24 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/01/2017
+ms.date: 03/06/2018
 ms.author: danlep
 
 ---
 # Set up a Windows RDMA cluster with HPC Pack to run MPI applications
-Set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [H-series or compute-intensive A-series instances](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. When you set up RDMA-capable, Windows Server-based nodes in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
+Set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [RDMA-capable HPC VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) to run parallel Message Passing Interface (MPI) applications. When you set up RDMA-capable, Windows Server-based nodes in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
 If you want to run MPI workloads on Linux VMs that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](../../linux/classic/rdma-cluster.md).
 
 ## HPC Pack cluster deployment options
 Microsoft HPC Pack is a tool provided at no additional cost to create HPC clusters on-premises or in Azure to run Windows or Linux HPC applications. HPC Pack includes a runtime environment for the Microsoft implementation of the Message Passing Interface for Windows (MS-MPI). When used with RDMA-capable instances running a supported Windows Server operating system, HPC Pack provides an efficient option to run Windows MPI applications that access the Azure RDMA network. 
 
-This article introduces two scenarios and links to detailed guidance to set up a Windows RDMA cluster with Microsoft HPC Pack. 
+This article introduces two scenarios and links to detailed guidance to set up a Windows RDMA cluster with Microsoft HPC Pack 2012 R2. 
 
 * Scenario 1. Deploy compute-intensive worker role instances (PaaS)
 * Scenario 2. Deploy compute nodes in compute-intensive VMs (IaaS)
-
-For general prerequisites to use compute-intensive instances with Windows, see [About H-series and compute-intensive A-series VMs](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Scenario 1: Deploy compute-intensive worker role instances (PaaS)
 From an existing HPC Pack cluster, add extra compute resources in Azure worker role instances (Azure nodes) running in a cloud
@@ -54,13 +52,14 @@ in an Azure VM.
 ### Steps
 1. **Deploy and configure an HPC Pack 2012 R2 head node**
    
-    Download the latest HPC Pack installation package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). For requirements and instructions to prepare for an Azure burst deployment, see [Burst to Azure Worker Instances with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
+    Download the HPC Pack installation package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). For requirements and instructions to prepare for an Azure burst deployment, see [Burst to Azure Worker Instances with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Configure a management certificate in the Azure subscription**
    
     Configure a certificate to secure the connection between the head node and Azure. For options and procedures, see [Scenarios to Configure the Azure Management Certificate for HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). For test deployments, HPC Pack installs a Default Microsoft HPC Azure Management Certificate you can quickly upload to your Azure subscription.
 3. **Create a new cloud service and a storage account**
    
-    Use the Azure portal to create a cloud service and a storage account for the deployment in a region where the RDMA-capable instances are available.
+    Use the Azure portal to create a cloud service (classic) and a storage account (classic) for the deployment. Create these resources in a region where the H-series, A8, or A9 size you want to use is available. See [Azure products by region](https://azure.microsoft.com/regions/services/).
+
 4. **Create an Azure node template**
    
     Use the Create Node Template Wizard in HPC Cluster Manager. For steps, see [Create an Azure node template](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) in “Steps to Deploy Azure Nodes with Microsoft HPC Pack”.
@@ -97,19 +96,20 @@ automate the deployment of an HPC Pack 2012 R2 cluster in Azure.
 ### Steps
 1. **Create a cluster head node and compute node VMs by running the HPC Pack IaaS deployment script on a client computer**
    
-    Download the HPC Pack IaaS Deployment Script package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
+    Download the HPC Pack IaaS Deployment Script package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949).
    
     To prepare the client computer, create the script configuration file, and run the script, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](hpcpack-cluster-powershell-script.md). 
    
-    To deploy RDMA-capable compute nodes, note the following additional considerations:
+    For considerations to deploy RDMA-capable compute nodes, see [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) and note the following:
    
-   * **Virtual network**: Specify a new virtual network in a region in which the RDMA-capable instance size you want to use is available.
-   * **Windows Server operating system**: To support RDMA connectivity, specify a Windows Server 2012 R2 or Windows Server 2012 operating system for the compute node VMs.
-   * **Cloud services**: We recommend deploying your head node in one cloud service and your compute nodes in a different cloud service.
+   * **Virtual network**: Specify a new virtual network in a region in which the H-series, A8, or A9 size you want to use is available. See [Azure products by region](https://azure.microsoft.com/regions/services/).
+
+   * **Windows Server operating system**: To support RDMA connectivity, specify a compatible Windows Server operating system such as Windows Server 2012 R2 for the compute node VMs.
+   * **Cloud services**: Because the script uses the classic deployment model, the cluster VMs are deployed using Azure cloud services (`ServiceName` settings in the configuration file). We recommend deploying your head node in one cloud service and your compute nodes in a different cloud service. 
    * **Head node size**: For this scenario, consider a size of at least A4 (Extra Large) for the head node.
-   * **HpcVmDrivers extension**: The deployment script installs the Azure VM Agent and the HpcVmDrivers extension automatically when you deploy size A8 or A9 compute nodes with a Windows Server operating system. HpcVmDrivers installs drivers on the compute node VMs so they can connect to the RDMA network. On RDMA-capable H-series VMs, you must manually install the HpcVmDrivers extension. See [About H-series and compute-intensive A-series VMs](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network).
+   * **HpcVmDrivers extension**: The deployment script installs the Azure VM Agent and the HpcVmDrivers extension automatically when you deploy size A8 or A9 compute nodes with a Windows Server operating system. HpcVmDrivers installs drivers on the compute node VMs so they can connect to the RDMA network. On RDMA-capable H-series VMs, you must manually install the HpcVmDrivers extension. See [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    * **Cluster network configuration**: The deployment script automatically sets up the HPC Pack cluster in Topology 5 (all nodes on the Enterprise network). This topology is required for all HPC Pack cluster deployments in VMs. Do not change the cluster network topology later.
-2. **Bring the compute nodes online to run jobs**
+1. **Bring the compute nodes online to run jobs**
    
     Select the nodes and use the **Bring Online** action in HPC Cluster Manager. The nodes are ready to run jobs.
 3. **Submit jobs to the cluster**

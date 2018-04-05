@@ -14,19 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
 
 ---
 # Connect to Azure SQL Data Warehouse
 This article helps you get connected to SQL Data Warehouse for the first time.
 
 ## Find your server name
-The first step to connecting to SQL Data Warehouse is knowing how to find your server name.  For example, the server name in the following example is sample.database.windows.net. To find the fully qualified server name:
+The first step to connecting to SQL Data Warehouse is knowing how to find your server name.  For example, the server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
 
 1. Go to the [Azure portal][Azure portal].
-2. Click on **SQL databases** 
-3. Click on the database you want to connect to.
+2. Click on **SQL data warehouses**.
+3. Click on the data warehouse you want to connect to.
 4. Locate the full server name.
    
     ![Full server name][1]
@@ -40,12 +40,12 @@ Azure SQL Data Warehouse supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], 
 > 
 
 ### ADO.NET connection string example
-```C#
+```csharp
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### ODBC connection string example
-```C#
+```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
@@ -90,6 +90,6 @@ To connect and query with Visual Studio, see [Query with Visual Studio][Query wi
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

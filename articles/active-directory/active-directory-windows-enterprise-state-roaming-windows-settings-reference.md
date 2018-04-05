@@ -5,7 +5,7 @@ services: active-directory
 keywords: enterprise state roaming, windows cloud
 documentationcenter: ''
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf

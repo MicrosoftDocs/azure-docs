@@ -12,8 +12,8 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 06/12/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
 
 ---
@@ -42,15 +42,15 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 To use the [Event Processor Host][EventProcessorHost], you must have an [Azure Storage account][Azure Storage account]:
 
-1. Log on to the [Azure portal][Azure portal], and click **New** at the top left of the screen.
+1. Log on to the [Azure portal][Azure portal], and click **Create a resource** at the top left of the screen.
 2. Click **Storage**, then click **Storage account**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-3. In the **Create storage account** blade, type a name for the storage account. Choose an Azure subscription, resource group, and location in which to create the resource. Then click **Create**.
+3. In the **Create storage account** pane, type a name for the storage account. Choose an Azure subscription, resource group, and location in which to create the resource. Then click **Create**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 4. In the list of storage accounts, click the newly created storage account.
-5. In the storage account blade, click **Access keys**. Copy the value of **key1** to use later in this tutorial.
+5. In the storage account pane, click **Access keys**. Copy the value of **key1** to use later in this tutorial.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -179,6 +179,6 @@ Now that you've built a working application that creates an event hub and sends 
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
-[Azure Storage account]: ../storage/storage-create-storage-account.md
+[Azure Storage account]:../storage/common/storage-create-storage-account.md
 [Event Processor Host]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.com

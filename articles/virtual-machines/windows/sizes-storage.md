@@ -1,10 +1,10 @@
 ---
 title: Azure Windows VM sizes - Storage | Microsoft Docs
-description: Lists the different storage optimized sizes available for Windows virtual machines in Azure.
+description: Lists the different storage optimized sizes available for Windows virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: jonbeck7
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,19 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
-ms.author: cynthn
+ms.date: 01/11/2018
+ms.author: jonbeck
 
 ---
 
-# Storage optimized
+# Storage optimized virtual machine sizes
 
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
-
-
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 
 ## Other sizes

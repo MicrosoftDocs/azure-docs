@@ -3,7 +3,7 @@ title: Manage network security group flow logs with Azure Network Watcher | Micr
 description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 
@@ -36,7 +36,10 @@ Network security group flow logs are a feature of Network Watcher that enables y
 
 ## Before you begin
 
-This scenario assumes you have already followed the steps in [Create a Network Watcher instance](network-watcher-create.md). The scenario also assumes that a you have a resource group with a valid virtual machine.
+To complete the steps in this article, you must already have the following resources:
+
+- An existing Network Watcher. To create a Network Watcher, see [Create a Network Watcher instance](network-watcher-create.md).
+- An existing resource group with a valid virtual machine. If you don't have a virtual machine, see Create a [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) or [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) virtual machine.
 
 ## Register Insights provider
 
@@ -66,7 +69,7 @@ Select a network security group from the list.
 
 ### Step 3 
 
-On the **Flow logs settings** blade, set the status to **On**, and then configure a storage account.  When you're done, select **OK**. Then select **Save**.
+On the **Flow logs settings** blade, set the status to **On**, and then configure a storage account. Select an existing storage account that has **All networks** (default) selected under **Firewalls and virtual networks**, under the **SETTINGS** for the storage account. Once you've selected a storage account, select **OK**, and then select **Save**.
 
 ![Flow logs overview][3]
 

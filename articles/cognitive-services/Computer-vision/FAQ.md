@@ -2,14 +2,14 @@
 title: FAQs for the Computer Vision API | Microsoft Docs
 description: Get answers to frequently asked questions about the Computer Vision API in Microsoft Cognitive Services.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
+author: KellyDF
+manager: corncar
 
 ms.service: cognitive-services 
 ms.technology: computer-vision
 ms.topic: article
 ms.date: 01/26/2017
-ms.author: juliakuz
+ms.author: kefre
 ---
 
 # Computer Vision API Frequently Asked Questions
@@ -25,7 +25,7 @@ ms.author: juliakuz
 
 **Question**: *Can Computer Vision be used locally without an internet connection?*
 
-**Answer**: We currently do not offer an on-premise or local solution.
+**Answer**: We currently do not offer an on-premises or local solution.
 
 -----
 

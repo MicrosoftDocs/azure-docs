@@ -1,9 +1,9 @@
 ---
 title: Encryption in Azure Data Lake Store | Microsoft Docs
-description: Understand how encryption and key rotation work in Azure Data Lake Store
+description: Encryption in Azure Data Lake Store helps you protect your data, implement enterprise security policies, and meet regulatory compliance requirements. This article provides an overview of the design, and discusses some of the technical aspects of implementation.
 services: data-lake-store
 documentationcenter: ''
-author: yagupta
+author: esung22
 manager:
 editor:
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 4/14/2017
+ms.date: 03/26/2018
 ms.author: yagupta
 ---
 
@@ -103,7 +103,7 @@ The following diagram illustrates these concepts:
 4.	Store the encrypted data block of data on persistent storage.
 
 > [!NOTE] 
-> For performance reasons, the DEK in the clear is cached in memory for a short time, and is immediately erased afterward. On persistent media, it is always stored encrypted by the MEK.
+> The DEK is always stored encrypted by the MEK, whether on persistent media or cached in memory.
 
 ## Key rotation
 

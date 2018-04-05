@@ -4,7 +4,7 @@ description: Learn how to use Ansible to create and manage a complete Linux virt
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: na
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ---
 
@@ -26,7 +26,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 To manage Azure resources with Ansible, you need the following:
 
 - Ansible and the Azure Python SDK modules installed on your host system.
-    - Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)
+    - Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
 - Azure credentials, and Ansible configured to use them.
     - [Create Azure credentials and configure Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
@@ -41,7 +41,7 @@ The following section in an Ansible playbook creates a virtual network named *my
   azure_rm_virtualnetwork:
     resource_group: myResourceGroup
     name: myVnet
-    address_prefixes: "10.10.0.0/16"
+    address_prefixes: "10.0.0.0/16"
 ```
 
 To add a subnet, the following section creates a subnet named *mySubnet* in the *myVnet* virtual network:
@@ -78,7 +78,7 @@ Network Security Groups control the flow of network traffic in and out of your V
     name: myNetworkSecurityGroup
     rules:
       - name: SSH
-        protocol: TCP
+        protocol: Tcp
         destination_port_range: 22
         access: Allow
         priority: 1001
@@ -102,7 +102,7 @@ A virtual network interface card (NIC) connects your VM to a given virtual netwo
 
 
 ## Create virtual machine
-The final step is to create a VM and use all the resources created. The following section in an Ansible playbook creates a VM named *myVM* and attaches the virtual NIC named *myNIC*. Enter your own public key data in the *key_data* pair as follows:
+The final step is to create a VM and use all the resources created. The following section in an Ansible playbook creates a VM named *myVM* and attaches the virtual NIC named *myNIC*. Enter your own complete public key data in the *key_data* pair as follows:
 
 ```yaml
 - name: Create VM
@@ -124,7 +124,7 @@ The final step is to create a VM and use all the resources created. The followin
 ```
 
 ## Complete Ansible playbook
-To bring all these sections together, create an Ansible playbook named *azure_create_complete_vm.yml* and paste the following contents:
+To bring all these sections together, create an Ansible playbook named *azure_create_complete_vm.yml* and paste the following contents. Enter your own complete public key data in the *key_data* pair:
 
 ```yaml
 - name: Create Azure VM
@@ -184,7 +184,7 @@ To bring all these sections together, create an Ansible playbook named *azure_cr
         version: latest
 ```
 
-Ansible needs a resource group to deploy all your resources into. Create a resource group with [az group create](/cli/azure/vm#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Ansible needs a resource group to deploy all your resources into. Create a resource group with [az group create](/cli/azure/vm#az_vm_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

@@ -1,10 +1,10 @@
 ---
 title: Azure AD Android Getting Started | Microsoft Docs
-description: How to build an Android application that integrates with Azure AD for sign-in and calls Azure AD protected APIs by using OAuth.
+description: How to build an Android application that integrates with Azure AD for sign-in and calls Azure AD protected APIs using OAuth2.0.
 services: active-directory
 documentationcenter: android
-author: brandwe
-manager: mbaldwin
+author: danieldobalian
+manager: mtillman
 editor: ''
 
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
@@ -13,18 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: xerners
+ms.date: 11/30/2017
+ms.author: dadobali
 ms.custom: aaddev
 
 ---
-# Integrate Azure AD into an Android app
+# Azure AD Android getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/Android), which will help you get up and running with Azure AD in just a few minutes. The developer portal will walk you through the process of registering an app and integrating Azure AD into your code. When you’re finished, you'll have a simple application that can authenticate users in your tenant and a back end that can accept tokens and perform validation.
->
->
 
 If you're developing a desktop application, Azure Active Directory (Azure AD) makes it simple and straightforward for you to authenticate your users by using their on-premises Active Directory accounts. It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
@@ -54,7 +49,7 @@ We're assuming that you're registering the TODO REST API referenced earlier. But
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
-3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
+3. Click **All services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Enter a friendly name for the application (for example, **TodoListService**), select **Web Application and/or Web API**, and click **Next**.
 6. For the sign-on URL, enter the base URL for the sample. By default, this is `https://localhost:8080`.
@@ -72,7 +67,7 @@ We're assuming that you're registering the sample application referenced earlier
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
-3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
+3. Click **All services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Enter a friendly name for the application (for example, **TodoListClient-Android**), select **Native Client Application**, and click **Next**.
 6. For the redirect URI, enter `http://TodoListClient`. Click **Finish**.
@@ -169,7 +164,7 @@ You can get the JAR file from the Maven repo and drop it into the **libs** folde
             ....
         <application/>
 
-4. Create an instance of AuthenticationContext at your main activity. The details of this call are beyond the scope of this topic, but you can get a good start by looking at the [Android Native Client sample](https://github.com/AzureADSamples/NativeClient-Android). In the following example, SharedPreferences is the default cache, and Authority is in the form of `https://login.windows.net/yourtenant.onmicrosoft.com`:
+4. Create an instance of AuthenticationContext at your main activity. The details of this call are beyond the scope of this topic, but you can get a good start by looking at the [Android Native Client sample](https://github.com/AzureADSamples/NativeClient-Android). In the following example, SharedPreferences is the default cache, and Authority is in the form of `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`:
 
     `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
@@ -259,7 +254,7 @@ Your app manifest should have the following permissions to use AccountManager ac
 ### Authority URL and AD FS
 Active Directory Federation Services (AD FS) is not recognized as production STS, so you need to turn of instance discovery and pass false at the AuthenticationContext constructor.
 
-The authority URL needs an STS instance and a [tenant name](https://login.windows.net/yourtenant.onmicrosoft.com).
+The authority URL needs an STS instance and a [tenant name](https://login.microsoftonline.com/yourtenant.onmicrosoft.com).
 
 ### Querying cache items
 ADAL provides a default cache in SharedPreferences with some simple cache query functions. You can get the current cache from AuthenticationContext by using:

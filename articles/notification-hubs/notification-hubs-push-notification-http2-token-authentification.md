@@ -45,8 +45,12 @@ The key identifier can be obtained from the "Keys" page in your Apple Developer 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
 ### Application Identifier & Application Name
-That information is available via the App IDs page in the Developer Account. 
-![](./media/notification-hubs-push-notification-http2-token-authentification/app-identifier-and-app-name.png)
+The application name is available via the App IDs page in the Developer Account. 
+![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
+
+The application identifier is available via the membership details page in the Developer Account.
+![](./media/notification-hubs-push-notification-http2-token-authentification/app-id.png)
+
 
 ### Authentication token
 The authentication token can be downloaded after you generate a token for your application. For details on how to generate this token, refer to [Apple’s Developer documentation](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65).

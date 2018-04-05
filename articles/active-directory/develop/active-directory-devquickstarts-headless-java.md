@@ -3,8 +3,8 @@ title: Azure AD Java command line getting started | Microsoft Docs
 description: How to build a Java command line app that signs users in to access an API.
 services: active-directory
 documentationcenter: java
-author: brandwe
-manager: mbaldwin
+author: navyasric
+manager: mtillman
 editor: ''
 
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 
 ---
@@ -43,7 +43,7 @@ To enable your app to authenticate users, you'll first need to register a new ap
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+3. Click on **All services** in the left hand nav, and choose **Azure Active Directory**.
 4. Click on **App registrations** and choose **Add**.
 5. Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users

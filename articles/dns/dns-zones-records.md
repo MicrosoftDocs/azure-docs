@@ -3,8 +3,8 @@ title: DNS Zones and Records overview - Azure DNS | Microsoft Docs
 description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: KumudD
+manager: jeconnoc
 editor: ''
 
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
-ms.author: jonatul
+ms.date: 12/18/2017
+ms.author: kumud
 ---
 
 # Overview of DNS zones and records
@@ -51,6 +51,16 @@ In Azure DNS, the TTL is specified for the record set, not for each record, so t
 Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Wildcard records are returned in response to any query with a matching name (unless there is a closer match from a non-wildcard record set). Azure DNS supports wildcard record sets for all record types except NS and SOA.
 
 To create a wildcard record set, use the record set name '\*'. Alternatively, you can also use a name with '\*' as its left-most label, for example, '\*.foo'.
+
+### CAA records
+
+CAA records allow domain owners to specify which Certificate Authorities (CAs) are authorized to issue certificates for their domain. This allows CAs to avoid mis-issuing certificates in some circumstances. CAA records have three properties:
+* **Flags**: This is an integer between 0 and 255, used to represent the critical flag that has special meaning per the [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Tag**: an ASCII string which can be one of the following:
+    * **issue**: use this if you want to specify CAs that are permitted to issue certs (all types)
+    * **issuewild**: use this if you want to specify CAs that are permitted to issue certs (wildcard certs only)
+    * **iodef**: specify an email address or hostname to which CAs can notify for unauthorized cert issue requests
+* **Value**: the value for the specific Tag chosen
 
 ### CNAME records
 

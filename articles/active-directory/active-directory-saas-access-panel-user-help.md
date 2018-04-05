@@ -1,10 +1,10 @@
 ---
-title: Common Access Panel tasks | Microsoft Docs
-description: Get instructions to perform common tasks when working with the access panel.
+title: Get help with accessing and using the My Apps portal in Azure Active Directory | Microsoft Docs
+description: Get help with signing in to and performing common tasks in the access panel.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
@@ -13,76 +13,108 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 01/15/2018
 ms.author: markvi
+ms.reviewer: japere
 
 ---
-# Do you need help with MyApps?
+# Troubleshoot issues with accessing and using the My Apps portal
 
-You have probably reached this page because you were unfortunately running into an issue when using the MyApps portal. While there are cases that require you to contact helpdesk or your administrator to get a problem solved, we are capturing in this topic steps to common questions you can try out yourself, first.
+If you're experiencing issues with signing in to or using the My Apps portal, try these troubleshooting tips before you contact helpdesk or your administrator for help.
 
-If you are looking for help related to password management, try [this](active-directory-passwords-update-your-own-password.md).
+## I am having trouble signing into the My Apps portal
 
+Try these general tips:
 
-## What is the MyApps portal?
+- First, check to see whether you are using the correct URL, [https://myapps.microsoft.com](https://myapps.microsoft.com).
+- Try adding the URL to your browser’s trusted sites.
+- Make sure that your password is correct and has not expired. For more information, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
+- Check to ensure that your authentication contact information is up to date and not blocking your access. For more information, see [What does Azure Multi-Factor Authentication mean for me?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
+- Try clearing your browser’s cookies, and then try to sign in again.
 
-
-MyApps is a web portal that allows you to:
-
-- Manage and launch cloud-based applications
-- Manage your group memberships
-- Manage your profile settings
-
-![Access Panel][1]
+If you are still encountering issues while trying to sign in, contact your administrator.
 
 
+## I seem to be having password issues
+
+If you forgot your password, never received one from your IT staff, are locked out of your account, or want to change your password, see [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md).
+
+## I need to register for password reset
+
+You can reset your password or unlock your account without having to speak to someone by using self-service password reset (SSPR). Before you can use this functionality, you must register your authentication methods or confirm the predefined authentication methods that your administrator requires. For more information, see [Register for self-service password reset](active-directory-passwords-reset-register.md).
 
 
-## How can I change my password?
+## I am having trouble installing the My Apps Secure Sign-in Extension
 
-1.	In **MyApps**, click the user control in the top right, and then click **Profile**.
-2.	Under **Manage Account**, click **Change password**.
-3.	Type your old password, and then type a new password and confirm it.
-4.	Click **Submit**.
+The My Apps portal requires a browser that supports JavaScript and has CSS enabled. If you are using password-based single sign-on apps, the accompanying extension must be installed as well. This extension is downloaded automatically when you start an application that is configured for password-based single sign-on apps.
 
-For more details, see [How to update your own password](active-directory-passwords-update-your-own-password.md).
+Check to ensure that you are meeting the following browser requirements:
+- **Edge**: on Windows 10 Anniversary Edition or later.
+- **Chrome**: on Windows 7 or later, and on Mac OS X or later.
+- **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
+- **Internet Explorer 8, 9, 10, 11**: on Windows 7 or later (limited support).
 
+You can also download the extension for Chrome and Edge directly from following sites:
 
-## How do I setup password reset?
+- [Chrome extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+- [Edge extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-1.	In **MyApps**, click the user control in the top right, and then click **Profile**.
-2.	Under **Manage Account**, click **Set up self service password reset**.
-3.	Follow the steps in the dialogue box and submit.
+If you have installed the extension and are still experiencing issues, try the following:
 
-For more details, see [How to reset your password](active-directory-passwords-update-your-own-password.md).
+- Check your browser extension settings to ensure that the extension is enabled.
+- Restart your browser, and sign in to the My Apps portal.
+- Clear your browser’s cookies, and sign in to the My Apps portal.
+- For access to a diagnostics tool and step-by-step instructions on configuring the extension for Internet Explorer, see [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
+## Use the My Apps Secure Sign-in Extension
+* If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
+   1. While you are *not* signed in to the extension, right-click the extension icon.
+   2. On the menu, select **My Apps URL**.
+   3. Select your default URL.
+   4. Select the extension icon.
+   5. To sign in to the extension, select **Sign in to get started**.
 
-## How can I add a new app?
+* To sign in directly to an app from the browser, do the following:
+   1. After you install the extension, sign in to it by selecting **Sign in to get started**.
+   2. Sign in to the app with the sign-on URL.  
+       The sign-on URL is usually the URL of the app that displays the sign-in form.
+       The extension should change state and let you know that a password is available.
+   3. To sign in, select the extension icon.
 
-1.	In **MyApps**, click **Add App**.
-2.	Search or find an app you want to add, and then click **Add**.
+* To start an app from the extension, do the following:
+   1. After you install the extension, sign in to it by selecting **Sign in to get started**.
+   2. Select the extension icon to open its menu.
+   3. Search for an app that's available in the My Apps portal.
+   4. In the search results list, select the app.  
+       The last three apps you've used are displayed in the **Recently Used** shortcut list.
 
-**Remarks:**
+> [!NOTE]
+> These options are available only for Edge, Chrome, and Firefox.
 
-- You only have access to this option if your admin has enabled this for your account.
-- If the app requires permission you may need to wait for admin approval.
+## How do I add a new app?
 
+1.	On the **Apps** page, select **Add App**.
+2.	Search for the app that you want to add, and then select **Add**.
 
+   > [!NOTE]
+   > * You can access this option only if your administrator has enabled it for your account.
+   > * If the app requires permission, you might need to wait for administrator approval.
+   > 
 
-## How can I manage group memberships?
+## How do I manage my group memberships?
 
-1.	In **MyApps**, click the **Groups** app tile.
-2.	To create a group, under **Groups I own**, click **Create group**, and then follow the instructions.
-3.	To join a group, under **Groups I'm in**, click **Join group**, and then follow the instructions.
+Select the **Groups** tile, and then do either of the following: 
+* To create a group, under **Groups I own**, select **Create group**, and then follow the instructions.
+* To join a group, under **Groups I'm in**, select **Join group**, and then follow the instructions.
 
-**Remarks:**
+   > [!NOTE]
+   > * You can access this option only if your administrator has enabled it for your account.
+   > * If you are a member of a group, you can view details and leave the group.
+   > * If you are an owner of a group, you can view details, add or remove members, and leave the group.
+   >
 
-- Clicking a group you are a member of allows you to view details and leave the group.
-- Clicking a group you are an owner of allows you to view details, add or remove members, and leave the group.
 
 ## Next steps
 
-For troubleshooting related information, see [Problems using the application access panel website or mobile application](active-directory-application-access-panel-content-map.md)
+For more troubleshooting information, see [Problems using the application access panel website or mobile application](active-directory-application-access-panel-content-map.md).
 
-<!--Image references-->
-[1]: ./media/active-directory-saas-access-panel-user-help/01.png

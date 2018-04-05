@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/29/2017
 ms.author: arramac
 
 ---
@@ -38,7 +38,7 @@ The TTL feature is controlled by TTL properties at two levels - the collection l
    * Property is applicable only if DefaultTTL is present for the parent collection.
    * Overrides the DefaultTTL value for the parent collection.
 
-As soon as the document has expired (`ttl` + `_ts` >= current server time), the document is marked as "expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](request-units.md) from the collection budget.
+As soon as the document has expired (`ttl` + `_ts` <= current server time), the document is marked as "expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](request-units.md) from the collection budget.
 
 The above logic can be shown in the following matrix:
 
@@ -46,10 +46,10 @@ The above logic can be shown in the following matrix:
 | --- |:--- |:--- |:--- |
 | TTL Missing on document |Nothing to override at document level since both the document and collection have no concept of TTL. |No documents in this collection will expire. |The documents in this collection will expire when interval n elapses. |
 | TTL = -1 on document |Nothing to override at the document level since the collection doesn’t define the DefaultTTL property that a document can override. TTL on a document is un-interpreted by the system. |No documents in this collection will expire. |The document with TTL=-1 in this collection will never expire. All other documents will expire after "n" interval. |
-| TTL = n on document |Nothing to override at the document level. TTL on a document in un-interpreted by the system. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit "n" interval from the collection. |
+| TTL = n on document |Nothing to override at the document level. TTL on a document is un-interpreted by the system. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit interval of -1 and never expire. |The document with TTL = n will expire after interval n, in seconds. Other documents will inherit "n" interval from the collection. |
 
 ## Configuring TTL
-By default, time to live is disabled by default in all Cosmos DB collections and on all documents.
+By default, time to live is disabled by default in all Cosmos DB collections and on all documents. TTL can be set programmatically or in the Azure portal, in the **Settings** section for the collection. 
 
 ## Enabling TTL
 To enable TTL on a collection, or the documents within a collection, you need to set the DefaultTTL property of a collection to either -1 or a non-zero positive number. Setting the DefaultTTL to -1 means that by default all documents in the collection will live forever but the Cosmos DB service should monitor this collection for documents that have overridden this default.
@@ -146,6 +146,11 @@ To disable TTL entirely on a collection and stop the background process from loo
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+<a id="ttl-and-index-interaction"></a> 
+## TTL and index interaction
+Adding or changing the TTL setting on a collection changes the underlying index. When the TTL value is changed from Off to On, the collection is reindexed. When making changes to the indexing policy when the indexing mode is consistent, users will not notice a change to the index. When the indexing mode is is set to lazy, the index is always catching up and if the TTL value is changed, the index is recreated from scratch. When the TTL value is changed and the index mode is set to lazy, queries done during the index rebuild do not return complete or correct results.
+
+If you need exact data returned, do not change the TTL value when the indexing mode is set to lazy. Ideally consistent index should be chosen to ensure consistent query results. 
 
 ## FAQ
 **What will TTL cost me?**

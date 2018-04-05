@@ -20,7 +20,7 @@ ms.author: mlearned
 # Deploy an ASP.NET container to a remote Docker host
 ## Overview
 Docker is a lightweight container engine, similar in some ways to a virtual machine, which you can use to host applications and services.
-This tutorial walks you through using the [Visual Studio Tools for Docker](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) extension
+This tutorial walks you through using the [Visual Studio Tools for Docker](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) extension
 to deploy an ASP.NET Core app to a Docker host on Azure using PowerShell.
 
 ## Prerequisites

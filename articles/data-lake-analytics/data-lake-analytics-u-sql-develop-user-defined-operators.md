@@ -3,8 +3,8 @@ title: Develop U-SQL user-defined operators (UDOs) | Microsoft Docs
 description: 'Learn how to develop user-defined operators to be used and reused in Data Lake Analytics jobs. '
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: kfile
 editor: cgronlun
 
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
+ms.author: saveenr
 
 ---
 # Develop U-SQL user-defined operators (UDOs)
@@ -25,13 +25,10 @@ For instructions on developing general-purpose assemblies for U-SQL, see [Develo
 ## Define and use a user-defined operator in U-SQL
 **To create and submit a U-SQL job**
 
-1. From the Visual Studio **File** menu, click **New**, and then click **Project**.
-2. Select the **U-SQL Project** type.
-
-    ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. Click **OK**. Visual Studio creates a solution with a Script.usql file.
-4. From **Solution Explorer**, expand Script.usql, and then double-click **Script.usql.cs**.
-5. Paste the following code into the file:
+1. From the Visual Studio select **File > New > Project > U-SQL Project**.
+2. Click **OK**. Visual Studio creates a solution with a Script.usql file.
+3. From **Solution Explorer**, expand Script.usql, and then double-click **Script.usql.cs**.
+4. Paste the following code into the file:
 
         using Microsoft.Analytics.Interfaces;
         using System.Collections.Generic;
@@ -130,6 +127,5 @@ For instructions on developing general-purpose assemblies for U-SQL, see [Develo
 2. Expand Samples, expand Outputs, and then double-click **Drivers.csv**.
 
 ## See also
-* [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
+* [Extending U-SQL Expressions with User-Code](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
 * [Use Data Lake Tools for Visual Studio for developing U-SQL applications](data-lake-analytics-data-lake-tools-get-started.md)

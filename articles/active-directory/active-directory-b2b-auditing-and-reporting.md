@@ -3,8 +3,8 @@ title: Auditing and reporting an Azure Active Directory B2B collaboration user |
 description: Guest user properties are configurable in Azure Active Directory B2B collaboration
 services: active-directory
 documentationcenter: ''
-author: sasubram
-manager: femila
+author: twooley
+manager: mtillman
 editor: ''
 tags: ''
 
@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 
 ---
 

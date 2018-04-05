@@ -3,7 +3,7 @@ title: Exporting Azure Resource Groups that contain VM extensions | Microsoft Do
 description: Export Resource Manager templates that include virtual machine extensions.
 services: virtual-machines-windows
 documentationcenter: ''
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
-ms.author: nepeters
+ms.author: danis
 ---
 
 # Exporting Resource Groups that contain VM extensions

@@ -1,26 +1,22 @@
 ---
-title: Azure SQL Database benchmark overview
+title: Azure SQL Database DTU benchmark overview
 description: This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: jan-eng
 manager: jhubbard
-editor: monicar
-
-ms.assetid: e26f8a66-2c12-49d7-8297-45b4d48a5c01
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 ms.date: 06/21/2016
 ms.author: janeng
 
 ---
-# Azure SQL Database benchmark overview
+# Azure SQL Database DTU benchmark overview
 ## Overview
-Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
+In the DTU-based purchasing model, Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
+
+> [!IMPORTANT]
+> Azure SQL Database also now supports a vCore-based purchasing model (preview). For information, see [vCore-based purchasing model (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 It is important to be able to quantify how the increasing power of each performance level translates into increased database performance. To do this Microsoft has developed the Azure SQL Database Benchmark (ASDB). The benchmark exercises a mix of basic operations found in all OLTP workloads. We measure the throughput achieved for databases running in each performance level.
 
@@ -103,7 +99,7 @@ The table below shows the number of users actually sustained for each service ti
 | Standard (S2) |50 |7.1 GB |
 | Premium (P1) |100 |14 GB |
 | Premium (P2) |200 |28 GB |
-| Premium (P6/P3) |800 |114 GB |
+| Premium (P6) |800 |114 GB |
 
 ## Measurement duration
 A valid benchmark run requires a steady-state measurement duration of at least one hour.

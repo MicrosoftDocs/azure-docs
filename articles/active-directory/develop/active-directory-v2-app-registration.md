@@ -3,8 +3,8 @@ title: Register an application with the Azure AD v2.0 endpoint using the portal 
 description: How to register an app with Microsoft for enabling sign-in and accessing Microsoft services using the v2.0 endpoint
 services: active-directory
 documentationcenter: ''
-author: dstrockis
-manager: mbaldwin
+author: lnalepa
+manager: mtillman
 editor: ''
 
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: lenalepa
 ms.custom: aaddev
 
 ---

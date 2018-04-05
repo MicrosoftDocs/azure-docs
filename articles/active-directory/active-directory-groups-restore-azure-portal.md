@@ -5,7 +5,7 @@ description: How to restore a deleted group, view restorable groups, and permamn
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c
@@ -14,8 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/28/2017
 ms.author: curtand                       
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro
 
 ---
 

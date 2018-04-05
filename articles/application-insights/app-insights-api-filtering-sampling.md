@@ -1,4 +1,4 @@
----
+﻿---
 title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: cfreeman
+ms.author: borooji;mbullwin
 
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
@@ -119,7 +119,7 @@ You can pass string values from the .config file by providing public named prope
 
 **Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in Global.asax.cs - insert your processor into the chain:
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -132,6 +132,17 @@ You can pass string values from the .config file by providing public named prope
 ```
 
 TelemetryClients created after this point will use your processors.
+
+The following code shows how to add a telemetry initializer in ASP.NET Core.
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    var initializer = new SuccessfulDependencyFilter();
+    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+    configuration.TelemetryInitializers.Add(initializer);
+}
+```
 
 ### Example filters
 #### Synthetic requests
@@ -152,7 +163,7 @@ Filter out bots and web tests. Although Metrics Explorer gives you the option to
 #### Failed authentication
 Filter out requests with a "401" response.
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -210,7 +221,7 @@ If you provide a telemetry initializer, it is called whenever any of the Track*(
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -261,7 +272,7 @@ In ApplicationInsights.config:
 
 *Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...
@@ -332,14 +343,17 @@ What's the difference between telemetry processors and telemetry initializers?
 * TelemetryProcessors allow you to completely replace or discard a telemetry item.
 * TelemetryProcessors don't process performance counter telemetry.
 
+## Troubleshooting ApplicationInsights.config
+* Confirm that the fully qualified type name and assembly name are correct.
+* Confirm that the applicationinsights.config file is in your output directory and contains any recent changes.
 
 ## Reference docs
 * [API Overview](app-insights-api-custom-events-metrics.md)
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## SDK Code
-* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps

@@ -3,7 +3,7 @@ title: Verify traffic with Azure Network Watcher IP Flow Verify - Azure CLI | Mi
 description: This article describes how to check if traffic to or from a virtual machine is allowed or denied using Azure CLI
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 
 ---
 # Check if traffic is allowed or denied to or from a VM with IP Flow Verify a component of Azure Network Watcher
@@ -31,7 +31,7 @@ IP Flow verify is a feature of Network Watcher that allows you to verify if traf
 
 This article uses our next generation CLI for the resource management deployment model, Azure CLI 2.0, which is available for Windows, Mac and Linux.
 
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ## Before you begin
 

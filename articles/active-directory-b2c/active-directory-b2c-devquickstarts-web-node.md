@@ -1,37 +1,32 @@
 ---
-title: Add sign-in to a Node.js web app for Azure B2C | Microsoft Docs
-description: How to build a Node.js web app that signs in users by using a B2C tenant.
+title: Add sign-in to a Node.js web app - Azure Active Directory B2C
+description: How to build a Node.js web app that signs in users with Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: dstrockis
-manager: mbaldwin
+author: davidmu1
+manager: mtillman
 editor: ''
 
-ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/10/2017
-ms.author: xerners
-
+ms.author: davidmu
 ---
 
 # Azure AD B2C: Add sign-in to a Node.js web app
 
-**Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more.
+**Passport** is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more.
 
-We have developed a strategy for Azure Active Directory (Azure AD). You will install this module and then add the Azure AD `passport-azure-ad` plug-in.
+For Azure Active Directory (Azure AD), can install this module and then add the Azure AD `passport-azure-ad` plug-in.
 
-To do this, you need to:
+You need to:
 
 1. Register an application by using Azure AD.
 2. Set up your app to use the `passport-azure-ad` plug-in.
 3. Use Passport to issue sign-in and sign-out requests to Azure AD.
 4. Print user data.
 
-The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). To follow along, you can [download the app's skeleton as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip). You can also clone the skeleton:
+The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). To follow along, you can [download the app's skeleton as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/master.zip). You can also clone the skeleton:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
@@ -49,8 +44,6 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 - Enter `http://localhost:3000/auth/openid/return` as a **Reply URL**. It is the default URL for this code sample.
 - Create an **Application secret** for your application and copy it. You will need it later. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
 - Copy the **Application ID** that is assigned to your app. You'll also need this later.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
 
@@ -103,7 +96,7 @@ Open the `config.js` file in the root of the project and enter your app's config
 Open the `app.js` file in the root of the project. Add the following call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`.
 
 
-```JavaScript
+```javascript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
@@ -114,7 +107,7 @@ var log = bunyan.createLogger({
 
 Use the strategy you just referenced to handle sign-in requests.
 
-```JavaScript
+```javascript
 // Use the OIDCStrategy in Passport (Section 2).
 //
 //   Strategies in Passport require a "validate" function that accepts
@@ -157,7 +150,7 @@ The preceding code takes all users whom the server authenticates. This is autore
 
 Add the methods that allow you to keep track of users who have signed in, as required by Passport. This includes serializing and deserializing user information:
 
-```JavaScript
+```javascript
 
 // Passport session setup. (Section 2)
 
@@ -193,7 +186,7 @@ var findByEmail = function(email, fn) {
 
 Add the code to load the Express engine. In the following, you can see that we use the default `/views` and `/routes` pattern that Express provides.
 
-```JavaScript
+```javascript
 
 // configure Express (Section 2)
 
@@ -220,7 +213,7 @@ app.configure(function() {
 
 Add the `POST` routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
 
-```JavaScript
+```javascript
 
 // Our Auth routes (Section 3)
 
@@ -270,7 +263,7 @@ Your app is now properly configured to communicate with the v2.0 endpoint by usi
 
 First, add the default, sign-in, account, and sign-out methods to your `app.js` file:
 
-```JavaScript
+```javascript
 
 //Routes (Section 4)
 
@@ -305,7 +298,7 @@ To review these methods in detail:
 
 For the last part of `app.js`, add the `EnsureAuthenticated` method that is used in the `/account` route.
 
-```JavaScript
+```javascript
 
 // Simple route middleware to ensure that the user is authenticated. (Section 4)
 
@@ -322,7 +315,7 @@ function ensureAuthenticated(req, res, next) {
 
 Finally, create the server itself in `app.js`.
 
-```JavaScript
+```javascript
 
 app.listen(3000);
 
@@ -335,7 +328,7 @@ Your `app.js` is now complete. You just need to add the routes and views that al
 
 Create the `/routes/index.js` route under the root directory.
 
-```JavaScript
+```javascript
 
 /*
  * GET home page.
@@ -348,7 +341,7 @@ exports.index = function(req, res){
 
 Create the `/routes/user.js` route under the root directory.
 
-```JavaScript
+```javascript
 
 /*
  * GET users listing.
@@ -363,7 +356,7 @@ These simple routes pass along requests to your views. They include the user, if
 
 Create the `/views/index.ejs` view under the root directory. This is a simple page that calls policies for sign-in and sign-out. You can also use it to grab account information. Note that you can use the conditional `if (!user)` as the user is passed through in the request to provide evidence that the user is signed in.
 
-```JavaScript
+```javascript
 <% if (!user) { %>
 	<h2>Welcome! Please sign in.</h2>
 	<a href="/login/?p=your facebook policy">Sign in with Facebook</a>
@@ -378,7 +371,7 @@ Create the `/views/index.ejs` view under the root directory. This is a simple pa
 
 Create the `/views/account.ejs` view under the root directory so that you can view additional information that `passport-azure-ad` put in the user request.
 
-```Javascript
+```javascript
 <% if (!user) { %>
 	<h2>Welcome! Please sign in.</h2>
 	<a href="/login">Sign in</a>
@@ -402,7 +395,7 @@ Run `node app.js` and navigate to `http://localhost:3000`
 
 Sign up or sign in to the app by using email or Facebook. Sign out and sign back in as a different user.
 
-##Next steps
+## Next steps
 
 For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). You can also clone it from GitHub:
 

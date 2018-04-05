@@ -1,10 +1,10 @@
 ---
 title: ESP8266 to cloud - Connect Sparkfun ESP8266 Thing Dev to Azure IoT Hub | Microsoft Docs
-description: A guide to connecting an Arduino device, Sparkfun ESP8266 Thing Dev, to Azure IoT Hub which is a Microsoft cloud service that helps manage your IoT assets.
+description: Learn how to setup and connect Sparkfun ESP8266 Thing Dev to Azure IoT Hub for it to send data to the Azure cloud platform in this tutorial.
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: ''
 
@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 08/16/2017
 ms.author: xshi
 
 ---
@@ -49,6 +49,7 @@ To complete this operation, you need the following parts from your Thing Dev Sta
 
 You also need the following for your development environment:
 
+* An active Azure subscription. If you don't have an Azure account, [create a free Azure trial account](https://azure.microsoft.com/free/) in just a few minutes.
 * Mac or PC that is running Windows or Ubuntu.
 * Wireless network for Sparkfun ESP8266 Thing Dev to connect to.
 * Internet connection to download the configuration tool.
@@ -156,7 +157,7 @@ Install the package for Sparkfun ESP8266 Thing Dev in Arduino IDE:
 
    ![the esp8266 package is installed](media/iot-hub-sparkfun-thing-dev-get-started/12_arduino-ide-esp8266-installed.png)
 
-1. Click **Tools** > **Board** > **Adafruit HUZZAH ESP8266**.
+1. Click **Tools** > **Board** > **Sparkfun ESP8266 Thing Dev**.
 
 ### Install necessary libraries
 
@@ -186,6 +187,14 @@ The sample application can simulate temperature and humidity data in case you do
 
 1. In the Arduino IDE, click **Tool** > **Port**, and then click the serial port for Sparkfun ESP8266 Thing Dev.
 1. Click **Sketch** > **Upload** to build and deploy the sample application to Sparkfun ESP8266 Thing Dev.
+
+> [!Note]
+> If you are using macOS you could probably see the following messages during uploading. `warning: espcomm_sync failed`,`error: espcomm_open failed`. Please open your ternimal window and finish below actions to solve this issue.
+> ```bash
+> cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
+> sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
+> sudo touch /System/Library/Extensions
+> ```
 
 ### Enter your credentials
 

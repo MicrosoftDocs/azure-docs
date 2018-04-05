@@ -3,7 +3,7 @@ title: Manage packet captures with Azure Network Watcher - Azure portal | Micros
 description: This page explains how to manage the packet capture feature of Network Watcher using Azure portal
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ---
 
 # Manage packet captures with Azure Network Watcher using the portal
@@ -58,7 +58,10 @@ Navigate to the [Azure portal](https://portal.azure.com) and click **Networking*
 The overview page shows a list of all packet captures that exist no matter the state.
 
 > [!NOTE]
-> Packet capture requires connectivity to the storage account over port 443.
+> Packet capture requires following conectivity.
+> * Outbound connectivity to the storage account over port 443.
+> * Inbound and Outbound connectivity to 169.254.169.254
+> * Inbound and Outbound connectivity to 168.63.129.16
 
 ![packet capture overview screen][1]
 
@@ -77,10 +80,11 @@ The properties that can be defined on a packet capture are:
 
 **Capture configuration**
 
+- **Local file path** - Local path on the virtual machine where packet capture is saved (valid only when **[file]** is selected). You must specify a valid path. If you are using a Linux virtual machine, the path must start with / var / captures.
 - **Storage Account** - Determines if packet capture is saved in a storage account.
 - **File** - Determines if a packet capture is saved locally on the virtual machine.
 - **Storage Accounts** - The selected storage account to save the packet capture in. Default location is https://{storage account name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{resource group name}/providers/microsoft.compute/virtualmachines/{virtual machine name}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Only enabled if **Storage** is selected)
-- **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected). A Valid path must be supplied
+- **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected). A Valid path must be supplied. For a Linux virtual machine, the path must start with */var/captures*.
 - **Maximum bytes per packet** - The number of bytes from each packet that are captured, all bytes are captured if left blank.
 - **Maximum bytes per session** - Total number of bytes that are captured, once the value is reached the packet capture stops.
 - **Time limit (seconds)** - Sets a time limit for the packet capture to stop. Default is 18000 seconds.

@@ -1,66 +1,57 @@
 ---
 title: Add intents in LUIS applications | Microsoft Docs
-description: Use Language Understanding Intelligent Service (LUIS) to add intents to help apps understand user requests and react to them properly.
+description: Use Language Understanding (LUIS) to add intents to help apps understand user requests and react to them properly.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb 
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.date: 01/18/2018
+ms.author: v-geberr;
 ---
 
-# Add Intents 
-An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's input, or utterances. Intents match user requests with the actions that should be taken by your app, so you must add intents to help your app understand user requests and respond to them. 
+# Manage intents 
+Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intentions. 
 
-All applications come with the predefined intent, **None**. You should teach it to recognize user statements that are irrelevant to the app. For example, if a user says "Get me a great cookie recipe" in a travel agent app, label that utterance with the **None** intent.
-
-You can add up to **80** intents in a single LUIS app. You add and manage your intents from the **Intents** page that is accessed by clicking **Intents** in your application's left panel. 
+You add and manage your intents from the **Intents** page, available from **Intents** in LUIS's left panel. 
 
 The following procedure demonstrates how to add the "Bookflight" intent in the TravelAgent app.
 
-**To add an intent:**
+## Add intent
 
 1. Open your app (for example, TravelAgent) by clicking its name on **My Apps** page, and then click **Intents** in the left panel. 
-2. On the **Intents** page, click **Add intent**.
+2. On the **Intents** page, click **Create new intent**.
 
-    ![Intents List](./Images/IntentsList.JPG)
-3. In the **Add Intent** dialog box, type the intent name "BookFlight" and click **Save**.
+    ![Intents List](./media/luis-how-to-add-intents/IntentsList.png)
+3. In the **Create new intent** dialog box, type the intent name "BookFlight" and click **Done**.
 
-    ![Add Intent](./Images/Addintent-dialogbox.JPG)
+    ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-This takes you directly to the intent details page of the newly added intent "Bookflight", like the following screenshot, to add utterances for this intent. For instructions on adding utterances, see [Add example utterances](Add-example-utterances.md).
+On the intent details page of the newly added intent "Bookflight", you add utterances for this intent. For instructions on adding utterances, see [Add example utterances](Add-example-utterances.md).
 
-![Intent Details page](./Images/IntentDetails-UtterancesTab1.JPG)
+![Intent Details page](./media/luis-how-to-add-intents/IntentDetails-UtterancesTab1.png)
 
+## Rename intent
 
+1. On the **Intent** page, click the Rename icon ![Rename Intent](./media/luis-how-to-add-intents/Rename-Intent-btn.png) next to the intent name. 
 
-## Manage your intents
-You can view a list of all your intents and manage them on the **Intents** page, where you can add new intents, rename and delete existing ones, or access intent details for editing. 
+2. On the **Intent** page, the current intent name is shown in a dialog box. Edit the intent name and press enter. The new name is saved and displayed on the intent page.
 
-![Intents List](./Images/IntentsList-added.JPG)
+    ![Edit Intent](./media/luis-how-to-add-intents/EditIntent-dialogbox.png)
 
-**To rename an intent:**
-
-1. On the **Intents** page, click the Rename icon ![Rename Intent](./Images/Rename-Intent-btn.JPG) next to the intent you want to rename. 
-
-2. In the **Edit Intent** dialog box, edit the intent name and click **Save**.
-
-    ![Edit Intent](./Images/EditIntent-dialogbox.JPG)
-
-
-**To delete an intent:**
+## Delete intent
  
-* On the **Intents** page, click the trash bin icon ![Delete intent](./Images/trashbin-button.JPG) next to the intent you want to delete.
+1. On the **Intent** page, click the **Delete Intent** button next to the right of the intent name. 
 
+    ![Delete Intent Button](./media/luis-how-to-add-intents/DeleteIntent.png)
 
-**To access intent details for editing:**
+2. Click the "Ok" button on the confirmation dialog box.
 
-* On the **Intents** page, click the intent name which you want to access its details.
+    ![Delete Intent Dialog](./media/luis-how-to-add-intents/DeleteIntent-Confirmation.png)
 
 
 ## Next steps
 
-After adding intents to your app, now your next task is to start adding example utterances for the intents you've added. For instructions, see [Add example utterances](Add-example-utterances.md).
+After adding intents to your app, your next task is to start adding [example utterances](Add-example-utterances.md) for the intents you've added. 
