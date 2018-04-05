@@ -36,51 +36,51 @@ You can use this example to monitor the MXChip IoT DevKit WiFi information and s
 
 ## Provision Azure Services
 
-- Click the **Tasks** drop-down menu in Visual Studio Code and select **Run Task...** - **cloud-provision**.
-- Your progress is displayed under the **TERMINAL** tab of the **Welcome** panel.
-- When prompted with the message *What subscription would you like to choose*, select a subscription.
-- Select or choose a resource group. 
-  > [!NOTE]
-  > If you already have a free IoT Hub, this step will be skipped.
-- When prompted with the message *What IoT hub would you like to choose*, select or create an IoT Hub.
-- Something similar to *function app: function app name: xxx*, is displayed. Write down the function app name; it will be used in a later step.
-- Wait for the Azure Resource Manager template deployment to finish, which is indicated when the message *Resource Manager template deployment: Done* is displayed.
+1. Click the **Tasks** drop-down menu in Visual Studio Code and select **Run Task...** - **cloud-provision**.
+2. Your progress is displayed under the **TERMINAL** tab of the **Welcome** panel.
+3. When prompted with the message *What subscription would you like to choose*, select a subscription.
+4. Select or choose a resource group. 
+    > [!NOTE]
+    > If you already have a free IoT Hub, this step will be skipped.
+5. When prompted with the message *What IoT hub would you like to choose*, select or create an IoT Hub.
+6. Something similar to *function app: function app name: xxx*, is displayed. Write down the function app name; it will be used in a later step.
+7. Wait for the Azure Resource Manager template deployment to finish, which is indicated when the message *Resource Manager template deployment: Done* is displayed.
 
 ## Deploy Function App
 
-- Click the **Tasks** drop-down menu in Visual Studio Code and select **Run Task...** - **cloud-deploy**.
-- Wait for function app code uploading process to finish; the message *function app deploys: Done* is displayed.
+1. Click the **Tasks** drop-down menu in Visual Studio Code and select **Run Task...** - **cloud-deploy**.
+2. Wait for function app code uploading process to finish; the message *function app deploys: Done* is displayed.
 
 ## Configure IoT Hub Device Connection String in DevKit
 
-- Connect your MXChip IoT DevKit to your computer.
-- Click the **Tasks** drop-down menu in Visual Studio Code and select **Run Task...** - **config-device-connection**
-- On the MXChip IoT DevKit, press and hold button **A**, press the **Reset** button, and then release button **A** to make the DekKit enter configuration mode.
-- Wait for connection string configuration process to be completed.
+1. Connect your MXChip IoT DevKit to your computer.
+2. Click the **Tasks** drop-down menu in Visual Studio Code and select **Run Task...** - **config-device-connection**
+3. On the MXChip IoT DevKit, press and hold button **A**, press the **Reset** button, and then release button **A** to make the DekKit enter configuration mode.
+4. Wait for connection string configuration process to be completed.
 
 ## Upload Arduino Code to DevKit
 
 With your MXChip IoT DevKit connected to your computer:
-- Click the **Tasks** drop-down menu in Visual Studio Code and select **Run Build Task...** The Arduino sketch is compiled and uploaded to the DevKit.
-- When the sketch has been uploaded successfully, a *Build & Upload Sketch: success* message is displayed.
+1. Click the **Tasks** drop-down menu in Visual Studio Code and select **Run Build Task...** The Arduino sketch is compiled and uploaded to the DevKit.
+2. When the sketch has been uploaded successfully, a *Build & Upload Sketch: success* message is displayed.
 
 ## Monitor DevKit State in Browser
 
-- In a Web browser, open the `DevKitState\web\index.html` file--which was created during the [What you need](#whatyouneed) step.
-- The following Web page appears:![](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
-- Input the function app name you wrote down earlier.
-- Click the **Connect** button
-- Within a few seconds, the page refreshes and displays the DevKit's WiFi connection status and the state of each of the onboard sensors.
+1. In a Web browser, open the `DevKitState\web\index.html` file--which was created during the [What you need](#whatyouneed) step.
+2. The following Web page appears:![Specify the function app name.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
+1. Input the function app name you wrote down earlier.
+2. Click the **Connect** button
+3. Within a few seconds, the page refreshes and displays the DevKit's WiFi connection status and the state of each of the onboard sensors.
 
 ## Control the DevKit's User LED
 
-- Click the user LED graphic on the Web page illustration.
-- Within a few seconds, the screen refreshes and shows the current color status of the user LED.
-- Try changing the color value of the RGB LED by clicking in various locations on the RGB slider controls.
+1. Click the user LED graphic on the Web page illustration.
+2. Within a few seconds, the screen refreshes and shows the current color status of the user LED.
+3. Try changing the color value of the RGB LED by clicking in various locations on the RGB slider controls.
 
 ## Example operation
 
-![](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
+![Example test procedure](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 ## Next steps
 
