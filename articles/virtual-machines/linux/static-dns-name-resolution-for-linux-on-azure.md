@@ -4,7 +4,7 @@ description: How to create virtual network interface cards and use internal DNS 
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
