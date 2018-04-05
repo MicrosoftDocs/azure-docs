@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Network Watcher instance | Microsoft Docs
-description: Learn how to enabled Network Watcher in an Azure region.
+description: Learn how to enable Network Watcher in an Azure region.
 services: network-watcher
 documentationcenter: na
 author: jimdial
