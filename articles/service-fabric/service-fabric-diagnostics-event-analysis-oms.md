@@ -52,8 +52,8 @@ The image above is the home page of the Service Fabric Analytics solution. This 
 * [Reliable Actors programming model events](service-fabric-reliable-actors-diagnostics.md)
 * [Reliable Services programming model events](service-fabric-reliable-services-diagnostics.md)
 
-^Note
-In addition to the operational channel, more detailed system events can be collected by [updating the config of your diagnostics extension](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
+>[!NOTE]
+>In addition to the operational channel, more detailed system events can be collected by [updating the config of your diagnostics extension](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
 
 ### View operational events including actions on nodes
 

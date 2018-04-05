@@ -20,7 +20,7 @@ ms.author: dekapur
 
 # Monitor containers with OMS Log Analytics
  
-This article covers the steps required to set up container monitoring for your cluster. For more information on this, see [Monitoring Containers in Service Fabric](service-fabric-diagnostics-event-analysis-oms.md#monitoring-containers). To see a step-by-step tutorial on this, you can also follow [Monitor Windows containers on Service Fabric using OMS](service-fabric-tutorial-monitoring-wincontainers.md).
+This article covers the steps required to set up Log Analytics container solution for your cluster so you can view events that have been collected. To see a step-by-step tutorial on configuring events to be collected from your container, you can also follow [Monitor Windows containers on Service Fabric using OMS](service-fabric-tutorial-monitoring-wincontainers.md).
 
 ## Set up the container monitoring solution
 
