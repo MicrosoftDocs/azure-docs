@@ -1,0 +1,93 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "eastus",
+      "metadata": {
+        "description": "Location of the resources."
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2018-03-01-privatepreview",
+      "name": "helloWorldNetwork",
+      "type": "Microsoft.ServiceFabric/networks",
+      "location": "[parameters('location')]",
+      "dependsOn": [],
+      "properties": {
+        "schemaVersion": "0.0.1",
+        "addressPrefix": "10.0.0.4/22",
+        "ingressConfig": {
+          "layer4": [
+            {
+              "publicPort": "80",
+              "applicationName": "helloWorldApp",
+              "serviceName": "helloWorldService",
+              "endpointName": "helloWorldListener"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "apiVersion": "2018-03-01-privatepreview",
+      "name": "helloWorldApp",
+      "type": "Microsoft.ServiceFabric/applications",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "Microsoft.ServiceFabric/networks/helloWorldNetwork"
+      ],
+      "properties": {
+        "description": "SeaBreeze HelloWorld Application!",
+        "services": [
+          {
+            "type": "Microsoft.ServiceFabric/services",
+            "location": "[parameters('location')]",
+            "name": "helloWorldService",
+            "properties": {
+              "description": "SeaBreeze Hello World Service.",
+              "osType": "linux",
+              "codePackages": [
+                {
+                  "name": "helloWorldCode",
+                  "image": "seabreeze/sbz-helloworld:1.0-alpine",
+                  "endpoints": [
+                    {
+                      "name": "helloWorldListener",
+                      "port": "80"
+                    }
+                  ],
+                  "resources": {
+                    "requests": {
+                      "cpu": "1",
+                      "memoryInGB": "1"
+                    }
+                  }
+                },
+                {
+                  "name": "helloWorldSideCar",
+                  "image": "seabreeze/sbz-helloworld-sidecar:1.0-alpine",
+                  "resources": {
+                    "requests": {
+                      "cpu": "1",
+                      "memoryInGB": "1"
+                    }
+                  }
+                }
+              ],
+              "replicaCount": "1",
+              "networkRefs": [
+                {
+                  "name": "[resourceId('Microsoft.ServiceFabric/networks', 'helloWorldNetwork')]"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

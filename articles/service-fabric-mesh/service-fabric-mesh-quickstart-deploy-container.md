@@ -1,5 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
+#Intent: I want to use my existing containers as is and deploy them to Azure. (Windows or Linux) 
 title: Intent and product brand in a unique string of 43-59 chars including spaces - do not include site identifier (it is auto-generated.)
 description: 115-145 characters including spaces. Edit the intro para describing article intent to fit here. This abstract displays in the search result.
 services: Azure SeaBreeze
@@ -15,22 +16,23 @@ manager: timlt
 
 Service fabric mesh makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines. In this quickstart, you create a container in Azure and expose it to the internet. This operation is completed in a single command. Within just a few seconds, you'll see this in your browser:
 
-## ADD Final product image
+![Hello world app in the browser][sfm-app-browser]
 
 To read more about applications and service fabric mesh, head over to the [service fabric mesh Overview](./service-fabric-mesh-overview.md)
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0][azure-cli-install].
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you're running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
 
 ## Create a resource group
 
-Create a resource group (RG) to deploy the application to. Alternatively, you can use an existing RG and skip this step.
+Create a resource group to deploy the application to. Alternatively, you can use an existing resource group and skip this step.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+export rg=myResourceGroup
+az group create --name $rg --location eastus
 ```
 
 ## Deploy the container
@@ -38,15 +40,97 @@ az group create --name myResourceGroup --location eastus
 Create your application using the following deployment command:
 
 ```azurecli-interactive
-az sbz deployment create --resource-group myResourceGroup --template-uri https://seabreezequickstart.blob.core.windows.net/quickstart/application-quickstart.json
+az sbz deployment create --resource-group $rg --template-uri https://seabreezequickstart.blob.core.windows.net/quickstart/application-quickstart.json
 
 ```
 
-In a few seconds, your command should return with "provisioningState": "Succeeded" . Given below is the output from the command when using [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview). 
+In just over a minute, your command should return with "provisioningState": "Succeeded" . Given below is the output from the command when using [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+
+```json
+{
+  "id": "/subscriptions/2e12fe0d-f133-41c9-884d-d8ce74e6e3da/resourceGroups/sbz-qs/providers/Microsoft.Resources/deployments/test",
+  "name": "test",
+  "properties": {
+    "additionalProperties": {
+      "duration": "PT1M9.2142639S",
+      "outputResources": [
+        {
+          "id": "/subscriptions/2e12fe0d-f133-41c9-884d-d8ce74e6e3da/resourceGroups/sbz-qs/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
+          "resourceGroup": "sbz-qs"
+        },
+        {
+          "id": "/subscriptions/2e12fe0d-f133-41c9-884d-d8ce74e6e3da/resourceGroups/sbz-qs/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
+          "resourceGroup": "sbz-qs"
+        }
+      ],
+      "templateHash": "252151383102766848"
+    },
+    "correlationId": "a72d1e06-564c-45c0-ba85-5447b18b04c1",
+    "debugSetting": null,
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/2e12fe0d-f133-41c9-884d-d8ce74e6e3da/resourceGroups/sbz-qs/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
+            "resourceGroup": "sbz-qs",
+            "resourceName": "helloWorldNetwork",
+            "resourceType": "Microsoft.ServiceFabric/networks"
+          }
+        ],
+        "id": "/subscriptions/2e12fe0d-f133-41c9-884d-d8ce74e6e3da/resourceGroups/sbz-qs/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
+        "resourceGroup": "sbz-qs",
+        "resourceName": "helloWorldApp",
+        "resourceType": "Microsoft.ServiceFabric/applications"
+      }
+    ],
+    "mode": "Incremental",
+    "outputs": null,
+    "parameters": {
+      "location": {
+        "type": "String",
+        "value": "eastus"
+      }
+    },
+    "parametersLink": null,
+    "providers": [
+      {
+        "id": null,
+        "namespace": "Microsoft.ServiceFabric",
+        "registrationState": null,
+        "resourceTypes": [
+          {
+            "aliases": null,
+            "apiVersions": null,
+            "locations": [
+              "eastus"
+            ],
+            "properties": null,
+            "resourceType": "networks"
+          },
+          {
+            "aliases": null,
+            "apiVersions": null,
+            "locations": [
+              "eastus"
+            ],
+            "properties": null,
+            "resourceType": "applications"
+          }
+        ]
+      }
+    ],
+    "provisioningState": "Succeeded",
+    "template": null,
+    "templateLink": null,
+    "timestamp": "2018-04-05T00:37:57.139252+00:00"
+  },
+  "resourceGroup": "sbz-qs"
+}
+```
 
 ## Check application deployment status
 
-At this point, your application has been deployed. You can check to see its status by using the `app show` command. This command is useful, if you wanted to followup on a application deployment.
+At this point, your application has been deployed. You can check to see its status by using the `app show` command. This command provides useful information to follow up on.
 
 The application name for our quickstart application is SbzVoting, so let us fetch its details.
 
@@ -125,6 +209,7 @@ Advance to the next article to learn more
 > [Next steps button](contribute-get-started-mvc.md)
 
 <!-- Images -->
+[sfm-app-browser]: ./media/service-fabric-mesh-quickstart-containers-01.png
 
 <!-- Links / Internal -->
 [az-group-delete]: /cli/azure/group#az_group_delete
