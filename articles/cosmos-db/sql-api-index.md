@@ -18,8 +18,6 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: SQL API documentation
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 This article provides links to all Azure Cosmos DB content specific to the SQL API.
 
 These articles do not apply to the Graph API, Table API, or MongoDB API. 
@@ -101,8 +99,8 @@ Azure Cosmos DB provides a number of SDKs to enable client-side application deve
 
 ## Reference
 
-- [REST](/rest/api/documentdb/)
-- [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+- [REST](/rest/api/cosmos-db/)
+- [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
 - [SQL query reference](sql-api-sql-query-reference.md)
 - [Azure Functions reference](../azure-functions/functions-bindings-cosmosdb.md)
 

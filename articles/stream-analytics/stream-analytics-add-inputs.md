@@ -4,8 +4,8 @@ description: Learn how to hook up a data source to your Stream Analytics job as 
 keywords: data input, streaming data
 documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: jseb225
+manager: ryanw
 editor: 
 
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Add a streaming data input or reference data to a Stream Analytics job
@@ -72,7 +72,7 @@ To add an input to your Stream Analytics job:
     ![Test connection of the streaming data input](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## Get help with streaming data inputs
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

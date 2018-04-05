@@ -77,8 +77,8 @@
 ## [Manage groups and members](active-directory-manage-groups.md)
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell Azure Resource Manager model](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure PowerShell classic deployment model](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](active-directory-groups-membership-azure-portal.md)
@@ -215,11 +215,12 @@
 ##### [Custom home page](application-proxy-office365-app-launcher.md)
 ##### [Translate inline links](application-proxy-link-translation.md)
 ##### [Wildcard applications](active-directory-application-proxy-wildcard.md)
-##### [Azure AD Application Proxy and Qlik Sense](active-directory-application-proxy-qlik.md) 
+
 #### Publishing walkthroughs
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 

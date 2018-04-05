@@ -97,8 +97,6 @@
           href: apache-spark-structured-streaming-overview.md
         - name: Create highly available Spark streaming jobs in YARN
           href: apache-spark-streaming-high-availability.md
-        - name: Structured streaming using Event Hubs
-          href: apache-spark-eventhub-structured-streaming.md
         - name: Structured streaming with Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true

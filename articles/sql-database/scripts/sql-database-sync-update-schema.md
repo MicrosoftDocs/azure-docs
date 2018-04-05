@@ -1,5 +1,5 @@
 ---
-title: PowerShell example - Update SQL Data Sync sync schema | Microsoft Docs
+title: PowerShell example - Update SQL Data Sync (Preview) sync schema | Microsoft Docs
 description: Azure PowerShell example script to update the sync schema for SQL Data Sync
 services: sql-database
 documentationcenter: sql-database
@@ -20,7 +20,7 @@ ms.reviewer: douglasl
 ---
 # Use PowerShell to update the sync schema in an existing sync group
 
-This PowerShell example updates the sync schema in an existing sync group. When you're syncing multiple tables, this script helps you to update the sync schema efficiently.
+This PowerShell example updates the sync schema in an existing SQL Data Sync (Preview) sync group. When you're syncing multiple tables, this script helps you to update the sync schema efficiently.
 
 This example demonstrates the use of the **UpdateSyncSchema** script, which is available on GitHub as [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
