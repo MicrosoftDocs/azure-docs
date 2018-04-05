@@ -3,7 +3,6 @@
 title: How to search for an address using the Azure Maps Search service  | Microsoft Docs 
 description: Learn how to search for an address using the Azure Maps Search service
 services: location-based-services
-keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: kgremban
 ms.author: kgremban
 ms.date: 11/29/2017
