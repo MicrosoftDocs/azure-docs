@@ -70,33 +70,33 @@ ms.topic: article
     provider "azurerm" { }
 
     resource "azurerm_resource_group" "slotDemo" {
-    name = "slotDemoResourceGroup"
-    location = "westus2"
+        name = "slotDemoResourceGroup"
+        location = "westus2"
     }
 
     resource "azurerm_app_service_plan" "slotDemo" {
-    name                = "slotAppServicePlan"
-    location            = "${azurerm_resource_group.slotDemo.location}"
-    resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-    sku {
-        tier = "Standard"
-        size = "S1"
-    }
+        name                = "slotAppServicePlan"
+        location            = "${azurerm_resource_group.slotDemo.location}"
+        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+        sku {
+            tier = "Standard"
+            size = "S1"
+        }
     }
 
     resource "azurerm_app_service" "slotDemo" {
-    name                = "slotAppService"
-    location            = "${azurerm_resource_group.slotDemo.location}"
-    resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-    app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+        name                = "slotAppService"
+        location            = "${azurerm_resource_group.slotDemo.location}"
+        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
     }
 
     resource "azurerm_app_service_slot" "slotDemo" {
-    name                = "slotAppServiceSlotOne"
-    location            = "${azurerm_resource_group.slotDemo.location}"
-    resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-    app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
-    app_service_name    = "${azurerm_app_service.slotDemo.name}"
+        name                = "slotAppServiceSlotOne"
+        location            = "${azurerm_resource_group.slotDemo.location}"
+        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+        app_service_name    = "${azurerm_app_service.slotDemo.name}"
     }
     ```
 
@@ -222,7 +222,7 @@ Perform the following steps two times where in step 3 you select **slotAppServic
 
     ![Select the URL on the overview tab to render the app](./media/terraform-slot-walkthru/resource-url.png)
 
-For the **slotAppService** web app, you see a blue page with a page title of **Slot Demo App 1**. For the **slotAppServiceSlotOne** web app, you see a blue page with a page title of **Slot Demo App 2** (shown in your browser's tab for most tab-based browsers).
+For the **slotAppService** web app, you see a blue page with a page title of **Slot Demo App 1**. For the **slotAppServiceSlotOne** web app, you see a green page with a page title of **Slot Demo App 2**.
 
 ![Preview the apps to test that they were deployed correctly](./media/terraform-slot-walkthru/app-preview.png)
 
@@ -236,7 +236,11 @@ To test swapping the two deployment slots, perform the following steps:
 
  1. Open the Cloud Shell.
 
- 1. Change directories to the **swap** directory.
+ 1. Change directories to the **swap** directory (within the clouddrive directory).
+
+    ```bash
+    cd clouddrive/swap
+    ```
 
  1. Using the vi editor, create a file named `swap.tf`.
  
@@ -254,9 +258,9 @@ To test swapping the two deployment slots, perform the following steps:
 
     # Swap the Production Slot with the Deployment Slot
     resource "azurerm_app_service_active_slot" "slotDemoActiveSlot" {
-    resource_group_name   = "slotDemoResourceGroup"
-    app_service_name      = "slotAppService"
-    app_service_slot_name = "slotappServiceSlotOne"
+        resource_group_name   = "slotDemoResourceGroup"
+        app_service_name      = "slotAppService"
+        app_service_slot_name = "slotappServiceSlotOne"
     }
     ```
 
@@ -272,7 +276,7 @@ To test swapping the two deployment slots, perform the following steps:
     terraform plan
     ```
 
-1. Provision the resources defined in the `deploy.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
+1. Provision the resources defined in the `swap.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
 
     ```bash
     terraform apply
@@ -280,7 +284,13 @@ To test swapping the two deployment slots, perform the following steps:
 
 1. Once Terraform has finished swapping the slots, return to the browser that is rendering the slotAppService web app and refresh the page. 
 
-Notice that the web app that was in your slotAppServiceSlotOne staging slot has been swapped with the production slot and that the page now renders green. To return to the original version that was originally in the production slot, rerun the swap.tf by typing `terraform apply` so the original code is swapped again from the staging slot to the production slot.
+The web app in your **slotAppServiceSlotOne** staging slot has been swapped with the production slot and now renders green. 
+
+To return to the original production version of the app, reapply the Terraform plan created from the `swap.tf` configuration file.
+
+```bash
+terraform apply
+```
 
 ## Next steps
 
