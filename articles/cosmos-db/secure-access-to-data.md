@@ -2,9 +2,8 @@
 title: Learn how to secure access to data in Azure Cosmos DB | Microsoft Docs
 description: Learn about access control concepts in Azure Cosmos DB, including master keys, read-only keys, users, and permissions.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: mimig
+ms.author: sngun
 
 ---
 # Securing access to Azure Cosmos DB data
@@ -148,7 +147,7 @@ The following code sample shows how to create a permission resource, read the re
 Permission docPermission = new Permission
 {
     PermissionMode = PermissionMode.Read,
-    ResourceLink = documentCollection.SelfLink,
+    ResourceLink = UriFactory.CreateDocumentCollectionUri("db", "collection"),
     Id = "readperm"
 };
   

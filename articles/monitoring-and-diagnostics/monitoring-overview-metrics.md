@@ -103,6 +103,13 @@ You can go to the **Diagnostics settings** blade under the **Monitor** tab and v
 
 You can configure this via Resource Manager templates, [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md), or [REST APIs](https://msdn.microsoft.com/library/dn931943.aspx).
 
+> [!NOTE]
+> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+>
+>
+
 ## Take action on metrics
 To receive notifications or take automated actions on metric data, you can configure alert rules or Autoscale settings.
 
@@ -113,7 +120,7 @@ Metric alerts: They can then notify you via email or fire a webhook that can be 
 
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Near real time alerts (preview): These have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md). Learn more about [near real time metric alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
+Newer metric alerts have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md). Learn more about [newer alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### Autoscale your Azure resources
