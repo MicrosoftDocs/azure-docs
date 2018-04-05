@@ -1,5 +1,5 @@
 ---
-title: Authenticate and authorize users end-to-end | Microsoft Docs 
+title: Authenticate and authorize users end-to-end in Azure App Service | Microsoft Docs 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 services: app-service\web
@@ -17,7 +17,7 @@ ms.date: 04/03/2018
 ms.author: cephalin
 ---
 
-# Tutorial: Authenticate and authorize users end-to-end
+# Tutorial: Authenticate and authorize users end-to-end in Azure App Service
 
 [Azure App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](app-service-authentication-overview.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an ASP.NET Core app with an Angular.js front end, but it is only for an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
