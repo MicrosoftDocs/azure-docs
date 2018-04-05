@@ -1,5 +1,5 @@
 ---
-title:  Privileged Identity Management - Complete access review for Azure Resources| Microsoft Docs
+title:  Privileged Identity Management for Azure Resources - Complete access review for Azure Resources| Microsoft Docs
 description: Describes how to complete an access review for Azure Resources.
 services: active-directory
 documentationcenter: ''

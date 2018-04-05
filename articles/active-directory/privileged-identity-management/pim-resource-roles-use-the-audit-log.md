@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management - Resource audit| Microsoft Docs
+title: Privileged Identity Management for Azure Resources - Resource audit| Microsoft Docs
 description: Explains how to get a view of all role activity for the a given resource.
 services: active-directory
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management - Discover and manage Azure resources| Microsoft Docs
+title: Privileged Identity Management for Azure Resources - Discover and manage Azure resources| Microsoft Docs
 description: Describes how to protect Azure resources.
 services: active-directory
 documentationcenter: ''

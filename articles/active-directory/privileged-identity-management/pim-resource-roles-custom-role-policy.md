@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management - Use custom roles to target PIM settings| Microsoft Docs
+title: Privileged Identity Management for Azure Resources - Use custom roles to target PIM settings| Microsoft Docs
 description: Describes how to use custom roles in PIM for Azure resources.
 services: active-directory
 documentationcenter: ''

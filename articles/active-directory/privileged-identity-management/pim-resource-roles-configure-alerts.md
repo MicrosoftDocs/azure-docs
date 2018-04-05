@@ -1,5 +1,5 @@
 ---
-title:  Privileged Identity Management - Security alerts| Microsoft Docs
+title:  Privileged Identity Management for Azure Resources - Security alerts| Microsoft Docs
 description: Describes PIM security alerts.
 services: active-directory
 documentationcenter: ''

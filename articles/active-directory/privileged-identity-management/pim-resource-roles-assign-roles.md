@@ -1,5 +1,5 @@
 ---
-title:  Privileged Identity Management - Assign roles| Microsoft Docs
+title:  Privileged Identity Management for Azure Resources - Assign roles| Microsoft Docs
 description: Describes how to assign roles in PIM.
 services: active-directory
 documentationcenter: ''

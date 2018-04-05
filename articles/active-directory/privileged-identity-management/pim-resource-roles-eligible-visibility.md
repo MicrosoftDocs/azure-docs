@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management - Eligible assignments and resource visibility | Microsoft Docs
+title: Privileged Identity Management for Azure Resources - Eligible assignments and resource visibility | Microsoft Docs
 description: Describes how to assign members as Eligible to resource roles.
 services: active-directory
 documentationcenter: ''

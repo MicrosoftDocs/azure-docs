@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management - Enable Subscription Management | Microsoft Docs
+title: Privileged Identity Management for Azure Resources - Enable Subscription Management | Microsoft Docs
 description: Learn how Global Administrators can manage subscriptions in the tenant.
 services: active-directory
 documentationcenter: ''

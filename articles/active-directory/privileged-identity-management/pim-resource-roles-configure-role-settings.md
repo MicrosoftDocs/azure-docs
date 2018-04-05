@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management -  Configure role settings| Microsoft Docs
+title: Privileged Identity Management for Azure Resources -  Configure role settings| Microsoft Docs
 description: Describes how to configure role settings for PIM.
 services: active-directory
 documentationcenter: ''

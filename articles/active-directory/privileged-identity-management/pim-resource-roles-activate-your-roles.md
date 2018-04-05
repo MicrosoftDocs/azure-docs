@@ -1,5 +1,5 @@
 ---
-title:  Privileged Identity Management - Activate roles| Microsoft Docs
+title:  Privileged Identity Management for Azure Resources - Activate roles| Microsoft Docs
 description: Describes how to activate roles in PIM.
 services: active-directory
 documentationcenter: ''
