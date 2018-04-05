@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: About Service Fabric Mesh
-    href: serivce-fabric-mesh-overview.md
+    href: service-fabric-mesh-overview.md
 
 - name: Quickstarts
   items:
@@ -34,7 +34,7 @@
 - name: Resources
   items:
   - name: FAQ
-    href: service-fabric-faq.md
+    href: service-fabric-mesh-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=service-fabric-mesh
   - name: Stack Overflow
