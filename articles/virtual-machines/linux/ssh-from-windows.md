@@ -4,7 +4,7 @@ description: Learn how to generate and use SSH keys on a Windows computer to con
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
 

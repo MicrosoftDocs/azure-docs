@@ -5,7 +5,7 @@ description: Learn how to troubleshoot Linux virtual machine issues by connectin
 services: virtual-machines-linux
 documentationCenter: ''
 authors: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
