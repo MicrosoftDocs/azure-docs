@@ -20,11 +20,10 @@ ms.author: anmola
 
 Service Fabric supports containerizing Service Fabric microservices (Reliable Services, and Reliable Actor based services). For more information, see [service fabric containers](service-fabric-containers-overview.md).
 
-
- This feature is in preview and this article provides the various steps to get your service running inside a container.  
+This feature is in preview and this article provides the various steps to get your service running inside a container.  
 
 > [!NOTE]
-> This feature is in preview and is not supported in production. Currently this feature only works for Windows.
+> This feature is in preview and is not supported in production. Currently this feature only works for Windows. To run containers, the cluster must be running on Windows Server 2016 with Containers.
 
 ## Steps to containerize your Service Fabric Application
 

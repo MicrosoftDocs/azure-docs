@@ -66,9 +66,9 @@ Create a workspace in VS Code before you can connect to Azure.
 
 4. Open **XXXX_hdi_settings.json** from **EXPLORER**, or right-click the script editor to select **Set Configuration**. You can configure login entry, default cluster, and job submission parameters as shown in the sample in the file. You also can leave the remaining parameters empty.
 
-## Connect to Azure
+## Connect to HDInsight Cluster
 
-Before you can submit scripts to HDInsight clusters from VS Code, you need connect to your Azure account.
+Before you can submit scripts to HDInsight clusters from VS Code, you need to either connect to your Azure account, or link a cluster (using Ambari username/password or domain joined account).
 
 **To connect to Azure**
 
@@ -119,7 +119,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 
    ![linked cluster](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. You also can unlink a cluster by inputing **HDInsight: Unlink a cluster** from command palette.
+4. You also can unlink a cluster by inputting **HDInsight: Unlink a cluster** from command palette.
 
 ## List HDInsight clusters
 
@@ -317,7 +317,6 @@ HDInsight for VS Code supports the following features:
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building realtime streaming applications](spark/apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and running applications

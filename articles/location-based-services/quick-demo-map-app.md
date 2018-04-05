@@ -3,9 +3,9 @@ title: Interactive Map Search with Azure Location Based Services | Microsoft Doc
 description: Azure Quickstart - Launch a demo interactive map search using Azure Location Based Services (preview)
 services: location-based-services
 keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 11/28/2017
+author: kgremban
+ms.author: kgremban
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: location-based-services
 
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Launch a demo interactive map search using Azure Location Based Services (preview)
 
-This article demonstrates the capabilities of Azure Location Based Services (LBS) to perform an interactive search using Azure Maps. It also walks you through the basic steps of creating your own LBS account and getting your account's key to use in the demo web application. 
+This article demonstrates the capabilities of Azure Location Based Services (LBS) to perform an interactive search. It also walks you through the basic steps of creating your own LBS account and getting your account's key to use in the demo web application. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -37,14 +37,14 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 5. Once your account is successfully created, open it and navigate to the account's **SETTINGS**. Click **Keys** to obtain the primary and secondary keys for your Azure Location Based Services account. Copy the **Primary Key** value to your local clipboard to use in the following section. 
 
-## Download the demo application for Azure Maps
+## Download the demo application
 
 1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Save the contents of this file locally as **AzureMapDemo.html** and open it in a text editor.
 3. Search for the string `<insert-key>`, and replace it with the **Primary Key** value obtained in the preceding section. 
 
 
-## Launch the demo application for Azure Maps
+## Launch the demo application for
 
 1. Open the file **AzureMapDemo.html** in a browser of your choice.
 2. Observe the map shown of Los Angeles city. The city is determined by the value of the `[longitude, latitude]` pair given to the JavaScript variable named **center** in the *AzureMapDemo.html*. You can change these coordinates to any other city of your choice. For example, New York city's coordinates are *[-74.0060, 40.7128]*.

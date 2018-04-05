@@ -1,7 +1,7 @@
 ---
 title: News Search SDK Node quickstart | Microsoft Docs
 description: Set up the News Search SDK console application
-titleSuffix: Azure cognitive services News search SDK Node quickstart
+titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -38,10 +38,13 @@ client.newsOperations.search('Winter Olympics').then((result) => {
 }).catch((err) => {
     throw err;
 });
-});
 
 ```
-The code prints `result.value` items to the console without parsing any text.
+The code prints `result.value` items to the console without parsing any text. The results, if any per category, will include:
+- _type: 'NewsArticle'
+- _type: 'WebPage'
+- _type: 'VideoObject'
+- _type: 'ImageObject'
 
 ![News results](media/node-sdk-quickstart-results.png)
 

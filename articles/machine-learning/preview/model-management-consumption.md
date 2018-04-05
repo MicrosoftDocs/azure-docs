@@ -4,8 +4,8 @@ description: This document describes the steps and concepts involved in consumin
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -30,7 +30,7 @@ You can list the currently deployed services and Docker images using CLI command
 After the web service has been successfully deployed, use the following command to get the service URL and other details for calling the service endpoint. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 This command prints out the service URL, required request headers, swagger URL, and sample data for calling the service if the service API schema was provided at the deployment time.
@@ -38,7 +38,7 @@ This command prints out the service URL, required request headers, swagger URL, 
 You can test the service directly from the CLI without composing an HTTP request, by entering the sample CLI command with the input data:
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## Get the service API key

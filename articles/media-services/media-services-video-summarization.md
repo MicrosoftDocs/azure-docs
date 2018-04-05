@@ -41,7 +41,11 @@ Here are some examples of what the Azure Media Video Thumbnails media processor 
 ## Task configuration (preset)
 When creating a video thumbnail task with **Azure Media Video Thumbnails**, you must specify a configuration preset. The above thumbnail sample was created with the following basic JSON configuration:
 
-    {"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
+```
 
 Currently, you can change the following parameters:
 
@@ -60,6 +64,7 @@ The following table describes the default duration, when **maxMotionThumbnailInS
 
 The following JSON sets available parameters.
 
+```json
     {
         "version": "1.0",
         "options": {
@@ -68,6 +73,7 @@ The following JSON sets available parameters.
             "fadeInFadeOut": "true"
         }
     }
+```
 
 ## .NET sample code
 
@@ -75,15 +81,18 @@ The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
 2. Creates a job with a video thumbnail task based on a configuration file that contains the following json preset: 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. Downloads the output files. 
 
 #### Create and configure a Visual Studio project
@@ -92,6 +101,7 @@ Set up your development environment and populate the app.config file with connec
 
 #### Example
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -259,6 +269,7 @@ Set up your development environment and populate the app.config file with connec
 
         }
     }
+```
 
 ### Video thumbnail output
 [Video thumbnail output](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)

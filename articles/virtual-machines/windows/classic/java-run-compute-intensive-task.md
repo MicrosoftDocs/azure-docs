@@ -49,7 +49,7 @@ The following is an example of the Java application monitoring the compute-inten
 
 ## To create a virtual machine
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
+2. Click **Create a resource**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
 3. In the **Virtual machine image select** dialog box, select **JDK 7 Windows Server 2012**.
    Note that **JDK 6 Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
 4. Click **Next**.

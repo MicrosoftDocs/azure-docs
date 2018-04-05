@@ -2,20 +2,13 @@
 title: Scale out an Azure SQL database | Microsoft Docs
 description: How to use the ShardMapManager, elastic database client library
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-editor: ''
-
-ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
-ms.author: ddove
+ms.date: 03/16/2018
+ms.author: sstein
 
 ---
 # Scale out databases with the shard map manager
@@ -23,7 +16,7 @@ To easily scale out databases on SQL Azure, use a shard map manager. The shard m
 
 ![Shard map management](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Understanding how these maps are constructed is essential to shard map management. This is done using the ShardMapManager class ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)), found in the [Elastic Database client library](sql-database-elastic-database-client-library.md) to manage shard maps.  
+Understanding how these maps are constructed is essential to shard map management. This is done using the ShardMapManager class ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), found in the [Elastic Database client library](sql-database-elastic-database-client-library.md) to manage shard maps.  
 
 ## Shard maps and shard mappings
 For each shard, you must select the type of shard map to create. The choice depends on the database architecture: 
@@ -99,7 +92,7 @@ A **ShardMapManager** object is constructed using a factory ([Java](/java/api/co
 
 **Please Note:** The **ShardMapManager** should be instantiated only once per app domain, within the initialization code for an application. Creation of additional instances of ShardMapManager in the same app domain results in increased memory and CPU utilization of the application. A **ShardMapManager** can contain any number of shard maps. While a single shard map may be sufficient for many applications, there are times when different sets of databases are used for different schema or for unique purposes; in those cases multiple shard maps may be preferable. 
 
-In this code, an application tries to open an existing **ShardMapManager** with the TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)) method.  If objects representing a Global **ShardMapManager** (GSM) do not yet exist inside the database, the client library creates them there using the CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) method.
+In this code, an application tries to open an existing **ShardMapManager** with the TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) method. If objects representing a Global **ShardMapManager** (GSM) do not yet exist inside the database, the client library creates them there using the CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) method.
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.

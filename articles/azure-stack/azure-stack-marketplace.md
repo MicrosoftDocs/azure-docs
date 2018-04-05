@@ -3,8 +3,8 @@ title: Publish a custom marketplace item in Azure Stack (cloud operator) | Micro
 description: As an Azure Stack operator, learn how to publish a custom marketplace item in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: ''
 
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
-ms.author: erikje
+ms.date: 04/03/2018
+ms.author: brenduns
+ms.reviewer: jeffgo
 
 ---
 # The Azure Stack Marketplace overview
@@ -39,6 +40,8 @@ Every Marketplace item has:
 * Formatting information to display the item in the portal
 
 Every item published to the Marketplace uses a format called the Azure Gallery Package (azpkg). Add deployment or runtime resources (like code, zip files with software, or virtual machine images) to Azure Stack separately, not as part of the Marketplace Item. 
+
+Beginning with 1803, images are converted to sparse files during download from Azure or during the upload for custom images. This process adds time when adding an image, but saves space and speeds up the deployment of those images. Conversion only applies to new images. Existing images are not changed. 
 
 ## Next steps
 [Create and publish a marketplace item](azure-stack-create-and-publish-marketplace-item.md)

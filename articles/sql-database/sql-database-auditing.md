@@ -2,17 +2,10 @@
 title: Get started with Azure SQL database auditing | Microsoft Docs
 description: Use Azure SQL database auditing to track database events into an audit log.
 services: sql-database
-documentationcenter: ''
 author: giladm
-manager: jhubbard
-editor: giladm
-
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
@@ -39,7 +32,8 @@ You can configure auditing for different types of event categories, as explained
 > [!IMPORTANT]
 > Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
 >
-> **Storage in VNet** is currently **not supported**.
+> * **Premium Storage** is currently **not supported** by Append Blobs.
+> * **Storage in VNet** is currently **not supported**.
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 

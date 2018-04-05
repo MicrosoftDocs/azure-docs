@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
 
 ---
 
 # Plan capacity for protecting Hyper-V VMs with Site Recovery
 
-A new enhanced version of [Azure Site Recovery Deployment Planner for Hyper-V to Azure deployment](site-recovery-hyper-v-deployment-planner.md) is now available. It replaces the old tool. Use the new tool for your deployment planning. 
+A new enhanced version of [Azure Site Recovery Deployment Planner for Hyper-V to Azure deployment](site-recovery-hyper-v-deployment-planner.md) is now available. It replaces the old tool. Use the new tool for your deployment planning.
 The tool provides the following guidelines:
 
 * VM eligibility assessment, based on the number of disks, disk size, IOPS, churn, and a few VM characteristics
@@ -44,7 +44,7 @@ You can run the tool in two modes:
 
 * Gather information about your environment, including VMs, disks per VM, storage per disk.
 * Identify your daily change (churn) rate for replicated data. Download the [Hyper-V capacity planning tool](https://www.microsoft.com/download/details.aspx?id=39057) to get the change rate. [Learn more](site-recovery-capacity-planning-for-hyper-v-replication.md) about this tool. We recommend that you run this tool over a week to capture averages.
-   
+
 
 ## Run the Quick Planner
 1. Download and open [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). You need to run macros. When you're prompted, make selections to enable editing and content.
@@ -57,7 +57,7 @@ You can run the tool in two modes:
 
    a. In **Select your scenario**, choose **Hyper-V to Azure** or **VMware/Physical to Azure**.
 
-   b. In **Average daily data change rate (%)**, enter the information you gather by using the [Hyper-V capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md) or [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md). 
+   b. In **Average daily data change rate (%)**, enter the information you gather by using the [Hyper-V capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md) or [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
    c. The **Compression** setting isn't used when you replicate Hyper-V VMs to Azure. For compression, use a third-party appliance, such as Riverbed.
 
@@ -146,7 +146,7 @@ After all the information is entered, select **Submit data to the planner tool**
 ### Submit data in Capacity Planner
 1. When you open the **Capacity Planner** worksheet, it's populated based on the settings you specified. The word "Workload" appears in the **Infra inputs source** cell to show that the input is the **Workload Qualification** worksheet.
 
-2. If you want to make changes, you need to modify the **Workload Qualification** worksheet. Then select **Submit data to the planner tool** again. 
+2. If you want to make changes, you need to modify the **Workload Qualification** worksheet. Then select **Submit data to the planner tool** again.
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 

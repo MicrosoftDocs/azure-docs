@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/21/2018
 ms.author: ergreenl
 
 ---
@@ -48,6 +48,16 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
 > [!TIP]
 > Port 636 is not the only rule needed for Azure AD Domain Services to run smoothly. To learn more, visit the [Networking guidelines](active-directory-ds-networking.md) or [Troubleshoot NSG configuration](active-directory-ds-troubleshoot-nsg.md) articles.
 >
+
+## AADDS502: Secure LDAP certificate expiring
+
+**Alert message:**
+
+*The secure LDAP certificate for the managed domain will expire on XX.*
+
+**Resolution:**
+
+Create a new secure LDAP certificate by following the steps outlined in the [Configure secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md) article.
 
 ## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).

@@ -9,6 +9,7 @@
   - name: Supported languages
     href: bing-autosuggest-supported-languages.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: C#
     href: quickstarts/csharp.md
@@ -22,18 +23,18 @@
     href: quickstarts/php.md
   - name: Ruby
     href: quickstarts/ruby.md
-- name: How-to guides
-  items: 
-  - name: Use and display requirements
-    href: UseAndDisplayRequirements.md
-  - name: Upgrade from v5 to v7
-    href: bing-autosuggest-upgrade-guide-v5-to-v7.md
 - name: Tutorials
   items:
   - name: Single-page Web app
     href: tutorials/autosuggest.md
   - name: Single-page Web app (source code)
     href: tutorials/autosuggest-source.md
+- name: How-to guides
+  items: 
+  - name: Use and display requirements
+    href: UseAndDisplayRequirements.md
+  - name: Upgrade from v5 to v7
+    href: bing-autosuggest-upgrade-guide-v5-to-v7.md
 - name: Reference
   items:
   - name: REST v7

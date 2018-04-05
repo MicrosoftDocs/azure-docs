@@ -1,6 +1,6 @@
 ---
 title: Create a .NET application for Service Fabric | Microsoft Docs
-description: Learn how to create an application with an ASP.NET Core front-end and a reliable service stateful back-end and deploy the application to a cluster.
+description: In this tutorial, you learn how to create an application with an ASP.NET Core front-end and a reliable service stateful back-end and deploy the application to a cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -19,8 +19,8 @@ ms.custom: mvc
 
 ---
 
-# Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
-This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).
+# Tutorial: create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
+This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).  If you prefer, you can also watch a [video walk-through](https://channel9.msdn.com/Events/Connect/2017/E100) of this tutorial.
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
@@ -41,7 +41,7 @@ In this tutorial series you learn how to:
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Install Visual Studio 2017](https://www.visualstudio.com/) version 15.3 or later with the **Azure development** and **ASP.NET and web development** workloads.
+- [Install Visual Studio 2017](https://www.visualstudio.com/) version 15.5 or later with the **Azure development** and **ASP.NET and web development** workloads.
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Create an ASP.NET Web API service as a reliable service

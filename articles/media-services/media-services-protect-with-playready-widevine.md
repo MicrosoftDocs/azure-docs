@@ -132,6 +132,7 @@ For instructions on how to publish an asset and build a streaming URL, see [Buil
 ## Get a test token
 Get a test token based on the token restriction that was used for the key authorization policy.
 
+```csharp
     // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -142,7 +143,7 @@ Get a test token based on the token restriction that was used for the key author
     //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-
+```
 
 You can use the [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) to test your stream.
 
@@ -152,8 +153,10 @@ You can use the [Azure Media Services Player](http://amsplayer.azurewebsites.net
 
 2. Add the following elements to **appSettings** defined in your app.config file:
 
+```xml
 		<add key="Issuer" value="http://testacs.com"/>
 		<add key="Audience" value="urn:test"/>
+```
 
 ## Example
 
@@ -168,7 +171,7 @@ For more information, see [Manage assets and related entities with the Media Ser
 
 Make sure to update variables to point to folders where your input files are located.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

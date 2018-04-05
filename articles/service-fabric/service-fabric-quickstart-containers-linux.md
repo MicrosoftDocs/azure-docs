@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Service Fabric container application on Linux | Microsoft Docs
-description: Create your first Linux container application on Azure Service Fabric.  Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
+description: In this quickstart, you create your first Linux container application on Azure Service Fabric.  Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Deploy an Azure Service Fabric Linux container application on Azure
+# Quickstart: deploy an Azure Service Fabric Linux container application on Azure
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers. 
 
 This quickstart shows how to deploy Linux containers to a Service Fabric cluster. Once complete, you have a voting application consisting of a Python web front-end and a Redis back-end running in a Service Fabric cluster. 

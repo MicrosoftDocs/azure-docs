@@ -24,7 +24,7 @@ This article details how to create a VM with multiple NICs with the Azure CLI 2.
 
 
 ## Create supporting resources
-Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#az_login).
+Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *mystorageaccount*, and *myVM*.
 
@@ -187,7 +187,7 @@ echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-To make the change persistent and applied during network stack activation, edit */etc/sysconfig/network-scipts/ifcfg-eth0* and */etc/sysconfig/network-scipts/ifcfg-eth1*. Alter the line *"NM_CONTROLLED=yes"* to *"NM_CONTROLLED=no"*. Without this step, the additional rules/routing are not automatically applied.
+To make the change persistent and applied during network stack activation, edit */etc/sysconfig/network-scripts/ifcfg-eth0* and */etc/sysconfig/network-scripts/ifcfg-eth1*. Alter the line *"NM_CONTROLLED=yes"* to *"NM_CONTROLLED=no"*. Without this step, the additional rules/routing are not automatically applied.
  
 Next, extend the routing tables. Let's assume we have the following setup in place:
 

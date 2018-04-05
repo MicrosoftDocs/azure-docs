@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: hangzh;bradsev
+ms.author: bradsev
 
 ---
 # Create features for data in a Hadoop cluster using Hive queries
@@ -90,14 +90,14 @@ Hive comes with a set of UDFs for processing datetime fields. In Hive, the defau
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-This Hive query assumes that the *&#60;datetime field>* is in the default datetime format.
+This Hive query assumes that the *<datetime field>* is in the default datetime format.
 
 If a datetime field is not in the default format, you need to convert the datetime field into Unix time stamp first, and then convert the Unix time stamp to a datetime string that is in the default format. When the datetime is in default format, users can apply the embedded datetime UDFs to extract features.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-In this query, if the *&#60;datetime field>* has the pattern like *03/26/2015 12:04:39*, the *'&#60;pattern of the datetime field>'* should be `'MM/dd/yyyy HH:mm:ss'`. To test it, users can run
+In this query, if the *<datetime field>* has the pattern like *03/26/2015 12:04:39*, the *<pattern of the datetime field>'* should be `'MM/dd/yyyy HH:mm:ss'`. To test it, users can run
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

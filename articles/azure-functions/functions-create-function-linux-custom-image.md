@@ -108,7 +108,7 @@ With the custom image running in a local Docker container, verify the function a
 
 ![Test the function app locally.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-After you hav verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
+After you have verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
 
 ## Push the custom image to Docker Hub
 
@@ -123,7 +123,7 @@ docker login --username <docker-id>
 A "login succeeded" message confirms that you are logged in. After you have signed in, you push the image to Docker Hub by using the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Verify that the push succeeded by examining the command's output.

@@ -8,7 +8,7 @@ These steps can help resolve many allocation failures in virtual machines:
 * Resize the VM to a different VM size.<br>
     Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 * Delete all VMs from the cloud service and re-create VMs.<br>
-    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
+    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **Create a resource** > **Compute** > [virtual machine image].
 
 ### Troubleshoot common allocation failures in the Azure Resource Manager deployment model
 These steps can help resolve many allocation failures in virtual machines:

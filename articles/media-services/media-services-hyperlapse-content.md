@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/28/2018
 ms.author: adsolank
 
 ---
@@ -21,13 +21,11 @@ ms.author: adsolank
 Azure Media Hyperlapse is a Media Processor (MP) that creates smooth time-lapsed videos from first-person or action-camera content.  The cloud-based sibling to [Microsoft Research's desktop Hyperlapse Pro and phone-based Hyperlapse Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse for Azure Media Services utilizes the massive scale of the Azure Media Services Media Processing platform to horizontally scale and parallelize bulk Hyperlapse processing.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse is designed to work best on first-person content with a moving camera.  Although still-camera footage can still work, the performance and quality of the Azure Media Hyperlapse Media Processor cannot be guaranteed for other types of content.  To learn more about Microsoft Hyperlapse for Azure Media Services and see some example videos, check out the [introductory blog post](http://aka.ms/azurehyperlapseblog) from the public preview.
+> Microsoft Hyperlapse is designed to work best on first-person content with a moving camera. Although still-camera footage can still work, the performance and quality of the Azure Media Hyperlapse Media Processor cannot be guaranteed for other types of content.
 > 
 > 
 
 An Azure Media Hyperlapse job takes as input an MP4, MOV, or WMV asset file along with a configuration file that specifies which frames of video should be time-lapsed and to what speed (e.g. first 10,000 frames at 2x).  The output is a stabilized and time-lapsed rendition of the input video.
-
-For the latest Azure Media Hyperlapse updates, see [Media Services blogs](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## Hyperlapse an asset
 First you will need to upload your desired input file to Azure Media Services.  To learn more about the concepts involved with uploading and managing content, read the [content management article](media-services-portal-vod-get-started.md).
@@ -44,7 +42,7 @@ Once your content is in your Media Services account, you will need to construct 
 The following is an example of a conformant configuration file in XML and JSON:
 
 **XML preset:**
-
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
@@ -54,9 +52,10 @@ The following is an example of a conformant configuration file in XML and JSON:
             <Speed>12</Speed>
         </Options>
     </Preset>
+```
 
 **JSON preset:**
-
+```json
     {
         "Version":1.0,
         "Sources": [
@@ -70,6 +69,7 @@ The following is an example of a conformant configuration file in XML and JSON:
             "Stabilize":false
         }
     }
+```
 
 ### <a id="sample_code"></a> Microsoft Hyperlapse with the AMS .NET SDK
 The following method uploads a media file as an asset and creates a job with the Azure Media Hyperlapse Media Processor.
@@ -82,6 +82,7 @@ The following method uploads a media file as an asset and creates a job with the
 > 
 > 
 
+```csharp
         static bool RunHyperlapseJob(string input, string output, string hyperConfig)
         {
             // create asset with input file
@@ -194,6 +195,7 @@ The following method uploads a media file as an asset and creates a job with the
 
         return processor;
     }
+```
 
 ### <a id="file_types"></a>Supported File types
 * MP4

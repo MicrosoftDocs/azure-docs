@@ -1,21 +1,19 @@
 ---
-title: Health monitoring overview for Azure Application Gateway | Microsoft Docs
+title: Health monitoring overview for Azure Application Gateway
 description: Learn about the monitoring capabilities in Azure Application Gateway
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: ''
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 
-ms.assetid: 7eeba328-bb2d-4d3e-bdac-7552e7900b7f
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: davidmu
+ms.date: 3/30/2018
+ms.author: victorh
 
 ---
 
@@ -37,6 +35,25 @@ An application gateway automatically configures a default health probe when you 
 For example: You configure your application gateway to use back-end servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response. A healthy HTTP response has a [status code](https://msdn.microsoft.com/library/aa287675.aspx) between 200 and 399.
 
 If the default probe check fails for server A, the application gateway removes it from its back-end pool, and network traffic stops flowing to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, it is added back as healthy to the back-end pool, and traffic starts flowing to the server again.
+
+### Probe Matching
+
+By default, an HTTP(S) response with status code 200 is considered healthy. Custom health probes additionally support two matching criteria. Matching criteria can be used to optionally modify the default interpretation of what consititutes a healthy response.
+
+The following are matching criteria: 
+
+- **HTTP response status code match** - Probe matching criterion for accepting user specified http response code or response code ranges. Individual comma separated response status codes or a range of status code is supported.
+- **HTTP response body match** - Probe matching criterion which looks at HTTP response body and matches with a user specified string. Note that the match only looks for presence of user specified string in response body and is not a full regular expression match.
+
+Match criteria can be specified using the `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet.
+
+For example:
+
+```
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```
+Once the match criteria is specified, it can be attached to probe configuration using a `-Match` parameter in PowerShell.
 
 ### Default health probe settings
 

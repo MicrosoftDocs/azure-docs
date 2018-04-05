@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -37,7 +37,495 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## March 2018
+ 
 
+### Certificate expire notification
+
+**Type:** Fixed  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+ 
+Azure AD sends a notification when a certificate for a gallery or non-gallery application is about to expire. 
+
+Some users did not receive notifications for enterprise applications configured for SAML-based single sign-on. This issue was resolved. Azure AD sends notification for certificates expiring in 7, 30 and 60 days. You ere able to see this event in the audit logs. 
+
+For more information, see:
+
+- [Manage Certificates for federated single sign-on in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
+- [Audit activity reports in the Azure Active Directory portal](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
+
+ 
+---
+ 
+
+### Twitter and GitHub identity providers in Azure AD B2C
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+You can now add Twitter or GitHub as an identity provider in Azure AD B2C. Twitter is moving from public preview to GA. GitHub is being released in public preview.
+
+
+For more information, see [What is Azure AD B2B collaboration?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+ 
+---
+
+
+### Restrict browser access using Intune Managed Browser with Azure AD application-based conditional access for iOS and Android
+
+**Type:** New feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+ 
+
+**Now in public preview!**
+
+**Intune Managed Browser SSO:** Your employees can use single sign-on across native clients (like Microsoft Outlook) and the Intune Managed Browser for all Azure AD-connected apps.
+
+**Intune Managed Browser Conditional Access Support:** You can now require employees to use the Intune Managed browser using application-based conditional access policies.
+
+Read more about this in our [blog post](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
+
+For more information, see:
+
+- [Setup application-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+- [Configure managed browser policies](https://aka.ms/managedbrowser)  
+
+
+
+---
+ 
+
+### App Proxy Cmdlets in Powershell GA Module
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+Support for Application Proxy cmdlets is now in the Powershell GA Module! Please note that this does require you to stay updated on Powershell modules - if you become more than a year behind, some cmdlets may stop working. 
+
+
+For more information, see [AzureAD](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0).
+ 
+---
+ 
+### Office 365 native clients are supported by Seamless SSO using a non-interactive protocol
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+User using Office 365 native clients (version 16.0.8730.xxxx and above) get a silent sign-on experience using Seamless SSO. This support is provided by the addition a non-interactive protocol (WS-Trust) to Azure AD.
+
+For more information, see [How does sign-in on a native client with Seamless SSO work?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work).
+
+ 
+---
+ 
+
+### Users get a silent sign-on experience, with Seamless SSO, if an application sends sign-in requests to Azure AD's tenanted endpoints
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+Users get a silent sign-on experience, with Seamless SSO, if an application (for example, `https://contoso.sharepoint.com`) sends sign-in requests to Azure AD's tenanted endpoints - that is, `https://login.microsoftonline.com/contoso.com/<..>` or `https://login.microsoftonline.com/<tenant_ID>/<..>` - instead of Azure AD's common endpoint (`https://login.microsoftonline.com/common/<...>`).
+
+For more information, see [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+
+---
+ 
+
+### Need to add only one Azure AD URL, instead of two URLs previously, to users' Intranet zone settings to roll out Seamless SSO
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+To roll out Seamless SSO to your users, you need to add only one Azure AD URL to the users' Intranet zone settings by using group policy in Active Directory: `https://autologon.microsoftazuread-sso.com`. Previously, customers were required to add two URLs.
+
+For more information, see [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+ 
+---
+ 
+
+### New Federated Apps available in Azure AD App gallery
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In March 2018 we have added following 15 new apps in our App gallery with Federation support:
+
+[Boxcryptor](https://docs.microsoft.com/azure/active-directory/active-directory-saas-boxcryptor-tutorial), [CylancePROTECT](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cylanceprotect-tutorial), Wrike, [SignalFx](https://docs.microsoft.com/azure/active-directory/active-directory-saas-signalfx-tutorial), Assistant by FirstAgenda, [YardiOne](https://docs.microsoft.com/azure/active-directory/active-directory-saas-yardione-tutorial), Vtiger CRM, inwink, [Amplitude](https://docs.microsoft.com/azure/active-directory/active-directory-saas-amplitude-tutorial), [Spacio](https://docs.microsoft.com/azure/active-directory/active-directory-saas-spacio-tutorial), [ContractWorks](https://docs.microsoft.com/azure/active-directory/active-directory-saas-contractworks-tutorial), [Bersin](https://docs.microsoft.com/azure/active-directory/active-directory-saas-bersin-tutorial), [Mercell](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mercell-tutorial), [Trisotech Digital Enterprise Server](https://docs.microsoft.com/azure/active-directory/active-directory-saas-trisotechdigitalenterpriseserver-tutorial), [Qumu Cloud](https://docs.microsoft.com/azure/active-directory/active-directory-saas-qumucloud-tutorial).
+ 
+You can find the documentation for all the applications here: [https://aka.ms/appstutorial](https://aka.ms/appstutorial)
+
+
+ 
+---
+ 
+
+### PIM for Azure Resources is generally available
+
+**Type:** New feature  
+**Service category:** Privileged Identity Management  
+**Product capability:** Privileged Identity Management
+ 
+If you are using Azure AD Privileged Identity Management for directory roles, you can now use PIM's time-bound access and assignment capabilities for Azure Resource roles such as Subscriptions, Resource Groups, Virtual Machines, and any other resource supported by Azure Resource Manager. Enforce Multi-Factor Authentication when activating roles Just-In-Time, and schedule activations in coordination with approved change windows. In addition, this release adds enhancements not available during public preview including an updated UI, approval workflows, and the ability to extend roles expiring soon and renew expired roles.
+
+For more information, see [PIM for Azure resources (Preview)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+ 
+---
+ 
+
+### Adding Optional Claims to your apps tokens (public preview)
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+Your Azure AD app can now request custom or optional claims in JWTs or SAML tokens.  These are claims about the user or tenant that are not included by default in the token, due to size or applicability constraints.  This is currently in public preview for Azure AD apps on the v1.0 and v2.0 endpoints.  See the documentation for information on what claims can be added and how to edit your application manifest to request them.  
+
+For more information, see [Optional claims in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims).
+ 
+---
+ 
+
+### Azure AD supports PKCE for more secure OAuth flows
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+Azure AD docs have been updated to note support for PKCE, which allows for more secure communication during the OAuth 2.0 Authorization Code grant flow.  Both S256 and plaintext code_challenges are supported on the v1.0 and v2.0 endpoints. 
+
+For more information, see Request an authorization code[](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
+
+ 
+---
+ 
+
+### Support for provisioning all user attribute values available in the Workday Get_Workers API
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+The public preview of inbound provisioning from Workday to Active Directory and Azure AD now supports the ability to extract and provisioning all attribute values available in the Workday Get_Workers API. This adds supports for hundreds of additional standard and custom attributes beyond the ones shipped with the initial version of the Workday inbound provisioning connector.
+
+For more information, see: [Customizing the list of Workday user attributes](https://docs.microsoft.com/azure/active-directory/active-directory-saas-workday-inbound-tutorial#customizing-the-list-of-workday-user-attributes)
+
+---
+
+
+
+### Changing group membership from dynamic to static, and vice versa
+
+**Type:** New feature  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+ 
+It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
+We've updated the Azure AD Admin center to add support this functionality. Now, customers can convert existing groups from dynamic membership to assigned membership and vice-versa. The existing PowerShell cmdlets are also still available.
+
+For more information, see [Changing dynamic membership to static and vice-versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal#changing-dynamic-membership-to-static-and-vice-versa)
+
+ 
+
+ 
+---
+ 
+
+### Improved sign-out behavior with Seamless SSO
+
+**Type:** Changed feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+Previously, even if users explicitly signed out of an application secured by Azure AD, they would be automatically signed back in using Seamless SSO if they were trying to access an Azure AD application again within their corpnet from their domain joined devices. With this change, sign out is supported.  This allows users to choose the same or different Azure AD account to sign back in with, instead of being automatically signed in using Seamless SSO.
+
+For more information, see [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)
+
+ 
+---
+ 
+
+### Application Proxy Connector Version 1.5.402.0 Released
+
+**Type:** Changed feature  
+**Service category:** App Proxy  
+**Product capability:** Identity Security & Protection
+ 
+This connector version is gradually being rolled out through November. This new connector version includes the following changes:
+
+- The connector now sets domain level cookies instead sub-domain level. This ensures a smoother SSO experience and avoids redundant authentication prompts.
+- Support for chunked encoding requests
+- Improved connector health monitoring 
+- Several bug fixes and stability improvements
+
+For more information, see [Understand Azure AD Application Proxy connectors](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
+
+ 
+---
+ 
+
+ 
+
+
+
+## February 2018
+ 
+
+### Improved navigation for managing users and groups
+
+**Type:** Plan for change  
+**Service category:** Directory Management  
+**Product capability:** Directory
+ 
+
+The navigation experience for managing users and groups has been streamlined. You can now navigate from the directory overview directly to the list of all users, with easier access to the list of deleted users. You can also navigate from the directory overview directly to the list of all groups, with easier access to group management settings. And also from the directory overview page, you can search for a user, group, enterprise application, or app registration.
+ 
+
+---
+
+
+### Availability of sign-ins and audit reports in Microsoft Azure operated by 21Vianet (Azure China 21Vianet)
+
+**Type:** New feature  
+**Service category:** Sovereign Clouds  
+**Product capability:** Monitoring & Reporting
+ 
+
+Azure AD Activity log reports are now available in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) instances. The following logs are included:
+
+- **Sign-ins activity logs**  - Includes all the sign-ins logs associated with your tenant.
+
+- **Self service Password Audit Logs** - Includes all the SSPR audit logs.
+
+- **Directory Management Audit logs** - Includes all the directory management related audit logs like User management, App Management, and others.
+
+With these logs, you can gain insights into how your environment is doing. The provided data enables you to:
+
+- Determine how your apps and services are utilized by your users.
+
+- Troubleshoot issues preventing your users from getting their work done.
+
+For more information about how to use these reports, see [Azure Active Directory reporting](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal).
+ 
+
+---
+
+
+### Use "Report Reader" role (non-admin role) to view Azure AD Activity Reports
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+
+As part of customers feedback to enable non-admin roles to have access to Azure AD activity logs, we have enabled the ability for users who are in the "Report Reader" role to access Sign-ins and Audit activity within the Azure Portal as well as using our Graph APIs. 
+
+For more information, how to use these reports, see [Azure Active Directory reporting](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
+
+---
+ 
+
+
+### EmployeeID claim available as user attribute and user identifier
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+ 
+
+You can configure **EmployeeID** as the User identifier and User attribute for member users and B2B guests in SAML-based sign-on applications from the Enterprise application UI.
+
+For more information, see [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+ 
+
+---
+
+
+### Simplified Application Management using Wildcards in Azure AD Application Proxy
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** User Authentication
+ 
+
+To make application deployment easier and reduce your administrative overhead, we now support the ability to publish applications using wildcards. To publish a wildcard application, you can follow the standard application publishing flow, but use a wildcard in the internal and external URLs.
+
+For more information, see [Wildcard applications in the Azure Active Directory application proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+
+ 
+
+---
+ 
+### New cmdlets to support configuration of Application Proxy
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** Platform
+ 
+
+The latest release of the AzureAD PowerShell Preview module contains new cmdlets that allows customers to configure Application Proxy Applications using PowerShell.
+
+The new cmdlets are: 
+
+- Get-AzureADApplicationProxyApplication
+- Get-AzureADApplicationProxyApplicationConnectorGroup
+- Get-AzureADApplicationProxyConnector
+- Get-AzureADApplicationProxyConnectorGroup
+- Get-AzureADApplicationProxyConnectorGroupMembers
+- Get-AzureADApplicationProxyConnectorMemberOf
+- New-AzureADApplicationProxyApplication
+- New-AzureADApplicationProxyConnectorGroup
+- Remove-AzureADApplicationProxyApplication
+- Remove-AzureADApplicationProxyApplicationConnectorGroup
+- Remove-AzureADApplicationProxyConnectorGroup
+- Set-AzureADApplicationProxyApplication
+- Set-AzureADApplicationProxyApplicationConnectorGroup
+- Set-AzureADApplicationProxyApplicationCustomDomainCertificate
+- Set-AzureADApplicationProxyApplicationSingleSignOn
+- Set-AzureADApplicationProxyConnector
+- Set-AzureADApplicationProxyConnectorGroup
+
+
+ 
+
+---
+ 
+
+### New cmdlets to support configuration of groups
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** Platform
+ 
+
+The latest release of the AzureAD PowerShell module contains cmdlets to manage groups in Azure AD. These cmdlets were previously available in the AzureADPreview module and are now added to the AzureAD module
+
+The Group cmdlets that are now release for General Availability are: 
+
+- Get-AzureADMSGroup
+- New-AzureADMSGroup
+- Remove-AzureADMSGroup
+- Set-AzureADMSGroup
+- Get-AzureADMSGroupLifecyclePolicy
+- New-AzureADMSGroupLifecyclePolicy
+- Remove-AzureADMSGroupLifecyclePolicy
+- Add-AzureADMSLifecyclePolicyGroup
+- Remove-AzureADMSLifecyclePolicyGroup
+- Reset-AzureADMSLifeCycleGroup   
+- Get-AzureADMSLifecyclePolicyGroup
+ 
+
+---
+ 
+### A new release of Azure AD Connect is available
+
+**Type:** New feature  
+**Service category:** AD Sync  
+**Product capability:** Platform
+ 
+
+Azure AD Connect is the preferred tool to synchronize data between Azure AD and on premises data sources, including Windows Server Active Directory and LDAP.
+
+**Important**
+ 
+This build introduces schema and sync rule changes. The Azure AD Connect Synchronization Service triggers a Full Import and Full Synchronization steps after an upgrade. For information on how to change this behavior, see [How to defer full synchronization after upgrade](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
+
+This release has the following updates and changes:
+
+**Fixed issues**
+
+- Fix timing window on background tasks for Paritition Filtering page when switching to next page.
+- Fixed a bug that caused Access violation during the ConfigDB custom action.
+- Fixed a bug to recover from sql connection timeout.
+- Fixed a bug where certificates with SAN wildcards fail pre-req check.
+- Fixed a bug which causes miiserver.exe crash during AAD connector export.
+- Fixed a bug which bad password attempt logged on DC when running AAD connect wizard to change configuration
+
+**New features and improvements**
+
+- For GDPR, we are required to indicate the kinds of customer data that are shared with Microsoft (telemetry, health, etc.), have links to detailed online documentation, and provide a way to you to change your preferences.  This check-in adds the following:
+    - Data sharing and privacy notification on the clean install EULA page.
+
+    - Data sharing and privacy notification on the upgrade page.
+
+    - A new additional task **Privacy Settings** where the user can change their preferences.
+ 
+- Application telemetry - Administrators can switch this class of data on/off.
+
+- Azure AD Health data - Administrators must visit the health portal to control their health settings. Once the service policy has been changed, the agents will read and enforce it.
+
+- Added device writeback configuration actions and a progress bar for page initialization.
+
+- Improved general diagnostics with HTML report and full data collection in a ZIP-Text / HTML Report.
+
+- Improved reliability of auto upgrade and added additional telemetry to ensure the health of the server can be determined.
+
+- Restrict permissions available to privileged accounts on AD Connector account. For new installations, the wizard restricts the permissions that privileged accounts have on the MSOL account after creating the MSOL account. The changes affect express installations and custom installations with Auto-Create account.
+
+- Changed the installer to not require SA privilege on clean install of AADConnect.
+
+- New utility to troubleshoot synchronization issues for a specific object. Currently, the utility checks for the following:
+
+    - UserPrincipalName mismatch between synchronized user object and the user account in Azure AD Tenant.
+  
+    - If the object is filtered from synchronization due to domain filtering
+  
+    - If the object is filtered from synchronization due to organizational unit (OU) filtering
+
+- New utility to synchronize the current password hash stored in the on-premises Active Directory for a specific user account. The utility does not require a password change. 
+ 
+
+---
+ 
+
+### Applications supporting Intune App Protection policies added for use with Azure AD application-based conditional access
+
+**Type:** Changed feature  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+ 
+
+We have added more applications that support application-based conditional access. Now, you can get access to Office 365 and other Azure AD-connected cloud apps using these approved client apps.
+
+The following applications will be added by the end of February 
+
+- Microsoft PowerBI
+
+- Microsoft Launcher
+
+- Microsoft Invoicing
+
+For more information, see:
+
+- [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+ 
+
+---
+ 
+
+### Terms of Use update to mobile experience 
+
+**Type:** Changed feature  
+**Service category:** Terms of Use  
+**Product capability:** Governance
+ 
+
+When the terms of use are displayed, you can now click **Having trouble viewing? Click here**. Clicking this link opens the terms of use natively on your device. Regardless of the font size in the document or the screen size of device, you can zoom and read the document as needed. 
+ 
+
+---
+ 
 ## January 2018
  
 
@@ -165,7 +653,7 @@ For more information, see:
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance/compliance
+**Product capability:** Governance/Compliance
  
 You now can go to the Access Panel and view the terms of use that you previously accepted.
 
@@ -216,7 +704,7 @@ For more information, see [Fewer sign-in prompts: The new "keep me signed in" ex
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance
+**Product capability:** Governance/Compliance
  
 An option for administrators requires their users to expand the terms of use prior to accepting the terms.
 
@@ -374,7 +862,7 @@ For more information, see:
 
 **Type:** New feature    
 **Service category:** Terms of use  
-**Product capability:** Governance/compliance
+**Product capability:** Governance/Compliance
 
 
 
@@ -664,7 +1152,7 @@ For more information, see [Reference for MFA reporting in the Azure portal](http
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance  
+**Product capability:** Governance/Compliance  
 
 
 
@@ -707,7 +1195,7 @@ For more information, see [Privileged Identity Management for Azure resources](h
 
 **Type:** New feature  
 **Service category:** Access reviews  
-**Product capability:** Governance  
+**Product capability:** Governance/Compliance  
 
 
 

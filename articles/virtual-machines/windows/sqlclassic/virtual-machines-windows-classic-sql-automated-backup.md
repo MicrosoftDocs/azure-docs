@@ -4,7 +4,7 @@ description: 'Explains the Automated Backup feature for SQL Server running in Az
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 

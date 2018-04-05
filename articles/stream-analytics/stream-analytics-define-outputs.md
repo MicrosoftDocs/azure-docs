@@ -6,7 +6,6 @@ services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storag
 documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
@@ -340,7 +339,7 @@ Also, in a situation where there is no event landing in a time window, no output
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 You've been introduced to Stream Analytics, a managed service for streaming analytics on data from the Internet of Things. To learn more about this service, see:

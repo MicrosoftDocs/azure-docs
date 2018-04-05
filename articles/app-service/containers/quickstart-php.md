@@ -25,7 +25,7 @@ ms.custom: mvc
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux. You create the web app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the web app.
 
-![Sample app running in Azure]](media/quickstart-php/hello-world-in-browser.png)
+![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
 
 You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
@@ -67,13 +67,13 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
 Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
 
