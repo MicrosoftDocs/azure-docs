@@ -119,7 +119,7 @@ There are several resources that can easily be deployed in a resource group toge
 
 3. Choose the subscription in which the various resources are billed.
 
-4. Specify a new resource group, with a unique name, for example `MyTollApp`. 
+4. Specify a new resource group, with a unique name, for example `MyTollBooth`. 
 
 5. Select an Azure location.
 
