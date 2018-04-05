@@ -162,7 +162,7 @@ There are several resources that can easily be deployed in a resource group toge
    As you can see, Azure Stream Analytics uses a query language that's like SQL and adds a few extensions to specify time-related aspects of the query.  For more details, read about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) constructs used in the query.
 
 3. Examine the Inputs of the TollApp sample job. Only the EntryStream input is used in the current query.
-   - **EntryStream** input is an Event Hub connection that queues data representing each time a car enters a tollbooth on the highway. A web app that is part of the sample is creating the data which is queued in this Event Hub. Note that this input is queried in the FROM clause of the streaming query.
+   - **EntryStream** input is an Event Hub connection that queues data representing each time a car enters a tollbooth on the highway. A web app that is part of the sample is creating the events, and that data is queued in this Event Hub. Note that this input is queried in the FROM clause of the streaming query.
    - **ExitStream** input is an Event Hub connection that queues data representing each time a car exits a tollbooth on the highway. This streaming input is used in later variations of the query syntax.
    - **Registration** input is an Azure Blob storage connection, pointing to a static registration.json file, used for lookups as needed. This reference data input is used in later variations of the query syntax.
 
@@ -191,7 +191,7 @@ Follow these steps to start the streaming job:
 
 6. Select each id, and review the JSON document. Notice each tollid, windowend time, and the count of cars from that window.
 
-7. After an additional three minutes, another set of 4 documents is available, one document per tollid. 
+7. After an additional three minutes, another set of four documents is available, one document per tollid. 
 
 
 ## Report total time for each car
