@@ -22,7 +22,7 @@ The following table includes links to Azure CLI samples for Event Grid.
 | [Subscribe to Azure subscription](scripts/event-grid-cli-azure-subscription.md)| Subscribes to events for an Azure subscription. |
 | [Subscribe to Blob storage](scripts/event-grid-cli-blob.md)| Subscribes to events for a Blob storage account. |
 | [Subscribe to custom topic](scripts/event-grid-cli-subscribe-custom-topic.md)| Subscribes to events for a custom topic. |
-| [Subscribe to resource group](scripts/event-grid-cli-resource-group)| Subscribes to events for a resource group. |
+| [Subscribe to resource group](scripts/event-grid-cli-resource-group.md)| Subscribes to events for a resource group. |
 |**Event Grid topics**||
 | [Create custom topic](scripts/event-grid-cli-create-custom-topic.md) | Creates a managed disk from a specialized VHD as a OS disk or from a data VHD as data disk.  |
 | | |
