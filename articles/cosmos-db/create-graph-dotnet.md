@@ -4,8 +4,7 @@ description: Presents a .NET Framework/Core code sample you can use to connect t
 services: cosmos-db
 documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
-editor: ''
+manager: kfile
 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
