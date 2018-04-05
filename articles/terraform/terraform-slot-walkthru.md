@@ -302,6 +302,4 @@ To return to the original production version of the app, reapply the Terraform p
 terraform apply
 ```
 
-## Next steps
-
-- [Use an Azure Marketplace image to create a Terraform Linux virtual machine with Managed Service Identity](./terraform-vm-msi.md)
+Once swapped, you see the original configuration.
