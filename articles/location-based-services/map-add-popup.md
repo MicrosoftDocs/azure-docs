@@ -18,7 +18,7 @@ ms.custom: codepen
 # Add a popup to the map
 
 ## Overview
-This tutorial shows you how to add a popup to a map.  
+This article shows you how to add a popup to a map.  
 
 ## Understand the code
 
