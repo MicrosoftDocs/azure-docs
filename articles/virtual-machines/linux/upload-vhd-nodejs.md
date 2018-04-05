@@ -4,7 +4,7 @@ description: Create and upload a virtual hard disk (VHD) to Azure with a custom 
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
