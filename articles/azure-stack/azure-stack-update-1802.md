@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/05/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -54,7 +54,9 @@ The Azure Stack 1802 update build number is **20180302.1**.
 
 
 ### Post-update steps
-*There are no post-update steps for update 1802.*
+After the installation of 1802, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+- [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/help/4103348)
+
 
 
 ### New features and fixes
@@ -80,7 +82,7 @@ This update includes the following improvements and fixes for Azure Stack.
 
 - **Support is added for multiple fault domains**.  For more information, see [High availability for Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack).
 
-- **Various fixes** for performance, stability, security, and the operating system that is used by Azure stack.
+- **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
 <!--
 #### New features
