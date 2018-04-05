@@ -97,7 +97,7 @@ To blacklist an individual device in an enrollment group, follow these steps:
 6. For **IoT Hub device ID**, enter the ID for the device. 
 7. Select **Disable** on the **Enable entry** switch, and then select **Save**. 
 
-    [![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
+    [![Use disabled individual enrollment entry to disable device from group enrollment, in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 When you successfully create your enrollment, you should see your device appear on the **Individual Enrollments** tab.
 
