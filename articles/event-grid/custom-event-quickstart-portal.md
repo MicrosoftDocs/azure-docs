@@ -111,6 +111,8 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+__Note__: Shell code here is written for __Bash__ environment.
+
 ## Send an event to your topic
 
 First, let's get the URL and key for the topic. Use your topic name for `<topic_name>`.
