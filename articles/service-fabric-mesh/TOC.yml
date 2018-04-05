@@ -1,0 +1,49 @@
+- name: Service Fabric Mesh Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: About Service Fabric Mesh
+    href: serivce-fabric-mesh-overview.md
+
+- name: Quickstarts
+  items:
+  - name: Deploy an existing Container
+    href: service-fabric-mesh-quickstart-deploy-container.md
+
+- name: Tutorials
+  items:
+  - name: Tutorial
+    href: tutorial.md
+
+- name: Concepts
+  items:
+  - name: Conceptual
+    href: concepts.md
+
+- name: How-to guides
+  items:
+  - name: How?
+    href: where.md
+
+- name: Reference
+  items:
+  - name: REST APIs
+    href: https://msdn.microsoft.com/library/mt704034(Azure.100).aspx
+
+- name: Resources
+  items:
+  - name: FAQ
+    href: service-fabric-faq.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=service-fabric-mesh
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=service-fabric-mesh
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric-mesh
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/service-fabric-mesh/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
