@@ -4,7 +4,7 @@ description: Configure an availability set for a new or existing Windows virtual
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

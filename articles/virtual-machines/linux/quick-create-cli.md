@@ -4,7 +4,7 @@ description: Quickly learn to create virtual machines with the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
