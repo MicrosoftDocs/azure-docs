@@ -3,10 +3,8 @@ title: 'Visual Studio Connected Service for Azure Cosmos DB'
 description: Enables developers to connect their Azure Cosmos DB account easily and manage resources through Visual Studio Connected Services
 services: cosmos-db
 documentationcenter: ''
-author: jejiang
-manager: DJ
-+tags: cosmos-db 
-editor: 'Jenny Jiang'
+author: Jejiang
+manager: kfile
 
 ms.assetid: 
 ms.service: cosmos-db

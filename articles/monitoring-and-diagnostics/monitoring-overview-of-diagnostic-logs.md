@@ -54,6 +54,13 @@ Resource diagnostic logs for non-Compute resources are configured using resource
 
 These settings are easily configured via the diagnostic settings for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
+> [!NOTE]
+> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+>
+>
+
 > [!WARNING]
 > Diagnostic logs and metrics for from the guest OS layer of Compute resources (for example, VMs or Service Fabric) use [a separate mechanism for configuration and selection of outputs](../azure-diagnostics.md).
 
@@ -83,9 +90,9 @@ You can enable collection of resource diagnostic logs in the Azure portal after 
    ![Add diagnostic setting - existing settings](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-multiple.png)
 
 3. Give your setting a name, check the boxes for each destination to which you would like to send data, and configure which resource is used for each destination. Optionally, set a number of days to retain these logs by using the **Retention (days)** sliders (only applicable to the storage account destination). A retention of zero days stores the logs indefinitely.
-   
+
    ![Add diagnostic setting - existing settings](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
-    
+
 4. Click **Save**.
 
 After a few moments, the new setting appears in your list of settings for this resource, and diagnostic logs are sent to the specified destinations as soon as new event data is generated.
