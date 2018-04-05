@@ -41,7 +41,7 @@ When you do test runs, you don't have to publish your changes to the data factor
 
 ## Setting breakpoints for debugging
 
-Data Factory also lets you debug until you reach a particular activity in your pipeline canvas. Just put a breakpoint on the activity until which you want to test, and select **Debug**. Data Factory ensures that the test runs only until the breakpoint activity on the pipeline canvas. This *Debug Until* feature is useful when you don**t want to test the entire pipeline, but only a subset of activities inside the pipeline.
+Data Factory also lets you debug until you reach a particular activity in your pipeline canvas. Just put a breakpoint on the activity until which you want to test, and select **Debug**. Data Factory ensures that the test runs only until the breakpoint activity on the pipeline canvas. This *Debug Until* feature is useful when you don't want to test the entire pipeline, but only a subset of activities inside the pipeline.
 
 ![Breakpoints on the pipeline canvas](media/iterative-development-debugging/iterative-development-image4.png)
 
