@@ -141,7 +141,7 @@ Here are the steps to set up the NuGet:
         .Build();
     ```
 
-Double check the `UseApplicationInsights()` method is called in both files as shown above. 
+Double check that the `UseApplicationInsights()` method is called in both files as shown above. 
 
 >[!NOTE]
 >This sample app uses http for the services to communicate. If you develop an app with Service Remoting V2 you'd need to add the following lines of code as well in the same place as you did above
@@ -164,7 +164,7 @@ Feel free to *Remove* some of the voting options as well when you're done adding
 
 ## View telemetry and the App map in Application Insights 
 
-Head over to your Application Insights resource in Azure portal
+Head over to your Application Insights resource in Azure portal.
 
 Click **Overview** to go back to the landing page of your resource. Then click **Search** in the top to see the traces coming in. It takes a few minutes for traces to appear in Application Insights. In the case that you do not see any, wait a minute and hit the **Refresh** button at the top.
 ![AI see traces](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
@@ -176,7 +176,7 @@ You can click on one of the traces to view more details about it. There is usefu
 
 ![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-Additionally, you can click *Application map* on the left menu on the Overview page, or clicking on the **App map** icon will show you both your services connected.
+Additionally, you can click *Application map* on the left menu on the Overview page, or click on the **App map** icon to take you to the App Map showing your two services connected.
 
 ![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
