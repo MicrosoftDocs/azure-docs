@@ -1,7 +1,7 @@
 
 ## Set up your project
 
-Do you want to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip), and skip to the [Configuration step](#create-an-application-express) to configure the code sample before you execute it.
+Do you want to download this sample's Android Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip), and skip to the [Configuration step](#register-your-application) to configure the code sample before you execute it.
 
 ### Create a new project 
 1.	Open Android Studio, and then select **File** > **New** > **New Project**.

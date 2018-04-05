@@ -6,7 +6,7 @@ In this section you create a new project to demonstrate how to integrate a Windo
 The application that you create with this guide displays a button that's used to call a graph, an area to show the results on the screen, and a sign-out button.
 
 > [!NOTE]
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), and skip to the [Configuration step](#create-an-application-express) to configure the code sample before you execute it.
+> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), and skip to the [Configuration step](#register-your-application) to configure the code sample before you execute it.
 >
 
 To create your application, do the following:
