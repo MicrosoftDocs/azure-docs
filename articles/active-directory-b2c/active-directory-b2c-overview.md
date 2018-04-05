@@ -86,9 +86,7 @@ To configure an identity provider in your Azure AD B2C tenant, you must record t
 
 ### User Interface experience
 
-Azure AD B2C enables you to control how it interacts with a customer after they have already authenticated. This control is done through SSO session management. For example, you can control whether the selection of identity providers is displayed, or whether local account details need to be entered again. SSO session management uses the same semantics as any other technical profile in built-in or custom policies.
-
-Most of the HTML and CSS content that's presented to customers can be controlled. You configure UI customization in XML instead of using controls in the Azure portal. By using the page UI customization feature, you customize the look and feel of any policy. You can also maintain brand and visual consistency between your application and Azure AD B2C.
+Most of the HTML and CSS content that's presented to customers can be controlled. By using the page UI customization feature, you customize the look and feel of any policy. You can also maintain brand and visual consistency between your application and Azure AD B2C.
 
 Azure AD B2C runs code in the customer's browser and uses a modern approach called Cross-Origin Resource Sharing (CORS). First, you specify a URL in a policy with customized HTML content. Azure AD B2C merges UI elements with the HTML content that's loaded from your URL and then displays the page to the customer.
 
