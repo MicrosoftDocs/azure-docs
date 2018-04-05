@@ -34,7 +34,8 @@ Create the new ASP.NET WebAPI backend by doing the following actions:
 
 2. Select **Server Explorer**, and sign in to your Azure account. To create the web site resources on your account, you must be signed in.
 
-3. In Visual Studio, select **File** > **New** > **Project**, expand **Templates**, expand **Visual C#**, and then select **Web** and **ASP.NET Web Application**.
+3. In Visual Studio, right-click Visual Studio solution, point to **Add**, and click **New Project**. 
+4. Expand **Visual C#**, select **Web**, and click **ASP.NET Web Application**.
 
 4. In the **Name** box, type **AppBackend**, and then select **OK**. 
    
