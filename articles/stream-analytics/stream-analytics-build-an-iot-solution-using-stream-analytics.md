@@ -181,11 +181,11 @@ Follow these steps to start the streaming job:
 ## Review the CosmosDB output data
 1. Locate the Resource Group that contains the TollApp resources.
 
-2. Select the Azure Cosmos DB Account with the name pattern **tollapp/<random/>-cosmos**
+2. Select the Azure Cosmos DB Account with the name pattern **tollapp/<random>-cosmos**
 
 3. Select the **Data Explorer** heading to open the Data Explorer page.
 
-4. Expand the **tollAppDatabase** /> **tollAppCollection** /> **Documents**.
+4. Expand the **tollAppDatabase** > **tollAppCollection** > **Documents**.
 
 5. In the list of ids, several guid values are shown once the output is available.
 
@@ -212,7 +212,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 1. On the **Overview** page of the job, select **Stop**. 
 2. Wait a few moments for the notification that the job has stopped.
-3. Under the JOB TOPOLOGY heading, select **/</> Query**
+3. Under the JOB TOPOLOGY heading, select **< > Query**
 4. Paste the adjusted streaming SQL query.
 5. Select **Save** to save the query. Confirm **Yes** to save the changes.
 6. On the **Overview** page of the job, select **Start**.
@@ -286,7 +286,7 @@ To scale up the streaming job to more streaming units:
 
 1. **Stop** the current job. 
 
-2. Update the query syntax in the **/</> Query** page, and save the changes.
+2. Update the query syntax in the **< > Query** page, and save the changes.
 
 3. Under the CONFIGURE heading on the streaming job, select **Scale**.
    
