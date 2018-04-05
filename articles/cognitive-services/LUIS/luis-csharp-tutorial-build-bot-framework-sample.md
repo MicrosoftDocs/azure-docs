@@ -40,11 +40,11 @@ Build a chat bot with integrated language understanding.
 
 3. In the Web App Bot window, click **Create**.
 
-4. In **Bot Service**, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. 
+4. In **Bot Service**, provide the required information, and click **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
     * Select the **Language understanding (C#)** template for the **Bot template** field.
-    * Select the **LUIS App Location**. This is the authoring region the app is created in.
+    * Select the **LUIS App Location**. This is the authoring [region][LUIS] the app is created in.
     * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
 
     ![Bot Service](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
@@ -155,7 +155,7 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 
 > [!div class="nextstepaction"]
 > [Add intents](./add-intents.md)
-
+> [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
 <!-- Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
@@ -166,5 +166,5 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 [BotFramework]: https://docs.microsoft.com/bot-framework/
 [AssignedEndpointDoc]:https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-
+[LUIS]:luis-reference-regions.md
 <!-- tested on Win10 -->

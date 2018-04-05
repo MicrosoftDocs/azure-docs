@@ -1,6 +1,6 @@
 ---
-title: Create and use an internal load balancer with an Azure App Service environment
-description: Details on how to create and use an internet-isolated Azure App Service environment
+title: Create and use an internal load balancer with an Azure App Service Environment
+description: Details on how to create and use an internet-isolated Azure App Service Environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
 ---
-# Create and use an internal load balancer with an App Service environment #
+# Create and use an internal load balancer with an App Service Environment #
 
- Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service environment (ASE): 
+ Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE): 
 
 - With a VIP on an external IP address, often called an External ASE.
 - With a VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an internal load balancer (ILB). 
 
-This article shows you how to create an ILB ASE. For an overview on the ASE, see [Introduction to App Service environments][Intro]. To learn how to create an External ASE, see [Create an External ASE][MakeExternalASE].
+This article shows you how to create an ILB ASE. For an overview on the ASE, see [Introduction to App Service Environments][Intro]. To learn how to create an External ASE, see [Create an External ASE][MakeExternalASE].
 
 ## Overview ##
 
@@ -59,7 +59,7 @@ To create an ILB ASE:
 
 4. Select or create a VNet.
 
-5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a `/28`. After infrastructure needs, this size can be scaled to a maximum of 11 instances.
+5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a `/28`. After infrastructure needs, this size can only be scaled to a maximum of 3 instances.
 
 	* Go beyond the default maximum of 100 instances in your App Service plans.
 
@@ -77,7 +77,7 @@ To create an ILB ASE:
 
 	* &lt;asename&gt;.p.azurewebsites.net
 
-   The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
+   There is a feature called custom domain names that allows you to map an existing DNS name to your web app. You can read more about that feature in the [Map an existing DNS name to your web app][customdomain] document. The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
 
 	* www.contoso.com
 
@@ -135,7 +135,7 @@ Convert/save the SSL certificate as a .pfx file. The .pfx file must include all 
 
 If you want to create a self-signed certificate, you can use the PowerShell commands here. Be sure to use your ILB ASE domain name instead of *internal.contoso.com*: 
 
-	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
+	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 	
 	$certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
 	$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
@@ -246,3 +246,4 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md

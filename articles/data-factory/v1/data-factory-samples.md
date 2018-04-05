@@ -4,8 +4,8 @@ description: Provides details about samples that ship with the Azure Data Factor
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: c0538b90-2695-4c4c-a6c8-82f59111f4ab
 ms.service: data-factory

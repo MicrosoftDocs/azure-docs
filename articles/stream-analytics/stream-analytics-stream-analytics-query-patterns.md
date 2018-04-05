@@ -4,9 +4,8 @@ description: Common Azure Stream Analytics query patterns
 keywords: query examples
 services: stream-analytics
 documentationcenter: ''
-author: samacha
-manager: jenniehubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 
 ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
 ms.service: stream-analytics
@@ -15,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Query examples for common Stream Analytics usage patterns
@@ -591,7 +590,7 @@ And then, provided the conditions are met, an alert is generated for the device.
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

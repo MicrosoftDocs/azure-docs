@@ -1,8 +1,19 @@
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 04/04/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 1. On the left side of the portal page, click **+** and type 'Virtual Network Gateway' in search. In **Results**, locate and click **Virtual network gateway**.
 2. At the bottom of the 'Virtual network gateway' page, click **Create**. This opens the **Create virtual network gateway** page.
-
-    ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-s2s-rm-portal-include/newgw.png "New gateway")
 3. On the **Create virtual network gateway** page, specify the values for your virtual network gateway.
+
+    ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-s2s-rm-portal-include/creategw.png "New gateway")
 
   - **Name**: Name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object you are creating.
   - **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**. 

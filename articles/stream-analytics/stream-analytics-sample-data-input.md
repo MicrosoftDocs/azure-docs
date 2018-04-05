@@ -2,11 +2,9 @@
 title:  Query testing in Azure Stream Analytics | Microsoft Docs
 description: Pinpoint issues when you troubleshoot Stream Analytics jobs.
 keywords: troubleshoot input, input sampling
-documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 
 ms.assetid: 
 ms.service: stream-analytics
@@ -50,11 +48,11 @@ In the preceding image, a second output has been added, called **HighAvgTempOutp
 
 When you use multiple outputs in a query, you can see the results for each output separately and easily toggle between them.
 
-After you are satisfied with the results, you can save your query, start your job, sit back and watch the magic of Stream Analytics.
+After you are satisfied with the results, you can save your query, start your job, sit back, and watch the magic of Stream Analytics.
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

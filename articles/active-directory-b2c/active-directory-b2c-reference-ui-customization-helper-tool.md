@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Page UI customization helper tool | Microsof
 description: A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
-author: swkrish
+author: davidmu1
 manager: mtillman
-editor: bryanla
+editor: ''
 
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: swkrish
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: A helper tool used to demonstrate the page user interface (UI) customization feature

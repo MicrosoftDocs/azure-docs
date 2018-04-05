@@ -4,8 +4,9 @@ description: This machine learning tutorial walks you through an easy data scien
 keywords: experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
-ms.author: garye
 
 ---
 

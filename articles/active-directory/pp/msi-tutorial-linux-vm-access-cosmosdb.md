@@ -154,10 +154,10 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 3. Next, you are prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
 4. Use CURL to get an access token for Azure Resource Manager.  
 
-    The CURL request and response for the access token is below.  Replace <CLIENT ID> with the clientId value of your user assigned MSI:
+    The CURL request and response for the access token is below.  Replace <CLIENT ID> with the clientId value of your user assigned MSI: 
     
     ```bash
-    curl 'http://localhost:50342/oauth2/token?resource=https://management.azure.com/&client_id=<CLIENT ID>' -H "Metadata:true"
+    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>" 
     ```
     
     > [!NOTE]

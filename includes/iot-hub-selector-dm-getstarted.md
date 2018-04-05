@@ -7,6 +7,8 @@
 
 Back-end apps can use Azure IoT Hub primitives, such as [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod], to remotely start and monitor device management actions on devices. This tutorial shows you how a back-end app and a device app can work together to initiate and monitor a remote device reboot using IoT Hub.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
 
 * Handling the method request sent from IoT Hub.

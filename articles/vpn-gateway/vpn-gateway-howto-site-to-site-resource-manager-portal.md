@@ -4,7 +4,7 @@ description: Steps to create an IPsec connection from your on-premises network t
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services 
-ms.date: 11/17/2017
+ms.date: 04/02/2018
 ms.author: cherylmc
 
 ---
@@ -47,21 +47,21 @@ Verify that you have met the following criteria before beginning your configurat
 The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **VNet Name:** TestVNet1
-* **Address Space:** 10.11.0.0/16 and 10.12.0.0/16 (optional for this exercise)
+* **Address Space:** 10.1.0.0/16
 * **Subscription:** The subscription you want to use
 * **Resource Group:** TestRG1
 * **Location:** East US
-* **Subnet:** FrontEnd: 10.11.0.0/24, BackEnd: 10.12.0.0/24 (optional for this exercise)
+* **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optional for this exercise)
 * **Gateway Subnet name:** GatewaySubnet (this will auto-fill in the portal)
-* **Gateway Subnet address range:** 10.11.255.0/27
-* **DNS Server:** Optional. The IP address of your DNS server.
+* **Gateway Subnet address range:** 10.1.255.0/27
+* **DNS Server:** 8.8.8.8 - Optional. The IP address of your DNS server.
 * **Virtual Network Gateway Name:** VNet1GW
 * **Public IP:** VNet1GWIP
 * **VPN Type:** Route-based
 * **Connection Type:** Site-to-site (IPsec)
 * **Gateway Type:** VPN
-* **Local Network Gateway Name:** Site2
-* **Connection Name:** VNet1toSite2
+* **Local Network Gateway Name:** Site1
+* **Connection Name:** VNet1toSite1
 * **Shared key:** For this example, we use abc123. But, you can use whatever is compatible with your VPN hardware. The important thing is that the values match on both sides of the connection.
 
 ## <a name="CreatVNet"></a>1. Create a virtual network
@@ -76,9 +76,11 @@ DNS is not required to create a Site-to-Site connection. However, if you want to
 
 ## <a name="gatewaysubnet"></a>3. Create the gateway subnet
 
-[!INCLUDE [vpn-gateway-aboutgwsubnet](../../includes/vpn-gateway-about-gwsubnet-include.md)]
+[!INCLUDE [about gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
+
+[!INCLUDE [no nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="VNetGateway"></a>4. Create the VPN gateway
 

@@ -5,8 +5,7 @@ keywords: out of order, late, events
 documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 
 ms.assetid: 
 ms.service: stream-analytics
@@ -130,7 +129,7 @@ Azure Stream Analytics implements this functionality by using the [TIMESTAMP BY 
 * When you're combining multiple timelines, lack of data in one of the sources or partitions can delay the output by an additional late arrival tolerance window.
 
 ## Get help
-For additional assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For additional assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

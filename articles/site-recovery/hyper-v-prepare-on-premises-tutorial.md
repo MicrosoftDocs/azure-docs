@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -26,25 +26,16 @@ This is the second tutorial in the series. Make sure that you have
 
 
 
-## Review server requirements
+## Review requirements and prerequisites
 
-Make sure Hyper-V hosts meet the following requirements. If you're managing hosts in System Center Virtual Machine Manager (VMM) clouds, verify VMM requirements.
+Make sure Hyper-V hosts and VMs comply with requirements.
 
+1. [Verify](hyper-v-azure-support-matrix.md#on-premises-servers) on-premises server requirements.
+2. [Check the requirements](hyper-v-azure-support-matrix.md#replicated-vms) for Hyper-V VMs you want to replicate to Azure.
+3. Check Hyper-V host [networking](hyper-v-azure-support-matrix.md#hyper-v-network-configuration); and host and guest [storage](hyper-v-azure-support-matrix.md#hyper-v-host-storage) support for on-premises Hyper-V hosts.
+4. Check what's supported for [Azure networking](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [storage](hyper-v-azure-support-matrix.md#azure-storage), and [compute](hyper-v-azure-support-matrix.md#azure-compute-features), after failover.
+5. Your on-premises VMs you replicate to Azure must comply with [Azure VM requirements](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
-**Component** | **Hyper-V managed by VMM** | **Hyper-V without VMM**
---- | --- | ---
-**Hyper-V host operating system** | Windows Server 2016, 2012 R2 | NA
-**VMM** | VMM 2012, VMM 2012 R2 | NA
-
-
-## Review Hyper-V VM requirements
-
-Make sure that the VM complies with requirements summarized in the table.
-
-**VM requirement** | **Details**
---- | ---
-**Guest operating system** | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx).
-**Azure requirements** | On-premises Hyper-V VMs must meet Azure VM requirements(site-recovery-support-matrix-to-azure.md).
 
 ## Prepare VMM (optional)
 
@@ -80,7 +71,7 @@ Prepare VMM for network mapping as follows:
 
 During a failover scenario you may want to connect to your replicated on-premises network.
 
-To connect to Windows VMs using RDP after failover, do the following:
+To connect to Windows VMs using RDP after failover, allow access as follows:
 
 1. To access over the internet, enable RDP on the on-premises VM before failover. Make sure that
    TCP, and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows
@@ -95,6 +86,7 @@ To connect to Windows VMs using RDP after failover, do the following:
    VM. If you can't connect, check that the VM is running and review these
    [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
+After failover, you can access Azure VMs using the same IP address as the replicated on-premises VM, or a different IP address. [Learn more](concepts-on-premises-to-azure-networking.md) about setting up IP addressing for failover.
 
 ## Next steps
 

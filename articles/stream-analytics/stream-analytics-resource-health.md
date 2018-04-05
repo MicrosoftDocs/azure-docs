@@ -4,9 +4,8 @@ description: How to pinpoint issues when troubleshooting Stream Analytics jobs.
 keywords: troubleshoot flowchart, resource blade
 documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 
 ms.assetid: 
 ms.service: stream-analytics
@@ -15,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 
@@ -36,7 +35,7 @@ The following flowchart can help you make decisions about what to look for, and 
 ![Stream Analytics troubleshooting flow - map](media/stream-analytics-resource-health/stream-analytics-troubleshooting-map.png)
 
 ## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For additional assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
