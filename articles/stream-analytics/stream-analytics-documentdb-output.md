@@ -1,21 +1,14 @@
 ---
-title: JSON output for Stream Analytics | Microsoft Docs
-description: Learn how Stream Analytics can target Azure Cosmos DB for JSON output, for data archiving and low-latency queries on unstructured JSON data.
-keywords: JSON output
-documentationcenter: ''
-services: stream-analytics,documentdb
+title: JSON output for Azure Stream Analytics
+description: Learn how Azure Stream Analytics can target Azure Cosmos DB for JSON output, for data archiving and low-latency queries on unstructured JSON data.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
 ---
 # Target Azure Cosmos DB for JSON output from Stream Analytics
 Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration.
