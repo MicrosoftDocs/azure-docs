@@ -102,7 +102,7 @@ Custom sensors have the following properties:
 
 ### Number of devices
 
-Device Simulation currently enables you to simulate up to 1,000 devices.
+Device Simulation currently enables you to simulate up to 20,000 devices.
 
 ![Number of devices](media/iot-suite-device-simulation-explore/numberofdevices.png)
 
