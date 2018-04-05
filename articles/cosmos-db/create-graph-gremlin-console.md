@@ -3,8 +3,7 @@ title: 'Azure Cosmos DB tutorial: Create, query, and traverse in Apache TinkerPo
 description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmos DB Graph API.
 services: cosmos-db
 author: luisbosquez
-manager: jhubbard
-editor: monicar
+manager: kfile
 
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: cosmos-db

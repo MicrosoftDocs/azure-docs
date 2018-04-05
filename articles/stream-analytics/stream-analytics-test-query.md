@@ -1,21 +1,14 @@
 ---
-title: Azure Stream Analytics query testing | Microsoft Docs
-description: How to test your queries in Stream Analytics jobs.
-keywords: test query, troubleshoot query
-documentation center: ''
+title: Test queries in Azure Stream Analytics
+description: This article describes how to test queries using sample data files in Stream Analytics jobs.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
 ---
 # Test Azure Stream Analytics queries in the Azure portal
 
