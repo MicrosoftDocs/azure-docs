@@ -29,10 +29,9 @@ Retrace is the ONLY tool that delivers all of the below across all environments 
 * Error Tracking & Monitoring
 * Server, Application & Custom Metrics
 
-**About our Stackify Linux Agent Extension**
+**About Stackify Linux Agent Extension**
 
 This extension provides an install path for the Linux Agent for Retrace. 
-This is recommended for users that are using Azure.
 
 ## Prerequisites
 
