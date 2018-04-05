@@ -30,7 +30,7 @@ This tutorial shows you how to create and use a Linux VM MSI. You learn how to:
 > * Grant the MSI access to an Azure Cosmos DB instance
 > * Retrieve the principalID of the of the Linux VM's MSI
 > * Get an access token and use it to call Azure Resource Manager
-> * Get an access token using the user-assigned MSI identity, and use it to access Azure Cosmos DB
+> * Get access keys from Azure Resource Manager to make Cosmos DB calls
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE 
 ```
 The response includes the details of the system-assigned MSI (note the principalID as it is used in the next section):
 
-```json
+```bash  
 {
     "id": "/subscriptions/<SUBSCRIPTION ID>/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe>",
   "identity": {
@@ -97,6 +97,7 @@ The response includes the details of the system-assigned MSI (note the principal
     "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533f8",
     "type": "SystemAssigned"
  }
+
 ```
 ## Grant your Linux VM MSI access to the Cosmos DB account access keys
 
@@ -135,7 +136,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 3. Next, you are prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
 4. Use CURL to get an access token for Azure Resource Manager: 
      
-    ``bash
+    ```bash
     curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
     ```
  
