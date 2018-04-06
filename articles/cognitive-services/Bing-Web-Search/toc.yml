@@ -8,6 +8,8 @@
       href: web-search-endpoints.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
+    - name: Analytics for Web Search API
+      href: bing-web-stats.md
 - name: API Quickstarts
   items:
   - name: First query in C#

@@ -1,0 +1,66 @@
+Bing Statistics provides analytics for the family of Bing Search APIs. Analytics include call volume, top query strings, types of devices used, and more. To get access to Bing Statistics, enable Bing Statistics in your paid subscription. Navigate to your Azure dashboard, select your paid subscription and click Enable Bing Statistics.
+
+
+> [!NOTE]
+> Bing Statistics is available for paid subscriptions only - it is not available with free trial subscriptions. 
+
+Bing updates analytics data every two to three hours and maintains up to 13 month's worth of history.
+
+## Accessing your analytics
+
+To access your analytics dashboard, go to https://bingstatistics.ai. Enter your subscription key, select a reporting time frame, and select the endpoint you're interested in.
+
+For time frame, you can specify:
+
+- All&mdash;Includes up to one year's worth of data
+- Past 24 hours&mdash;Includes analytics from the last 24 hours (remember there's a two to three hour delay)
+- Past week&mdash;Includes analytics from the previous seven days
+- Past month&mdash;Includes analytics from the previous 30 days
+- A custom date range&mdash;Includes analytics from the specified date range if available
+
+Next, select the API endpoint that you want analytics for. The list contains only endpoints for which you have paid subscriptions.
+
+## The dashboard
+
+The dashboard shows charts and graphs of the various analytics available for the selected endpoint. Not all analytics are available for all endpoints. The charts and graphs for each endpoint are static (you may not select the charts and graphs to display). The following is the list of all available analytics. Each analytic notes any endpoint restrictions. 
+
+**Call Volume**: Shows the number of calls made during the reporting period. If the reporting period is for a day, the chart shows the number of calls made per hour. Otherwise, the chart shows the number of calls made per day of the reporting period.
+
+**Top Queries**: Shows the top queries during the reporting period. You can configure the number of queries shown. For example, you can show the top 25, 50, or 75 queries. Not available for the following endpoints:
+
+- /images/trending
+- /images/details
+- /images/visualsearch
+- /videos/trending
+- /videos/details
+- /news
+- /news/trendingtopics
+- /suggestions
+
+**Geographic Distribution**: The geographic locations where the results come from. For example, en-us.
+
+**Response Code Distribution**: The HTTP status codes of all calls during the reporting period.
+
+**Browser Type Distribution**: The types of browsers used by the users.
+
+**Device Type Distribution**: The types of devices used by the users. For example, desktop, tablet, or mobile.
+
+**Device Resolution Distribution**: The screen resolution of mobile devices used by the users.
+
+**GET and POST Distribution**: The distribution of HTTP GET and POST calls made during the reporting period.
+
+**Safe Search Distribution**: The distribution of safe search values. For example, off, moderate, or strict.
+
+**Modules Requested Distribution**: The requested insights for /images/details and /videos/details endpoints. For example, if the /images/details call requests similar images, similar products, or shopping sources.
+
+
+**Category Distribution**: The requested categories of news articles to get. For example, sports or entertainment.
+
+
+
+
+## Filtering the data
+
+For an endpoint, you can filter the data by time frame and one or more distributions. By default, the data is filtered only by time frame. To select distribution filters, click on the distribution value in the chart. For example, to filter by one or more query strings, select the string in the Top Queries chart. Or to filter by market, select the market in the Geographic Distribution pie chart. When you select the filter value, it's shown in the Selected Filters section of the dashboard. 
+
+As you add filters, the charts and graphs change to reflect the filtered data. 
