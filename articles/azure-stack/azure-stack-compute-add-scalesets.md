@@ -45,6 +45,32 @@ On Azure Stack, virtual machine scale sets don't support auto-scale. You can add
    For Linux support, download Ubuntu Server 16.04 and add it using ```Add-AzsVMImage``` with the following parameters: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
 
+## Add the virtual machine scale set
+
+Edit the following PowerShell script for your environment and then run it to add a virtual machine scale set to your Azure Stack Marketplace. 
+
+``$User`` is the account you use to connect the administrator portal. For example, serviceadmin@contoso.onmicrosoft.com.
+
+```
+$Arm = "https://adminmanagement.local.azurestack.external"
+$Location = "local"
+
+Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
+
+$Password = ConvertTo-SecureString -AsPlainText -Force "<your Azure Stack administrator password>"
+
+$User = "<your Azure Stack service administrator user name>"
+
+$Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
+
+$AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
+$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
+
+Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
+
+Add-AzsVMSSGalleryItem -Location $Location
+```
+
 ## Update images in a virtual machine scale set 
 After you create a virtual machine scale set, users can update images in the scale set without the scale set having to be recreated. The process to update an image depends on the following scenarios:
 
@@ -76,33 +102,6 @@ After you create a virtual machine scale set, users can update images in the sca
 
 For more information, see [operating system disks and images](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
- 
-
-## Add the virtual machine scale set
-
-Edit the following PowerShell script for your environment and then run it to add a virtual machine scale set to your Azure Stack Marketplace. 
-
-``$User`` is the account you use to connect the administrator portal. For example, serviceadmin@contoso.onmicrosoft.com.
-
-```
-$Arm = "https://adminmanagement.local.azurestack.external"
-$Location = "local"
-
-Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
-
-$Password = ConvertTo-SecureString -AsPlainText -Force "<your Azure Stack administrator password>"
-
-$User = "<your Azure Stack service administrator user name>"
-
-$Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
-
-$AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
-$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-
-Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
-
-Add-AzsVMSSGalleryItem -Location $Location
-```
 
 ## Remove a virtual machine scale set
 
