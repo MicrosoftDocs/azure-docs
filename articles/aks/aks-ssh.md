@@ -30,7 +30,7 @@ aks-nodepool1-42032720-1  10.240.0.5
 aks-nodepool1-42032720-2  10.240.0.4
 ```
 
-## Configure SSH access
+## Create SSH connection
 
 Run the `debian` container image and attach a terminal session to it. The container can then be used to create an SSH session with any node in the AKS cluster.
 
@@ -59,13 +59,11 @@ Copy your SSH key to the pod, replace the pod name with the proper value.
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
 ```
 
-Switch back to the running pod and modify the `id_rsa` file so that it is user read-only.
+git
 
 ```console
 chmod 0600 id_rsa
 ```
-
-## Create the ssh connection.
 
 Now create an SSH connection to any AKS node. The default user name for an AKS cluster is `azureuser`. If this account was changed at cluster creation time, substitute the proper admin user name.
 
