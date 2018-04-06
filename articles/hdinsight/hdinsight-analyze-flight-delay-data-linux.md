@@ -1,10 +1,10 @@
 ---
-title: Analyze flight delay data with Hive on HDInsight - Azure | Microsoft Docs
-description: Learn how to use Hive to analyze flight data on Linux-based HDInsight, and then export the data to SQL Database by using Sqoop.
+title: 'Tutorial: Perform extract, transform, load (ETL) operations using Hive on HDInsight - Azure | Microsoft Docs'
+description: Learn how to extract data from a raw CSV dataset, transform it using Hive on HDInsight, and then load the transformed data into Azure SQL database by using Sqoop.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
@@ -13,26 +13,42 @@ ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+ms.topic: tutorial
+ms.date: 05/07/2018
 ms.author: larryfr
-
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
 ---
-# Analyze flight delay data by using Hive on Linux-based HDInsight
 
-Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, and how to export the data to Azure SQL Database by using Sqoop.
+# Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight
+
+In this tutorial, you take a raw CSV data file, import it into an HDInsight cluster storage, and then transform the data using Apache Hive on Azure HDInsight. Once the data is trasnformed, you load that data into an Azure SQL database using Apache Sqoop. In this article, we use publicly-available flight data.
 
 > [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on Azure HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
+This tutorial covers the following tasks: 
+
+> [!div class="checklist"]
+> * Download the sample flight data
+> * Upload data to an HDInsight cluster
+> * Transform the data using Hive
+> * Create an Azure SQL database and table
+> * Use Sqoop to export data to Azure SQL database
+
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+The following illustration shows a typical ETL application flow.
+
+![ETL operation using Apache Hive on Azure HDInsight](./media/hdinsight-analyze-flight-delay-data-linux/hdinsight-etl-architecture.png "ETL operation using Apache Hive on Azure HDInsight")
+
 ## Prerequisites
 
-* **An HDInsight cluster**. See [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) for steps on how to create a new Linux-based HDInsight cluster.
+* **A Linux-based Hadoop cluster on HDInsight**. See [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) for steps on how to create a new Linux-based HDInsight cluster.
 
 * **Azure SQL Database**. You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).
 
-* **Azure CLI**. If you haven't installed the Azure CLI, see [Install the Azure CLI 1.0](../cli-install-nodejs.md) for more steps.
+* **Azure CLI 2.0**. If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for more steps.
 
 ## Download the flight data
 
@@ -47,40 +63,42 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
    | Fields |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
    Clear all other fields. 
 
-3. Select **Download**.
+3. Select **Download**. You get a .zip file with the data fields you selected.
 
 ## Upload the data
 
 1. Use the following command to upload the .zip file to the HDInsight cluster head node:
 
     ```
-    scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+    scp <FILENAME>.zip <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net:
     ```
 
-    Replace *FILENAME* with the name of the .zip file. Replace *USERNAME* with the SSH login for the HDInsight cluster. Replace *CLUSTERNAME* with the name of the HDInsight cluster.
+    Replace *\<FILENAME>* with the name of the .zip file. Replace *\<SSH-USERNAME>* with the SSH login for the HDInsight cluster. Replace *\<CLUSTERNAME>* with the name of the HDInsight cluster.
 
    > [!NOTE]
    > If you use a password to authenticate your SSH login, you're prompted for the password. If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. After the upload has finished, connect to the cluster by using SSH:
 
-    ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
+    ```
+    ssh <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net
+    ```
 
     For more information, see [Connect to HDInsight (Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. Use the following command to unzip the .zip file:
 
     ```
-    unzip FILENAME.zip
+    unzip <FILENAME>.zip
     ```
 
     This command extracts a .csv file that is roughly 60 MB.
 
-4. Use the following command to create a directory on HDInsight storage, and then copy the file to the directory:
+4. Use the following commands to create a directory on HDInsight storage, and then copy the .csv file to the directory:
 
     ```
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
-    hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
+    hdfs dfs -put <FILENAME>.csv /tutorials/flightdelays/data/
     ```
 
 ## Create and run the HiveQL
