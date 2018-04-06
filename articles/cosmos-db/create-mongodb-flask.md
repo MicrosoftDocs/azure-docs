@@ -3,9 +3,8 @@ title: 'Azure Cosmos DB: Build a Flask web app with Python and the Azure Cosmos 
 description: Presents a Python Flask code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
 documentationcenter: ''
-author: hshapiro
-manager: scicoria
-editor: ''
+author: heatherbshapiro
+manager: kfile
 
 ms.assetid: 
 ms.service: cosmos-db
