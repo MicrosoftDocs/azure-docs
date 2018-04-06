@@ -1959,6 +1959,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-offering-get-started.md",
+            "redirect_url": "/azure/automation/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-vm-change-tracking.md",
             "redirect_url": "/azure/automation/automation-change-tracking",
             "redirect_document_id": false
