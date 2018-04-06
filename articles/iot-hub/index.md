@@ -150,7 +150,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                         <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C device SDK</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Devices)</a></p>
-                        <p><a href="javascript/api/azure-iot-device/?view=azure-iot-typescript-latest">Node.js (Devices)</a></p>
+                        <p><a href="/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest">Node.js (Devices)</a></p>
                         <p><a href="/javascript/api/azure-iothub/?view=azure-iot-typescript-latest">Node.js (Service)</a></p>
                     </div>
                 </div>
