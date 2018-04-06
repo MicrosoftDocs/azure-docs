@@ -43,7 +43,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 ## Create a Kafka cluster
 
-1. Click the following image to open the template in the Azure Portal.
+1. Click the following image to open the template in the Azure portal.
 
     [TBD]
 

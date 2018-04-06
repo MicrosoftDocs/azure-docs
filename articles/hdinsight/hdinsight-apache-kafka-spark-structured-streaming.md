@@ -24,7 +24,7 @@ Learn how to use Spark Structured Streaming to read data from Apache Kafka on Az
 Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
 
 > [!IMPORTANT]
-> This example used Spark 2.2 on HDInsight 3.6.
+> This example uses Spark 2.2 on HDInsight 3.6.
 >
 > The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
 >
@@ -32,20 +32,22 @@ Spark structured streaming is a stream processing engine built on Spark SQL. It 
 
 ## Create the clusters
 
-Apache Kafka on HDInsight does not provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Spark clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
+Apache Kafka on HDInsight does not provide access to the Kafka brokers over the public internet. Anything that uses Kafka must be in the same Azure virtual network. In this tutorial, both the Kafka and Spark clusters are located in the same Azure virtual network. 
+
+The following diagram shows how communication flows between Spark and Kafka:
 
 ![Diagram of Spark and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
 > The Kafka service is limited to communication within the virtual network. Other services on the cluster, such as SSH and Ambari, can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Spark clusters to your Azure subscription.
+For your convenience, the following steps use an Azure Resource Manager template to create Kafka and Spark clusters inside a virtual network.
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fblackmist%2Fhdinsight-spark-kafka-structured-streaming%2Fspark2.2%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    The Azure Resource Manager template is located at **https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-kafka%2Fazuredeploy.json**.
+    The Azure Resource Manager template is located at **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json**.
 
     This template creates the following resources:
 
@@ -64,13 +66,13 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     | Resource group | The resource group that contains the resources. |
     | Location | The Azure region that the resources are created in. |
     | Spark Cluster Name | The name of the Spark cluster. |
-    | Kafka Clust Name | The name of the Kafka cluster. |
+    | Kafka Cluster Name | The name of the Kafka cluster. |
     | Cluster Login User Name | The admin user name for the clusters. |
     | Cluster Login Password | The admin user password for the clusters. |
     | SSH User Name | The SSH user to create for the clusters. |
     | SSH Password | The password for the SSH user. |
    
-    ![HDInsight custom deployment](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
+    ![Screenshot of the customized template](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
 4. Finally, check **Pin to dashboard** and then select **Purchase**. 
 
@@ -83,7 +85,7 @@ The code for the example described in this document is available at [https://git
 
 ## Upload the notebooks
 
-Use the following steps to upload the notebook from the project to your Spark on HDInsight cluster:
+To upload the notebook from the project to your Spark on HDInsight cluster, use the following steps:
 
 1. In your web browser, connect to the Jupyter notebook on your Spark cluster. In the following URL, replace `CLUSTERNAME` with the name of your __Spark__ cluster:
 
@@ -108,7 +110,7 @@ Once the files have been uploaded, select the __spark-structured-streaming-kafka
 
 ## Clean up resources
 
-If you wish to clean up the resources created by this tutorial, you can delete the resource group. Deleting the resource group also deletes the associated HDInsight cluster, and any other resources associated with the resource group.
+To clean up the resources created by this tutorial, you can delete the resource group. Deleting the resource group also deletes the associated HDInsight cluster, and any other resources associated with the resource group.
 
 To remove the resource group using the Azure portal:
 
