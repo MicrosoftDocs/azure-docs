@@ -4,7 +4,7 @@ description: Learn more about how the virtual machine resource is defined in an 
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
