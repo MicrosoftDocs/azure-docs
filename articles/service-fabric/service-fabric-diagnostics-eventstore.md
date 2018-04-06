@@ -33,7 +33,7 @@ The EventStore exposes events on various levels, so you can query for events for
 * Replica 
 * Container
 
-To see a full list of events available in the EventStore, have a look at Service Fabric's [Operational Channel events](service-fabric-diagnotics-event-generation-operational.md). 
+To see a full list of events available in the EventStore, have a look at Service Fabric's [Operational Channel events](service-fabric-diagnostics-event-generation-operational.md). 
 
 The EventStore APIs can be accessed directly via a REST endpoint, or programmatically. Depending on the query, there are several parameters that are required to gather the right data. These typically include:
 * `api-version`: the version of the EventStore APIs you are using
