@@ -1,6 +1,6 @@
 ---
-title: Manage device access for Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: How to revoke device access to your DPS service in the Azure Portal
+title: How to disenroll a device from Azure IoT Hub Device Provisioning Service 
+description: How to disenroll a device to prevent provisioning through Azure IoT Hub Device Provisioning Service
 services: iot-dps
 keywords: 
 author: bryanla
@@ -16,11 +16,11 @@ ms.custom: mvc
 
 ---
 
-# Revoke device access to your provisioning service in the Azure portal
+# How to disenroll a device from Azure IoT Hub Device Provisioning Service
 
-Proper management of device credentials is crucial for high-profile systems like IoT solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices when their credentials, whether a shared access signatures (SAS) token or an X.509 certificate, might be compromised. This article describes how to revoke device access at the provisioning step.
+Proper management of device credentials is crucial for high-profile systems like IoT solutions. A best practice for such systems is to have a clear plan of how to revoke access for devices when their credentials, whether a shared access signatures (SAS) token or an X.509 certificate, might be compromised. 
 
-To learn about revoking device access to an IoT hub after the device has been provisioned, see [Disable devices](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices).
+Enrollment in the Device Provisioning Service enables a device to be [auto-provisioned](concepts-auto-provisioning.md). A provisioned device is one that has been registered with IoT Hub, allowing it to receive its initial [device twin](~/articles/iot-hub/iot-hub-devguide-device-twins.md) state and begin reporting telemetry data. This article describes how to disenroll a device from your provisioning service instance, preventing it from being provisioned again in the future.
 
 > [!NOTE] 
 > Be aware of the retry policy of devices that you revoke access for. For example, a device that has an infinite retry policy might continuously try to register with the provisioning service. That situation consumes service resources and possibly affects performance.
@@ -101,4 +101,7 @@ To blacklist an individual device in an enrollment group, follow these steps:
 
 When you successfully create your enrollment, you should see your device appear on the **Individual Enrollments** tab.
 
+## Next steps
+
+Disenrollment is also part of the larger deprovisioning process. Deprovisioning a device includes both disenrollment from the provisioning service, and deregistering from IoT hub. To learn about the full process, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 

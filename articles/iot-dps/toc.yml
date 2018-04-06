@@ -95,9 +95,9 @@
     items:
     - name: Configure verified CA certificates
       href: how-to-verify-certificates.md
-    - name: Manage device deprovisioning
+    - name: Manage deprovisioning
       href: how-to-unprovision-devices.md    
-    - name: Manage device disenrollment
+    - name: Manage disenrollment
       href: how-to-revoke-device-access-portal.md 
     - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md

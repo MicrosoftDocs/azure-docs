@@ -28,14 +28,14 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 2. Download and install [Maven](https://maven.apache.org/install.html).
 
-3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
+3. Make sure Git is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
 4. Open a command prompt. Clone the GitHub repo for device simulation code sample:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
-5. Navigate to the root azure-iot-sdk-java directory and build the project to download all needed packages.
+5. Navigate to the root `azure-iot-sdk-`java` directory and build the project to download all needed packages.
    
    ```cmd/sh
    cd azure-iot-sdk-java
@@ -57,25 +57,25 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
     ```
 
-2. Enter **N** for _Do you want to input common name_. Copy to the clipboard the output of `Client Cert` from *-----BEGIN CERTIFICATE-----* and ending at *-----END CERTIFICATE-----*.
+2. Enter **N** for _Do you want to input common name_. Copy to the clipboard the output of `Client Cert`, starting from *-----BEGIN CERTIFICATE-----* through *-----END CERTIFICATE-----*.
 
    ![Individual certificate generator](./media/java-quick-create-simulated-device-x509/individual.png)
 
 3. Create a file named **_X509individual.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file and close your editor.
 
-4. In the command prompt, enter **N** for _Do you want to input Verification Code_ and keep the program output open for reference later in the Quickstart. Copy the _Client Cert_ and _Client Cert Private Key_ values, for use in the next section.
+4. In the command prompt, enter **N** for _Do you want to input Verification Code_ and keep the program output open for reference later in the Quickstart. Later you copy the `Client Cert` and `Client Cert Private Key` values, for use in the next section.
 
-5. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning Service instance.
+5. Sign in to the [Azure portal](https://portal.azure.com), click on the **All resources** button on the left-hand menu and open your Device Provisioning Service instance.
 
 6. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
 7. Under the **Add enrollment** panel, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **certificate.cer** created in the previous steps.
-   - Optionally, you may provide the following information:
-     - Select an IoT hub linked with your provisioning service.
-     - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
-     - Update the **Initial device twin state** with the desired initial configuration for the device.
+    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **certificate.cer** created in the previous steps.  
+    - Optionally, you may provide the following information:
+      - Select an IoT hub linked with your provisioning service.
+      - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+      - Update the **Initial device twin state** with the desired initial configuration for the device.
    - Once complete, click the **Save** button. 
 
     [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
@@ -90,15 +90,15 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
     ![Service information](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
-2. Open a command prompt. Navigate to the sample project folder.
+2. Open a command prompt. Navigate to the sample project folder of the Java SDK repository.
 
     ```cmd/sh
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-3. Enter the provisioning service and X.509 identity information in your code. This is required during device registration, for attestation of the simulated device:
+3. Enter the provisioning service and X.509 identity information in your code. This is used during auto-provisioning, for attestation of the simulated device, prior to device registration:
 
-   - Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before. Also include _Client Cert_ and _Client Cert Private Key_ as noted before.
+   - Edit the file `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`, to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted previously. Also include _Client Cert_ and _Client Cert Private Key_ as noted in the previous section.
 
       ```java
       private static final String idScope = "[Your ID scope here]";
@@ -108,7 +108,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
       private static final String leafPrivateKey = "<Your Private PEM Key here>";
       ```
 
-   - Use the following format for including your certificate and key:
+   - Use the following format when copying/pasting your certificate and private key:
         
       ```java
       private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -125,7 +125,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
             "-----END PRIVATE KEY-----\n";
       ```
 
-4. Build the sample. Navigate to the target folder and execute the created jar file.
+4. Build the sample. Navigate to the `target` folder and execute the created jar file.
 
     ```cmd/sh
     mvn clean install
@@ -133,7 +133,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     java -jar ./provisioning-x509-sample-{version}-with-deps.jar
     ```
 
-5. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
+5. In the Azure portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. Upon successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**.  You might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
     ![Device is registered with the IoT hub](./media/java-quick-create-simulated-device-x509/hub-registration.png) 
 
@@ -147,13 +147,13 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
 1. Close the device client sample output window on your machine.
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Open the **IoT Devices** blade for your hub, select the *DEVICE ID* of the device you registered in this Quickstart, and then click **Delete** button at the top.
+2. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
+3. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Open the **IoT Devices** blade for your hub, select the *DEVICE ID* of the device you registered in this Quickstart, and then click **Delete** button at the top.
 
 
 ## Next steps
 
-In this Quickstart, you’ve created a simulated X.509 device on your Windows machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your X.509 device programmatically, continue to the Quickstart for programmatic enrollment of X.509 devices. 
+In this Quickstart, you created a simulated X.509 device on your Windows machine. You configured its enrollment in your Azure IoT Hub Device Provisioning Service, then auto-provisioned the device to your IoT hub. To learn how to enroll your X.509 device programmatically, continue to the Quickstart for programmatic enrollment of X.509 devices. 
 
 > [!div class="nextstepaction"]
 > [Azure Quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
