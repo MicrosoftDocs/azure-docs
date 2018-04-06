@@ -4,8 +4,7 @@ description: This quickstart shows how to use the Azure Cosmos DB Table API to c
 services: cosmos-db
 documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: ''
+manager: kfile
 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
