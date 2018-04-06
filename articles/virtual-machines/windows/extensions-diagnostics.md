@@ -19,13 +19,13 @@ ms.author: johnkem
 
 ## Overview
 
-The Windows Azure Diagnostics VM extension enables you to collect monitoring data, such as performance counters and event logs, from your Windows VM. You can granularly specify what data you want to collect and where you want the data to go, such as an Azure Storage account or an Azure Event Hub, and use this data to build charts in the Azure portal or create metric alerts.
+The Windows Azure Diagnostics VM extension enables you to collect monitoring data, such as performance counters and event logs, from your Windows VM. You can granularly specify what data you want to collect and where you want the data to go, such as an Azure Storage account or an Azure Event Hub. You can also use this data to build charts in the Azure portal or create metric alerts.
 
 ## Prerequisites
 
 ### Operating system
 
-The Windows Azure Diagnostics Extension can be run against Windows 10 Client, Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
+The Windows Azure Diagnostics Extension can be run against Windows 10 Client, Windows Server 2008 R2, 2012, 2012 R2, and 2016.
 
 ### Internet connectivity
 
@@ -37,7 +37,7 @@ The Windows Azure Diagnostics Extension requires that the target virtual machine
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Windows Azure Diagnostics extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension can be found here, [in our documentation](extensions-diagnostics-template.md).
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Windows Azure Diagnostics extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension can be found here, [in this document](extensions-diagnostics-template.md).
 
 ## Azure CLI deployment
 
