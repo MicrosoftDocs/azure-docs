@@ -144,6 +144,7 @@
       - name: .NET
         href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
       - name: Java
+        href: https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines
       - name: Python
         href: /python/api/azure.mgmt.msi
       - name: Ruby

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD access reviews| Microsoft Docs
 description: You can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization by using Azure Active Directory access reviews.
 services: active-directory
@@ -15,9 +15,9 @@ ms.date: 09/26/2017
 ms.author: billmath
 ---
 
-# Azure AD access reviews (preview)
+# Azure AD access reviews
 
-Azure Active Directory (Azure AD) access reviews enable organizations to efficiently manage group memberships and access to enterprise applications. 
+Azure Active Directory (Azure AD) access reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and privileged role assignments. 
 
 ## What can you do with access reviews?
    
@@ -26,6 +26,8 @@ Azure Active Directory (Azure AD) access reviews enable organizations to efficie
 - You can recertify employee access to applications and group memberships with access reviews.
    
 - You can collect access review controls into programs that are relevant for your organization to track reviews for compliance or risk-sensitive applications.
+
+- You can recertify the role assignment of administrative users who are assigned to Azure AD roles such as Global Administrator, or Azure subscription roles.  This capability is included in Azure AD Privileged Identity Management.
     
 
 ## Next steps

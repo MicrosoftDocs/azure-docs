@@ -27,14 +27,14 @@ This quickstart shows how to deploy your first .NET application to Service Fabri
 ![Application Screenshot](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Using this application you learn how to:
-> [!div class="checklist"]
-> * Create an application using .NET and Service Fabric
-> * Use ASP.NET core as a web front-end
-> * Store application data in a stateful service
-> * Debug your application locally
-> * Deploy the application to a cluster in Azure
-> * Scale-out the application across multiple nodes
-> * Perform a rolling application upgrade
+
+* Create an application using .NET and Service Fabric
+* Use ASP.NET core as a web front-end
+* Store application data in a stateful service
+* Debug your application locally
+* Deploy the application to a cluster in Azure
+* Scale-out the application across multiple nodes
+* Perform a rolling application upgrade
 
 ## Prerequisites
 To complete this quickstart:
@@ -224,14 +224,13 @@ To upgrade the application, do the following:
 ## Next steps
 In this quickstart, you learned how to:
 
-> [!div class="checklist"]
-> * Create an application using .NET and Service Fabric
-> * Use ASP.NET core as a web front-end
-> * Store application data in a stateful service
-> * Debug your application locally
-> * Deploy the application to a cluster in Azure
-> * Scale-out the application across multiple nodes
-> * Perform a rolling application upgrade
+* Create an application using .NET and Service Fabric
+* Use ASP.NET core as a web front-end
+* Store application data in a stateful service
+* Debug your application locally
+* Deploy the application to a cluster in Azure
+* Scale-out the application across multiple nodes
+* Perform a rolling application upgrade
 
 To learn more about Service Fabric and .NET, take a look at this tutorial:
 > [!div class="nextstepaction"]

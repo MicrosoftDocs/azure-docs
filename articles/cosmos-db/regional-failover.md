@@ -4,7 +4,7 @@ description: Learn about how manual and automatic failover works with Azure Cosm
 services: cosmos-db
 documentationcenter: ''
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
