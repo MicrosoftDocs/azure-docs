@@ -535,6 +535,8 @@
       href: service-fabric-patch-orchestration-application.md
   - name: Monitor and diagnose
     items:
+    - name: Query the EventStore
+      href: service-fabric-diagnostics-eventstore.md  
     - name: OMS
       items:
       - name: Set up OMS Log Analytics
