@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/06/18
+ms.date: 04/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
 
