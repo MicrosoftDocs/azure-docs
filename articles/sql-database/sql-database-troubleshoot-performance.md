@@ -9,7 +9,7 @@ keywords: sql performance tuning, database performance tuning, sql performance t
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 04/01/2018
 ms.author: v-shysun
 
 ---

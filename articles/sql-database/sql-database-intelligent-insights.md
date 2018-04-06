@@ -8,7 +8,7 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/01/2018
 ms.author: v-daljep
 
 ---

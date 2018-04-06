@@ -9,7 +9,7 @@ ms.reviewer: billgib;andrela;genemi
 ms.service: sql-database
 ms.custom: saas apps
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 04/01/2018
 ms.author: billgib
 ---
 # Provision and catalog new tenants in a SaaS application using a sharded multi-tenant Azure SQL database
