@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/29/2018
 ms.author: larryfr
-#Customer intent: I need to create a Kafka cluster so that I can use it to process messages
+#Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 # Quickstart: Create a Kafka on HDInsight cluster
 
@@ -92,6 +92,7 @@ To create a Kafka on HDInsight cluster, use the following steps:
 3. From the __Cluster configuration__, select the following values:
 
     | Setting | Value |
+    | --- | --- |
     | Cluster Type | Kafka |
     | Version | Kafka 0.10.0 (HDI 3.6) |
 
@@ -343,7 +344,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Clean up resources
 
-If you wish to clean up the resources created by this quickstart, you can delete the resource group. Deleting the resource group also deletes the associated HDInsight cluster, and any other resources associated with the resource group.
+To clean up the resources created by this quickstart, you can delete the resource group. Deleting the resource group also deletes the associated HDInsight cluster, and any other resources associated with the resource group.
 
 To remove the resource group using the Azure portal:
 

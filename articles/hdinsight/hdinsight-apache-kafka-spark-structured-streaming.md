@@ -1,6 +1,6 @@
 ---
 title: Apache Spark Structured Streaming with Kafka - Azure HDInsight | Microsoft Docs
-description: Learn how to use Apache Spark streaming (DStream) to get data into or out of Apache Kafka. In this example, you stream data using a Jupyter notebook from Spark on HDInsight.
+description: Learn how to use Apache Spark streaming to get data into or out of Apache Kafka. In this tutorial, you stream data using a Jupyter notebook from Spark on HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,19 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2018
 ms.author: larryfr
+#Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Spark and Kafka to process streaming data.
 ---
-# Use Spark Structured Streaming with Kafka on HDInsight
+# Tutorial: Use Spark Structured Streaming with Kafka on HDInsight
 
 Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight.
 
 Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
 
+This tutorial uses Spark 2.2 on HDInsight 3.6.
+
 > [!IMPORTANT]
-> This example uses Spark 2.2 on HDInsight 3.6.
->
-> The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
->
-> When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
+> The steps in this document require an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
+> 
+> If you already have a virtual network that contains a Kafka cluster, you can create a Spark cluster in the same virtual network. For your convenience, this document also provides a template that can create all the required Azure resources.
+
+When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
 
 ## Create the clusters
 
@@ -40,7 +43,7 @@ The following diagram shows how communication flows between Spark and Kafka:
 > [!NOTE]
 > The Kafka service is limited to communication within the virtual network. Other services on the cluster, such as SSH and Ambari, can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-For your convenience, the following steps use an Azure Resource Manager template to create Kafka and Spark clusters inside a virtual network.
+To create an Azure Virtual Network, and then create the Kafka and Spark clusters within it, use the following steps:
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
     
@@ -55,7 +58,7 @@ For your convenience, the following steps use an Azure Resource Manager template
     * An Azure Virtual Network, which contains the HDInsight clusters.
 
     > [!IMPORTANT]
-    > The structured streaming notebook used in this example requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
+    > The structured streaming notebook used in this tutorial requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
 
 2. Use the following information to populate the entries on the **Customized template** section:
 
@@ -80,7 +83,7 @@ For your convenience, the following steps use an Azure Resource Manager template
 
 ## Get the notebook
 
-The code for the example described in this document is available at [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
+The code for this tutorial is available at [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
 
 ## Upload the notebooks
 
@@ -124,7 +127,7 @@ To remove the resource group using the Azure portal:
 
 ## Next steps
 
-Now that you have learned how to use Spark Structured Streaming, see the following documents to learn more about working with Spark and Kafka:
+In this tutorial, you learned how to use Spark Structured Streaming to write and read data from Kafka on HDInsight. Use the link below to learn how to use Storm with Kafka.
 
-* [How to use Spark streaming (DStream) with Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Start with Jupyter Notebook and Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md)
+> [!div class="nextstepaction"]
+> [Use Apache Storm with Kafka](hdinsight-apache-storm-with-kafka.md)
