@@ -1,23 +1,16 @@
 ---
-title:  Query testing in Azure Stream Analytics | Microsoft Docs
-description: Pinpoint issues when you troubleshoot Stream Analytics jobs.
-keywords: troubleshoot input, input sampling
-documentationcenter: ''
+title: Test a query using sample data in Azure Stream Analytics
+description: This article describes how to test a query using some sample input data in Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
 ---
-# Azure Stream Analytics query testing and input-stream sampling
+# Test a query and sample input in Azure Stream Analytics 
 
 By using Azure Stream Analytics, you can sample input events that come from a file and test queries in the portal without needing to start or stop a job.
 
@@ -49,11 +42,11 @@ In the preceding image, a second output has been added, called **HighAvgTempOutp
 
 When you use multiple outputs in a query, you can see the results for each output separately and easily toggle between them.
 
-After you are satisfied with the results, you can save your query, start your job, sit back and watch the magic of Stream Analytics.
+After you are satisfied with the results, you can save your query, start your job, sit back, and watch the magic of Stream Analytics.
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
