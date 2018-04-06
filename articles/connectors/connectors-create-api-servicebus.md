@@ -91,8 +91,7 @@ select this trigger: **Service Bus - When a message is received in a queue (auto
 
    > [!NOTE]
    > Triggers that are fired when one or more messages arrive such as **Service Bus - When one or more messages arrive in a queue (auto-complete)** return 
-   > 1 to number of messages specified in the **maxcount** property of the trigger. These are also *long polling triggers*, they trigger for the messages in the 
-   > queue until the queue is empty and **stays empty for 30 seconds**, after which the trigger is skipped. 
+   > 1 to number of messages specified in the **maxcount** property of the trigger.  
    
 
    1. If you don't already have a connection to your Service Bus namespace, 
@@ -114,6 +113,12 @@ select this trigger: **Service Bus - When a message is received in a queue (auto
 and set up the interval and frequency for when to check the queue.
 
    ![Select Service Bus queue, set up polling interval](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > All Service Bus triggers are long polling triggers - when a trigger is fired, it processes all the messages and then waits for 30 seconds 
+   > for more messages to appear in the queue/topic subscription. If there are no messages received in 30 seconds, the trigger run is skipped. 
+   > Otherwise, the trigger would continue to read more messages from the queue/topic subscription until its empty. 
+   > The next poll of the trigger would based on the recurrence interval specified in the trigger properties.
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
