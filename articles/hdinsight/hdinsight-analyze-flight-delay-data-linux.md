@@ -36,11 +36,11 @@ This tutorial covers the following tasks:
 > * Use Sqoop to export data to Azure SQL database
 
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
 The following illustration shows a typical ETL application flow.
 
 ![ETL operation using Apache Hive on Azure HDInsight](./media/hdinsight-analyze-flight-delay-data-linux/hdinsight-etl-architecture.png "ETL operation using Apache Hive on Azure HDInsight")
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -103,9 +103,9 @@ There are many ways to upload data to the storage associated with an HDInsight c
     hdfs dfs -put <FILENAME>.csv /tutorials/flightdelays/data/
     ```
 
-## Transform the data using a Hive query
+## Transform data using a Hive query
 
-There are many ways to run a Hive job on an HDInsight cluster. In this section, you use Beeline to run a Hive job. For information on other methods of running a Hive job, see [Use Hive on HDInsight](../hadoop/hdinsight-use-hive.md).
+There are many ways to run a Hive job on an HDInsight cluster. In this section, you use Beeline to run a Hive job. For information on other methods of running a Hive job, see [Use Hive on HDInsight](./hadoop/hdinsight-use-hive.md).
 
 As part of the Hive job, you import the data from the .csv file into a Hive table named **Delays**.
 
