@@ -171,7 +171,7 @@ $mySubscriptionId = (Get-AzureRmSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
-$myScaleSetId = (Get-AzureRmVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id 
+$myScaleSetId = (Get-AzureRmVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id
 
 # Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
@@ -222,7 +222,7 @@ For more design information on the use of autoscale, see [autoscale best practic
 ## Next steps
 In this tutorial, you created a virtual machine scale set. You learned how to:
 
-
+> [!div class="checklist"]
 > * Use the Custom Script Extension to define an IIS site to scale
 > * Create a load balancer for your scale set
 > * Create a virtual machine scale set
