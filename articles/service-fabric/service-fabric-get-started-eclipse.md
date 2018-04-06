@@ -32,7 +32,7 @@ You can install a Service Fabric plug-in in Eclipse. The plug-in can help simpli
 > 
 > On Ubuntu, we recommend installing directly from the Eclipse site rather than using a package installer (`apt` or `apt-get`). Doing so ensures that you get the most current version of Eclipse. 
 
-1.  Ensure that you have installed Eclipse Neon or later and the version 2.2.1 of Buildship (the Service Fabric plug-in is not compatible with older versions of Buildship):
+1.  Ensure that you have installed Eclipse Neon or later and version 2.2.1 or later of Buildship (the Service Fabric plug-in is not compatible with older versions of Buildship):
     -   To check the versions of installed components, in Eclipse, go to **Help** > **About Eclipse** > **Installation Details**.
     -   To update Buildship, see [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
     -   To check for and install updates for Eclipse, go to **Help** > **Check for Updates**.
