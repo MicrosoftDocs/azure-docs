@@ -90,7 +90,8 @@ The Batch service uses the associated Storage account to store your application 
 
 We recommend that you create a Storage account *specifically* for use with your Batch account, and select it here. After you've created a Storage account, you can then link it to your Batch account by using the **Storage Account** window.
 
-> [!NOTE] Currently you can't use application packages with a storage account that is configured with [firewall rules](../storage/common/storage-network-security.md).
+> [!NOTE] 
+> Currently you can't use application packages with an Azure Storage account that is configured with [firewall rules](../storage/common/storage-network-security.md).
 > 
 
 The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize costs.
@@ -251,7 +252,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-On Linux nodes, the format is slightly different. Periods (.), hypens (-) and number signs (#) are flattened to underscores in the environment variable. Also, note that the case of the application ID is preserved. For example:
+On Linux nodes, the format is slightly different. Periods (.), hyphens (-) and number signs (#) are flattened to underscores in the environment variable. Also, note that the case of the application ID is preserved. For example:
 
 ```
 Linux:
@@ -265,7 +266,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-On Linux nodes, specify the environment variable in this format. Flatten the periods (.), hypens (-) and number signs (#) to underscores, and preserve the case of the application ID:
+On Linux nodes, specify the environment variable in this format. Flatten the periods (.), hyphens (-) and number signs (#) to underscores, and preserve the case of the application ID:
 
 ```
 Linux:
