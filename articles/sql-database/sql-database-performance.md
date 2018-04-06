@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 04/01/2018
 ms.author: sstein
 
 ---
