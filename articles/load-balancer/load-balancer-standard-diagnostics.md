@@ -54,7 +54,7 @@ To view the metrics for your Standard Load Balancer resources, browse of Metrics
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-API guidance for retrieving the Multi-Dimensional Metric definitions and values is available at [Monitoring REST API Walkthrouh > Multi-Dimensional API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api)
+API guidance for retrieving the Multi-Dimensional Metric definitions and values is available at [Monitoring REST API Walkthrough > Multi-Dimensional API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api)
 
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 
