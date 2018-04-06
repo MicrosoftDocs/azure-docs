@@ -90,7 +90,7 @@ For example, a valid event data schema is:
 
 ## Response
 
-After posting to the topic endpoint, you receive a respone. The response is a standard HTTP response code. Some common responses are:
+After posting to the topic endpoint, you receive a response. The response is a standard HTTP response code. Some common responses are:
 
 |Result  |Response  |
 |---------|---------|
