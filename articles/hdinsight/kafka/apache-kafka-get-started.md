@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/29/2018
 ms.author: larryfr
-#Customer intent: I need to create a Kafka cluster so that I can use it to process messages
+#Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 # Quickstart: Create a Kafka on HDInsight cluster
 
