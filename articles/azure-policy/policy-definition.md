@@ -98,6 +98,8 @@ Within the metadata property you can use **strongType** to provide a multi-selec
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 In the policy rule, you reference parameters with the following syntax:
 

@@ -45,6 +45,7 @@
 ### [Retrieve a Twitter message with Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 ### [Send messages to an MQTT server using Eclipse Paho APIs](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Monitor the magnetic sensor and send email notifications with Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+### [Control MXChip IoT DevKit RGB LED using Azure device twins](iot-hub-arduino-iot-devkit-az3166-devkit-state.md)
 
 # How-to guides
 ## Plan
