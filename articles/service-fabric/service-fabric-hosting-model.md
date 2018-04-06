@@ -107,7 +107,7 @@ When you use only the Shared Process model for an application, there is only one
 >
 
 ## Work with a deployed service package
-An active copy of a *ServicePackage* on a node is referred to as a [deployed service package][p3]. When you use the Exclusive Process model for creating services, for a given application, there might be multiple deployed service packages for the same *ServicePackage*. If you are performing operations specific to a deployed service package, you should provide **ServicePackageActivationId** to identify a specific deployed service package. For example, if you are [reporting the health of a deployed service package][p4] or [restarting the code package of a deployed service package][p5].
+An active copy of a *ServicePackage* on a node is referred to as a [deployed service package][p3]. When you use the Exclusive Process model for creating services, for a given application, there might be multiple deployed service packages for the same *ServicePackage*. If you are performing operations specific to a deployed service package, you should provide **ServicePackageActivationId** to identify a specific deployed service package. For example, provide the ID if you are [reporting the health of a deployed service package][p4] or [restarting the code package of a deployed service package][p5].
 
 You can find out the **ServicePackageActivationId** of a deployed service package by querying the list of [deployed service packages][p3] on a node. When you are querying for the [deployed service types][p6], [deployed replicas][p7], and [deployed code packages][p8] on a node, the query result also contains the **ServicePackageActivationId** of the parent deployed service package.
 
