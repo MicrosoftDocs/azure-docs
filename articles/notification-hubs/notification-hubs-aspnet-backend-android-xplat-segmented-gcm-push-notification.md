@@ -33,194 +33,210 @@ The first step is to add the UI elements to your existing main activity that ena
 
 1. Open your res/layout/activity_main.xml file, and substitute the content with the following:
    
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            tools:context="com.example.breakingnews.MainActivity"
-            android:orientation="vertical">
-   
-                <CheckBox
-                    android:id="@+id/worldBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_world" />
-                <CheckBox
-                    android:id="@+id/politicsBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_politics" />
-                <CheckBox
-                    android:id="@+id/businessBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_business" />
-                <CheckBox
-                    android:id="@+id/technologyBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_technology" />
-                <CheckBox
-                    android:id="@+id/scienceBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_science" />
-                <CheckBox
-                    android:id="@+id/sportsBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_sports" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="subscribe"
-                    android:text="@string/button_subscribe" />
-        </LinearLayout>
+    ```xml
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.breakingnews.MainActivity"
+        android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/worldBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_world" />
+            <CheckBox
+                android:id="@+id/politicsBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_politics" />
+            <CheckBox
+                android:id="@+id/businessBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_business" />
+            <CheckBox
+                android:id="@+id/technologyBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_technology" />
+            <CheckBox
+                android:id="@+id/scienceBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_science" />
+            <CheckBox
+                android:id="@+id/sportsBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_sports" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="subscribe"
+                android:text="@string/button_subscribe" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!"
+                android:id="@+id/text_hello"
+            />
+    </LinearLayout>
+    ```
 2. Open your res/values/strings.xml file and add the following lines:
-   
-        <string name="button_subscribe">Subscribe</string>
-        <string name="label_world">World</string>
-        <string name="label_politics">Politics</string>
-        <string name="label_business">Business</string>
-        <string name="label_technology">Technology</string>
-        <string name="label_science">Science</string>
-        <string name="label_sports">Sports</string>
-   
+
+    ```xml
+    <string name="button_subscribe">Subscribe</string>
+    <string name="label_world">World</string>
+    <string name="label_politics">Politics</string>
+    <string name="label_business">Business</string>
+    <string name="label_technology">Technology</string>
+    <string name="label_science">Science</string>
+    <string name="label_sports">Sports</string>
+    ```
+
     Your main_activity.xml graphical layout should now look like this:
    
     ![][A1]
 3. Now create a class **Notifications** in the same package as your **MainActivity** class.
-   
-        import java.util.HashSet;
-        import java.util.Set;
-   
-        import android.content.Context;
-        import android.content.SharedPreferences;
-        import android.os.AsyncTask;
-        import android.util.Log;
-        import android.widget.Toast;
-   
-        import com.google.android.gms.gcm.GoogleCloudMessaging;
-        import com.microsoft.windowsazure.messaging.NotificationHub;
-   
-        public class Notifications {
-            private static final String PREFS_NAME = "BreakingNewsCategories";
-            private GoogleCloudMessaging gcm;
-            private NotificationHub hub;
-            private Context context;
-            private String senderId;
-   
-            public Notifications(Context context, String senderId, String hubName, 
-                                    String listenConnectionString) {
-                this.context = context;
-                this.senderId = senderId;
-   
-                gcm = GoogleCloudMessaging.getInstance(context);
-                hub = new NotificationHub(hubName, listenConnectionString, context);
-            }
-   
-            public void storeCategoriesAndSubscribe(Set<String> categories)
-            {
-                SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
-                settings.edit().putStringSet("categories", categories).commit();
-                subscribeToCategories(categories);
-            }
-   
-            public Set<String> retrieveCategories() {
-                SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
-                return settings.getStringSet("categories", new HashSet<String>());
-            }
-   
-            public void subscribeToCategories(final Set<String> categories) {
-                new AsyncTask<Object, Object, Object>() {
-                    @Override
-                    protected Object doInBackground(Object... params) {
-                        try {
-                            String regid = gcm.register(senderId);
-   
-                            String templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
-   
-                            hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM, 
-                                categories.toArray(new String[categories.size()]));
-                        } catch (Exception e) {
-                            Log.e("MainActivity", "Failed to register - " + e.getMessage());
-                            return e;
-                        }
-                        return null;
-                    }
-   
-                    protected void onPostExecute(Object result) {
-                        String message = "Subscribed for categories: "
-                                + categories.toString();
-                        Toast.makeText(context, message,
-                                Toast.LENGTH_LONG).show();
-                    }
-                }.execute(null, null, null);
-            }
-   
+
+    ```java   
+    import java.util.HashSet;
+    import java.util.Set;
+
+    import android.content.Context;
+    import android.content.SharedPreferences;
+    import android.os.AsyncTask;
+    import android.util.Log;
+    import android.widget.Toast;
+    import android.view.View;
+
+    import com.google.android.gms.gcm.GoogleCloudMessaging;
+    import com.microsoft.windowsazure.messaging.NotificationHub;
+
+    public class Notifications {
+        private static final String PREFS_NAME = "BreakingNewsCategories";
+        private GoogleCloudMessaging gcm;
+        private NotificationHub hub;
+        private Context context;
+        private String senderId;
+
+        public Notifications(Context context, String senderId, String hubName, 
+                                String listenConnectionString) {
+            this.context = context;
+            this.senderId = senderId;
+
+            gcm = GoogleCloudMessaging.getInstance(context);
+            hub = new NotificationHub(hubName, listenConnectionString, context);
         }
-   
+
+        public void storeCategoriesAndSubscribe(Set<String> categories)
+        {
+            SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
+            settings.edit().putStringSet("categories", categories).commit();
+            subscribeToCategories(categories);
+        }
+
+        public Set<String> retrieveCategories() {
+            SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
+            return settings.getStringSet("categories", new HashSet<String>());
+        }
+
+        public void subscribeToCategories(final Set<String> categories) {
+            new AsyncTask<Object, Object, Object>() {
+                @Override
+                protected Object doInBackground(Object... params) {
+                    try {
+                        String regid = gcm.register(senderId);
+
+                        String templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+
+                        hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM, 
+                            categories.toArray(new String[categories.size()]));
+                    } catch (Exception e) {
+                        Log.e("MainActivity", "Failed to register - " + e.getMessage());
+                        return e;
+                    }
+                    return null;
+                }
+
+                protected void onPostExecute(Object result) {
+                    String message = "Subscribed for categories: "
+                            + categories.toString();
+                    Toast.makeText(context, message,
+                            Toast.LENGTH_LONG).show();
+                }
+            }.execute(null, null, null);
+        }
+
+    }
+    ```
+       
     This class uses the local storage to store the categories of news that this device has to receive. It also contains methods to register for these categories.
 4. In your **MainActivity** class remove your private fields for **NotificationHub** and **GoogleCloudMessaging**, and add a field for **Notifications**:
-   
-        // private GoogleCloudMessaging gcm;
-        // private NotificationHub hub;
-        private Notifications notifications;
+
+    ```java   
+    // private GoogleCloudMessaging gcm;
+    // private NotificationHub hub;
+    private Notifications notifications;
+    ```
 5. Then, in the **onCreate** method, remove the initialization of the **hub** field and the **registerWithNotificationHubs** method. Then add the following lines which initialize an instance of the **Notifications** class. 
 
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            MyHandler.mainActivity = this;
+    ```java
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mainActivity = this;
 
-            NotificationsManager.handleNotifications(this, SENDER_ID,
-                    MyHandler.class);
+        NotificationsManager.handleNotifications(this, NotificationSettings.SenderId,
+                MyHandler.class);
 
-            notifications = new Notifications(this, SENDER_ID, HubName, HubListenConnectionString);
+        notifications = new Notifications(this, NotificationSettings.SenderId, NotificationSettings.HubName, NotificationSettings.HubListenConnectionString);
 
-            notifications.subscribeToCategories(notifications.retrieveCategories());
-        }
+        notifications.subscribeToCategories(notifications.retrieveCategories());
+    }
+    ```
 
     `HubName` and `HubListenConnectionString` should already be set with the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier.
 
     > [AZURE.NOTE] Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
+1. Then, add the following imports:
 
+    ```java   
+    import android.widget.CheckBox;
+    import java.util.HashSet;
+    import java.util.Set;
+    ```
+1. Add the following `subscribe` method to handle the subscribe button click event:        
+   
+    ```java
+    public void subscribe(View sender) {
+        final Set<String> categories = new HashSet<String>();
 
-1. Then, add the following imports and `subscribe` method to handle the subscribe button click event:
-   
-        import android.widget.CheckBox;
-        import java.util.HashSet;
-        import java.util.Set;
-   
-        public void subscribe(View sender) {
-            final Set<String> categories = new HashSet<String>();
-   
-            CheckBox world = (CheckBox) findViewById(R.id.worldBox);
-            if (world.isChecked())
-                categories.add("world");
-            CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
-            if (politics.isChecked())
-                categories.add("politics");
-            CheckBox business = (CheckBox) findViewById(R.id.businessBox);
-            if (business.isChecked())
-                categories.add("business");
-            CheckBox technology = (CheckBox) findViewById(R.id.technologyBox);
-            if (technology.isChecked())
-                categories.add("technology");
-            CheckBox science = (CheckBox) findViewById(R.id.scienceBox);
-            if (science.isChecked())
-                categories.add("science");
-            CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
-            if (sports.isChecked())
-                categories.add("sports");
-   
-            notifications.storeCategoriesAndSubscribe(categories);
-        }
-   
+        CheckBox world = (CheckBox) findViewById(R.id.worldBox);
+        if (world.isChecked())
+            categories.add("world");
+        CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
+        if (politics.isChecked())
+            categories.add("politics");
+        CheckBox business = (CheckBox) findViewById(R.id.businessBox);
+        if (business.isChecked())
+            categories.add("business");
+        CheckBox technology = (CheckBox) findViewById(R.id.technologyBox);
+        if (technology.isChecked())
+            categories.add("technology");
+        CheckBox science = (CheckBox) findViewById(R.id.scienceBox);
+        if (science.isChecked())
+            categories.add("science");
+        CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
+        if (sports.isChecked())
+            categories.add("sports");
+
+        notifications.storeCategoriesAndSubscribe(categories);
+    }
+    ```
+       
     This method creates a list of categories and uses the **Notifications** class to store the list in the local storage and register the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
 
 Your app is now able to store a set of categories in local storage on the device and register with the notification hub whenever the user changes the selection of categories.
@@ -235,11 +251,14 @@ These steps register with the notification hub on startup using the categories t
 
 1. Add the following code at the end of the **onCreate** method in the **MainActivity** class:
    
-        notifications.subscribeToCategories(notifications.retrieveCategories());
+    ```java
+    notifications.subscribeToCategories(notifications.retrieveCategories());
+    ```
    
     This makes sure that every time the app starts it retrieves the categories from local storage and requests a registeration for these categories. 
 2. Then update the `onStart()` method of the `MainActivity` class as follows:
    
+    ```java
     @Override
     protected void onStart() {
    
@@ -261,6 +280,7 @@ These steps register with the notification hub on startup using the categories t
         CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
         sports.setChecked(categories.contains("sports"));
     }
+    ```
    
     This updates the main activity based on the status of previously saved categories.
 
@@ -270,15 +290,13 @@ The app is now complete and can store a set of categories in the device local st
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## Run the app and generate notifications
-1. In Android Studio, build the app and start it on a device or emulator.
-   
-    Note that the app UI provides a set of toggles that lets you choose the categories to subscribe to.
-2. Enable one or more categories toggles, then click **Subscribe**.
-   
-    The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a toast notification.
-3. Send a new notification by running the .NET Console app.  Alternatively, you can send tagged template notifications using the debug tab of your notification hub in the [Azure portal].
-   
-    Notifications for the selected categories appear as toast notifications.
+1. In Android Studio, run the app on your Android device or emulator. Note that the app UI provides a set of toggles that lets you choose the categories to subscribe to.
+2. Enable one or more categories toggles, then click **Subscribe**. The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a toast notification.
+
+    ![Subscribe for categories](./media/notification-hubs-aspnet-backend-android-breaking-news/subscribe-for-categories.png)
+1. Run the .NET console app, which sends notifications for each category. Notifications for the selected categories appear as toast notifications.
+
+    ![Technology news notifications](./media/notification-hubs-aspnet-backend-android-breaking-news/technolgy-news-notification.png)
 
 ## Next steps
 In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
