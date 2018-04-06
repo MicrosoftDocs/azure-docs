@@ -7,7 +7,7 @@ manager: jhubbard
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 06/21/2016
+ms.date: 04/01/2018
 ms.author: janeng
 
 ---
