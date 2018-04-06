@@ -25,6 +25,10 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
   >[!NOTE]  
   >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
 
+## Running the code
+
+To run this example, follow these steps.
+
 1. Create a folder for your code.
 2. From an administrator command prompt or terminal, navigate to the folder you just created.
 3. Install the **requests** python module:
@@ -52,7 +56,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
     python BingCustomSearch.py
     </pre>
 
-### Next steps
+## Next steps
 - [Configure and consume custom hosted UI](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)
