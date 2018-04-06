@@ -34,8 +34,6 @@ This tutorial shows you how to create and use a Linux VM MSI. You learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
 To run the CLI script examples in this tutorial, you have two options:
@@ -87,7 +85,7 @@ To gain access to the Cosmos DB account access keys from the Resource Manager in
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
-The response includes the details of the system-assigned MSI (note the principalID as it is used in the next section):
+The response includes the details of the system-assigned MSI (note the `principalID` as it is used in the next section):
 
 ```bash  
 {
@@ -133,7 +131,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
 2. Connect to your VM using your SSH client.  
-3. Next, you are prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
+3. Next, you are prompted to enter in your **Password** you added when creating the **Linux VM**.  
 4. Use CURL to get an access token for Azure Resource Manager: 
      
     ```bash
