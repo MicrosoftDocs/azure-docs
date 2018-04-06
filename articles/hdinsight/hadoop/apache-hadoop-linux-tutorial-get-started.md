@@ -22,7 +22,7 @@ ms.author: jgao
 ---
 # Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template
 
-In this article, you learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight, and then run Hive jobs in HDInsight. 
+In this article, you learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight using a Resource Manager template, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
 
 Currently HDInsight comes with [seven different cluster types](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 
@@ -35,7 +35,7 @@ Log in to the [Azure  portal](https://portal.azure.com).
 <a name="create-cluster"></a>
 ## Create a Hadoop cluster
 
-Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md). The Resource Manager template used in this tutorial is located in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). Resource Manager template experience is not required for following this article. 
+In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md). The Resource Manager template used in this tutorial is located in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). Resource Manager template experience is not required for following this article. 
 
 1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. 
    

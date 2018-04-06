@@ -4,8 +4,7 @@ description: Use Azure Cosmos DB change feed support to track changes in documen
 keywords: change feed
 services: cosmos-db
 author: rafats
-manager: jhubbard
-editor: mimig
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
