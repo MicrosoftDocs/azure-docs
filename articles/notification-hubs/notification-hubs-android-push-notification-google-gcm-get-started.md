@@ -439,7 +439,7 @@ You can test receiving push notifications in your app by sending them via the [A
 
 1. In the **Troubleshooting** section, select **Test Send**. 
 2. For **Platforms**, select **Android**.
-3. Select **Send** to send the test notificaiton. 
+3. Select **Send** to send the test notification. 
 4. Confirm that you see the notification message on the Android device. 
 
     ![Azure Notification Hubs - Test Send](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
