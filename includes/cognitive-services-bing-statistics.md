@@ -1,8 +1,8 @@
-Bing Statistics provides analytics for the family of Bing Search APIs. Analytics include call volume, top query strings, types of devices used, and more. To get access to Bing Statistics, enable Bing Statistics in your paid subscription. Navigate to your Azure dashboard, select your paid subscription and click Enable Bing Statistics.
+Bing Statistics provides analytics for Bing Search APIs. Analytics includes call volume, top query strings, device types used, and more. To get access to Bing Statistics, enable Bing Statistics in your Bing Search paid subscription. Navigate to your Azure dashboard, select your paid subscription, and click Enable Bing Statistics.
 
 
 > [!NOTE]
-> Bing Statistics is available for paid subscriptions only - it is not available with free trial subscriptions. 
+> Bing Statistics is available with paid subscriptions only - it is not available with free trial subscriptions. 
 
 Bing updates analytics data every two to three hours and maintains up to 13 month's worth of history.
 
@@ -22,11 +22,11 @@ Next, select the API endpoint that you want analytics for. The list contains onl
 
 ## The dashboard
 
-The dashboard shows charts and graphs of the various analytics available for the selected endpoint. Not all analytics are available for all endpoints. The charts and graphs for each endpoint are static (you may not select the charts and graphs to display). The following is the list of all available analytics. Each analytic notes any endpoint restrictions. 
+The dashboard shows charts and graphs of the various analytics available for the selected endpoint. Not all analytics are available for all endpoints. The charts and graphs for each endpoint are static (you may not select the charts and graphs to display). The following is the list of all available analytics. Each analytic notes endpoint restrictions. 
 
 **Call Volume**: Shows the number of calls made during the reporting period. If the reporting period is for a day, the chart shows the number of calls made per hour. Otherwise, the chart shows the number of calls made per day of the reporting period.
 
-**Top Queries**: Shows the top queries during the reporting period. You can configure the number of queries shown. For example, you can show the top 25, 50, or 75 queries. Not available for the following endpoints:
+**Top Queries**: Shows the top queries during the reporting period. You can configure the number of queries shown. For example, you can show the top 25, 50, or 75 queries. Top Queries is not available for the following endpoints:
 
 - /images/trending
 - /images/details
@@ -37,7 +37,7 @@ The dashboard shows charts and graphs of the various analytics available for the
 - /news/trendingtopics
 - /suggestions
 
-**Geographic Distribution**: The geographic locations where the results come from. For example, en-us.
+**Geographic Distribution**: The markets where the results come from. For example, en-us.
 
 **Response Code Distribution**: The HTTP status codes of all calls during the reporting period.
 
@@ -53,14 +53,11 @@ The dashboard shows charts and graphs of the various analytics available for the
 
 **Modules Requested Distribution**: The requested insights for /images/details and /videos/details endpoints. For example, if the /images/details call requests similar images, similar products, or shopping sources.
 
-
-**Category Distribution**: The requested categories of news articles to get. For example, sports or entertainment.
+**Category Distribution**: The requested categories of news articles for the /news endpoint. For example, if the call requests sports or entertainment articles.
 
 
 
 
 ## Filtering the data
 
-For an endpoint, you can filter the data by time frame and one or more distributions. By default, the data is filtered only by time frame. To select distribution filters, click on the distribution value in the chart. For example, to filter by one or more query strings, select the string in the Top Queries chart. Or to filter by market, select the market in the Geographic Distribution pie chart. When you select the filter value, it's shown in the Selected Filters section of the dashboard. 
-
-As you add filters, the charts and graphs change to reflect the filtered data. 
+For an endpoint, you can filter the data by time frame and one or more distributions. By default, the data is filtered only by time frame. To select distribution filters, click on the distribution value in the chart. For example, to filter by one or more query strings, select the string in the Top Queries chart. Or to filter by market, select the market in the Geographic Distribution pie chart. Selected filters are shown in the Selected Filters section of the dashboard. As you add filters, the charts and graphs change to reflect the filtered data. 
