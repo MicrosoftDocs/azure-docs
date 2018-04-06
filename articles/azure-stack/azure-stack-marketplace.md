@@ -44,5 +44,5 @@ Every item published to the Marketplace uses the Azure Gallery Package (.azpkg) 
 With version 1803 and later, Azure Stack converts images to sparse files when they download from Azure or when you upload custom images. This process adds time when adding an image, but saves space and speeds up the deployment of those images. Conversion only applies to new images.  Existing images are not changed. 
 
 ## Next steps
-[Create and publish a marketplace item](azure-stack-create-and-publish-marketplace-item.md)
+[Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 
