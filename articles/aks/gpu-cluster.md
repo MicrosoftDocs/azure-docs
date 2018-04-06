@@ -2,8 +2,8 @@
 title: GPUs on Azure Container Service (AKS)
 description: Use GPUs on Azure Container Service (AKS)
 services: container-service
-author: laevenso
-manager: gamonroy
+author: lachie83
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -14,15 +14,15 @@ ms.custom: mvc
 
 # Using GPUs on AKS
 
-AKS supports the creation of GPU enabled node pools. Azure currently provides single or multiple GPU enabled VMs. GPU enabled VMs are designed for compute-intensive, graphics-intensive, and visualization workloads. A list of GPU enabled VMs can be found [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+AKS supports the creation of GPU enabled node pools. Azure currently provides single or multiple GPU enabled VMs. GPU enabled VMs are designed for compute-intensive, graphics-intensive, and visualization workloads. A list of GPU enabled VMs can be found [here](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 ## Create an AKS cluster
 
-GPUs are typically needed for compute-intesive workloads such as graphics-intensive, and visualization workloads. Refer to the following [document](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu) to determine the right VM size for your workload.
+GPUs are typically needed for compute-intensive workloads such as graphics-intensive, and visualization workloads. Refer to the following [document](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) to determine the right VM size for your workload.
 We recommend a minimum size of `Standard_NC6` for your Azure Container Service (AKS) nodes.
 
 > [!NOTE]
-> GPU enabled VMs contain specialized hardware that is subject to higher pricing. For more information, see the [pricing](https://azure.microsoft.com/en-us/pricing/) tool for more information.
+> GPU enabled VMs contain specialized hardware that is subject to higher pricing and region availability. For more information, see the [pricing](https://azure.microsoft.com/pricing/) tool and [region availability](https://azure.microsoft.com/global-infrastructure/services/) site for more information.
 
 
 If you need an AKS cluster that meets this minimum recommendation, run the following commands.
@@ -52,7 +52,7 @@ Run the following commands to confirm the GPUs are schedulable via Kubernetes.
 Get the current list of nodes.
 
 ```
-kubectl get nodes
+$ kubectl get nodes
 NAME                       STATUS    ROLES     AGE       VERSION
 aks-nodepool1-22139053-0   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
@@ -131,7 +131,7 @@ Events:         <none>
 
 In order to demonstrate the GPUs are indeed working, schedule a GPU enabled workload with the appropriate resource request. This example will run a [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
-The following job specification includes a resource limit of `alpha.kubernetes.io/nvidia-gpu: 1`. The appropriate drivers will be available on the node and must be mounted (/usr/local/nvidia) into the pod using the appropriate volume specification as seen below.
+The following job specification includes a resource limit of `alpha.kubernetes.io/nvidia-gpu: 1`. The appropriate CUDA libraries and debug tools will be available on the node at `/usr/local/nvidia` and must be mounted into the pod using the appropriate volume specification as seen below.
 
 ```
 apiVersion: batch/v1
@@ -252,3 +252,13 @@ Accuracy at step 480: 0.9529
 Accuracy at step 490: 0.9547
 Adding run metadata for 499
 ```
+
+## Next steps
+
+Interested in running Machine Learning workloads on Kubernetes? Refer to the Kubeflow documentation for more detail.
+
+> [!div class="nextstepaction"]
+> [Kubeflow User Guide][kubeflow-docs]
+
+<!-- LINKS - external -->
+[kubeflow-docs]: https://github.com/kubeflow/kubeflow/blob/master/user_guide.md
