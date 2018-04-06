@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/05/2018
+ ms.date: 03/21/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -20,4 +20,4 @@ The following table lists the requirements for PolicyBased and RouteBased VPN ga
 | **Maximum number of P2S connections** |Not supported |128 |128 |128 |
 | **Active routing support (BGP)** (*) |Not supported |Not supported |Supported |Supported |
 
-(*) BGP is not supported for the classic deployment model.
+  (*) BGP is not supported for the classic deployment model.
