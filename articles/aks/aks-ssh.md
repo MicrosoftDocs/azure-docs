@@ -18,7 +18,7 @@ Occasionally, you may need to access an Azure Container Service (AKS) node for m
 
 ## Get AKS node address
 
-Get the ip address of the AKS cluster nodes using the `az vm list-ip-addresses` command. Replace the resource group name with the name of your AKS resource group.
+Get the IP address of the AKS cluster nodes using the `az vm list-ip-addresses` command. Replace the resource group name with the name of your AKS resource group.
 
 ```console
 $ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
@@ -32,33 +32,34 @@ aks-nodepool1-42032720-2  10.240.0.4
 
 ## Configure SSH access
 
-Copy your SSH key to the host clip board. The following example uses `pbcopy`, any method can be used.
-
-```console
-cat ~/.ssh/id_rsa | pbcopy
-```
-
-Run the `aks-ssh` container image, which will create a pod on one of the AKS cluster nodes. The `aks-ssh` image has been created from the debian image and includes vim and an SSH client.
+Run the `debian` container image and attach a terminal session to it. The container can then be used to create an SSH session with any node in the AKS cluster.
 
 ```console
 kubectl run -it --rm aks-ssh --image=debian
 ```
 
-Install an SSH client and text editor.
+Install an SSH client in the container.
 
 ```console
-apt-get update
-apt-get install openssh-client
-spt-get install vim
+apt-get update && apt-get install openssh-client -y
 ```
 
-Once attached to the running container, create a file named `id_rsa` and copy into it the contents of the clipboard. Save the file when done.
+Open a second terminal and list the newly created pod.
 
 ```console
-vi id_rsa
+$ kubectl get pods
+
+NAME                       READY     STATUS    RESTARTS   AGE
+aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-Modify the `id_rsa` file so that it is user read-only.
+Copy your SSH key to the pod, replace the pod name with the proper value.
+
+```console
+kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+```
+
+Back in the running pod modify the `id_rsa` file so that it is user read-only.
 
 ```console
 chmod 0600 id_rsa
