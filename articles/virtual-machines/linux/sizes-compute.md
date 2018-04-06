@@ -4,7 +4,7 @@ description: Lists the different compute optimized sizes available for Linux vir
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 

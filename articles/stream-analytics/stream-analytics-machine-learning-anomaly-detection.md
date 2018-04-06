@@ -1,18 +1,14 @@
 ---
-title: Anomaly Detection in Azure Usage Guide (Preview)| Microsoft Docs
-description: Use stream analytics and machine learning to detect anomalies.
+title: Anomaly detection in Azure Stream Analytics (Preview)
+description: This article describes how to use Azure Stream Analytics and Azure Machine Learning together to detect anomalies.
 services: stream-analytics
-documentationcenter: ''
 author: dubansal
-manager: katicad
-
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 02/12/2018
 ms.author: dubansal
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 02/12/2018
 ---
 
 # Anomaly Detection in Azure Stream Analytics

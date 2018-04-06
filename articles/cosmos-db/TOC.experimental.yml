@@ -8,8 +8,6 @@ items:
     items:
     - name: About Azure Cosmos DB
       href: introduction.md
-    - name: Documentation experiment
-      href: experiment.experimental.md
   - name: Quickstarts
     expanded: true
     items:
@@ -82,7 +80,7 @@ items:
     - name: Throughput
       href: request-units.md
     - name: TCO
-      href: https://aka.ms/documentdb-tco-paper
+      href: https://aka.ms/cosmosdb-tco-paper
     - name: Serverless database
       href: serverless-computing-database.md
     - name: Security
@@ -202,6 +200,8 @@ items:
           items:
           - name: Performance test
             href: performance-testing.md
+          - name: Performance tips for Async Java
+            href: performance-tips-async-java.md
           - name: Performance tips for .NET
             href: performance-tips.md
           - name: Performance tips for Java
@@ -219,17 +219,17 @@ items:
           - name: Application logging with Logic Apps
             href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
           - name: Bind to Azure Functions
-            href: ../azure-functions/functions-bindings-documentdb.md
+            href: ../azure-functions/functions-bindings-cosmosdb.md
           - name: Integrate with Azure Search
-            href: ../search/search-howto-index-documentdb.md
+            href: ../search/search-howto-index-cosmosdb.md
           - name: Move data with Azure Data Factory
             href: ../data-factory/connector-azure-cosmos-db.md
           - name: Analyze real-time data with Azure Stream Analytics
-            href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
+            href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
           - name: Get changed HL7 FHIR record using Logic Apps
             href: change-feed-hl7-fhir-logic-apps.md
           - name: Process sensor data in real time
-            href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+            href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
           - name: Visualize your data with Power BI
             href: powerbi-visualize.md
           - name: Leverage the ODBC driver for data visualization
@@ -265,7 +265,7 @@ items:
         - name: Schema agnostic indexing paper
           href: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
         - name: SQL playground
-          href: https://www.documentdb.com/sql/demo
+          href: https://aka.ms/cosmos-db-playground
     - name: MongoDB API Docs
       items: 
       - name: Overview

@@ -4,7 +4,7 @@ description: A C++ tutorial that creates a C++ database and console application 
 services: cosmos-db
 documentationcenter: cpp
 author: asthana86
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
