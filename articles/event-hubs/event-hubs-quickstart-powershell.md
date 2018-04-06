@@ -32,9 +32,9 @@ To complete this tutorial, make sure you have installed:
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
-This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you choose to intall and use PowerShell locally, this article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
 
 ## Log on to Azure
 
@@ -119,7 +119,7 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 
 1. Download the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
 
-2. Navigate to the \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleSender folder.
+2. Navigate to \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleSender folder.
 
 3. Load SampleSender.sln file from your downloaded location in Visual Studio.
 
@@ -127,18 +127,18 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 
 5. In Program.cs, replace the following place holders with the resource names and connection strings you have obtained while provisioning the resources:
 
-  ```netcore-cli
+  ```C#
   private const string EhConnectionString = "Event Hubs connection string";
   private const string EhEntityPath = "Event Hub name";
 
   ```
 6. Build and run the sample. You can see the events being ingested into your event hub.
 
-![][3]
+    ![][3]
 
 ### Receive and process events
 
- 1. Download the [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
+1. Download the [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
 
 2. Navigate to the \azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleEphReceiver folder.
 
@@ -146,9 +146,9 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
 
 4. Add the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) and [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) Nuget packages to the project.
 
-5. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name and storage account key:
+5. In Program.cs, replace the following constants with the corresponding values for the Event Hubs connection string, event hub name, storage account container name, storage account name and, storage account key:
 
-  ```netcore-cli
+  ```C#
   private const string EventHubConnectionString = "Event Hubs connection string";
   private const string EventHubName = "Event Hub name";
   private const string StorageContainerName = "Storage account container name";
@@ -158,11 +158,11 @@ You can now start streaming into your Event Hubs. The samples can be downloaded 
   ```
 6. Build and run the sample. You can see the events being received on your sample application
 
-![][4]
+    ![][4]
 
 You can view the incoming and outgoing events count in the portal for the Event Hubs namespace as shown below:
 
-![][5]
+   ![][5]
 
 ## Clean up deployment
 
@@ -176,9 +176,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 In this article, you created the Event Hubs namespace and other resources required to send and receive events from an event hub. To learn more, continue with the following articles:
 
-* [Event Hubs PowerShell script sample](https://github.com/Azure/azure-event-hubs/samples/DotNet/Quickstart_PSsample1.ps1)
-* [Send events to your event hub](event-hubs-dotnet-standard-getstarted-send.md)
-* [Receive events from your event hub](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+* [Download the PowerShell script for provisioning Event Hubs resources](https://github.com/Azure/azure-event-hubs/blob/master/samples/DotNet/Quickstart_PSsample1.ps1)
+* [Learn about Event Processor Host](event-hubs-dotnet-standard-getstarted-send.md)
+* [Understanding the data streaming world](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
