@@ -17,7 +17,7 @@ ms.author: bbenz
 ms.custom: mvc
 ---
 
-# Build a Java and MySQL web app in Azure
+# Tutorial: Build a Java and MySQL web app in Azure
 
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Deploy a containerized Spring Boot app to Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
