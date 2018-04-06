@@ -72,10 +72,10 @@ Analytics](../../log-analytics/log-analytics-containers.md).
 ## Installing Log Analytics on Kubernetes
 
 ### Obtain your workspace ID and key
-For the Log Analytics agent to talk to the service it needs to be configured with a workspace id and
-a workspace key. To get the workspace id and key you need to create an account at <https://mms.microsoft.com>.
+For the Log Analytics agent to talk to the service it needs to be configured with a workspace ID and
+a workspace key. To get the workspace ID and key you need to create an account at <https://mms.microsoft.com>.
 Please follow the steps to create an account. Once you are done creating
-the account, you need to obtain your id and key by clicking
+the account, you need to obtain your ID and key by clicking
 **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
 
  ![](media/container-service-monitoring-oms/image5.png)
@@ -85,10 +85,10 @@ DaemonSets are used by Kubernetes to run a single instance of a container on eac
 They're perfect for running monitoring agents.
 
 Here is the [DaemonSet YAML file](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Save it to a file named `oms-daemonset.yaml` and
-replace the place-holder values for `WSID` and `KEY` with your workspace id and key in the file.
+replace the place-holder values for `WSID` and `KEY` with your workspace ID and key in the file.
 
 Once you have added your workspace ID and key to the DaemonSet configuration, you can install the Log Analytics agent
-on your cluster with the `kubectl` command line tool:
+on your cluster with the `kubectl` command-line tool:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
@@ -97,11 +97,11 @@ $ kubectl create -f oms-daemonset.yaml
 ### Installing the Log Analytics agent using a Kubernetes Secret
 To protect your Log Analytics workspace ID and key you can use Kubernetes Secret as a part of DaemonSet YAML file.
 
- - Copy the script, secret template file and the DaemonSet YAML file (from [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) and make sure they are on the same directory.
+ - Copy the script, secret template file, and the DaemonSet YAML file (from [repository](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) and make sure they are on the same directory.
 	  - secret generating script - secret-gen.sh
 	  - secret template - secret-template.yaml
    - DaemonSet YAML file - omsagent-ds-secrets.yaml
- - Run the script. The script will ask for the Log Analytics Workspace ID and Primary Key. Please insert that and the script will create a secret yaml file so you can run it.
+ - Run the script. The script will ask for the Log Analytics Workspace ID and Primary Key. Insert that and the script will create a secret yaml file so you can run it.
    ```
    #> sudo bash ./secret-gen.sh
    ```
