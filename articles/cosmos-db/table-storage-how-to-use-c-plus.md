@@ -31,7 +31,7 @@ This guide will show you how to perform common scenarios by using the Azure Tabl
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### Create an Azure storage account
-[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account)]
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### Create an Azure Cosmos DB Table API account
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]

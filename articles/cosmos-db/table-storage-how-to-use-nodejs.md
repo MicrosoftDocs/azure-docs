@@ -30,7 +30,7 @@ This article shows how to perform common scenarios using Azure Storage Table ser
 
 ### Create an Azure storage account
 
-[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account)]
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### Create an Azure Cosmos DB Table API account
 
