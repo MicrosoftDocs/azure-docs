@@ -14,9 +14,13 @@
 - name: Tutorials
   items:
   - name: Upload, encode, and stream
-    href: stream-files-tutorial.md
+    items:
+    - name: Using APIs
+      href: stream-files-tutorial.md
   - name: Analyze your video
-    href: analyze-videos-tutorial.md
+    items:
+    - name: Using APIs    
+      href: analyze-videos-tutorial.md
 - name: Samples
   items:
   - name: Code samples
@@ -29,7 +33,7 @@
     href: transform-concept.md
   - name: Assets
     href: assets-concept.md
-  - name: Auto-generating adaptive bitrate outputs
+  - name: Autogen adptive bitrate ladder
     href: autogen-bitrate-ladder.md
 - name: How-to guides
   items:
