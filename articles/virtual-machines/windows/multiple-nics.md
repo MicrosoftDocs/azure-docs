@@ -119,7 +119,7 @@ Now start to build your VM configuration. Each VM size has a limit for the total
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
 
-6. [Configure the operating system for multiple NICs](#configure-guest-os-for-multiple-nics).
+6. Add routes for secondary NICs to the OS by completing the steps in [Configure the operating system for multiple NICs](#configure-guest-os-for-multiple-nics).
 
 ## Add a NIC to an existing VM
 To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual NIC, then start the VM. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](resize-vm.md).
@@ -174,7 +174,8 @@ To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual N
     ```powershell
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
-5. [Configure the operating system for multiple NICs](#configure-guest-os-for-multiple-nics).
+
+5. Add routes for secondary NICs to the OS by completing the steps in [Configure the operating system for multiple NICs](#configure-guest-os-for-multiple-nics).
 
 ## Remove a NIC from an existing VM
 To remove a virtual NIC from an existing VM, you deallocate the VM, remove the virtual NIC, then start the VM.
