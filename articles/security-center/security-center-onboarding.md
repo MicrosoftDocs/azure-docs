@@ -97,9 +97,9 @@ We’ll walk through both methods:
 
    ![Add a new workspace][4]
 
-2. Under **Security and Audit**, select **OMS workspace** to create a new workspace.
-3. Under **OMS Workspace**, enter the information for your workspace.
-4. Under **OMS Workspace**, select **OK**.  After you select OK, you will get a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.
+2. Under **Security and Audit**, select **Log Analytics workspace** to create a new workspace.
+3. Under **Log Analytics Workspace**, enter the information for your workspace.
+4. Under **Log Analytics Workspace**, select **OK**.  After you select OK, you will get a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.
 5. Under **Security and Audit**, select **OK**.
 
 **Select an existing workspace and add computer**
