@@ -18,7 +18,7 @@ Occasionally, you may need to access an Azure Container Service (AKS) node for m
 
 ## Get AKS node address
 
-Get the IP address of the AKS cluster nodes using the `az vm list-ip-addresses` command. Replace the resource group name with the name of your AKS resource group.
+Get the IP address of an AKS cluster node using the `az vm list-ip-addresses` command. Replace the resource group name with the name of your AKS resource group.
 
 ```console
 $ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
@@ -44,7 +44,7 @@ Install an SSH client in the container.
 apt-get update && apt-get install openssh-client -y
 ```
 
-Open a second terminal and list the newly created pod.
+Open a second terminal and list all pods to get the newly created pod name.
 
 ```console
 $ kubectl get pods
@@ -59,13 +59,13 @@ Copy your SSH key to the pod, replace the pod name with the proper value.
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
 ```
 
-git
+Update the `id_rsa` file so that it is user read-only.
 
 ```console
 chmod 0600 id_rsa
 ```
 
-Now create an SSH connection to any AKS node. The default user name for an AKS cluster is `azureuser`. If this account was changed at cluster creation time, substitute the proper admin user name.
+Now create an SSH connection to the AKS node. The default user name for an AKS cluster is `azureuser`. If this account was changed at cluster creation time, substitute the proper admin user name.
 
 ```console
 $ ssh -i id_rsa azureuser@10.240.0.6
@@ -93,4 +93,4 @@ azureuser@aks-nodepool1-42032720-0:~$
 
 ## Remove SSH access
 
-When done, exit the SSH session and then the interactive container session. This action deletes the SSH pod from the AKS cluster.
+When done, exit the SSH session and then the interactive container session. This action deletes the pod used for SSH access from the AKS cluster.
