@@ -2813,7 +2813,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Developer Center</h3>
-                                                    <p>Get started connecting your devices</p>
+                                                    <p>` connecting your devices</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2850,7 +2850,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Center</h3>
+                                                    <h3>IoT Central</h3>
                                                     <p>Fully managed IoT SaaS solution</p>
                                                 </div>
                                             </div>
