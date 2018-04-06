@@ -68,7 +68,7 @@
     href: active-directory-b2c-reference-extensions-app.md
   - name: Custom policies
     href: active-directory-b2c-overview-custom.md
-- name: How-To guides
+- name: How-to guides
   items:
   - name: Create an Azure AD B2C Directory
     href: active-directory-b2c-get-started.md
