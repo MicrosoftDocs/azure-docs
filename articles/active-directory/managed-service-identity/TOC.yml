@@ -65,3 +65,21 @@
         href: tutorial-linux-vm-access-nonaad.md
     - name: FAQs and known issues
       href: known-issues.md
+    - name: Reference
+      items:
+      - name: CLI
+        href: /cli/azure/identity
+      - name: PowerShell
+        href: /powershell/module/azurerm.managedserviceidentity#managed_service_identity 
+      - name: .NET
+        href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
+      - name: Java
+        href: https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines
+      - name: Python
+        href: /python/api/azure.mgmt.msi
+      - name: Ruby
+        href: https://rubygems.org/gems/azure_mgmt_msi
+      - name: Node.js
+        href: /javascript/api/ms-rest-azure
+      - name: Go 
+        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi
