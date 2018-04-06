@@ -4,7 +4,7 @@ description: RESTful interface to get information about Windows VM's compute, ne
 services: virtual-machines-windows
 documentationcenter: ''
 author: harijayms
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -30,14 +30,14 @@ The endpoint is available at a well-known non-routable IP address (`169.254.169.
 > This service is  **generally available** in all Azure Regions.  It regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
 
 ## Service availability
-The service is available in all generally available all Azure regions. Not all API version may be available in all Azure Regions.
+The service is available in generally available Azure regions. Not all API version may be available in all Azure Regions.
 
 Regions                                        | Availability?                                 | Supported Versions
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02
-[Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02,2017-08-01
+[Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02,2017-08-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02,2017-08-01
 
 This table is updated when there are service updates and or new supported versions are available
 
@@ -46,7 +46,7 @@ To try out the Instance Metadata Service, create a VM from [Azure Resource Manag
 ## Usage
 
 ### Versioning
-The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2017-08-01`. Current supported versions are (2017-04-02, 2017-08-01)
+The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2017-12-01`. Current supported versions are (2017-04-02, 2017-08-01,2017-12-01)
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
@@ -62,7 +62,7 @@ Instance metadata is available for running VMs created/managed using [Azure Reso
 Access all data categories for a virtual machine instance using the following request:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 > [!NOTE] 
@@ -80,7 +80,7 @@ API | Default Data Format | Other Formats
 To access a non-default response format, specify the requested format as a querystring parameter in the request. For example:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 ### Security
@@ -148,7 +148,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 #### Retrieving public IP address
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### Retrieving all metadata for an instance
@@ -156,7 +156,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **Response**
@@ -181,7 +181,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -214,16 +216,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 **Request**
 
-Instance metadata can be retrieved in Windows via the PowerShell utility `curl`: 
+Instance metadata can be retrieved in Windows via the `curl` program: 
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
-Or through the `Invoke-RestMethod` cmdlet:
+Or through the `Invoke-RestMethod` PowerShell cmdlet:
     
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
 ```
 
 **Response**
@@ -295,13 +297,15 @@ subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
 resourceGroupName | [Resource group](../../azure-resource-manager/resource-group-overview.md) for your Virtual Machine | 2017-08-01
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
+vmScaleSetName | [Virtual Machine ScaleSet Name] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
+zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01 
 ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
 ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
 subnet/address | Subnet address of the VM | 2017-04-02 
 subnet/prefix | Subnet prefix, example 24 | 2017-04-02 
 ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02 
 macAddress | VM mac address | 2017-04-02 
-scheduledevents | Currently in Public Preview. See [Scheduled Events](scheduled-events.md) | 2017-03-01
+scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 
 ## Example scenarios for usage  
 
@@ -312,7 +316,7 @@ As a service provider, you may require to track the number of VMs running your s
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **Response**
@@ -325,12 +329,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 
 For certain scenarios, placement of different data replicas is of prime importance. For example, [HDFS replica placement](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)
 or container placement via an [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) may you require to know the `platformFaultDomain` and `platformUpdateDomain` the VM is running on.
+You can also leverage [Availability Zones](../../availability-zones/az-overview.md) for the instances to make these decisions.
 You can query this data directly via the Instance Metadata Service.
 
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" 
 ```
 
 **Response**
@@ -346,7 +351,7 @@ As a service provider, you may get a support call where you would like to know m
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
 ```
 
 **Response**
@@ -411,4 +416,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 ## Next steps
 
-- Learn more about the [Scheduled Events](scheduled-events.md) API **in public preview** provided by the Instance Metadata service.
+- Learn more about [Scheduled Events](scheduled-events.md)

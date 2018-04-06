@@ -1,7 +1,7 @@
 ---
 title: Overview of metrics in Microsoft Azure | Microsoft Docs
 description: Overview of metrics and their use in Microsoft Azure
-author: johnkemnetz
+author: anirudhcavale
 manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: johnkem
+ms.date: 03/19/2018
+ms.author: ancav
 ---
 
 # Overview of metrics in Microsoft Azure
@@ -35,9 +35,9 @@ Metrics are a valuable source of telemetry and enable you to do the following ta
 ## What are the characteristics of metrics?
 Metrics have the following characteristics:
 
-* All metrics have **one-minute frequency**. You receive a metric value every minute from your resource, giving you near real-time visibility into the state and health of your resource.
+* All metrics have **one-minute frequency** (unless specified otherwise in a metric's definition). You receive a metric value every minute from your resource, giving you near real-time visibility into the state and health of your resource.
 * Metrics are **available immediately**. You don't need to opt in or set up additional diagnostics.
-* You can access **30 days of history** for each metric. You can quickly look at the recent and monthly trends in the performance or health of your resource.
+* You can access **93 days of history** for each metric. You can quickly look at the recent and monthly trends in the performance or health of your resource.
 * Some metrics can have name-value pair attributes called **dimensions**. These enable you to further segment and explore a metric in a more meaningful way.
 
 You can also:
@@ -90,7 +90,7 @@ Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs tha
 * Use the [Azure Monitor Metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics) to segment, filter, and access the actual metrics data.
 
 > [!NOTE]
-> This article covers the metrics via the [new API for metrics](https://docs.microsoft.com/rest/api/monitor/) for Azure resources. The API version for the new metric definitions and metrics APIs is 2017-05-01-preview. The legacy metric definitions and metrics can be accessed with the API version 2014-04-01.
+> This article covers the metrics via the [new API for metrics](https://docs.microsoft.com/rest/api/monitor/) for Azure resources. The API version for the new metric definitions and metrics APIs is 2018-01-01. The legacy metric definitions and metrics can be accessed with the API version 2014-04-01.
 >
 >
 
@@ -103,6 +103,13 @@ You can go to the **Diagnostics settings** blade under the **Monitor** tab and v
 
 You can configure this via Resource Manager templates, [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md), or [REST APIs](https://msdn.microsoft.com/library/dn931943.aspx).
 
+> [!NOTE]
+> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+>
+> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+>
+>
+
 ## Take action on metrics
 To receive notifications or take automated actions on metric data, you can configure alert rules or Autoscale settings.
 
@@ -113,7 +120,7 @@ Metric alerts: They can then notify you via email or fire a webhook that can be 
 
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Near real time alerts (preview): These have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md). Leran more about [near real time metric alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
+Newer metric alerts have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md). Learn more about [newer alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### Autoscale your Azure resources

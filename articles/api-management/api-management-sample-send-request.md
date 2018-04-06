@@ -280,10 +280,3 @@ In the configuration of the placeholder operation, you can configure the dashboa
 ## Summary
 Azure API Management service provides flexible policies that can be selectively applied to HTTP traffic and enables composition of backend services. Whether you want to enhance your API gateway with alerting functions, verification, validation capabilities or create new composite resources based on multiple backend services, the `send-request` and related policies open a world of possibilities.
 
-## Watch a video overview of these policies
-For more information on the [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), and [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) policies covered in this article, watch the following video:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
-> 
-> 
-

@@ -60,7 +60,7 @@ Sign in to a VM and verify that you have connectivity across the site-to-site VP
 
 ## Reconfigure DNS server for the virtual network
 1. To get a list of virtual network names, in the [Azure portal](https://portal.azure.com), search for *Virtual networks*, then select **Virtual networks** to view the list. 
-2. Open the virtual network you want to manage, and then [reconfigure the DNS server IP addresses for your virtual network](../virtual-network/virtual-network-manage-network.md#dns-servers) to use the static IP addresses assigned to the replica DCs instead of the IP addresses for on-premises DNS servers.
+2. Open the virtual network you want to manage, and then [reconfigure the DNS server IP addresses for your virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers) to use the static IP addresses assigned to the replica DCs instead of the IP addresses for on-premises DNS servers.
 3. To ensure that all the replica DC VMs on the virtual network are configured with to use DNS servers on the virtual network:
   1. Select **Virtual Machines**.
   2. Select the VMs, and then Select **Restart**. 

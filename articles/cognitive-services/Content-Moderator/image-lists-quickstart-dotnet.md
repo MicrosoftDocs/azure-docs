@@ -25,6 +25,10 @@ the Content Moderator SDK for .NET to:
 - Delete all images from the list
 - Delete the custom list
 
+> [!NOTE]
+> There is a maximum limit of **5 image lists** with each list to **not exceed 10,000 images**.
+>
+
 The console application for this quickstart simulates some of the tasks you
 can perform with the image list API.
 

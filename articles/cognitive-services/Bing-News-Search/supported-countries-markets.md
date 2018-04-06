@@ -54,6 +54,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |Finland|Finnish|fi-FI|  
 |France|French|fr-BE|
 |Canada|French|fr-CA| 
+|Belgium|Dutch|nl-BE|
 |Switzerland|French|fr-CH|
 |France|French|fr-FR|  
 |Italy|Italian|it-IT| 
@@ -63,9 +64,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |Korea|Korean|ko-KR|  
 |Netherlands|Dutch|nl-NL|  
 |People's republic of China|Chinese|zh-CN|  
-|Poland|Polish|pl-PL|  
-||Portuguese|pl-PT|
-|Portuguese|Brazil|pt-BR|
+|Brazil|Portuguese|pt-BR|
 |Russia|Russian|ru-RU|  
 |Sweden|Swedish|sv-SE|  
 |Turkey|Turkish|tr-TR|  
@@ -90,7 +89,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |Canada|French|fr-CA|
 |France|French|fr-FR|  
 |Italy|Italian|it-IT| 
-|Portuguese|Brazil|pt-BR|
+|Brazil|Portuguese|pt-BR|
 |People's republic of China|Chinese|zh-CN|
 
 ## Supported markets for news trending endpoint
@@ -108,7 +107,7 @@ For a list of country codes that you may specify in the `cc` query parameter, se
 |India|English|en-IN|
 |France|French|fr-FR|
 |Canada|French|fr-CA|
-|Portuguese|Brazil|pt-BR|
+|Brazil|Portuguese|pt-BR|
 |People's republic of China|Chinese|zh-CN|
 
 

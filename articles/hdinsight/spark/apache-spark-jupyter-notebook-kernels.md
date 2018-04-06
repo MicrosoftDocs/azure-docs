@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
 
 ---
@@ -132,7 +132,11 @@ You can open the **00 - [READ ME FIRST] Spark Magic Kernel Features** notebook f
 
 ## Where are the notebooks stored?
 
-Jupyter notebooks are saved to the storage account associated with the cluster under the **/HdiNotebooks** folder.  Notebooks, text files, and folders that you create from within Jupyter are accessible from the storage account.  For example, if you use Jupyter to create a folder **myfolder** and a notebook **myfolder/mynotebook.ipynb**, you can access that notebook at `/HdiNotebooks/myfolder/mynotebook.ipynb` within the storage account.  The reverse is also true, that is, if you upload a notebook directly to your storage account at `/HdiNotebooks/mynotebook1.ipynb`, the notebook is visible from Jupyter as well.  Notebooks remain in the storage account even after the cluster is deleted.
+If your cluster uses Azure Storage as the default storage account, Jupyter notebooks are saved to storage account under the **/HdiNotebooks** folder.  Notebooks, text files, and folders that you create from within Jupyter are accessible from the storage account.  For example, if you use Jupyter to create a folder **myfolder** and a notebook **myfolder/mynotebook.ipynb**, you can access that notebook at `/HdiNotebooks/myfolder/mynotebook.ipynb` within the storage account.  The reverse is also true, that is, if you upload a notebook directly to your storage account at `/HdiNotebooks/mynotebook1.ipynb`, the notebook is visible from Jupyter as well.  Notebooks remain in the storage account even after the cluster is deleted.
+
+> [!NOTE]
+> HDInsight clusters with Azure Data Lake Store as the default storage do not store notebooks in associated storage.
+>
 
 The way notebooks are saved to the storage account is compatible with HDFS. So, if you SSH into the cluster you can use file management commands as shown in the following snippet:
 
@@ -140,8 +144,7 @@ The way notebooks are saved to the storage account is compatible with HDFS. So, 
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-In case there are issues accessing the storage account for the cluster, the notebooks are also saved on the headnode `/var/lib/jupyter`.
+Irrespective of whether the cluster uses Azure Storage or Azure Data Lake Store as the default storage account, the notebooks are also saved on the cluster headnode at `/var/lib/jupyter`.
 
 ## Supported browser
 

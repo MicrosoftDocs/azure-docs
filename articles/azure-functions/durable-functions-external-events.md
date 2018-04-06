@@ -124,7 +124,7 @@ Internally, `RaiseEventAsync` enqueues a message that gets picked up by the wait
 > [Learn how to set up eternal orchestrations](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Run a sample that waits for external events](durable-functions-counter.md)
+> [Run a sample that waits for external events](durable-functions-phone-verification.md)
 
 > [!div class="nextstepaction"]
 > [Run a sample that waits for human interaction](durable-functions-phone-verification.md)

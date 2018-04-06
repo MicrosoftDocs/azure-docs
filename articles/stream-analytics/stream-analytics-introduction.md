@@ -1,22 +1,14 @@
 ---
-title: Introduction to Stream Analytics | Microsoft Docs
+title: Overview of Azure Stream Analytics
 description: Learn about Stream Analytics, a managed service that helps you analyze streaming data from the Internet of Things (IoT) in real-time.
-keywords: analytics as a service, managed services, stream processing, streaming analytics, what is stream analytics
 services: stream-analytics
-documentationcenter: ''
-author: samacha
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 10/17/2017
-ms.author: samacha
-
 ---
 
 # What is Stream Analytics?
@@ -85,5 +77,5 @@ As a managed service, Stream Analytics helps prevent data loss and provides busi
 
 * Get started by [experimenting with inputs and queries from IoT devices](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
 * Build an [end-to-end Stream Analytics solution](stream-analytics-real-time-fraud-detection.md) that examines telephone metadata to look for fraudulent calls.
-* Find answers to your Stream Analytics questions in the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+* Find answers to your Stream Analytics questions in the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

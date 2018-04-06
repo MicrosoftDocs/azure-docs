@@ -47,9 +47,9 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
 - Data for each of HANA Large Instances system:
   - Desired hostname - ideally with fully qualified domain name.
   - Desired IP address for the HANA Large Instance unit out of the Server IP Pool address range - Keep in mind that the first 30 IP addresses in the Server IP Pool address range are reserved for internal usage within HANA Large Instances
-  - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes). The HANA SID is required for creating the permissions for <sidadm> on the NFS volumes, which are getting attached to the HANA Large Instance unit. It also is used as one of the name components of the disk volumes that get mounted. If you want to run more than one HANA instance on the unit, you need to list multiple HANA SIDs. Each one gets a separate set of volumes assigned.
-  - The groupid the hana-sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. The SAP HANA installation usually creates the sapsys group with a group id of 1001. The hana-sidadm user is part of that group
-  - The userid the hana-sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. If you are running multiple HANA instances on the unit, you need to list all the <sid>adm users 
+  - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes). The HANA SID is required for creating the permissions for sidadm on the NFS volumes, which are getting attached to the HANA Large Instance unit. It also is used as one of the name components of the disk volumes that get mounted. If you want to run more than one HANA instance on the unit, you need to list multiple HANA SIDs. Each one gets a separate set of volumes assigned.
+  - The groupid the sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. The SAP HANA installation usually creates the sapsys group with a group id of 1001. The sidadm user is part of that group
+  - The userid the sidadm user has in the Linux OS is required to create the necessary SAP HANA-related disk volumes. If you are running multiple HANA instances on the unit, you need to list all the <sid>adm users 
 - Azure subscription ID for the Azure subscription to which SAP HANA on Azure HANA Large Instances are going to be directly connected. This subscription ID references the Azure subscription, which is going to be charged with the HANA Large Instance unit(s).
 
 After you provide the information, Microsoft provisions SAP HANA on Azure (Large Instances) and will return the information necessary to link your Azure VNets to HANA Large Instances and to access the HANA Large Instance units.
@@ -73,7 +73,7 @@ So, let's look a bit closer into the Azure VNet creation for HANA Large Instance
 >[!Note]
 >The Azure VNet for HANA Large Instance must be created using the Azure Resource Manager deployment model. The older Azure deployment model, commonly known as classic deployment model, is not supported with the HANA Large Instance solution.
 
-The VNet can be created using the Azure portal, PowerShell, Azure template, or Azure CLI (see [Create a virtual network using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). In the following example, we look into a VNet created through the Azure portal.
+The VNet can be created using the Azure portal, PowerShell, Azure template, or Azure CLI (see [Create a virtual network using the Azure portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). In the following example, we look into a VNet created through the Azure portal.
 
 If we look into the definitions of an Azure VNet through the Azure portal, let's look into some of the definitions and how those relate to what we list of different IP address ranges. As we are talking about the **Address Space**, we mean the address space that the Azure VNet is allowed to use. This address space is also the address range that the VNet uses for BGP route propagation. This **Address Space** can be seen here:
 
@@ -124,7 +124,7 @@ We already introduced some of the IP address ranges necessary to deploy HANA Lar
 - **VNet Gateway Subnet IP address range:** Depending on the features you plan to use, the recommended size would be:
    - Ultra-performance ExpressRoute gateway: /26 address block - required for Type II class of SKUs
    - Co-existence with VPN and ExpressRoute using a High-performance ExpressRoute Gateway (or smaller): /27 address block
-   - All other situations: /28 address block. This address range must be a part of the values used in the “VNet Address Space” values. This address range must be a part of the values used in the Azure VNet Address Space values that you need to submit to Microsoft. How to get this IP address range? Your corporate network team or service provider should provide an IP Address Range, which is not currently used inside your network. 
+   - All other situations: /28 address block. This address range must be a part of the values used in the "VNet Address Space" values. This address range must be a part of the values used in the Azure VNet Address Space values that you need to submit to Microsoft. How to get this IP address range? Your corporate network team or service provider should provide an IP Address Range, which is not currently used inside your network. 
 
 - **Address range for ER-P2P connectivity:** This range is the IP range for your SAP HANA Large Instance ExpressRoute (ER) P2P connection. This range of IP addresses must be a /29 CIDR IP address range. This range must NOT overlap with your on-premise or other Azure IP address ranges. This IP address range is used to set up the ER connectivity from your Azure VNet ExpressRoute Gateway to the SAP HANA Large Instance servers. How to get this IP address range? Your corporate network team or service provider should provide an IP Address Range, which is not currently used inside your network. **This range is an IP address range, which needs to be submitted to Microsoft when asking for an initial deployment**
   
@@ -248,7 +248,7 @@ Use either the Azure portal, PowerShell, or CLI when adding more IP addresses or
 
 In this case, the recommendation is to add the new IP address range as new range to the VNet Address Space instead of generating a new aggregated range. In either case, you need to submit this change to Microsoft to allow connectivity out of that new IP address range to the HANA Large Instance units in your client. You can open an Azure support request to get the new VNet Address space added. After you receive confirmation, perform the next steps.
 
-To create an additional subnet from the Azure portal, see the article [Create a virtual network using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), and to create from PowerShell, see [Create a virtual network using PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+To create an additional subnet from the Azure portal, see the article [Create a virtual network using the Azure portal](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network), and to create from PowerShell, see [Create a virtual network using PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## Adding VNets
 
@@ -275,15 +275,13 @@ Once the new circuit is created and the SAP HANA on Azure Service Management con
 
 To remove a VNet subnet, either the Azure portal, PowerShell, or CLI can be used. In case your Azure VNet IP address range/Azure VNet Address Space was an aggregated range, there is no follow up for you with Microsoft. Except that the VNet is still propagating BGP route address space that includes the deleted subnet. If you defined the Azure VNet IP address range/Azure VNet Address Space as multiple IP address ranges of which one was assigned to your deleted subnet, you should delete that out of your VNet Address Space and subsequently inform  SAP HANA on Azure Service Management to remove it from the ranges that SAP HANA on Azure (Large Instances) is allowed to communicate with.
 
-While there isn't yet specific, dedicated Azure.com guidance on removing subnets, the process for removing subnets is the reverse of the process for adding them. See the article [Create a virtual network using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information on creating subnets.
+To delete a subnet, see [Delete a subnet](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) for more information on creating subnets.
 
 ## Deleting a VNet
 
-Use either the Azure portal, PowerShell, or CLI when deleting a VNet. SAP HANA on Azure Service Management removes the existing authorizations on the SAP HANA on Azure (Large Instances) ExpressRoute circuit and remove the Azure VNet IP address range/Azure VNet Address Space for the communication with HANA Large Instances.
+To delete a virtual network, see [Delete a virtual network](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). SAP HANA on Azure Service Management removes the existing authorizations on the SAP HANA on Azure (Large Instances) ExpressRoute circuit and remove the Azure VNet IP address range/Azure VNet Address Space for the communication with HANA Large Instances.
 
 Once the VNet has been removed, open an Azure support request to provide the IP address space range(s) to be removed.
-
-While there isn't yet specific, dedicated Azure.com guidance on removing VNets, the process for removing VNets is the reverse of the process for adding them, which is described above. See the articles [Create a virtual network using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual network using PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information on creating VNets.
 
 To ensure everything is removed, delete the following items:
 

@@ -3,8 +3,8 @@ title: Azure Data Factory - JSON Scripting Reference | Microsoft Docs
 description: Provides JSON schemas for Data Factory entities. 
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
+author: sharonlo101
+manager: craigg
 editor: 
 
 ms.service: data-factory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 
 robots: noindex
 ---
@@ -490,13 +490,13 @@ To define an Azure Blob dataset, set the **type** of the dataset to **AzureBlob*
 For more information, see [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties) article.
 
 ### BlobSource in Copy Activity
-If you are copying data from an Azure Blob Storage, set the **source type** of the copy activity to **BlobSource**, and specify following properties in the **source **section:
+If you are copying data from an Azure Blob Storage, set the **source type** of the copy activity to **BlobSource**, and specify following properties in the **source** section:
 
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True (default value), False |No |
 
-#### Example: BlobSource**
+#### Example: **BlobSource**
 ```json
 {
     "name": "SamplePipeline",
@@ -3895,7 +3895,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
 }
 ```
 
-#### Example: Basic authentication with encrypted credential**
+#### Example: **Basic authentication with encrypted credential**
 
 ```json
 {
@@ -3916,7 +3916,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
 }
 ```
 
-#### Using SSH public key authentication:**
+#### **Using SSH public key authentication:**
 
 To use basic authentication, set `authenticationType` as `SshPublicKey`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
@@ -3946,7 +3946,7 @@ To use basic authentication, set `authenticationType` as `SshPublicKey`, and spe
 }
 ```
 
-#### Example: SshPublicKey authentication using private key content**
+#### Example: **SshPublicKey authentication using private key content**
 
 ```json
 {

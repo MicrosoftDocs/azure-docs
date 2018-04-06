@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: juliako;mingfeiy
+ms.date: 03/05/2018
+ms.author: juliako
 
 ---
 # Configure asset delivery policies with .NET SDK
@@ -23,19 +23,18 @@ ms.author: juliako;mingfeiy
 ## Overview
 If you plan to delivery encrypted assets, one of the steps in the Media Services content delivery workflow is configuring delivery policies for assets. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).
 
-This topic discusses why and how to create and configure asset delivery policies.
+This article discusses why and how to create and configure asset delivery policies.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created, a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 >
 >Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
 
-
-You could apply different policies to the same asset. For example, you could apply PlayReady encryption to Smooth Streaming and AES Envelope encryption to MPEG DASH and HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
+You could apply different policies to the same asset. For example, you could apply PlayReady encryption to Smooth Streaming and AES Envelope encryption to MPEG DASH and HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
 
 If you want to deliver a storage encrypted asset, you must configure the asset’s delivery policy. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy. For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) envelope encryption key, set the policy type to **DynamicEnvelopeEncryption**. To remove storage encryption and stream the asset in the clear, set the policy type to **NoDynamicEncryption**. Examples that show how to configure these policy types follow.
 
-Depending on how you configure the asset delivery policy you would be able to dynamically package, dynamically encrypt, and stream the following streaming protocols: Smooth Streaming, HLS, and MPEG DASH streams.
+Depending on how you configure the asset delivery policy, you can dynamically package, encrypt, and stream the following streaming protocols: Smooth Streaming, HLS, and MPEG DASH.
 
 The following list shows the formats that you use to stream Smooth, HLS, and DASH.
 
@@ -51,9 +50,8 @@ MPEG DASH
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-
 ## Considerations
-* You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset. The recommendation is to remove the policy from the asset before deleting the policy.
+* Before deleting the AssetDeliveryPolicy, you should delete all of the streaming locators associated with the asset. You can later create new streaming locators, if desired, with a new AssetDeliveryPolicy.
 * A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.  If the Asset isn’t storage encrypted, the system will let you create a locator and stream the asset in the clear without an asset delivery policy.
 * You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.  Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.
 * If you have an asset with an existing streaming locator, you cannot link a new policy to the asset (you can either unlink an existing policy from the asset, or update a delivery policy associated with the asset).  You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.  You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.
@@ -64,6 +62,7 @@ The following **ConfigureClearAssetDeliveryPolicy** method specifies to not appl
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.
 
+```csharp
 	static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
 	{
 		IAssetDeliveryPolicy policy =
@@ -73,13 +72,14 @@ For information on what values you can specify when creating an AssetDeliveryPol
 		
 		asset.DeliveryPolicies.Add(policy);
 	}
-
+```
 ## DynamicCommonEncryption asset delivery policy
 
-The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to a smooth streaming protocol (other protocols will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **CommonEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#common_contentkey)).
+The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to a smooth streaming protocol (other protocols will be blocked from streaming). The method takes two parameters: **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **CommonEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.
 
+```csharp
 	static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 	{
 		Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
@@ -103,9 +103,11 @@ For information on what values you can specify when creating an AssetDeliveryPol
 	        Console.WriteLine("Adding Asset Delivery Policy: " +
 	            assetDeliveryPolicy.AssetDeliveryPolicyType);
 	 }
+```
 
 Azure Media Services also enables you to add Widevine encryption. The following example demonstrates both PlayReady and Widevine being added to the asset delivery policy.
 
+```csharp
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
         // Get the PlayReady license service URL.
@@ -143,17 +145,18 @@ Azure Media Services also enables you to add Widevine encryption. The following 
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
     }
-
+```
 > [!NOTE]
 > When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH in the asset delivery protocol.
 > 
 > 
 
 ## DynamicEnvelopeEncryption asset delivery policy
-The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to Smooth Streaming, HLS, and DASH protocols (if you decide to not specify some protocols, they will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **EnvelopeEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to Smooth Streaming, HLS, and DASH protocols (if you decide to not specify some protocols, they will be blocked from streaming). The method takes two parameters: **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **EnvelopeEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
+```csharp
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
 
@@ -190,7 +193,7 @@ For information on what values you can specify when creating an AssetDeliveryPol
         Console.WriteLine();
         Console.WriteLine("Adding Asset Delivery Policy: " + assetDeliveryPolicy.AssetDeliveryPolicyType);
     }
-
+```
 
 ## <a id="types"></a>Types used when defining AssetDeliveryPolicy
 
@@ -198,6 +201,7 @@ For information on what values you can specify when creating an AssetDeliveryPol
 
 The following enum describes values you can set for the asset delivery protocol.
 
+```csharp
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -228,11 +232,11 @@ The following enum describes values you can set for the asset delivery protocol.
         /// </summary>
         All = 0xFFFF
     }
-
+```
 ### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
 The following enum describes values you can set for the asset delivery policy type.  
-
+```csharp
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -261,11 +265,11 @@ The following enum describes values you can set for the asset delivery policy ty
         /// </summary>
         DynamicCommonEncryption
         }
-
+```
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
 The following enum describes values you can use to configure the delivery method of the content key to the client.
-    
+  ```csharp  
     public enum ContentKeyDeliveryType
     {
         /// <summary>
@@ -293,11 +297,11 @@ The following enum describes values you can use to configure the delivery method
         Widevine = 3
 
     }
-
+```
 ### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
 The following enum describes values you can set to configure keys used to get specific configuration for an asset delivery policy.
-
+```csharp
     public enum AssetDeliveryPolicyConfigurationKey
     {
         /// <summary>
@@ -340,7 +344,7 @@ The following enum describes values you can set to configure keys used to get sp
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
-
+```
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

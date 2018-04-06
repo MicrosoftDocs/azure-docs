@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/5/2018
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -25,13 +25,25 @@ ms.author: subramar
 >
 >  
 
-To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development.
+To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development. 
+
+The steps in this article assume that you are installing natively on Linux or are using the Service Fabric OneBox container image, `microsoft/service-fabric-onebox`. 
+
+Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is not supported. However, the Azure Service Fabric command-line interface (CLI), which enables you to manage Service Fabric entities hosted elsewhere in the cloud or on-premises, is supported. For information about how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
+
 
 ## Prerequisites
 
-The following operating system versions are supported for development:
+* The following operating system versions are supported for development:
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+    * Ubuntu 16.04 (`Xenial Xerus`)
+
+* Ensure that the `apt-transport-https` package is installed:
+
+      ```bash
+      sudo apt-get install apt-transport-https
+      ```
+
 
 ## Installation Methods
 
@@ -105,6 +117,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+The Service Fabric runtime which comes with the above installation includes the packages in the table below. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | latest |
+
 ## Set up a local cluster
   Once the installation completes, you should be able to start a local cluster.
 
@@ -174,11 +192,16 @@ To build Service Fabric services using Java, install JDK 1.8 and Gradle to run b
   sudo apt-get install gradle
   ```
 
-## Install the Eclipse Neon plug-in (optional)
+## Install the Eclipse plug-in (optional)
 
 You can install the Eclipse plug-in for Service Fabric from within the Eclipse IDE for Java Developers. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
 
-1. In Eclipse, ensure that you have latest Eclipse Neon and the latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by selecting **Help** > **Installation Details**. You can update Buildship by using the instructions at [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
+> [!IMPORTANT]
+> The  Service Fabric plug-in requires Eclipse Neon or a later version. See the instructions that follow this note for how to check your version of Eclipse. If you have an earlier version of Eclipse installed, you can download more recent versions from the [Eclipse site](https://www.eclipse.org). It is not recommended that you install on top of (overwrite) an existing installation of Eclipse. You can either remove it before running the installer or install the newer version in a different directory. 
+> 
+> On Ubuntu, we recommend installing directly from the Eclipse site rather than using a package installer (`apt` or `apt-get`). Doing so ensures that you get the most current version of Eclipse. 
+
+1. In Eclipse, make sure that you have Eclipse Neon or later and that the latest Buildship version (1.0.17 or later) is installed. You can check the versions of installed components by selecting **Help** > **Installation Details**. You can update Buildship by using the instructions at [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
 
 2. To install the Service Fabric plug-in, select **Help** > **Install New Software**.
 

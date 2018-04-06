@@ -4,8 +4,8 @@ description: Learn about how to move data from MongoDB database using Azure Data
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 10ca7d9a-7715-4446-bf59-2d2876584550
 ms.service: data-factory

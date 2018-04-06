@@ -3,7 +3,7 @@ title: PHP Quickstart for Azure Cognitive Services, Bing News Search API | Micro
 description: Get information and code samples to help you quickly get started using the Bing News Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: jerrykindall
+author: v-jerkin
 
 ms.service: cognitive-services
 ms.technology: bing-search

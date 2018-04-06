@@ -21,7 +21,7 @@ ms.author: bradsev
 
 # Biomedical entity recognition using Team Data Science Process (TDSP) Template
 
-Entity extraction is a subtask of information extraction (also known as [Named-entity recognition (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), entity chunking and entity identification). The aim of this real-world scenario is to highlight how to use Azure Machine Learning Workbench to solve a complicated Natural Language Processing (NLP) task such as entity extraction from unstructured text:
+Entity extraction is a subtask of information extraction (also known as [Named-entity recognition (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), entity chunking, and entity identification). The aim of this real-world scenario is to highlight how to use Azure Machine Learning Workbench to solve a complicated Natural Language Processing (NLP) task such as entity extraction from unstructured text:
 
 1. How to train a neural word embeddings model on a text corpus of about 18 million PubMed abstracts using [Spark Word2Vec implementation](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#word2vec).
 2. How to build a deep Long Short-Term Memory (LSTM) recurrent neural network model for entity extraction on a GPU-enabled Azure Data Science Virtual Machine (GPU DS VM) on Azure.
@@ -30,19 +30,19 @@ Entity extraction is a subtask of information extraction (also known as [Named-e
 
 4. Demonstrate the following capabilities within Azure Machine Learning Workbench:
 
-    * Instantiation of [Team Data Science Process (TDSP) structure and templates](how-to-use-tdsp-in-azure-ml.md).
+    * Instantiation of [Team Data Science Process (TDSP) structure and templates](how-to-use-tdsp-in-azure-ml.md)
     * Automated management of your project dependencies including the download and the installation
-    * Execution of Python scripts on differetn compute environments.
-    * Run history tracking for Python scripts.
-    * Execution of jobs on remote Spark compute context using HDInsight Spark 2.1 clusters.
-    * Execution of jobs in remote GPU VMs on Azure.
-    * Easy operationalization of deep learning models as web services on Azure Container Services (ACS).
+    * Execution of Python scripts on different compute environments
+    * Run history tracking for Python scripts
+    * Execution of jobs on remote Spark compute contexts using HDInsight Spark 2.1 clusters
+    * Execution of jobs in remote GPU VMs on Azure
+    * Easy operationalization of deep learning models as web services on Azure Container Services (ACS)
 
 ## Use case overview
 Biomedical named entity recognition is a critical step for complex biomedical NLP tasks such as: 
-* Extracting the mentions of named entities such diseases, drugs, chemicals and symptoms from electronic medical or health records.
+* Extracting the mentions of named entities such diseases, drugs, chemicals, and symptoms from electronic medical or health records.
 * Drug discovery
-* Understanding the interactions between different entity types such as drug-drug interaction, drug-disease relationship and gene-protein relationship.
+* Understanding the interactions between different entity types such as drug-drug interaction, drug-disease relationship, and gene-protein relationship.
 
 Our use case scenario focuses on how a large amount of unstructured data corpus such as Medline PubMed abstracts can be analyzed to train a word embedding model. Then the output embeddings are considered as automatically generated features to train a neural entity extractor.
 
@@ -77,7 +77,7 @@ We first downloaded the raw MEDLINE abstract data from [MEDLINE](https://www.nlm
 
 ### 2. LSTM model training data
 
-The neural entity extraction model has been trained and evaluated on publiclly available datasets. To obtain a detailed description about these datasets, you could refer to the following sources:
+The neural entity extraction model has been trained and evaluated on publicly available datasets. To obtain a detailed description about these datasets, you could refer to the following sources:
  * [Bio-Entity Recognition Task at BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR task corpus](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - Task 9.1 (Drug Recognition)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -104,8 +104,7 @@ Following is the link to the public GitHub repository of the real-world scenario
 
 ### Python packages
 
-All the required dependencies are defined in the aml_config/conda_dependencies.yml file under the scenario project folder. The dependencies defined in this file will be
-automatically provisioned for runs against docker, VM, and HDI cluster targets. For details about the Conda environment file format, refer to [here](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
+All the required dependencies are defined in the aml_config/conda_dependencies.yml file under the scenario project folder. The dependencies defined in this file are automatically provisioned for runs against docker, VM, and HDI cluster targets. For details about the Conda environment file format, refer to [here](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
 * [TensorFlow](https://www.tensorflow.org/install/)
 * [CNTK 2.0](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras)
@@ -135,17 +134,17 @@ See [Data Acquisition and Understanding](https://github.com/Azure/MachineLearnin
 
 The raw MEDLINE corpus has a total of 27 million abstracts where about 10 million articles have an empty abstract field. Azure HDInsight Spark is used to process big data that cannot be loaded into the memory of a single machine as a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). First, the data is downloaded into the Spark cluster. Then the following steps are executed on the [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html): 
 * parse the XML files using Medline XML Parser
-* preprocess the abstract text including sentence splitting, tokenization and case normalization.
+* preprocess the abstract text including sentence splitting, tokenization, and case normalization.
 * exclude articles where abstract field is empty or has short text 
 * create the word vocabulary from the training abstracts
-* train the word embedding neural model. For more details, refer to [GitHub code link](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) to get started.
+* train the word embedding neural model. For more information, see [GitHub code link](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) to get started.
 
 
 After parsing XML files, data has the following format: 
 
 ![Data Sample](./media/scenario-tdsp-biomedical-recognition/datasample.png)
 
-The neural entity extraction model has been trained and evaluated on publiclly available datasets. To obtain a detailed description about these datasets, you could refer to the following sources:
+The neural entity extraction model has been trained and evaluated on publicly available datasets. To obtain a detailed description about these datasets, you could refer to the following sources:
  * [Bio-Entity Recognition Task at BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR task corpus](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - Task 9.1 (Drug Recognition)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -155,7 +154,7 @@ The neural entity extraction model has been trained and evaluated on publiclly a
 See [Modeling](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling).
 
 Modeling is the stage where we show how you can use the data downloaded in the previous section for training your own word embedding model and use it for other downstream tasks. Although we are using the PubMed data, the pipeline to generate the embeddings is generic and can be reused to train word embeddings for any other domain. For embeddings to be an accurate representation of the data, it is essential that the word2vec is trained on a large amount of data.
-Once we have the word embeddings ready, we can train a deep neural network model that uses the learned embeddings to initialize the Embedding layer. We mark the embedding layer as non-trainable but that is not mandatory. The training of the word embedding model is unsupervised and hence we are able to take advantage of unlabeled texts. However, the training of the entity recognition model is a supervised learnign task and its accuracy depends on the amount and teh quality of a manually-annotated data. 
+Once we have the word embeddings ready, we can train a deep neural network model that uses the learned embeddings to initialize the Embedding layer. We mark the embedding layer as non-trainable but that is not mandatory. The training of the word embedding model is unsupervised and hence we are able to take advantage of unlabeled texts. However, the training of the entity recognition model is a supervised learning task and its accuracy depends on the amount and the quality of a manually-annotated data. 
 
 
 #### 2.1. Feature generation
@@ -166,7 +165,7 @@ Word2Vec is the word embedding unsupervised learning algorithm that trains a neu
 
 ![Skip Gram Model](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-The model uses Hierarchical Softmax and Negative sampling to optimize the performance. Hierarchical SoftMax (H-SoftMax) is an approximation inspired by binary trees. H-SoftMax essentially replaces the flat SoftMax layer with a hierarchical layer that has the words as leaves. This allows us to decompose calculating the probability of one word into a sequence of probability calculations, which saves us from having to calculate the expensive normalization over all words. Since a balanced binary tree has a depth of log2(|V|) (V is the Vocabulary), we only need to evaluate at most log2(|V|) nodes to obtain the final probability of a word. The probability of a word w given its context c is then simply the product of the probabilities of taking right and left turns respectively that lead to its leaf node. We can build a Huffman Tree based on the frequency of the words in the dataset to ensure that more frequent words get shorter representations. For more information, refer to [this link](http://sebastianruder.com/word-embeddings-softmax/).
+The model uses Hierarchical Softmax and Negative sampling to optimize the performance. Hierarchical SoftMax (H-SoftMax) is an approximation inspired by binary trees. H-SoftMax essentially replaces the flat SoftMax layer with a hierarchical layer that has the words as leaves. This allows us to decompose calculating the probability of one word into a sequence of probability calculations, which saves us from having to calculate the expensive normalization over all words. Since a balanced binary tree has a depth of log2(|V|) (V is the Vocabulary), we only need to evaluate at most log2(|V|) nodes to obtain the final probability of a word. The probability of a word w given its context c is then simply the product of the probabilities of taking right and left turns respectively that lead to its leaf node. We can build a Huffman Tree based on the frequency of the words in the dataset to ensure that more frequent words get shorter representations. For more information, see [this link](http://sebastianruder.com/word-embeddings-softmax/).
 Image taken from [here](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### Visualization
@@ -197,7 +196,7 @@ As shown in the following figure, the t-SNE visualization provides more separati
 
 See [Train the neural entity extractor](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation/ReadMe.md).
 
-The feed-forward neural network architecture suffer from a problem that they treat each input and output as independent of the other inputs and outputs. This architecture can't model sequence-to-sequence labeling tasks such as machine translation and entity extraction. Recurrent neural network models overcome this problem as they can pass information computed until now to the next node. This property is called having memory in the network since it is able to use the previously computed information as shown in the following figure:
+The feed-forward neural network architecture suffers from a problem that they treat each input and output as independent of the other inputs and outputs. This architecture can't model sequence-to-sequence labeling tasks such as machine translation and entity extraction. Recurrent neural network models overcome this problem as they can pass information computed until now to the next node. This property is called having memory in the network since it is able to use the previously computed information as shown in the following figure:
 
 ![RNN](./media/scenario-tdsp-biomedical-recognition/rnn-expanded.png)
 
@@ -226,7 +225,7 @@ The following is a comparison between the accuracy of two feature types: (1) wor
 
 We perform the evaluation of the word embeddings on other datasets in the similar fashion and see that in-domain model is always better.
 
-* Task #2: Proteins, Cell Line, Cell Type, DNA and RNA Detection
+* Task #2: Proteins, Cell Line, Cell Type, DNA, and RNA Detection
 
 ![Model Comparison 2](./media/scenario-tdsp-biomedical-recognition/mc2.png)
 
@@ -243,7 +242,7 @@ We perform the evaluation of the word embeddings on other datasets in the simila
 ![Model Comparison 5](./media/scenario-tdsp-biomedical-recognition/mc5.png)
 
 #### TensorFlow versus CNTK
-All the reported model are trained using Keras with TensorFlow as backend. Keras with CNTK backend does not support "reverse" at the time this work was done. Therefore, for the sake of comparison, we have trained a unidirectional LSTM model with the CNTK backend and compared it to a unidirectional LSTM model with TensorFlow backend. Install CNTK 2.0 for Keras from [here](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
+All the reported models are trained using Keras with TensorFlow as backend. Keras with CNTK backend does not support "reverse" at the time this work was done. Therefore, for the sake of comparison, we have trained a unidirectional LSTM model with the CNTK backend and compared it to a unidirectional LSTM model with TensorFlow backend. Install CNTK 2.0 for Keras from [here](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
 
 ![Model Comparison 6](./media/scenario-tdsp-biomedical-recognition/mc6.png)
 
@@ -265,7 +264,7 @@ We went over the details of how you could train a word embedding model using Wor
 
 * Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013a. Efficient estimation of word representations in vector space. In Proceedings of ICLR.
 * Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. 2013b. Distributed representations of words and phrases and their compositionality. In Proceedings of NIPS, pages 3111–3119.
-* Billy Chiu, Gamal Crichton, Anna Korhonen and Sampo Pyysalo. 2016. [How to Train Good Word Embeddings for Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), In Proceedings of the 15th Workshop on Biomedical Natural Language Processing, pages 166–174.
+* Billy Chiu, Gamal Crichton, Anna Korhonen, and Sampo Pyysalo. 2016. [How to Train Good Word Embeddings for Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), In Proceedings of the fifteenth Workshop on Biomedical Natural Language Processing, pages 166–174.
 * [Vector Representations of Words](https://www.tensorflow.org/tutorials/word2vec)
 * [Recurrent Neural Networks](https://www.tensorflow.org/tutorials/recurrent)
 * [Problems encountered with Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)

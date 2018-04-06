@@ -8,7 +8,7 @@ documentationcenter: monitoring-and-diagnostics
 
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ---
@@ -29,22 +29,22 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
-2. Search for and select **Logic App**. Create a new resource group named **myResourceGroup** Use the default location. Click the **Create** button.
+2. Search for and select **Logic App**. Click the **Create** button.
 
-3. Enter the logic app information and check the **Pin to Dashboard** option. When complete, click **Create**.
+3. Enter the name myLogicApp and the Resource Group myResourceGroup. Use your subscription.  Use the default location. Check the **Pin to Dashboard** option.  When complete, click **Create**. 
 
-    ![Enter basic information about your logic app in the portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Enter basic information about your logic app in the portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. The logic app should be pinned to your dashboard. Navigate to the logic app by clicking on it.
 
 5. In the Logic App panel, select the **Logic App Designer**
 
-     ![Created a recurrence trigger in the logic app designer in the portal panel](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Created a recurrence trigger in the logic app designer in the portal panel](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. Set up you values as seen in the following diagram.
 
-    ![Configure the logic app trigger in the portal panel](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configure the logic app trigger in the portal panel](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. In the designer, select the **Recurrence** trigger.
 
@@ -58,6 +58,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 12. Click **Save**.
 
+13. It may take up to 5 minutes for the logic app run actions to occur.  
+
 ## View metrics for your logic app
 
 1. Click the **Monitor** option in the left-hand navigation pane.
@@ -68,9 +70,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 4. Modify the **Time range** of the chart to display data for the past hour.
 
-5. You should now see a chart plotting the total number of runs your logic app has started over the past hour.
+5. You should now see a chart plotting the total number of runs your logic app has started over the past hour. If you do not see any, make sure you have waited at least 5 minutes from the step above. Then refresh your browser. 
 
-    ![Plot a metric chart for the logic app resource](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Plot a metric chart for the logic app resource](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## Create a metric alert for your logic app
 
@@ -82,7 +84,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 4. Finally, under **Additional administrator email(s)** enter your email address. This alert ensures that you receive an email in the event your logic app has more than 10 failed runs within a period of 5 minutes.
 
-    ![Configure the logic app alert in the portal panel](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![Configure the logic app alert in the portal panel](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## Receive metric alert notifications for your logic app
 1. Within a few moments, you should receive an email from 'Microsoft Azure Alerts' to inform you the alert has been 'activated'.

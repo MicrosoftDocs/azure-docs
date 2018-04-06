@@ -2,19 +2,12 @@
 title: Azure SQL Database single database | Microsoft Docs
 description: Manage the service tier, performance level, and amount of storagea for a single Azure SQL database.
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 02/12/2018
+ms.date: 04/04/2018
 ms.author: carlrab
 
 ---
@@ -37,7 +30,7 @@ Click **Overview** to monitor and/or cancel an ongoing operation.
 ![Cancel operation](./media/sql-database-single-database-resources/cancel-operation.png)
 
 > [!IMPORTANT]
-> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
+> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
 >
 
 ## Manage single database resources using PowerShell

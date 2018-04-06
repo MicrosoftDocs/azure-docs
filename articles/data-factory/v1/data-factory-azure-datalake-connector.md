@@ -4,8 +4,8 @@ description: Learn how to copy data to and from Data Lake Store by using Azure D
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 25b1ff3c-b2fd-48e5-b759-bb2112122e30
 ms.service: data-factory

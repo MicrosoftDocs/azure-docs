@@ -1,21 +1,13 @@
 ---
-title: Runbook and module galleries for Azure Automation | Microsoft Docs
+title: Runbook and module galleries for Azure Automation
 description: Runbooks and modules from Microsoft and the community are available for you to install and use in your Azure Automation environment.  This article describes how you can access these resources and to contribute your runbooks to the gallery.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: tysonn
-
-ms.assetid: d3fee7b4-630a-4c10-8425-9bf51d7c9e58
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte;bwren
-
+manager: carmonm
 ---
 # Runbook and module galleries for Azure Automation
 Rather than creating your own runbooks and modules in Azure Automation, you can access a variety of scenarios that have already been built by Microsoft and the community.  You can either use these scenarios without modification or you can use them as a starting point and edit them for your specific requirements.

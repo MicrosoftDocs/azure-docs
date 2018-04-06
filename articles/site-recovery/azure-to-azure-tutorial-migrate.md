@@ -5,8 +5,9 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 03/24/2018
 ms.author: raynew
+ms.custom: MVC
 ---
 
 # Migrate Azure VMs to another region
@@ -30,7 +31,15 @@ This tutorial presumes you already have an Azure subscription. If you don't, cre
 
 ## Prerequisites
 
-To complete this tutorial, you need Azure VMs in an Azure region from which you want to migrate. In addition, there are a number of settings you should verify before you start.
+- Make sure you have Azure VMs in the Azure region from which you want to migrate.
+- Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
+- Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
+
+
+
+## Before you start
+
+Before you set up replication, complete these steps.
 
 
 ### Verify target resources
@@ -111,9 +120,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 
     ![enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > Currently, replication of Azure VMs with managed disks is not supported. 
+ 
 
 ## Run a failover
 
@@ -121,7 +128,8 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 2. In **Failover**, select **Latest**. The encryption key setting isn't relevant for this scenario.
 3. Select **Shut down machine before beginning failover**. Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 4. Check that the Azure VM appears in Azure as expected.
-5. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, and stops replication for the VM.
+5. In **Replicated items**, right-click the VM > **Commit**. This finishes the migration process,
+6. After the commit finishes, click **Disable Replication**.  This stops replication for the VM.
 
 
 

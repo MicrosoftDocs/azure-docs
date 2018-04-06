@@ -3,9 +3,9 @@ title: Create an Azure data factory using Resource Manager template | Microsoft 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: craigg
+editor: 
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: douglasl
 
 ---
 # Tutorial: Create an Azure data factory using Azure Resource Manager template
@@ -457,7 +457,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
-## JSON definitions for entities
+## <a name="data-factory-entities-in-the-template"></a> JSON definitions for entities
 The following Data Factory entities are defined in the JSON template: 
 
 - [Azure Storage linked service](#azure-storage-linked-service)
