@@ -3,9 +3,8 @@ title: 'Azure Cosmos DB: Build a web app with .NET and the MongoDB API | Microso
 description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/19/2018
-ms.author: mimig
+ms.author: sngun
 
 ---
 # Azure Cosmos DB: Build a MongoDB API web app with .NET and the Azure portal

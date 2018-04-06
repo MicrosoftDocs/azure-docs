@@ -4,7 +4,7 @@ description: Create VMs in Azure using VHDs uploaded from other clouds like AWS 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

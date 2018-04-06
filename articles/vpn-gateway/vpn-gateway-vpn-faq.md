@@ -4,7 +4,7 @@ description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/20/2017
-ms.author: cherylmc,yushwang,anzaman
+ms.date: 04/05/2018
+ms.author: cherylmc
 
 ---
 # VPN Gateway FAQ
