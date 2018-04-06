@@ -46,6 +46,9 @@ After the installation of 1803, install any applicable Hotfixes. For more inform
 
 •	[KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/en-us/help/4103348)
 
+After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+  - [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/help/4103348)
+
 
 ### New features 
 This update includes the following improvements and fixes for Azure Stack.
