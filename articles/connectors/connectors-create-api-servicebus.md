@@ -118,7 +118,7 @@ and set up the interval and frequency for when to check the queue.
    > All Service Bus triggers are long polling triggers - when a trigger is fired, it processes all the messages and then waits for 30 seconds 
    > for more messages to appear in the queue/topic subscription. If there are no messages received in 30 seconds, the trigger run is skipped. 
    > Otherwise, the trigger would continue to read more messages from the queue/topic subscription until its empty. 
-   > The next poll of the trigger would based on the recurrence interval specified in the trigger properties.
+   > The next poll of the trigger would be based on the recurrence interval specified in the trigger properties.
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
