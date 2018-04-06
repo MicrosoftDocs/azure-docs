@@ -59,9 +59,9 @@ For workspaces created by Security Center, data is retained for 30 days. For exi
 > [!NOTE]
 > Data previously collected by Security Center remains in your Storage account(s). After the migration is complete, you can delete these Storage accounts.
 
-### Management Security Solution 
+### Security Management Solution 
 
-For existing customers that don’t have a Management Security solution installed, Microsoft is installing it on their workspace, but targeting only Azure VMs. Do not uninstall this solution, as there is no automatic remediation if this is done from the Management console.
+For existing customers that don’t have a security management solution in Log Analytics installed, Microsoft is installing it on their workspace, but targeting only Azure VMs. Do not uninstall this solution, as there is no automatic remediation if this is done from the Management console.
 
 
 ## Other updates
