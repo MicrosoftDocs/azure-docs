@@ -3,9 +3,9 @@ title: Installation Quickstart for Azure Machine Learning services | Microsoft D
 description: In this Quickstart, you can learn how to create Azure Machine Learning resources, and how to install and get started with Azure Machine Learning Workbench.
 services: machine-learning
 author: hning86
-ms.author: haining, raymondl, chhavib, j-martens
+ms.author: chhavib
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc

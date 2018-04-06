@@ -24,15 +24,15 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
       text: Azure CLI
       href: /azure/container-registry/container-registry-get-started-azure-cli
     - image:
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
       href: /azure/container-registry/container-registry-get-started-portal
     - image:
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/container-registry/container-registry-get-started-powershell
 - title: Step-by-Step Tutorials

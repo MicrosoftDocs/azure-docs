@@ -2,19 +2,12 @@
 title: SQL Database disaster recovery | Microsoft Docs
 description: Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database active geo-replication, and geo-restore capabilities.
 services: sql-database
-documentationcenter: ''
 author: anosov1960
 manager: jhubbard
-editor: monicar
-
-ms.assetid: 4800960e-3f9d-40ce-9e55-fb7f2784c067
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: "On Demand"
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -29,7 +22,7 @@ Azure SQL Database offers the following capabilities for recovering from an outa
 To learn about business continuity scenarios and the features supporting these scenarios, see [Business continuity](sql-database-business-continuity.md).
 
 > [!NOTE]
-> If you are using zone-redundant Premium databases or pools, the recovery process is automated and the rest of this material does not apply. 
+> If you are using zone-redundant Premium or Business Critical databases or pools (preview), the recovery process is automated and the rest of this material does not apply. 
 
 ### Prepare for the event of an outage
 For success with recovery to another data region using either failover groups or geo-redundant backups, you need to prepare a server in another data center outage to become the new primary server should the need arise as well as have well-defined steps documented and tested to ensure a smooth recovery. These preparation steps include:

@@ -94,7 +94,7 @@ spec:
 Create the persistent volume claim with the [kubectl create][kubectl-create] command.
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl create -f azure-file-pvc.yaml
 ```
 
 Once completed, the file share will be created. A Kubernetes secret is also created that contains connection information and credentials.
@@ -130,6 +130,37 @@ kubectl create -f azure-pvc-files.yaml
 ```
 
 You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod mypod`.
+
+## Mount options
+ 
+Default fileMode and dirMode values differ between Kubernetes versions as described in the following table.
+ 
+| version | value |
+| ---- | ---- |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
+| v1.8.6 or above | 0755 |
+| v1.9.0 | 0700 |
+| v1.9.1 or above | 0755 |
+ 
+If using a cluster of version 1.8.5 or greater, mount options can be specified on the storage class object. The following example sets `0777`.
+ 
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: azurefile
+provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+parameters:
+  skuName: Standard_LRS
+```
+ 
+If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified with the `runAsUser` value set to `0`. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
 
 ## Next steps
 

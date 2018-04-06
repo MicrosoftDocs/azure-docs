@@ -4,7 +4,7 @@ description: Name Resolution scenarios for Linux virtual machines in Azure IaaS,
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
@@ -109,7 +109,7 @@ The resolv.conf file is auto-generated and should not be edited. The specific st
 2. Run 'netconfig update' to update.
 
 **CentOS by Rogue Wave Software (formerly OpenLogic)** (uses NetworkManager)
-1. Add 'echo "options timeout:1 attempts:5"' to '/etc/NetworkManager/dispatcher.d/11-dhclient'.
+1. Add 'RES_OPTIONS="timeout:1 attempts:5"' to '/etc/sysconfig/network'.
 2. Run 'service network restart' to update.
 
 ## Name resolution using your own DNS server

@@ -1,6 +1,6 @@
 ---
 title: Dynamic site acceleration via Azure CDN
-description: Dynamic site acceleration deep dive
+description: Azure CDN supports dynamic site acceleration (DSA) optimization for files with dynamic content.
 services: cdn
 documentationcenter: ''
 author: dksimpson    
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli
+ms.author: rli; v-deasim
 ---
 # Dynamic site acceleration via Azure CDN
 
@@ -25,9 +25,9 @@ Standard content delivery network (CDN) capability includes the ability to cache
 **Azure CDN from Akamai** and **Azure CDN from Verizon** both offer DSA optimization through the **Optimized for** menu during endpoint creation.
 
 > [!Important]
-> For **Azure CDN from Akamai** profiles only, you are allowed you to change the optimization of a CDN endpoint after it has been created.
+> For **Azure CDN from Akamai** profiles, you are allowed to change the optimization of a CDN endpoint after it has been created.
 >   
-> **Azure CDN from Verizon** profiles, it is not possible to change the optimization of a CDN endpoint after it has been created.
+> For **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
 
 ## Configuring CDN endpoint to accelerate delivery of dynamic files
 
@@ -100,7 +100,7 @@ Transmission Control Protocol (TCP) is the standard of the Internet protocol sui
 
 TCP *slow start* is an algorithm of the TCP protocol that prevents network congestion by limiting the amount of data sent over the network. It starts off with small congestion window sizes between sender and receiver until the maximum is reached or packet loss is detected.
 
- Both **Azure CDN from Akamai** and **Azure CDN from Verizon** eliminate TCP slow start with the following three steps:
+ Both **Azure CDN from Akamai** and **Azure CDN from Verizon** profiles eliminate TCP slow start with the following three steps:
 
 1. Health and bandwidth monitoring is used to measure the bandwidth of connections between edge PoP servers.
     
@@ -148,19 +148,32 @@ With DSA, caching is turned off by default on the CDN, even when the origin incl
 
 If you have a website with a mix of static and dynamic assets, it is best to take a hybrid approach to get the best performance. 
 
-For **Azure CDN from Verizon Premium** profiles, you can turn on caching for specific cases by using the  [rules engine](cdn-rules-engine.md) for DSA endpoints. Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
+For **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles, you can turn on caching for specific DSA endpoints by using [caching rules](cdn-caching-rules.md).
 
-To access the rules engine for DSA endpoints:
+To access caching rules:
+
+1. From the **CDN profile** page, under settings, select **Caching rules**.  
+    
+    ![CDN Caching rules button](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+
+    The **Caching rules** page opens.
+
+2. Create a global or custom caching rule to turn on caching for your DSA endpoint. 
+
+For **Azure CDN Premium from Verizon** profiles only, you turn on caching for specific DSA endpoints by using the [rules engine](cdn-rules-engine.md). Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
+
+To access the rules engine:
     
 1. From the **CDN profile** page, select **Manage**.  
     
-    ![CDN profile manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![CDN profile manage button](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     The CDN management portal opens.
 
 2. From the CDN management portal, select **ADN**, then select **Rules Engine**. 
 
-    ![Rules engine for DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![Rules engine for DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+
 
 
 Alternatively, you can use two CDN endpoints: one endpoint optimized with DSA to deliver dynamic assets and another endpoint optimized with a static optimization type, such as general web delivery, to delivery cacheable assets. Modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use. 

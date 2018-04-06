@@ -81,11 +81,7 @@ The above isolated failover example can be expanded to include more applications
 
 ### Further considerations
 
-VPN Gateways utilize public IP addresses and gateway hops to establish connections. If you do not want to use public IP, and/or want to avoid extra hops, you can now use Global VNet Peering to peer virtual networks across Azure regions.
-
-This feature is currently in public preview and is being expanded to more support regions—enabling direct VM-to-VM connectivity without any public internet involvement or any extra hops.
-
-For more information, refer to the [peering documentation](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) and [pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
+VPN Gateways utilize public IP addresses and gateway hops to establish connections. If you do not want to use public IP, and/or want to avoid extra hops, you can use Azure [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) to peer virtual networks across [supported Azure regions](../virtual-network/virtual-network-manage-peering.md#cross-region).
 
 ## On-premises-to-Azure connectivity
 

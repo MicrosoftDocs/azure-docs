@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2018
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -25,6 +25,14 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 This quickstart requires that you run Azure CLI version 2.0.4 or later to install and use the CLI locally. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
+## Prerequisites
+
+Register the Policy Insights resource provider using Azure CLI. Registering the resource provider makes sure that your subscription works with it. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
+
+```
+az provider register –-namespace 'Microsoft.PolicyInsights'
+```
+For more information about registering and viewing resource providers, see [Resource Providers and Types](../azure-resource-manager/resource-manager-supported-services.md)
 
 
 ## Create a policy assignment
@@ -43,7 +51,7 @@ The preceding command uses the following information:
 - **Policy** – The policy definition ID, based on which you're using to create the assignment. In this case, it is the policy definition – *Audit Virtual Machines without Managed Disks*. To get the policy definition ID, run this command:
         `az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. Be sure to replace &lt;scope&gt; with the name of your resource group.
-- **Sku** – This command creates a policy assignment with the standard tier. The standard tier enables you to achieve at-scale management, compliance evaluation, and remediation. Currently, the standard tier is free. In the future, the standard tier will incur costs. When the pricing change occurs, it will be announced and more details will be provided at [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy).
+- **Sku** – This command creates a policy assignment with the standard tier. The standard tier enables you to achieve at-scale management, compliance evaluation, and remediation. For additional details about pricing tiers, see [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 ## Identify non-compliant resources
@@ -51,7 +59,7 @@ The preceding command uses the following information:
 To view the resources that aren't compliant under this new assignment, get the policy assignment ID by running the following commands:
 
 ```
-policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Virtual Machines without Managed Disks"}
+$policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Virtual Machines without Managed Disks"}
 ```
 
 ```

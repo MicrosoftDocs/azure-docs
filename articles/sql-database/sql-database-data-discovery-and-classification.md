@@ -2,16 +2,11 @@
 title: Azure SQL Database Data Discovery & Classification | Microsoft Docs
 description: Azure SQL Database Data Discovery & Classification
 services: sql-database
-documentationcenter: ''
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
