@@ -37,7 +37,7 @@ The Windows Azure Diagnostics Extension requires that the target virtual machine
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Windows Azure Diagnostics extension during an Azure Resource Manager template deployment. A sample template and instructions on how to set up the Windows Azure Diagnostics extension with a template can be found [in this article](extensions-diagnostics-template.md).
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Windows Azure Diagnostics extension during an Azure Resource Manager template deployment. See [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](extensions-diagnostics-template.md).
 
 ## Azure CLI deployment
 
@@ -55,7 +55,7 @@ az vm extension set \
 
 ## PowerShell deployment
 
-The `Set-AzureRmVMDiagnosticsExtension` command can be used to add the Windows Azure Diagnostics extension to an existing virtual machine. For more information, see [this article](ps-extensions-diagnostics.md).
+The `Set-AzureRmVMDiagnosticsExtension` command can be used to add the Windows Azure Diagnostics extension to an existing virtual machine. See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](ps-extensions-diagnostics.md).
 ```powershell
 $vm_resourcegroup = "myvmresourcegroup"
 $vm_name = "myvm"
@@ -80,4 +80,8 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
+
+## Next Steps
+* [Learn more about the Windows Azure Diagnostics Extension](../../monitoring-and-diagnostics/azure-diagnostics.md)
+* [Review the extension schema and versions](../../monitoring-and-diagnostics/azure-diagnostics-schema.md)
