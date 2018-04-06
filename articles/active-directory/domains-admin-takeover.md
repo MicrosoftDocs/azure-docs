@@ -122,7 +122,7 @@ cmdlet | Usage
 `get-msoldomain` | The domain name is now included in the list of domain names associated with your managed tenant, but is listed as **Unverified**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Provides the information to put into new DNS TXT record for the domain (MS=xxxxx). Verification might not happen immediately because it takes some time for the TXT record to propagate, so wait a few minutes before considering the **-ForceTakeover** option. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<li>The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged tenant has Office 365 services blocking the takeover.
-`get-msoldomain` | The domain list now shows the the domain name as **Verified**.
+`get-msoldomain` | The domain list now shows the domain name as **Verified**.
 
 ### PowerShell example
 
