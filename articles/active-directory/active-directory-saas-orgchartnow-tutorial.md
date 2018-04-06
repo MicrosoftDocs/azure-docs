@@ -159,7 +159,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a OrgChart Now test user
+### Create an OrgChart Now test user
 
 To enable Azure AD users to log in to OrgChart Now, they must be provisioned into OrgChart Now. In OrgChart Now, provisioning is a manual task.
 
