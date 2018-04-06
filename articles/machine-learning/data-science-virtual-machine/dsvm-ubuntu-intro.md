@@ -232,12 +232,7 @@ Or specify the full path to pip:
     
 For conda, you should always specify the environment name (_py35_ or _root_):
 
-<<<<<<< HEAD
     conda install <package> -n py35
-=======
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
->>>>>>> upstream/master
 
 If you are on a graphical interface or have X11 forwarding set up, you can type **pycharm** to launch the PyCharm Python IDE. You can use the default text editors. In addition, you can use Spyder, a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. A shortcut to Spyder is provided in the graphical desktop.s
 
