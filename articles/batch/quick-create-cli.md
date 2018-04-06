@@ -37,7 +37,7 @@ az group create \
 
 ## Create a storage account
 
-You can link an Azure general-purpose storage account with your Batch account. Although not required for this quickstart, the storage account is useful to deploy applications and store input and output data for most real-world workloads. Create a storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+You can link an Azure Storage account with your Batch account. Although not required for this quickstart, the storage account is useful to deploy applications and store input and output data for most real-world workloads. Create a storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
 az storage account create \

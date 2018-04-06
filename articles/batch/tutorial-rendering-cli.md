@@ -47,7 +47,7 @@ az group create \
     --location eastus2
 ```
 
-Create a general-purpose storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. For this tutorial, you use the storage account to store an input 3ds Max scene and the rendered output.
+Create an Azure Storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. For this tutorial, you use the storage account to store an input 3ds Max scene and the rendered output.
 
 ```azurecli-interactive
 az storage account create \
