@@ -48,9 +48,9 @@ To complete the quickstart, you must have the following prerequisites:
 
 Open Visual Studio and click **File**, **New**, **Project**.
 
-Expand the **Visual C#** node in the **Templates** list, select **Cloud**, and click **ASP.NET Web Application**. Ensure that **.NET Framework 4.5.2** or higher is selected.  Type **ContosoTeamStats** into the **Name** textbox and click **OK**.
+    Expand the **Visual C#** node in the **Templates** list, select **Cloud**, and click **ASP.NET Web Application**. Ensure that **.NET Framework 4.5.2** or higher is selected.  Type **ContosoTeamStats** into the **Name** textbox and click **OK**.
    
-![Create project](./media/cache-web-app-howto/cache-create-project.png)
+    ![Create project](./media/cache-web-app-howto/cache-create-project.png)
 
 Select **MVC** as the project type. 
 
@@ -129,6 +129,13 @@ The NuGet package downloads and adds the required assembly references for your c
 
 In **Solution Explorer**, expand the **Controllers** folder, and open the *HomeController.cs* file.
 
+Add the following two `using` statements at the top of the file to support the cache client and app settings.
+
+```csharp
+using System.Configuration;
+using StackExchange.Redis;
+```
+
 Add the following method to the `HomeController` class to support a new `RedisCache` action that executes some commands against the new cache.
 
 ```csharp
@@ -156,7 +163,7 @@ Add the following method to the `HomeController` class to support a new `RedisCa
             ViewBag.command2 = "GET Message";
             ViewBag.command2Result = cache.StringGet("Message").ToString();
 
-            ViewBag.command3 = "SET Message \"Hello!The cache is working from ASP.NET!\"";
+            ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
             ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
 
             // Demostrate "SET Message" executed as expected...
@@ -198,9 +205,6 @@ In the Add View dialog, enter **RedisCache** for the View Name and click **Add**
 Replace the code in the *RedisCache.cshtml* file with the following code:
 
 ```
-@using System.Configuration;
-@using StackExchange.Redis;
-
 @{
     ViewBag.Title = "Azure Redis Cache Test";
 }

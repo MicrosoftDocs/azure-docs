@@ -610,6 +610,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 
 ### Add caching methods to the Teams Index view
+
 1. In **Solution Explorer**, expand the **Views** folder, then the **Teams** folder, and double-click **Index.cshtml**.
    
     ![Index.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-views-teams-index-cshtml.png)
@@ -667,143 +668,125 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 ## Run the app locally
 
-To run the application locally on your machine:
+Run the application locally on your machine to verify the functionality that has been added to support the teams.
+
+In this test, the application and database, are both running locally. However, the Redis Cache is hosted remotely in Azure. Therefore, the cache will likely under-perform the database slightly. For best performance, the client application and Azure Redis Cache instance should be in the same location. In the next section, you will deploy all resources to Azure to see the improved performance from using a cache.
+
+To run the app locally:
 
 1. Press **Ctrl+F5** to run the application.
 
-> [!NOTE]
-> Note that because the application, including the database, is running locally and the Redis Cache is hosted in Azure, the cache may appear to under-perform the database. For best performance, the client application and Azure Redis Cache instance should be in the same location. 
-> 
-> 
+    ![App running local](./media/cache-web-app-cache-aside-leaderboard/cache-local-application.png)
+
+2. Test each of the new methods that were added to the view. Since the cache is remote in these tests, the database should slighyly outperform the cache.
+
+
+## Publish and run in Azure
+
+### Provision a SQL Azure database for the app
+
+In this section you will provision a new SQL Azure database for the app to use while hosted in Azure.
+
+1. In the [Azure portal](https://portal.azure.com/), Click **Create a resource** in the upper left-hand corner of the Azure portal.
+
+2. On the **New** page, click **Databases** > **SQL Database**.
+
+3. Use the following settings for the new SQL Database:   
+
+   | Setting       | Suggested value | Description |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **Database name** | *ContosoTeamsDatabase* | For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Subscription** | *Your subscription*  | Select the same subscription you used to create the cache and host the App Service. |
+   | **Resource group**  | *TestResourceGroup* | Click **Use existing** and use the same resource group where you placed your cache and App Service. |
+   | **Select source** | **Blank database** | Start with a blank database. |
+
+4. Under **Server**, click **Configure required settings** > **Create a new server** and provide the following information and then click the **Select** button:   
+
+   | Setting       | Suggested value | Description |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
+   | **Location** | *East US* | Select the same region where you created the cache and App Service. |
+
+5. Click **Pin to dashboard** and then **Create** to create the new database and server.
+
+6. Once the new database is created, click **Show database connection strings** and copy the **ADO.NET** connection string.
+
+    ![Show connection strings](./media/cache-web-app-cache-aside-leaderboard/cache-show-connection-strings.png)
+
+7. In the Azure portal, navigate to your App Service and click **Application Settings**, then **Add new connection string** under the Connection strings section.
+
+8. Add a new connection string named *TeamContext* to match the Entity Framework database context class. Paste the connection string for your new database as the value. Be sure to replace the following placeholders in the connection string and click **Save**:
+
+    | Placeholder | Suggested value |
+    | --- | --- |
+    | *{your_username}* | Use the **server admin login** for the database server you just created. |
+    | *{your_password}* | Use the password for the database server you just created. |
 
 
 
-## Provision the Azure resources
-To host your application in Azure, you must first provision the Azure services that your application requires. The sample application in this tutorial uses the following Azure services:
+### Publish the application updates to Azure
 
-* Azure Redis Cache
-* App Service Web App
-* SQL Database
-
-To deploy these services to a new or existing resource group of your choice, click the following **Deploy to Azure** button:
-
-[![Deploy to Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
-
-This **Deploy to Azure** button uses the [Create a Web App plus Redis Cache plus SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) [Azure Quickstart](https://github.com/Azure/azure-quickstart-templates) template to provision these services and set the connection string for the SQL Database and the application setting for the Azure Redis Cache connection string.
-
-> [!NOTE]
-> If you don't have an Azure account, you can [create a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
-> 
-> 
-
-Clicking the **Deploy to Azure** button takes you to the Azure portal and initiates the process of creating the resources described by the template.
-
-![Deploy to Azure][cache-deploy-to-azure-step-1]
-
-1. In the **Basics** section, select the Azure subscription to use, and select an existing resource group or create a new one, and specify the resource group location.
-2. In the **Settings** section, specify an **Administrator Login** (don't use **admin**), **Administrator Login Password**, and **Database Name**. The other parameters are configured for a free App Service hosting plan, and lower-cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
-
-    ![Deploy to Azure][cache-deploy-to-azure-step-2]
-
-3. After configuring the desired settings, scroll to the end of the page, read the terms and conditions, and check the **I agree to the terms and conditions stated above** checkbox.
-4. To begin provisioning the resources, click **Purchase**.
-
-To view the progress of your deployment, click the notification icon and click **Deployment started**.
-
-![Deployment started][cache-deployment-started]
-
-You can view the status of your deployment on the **Microsoft.Template** blade.
-
-![Deploy to Azure][cache-deploy-to-azure-step-3]
-
-When provisioning is complete, you can publish your application to Azure from Visual Studio.
-
-> [!NOTE]
-> Any errors that may occur during the provisioning process are displayed on the **Microsoft.Template** blade. Common errors are too many SQL Servers or too many Free App Service hosting plans per subscription. Resolve any errors and restart the process by clicking **Redeploy** on the **Microsoft.Template** blade or the **Deploy to Azure** button in this tutorial.
-> 
-> 
-
-## Publish the application to Azure
-In this step of the tutorial, you'll publish the application to Azure and run it in the cloud.
+In this step of the tutorial, you'll publish the application updates to Azure to run it in the cloud.
 
 1. Right-click the **ContosoTeamStats** project in Visual Studio and choose **Publish**.
    
-    ![Publish][cache-publish-app]
-2. Click **Microsoft Azure App Service**, choose **Select Existing**, and click **Publish**.
-   
-    ![Publish][cache-publish-to-app-service]
-3. Select the subscription used when creating the Azure resources, expand the resource group containing the resources, and select the desired Web App. If you used the **Deploy to Azure** button your Web App name starts with **webSite** followed by some additional characters.
-   
-    ![Select Web App][cache-select-web-app]
-4. Click **OK** to begin the publishing process. After a few moments the publishing process completes and a browser is launched with the running sample application. If you get a DNS error when validating or publishing, and the provisioning process for the Azure resources for the application has just recently completed, wait a moment and try again.
-   
-    ![Cache added][cache-added-to-application]
+    ![Publish](./media/cache-web-app-cache-aside-leaderboard/cache-publish-app.png)
 
-The following table describes each action link from the sample application:
+2. Click **Publish** to use the same publishing profile you created in the quickstart.
+   
+3. Once publishing is complete, Visual Studio launches the app in your default web browser.
+   
+    ![Cache added](./media/cache-web-app-cache-aside-leaderboard/cache-added-to-application.png)
 
-| Action | Description |
-| --- | --- |
-| Create New |Create a new Team. |
-| Play Season |Play a season of games, update the team stats, and clear any outdated team data from the cache. |
-| Clear Cache |Clear the team stats from the cache. |
-| List from Cache |Retrieve the team stats from the cache. If there is a cache miss, load the stats from the database and save to the cache for next time. |
-| Sorted Set from Cache |Retrieve the team stats from the cache using a sorted set. If there is a cache miss, load the stats from the database and save to the cache using a sorted set. |
-| Top 5 Teams from Cache |Retrieve the top 5 teams from the cache using a sorted set. If there is a cache miss, load the stats from the database and save to the cache using a sorted set. |
-| Load from DB |Retrieve the team stats from the database. |
-| Rebuild DB |Rebuild the database and reload it with sample team data. |
-| Edit / Details / Delete |Edit a team, view details for a team, delete a team. |
+    The following table describes each action link from the sample application:
 
-Click some of the actions and experiment with retrieving the data from the different sources. Not the differences in the time it takes to complete the various ways of retrieving the data from the database and the cache.
+    | Action | Description |
+    | --- | --- |
+    | Create New |Create a new Team. |
+    | Play Season |Play a season of games, update the team stats, and clear any outdated team data from the cache. |
+    | Clear Cache |Clear the team stats from the cache. |
+    | List from Cache |Retrieve the team stats from the cache. If there is a cache miss, load the stats from the database and save to the cache for next time. |
+    | Sorted Set from Cache |Retrieve the team stats from the cache using a sorted set. If there is a cache miss, load the stats from the database and save to the cache using a sorted set. |
+    | Top 5 Teams from Cache |Retrieve the top 5 teams from the cache using a sorted set. If there is a cache miss, load the stats from the database and save to the cache using a sorted set. |
+    | Load from DB |Retrieve the team stats from the database. |
+    | Rebuild DB |Rebuild the database and reload it with sample team data. |
+    | Edit / Details / Delete |Edit a team, view details for a team, delete a team. |
+
+Click some of the actions and experiment with retrieving the data from the different sources. Note the differences in the time it takes to complete the various ways of retrieving the data from the database and the cache.
 
 ## Clean up resources
-When you are finished with the sample tutorial application, you can delete the Azure resources used in order to conserve cost and resources. If you use the **Deploy to Azure** button in the [Provision the Azure resources](#provision-the-azure-resources) section and all of your resources are contained in the same resource group, you can delete them together in one operation by deleting the resource group.
+When you are finished with the sample tutorial application, you can delete the Azure resources used in order to conserve cost and resources. All of your resources should be contained in the same resource group, you can delete them together in one operation by deleting the resource group. The instructions for this topic used a resource group named *TestResources*. 
+
+> [!IMPORTANT]
+> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group, that contains resources you want to keep, you can delete each resource individually from their respective blades.
+> 
+> 
+
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 2. Type the name of your resource group into the **Filter items...** textbox.
-3. Click **...** to the right of your resource group.
-4. Click **Delete**.
+3. Click **...** to the right of your resource group and click **Delete resource group**.
    
-    ![Delete][cache-delete-resource-group]
-5. Type the name of your resource group and click **Delete**.
-   
-    ![Confirm delete][cache-delete-confirm]
+    ![Delete](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
-After a few moments the resource group and all of its contained resources are deleted.
+4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
 
-> [!IMPORTANT]
-> Note that deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group, you can delete each resource individually from their respective blades.
-> 
-> 
+    After a few moments the resource group and all of its contained resources are deleted.
+
 
 ## Next steps
+
 * Learn more about [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site.
 * For more examples of creating an ASP.NET Web App in App Service, see [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
-  * For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
 * Learn more about [web apps in Azure App Service](../app-service/app-service-web-overview.md).
 * Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal.
-* Explore Azure Redis Cache premium features
+* Explore Azure Redis Cache premium features:
   
   * [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
   * [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
   * [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
-  * See the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches.
 
-<!-- IMAGES -->
-[cache-added-to-application]: ./media/cache-web-app-howto/cache-added-to-application.png
-[cache-create-project]: ./media/cache-web-app-howto/cache-create-project.png
-[cache-select-template]: ./media/cache-web-app-howto/cache-select-template.png
-[redis-cache-manage-nuget-menu]: ./media/cache-web-app-howto/redis-cache-manage-nuget-menu.png
-[redis-cache-stack-exchange-nuget]: ./media/cache-web-app-howto/redis-cache-stack-exchange-nuget.png
-[deploybutton]: ./media/cache-web-app-howto/deploybutton.png
-[cache-deploy-to-azure-step-1]: ./media/cache-web-app-howto/cache-deploy-to-azure-step-1.png
-[cache-deploy-to-azure-step-2]: ./media/cache-web-app-howto/cache-deploy-to-azure-step-2.png
-[cache-deploy-to-azure-step-3]: ./media/cache-web-app-howto/cache-deploy-to-azure-step-3.png
-[cache-deployment-started]: ./media/cache-web-app-howto/cache-deployment-started.png
-[cache-publish-app]: ./media/cache-web-app-howto/cache-publish-app.png
-[cache-publish-to-app-service]: ./media/cache-web-app-howto/cache-publish-to-app-service.png
-[cache-select-web-app]: ./media/cache-web-app-howto/cache-select-web-app.png
-[cache-publish]: ./media/cache-web-app-howto/cache-publish.png
-[cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
-[cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
