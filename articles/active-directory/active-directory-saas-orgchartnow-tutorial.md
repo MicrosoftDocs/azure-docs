@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
 	 
 	> [!NOTE]
-	> <YourEntityID> is the SAML Entity ID copied from the Quick Reference section, described later in tutorial.
+	> `<YourEntityID>` is the SAML Entity ID copied from the Quick Reference section, described later in tutorial.
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
