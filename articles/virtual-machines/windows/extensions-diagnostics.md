@@ -7,7 +7,7 @@ author: johnkemnetz
 manager: ashwink
 editor: ''
 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
