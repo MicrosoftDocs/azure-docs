@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/01/2018
 ms.author: sstein
 
 ---
