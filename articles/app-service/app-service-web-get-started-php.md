@@ -40,9 +40,12 @@ To complete this quickstart:
 
 ## Download the sample locally
 
-Download the sample PHP project from [https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) and extract the ZIP archive.
+In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code.
 
-In a terminal window, navigate to the root directory of the sample PHP project (the one that contains _index.php_).
+```bash
+git clone https://github.com/Azure-Samples/php-docs-hello-world
+cd php-docs-hello-world
+```
 
 ## Run the app locally
 
