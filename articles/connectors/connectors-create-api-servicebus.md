@@ -89,6 +89,12 @@ select this trigger: **Service Bus - When a message is received in a queue (auto
 
    ![Select Service Bus trigger](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > Triggers that are fired when one or more messages arrive such as **Service Bus - When one or more messages arrive in a queue (auto-complete)** return 
+   > 1 to number of messages specified in the **maxcount** property of the trigger. These are also *long polling triggers*, they trigger for the messages in the 
+   > queue until the queue is empty and **stays empty for 30 seconds**, after which the trigger is skipped. 
+   
+
    1. If you don't already have a connection to your Service Bus namespace, 
    you're prompted to create this connection now. Give your connection a name, 
    and select the Service Bus namespace that you want to use.
@@ -98,6 +104,7 @@ select this trigger: **Service Bus - When a message is received in a queue (auto
       Or, to manually enter the connection string, 
       choose **Manually enter connection information**. 
       Learn [how to find your connection string](#permissions-connection-string).
+      
 
    2. Now select the Service Bus policy to use, and choose **Create**.
 
