@@ -2,7 +2,7 @@
 title: "Troubleshoot Azure SQL Data Sync (Preview) | Microsoft Docs"
 description: "Learn how to troubleshoot common issues with Azure SQL Data Sync (Preview)."
 services: sql-database
-ms.date: "11/13/2017"
+ms.date: 04/01/2018
 ms.topic: "article"
 ms.service: "sql-database"
 author: "douglaslMS"

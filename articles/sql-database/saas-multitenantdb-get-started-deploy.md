@@ -9,7 +9,7 @@ ms.service: "sql-database"
 ms.custom: "scale out apps"
 ms.workload: "data-management"
 ms.topic: "article"
-ms.date: "12/18/2017"
+ms.date: 04/01/2018
 ms.author: "genemi"
 ---
 # Deploy and explore a sharded multi-tenant application that uses Azure SQL Database
