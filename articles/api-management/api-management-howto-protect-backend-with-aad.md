@@ -30,7 +30,7 @@ To follow the steps in this article, you must have:
 
 Here is a quick overview of the steps:
 
-1. Register an application (back-end app) in Azure AD to represent the API.
+1. Register an application (backend app) in Azure AD to represent the API.
 2. Register another application in Azure AD to represent a client application that needs to call the API.
 3. In Azure AD, grant permissions to allow the client app to call the back-end app.
 4. Configure the Developer Console to use OAuth 2.0 user authorization.
@@ -80,7 +80,7 @@ Make a note of the key value.
 
 ## Grant permissions in Azure AD
 
-Now that you have registered two applications to represent the API and the Developer Console, you need to grant permissions to allow the client app to call the back-end app.  
+Now that you have registered two applications to represent the API and the Developer Console, you need to grant permissions to allow the client-app to call the backend-app.  
 
 1. Browse to **Application registrations**. 
 
@@ -101,7 +101,7 @@ Now that you have registered two applications to represent the API and the Devel
 
 ## Enable OAuth 2.0 user authorization in the Developer Console
 
-At this point, you have created your applications in Azure AD, and have granted proper permissions to allow the client app to call the back-end app. 
+At this point, you have created your applications in Azure AD, and have granted proper permissions to allow the client app to call the backend-app. 
 
 In this example, the Developer Console is the client app. The following steps describe how to enable OAuth 2.0 user authorization in the Developer Console. 
 
