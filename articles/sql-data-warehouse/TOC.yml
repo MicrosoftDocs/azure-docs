@@ -178,7 +178,7 @@
     - name: RedGate
       href: sql-data-warehouse-load-with-redgate.md
     - name: SSIS
-      href: /sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
+      href: /sql/integration-services/load-data-to-sql-data-warehouse
   - name: Integrate
     items:
     - name: Configure SQL Database elastic query
