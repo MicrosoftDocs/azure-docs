@@ -52,7 +52,7 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 | Search Interval StartTime |#searchintervalstarttimeutc |Start time for the query in UTC format. 
 | SearchQuery |#searchquery |Log search query used by the alert rule. |
 | SearchResults |"IncludeSearchResults": true|Records returned by the query as a JSON Table, limited to the first 1,000 records; if "IncludeSearchResults": true is added in custom JSON webhook definition as a top-level property. |
-| WorkspaceID |#workspaceid |ID of your Log Analytics (OMS) workspace. |
+| WorkspaceID |#workspaceid |ID of your Log Analytics workspace. |
 | Application ID |#applicationid |ID of your Application Insight app. |
 | Subscription ID |#subscriptionid |ID of your Azure Subscription used with Application Insights. 
 
@@ -75,7 +75,7 @@ To include search results in a custom payload, ensure that **IncudeSearchResults
 This section shows sample payload for webhook for Log Alerts, including when payload is standard and when its custom.
 
 > [!NOTE]
-> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [OMS alert management](../log-analytics/log-analytics-alerts-creating.md). But for log alerts using [Application Insights](../application-insights/app-insights-analytics.md), the standard webhook payload is based on Action Group schema.
+> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [Log Analytics alert management](../log-analytics/log-analytics-alerts-creating.md). But for log alerts using [Application Insights](../application-insights/app-insights-analytics.md), the standard webhook payload is based on Action Group schema.
 
 ### Standard Webhook for Log Alerts 
 Both of these examples have stated a dummy payload with only two columns and two rows.
