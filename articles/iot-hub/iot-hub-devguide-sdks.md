@@ -67,16 +67,6 @@ Azure IoT Hub device SDK for Python:
 
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog][lnk-certified] or individual repository.
 
-Microsoft maintains a list of platforms that are tested extensively with every release:
-* Linux (Ubuntu, Debian, Raspbian)
-* Windows
-* OSX
-* MBED
-* Arduino Huzzah
-* Xamarin (Preview)
-* iOS (Preview)
-* Android (Preview)
-
 ## Azure IoT service SDKs
 
 The Azure IoT service SDKs contain code to facilitate building applications that interact directly with IoT Hub to manage devices and security.
