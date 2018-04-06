@@ -1,26 +1,19 @@
 ---
-title: Run Azure Functions with Azure Stream Analytics jobs  | Microsoft Docs
-description: Learn how to configure Azure Functions as an output sink to Stream Analytics jobs.
-keywords: data output, streaming data, Azure Function
-documentationcenter: ''
+title: Run Azure Functions from Azure Stream Analytics jobs
+description: This article describes how to configure Azure Functions as an output sink in Stream Analytics jobs, to event-drive workloads.
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 manager: kfile
-
-ms.assetid: 
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: sngun
-
 ---
 
-# Run Azure Functions with Azure Stream Analytics jobs 
+# Run Azure Functions from Azure Stream Analytics jobs 
 
-You can run Azure Functions with Azure Stream Analytics by configuring Functions as one of the output sinks to the Stream Analytics job. Functions is an event-driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Functions to respond to triggers makes it a natural output to Stream Analytics jobs.
+You can run Azure Functions from Azure Stream Analytics by configuring Functions as one of the output sinks to the Stream Analytics job. Functions are an event-driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Functions to respond to triggers makes it a natural output to Stream Analytics jobs.
 
 Stream Analytics invokes Functions through HTTP triggers. The Functions output adapter allows users to connect Functions to Stream Analytics, such that the events can be triggered based on Stream Analytics queries. 
 
