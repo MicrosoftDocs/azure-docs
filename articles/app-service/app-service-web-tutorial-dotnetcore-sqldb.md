@@ -16,7 +16,7 @@ ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a .NET Core and SQL Database web app in Azure App Service
+# Tutorial: Build a .NET Core and SQL Database web app in Azure App Service
 
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a .NET Core and SQL Database web app in Azure App Service on Linux](./containers/tutorial-dotnetcore-sqldb-app.md).

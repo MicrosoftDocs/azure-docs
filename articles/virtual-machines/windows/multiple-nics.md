@@ -113,11 +113,13 @@ Now start to build your VM configuration. Each VM size has a limit for the total
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Finally, create your VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+5. Create your VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
+
+6. Add routes for secondary NICs to the OS by completing the steps in [Configure the operating system for multiple NICs](#configure-guest-os-for-multiple-nics).
 
 ## Add a NIC to an existing VM
 To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual NIC, then start the VM. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](resize-vm.md).
@@ -172,6 +174,8 @@ To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual N
     ```powershell
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
+
+5. Add routes for secondary NICs to the OS by completing the steps in [Configure the operating system for multiple NICs](#configure-guest-os-for-multiple-nics).
 
 ## Remove a NIC from an existing VM
 To remove a virtual NIC from an existing VM, you deallocate the VM, remove the virtual NIC, then start the VM.
@@ -229,6 +233,8 @@ You can also use `copyIndex()` to append a number to a resource name. You can th
 ```
 
 You can read a complete example of [creating multiple NICs by using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+Add routes for secondary NICs to the OS by completing the steps in [Configure the operating system for multiple NICs](#configure-guest-os-for-multiple-nics).
 
 ## Configure guest OS for multiple NICs
 

@@ -4,7 +4,7 @@ description: Learn about security and policies for Windows and virtual machines 
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
