@@ -20,16 +20,9 @@ ms.author: kgremban
 
 # Quickstart: Send telemetry from a device to an IoT hub
 
-In this quickstart, you send telemetry from a simulated device, through IoT Hub, to a back-end application for processing. You complete the following steps in this quickstart:
+IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry from a simulated device, through IoT Hub, to a back-end application for processing. 
 
-- Use the Azure portal to create an IoT hub in your Azure subscription.
-- Use the Azure CLI to register a simulated device in your IoT hub.
-- Run an Objective C application that sends simulated telemetry from an iPhone emulator.
-- Run a simple Node.js back-end application that reads and processes the telemetry.
-
-<!-- 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
--->
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -37,7 +30,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 - The latest version of [XCode](https://developer.apple.com/xcode/), running the latest verstion of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
 - The latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
-- [Node.js](https://nodejs.org) version 4.x.x or later.
 
 ## Create an IoT hub
 
