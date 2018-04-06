@@ -18,7 +18,7 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 ## Monitoring Dashboard for all your Sync Groups 
 
-You no longer need to look through the logs of each Sync Group individually to look for issues. You can monitor all your Sync Groups from any of your subscriptions in one place by using a custom Log view. This view surfaces the information that matters to SQL Data Sync customers.
+You no longer need to look through the logs of each Sync Group individually to look for issues. You can monitor all your Sync Groups from any of your subscriptions in one place by using a custom Log Analytics view. This view surfaces the information that matters to SQL Data Sync customers.
 
 ![Data Sync monitoring dashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
