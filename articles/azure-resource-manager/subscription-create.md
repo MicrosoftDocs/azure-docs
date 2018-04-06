@@ -38,6 +38,7 @@ After you're added to an Azure EA enrollment as an Account Owner, Azure uses the
 
 - Your account has been added to an EA enrollment
 - You have one or more EA or EA Dev/Test subscriptions, meaning that you've gone through manual sign-up at least once
+- You're logged into the Account Owner's *home directory*, which is the directory that subscriptions are created in by default
 
 If the above two conditions are met, an `enrollmentAccount` resource is returned and you can start creating subscriptions under that account. All subscriptions created under the account are billed towards the EA enrollment that the account is in.
 
@@ -84,7 +85,7 @@ Use the [Get-EnrollmentAccount command]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) to lis
 Get-EnrollmentAccount
 ```
 
-Response:
+Azure responds with a list of the Object IDs and email addresses of accounts.
 
 ```azurepowershell
 ObjectId                               | PrincipalName
@@ -101,7 +102,7 @@ Use the [az billing enrollment-account list]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) c
 ```azurecli-interactive 
 az billing enrollment-account list
 ```
-Response:
+Azure responds with a list of the Object IDs and email addresses of accounts.
 
 ```json
 {
@@ -139,7 +140,7 @@ The following example creates a request to create subscription named *Dev Team S
 Use the `id` of the `enrollmentAccount` in the path of the request to create subscription.
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556/providers/Microsoft.Subscription/createSubscription
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -161,6 +162,8 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 
+In the response, you get back a `subscriptionOperation` object for monitoring. When the subscription creation is finished, the `subscriptionOperation` object would return a `subscriptionLink` object which has the subscription ID.
+
 # [PowerShell](#tab/azure-powershell)
 
 Use the [New-AzureRmSubscription]($PLACE_HOLDER_FOR_TECHNICAL_DOCS) along with `enrollmentAccount` name as the `EnrollmentAccountObjectId` parameter to create a new subscription.
@@ -174,8 +177,8 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 | `Name` | No      | String | The display name of the subscription. If not specified, it is set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
 | `OfferType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `OwnerObjectId`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
-| `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this instead of `OwnerObjectId`.|
-| `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this instead of `OwnerObjectId`.| 
+| `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.|
+| `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.| 
 
 To see a full list of all parameters, see [New-AzureRmSubscription]($PLACE_HOLDER_FOR_TECHNICAL_DOCS).
 
@@ -192,8 +195,8 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `display-name` | No      | String | The display name of the subscription. If not specified, it is set to the name of the offer, like "Microsoft Azure Enterprise."                                 |
 | `offer-type`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owner-object-id`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
-| `upn`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this instead of `owner-object-id`.|
-| `spn` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this instead of `owner-object-id`.| 
+| `upn`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.|
+| `spn` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `owner-object-id`.| 
 
 To see a full list of all parameters, see [az account create]($PLACE_HOLDER_FOR_TECHNICAL_DOCS).
 
@@ -215,7 +218,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
-When the Contributor role is successfully assigned at the enrollment account scope, Response:
+When the Contributor role is successfully assigned at the enrollment account scope, Azure responds with information of the role assignment:
 
 ```json
 {
@@ -252,11 +255,16 @@ az role assignment create --role Contributor --assignee-object-id 5ac84765-1c8c-
 
 ----
 
-Once a user as a Contributor for your enrollment account, they can create subscriptions under it programmatically as well. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Owner by default. 
+Once a user becomes a Contributor for your enrollment account, they can programmatically create subscriptions under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Owner by default. 
+
+## Audit who created subscriptions
+
+To track the subscriptions created via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track subscription creation.
 
 ## Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions can be created using this API.
 - There's a limit of 50 subscriptions per account. After that, subscriptions can only be created by using Account Center.
-- There needs to be one or more EA or EA Dev/Test subscriptions under the account, which means the Account Owner has gone through manual sign-up at least once.
+- There needs to be at least one EA or EA Dev/Test subscriptions under the account, which means the Account Owner has gone through manual sign-up at least once.
 - Users who aren't Account Owners, but were added to an enrollment account via RBAC, cannot create subscriptions using Account Center.
+- You cannot select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](PLACE_HOLDER.md).
