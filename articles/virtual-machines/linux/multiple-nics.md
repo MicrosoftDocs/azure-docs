@@ -180,6 +180,7 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 
 You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for- multiple-nics).
 
 ## Configure guest OS for multiple NICs
 When you add multiple NICs to a Linux VM, you need to create routing rules. These rules allow the VM to send and receive traffic that belongs to a specific NIC. Otherwise, traffic that belongs to *eth1*, for example, cannot be processed correctly by the defined default route.
