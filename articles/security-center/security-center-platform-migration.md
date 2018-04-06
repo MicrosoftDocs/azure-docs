@@ -29,7 +29,7 @@ Beginning in early June 2017, Azure Security Center rolls out important changes 
 
 Previously, Security Center used the Azure Monitoring Agent to collect security data from your VMs. This includes information about security configurations, which are used to identify vulnerabilities, and security events, which are used to detect threats. This data was stored in your Storage account(s) in Azure.
 
-Going forward, Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service. Data collected from this agent is stored in either an existing *Log Analytics* [workspace](../log-analytics/log-analytics-manage-access.md) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
+Going forward, Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Log Analytics service. Data collected from this agent is stored in either an existing *Log Analytics* [workspace](../log-analytics/log-analytics-manage-access.md) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
 
 ## Agent
 
@@ -59,9 +59,9 @@ For workspaces created by Security Center, data is retained for 30 days. For exi
 > [!NOTE]
 > Data previously collected by Security Center remains in your Storage account(s). After the migration is complete, you can delete these Storage accounts.
 
-### OMS Security Solution 
+### Security Management Solution 
 
-For existing customers that don’t have OMS Security solution installed, Microsoft is installing it on their workspace, but targeting only Azure VMs. Do not uninstall this solution, as there is no automatic remediation if this is done from OMS management console.
+For existing customers that don’t have a security management solution in Log Analytics installed, Microsoft is installing it on their workspace, but targeting only Azure VMs. Do not uninstall this solution, as there is no automatic remediation if this is done from the Management console.
 
 
 ## Other updates
