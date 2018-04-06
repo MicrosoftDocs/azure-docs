@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
 
 ---
@@ -27,12 +27,13 @@ Apart from the benefit accrued in not having to navigate out of Azure portal, th
 
 - Unlike in the OMS portal, where only 250 alerts could be created and viewed; in Azure Alerts this limitation is not present
 - From Azure alerts, all your alert types can be managed, enumerated, and viewed; not just Log Analytics alerts as is the case with OMS portal
-- Azure Alerts utilize [Action Groups](monitoring-action-groups.md), which allow you to have more than one action for each alert including SMS, Voice Call, Automation Runbook, Webhook, ITSM Connector and more. Whereas Log Analytics alerts are limited in both the number as well as type of actions possible
+- Control access to users to only Monitoring and Alerting, using [Azure Monitor role](monitoring-roles-permissions-security.md)
+- Azure Alerts utilize [Action Groups](monitoring-action-groups.md), which allow you to have more than one action for each alert including SMS, Voice Call, Automation Runbook, Webhook, ITSM Connector and more. 
 
 ## Process of extending your alerts
 The process of extending alerts from OMS portal into Azure, does **not** involve changing your alert definition, query, or configuration in any way. The only change required is that in Azure, all actions such as email notification, webhook call, running automation runbook or connecting to ITSM tool are done via Action Group. Hence if appropriate action group are associated with your alert - they will become extended into Azure.
 
-Since the process of extending is nondestructive and not interruptive, Microsoft will extend alerts created in OMS portal to Azure alerts automatically - starting from **23 April 2018**. From this day, Microsoft will begin to schedule extending the alerts into Azure and gradually make all alerts present in OMS portal, manageable from Azure portal. 
+Since the process of extending is nondestructive and not interruptive, Microsoft will extend alerts created in OMS portal to Azure alerts automatically - starting from **14 May 2018**. From this day, Microsoft will begin to schedule extending the alerts into Azure and gradually make all alerts present in OMS portal, manageable from Azure portal. 
 
 When alerts in a Log Analytics workspace get scheduled for extending into Azure, they will continue to work and will **not** in any way compromise your monitoring. When scheduled, your alerts may be unavailable for modification/editing temporarily; but new Azure alerts can continue to be created in this brief time. In this brief period, if any edit or creation of alert is done from OMS portal, users will have the option to continue into Azure Log Analytics or Azure Alerts.
 
@@ -53,7 +54,12 @@ As illustrated below:
 
  ![OMS Portal listing alerts after being extended into Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
-For any operation on alerts like edit or creation done in OMS portal, users will be transparently directed to Azure Alerts. Alert creation will continue from the existing [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) as earlier, with only minor change being that after alerts are extended into Azure - action groups would need to be associated in schedule.
+For any operation on alerts like edit or creation done in OMS portal, users will be transparently directed to Azure Alerts. 
+
+> [!NOTE]
+> As users will be transparently taken to Azure, on any addition or edit action on an alert in OMS - ensure users are properly mapped with appropriate [permissions for using Azure Monitor and Alerts](monitoring-roles-permissions-security.md)
+
+Alert creation will continue from the existing [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) as earlier, with only minor change being that after alerts are extended into Azure - action groups would need to be associated in schedule.
 
 ## Next steps
 
