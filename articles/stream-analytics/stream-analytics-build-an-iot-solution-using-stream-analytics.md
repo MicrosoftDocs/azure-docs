@@ -284,7 +284,9 @@ To scale out the query to partitions, edit the query syntax to the following cod
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
-FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
+FROM EntryStream 
+TIMESTAMP BY EntryTime 
+PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
@@ -298,7 +300,7 @@ To scale up the streaming job to more streaming units:
    
 4. Slide the **Streaming units** slider from 1 to 6. Streaming units define the amount of compute power that the job can receive. Select **Save**.
 
-5. **Start** the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput. Notice that the TollApp application is sending events partitioned by TollId.
+5. **Start** the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput, partitioning the work across resources using the column designated in the PARTITION BY clause. 
 
 ## Monitor the job
 The **MONITOR** area contains statistics about the running job. First-time configuration is needed to use the storage account in the same region (name toll like the rest of this document).   
@@ -312,7 +314,7 @@ You can access **Activity Logs** from the job dashboard **Settings** area as wel
 
 2. Locate the resource group that contains eight resources related to the TollApp template.
 
-3. Select **Delete resource group** and type the name of the resource group to confirm deletion.
+3. Select **Delete resource group**. Type the name of the resource group to confirm deletion.
 
 ## Conclusion
 This solution introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data scenario, the solution explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The solution described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
