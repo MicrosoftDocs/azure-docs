@@ -34,33 +34,41 @@ aks-nodepool1-42032720-2  10.240.0.4
 
 Copy your SSH key to the host clip board. The following example uses `pbcopy`, any method can be used.
 
-```yaml
-$ cat ~/.ssh/id_rsa | pbcopy
+```console
+cat ~/.ssh/id_rsa | pbcopy
 ```
 
 Run the `aks-ssh` container image, which will create a pod on one of the AKS cluster nodes. The `aks-ssh` image has been created from the debian image and includes vim and an SSH client.
 
-```azurecli-interactive
-$ kubectl run -it --rm aks-ssh --image=neilpeterson/aks-ssh
+```console
+kubectl run -it --rm aks-ssh --image=debian
+```
+
+Install an SSH clinet and text editor.
+
+```console
+apt-get update
+apt-get install openssh-client
+spt-get install vim
 ```
 
 Once attached to the running container, create a file named `id_rsa` and copy into it the contents of the clipboard. Save the file when done.
 
-```azurecli-interactive
-$ vi id_rsa
+```console
+vi id_rsa
 ```
 
 Modify the `id_rsa` file so that it is user read-only.
 
 ```console
-$ chmod 0600 id_rsa
+chmod 0600 id_rsa
 ```
 
 ## Create the ssh connection.
 
 Now create an SSH connection to any AKS node. The default user name for an AKS cluster is `azureuser`. If this account was changed at cluster creation time, substitute the proper admin user name.
 
-```azurecli-interactive
+```console
 $ ssh -i id_rsa azureuser@10.240.0.6
 
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
