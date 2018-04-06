@@ -12805,11 +12805,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cloud-services/cloud-services-dotnet-continuous-delivery.md",
-            "redirect_url": "/azure/cloud-services/cloud-services-choose-me",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md",
             "redirect_url": "/azure/application-insights/app-insights-cloudservices",
             "redirect_document_id": false

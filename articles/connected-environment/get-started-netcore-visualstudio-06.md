@@ -30,7 +30,7 @@ Picture yourself working on a service that interacts with dozens of other servic
 1. Some developers resort to simulating, or mocking up, many of their service dependencies. This can help sometimes, but managing those mocks can soon take on its own development effort. Plus, this leads to your dev environment looking different to production, and subtle bugs can creep in.
 1. It follows that doing any type of end-to-end testing becomes difficult. Integration testing can only realistically happen after a commit, which means you see problems later in the development cycle.
 
-    ![](media/common/icroservices-challenges.png)
+    ![](media/common/microservices-challenges.png)
 
 ## Work in a shared development environment
 With Connected Environment, you can set up a *shared* development environment in Azure. Each developer can focus on just their part of the application, and can iteratively develop *pre-commit code* in an environment that already contains all the other services and cloud resources that their scenarios depend on. Dependencies are always up-to-date, and developers are working in a way that mirrors production.
