@@ -17,6 +17,8 @@ ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
 
+#Customer intent: As an ASP.NET developer, new to Azure Redis Cache, I want to use Redis Cache to improve performance and reduce back-end database load.
+
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET
 
@@ -44,7 +46,7 @@ To complete ththis tutorial, you must have the following prerequisites:
 
 ## Add a leaderboard to the project
 
-In this section of the tutorial, you configure the *ContosoTeamStats* project with a leaderboard that reports the win, loss, and tie statistics for some fictional teams. 
+In this section of the tutorial, you configure the *ContosoTeamStats* project with a leaderboard that reports the win, loss, and tie statistics for a list of fictional teams. 
 
 * [Add the Entity Framework to the project](#add-the-entity-framework-to-the-project)
 * [Add the Team model](#add-the-team-model)
@@ -74,7 +76,7 @@ For more information about this package, see the [EntityFramework](https://www.n
    
     ![Add model class](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png)
 
-3. Replace the `using` statements at the top of the `Team.cs` file with the following `using` statements:
+3. Replace the `using` statements at the top of the *Team.cs* file with the following `using` statements:
 
 	```csharp
 	using System;
@@ -665,23 +667,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 ## Run the app locally
 
-To run the application locally on your machine, you need an Azure Redis Cache instance in which to cache your data. 
-
-* If you have published your application to Azure as described in the previous section, you can use the Azure Redis Cache instance that was provisioned during that step.
-* If you have another existing Azure Redis Cache instance, you can use that to run this sample locally.
-* If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
-
-Once you have selected or created the cache to use, browse to the cache in the Azure portal and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
-
-1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
-2. Edit the `value` attribute and replace `YourCacheName.redis.cache.windows.net` with the [host name](cache-configure.md#properties) of your cache, and replace `YourAccessKey` with either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password.
-
-    ```xml
-    <appSettings>
-      <add key="CacheConnection" value="YourCacheName.redis.cache.windows.net,abortConnect=false,ssl=true,password=YourAccessKey"/>
-    </appSettings>
-    ```
-
+To run the application locally on your machine:
 
 1. Press **Ctrl+F5** to run the application.
 

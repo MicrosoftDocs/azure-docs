@@ -129,16 +129,51 @@ The NuGet package downloads and adds the required assembly references for your c
 
 In **Solution Explorer**, expand the **Controllers** folder, and open the *HomeController.cs* file.
 
-Add the following method to the `HomeController` class to support a new `RedisCache` action.
+Add the following method to the `HomeController` class to support a new `RedisCache` action that executes some commands against the new cache.
 
 ```csharp
-public ActionResult RedisCache()
-{
-    ViewBag.Message = "A simple example with Azure Redis Cache on ASP.NET.";
+        public ActionResult RedisCache()
+        {
+            ViewBag.Message = "A simple example with Azure Redis Cache on ASP.NET.";     
 
-    return View();
-}
+            var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+            {
+                string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+                return ConnectionMultiplexer.Connect(cacheConnection);
+            });
+
+            // Connection refers to a property that returns a ConnectionMultiplexer
+            // as shown in the previous example.
+            IDatabase cache = lazyConnection.Value.GetDatabase();
+
+            // Perform cache operations using the cache object...
+
+            // Simple PING command
+            ViewBag.command1 = "PING";
+            ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
+
+            // Simple get and put of integral data types into the cache
+            ViewBag.command2 = "GET Message";
+            ViewBag.command2Result = cache.StringGet("Message").ToString();
+
+            ViewBag.command3 = "SET Message \"Hello!The cache is working from ASP.NET!\"";
+            ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
+
+            // Demostrate "SET Message" executed as expected...
+            ViewBag.command4 = "GET Message";
+            ViewBag.command4Result = cache.StringGet("Message").ToString();
+
+            // Get the client list, useful to see if connection list is growing...
+            ViewBag.command5 = "CLIENT LIST";
+            ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
+
+            lazyConnection.Value.Dispose();
+
+            return View();
+        }
 ```
+
+
 
 In **Solution Explorer**, expand **Views**>**Shared** folder, and open the *_Layout.cshtml* file.   
 
@@ -168,30 +203,6 @@ Replace the code in the *RedisCache.cshtml* file with the following code:
 
 @{
     ViewBag.Title = "Azure Redis Cache Test";
-
-    var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-        return ConnectionMultiplexer.Connect(cacheConnection);
-    });
-
-    // Connection refers to a property that returns a ConnectionMultiplexer
-    // as shown in the previous example.
-    IDatabase cache = lazyConnection.Value.GetDatabase();
-
-    // Perform cache operations using the cache object...
-    // Simple put of integral data types into the cache
-
-    string pingResult = cache.Execute("PING").ToString();
-
-    string key1 = cache.StringGet("Message").ToString();
-    string setResult = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
-    string key2 = cache.StringGet("Message");
-
-    string clientListResult = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
-
-    lazyConnection.Value.Dispose();
-
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -203,24 +214,24 @@ Replace the code in the *RedisCache.cshtml* file with the following code:
         <th>Result</th>
     </tr>
     <tr>
-        <td>PING</td>
-        <td><pre>@pingResult</pre></td>
+        <td>@ViewBag.command1</td>
+        <td><pre>@ViewBag.command1Result</pre></td>
     </tr>
     <tr>
-        <td>GET Message</td>
-        <td><pre>@key1</pre></td>
+        <td>@ViewBag.command2</td>
+        <td><pre>@ViewBag.command2Result</pre></td>
     </tr>
     <tr>
-        <td>SET Message "Hello! The cache is working from ASP.NET!"</td>
-        <td>@setResult</td>
+        <td>@ViewBag.command3</td>
+        <td><pre>@ViewBag.command3Result</pre></td>
     </tr>
     <tr>
-        <td>GET Message</td>
-        <td><pre>@key2</pre></td>
+        <td>@ViewBag.command4</td>
+        <td><pre>@ViewBag.command4Result</pre></td>
     </tr>
     <tr>
-        <td>CLIENT LIST</td>
-        <td><pre>@clientListResult</pre></td>
+        <td>@ViewBag.command5</td>
+        <td><pre>@ViewBag.command5Result</pre></td>
     </tr>
 </table>
 ```
