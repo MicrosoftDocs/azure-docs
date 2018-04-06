@@ -1,6 +1,6 @@
 ---
 title: Manage cost of data in Azure Log Analytics | Microsoft Docs
-description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in the Azure portal.   
+description: Learn how to change the pricing plan and manage data volume and retention policy for your Log Analytics workspace in Azure.   
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -17,7 +17,7 @@ ms.author: magoedte
 ---
 
  
-# Manage cost by controlling data volume and retention with your Log Analytics workspace
+# Manage cost by controlling data volume and retention in Log Analytics
 Log Analytics is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, its important to understand that the cost of a Log Analytisc workspace isn't just based on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
 
 In this article we review how you can proactively monitor data volume and storage growth, and define limits to control those associated costs. 

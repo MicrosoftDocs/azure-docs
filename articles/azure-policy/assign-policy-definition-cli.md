@@ -5,7 +5,7 @@ services: azure-policy
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2018
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -25,6 +25,14 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 This quickstart requires that you run Azure CLI version 2.0.4 or later to install and use the CLI locally. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
+## Prerequisites
+
+Register the Policy Insights resource provider using Azure CLI. Registering the resource provider makes sure that your subscription works with it. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
+
+```
+az provider register –-namespace 'Microsoft.PolicyInsights'
+```
+For more information about registering and viewing resource providers, see [Resource Providers and Types](../azure-resource-manager/resource-manager-supported-services.md)
 
 
 ## Create a policy assignment

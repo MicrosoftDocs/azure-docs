@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 04/04/2018
 ms.author: bwren
 
 ---
@@ -28,7 +28,7 @@ The log files to be collected must match the following criteria.
 
     YYYY-MM-DD HH:MM:SS<br>M/D/YYYY HH:MM:SS AM/PM <br>Mon DD,YYYY HH:MM:SS
 
-- The log file must not allow circular updates where the file is overwritten with new entries.
+- The log file must not allow circular logging or log rotation, where the file is overwritten with new entries.
 - The log file must use ASCII or UTF-8 encoding.  Other formats such as UTF-16 are not supported.
 
 >[!NOTE]
