@@ -13,7 +13,7 @@ ms.topic: article
 
 You can use [Azure deployment slots](/azure/app-service/web-sites-staged-publishing) to swap between different versions of your app. That ability helps you minimize the impact of broken deployments. 
 
-This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a production slot, while the second app is hosted in a staging slot. (The names "production" and "staging" are arbitrary and can be anything you want that represents your scenario.) After you configure your deployment slots, you can use Terraform to swap between the two slots as needed.
+This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a production slot. The second app is hosted in a staging slot. (The names "production" and "staging" are arbitrary and can be anything you want that represents your scenario.) After you configure your deployment slots, you can use Terraform to swap between the two slots as needed.
 
 ## Prerequisites
 
@@ -128,7 +128,7 @@ This article illustrates an example use of deployment slots by walking you throu
     terraform plan
     ```
 
-1. Provision the resources defined in the `deploy.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
+1. Provision the resources that are defined in the `deploy.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
 
     ```bash
     terraform apply
@@ -291,7 +291,7 @@ To test swapping the two deployment slots, perform the following steps:
     terraform plan
     ```
 
-1. Provision the resources defined in the `swap.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
+1. Provision the resources that are defined in the `swap.tf` configuration file. (Confirm the action by entering `yes` at the prompt.)
 
     ```bash
     terraform apply
