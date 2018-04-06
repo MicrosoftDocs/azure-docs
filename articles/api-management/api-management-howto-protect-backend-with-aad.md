@@ -1,6 +1,6 @@
 ---
 title: Protect an API by using OAuth 2.0 with Azure Active Directory and API Management | Microsoft Docs
-description: Learn how to protect a web API back end with Azure Active Directory and API Management.
+description: Learn how to protect a web API backend with Azure Active Directory and API Management.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -30,9 +30,9 @@ To follow the steps in this article, you must have:
 
 Here is a quick overview of the steps:
 
-1. Register an application (backend app) in Azure AD to represent the API.
-2. Register another application in Azure AD to represent a client application that needs to call the API.
-3. In Azure AD, grant permissions to allow the client app to call the back-end app.
+1. Register an application (backend-app) in Azure AD to represent the API.
+2. Register another application (client-app) in Azure AD to represent a client application that needs to call the API.
+3. In Azure AD, grant permissions to allow the client-app to call the backend-app.
 4. Configure the Developer Console to use OAuth 2.0 user authorization.
 5. Add the **validate-jwt** policy to validate the OAuth token for every incoming request.
 
@@ -101,9 +101,9 @@ Now that you have registered two applications to represent the API and the Devel
 
 ## Enable OAuth 2.0 user authorization in the Developer Console
 
-At this point, you have created your applications in Azure AD, and have granted proper permissions to allow the client app to call the backend-app. 
+At this point, you have created your applications in Azure AD, and have granted proper permissions to allow the client-app to call the backend-app. 
 
-In this example, the Developer Console is the client app. The following steps describe how to enable OAuth 2.0 user authorization in the Developer Console. 
+In this example, the Developer Console is the client-app. The following steps describe how to enable OAuth 2.0 user authorization in the Developer Console. 
 
 1. Browse to your API Management instance.
 
@@ -121,17 +121,17 @@ In this example, the Developer Console is the client app. The following steps de
 
 8. Copy the **OAuth 2.0 Token Endpoint**, and paste it into the **Token endpoint URL** text box. In addition to pasting in the token endpoint, add a body parameter named **resource**. For the value of this parameter, use the **Application ID** for the back-end app.
 
-9. Next, specify the client credentials. These are the credentials for the client app.
+9. Next, specify the client credentials. These are the credentials for the client-app.
 
-10. For **Client ID**, use the **Application ID** for the client app.
+10. For **Client ID**, use the **Application ID** for the client-app.
 
-11. For **Client secret**, use the key you created for the client app earlier. 
+11. For **Client secret**, use the key you created for the client-app earlier. 
 
 12. Immediately following the client secret is the **redirect_url** for the authorization code grant type. Make a note of this URL.
 
 13. Select **Create**.
 
-14. Go back to the **Settings** page of your client app.
+14. Go back to the **Settings** page of your client-app.
 
 15. Select **Reply URLs**, and paste the **redirect_url** in the first row. In this example, you replaced `https://localhost` with the URL in the first row.  
 
