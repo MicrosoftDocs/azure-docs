@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/06/2018
 ms.author: jeedes
 
 ---
@@ -109,8 +109,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     b. In the **Identifier** textbox, type a URL using the following pattern: `urn:auth0:ziflow-production:<Unique ID>`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Ziflow support team](mailto:support@ziflow.com) to get these values.
- 
+	> The preceding values are not real. You will update the unique ID value in the Identifier and Sign on URL with  actual value, which is explained later in the tutorial. Contact [Ziflow support team](mailto:support@ziflow.com) for the subdomain value in the Sign-on URL.
+	
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_certificate.png) 
@@ -119,11 +119,34 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-ziflow-tutorial/tutorial_general_400.png)
 
-6. On the **Ziflow Configuration** section, click **Configure Ziflow** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Ziflow Configuration** section, click **Configure Ziflow** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Ziflow Configuration](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_configure.png) 
 
-7. To configure single sign-on on **Ziflow** side, you need to send the downloaded **Certificate (Base64), SAML Entity ID and SAML Single Sign-On Service URL** to [Ziflow support team](mailto:support@ziflow.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. In a different web browser window, login to Ziflow as a Security Administrator.
+
+
+8. Click on Avtar in the top right corner, and then click **Manage account**.
+
+	![Ziflow Configuration Manage](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_manage.png)
+
+9. In the top left, click **Single Sign-On**.
+
+	![Ziflow Configuration Sign](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_signon.png)
+
+10. On the **Single Sign-On** page, perform the following steps:
+
+	![Ziflow Configuration Single](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_page.png)
+
+	a. Select **Type** as **SAML2.0**.
+
+	b.In the **Sign In URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from the Azure portal.
+
+    c. Upload the base-64 encoded certificate that you have downloaded from the Azure portal, into the **X509 Signing Certificate**.
+
+	d. In the **Sign Out URL** textbox, paste the value of **Sign-Out URL** which you have copied from the Azure portal.
+
+	e. From the **Configuration Settings for your Identifier Provider** section, copy the highlighted unique ID value and append it with the Identifier and Sign on URL in the **Ziflow Domain and URLs section** on Azure portal.
 
 ### Create an Azure AD test user
 
@@ -159,7 +182,36 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a Ziflow test user
 
-In this section, you create a user called Britta Simon in Ziflow. You need to send the user's email id to [Ziflow support team](mailto:support@ziflow.com), then they verify the email and send you the invite mail so that you can add user in Ziflow platform.
+To enable Azure AD users to log in to Ziflow, they must be provisioned into Ziflow. In Ziflow, provisioning is a manual task.
+
+To provision a user account, perform the following steps:
+
+1. Log in to Ziflow as a Security Administrator.
+
+2. Navigate to **People** on the top.
+
+	![Ziflow Configuration people](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_people.png)
+
+3. Click **Add** and then click **Add user**.
+
+	![Ziflow Configuration add](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_add.png)
+
+4. on the **Add a user** popup, perform the following steps:
+
+	![Ziflow Configuration adduser](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_adduser.png)
+
+	a. In **Email** text box, enter the email of user like brittasimon@contoso.com.
+
+	b. In **First name** text box, enter the first name of user like Britta.
+
+	c. In **Last name** text box, enter the last name of user like Simon.
+
+	d. Select your Ziflow role.
+
+	e. Click **Add 1 user**.
+
+	> [!NOTE]
+    > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 
 ### Assign the Azure AD test user
 
