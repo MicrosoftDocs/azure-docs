@@ -4,7 +4,7 @@ description: Automate Windows VM configuration tasks by using the Custom Script 
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
