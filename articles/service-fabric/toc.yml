@@ -401,6 +401,8 @@
         href: service-fabric-securing-containers.md
       - name: Set up gMSA for Windows containers 
         href: service-fabric-setup-gmsa-for-windows-containers.md
+    - name: Configure periodic backups
+      href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Migrate old Java Application to support Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: Work in a Windows/VS dev environment
@@ -485,8 +487,6 @@
         href: service-fabric-set-up-continuous-integration.md
       - name: Deploy your Linux applications using Jenkins
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
-  - name: Periodic backup and restore
-    href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
   - name: Create and manage clusters
     items:
     - name: Clusters on Azure

@@ -1,6 +1,6 @@
 ---
 title: Periodic backup and restore in Azure Service Fabric | Microsoft Docs
-description: Use Service Fabric's Periodic backup and restore feature for protecting your applications from Data Loss.
+description: Use Service Fabric's periodic backup and restore feature for protecting your applications from data loss.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -38,7 +38,9 @@ Service Fabric provides an inbuilt APIs to do point in time [backup and restore]
 
 Backup of the application data on a periodic basis is a basic need for managing a distributed applications and guarding against loss of data or prolonged loss of service availability. Service Fabric provides optional backup restore service which allows you to configure periodic backup of Reliable Stateful service partitions and Reliable Actors without having to write any additional code. It also facilitates to restore previously taken backup to the service partition. 
 
-Periodic backup and restore feature is presently in **Preview** and not supported for production workloads. 
+> [!NOTE]
+> Periodic backup and restore feature is presently in **Preview** and not supported for production workloads. 
+>
 
 Service Fabric provides set of APIs to achieve the following functionality related to periodic backup and restore feature:
 
@@ -57,20 +59,20 @@ Service Fabric provides set of APIs to achieve the following functionality relat
 * Sample Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .Net Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
 
 ## Enabling backup restore service
-First you need to enable the _backup restore service_ in your cluster. Get the template for the cluster that you want to deploy. You can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)  or create a Resource Manager template. You can enable the _backup restore service_ with the following steps:
+First you need to enable the _backup restore service_ in your cluster. Get the template for the cluster that you want to deploy. You can use the [sample templates](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Enable the _backup restore service_ with the following steps:
 
-1. Check that the `apiversion` is set to `2018-02-01` in the cluster configuration file, and if not, update it as shown in the following snippet:
+1. Check that the `apiversion` is set to `10-2017` in the cluster configuration file, and if not, update it as shown in the following snippet:
 
     ```json
     {
-        "apiVersion": "2018-02-01",
+        "apiVersion": "10-2017",
         "name": "SampleCluster",
         "clusterConfigurationVersion": "1.0.0",
         ...
     }
     ```
 
-2. Now enable the Backup Restore service by adding the following `addonFeatures` section under `properties` section as shown in the following snippet: 
+2. Now enable the _backup restore service_ by adding the following `addonFeatures` section under `properties` section as shown in the following snippet: 
 
     ```json
         "properties": {
@@ -99,18 +101,16 @@ First you need to enable the _backup restore service_ in your cluster. Get the t
     }
     ```
 
-4. Once you have updated your cluster template with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the Backup Restore system service starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and this can be located under system service section in the Service Fabric explorer. 
+4. Once you have updated your cluster configuration file with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the _backup restore service_ starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and this can be located under system service section in the Service Fabric explorer. 
 
-Alternatively, you can enable the Backup Restore service through the portal at the time of cluster creation. (upcoming)
-
-## Enabling backups for Reliable Stateful service and Reliable Actors
+## Enabling periodic backup for Reliable Stateful service and Reliable Actors
 Let's walkthrough steps to enable periodic backup for Reliable Stateful service and Reliable Actors. These steps assume
 - That the cluster is setup with _backup restore service_.
 - A Reliable Stateful application is deployed on the cluster. For the purpose of this quick start guide, application Uri is `fabric:/SampleApp` and the Uri for Reliable Stateful service belonging to this application is `fabric:/SampleApp/MyStatefulService`. This service is deployed with single partition, and the partition id is `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7`.  
 
-### Policy creation
+### Create backup policy
 
-First step is to create policy describing backup schedule, target storage for backup data, policy name, and maximum incremental backups to be allowed before triggering full backup. 
+First step is to create backup policy describing backup schedule, target storage for backup data, policy name, and maximum incremental backups to be allowed before triggering full backup. 
 
 For backup storage, create file share and give ReadWrite access to this file share for all Service Fabric Node machines. This example assumes the share with name `BackupStore` is present on `StorageServer`.
 
@@ -118,7 +118,7 @@ Execute following PowerShell script for invoking required REST API to create new
 
 ```powershell
 $ScheduleInfo = @{
-    Interval = 'PT1M'
+    Interval = 'PT15M'
     ScheduleKind = 'FrequencyBased'
 }   
 
@@ -135,13 +135,13 @@ $BackupPolicy = @{
 }
 
 $body = (ConvertTo-Json $BackupPolicy)
-$url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.2-preview&timeout=1000"
+$url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.2-preview"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
 ### Enable periodic backup
-After defining policy to fulfil data protection requirements of the application, the policy should to be associated with the application. Depending on requirement, the policy can be associated with application, service or a partition. Read [Configuring periodic backup & automatic restore for Applications](service-fabric-backuprestoreservice-configure-periodic-backup.md) for further details.
+After defining policy to fulfil data protection requirements of the application, the policy should to be associated with the application. Depending on requirement, the policy can be associated with application, service or a partition.
 
 Execute following PowerShell script for invoking required REST API to associate backup policy with name `BackupPolicy1` created in above step with application `SampleApp`.
 
@@ -151,7 +151,7 @@ $BackupPolicyReference = @{
 }
 
 $body = (ConvertTo-Json $BackupPolicyReference)
-$url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version=6.2-preview&timeout=1000"
+$url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version=6.2-preview"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ``` 
@@ -169,9 +169,12 @@ Backup points associated with all partitions belonging to Reliable Stateful serv
 Execute following PowerShell script for invoking required REST API to enumerate backup points created for partitions belonging to Reliable Stateful services and Reliable Actors of `SampleApp` application.
 
 ```powershell
-$url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.2-preview&timeout=10000"
+$url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.2-preview"
 
-Invoke-WebRequest -Uri $url -Method Get
+$response = Invoke-WebRequest -Uri $url -Method Get
+
+$BackupPoints = (ConvertFrom-Json $response.Content)
+$BackupPoints.Items
 ```
 Sample output for the above run:
 
@@ -193,11 +196,11 @@ BackupChainId           : d7e4038e-2c46-47c6-9549-10698766e714
 ApplicationName         : fabric:/SampleApp
 ServiceName             : fabric:/SampleApp/MyStatefulService
 PartitionInformation    : @{LowKey=-9223372036854775808; HighKey=9223372036854775807; ServicePartitionKind=Int64Range; Id=23aebc1e-e9ea-4e16-9d5c-e91a614fefa7}
-BackupLocation          : SampleApp\MyStatefulService\23aebc1e-e9ea-4e16-9d5c-e91a614fefa7\2018-04-01 19.40.38.zip
+BackupLocation          : SampleApp\MyStatefulService\23aebc1e-e9ea-4e16-9d5c-e91a614fefa7\2018-04-01 19.54.38.zip
 BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131670844862460432; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 2237
-CreationTimeUtc         : 2018-04-01T19:40:38Z
+CreationTimeUtc         : 2018-04-01T19:54:38Z
 FailureError            : 
 
 BackupId                : fc75bd4c-798c-4c9a-beee-e725321f73b2
@@ -205,11 +208,11 @@ BackupChainId           : d7e4038e-2c46-47c6-9549-10698766e714
 ApplicationName         : fabric:/SampleApp
 ServiceName             : fabric:/SampleApp/MyStatefulService
 PartitionInformation    : @{LowKey=-9223372036854775808; HighKey=9223372036854775807; ServicePartitionKind=Int64Range; Id=23aebc1e-e9ea-4e16-9d5c-e91a614fefa7}
-BackupLocation          : SampleApp\MyStatefulService\23aebc1e-e9ea-4e16-9d5c-e91a614fefa7\2018-04-01 19.41.44.zip
+BackupLocation          : SampleApp\MyStatefulService\23aebc1e-e9ea-4e16-9d5c-e91a614fefa7\2018-04-01 20.09.44.zip
 BackupType              : Incremental
 EpochOfLastBackupRecord : @{DataLossNumber=131670844862460432; ConfigurationNumber=8589934592}
 LsnOfLastBackupRecord   : 2437
-CreationTimeUtc         : 2018-04-01T19:41:44Z
+CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
@@ -218,6 +221,9 @@ FailureError            :
 - No support for Service Fabric CLI.
 - No support for automated backup point purging. Requires manual clean-up of backup points.
 - No support for Service Fabric clusters on Linux.
+
+## Next Steps
+- [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent.png
 
