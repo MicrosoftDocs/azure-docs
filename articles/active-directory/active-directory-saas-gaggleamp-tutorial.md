@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 04/06/2017
 ms.author: jeedes
 
 ---
@@ -135,15 +135,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 9. On your **SAML SSO** page, perform the following steps:  
    
-    ![GaggleAMP Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) 
- 
-    a. In the **Identity Provider Issuer** textbox, paste the value of **Issuer URL** which you have copied from Azure portal. 
- 
-    b. In the **Identity Provider Single Sign-On URL** textbox, paste the  value of **Single Sign-On Service URL** which you have copied from Azure portal. 
+    ![GaggleAMP Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-	c. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the textbox.
-
-	d. Click **Save**.
+	a. Select **Other** form the **Identity provider** dropdown menu.
+	
+	b. In the **Identity Provider Issuer** textbox, paste the value of **Issuer URL** which you have copied from Azure portal.
+	
+	c. In the **Identity Provider Single Sign-On URL** textbox, paste the  value of **Single Sign-On Service URL** which you have copied from Azure portal.
+	
+	d. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox.
+	
+	e. Click **Save**.
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
