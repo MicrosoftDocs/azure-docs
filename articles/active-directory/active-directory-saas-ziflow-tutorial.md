@@ -196,7 +196,7 @@ To provision a user account, perform the following steps:
 
 	![Ziflow Configuration add](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_add.png)
 
-4. on the **Add a user** popup, perform the following steps:
+4. On the **Add a user** popup, perform the following steps:
 
 	![Ziflow Configuration adduser](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_adduser.png)
 
