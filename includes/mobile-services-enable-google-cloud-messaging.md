@@ -4,7 +4,7 @@
    
     ![Create new project](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 3. For **Project name**, enter a name for your project, and click **Create**.
-4. Select the alerts butotn on the toolbar, and select your project in the list. You see the dashboard for your project. You can also naviate directly to the dashboard by using the URL: https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+4. Select the **alerts** button on the toolbar, and select your project in the list. You see the dashboard for your project. You can also navigate directly to the dashboard by using the URL: https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
 
     ![Select your project in alerts](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Note down the **Project number** in the **Project info** tile of the dashboard. 
@@ -28,7 +28,7 @@
 11. On the **Add credentials to your project** page, select **API key** link. 
 
     ![Create credentials button](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
-12. On **API key** page, select **Create/Save**. In the following example, the **IP addresses** option is seleted, and **0.0.0.0/0** is entered for allowed IP addresses. You should restrict your API key appropriately. 
+12. On **API key** page, select **Create/Save**. In the following example, the **IP addresses** option is selected, and **0.0.0.0/0** is entered for allowed IP addresses. You should restrict your API key appropriately. 
 
     ![API Key - Create button](./media/mobile-services-enable-google-cloud-messaging/api-key-create-button.png)
 13. Copy the **API key** to the clipboard, and save it somewhere. 

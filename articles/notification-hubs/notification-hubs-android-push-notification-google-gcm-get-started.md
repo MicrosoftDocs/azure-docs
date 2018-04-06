@@ -149,7 +149,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
         public static String HubListenConnectionString = "<Your default listen connection string>";
     }
     ```
-2. Add another new class named `MyInstanceIDService`. This is the Instance ID listener service implementation.
+2. Add another new class named `MyInstanceIDService`. This class is the Instance ID listener service implementation.
    
     The code for this class calls `IntentService` to [refresh the GCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) in the background.
    
@@ -430,7 +430,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
    
       ![Testing on Android - sending a message][19]
 
-3. Press **Send Notification**. Any devices that have the app running shows an `AlertDialog` instance with the push notification message. Devices that don't have the app running but were previously registered for push notifications receive a notification in the Android Notification Manager. Those can be viewed by swiping down from the upper-left corner.
+3. Press **Send Notification**. Any devices that have the app running shows an `AlertDialog` instance with the push notification message. Devices that don't have the app running but were previously registered for push notifications receive a notification in the Android Notification Manager. The notification messages can be viewed by swiping down from the upper-left corner.
    
       ![Testing on Android - notifications][21]
 
@@ -476,7 +476,7 @@ Normally, you would send notifications using a backend server. For some cases, y
     android:layout_marginBottom="42dp"
     android:hint="@string/notification_message_hint" />
     ```
-2. In Android Studio Project View, expand **App** > **src** > **main** > **res** > **values**. Open the `strings.xml` file and add the string values that are referenced by the new `Button` and `EditText` controls. Add these at the bottom of the file, just before `</resources>`.
+2. In Android Studio Project View, expand **App** > **src** > **main** > **res** > **values**. Open the `strings.xml` file and add the string values that are referenced by the new `Button` and `EditText` controls. Add the following lines at the bottom of the file, just before `</resources>`.
 
     ```xml   
     <string name="send_button">Send Notification</string>
@@ -512,7 +512,7 @@ Normally, you would send notifications using a backend server. For some cases, y
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. You must create a Software Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub. This is done by parsing the key data from the connection string and then creating the SaS token, as mentioned in the [Common Concepts](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API reference. The following code is an example implementation.
+6. Create a Software Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub. Parse the key data from the connection string and then creating the SaS token, as mentioned in the [Common Concepts](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API reference. The following code is an example implementation.
    
     In `MainActivity.java`, add the following method to the `MainActivity` class to parse your connection string.
    
