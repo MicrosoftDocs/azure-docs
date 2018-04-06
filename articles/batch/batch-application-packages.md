@@ -28,7 +28,7 @@ In this article, you learn how to upload and manage application packages in the 
 > 
 > Application packages are supported on all Batch pools created after 5 July 2017. They are supported on Batch pools created between 10 March 2016 and 5 July 2017 only if the pool was created using a Cloud Service configuration. Batch pools created prior to 10 March 2016 do not support application packages.
 >
-> The APIs for creating and managing application packages are part of the [Batch Management .NET][[api_net_mgmt]] library. The APIs for installing application packages on a compute node are part of the [Batch .NET][api_net] library. Comparable features are in the available Batch APIs for other languages. 
+> The APIs for creating and managing application packages are part of the [Batch Management .NET][api_net_mgmt] library. The APIs for installing application packages on a compute node are part of the [Batch .NET][api_net] library. Comparable features are in the available Batch APIs for other languages. 
 >
 > The application packages feature described here supersedes the Batch Apps feature available in previous versions of the service.
 > 
