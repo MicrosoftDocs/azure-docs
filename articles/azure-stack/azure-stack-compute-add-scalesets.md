@@ -9,7 +9,7 @@ editor: ''
 ms.assetid:
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords:
