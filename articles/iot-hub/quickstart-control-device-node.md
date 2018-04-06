@@ -82,7 +82,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     Make a note of the service connection string, which looks like `Hostname=...=`. You use this value later in the quickstart. The service connection string is different from the device connection string.
 
-## Respond to direct method calls
+## Listen for direct method calls
 
 The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
 
