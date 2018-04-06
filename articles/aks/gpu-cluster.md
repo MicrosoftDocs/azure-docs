@@ -8,7 +8,7 @@ manager: gamonroy
 ms.service: container-service
 ms.topic: article
 ms.date: 04/05/2018
-ms.author: -
+ms.author: laevenso
 ms.custom: mvc
 ---
 
@@ -16,14 +16,13 @@ ms.custom: mvc
 
 AKS supports the creation of GPU enabled node pools. Azure currently provides single or multiple GPU enabled VMs. GPU enabled VMs are designed for compute-intensive, graphics-intensive, and visualization workloads. A list of GPU enabled VMs can be found [here](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
 
-
 ## Create an AKS cluster
 
-GPUs are generally needed for compute-intesive workloads suchas graphics-intensive, and visualization workloads. Please refer to the following [document](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu) to determine the right VM size for your workload.
+GPUs are typically needed for compute-intesive workloads such as graphics-intensive, and visualization workloads. Refer to the following [document](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu) to determine the right VM size for your workload.
 We recommend a minimum size of `Standard_NC6` for your Azure Container Service (AKS) nodes.
 
 > [!NOTE]
-> GPU enabled VMs contain specialized hardware that is subject to higher pricing. Please refer to the [pricing](https://azure.microsoft.com/en-us/pricing/) tool for more information.
+> GPU enabled VMs contain specialized hardware that is subject to higher pricing. For more information, see the [pricing](https://azure.microsoft.com/en-us/pricing/) tool for more information.
 
 
 If you need an AKS cluster that meets this minimum recommendation, run the following commands.
@@ -34,7 +33,7 @@ Create a resource group for the cluster.
 az group create --name myGPUCluster --location eastus
 ```
 
-Create the AKS cluster with nodes that are of size `Standard_D3_v2`.
+Create the AKS cluster with nodes that are of size `Standard_NC6`.
 
 ```azurecli
 az aks create --resource-group myGPUCluster --name myGPUCluster --node-vm-size Standard_NC6
@@ -50,7 +49,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 Run the following commands to confirm the GPUs are schedulable via Kubernetes. 
 
-Get the current list of nodes
+Get the current list of nodes.
 
 ```
 kubectl get nodes
@@ -60,7 +59,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-Describe one of the nodes to confirm the GPUs are schedulable. This can be found under the `Capacity` section. For example `alpha.kubernetes.io/nvidia-gpu:  1`
+Describe one of the nodes to confirm the GPUs are schedulable. This can be found under the `Capacity` section. For example, `alpha.kubernetes.io/nvidia-gpu:  1`.
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -114,7 +113,7 @@ System Info:
  Kubelet Version:            v1.9.6
  Kube-Proxy Version:         v1.9.6
 PodCIDR:                     10.244.1.0/24
-ExternalID:                  /subscriptions/8ecadfc9-d1a3-4ea4-b844-0d9f87e4d7c8/resourceGroups/MC_levo-aks-eastus_levo-eus-01_eastus/providers/Microsoft.Compute/virtualMachines/aks-nodepool1-22139053-0
+ExternalID:                  /subscriptions/8ecadfc9-d1a3-4ea4-b844-0d9f87e4d7c8/resourceGroups/MC_myGPUCluster_myGPUCluster/providers/Microsoft.Compute/virtualMachines/aks-nodepool1-22139053-0
 Non-terminated Pods:         (2 in total)
   Namespace                  Name                       CPU Requests  CPU Limits  Memory Requests  Memory Limits
   ---------                  ----                       ------------  ----------  ---------------  -------------
@@ -130,9 +129,9 @@ Events:         <none>
 
 ## Run a GPU enabled workload
 
-In order to demonstrate the GPUs are indeed working we'll schedule a GPU enabled workload with the appropriate resource request. In this example we will be running a [Tensorflow job](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/)
+In order to demonstrate the GPUs are indeed working, schedule a GPU enabled workload with the appropriate resource request. This example will run a [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
-The following job specification includes a resource limit of `alpha.kubernetes.io/nvidia-gpu: 1`. The appropriate drivers will be available on the node and must be mounted (/usr/local/nvidia) into the pod using the appropriate volume specification as seen below
+The following job specification includes a resource limit of `alpha.kubernetes.io/nvidia-gpu: 1`. The appropriate drivers will be available on the node and must be mounted (/usr/local/nvidia) into the pod using the appropriate volume specification as seen below.
 
 ```
 apiVersion: batch/v1
@@ -165,17 +164,21 @@ spec:
             path: /usr/local/nvidia         
 ```
 
-Confirm that the job pod completed successfully
+Confirm that the job completed successfully.
 ```
-$ kubectl get pods --show-all
-NAME              READY     STATUS      RESTARTS   AGE
-mnist-pod-7dthc   0/1       Completed   0          6h
 $ kubectl get jobs
 NAME        DESIRED   SUCCESSFUL   AGE
 mnist-pod   1         1            6h
 ```
 
-Refer to the pod logs to confirm that the appropriate GPU device has been discovered in this case. `Tesla K80`
+Determine the pod name to view the logs by showing completed pods.
+```
+$ kubectl get pods --show-all
+NAME              READY     STATUS      RESTARTS   AGE
+mnist-pod-7dthc   0/1       Completed   0          6h
+```
+
+Refer to the pod logs to confirm that the appropriate GPU device has been discovered in this case, `Tesla K80`.
 ```
 $ kubectl logs mnist-pod-7dthc
 2018-04-05 22:31:11.676047: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
