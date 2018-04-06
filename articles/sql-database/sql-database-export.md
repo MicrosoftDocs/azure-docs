@@ -6,7 +6,7 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 10/11/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 ms.topic: article
 

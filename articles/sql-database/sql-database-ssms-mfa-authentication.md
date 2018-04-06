@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 04/01/2018
 ms.author: mireks
 ---
 
