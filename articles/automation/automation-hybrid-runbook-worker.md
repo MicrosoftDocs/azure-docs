@@ -71,10 +71,11 @@ To remove a group, you first need to remove the Hybrid Runbook Worker from every
 
 ## <a name="network-planning"></a>Configure your network
 
-For the Hybrid Runbook Worker to connect to and register with Log Analytics, it must have access to the port number and the URLs that are described in this section. This is in addition to the [ports and URLs required for Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) to connect to Log Analytics.
+## Hybrid Worker role
+
+For the Hybrid Runbook Worker to connect to and register with Log Analytics, it must have access to the port number and the URLs that are described in this section. This is in addition to the [ports and URLs required for Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) to connect to Log Analytics.
 
 If you use a proxy server for communication between the agent and the Log Analytics service, ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the internet, you must configure your firewall to permit access.
-
 
 The following port and URLs are required for the Hybrid Runbook Worker role to communicate with Automation:
 
@@ -107,6 +108,15 @@ For a list of region IP addresses instead of region names, download the [Azure D
 >An updated file is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
 >
 > It's a good idea to download the new XML file every week. Then, update your site to correctly identify services running in Azure. Azure ExpressRoute users should note that this file used to update the Border Gateway Protocol (BGP) advertisement of Azure space the first week of each month.
+
+### Update Management
+
+In addition to the standard URLS and ports that the Hybrid Runbook Worker requires, the following urls are required specifically for Update management. Communication to these urls is done over port 443.
+
+* *.ods.opinsights.azure.com
+* *.oms.opinsights.azure.com
+* ods.systemcenteradvisor.com
+* *.blob.core.windows.net/
 
 ## Troubleshooting
 
