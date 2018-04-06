@@ -4,7 +4,7 @@ description: Migrate Azure virtual machines created using unmanaged disks in sto
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
