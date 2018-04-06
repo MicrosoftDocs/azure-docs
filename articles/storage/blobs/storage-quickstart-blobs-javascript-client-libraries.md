@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Upload, list, and delete blobs with Azure Storage using JavaScript and HTML in the Browser
+title: Upload, list, and delete blobs with Azure Storage using JavaScript and HTML in the Browser
 description: Learn to use an instance of BlobService to upload, list, and delete blobs using JavaScript in an HTML page.
 services: storage
 keywords: storage, javascript, html
@@ -11,8 +11,8 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-
 ---
+
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # Quickstart: Upload, list, and delete blobs with Azure Storage using JavaScript/HTML in the Browser
