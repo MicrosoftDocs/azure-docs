@@ -109,7 +109,7 @@ To use service principal based AAD application token authentication, follow thes
 4. **Grant the service principal needed permissions** as you normally do for SQL users, e.g. by executing below:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. In ADF, configure an Azure SQL Database linked service.
