@@ -1,10 +1,10 @@
 ---
-title: Notification Hubs Breaking News Tutorial - Android
-description: Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to Android devices.
+title: Push notifications to specific Android devices using Azure Notification Hubs and Google Cloud Messaging | Microsoft Docs
+description: Learn how to use Notification Hubs to push notifications to specific Android devices by using Azure Notification Hubs and Google Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
-author: ysxu
-manager: erikre
+author: spelluru
+manager: 
 editor: ''
 
 ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
@@ -12,26 +12,35 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/06/2018
+ms.author: spelluru
 
 ---
-# Use Notification Hubs to send breaking news
+# Tutorial: Push notifications to specific Android devices using Azure Notification Hubs and Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## Overview
-This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an Android app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc.
+This tutorial shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an Android app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, for example, RSS reader, apps for music fans, etc.
 
-Broadcast scenarios are enabled by including one or more *tags* when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md).
+Broadcast scenarios are enabled by including one or more *tags* when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, see [Notification Hubs Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md).
+
+In this tutorial, you do the following actions: 
+
+> [!div class="checklist"]
+> * Add category selection to the mobile app.
+> * Registerd for notifications with tags. 
+> * Send tagged notifications. 
+> * Test the app
 
 ## Prerequisites
-This topic builds on the app you created in [Get started with Notification Hubs][get-started]. Before starting this tutorial, you must have already completed [Get started with Notification Hubs][get-started].
+This tutorial builds on the app you created in [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging][get-started]. Before starting this tutorial, complete the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging][get-started].
 
 ## Add category selection to the app
 The first step is to add the UI elements to your existing main activity that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags.
 
-1. Open your res/layout/activity_main.xml file, and substitute the content with the following:
+1. Open your res/layout/activity_main.xml file, and substitute the content with the following content:
    
     ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -96,10 +105,10 @@ The first step is to add the UI elements to your existing main activity that ena
     <string name="label_sports">Sports</string>
     ```
 
-    Your main_activity.xml graphical layout should now look like this:
+    Your main_activity.xml graphical layout should looks like in the following image:
    
     ![][A1]
-3. Now create a class **Notifications** in the same package as your **MainActivity** class.
+3. Create a class `Notifications` in the same package as your **MainActivity** class.
 
     ```java   
     import java.util.HashSet;
@@ -181,7 +190,7 @@ The first step is to add the UI elements to your existing main activity that ena
     // private NotificationHub hub;
     private Notifications notifications;
     ```
-5. Then, in the **onCreate** method, remove the initialization of the **hub** field and the **registerWithNotificationHubs** method. Then add the following lines which initialize an instance of the **Notifications** class. 
+5. Then, in the **onCreate** method, remove the initialization of the **hub** field and the **registerWithNotificationHubs** method. Then add the following lines, which initialize an instance of the **Notifications** class. 
 
     ```java
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,7 +207,7 @@ The first step is to add the UI elements to your existing main activity that ena
     }
     ```
 
-    `HubName` and `HubListenConnectionString` should already be set with the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier.
+    Confirm that the hub name and the connection string are set properly in the NotificationSettings class.
 
     > [AZURE.NOTE] Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
 1. Then, add the following imports:
@@ -255,7 +264,7 @@ These steps register with the notification hub on startup using the categories t
     notifications.subscribeToCategories(notifications.retrieveCategories());
     ```
    
-    This makes sure that every time the app starts it retrieves the categories from local storage and requests a registeration for these categories. 
+    This code makes sure that every time the app starts it retrieves the categories from local storage and requests a registration for these categories. 
 2. Then update the `onStart()` method of the `MainActivity` class as follows:
    
     ```java
@@ -282,15 +291,15 @@ These steps register with the notification hub on startup using the categories t
     }
     ```
    
-    This updates the main activity based on the status of previously saved categories.
+    This code updates the main activity based on the status of previously saved categories.
 
-The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, we will define a backend that can send category notifications to this app.
+The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, define a backend that can send category notifications to this app.
 
-## Sending tagged notifications
+## Send tagged notifications
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## Run the app and generate notifications
-1. In Android Studio, run the app on your Android device or emulator. Note that the app UI provides a set of toggles that lets you choose the categories to subscribe to.
+## Test the app
+1. In Android Studio, run the app on your Android device or emulator. The app UI provides a set of toggles that lets you choose the categories to subscribe to.
 2. Enable one or more categories toggles, then click **Subscribe**. The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a toast notification.
 
     ![Subscribe for categories](./media/notification-hubs-aspnet-backend-android-breaking-news/subscribe-for-categories.png)
@@ -299,11 +308,10 @@ The app is now complete and can store a set of categories in the device local st
     ![Technology news notifications](./media/notification-hubs-aspnet-backend-android-breaking-news/technolgy-news-notification.png)
 
 ## Next steps
-In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
+In this tutorial, you sent broadcast notifications to specific Android devices that have registered for the categories. To learn how to push notifications to specific users, advance to the following tutorial: 
 
-* [Use Notification Hubs to broadcast localized breaking news]
-  
-    Learn how to expand the breaking news app to enable sending localized notifications.
+> [!div class="nextstepaction"]
+>[Push notifications to specific users](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG

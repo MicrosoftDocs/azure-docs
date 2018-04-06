@@ -31,6 +31,14 @@ You create a blank Android app that receives push notifications by using Google 
 
 The completed code for this tutorial can be downloaded from GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
 
+In this tutorial, you do the following actions: 
+
+> [!div class="checklist"]
+> * Create a project that supports Google Cloud Messaging.
+> * Create a notification hub
+> * Connect your app to the notification hub
+> * Test the app
+
 ## Prerequisites
 
 - **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
@@ -39,7 +47,7 @@ The completed code for this tutorial can be downloaded from GitHub [here](https:
 ## Creating a project that supports Google Cloud Messaging
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-## Configure a new notification hub
+## Create a notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 ### Configure GCM setting for the notification hub
@@ -686,9 +694,6 @@ In this tutorial, you sent broadcast notifications to all your Android devices r
 > [!div class="nextstepaction"]
 >[Push notifications to specific devices](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
-Go through the [Use Notification Hubs to push notifications to users] tutorial as the next step. It shows you how to send notifications from an ASP.NET backend using tags to target specific users.
-
-If you want to segment your users by interest groups, check out the [Use Notification Hubs to send breaking news] tutorial.
 
 
 <!-- Images. -->
