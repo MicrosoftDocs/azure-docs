@@ -100,7 +100,7 @@ The [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) microserv
 
 The alarms are stored in Cosmos DB.
 
-The `telemetry-agent` microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
+The [telemetry](https://github.com/Azure/device-telemetry-dotnet) microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
 
 * Define monitoring rules such as the thresholds that trigger alarms
 * Retrieve the list of past alarms.
