@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,business continuity
 ms.topic: tutorial
-ms.date: 05/26/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 
 ---
