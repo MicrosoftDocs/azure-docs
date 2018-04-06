@@ -37,7 +37,7 @@ The Windows Azure Diagnostics Extension requires that the target virtual machine
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Windows Azure Diagnostics extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension can be found here, [in this document](extensions-diagnostics-template.md).
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Windows Azure Diagnostics extension during an Azure Resource Manager template deployment. A sample template and instructions on how to set up the Windows Azure Diagnostics extension with a template can be found [in this article](extensions-diagnostics-template.md).
 
 ## Azure CLI deployment
 
@@ -51,6 +51,19 @@ az vm extension set \
   --publisher Microsoft.Azure.Diagnostics \
   --version 1.9.0.0 --protected-settings protected-settings.json \
   --settings public-settings.json 
+```
+
+## PowerShell deployment
+
+The `Set-AzureRmVMDiagnosticsExtension` command can be used to add the Windows Azure Diagnostics extension to an existing virtual machine. For more information, see [this article](ps-extensions-diagnostics.md).
+```powershell
+$vm_resourcegroup = "myvmresourcegroup"
+$vm_name = "myvm"
+$diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
+
+Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
+  -VMName $vm_name `
+  -DiagnosticsConfigurationPath $diagnosticsconfig_path
 ```
 
 ## Troubleshoot and support
