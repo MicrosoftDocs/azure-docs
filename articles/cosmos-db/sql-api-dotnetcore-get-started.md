@@ -4,7 +4,7 @@ description: A tutorial that creates an online database and C# console applicati
 services: cosmos-db
 documentationcenter: .net
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
