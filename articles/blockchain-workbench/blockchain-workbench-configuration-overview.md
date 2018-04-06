@@ -289,7 +289,7 @@ Identifiers represent a collection of information used to describe workflow prop
 | Name | The unique name of the property or parameter. The corresponding smart contract must use the same **Name** for the applicable property or parameter. | Yes |
 | DisplayName | Friendly display name for the property or parameter. | Yes |
 | Description | Description of the property or parameter. | No |
-| Type | The type of data specified in the **Identifier**. Supported types are:</br>`state` - Workflow state</br>`string` – string data type</br>`int` – integer data type</br>`money` – money data type | Yes |
+| Type | The type of data specified in the **Identifier**. Supported types are:</br>`address` – Blockchain address type, such as *contracts* or *users*</br>`int` – integer data type</br>`money` – money data type</br>`state` - Workflow state</br>`string` – string data type | Yes |
 
 ### Identifiers example
 

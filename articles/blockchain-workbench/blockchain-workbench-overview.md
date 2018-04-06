@@ -18,7 +18,7 @@ Azure Blockchain Workbench is a collection of Azure services and capabilities de
 With Azure Blockchain Workbench you can:
 
 * Create blockchain applications.
-* Manage Workbench blockchain apps and users.
+* Manage Workbench blockchain applications and users.
 * Integrate blockchain workflows with existing systems and applications leveraging Microsoft Flow and Logic Apps. 
 * Extend Workbench using a REST API or a message-based API for system-to-system integration. 
 * Extend your existing applications to use blockchain ledgers.
