@@ -112,7 +112,7 @@ Be sure to follow the steps in the “Clean up your Azure account” section at 
 There are several resources that can easily be deployed in a resource group together with a few clicks. The solution definition is hosted in github repository at [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### Deploy the TollApp template in the Azure portal
-1. To deploy the TollApp environment to Azure, use this links to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
+1. To deploy the TollApp environment to Azure, use this link to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
 
 2. Sign in to the Azure portal if prompted.
 
@@ -124,7 +124,7 @@ There are several resources that can easily be deployed in a resource group toge
 
 6. Specify an **Interval** as a number of seconds. This value is used in the sample web app, for how frequently to send data into Event Hub. 
 
-7. Check to agree to the terms and conditions.
+7. **Check** to agree to the terms and conditions.
 
 8. Select **Pin to dashboard** so that you can easily locate the resources later on.
 
@@ -137,7 +137,7 @@ There are several resources that can easily be deployed in a resource group toge
 
 2. Locate the Resource Group that you named in the previous section.
 
-3. Verify that the following services are listed in the resource group:
+3. Verify that the following resources are listed in the resource group:
    - One Cosmos DB Account
    - One Azure Stream Analytics Job
    - One Azure Storage Account
@@ -145,7 +145,7 @@ There are several resources that can easily be deployed in a resource group toge
    - Two Web Apps
 
 ## Examine the sample TollApp job 
-1. From the resource group in the previous section, select the job starting with the name **tollapp** (name contains random characters for uniqueness).
+1. Starting from the resource group in the previous section, select the Stream Analytics streaming job starting with the name **tollapp** (name contains random characters for uniqueness).
 
 2. On the **Overview** page of the job, notice the **Query** box to view the query syntax.
 
@@ -178,17 +178,17 @@ Follow these steps to start the streaming job:
 3. After a few moments, once the job is running, on the **Overview** page of the streaming job, view the **Monitoring** graph. The graph should show several thousand input events, and tens of output events.
 
 ## Review the CosmosDB output data
-1. Locate the Resource Group that contains the TollApp resources.
+1. Locate the resource group that contains the TollApp resources.
 
-2. Select the Azure Cosmos DB Account with the name pattern **tollapp/<random>-cosmos**
+2. Select the Azure Cosmos DB Account with the name pattern **tollapp<random>-cosmos**.
 
 3. Select the **Data Explorer** heading to open the Data Explorer page.
 
 4. Expand the **tollAppDatabase** > **tollAppCollection** > **Documents**.
 
-5. In the list of ids, several guid values are shown once the output is available.
+5. In the list of ids, several docs are shown once the output is available.
 
-6. Select each id, and review the JSON document. Notice each tollid, windowend time, and the count of cars from that window.
+6. Select each id to review the JSON document. Notice each tollid, windowend time, and the count of cars from that window.
 
 7. After an additional three minutes, another set of four documents is available, one document per tollid. 
 
@@ -209,12 +209,18 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### To update the TollApp streaming job query syntax:
 
-1. On the **Overview** page of the job, select **Stop**. 
+1. On the **Overview** page of the job, select **Stop**.
+
 2. Wait a few moments for the notification that the job has stopped.
+
 3. Under the JOB TOPOLOGY heading, select **< > Query**
+
 4. Paste the adjusted streaming SQL query.
+
 5. Select **Save** to save the query. Confirm **Yes** to save the changes.
+
 6. On the **Overview** page of the job, select **Start**.
+
 7. On the **Start job** pane, select **Now**.
 
 ### Review the total time in the output
@@ -252,6 +258,7 @@ WHERE Registration.Expired = '1'
 ```
 
 1. Repeat the steps in the preceding section to update the TollApp streaming job query syntax.
+
 2. Repeat the steps in the preceding section to review the CosmosDB output data from the streaming job. 
 
 Example output:
@@ -277,7 +284,9 @@ To scale out the query to partitions, edit the query syntax to the following cod
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
-FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
+FROM EntryStream 
+TIMESTAMP BY EntryTime 
+PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
@@ -291,7 +300,7 @@ To scale up the streaming job to more streaming units:
    
 4. Slide the **Streaming units** slider from 1 to 6. Streaming units define the amount of compute power that the job can receive. Select **Save**.
 
-5. **Start** the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput. Notice that the TollApp application is sending events partitioned by TollId.
+5. **Start** the streaming job to demonstrate the additional scale. Azure Stream Analytics distributes work across more compute resources and achieve better throughput, partitioning the work across resources using the column designated in the PARTITION BY clause. 
 
 ## Monitor the job
 The **MONITOR** area contains statistics about the running job. First-time configuration is needed to use the storage account in the same region (name toll like the rest of this document).   
@@ -305,7 +314,7 @@ You can access **Activity Logs** from the job dashboard **Settings** area as wel
 
 2. Locate the resource group that contains eight resources related to the TollApp template.
 
-3. Select **Delete resource group** and type the name of the resource group to confirm deletion.
+3. Select **Delete resource group**. Type the name of the resource group to confirm deletion.
 
 ## Conclusion
 This solution introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data scenario, the solution explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The solution described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
