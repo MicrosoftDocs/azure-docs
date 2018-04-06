@@ -9,7 +9,7 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 04/01/2018
 ms.author: v-daveng
 ---
 # Use Go to query an Azure SQL database
