@@ -197,7 +197,6 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
         Other Certificates: OK
         No Profile: OK
     Detailed log can be found C:\certchecker\CertChecker.log 
-
   ```
 
 ### Known issues 
