@@ -203,12 +203,12 @@ You can now create a VM from your Image with [az vm create](/cli/azure/vm#az_vm_
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image myPackerImage \
+    --image <image-id> \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
 
-It takes a few minutes to create the VM. Once the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the NGINX site via a web browser.
+The <image-id> must be of the form: /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>. It takes a few minutes to create the VM. Once the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the NGINX site via a web browser.
 
 To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
