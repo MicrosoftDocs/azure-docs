@@ -42,7 +42,7 @@ Finish the [Getting Started Guide]({{"/docs/get-started/" | absolute_url }}) to:
 
 An active Azure subscription. If you do not have one, you can register via one of these methods:
 
-* Activate a [free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html).
+* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/).
 * Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are an MSDN or Visual Studio subscriber.
 
 ## Deploy SendGrid service in Azure

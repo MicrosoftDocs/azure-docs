@@ -1,10 +1,10 @@
 ---
-title: "Configure HTTPS on an Azure Content Delivery Network custom domain | Microsoft Docs"
+title: Configure HTTPS on an Azure Content Delivery Network custom domain | Microsoft Docs
 description: Learn how to enable or disable HTTPS on your Azure CDN endpoint with a custom domain.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: 
+manager: akucer
 editor: ''
 
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
-ms.author: casoper
+ms.author: rli; v-deasim
 
 ---
 # Configure HTTPS on an Azure Content Delivery Network custom domain
@@ -42,7 +42,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 ### Step 1: Enable the feature 
 
-1. In the [Azure portal](https://portal.azure.com), browse to your Verizon standard or premium CDN profile.
+1. In the [Azure portal](https://portal.azure.com), browse to your **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** CDN profile.
 
 2. In the list of endpoints, click the endpoint containing your custom domain.
 
@@ -146,7 +146,7 @@ After you have enabled HTTPS on a custom domain, you can later disable it. To di
 
 ### Step 1: Disable the feature 
 
-1. In the [Azure portal](https://portal.azure.com), browse to your Verizon standard or premium CDN profile.
+1. In the [Azure portal](https://portal.azure.com), browse to your **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** CDN profile.
 
 2. In the list of endpoints, click the endpoint containing your custom domain.
 

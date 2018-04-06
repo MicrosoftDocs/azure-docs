@@ -8,8 +8,6 @@ items:
     items:
     - name: About Azure Cosmos DB
       href: introduction.md
-    - name: Documentation experiment
-      href: experiment.experimental.md
   - name: Quickstarts
     expanded: true
     items:
@@ -202,6 +200,8 @@ items:
           items:
           - name: Performance test
             href: performance-testing.md
+          - name: Performance tips for Async Java
+            href: performance-tips-async-java.md
           - name: Performance tips for .NET
             href: performance-tips.md
           - name: Performance tips for Java
