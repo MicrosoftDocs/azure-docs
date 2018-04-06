@@ -4,7 +4,7 @@ description: Quickly learn to create a Windows virtual machines with the Azure C
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
