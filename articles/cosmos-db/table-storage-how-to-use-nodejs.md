@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 04/05/2018
 ms.author: mimig
 
 ---
@@ -24,12 +24,20 @@ ms.author: mimig
 ## Overview
 This article shows how to perform common scenarios using Azure Storage Table service or Azure Comsos DB in a Node.js application.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## Create an Azure service account
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### Create an Azure storage account
+
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account)]
+
+### Create an Azure Cosmos DB Table API account
+
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## Configure your application to access Azure Storage
-To use Azure Storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
+To use Azure Storage or Azure Cosmos DB, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the Storage REST services.
 
 ### Use Node Package Manager (NPM) to install the package
