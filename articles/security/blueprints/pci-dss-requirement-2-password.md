@@ -173,7 +173,7 @@ completed.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore demo PaaS solution inventory can be reviewed in the provided documentation. For more information, see [PCI Guidance - Pre-Installed Management Solutions](payment-processing-blueprint.md#oms-solutions).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore demo PaaS solution inventory can be reviewed in the provided documentation. For more information, see [PCI Guidance - Pre-Installed Management Solutions](payment-processing-blueprint.md#management-solutions).|
 
 
 
