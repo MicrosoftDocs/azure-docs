@@ -59,7 +59,7 @@ Copy your SSH key to the pod, replace the pod name with the proper value.
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
 ```
 
-Back in the running pod modify the `id_rsa` file so that it is user read-only.
+Switch back to the running pod and modify the `id_rsa` file so that it is user read-only.
 
 ```console
 chmod 0600 id_rsa
