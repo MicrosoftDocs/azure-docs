@@ -18,7 +18,7 @@ ms.custom: codepen
 # Add a shape to a map
 
 ## Overview
-This tutorial shows you how to add a line, a circle, and a polygon to the map. 
+This article shows you how to add a line, a circle, and a polygon to the map. 
 
 <a id="addALine"></a>
 

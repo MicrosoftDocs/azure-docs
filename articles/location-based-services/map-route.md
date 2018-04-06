@@ -19,7 +19,7 @@ ms.custom: codepen
 # Show directions from A to B 
 
 ## Overview
-This tutorial shows you how to make a route request and show the route on the map. 
+This article shows you how to make a route request and show the route on the map. 
 
 ## Understand the code
 

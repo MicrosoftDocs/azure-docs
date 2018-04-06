@@ -18,7 +18,7 @@ ms.custom: codepen
 # Create a map
 
 ## Overview
-This tutorial shows you how to create a map.  
+This article shows you how to create a map.  
 
 ## Understand the code
 

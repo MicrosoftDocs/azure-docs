@@ -18,7 +18,7 @@ ms.custom: codepen
 # Add custom HTML to the map
 
 ## Overview
-This tutorial shows you how to add a custom HTML such as an image file to the map. 
+This article shows you how to add a custom HTML such as an image file to the map. 
 
 ## Understand the code
 

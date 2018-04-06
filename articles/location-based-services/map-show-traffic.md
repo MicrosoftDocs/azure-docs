@@ -18,7 +18,7 @@ ms.custom: codepen
 # Show traffic on the map
 
 ## Overview
-This tutorial shows you how to show traffic and incidents information on the map. 
+This article shows you how to show traffic and incidents information on the map. 
 
 ## Understand the code
 
