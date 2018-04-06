@@ -18,7 +18,7 @@ Occasionally, you may need to access an Azure Container Service (AKS) node for m
 
 ## Get AKS node address
 
-Get the ip address of the AKS cluster nodes using the `az vm list-ip-addresses` command. Replace the resource group name with the name of you AKS resource group.
+Get the ip address of the AKS cluster nodes using the `az vm list-ip-addresses` command. Replace the resource group name with the name of your AKS resource group.
 
 ```console
 $ az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
@@ -44,7 +44,7 @@ Run the `aks-ssh` container image, which will create a pod on one of the AKS clu
 kubectl run -it --rm aks-ssh --image=debian
 ```
 
-Install an SSH clinet and text editor.
+Install an SSH client and text editor.
 
 ```console
 apt-get update
