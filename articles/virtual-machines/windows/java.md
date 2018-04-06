@@ -4,7 +4,7 @@ description: Use Java and Azure Resource Manager to deploy a virtual machine and
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
