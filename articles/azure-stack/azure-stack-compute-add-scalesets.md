@@ -70,7 +70,7 @@ After you create a virtual machine scale set, users can update images in the sca
      This process is required  to resyndicate images that make use of the sparse file format, introduced with version 1803. 
  
 
-  2. Virtual machine scale set deployment template **does not specify latest** for *version* and specifies a version number instead:  
+2. Virtual machine scale set deployment template **does not specify latest** for *version* and specifies a version number instead:  
 
      If you download an image with a newer version (which changes the available version), the scale set can't scale up. This is by design as the image version specified in the scale set template must be available.  
 
