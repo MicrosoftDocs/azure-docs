@@ -23,12 +23,14 @@ Learn how to use Spark Structured Streaming to read data from Apache Kafka on Az
 
 Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
 
+This example uses Spark 2.2 on HDInsight 3.6.
+
 > [!IMPORTANT]
-> This example uses Spark 2.2 on HDInsight 3.6.
->
-> The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
->
-> When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
+> The steps in this document require an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
+> 
+> If you already have a virtual network that contains a Kafka cluster, you can create a Spark cluster in the same virtual network. For your convenience, this document also provides a template that can create all the required Azure resources.
+
+When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
 
 ## Create the clusters
 
@@ -41,7 +43,7 @@ The following diagram shows how communication flows between Spark and Kafka:
 > [!NOTE]
 > The Kafka service is limited to communication within the virtual network. Other services on the cluster, such as SSH and Ambari, can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-For your convenience, the following steps use an Azure Resource Manager template to create Kafka and Spark clusters inside a virtual network.
+To create an Azure Virtual Network, and then create the Kafka and Spark clusters within it, use the following steps:
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
     
