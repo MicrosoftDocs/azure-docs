@@ -80,8 +80,6 @@ When you verify ownership of the domain name, Azure AD removes the domain name f
 - Users
 - Subscriptions
 - License assignments
- 
-The [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for domain name external admin takeover is supported for only two services: Power BI, and Azure Rights Management from Azure Information Protection.
 
 ### Support for external admin takeover
 External admin takeover is supported by the following online services:
@@ -100,7 +98,7 @@ The supported service plans include:
 - Microsoft Stream
 - Dynamics 365 free trial
 
-External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription or the Office Basic SKU.
+External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription or the Office Basic SKU. You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. This ForceTakeover option will not move over users, or retain access to the subscription. Instead, this option only moves the domain name. 
 
 #### More information about RMS for individuals
 
