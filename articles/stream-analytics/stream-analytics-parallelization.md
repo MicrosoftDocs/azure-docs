@@ -40,7 +40,7 @@ When you work with Stream Analytics, you can take advantage of partitioning in t
 -	IoT Hub  (need to set the partition key explicitly)
 -	Service Bus
 
-PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-a-grouping-key) 
+PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
 For more information about partitions, see the following articles:
 
@@ -55,7 +55,7 @@ An *embarrassingly parallel* job is the most scalable scenario we have in Azure 
 
 2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **PARTITION BY** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Currently, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel.  
 
-3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#Outputs) for more details.
+3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#outputs) for more details.
 
 4. The number of input partitions must equal the number of output partitions. Blob storage output doesn't currently support partitions. But that's okay, because it inherits the partitioning scheme of the upstream query. Here are examples of partition values that allow a fully parallel job:  
 
