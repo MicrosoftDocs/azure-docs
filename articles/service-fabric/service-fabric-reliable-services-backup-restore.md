@@ -265,4 +265,5 @@ This step ensures that the recovered state is consistent.
   - [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
   - [Reliable Services configuration](service-fabric-reliable-services-configuration.md)
   - [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Periodic backup and restore in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

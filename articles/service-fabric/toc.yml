@@ -485,6 +485,8 @@
         href: service-fabric-set-up-continuous-integration.md
       - name: Deploy your Linux applications using Jenkins
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+  - name: Periodic backup and restore
+    href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
   - name: Create and manage clusters
     items:
     - name: Clusters on Azure
