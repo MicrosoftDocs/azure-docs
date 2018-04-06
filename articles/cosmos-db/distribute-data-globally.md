@@ -4,8 +4,7 @@ description: Learn about planet-scale geo-replication, failover, and data recove
 services: cosmos-db
 documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: ''
+manager: kfile
 
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
@@ -33,7 +32,7 @@ With Azure Cosmos DB's turnkey global distribution, developers do not have to bu
 In this article, we provide an overview of Azure Cosmos DB's global distribution capabilities. We also describe Azure Cosmos DB's unique approach to providing comprehensive SLAs. 
 
 ## <a id="EnableGlobalDistribution"></a>Enabling turnkey global distribution
-Azure Cosmos DB provides the following capabilities to enable you to easily write planet scale applications. These capabilities are available via the Azure Cosmos DB's resource provider-based [REST APIs](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) as well as the Azure portal.
+Azure Cosmos DB provides the following capabilities to enable you to easily write planet scale applications. These capabilities are available via the Azure Cosmos DB's resource provider-based [REST APIs](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) as well as the Azure portal.
 
 In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates the turnkey global distribution features.
 
