@@ -251,7 +251,7 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
 Let's use the following example of an event as a starting point, and then discuss issues related with it and strategies for mitigating those issues.
 
 #### Payload 1:
-
+```json
 [{
             "messageId": "LINE_DATA",
             "deviceId": "FXXX",
@@ -298,7 +298,7 @@ Let's use the following example of an event as a starting point, and then discus
             }
       }
 ]
- 
+ ```
 
 If you push this array of events as a payload to TSI, it will be stored as 1 event per each measure value, so this might create more events than are ideal.  Note - you can use reference data in TSI to add meaningful names as properties.  For example, you can create reference data set with Key Property = chId:  
 
@@ -313,6 +313,7 @@ Another problem with the first payload is that timestamp is in milliseconds. TSI
 As an alternative to the payload above, let's look at another example.  
 
 #### Payload 2:
+```json
 {
       "line": "Line01",
       "station": "Station 11",
@@ -354,12 +355,14 @@ As an alternative to the payload above, let's look at another example.
       "Engine Oil Pressure": 0.58015072345733643,
       "unit": "psi"
 }
+```
 
 Like Payload 1, TSI will store each every measured value as a unique event.  The notable difference is that TSI will read the *timestamp* as correctly here, as ISO.  
 
 If we would like to reduce the number of events we send, then we could send the information as the following.  
 
 #### Payload 3:
+```json
 {
       "line": "Line01",
       "station": "Station 11",
@@ -373,10 +376,11 @@ If we would like to reduce the number of events we send, then we could send the 
       "Engine Fuel Pressure": 0,
       "Engine Fuel Pressure.unit": "psi"
 }
-
+```
 One final suggestion is below.
 
 #### Payload 4:
+'''json
 {
               "line": "Line01",
               "station": "Station 11",
@@ -396,8 +400,11 @@ One final suggestion is below.
                            "unit": "psi"
               }
 }
+```
 
 The output from TSI will look like this after flattening the JSON:
+
+```json
 {
       "line": "Line01",
       "station": "Station 11",,
@@ -411,6 +418,7 @@ The output from TSI will look like this after flattening the JSON:
       "Engine Fuel Pressure.value": 0,
       "Engine Fuel Pressure.unit": "psi"
 }
+```
 
 Here, you have the freedom to define different properties for each of the channels inside its own json object, while still keeping the event count low.  Note, it does occupy more space, which is important to note as TSI capacity is based on both events and size, whichever comes first.  
 
