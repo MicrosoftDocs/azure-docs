@@ -50,6 +50,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
+* [Azure Maps](#maps-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -195,6 +196,9 @@ See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtu
 The following App Service limits include limits for Web Apps, Mobile Apps, API Apps, and Logic Apps.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
+
+### Azure Maps limits
+[!INCLUDE [maps-limits](../includes/maps-limits.md)]
 
 ### Scheduler limits
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
