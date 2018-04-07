@@ -17884,6 +17884,11 @@
             "source_path": "articles/cognitive-services/Bing-Web-Search/search-the-web.md",
             "redirect_url": "/azure/cognitive-services/bing-web-search",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-configure.md",
+            "redirect_url": "/azure/role-based-access-control/role-assignments-portal",
+            "redirect_document_id": false
         }
     ]
 }

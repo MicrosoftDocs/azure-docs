@@ -201,7 +201,7 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
 > 
 
 ## Resources
-* [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory Role-based Access Control](../role-based-access-control/role-assignments-portal.md)
   
   This article explains the Azure Active Directory Role-based Access Control and how it works.
 * [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)

@@ -40,7 +40,7 @@ All users have a single home directory that authenticates them, but they can als
 2. Click **Change directory**.
 
     ![Screenshot showing the Change directory button](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Review the warnings. All [Role-Based Access Control (RBAC)](role-based-access-control-configure.md) users with assigned access and all subscription admins lose access when the subscription directory changes.
+3. Review the warnings. All [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) users with assigned access and all subscription admins lose access when the subscription directory changes.
 4. Select a directory.
 
     ![Screenshot showing the change directory UI](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)

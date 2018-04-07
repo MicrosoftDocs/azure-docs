@@ -89,7 +89,7 @@ You can use [Azure RBAC](../active-directory/role-based-access-built-in-roles.md
 As far as virtual networks are concerned, users in the **Network Contributor** role have full control over Azure Resource Manager virtual network resources. Similarly, users in the **Classic Network Contributor** role have full control over classic virtual network resources.
 
 > [!NOTE]
-> You can also [create your own roles](../active-directory/role-based-access-control-configure.md) to separate your administrative needs.
+> You can also [create your own roles](../role-based-access-control/role-assignments-portal.md) to separate your administrative needs.
 >
 >
 

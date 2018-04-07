@@ -96,7 +96,7 @@ You can leverage [built in RBAC](../active-directory/role-based-access-built-in-
 
 Organizations that do not enforce data access control by leveraging capabilities such as RBAC may be giving more privileges than necessary to their users. This can lead to data compromise by allow users access to certain types of types of data (e.g., high business impact) that they shouldn’t have in the first place.
 
-You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
+You can learn more about Azure RBAC by reading the article [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ## Control locations where resources are created using resource manager
 Enabling cloud operators to perform tasks while preventing them from breaking conventions that are needed to manage your organization's resources is very important. Organizations that want to control the locations where resources are created should hard code these locations.
