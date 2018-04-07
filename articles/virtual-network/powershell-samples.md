@@ -10,7 +10,7 @@ tags:
 ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 03/20/2018

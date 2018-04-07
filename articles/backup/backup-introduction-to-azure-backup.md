@@ -31,7 +31,7 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 
 **Unlimited scaling** - Azure Backup uses the underlying power and unlimited scale of the Azure cloud to deliver high-availability - with no maintenance or monitoring overhead. You can set up alerts to provide information about events, but you don't need to worry about high-availability for your data in the cloud.
 
-**Multiple storage options** - An aspect of high-availability is storage replication. Azure Backup offers two types of replication: [locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage) and [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage). Choose the backup storage option based on need:
+**Multiple storage options** - An aspect of high-availability is storage replication. Azure Backup offers two types of replication: [locally redundant storage](../storage/common/storage-redundancy-lrs.md) and [geo-redundant storage](../storage/common/storage-redundancy-grs.md). Choose the backup storage option based on need:
 
 * Locally redundant storage (LRS) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.
 
@@ -216,7 +216,7 @@ Some common examples of protected instances are virtual machines, application se
 
 
 ## What is a Recovery Services vault?
-A Recovery Services vault is an online storage entity in Azure used to hold data such as backup copies, recovery points, and backup policies. You can use Recovery Services vaults to hold backup data for Azure services and on-premises servers and workstations. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead. Within each Azure subscription, you can create up to 25 Recovery Services vaults per Azure region. When considering where to store your data, not all regions are the same. See [Geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) for information about region pairings and additional storage considerations.
+A Recovery Services vault is an online storage entity in Azure used to hold data such as backup copies, recovery points, and backup policies. You can use Recovery Services vaults to hold backup data for Azure services and on-premises servers and workstations. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead. Within each Azure subscription, you can create up to 25 Recovery Services vaults per Azure region. When considering where to store your data, not all regions are the same. See [Geo-redundant storage](../storage/common/storage-redundancy-grs.md) for information about region pairings and additional storage considerations.
 
 Backup vaults, which were based on Azure Service Manager, were the first version of the vault. Recovery Services vaults, which add the Azure Resource Manager model features, are the second version of the vault. See the [Recovery Services vault overview article](backup-azure-recovery-services-vault-overview.md) for a full description of the feature differences. You can no longer create Backup vaults, and all existing Backup vaults have been upgraded to Recovery Services vaults. You can use the Azure portal to manage the vaults that were upgraded to Recovery Services vaults.
 

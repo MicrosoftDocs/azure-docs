@@ -45,6 +45,8 @@ sections:
           src: media/index/logo_python.svg
       - image:
           src: media/index/logo_gremlin.svg
+      - image:
+          src: media/index/logo_xamarin.svg
     rows:
       - title: SQL API
         values:
@@ -53,12 +55,14 @@ sections:
         - href: /azure/cosmos-db/create-sql-api-nodejs
         - href: /azure/cosmos-db/create-sql-api-python
         - href:
+        - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet.md
       - title: MongoDB API
         values:
           - href: /azure/cosmos-db/create-mongodb-java
           - href: /azure/cosmos-db/create-mongodb-dotnet
           - href: /azure/cosmos-db/create-mongodb-nodejs
           - href: /azure/cosmos-db/create-mongodb-flask
+          - href:
           - href:
       - title: Graph API
         values:
@@ -67,6 +71,7 @@ sections:
           - href: /azure/cosmos-db/create-graph-nodejs
           - href: /azure/cosmos-db/create-graph-python
           - href: /azure/cosmos-db/create-graph-gremlin-console
+          - href:
       - title: Table API
         values:
           - href: /azure/cosmos-db/create-table-java
@@ -74,12 +79,14 @@ sections:
           - href: /azure/cosmos-db/create-table-nodejs
           - href: /azure/cosmos-db/create-table-python
           - href:
+          - href:
       - title: Cassandra API
         values:
           - href: /azure/cosmos-db/create-cassandra-java
           - href: /azure/cosmos-db/create-cassandra-dotnet
           - href: /azure/cosmos-db/create-cassandra-nodejs
           - href: /azure/cosmos-db/create-cassandra-python
+          - href:
           - href:
 - title: Step-by-Step Tutorials
   items:
@@ -109,7 +116,7 @@ sections:
     className: cardsD
     items:
     - title: SQL APIs
-      html: <p><a href="sql-api-sdk-dotnet">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">.NET Change feed</a></p><p><a href="sql-api-sdk-dotnet-core">.NET Core</a></p><p><a href="sql-api-sdk-node">Node.js</a></p><p><a href="sql-api-sdk-async-java">Async Java</a></p><p><a href="sql-api-sdk-java">Java</a></p><p><a href="sql-api-sdk-python">Python</a></p><p><a href="/rest/api/documentdb/">REST</a></p><p><a href="/rest/api/documentdbresourceprovider/">REST Resource Provider</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
+      html: <p><a href="sql-api-sdk-dotnet">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">.NET Change feed</a></p><p><a href="sql-api-sdk-dotnet-core">.NET Core</a></p><p><a href="sql-api-sdk-node">Node.js</a></p><p><a href="sql-api-sdk-async-java">Async Java</a></p><p><a href="sql-api-sdk-java">Java</a></p><p><a href="sql-api-sdk-python">Python</a></p><p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">REST Resource Provider</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
     - title: MongoDB APIs
       html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire Protocol</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
     - title: Table APIs
