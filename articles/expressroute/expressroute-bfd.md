@@ -18,7 +18,7 @@ ms.author:
 
 ---
 # Configure BFD over ExpressRoute
-ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. BFD expedites link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE) on the on-premises network end. You could terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices if you have opted for managed Layer 3 connection service. This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
+ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. By enabling BFD over ExpressRoute you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE) on the on-premises network end. You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices if you went with managed Layer 3 connection service. This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
 
 ## Need for BFD
 The following diagram shows the benefit of enabling BFD over ExpressRoute circuit:
@@ -28,7 +28,7 @@ ExpressRoute circuit connecting your on-premises network to Microsoft cloud is e
 
 On the MSEE devices, BGP keepalive and hold-time are typically configured as 60 and 180 seconds respectively. Therefore, following a link failure it would take up to three minutes to detect any link failure and switch traffic to alternate connection.
 
-You can control the BGP timers by configuring lower BGP keepalive and hold-time on the customer edge peering device. If the BGP timers are mismatched between the two peering devices, the BGP session between the peers would use the lower timer value. The BGP keepalive can be set as low as three seconds, and the hold-time in the order of tens of seconds. However, setting BGP timers aggressively is not preferred because the protocol is process intensive.
+You can control the BGP timers by configuring lower BGP keepalive and hold-time on the customer edge peering device. If the BGP timers are mismatched between the two peering devices, the BGP session between the peers would use the lower timer value. The BGP keepalive can be set as low as three seconds, and the hold-time in the order of tens of seconds. However, setting BGP timers aggressively less preferrable because the protocol is process intensive.
 
 In this scenario, BFD can help. BFD provides low-overhead link failure detection in a subsecond time interval. 
 
