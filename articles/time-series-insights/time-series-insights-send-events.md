@@ -44,6 +44,15 @@ This article explains how to create and configure event hub and run a sample app
 
   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
+## Add Time Series Insights reference data set (Very important if you are uploading historical data)
+Using reference data in TSI contextualizes your telemetry data.  This adds meaning to your data and makes it easier to filter and aggregate.  TSI joins reference data at ingress time and cannot retroactively join this data.  Therefore, it is critical to add reference data prior to adding an event source with data.  Data like location, sensor type, etc are useful dimensions that you might want to join to a device/tag/sensor ID to make it easier to slice and filter.  
+
+Note - ensuring that you have your reference data in place is especially critical if you are bulk uploading historical data to TSI.  Keep in mind, TSI will immediately start reading from a joined event source if that event source has data.  It's useful to wait to join an event source to TSI until you have your reference data in place, especially if that event source has data in it.  Alternatively, you can wait to push data to that event source until the reference data set is in place.
+
+We enable both programmatic management of reference data using a C# application and have a user experience in the TSI explorer to upload/paste-in existing reference data sets as JSON or CSV.  You can also build one from scratch using this tool.  
+
+For more details on managing reference data in Time Series Insights, please see [documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)
+
 ## Create Time Series Insights event source
 1. If you haven't created an event source, follow [these instructions](time-series-insights-how-to-add-an-event-source-eventhub.md) to create an event source.
 
@@ -237,6 +246,173 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+
+### JSON shaping strategies
+Let's use the following example of an event as a starting point, and then discuss issues related with it and strategies for mitigating those issues.
+
+#### Payload 1:
+
+[{
+            "messageId": "LINE_DATA",
+            "deviceId": "FXXX",
+            "timestamp": 1522355650620,
+            "series": [{
+                        "chId": 3,
+                        "value": -3750.0
+                  }, {
+                        "chId": 13,
+                        "value": 0.58015072345733643
+                  }, {
+                        "chId": 11,
+                        "value": 800.0
+                  }, {
+                        "chId": 21,
+                        "value": 0.0
+                  }, {
+                        "chId": 14,
+                        "value": -999.0
+                  }, {
+                        "chId": 37,
+                        "value": 2.445906400680542
+                  }, {
+                        "chId": 39,
+                        "value": 0.0
+                  }, {
+                        "chId": 40,
+                        "value": 1.0
+                  }, {
+                        "chId": 1,
+                        "value": 1.0172575712203979
+                  }
+            ],
+            "EventProcessedUtcTime": "2018-03-29T20:36:21.3245900Z",
+            "PartitionId": 2,
+            "EventEnqueuedUtcTime": "2018-03-29T20:34:11.0830000Z",
+            "IoTHub": {
+                  "MessageId": "<17xxx2xx-36x0-4875-9x1x-x428x41x1x68>",
+                  "CorrelationId": "<x253x5xx-7xxx-4xx3-91x4-xxx3bx2xx0x3>",
+                  "ConnectionDeviceId": "AAAA-ZZ-001",
+                  "ConnectionDeviceGenerationId": "<123456789012345678>",
+                  "EnqueuedTime": "2018-03-29T20:34:10.7990000Z",
+                  "StreamId": null
+            }
+      }
+]
+ 
+
+If you push this array of events as a payload to TSI, it will be stored as 1 event per each measure value, so this might create more events than are ideal.  Note - you can use reference data in TSI to add meaningful names as properties.  For example, you can create reference data set with Key Property = chId:  
+
+chId  Measure               Unit
+24    Engine Oil Pressure   PSI
+25    CALC Pump Rate        bbl/min
+
+For more details on managing reference data in Time Series Insights, please see [documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)
+
+Another problem with the first payload is that timestamp is in milliseconds. TSI accepts only ISO formatted timestamps. One solution is to leave the default timestamp behavior in TSI, which is to use enqueued timestamp.
+
+As an alternative to the payload above, let's look at another example.  
+
+#### Payload 2:
+{
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "STATE Engine State": 1,
+      "unit": "NONE"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "MPC_AAAA-ZZ-001",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Well Head Px 1": -494162.8515625,
+      "unit": "psi"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate": 0,
+      "unit": "bbl/min"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Engine Fuel Pressure": 0,
+      "unit": "psi"
+}, {
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "Engine Oil Pressure": 0.58015072345733643,
+      "unit": "psi"
+}
+
+Like Payload 1, TSI will store each every measured value as a unique event.  The notable difference is that TSI will read the *timestamp* as correctly here, as ISO.  
+
+If we would like to reduce the number of events we send, then we could send the information as the following.  
+
+#### Payload 3:
+{
+      "line": "Line01",
+      "station": "Station 11",
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate": 0,
+      "CALC Pump Rate.unit": "bbl/min"
+      "Engine Oil Pressure": 0.58015072345733643,
+      "Engine Oil Pressure.unit": "psi"
+      "Engine Fuel Pressure": 0,
+      "Engine Fuel Pressure.unit": "psi"
+}
+
+One final suggestion is below.
+
+#### Payload 4:
+{
+              "line": "Line01",
+              "station": "Station 11",
+              "gatewayid": "AAAA-ZZ-001",
+              "deviceid": "F12XX",
+              "timestamp": "2018-03-29T20:34:15.0000000Z",
+              "CALC Pump Rate": {
+                           "value": 0,
+                           "unit": "bbl/min"
+              },
+              "Engine Oil Pressure": {
+                           "value": 0.58015072345733643,
+                           "unit": "psi"
+              },
+              "Engine Fuel Pressure": {
+                           "value": 0,
+                           "unit": "psi"
+              }
+}
+
+The output from TSI will look like this after flattening the JSON:
+{
+      "line": "Line01",
+      "station": "Station 11",,
+      "gatewayid": "AAAA-ZZ-001",
+      "deviceid": "F12XX",
+      "timestamp": "2018-03-29T20:34:15.0000000Z",
+      "CALC Pump Rate.value": 0,
+      "CALC Pump Rate.unit": "bbl/min"
+      "Engine Oil Pressure.value": 0.58015072345733643,
+      "Engine Oil Pressure.unit": "psi"
+      "Engine Fuel Pressure.value": 0,
+      "Engine Fuel Pressure.unit": "psi"
+}
+
+Here, you have the freedom to define different properties for each of the channels inside its own json object, while still keeping the event count low.  Note, it does occupy more space, which is important to note as TSI capacity is based on both events and size, whichever comes first.  
 
 ## Next steps
 > [!div class="nextstepaction"]
