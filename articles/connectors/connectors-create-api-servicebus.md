@@ -90,9 +90,8 @@ select this trigger: **Service Bus - When a message is received in a queue (auto
    ![Select Service Bus trigger](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Triggers that are fired when one or more messages arrive such as **Service Bus - When one or more messages arrive in a queue (auto-complete)** return 
-   > 1 to number of messages specified in the **maxcount** property of the trigger.  
-   
+   > Some triggers return one or messages, such as the *Service Bus - When one or more messages arrive in a queue (auto-complete)* trigger.
+   > When these triggers fire, they return between one and the number of messages specified by the trigger's **Maximum message count** property.
 
    1. If you don't already have a connection to your Service Bus namespace, 
    you're prompted to create this connection now. Give your connection a name, 
@@ -115,10 +114,10 @@ and set up the interval and frequency for when to check the queue.
    ![Select Service Bus queue, set up polling interval](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
 
    > [!NOTE]
-   > All Service Bus triggers are long polling triggers - when a trigger is fired, it processes all the messages and then waits for 30 seconds 
-   > for more messages to appear in the queue/topic subscription. If there are no messages received in 30 seconds, the trigger run is skipped. 
-   > Otherwise, the trigger would continue to read more messages from the queue/topic subscription until its empty. 
-   > The next poll of the trigger would be based on the recurrence interval specified in the trigger properties.
+   > All Service Bus triggers are long-polling triggers, which means that when a trigger fires, the trigger processes all the messages
+   > and then waits for 30 seconds for more messages to appear in the queue or topic subscription.
+   > If no messages are received in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty.
+   > The next trigger poll is based on the recurrence interval specified in the trigger's properties.
 
 5. Save your logic app. On the designer toolbar, choose **Save**.
 
