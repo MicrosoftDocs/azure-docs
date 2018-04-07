@@ -73,6 +73,6 @@ You can assign roles and manage access with Azure RBAC commands in tools other t
 
 ## Next Steps
 * [Create an access change history report](role-based-access-control-access-change-history-report.md)
-* See the [RBAC built-in roles](role-based-access-built-in-roles.md)
+* See the [RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 * Define your own [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md)
 

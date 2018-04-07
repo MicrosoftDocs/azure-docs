@@ -133,7 +133,7 @@ The Actions property defines the following DNS-specific permissions:
 * `Microsoft.Network/dnsZones/CNAME/*` grants full control over CNAME records
 * `Microsoft.Network/dnsZones/read` grants permission to read DNS zones, but not to modify them, enabling you to see the zone in which the CNAME is being created.
 
-The remaining Actions are copied from the [DNS Zone Contributor built-in role](../active-directory/role-based-access-built-in-roles.md#dns-zone-contributor).
+The remaining Actions are copied from the [DNS Zone Contributor built-in role](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 
 > [!NOTE]
 > Using a custom RBAC role to prevent deleting record sets while still allowing them to be updated is not an effective control. It prevents record sets from being deleted, but it does not prevent them from being modified.  Permitted modifications include adding and removing records from the record set, including removing all records to leave an 'empty' record set. This has the same effect as deleting the record set from a DNS resolution viewpoint.
