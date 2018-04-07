@@ -22,9 +22,11 @@ ms.author: wesmc
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET
 
-This tutorial shows how to create and deploy an ASP.NET web application to a web app in Azure App Service using Visual Studio 2017. The sample application is a leaderboard ASP.NET application that demonstrates the cache-aside pattern with Azure Redis Cache. The sample application displays a list of team statistics from a database and shows different ways to use Azure Redis Cache to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
+## Overview
 
-This tutorial builds onto the ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md).
+In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md), to include a leaderboard that uses the cache-aside pattern with Azure Redis Cache. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Redis Cache to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
+
+This tutorial builds onto the *ContosoTeamStats* ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md).
 
 In this tutorial, you learn how to:
 
@@ -38,9 +40,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete ththis tutorial, you must have the following prerequisites:
+To complete this tutorial, you must have the following prerequisites:
 
-* This tutorial continues to update the ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md). If you have not completed those steps to setup your cache and Azure App service, please complete that first.
+* This tutorial continues to update the *ContosoTeamStats* ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md). If you have not completed those steps to setup your cache and Azure App service, please complete that first.
 * [Visual Studio 2017 with the Azure SDK for .NET](https://www.visualstudio.com/downloads/)
 * You need an Azure account to complete the quickstart. You can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 
@@ -266,12 +268,12 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 In this section of the tutorial, you configure the sample application to store and retrieve Contoso team statistics from an Azure Redis Cache instance by using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
 
-* [Add a cache connection](#add-a-cache-connection)
+* [Add a cache connection](#add-a-cache-connection-to-the-teams-controller)
 * [Update the TeamsController to read from the cache or the database](#update-the-teamscontroller-to-read-from-the-cache-or-the-database)
 * [Update the Create, Edit, and Delete methods to work with the cache](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
 * [Add caching methods to the Teams Index view](#add-caching-methods-to-the-teams-index-view)
 
-### Add a cache connection
+### Add a cache connection to the Teams Controller
 
 You already installed the *StackExchange.Redis* client library package in the quickstart. You also have already configured the *CacheConnection* app setting to be used locally, and with the published App Service. We will use this same client library and *CacheConnection* information in the *TeamsController*.
 
@@ -539,7 +541,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     ```
 
 ### Update the Create, Edit, and Delete methods to work with the cache
-The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section you'll modify these three methods to clear the cached teams so that the cache won't be out of sync with the database.
+The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section you'll modify these three methods to clear the cached teams so that the cache will be refreshed.
 
 1. Browse to the `Create(Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example:
 
