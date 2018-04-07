@@ -3,144 +3,227 @@ documentType: LandingData
 title: Cognitive Services Documentation
 metadata:
   title: Cognitive Services Documentation - Tutorials, API Reference
-  description: Learn how to build into apps, websites, and bots intelligent algorithms to see, hear, speak, understand and interpret your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
+  description: Learn how to build into apps, websites, and bots intelligent algorithms to see, hear, speak, understand and interpret your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how to use the APIs.
   services: cognitive-services
-  author: garyericson
-  manager: jhubbard
+  author: cjgronlund
+  manager: cgronlun
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/23/2018
-  ms.author: garye
+  ms.date: 04/09/2018
+  ms.author: cgronlun
 
 abstract:
   description: Learn how to build into apps, websites, and bots intelligent algorithms to see, hear, speak, understand and interpret your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
 
 sections:
 
-- title: 
-  items:
-  - type: list
-    style: cards
-    className: cardsA
-    items:
-
-    - html: <a href="/azure/machine-learning/preview/">
-            <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (preview)
-            <br><b>Azure Machine Learning services</b></a>
-            <p>Learn how these services empower data scientists to develop AI solutions using Python tools and libraries with a variety of Azure data and compute services.</p>
-
-    - html: <a href="/azure/machine-learning/studio/">
-            <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio">
-            <br><b>Azure Machine Learning Studio</b></a>
-            <p>Learn how to use this collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data.</p>
-
-    - html: <a href="/azure/machine-learning/data-science-virtual-machine/index">
-            <img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg" alt="Data Science Virtual Machine">
-            <br><b>Data Science Virtual Machine</b></a>
-            <p>Learn how to use the Data Science and Deep Learning VMs, customized VM images on Azure, loaded with data science tools used to build intelligent applications for advanced analytics.</p>
-
+sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to quickly set up and use Azure Machine Learning services (preview), Studio, and the Data Science Virtual Machine:'
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/i_machine-learning.svg
-      - image:
-          src: media/index/machine-learning-studio.svg
-      - image:
-          src: media/index/virtualmachine.svg
-    rows:
-      - title: Setup
-        values:
-        - href: /azure/machine-learning/preview/quickstart-installation
-        - href: /azure/machine-learning/studio/create-workspace
-        - href: /azure/machine-learning/data-science-virtual-machine/provision-vm
-      - title: Build a model
-        values:
-        - href: /azure/machine-learning/preview/quickstart-installation
-        - href: /azure/machine-learning/studio/create-experiment
-        - href: 
-
+    text: 'Learn how to add cognitive intelligence to your first app:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to build, deploy, and consume models using Azure Machine Learning services (preview) and Studio:'
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/i_machine-learning.svg
-      - image:
-          src: media/index/machine-learning-studio.svg
-    rows:
-      - title: Prepare data
-        values:
-        - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-1
-        - href: /azure/machine-learning/studio/walkthrough-2-upload-data
-      - title: Build a model
-        values:
-        - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-2
-        - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
-      - title: Operationalize a model
-        values:
-        - href: /azure/machine-learning/preview/tutorial-classifying-iris-part-3
-        - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
-      - title: Consume a model
-        values:
-        - href: /azure/machine-learning/preview/model-management-consumption
-        - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
-
-- title: More Microsoft Machine Learning Technologies
-  items:
+    text: 'Learn how to design your database and develop apps:'
   - type: list
-    style: cards
-    className: cardsA
+    style: ordered
     items:
+    - html: Design a Database&#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Azure portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>
+    - html: Create a Web App&#58; <a href="https://portal.azure.com/#create/hub">Wordpress - Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - Azure CLI</a>
+- title: Cognitive Services APIs
 
-    - html: <a href="/azure/machine-learning/team-data-science-process">
-            <img src="media/index/tdsp.png" alt="Team Data Science Process"
-            height="32" width="32">
-            <p><b>Team Data Science Process</b></p>
-            </a>
-            A collaborative data science methodology that helps teams deliver predictive analytics solutions and intelligent applications efficiently.
-
-    - html: <a href="/sql/advanced-analytics/r/r-services">
-            <img src="media/index/logo_sql.png" alt="SQL Server Machine Learning Services"
-            height="32" width="32">
-            <p><b>SQL Server Machine Learning Services</b></p>
-            </a>
-            In-database analytics with support for both R and Python.
-
-    - html: <a href="/machine-learning-server/">
-            <img src="media/index/ml-server.png" alt="Microsoft Machine Learning Server"
-            height="32" width="32">
-            <p><b>Microsoft Machine Learning Server</b></p>
-            </a>
-            Flexible enterprise machine learning platform, supporting R and Python deployments on Windows, Linux, and HDInsight Spark and Hadoop clusters.
-
-    - html: <a href="/azure/batch-ai/">
-            <img src="media/index/batch.png" alt="Batch AI Training"
-            height="32" width="32">
-            <p><b>Batch AI Training</b></p>
-            </a>
-            Managed service that helps you experiment in parallel with your AI models using any framework, and then trains them at scale across clustered GPUs.
-
-    - html: <a href="/azure/#pivot=products&panel=cognitive">
-            <img src="media/index/cognitive-services.png" alt="Cognitive Services"
-            height="32" width="32">
-            <p><b>Cognitive Services</b></p>
-            </a>
-            APIs that supply intelligent algorithms for your apps, websites, and bots.
-
-    - html: <a href="/cognitive-toolkit/">
-            <img src="media/index/cntk.png" alt="Microsoft Cognitive Toolkit"
-            height="32" width="32">
-            <p><b>Microsoft Cognitive Toolkit</b></p>
-            </a>
-            A free, open-source toolkit to train deep learning algorithms.
-
+<li class="fullSpan">
+                                <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services</h2>
+                                <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Vision</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="media/index/API_Custom_Vision.svg" alt="" /><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />Face API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Speech</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="media/index/API_Bing_Speech.svg" alt="" />Bing Speech Service</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Custom_Speech.svg" alt="" /><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Language</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing Spell Check</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding (LUIS)</span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Linguistic Analysis&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Text Analytics</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Translator Text</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_WebLanguageModel.svg" alt="" /><span>Web Language Model&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Knowledge</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Recommendations&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Search</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News Search</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Bing Web Search</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Bing Custom Search</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />Bing Entity Search</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Labs</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-gesture"><img src="media/index/labs-hand-gesture.svg" alt="" />Gesture</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-event-tracking"><img src="media/index/labs-event-tracker.svg" alt="" />Event Tracking</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge"><img src="media/index/API_Know_Academic.svg" alt="" />Academic Knowledge</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-local-insights"><img src="media/index/labs-local-insight.svg" alt="" />Local Insights</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration"><img src="media/index/API_KnowledgeExploration.svg" alt="" /><span>Knowledge Exploration Service</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/project-entity-linking"><img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Entity Linking</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
