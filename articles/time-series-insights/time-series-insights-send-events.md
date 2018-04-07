@@ -380,7 +380,7 @@ If we would like to reduce the number of events we send, then we could send the 
 One final suggestion is below.
 
 #### Payload 4:
-'''json
+```json
 {
               "line": "Line01",
               "station": "Station 11",
