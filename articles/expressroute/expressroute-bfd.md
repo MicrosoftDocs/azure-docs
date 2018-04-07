@@ -18,7 +18,7 @@ ms.author:
 
 ---
 # Configure BFD over ExpressRoute
-ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. BFD expedites link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE) on the on-premises network end. The ExpressRoute could be terminated over Customer Edge routing devices or Partner Edge routing devices in the case of managed Layer 3 connection service. This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
+ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. BFD expedites link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE) on the on-premises network end. You could terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices if you have opted for managed Layer 3 connection service. This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
 
 ## Need for BFD
 The following diagram shows the benefit of enabling BFD over ExpressRoute circuit:
