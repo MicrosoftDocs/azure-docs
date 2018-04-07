@@ -11,7 +11,7 @@ ms.date: 03/27/2018
 ms.author: tamram
 
 ---
-# Introduction to Blob storage
+# Introduction to object storage in Azure
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 

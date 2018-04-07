@@ -34,19 +34,19 @@ Each service is accessed through a storage account. To get started, see [Create 
 
 ## Blob storage
 
-Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data. Examples of objects that you can store as blobs are images, videos, documents, HTML files, virtual hard disks (VHDs), large data sets such as logs, and database backups. 
+Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data. 
 
-Users or client applications can access blobs via URLs, the Azure Storage REST API, or an Azure Storage client library. The storage client libraries are available for multiple languages, including Node.js, Java, PHP, Ruby, Python, and .NET.
+Blob storage is ideal for:
 
-Azure Storage offers three types of blobs -- block blobs, append blobs, and page blobs (used for VHD files).
+* Serving images or documents directly to a browser.
+* Storing files for distributed access.
+* Streaming video and audio.
+* Storing data for backup and restore, disaster recovery, and archiving.
+* Storing data for analysis by an on-premises or Azure-hosted service.
 
-* Block blobs store text and binary data, up to about 4.7 TB. Block blobs are made up of blocks of data that can be managed individually.
-* Append blobs are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
-* Page blobs store random access files up to 8 TB in size. Page blobs store the VHD files that back VMs.
+Objects in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/), and [Ruby](http://azure.github.io/azure-storage-ruby).
 
-All blobs reside within a container. A container is similar to a folder in a file system. You can further organize blobs into virtual directories, and traverse them as you would a file system. 
-
-For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a set of hard drives to Microsoft to import or export data directly from the data center. For more information, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../storage-import-export-service.md).
+For more information about Blob storage, see [Introduction to object storage on Azure](../blobs/storage-blobs-introduction.md).
 
 ## Azure Files
 [Azure Files](../files/storage-files-introduction.md) enables you to set up highly available network file shares that can be accessed by using the standard Server Message Block (SMB) protocol. That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries.
