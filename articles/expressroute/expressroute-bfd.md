@@ -18,13 +18,13 @@ ms.author:
 
 ---
 # Configure BFD over ExpressRoute
-ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE) on the on-premises end. You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices if you went with managed Layer 3 connection service. This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
+ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE). You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices if you went with managed Layer 3 connection service. This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
 
 ## Need for BFD
 The following diagram shows the benefit of enabling BFD over ExpressRoute circuit:
 [![1]][1]
 
-ExpressRoute circuit connecting your on-premises network to Microsoft cloud is enabled either by Layer 2 connections or managed Layer 3 connections. In either case, if there are one or more Layer-2 devices in the ExpressRoute connection path, responsibility of detecting any link failures in the path lies with the overlying BGP.
+You can enable ExpressRoute circuit either by Layer 2 connections or managed Layer 3 connections. In either case, if there are one or more Layer-2 devices in the ExpressRoute connection path, responsibility of detecting any link failures in the path lies with the overlying BGP.
 
 On the MSEE devices, BGP keepalive and hold-time are typically configured as 60 and 180 seconds respectively. Therefore, following a link failure it would take up to three minutes to detect any link failure and switch traffic to alternate connection.
 
