@@ -151,8 +151,6 @@ To get byte or packet count statistics:
    * Apply a filter on a specific front-end IP, front-end port, back-end IP, or back-end port.
    * Get overall statistics for your load balancer resource without any filtering.
 
-Some example views for metrics with different configurations -
-
 ![Byte count](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
 *Figure: Load Balancer byte count*
