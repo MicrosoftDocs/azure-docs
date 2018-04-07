@@ -19,7 +19,7 @@ Blob storage exposes three resources: your storage account, the containers in th
 
 ### Storage Account
 
-All access to data objects in Azure Storage happens through a storage account. For more information, see [About Azure storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+All access to data objects in Azure Storage happens through a storage account. For more information, see [About Azure storage accounts](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### Container
 
@@ -27,7 +27,7 @@ A container organizes a set of blobs, similar to a folder in a file system. All 
 
 ### Blob
  
-Azure Storage offers three types of blobs -- block blobs, append blobs, and [page blobs](storage-blob-pageblob-overview.md) (used for VHD files).
+Azure Storage offers three types of blobs -- block blobs, append blobs, and [page blobs](../articles/storage/blobs/storage-blob-pageblob-overview.md) (used for VHD files).
 
 * Block blobs store text and binary data, up to about 4.7 TB. Block blobs are made up of blocks of data that can be managed individually.
 * Append blobs are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
@@ -35,6 +35,6 @@ Azure Storage offers three types of blobs -- block blobs, append blobs, and [pag
 
 All blobs reside within a container. A container is similar to a folder in a file system. You can further organize blobs into virtual directories, and traverse them as you would a file system. 
 
-For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a set of hard drives to Microsoft to import or export data directly from the data center. For more information, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../storage-import-export-service.md).
+For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a set of hard drives to Microsoft to import or export data directly from the data center. For more information, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../articles/storage/common/storage-import-export-service.md).
   
 For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
