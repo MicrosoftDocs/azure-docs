@@ -23,7 +23,7 @@ ms.author: Kumud
 Azure Standard Load Balancer gives your resources the following diagnostic capabilities:
 * **Multi-dimensional metrics**: Provides new multi-dimensional diagnostic capabilities for both public and internal load balancer configurations. You can monitor, manage, and troubleshoot your load balancer resources.
 
-* **Resource health**: The Load Balancer page in the Azure portal and the Resource Health page (under Monitor) expose the Resource Health section for the Public Load Balancer configuration of the Standard Load Balancer.
+* **Resource health**: The Load Balancer page in the Azure portal and the Resource Health page (under Monitor) expose the Resource Health section for the public load balancer configuration of Standard Load Balancer.
 
 This article provides a quick tour of these capabilities, and it offers ways to use them for Standard Load Balancer.
 
@@ -35,12 +35,12 @@ The various Standard Load Balancer configurations provide the following metrics:
 
 | Metric | Resource type | Description | Recommended aggregation |
 | --- | --- | --- | --- |
-| VIP availability (data path availability) | Public Load Balancer | Standard Load Balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customers use is also validated. The measurement is invisible to your application and does not interfere with other operations.| Average |
-| DIP availability (health probe status) |  Public and Internal Load Balancer | Standard Load Balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance endpoint in the load balancer pool. You can see how Load Balancer views the health of your application, as indicated by your health probe configuration. |  Average |
-| SYN (synchronize) packets |  Public Load Balancer | Standard Load Balancer does not terminate Transmission Control Protocol (TCP) connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.| Average |
-| SNAT connections |  Public Load Balancer |Standard Load Balancer reports the number of outbound flows that are masqueraded to the Public IP address front end. SNAT ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows. Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows.| Average |
-| Byte counters |  Public and Internal Load Balancer | Standard Load Balancer reports the data processed per front end.| Average |
-| Packet counters |  Public and Internal Load Balancer | Standard Load Balancer reports the packets processed per front end.| Average |
+| VIP availability (data path availability) | Public load balancer | Standard Load Balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customers use is also validated. The measurement is invisible to your application and does not interfere with other operations.| Average |
+| DIP availability (health probe status) |  Public and internal load balancer | Standard Load Balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance endpoint in the load balancer pool. You can see how Load Balancer views the health of your application, as indicated by your health probe configuration. |  Average |
+| SYN (synchronize) packets |  Public load balancer | Standard Load Balancer does not terminate Transmission Control Protocol (TCP) connections or interact with TCP or UDP packet flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.| Average |
+| SNAT connections |  Public Load Balancer |Standard Load Balancer reports the number of outbound flows that are masqueraded to the Public IP address front end. Source network address translation (SNAT) ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows. Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows.| Average |
+| Byte counters |  Public and internal load balancer | Standard Load Balancer reports the data processed per front end.| Average |
+| Packet counters |  Public and internal load balancer | Standard Load Balancer reports the packets processed per front end.| Average |
 
 ### View your load balancer metrics in the Azure portal
 
@@ -55,7 +55,7 @@ To view the metrics for your Standard Load Balancer resources:
 
 ![Metrics preview for Standard Load Balancer](./media/load-balancer-standard-diagnostics/LBMetrics1.png)
 
-*DIP availability and health probe status metric for Standard Load Balancer*
+*Figure: DIP availability and health probe status metric for Standard Load Balancer*
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
@@ -63,7 +63,7 @@ For API guidance for retrieving multi-dimensional metric definitions and values,
 
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 
-#### Is the data path up and available for my Load Balancer VIP?
+#### Is the data path up and available for my load balancer VIP?
 
 The VIP availability metric describes the health of the data path within the region to the compute host where your VMs are located. The metric is a reflection of the health of the Azure infrastructure. You can use the metric to:
 - Monitor the external availability of your service
@@ -78,7 +78,7 @@ To get the VIP availability for your Standard Load Balancer resources:
 
 ![VIP probing](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Load Balancer VIP probing details*
+*Figure: Load Balancer VIP probing details*
 
 The metric is generated by an active, in-band measurement. A probing service within the region originates traffic for the measurement. The service is activated as soon as you create a deployment with a public front end, and it continues until you remove the front end. 
 
@@ -105,7 +105,7 @@ To get the DIP availability for your Standard Load Balancer resources:
 
 ![DIP availability](./media/load-balancer-standard-diagnostics/LBMetrics-DIPAvailability.png)
 
-*Load Balancer VIP availability*
+*Figure: Load Balancer VIP availability*
 
 Health probes fail for the following reasons:
 - You configure a health probe to a port that is not listening or not responding or is using the wrong protocol. If your service is using direct server return (DSR, or floating IP) rules, make sure that the service is listening on the IP address of the NIC's IP configuration and not just on the loopback that's configured with the front-end IP address.
@@ -115,7 +115,7 @@ Use **Average** as the aggregation for most scenarios.
 
 #### How do I check my outbound connection statistics? 
 
-The Source Network Address Translation (SNAT) connections metric describes the volume of successful and failed connections for [outbound flows](https://aka.ms/lboutbound).
+The SNAT connections metric describes the volume of successful and failed connections for [outbound flows](https://aka.ms/lboutbound).
 
 A failed connections volume of greater than zero indicates SNAT port exhaustion. You must investigate further to determine what may be causing these failures. SNAT port exhaustion manifests as a failure to establish an [outbound flow](https://aka.ms/lboutbound). Review the article about outbound connections to understand the scenarios and mechanisms at work, and to learn how to mitigate and design to avoid SNAT port exhaustion. 
 
@@ -125,7 +125,7 @@ To get SNAT connection statistics:
 
 ![SNAT connection](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Load Balancer SNAT connection count*
+*Figure: Load Balancer SNAT connection count*
 
 
 #### How do I check inbound/outbound connection attempts for my service?
@@ -136,7 +136,7 @@ Use **Total** as the aggregation for most scenarios.
 
 ![SYN connection](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*Load Balancer SYN count*
+*Figure: Load Balancer SYN count*
 
 
 #### How do I check my network bandwidth consumption? 
@@ -155,7 +155,7 @@ Some example views for metrics with different configurations -
 
 ![Byte count](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Load Balancer byte count*
+*Figure: Load Balancer byte count*
 
 #### <a name = "vipavailabilityandhealthprobes"></a>How do I diagnose my load balancer deployment?
 
@@ -167,7 +167,7 @@ You can take it a step further and use VIP availability metrics to gain insight 
 
 ![VIP diagnostics](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
 
-*Combining DIP and VIP availability metrics*
+*Figure: Combining DIP and VIP availability metrics*
 
 The chart displays the following information:
 - The infrastructure itself was healthy, the infrastructure hosting your VMs was reachable, and more than one VM was placed in the back end. This information is indicated by the blue trace for VIP availability, which is 100 percent. 
@@ -184,38 +184,38 @@ VIP availability is currently available only for public front ends.
 Health status for the Standard Load Balancer resources is exposed via the existing **Resource health** under **Monitor > Service Health**.
 
 >[!NOTE]
->Resource health status for Load Balancer is currently available for public configuration of Standard Load Balancer only. Internal Load Balancer resources or Basic SKUs of Load Balancer resources do not expose resource health.
+>Resource health status for Load Balancer is currently available for public configuration of Standard Load Balancer only. Internal load balancer resources or Basic SKUs of Load Balancer resources do not expose resource health.
 
-To view the health of your Public Standard Load Balancer resources:
+To view the health of your public Standard Load Balancer resources:
 1. Select  **Monitor** > **Service Health**.
 
    ![Monitor page](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   *The Service Health link on Azure Monitor*
+   *Figure: The Service Health link on Azure Monitor*
 
 2. Select **Resource Health**, and then make sure that **Subscription ID** and **Resource Type = Load Balancer** are selected.
 
    ![Resource health status](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   *Select resource for health view*
+   *Figure: Select resource for health view*
 
 3. In the list, select the Load Balancer resource to view its historical health status.
 
     ![Load Balancer health status](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Load Balancer resource health view*
+   *Figure: Load Balancer resource health view*
  
 The various resource health statuses and their descriptions are listed in the following table: 
 
 | Resource health status | Description |
 | --- | --- |
-| Available | Your Public Standard Load Balancer resource is healthy and available. |
-| Unavailable | Your Public Standard Load Balancer resource is not healthy. Diagnose the health by selecting **Azure Monitor** > **Metrics**.<br>(*Unavailable* status might also mean that the resource is not connected with Public Standard Load Balancer.) |
-| Unknown | Resource health status for your Public Standard Load Balancer resource has not been updated yet.<br>(*Unknown* status might also mean that the resource is not connected with Public Standard Load Balancer.)  |
+| Available | Your public standard load balancer resource is healthy and available. |
+| Unavailable | Your public standard load balancer resource is not healthy. Diagnose the health by selecting **Azure Monitor** > **Metrics**.<br>(*Unavailable* status might also mean that the resource is not connected with your public standard load balancer.) |
+| Unknown | Resource health status for your public standard load balancer resource has not been updated yet.<br>(*Unknown* status might also mean that the resource is not connected with your public standard load balancer.)  |
 
 ## Next steps
 
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
-- Learn more about [Load Balancer outbound connectivity](https://aka.ms/lboutbound).
+- Learn more about your [Load balancer outbound connectivity](https://aka.ms/lboutbound).
 
 
