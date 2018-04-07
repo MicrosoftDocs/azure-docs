@@ -41,7 +41,7 @@ To get started with Logic Apps, start with [creating your first logic app](quick
 
 ## How can I build and deploy Serverless applications in Azure?
 
-Azure provides a rich set of tools across development, deployment, and management of Serverless apps.  Apps can be built directly in the Azure portal, or with [tooling from Visual Studio](logic-apps-serverless-get-started-vs.md).  Once an application has been developed it can be [deployed instantly](logic-apps-create-deploy-template.md).  Azure also provides monitoring for serverless apps.  This monitoring can be accessed from the Azure portal, through the API or SDKs, or with integrated tooling to OMS and Application Insights.
+Azure provides a rich set of tools across development, deployment, and management of Serverless apps.  Apps can be built directly in the Azure portal, or with [tooling from Visual Studio](logic-apps-serverless-get-started-vs.md).  Once an application has been developed it can be [deployed instantly](logic-apps-create-deploy-template.md).  Azure also provides monitoring for serverless apps.  This monitoring can be accessed from the Azure portal, through the API or SDKs, or with integrated tooling to Log Analytics and Application Insights.
 
 ## Next steps
 

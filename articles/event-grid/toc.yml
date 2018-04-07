@@ -53,6 +53,8 @@
     href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
   - name: Monitor event delivery
     href: monitor-event-delivery.md
+  - name: Query event subscriptions
+    href: query-event-subscriptions.md
 - name: Reference
   items:
   - name: Azure CLI
