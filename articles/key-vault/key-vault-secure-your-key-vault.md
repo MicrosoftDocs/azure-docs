@@ -210,10 +210,10 @@ This example depicts a simple scenario. Real life scenarios may be more complex 
 * [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md)
   
   This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
-* [Manage Role-Based Access Control with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+* [Manage Role-Based Access Control with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
   
   This article explains how to manage role-based access control with Azure PowerShell
-* [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+* [Managing Role-Based Access Control with the REST API](../role-based-access-control/role-assignments-rest.md)
   
   This article shows how to use the REST API to manage RBAC.
 * [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)

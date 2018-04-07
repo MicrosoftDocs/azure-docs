@@ -30,7 +30,7 @@ Azure Backup provides 3 built-in roles to control backup management operations. 
 * [Backup Operator](../active-directory/role-based-access-built-in-roles.md#backup-operator) - This role has permissions to everything a contributor does except removing backup and managing backup policies. This role is equivalent to contributor except it can't perform destructive operations such as stop backup with delete data or remove registration of on-premises resources.
 * [Backup Reader](../active-directory/role-based-access-built-in-roles.md#backup-reader) - This role has permissions to view all backup management operations. Imagine this role to be a monitoring person.
 
-If you're looking to define your own roles for even more control, see how to [build Custom roles](../active-directory/role-based-access-control-custom-roles.md) in Azure RBAC.
+If you're looking to define your own roles for even more control, see how to [build Custom roles](../role-based-access-control/custom-roles.md) in Azure RBAC.
 
 
 
@@ -54,7 +54,7 @@ The following table captures the Backup management actions and corresponding min
 ## Next steps
 * [Role Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
 * Learn how to manage access with:
-  * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
-  * [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
-  * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+  * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [Role-Based Access Control troubleshooting](../active-directory/role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.

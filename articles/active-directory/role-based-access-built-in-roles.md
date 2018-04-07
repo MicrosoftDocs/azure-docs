@@ -19,7 +19,7 @@ ms.reviewer: rqureshi
 ms.custom: it-pro
 ---
 # Built-in roles for Azure role-based access control
-Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
+Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](../role-based-access-control/custom-roles.md) to fit the specific needs of your organization.
 
 ## Built-in role descriptions
 The following table provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **notactions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **notactions** property specifies the actions that are excluded from the allowed actions.
@@ -1355,7 +1355,7 @@ Lets you manage websites (not web plans), but not access to them.
 
 ## See also
 * [Role-Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
-* [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
+* [Custom roles in Azure RBAC](../role-based-access-control/custom-roles.md): Learn how to create custom roles to fit your access needs.
 * [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
 * [Role-Based Access Control troubleshooting](role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
 * [Permissions in Azure Security Center](../security-center/security-center-permissions.md)

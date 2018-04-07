@@ -27,7 +27,7 @@ Azure Site Recovery provides 3 built-in roles to control Site Recovery managemen
 * [Site Recovery Operator](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) - This role has permissions to execute and manager Failover and Failback operations. A user with this role can't enable or disable replication, create or delete vaults, register new infrastructure or assign access rights to other users. This role is best suited for a disaster recovery operator who can failover virtual machines or applications when instructed by application owners and IT administrators in an actual or simulated disaster situation such as a DR drill. Post resolution of the disaster, the DR operator can re-protect and failback the virtual machines.
 * [Site Recovery Reader](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) - This role has permissions to view all Site Recovery management operations. This role is best suited for an IT monitoring executive who can monitor the current state of protection and raise support tickets if required.
 
-If you're looking to define your own roles for even more control, see how to [build Custom roles](../active-directory/role-based-access-control-custom-roles.md) in Azure.
+If you're looking to define your own roles for even more control, see how to [build Custom roles](../role-based-access-control/custom-roles.md) in Azure.
 
 ## Permissions required to Enable Replication for new Virtual Machines
 When a new Virtual Machine is replicated to Azure using Azure Site Recovery, the associated user's access levels are validated to ensure that the user has the required permissions to use the Azure resources provided to Site Recovery.
@@ -75,7 +75,7 @@ Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Co
 ## Next steps
 * [Role-Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
 * Learn how to manage access with:
-  * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
-  * [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
-  * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+  * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [Role-Based Access Control troubleshooting](../active-directory/role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.

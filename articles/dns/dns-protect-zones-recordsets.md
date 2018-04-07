@@ -36,14 +36,14 @@ The simplest way to assign RBAC permissions is [via the Azure portal](../active-
 
 ![Resource group level RBAC via the Azure portal](./media/dns-protect-zones-recordsets/rbac1.png)
 
-Permissions can also be [granted using Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
-The equivalent command is also [available via the Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+The equivalent command is also [available via the Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
@@ -60,14 +60,14 @@ Zone-level RBAC permissions can be granted via the Azure portal.  Open the 'Acce
 
 ![DNS Zone level RBAC via the Azure portal](./media/dns-protect-zones-recordsets/rbac2.png)
 
-Permissions can also be [granted using Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
-The equivalent command is also [available via the Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+The equivalent command is also [available via the Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant 'DNS Zone Contributor' permissions to a specific zone
@@ -82,14 +82,14 @@ Record-set level RBAC permissions can be configured via the Azure portal, using 
 
 ![Record set level RBAC via the Azure portal](./media/dns-protect-zones-recordsets/rbac3.png)
 
-Record-set level RBAC permissions can also be [granted using Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+Record-set level RBAC permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```powershell
 # Grant permissions to a specific record set
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
-The equivalent command is also [available via the Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md):
+The equivalent command is also [available via the Azure CLI](../role-based-access-control/role-assignments-cli.md):
 
 ```azurecli
 # Grant permissions to a specific record set
@@ -154,7 +154,7 @@ azure role create -inputfile <file path>
 
 The role can then be assigned in the same way as built-in roles, as described earlier in this article.
 
-For more information on how to create, manage, and assign custom roles, see [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md).
+For more information on how to create, manage, and assign custom roles, see [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md).
 
 ## Resource locks
 
