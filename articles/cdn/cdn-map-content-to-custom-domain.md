@@ -59,17 +59,17 @@ To create a CNAME record with the cdnverify subdomain:
 
 2. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name server management**. 
 
-3. Create a CNAME record entry for your custom domain and complete the fields as shown in the following table (field names may vary):
-
-    | Source                    | Type  | Destination                     |
-    |---------------------------|-------|---------------------------------|
-    | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
+3. Create a CNAME record entry for your custom domain and complete the following fields (field names may vary):
 
     - Source: Enter your custom domain name, including the cdnverify subdomain, in the following format: cdnverify._&lt;custom domain name&gt;. For example, cdnverify.www.contoso.com.
 
     - Type: Enter *CNAME*.
 
     - Destination: Enter your CDN endpoint hostname, including the cdnverify subdomain, in the following format: cdnverify._&lt;endpoint name&gt;_.azureedge.net. For example, cdnverify.contoso.azureedge.net.
+
+    | Source                    | Type  | Destination                     |
+    |---------------------------|-------|---------------------------------|
+    | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
 4. Save your changes.
 
@@ -85,8 +85,6 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
 5. Complete the following fields of the CNAME entry:
 
-    ![CNAME entry](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
-
     - Type: Leave *CNAME* selected.
 
     - Host: Enter the subdomain of your custom domain to use, including the cdnverify subdomain name. For example, cdnverify.www.
@@ -94,6 +92,8 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
     - Points to: Enter the host name of your CDN endpoint, including the cdnverify subdomain name. For example, cdnverify.contoso.azureedge.net. 
 
     - TTL: Leave *1 Hour* selected.
+
+    ![CNAME entry](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
 6. Select **Save**.
  
@@ -143,11 +143,7 @@ To create a CNAME record for your custom domain:
 
 2. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name Server Management**. 
 
-3. Create a CNAME record entry for your custom domain and complete the fields as shown in the following table (field names may vary):
-
-    | Source          | Type  | Destination           |
-    |-----------------|-------|-----------------------|
-    | www.contoso.com | CNAME | contoso.azureedge.net |
+3. Create a CNAME record entry for your custom domain and complete the following fields (field names may vary):
 
     - Source: Enter your custom domain name (for example, www.contoso.com).
 
@@ -155,10 +151,16 @@ To create a CNAME record for your custom domain:
 
     - Destination: Enter your CDN endpoint hostname. It must be in the following format:_&lt;endpoint name&gt;_.azureedge.net. For example, contoso.azureedge.net.
 
+    | Source          | Type  | Destination           |
+    |-----------------|-------|-----------------------|
+    | www.contoso.com | CNAME | contoso.azureedge.net |
+
 4. Save your changes.
 
 5. If you're previously created a temporary cdnverify subdomain CNAME record, delete it. 
 
+6. If you are using this custom domain in production for the first time, follow the steps for [Associate the custom domain with your CDN endpoint](#associate-the-custom-domain-with-your-cdn-endpoint) and [Verify the custom domain](#verify-the-custom-domain).
+ 
 For example, the procedure for the GoDaddy domain registrar is as follows:
 
 1. Log in and select the custom domain you want to use.
@@ -171,8 +173,6 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
 5. Complete the fields of the CNAME entry:
 
-    ![CNAME entry](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
-
     - Type: Leave *CNAME* selected.
 
     - Host: Enter the subdomain of your custom domain to use. For example, www or cdn.
@@ -180,6 +180,8 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
     - Points to: Enter the host name of your CDN endpoint. For example, contoso.azureedge.net. 
 
     - TTL: Leave *1 Hour* selected.
+
+    ![CNAME entry](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
 6. Select **Save**.
  
@@ -190,8 +192,6 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 7. If you have a cdnverify CNAME record, select the pencil icon next to it, then select the trash can icon.
 
 8. Select **Delete** to delete the CNAME record.
-
-If you are using this custom domain in production for the first time, follow the steps for [Associate the custom domain with your CDN endpoint](#associate-the-custom-domain-with-your-cdn-endpoint) and [Verify the custom domain](#verify-the-custom-domain).
 
 
 ## Clean up resources
