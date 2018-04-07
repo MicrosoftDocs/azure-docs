@@ -49,7 +49,7 @@ In your Batch applications, use the Batch APIs to monitor or query the status of
 * Monitor [pool usage in the account](/rest/api/batchservice/pool/listusagemetrics)
 * [Count pool nodes by state](/rest/api/batchservice/account/listpoolnodecounts)
 
-## Batch application-level monitoring
+## VM performance counters and application monitoring
 
 * [Application Insights](../application-insights/app-insights-overview.md) is an Azure service you can use to programmatically monitor the availability, performance, and usage of your Batch jobs and tasks. Easily get performance counters from compute nodes (VMs) and custom information for tasks off of the VMs. 
 
@@ -59,11 +59,7 @@ In your Batch applications, use the Batch APIs to monitor or query the status of
   > You may incur additional costs to use Application Insights. See the [pricing options](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [BatchLabs](https://github.com/Azure/BatchLabs) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchLabs/) for Mac, Linux, or Windows. Optionally configure your Batch solution to [display Application Insights data](https://github.com/Azure/batch-insights) in BatchLabs.
-
-## Cost monitoring
-
-[Azure Cost Management](../cost-management/overview.md) by Cloudyn allows you to track cloud usage and expenditures for your Azure resources and other cloud providers.
+* [BatchLabs](https://github.com/Azure/BatchLabs) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchLabs/) for Mac, Linux, or Windows. Optionally configure your Batch solution to [display Application Insights data](https://github.com/Azure/batch-insights) such as VM performance counters in BatchLabs.
 
 
 ## Next steps
