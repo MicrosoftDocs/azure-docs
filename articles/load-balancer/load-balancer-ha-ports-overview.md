@@ -22,17 +22,17 @@ ms.author: kumud
 
 Azure Standard Load Balancer helps you load-balance TCP and UDP flows on all ports simultaneously when you're using an internal load balancer. 
 
-An HA ports rule is a variant of a load-balancing rule, configured on an internal Standard Load Balancer. You can simplify your use of a load balancer by providing a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following 5-tuple connection: source IP address, source port, destination IP address, destination port, and protocol.
+A high availability (HA) ports rule is a variant of a load-balancing rule, configured on an internal Standard Load Balancer. You can simplify the use of a load balancer by providing a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol.
 
 The HA ports feature helps you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced. 
 
-The HA ports feature is configured when you set the front-end and back-end ports to **0**, and the protocol to **All**. The internal load balancer resource then balances all TCP and UDP flows, regardless of port number.
+The HA ports feature is configured when you set the front-end and back-end ports to **0** and the protocol to **All**. The internal load balancer resource then balances all TCP and UDP flows, regardless of port number.
 
 ## Why use HA ports?
 
 ### <a name="nva"></a>Network virtual appliances
 
-You can use NVAs for securing your Azure workload from multiple types of security threats. When NVAs are used in these scenarios, they must be reliable and highly available, and they must scale out for demand.
+You can use NVAs to help secure your Azure workload from multiple types of security threats. When you use NVAs in these scenarios, they must be reliable and highly available, and they must scale out for demand.
 
 You can achieve these goals simply by adding NVA instances to the back-end pool of your internal load balancer and configuring an HA ports load-balancer rule.
 
@@ -47,7 +47,7 @@ The following diagram presents a hub-and-spoke virtual network deployment. The s
 ![Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
-> If you are using NVAs, confirm with their providers how to best use HA ports, and which scenarios are supported.
+> If you are using NVAs, confirm with their providers how to best use HA ports and to learn which scenarios are supported.
 
 ### Load-balancing large numbers of ports
 
@@ -59,7 +59,7 @@ The HA ports feature is available in all the global Azure regions.
 
 ## Supported configurations
 
-### A single, non-floating IP (non-Direct Server Return) HA-port configuration on an internal Standard Load Balancer
+### A single, non-floating IP (non-Direct Server Return) HA-ports configuration on an internal Standard Load Balancer
 
 This configuration is a basic HA ports configuration. You can configure an HA ports load-balancing rule on a single front-end IP address by doing the following:
 1. While configuring Standard Load Balancer, select the **HA ports** check box in the Load Balancer rule configuration.
@@ -69,13 +69,13 @@ This configuration does not allow any other load-balancing rule configuration on
 
 However, you can configure a public Standard Load Balancer for the back-end instances in addition to this HA ports rule.
 
-### A single, floating IP (Direct Server Return) HA-port configuration on an internal Standard Load Balancer
+### A single, floating IP (Direct Server Return) HA-ports configuration on an internal Standard Load Balancer
 
-You can similarly configure your load balancer to use a load balancing rule with **HA Port** with a single front end by setting the **Floating IP** to **Enabled**. 
+You can similarly configure your load balancer to use a load-balancing rule with **HA Port** with a single front end by setting the **Floating IP** to **Enabled**. 
 
-By using this configuration, you can add more floating IP load-balancing rules and/or a public load balancer. However, you cannot use a non-floating IP HA port load-balancing configuration on top of this configuration.
+By using this configuration, you can add more floating IP load-balancing rules and/or a public load balancer. However, you cannot use a non-floating IP, HA-ports load-balancing configuration on top of this configuration.
 
-### Multiple HA-port configurations on an internal Standard Load Balancer
+### Multiple HA-ports configurations on an internal Standard Load Balancer
 
 If your scenario requires that you configure more than one HA port front end for the same back-end pool, you can do the following: 
 - Configure more than one front-end private IP address for a single internal Standard Load Balancer resource.
@@ -91,9 +91,9 @@ You can configure *one* public Standard Load Balancer resource for the back-end 
 
 ## Limitations
 
-- HA ports configuration is available only for an internal load balancer. It is not available for a public load balancer.
+- HA ports configuration is available only for internal load balancers. It is not available for public load balancers.
 
-- Combining an HA ports load-balancing rule and a non-HA ports load-balancing rule is not supported.
+- The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule is not supported.
 
 - The HA ports feature is not available for IPv6.
 
