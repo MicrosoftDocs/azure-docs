@@ -20,7 +20,7 @@ ms.custom: mvc
 
 ---
 # Tutorial: Add a custom domain to your Azure CDN endpoint
-This tutorial shows how to add a custom domain to an Azure CDN endpoint. When you use a CDN endpoint to deliver content, a custom domain is necessary if you would like your own domain name to be visible in your CDN URL. Having a visible domain name can be convenient for your customers and useful for branding purposes. 
+This tutorial shows how to add a custom domain to an Azure Content Delivery Network (CDN) endpoint. When you use a CDN endpoint to deliver content, a custom domain is necessary if you would like your own domain name to be visible in your CDN URL. Having a visible domain name can be convenient for your customers and useful for branding purposes. 
 
 After you create a CDN endpoint in your profile, the endpoint name, which is a subdomain of azureedge.net, is included in the URL for delivering CDN content by default (for example, https:\//contoso.azureedge.net/photo.png). For your convenience, Azure CDN provides the option of associating a custom domain with a CDN endpoint. With this option, you deliver your content with a custom domain in your URL instead of an endpoint name (for example, https:\//www.contoso.com/photo.png). 
 
