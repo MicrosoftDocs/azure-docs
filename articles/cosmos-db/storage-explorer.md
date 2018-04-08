@@ -46,7 +46,7 @@ Azure Cosmos DB in Storage Explorer troubleshooting guide overview
 - [Expand Azure Cosmos DB node error](#Expand-Azure-Cosmos-DB-node-error)
 - [Feedback](#Feedback)
 
-[Next Steps](#Next-steps)
+[Contact us](#Contact-us)
 
 <h2 id="Prerequisites">Prerequisites</h2>
 
@@ -93,8 +93,12 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
     ![Connection-string](./media/storage-explorer/connection-string.png)
 
 <h2 id="Connect-to-Azure-Cosmos-DB-by-using-local-emulator">Connect to Azure Cosmos DB by using local emulator</h2>
+
 Use the following steps to connect to an Azure Cosmos DB by Emulator, only support SQL account currently.
-1. Install Emulator and launch. For how to install Emulator, see [Cosmos DB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+
+1. Install Emulator and launch. For how to install Emulator, see
+ [Cosmos DB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+
 2. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB Emulator...**
 
     ![Connect to Cosmos DB by Emulator](./media/storage-explorer/emulator-entry.png)
@@ -102,7 +106,6 @@ Use the following steps to connect to an Azure Cosmos DB by Emulator, only suppo
 3. Only support SQL API currently. Paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![Connect to Cosmos DB by Emulator dialog](./media/storage-explorer/emulator-dialog.png)
-
 
 
 <h2 id="Azure-Cosmos-DB-resource-management">Azure Cosmos DB resource management</h2>
@@ -325,7 +328,7 @@ Try the following suggestions:
 - Check if the Azure Cosmos DB account is in provision progress and try again when the account is being created successfully.
 - If the account is under "Quick Access" node or "Local and Attached" nodes, then check if the account has been deleted. If so, you need to remove the node manually.
 
-<h2 id="Feedback">Feedback</h2>
+<h2 id="Contact-us">Contact us</h2>
 
 If none of the solutions work for you, send email to Azure Cosmos DB Dev Tooling Team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) with details about the issue, for fixing the issues.
 
