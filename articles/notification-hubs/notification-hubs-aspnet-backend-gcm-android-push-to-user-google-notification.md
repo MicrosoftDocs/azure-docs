@@ -394,7 +394,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
         }
     ```
 
-    The `login` handler for the **Log in** button generates a basic authentication token using on the input username and password (this represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration.
+    The `login` handler for the **Log in** button generates a basic authentication token using on the input username and password (it represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration.
 
     The `sendPush` method calls the backend to trigger a secure notification to the user based on the user tag. The platform notification service that `sendPush` targets depends on the `pns` string passed in.
 
@@ -459,7 +459,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
 ## Test the app
 1. Run the application on a device or an emulator using Android Studio.
 2. In the Android app, enter a username and password. They must both be the same string value and they must not contain spaces or special characters.
-3. In the Android app, click **Log in**. Wait for a toast message that states **Logged in and registered**. This enables the **Send Notification** button.
+3. In the Android app, click **Log in**. Wait for a toast message that states **Logged in and registered**. It enables the **Send Notification** button.
    
     ![][A2]
 4. Click the toggle buttons to enable all platforms where you ran the app and registered a user.
