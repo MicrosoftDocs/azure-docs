@@ -222,7 +222,7 @@ For more design information on the use of autoscale, see [autoscale best practic
 ## Next steps
 In this tutorial, you created a virtual machine scale set. You learned how to:
 
-
+> [!div class="checklist"]
 > * Use the Custom Script Extension to define an IIS site to scale
 > * Create a load balancer for your scale set
 > * Create a virtual machine scale set
