@@ -25,7 +25,7 @@ This article answers common questions about the specific access rights that are 
 * Contributor  
 * Reader  
 
-Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we'll spend some time. See the [Role-Based Access Control get-started article](role-based-access-control-configure.md) for details on how to grant access.
+Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we'll spend some time. See the [Role-Based Access Control get-started article](../active-directory/role-based-access-control-configure.md) for details on how to grant access.
 
 ## App Service
 ### Write access capabilities
@@ -47,7 +47,7 @@ If you can't access any of these tiles, you need to ask your administrator for C
 ### Dealing with related resources
 Web apps are complicated by the presence of a few different resources that interplay. Here is a typical resource group with a couple websites:
 
-![Web app resource group](./media/role-based-access-control-troubleshooting/website-resource-model.png)
+![Web app resource group](./media/troubleshooting/website-resource-model.png)
 
 As a result, if you grant someone access to just the web app, much of the functionality on the website blade in the Azure portal is disabled.
 
@@ -68,7 +68,7 @@ These items require **write** access to the whole **Resource group** that contai
 ## Azure Functions
 Some features of [Azure Functions](../azure-functions/functions-overview.md) require write access. For example, if a user is assigned the Reader role, they will not be able to view the functions within a function app. The portal will display **(No access)**.
 
-![Function apps no access](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+![Function apps no access](./media/troubleshooting/functionapps-noaccess.png)
 
 A reader can click the **Platform features** tab and then click **All settings** to view some settings related to a function app (similar to a web app), but they can't modify any of these settings.
 
@@ -93,8 +93,8 @@ These require **write** access to both the **Virtual machine**, and the **Resour
 If you can't access any of these tiles, ask your administrator for Contributor access to the Resource group.
 
 ## See more
-* [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
-* [Built-in roles](role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
-* [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
-* [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
+* [Role Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
+* [Built-in roles](../active-directory/role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
+* [Custom roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
+* [Create an access change history report](../active-directory/role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
 

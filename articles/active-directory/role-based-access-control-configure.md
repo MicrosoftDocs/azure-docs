@@ -21,7 +21,7 @@ ms.reviewer: rqureshi
 > * [Manage access by user or group](role-based-access-control-manage-assignments.md)
 > * [Manage access by resource](role-based-access-control-configure.md)
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. This article helps you get up and running with RBAC in the Azure portal. If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](role-based-access-control-what-is.md).
+Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. This article helps you get up and running with RBAC in the Azure portal. If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](../role-based-access-control/overview.md).
 
 Within each subscription, you can grant up to 2000 role assignments. 
 

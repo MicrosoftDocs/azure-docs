@@ -1357,5 +1357,5 @@ Lets you manage websites (not web plans), but not access to them.
 * [Role-Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
 * [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
 * [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
-* [Role-Based Access Control troubleshooting](role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
+* [Role-Based Access Control troubleshooting](../role-based-access-control/troubleshooting.md): Get suggestions for fixing common issues.
 * [Permissions in Azure Security Center](../security-center/security-center-permissions.md)

@@ -235,7 +235,7 @@ Next, you edit the JSON output to create your custom role.
 
 A typical role is composed of three main sections, **Actions**, **NotActions**, and **AssignableScopes**.
 
-The **Action** section lists all the permitted operations for the role. In this case, to create support tickets, the **Microsoft.Support/&ast;** operation must be added. It's important to understand that each operation is made available from a resource provider. To get a list of the operations for a resource provider, you can use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command or see [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
+The **Action** section lists all the permitted operations for the role. In this case, to create support tickets, the **Microsoft.Support/&ast;** operation must be added. It's important to understand that each operation is made available from a resource provider. To get a list of the operations for a resource provider, you can use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command or see [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md).
 
 To restrict all the actions for a particular role, resource providers are listed under the **NotActions** section.
 It's mandatory that the role contains the explicit subscription IDs where it is used. The subscription IDs are listed under **AssignableScopes**, otherwise you will not be allowed to import the role into your subscription.
