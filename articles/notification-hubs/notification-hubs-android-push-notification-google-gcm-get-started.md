@@ -689,11 +689,10 @@ Normally, you would send notifications using a backend server. For some cases, y
     ```
 
 ## Next steps
-In this tutorial, you learned how to push notifications to specific users that have tags associated with their registrations. To learn how to push location-based notifications, advance to the following tutorial: 
+In this tutorial, you sent broadcast notifications to all your Android devices registered with the backend. To learn how to push notifications to specific Android devices, advance to the following tutorial:  
 
-> [!div class="nextstepaction"]
->[Push location-based notifications](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-
+ > [!div class="nextstepaction"] 
+ > [Push notifications to specific devices](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md) 
 
 
 <!-- Images. -->
