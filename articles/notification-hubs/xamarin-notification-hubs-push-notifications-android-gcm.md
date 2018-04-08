@@ -83,7 +83,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
 1. Gather the following information for your Android app and notification hub:
    
    * **Listen connection string**: On the dashboard in the [Azure portal], choose **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
-   * **Hub name**: This is the name of your hub from the [Azure portal]. For example, *mynotificationhub2*.
+   * **Hub name**: Name of your hub from the [Azure portal]. For example, *mynotificationhub2*.
      
 2. Right-click your **project** in the **Solution Explorer** window, point to **Add**, and select **Class**. 
 4. Create a **Constants.cs** class for your Xamarin project and define the following constant values in the class. Replace the placeholders with your values.
@@ -133,7 +133,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
     using Firebase.Iid;
     ```
 
-9. In **MyFirebaseIIDService.cs**, add the following above the **class** declaration, and have your class inherit from **FirebaseInstanceIdService**:
+9. In **MyFirebaseIIDService.cs**, add the following **class** declaration, and have your class inherit from **FirebaseInstanceIdService**:
    
     ```csharp
         [Service]
@@ -229,11 +229,11 @@ Your notification hub is configured to work with FCM, and you have the connectio
 16. **Run** your app on your device or loaded emulator
 
 ## Send test notification from the Azure portal
-You can test receiving notifications in your app with the *Test Send* option in the [Azure portal]. This sends a test push notification to your device.
+You can test receiving notifications in your app with the *Test Send* option in the [Azure portal]. It sends a test push notification to your device.
 
 ![Azure portal - Test Send](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
-Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET through a compatible library. If a library is not available for your back-end you can also use the REST API directly to send notification messages.
+Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET through a compatible library. If a library is not available for your back-end, you can also use the REST API directly to send notification messages.
 
 ## Next steps
 In this tutorial, you sent broadcast notifications to all your Android devices registered with the backend. To learn how to push notifications to specific Android devices, advance to the following tutorial: 
