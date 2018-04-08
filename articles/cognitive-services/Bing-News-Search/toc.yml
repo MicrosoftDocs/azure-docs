@@ -49,7 +49,6 @@
   - name: REST v5 
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference  
   - name: SDK
-    expanded: true
     items:
     - name: SDK samples overview 
       href: sdk.md

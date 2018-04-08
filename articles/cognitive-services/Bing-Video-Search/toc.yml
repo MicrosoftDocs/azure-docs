@@ -52,7 +52,6 @@
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference 
   - name: SDK
     items:
-    expanded: true
     - name: SDK samples overview 
       href: sdk.md
     - name: Video Search SDK C# quickstart

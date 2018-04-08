@@ -37,7 +37,6 @@
   - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
   - name: SDK
-    expanded: true
     items:
     - name: SDK samples overview 
       href: sdk.md

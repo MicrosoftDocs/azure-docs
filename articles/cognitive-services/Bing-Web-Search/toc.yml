@@ -57,7 +57,6 @@
   - name: REST v5 API (old version)
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
   - name: SDK
-    expanded: true
     items:
     - name: SDK samples overview 
       href: sdk.md
