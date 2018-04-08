@@ -1,9 +1,9 @@
 ---
-title: Azure Notification Hubs Notify Users for Android with .NET backend
-description: Learn how to send push notifications to users in Azure. Code samples written in Java for Android
+title: Push notifications to specific Android application users | Microsoft Docs
+description: Learn how to send push notifications to specific users by using Azure Notification Hubs.
 documentationcenter: android
 services: notification-hubs
-author: ysxu
+author: spelluru
 manager: erikre
 editor: ''
 
@@ -12,12 +12,13 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/07/2018
+ms.author: spelluru
 
 ---
-# Azure Notification Hubs Notify Users for Android with .NET backend
+# Tutorial: Push notification to specific Android application users by using Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## Overview
@@ -38,250 +39,279 @@ The next step is to create the Android application.
    
     This adds new EditText controls for logging in as a user. Also a field is added for a username tag that will be part of notifications you send:
    
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-            android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-   
-        <EditText
-            android:id="@+id/usernameText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/usernameHint"
-            android:layout_above="@+id/passwordText"
-            android:layout_alignParentEnd="true" />
-        <EditText
-            android:id="@+id/passwordText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/passwordHint"
-            android:inputType="textPassword"
-            android:layout_above="@+id/buttonLogin"
-            android:layout_alignParentEnd="true" />
-        <Button
-            android:id="@+id/buttonLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loginButton"
-            android:onClick="login"
-            android:layout_above="@+id/toggleButtonGCM"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="24dp" />
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOn="WNS on"
-            android:textOff="WNS off"
-            android:id="@+id/toggleButtonWNS"
-            android:layout_toLeftOf="@id/toggleButtonGCM"
-            android:layout_centerVertical="true" />
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOn="GCM on"
-            android:textOff="GCM off"
-            android:id="@+id/toggleButtonGCM"
-            android:checked="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true" />
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOn="APNS on"
-            android:textOff="APNS off"
-            android:id="@+id/toggleButtonAPNS"
-            android:layout_toRightOf="@id/toggleButtonGCM"
-            android:layout_centerVertical="true" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextNotificationMessageTag"
-            android:layout_below="@id/toggleButtonGCM"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/notification_message_tag_hint" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextNotificationMessage"
-            android:layout_below="@+id/editTextNotificationMessageTag"
-            android:layout_centerHorizontal="true"
-            android:hint="@string/notification_message_hint" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/send_button"
-            android:id="@+id/sendbutton"
-            android:onClick="sendNotificationButtonOnClick"
-            android:layout_below="@+id/editTextNotificationMessage"
-            android:layout_centerHorizontal="true" />
-        </RelativeLayout>
+    ```xml
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/usernameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/usernameHint"
+        android:layout_above="@+id/passwordText"
+        android:layout_alignParentEnd="true" />
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/passwordHint"
+        android:inputType="textPassword"
+        android:layout_above="@+id/buttonLogin"
+        android:layout_alignParentEnd="true" />
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loginButton"
+        android:onClick="login"
+        android:layout_above="@+id/toggleButtonGCM"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp" />
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="WNS on"
+        android:textOff="WNS off"
+        android:id="@+id/toggleButtonWNS"
+        android:layout_toLeftOf="@id/toggleButtonGCM"
+        android:layout_centerVertical="true" />
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="GCM on"
+        android:textOff="GCM off"
+        android:id="@+id/toggleButtonGCM"
+        android:checked="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="APNS on"
+        android:textOff="APNS off"
+        android:id="@+id/toggleButtonAPNS"
+        android:layout_toRightOf="@id/toggleButtonGCM"
+        android:layout_centerVertical="true" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextNotificationMessageTag"
+        android:layout_below="@id/toggleButtonGCM"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/notification_message_tag_hint" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextNotificationMessage"
+        android:layout_below="@+id/editTextNotificationMessageTag"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/notification_message_hint" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/send_button"
+        android:id="@+id/sendbutton"
+        android:onClick="sendNotificationButtonOnClick"
+        android:layout_below="@+id/editTextNotificationMessage"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:id="@+id/text_hello"
+    />  
+    </RelativeLayout>
+    ```
 3. Open your **res/values/strings.xml** file and replace the `send_button` definition with the following lines that redefine the string for the `send_button` and add strings for the other controls:
    
-        <string name="usernameHint">Username</string>
-        <string name="passwordHint">Password</string>
-        <string name="loginButton">1. Log in</string>
-        <string name="send_button">2. Send Notification</string>
-        <string name="notification_message_tag_hint">
-            Recipient username tag
-        </string>
-   
+    ```xml
+    <string name="usernameHint">Username</string>
+    <string name="passwordHint">Password</string>
+    <string name="loginButton">1. Log in</string>
+    <string name="send_button">2. Send Notification</string>
+    <string name="notification_message_hint">Notification message</string>
+    <string name="notification_message_tag_hint">Recipient username</string>
+    ```
+
     Your main_activity.xml graphical layout should now look like this:
    
     ![][A1]
 4. Create a new class named **RegisterClient** in the same package as your `MainActivity` class. Use the code below for the new class file.
-   
-        import java.io.IOException;
-        import java.io.UnsupportedEncodingException;
-        import java.util.Set;
-   
-        import org.apache.http.HttpResponse;
-        import org.apache.http.HttpStatus;
-        import org.apache.http.client.ClientProtocolException;
-        import org.apache.http.client.HttpClient;
-        import org.apache.http.client.methods.HttpPost;
-        import org.apache.http.client.methods.HttpPut;
-        import org.apache.http.client.methods.HttpUriRequest;
-        import org.apache.http.entity.StringEntity;
-        import org.apache.http.impl.client.DefaultHttpClient;
-        import org.apache.http.util.EntityUtils;
-        import org.json.JSONArray;
-        import org.json.JSONException;
-        import org.json.JSONObject;
-   
-        import android.content.Context;
-        import android.content.SharedPreferences;
-        import android.util.Log;
-   
-        public class RegisterClient {
-            private static final String PREFS_NAME = "ANHSettings";
-            private static final String REGID_SETTING_NAME = "ANHRegistrationId";
-            private String Backend_Endpoint;
-            SharedPreferences settings;
-            protected HttpClient httpClient;
-            private String authorizationHeader;
-   
-            public RegisterClient(Context context, String backendEnpoint) {
-                super();
-                this.settings = context.getSharedPreferences(PREFS_NAME, 0);
-                httpClient =  new DefaultHttpClient();
-                Backend_Endpoint = backendEnpoint + "/api/register";
-            }
-   
-            public String getAuthorizationHeader() {
-                return authorizationHeader;
-            }
-   
-            public void setAuthorizationHeader(String authorizationHeader) {
-                this.authorizationHeader = authorizationHeader;
-            }
-   
-            public void register(String handle, Set<String> tags) throws ClientProtocolException, IOException, JSONException {
-                String registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
-   
-                JSONObject deviceInfo = new JSONObject();
-                deviceInfo.put("Platform", "gcm");
-                deviceInfo.put("Handle", handle);
-                deviceInfo.put("Tags", new JSONArray(tags));
-   
-                int statusCode = upsertRegistration(registrationId, deviceInfo);
-   
-                if (statusCode == HttpStatus.SC_OK) {
-                    return;
-                } else if (statusCode == HttpStatus.SC_GONE){
-                    settings.edit().remove(REGID_SETTING_NAME).commit();
-                    registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
-                    statusCode = upsertRegistration(registrationId, deviceInfo);
-                    if (statusCode != HttpStatus.SC_OK) {
-                        Log.e("RegisterClient", "Error upserting registration: " + statusCode);
-                        throw new RuntimeException("Error upserting registration");
-                    }
-                } else {
+
+    ```java   
+    import java.io.IOException;
+    import java.io.UnsupportedEncodingException;
+    import java.util.Set;
+
+    import org.apache.http.HttpResponse;
+    import org.apache.http.HttpStatus;
+    import org.apache.http.client.ClientProtocolException;
+    import org.apache.http.client.HttpClient;
+    import org.apache.http.client.methods.HttpPost;
+    import org.apache.http.client.methods.HttpPut;
+    import org.apache.http.client.methods.HttpUriRequest;
+    import org.apache.http.entity.StringEntity;
+    import org.apache.http.impl.client.DefaultHttpClient;
+    import org.apache.http.util.EntityUtils;
+    import org.json.JSONArray;
+    import org.json.JSONException;
+    import org.json.JSONObject;
+
+    import android.content.Context;
+    import android.content.SharedPreferences;
+    import android.util.Log;
+
+    public class RegisterClient {
+        private static final String PREFS_NAME = "ANHSettings";
+        private static final String REGID_SETTING_NAME = "ANHRegistrationId";
+        private String Backend_Endpoint;
+        SharedPreferences settings;
+        protected HttpClient httpClient;
+        private String authorizationHeader;
+
+        public RegisterClient(Context context, String backendEnpoint) {
+            super();
+            this.settings = context.getSharedPreferences(PREFS_NAME, 0);
+            httpClient =  new DefaultHttpClient();
+            Backend_Endpoint = backendEnpoint + "/api/register";
+        }
+
+        public String getAuthorizationHeader() {
+            return authorizationHeader;
+        }
+
+        public void setAuthorizationHeader(String authorizationHeader) {
+            this.authorizationHeader = authorizationHeader;
+        }
+
+        public void register(String handle, Set<String> tags) throws ClientProtocolException, IOException, JSONException {
+            String registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
+
+            JSONObject deviceInfo = new JSONObject();
+            deviceInfo.put("Platform", "gcm");
+            deviceInfo.put("Handle", handle);
+            deviceInfo.put("Tags", new JSONArray(tags));
+
+            int statusCode = upsertRegistration(registrationId, deviceInfo);
+
+            if (statusCode == HttpStatus.SC_OK) {
+                return;
+            } else if (statusCode == HttpStatus.SC_GONE){
+                settings.edit().remove(REGID_SETTING_NAME).commit();
+                registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
+                statusCode = upsertRegistration(registrationId, deviceInfo);
+                if (statusCode != HttpStatus.SC_OK) {
                     Log.e("RegisterClient", "Error upserting registration: " + statusCode);
                     throw new RuntimeException("Error upserting registration");
                 }
-            }
-   
-            private int upsertRegistration(String registrationId, JSONObject deviceInfo)
-                    throws UnsupportedEncodingException, IOException,
-                    ClientProtocolException {
-                HttpPut request = new HttpPut(Backend_Endpoint+"/"+registrationId);
-                request.setEntity(new StringEntity(deviceInfo.toString()));
-                request.addHeader("Authorization", "Basic "+authorizationHeader);
-                request.addHeader("Content-Type", "application/json");
-                HttpResponse response = httpClient.execute(request);
-                int statusCode = response.getStatusLine().getStatusCode();
-                return statusCode;
-            }
-   
-            private String retrieveRegistrationIdOrRequestNewOne(String handle) throws ClientProtocolException, IOException {
-                if (settings.contains(REGID_SETTING_NAME))
-                    return settings.getString(REGID_SETTING_NAME, null);
-   
-                HttpUriRequest request = new HttpPost(Backend_Endpoint+"?handle="+handle);
-                request.addHeader("Authorization", "Basic "+authorizationHeader);
-                HttpResponse response = httpClient.execute(request);
-                if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-                    Log.e("RegisterClient", "Error creating registrationId: " + response.getStatusLine().getStatusCode());
-                    throw new RuntimeException("Error creating Notification Hubs registrationId");
-                }
-                String registrationId = EntityUtils.toString(response.getEntity());
-                registrationId = registrationId.substring(1, registrationId.length()-1);
-   
-                settings.edit().putString(REGID_SETTING_NAME, registrationId).commit();
-   
-                return registrationId;
+            } else {
+                Log.e("RegisterClient", "Error upserting registration: " + statusCode);
+                throw new RuntimeException("Error upserting registration");
             }
         }
-   
+
+        private int upsertRegistration(String registrationId, JSONObject deviceInfo)
+                throws UnsupportedEncodingException, IOException,
+                ClientProtocolException {
+            HttpPut request = new HttpPut(Backend_Endpoint+"/"+registrationId);
+            request.setEntity(new StringEntity(deviceInfo.toString()));
+            request.addHeader("Authorization", "Basic "+authorizationHeader);
+            request.addHeader("Content-Type", "application/json");
+            HttpResponse response = httpClient.execute(request);
+            int statusCode = response.getStatusLine().getStatusCode();
+            return statusCode;
+        }
+
+        private String retrieveRegistrationIdOrRequestNewOne(String handle) throws ClientProtocolException, IOException {
+            if (settings.contains(REGID_SETTING_NAME))
+                return settings.getString(REGID_SETTING_NAME, null);
+
+            HttpUriRequest request = new HttpPost(Backend_Endpoint+"?handle="+handle);
+            request.addHeader("Authorization", "Basic "+authorizationHeader);
+            HttpResponse response = httpClient.execute(request);
+            if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
+                Log.e("RegisterClient", "Error creating registrationId: " + response.getStatusLine().getStatusCode());
+                throw new RuntimeException("Error creating Notification Hubs registrationId");
+            }
+            String registrationId = EntityUtils.toString(response.getEntity());
+            registrationId = registrationId.substring(1, registrationId.length()-1);
+
+            settings.edit().putString(REGID_SETTING_NAME, registrationId).commit();
+
+            return registrationId;
+        }
+    }
+    ```
+       
     This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Note that it uses an authorization token stored in local storage when you click the **Log in** button.
 5. In your `MainActivity` class remove or comment out your private field for `NotificationHub`, and add a field for the `RegisterClient` class and a string for your ASP.NET backend's endpoint. Be sure to replace `<Enter Your Backend Endpoint>` with the your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
 
-        //private NotificationHub hub;
-        private RegisterClient registerClient;
-        private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
-
+    ```java
+    //private NotificationHub hub;
+    private RegisterClient registerClient;
+    private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
+    ```
 
 1. In your `MainActivity` class, in the `onCreate` method, remove or comment out the initialization of the `hub` field and the call to the `registerWithNotificationHubs` method. Then add code to initialize an instance of the `RegisterClient` class. The method should contain the following lines:
    
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-   
-            MyHandler.mainActivity = this;
-            NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
-            gcm = GoogleCloudMessaging.getInstance(this);
-   
-            //hub = new NotificationHub(HubName, HubListenConnectionString, this);
-            //registerWithNotificationHubs();
-   
-            registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
-   
-            setContentView(R.layout.activity_main);
-        }
+    ```java
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mainActivity = this;
+        NotificationsManager.handleNotifications(this, NotificationSettings.SenderId, MyHandler.class);
+        gcm = GoogleCloudMessaging.getInstance(this);
+
+        //hub = new NotificationHub(HubName, HubListenConnectionString, this);
+        //registerWithNotificationHubs();
+
+        registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
+
+        setContentView(R.layout.activity_main);
+    }
+    ```
 2. In your `MainActivity` class, delete or comment out the entire `registerWithNotificationHubs` method. It will not be used in this tutorial.
 3. Add the following `import` statements to your **MainActivity.java** file.
    
-        import android.widget.Button;
-        import java.io.UnsupportedEncodingException;
-        import android.content.Context;
-        import java.util.HashSet;
-        import android.widget.Toast;
-        import org.apache.http.client.ClientProtocolException;
-        import java.io.IOException;
-        import org.apache.http.HttpStatus;
-4. Then, add the following methods to handle the **Log in** button click event and sending push notifications.
+    ```java
+    import android.util.Base64;
+    import android.view.View;
+    import android.widget.EditText;
+    
+    import android.widget.Button;
+    import android.widget.ToggleButton;
+    import java.io.UnsupportedEncodingException;
+    import android.content.Context;
+    import java.util.HashSet;
+    import android.widget.Toast;
+    import org.apache.http.client.ClientProtocolException;
+    import java.io.IOException;
+    import org.apache.http.HttpStatus;
+    
+    import android.os.AsyncTask;
+    import org.apache.http.HttpResponse;
+    import org.apache.http.client.methods.HttpPost;
+    import org.apache.http.entity.StringEntity;
+    import org.apache.http.impl.client.DefaultHttpClient;
+    
+    import android.app.AlertDialog;
+    import android.content.DialogInterface;
+    ```            
+4. Replace code on the onStart method with the following code: 
+
+    ```java
+        super.onStart();
+        Button sendPush = (Button) findViewById(R.id.sendbutton);
+        sendPush.setEnabled(false);
+    ```       
+1. Then, add the following methods to handle the **Log in** button click event and sending push notifications.
    
-        @Override
-        protected void onStart() {
-            super.onStart();
-            Button sendPush = (Button) findViewById(R.id.sendbutton);
-            sendPush.setEnabled(false);
-        }
-   
+    ```java
         public void login(View view) throws UnsupportedEncodingException {
             this.registerClient.setAuthorizationHeader(getAuthorizationHeader());
    
@@ -290,7 +320,7 @@ The next step is to create the Android application.
                 @Override
                 protected Object doInBackground(Object... params) {
                     try {
-                        String regid = gcm.register(SENDER_ID);
+                        String regid = gcm.register(NotificationSettings.SenderId);
                         registerClient.register(regid, new HashSet<String>());
                     } catch (Exception e) {
                         DialogNotify("MainActivity - Failed to register", e.getMessage());
@@ -359,13 +389,32 @@ The next step is to create the Android application.
                 }
             }.execute(null, null, null);
         }
+    ```
 
     The `login` handler for the **Log in** button generates a basic authentication token using on the input username and password (note that this represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration.
 
     The `sendPush` method calls the backend to trigger a secure notification to the user based on the user tag. The platform notification service that `sendPush` targets depends on the `pns` string passed in.
 
+5. Add the following `DialogNotify` method to the `MainActivity` class. 
+
+    ```java
+        protected void DialogNotify(String title, String message)
+        {
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle(title);
+            alertDialog.setMessage(message);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+    ```
 1. In your `MainActivity` class, update the `sendNotificationButtonOnClick` method to call the `sendPush` method with the user's selected platform notification services as follows.
    
+    ```java
        /**
         * Send Notification button click handler. This method sends the push notification
         * message to each platform selected.
@@ -396,6 +445,13 @@ The next step is to create the Android application.
                sendPush("apns", nhMessageTag, nhMessage);
            }
        }
+    ```
+7. In the **build.gradle** file, add the following line to the `android` section after the `buildTypes` section. 
+
+    ```java
+    useLibrary 'org.apache.http.legacy'
+    ```
+8. Build the project. 
 
 ## Run the Application
 1. Run the application on a device or an emulator using Android Studio.
