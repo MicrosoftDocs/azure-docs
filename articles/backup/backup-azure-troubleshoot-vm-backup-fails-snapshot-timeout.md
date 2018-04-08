@@ -175,6 +175,8 @@ To uninstall the extension:
 4. Select **Vmsnapshot Extension**.
 5. Select **Uninstall**.
 
+For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the backup. 
+
 Completing these steps causes the extension to be reinstalled during the next backup.
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>The Backup service doesn't have permission to delete the old restore points because of a resource group lock
