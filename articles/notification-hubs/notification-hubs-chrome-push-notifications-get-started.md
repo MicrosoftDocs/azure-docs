@@ -393,7 +393,7 @@ For testing purposes, send Chrome push notifications by using a .NET console app
 > 
 
 1. In Visual Studio, from the **File** menu, select **New** and then **Project**. Under **Visual C#**, click **Windows** and **Console Application**, and then click **OK**.  This step creates a new console application project.
-2. From the **Tools** menu, click **Nuget Package Manager** and then **Package Manager Console**. You see displays the Package Manager Console in the bottom window.
+2. From the **Tools** menu, click **NuGet Package Manager** and then **Package Manager Console**. You see displays the Package Manager Console in the bottom window.
 3. In the console window, execute the following command:
    
         Install-Package Microsoft.Azure.NotificationHubs
@@ -433,7 +433,7 @@ For testing purposes, send Chrome push notifications by using a .NET console app
 > 
 
 ## <a name="next-steps"> </a>Next steps
-In this tutorial, you sent broadcast notifications to all clients that are registed with the backend. To learn how to push notifications to specific devices, advance to the following tutorial: 
+In this tutorial, you sent broadcast notifications to all clients that are registered with the backend. To learn how to push notifications to specific devices, advance to the following tutorial: 
 
 > [!div class="nextstepaction"]
 >[Push notifications to specific devices](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
