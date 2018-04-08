@@ -16,9 +16,9 @@ Runbooks in Azure Automation cannot access resources in other clouds or in your 
 
 This functionality is illustrated in the following image:<br>  
 
-![Hybrid Runbook Worker Overview](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
+![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/automation.png)
 
-For a technical overview of the Hybrid Runbook Worker role, see [Automation architecture overview](automation-offering-get-started.md#automation-architecture-overview). Review the following information regarding the [hardware and software requirements](automation-offering-get-started.md#hybrid-runbook-worker) and [information for preparing your network](automation-offering-get-started.md#network-planning) before you begin deploying a Hybrid Runbook Worker. After you have successfully deployed a runbook worker, review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.     
+For a technical overview of the Hybrid Runbook Worker role, see [Hybrid Runbook Worker overview](automation-hybrid-runbook-worker.md). Review the following [information for preparing your network](automation-hybrid-runbook-worker.md#network-planning) before you begin deploying a Hybrid Runbook Worker. After you have successfully deployed a runbook worker, review [run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.     
 
 ## Hybrid Runbook Worker groups
 Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the agent. A group can include a single agent, but you can install multiple agents in a group for high availability.
