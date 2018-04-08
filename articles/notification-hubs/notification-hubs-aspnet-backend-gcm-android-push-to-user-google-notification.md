@@ -21,7 +21,7 @@ ms.author: spelluru
 # Tutorial: Push notification to specific Android application users by using Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). This tutorial builds on the notification hub that you created in the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance article [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). This tutorial builds on the notification hub that you created in the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
 
 In this tutorial, you take the following steps: 
 
@@ -38,9 +38,9 @@ Complete the [Tutorial: Push notifications to Android devices by using Azure Not
 ## Create the Android Project
 The next step is to update the Android application created in the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md). 
 
-1. Open your **res/layout/activity_main.xml** file, replace the with the following content definitions.
+1. Open your **res/layout/activity_main.xml** file, replace with the following content definitions:
    
-    This adds new EditText controls for logging in as a user. Also a field is added for a username tag that will be part of notifications you send:
+    It adds new EditText controls for logging in as a user. Also a field is added for a username tag that will be part of notifications you send:
    
     ```xml
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -140,7 +140,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
     <string name="notification_message_tag_hint">Recipient username</string>
     ```
 
-    Your main_activity.xml graphical layout should now look like this:
+    Your main_activity.xml graphical layout should now look like the following image:
    
     ![][A1]
 4. Create a new class named **RegisterClient** in the same package as your `MainActivity` class. Use the code below for the new class file.
@@ -250,8 +250,8 @@ The next step is to update the Android application created in the [Tutorial: Pus
     }
     ```
        
-    This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Note that it uses an authorization token stored in local storage when you click the **Log in** button.
-5. In your `MainActivity` class remove or comment out your private field for `NotificationHub`, and add a field for the `RegisterClient` class and a string for your ASP.NET backend's endpoint. Be sure to replace `<Enter Your Backend Endpoint>` with the your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
+    This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). It uses an authorization token stored in local storage when you click the **Log in** button.
+5. In your  class, remove or comment out your private field for `NotificationHub`, and add a field for the `RegisterClient` class and a string for your ASP.NET backend's endpoint. Be sure to replace `<Enter Your Backend Endpoint>` with your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
 
     ```java
     //private NotificationHub hub;
@@ -259,7 +259,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
     private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
 
-1. In your `MainActivity` class, in the `onCreate` method, remove or comment out the initialization of the `hub` field and the call to the `registerWithNotificationHubs` method. Then add code to initialize an instance of the `RegisterClient` class. The method should contain the following lines:
+1. In your `MainActivity` class, in the `onCreate` method, remove, or comment out the initialization of the `hub` field and the call to the `registerWithNotificationHubs` method. Then add code to initialize an instance of the `RegisterClient` class. The method should contain the following lines:
    
     ```java
     @Override
@@ -394,7 +394,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
         }
     ```
 
-    The `login` handler for the **Log in** button generates a basic authentication token using on the input username and password (note that this represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration.
+    The `login` handler for the **Log in** button generates a basic authentication token using on the input username and password (this represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration.
 
     The `sendPush` method calls the backend to trigger a secure notification to the user based on the user tag. The platform notification service that `sendPush` targets depends on the `pns` string passed in.
 
@@ -459,13 +459,13 @@ The next step is to update the Android application created in the [Tutorial: Pus
 ## Test the app
 1. Run the application on a device or an emulator using Android Studio.
 2. In the Android app, enter a username and password. They must both be the same string value and they must not contain spaces or special characters.
-3. In the Android app, click **Log in**. Wait for a toast message that states **Logged in and registered**. This will enable the **Send Notification** button.
+3. In the Android app, click **Log in**. Wait for a toast message that states **Logged in and registered**. This enables the **Send Notification** button.
    
     ![][A2]
-4. Click the toggle buttons to enable all platforms where you have ran the app and registered a user.
-5. Enter the user's name that will receive the notification message. That user must be registered for notifications on the target devices.
+4. Click the toggle buttons to enable all platforms where you ran the app and registered a user.
+5. Enter the user's name that receives the notification message. That user must be registered for notifications on the target devices.
 6. Enter a message for the user to receive as a push notification message.
-7. Click **Send Notification**.  Each device that has a registration with the matching username tag will receive the push notification.
+7. Click **Send Notification**.  Each device that has a registration with the matching username tag receives the push notification.
 
 ## Next steps
 
