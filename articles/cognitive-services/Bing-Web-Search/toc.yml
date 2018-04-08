@@ -54,8 +54,6 @@
   items:
   - name: REST v7 API
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
-  - name: REST v5 API (old version)
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
   - name: SDK
     items:
     - name: SDK samples overview 
@@ -67,7 +65,9 @@
     - name: Web Search SDK Python quickstart (preview)
       href: web-sdk-python-quickstart.md
     - name: Web Search SDK Java quickstart (preview)
-      href: web-sdk-java-quickstart.md    
+      href: web-sdk-java-quickstart.md
+  - name: REST v5 API (old version)
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference    
 - name: Resources
   items:
   - name: Frequently asked questions

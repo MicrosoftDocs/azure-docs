@@ -46,8 +46,6 @@
   items:
   - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
-  - name: REST v5 
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference  
   - name: SDK
     items:
     - name: SDK samples overview 
@@ -60,6 +58,8 @@
       href: news-sdk-python-quickstart.md
     - name: News Search SDK Java quickstart (preview)  
       href: news-sdk-java-quickstart.md
+  - name: REST v5 
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference  
 - name: Resources
   items:
   - name: Azure Roadmap
