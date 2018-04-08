@@ -42,12 +42,14 @@
   - name: Upgrade from v5 to v7
     href: bing-news-upgrade-guide-v5-to-v7.md
 - name: Reference
+  expanded: true
   items:
   - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
   - name: REST v5 
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference  
   - name: SDK
+    expanded: true
     items:
     - name: SDK samples overview 
       href: sdk.md

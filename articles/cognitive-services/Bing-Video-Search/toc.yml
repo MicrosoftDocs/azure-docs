@@ -44,6 +44,7 @@
   - name: Upgrade from v5 to v7
     href: bing-video-upgrade-guide-v5-to-v7.md
 - name: Reference
+  expanded: true
   items:
   - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference
@@ -51,6 +52,7 @@
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference 
   - name: SDK
     items:
+    expanded: true
     - name: SDK samples overview 
       href: sdk.md
     - name: Video Search SDK C# quickstart

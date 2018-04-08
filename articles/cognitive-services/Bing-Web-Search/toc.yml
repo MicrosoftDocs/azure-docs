@@ -9,6 +9,7 @@
     - name: Supported countries and markets
       href: supported-countries-markets.md
 - name: API Quickstarts
+  expanded: true
   items:
   - name: First query in C#
     href: quickstarts/csharp.md
@@ -49,12 +50,14 @@
   - name: Upgrade from v5 to v7
     href: bing-web-upgrade-guide-v5-to-v7.md  
 - name: Reference
+  expanded: true
   items:
   - name: REST v7 API
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
   - name: REST v5 API (old version)
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
   - name: SDK
+    expanded: true
     items:
     - name: SDK samples overview 
       href: sdk.md

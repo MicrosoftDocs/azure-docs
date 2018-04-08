@@ -7,6 +7,7 @@
     - name: Entity Search endpoint
       href: entity-search-endpoint.md
 - name: API Quickstarts
+  expanded: true
   items:
   - name: C#
     href: quickstarts/csharp.md
@@ -31,10 +32,12 @@
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
 - name: Reference
+  expanded: true
   items:
   - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
   - name: SDK
+    expanded: true
     items:
     - name: SDK samples overview 
       href: sdk.md
