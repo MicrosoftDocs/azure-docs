@@ -100,13 +100,11 @@ Your notification hub is configured to work with FCM, and you have the connectio
     ```csharp
         using Android.Util;
     ```
-
 4. Add an instance variable to **MainActivity.cs** that will be used to show an alert dialog when the app is running:
    
     ```csharp
         public const string TAG = "MainActivity";
     ```
-
 5. Add the following code to `OnCreate` in **MainActivity.cs** after `base.OnCreate(savedInstanceState)`:
 
     ```csharp   
@@ -122,9 +120,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
             }
         }
     ```
-
 7. Create a new class, **MyFirebaseIIDService** like you created the **Constants** class. 
-
 8. Add the following using statements to **MyFirebaseIIDService.cs**:
    
     ```csharp
@@ -140,7 +136,6 @@ Your notification hub is configured to work with FCM, and you have the connectio
         [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
         public class MyFirebaseIIDService : FirebaseInstanceIdService
     ```
-
 10. In **MyFirebaseIIDService.cs**, add the following code:
    
     ```csharp
@@ -166,24 +161,20 @@ Your notification hub is configured to work with FCM, and you have the connectio
             Log.Debug(TAG, $"Successful registration of ID {regID}");
         }
     ```
-
 11. Create another new class for your project, name it **MyFirebaseMessagingService**.
-
 12. Add the following using statements to **MyFirebaseMessagingService.cs**.
     
     ```csharp
         using Android.Util;
         using Firebase.Messaging;
     ```
-
 13. Add the following above your class declaration, and have your class inherit from **FirebaseMessagingService**:
     
     ```csharp
         [Service]
         [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
         public class MyFirebaseMessagingService : FirebaseMessagingService
-    ```
-    
+    ```    
 14. Add the following code to **MyFirebaseMessagingService.cs**:
     
     ```csharp
@@ -224,7 +215,6 @@ Your notification hub is configured to work with FCM, and you have the connectio
             notificationManager.Notify(0, notificationBuilder.Build());
         }
     ```
-
 15. **Build** your project. 
 16. **Run** your app on your device or loaded emulator
 
