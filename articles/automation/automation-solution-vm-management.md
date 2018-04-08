@@ -21,7 +21,7 @@ This solution provides a decentralized automation option for users who want to r
 
 ## Prerequisites
 
-* The runbooks work with an [Azure Run As account](automation-offering-get-started.md#authentication-methods). The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.
+* The runbooks work with an [Azure Run As account](automation-create-runas-account.md). The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.
 * This solution manages only VMs that are in the same subscription as your Azure Automation account.
 * This solution is deployed only to the following Azure regions: Australia Southeast, Canada Central, Central India, East US, Japan East, Southeast Asia, UK South, and West Europe.
 

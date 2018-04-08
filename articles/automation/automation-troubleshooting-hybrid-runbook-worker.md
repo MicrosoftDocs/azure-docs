@@ -26,8 +26,7 @@ Runbook execution fails and the error returned is, "The job action 'Activate' ca
 There are several possible causes for the error: 
 
 1. The hybrid worker is behind a proxy or firewall
-2. The computer the hybrid worker is running on has less than the minimum [hardware  requirements](automation-offering-get-started.md#hybrid-runbook-worker)  
-3. The runbooks cannot authenticate with local resources
+2. The runbooks cannot authenticate with local resources
 
 #### Cause 1: Hybrid Runbook Worker is behind proxy or firewall
 The computer the Hybrid Runbook Worker is running on is behind a firewall or proxy server and outbound network access may not be allowed or configured correctly.
