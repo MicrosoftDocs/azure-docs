@@ -35,7 +35,7 @@ Azure AD provides the following capabilities for managing access to Azure resour
 |||
 |---|---|
 | [Relationship between Azure AD tenants and subscriptions](rbac-and-directory-admin-roles.md) | Learn about how Azure AD is the trusted source of users and groups for an Azure subscription. |
-| [Role-Based Access Control (RBAC)](../active-directory-b2c/overview.md) | Offer fine-grained access management through roles assigned to users, groups, or service principals. |
+| [Role-Based Access Control (RBAC)](overview.md) | Offer fine-grained access management through roles assigned to users, groups, or service principals. |
 | [Privileged Identity Management with RBAC](pim-azure-resource.md) | Control highly privileged access by assigning privileged roles just-in-time. |
 | [Conditional Access for Azure management](conditional-access-azure-management.md) | Set up conditional access policies to allow or block access to Azure management endpoints. |
 | [Managed Service Identity (MSI)](../active-directory/pp/msi-overview.md) | Give Azure resources like Virtual Machines their own identity so that you don’t have to put credentials in your code. |
