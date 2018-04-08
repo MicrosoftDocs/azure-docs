@@ -44,9 +44,9 @@ Azure Cosmos DB in Storage Explorer troubleshooting guide overview
 - ["Development" node under "Local and Attached" node issue](#Development-node-under-Local-and-Attached-node-issue)
 - [Attaching Azure Cosmos DB account in "Local and Attached" node error](#Attaching-Azure-Cosmos-DB-account-in-Local-and-Attached-node-error)
 - [Expand Azure Cosmos DB node error](#Expand-Azure-Cosmos-DB-node-error)
-- [Feedback](#Feedback)
+- [Contact us](#Contact-us)
 
-[Contact us](#Contact-us)
+[Next steps](#Next-steps)
 
 <h2 id="Prerequisites">Prerequisites</h2>
 
