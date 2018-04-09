@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Enable a desktop application to authenticate with accounts | Microsoft Docs
+title: Tutorial - Enable desktop app authentication with accounts using Azure Active Directory B2C | Microsoft Docs
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for a .NET desktop app.
 services: active-directory-b2c
 author: PatAltimore
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Tutorial: Enable a desktop application to authenticate with accounts
+# Tutorial: Enable desktop app authentication with accounts using Azure Active Directory B2C
 
 This tutorial shows you how to use Azure Active Directory (Azure AD) B2C to sign in and sign up users in an Windows Presentation Foundation (WPF) desktop application. Azure AD B2C enables your apps to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
 

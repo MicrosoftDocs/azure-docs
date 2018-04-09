@@ -1,17 +1,19 @@
 ---
-title: Azure Active Directory B2C Code Samples | Microsoft Docs 
+title: Azure Active Directory B2C code samples | Microsoft Docs 
 description: Code samples for Azure Active Directory B2C mobile, desktop, web, and single-page applications. 
 services: active-directory-b2c
 author: davidmu1
 
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
 # Azure Active Directory B2C code samples
+
+The following tables provide links to samples for applications including iOS, Android, .NET, and Node.js.
 
 ## Mobile and desktop apps
 

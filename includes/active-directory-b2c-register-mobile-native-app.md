@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: active-directory-b2c
+ author: davidmu1
+ ms.service: active-directory-b2c
+ ms.topic: include
+ ms.date: 04/09/2018
+ ms.author: davidmu
+ ms.custom: include file
+---
+
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 To register your mobile or native application, use the settings specified in the table.
