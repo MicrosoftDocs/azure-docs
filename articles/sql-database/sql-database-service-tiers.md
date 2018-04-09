@@ -100,7 +100,8 @@ In the vCore-based purchasing model customers pay for:
 
 > [!IMPORTANT]
 > Region limitations: 
-> The vCore-based purchasing model is not yet available in Australia Southeast. The preview is not available in the following regions" West Europe, France Central, UK South, and UK West.
+>
+> The vCore-based purchasing model is not yet available in Australia Southeast. The preview is not available in the following regions: West Europe, France Central, UK South, and UK West.
 > 
 
 ### Choosing service tier, compute, memory, storage, and IO resources
