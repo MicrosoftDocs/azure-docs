@@ -19,7 +19,7 @@ ms.custom: end-user
 ---
 # Microsoft Authenticator app FAQ
 
-This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
+This article answers common questions about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Additionally, you can review another FAQ about a specific feature on the app, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md).
 
 The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
@@ -29,9 +29,9 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and is the
 
 Microsoft Authenticator stores the account information you create when you add an account. When you use Authenticator, a diagnostic log is created for debugging purposes and stores useful data in helping Microsoft diagnose any unforeseen issues. You can access the log data by opening **Help** > **Send Logs** > **View logs**.
 
-You can delete the data by deleting the account tile. This will delete all the account information being used by the application including the logs. 
+You can delete the data by deleting the account tile. Deleting the account tile also deletes all the account information being used by the application including the logs. 
 
-For more information on how Microsoft uses your data, please visit: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
+For more information on how Microsoft uses your data, visit: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### What are the codes in the app for? Why does the number keep counting down?
 
@@ -53,7 +53,7 @@ If you don't get notifications at all, check the following cases:
 - Can you receive notifications from other apps? If not, there may be an issue with the network connections on your phone, or the notifications channel from Android or Apple. You can address the first option in your phone settings, but you may need to talk to your service provider for help with the second option.
 - Can you receive notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app and add it again to enable push notifications.
 
-If you tried these troubleshooting suggestions but are still having issues, send us your logs for diagnostics. Go to the app settings, then select **Help & feedback** and **Send logs**. Then, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and let us know what problem you're seeing and what steps you've tried so far.
+If you tried these troubleshooting suggestions but are still having issues, you can send your logs for diagnostics. Go to the app settings, then select **Help & feedback** and **Send logs**. Then, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and let us know what problem you're seeing and what steps you've tried so far.
 
 ### I'm already using the Microsoft Authenticator application for verification codes. How do I switch to one-click push notifications?
 Approving a sign-in through push notification is only available for personal Microsoft accounts or work and school Microsoft accounts, not for third-party accounts like Google or Facebook. If you have a work or school Microsoft account, your organization can choose to disable this option.
@@ -65,13 +65,15 @@ If you use Microsoft Authenticator for your work or school account, then your or
 ### Do one-click push notifications work for non-Microsoft accounts?
 No, push notifications only work with Microsoft accounts and Azure Active Directory accounts. If your work or school uses Azure AD accounts, they may disable this feature.  
 
-### I restored my device from a backup, and my account codes are missing or not working. What happened?
-For security purposes, we don't restore accounts from app backups.  After you restore the app, delete your accounts and add them again.
+### I got a new device or restored my device from a backup. How do I set up my accounts in the Microsoft Authenticator app again?
+If you turned on **Auto Backup** and created a backup of your accounts on your old device, you can use that backup to recover your account credentials on your new device. For more info, see the [Backup and recover account credentials with the Microsoft Authenticator app](microsoft-authenticator-app-backup-and-restore.md) article. 
 
-### I got a new device. How do I remove the Microsoft Authenticator app from my old device and move to the new one?
-Adding the Microsoft Authenticator app to a new device does not automatically remove it from any other devices. To manage which devices are configured for your account, visit the same website that you use to manage two-step verification, and choose to remove old apps.
+### I lost my device or moved on to a new device. How do I make sure notifications don't continue to go to my old device?  
+Adding the Microsoft Authenticator app to your new device won't automatically remove the app from your old device. Even deleting the app from your old device isn't enough. You must both delete the app from your old device and tell Microsoft or your organization to forget the old device and unregister it from your account.
+- **To remove the app from a device using a personal Microsoft account.** Go to the two-step verification area of your [Account Security](https://account.microsoft.com/security) page and choose to turn off verification for your old device.  
+- **To remove the app from a device using a work or school Microsoft account.** Go to the two-step verification area of your [MyApps](https://myapps.microsoft.com/) page or to your organization’s custom portal and choose to turn off verification for your old device. 
 
-For personal Microsoft accounts, this website is your [account security](https://account.microsoft.com/security) page. For work or school Microsoft accounts, this website may be either [MyApps](https://myapps.microsoft.com) or a custom portal that your organization has set up.
+
 
 ### How do I remove an account from the app?
 * iOS: From the main screen, swipe left on an account tile. Select **Delete**.
