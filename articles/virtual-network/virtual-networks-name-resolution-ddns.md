@@ -1,4 +1,4 @@
----
+ ---
 title: Using Dynamic DNS to register hostnames
 description: This page gives details on how to set up Dynamic DNS to register hostnames in your own DNS servers.
 services: dns
