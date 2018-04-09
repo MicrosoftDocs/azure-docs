@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2017
+ms.date: 04/09/2018
 ms.author: tomfitz
 
 ---
@@ -145,7 +145,7 @@ You are now ready to deploy your project. When you deploy an Azure Resource Grou
 5. Choose the **Deploy** button to deploy the project to Azure. A PowerShell console opens outside of the Visual Studio instance. Enter the SQL Server administrator password in the PowerShell console when prompted. **Your PowerShell console may be hidden behind other items or minimized in the task bar.** Look for this console and select it to provide the password.
    
    > [!NOTE]
-   > Visual Studio may ask you to install the Azure PowerShell cmdlets. You need the Azure PowerShell cmdlets to successfully deploy resource groups. If prompted, install them. Instructions for this are here (**Add Link to instructions**)
+   > Visual Studio may ask you to install the Azure PowerShell cmdlets. You need the Azure PowerShell cmdlets to successfully deploy resource groups. If prompted, install them. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
    > 
    > 
 6. The deployment may take a few minutes. In the **Output** windows, you see the status of the deployment. When the deployment has finished, the last message indicates a successful deployment with something similar to:
@@ -215,8 +215,8 @@ deploying code for a web app or for setting up a Virtual Machine is almost the s
     
      ![show deployed app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
-## Add an Operations Dashboard to your Deployment
-Now that we've created a solution it's time to go the last mile and make it operational. We can leverage the use of shared dashboards, which are defined as ARM resources in JSON. We do this by editing our template and adding a custom resource. 
+## Add an operations dashboard to your deployment
+Now that we've created a solution it's time to go the last mile and make it operational. You are not limited to only the resources that are available through the Visual Studio interface. We can leverage the use of shared dashboards, which are defined as resources in JSON. We do this by editing our template and adding a custom resource. 
 
 1. Open the WebsiteSqlDeploy.json file and add the following json block of code after the storage account resource but before the closing ] of the resources section.
 
