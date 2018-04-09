@@ -35,7 +35,7 @@ To test access to the **Authorize** controller for the user's claims as an anony
 #### Expected results after access to a protected controller
 You're prompted to authenticate to use the protected controller view.
 
-## Additional information
+## Advanced options
 
 <!--start-collapse-->
 ### Protect your entire website
