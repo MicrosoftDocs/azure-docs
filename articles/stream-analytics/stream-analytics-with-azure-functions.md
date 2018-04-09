@@ -17,11 +17,6 @@ manager: kfile
 #Customer intent: "As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs."
 ---
 
-# Tutorial: Run Azure Functions with Stream Analytics jobs 
-ms.topic: conceptual
-ms.date: 12/19/2017
----
-
 # Run Azure Functions from Azure Stream Analytics jobs 
 
 You can run Azure Functions from Azure Stream Analytics by configuring Functions as one of the output sinks to the Stream Analytics job. Functions are an event-driven, compute-on-demand experience that lets you implement code that is triggered by events occurring in Azure or third-party services. This ability of Functions to respond to triggers makes it a natural output to Stream Analytics jobs.

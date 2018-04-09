@@ -1,5 +1,4 @@
 ---
-<<<<<<< HEAD
 title: Test your Stream Analytics job with sample data | Microsoft Docs
 description: How to test your queries in Stream Analytics jobs.
 keywords: test a job, input sampling, upload sample date
@@ -13,19 +12,6 @@ ms.service: stream-analytics
 ms.workload: data-services
 ms.date: 03/18/2018
 ms.author: sngun
-
-=======
-title: Test queries in Azure Stream Analytics
-description: This article describes how to test queries using sample data files in Stream Analytics jobs.
-services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
-ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 04/20/2017
->>>>>>> b4d6e0f30d6443506a48baccbaa3d9fd8df301a2
 ---
 
 # Test your Stream Analytics query with sample data
