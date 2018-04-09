@@ -24,9 +24,9 @@ It is not recommended to simply restart the ASDK host computer. Instead, you sho
 ## Stop Azure Stack 
 To properly shut down ASDK services, run the following PowerShell command on the ASDK host computer:
 
-    ```powershell
-      Stop-AzureStack
-    ```
+  ```powershell
+  Stop-AzureStack
+  ```
 
 Wait for the ASDK host computer to power off.
 
@@ -48,8 +48,8 @@ Perform these steps if ASDK services don't successfully start within two hours a
 1. Run the following PowerShell on the ASDK host computer:
 
     ```powershell
-      Test-AzureStack
-      ```
+    Test-AzureStack
+    ```
 
 2. Review the output and resolve any errors. For more information, see [Run a validation test of Azure Stack](azure-stack-diagnostic-test.md).
 
@@ -62,4 +62,4 @@ Perform these steps if ASDK services don't successfully start within two hours a
 5. If running **Start-AzureStack** results in a failure, visit the [Azure Stack support forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) to get ASDK troubleshooting support. 
 
 ## Next steps 
-Learn more about Azure Stack diagnostic tool and issue logging, see [Azure Stack diagnostic tools](.\.\azure-stack-diagnostics.md).
+Learn more about Azure Stack diagnostic tool and issue logging, see [Azure Stack diagnostic tools](.\.\azure-stack-diagnostics).
