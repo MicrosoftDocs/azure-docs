@@ -3,7 +3,7 @@ title: 'Azure Cosmos DB: SQL API getting started with .NET Core tutorial | Micro
 description: A tutorial that creates an online database and C# console application using the Azure Cosmos DB SQL API .NET Core SDK. 
 services: cosmos-db
 documentationcenter: .net
-author: ShehaGunda
+author: SnehaGunda
 manager: kfile
 editor: ''
 
