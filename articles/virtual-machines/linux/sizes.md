@@ -39,7 +39,7 @@ This article describes the available sizes and options for the Azure virtual mac
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
 
-## Rest API
+## REST API
 
 For information on using the REST API to query for VM sizes, see the following:
 
