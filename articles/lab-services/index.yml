@@ -1,0 +1,58 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Lab Services (formerly DevTest Labs) Preview Documentation
+metadata:
+  title: Azure Lab Services Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Learn how to quickly create classroom labs, trial labs, custom labs, and more. Tutorials, videos, and more show you how to create, manage, and secure labs.
+  services: lab-services
+  author: spelluru
+  manager: 
+  ms.service: lab-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/06/2018
+  ms.author: spelluru
+abstract:
+  description: Learn how to quickly create classroom labs, trial labs, custom labs, etc. Tutorials, videos, and more show you how to create, manage, and secure labs.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create a lab:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/lab-services/media/index/devtest-lab.svg
+      text: Custom lab
+      href: /azure/lab-services/devtest-lab-create-lab
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to create a lab using Lab Services:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/lab-services/devtest-lab-create-first-vm">Create a VM in the custom lab</a>
+    - html: <a href="/azure/lab-services/devtest-lab-get-started-with-lab-policies">Set starting policies in a custom lab</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Use the following samples to work with Lab Services
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/Azure/azure-devtestlab/tree/master/Samples">Resource Manager templates</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/lab">Azure CLI</a></p>    
+      html: <p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/dtl">REST API</a></p>      
