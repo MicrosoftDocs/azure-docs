@@ -25,7 +25,6 @@ This section shows the steps to install and configure the authentication pipelin
     
 <!--start-collapse-->
 > ### About these libraries
-
 >The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to retype the password, and no additional verification is needed.
 <!--end-collapse-->
 

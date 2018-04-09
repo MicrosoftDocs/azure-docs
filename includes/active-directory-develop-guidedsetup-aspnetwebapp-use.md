@@ -90,7 +90,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
     ```
 
 <!--start-collapse-->
-### More Information
+> ### More Information
 > This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
 <!--end-collapse-->
 
@@ -133,7 +133,7 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
     ```
 
 <!--start-collapse-->
-### More Information
+> ### More Information
 > Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN will initiate an authentication challenge and force the user to authenticate. The code above looks at the list of claims for specific user attributes included in the user’s Id token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
 <!--end-collapse-->
 
