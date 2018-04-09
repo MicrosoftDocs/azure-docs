@@ -225,7 +225,7 @@ When the operation is complete, navigate to any of the HTTP URLs that point to y
 
 ## Enforce TLS 1.1/1.2
 
-Your app may allow [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by default, which is no longer consider secure by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce higher TLS versions, follow these steps:
+Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by default, which is no longer considered secure by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce higher TLS versions, follow these steps:
 
 In your web app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want.
 
