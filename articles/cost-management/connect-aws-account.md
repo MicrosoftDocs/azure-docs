@@ -59,7 +59,7 @@ The first step is to get the unique connection passphrase from the Azure Cost Ma
     ![Add AWS Account box](./media/connect-aws-account/add-aws-account-box.png)
 
 
-Your AWS account appears in the list of accounts. The **Owner ID** listed matches your Role ARN value. Your **Account Status** should have a green check mark symbol.
+Your AWS account appears in the list of accounts. The **Owner ID** listed matches your Role ARN value. Your **Account Status** should have a green check mark symbol indicating that Cost Management can access your AWS account. Until you enable detailed AWS billing, your consolidation status appears as **Standalone**.
 
 ![AWS account status](./media/connect-aws-account/aws-account-status01.png)
 
@@ -180,12 +180,11 @@ After you create and configure the S3 bucket, navigate to [Billing Preferences](
 3. Select all four report granularity options and then click **Save preferences**.  
     ![Enable reports](./media/connect-aws-account/enable-reports.png)
 
+Cost Management retrieves detailed billing information from your S3 bucket and populates reports after detailed billing is enabled. It can take up to 24 hours until detailed billing data appears in the Cloudyn console. When detailed billing data is available, your account consolidation status appears as **Consolidated**. Account status appears as **Completed**.
 
-Cost Management retrieves detailed billing information from your S3 bucket and populates reports after detailed billing is enabled. It can take up to 24 hours until detailed billing data appears in the Cloudyn console.
+![Account Consolidated Status](./media/connect-aws-account/consolidated-status.png)
 
 Some of the optimization reports may require a few days of data to get an adequate data sample size for accurate recommendations.
-
-
 
 ## Next steps
 

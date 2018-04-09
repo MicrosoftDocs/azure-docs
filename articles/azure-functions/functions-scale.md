@@ -84,7 +84,7 @@ On either a Consumption plan or an App Service plan, a function app requires a g
 
 <!-- JH: Does using a PRemium Storage account improve perf? -->
 
-To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
+To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#azure-storage-services).
 
 ## How the Consumption plan works
 

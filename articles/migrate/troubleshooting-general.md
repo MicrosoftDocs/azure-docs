@@ -33,7 +33,7 @@ Make sure you've copied and pasted the right information. To troubleshoot, insta
 2. To start the installation, double-click the downloaded file.
 3. In setup, on the **Welcome** page, click **Next**. On the **License Terms** page, click **I Agree** to accept the license.
 4. In **Destination Folder**, keep or modify the default installation folder > **Next**.
-5. In **Agent Setup Options**, select **Azure Log Analytics (OMS)** > **Next**.
+5. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 6. Click **Add** to add a new Log Analytics workspace. Paste in project ID and key that you copied. Then click **Next**.
 7. Verify that the agent can connect to the project. If it can't, verify the settings. If the agent can connect but the collector can't, contact Support.
 
@@ -58,7 +58,7 @@ To enable collection of disk and network performance data, change the statistics
 
 **I installed agents and used the dependency visualization to create groups. Now post failover, the machines show "Install agent" action instead of "View dependencies"**
 * Post planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether the user chose to retain on-premises IP address or not. If both MAC and IP addresses differ, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
-* Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing OMS traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
+* Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing Log Analytics traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
 
 
 ## Troubleshoot readiness issues
