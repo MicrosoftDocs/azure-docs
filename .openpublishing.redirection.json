@@ -17924,6 +17924,11 @@
             "source_path": "articles/active-directory/role-based-access-control-troubleshooting.md",
             "redirect_url": "/azure/role-based-access-control/troubleshooting",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
+            "redirect_url": "/azure/cosmos-db/storage-explorer",
+            "redirect_document_id": true
         }
     ]
 }
