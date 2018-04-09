@@ -110,13 +110,13 @@ Alternatively, you can enable the Backup Restore service through the portal at t
 Let's walkthrough steps to enable periodic backup for Reliable Stateful service and Reliable Actors. These steps assume
 - That the cluster is setup using X.509 security with _backup restore service_.
 - A Reliable Stateful application is deployed on the cluster. For the purpose of this quickstart guide, application Uri is `fabric:/SampleApp` and the Uri for Reliable Stateful service belonging to this application is `fabric:/SampleApp/MyStatefulService`. This service is deployed with single partition, and the partition ID is `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
-- The client certificate with administrator role is installed in _My_ (_Personal_) store name of _CurrentUser_ certificate store location on the machine from where below scripts will be invoked. This example uses `1b7ebe2174649c45474a4819dafae956712c31d3` as thumbprint of this certificate. For more information on client certificates, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles).
+- The client certificate with administrator role is installed in _My_ (_Personal_) store name of _CurrentUser_ certificate store location on the machine from where below scripts will be invoked. This example uses `1b7ebe2174649c45474a4819dafae956712c31d3` as thumbprint of this certificate. For more information on client certificates, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
 ### Create backup policy
 
 First step is to create backup policy describing backup schedule, target storage for backup data, policy name, and maximum incremental backups to be allowed before triggering full backup. 
 
-For backup storage, use the Azure Storage account created above. This example assumes the Azure Storage account with name `sfbackupstore`. Container `backup-container` is configured to store backups, container with this name is created, if not already present, during backup upload. Populate ConnectionString with valid connection string for the Azure Storage account.
+For backup storage, use the Azure Storage account created above. This example assumes the Azure Storage account with name `sfbackupstore`. Container `backup-container` is configured to store backups, container with this name is created, if not already present, during backup upload. Populate `ConnectionString` with valid connection string for the Azure Storage account.
 
 Execute following PowerShell script for invoking required REST API to create new policy.
 
