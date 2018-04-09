@@ -2,21 +2,6 @@
 
 You first need to create a Media Services account. This section shows what you need for the acount creation using CLI 2.0.
 
-### Log in to Azure
-
-Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** to execute CLI commands.
-
-### Launch Azure Cloud Shell
-
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. Just click the **Copy** button to copy the code, paste it into the Cloud Shell, and then press enter to run it.  There are a few ways to launch the Cloud Shell:
-
-|  |   |
-|-----------------------------------------------|---|
-| Click **Try It** in the upper right corner of a code block. | ![Cloud Shell in this article](./media/media-services-cli-create-v3-account-include/cli-try-it.png) |
-| Open Cloud Shell in your browser. | [![https://shell.azure.com/bash](./media/media-services-cli-create-v3-account-include/launchcloudshell.png)](https://shell.azure.com/bash) |
-| Click the **Cloud Shell** button on the menu in the upper right of the [Azure portal](https://portal.azure.com). |	![Cloud Shell in the portal](./media/media-services-cli-create-v3-account-include/cloud-shell-menu.png) |
-|  |  |
-
 ### Create a resource group
 
 Create a resource group using the following command. An Azure resource group is a logical container into which resources like Azure Media Services accounts and the associated Storage accounts are deployed and managed.

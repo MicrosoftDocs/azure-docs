@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/26/2018
+ms.date: 04/09/2018
 ms.author: juliako
 ---
 
@@ -24,10 +24,11 @@ This tutorial shows you how to stream video files with Azure Media Services. Mos
 This tutorial shows you how to:    
 
 > [!div class="checklist"]
+> * Launch Azure Cloud Shell
 > * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
-> * Examine the code
+> * Examine the code in detail
 > * Run the app
 > * Test the streaming URL
 > * Clean up resources
@@ -45,6 +46,12 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
+
+## Log in to Azure
+
+Log in to the [Azure portal](http://portal.azure.com).
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
@@ -280,57 +287,22 @@ private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string r
 }
 ```
 
-### Get streaming policy
-
-Media Services supports streaming in different formats (HLS, MPEG DASH, or Smooth Streaming). In order to tell Media Services what formats you want to stream in, you have to create a streaming policy and specify what protocols you want to use. In this case, we want all the available streaming protocols. You also use a streaming policy to specify content keys, if you plan to encrypt your content. In this case we have no encryption.
-
-If you are creating a custom streaming policy, that could be reused, you should first try to use the **Get** method. In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist.
-
-```csharp
-private static StreamingPolicy EnsureStreamingPolicyExists(IAzureMediaServicesClient client, string resourceGroup, string accountName, string policyName)
-{
-    StreamingPolicy policy = client.StreamingPolicies.Get(resourceGroup, accountName, policyName);
-
-    if (policy == null)
-    {
-        policy = client.StreamingPolicies.Create(resourceGroup,
-                accountName,
-                policyName,
-                new StreamingPolicy()
-                {
-                    NoEncryption = new NoEncryption()
-                    {
-                        EnabledProtocols = new EnabledProtocols()
-                        {
-                            Dash = true,
-                            SmoothStreaming = true,
-                            Hls = true,
-                            Download = true
-                        }
-                    }
-                });
-    }
-
-    return policy;
-}
-```
-
 ### Get streaming locator
 
-In Media Services, a locator provides an entry point to access the files contained in an Asset. It also defines duration that a client has access to a given asset.
+In Media Services, a locator provides an entry point to access the files contained in an Asset. It also defines duration that a client has access to a given asset. One of the arguments that you need to pass is a **StreamingPolicyName**. In this case we are streaming non-encrypted content, so we are just passing a predefined clear streaming policy name.
 
 ```csharp
-private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client, string resourceGroup, string accountName, string assetName, string policyName, string clearLocatorName)
+private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client, string resourceGroup, string accountName, string assetName, string clearPolicyName, string streamingLocatorName)
 {
     StreamingLocator locator =
-        client.StreamingLocators.Create(resourceGroup, accountName, "clearStreamingLocator",
-        new StreamingLocator()
-        {
-            AssetName = assetName,
-            EndTime = DateTime.UtcNow.AddDays(5),
-            StreamingPolicyName = policyName,
+        client.StreamingLocators.Create(resourceGroup, accountName, streamingLocatorName,
+            new StreamingLocator()
+            {
+                AssetName = assetName,
+                EndTime = DateTime.UtcNow.AddDays(5),
+                StreamingPolicyName = clearPolicyName,
 
-        });
+            });
 
     return locator;
 }

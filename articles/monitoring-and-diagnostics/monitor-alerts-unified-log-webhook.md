@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2018
+ms.date: 04/09/2018
 ms.author: vinagara
 
 ---
@@ -59,15 +59,19 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 
 For example, you might specify the following custom payload that includes a single parameter called *text*.  The service that this webhook calls would be expecting this parameter.
 
+```json
+
     {
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
-
+```
 This example payload would resolve to something like the following when sent to the webhook.
 
+```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
+```
 
 To include search results in a custom payload, ensure that **IncudeSearchResults** is set as a top-level property in the json payload. 
 
@@ -83,7 +87,8 @@ Both of these examples have stated a dummy payload with only two columns and two
 #### Log Alert for Azure Log-Analytics
 Following is a sample payload for a standard webhook action *without custom Json option* being used for  log analytics-based alerts.
 
-    {
+```json
+{
 	"WorkspaceId":"12345a-1234b-123c-123d-12345678e",
 	"AlertRuleName":"AcmeRule","SearchQuery":"search *",
 	"SearchResult":
@@ -93,7 +98,7 @@ Following is a sample payload for a standard webhook action *without custom Json
                         [
 				        {"name":"$table","type":"string"},
 					    {"name":"Id","type":"string"},
-					    {"name":"TimeGenerated","type":"datetime"},
+					    {"name":"TimeGenerated","type":"datetime"}
                         ],
 					"rows":
                         [
@@ -102,7 +107,7 @@ Following is a sample payload for a standard webhook action *without custom Json
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -112,15 +117,14 @@ Following is a sample payload for a standard webhook action *without custom Json
     "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
     "Severity": "Warning"
-    }
-    
-
+ }
+ ```   
 
 #### Log Alert for Azure Application Insights
 Following is a sample payload for a standard webhook *without custom Json option* when used for application insights-based log-alerts.
     
-
-    {
+```json
+{
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
 	"SubscriptionId":"12345a-1234b-123c-123d-12345678e",
@@ -132,7 +136,7 @@ Following is a sample payload for a standard webhook *without custom Json option
                         [
 				        {"name":"$table","type":"string"},
 					    {"name":"Id","type":"string"},
-					    {"name":"TimeGenerated","type":"datetime"},
+					    {"name":"TimeGenerated","type":"datetime"}
                         ],
 					"rows":
                         [
@@ -141,7 +145,7 @@ Following is a sample payload for a standard webhook *without custom Json option
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -150,10 +154,11 @@ Following is a sample payload for a standard webhook *without custom Json option
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error"
+    "Severity": "Error",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
-    }
+}
+```
 
 > [!NOTE]
 > Log alerts for Application Insights, is currently in public preview - the functionality and user experience is subject to change.
@@ -161,14 +166,16 @@ Following is a sample payload for a standard webhook *without custom Json option
 #### Log Alert with custom JSON Payload
 For example, to create a custom payload that includes just the alert name and the search results, you could use the following: 
 
+```json
     {
        "alertname":"#alertrulename",
        "IncludeSearchResults":true
     }
+```
 
 Following is a sample payload for a custom webhook action for any log alert.
     
-
+```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
 	"SearchResult":
@@ -178,7 +185,7 @@ Following is a sample payload for a custom webhook action for any log alert.
                         [
 				        {"name":"$table","type":"string"},
 					    {"name":"Id","type":"string"},
-					    {"name":"TimeGenerated","type":"datetime"},
+					    {"name":"TimeGenerated","type":"datetime"}
                         ],
 					"rows":
                         [
@@ -189,8 +196,7 @@ Following is a sample payload for a custom webhook action for any log alert.
                 ]
         }
     }
-
-
+```
 
 
 ## Next steps
