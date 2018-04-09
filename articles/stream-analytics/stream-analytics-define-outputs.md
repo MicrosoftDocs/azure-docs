@@ -310,9 +310,7 @@ The following table describes the properties for creating an Azure Cosmos DB out
 | Account id | The name or endpoint URI of the Cosmos DB account. |
 | Account key | The shared access key for the Cosmos DB account. |
 | Database | The Cosmos DB database name. |
-| Collection name pattern | The collection name or their pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Two examples:  
-  <br/><br/>1. _MyCollection_ – One collection named "MyCollection" must exist.  
-  <br/><br/>2. _MyCollection{partition}_ – The partitioning column collections must exist– "MyCollection0", "MyCollection1", "MyCollection2" and so on.  |
+| Collection name pattern | The collection name or their pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Two examples:  <br/><br/>1. _MyCollection_ – One collection named "MyCollection" must exist.  <br/><br/>2. _MyCollection{partition}_ – The partitioning column collections must exist– "MyCollection0", "MyCollection1", "MyCollection2" and so on. |
 | Partition Key | Optional. This is only needed if you are using a {partition} token in your collection name pattern. The partition key is the name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used for example, PartitionId. |
 | Document ID |Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
 
