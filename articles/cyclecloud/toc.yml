@@ -19,9 +19,9 @@
   - name: pogo
     items:
     - name: Overview
-      href:
+      href: pogo.md
     - name: pogo Configuration
-      href:
+      href: pogo_configuration.md
     - name: Using pogo
       href:
   - name: SubmitOnce

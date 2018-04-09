@@ -27,8 +27,7 @@ firewall, which is officially discouraged by Microsoft. We recommend you
 reenable it but leave open the ports detailed in the section on
 [firewalls](https://docs.cyclecomputing.com/admin-guide-v6.5.6/jetpack#Firewalls_and_Jetpack).
 
-Important directories within your Jetpack
-installation:
+Important directories within your Jetpack installation:
 
 | Directory | Description                                                                                                                                                               |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

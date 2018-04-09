@@ -1,9 +1,6 @@
 # CycleCloud CLI
 
-In addition to the web interface, CycleCloud can be controlled via the command line.
-CycleCloud's command-line interface (CLI) tool can be used to create, configure and
-manage clusters controlled by CycleCloud. It is highly recommended that you install
-these tools to make cluster management and configuration easier.
+In addition to the web interface, Azure CycleCloud can be controlled via the command line. CycleCloud's command-line interface (CLI) tool can be used to create, configure and manage clusters controlled by CycleCloud. It is highly recommended that you install these tools to make cluster management and configuration easier.
 
 The CycleCloud CLI is distributed as a standard installable Python package for v2.4+.
 It can be used on the same server that CycleCloud is installed on or on remote clients. The command line tools are a separate download, with pre-built binaries for Linux and Windows.
