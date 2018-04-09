@@ -181,7 +181,7 @@ The owning group can be changed by:
 * The owning user, if the owning user is also a member of the target group.
 
 > [!NOTE]
-> The owning group *cannot* change the ACLs of a file or folder.
+> The owning group *cannot* change the ACLs of a file or folder.  While the owning group is set to the user who created the account in the case of the root folder, **Case 1** above, a single user account is not valid for providing permissions via the owning group.  You can assign this permission to a valid user group if applicable.
 
 ## Access check algorithm
 
