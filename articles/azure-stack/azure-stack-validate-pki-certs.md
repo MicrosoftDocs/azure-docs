@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -68,10 +68,11 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
   >  If the identity provider for the Azure Stack deployment is Azure AD, remove the **ADFS** and **Graph** directories. 
 
 4. Place your certificate(s) in the appropriate directories created in the previous step for example: 
-  - c:\certchecker\Certs\ACS\CustomerCertificate.pfx,  
-  - c:\certchecker\Certs\Admin Portal\CustomerCertificate.pfx  
-  - c:\certchecker\Certs\ARM Admin\CustomerCertificate.pfx  
-  - and so on… 
+
+    - c:\certchecker\Certs\ACS\CustomerCertificate.pfx,  
+    - c:\certchecker\Certs\Admin Portal\CustomerCertificate.pfx  
+    - c:\certchecker\Certs\ARM Admin\CustomerCertificate.pfx  
+    - and so on… 
 
 5. Copy **deploymentdata.json** into the **c:\certchecker** directory.
 
@@ -85,43 +86,117 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 7. The output should contain OK for all certificates and all attributes checked: 
 
   ```powershell
-  Starting Azure Stack Certificate Validation 1.1802.221.1
-  Testing: ADFS\ContosoSSL.pfx
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Testing: KeyVaultInternal\ContosoSSL.pfx
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Testing: ACS\ContosoSSL.pfx
-  WARNING: Pre-1803 certificate structure. The folder structure for Azure Stack 1803 and above is: ACSBlob, ACSQueue, ACSTable instead of ACS folder. Refer to deployment documentation for further informat
-  ion.
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Detailed log can be found C:\CertChecker\CertChecker.log 
+    Testing: ADFS\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Testing: Graph\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Testing: ARM Public\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Testing: ARM Admin\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Testing: Public Portal\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Testing: Admin Portal\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Testing: KeyVault\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Testing: KeyVaultInternal\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Testing: ACSTable\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Testing: ACSQueue\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Testing: ACSBlob\SSL.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Chain Order: OK
+        Other Certificates: OK
+        No Profile: OK
+    Detailed log can be found C:\certchecker\CertChecker.log 
   ```
 
 ### Known issues 
