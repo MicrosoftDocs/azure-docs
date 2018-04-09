@@ -1,5 +1,5 @@
 ---
-title: Send push notifications to Chrome apps with Azure Notification Hubs | Microsoft Docs
+title: Push notifications to Chrome apps with Azure Notification Hubs | Microsoft Docs
 description: Learn how to use Azure Notification Hubs to send push notifications to a Chrome App.
 services: notification-hubs
 keywords: mobile push notifications,push notifications,push notification,chrome push notifications
@@ -20,7 +20,7 @@ ms.author: spelluru
 #Customer intent: As a developer, I want to create backend applications that send notifications to client applications running on desktops or mobile devices so that users can take appropriate actions, get up-to-date information about an event, or receive coupons based on your current location.
 ---
 
-# Tutorial: Send push notifications to Chrome apps with Azure Notification Hubs
+# Tutorial: Push notifications to Chrome apps with Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 This tutorial walks you through creating a notification hub and sending push notifications to a sample Google Chrome app by using [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). The Chrome app runs in the context of a Google Chrome browser and registers with the notification hub. 
@@ -364,8 +364,8 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
    * **registrationPayload** defines the registration XML payload. For more information, see [Create Registration NH REST API]. Update the registration ID in it with the value received from GCM.
    * **client** is an instance of **XMLHttpRequest** that the application uses to make the HTTP POST request. Update the `Authorization` header with `sasToken`. Successful completion of this call registers this Chrome App instance with Azure Notification Hubs.
 
-The overall folder structure for this project should be like the following structure:
-       ![Google Chrome App - Folder Structure][21]
+        The overall folder structure for this project should be like the following structure:
+        ![Google Chrome App - Folder Structure][21]
 
 ### Set up and test your Chrome App
 1. Open your Chrome browser. Open **Chrome extensions** and enable **Developer mode**.
@@ -393,7 +393,7 @@ For testing purposes, send Chrome push notifications by using a .NET console app
 > 
 
 1. In Visual Studio, from the **File** menu, select **New** and then **Project**. Under **Visual C#**, click **Windows** and **Console Application**, and then click **OK**.  This step creates a new console application project.
-2. From the **Tools** menu, click **Nuget Package Manager** and then **Package Manager Console**. You see displays the Package Manager Console in the bottom window.
+2. From the **Tools** menu, click **NuGet Package Manager** and then **Package Manager Console**. You see displays the Package Manager Console in the bottom window.
 3. In the console window, execute the following command:
    
         Install-Package Microsoft.Azure.NotificationHubs
@@ -433,11 +433,10 @@ For testing purposes, send Chrome push notifications by using a .NET console app
 > 
 
 ## <a name="next-steps"> </a>Next steps
-Learn more about Notification Hubs in [Notification Hubs Overview].
+In this tutorial, you sent broadcast notifications to all clients that are registered with the backend. To learn how to push notifications to specific devices, advance to the following tutorial: 
 
-To target specific users, refer to the [Azure Notification Hubs Notify Users] tutorial. 
-
-If you want to segment your users by interest groups, you can follow the [Azure Notification Hubs breaking news] tutorial.
+> [!div class="nextstepaction"]
+>[Push notifications to specific devices](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Images. -->
 [3]: ./media/notification-hubs-chrome-get-started/EnableGCM.png
