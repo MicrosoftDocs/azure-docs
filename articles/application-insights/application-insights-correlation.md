@@ -109,7 +109,7 @@ Currently, automatic context propagation across messaging technologies (e.g. Kaf
 
 <a name="java-role-name"></a>
 ### Role Name
-At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the role name by doing one of the following:
+At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the `cloud_roleName` by doing one of the following:
 
 Via a telemetry initializer (all telemetry items are tagged)
 ```Java
