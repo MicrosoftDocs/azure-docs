@@ -4,9 +4,8 @@ description: With TTL, Microsoft Azure Cosmos DB provides the ability to have do
 services: cosmos-db
 documentationcenter: ''
 keywords: time to live
-author: arramac
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
-ms.author: arramac
+ms.author: sngun
 
 ---
 # Expire data in Azure Cosmos DB collections automatically with time to live
