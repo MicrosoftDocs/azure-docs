@@ -17,7 +17,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 		* **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.
 	* Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
 
-        When you manually set the IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings. You should never assign an Azure public IP address within the operating system.
+        When you manually set the IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](../article/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](../article/virtual-network/virtual-network-network-interface-addresses.md#private) settings. You should never assign an Azure public IP address within the operating system.
 
 	* Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
 
