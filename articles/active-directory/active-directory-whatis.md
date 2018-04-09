@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud-based dir
 
 - **For app developers.** Azure AD lets you focus on building your apps by letting you integrate with an identity management solution that's used by millions of organizations around the world.
 
-- **For Office 365, Azure, or Dynamics CRM Online customers.** You're already using Azure AD. Every Office 365, Azure, and Dynamics CRM tenant are actually an Azure AD tenant, letting you immediately start to manage your employee-access to your integrated cloud apps.
+- **For Office 365, Azure, or Dynamics CRM Online customers.** You're already using Azure AD. Each Office 365, Azure, and Dynamics CRM Online tenant is actually an Azure AD tenant, letting you immediately start to manage your employee-access to your integrated cloud apps.
 
 ## How reliable is Azure AD?
 The multi-tenant, geo-distributed, high availability design of Azure AD means that you can rely on it for your most critical business needs. Running out of 28 data centers around the world with automated failover, you’ll have the comfort of knowing that Azure AD is highly reliable and that even if a data center goes down, copies of your directory data are live in at least two more regionally dispersed data centers and available for instant access.
