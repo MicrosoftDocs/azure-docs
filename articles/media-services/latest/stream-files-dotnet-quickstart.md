@@ -25,7 +25,7 @@ When streaming videos, you would likely want for your customers to be able to pl
 
 This quickstart shows you how easy it is to start delivering videos with adaptive bitrate streaming using Media Services .NET SDK. 
 
-In the quickstart, you are first offered to clone a GitHub repository that contains the **EncodeAndStreamFiles** project. The project contains .NET code that uploads a video file based on the specified URL, encodes the video, and prints out the streaming URLs. If you want to understand more about what the code is doing, see the [Upload, encode, and stream videos](stream-files-tutorial.md) tutorial. 
+In the quickstart, you are first offered to clone a GitHub repository that contains the **EncodeAndStreamFiles** project. The project contains .NET code that uploads a video file based on the specified URL, encodes the video, and prints out the streaming URLs. If you want to understand more about what the code is doing, see the [Upload, encode, and stream videos](stream-files-tutorial-with-api.md) tutorial. 
 
 To run the application, you need to specify credentials needed to access Media Services API. 
 
@@ -55,7 +55,7 @@ First, let's clone the [StreamAndEncodeFiles](https://github.com/azure-samples/m
 4. Right-click the **EncodeAndStreamFiles** project and select **Set as StartUp project**.
 5. Build the solution. 
 
-You can open the Program.cs file and examine the code and code comments. If you want to understand more about what the code is doing, please see the [Upload, encode, and stream videos](stream-files-tutorial.md) tutorial. 
+You can open the Program.cs file and examine the code and code comments. If you want to understand more about what the code is doing, please see the [Upload, encode, and stream videos](stream-files-tutorial-with-api.md) tutorial. 
 
 ## Configure your app
 
@@ -86,4 +86,4 @@ az group delete --name myResourceGroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: upload, encode, and stream files](stream-files-tutorial.md)
+> [Tutorial: upload, encode, and stream files](stream-files-tutorial-with-api.md)

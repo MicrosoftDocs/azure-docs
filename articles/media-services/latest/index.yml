@@ -39,7 +39,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/media-services/latest/stream-files-tutorial">Upload, encode, and stream videos</a>
+    - html: <a href="/azure/media-services/latest/stream-files-tutorial-with-api">Upload, encode, and stream videos</a>
     - html: <a href="/azure/media-services/latest/analyze-videos-tutorial">Analyze your videos</a>
 - title: Reference
   items:
