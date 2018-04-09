@@ -1,3 +1,16 @@
+---
+title: Disaster Recovery for SaaS app using Geo Restore | Microsoft Docs
+description: "Learn how to use geo-redundant backups to recover a multi-tenant SaaS app in the event of an outage"
+keywords: sql database tutorial
+services: sql-database
+author: stevestein
+manager: craigg
+ms.service: sql-database
+ms.custom: saas apps
+ms.topic: article
+ms.date: 04/09/2018
+ms.author: ayolubek
+---
 # Recover a multi-tenant SaaS application using geo-restore from database backups
 
 In this tutorial, you explore a full disaster recovery scenario for a multi-tenant SaaS application implemented using the database-per-tenant model. You use [_geo-restore_](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-recovery-using-backups) to recover the catalog and tenant databases from automatically maintained geo-redundant backups into an alternate recovery region. After the outage is resolved, you use [_geo-replication_](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) to repatriate changed databases to their original region.
@@ -40,7 +53,7 @@ Disaster recovery (DR) is an important consideration for many applications, whet
 
 In this tutorial, these challenges are addressed using features of Azure SQL Database and the Azure platform:
 
-* [Azure Resource Management (ARM) templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. ARM templates are used to provision a mirror image of the original servers and elastic pools in the recovery region. A separate server and pool are also created for provisioning new tenants. 
+* [Azure Resource Manager (ARM) templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. Azure Resource Manager templates are used to provision a mirror image of the original servers and elastic pools in the recovery region. A separate server and pool are also created for provisioning new tenants. 
 * [Elastic Database Client Library](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL) to create and maintain a tenant database catalog.  The catalog is extended to include periodically refreshed pool and database configuration information.
 * [Shard management recovery features](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) of the EDCL to maintain database location entries in the catalog during recovery and repatriation.  
 * [Geo-restore](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery), to recover the catalog and tenant databases from automatically maintained geo-redundant backups. 
@@ -305,8 +318,8 @@ In this tutorial you learned how to:
 >* Use a DNS alias to enable an application to connect to the  tenant catalog throughout without reconfiguration
 >* Use geo-replication to repatriate recovered databases to their original region after an outage is resolved
 
-<!--Now, try the [Recover a multi-tenant SaaS application using geo-replication]() to learn how to geo-replication can dramatically reduce the time needed to recover a large-scale multi-tenant application.
--->
+Now, try the [Disaster recovery for a multi-tenant SaaS application using database geo-replication](saas-dbpertenant-dr-geo-replication.md) to learn how to dramatically reduce the time needed to recover a large-scale multi-tenant application by using geo-replication.
+
 ## Additional resources
 
 * [Additional tutorials that build upon the Wingtip SaaS application](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)

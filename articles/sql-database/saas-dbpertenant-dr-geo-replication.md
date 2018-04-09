@@ -1,3 +1,16 @@
+---
+title: Disaster Recovery for SaaS app using Geo Replication | Microsoft Docs
+description: "Learn how to use database geo-replicas to recover a multi-tenant SaaS app in the event of an outage"
+keywords: sql database tutorial
+services: sql-database
+author: AyoOlubeko
+manager: craigg
+ms.service: sql-database
+ms.custom: saas apps
+ms.topic: article
+ms.date: 04/09/2018
+ms.author: ayolubek
+---
 # Disaster recovery for a multi-tenant SaaS application using database geo-replication
 
 In this tutorial, you explore a full disaster recovery scenario for a multi-tenant SaaS application implemented using the database-per-tenant model. To protect the app from an outage, you use [_geo-replication_](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) to create replicas for the catalog and tenant databases in an alternate recovery region. If an outage occurs, you quickly fail over to these replicas to  resume normal business operations. On failover, the databases in the original region become secondary replicas of the databases in the recovery region. Once these replicas come back online they automatically catch up to the state of the databases in the recovery region. After the outage is resolved, you fail back to the databases in the original production region.
@@ -45,7 +58,7 @@ All parts have to be considered carefully, especially if operating at scale. Ove
 
 In this tutorial, these challenges are addressed using features of Azure SQL Database and the Azure platform:
 
-* [Resource Management (ARM) templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. Resource Manager templates are used to provision a mirror image of the production servers and elastic pools in the recovery region.
+* [Azure Resource Manager (ARM) templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. Azure Resource Manager templates are used to provision a mirror image of the production servers and elastic pools in the recovery region.
 * [Geo-replication](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), to create asynchronously replicated read-only secondaries for all databases. During an outage, you fail over to the replicas in the recovery region.  After the outage is resolved, you fail back to the databases in the original region with no data loss.
 * [Asynchronous](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) failover operations sent in tenant-priority order, to minimize failover time for large numbers of databases.
 * [Shard management recovery features](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager), to change database entries in the catalog during recovery and repatriation. These features allow the app to connect to tenant databases regardless of location without reconfiguring the app.
@@ -97,7 +110,8 @@ In this task, you start a process that syncs the configuration of the servers, e
 
 Leave the PowerShell window running in the background and continue with the rest of the tutorial. 
 
-> Note: The sync process connects to the catalog via a DNS alias. This alias is modified during restore and repatriation to point to the active catalog. The sync process keeps the catalog up-to-date with any database or pool configuration changes made in the recovery region.  During repatriation, these changes are applied to the equivalent resources in the original region.
+> [!Note]
+> The sync process connects to the catalog via a DNS alias. This alias is modified during restore and repatriation to point to the active catalog. The sync process keeps the catalog up-to-date with any database or pool configuration changes made in the recovery region.  During repatriation, these changes are applied to the equivalent resources in the original region.
 
 ## Create secondary database replicas in the recovery region
 
@@ -287,6 +301,8 @@ In this tutorial you learned how to:
 >* Use _geo-replication_ to replicate the catalog and tenant databases to the recovery region
 >* Fail over the application and catalog and tenant databases to the recovery region 
 >* Fail back the application, catalog and tenant databases to the original region after the outage is resolved
+
+You can learn more about the technologies Azure SQL database provides to enable business continuity in the [Business Continuity Overview](sql-database-business-continuity) documentation.
 
 ## Additional resources
 
