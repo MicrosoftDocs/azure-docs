@@ -24,39 +24,16 @@ ms.author: jejiang
 
 Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues. Now you can use the same tool to manage your different Azure entities in one place. At this time, Azure Storage Explorer supports SQL, MongoDB, Graph, and Table accounts.
 
-In this article, you can learn how to use Storage Explorer to manage Azure Cosmos DB, and the troubleshooting.
 
-Manage Azure Cosmos DB in Azure Storage Explorer (Preview)
-- [Prerequisites](#Prerequisites)
-- [Installation](#Installation)
-- [Connect to an Azure subscription](#Connect-to-an-Azure-subscription)
-- [Connect to Azure Cosmos DB by using a connection string](#Connect-to-Azure-Cosmos-DB-by-using-a-connection-string)
-- [Connect to Azure Cosmos DB by using local emulator](#Connect-to-Azure-Cosmos-DB-by-using-local-emulator)
-- [Azure Cosmos DB resource management](#Azure-Cosmos-DB-resource-management)
-
-Azure Cosmos DB in Storage Explorer troubleshooting guide overview
-- [Sign in issues](#Sign-in-issues)
-  - [Self-signed certificate in certificate chain](#Self-signed-certificate-in-certificate-chain)
-  - [Unable to retrieve subscriptions](#Unable-to-retrieve-subscriptions)
-  - [Unable to see the authentication page](#Unable-to-see-the-authentication-page)
-  - [Cannot remove account](#Cannot-remove-account)
-- [Http/Https proxy issue](#Http/Https-proxy-issue)
-- ["Development" node under "Local and Attached" node issue](#Development-node-under-Local-and-Attached-node-issue)
-- [Attaching Azure Cosmos DB account in "Local and Attached" node error](#Attaching-Azure-Cosmos-DB-account-in-Local-and-Attached-node-error)
-- [Expand Azure Cosmos DB node error](#Expand-Azure-Cosmos-DB-node-error)
-- [Contact us](#Contact-us)
-
-[Next steps](#Next-steps)
-
-<h2 id="Prerequisites">Prerequisites</h2>
+## Prerequisites
 
 An Azure Cosmos DB account for the SQL API<!--or MongoDB API-->. If you don't have an account, you can create one in the Azure portal, as described in [Azure Cosmos DB: Build a SQL API web app with .NET and the Azure portal](create-sql-api-dotnet.md).
 
-<h2 id="Installation">Installation</h2>
+## Installation
 
 Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), now we support Windows, Linux, and MAC version.
 
-<h2 id="Connect-to-an-Azure-subscription">Connect to an Azure subscription</h2>
+## Connect to an Azure subscription
 
 1. After installing the **Azure Storage Explorer**, click the **plug-in** icon on the left as shown in the following image:
        
@@ -80,7 +57,7 @@ Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](ht
 
     You have successfully connected to your **Cosmos DB account** to your Azure subscription.
 
-<h2 id="Connect-to-Azure-Cosmos-DB-by-using-a-connection-string">Connect to Azure Cosmos DB by using a connection string</h2>
+## Connect to Azure Cosmos DB by using a connection string
 
 An alternative way of connecting to an Azure Cosmos DB is to use a connection string. Use the following steps to connect using a connection string.
 
@@ -92,7 +69,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
     ![Connection-string](./media/storage-explorer/connection-string.png)
 
-<h2 id="Connect-to-Azure-Cosmos-DB-by-using-local-emulator">Connect to Azure Cosmos DB by using local emulator</h2>
+## Connect to Azure Cosmos DB by using local emulator
 
 Use the following steps to connect to an Azure Cosmos DB by Emulator, only support SQL account currently.
 
@@ -108,7 +85,7 @@ Use the following steps to connect to an Azure Cosmos DB by Emulator, only suppo
     ![Connect to Cosmos DB by Emulator dialog](./media/storage-explorer/emulator-dialog.png)
 
 
-<h2 id="Azure-Cosmos-DB-resource-management">Azure Cosmos DB resource management</h2>
+## Azure Cosmos DB resource management
 
 You can manage an Azure Cosmos DB account by doing following operations:
 * Open the account in the Azure portal
@@ -229,23 +206,23 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
     ![Stored procedure](./media/storage-explorer/stored-procedure.png)
 * The operations for **Triggers** and **UDF** are similar with **Stored Procedures**.
 
-# Azure Cosmos DB in Storage Explorer troubleshooting guide overview
+## Troubleshooting
 
 [Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) is a standalone app that allows you to connect to Azure Cosmos DB accounts hosted on Azure and Sovereign Clouds from Windows, macOS, or Linux. It enables you to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
 
-This guide summarizes solutions for common issues seen for Azure Cosmos DB in Storage Explorer.
+These are solutions for common issues seen for Azure Cosmos DB in Storage Explorer.
 
-<h2 id="Sign-in-issues">Sign in issues</h2>
+### Sign in issues
 
 Before proceeding further, try restarting your application and see if the problems can be fixed.
 
-<h2 id="Self-signed-certificate-in-certificate-chain">Self-signed certificate in certificate chain</h2>
+#### Self-signed certificate in certificate chain
 
 There are a few reasons you may be seeing this error, the two most common ones are:
 
-1. You're behind a “transparent proxy”, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
++ You're behind a “transparent proxy”, which means someone (such as your IT department) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
 
-2. You're running software, such as anti-virus software, which is injecting a self-signed SSL certificates into the HTTPS messages you receive.
++ You're running software, such as anti-virus software, which is injecting a self-signed SSL certificates into the HTTPS messages you receive.
 
 When Storage Explorer encounters one of these "self-signed certificates", it can no longer know if the HTTPS message it's receiving has been tampered with. If you have a copy of the self-signed certificate though, then you can tell Storage Explorer to trust it. If you're unsure of who is injecting the certificate, then you can try to find it yourself by doing the following steps:
 
@@ -262,7 +239,7 @@ When Storage Explorer encounters one of these "self-signed certificates", it can
 
 If you're unable to find any self-signed certificates using the above steps, could send feedback for more help.
 
-<h2 id="Unable-to-retrieve-subscriptions">Unable to retrieve subscriptions</h2>
+#### Unable to retrieve subscriptions
 
 If you're unable to retrieve your subscriptions after you successfully signed in:
 
@@ -278,7 +255,7 @@ If you're unable to retrieve your subscriptions after you successfully signed in
 
 ![console](./media/storage-explorer/console.png)
 
-<h2 id="Unable-to-see-the-authentication-page">Unable to see the authentication page</h2>  
+#### Unable to see the authentication page 
 
 If you're unable to see the authentication page:
 
@@ -286,7 +263,7 @@ If you're unable to see the authentication page:
 - If you're behind a proxy, make sure that you have configured the Storage Explorer proxy properly
 - Bring up the developer console by pressing F12 key. Watch the responses from developer console and see if you can find any clue for why authentication is not working
 
-<h2 id="Cannot-remove-account">Cannot remove account</h2>
+#### Cannot remove account
 
 If you're unable to remove an account, or if the reauthenticate link does not do anything
 
@@ -301,23 +278,23 @@ If you're unable to remove an account, or if the reauthenticate link does not do
   - **You will have to reenter all your credentials** if you delete these files
 
 
-<h2 id="Http/Https-proxy-issue">Http/Https proxy issue</h2>
+### Http/Https proxy issue
 
 You cannot list Azure Cosmos DB nodes in left tree when configuring http/https proxy in ASE. It's a known issue, and will be fixed in next release. You could use Azure Cosmos DB data explorer in Azure portal as a work-around at this moment. 
 
-<h2 id="Development-node-under-Local-and-Attached-node-issue">"Development" node under "Local and Attached" node issue</h2>
+### "Development" node under "Local and Attached" node issue
 
 There is no response after clicking the "Development" node under "Local and Attached" node in left tree.  The behavior is expected. Azure Cosmos DB local emulator will be supported in next release.
 
 ![Development node](./media/storage-explorer/development.png)
 
-<h2 id="Attaching-Azure-Cosmos-DB-account-in-Local-and-Attached-node-error">Attaching Azure Cosmos DB account in "Local and Attached" node error</h2>
+### Attaching Azure Cosmos DB account in "Local and Attached" node error
 
 If you see below error after attaching Azure Cosmos DB account in "Local and Attached" node, then check if you're using the right connection string.
 
 ![Attaching Azure Cosmos DB in Local and Attached error](./media/storage-explorer/attached-error.png)
 
-<h2 id="Expand-Azure-Cosmos-DB-node-error">Expand Azure Cosmos DB node error</h2>
+### Expand Azure Cosmos DB node error
 
 You may see below error while trying to expand the tree nodes in left. 
 
@@ -328,11 +305,11 @@ Try the following suggestions:
 - Check if the Azure Cosmos DB account is in provision progress and try again when the account is being created successfully.
 - If the account is under "Quick Access" node or "Local and Attached" nodes, then check if the account has been deleted. If so, you need to remove the node manually.
 
-<h2 id="Contact-us">Contact us</h2>
+## Contact us
 
 If none of the solutions work for you, send email to Azure Cosmos DB Dev Tooling Team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) with details about the issue, for fixing the issues.
 
-<h2 id="Next-steps">Next steps</h2>
+## Next steps
 
 * Watch the following video to see how to use Azure Cosmos DB in Azure Storage Explorer: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Learn more about Storage Explorer and connect more services in [Get started with Storage Explorer (Preview)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
