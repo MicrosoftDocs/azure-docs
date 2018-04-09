@@ -17989,6 +17989,11 @@
             "source_path": "articles/cognitive-services/Bing-Web-Search/search-the-web.md",
             "redirect_url": "/azure/cognitive-services/bing-web-search",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
+            "redirect_url": "/azure/cosmos-db/storage-explorer",
+            "redirect_document_id": true
         }
     ]
 }
