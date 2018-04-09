@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/17/2017
+ms.date: 10/18/2017
 ---
 
 # What is Stream Analytics?
