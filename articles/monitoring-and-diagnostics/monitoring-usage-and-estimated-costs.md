@@ -63,7 +63,7 @@ are combined into a new common data ingestion meter called **Shared Services\Dat
 Another change you will see is that data ingested into Log Analytics or Application Insights in regions with higher costs will be shown with the new regional meters to properly reflect this, for instance **“Data Ingestion (US West Central)**.
 
 > [!NOTE]
-> The per-subscription estimated costs does not factor in the account level per-node entitlements of the Operations Management Suite (OMS) subscription. Please consult your account representative for a more in-depth discussion of the new pricing model in this case.
+> The per-subscription estimated costs does not factor into the account level per-node entitlements of the Operations Management Suite (OMS) subscription. Please consult your account representative for a more in-depth discussion of the new pricing model in this case.
 
 ## New pricing model and Operations Management Suite subscription entitlements
 
