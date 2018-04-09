@@ -2,8 +2,8 @@
 title: 'Quickstart: Cassandra API with .NET - Azure Cosmos DB | Microsoft Docs'
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and .NET
 services: cosmos-db
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: mimig
+ms.author: sngun
 
 ---
 

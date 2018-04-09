@@ -4,8 +4,7 @@ description: Learn how you can use Azure Cosmos DB to store and query massive vo
 keywords: json database, document database
 services: cosmos-db
 author: rafats
-manager: jhubbard
-editor: monicar
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63

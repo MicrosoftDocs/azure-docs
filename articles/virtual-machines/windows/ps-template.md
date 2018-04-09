@@ -4,7 +4,7 @@ description: Use a Resource Manager template and PowerShell to easily create a n
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 
