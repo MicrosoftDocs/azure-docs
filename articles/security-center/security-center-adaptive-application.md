@@ -71,8 +71,8 @@ The **Groups of VMs** section contains three tabs:
 
 3. In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply application control to. Next, you see two lists:
 
-- **Recommended applications**: a list of applications that are frequent on the VMs within this group, and thus recommended for application control rules by Security Center.
-- **More applications**: a list of applications that are either less frequent on the VMs within this group or that are known as Exploitables (see more below), and recommended for review before applying the rules.
+  - **Recommended applications**: a list of applications that are frequent on the VMs within this group, and thus recommended for application control rules by Security Center.
+  - **More applications**: a list of applications that are either less frequent on the VMs within this group or that are known as Exploitables (see more below), and recommended for review before applying the rules.
 
 4. Review the applications in each of the lists, and uncheck any you do not want to apply. Each list includes:
 
