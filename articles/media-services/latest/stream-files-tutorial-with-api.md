@@ -15,64 +15,105 @@ ms.date: 03/26/2018
 ms.author: juliako
 ---
 
-# Tutorial: Upload, encode, and stream videos
+# Tutorial: Upload, encode, and stream videos using APIs
 
 This tutorial shows you how to stream video files with Azure Media Services. Most likely, you would want to deliver adaptive bitrate content in HLS, MPEG DASH, or Smooth Streaming formats so it can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. 
 
-In this tutorial, you are first offered to clone a GitHub repository that contains the **UploadEncodeAndStreamFiles** project. The project contains .NET code that this article examines in detail. 
+![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
 
 This tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Configure your app so it can access Media Services APIs
-> * Start using Media Services APIs with .NET SDK
-> * Create an input asset and upload a local file into it 
-> * Create an output asset to store the result of the encoding job 
-> * Create a transform and a job that encodes the uploaded file
-> * Wait for the job to complete
-> * Download the result to your local folder
-> * Get the streaming URLs
-> * Stream the encoded video in Azure Media Player
+> * Create a Media Services account
+> * Access the Media Services API
+> * Configure the sample app
+> * Examine the code
+> * Run the app
+> * Test the streaming URL
 > * Clean up resources
-
-## Prerequisites
-
-+ An active [GitHub](https://github.com) account. 
-+ Visual Studio. The example described in this quickstart uses Visual Studio 2017. 
-
-    If you do not have Visual Studio installed, you can get [Visual Studio Community 2017, Visual Studio Professional 2017, or Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
-+ An Azure Media Services account. See the steps described in [Create a Media Services account](create-account-cli-quickstart.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Clone the sample repo
+## Prerequisites
 
-First, let's clone the [media-services-v3-dotnet-tutorials](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials) repo from GitHub. Visual Studio 2017 was used to create samples in the solution.
+If you do not have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
-1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
-2. Run the following command to clone the sample repository. 
+## Download the sample
 
-    ```bash
-    git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
-    ```
-3. Open the solution file in Visual Studio. 
-4. Right-click the **UploadEncodeAndStreamFiles** project and select **Set as StartUp project**.
-5. Build the solution. 
-6. Open the Program.cs file.
- 
-## Configure your app so it can access Media Services APIs
+Clone a GitHub repository that contains the streaming .NET sample to your machine using the following command:  
 
-To run the app and access the Media Services APIs, you need to specify the correct values in App.config. 
-    
-To get the values, see [Accessing APIs](access-api-cli-how-to.md).
+ ```bash
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
+ ```
 
-## Start using Media Services APIs with .NET SDK
+For explanations about what each function in the sample does, examine the code and look at the comments in [this source file](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/MediaServicesV3Tutorials/MediaServicesV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
+
+[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
+
+## Access the Media Services API
+
+To connect to the latest version of Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You are going to use the returned values to configure you .NET app, as shown in the following step.
+
+Before running the script, replace the `amsaccountname` placeholder.  `amsaccountname` is the name of the Azure Media Services account where to attach the service principal.
+
+```azurecli-interactive
+az ams sp create --account-name <amsaccountname> --resource-group amsResourcegroup
+```
+
+This command will produce a response similar to this:
+
+```json
+{
+  "AadClientId": "12345678-1234-1234-1234-111111111111",
+  "AadEndpoint": "https://login.microsoftonline.com",
+  "AadSecret": "22345678-1234-1234-1234-111111111111",
+  "AadTenantId": "32345678-1234-1234-1234-111111111111",
+  "AccountName": "amsaccountname",
+  "ArmAadAudience": "https://management.core.windows.net/",
+  "ArmEndpoint": "https://management.azure.com/",
+  "Region": "West US",
+  "ResourceGroup": "amsResourcegroup",
+  "SubscriptionId": "42345678-1234-1234-1234-111111111111"
+}
+```
+
+## Configure the sample app
+
+To run the app and access the Media Services APIs, you need to specify the correct access values in App.config. 
+
+1. Open Visual Studio.
+2. Browse to the solution that you cloned.
+3. In the Solution Explorer, unfold the *UploadEncodeAndStreamFiles* project.
+4. Set this project as the start up project.
+5. Open App.config.
+6. Replace settings values with the values that you got in the [previous](#create-an-azure-ad-application-and-service-principal) step.
+
+```xml
+  <appSettings>
+    <add key="SubscriptionId" value ="42345678-1234-1234-1234-111111111111" />
+    <add key="Region" value ="West US" />      
+    <add key="ResourceGroup" value ="amsResourcegroup" />
+    <add key="AccountName" value ="amsaccountname" />
+    <add key="AadTenantId" value ="32345678-1234-1234-1234-111111111111" />
+    <add key="AadClientId" value ="12345678-1234-1234-1234-111111111111" />
+    <add key="AadSecret" value ="22345678-1234-1234-1234-111111111111" />
+    <add key="ArmAadAudience" value ="https://management.core.windows.net/" />
+    <add key="AadEndpoint" value ="https://login.microsoftonline.com" />
+    <add key="ArmEndpoint" value ="https://management.azure.com/" />
+  </appSettings>
+```    
+
+7. Press Ctrl+Shift+B to build the solution.
+
+## Examine the code
+
+### Start using Media Services APIs with .NET SDK
 
 To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. You first need to get a token and then create a ClientCredential object from the returned token. In the code you cloned at the beginning of the article, the **ArmClientCredential** object is used to get the token.  
 
 In Program.cs, you can find the **CreateMediaServicesClient** method that creates the **AzureMediaServicesClient** object.  
 
-```
+```csharp
 private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper config)
 {
     ArmClientCredentials credentials = new ArmClientCredentials(config);
@@ -86,11 +127,11 @@ private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper
 }
 ```
 
-## Create an input asset and upload a local file into it 
+### Create an input asset and upload a local file into it 
 
-In Program.cs, find the **CreateInputAsset** function. It shows how to create an input asset and upload a local video file into it. The input asset can be created from HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or paths to files located in Azure Blob storage. If you want to see how to upload and encode a file based on an HTTPS URL, see the [Stream a file](stream-files-dotnet-quickstart.md) quickstart.
+In Program.cs, find the **CreateInputAsset** function. It shows how to create an input asset and upload a local video file into it. The input asset can be created from HTTP(s) URLs, SAS URLs, AWS S3 Token URLs, or paths to files located in Azure Blob storage. If you want to learn how to create a job input from an HTTP(s) URL, see [this](job-input-from-http-how-to.md) topic.  
 
-The function performs the following actions:
+The following function performs these actions:
 
 -	Creates the Asset
 -	Gets a SAS URL
@@ -121,22 +162,22 @@ private static Asset CreateInputAsset(IAzureMediaServicesClient client, string a
 }
 ```
 
-## Create an output asset to store the result of a job 
+### Create an output asset to store the result of a job 
 
 The output asset stores the result of your encoding job. Later, we show how to download the results from this output asset into the "output" folder, so you can see what you got.
 
-``` charp
+```csharp
 private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string assetName)
 {
     return client.Assets.CreateOrUpdate(assetName, new Asset());
 }
 ```
 
-## Create a transform and a job that encodes the uploaded file
+### Create a transform and a job that encodes the uploaded file
 
 When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a job to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. One example of a recipe would be to encode the video in order to stream it to a variety of iOS and Android devices. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). 
 
-### Transform
+#### Transform
 
 When creating a **Transform**, you should first check if one already exists, as shown in the code that follows. 
 
@@ -165,11 +206,11 @@ if (transform == null)
 
 When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, we use a built-in Preset called AdaptiveStreaming. This Preset auto-generates a bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. The output files never exceed the input resolution and bitrate. For example, if the input is 720p at 3 Mbps, output remains 720p at best, and will start at rates lower than 3 Mbps. For information about auto-generated bitrate ladder, see [Use Azure Media Services built-in standard encoder to auto-generate a bitrate ladder](autogen-bitrate-ladder.md).
 
-### Job
+#### Job
 
 As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The Job specifies information like the location of the input video, and the location for the output. In this example, the input video is uploaded from your local machine. You can also specify an Azure Blob SAS URL, or S3 tokenized URL. Media Services also allows you to ingest from any existing content in Azure Storage.
 
-```
+```csharp
 private static Job SubmitJob(IAzureMediaServicesClient client, string transformName, string jobName, JobInput jobInput, string outputAssetName)
 {
     JobOutput[] jobOutputs =
@@ -190,7 +231,7 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string transformN
 }
 ```
 
-## Wait for the job to complete
+### Wait for the job to complete
 
 The job takes some time to complete and when it does you want to be notified. There are different options to get notified about the job completion. The simplest option (that is shown here) is to use polling. 
 
@@ -234,56 +275,28 @@ private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string t
 }
 ```
 
-## Download the results to your local folder
+## Run the sample app
 
-Download the results to the "output" folder, so you can see what you got once the encoding is done.
+1. Press Ctrl+F5 to run the *EncodeAndStreamFiles* application.
+2. Copy the streaming URL from the console.
 
-``` csharp
-private static void DownloadResults(IAzureMediaServicesClient client, string assetName, string resultsFolder)
-{
-    ListContainerSasInput parameters = new ListContainerSasInput(permissions: AssetContainerPermission.Read, expiryTime: DateTimeOffset.UtcNow.AddHours(1));
-    AssetContainerSas assetContainerSas = client.Assets.ListContainerSas(assetName, parameters);
+In this example, we are displaying a URL that can be used to playback the video using the Apple's **HLS** protocol:
 
-    Uri containerSasUrl = new Uri (assetContainerSas.AssetContainerSasUrls.FirstOrDefault());
-    CloudBlobContainer container = new CloudBlobContainer(containerSasUrl);
+![Output](./media/stream-files-tutorial-with-api/output.png)
 
-    string directory = Path.Combine(resultsFolder, assetName);
-    Directory.CreateDirectory(directory);
+To build the URL, you need to concatenate the streaming endpoint's host name and the streaming locator path. You can examine how it is done in the sample's [source code](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/MediaServicesV3Tutorials/MediaServicesV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
 
-    Console.WriteLine("Downloading results to {0}.", directory);
+## Test the streaming URL
 
-    foreach (IListBlobItem blobItem in container.ListBlobs(null, true, BlobListingDetails.None))
-    {
-        if (blobItem is CloudBlockBlob)
-        {
-            CloudBlockBlob blob = blobItem as CloudBlockBlob;
-            string filename = Path.Combine(directory, blob.Name);
+In this tutorial we are using Azure Media Player to test the streaming URL.
 
-            blob.DownloadToFile(filename, FileMode.Create);
-        }
-    }
-
-    Console.WriteLine("Download complete.");
-}
-```
-
-## Run the app and get the streaming URLs
-
-Run the app that you cloned, copy one of the URLs you want to test.  
-
-## Stream the encoded video with Azure Media Player
-
-This section shows you how to use  Azure Media Player to test your stream.
-
-![Play the video](./media/stream-files-dotnet-tutorials/final-video.png)
-
-1. Open a web browser and browse to https://ampdemo.azureedge.net/.
-2. In the **URL:** box, paste the Streaming URL value you got when you ran the application.
+1. Open a web browser and navigate to https://ampdemo.azureedge.net/.
+2. In the **URL:** box, paste the streaming URL value you got when you ran the application.  
 3. Press **Update Player**.
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services account you created for this Quickstart, delete the resource group. You can use the **CloudShell** tool.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group. You can use the **CloudShell** tool.
 
 In the **CloudShell**, execute the following command:
 
