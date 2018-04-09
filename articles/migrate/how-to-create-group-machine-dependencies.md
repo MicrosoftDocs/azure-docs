@@ -30,8 +30,8 @@ To install the agent on a Windows machine:
 1. Double-click the downloaded agent.
 2. On the **Welcome** page, click **Next**. On the **License Terms** page, click **I Agree** to accept the license.
 3. In **Destination Folder**, keep or modify the default installation folder > **Next**. 
-4. In **Agent Setup Options**, select **Azure Log Analytics (OMS)** > **Next**. 
-5. Click **Add** to add a new OMS workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
+4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**. 
+5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
 
 To install the agent on a Linux machine:
