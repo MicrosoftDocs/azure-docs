@@ -46,8 +46,6 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
-For explanations about what each function in the sample does, examine the code and look at the comments in [this source file](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/MediaServicesV3Tutorials/MediaServicesV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
-
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 ## Access the Media Services API
@@ -107,7 +105,7 @@ To run the app and access the Media Services APIs, you need to specify the corre
 
 ## Examine the code
 
-This section will examine functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/MediaServicesV3Tutorials/MediaServicesV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) file of the *UploadEncodeAndStreamFiles* project.
+This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/MediaServicesV3Tutorials/MediaServicesV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) file of the *UploadEncodeAndStreamFiles* project.
 
 ### Start using Media Services APIs with .NET SDK
 
@@ -381,11 +379,6 @@ static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, 
     {
         client.Jobs.Delete(resourceGroupName, accountName, transformName, job.Name);
     }
-
-    foreach (var asset in client.Assets.List(resourceGroupName, accountName))
-    {
-        client.Assets.Delete(resourceGroupName, accountName, asset.Name);
-    }
 }
 ```
 
@@ -403,7 +396,7 @@ In this example, we are displaying URLs that can be used to play back the video 
 In this tutorial, we are using Azure Media Player to test the streaming URL.
 
 1. Open a web browser and navigate to https://ampdemo.azureedge.net/.
-2. In the **URL:** box, paste one of the streaming URL value you got when you ran the application (for example, `http://juliakoams001.streaming.mediaservices.windows.net/d4acbbdf-657a-4954-b7ce-d7c85c8b4796/Ignite-short.ism/manifest(format=m3u8-aapl)`). 
+2. In the **URL:** box, paste one of the streaming URL value you got when you ran the application. 
 3. Press **Update Player**.
 
 ## Clean up resources
