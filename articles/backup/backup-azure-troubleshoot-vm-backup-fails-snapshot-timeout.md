@@ -57,7 +57,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 ## Backup fails because the VM agent is unresponsive
 
-Error messagae: "Unable to perform the operation as the VM Agent is not responsive"
+Error message: "Unable to perform the operation as the VM Agent is not responsive"
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -174,6 +174,8 @@ To uninstall the extension:
 3. Select **Extensions**.
 4. Select **Vmsnapshot Extension**.
 5. Select **Uninstall**.
+
+For Linux VM, If the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/linux/update-agent.md), and then run the backup. 
 
 Completing these steps causes the extension to be reinstalled during the next backup.
 
