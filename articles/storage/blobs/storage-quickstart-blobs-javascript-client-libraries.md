@@ -1,5 +1,5 @@
 ---
-title: Upload, list, and delete blobs with Azure Storage using JavaScript and HTML in the Browser
+title: Upload, list, and delete blobs using JavaScript and HTML in the Browser
 description: Learn to use an instance of BlobService to upload, list, and delete blobs using JavaScript in an HTML page.
 services: storage
 keywords: storage, javascript, html
@@ -15,13 +15,10 @@ ms.topic: quickstart
 
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# Quickstart: Upload, list, and delete blobs with Azure Storage using JavaScript/HTML in the Browser
-This quickstart demonstrates how to manage blobs from code running entirely in the browser along with the required security measures to ensure protected access to your blob storage account. To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+# Quickstart: Upload, list, and delete blobs using JavaScript/HTML in the Browser
+This quickstart demonstrates how to manage blobs from code running entirely in the browser. The approach used here shows how to use required security measures to ensure protected access to your blob storage account. To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
-### Copy security settings
-During this quickstart, you need a few security-related values in order to create a security token. From the portal, you can copy the values into a text editor for later use. 
 
 Select the storage account in the portal and find the **Settings** section. Under Settings, select **Access keys** and set aside the **Storage account name** and the **Key** value under the **key1** heading. (You can use the "copy" button just to the right of the input box to copy the value to your clipboard.)
 
@@ -52,7 +49,7 @@ Next, you use the Azure cloud shell to create a security token.
 ## Create a Shared Access Signature
 The shared access signature (SAS) is used by the code running in the browser to authenticate requests to Blob storage. By using the SAS, the client can authenticate without having the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
-You can create a SAS using the Azure CLI through the Azure cloud shell. The following table describes the parameters you need to provide values for in order to generate a SAS.
+You can create a SAS using the Azure CLI through the Azure cloud shell or with the Azure Storage Explorer. The following table describes the parameters you need to provide values for in order to generate a SAS with the CLI.
 
 | Parameter      |Description  | Placeholder |
 |----------------|-------------|-------------|
@@ -118,7 +115,7 @@ Finally, in your command prompt, enter `npm start` to start the web server:
 npm start
 ```
 
-### Get the blob storage client scripts
+### Get the blob storage client library
 [Download the JavaScript client libraries](https://aka.ms/downloadazurestoragejs), extract the contents of the zip, and place the script files from the *bundle* folder in a folder named *scripts*.
 
 ### Add the client script reference to the page
@@ -150,7 +147,7 @@ This markup adds the following to the page:
 - an *INPUT* element used to upload a file
 - a placeholder for storage-specific code
 
-### Create a blob service 
+### Create an instance of BlobService 
 The [BlobService](https://azure.github.io/azure-storage-node/BlobService.html) provides an interface to Azure Blob Storage. To create an instance of the service, you need to provide the storage account name and the SAS generated in a previous step.
 
 ```javascript
@@ -181,7 +178,7 @@ document.getElementById('create-button').addEventListener('click', () => {
 ```
 
 ### Upload a blob
-To upload a blob from an HTML form, you first get a reference to the selected file via the `files` array of an *INPUT* element that has the *type* set to *file*.
+To upload a blob from an HTML form, you get a reference to the selected file from an *INPUT* element. The selected file is available via the `files` array when the element's *type* is set to *file*.
 
 From script, you can reference the HTML element and pass the selected file to the blob service.
 
@@ -224,6 +221,9 @@ document.getElementById('list-button').addEventListener('click', () => {
     
 });
 ```
+
+The *listBlobsSegmented* method returns a collection of blobs. By default the collection quantity is 5,000 blobs, but you can adjust this value to fit your needs. The [continuation sample](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132) demonstrates how to work with a large number of blobs and how the client library supports paging. 
+
 
 ### Delete blobs
 You can delete the blob you uploaded by calling [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor).
