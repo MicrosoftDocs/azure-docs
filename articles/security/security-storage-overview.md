@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security features that can be used with Azure Storage | Microsoft Docs
 description: " This article provides an overview of the core Azure security features that can be used with Azure Storage. "
 services: security
@@ -41,7 +41,7 @@ Here are the core features to be covered in this article:
 * Azure Key Vault
 
 ## Role-Based Access Control (RBAC)
-You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../active-directory/role-based-access-built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
+You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
 
 Learn more:
 

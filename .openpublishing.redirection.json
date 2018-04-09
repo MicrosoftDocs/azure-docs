@@ -17886,6 +17886,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/role-based-access-built-in-roles.md",
+            "redirect_url": "/azure/role-based-access-control/built-in-roles",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/role-based-access-control-access-change-history-report.md",
             "redirect_url": "/azure/role-based-access-control/change-history-report",
             "redirect_document_id": false

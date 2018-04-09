@@ -18,7 +18,7 @@
     - name: With REST
       href: role-based-access-control-manage-access-rest.md
   - name: Built-in roles
-    href: role-based-access-built-in-roles.md
+    href: ../role-based-access-control/built-in-roles.md
   - name: Custom roles
     href: role-based-access-control-custom-roles.md
   - name: Assign custom roles for internal and external users
