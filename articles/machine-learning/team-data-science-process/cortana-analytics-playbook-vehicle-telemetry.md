@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
 
 ---
@@ -23,9 +23,9 @@ This menu links to the chapters in this playbook:
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 ## Overview
-Supercomputers have moved out of the lab and are now parked in garages. These cutting-edge automobiles contain myriad sensors, which give them the ability to track and monitor millions of events every second. By 2020, most of these vehicles will be connected to the Internet. Tapping into this wealth of data can provide greater safety, reliability, and a better driving experience. Microsoft makes this dream a reality with Cortana Intelligence.
+Super computers have moved out of the lab and are now parked in garages. These are now being placed in cutting-edge automobiles that contain myriad sensors. These sensors give them the ability to track and monitor millions of events every second. By 2020, most of these vehicles will be connected to the Internet. Tapping into this wealth of data provides greater safety, reliability, and so a better driving experience. Microsoft makes this dream a reality with Cortana Intelligence.
 
-Cortana Intelligence is a fully managed big data and advanced analytics suite that you can use to transform your data into intelligent action. The Cortana Intelligence Vehicle Telemetry Analytics Solution Template demonstrates how car dealerships, automobile manufacturers, and insurance companies can gain real-time and predictive insights on vehicle health and driving habits. 
+Cortana Intelligence is a fully managed big data and advanced analytics suite that you can use to transform your data into intelligent action. The Cortana Intelligence Vehicle Telemetry Analytics Solution Template demonstrates how car dealerships, automobile manufacturers, and insurance companies are able to obtain real-time and predictive insights on vehicle health and driving habits.
 
 The solution is implemented as a [lambda architecture pattern](https://en.wikipedia.org/wiki/Lambda_architecture), which shows the full potential of the Cortana Intelligence platform for real-time and batch processing.
 
@@ -35,7 +35,7 @@ The Vehicle Telemetry Analytics Solution architecture is illustrated in this dia
 ![Solution architecture diagram](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 
 
-This solution includes the following Cortana Intelligence components and showcases their end-to-end integration:
+This solution includes the following Cortana Intelligence components and showcases their integration:
 
 * **Azure Event Hubs** ingests millions of vehicle telemetry events into Azure.
 * **Azure Stream Analytics** provides real-time insights on vehicle health and persists that data into long-term storage for richer batch analytics.
@@ -47,5 +47,5 @@ This solution includes the following Cortana Intelligence components and showcas
 This solution accesses two different data sources: 
 
 * **Simulated vehicle signals and diagnostics**: A vehicle telematics simulator emits diagnostic information and signals that correspond to the state of the vehicle and the driving pattern at a given point in time. 
-* **Vehicle catalog**: This reference data set maps VINs to models.
+* **Vehicle catalog**: This reference data set maps VIN numbers to models.
 

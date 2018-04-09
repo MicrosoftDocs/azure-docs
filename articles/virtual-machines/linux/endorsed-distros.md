@@ -4,7 +4,7 @@ description: Learn about Linux on Azure-endorsed distributions, including guidel
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
 

@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/16/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -50,6 +50,7 @@ If you created a Batch account with pool allocation mode set to **user subscript
 | Application package size (each) |Approx. 195GB<sup>1</sup> |
 | Maximum start task size | 32768 characters<sup>2</sup> |
 | Maximum task lifetime | 7 days<sup>3</sup> |
+| Compute nodes in inter-node communication enabled pool | 100 |
 
 <sup>1</sup> Azure Storage limit for maximum block blob size<br />
 <sup>2</sup> Includes resource files and environment variables<br />

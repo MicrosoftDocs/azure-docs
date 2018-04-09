@@ -51,7 +51,7 @@ Typical users that need access to cost management data like dashboards and repor
 
 ![add new user with user access](.\media\tutorial-user-access\new-user-access.png)
 
-To watch a tutorial video about adding users, see [Adding Users to Azure Cost Management by Cloudyn](https://youtu.be/Nzn7GLahx30).
+To watch a tutorial video about adding users, see [Adding Users to Azure Cost Management](https://youtu.be/Nzn7GLahx30).
 
 ## Create entities
 
@@ -72,9 +72,9 @@ Next to **Entities**, click **Add Entity**. Enter information about the person o
 When you're done, **Save** the entity.
 
 
-To watch a tutorial video about creating a cost entity hierarchy, see [Creating a Cost Entity Hierarchy in Azure Cost Management by Cloudyn](https://youtu.be/dAd9G7u0FmU).
+To watch a tutorial video about creating a cost entity hierarchy, see [Creating a Cost Entity Hierarchy in Azure Cost Management](https://youtu.be/dAd9G7u0FmU).
 
-If you are an Azure Enterprise Agreement user, watch a tutorial video about associating accounts and subscriptions to entities at [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn](https://youtu.be/oCIwvfBB6kk).
+If you are an Azure Enterprise Agreement user, watch a tutorial video about associating accounts and subscriptions to entities at [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk).
 
 ## Next steps
 

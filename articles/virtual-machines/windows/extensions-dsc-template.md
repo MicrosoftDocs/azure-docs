@@ -4,7 +4,7 @@ description: Learn about the Resource Manager template definition for the Desire
 services: virtual-machines-windows
 documentationcenter: ''
 author: mgreenegit
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'
@@ -15,101 +15,130 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/22/2018
 ms.author: migreene
 ---
 # Desired State Configuration extension with Azure Resource Manager templates
 
-This article describes the Azure Resource Manager template for the [Desired State Configuration (DSC) extension handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+This article describes the Azure Resource Manager template for the
+[Desired State Configuration (DSC) extension handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > You might encounter slightly different schema examples. The change in schema occurred in the October 2016 release. For details, see [Update from the previous format](#update-from-the-previous-format).
 
 ## Template example for a Windows VM
 
-The following snippet goes in the **Resource** section of the template. The DSC extension inherits default extension properties. For more information, see [VirtualMachineExtension class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+The following snippet goes in the **Resource** section of the template.
+The DSC extension inherits default extension properties.
+For more information, see
+[VirtualMachineExtension class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
-            "name": "Microsoft.Powershell.DSC",
-            "type": "extensions",
-             "location": "[resourceGroup().location]",
-             "apiVersion": "2015-06-15",
-             "dependsOn": [
-                  "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-              ],
-              "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.72",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('dscExtensionUpdateTagVersion')]",
-                  "settings": {
-                    "configurationArguments": {
-                        {
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+    "apiVersion": "2017-12-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.75",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "protectedSettings": {
+            "Items": {
+                        "registrationKeyPrivate": "registrationKey"
+            }
+            },
+            "publicSettings": {
+                "configurationArguments": [
+                    {
+                        "Name": "RegistrationKey",
+                        "Value": {
+                            "UserName": "PLACEHOLDER_DONOTUSE",
+                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
                         },
-                        "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                        "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+                    },
+                    {
+                        "RegistrationUrl" : "registrationUrl",
+                    },
+                    {
+                        "NodeConfigurationName" : "nodeConfigurationName"
                     }
+                ]
+            }
+        },
+    }
+}
 ```
 
 ## Template example for Windows virtual machine scale sets
 
-A virtual machine scale set node has a **properties** section that has a **VirtualMachineProfile, extensionProfile** attribute. Under **extensions**, add DSC.
+A virtual machine scale set node has a **properties** section
+that has a **VirtualMachineProfile, extensionProfile** attribute.
+Under **extensions**, add the details for DSC Extension.
 
-The DSC extension inherits default extension properties. For more information, see [VirtualMachineScaleSetExtension class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+The DSC extension inherits default extension properties.
+For more information,
+see [VirtualMachineScaleSetExtension class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "Microsoft.Powershell.DSC",
-                    "properties": {
-                        "publisher": "Microsoft.Powershell",
-                        "type": "DSC",
-                        "typeHandlerVersion": "2.72",
-                        "autoUpgradeMinorVersion": true,
-                        "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
-                        "settings": {
-                            "configurationArguments": {
-                                {
-                                    "Name": "RegistrationKey",
-                                    "Value": {
-                                        "UserName": "PLACEHOLDER_DONOTUSE",
-                                        "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                                    },
-                                },
-                                "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                                "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+    "extensions": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+            "apiVersion": "2017-12-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.75",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "protectedSettings": {
+                    "Items": {
+                                "registrationKeyPrivate": "registrationKey"
                     }
-                ]
+                    },
+                    "publicSettings": {
+                        "configurationArguments": [
+                            {
+                                "Name": "RegistrationKey",
+                                "Value": {
+                                    "UserName": "PLACEHOLDER_DONOTUSE",
+                                    "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                                },
+                            },
+                            {
+                                "RegistrationUrl" : "registrationUrl",
+                            },
+                            {
+                                "NodeConfigurationName" : "nodeConfigurationName"
+                            }
+                        ]
+                    }
+                },
             }
         }
+    ]
+}
 ```
 
 ## Detailed settings information
 
-Use the following schema in the **settings** section of the Azure DSC extension in a Resource Manager template.
+Use the following schema in the **settings** section of the Azure DSC extension
+in a Resource Manager template.
 
-For a list of the arguments that are available for the default configuration script, see [Default configuration script](#default-configuration-script).
+For a list of the arguments that are available
+for the default configuration script, see
+[Default configuration script](#default-configuration-script).
 
 ```json
 
@@ -171,7 +200,10 @@ For a list of the arguments that are available for the default configuration scr
 
 ## Default configuration script
 
-For more information about the following values, see [Local Configuration Manager basic settings](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings). You can use the DSC extension default configuration script to configure only the LCM properties that are listed in the following table.
+For more information about the following values, see
+[Local Configuration Manager basic settings](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+You can use the DSC extension default configuration script
+to configure only the LCM properties that are listed in the following table.
 
 | Property name | Type | Description |
 | --- | --- | --- |
@@ -187,9 +219,14 @@ For more information about the following values, see [Local Configuration Manage
 
 ## Settings vs. ProtectedSettings
 
-All settings are saved in a settings text file on the VM. Properties listed under **settings** are public properties. Public properties aren't encrypted in the settings text file. Properties listed under **protectedSettings** are encrypted with a certificate and are not shown in plain text in the settings file on the VM.
+All settings are saved in a settings text file on the VM.
+Properties listed under **settings** are public properties.
+Public properties aren't encrypted in the settings text file.
+Properties listed under **protectedSettings** are encrypted with a certificate
+and are not shown in plain text in the settings file on the VM.
 
-If the configuration needs credentials, you can include the credentials in **protectedSettings**:
+If the configuration needs credentials,
+you can include the credentials in **protectedSettings**:
 
 ```json
 "protectedSettings": {
@@ -204,7 +241,12 @@ If the configuration needs credentials, you can include the credentials in **pro
 
 ## Example configuration script
 
-The following example shows the default behavior for the DSC extension, which is to provide metadata settings to LCM and register with the Automation DSC service. Configuration arguments are required.  Configuration arguments are passed to the default configuration script to set LCM metadata.
+The following example shows the default behavior for the DSC extension,
+which is to provide metadata settings to LCM
+and register with the Automation DSC service.
+Configuration arguments are required.
+Configuration arguments are passed to the default configuration script
+to set LCM metadata.
 
 ```json
 "settings": {
@@ -229,9 +271,19 @@ The following example shows the default behavior for the DSC extension, which is
 
 ## Example using the configuration script in Azure Storage
 
-The following example is from the [DSC extension handler overview](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This example uses Resource Manager templates instead of cmdlets to deploy the extension. Save the IisInstall.ps1 configuration, place it in a .zip file, and then upload the file in an accessible URL. This example uses Azure Blob storage, but you can download .zip files from any arbitrary location.
+The following example is from the
+[DSC extension handler overview](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+This example uses Resource Manager templates
+instead of cmdlets to deploy the extension.
+Save the IisInstall.ps1 configuration,
+place it in a .zip file,
+and then upload the file in an accessible URL.
+This example uses Azure Blob storage,
+but you can download .zip files from any arbitrary location.
 
-In the Resource Manager template, the following code instructs the VM to download the correct file, and then run the appropriate PowerShell function:
+In the Resource Manager template,
+the following code instructs the VM to download the correct file,
+and then run the appropriate PowerShell function:
 
 ```json
 "settings": {
@@ -248,7 +300,11 @@ In the Resource Manager template, the following code instructs the VM to downloa
 
 ## Update from a previous format
 
-Any settings in a previous format of the extension (and which have the public properties **ModulesUrl**, **ConfigurationFunction**, **SasToken**, or **Properties**) automatically adapt to the current format of the extension. They run just as they did before.
+Any settings in a previous format of the extension
+(and which have the public properties **ModulesUrl**, **ConfigurationFunction**,
+**SasToken**, or **Properties**)
+automatically adapt to the current format of the extension.
+They run just as they did before.
 
 The following schema shows what the previous settings schema looked like:
 
@@ -298,7 +354,9 @@ Here's how the previous format adapts to the current format:
 
 ## Troubleshooting - Error code 1100
 
-Error Code 1100 indicates a problem with the user input to the DSC extension. The text of these errors varies, and might change. Here are some of the errors you might run into, and how you can fix them.
+Error Code 1100 indicates a problem with the user input to the DSC extension.
+The text of these errors varies, and might change.
+Here are some of the errors you might run into, and how you can fix them.
 
 ### Invalid values
 
@@ -309,7 +367,8 @@ Only possible values are … and 'latest'".
 
 **Problem**: A provided value is not allowed.
 
-**Solution**: Change the invalid value to a valid value. For more information, see the table in [Details](#details).
+**Solution**: Change the invalid value to a valid value.
+For more information, see the table in [Details](#details).
 
 ### Invalid URL
 
@@ -319,22 +378,29 @@ Only possible values are … and 'latest'".
 
 **Problem**: A provided URL is not valid.
 
-**Solution**: Check all your provided URLs. Ensure that all URLs resolve to valid locations that the extension can access on the remote machine.
+**Solution**: Check all your provided URLs.
+Ensure that all URLs resolve to valid locations
+that the extension can access on the remote machine.
 
 ### Invalid ConfigurationArgument type
 
 "Invalid configurationArguments type {0}"
 
-**Problem**: The *ConfigurationArguments* property can't resolve to a **Hashtable** object.
+**Problem**: The *ConfigurationArguments* property
+can't resolve to a **Hashtable** object.
 
-**Solution**: Make your *ConfigurationArguments* property a **Hashtable**. Follow the format provided in the preceding example. Watch for quotes, commas, and braces.
+**Solution**: Make your *ConfigurationArguments* property a **Hashtable**.
+Follow the format provided in the preceding example. Watch for quotes,
+commas, and braces.
 
 ### Duplicate ConfigurationArguments
 
 "Found duplicate arguments '{0}' in both public
 and protected configurationArguments"
 
-**Problem**: The *ConfigurationArguments* in public settings and the *ConfigurationArguments* in protected settings have properties with the same name.
+**Problem**: The *ConfigurationArguments* in public settings
+and the *ConfigurationArguments* in protected settings
+have properties with the same name.
 
 **Solution**: Remove one of the duplicate properties.
 

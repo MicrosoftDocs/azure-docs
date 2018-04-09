@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 
 ---
@@ -28,8 +28,8 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 To complete this tutorial:
 
 - Make sure that you understand the [scenario architecture and components](physical-azure-architecture.md).
-- Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
-- Make sure that the servers you want to replicate comply with [Azure VM requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Review the [support requirements](vmware-physical-secondary-support-matrix.md) for all components.
+- Make sure that the servers you want to replicate comply with [Azure VM requirements](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare Azure. You need an Azure subscription, an Azure virtual network, and a storage account.
 - Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
 

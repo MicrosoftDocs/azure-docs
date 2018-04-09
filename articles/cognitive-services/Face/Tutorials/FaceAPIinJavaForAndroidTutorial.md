@@ -4,7 +4,7 @@ titleSuffix: "Microsoft Cognitive Services"
 description: Create a simple Android app that uses the Cognitive Services Face API to detect and frame human faces in an image.
 services: cognitive-services
 author: SteveMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face

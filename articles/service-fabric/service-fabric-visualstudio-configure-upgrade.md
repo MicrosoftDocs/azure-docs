@@ -83,4 +83,4 @@ The following example shows how to apply a unique health check policy for each s
 </Policies>
 ```
 ## Next steps
-For more information about deploying an application, see [Deploy an existing application in Azure Service Fabric](service-fabric-deploy-existing-app.md).
+For more information about upgrading an application, see [Upgrade an application using Visual Studio](service-fabric-application-upgrade-tutorial.md).

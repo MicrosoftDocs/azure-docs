@@ -16,7 +16,7 @@ ms.date: 03/02/2018
 ms.author: sachins
 
 ---
-# Overview of Azure Data Lake Store
+# Best practices for using Azure Data Lake Store
 In this article, you learn about best practices and considerations for working with the Azure Data Lake Store. This article provides information around security, performance, resiliency, and monitoring for Data Lake Store. Before Data Lake Store, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. With Data Lake Store, most of the hard limits for size and performance are removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Store. 
 
 ## Security considerations
@@ -126,7 +126,7 @@ Data Lake Store provides detailed diagnostic logs and auditing. Data Lake Store 
 
 ### Export Data Lake Store diagnostics 
 
-One of the quickest ways to get access to searchable logs from Data Lake Store is to enable log shipping to **Operations Management Suite (OMS)** under the **Diagnostics** blade for the Data Lake Store account. This provides immediate access to incoming logs with time and content filters, along with alerting options (email/webhook) triggered within 15-minute intervals. For instructions, see [Accessing diagnostic logs for Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
+One of the quickest ways to get access to searchable logs from Data Lake Store is to enable log shipping to **Log Analytics** under the **Diagnostics** blade for the Data Lake Store account. This provides immediate access to incoming logs with time and content filters, along with alerting options (email/webhook) triggered within 15-minute intervals. For instructions, see [Accessing diagnostic logs for Azure Data Lake Store](data-lake-store-diagnostic-logs.md). 
 
 For more real-time alerting and more control on where to land the logs, consider exporting logs to Azure EventHub where content can be analyzed individually or over a time window in order to submit real-time notifications to a queue. A separate application such as a [Logic App](../connectors/connectors-create-api-azure-event-hubs.md) can then consume and communicate the alerts to the appropriate channel, as well as submit metrics to monitoring tools like NewRelic, Datadog, or AppDynamics. Alternatively, if you are using a third-party tool such as ElasticSearch, you can export the logs to Blob Storage and use the [Azure Logstash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) to consume the data into your Elasticsearch, Kibana, and Logstash (ELK) stack.
 
@@ -136,7 +136,7 @@ If Data Lake Store log shipping is not turned on, Azure HDInsight also provides 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Once this is set and the nodes are restarted, Data Lake Store diagnostics is written to the YARN logs on the nodes (/tmp/<user>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in OMS or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Store account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Store for operational visibility and easier debugging.
+Once the property is set and the nodes are restarted, Data Lake Store diagnostics is written to the YARN logs on the nodes (/tmp/<user>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in Log Analytics or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Store account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Store for operational visibility and easier debugging.
 
 ### Run synthetic transactions 
 
@@ -152,7 +152,7 @@ In IoT workloads, there can be a great deal of data being landed in the data sto
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-For example, landing telemetry for an airplane engine within the UK might look like this: 
+For example, landing telemetry for an airplane engine within the UK might look like the following structure: 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -160,7 +160,7 @@ There's an important reason to put the date at the end of the folder structure. 
 
 ### Batch jobs structure 
 
-From a high-level, a commonly used approach in batch processing is to land data in an “in” folder. Then, once the data is processed, put the new data into an “out” folder for downstream processes to consume. This is seen sometimes for jobs that require processing on individual files and might not require massively parallel processing over large datasets. Like the IoT structure recommended above, a good directory structure has the parent-level folders for things such as region and subject matters (for example, organization, product/producer). This helps with securing the data across your organization and better management of the data in your workloads. Furthermore, consider date and time in the structure to allow better organization, filtered searches, security, and automation in the processing. The level of granularity for the date structure is determined by the interval on which the data is uploaded or processed, such as hourly, daily, or even monthly. 
+From a high-level, a commonly used approach in batch processing is to land data in an “in” folder. Then, once the data is processed, put the new data into an “out” folder for downstream processes to consume. This directory structure is seen sometimes for jobs that require processing on individual files and might not require massively parallel processing over large datasets. Like the IoT structure recommended above, a good directory structure has the parent-level folders for things such as region and subject matters (for example, organization, product/producer). This structure helps with securing the data across your organization and better management of the data in your workloads. Furthermore, consider date and time in the structure to allow better organization, filtered searches, security, and automation in the processing. The level of granularity for the date structure is determined by the interval on which the data is uploaded or processed, such as hourly, daily, or even monthly. 
 
 Sometimes file processing is unsuccessful due to data corruption or unexpected formats. In such cases, directory structure might benefit from a **/bad** folder to move the files to for further inspection. The batch job might also handle the reporting or notification of these *bad* files for manual intervention. Consider the following template structure: 
 
@@ -168,7 +168,7 @@ Sometimes file processing is unsuccessful due to data corruption or unexpected f
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-For example, a marketing firm receiving daily data extracts of customer updates from their clients in North America might look like this before and after being processed: 
+For example, a marketing firm receives daily data extracts of customer updates from their clients in North America. It might look like the following snippet before and after being processed: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

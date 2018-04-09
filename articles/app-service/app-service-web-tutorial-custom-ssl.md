@@ -17,7 +17,7 @@ ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Bind an existing custom SSL certificate to Azure Web Apps
+# Tutorial: Bind an existing custom SSL certificate to Azure Web Apps
 
 Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to [Azure Web Apps](app-service-web-overview.md). When you're finished, you'll be able to access your web app at the HTTPS endpoint of your custom DNS domain.
 
