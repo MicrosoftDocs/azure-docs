@@ -44,8 +44,8 @@ For current prices in your currency and region, see [Application Insights pricin
 |:---------------------------------------|:----------------:|
 | 1 application uses 3 Azure App Service instances and 1 virtual server | 4 |
 | 3 applications run on 2 VMs, and the Application Insights resources for these applications are in the same subscription and in the Enterprise plan | 2 | 
-| 4 applications with Applications Insights resources in the same subscription; each application runs 2 instances during 16 off-peak hours, and 4 instances during 8 peak hours | 13.33 | 
-| Cloud services with 1 Worker Role and 1 Web Role, each running 2 instances | 4 | 
+| 4 applications have Applications Insights resources in the same subscription; each application runs 2 instances during 16 off-peak hours, and 4 instances during 8 peak hours | 13.33 | 
+| Cloud services have 1 Worker Role and 1 Web Role, each running 2 instances | 4 | 
 | A 5-node Azure Service Fabric cluster runs 50 microservices, and each microservice runs 3 instances | 5|
 
 * The precise node count depends on which Application Insights SDK your application is using. 
