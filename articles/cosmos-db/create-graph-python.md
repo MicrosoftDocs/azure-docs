@@ -4,8 +4,7 @@ description: This quickstart shows how to use the Azure Cosmos DB Graph API to c
 services: cosmos-db
 documentationcenter: python
 author: luisbosquez
-manager: jhubbard
-editor: ''
+manager: kfile
 
 ms.assetid: 383a51c5-7857-440d-ab54-1efb1c0c7079
 ms.service: cosmos-db

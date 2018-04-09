@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
 
 ---
@@ -39,6 +39,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **April 6, 2018**
+The March Guest OS has released.
+
 ###### **March 19, 2018**
 The February Guest OS has released.
 
@@ -87,8 +90,9 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.17_201803-01 |April 6, 2018 |Post 5.19 |TBD |
 | WA-GUEST-OS-5.16_201802-01 |March 12, 2018 |Post 5.18 |TBD |
-| WA-GUEST-OS-5.15_201801-01 |January 4, 2018 |Post 5.17 |TBD |
+|~~WA-GUEST-OS-5.15_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |December 14, 2017 |January 4, 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
@@ -113,8 +117,9 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.52_201803-01 |April 6, 2018 |Post 4.54 |TBD |
 | WA-GUEST-OS-4.51_201802-01 |March 12, 2018 |Post 4.53 |TBD |
-| WA-GUEST-OS-4.50_201801-01 |January 4, 2018 |Post 4.52 |TBD |
+|~~WA-GUEST-OS-4.50_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
@@ -139,8 +144,9 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.59_201803-01 |April 6, 2018 |Post 3.61 |TBD |
 | WA-GUEST-OS-3.58_201802-01 |March 19, 2018 |Post 3.60 |TBD |
-| WA-GUEST-OS-3.57_201801-01 |January 29, 2018 |Post 3.59 |TBD |
+|~~WA-GUEST-OS-3.57_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |January 4, 2018 |March 19, 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
@@ -165,8 +171,9 @@ July Guest OS rollout is starting July 19 and has a projected release of August 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.72_201803-01 |April 6, 2018 |Post 2.74 |TBD |
 | WA-GUEST-OS-2.71_201802-01 |March 12, 2018 |Post 2.73 |TBD |
-| WA-GUEST-OS-2.70_201801-01 |January 29, 2018 |Post 2.72 |TBD |
+|~~WA-GUEST-OS-2.70_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
