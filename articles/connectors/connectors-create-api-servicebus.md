@@ -114,7 +114,7 @@ and set up the interval and frequency for when to check the queue.
    ![Select Service Bus queue, set up polling interval](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
 
    > [!NOTE]
-   > All Service Bus triggers are long-polling triggers, which means that when a trigger fires, the trigger processes all the messages
+   > All Service Bus triggers are **long-polling** triggers, which means that when a trigger fires, the trigger processes all the messages
    > and then waits for 30 seconds for more messages to appear in the queue or topic subscription.
    > If no messages are received in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty.
    > The next trigger poll is based on the recurrence interval specified in the trigger's properties.
