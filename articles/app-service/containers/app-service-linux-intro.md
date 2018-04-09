@@ -35,8 +35,7 @@ App Service on Linux supports a number of Built-in images in order to increase d
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
 | Go | 1.0 |
-| Apache Tomcat | 8.5 |
-| Apache Tomcat | 9.0 |
+| Apache Tomcat | 8.5, 9.0 |
 
 See [Create a Java web app in App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java) for more details.
 
