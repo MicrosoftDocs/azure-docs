@@ -52,7 +52,7 @@ Using reference data in TSI contextualizes your telemetry data.  That context ad
 
 Ensure that you have reference data in place when you bulk upload historical data to TSI.  Keep in mind, TSI will immediately start reading from a joined event source if that event source has data.  It's useful to wait to join an event source to TSI until you have your reference data in place, especially if that event source has data in it. Alternatively, you can wait to push data to that event source until the reference data set is in place.
 
-To manage reference data, there is the web-based user interface in the TSI Explorer, and there is a programmatic C# API. TSI Explorer has a visual user experience to upload files or paste-in existing reference data sets as JSON or CSV format. With the API you can build a custom app from scratch if needed.
+To manage reference data, there is the web-based user interface in the TSI Explorer, and there is a programmatic C# API. TSI Explorer has a visual user experience to upload files or paste-in existing reference data sets as JSON or CSV format. With the API, you can build a custom app when needed.
 
 For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
@@ -303,7 +303,7 @@ Let's use the following example of an event as a starting point, and then discus
 ]
  ```
 
-If you push this array of events as a payload to TSI, it will be stored as one event per each measure value, so this might create more events than are ideal.  Note - you can use reference data in TSI to add meaningful names as properties.  For example, you can create reference data set with Key Property = chId:  
+If you push this array of events as a payload to TSI, it will be stored as one event per each measure value. Doing so can create an excess of events, which may not be ideal. Notice that you can use reference data in TSI to add meaningful names as properties.  For example, you can create reference data set with Key Property = chId:  
 
 chId  Measure               Unit
 24    Engine Oil Pressure   PSI
