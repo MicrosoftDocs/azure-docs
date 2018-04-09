@@ -1,5 +1,5 @@
 ---
-title: What is Managed Service Identity (MSI) for Azure Active Directory
+title: What is Managed Service Identity (MSI) for Azure resources
 description: An overview of Managed Service Identity for Azure resources.
 services: active-directory
 documentationcenter: 
@@ -26,6 +26,8 @@ A common challenge when building cloud applications is how to manage the credent
 ## How does it work?
 
 When using a Managed Service Identity on an Azure service instance, Azure creates an identity in the Azure AD tenant used by your Azure subscription. Additionally, Azure provisions the credentials for the identity, onto the service instance. As a result, your code can then make a local request to get access tokens for services that support Azure AD authentication. All while Azure takes care of rolling the credentials used by the service instance.
+
+Managed Service Identity comes free with Azure Active Directory, which is the default for Azure subscriptions.
 
 ## How do I enable my resources to use a Managed Service Identity?
 
@@ -68,7 +70,7 @@ Azure services that support Managed Service Identity can use MSI to authenticate
 
 ## How much does Managed Service Identity cost?
 
-Managed Service Identity comes free with Azure Active Directory, which is the default for Azure subscriptions.  There is no additional cost for Managed Service Identity.
+
 
 ## Support and feedback
 
