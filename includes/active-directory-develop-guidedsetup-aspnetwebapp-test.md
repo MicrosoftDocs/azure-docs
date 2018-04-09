@@ -47,16 +47,19 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### Restrict sign-in access to your application
-By default, personal accounts like outlook.com, live.com, and others can sign in to your application. Work or school accounts in organizations that are integrated with Azure AD can also sign in by default.
+By default when you build the application created by this guide, your application will accept sign ins of personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory.
 
-To restrict user sign-in access for your application, several options are available.
+To restrict user sign-in access for your application, multiple options are available:
 
-#### Restrict access to a single organization
-You can restrict sign-in access for your application to only user accounts that are in a single Azure AD organization:
+#### Restrict users from only one organization's Active Directory instance to sign in to your application (single-tenant)
+
+This option is a common scenario for *LOB applications*: If you want your application to accept sign-ins only from accounts that belong to a specific Azure Active Directory instance (including *guest accounts* of that instance) do the following:
+
 1. In the **web.config** file, change the value for the **Tenant** parameter. Change the value from **Common** to the tenant name of the organization, such as **contoso.onmicrosoft.com**.
 2. In your **OWIN Startup** class, set the **ValidateIssuer** argument to **true**.
 
-#### Restrict access to a list of organizations
+#### Restrict access to your application to users in a specific list of organizations
+
 You can restrict sign-in access to only user accounts that are in an Azure AD organization that is in the list of allowed organizations:
 1. In the **web.config** file, in your **OWIN Startup** class, set the **ValidateIssuer** argument to **true**.
 2. Set the value of the **ValidIssuers** parameter to the list of allowed organizations.
