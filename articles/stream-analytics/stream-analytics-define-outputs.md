@@ -343,7 +343,7 @@ The following table summarizes the partition support and the number of output wr
 | Service Bus Topic | Yes | Automatically chosen. | Same as output. |
 | Service Bus Queue | Yes | Automatically chosen. | Same as output. |
 | Azure Cosmos DB | Yes | Use {partition} token in the Collection name pattern. | Same as input. |
-| Azure function | No | None | Not applicale. | 
+| Azure function | No | None | Not applicable. | 
 
 
 ## Get help
