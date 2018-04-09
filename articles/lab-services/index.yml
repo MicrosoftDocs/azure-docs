@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Lab Services (formerly DevTest Labs) Preview Documentation
 metadata:
   title: Azure Lab Services Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Learn how to quickly create classroom labs, trial labs, custom labs, and more. Tutorials, videos, and more show you how to create, manage, and secure labs.
+  description: Learn how to quickly create classroom labs, trial labs, custom labs, and more by using Azure Lab Services. Tutorials, videos, and more show you how to create, manage, and secure labs.
   services: lab-services
   author: spelluru
   manager: 
