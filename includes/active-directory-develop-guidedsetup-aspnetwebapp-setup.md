@@ -5,14 +5,12 @@ This section shows the steps to install and configure the authentication pipelin
 
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration step](#register-your-application) to configure the code sample before executing.
 
-<!--start-collapse-->
-> ### Create your ASP.NET project
+### Create your ASP.NET project
 
-> 1. In Visual Studio: `File` > `New` > `Project`<br/>
-> 2. Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.
-> 3. Name your application and click *OK*
-> 4. Select `Empty` and select the checkbox to add `MVC` references
-<!--end-collapse-->
+1. In Visual Studio: `File` > `New` > `Project`<br/>
+2. Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.
+3. Name your application and click *OK*
+4. Select `Empty` and select the checkbox to add `MVC` references
 
 ## Add authentication components
 
@@ -40,7 +38,6 @@ The steps below are used to create an OWIN middleware Startup Class to configure
 > 2. Name it `Startup.cs`<br/>
 >
 >> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
-
 
 1. Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs`:
 
@@ -121,7 +118,6 @@ The steps below are used to create an OWIN middleware Startup Class to configure
     ```
 <!--start-collapse-->
 > ### More Information
-
 > The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD. Because the OpenID Connect middleware uses cookies in the background, you also need to set up cookie authentication as the code above shows. The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.
 <!--end-collapse-->
 
