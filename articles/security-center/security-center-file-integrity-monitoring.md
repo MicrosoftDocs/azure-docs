@@ -20,7 +20,7 @@ ms.author: terrylan
 # File Integrity Monitoring in Azure Security Center (Preview)
 Learn how to configure File Integrity Monitoring (FIM) in Azure Security Center using this walkthrough.
 
-## What is File Integrity Monitoring in Security Center?
+## What is FIM in Security Center?
 File Integrity Monitoring (FIM), also known as change monitoring, examines files and registries of operating system, application software, and others for changes that might indicate an attack. A comparison method is used to determine if the current state of the file is different from the last scan of the file. You can leverage this comparison to determine if valid or suspicious modifications have been made to your files.
 
 Security Center’s File Integrity Monitoring validates the integrity of Windows files, Windows registry, and Linux files. You select the files that you want monitored by enabling FIM. Security Center monitors files with FIM enabled for activity such as:
@@ -39,7 +39,7 @@ Security Center recommends entities to monitor, which you can easily enable FIM 
 ## Which files should I monitor?
 You should think about the files that are critical for your system and applications when choosing which files to monitor. Consider choosing files that you don’t expect to change without planning. Choosing files that are frequently changed by applications or operating system (such as log files and text files) create a lot of noise which make it difficult to identify an attack.
 
-Security Center recommends which files you should monitor as a default according to known attack patterns that includes file and registry changes.
+Security Center recommends which files you should monitor as a default according to known attack patterns that include file and registry changes.
 
 ## Using File Integrity Monitoring
 1. Open the **Security Center** dashboard.
@@ -47,7 +47,7 @@ Security Center recommends which files you should monitor as a default according
 ![Security Center dashboard][1]
 
 **File Integrity Monitoring** opens.
-![Security Center dashboard][2]
+  ![Security Center dashboard][2]
 
 The following information is provided for each workspace:
 
@@ -56,6 +56,7 @@ The following information is provided for each workspace:
 - Geographic location of the workspace
 - Azure subscription that the workspace is under
 
+The following buttons may also be shown for a workspace:
 
 - ![Enable icon][3] Indicates that FIM is not enabled for the workspace. Selecting the workspace lets you enable FIM on all machines under the workspace.
 - ![Upgrade plan icon][4] Indicates that the workspace or subscription is not running under Security Center’s Standard tier. To use the FIM feature, your subscription must be running Standard.  Selecting the workspace enables you to upgrade to Standard. To learn more about the Standard tier and how to upgrade, see [Upgrade to Security Center's Standard tier for enhanced security](security-center-pricing.md).
@@ -63,7 +64,7 @@ The following information is provided for each workspace:
 
 Under **File Integrity Monitoring**, you can select a workspace to enable FIM for that workspace, view the FIM dashboard for that workspace, or [upgrade](security-center-pricing.md) the workspace to Standard.
 
-## Enable File Integrity Monitoring
+## Enable FIM
 To enable FIM on a workspace:
 
 1. Under **File Integrity Monitoring**, select a workspace with the **Enable** button.
@@ -71,17 +72,17 @@ To enable FIM on a workspace:
 
    ![Enable file integrity monitoring][5]
 
-   The recommended settings for Windows and Linux are also listed.  Expand Windows files, Windows registry, and Linux files to see the full list of recommended items.
+   The recommended settings for Windows and Linux are also listed.  Expand **Windows files**, **Registry**, and **Linux files** to see the full list of recommended items.
 
 3. Uncheck any recommended entities you do not want to apply FIM to.
 4. Select **Apply file integrity monitoring** to enable FIM.
 
 > [!NOTE]
-> You can change the settings at any time. See Edit monitored items below to learn more.
+> You can change the settings at any time. See [Edit monitored items](security-center-file-integrity-monitoring.md#edit-monitored-items) below to learn more.
 >
 >
 
-## View the File Integrity Monitoring dashboard
+## View the FIM dashboard
 The **File integrity monitoring (FIM)** dashboard displays for workspaces where FIM is enabled. The FIM dashboard opens after you enable FIM on a workspace or when you select a workspace in the **File Integrity Monitoring** window that already has FIM enabled.
 
 ![File Integrity Monitoring dashboard][6]
@@ -125,7 +126,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
   ![Settings][11]
 
-  **Workspace Configuration** opens displaying three tabs: Windows Registry, Windows Files, and Linux Files. Each tab lists the items that you can edit in that category. For each item listed, Security Center identifies if FIM is enabled (true) or not enabled (false).  Editing the item lets you enable or disable FIM.
+  **Workspace Configuration** opens displaying three tabs: **Windows Registry**, **Windows Files**, and **Linux Files**. Each tab lists the items that you can edit in that category. For each item listed, Security Center identifies if FIM is enabled (true) or not enabled (false).  Editing the item lets you enable or disable FIM.
 
   ![Workspace configuration][12]
 
@@ -141,35 +142,34 @@ Under **Edit for Change Tracking** you can:
 - Delete the item, discard the change, or save the change
 
 ## Add a new item to monitor
-1. Select **Settings** at the top of **FIM dashboard**. **Workspace Configuration** opens.
-2. Under **Workspace Configuration**, select the tab for the type of item that you want to add: Windows Registry, Windows Files, or Linux Files. In this example, we selected Linux Files.
-3. Select **Add**.
+1. Return to the **FIM dashboard** and select **Settings** at the top. **Workspace Configuration** opens.
+2. Under **Workspace Configuration**, select the tab for the type of item that you want to add: Windows Registry, Windows Files, or Linux Files. In this example, we selected **Linux Files**.
 
-![Add a new item to monitor][14]
+  ![Add a new item to monitor][14]
 
-4. **Add for Change Tracking** opens.
+3. Select **Add** and **Add for Change Tracking** opens.
 
-![Enter requested information][15]
+  ![Enter requested information][15]
 
-5. On the **Add** page, type the requested information to add your new item for monitoring, and select **Save**.
+4. On the **Add** page, type the requested information and select **Save**.
 
-## Disable File Integrity Monitoring
+## Disable FIM
 1. Return to the **File Integrity Monitoring** dashboard.
 2. Select a workspace where FIM is currently enabled. A workspace is enabled for FIM if it is missing the Enable button or Upgrade Plan button.
 
-![Select a workspace where FIM is enabled][16]
+  ![Select a workspace where FIM is enabled][16]
 
 3. Under File Integrity Monitoring, select **Settings**.
 
-![Select settings][17]
+  ![Select settings][17]
 
 4. Under **Workspace Configuration**, select a group where **Enabled** is set to true.
 
-![Workspace Configuration][18]
+  ![Workspace Configuration][18]
 
 5. Under **Edit for Change Tracking** window set **Enabled** to False.
 
-![Set Enabled to false][19]
+  ![Set Enabled to false][19]
 
 6. Select **Save**.
 
@@ -203,4 +203,4 @@ In this article you learned to use File Integrity Monitoring (FIM) in Security C
 [16]: ./media/security-center-file-integrity-monitoring/fim-dashboard-disable.png
 [17]: ./media/security-center-file-integrity-monitoring/fim-dashboard-settings-disabled.png
 [18]: ./media/security-center-file-integrity-monitoring/workspace-config-disable.png
-[19]: ./media/security-center-file-integrity-monitoring/edit-disabled.png
+[19]: ./media/security-center-file-integrity-monitoring/edit-disable.png
