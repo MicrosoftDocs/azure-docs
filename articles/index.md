@@ -2851,7 +2851,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Central</h3>
-                                                    <p>Fully managed IoT SaaS solution</p>
+                                                    <p>Experience SaaS for IoT, with no cloud expertise required</p>
                                                 </div>
                                             </div>
                                         </div>
