@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: virtual-network
+ author: jimdial
+ ms.service: virtual-network
+ ms.topic: include
+ ms.date: 04/09/2018
+ ms.author: jdial
+ ms.custom: include file
+---
+
 ## <a name="os-config"></a>Add IP addresses to a VM operating system
 
 Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the steps that following for your VM operating system.
