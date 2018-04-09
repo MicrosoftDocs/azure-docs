@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: Test your Stream Analytics job with sample data | Microsoft Docs
 description: How to test your queries in Stream Analytics jobs.
 keywords: test a job, input sampling, upload sample date
@@ -13,6 +14,18 @@ ms.workload: data-services
 ms.date: 03/18/2018
 ms.author: sngun
 
+=======
+title: Test queries in Azure Stream Analytics
+description: This article describes how to test queries using sample data files in Stream Analytics jobs.
+services: stream-analytics
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+>>>>>>> b4d6e0f30d6443506a48baccbaa3d9fd8df301a2
 ---
 
 # Test your Stream Analytics query with sample data
@@ -36,6 +49,7 @@ By using Azure Stream Analytics, you can upload sample data and test queries in 
    ![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
 When you use multiple outputs in a query, you can see the results for each output separately and easily toggle between them. After you verify the results shown in the browser, you can save your query, start the job, and let it process events without error.
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

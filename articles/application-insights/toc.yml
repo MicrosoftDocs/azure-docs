@@ -238,6 +238,9 @@
     items:
     - name: Manage pricing and data volume
       href: app-insights-pricing.md
+      items:
+      - name: Enterprise plan details
+        href: app-insights-pricing-enterprise-details.md
     - name: Application Performance Monitoring using Application Insights for SCOM
       href: app-insights-scom.md
   - name: Export

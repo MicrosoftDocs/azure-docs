@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: "Tutorial: Azure Stream Analytics JavaScript user-defined functions | Microsoft Docs "
 description: In this tutorial, you perform advanced query mechanics with JavaScript user-defined functions
 keywords: javascript, user defined functions, udf
@@ -15,6 +16,18 @@ ms.workload: data-services
 ms.author: sngun
 
 #Customer intent: "As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs."
+=======
+title: JavaScript user-defined functions in Azure Stream Analytics
+description:  This article describes how to perform advanced query mechanics with JavaScript user-defined functions in Azure Stream Analytics.
+services: stream-analytics
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+>>>>>>> b4d6e0f30d6443506a48baccbaa3d9fd8df301a2
 ---
 
 # Tutorial: Azure Stream Analytics JavaScript user-defined functions
@@ -145,12 +158,17 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
+<<<<<<< HEAD
 ## Clean up resources
 
 When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and re-start it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by using the following steps:
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.  
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+=======
+## Get help
+For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+>>>>>>> b4d6e0f30d6443506a48baccbaa3d9fd8df301a2
 
 ## Next steps
 
