@@ -3,8 +3,8 @@ title: 'Azure Cosmos DB: Develop with the Cassandra API in Java | Microsoft Docs
 description: Learn how to develop with Azure Cosmos DB's Cassandra API using Java
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 tags: ''
 
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 11/15/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
 ---
 
