@@ -44,14 +44,17 @@ This article explains how to create and configure event hub and run a sample app
 
   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
-## Add Time Series Insights reference data set (Very important if you are uploading historical data)
-Using reference data in TSI contextualizes your telemetry data.  This adds meaning to your data and makes it easier to filter and aggregate.  TSI joins reference data at ingress time and cannot retroactively join this data.  Therefore, it is critical to add reference data prior to adding an event source with data.  Data like location, sensor type, etc are useful dimensions that you might want to join to a device/tag/sensor ID to make it easier to slice and filter.  
+## Add Time Series Insights reference data set 
+Using reference data in TSI contextualizes your telemetry data.  That context data adds meaning to your data and makes it easier to filter and aggregate.  TSI joins reference data at ingress time and cannot retroactively join this data.  Therefore, it is critical to add reference data prior to adding an event source with data.  Data like location, sensor type, etc are useful dimensions that you might want to join to a device/tag/sensor ID to make it easier to slice and filter.  
 
-Note - ensuring that you have your reference data in place is especially critical if you are bulk uploading historical data to TSI.  Keep in mind, TSI will immediately start reading from a joined event source if that event source has data.  It's useful to wait to join an event source to TSI until you have your reference data in place, especially if that event source has data in it.  Alternatively, you can wait to push data to that event source until the reference data set is in place.
+> [!IMPORTANT]
+> Having a reference data set configured is very important when you upload historical data.
 
-We enable both programmatic management of reference data using a C# application and have a user experience in the TSI explorer to upload/paste-in existing reference data sets as JSON or CSV.  You can also build one from scratch using this tool.  
+Ensuring that you have your reference data in place is especially critical if you are bulk uploading historical data to TSI.  Keep in mind, TSI will immediately start reading from a joined event source if that event source has data.  It's useful to wait to join an event source to TSI until you have your reference data in place, especially if that event source has data in it. Alternatively, you can wait to push data to that event source until the reference data set is in place.
 
-For more details on managing reference data in Time Series Insights, please see [documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)
+Reference data has both a C# API and a web user interface in the TSI Explorer. There is a programmatic interface for reference data using a C# application, so you can build an app from scratch. TSI Explorer has a visual user experience to upload files or paste-in existing reference data sets as JSON or CSV format.  
+
+For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## Create Time Series Insights event source
 1. If you haven't created an event source, follow [these instructions](time-series-insights-how-to-add-an-event-source-eventhub.md) to create an event source.
@@ -198,7 +201,7 @@ A JSON object with a nested JSON array containing two JSON objects.
 
 ```
 #### Output - 2 Events
-Note that the property "location" is copied over to each of the event.
+Notice the property "location" is copied over to each of the event.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -300,13 +303,13 @@ Let's use the following example of an event as a starting point, and then discus
 ]
  ```
 
-If you push this array of events as a payload to TSI, it will be stored as 1 event per each measure value, so this might create more events than are ideal.  Note - you can use reference data in TSI to add meaningful names as properties.  For example, you can create reference data set with Key Property = chId:  
+If you push this array of events as a payload to TSI, it will be stored as one event per each measure value, so this might create more events than are ideal.  Note - you can use reference data in TSI to add meaningful names as properties.  For example, you can create reference data set with Key Property = chId:  
 
 chId  Measure               Unit
 24    Engine Oil Pressure   PSI
 25    CALC Pump Rate        bbl/min
 
-For more details on managing reference data in Time Series Insights, please see [documentation](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set)
+For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 Another problem with the first payload is that timestamp is in milliseconds. TSI accepts only ISO formatted timestamps. One solution is to leave the default timestamp behavior in TSI, which is to use enqueued timestamp.
 
@@ -359,7 +362,7 @@ As an alternative to the payload above, let's look at another example.
 
 Like Payload 1, TSI will store each every measured value as a unique event.  The notable difference is that TSI will read the *timestamp* as correctly here, as ISO.  
 
-If we would like to reduce the number of events we send, then we could send the information as the following.  
+If you need to reduce the number of events sent, then you could send the information as the following.  
 
 #### Payload 3:
 ```json
@@ -402,7 +405,7 @@ One final suggestion is below.
 }
 ```
 
-The output from TSI will look like this after flattening the JSON:
+This example shows the output after flattening the JSON:
 
 ```json
 {
@@ -420,7 +423,7 @@ The output from TSI will look like this after flattening the JSON:
 }
 ```
 
-Here, you have the freedom to define different properties for each of the channels inside its own json object, while still keeping the event count low.  Note, it does occupy more space, which is important to note as TSI capacity is based on both events and size, whichever comes first.  
+You have the freedom to define different properties for each of the channels inside its own json object, while still keeping the event count low. This flattened approach does occupy more space, which is important to consider. TSI capacity is based on both events and size, whichever comes first.
 
 ## Next steps
 > [!div class="nextstepaction"]
