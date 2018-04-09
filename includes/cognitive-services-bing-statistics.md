@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: cognitive-services
+ author: scottwhi-msft
+ ms.service: cognitive-services
+ ms.topic: include
+ ms.date: 04/09/2018
+ ms.author: scottwhi
+ ms.custom: include file
+---
+
 Bing Statistics provides analytics for Bing Search APIs. Analytics includes call volume, top query strings, device types used, and more. To get access to Bing Statistics, enable Bing Statistics in your Bing Search paid subscription. Navigate to your Azure dashboard, select your paid subscription, and click Enable Bing Statistics.
 
 
