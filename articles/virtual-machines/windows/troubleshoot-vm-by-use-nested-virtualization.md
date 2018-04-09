@@ -20,9 +20,9 @@ ms.author: genli
 
 This article shows how to create a nested virtualization environment in Microsoft Azure, so you can mount the disk of the problem VM on the Hyper-V host (Rescue VM) for troubleshooting purposes.
 
-## Prerequisite
+## Prerequisites
 
-To mount the problem VM, the Rescue VM must meet the following prerequisite:
+To mount the problem VM, the Rescue VM must meet the following prerequisites:
 
 -   The Rescue VM must be in the same location as the problem VM.
 
