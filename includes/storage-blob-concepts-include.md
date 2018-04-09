@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: "include"
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: "include file"
+---
+
 Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data.
 
 Blob storage is ideal for:
