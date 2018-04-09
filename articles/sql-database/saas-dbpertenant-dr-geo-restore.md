@@ -1,6 +1,6 @@
 ---
 title: Disaster Recovery for SaaS app using Geo Restore | Microsoft Docs
-description: "Learn how to use geo-redundant backups to recover a multi-tenant SaaS app in the event of an outage"
+description: "Learn how to use Azure SQL Database geo-redundant backups to recover a multi-tenant SaaS app in the event of an outage"
 keywords: sql database tutorial
 services: sql-database
 author: stevestein
@@ -53,7 +53,7 @@ Disaster recovery (DR) is an important consideration for many applications, whet
 
 In this tutorial, these challenges are addressed using features of Azure SQL Database and the Azure platform:
 
-* [Azure Resource Manager (ARM) templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. Azure Resource Manager templates are used to provision a mirror image of the original servers and elastic pools in the recovery region. A separate server and pool are also created for provisioning new tenants. 
+* [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. Azure Resource Manager templates are used to provision a mirror image of the original servers and elastic pools in the recovery region. A separate server and pool are also created for provisioning new tenants. 
 * [Elastic Database Client Library](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL) to create and maintain a tenant database catalog.  The catalog is extended to include periodically refreshed pool and database configuration information.
 * [Shard management recovery features](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) of the EDCL to maintain database location entries in the catalog during recovery and repatriation.  
 * [Geo-restore](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery), to recover the catalog and tenant databases from automatically maintained geo-redundant backups. 

@@ -1,6 +1,6 @@
 ---
 title: Disaster Recovery for SaaS app using Geo Replication | Microsoft Docs
-description: "Learn how to use database geo-replicas to recover a multi-tenant SaaS app in the event of an outage"
+description: "Learn how to use Azure SQL Database geo-replicas to recover a multi-tenant SaaS app in the event of an outage"
 keywords: sql database tutorial
 services: sql-database
 author: AyoOlubeko
@@ -58,7 +58,7 @@ All parts have to be considered carefully, especially if operating at scale. Ove
 
 In this tutorial, these challenges are addressed using features of Azure SQL Database and the Azure platform:
 
-* [Azure Resource Manager (ARM) templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. Azure Resource Manager templates are used to provision a mirror image of the production servers and elastic pools in the recovery region.
+* [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), to reserve all needed capacity as quickly as possible. Azure Resource Manager templates are used to provision a mirror image of the production servers and elastic pools in the recovery region.
 * [Geo-replication](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), to create asynchronously replicated read-only secondaries for all databases. During an outage, you fail over to the replicas in the recovery region.  After the outage is resolved, you fail back to the databases in the original region with no data loss.
 * [Asynchronous](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) failover operations sent in tenant-priority order, to minimize failover time for large numbers of databases.
 * [Shard management recovery features](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager), to change database entries in the catalog during recovery and repatriation. These features allow the app to connect to tenant databases regardless of location without reconfiguring the app.
