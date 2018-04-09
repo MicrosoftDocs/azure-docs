@@ -21,7 +21,7 @@ ms.author: fryu
 
 Aligned with the strategy of unifying Monitor experience in Azure, Azure Storage on-boards metrics to Azure Monitor platform. In the future, the service of legacy metrics will be ended with early notice based on Azure policy. If you rely on legacy storage metrics, migration is needed before the service is ended.
 
-This article guides you in migrating from legacy metrics which are managed by Azure Storage to the new metrics which are managed by Azure Monitor.
+This article guides you in migrating from legacy metrics to the new metrics.
 
 ## Understand legacy metrics managed by Azure Storage
 
