@@ -14,7 +14,7 @@ metadata:
   ms.date: 04/06/2018
   ms.author: spelluru
 abstract:
-  description: Learn how to quickly create classroom labs, trial labs, custom labs, etc. Tutorials, videos, and more show you how to create, manage, and secure labs.
+  description: Learn how to quickly create classroom labs, trial labs, custom labs, and more by using Azure Lab Services. Tutorials, videos, and more show you how to create, manage, and secure labs.
 sections:
 - title: 5-Minute Quickstarts
   items:
