@@ -30,7 +30,7 @@ In addition, you should see a table of all claims that are in the authentication
 ### Test access to a method that has an Authorize attribute (optional)
 To test access to the **Authorize** controller for the user's claims as an anonymous user, follow these steps:
 1. Select the link to sign out the user and complete the sign-out process.
-2. In your browser, type http://<span></span>localhost:{port}/authenticated to access your controller that is protected with the **Authorize** attribute.
+2. In your browser, type http://<span></span>localhost:{port}/authenticated to access your controller that is protected with the `Authorize` attribute.
 
 #### Expected results after access to a protected controller
 You're prompted to authenticate to use the protected controller view.
@@ -55,14 +55,14 @@ To restrict user sign-in access for your application, multiple options are avail
 
 This option is a common scenario for *LOB applications*: If you want your application to accept sign-ins only from accounts that belong to a specific Azure Active Directory instance (including *guest accounts* of that instance) do the following:
 
-1. In the **web.config** file, change the value for the **Tenant** parameter. Change the value from **Common** to the tenant name of the organization, such as **contoso.onmicrosoft.com**.
-2. In your **OWIN Startup** class, set the **ValidateIssuer** argument to **true**.
+1. In the *web.config* file, change the value for the `Tenant` parameter. Change the value from `Common` to the tenant name of the organization, such as `contoso.onmicrosoft.com`.
+2. In your [OWIN Startup class](#configure-the-authentication-pipeline), set the `ValidateIssuer` argument to `true`.
 
 #### Restrict access to your application to users in a specific list of organizations
 
 You can restrict sign-in access to only user accounts that are in an Azure AD organization that is in the list of allowed organizations:
-1. In the **web.config** file, in your **OWIN Startup** class, set the **ValidateIssuer** argument to **true**.
-2. Set the value of the **ValidIssuers** parameter to the list of allowed organizations.
+1. In your [OWIN Startup class](#configure-the-authentication-pipeline), set the `ValidateIssuer` argument to `true`.
+2. Set the value of the `ValidIssuers` parameter to the list of allowed organizations.
 
 #### Use a custom method to validate issuers
 You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, read about the [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) on MSDN.
