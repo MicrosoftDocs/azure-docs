@@ -6,6 +6,12 @@
 ## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Get Started
+## Create a route-based VPN gateway
+### [Azure portal](create-routebased-vpn-gateway-portal.md)
+### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
+### [Azure CLI](create-routebased-vpn-gateway-cli.md)
+
+# Concepts
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
 ## [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md)
 ## [About VPN devices](vpn-gateway-about-vpn-devices.md)
@@ -82,12 +88,16 @@
 ### [Sample: Cisco ASA device (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md)
 ## [Troubleshoot](vpn-gateway-troubleshoot.md)
-### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Community-suggested VPN or firewall device settings](vpn-gateway-third-party-settings.md)
-### [Point-to-Site connection problem](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-### [Site-to-Site connection disconnects intermittently](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
-### [Site-to-Site connection cannot connect](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
 ### [Configure and validate VNet or VPN connections](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
+### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
+### Point-to-Site connection issues
+#### [Point-to-Site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Point-to-Site connection problems - Mac OS X VPN client](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### Site-to-Site connection issues
+#### [Site-to-Site connection problems](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Site-to-Site connection disconnects intermittently](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

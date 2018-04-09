@@ -81,7 +81,7 @@ While all three storage locations provide the same basic information for logged 
 > Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](/downloads/#).
 >
 > [!NOTE]
-> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -110,19 +110,19 @@ To download the log files, start a new instance of Azure PowerShell and use the 
 This command saves the logs for the web app specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
 ### Download with Azure Command-Line Interface
 To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-    azure site log download webappname
+    az webapp log download --resource-group resourcegroupname --name webappname
 
 This command saves the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../cli-install-nodejs.md).
+> If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 

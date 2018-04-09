@@ -4,8 +4,8 @@ description: Describes how to process huge amounts of data in an Azure Data Fact
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
 ms.service: data-factory

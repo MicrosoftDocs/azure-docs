@@ -14,7 +14,7 @@ ms.author: anroth
 
 # Use the Prediction Endpoint to Test Images Programmatically
 
-After you train your model, you can obtain a URL that you can use to test images programmatically.
+After you train your model, you can obtain a URL that you can use to test images programmatically. This quickstart walks through a C# example. The [Prediction API reference](https://go.microsoft.com/fwlink/?linkid=865445) page includes additional samples. 
 
 ## Obtain the prediction endpoint URL for a specific iteration:
 

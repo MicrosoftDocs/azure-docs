@@ -3,7 +3,7 @@ title: Ten things you can do on the Data Science Virtual Machine on Azure | Micr
 description: Perform various data exploration and modeling task on the Data science Virtual Machine.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: gokuma;weig;bradsev
+ms.author: gokuma
 
 ---
 

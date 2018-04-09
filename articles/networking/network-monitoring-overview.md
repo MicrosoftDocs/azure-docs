@@ -31,6 +31,8 @@ Network Performance Monitor (NPM) is a suite of capabilities, each of which is g
 * Mission critical multi-tier applications/micro-services
 * User locations and web-based applications (HTTP/HTTPs) 
 
+Performance Monitor, ExpressRoute Monitor, and Service Endpoint Monitor are monitoring capabilities within NPM and are described below.
+
 ## Performance Monitor
 
 Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, and on-premises environments. You can monitor network connectivity across remote branch and field offices, store locations, data centers, and clouds. You can detect network issues before your users complain. The key advantages are:
@@ -55,9 +57,11 @@ NPM for ExpressRoute offers comprehensive ExpressRoute monitoring for private pe
 
 * Auto-detection of ER circuits associated with your subscription
 * Detection of network topology  from on-premises to your cloud applications
-* Capacity planning, utilization analysis
+* Capacity planning, utilization analysis, bandwidth utilization per Virtual Network
 * Monitoring and alerting on both primary and secondary paths
 * Detect degradation of connectivity to VNets
+
+![Geo-map showing traffic across regions](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 For more information, see the following articles:
 
@@ -81,13 +85,14 @@ For more information, see the following articles:
 * [Blog post](https://aka.ms/svcendptmonitor)
 
 ## Traffic Analytics
-Traffic Analytics is a cloud based solution that provides  visibility into user and application activity on your cloud networks. NSG Flow logs are analyzed to provide insights into:
+Traffic Analytics is a cloud-based solution that provides  visibility into user and application activity on your cloud networks. NSG Flow logs are analyzed to provide insights into:
 
-* Traffic flows across your networks between Azure and Internet,  public cloud regions, VNETs and subnets
+* Traffic flows across your networks between Azure and Internet,  public cloud regions, VNETs, and subnets
 * Applications and protocols on your network, without the need for sniffers or dedicated flow collector appliances
 * Top talkers, chatty applications, VM conversations in the cloud, traffic hotspots
 * Sources and destinations of traffic across VNETs, inter-relationships between critical business services and applications
 * Security – malicious traffic, ports open to the Internet,  applications or VMs attempting Internet access…
+* Capacity utilization - helps you eliminate issues of over-provisioning or underutilization by monitoring utilization trends of VPN gateways and other services
 
 Traffic Analytics equips you with actionable information that helps you audit your organization’s network activity, secure applications and data,  optimize workload performance and stay compliant.
 
@@ -97,7 +102,7 @@ Related links:
 * [Blog post](https://aka.ms/trafficanalytics), [Documentation](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
 ## DNS Analytics
-Built for DNS Administrators, this solution collects, analyzes and correlates DNS logs to provide security, operations and performance related insights.  Some of the capabilities are:
+Built for DNS Administrators, this solution collects, analyzes, and correlates DNS logs to provide security, operations, and performance-related insights.  Some of the capabilities are:
 
 * Identification of clients that try to resolve to malicious domains
 * Identification of stale resource records
@@ -110,7 +115,6 @@ Built for DNS Administrators, this solution collects, analyzes and correlates DN
 Related links:
 * [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## Next steps
+## Miscellaneous
 
-* [Configure Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor)
-* [Configure Network Performance Monitor for ExpressRoute](../expressroute/how-to-npm.md)
+* [New Pricing](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

@@ -2,9 +2,8 @@
 title: Provision throughput for Azure Cosmos DB | Microsoft Docs
 description: Learn  how to set provisioned throughput for your Azure Cosmos DB containsers, collections, graphs, and tables.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
@@ -13,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
-ms.author: mimig
+ms.date: 03/23/2018
+ms.author: sngun
 
 ---
 
@@ -57,6 +56,8 @@ The following table lists the throughput available for containers:
 
 ## To set the throughput by using the SQL API for .NET
 
+The following code snippet retrieves the current throughput and changes it to 500 RU/s. For the complete code sample, see the [CollectionManagement](https://github.com/Azure/azure-documentdb-dotnet/blob/95521ff51ade486bb899d6913880995beaff58ce/samples/code-samples/CollectionManagement/Program.cs#L188-L216) project on GitHub.
+
 ```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
@@ -64,8 +65,8 @@ Offer offer = client.CreateOfferQuery()
     .AsEnumerable()
     .SingleOrDefault();
 
-// Set the throughput to the new value, for example 12,000 request units per second
-offer = new OfferV2(offer, 12000);
+// Set the throughput to the new value, for example 500 request units per second
+offer = new OfferV2(offer, 500);
 
 // Now persist these changes to the collection by replacing the original offer resource
 await client.ReplaceOfferAsync(offer);
@@ -75,7 +76,7 @@ await client.ReplaceOfferAsync(offer);
 
 ## To set the throughput by using the SQL API for Java
 
-This snippet is taken from the OfferCrudSamples.java file in the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) repo. 
+The following code snippet retrieves the current throughput and changes it to 500 RU/s. For a complete code sample, see the [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) file on GitHub. 
 
 ```Java
 // find offer associated with this collection
@@ -88,7 +89,7 @@ assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
 assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
 
 // update the offer
-int newThroughput = 10300;
+int newThroughput = 500;
 offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```

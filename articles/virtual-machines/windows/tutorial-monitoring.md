@@ -3,9 +3,9 @@ title: Azure Monitoring and updating and Windows Virtual Machines | Microsoft Do
 description: Tutorial - Monitor and update a Windows Virtual Machine with Azure PowerShell 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -15,10 +15,9 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
 ---
-
 # Monitor and update a Windows Virtual Machine with Azure PowerShell
 
 Azure monitoring uses agents to collect boot and performance data from Azure VMs, store this data in Azure storage, and make it accessible through portal, the Azure PowerShell module, and the Azure CLI. Update management allows you to manage updates and patches for your Azure Windows VMs.
@@ -33,17 +32,18 @@ In this tutorial, you learn how to:
 > * View VM metrics
 > * Create an alert
 > * Manage Windows updates
+> * Monitor changes and inventory
 > * Set up advanced monitoring
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group, VM name, and location where needed.
 
 ## View boot diagnostics
 
-As Windows virtual machines boot up, the boot diagnostic agent captures screen output that can be used for troubleshooting purpose. This capability is enabled by default. The captured screen shots are stored in an Azure storage account, which is also created by default. 
+As Windows virtual machines boot up, the boot diagnostic agent captures screen output that can be used for troubleshooting purpose. This capability is enabled by default. The captured screen shots are stored in an Azure storage account, which is also created by default.
 
-You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) command. In the following example, boot diagnostics are downloaded to the root of the *c:\* drive. 
+You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) command. In the following example, boot diagnostics are downloaded to the root of the *c:\* drive.
 
 ```powershell
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
@@ -85,10 +85,10 @@ The following example creates an alert for average CPU usage.
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
 2. Click **Alert rules** on the VM blade, then click **Add metric alert** across the top of the alerts blade.
-4. Provide a **Name** for your alert, such as *myAlertRule*
-5. To trigger an alert when CPU percentage exceeds 1.0 for five minutes, leave all the other defaults selected.
-6. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
-7. Click the **OK** button.
+3. Provide a **Name** for your alert, such as *myAlertRule*
+4. To trigger an alert when CPU percentage exceeds 1.0 for five minutes, leave all the other defaults selected.
+5. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
+6. Click the **OK** button.
 
 ## Manage Windows updates
 
@@ -100,47 +100,46 @@ For pricing information, see [Automation pricing for Update management](https://
 ### Enable Update management
 
 Enable Update management for your VM:
- 
+
 1. On the left-hand side of the screen, select **Virtual machines**.
 2. From the list, select a VM.
 3. On the VM screen, in the **Operations** section, click **Update management**. The **Enable Update Management** screen opens.
 
-Validation is performed to determine if Update management is enabled for this VM. The validation includes checks for a Log Analytics workspace and linked Automation account, and if the solution is in the workspace.
+Validation is performed to determine if Update management is enabled for this VM.
+The validation includes checks for a Log Analytics workspace and linked Automation account, and if the solution is in the workspace.
 
-A Log Analytics workspace is used to collect data that is generated by features and services such as Update management. The workspace provides a single location to review and analyze data from multiple sources. To perform additional action on VMs that require updates, Azure Automation allows you to run scripts against VMs, such as to download and apply updates.
+A [Log Analytics](../../log-analytics/log-analytics-overview.md) workspace is used to collect data that is generated by features and services such as Update management.
+The workspace provides a single location to review and analyze data from multiple sources.
+To perform additional actions on VMs that require updates, Azure Automation allows you to run runbooks against VMs, such as download and apply updates.
 
-The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and hybrid worker. This agent is used to communicate with the VM and obtain information about the update status. 
+The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and Automation hybrid runbook worker.
+This agent is used to communicate with the VM and obtain information about the update status.
 
-If these prerequisites are not met, a banner appears that gives you the option to enable the solution.
+Choose the Log analytics workspace and automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
-![Update Management onboard configuration banner](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
-
-Click the banner to enable the solution. If any of the following prerequisites were found to be missing after the validation, they will be automatically added:
+If any of the following prerequisites were found to be missing during onboarding, they're automatically added:
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md) workspace
 * [Automation](../../automation/automation-offering-get-started.md)
 * A [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) is enabled on the VM
 
-The **Enable Update Management** screen opens. Configure the settings, and click **Enable**.
+The **Update Management** screen opens. Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
 
 ![Enable Update management solution](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-Enabling the solution can take up to 15 minutes, and during this time you should not close the browser window. After the solution is enabled, information about missing updates on the VM flows to Log Analytics.
-It can take between 30 minutes and 6 hours for the data to be available for analysis.
+Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window. After the solution is enabled, information about missing updates on the VM flows to Log Analytics. It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
 ### View update assessment
 
-After **Update management** is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
+After **Update management** is enabled, the **Update management** screen appears. After the evaluation of updates is complete, you see a list of missing updates on the **Missing updates** tab.
 
  ![View update status](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
 ### Schedule an update deployment
 
-To install updates, schedule a deployment that follows your release schedule and service window.
-You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
+To install updates, schedule a deployment that follows your release schedule and service window. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
-Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen. 
-In the **New update deployment** screen, specify the following information:
+Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen. In the **New update deployment** screen, specify the following information:
 
 * **Name** - Provide a unique name to identify the update deployment.
 * **Update classification** - Select the types of software the update deployment included in the deployment. The classification types are:
@@ -168,12 +167,12 @@ Notice that the **Scheduled** table shows the deployment schedule you created.
 
 ### View results of an update deployment
 
-After the scheduled deployment is started, you can see the status for that deployment on the **Update deployments** tab on the **Update management** screen.
+After the scheduled deployment starts, you can see the status for that deployment on the **Update deployments** tab on the **Update management** screen.
 If it is currently running, it's status shows as **In progress**. After it completes, if successful, it changes to **Succeeded**.
 If there is a failure with one or more updates in the deployment, the status is **Partially failed**.
 Click the completed update deployment to see the dashboard for that update deployment.
 
-   ![Update Deployment status dashboard for specific deployment](./media/tutorial-monitoring/manageupdates-view-results.png)
+![Update Deployment status dashboard for specific deployment](./media/tutorial-monitoring/manageupdates-view-results.png)
 
 In **Update results** tile is a summary of the total number of updates and deployment results on the VM.
 In the table to the right is a detailed breakdown of each update and the installation results, which could be one of the following values:
@@ -188,15 +187,60 @@ Click the **Output** tile to see job stream of the runbook responsible for manag
 
 Click **Errors** to see detailed information about any errors from the deployment.
 
-## Advanced monitoring 
+## Monitor changes and inventory
 
-You can do more advanced monitoring of your VM by using [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview). If you haven't already done so, you can sign up for a [free trial](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial) of Operations Management Suite.
+You can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
-When you have access to the OMS portal, you can find the workspace key and workspace identifier on the Settings blade. Use the [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) command to add the OMS extension to the VM. Update the variable values in the below sample to reflect you OMS workspace key and workspace Id.  
+### Enable Change and Inventory management
+
+Enable Change and Inventory management for your VM:
+
+1. On the left-hand side of the screen, select **Virtual machines**.
+2. From the list, select a VM.
+3. On the VM screen, in the **Operations** section, click **Inventory** or **Change tracking**. The **Enable Change Tracking and Inventory** screen opens.
+
+Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used. Eventhough the solutions are separate on the menu, they are the same solution. Enabling one enables both for your VM.
+
+![Enable Change and Inventory tracking](./media/tutorial-monitoring/manage-inventory-enable.png)
+
+After the solution has been enabled it may take some time while inventory is being collected on the VM before data appears.
+
+### Track changes
+
+On your VM select **Change Tracking** under **OPERATIONS**. Click **Edit Settings**, the **Change Tracking** page is displayed. Select the type of setting you want to track and then click **+ Add** to configure the settings. The available options for Windows are:
+
+* Windows Registry
+* Windows Files
+
+For detailed information on Change Tracking see, [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md)
+
+### View inventory
+
+On your VM select **Inventory** under **OPERATIONS**. On the **Software** tab, there is a table list the software that had been found. The high-level details for each software record are viewable in the table. These details include the software name, version, publisher, last refreshed time.
+
+![View inventory](./media/tutorial-monitoring/inventory-view-results.png)
+
+### Monitor Activity logs and changes
+
+From the **Change tracking** page on your VM, select **Manage Activity Log Connection**. This task opens the **Azure Activity log** page. Select **Connect** to connect Change tracking to the Azure activity log for your VM.
+
+With this setting enabled, navigate to the **Overview** page for your VM and select **Stop** to stop your VM. When prompted, select **Yes** to stop the VM. When it is deallocated, select **Start** to restart your VM.
+
+Stopping and starting a VM logs an event in its activity log. Navigate back to the **Change tracking** page. Select the **Events** tab at the bottom of the page. After a while, the events shown in the chart and the table. Each event can be selected to view detailed information on the event.
+
+![View changes in the activity log](./media/tutorial-monitoring/manage-activitylog-view-results.png)
+
+The chart shows changes that have occurred over time. After you have added an Activity Log connection, the line graph at the top displays Azure Activity Log events. Each row of bar graphs represents a different trackable Change type. These types are Linux daemons, files, Windows Registry keys, software, and Windows services. The change tab shows the details for the changes shown in the visualization in descending order of time that the change occurred (most recent first).
+
+## Advanced monitoring
+
+You can do more advanced monitoring of your VM by using the solutions like Update Management and Change and Inventory provided by [Azure Automation](../../automation/automation-intro.md).
+
+When you have access to the Log Analytics workspace, you can find the workspace key and workspace identifier on by selecting **Advanced settings** under **SETTINGS**. Use the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) command to add the Microsoft Monitoring agent extension to the VM. Update the variable values in the below sample to reflect you Log Analytics workspace key and workspace Id.
 
 ```powershell
-$omsId = "<Replace with your OMS Id>"
-$omsKey = "<Replace with your OMS key>"
+$workspaceId = "<Replace with your workspace Id>"
+$key = "<Replace with your primary key>"
 
 Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
@@ -204,21 +248,22 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
   -ExtensionType "MicrosoftMonitoringAgent" `
   -TypeHandlerVersion 1.0 `
-  -Settings @{"workspaceId" = $omsId} `
-  -ProtectedSettings @{"workspaceKey" = $omsKey} `
+  -Settings @{"workspaceId" = $workspaceId} `
+  -ProtectedSettings @{"workspaceKey" = $key} `
   -Location eastus
 ```
 
-After a few minutes, you should see the new VM in the OMS workspace. 
+After a few minutes, you should see the new VM in the Log Anaytics workspace.
 
 ![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## Next steps
+
 In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
 
 > [!div class="checklist"]
 > * Create a virtual network
-> * Create a resource group and VM 
+> * Create a resource group and VM
 > * Enable boot diagnostics on the VM
 > * View boot diagnostics
 > * View host metrics
@@ -226,6 +271,7 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * View VM metrics
 > * Create an alert
 > * Manage Windows updates
+> * Monitor changes and inventory
 > * Set up advanced monitoring
 
 Advance to the next tutorial to learn about Azure security center.

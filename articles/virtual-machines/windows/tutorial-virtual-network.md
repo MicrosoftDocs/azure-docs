@@ -3,9 +3,9 @@ title: Azure Virtual Networks and Windows Virtual Machines | Microsoft Docs
 description: Tutorial - Manage Azure Virtual Networks and Windows Virtual Machines with Azure PowerShell 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
 ---
 
