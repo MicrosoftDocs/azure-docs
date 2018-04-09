@@ -82,7 +82,9 @@
     - name: High performance compute
       href: sizes-hpc.md    
     - name: Azure compute units (ACU)
-      href: acu.md          
+      href: acu.md 
+    - name: Benchmark scores
+      href: compute-benchmark-scores.md       
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
