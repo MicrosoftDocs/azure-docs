@@ -70,7 +70,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | For Microsoft Azure, the OSSC Technical Security Services team develops security configuration standards for systems in the Microsoft Azure environment that are consistent with industry-accepted hardening standards. These configurations are documented in system baselines and relevant configuration changes are communicated to impacted teams (e.g., IPAK team). Procedures are implemented to monitor for compliance against the security configuration standards. The security configuration standards for systems in the Microsoft Azure environment are consistent with industry-accepted hardening standards and are reviewed at least annually. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides hardening of all services in scope for the cardholder data environment (CDE). <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore utilizes Operations Management Suite to log all system changes. [Operations Management Suite (OMS)](/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides hardening of all services in scope for the cardholder data environment (CDE). <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore utilizes Operations Management Suite to log all system changes. Log Analytics provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -173,7 +173,7 @@ completed.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore demo PaaS solution inventory can be reviewed in the provided documentation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](payment-processing-blueprint.md#oms-solutions).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore demo PaaS solution inventory can be reviewed in the provided documentation. For more information, see [PCI Guidance - Pre-Installed Management Solutions](payment-processing-blueprint.md#management-solutions).|
 
 
 

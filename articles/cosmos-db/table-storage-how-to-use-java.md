@@ -3,9 +3,8 @@ title: How to use Azure Table storage or Azure Cosmos DB Table API from Java | M
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: cosmos-db
 documentationcenter: java
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 45145189-e67f-4ca6-b15d-43af7bfd3f97
 ms.service: cosmos-db
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 03/20/2018
-ms.author: mimig
+ms.author: sngun
 
 ---
 # How to use Azure Table storage or Azure Cosmos DB Table API from Java
