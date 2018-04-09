@@ -45,7 +45,7 @@ This article explains how to create and configure event hub and run a sample app
   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
 ## Add Time Series Insights reference data set 
-Using reference data in TSI contextualizes your telemetry data.  That context data adds meaning to your data and makes it easier to filter and aggregate.  TSI joins reference data at ingress time and cannot retroactively join this data.  Therefore, it is critical to add reference data prior to adding an event source with data.  Data like location, sensor type, etc are useful dimensions that you might want to join to a device/tag/sensor ID to make it easier to slice and filter.  
+Using reference data in TSI contextualizes your telemetry data.  That context data adds meaning to your data and makes it easier to filter and aggregate.  TSI joins reference data at ingress time and cannot retroactively join this data.  Therefore, it is critical to add reference data prior to adding an event source with data.  Data like location or sensor type are useful dimensions that you might want to join to a device/tag/sensor ID to make it easier to slice and filter.  
 
 > [!IMPORTANT]
 > Having a reference data set configured is very important when you upload historical data.
@@ -150,7 +150,7 @@ A simple JSON object.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### Output - 1 event
+#### Output - one event
 
 |id|timestamp|
 |--------|---------------|
@@ -172,7 +172,7 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
     }
 ]
 ```
-#### Output - 2 Events
+#### Output - two events
 
 |id|timestamp|
 |--------|---------------|
@@ -200,7 +200,7 @@ A JSON object with a nested JSON array containing two JSON objects.
 }
 
 ```
-#### Output - 2 Events
+#### Output - two events
 Notice the property "location" is copied over to each of the event.
 
 |location|events.id|events.timestamp|
@@ -243,7 +243,7 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
     ]
 }
 ```
-#### Output - 2 Events
+#### Output - two events
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
