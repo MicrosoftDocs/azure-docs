@@ -1,8 +1,8 @@
-- name: CycleCloud Documentation
+- name: Azure CycleCloud Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: About CycleCloud
+  - name: About Azure CycleCloud
     href: cyclecloud-overview.md
 - name: CycleCloud Tools and Software
   items:
@@ -15,7 +15,7 @@
   - name: Installing CycleCloud CLI
     href: install_cli.md
   - name: Jetpack
-    href:
+    href: jetpack.md
   - name: pogo
     items:
     - name: Overview
@@ -46,9 +46,7 @@
     href: quickstart3.md
 - name: Templates
   items:
-  - name: Template 1
-    href:
-  - name: Template 2
+  - name: CycleCloud Templates
     href:
 - name: Concepts
   items:
