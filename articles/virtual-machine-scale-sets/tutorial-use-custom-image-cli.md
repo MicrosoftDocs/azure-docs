@@ -36,6 +36,10 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 
 ## Create and configure a source VM
+
+>[!NOTE]
+> This tutorial walks through the process of creating and using a generalized VM image. It is not supported to create a scale set from a specialized VM image.
+
 First, create a resource group with [az group create](/cli/azure/group#az_group_create), then create a VM with [az vm create](/cli/azure/vm#az_vm_create). This VM is then used as the source for a custom VM image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive

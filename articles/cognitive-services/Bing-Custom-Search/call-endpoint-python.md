@@ -14,18 +14,24 @@ ms.author: v-brapel
 
 # Call Bing Custom Search endpoint (Python)
 
-This example shows how to request search results from your custom search instance using Python. To create this example follow these steps:
+This example shows how to request search results from your custom search instance using Python. To create a custom search instance see [Create your first Bing Custom Search instance](quick-start.md).
 
-1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
-2. Get a subscription key (if you don't have one see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)).  
+## Prerequisites
+
+You will need to install [Python](https://www.python.org/) to run this example.
+
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard. 
 
   >[!NOTE]  
   >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
 
-3. Install [Python](https://www.python.org/).
-4. Create a folder for your code.
-5. From an administrator command prompt or terminal, navigate to the folder you just created.
-6. Run the following commands:
+## Running the code
+
+To run this example, follow these steps.
+
+1. Create a folder for your code.
+2. From an administrator command prompt or terminal, navigate to the folder you just created.
+3. Install the **requests** python module:
     <pre>
     pip install pipenv
     pipenv install requests
@@ -45,12 +51,12 @@ This example shows how to request search results from your custom search instanc
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
     ```
-9. Run the code using the command below:
+9. Run the code using the following command.
     <pre>
     python BingCustomSearch.py
     </pre>
 
-### Next steps
+## Next steps
 - [Configure and consume custom hosted UI](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

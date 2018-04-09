@@ -43,7 +43,9 @@
 ## Use MXChip IoT DevKit
 ### [Translate voice message with Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [Retrieve a Twitter message with Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [Send messages to an MQTT server using Eclipse Paho APIs](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Monitor the magnetic sensor and send email notifications with Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+### [Control MXChip IoT DevKit RGB LED using Azure device twins](iot-hub-arduino-iot-devkit-az3166-devkit-state.md)
 
 # How-to guides
 ## Plan
@@ -172,7 +174,7 @@
 ## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js (Devices)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
-## [Node.js (Service)](https://docs.microsoft.com/javascript/api/azure-iothub)
+## [Node.js (Service)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [C device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

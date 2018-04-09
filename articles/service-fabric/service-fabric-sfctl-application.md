@@ -239,9 +239,7 @@ Gets the manifest describing an application type. The response contains the appl
 ## sfctl application provision
 Provisions or registers a Service Fabric application type with the cluster using the SFPKG package in the external store or using the application package in the image store.
 
-Provisions a Service Fabric application type with the cluster. This is required before any new applications can be instantiated. The provision operation can be performed either on the application package specified by the relativePathInImageStore, or by using the URI of the external SFPKG. Unless --external-provision is set, this command expects image store
-
-provision.
+Provisions a Service Fabric application type with the cluster. This is required before any new applications can be instantiated. The provision operation can be performed either on the application package specified by the relativePathInImageStore, or by using the URI of the external SFPKG. Unless --external-provision is set, this command provisions the application package from the image store.
         
 
 
