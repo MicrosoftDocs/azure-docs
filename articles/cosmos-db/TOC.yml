@@ -8,8 +8,6 @@ items:
     items:
     - name: About Azure Cosmos DB
       href: introduction.md
-    - name: Documentation experiment
-      href: experiment.md
   - name: Quickstarts
     expanded: true
     items:
@@ -455,5 +453,3 @@ items:
       href: faq.md
     - name: Data consistency explained through baseball
       href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
-    - name: Troubleshoot Azure Cosmos DB
-      href: troubleshoot-azure-cosmosdb.md
