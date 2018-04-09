@@ -1,5 +1,5 @@
 ---
-title: Business continuity - Microsoft Genomcis | Microsoft Docs
+title: Business continuity - Microsoft Genomics | Microsoft Docs
 titleSuffix: Azure
 description: Learn how Microsoft Genomics supports business continuity
 keywords: business continuity, disaster recovery
