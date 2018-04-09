@@ -53,7 +53,7 @@ Create a resource group.
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
 ```
 
-Create a managed availability set using [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) with the `-sku aligned` parameter.
+Create a managed availability set using [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) with the `-sku aligned` parameter. 
 
 ```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
@@ -92,7 +92,8 @@ for ($i=1; $i -le 2; $i++)
         -SecurityGroupName "myNetworkSecurityGroup" `
         -PublicIpAddressName "myPublicIpAddress$i" `
         -AvailabilitySetName "myAvailabilitySet" `
-        -Credential $cred
+        -Credential $cred `
+        -AsJob
 }
 ```
 
