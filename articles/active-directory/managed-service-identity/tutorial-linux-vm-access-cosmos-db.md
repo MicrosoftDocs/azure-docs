@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2018
+ms.date: 04/09/2018
 ms.author: skwan
 
 ---
@@ -28,13 +28,13 @@ This tutorial shows you how to create and use a Linux VM MSI. You learn how to:
 > * Create a Cosmos DB account
 > * Create a collection in the Cosmos DB account
 > * Grant the MSI access to an Azure Cosmos DB instance
-> * Retrieve the principalID of the of the Linux VM's MSI
+> * Retrieve the `principalID` of the of the Linux VM's MSI
 > * Get an access token and use it to call Azure Resource Manager
 > * Get access keys from Azure Resource Manager to make Cosmos DB calls
 
 ## Prerequisites
 
-[!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
+If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com) before continuing.
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
@@ -49,21 +49,30 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Linux virtual machine in a new resource group
 
-For this tutorial, we create a new Linux VM. You can also enable MSI on an existing VM.
+For this tutorial, create a new MSI enabled Linux VM.
 
-1. Click the **+ Create a resource** found on the upper left-hand corner of the Azure portal.
-2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS VM**.
-3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
+To create an MSI-enabled VM:
 
-    ![MSI Linux VM](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az_login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
-4. Choose a **Subscription** for the virtual machine in the dropdown.
-5. Under **Resource Group**, choose **Create New** and type the name of the resource group for this VM. When complete, click **OK**.
-6. Select the size for the VM. To see more sizes, select **View all** or change the Supported disk type filter. In the **Settings** blade, keep the defaults and click **OK**.
+   ```azurecli-interactive
+   az login
+   ```
+
+2. Create a [resource group](../../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az_group_create). You can skip this step if you already have resource group you would like to use instead:
+
+   ```azurecli-interactive 
+   az group create --name myResourceGroup --location westus
+   ```
+
+3. Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM named *myVM* with an MSI, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
+
+   ```azurecli-interactive 
+   az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
 
 ## Create a Cosmos DB account 
 
-If you don't already have one, now create a Cosmos DB account. You can also skip this step and use an existing Cosmos DB account, if you prefer. 
+If you don't already have one, create a Cosmos DB account. You can skip this step and use an existing Cosmos DB account. 
 
 1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Click **Databases**, then **Azure Cosmos DB**, and a new "New account" panel  displays.
@@ -80,7 +89,7 @@ Next, add a data collection in the Cosmos DB account that you can query in later
 2. On the **Overview** tab click the **+/Add Collection** button, and an "Add Collection" panel slides out.
 3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).  
 
-## Retrieve the principalID of the Linux VM's MSI
+## Retrieve the `principalID` of the Linux VM's MSI
 
 To gain access to the Cosmos DB account access keys from the Resource Manager in the following section, you need to retrieve the `principalID` of the Linux VM's MSI.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which you VM resides), and `<VM NAME>` parameter values with your own values.
 
