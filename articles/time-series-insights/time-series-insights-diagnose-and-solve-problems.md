@@ -42,8 +42,8 @@ When you can see data partially, but the data is lagging behind, there are sever
 ### Possible cause A: Your environment is getting throttled
 This is a common problem when environments are provisioned after the creation of an event source with data.  Azure IoT Hubs and Events Hubs store data up to seven days.  TSI will always start from the oldest event (FIFO), within the event source.  So if you have five million events in an event source when you connect to an S1, single-unit TSI environment, TSI will read approximately one million events per day.  This might appear to look as though TSI is experiencing five days of latency at first glance.  What is actually happening is that the environment is being throttled.  If you have old events in your event source, you can approach one of two ways:
 
-- change your event source's retention limits to help get rid of old events that you don't want to show up in TSI
-- provision a larger environment size (in terms of number of units) to increase throughput of old events.  Using the example above, if you increased that same S1 environment to five units for one day, the environment should catch-up to now within the day.  If your steady state event production is 1M or less events/day, then you can reducd the capacity of the event back down to one unit after it has caught up.  
+- Change your event source's retention limits to help get rid of old events that you don't want to show up in TSI
+- Provision a larger environment size (in terms of number of units) to increase throughput of old events.  Using the example above, if you increased that same S1 environment to five units for one day, the environment should catch-up to now within the day.  If your steady state event production is 1M or less events/day, then you can reduce the capacity of the event back down to one unit after it has caught up.  
 
 The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT Hub or event hub is pushing data beyond the enforced limits, you see throttling and a lag.
 
@@ -79,8 +79,8 @@ Ensure that the name and value conform to the following rules:
 
 The easiest way to ensure that your *timestamp property name* is captured and working properly is to use the TSI explorer.  Within the TSI explorer, using the chart, select a period of time after you provided the *timestamp property name*.  Right click the selection and choose the *explore events* option.  The first column header should be your *timestamp property name* and it should have a *($ts)* next to the word *Timestamp*, rather than:
 - *(abc)*, which would indicate TSI is reading the data values as strings
-- *Calendar icon*, which would indicate TSI is reading the data valye as *datetime*
-- *#*, which would indicate TSI is reading the data values as an interger
+- *Calendar icon*, which would indicate TSI is reading the data value as *datetime*
+- *#*, which would indicate TSI is reading the data values as an integer
 
 
 ## Next steps
