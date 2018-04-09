@@ -80,7 +80,7 @@ You need to reauthenticate your Data Lake Store account if its password has chan
 ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in an Azure SQL Database.  The table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well (this is a preview feature). The table below lists the property names and their description for creating a SQL Database output.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in an Azure SQL Database.  The table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well. The table below lists the property names and their description for creating a SQL Database output.
 
 | Property Name | Description |
 | --- | --- |
@@ -314,7 +314,7 @@ The following table describes the properties for creating an Azure Cosmos DB out
 | Partition Key | Optional. This is only needed if you are using a {partition} token in your collection name pattern. The partition key is the name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used for example, PartitionId. |
 | Document ID |Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
 
-## Azure Functions (In Preview)
+## Azure Functions (in preview)
 Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that is triggered by events occurring in Azure or third-party services.  This ability of Azure Functions to respond to triggers makes it a natural output for an Azure Stream Analytics. This output adapter allows users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
 
 Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure Function Output adapter is available with the following configurable properties:
