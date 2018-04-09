@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.date: 04/05/2018
 ms.author: tomfitz
 ---
-# Azure Resource Manager templates for Event Grid
+# Azure PowerShell samples for Event Grid
 
 The following table includes links to Azure PowerShell samples for Event Grid.
 
