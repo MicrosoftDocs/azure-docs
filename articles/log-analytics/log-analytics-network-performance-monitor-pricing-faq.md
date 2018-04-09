@@ -20,7 +20,7 @@ ms.author: ajaycode
 # Pricing changes for Azure Network Performance Monitor
 
 We have listened to your feedback and recently introduced a [new pricing experience](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) for various monitoring services across Azure. 
-The new pricing article captures the pricing changes related to Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) in an easy-to-read question and answer format.
+This article captures the pricing changes related to Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) in an easy-to-read question and answer format.
 
 Network Performance Monitor consists of three components:
 * [Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
