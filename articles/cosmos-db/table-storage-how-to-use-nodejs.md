@@ -22,7 +22,7 @@ ms.author: mimig
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
-This article shows how to perform common scenarios using Azure Storage Table service or Azure Comsos DB in a Node.js application.
+This article shows how to perform common scenarios using Azure Storage Table service or Azure Cosmos DB in a Node.js application.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
