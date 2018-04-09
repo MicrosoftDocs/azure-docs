@@ -52,6 +52,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
+## Benchmark scores
+
+Learn more about compute performance for Linux VMs using the [CoreMark benchmark scores](compute-benchmark-scores.md).
+
 ## Next steps
 
 Learn more about the different VM sizes that are available:
