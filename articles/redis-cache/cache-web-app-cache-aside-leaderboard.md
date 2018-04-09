@@ -26,8 +26,6 @@ ms.author: wesmc
 
 In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md), to include a leaderboard that uses the cache-aside pattern with Azure Redis Cache. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Redis Cache to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
 
-This tutorial builds onto the *ContosoTeamStats* ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md).
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -268,7 +266,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 In this section of the tutorial, you configure the sample application to store and retrieve Contoso team statistics from an Azure Redis Cache instance by using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) cache client.
 
-* [Add a cache connection](#add-a-cache-connection-to-the-teams-controller)
+* [Add a cache connection to the Teams Controller](#add-a-cache-connection-to-the-teams-controller)
 * [Update the TeamsController to read from the cache or the database](#update-the-teamscontroller-to-read-from-the-cache-or-the-database)
 * [Update the Create, Edit, and Delete methods to work with the cache](#update-the-create-edit-and-delete-methods-to-work-with-the-cache)
 * [Add caching methods to the Teams Index view](#add-caching-methods-to-the-teams-index-view)
@@ -685,6 +683,9 @@ To run the app locally:
 
 ## Publish and run in Azure
 
+* [Provision a SQL Azure database for the app](#provision-a-sql-azure-database-for-the-app)
+* [Publish the application updates to Azure](#publish-the-application-updates-to-azure)
+
 ### Provision a SQL Azure database for the app
 
 In this section you will provision a new SQL Azure database for the app to use while hosted in Azure.
@@ -759,6 +760,7 @@ In this step of the tutorial, you'll publish the application updates to Azure to
 Click some of the actions and experiment with retrieving the data from the different sources. Note the differences in the time it takes to complete the various ways of retrieving the data from the database and the cache.
 
 ## Clean up resources
+
 When you are finished with the sample tutorial application, you can delete the Azure resources used in order to conserve cost and resources. All of your resources should be contained in the same resource group, you can delete them together in one operation by deleting the resource group. The instructions for this topic used a resource group named *TestResources*. 
 
 > [!IMPORTANT]
@@ -780,15 +782,16 @@ When you are finished with the sample tutorial application, you can delete the A
 
 ## Next steps
 
-* Learn more about [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site.
-* For more examples of creating an ASP.NET Web App in App Service, see [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
-* Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
-* Learn more about [web apps in Azure App Service](../app-service/app-service-web-overview.md).
-* Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal.
 * Explore Azure Redis Cache premium features:
   
   * [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
   * [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
   * [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
+
+* Learn more about [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site.
+* For more examples of creating an ASP.NET Web App in App Service, see [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
+* Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
+* Learn more about [web apps in Azure App Service](../app-service/app-service-web-overview.md).
+* Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal.
 
 
