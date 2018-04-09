@@ -73,14 +73,12 @@ items:
     items:
     - name: Global distribution
       href: distribute-data-globally.md
-    - name: Consistency
-      href: consistency-levels.md
     - name: Partitioning
       href: partition-data.md
     - name: Throughput
       href: request-units.md
-    - name: TCO
-      href: https://aka.ms/cosmosdb-tco-paper
+    - name: Consistency
+      href: consistency-levels.md
     - name: Serverless database
       href: serverless-computing-database.md
     - name: Security
@@ -88,10 +86,10 @@ items:
       items:
         - name: Encryption at rest
           href: database-encryption-at-rest.md
-        - name: Firewall support
-          href: firewall-support.md
         - name: Securing access to data
           href: secure-access-to-data.md
+    - name: TCO
+      href: https://aka.ms/cosmosdb-tco-paper
     - name: Use cases
       href: use-cases.md
       items:
@@ -436,6 +434,8 @@ items:
       href: manage-account.md
     - name: Throughput
       href: set-throughput.md
+    - name: Firewall support
+      href: firewall-support.md
     - name: Metrics
       href: use-metrics.md
     - name: Monitor SLAs
@@ -468,5 +468,3 @@ items:
       href: faq.md
     - name: Data consistency explained through baseball
       href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
-    - name: Troubleshoot Azure Cosmos DB
-      href: troubleshoot-azure-cosmosdb.md
