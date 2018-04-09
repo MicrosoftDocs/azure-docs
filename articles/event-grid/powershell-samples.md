@@ -14,7 +14,7 @@ ms.author: tomfitz
 ---
 # Azure Resource Manager templates for Event Grid
 
-The following table includes links to Azure CLI samples for Event Grid.
+The following table includes links to Azure PowerShell samples for Event Grid.
 
 | | |
 |-|-|
