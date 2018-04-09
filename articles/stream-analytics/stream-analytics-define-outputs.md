@@ -337,16 +337,16 @@ The following table summarizes the partition support and the number of output wr
 | Output type | Partitioning support | Partition key  | Number of output writers | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Yes | Use {date} and {time} token in the Path pattern. | Same as input. | 
-| SQL | No | None | Not applicable. | 
-| Blob storage | Yes | Use {date} and {time} token in the Path pattern. | Same as input. | 
-| Event Hub output multi sender | Yes | Yes | Same as output Event Hub partitions. |
-| Event Hub output gateway | Yes | Yes | Same as input. |
+| Azure SQL Database | No | None | Not applicable. | 
+| Azure Blob storage | Yes | Use {date} and {time} token in the Path pattern. | Same as input. | 
+| Azure Event Hub output multi sender | Yes | Yes | Same as output Event Hub partitions. |
+| Azure Event Hub output gateway | Yes | Yes | Same as input. |
 | Power BI | No | None | Not applicable. | 
-| Table storage | Yes | Any output column.  | Same as input or previous step. | 
-| Service Bus Topic | Yes | Automatically chosen. | Same as output. |
-| Service Bus Queue | Yes | Automatically chosen. | Same as output. |
-| Cosmos DB | Yes | Use {partition} token in the Collection name pattern. {partition} value is based on the PARTITION BY clause in the query. | Same as input. |
-| Azure function | No | None | Not applicable. | 
+| Azure Table storage | Yes | Any output column.  | Same as input or previous step. | 
+| Azure Service Bus Topic | Yes | Automatically chosen. | Same as output. |
+| Azure Service Bus Queue | Yes | Automatically chosen. | Same as output. |
+| Azure Cosmos DB | Yes | Use {partition} token in the Collection name pattern. {partition} value is based on the PARTITION BY clause in the query. | Same as input. |
+| Azure Function | No | None | Not applicable. | 
 
 
 ## Get help
