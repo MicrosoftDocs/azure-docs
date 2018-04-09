@@ -56,5 +56,5 @@ From this blade, you can delete access assignments that were assigned directly t
 ## Next steps
 
 * Get started with Role-Based Access Control to [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md)
-* See the [RBAC built-in roles](role-based-access-built-in-roles.md)
+* See the [RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 

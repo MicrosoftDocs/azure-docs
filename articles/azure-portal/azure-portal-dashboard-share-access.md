@@ -71,6 +71,6 @@ Your dashboard is now published. If the permissions inherited from the subscript
      ![assigned roles](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## Next steps
-* For a list of roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
+* For a list of roles, see [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md).
 * To learn about managing resources, see [Manage Azure resources through portal](resource-group-portal.md).
 

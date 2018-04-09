@@ -191,9 +191,9 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
 [premium-storage]:../articles/virtual-machines/windows/premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
-[rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
-[rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user
-[rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
+[rbac-roles]:../articles/role-based-access-control/built-in-roles.md
+[rbac-devtest]:../articles/role-based-access-control/built-in-roles.md#devtest-labs-user
+[rbac-network]:../articles/role-based-access-control/built-in-roles.md#network-contributor
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/

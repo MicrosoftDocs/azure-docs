@@ -18,13 +18,13 @@
     - name: With REST
       href: role-based-access-control-manage-access-rest.md
   - name: Built-in roles
-    href: role-based-access-built-in-roles.md
+    href: ../role-based-access-control/built-in-roles.md
   - name: Custom roles
     href: role-based-access-control-custom-roles.md
   - name: Assign custom roles for internal and external users
     href: role-based-access-control-create-custom-roles-for-internal-external-users.md
   - name: Reporting
-    href: role-based-access-control-access-change-history-report.md
+    href: ../role-based-access-control/change-history-report.md
   - name: Elevate tenant admin access
     href: role-based-access-control-tenant-admin-access.md
   - name: Troubleshoot

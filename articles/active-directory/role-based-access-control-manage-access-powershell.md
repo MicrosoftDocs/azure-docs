@@ -133,7 +133,7 @@ Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT Operatio
 ```
 
 ### Create role with PSRoleDefinitionObject
-When you use PowerShell to create a custom role, you can start from scratch or use one of the [built-in roles](role-based-access-built-in-roles.md) as a starting point. The example in this section starts with a built-in role and then customizes it with more privileges. Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
+When you use PowerShell to create a custom role, you can start from scratch or use one of the [built-in roles](../role-based-access-control/built-in-roles.md) as a starting point. The example in this section starts with a built-in role and then customizes it with more privileges. Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
 
 The following example starts with the *Virtual Machine Contributor* role and uses that to create a custom role called *Virtual Machine Operator*. The new role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
 
