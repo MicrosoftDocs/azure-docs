@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.author: makromer
 
 ---
