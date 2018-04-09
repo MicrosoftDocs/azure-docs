@@ -336,9 +336,9 @@ The following table summarizes the partition support and the number of output wr
 
 | Output type | Partitioning support | Partition key  | Number of output writers | 
 | --- | --- | --- | --- |
-| Azure Data Lake Store | Yes | Use {date} and {time} token in the Path prefix pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
+| Azure Data Lake Store | Yes | Use {date} and {time} tokens in the Path prefix pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
 | Azure SQL Database | No | None | Not applicable. | 
-| Azure Blob storage | Yes | Use {date} and {time} token in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
+| Azure Blob storage | Yes | Use {date} and {time} tokens in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
 | Azure Event Hub output multi sender | Yes | Yes | Same as output Event Hub partitions. |
 | Azure Event Hub output gateway | Yes | Yes | Same as input. |
 | Power BI | No | None | Not applicable. | 
