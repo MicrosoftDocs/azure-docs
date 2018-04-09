@@ -57,13 +57,13 @@ For information, see the [ExpressRoute SLA](https://azure.microsoft.com/support/
 
 ## Supported services
 
-ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) for various types of services.
+ExpressRoute supports [two routing domains](expressroute-circuit-peerings.md) for various types of services.
 
 ### Private peering
 
 * Virtual networks, including all virtual machines and cloud services
 
-### Public peering
+### Microsoft peering
 
 * Power BI
 * Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
@@ -73,9 +73,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
     * Visual Studio Team Services Load Testing
     * Multi-factor Authentication
     * Traffic Manager
-
-### Microsoft peering
-
+    
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 Customer Engagement applications (formerly known as CRM Online)
   * Dynamics 365 for Sales
