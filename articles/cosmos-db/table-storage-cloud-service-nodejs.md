@@ -46,6 +46,15 @@ The following screenshot shows the completed application:
 
 ![The completed web page in internet explorer](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
+## Create an Azure service account
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### Create an Azure storage account
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### Create an Azure Cosmos DB Table API account
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
+
 ## Setting Storage Credentials in Web.Config
 You must pass in storage credentials to access Azure Storage or Azure Cosmos DB. This is done by utilizing the web.config application settings.
 The web.config settings are passed as environment variables to Node, which are then read by the Azure SDK.
