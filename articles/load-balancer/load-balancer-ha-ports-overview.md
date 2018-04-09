@@ -69,20 +69,20 @@ This configuration does not allow any other load-balancing rule configuration on
 
 However, you can configure a public Standard Load Balancer for the backend instances in addition to this HA Port rule.
 
-## One single floating IP (Direct Server Return) HA Ports configuration on the internal Standard Load Balancer
+### One single floating IP (Direct Server Return) HA Ports configuration on the internal Standard Load Balancer
 
 You can similarly configure your load balancer to use a load balancing rule with **HA Port** with a single frontend, and the **Floating IP** set to **Enabled**. 
 
 This configuration allows you to add more floating IP load balancing rules, and / or a public Load Balancer. However, you cannot use a non-Floating IP HA Port boad balancing configuration on top of this configuration.
 
-## Multiple HA Ports configurations on the internal Standard Load Balancer
+### Multiple HA Ports configurations on the internal Standard Load Balancer
 
 If your scenario requires that you configure more than one HA port frontends for the same backend pool, you can achieve this by: 
 - configuring more than one frontend private IP Addresses for a single internal Standard Load Balancer resource.
 - configure multiple load balancing rules, where each rule has a single unique frontend IP Address is selected.
 - Select **HA Ports** option, and set **Floating IP** to **Enabled** for all of the load balancing rules.
 
-## Internal Load Balancer with HA Ports & public Load Balancer on the same backend instances
+### Internal Load Balancer with HA Ports & public Load Balancer on the same backend instances
 
 You can configure **one** public Standard Load Balancer resource for the backend resources along with a single internal Standard Load Balancer with HA ports.
 

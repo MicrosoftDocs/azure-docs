@@ -94,7 +94,7 @@ In addition to storing diagnostic log events in an Azure Storage account, you ca
   Stream Batch diagnostic events to the highly scalable data ingress service, Event Hubs. Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider.
 * [Analyze Azure diagnostic logs using Log Analytics](../log-analytics/log-analytics-azure-storage.md)
   
-  Send your diagnostic logs to Log Analytics where you can analyze them in the Operations Management Suite (OMS) portal, or export them for analysis in Power BI or Excel.
+  Send your diagnostic logs to Log Analytics where you can analyze them in the Azure portal, or export them for analysis in Power BI or Excel.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

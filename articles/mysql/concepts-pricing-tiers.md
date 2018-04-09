@@ -20,7 +20,7 @@ You can create an Azure Database for MySQL server in one of three different pric
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Memory per vCore | Baseline | 2x Basic | 2x General Purpose |
-| Storage size | 5 GB to 2 TB | 5 GB to 2 TB | 5 GB to 2 TB |
+| Storage size | 5 GB to 1 TB | 5 GB to 2 TB | 5 GB to 2 TB |
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
 
@@ -42,9 +42,9 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 |:---|:----------:|:--------------------:|
 | Central US |  | X |
 | East US | X | X |
-| East US 2 | X |  |
+| East US 2 | X | X |
 | North Central US | X |  |
-| South Central US | X |  |
+| South Central US | X | X |
 | West US | X | X |
 | West US 2 |  | X |
 | Canada Central | X | X |
@@ -59,8 +59,8 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Australia East |  | X |
 | Central India | X |  |
 | West India | X |  |
-| Japan East | X |  |
-| Japan West | X |  |
+| Japan East | X | X |
+| Japan West | X | X |
 | Korea South |  | X |
 
 Depending on the pricing tier, each vCore is provisioned with a specific amount of memory. When you increase or decrease the number of vCores for your server, the memory increases or decreases proportionally. The General Purpose tier provides double the amount of memory per vCore compared to the Basic tier. The Memory Optimized tier provides double the amount of memory compared to the General Purpose tier.
@@ -72,7 +72,7 @@ The storage you provision is the amount of storage capacity available to your Az
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 5 GB to 2 TB | 5 GB to 2 TB | 5 GB to 2 TB |
+| Storage size | 5 GB to 1 TB | 5 GB to 2 TB | 5 GB to 2 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS | 3 IOPS/GB<br/>Min 100 IOPS |
 
