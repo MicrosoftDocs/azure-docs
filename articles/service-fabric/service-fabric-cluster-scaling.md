@@ -76,7 +76,7 @@ When scaling a standalone cluster, keep the following guidelines in mind:
 - The replacement of primary nodes should be performed one node after another, instead of removing and then adding in batches.
 - Before removing a node type, check if there are any nodes referencing the node type. Remove these nodes before removing the corresponding node type. Once all corresponding nodes are removed, you can remove the NodeType from the cluster configuration and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
 
-For more information, see [scale a standalone cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
+For more information, see [scale a standalone cluster](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ## Scaling an Azure cluster up or down
 Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately.  Scaling a node type up or down involves changing the SKU of the virtual machine instances in the scale set. 
@@ -85,9 +85,7 @@ Virtual machine scale sets are an Azure compute resource that you can use to dep
 > We recommend that you do not change the VM SKU of a scale set/node type unless it is running at [Silver durability or greater](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
 >
 
-Instead of migrating to a new cluster, it is possible to  
-
-When scaling an Azure cluster, keep the following guidelines in mind:
+When scaling an Azure cluster, keep the following guideline in mind:
 - If scaling down a primary node type, you should never scale it down more than what the [reliability tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) allows.
 
 The process of scaling a node type up or down is different depending on whether it is a non-primary or primary node type.
@@ -101,8 +99,8 @@ We recommend that you do not change the VM SKU of the primary node type. If you 
 If that not possible, you can create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the virtual machine scale set Model definition to reflect the new SKU. If your cluster has only one node type, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
 
 ## Next steps
-* Learn about [application scalability](service-fabric-concepts-scalability.md)
-* [Scale an Azure cluster in or out](service-fabric-tutorial-scale-cluster.md)
+* Learn about [application scalability](service-fabric-concepts-scalability.md).
+* [Scale an Azure cluster in or out](service-fabric-tutorial-scale-cluster.md).
 * [Scale an Azure cluster programmatically](service-fabric-cluster-programmatic-scaling.md) using the fluent Azure compute SDK.
-* [Scale a standaone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md)
+* [Scale a standaone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
