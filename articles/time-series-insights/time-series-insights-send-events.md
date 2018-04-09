@@ -45,14 +45,14 @@ This article explains how to create and configure event hub and run a sample app
   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
 ## Add Time Series Insights reference data set 
-Using reference data in TSI contextualizes your telemetry data.  That context data adds meaning to your data and makes it easier to filter and aggregate.  TSI joins reference data at ingress time and cannot retroactively join this data.  Therefore, it is critical to add reference data prior to adding an event source with data.  Data like location or sensor type are useful dimensions that you might want to join to a device/tag/sensor ID to make it easier to slice and filter.  
+Using reference data in TSI contextualizes your telemetry data.  That context adds meaning to your data and makes it easier to filter and aggregate.  TSI joins reference data at ingress time and cannot retroactively join this data.  Therefore, it is critical to add reference data prior to adding an event source with data.  Data like location or sensor type are useful dimensions that you might want to join to a device/tag/sensor ID to make it easier to slice and filter.  
 
 > [!IMPORTANT]
-> Having a reference data set configured is very important when you upload historical data.
+> Having a reference data set configured is critical when you upload historical data.
 
-Ensuring that you have your reference data in place is especially critical if you are bulk uploading historical data to TSI.  Keep in mind, TSI will immediately start reading from a joined event source if that event source has data.  It's useful to wait to join an event source to TSI until you have your reference data in place, especially if that event source has data in it. Alternatively, you can wait to push data to that event source until the reference data set is in place.
+Ensure that you have reference data in place when you bulk upload historical data to TSI.  Keep in mind, TSI will immediately start reading from a joined event source if that event source has data.  It's useful to wait to join an event source to TSI until you have your reference data in place, especially if that event source has data in it. Alternatively, you can wait to push data to that event source until the reference data set is in place.
 
-Reference data has both a C# API and a web user interface in the TSI Explorer. There is a programmatic interface for reference data using a C# application, so you can build an app from scratch. TSI Explorer has a visual user experience to upload files or paste-in existing reference data sets as JSON or CSV format.  
+To manage reference data, there is the web-based user interface in the TSI Explorer, and there is a programmatic C# API. TSI Explorer has a visual user experience to upload files or paste-in existing reference data sets as JSON or CSV format. With the API you can build a custom app from scratch if needed.
 
 For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
@@ -183,7 +183,7 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
 
 #### Input
 
-A JSON object with a nested JSON array containing two JSON objects.
+A JSON object with a nested JSON array that contains two JSON objects:
 ```json
 {
     "location":"WestUs",
