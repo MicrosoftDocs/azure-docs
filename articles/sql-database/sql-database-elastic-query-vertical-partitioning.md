@@ -7,7 +7,7 @@ author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 04/01/2018
 ms.author: mlandzic
 
 
