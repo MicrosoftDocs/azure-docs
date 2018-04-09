@@ -342,7 +342,7 @@ The following table summarizes the partition support and the number of output wr
 | Event Hub output multi sender | Yes | Yes | Same as output Event Hub partitions. |
 | Event Hub output gateway | Yes | Yes | Same as input. |
 | Power BI | No | None | Not applicable. | 
-| Table storage | Yes | configurable | Same as input or previous step. | 
+| Table storage | Yes | Any output column.  | Same as input or previous step. | 
 | Service Bus Topic | Yes | Automatically chosen. | Same as output. |
 | Service Bus Queue | Yes | Automatically chosen. | Same as output. |
 | Azure Cosmos DB | Yes | Use {partition} token in the Collection name pattern. | Same as input. |
