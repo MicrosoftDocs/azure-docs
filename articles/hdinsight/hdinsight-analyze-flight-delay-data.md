@@ -383,8 +383,10 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the HiveQL script to.</td></tr>
     <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the HiveQL script to.</td></tr>
     </table>
-2. Open Azure PowerShell ISE.
-3. Copy and paste the following script into the script pane:
+    
+2. Open Azure PowerShell ISE.  
+
+3. Copy and paste the following script into the script pane:  
 
     ```powershell
     [CmdletBinding()]
@@ -574,8 +576,10 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     <tr><td>$sqlDatabaseLocation</td><td>This value is used only when you're creating a new Azure database server.</td></tr>
     <tr><td>$sqlDatabaseName</td><td>The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays. </td></tr>
     </table>
+    
 2. Open Azure PowerShell ISE.
-3. Copy and paste the following script into the script pane:
+
+3. Copy and paste the following script into the script pane:  
 
     ```powershell
     [CmdletBinding()]
