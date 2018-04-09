@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/09/2018
 ms.author: jeedes
 
 ---
@@ -126,7 +126,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 7. In a different web browser window, login to Ziflow as a Security Administrator.
 
 
-8. Click on Avtar in the top right corner, and then click **Manage account**.
+8. Click on Avatar in the top right corner, and then click **Manage account**.
 
 	![Ziflow Configuration Manage](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_manage.png)
 
@@ -140,11 +140,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Select **Type** as **SAML2.0**.
 
-	b.In the **Sign In URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from the Azure portal.
+	b.In the **Sign In URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from the Azure portal.
 
     c. Upload the base-64 encoded certificate that you have downloaded from the Azure portal, into the **X509 Signing Certificate**.
 
-	d. In the **Sign Out URL** textbox, paste the value of **Sign-Out URL** which you have copied from the Azure portal.
+	d. In the **Sign Out URL** textbox, paste the value of **Sign-Out URL**, which you have copied from the Azure portal.
 
 	e. From the **Configuration Settings for your Identifier Provider** section, copy the highlighted unique ID value and append it with the Identifier and Sign on URL in the **Ziflow Domain and URLs section** on Azure portal.
 
@@ -194,11 +194,11 @@ To provision a user account, perform the following steps:
 
 3. Click **Add** and then click **Add user**.
 
-	![Ziflow Configuration add](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_add.png)
+	![Ziflow Configuration adding user](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_add.png)
 
 4. On the **Add a user** popup, perform the following steps:
 
-	![Ziflow Configuration adduser](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_adduser.png)
+	![Ziflow Configuration adding user](./media/active-directory-saas-ziflow-tutorial/tutorial_ziflow_adduser.png)
 
 	a. In **Email** text box, enter the email of user like brittasimon@contoso.com.
 
