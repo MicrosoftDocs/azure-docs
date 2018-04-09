@@ -13,12 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/19/2018
+ms.date: 4/6/2018
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## March Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-03 | [4088787], [4088776] |Windows 10 Security |5.17 |March 13, 2018 |
+| Rel 18-03 | [4088878], [4088880], [4088879] |Windows Security only |2.72, 3.59, 4.52 |March 13, 2018 |
+| Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |March 13, 2018 |
+| Rel 18-03 | [4074595] |Flash |3.59, 4.52, 5.17 |March 13, 2018 |
+| N/A | [4074598] |February non-security rollup |2.72 |February 13, 2018 |
+| N/A | [4074593] |February non-security rollup |3.59 |February 13, 2018 |
+| N/A | [4074594] |February non-security rollup |4.52 |February 13, 2018 |
+| N/A | [4074837] |Timezone update |2.72, 3.59, 4.52 |February 13, 2018 |
+
 
 ## February Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -598,6 +611,17 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4088787]: http://support.microsoft.com/kb/4088787
+[4088776]: http://support.microsoft.com/kb/4088776 
+[4088878]: http://support.microsoft.com/kb/4088878
+[4088880]: http://support.microsoft.com/kb/4088880
+[4088879]: http://support.microsoft.com/kb/4088879
+[4089187]: http://support.microsoft.com/kb/4089187
+[4088785]: http://support.microsoft.com/kb/4088785
+[4074598]: http://support.microsoft.com/kb/4074598
+[4074593]: http://support.microsoft.com/kb/4074593
+[4074594]: http://support.microsoft.com/kb/4074594
+[4074837]: http://support.microsoft.com/kb/4074837
 
 [4074590]: http://support.microsoft.com/kb/4074590
 [4074588]: http://support.microsoft.com/kb/4074588 
