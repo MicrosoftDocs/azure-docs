@@ -101,6 +101,31 @@ There is a new Http Module [Microsoft.AspNet.TelemetryCorrelation](https://www.n
 
 Application Insights SDK starting version `2.4.0-beta1` uses DiagnosticsSource and Activity to collect telemetry and associate it with the current activity. 
 
+<a name="java-correlation"></a>
+## Telemetry correlation in the Java SDK
+The [Application Insights Java SDK](app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc) issued within the scope of a request. It also takes care of propagating the correlation headers (descrived above) for service to service calls via HTTP if the [Java SDK agent](app-insights-java-agent.md) is configured. 
+
+Currently, automatic context propagation across messaging technologies (e.g. Kafka, RabbitMQ, Azure Service Bus) is not supported. It is possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` API's, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+
+<a name="java-role-name"></a>
+### Role Name
+At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the role name by doing one of the following:
+
+Via a telemetry initializer (all telemetry items are tagged)
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+Via the [device context class](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (only this telemetry item is tagged)
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
+
 ## Next steps
 
 - [Write custom telemetry](app-insights-api-custom-events-metrics.md)
