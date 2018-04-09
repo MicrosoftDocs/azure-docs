@@ -41,7 +41,7 @@ In the sign-in page, or the navigation bar, or any other location of your web ap
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
-<a href="/.auth/login/microsoft">Log in with Microsoft Account</a> 
+<a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
