@@ -4,7 +4,7 @@ description: Tutorial - Manage Azure virtual machines by applying RBAC, polices,
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 
 ms.service: virtual-machines-windows

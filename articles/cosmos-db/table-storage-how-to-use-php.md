@@ -3,9 +3,8 @@ title: How to use Azure Storage Table service or Azure Cosmos DB Table API from 
 description: Learn how to use the Table service API from PHP to create and delete a table, and insert, delete, and query the table.
 services: cosmos-db
 documentationcenter: php
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
@@ -14,8 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
 ms.date: 04/05/2018
-ms.author: mimig
-
+ms.author: sngun
 ---
 # How to use Azure Storage Table service or Cosmos DB Table API from PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -427,9 +425,6 @@ The **TableRestProxy->batch** method allows you to execute multiple operations i
 * **addDeleteEntity** (adds a deleteEntity operation)
 
 The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request. 
-
-> [!NOTE]
-> Azure Cosmos DB does not yet support batch operations for tables. 
 
 ```php
 require_once 'vendor/autoload.php';
