@@ -58,7 +58,7 @@ To create an Azure Virtual Network, and then create the Kafka and Spark clusters
     * An Azure Virtual Network, which contains the HDInsight clusters.
 
     > [!IMPORTANT]
-    > The structured streaming notebook used in this tutorial requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
+    > The structured streaming notebook used in this tutorial requires Spark 2.2.0 on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
 
 2. Use the following information to populate the entries on the **Customized template** section:
 
@@ -75,6 +75,8 @@ To create an Azure Virtual Network, and then create the Kafka and Spark clusters
     | SSH Password | The password for the SSH user. |
    
     ![Screenshot of the customized template](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
+
+3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**
 
 4. Finally, check **Pin to dashboard** and then select **Purchase**. 
 

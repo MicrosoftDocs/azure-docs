@@ -22,6 +22,9 @@
   - name: Use Kafka with Spark Structured Streaming
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
+  - name: Kafka and Storm
+    href: ../hdinsight-apache-storm-with-kafka.md
+    maintainContext: true
 - name: Concepts
   items:
   - name: Capacity planning
@@ -49,9 +52,6 @@
       maintainContext: true
     - name: Kafka and Spark (DStream)
       href: ../hdinsight-apache-spark-with-kafka.md
-      maintainContext: true
-    - name: Kafka and Storm
-      href: ../hdinsight-apache-storm-with-kafka.md
       maintainContext: true
     - name: Use Kafka with Azure Container Service
       href: apache-kafka-azure-container-services.md
