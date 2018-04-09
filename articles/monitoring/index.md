@@ -55,7 +55,7 @@ Migration refers to transitioning workloads currently running on-premises to the
 
 
 ## Operations Management Suite
-Previous Azure management documentation included Operations Management Suite (OMS), which is a bundling of the following Azure management services:
+Previous technical documentation related to Azure management included Operations Management Suite (OMS), which is a bundling of the following Azure management services:
 
 - Azure Automation
 - Azure Backup
