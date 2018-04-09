@@ -26,20 +26,20 @@ The dashboard shows charts and graphs of the various analytics available for the
 
 The following are the available analytics. Each analytic notes endpoint restrictions. 
 
-- **Call Volume**: Shows the number of calls made during the reporting period. If the reporting period is for a day, the chart shows the number of calls made per hour. Otherwise, the chart shows the number of calls made per day of the reporting period.  
+- Call Volume: Shows the number of calls made during the reporting period. If the reporting period is for a day, the chart shows the number of calls made per hour. Otherwise, the chart shows the number of calls made per day of the reporting period.  
   
--  **Top Queries**: Shows the top queries during the reporting period. You can configure the number of queries shown. For example, you can show the top 25, 50, or 75 queries. Top Queries is not available for the following endpoints:  
+-  Top Queries: Shows the top queries during the reporting period. You can configure the number of queries shown. For example, you can show the top 25, 50, or 75 queries. Top Queries is not available for the following endpoints:  
   
-- /images/trending
-- /images/details
-- /images/visualsearch
-- /videos/trending
-- /videos/details
-- /news
-- /news/trendingtopics
-- /suggestions  
+  - /images/trending
+  - /images/details
+  - /images/visualsearch
+  - /videos/trending
+  - /videos/details
+  - /news
+  - /news/trendingtopics
+  - /suggestions  
   
-- **Geographic Distribution**: The markets where the results come from. For example, en-us. Bing uses the `mkt` query parameter to determine the market, if specified. Otherwise, Bing uses signals such as the caller's IP address to determine the market.  
+- Geographic Distribution: The markets where the results come from. For example, en-us. Bing uses the `mkt` query parameter to determine the market, if specified. Otherwise, Bing uses signals such as the caller's IP address to determine the market.  
   
 - **Response Code Distribution**: The HTTP status codes of all calls during the reporting period.  
   
@@ -60,7 +60,7 @@ The following are the available analytics. Each analytic notes endpoint restrict
 
 The following shows the analytics that are available for each endpoint.
 
-![Distribution by endpoint support matrix](./media/cognitive-services-bing-statistics/bing-statistics-matrix.PNG)
+![Distribution by endpoint support matrix](./media/cognitive-services-bing-statis  tics/bing-statistics-matrix.PNG)
 
 
 ## Filtering the data
