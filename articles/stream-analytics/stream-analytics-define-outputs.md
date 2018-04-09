@@ -330,6 +330,21 @@ Note that when Azure Stream Analytics receives 413 (http Request Entity Too Larg
 
 Also, in a situation where there is no event landing in a time window, no output is generated. As a result, computeResult function is not called. This behavior is consistent with the built-in windowed aggregate functions.
 
+## Partitioning
+The following table summarizes the partition support and the number of output writers for each output type. 
+| Output type | Partitioning support | Partition key  | Number of output writers | 
+| Azure Data Lake Store | Yes | Use {date} and {time} token in the Path pattern. | Same as input. | 
+| SQL | No | None | Not applicable. | 
+| Blob storage | Yes | Use {date} and {time} token in the Path pattern. | Same as input. | 
+| Event Hub output multi sender | Yes | Yes | Same as output Event Hub partitions. |
+| Event Hub output gateway | Yes | Yes | Same as input. |
+| Power BI | No | None | Not applicable. | 
+| Table storage | Yes | configurable | Same as input or previous step. | 
+| Service Bus Topic | Yes | Automatically chosen. | Same as output. |
+| Service Bus Queue | Yes | Automatically chosen. | Same as output. |
+| Azure Cosmos DB | Yes | Use {partition} token in the Collection name pattern. | Same as input. |
+| Azure function | No | None | Not applicale. | 
+
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
