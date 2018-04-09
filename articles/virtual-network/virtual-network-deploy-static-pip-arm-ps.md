@@ -166,11 +166,11 @@ Now that all necessary resources are in place, you can create a new VM.
 
 8. Save the script file.
 
-## Step 4 - Run the script
+## Run the script
 
 After making any necessary changes, run the previous script. The virtual machine is created after a few minutes.
 
-## Operating system IP address settings
+## Set IP addresses within the operating system
 
 You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary, such as when [assigning multiple IP addresses to a Windows VM](virtual-network-multiple-ip-addresses-powershell.md). If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings.
 
