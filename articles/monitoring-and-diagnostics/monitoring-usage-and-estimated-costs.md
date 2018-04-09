@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
 
 ---
@@ -58,12 +58,16 @@ Here you will see a different set of meters – the meters which correspond to t
 3. Application Insights\Basic Overage Data
 4. Application Insights\Included Data
 
-are combined into a new common data ingestion meter called **Shared Services\Data Ingestion** since the new pricing model does not have node-based included data allocations.
+are combined into a new common data ingestion meter called **Shared Services\Data Ingestion** since the new pricing model does not have per-node included data entitlements.
 
 Another change you will see is that data ingested into Log Analytics or Application Insights in regions with higher costs will be shown with the new regional meters to properly reflect this, for instance **“Data Ingestion (US West Central)**.
 
 > [!NOTE]
-> If you have an Operations Management Suite (OMS) subscription, you receive Log Analytics and Application Insights data ingestion allocations for each node purchased. Since this is applied at the account level (not at the subscription), this estimate cannot show the effect of these allocations. Please consult your account representative for a more in-depth discussion of the new pricing model in this case.
+> The per-subscription estimated costs does not factor into the account level per-node entitlements of the Operations Management Suite (OMS) subscription. Please consult your account representative for a more in-depth discussion of the new pricing model in this case.
+
+## New pricing model and Operations Management Suite subscription entitlements
+
+Customers who purchased Microsoft Operations Management Suite E1 and E2 are eligible for per-node data ingestion entitlements for [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) and [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). To receive these entitlements for Log Analytics workspaces or Application Insights resources in a given subscription, that subscription's pricing model must remain in the pre-April 2018 pricing model where the Log Analytics "Per-node (OMS)" pricing tier and the Application Insights "Enterprise" pricing plan are available. Depending on the number of nodes of the suite that your organization purchased, moving some subscriptions to the new pricing model may still be advantageous, but this requires careful consideration. 
 
 ## Changes when moving to the new pricing model
 
