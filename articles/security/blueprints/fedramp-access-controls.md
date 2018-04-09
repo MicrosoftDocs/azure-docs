@@ -202,7 +202,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint implements the Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. Azure can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
+| **Customer** | This blueprint implements the Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. It can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
