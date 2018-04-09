@@ -1,64 +1,47 @@
 ---
 title: Use Apache Kafka with Storm on HDInsight - Azure | Microsoft Docs
-description: Apache Kafka is installed with Apache Storm on HDInsight. Learn how to write to Kafka, and then read from it, using the KafkaBolt and KafkaSpout components provided with Storm. Also learn how to use the Flux framework to define and submit Storm topologies.
+description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
-ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: java
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/08/2018
+ms.date: 04/06/2018
 ms.author: larryfr
+#Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Storm and Kafka to process streaming data.
 ---
-# Use Apache Kafka with Storm on HDInsight
+# Tutorial: Use Apache Storm with Kafka on HDInsight
 
-Learn how to use Apache Storm to read from and write to Apache Kafka. This example also demonstrates how to save data from a Storm topology to the HDFS-compatible file system used by HDInsight.
+Learn how to create an Apache Storm topology that reads from and writes to Apache Kafka.
 
-> [!NOTE]
-> The steps in this document create an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
+This tutorial uses the KafkaBolt and KafkaSpout components of Apache Storm to access Kafka data. This tutorial also demonstrates how to use the HDFSBolt component to persist data to the HDFS-compatible storage on the Storm cluster.
+
+> [!IMPORTANT]
+> The steps in this document require an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
 > 
-> When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
+> If you already have a virtual network that contains a Kafka cluster, you can create a Storm cluster in the same virtual network. For your convenience, this document also provides a template that can create all the required Azure resources.
 
-## Get the code
-
-The code for the example used in this document is available at [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
-
-To compile this project, you need the following configuration for your development environment:
-
-* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
-
-* [Maven 3.x](https://maven.apache.org/download.cgi)
-
-* An SSH client (you need the `ssh` and `scp` commands) - For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* A text editor or IDE.
-
-The following environment variables may be set when you install Java and the JDK on your development workstation. However, you should check that they exist and that they contain the correct values for your system.
-
-* `JAVA_HOME` - should point to the directory where the JDK is installed.
-* `PATH` - should contain the following paths:
-  
-    * `JAVA_HOME` (or the equivalent path).
-    * `JAVA_HOME\bin` (or the equivalent path).
-    * The directory where Maven is installed.
+When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
 
 ## Create the clusters
 
-Apache Kafka on HDInsight does not provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Storm clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
+Apache Kafka on HDInsight does not provide access to the Kafka brokers over the public internet. Anything that uses Kafka must be in the same Azure virtual network. In this tutorial, both the Kafka and Storm clusters are located in the same Azure virtual network. 
+
+The following diagram shows how communication flows between Storm and Kafka:
 
 ![Diagram of Storm and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
 > [!NOTE]
 > Other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-While you can create an Azure virtual network, Kafka, and Storm clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Storm clusters to your Azure subscription.
+To create an Azure Virtual Network, and then create the Kafka and Storm clusters within it, use the following steps:
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
    
@@ -103,6 +86,30 @@ Once the resources have been created, the section for the resource group is disp
 
 > [!IMPORTANT]
 > Notice that the names of the HDInsight clusters are **storm-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
+
+## Get the code
+
+The code for the example used in this document is available at [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
+
+To compile this project, you need the following configuration for your development environment:
+
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
+
+* [Maven 3.x](https://maven.apache.org/download.cgi)
+
+* An SSH client (you need the `ssh` and `scp` commands) - For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* A text editor or IDE.
+
+The following environment variables may be set when you install Java and the JDK on your development workstation. However, you should check that they exist and that they contain the correct values for your system.
+
+* `JAVA_HOME` - should point to the directory where the JDK is installed.
+* `PATH` - should contain the following paths:
+  
+    * `JAVA_HOME` (or the equivalent path).
+    * `JAVA_HOME\bin` (or the equivalent path).
+    * The directory where Maven is installed.
+
 
 ## Understanding the code
 
