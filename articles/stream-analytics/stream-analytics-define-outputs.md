@@ -331,8 +331,11 @@ Note that when Azure Stream Analytics receives 413 (http Request Entity Too Larg
 Also, in a situation where there is no event landing in a time window, no output is generated. As a result, computeResult function is not called. This behavior is consistent with the built-in windowed aggregate functions.
 
 ## Partitioning
-The following table summarizes the partition support and the number of output writers for each output type. 
+
+The following table summarizes the partition support and the number of output writers for each output type:
+
 | Output type | Partitioning support | Partition key  | Number of output writers | 
+| --- | --- | --- | --- |
 | Azure Data Lake Store | Yes | Use {date} and {time} token in the Path pattern. | Same as input. | 
 | SQL | No | None | Not applicable. | 
 | Blob storage | Yes | Use {date} and {time} token in the Path pattern. | Same as input. | 
