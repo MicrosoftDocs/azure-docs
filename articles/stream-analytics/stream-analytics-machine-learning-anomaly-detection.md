@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 04/09/2018
 ---
 
 # Anomaly Detection in Azure Stream Analytics
