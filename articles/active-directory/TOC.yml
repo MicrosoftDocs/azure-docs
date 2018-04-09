@@ -26,7 +26,7 @@
   - name: Reporting
     href: role-based-access-control-access-change-history-report.md
   - name: Elevate tenant admin access
-    href: role-based-access-control-tenant-admin-access.md
+    href: ../role-based-access-control/elevate-access-global-admin.md
   - name: Troubleshoot
     href: ../role-based-access-control/troubleshooting.md
   - name: Resource Provider operations
