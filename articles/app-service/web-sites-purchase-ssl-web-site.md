@@ -203,6 +203,6 @@ If your SSL certificate is configured for auto-renewal, but it is not automatica
 ## More resources
 
 * [Enforce HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
-* [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1.1-1.2)
+* [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
 * [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md)
 * [FAQ : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
