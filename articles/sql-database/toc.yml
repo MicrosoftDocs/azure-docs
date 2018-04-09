@@ -410,6 +410,10 @@
         href: saas-tenancy-cross-tenant-reporting.md
       - name: ETL for analytics
         href: saas-tenancy-tenant-analytics.md
+      - name: Disaster recovery using geo-restore
+        href: saas-dbpertenant-dr-geo-restore.md
+      - name: Disaster recovery using database geo-replication
+        href: saas-dbpertenant-dr-geo-replication.md
     - name: Multi-tenant database
       items:
       - name: Deploy example app
