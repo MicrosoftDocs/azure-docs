@@ -26,7 +26,7 @@ This section shows the steps to install and configure the authentication pipelin
 <!--start-collapse-->
 > ### About these libraries
 
->The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to retype their password, and no additional verification is needed.
+>The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to retype the password, and no additional verification is needed.
 <!--end-collapse-->
 
 ## Configure the authentication pipeline
@@ -116,6 +116,8 @@ The steps below are used to create an OWIN middleware Startup Class to configure
     }
     
     ```
+
+
 <!--start-collapse-->
 > ### More Information
 > The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD. Because the OpenID Connect middleware uses cookies in the background, you also need to set up cookie authentication as the code above shows. The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.
