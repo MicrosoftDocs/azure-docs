@@ -78,9 +78,19 @@ You can now add data to your new collection using Data Explorer.
 
 Now let's clone the Xamarin SQL API app from github, review the code, obtain the API keys, and run it. You'll see how easy it is to work with data programmatically.
 
-1. Open a git terminal window, such as git bash, and `cd` to a working directory.
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
-2. Run the following command to clone the sample repository.
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
@@ -243,10 +253,7 @@ The following steps will demonstrate how to run the app using the Visual Studio 
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
