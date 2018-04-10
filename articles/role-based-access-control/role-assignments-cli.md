@@ -19,9 +19,9 @@ ms.reviewer: rqureshi
 # Manage Role-Based Access Control with the Azure command-line interface
 
 > [!div class="op_single_selector"]
-> * [PowerShell](role-based-access-control-manage-access-powershell.md)
-> * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-> * [REST API](role-based-access-control-manage-access-rest.md)
+> * [PowerShell](role-assignments-powershell.md)
+> * [Azure CLI](role-assignments-cli.md)
+> * [REST API](role-assignments-rest.md)
 
 
 With role-based access control (RBAC), you define access for users, groups, and service principals by assigning roles at a particular scope. This article describes how to manage role assignments using the Azure command-line interface (CLI).

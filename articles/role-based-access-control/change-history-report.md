@@ -56,6 +56,6 @@ To save the report, or manipulate the data, export the access changes into a .cs
 ![Changelog viewed as spreadsheet - screenshot](./media/change-history-report/change-history-spreadsheet.png)
 
 ## Next steps
-* Work with [Custom roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md)
-* Learn how to manage [Azure RBAC with powershell](../active-directory/role-based-access-control-manage-access-powershell.md)
+* Work with [Custom roles in Azure RBAC](custom-roles.md)
+* Learn how to manage [Azure RBAC with powershell](role-assignments-powershell.md)
 

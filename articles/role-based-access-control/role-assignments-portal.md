@@ -18,7 +18,7 @@ ms.reviewer: rqureshi
 ---
 # Use Role-Based Access Control to manage access to your Azure subscription resources
 > [!div class="op_single_selector"]
-> * [Manage access by user or group](../active-directory/role-based-access-control-manage-assignments.md)
+> * [Manage access by user or group](role-assignments-users.md)
 > * [Manage access by resource](role-assignments-portal.md)
 
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. This article helps you get up and running with RBAC in the Azure portal. If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](../active-directory/role-based-access-control-what-is.md).
@@ -67,12 +67,12 @@ Inherited assignments cannot be removed. If you need to remove an inherited assi
 ## Other tools to manage access
 You can assign roles and manage access with Azure RBAC commands in tools other than the Azure portal.  Follow the links to learn more about the prerequisites and get started with the Azure RBAC commands.
 
-* [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
-* [Azure Command-Line Interface](../active-directory/role-based-access-control-manage-access-azure-cli.md)
-* [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+* [Azure PowerShell](role-assignments-powershell.md)
+* [Azure Command-Line Interface](role-assignments-cli.md)
+* [REST API](role-assignments-rest.md)
 
 ## Next Steps
 * [Create an access change history report](change-history-report.md)
 * See the [RBAC built-in roles](built-in-roles.md)
-* Define your own [Custom roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md)
+* Define your own [Custom roles in Azure RBAC](custom-roles.md)
 

@@ -95,6 +95,6 @@ If you can't access any of these tiles, ask your administrator for Contributor a
 ## See more
 * [Role Based Access Control](../role-based-access-control/role-assignments-portal.md): Get started with RBAC in the Azure portal.
 * [Built-in roles](../role-based-access-control/built-in-roles.md): Get details about the roles that come standard in RBAC.
-* [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
+* [Custom roles in Azure RBAC](../role-based-access-control/custom-roles.md): Learn how to create custom roles to fit your access needs.
 * [Create an access change history report](../role-based-access-control/change-history-report.md): Keep track of changing role assignments in RBAC.
 
