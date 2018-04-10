@@ -377,7 +377,7 @@ name=Oracle Linux $releasever Add ons ($basearch)
 baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
-enabled=0
+enabled=1
 ```
 
 Then type:
