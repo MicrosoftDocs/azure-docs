@@ -6,6 +6,8 @@
     href: proof-text.md
   - name: Supported languages
     href: bing-spell-check-supported-languages.md
+  - name: Analytics for Spell Check API
+    href: bing-spell-check-stats.md
 - name: API Quickstarts
   items:
   - name: C#

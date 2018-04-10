@@ -8,6 +8,8 @@
     href: autosuggest-endpoint.md
   - name: Supported languages
     href: bing-autosuggest-supported-languages.md
+  - name: Analytics for Autosuggest API
+    href: bing-autosuggest-stats.md
 - name: Quickstarts
   expanded: true
   items:

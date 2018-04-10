@@ -6,6 +6,8 @@
       href: search-the-web.md
     - name: Video Search endpoints
       href: video-search-endpoints.md
+    - name: Analytics for Videos Search API
+      href: bing-video-stats.md
 - name: API Quickstarts
   expanded: true
   items:
