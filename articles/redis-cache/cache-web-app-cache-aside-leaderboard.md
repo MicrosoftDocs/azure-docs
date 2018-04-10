@@ -304,10 +304,8 @@ You already installed the *StackExchange.Redis* client library package in the qu
 
 In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample, you'll query the sorted set for the top 5 teams ranked by number of wins.
 
-> [!NOTE]
-> It is not required to store the team statistics in multiple formats in the cache in order to use Azure Redis Cache. This tutorial uses multiple formats to demonstrate some of the different ways and different data types you can use to cache data.
-> 
-> 
+It is not required to store the team statistics in multiple formats in the cache in order to use Azure Redis Cache. This tutorial uses multiple formats to demonstrate some of the different ways and different data types you can use to cache data.
+
 
 1. Add the following `using` statements to the `TeamsController.cs` file at the top with the other `using` statements:
 
