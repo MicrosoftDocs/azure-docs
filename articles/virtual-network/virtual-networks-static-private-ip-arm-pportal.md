@@ -95,8 +95,6 @@ To add a static private IP address to the VM created using the steps above, foll
 > 
 > 
 
-It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary, such as when [assigning multiple IP addresses to a Windows VM](virtual-network-multiple-ip-addresses-portal.md). If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings.
-
 ## How to remove a static private IP address from a VM
 To remove the static private IP address from the VM created above, complete the following step:
 
