@@ -60,10 +60,11 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
     6. Confirm that the **instance count** is set to **1**. If you set it to **2**, 2 VMs are created with names: `<base image name>00' and <base image name>01`. For example: `win10vm00` and `win10vm01`. 
     7. To close the **Advanced** page, click **OK**. 
     8. Select **Create**. 
+
         ![Choose a base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
     9. You see the status of the VM in the list of **Claimable virtual machines** list. Creation of the virtual machine may take approximately 25 minutes. The VM is created in a separate Azure resource group, whose name starts with the name of the current resource group that has the custom lab. For example, if the custom lab is in `customlabrg`, the VM may be created in the resource group `customlabrg3988722144002`. 
         ![VM creation status](./media/tutorial-create-custom-lab/vm-creation-status.png)
-4. After the VM is created, you see it in the list of **Claimable virtual machines** in the list. 
+1. After the VM is created, you see it in the list of **Claimable virtual machines** in the list. 
 
 ## Add a user to the Lab User role
 
