@@ -2,19 +2,13 @@
 title: Get started with cross-database queries (vertical partitioning) | Microsoft Docs
 description: how to use elastic database query with vertically partitioned databases
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: torsteng
-
-ms.assetid: e5b44b10-c432-4f96-b20e-08615ff4d5dd
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2016
-ms.author: torsteng
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Get started with cross-database queries (vertical partitioning) (preview)

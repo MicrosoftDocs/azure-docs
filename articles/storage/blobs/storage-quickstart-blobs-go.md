@@ -37,6 +37,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 
 This command clones the repository to your local git folder. To open the Go sample for Blob storage, look for storage-quickstart.go file.  
 
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
+
 ## Configure your storage connection string
 This solution requires your storage account name and key to be securely stored in environment variables local to the machine running the sample. Follow one of the examples below depending on your operating System to create the environment variables.
 
@@ -209,6 +211,13 @@ containerURL.Delete(ctx, azblob.ContainerAccessConditions{})
 file.Close()
 os.Remove(fileName)
 ```
+
+## Resources for developing Go applications with blobs
+
+See these additional resources for Go development with Blob storage:
+
+- View and install the [Go client library source code](https://github.com/Azure/azure-storage-blob-go) for Azure Storage on GitHub.
+- Explore [Blob storage samples](https://godoc.org/github.com/Azure/azure-storage-blob-go/2016-05-31/azblob#pkg-examples) written using the Go client library.
 
 ## Next steps
  

@@ -1,21 +1,14 @@
 ---
-title: Azure Stream Analytics and Machine Learning integration | Microsoft Docs
-description: How to use a user-defined function and Machine Learning in a Stream Analytics job
-keywords: ''
-documentationcenter: ''
+title: Azure Stream Analytics integration with Azure Machine Learning
+description: This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning, using a user defined function.
 services: stream-analytics
-author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/01/2018
-ms.author: sngun
 ---
 
 # Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning
@@ -145,7 +138,7 @@ The job gets its input from the CSV file that you uploaded earlier to blob stora
    |**Container**  | Select the container you created earlier (`azuresamldemoblob`)        |
    |**Event serialization format**  |  Select **CSV**       |
 
-    ![Settings for new job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
+   ![Settings for new job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
 4. Click **Save**.
 
@@ -187,7 +180,7 @@ In this section of the tutorial, you define a function in the Stream Analysis jo
    | **URL**| Paste the web service URL.|
    |**Key** | Paste the API key. |
   
-    ![Settings for adding a Machine Learning function to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Settings for adding a Machine Learning function to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
 4. Click **Save**.
 

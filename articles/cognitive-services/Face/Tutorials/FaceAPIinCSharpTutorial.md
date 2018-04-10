@@ -3,14 +3,14 @@ title: Face API C# tutorial | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: Create a simple Windows app that uses the Cognitive Services Emotion API to detect faces in an image by framing the faces.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: SteveMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: anroth
+ms.author: sbowles
 ---
 
 # Getting Started with Face API in C&#35; Tutorial

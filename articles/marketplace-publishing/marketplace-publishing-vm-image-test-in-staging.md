@@ -3,8 +3,8 @@ title: Test your VM offer for the Marketplace | Microsoft Docs
 description: Understand how to test your VM image for the Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: hascipio
+ms.author: mbaldwin
 
 ---
 # Test your VM offer for the Azure Marketplace in staging

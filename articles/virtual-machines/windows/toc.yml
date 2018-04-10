@@ -201,8 +201,6 @@
       href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Accelerated maintenance FAQ
-      href: accelerated-maintenance.md
     - name: Scheduled events
       href: scheduled-events.md
     - name: Monitor metadata
@@ -344,15 +342,24 @@
     - name: Azure Log Collector extension
       href: log-collector-extension.md
     - name: Azure diagnostics extension
-      href: ps-extensions-diagnostics.md
+      href: extensions-diagnostics.md
+      items:
+      - name: Extension schema
+        href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+      - name: Enable using PowerShell
+        href: ps-extensions-diagnostics.md
+      - name: Enable with templates
+        href: extensions-diagnostics-template.md
+      - name: Troubleshooting
+        href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
     - name: Exporting VM extensions
       href: extensions-export-templates.md
     - name: Troubleshoot extensions
       href: extensions-troubleshoot.md
-    - name: Monitoring and Diagnostics Extension
-      href: extensions-diagnostics-template.md
     - name: Network Watcher Agent
       href: extensions-nwa.md
+    - name: Restrict extension installation
+      href: extensions-rmpolicy-howto-ps.md 
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
@@ -398,6 +405,8 @@
       href: reset-network-interface.md
     - name: Boot diagnostics
       href: boot-diagnostics.md
+    - name: Serial console 
+      href: serial-console.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Deployment issues

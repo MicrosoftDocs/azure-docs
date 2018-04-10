@@ -44,6 +44,8 @@ Offline Backup is supported for all deployment models of Azure Backup that offsi
    > [!NOTE]
    > Offline Backup is not supported for System State backups done using the Azure Backup agent. 
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## Prerequisites
 Ensure that the following prerequisites are met before initiating the Offline Backup workflow
 * A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) has been created. To create one, refer to the steps in [this article](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)

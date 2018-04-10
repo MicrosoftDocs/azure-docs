@@ -32,10 +32,7 @@ Learn how to access Advisor through the Azure portal, get recommendations, and i
 
 4. The Advisor dashboard will display a summary of your recommendations for all selected subscriptions.  You can choose the subscriptions that you want recommendations to be displayed for using the subscription filter dropdown.
 
-5. To get recommendations for a specific category, click one of the tabs: **High Availability**, **Security**, **Performance**, or **Cost**.
- 
-> [!NOTE]
-> To use Azure Advisor with a subscription, a subscription *Owner* must launch the Advisor dashboard.  This action registers the subscription with Advisor.  From that point on, any subscription *Owner*, *Contributor*, or *Reader* can access the Advisor recommendations for the subscription.  
+5. To get recommendations for a specific category, click one of the tabs: **High Availability**, **Security**, **Performance**, or **Cost**. 
 
   ![Azure Advisor dashboard](./media/advisor-overview/advisor-dashboard.png)
 

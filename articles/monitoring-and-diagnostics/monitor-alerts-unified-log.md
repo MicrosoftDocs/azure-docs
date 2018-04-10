@@ -1,6 +1,6 @@
 ---
-title: Log alerts in Azure Monitor - Alerts (Preview) | Microsoft Docs
-description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the complex query conditions you specify are met for Azure Alerts (Preview).
+title: Log alerts in Azure Monitor - Alerts | Microsoft Docs
+description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the complex query conditions you specify are met for Azure Alerts .
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -13,24 +13,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/17/2018
 ms.author: vinagara
 
 ---
-# Log alerts in Azure Monitor - Alerts (Preview)
-This article provides details of how alert rules in Analytics queries work in Azure Alerts (Preview) and describes the differences between different types of log alert rules.
+# Log alerts in Azure Monitor - Alerts 
+This article provides details of how alert rules in Analytics queries work in Azure Alerts  and describes the differences between different types of log alert rules. For details of Metric Alerts using Logs, refer to [Near Real Time Metric Alerts](monitoring-near-real-time-metric-alerts.md)
 
-Currently Azure Alerts (Preview), supports log alerts on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) and [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
+Currently Azure Alerts, supports log alerts on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) and [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
 
-> Currently, log alert in Azure Alerts (Preview) doesn't support cross-workspace or cross-app queries.
+> Currently, log alert in Azure Alerts  doesn't support cross-workspace or cross-app queries. And Log Alerts for Application Insights is in public preview - the functionality and user experience is subject to change.
 
-Also, users can perfect their queries in Analytics platform of choice in Azure and then *import them for use in Alerts (Preview) by saving the query*. Steps to follow:
+Also, users can perfect their queries in Analytics platform of choice in Azure and then *import them for use in Alerts  by saving the query*. Steps to follow:
 - For Application Insights: Go-to Analytics portal, validate query and its results. Then save with unique name into *Shared Queries*.
 - For Log Analytics: Go-to Log Search, validate query and its results. Then use save with unique name into any category.
 
-Then when [creating a log alert in Alerts (Preview)](monitor-alerts-unified-usage.md), you see the saved query listed as signal type **Log (Saved Query)**; as illustrated in below example:
+Then when [creating a log alert in Alerts ](monitor-alerts-unified-usage.md), you see the saved query listed as signal type **Log (Saved Query)**; as illustrated in below example:
  ![Saved Query imported to Alerts](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Then when [creating a log alert in Alerts (Preview)](monitor-alerts-unified-usag
 
 ## Log Alert rules
 
-Alerts are created by Azure Alerts (Preview) automatically run log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process like sending data to external application using [json based webhook](monitor-alerts-unified-log-webhook.md), using [Action Groups](monitoring-action-groups.md). Different types of alert rules use different logic to perform this analysis.
+Alerts are created by Azure Alerts  to automatically run log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process like sending data to external application using [json based webhook](monitor-alerts-unified-log-webhook.md), using [Action Groups](monitoring-action-groups.md). Different types of alert rules use different logic to perform this analysis.
 
 Alert Rules are defined by the following details:
 
@@ -73,7 +73,7 @@ Consider a scenario where you want to know when your web-based App gives a respo
 **Alert frequency:** five minutes<br>
 **Threshold value:** Great than 0<br>
 
-Then alert would run the query every 5 minutes, with 30 minutes of data - to look for any record where result code was 500. If even one such record is found, it fires the alert and trigger the action configured.
+Then alert would run the query every 5 minutes, with 30 minutes of data - to look for any record where result code was 500. If even one such record is found, it fires the alert and triggers the action configured.
 
 ## Metric measurement alert rules
 
@@ -94,7 +94,7 @@ Then alert would run the query every 5 minutes, with 30 minutes of data - to loo
 
 **Interval**:  Defines the time interval over which the data is aggregated.  For example, if you specified **five minutes**, a record would be created for each instance of the group field aggregated at 5-minute intervals over the time window specified for the alert.
 > [!NOTE]
-> Bin function must be used in query. Also if unequal time intervals are produced for time window by use of Bin function - Alert will instead use bin_at function instead to ensure there is a fixed point
+> Bin function must be used in query. As bin() can result in unequal time intervals  - Alert will instead use bin_at function with appropriate time at runtime, to ensure results with a fixed point
 
 **Threshold**: The threshold for Metric measurement alert rules is defined by an aggregate value and a number of breaches.  If any data point in the log search exceeds this value, it's considered a breach.  If the number of breaches in for any object in the results exceeds the specified value, then an alert is created for that object.
 
@@ -116,7 +116,7 @@ In this example, separate alerts would be created for srv02 and srv03 since they
 
 ## Next steps
 * Understand [Webhook actions for log alerts](monitor-alerts-unified-log-webhook.md)
-* [Get an overview of Azure Alerts (Preview)](monitoring-overview-unified-alerts.md)
-* Learn about [Using Azure Alerts (preview)](monitor-alerts-unified-usage.md)
+* [Get an overview of Azure Alerts ](monitoring-overview-unified-alerts.md)
+* Learn about [Using Azure Alerts ](monitor-alerts-unified-usage.md)
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
 * Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).    

@@ -8,10 +8,10 @@
 # Get Started
 ## [Virtual Machines](documentation-government-quickstarts-vm.md) 
 ## [Azure App Services](documentation-government-howto-deploy-webandmobile.md)
-## [Azure Functions](documentation-government-functions.md)
 ## [Cognitive Services](documentation-government-cognitiveservices.md)
 ## [Integrate Azure AD Authentication](documentation-government-aad-auth-qs.md)
 ## [GPUs](documentation-government-gpu.md)
+## [Kubernetes](documentation-government-k8.md)
 
 # How To
 ## Plan
@@ -19,7 +19,7 @@
 ### [Compliance](documentation-government-plan-compliance.md)
 ### [Identity](documentation-government-plan-identity.md)
 ## Manage
-### [Operations Management Suite](documentation-government-manage-oms.md)
+### [Log Analytics](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ## Connect
@@ -50,6 +50,7 @@
 ### [Security + Identity](documentation-government-services-securityandidentity.md)
 ### [Backup](documentation-government-services-backup.md)
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
+### [Developer Tools](documentation-government-services-devtools.md)
 ## [CSP for Azure Government](documentation-government-csp-application.md)
 ## Certifications
 ### [ITAR](documentation-government-overview-itar.md)

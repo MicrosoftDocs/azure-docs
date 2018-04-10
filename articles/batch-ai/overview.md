@@ -4,7 +4,7 @@ description: Learn about using the managed Azure Batch AI service to train artif
 services: batch-ai
 documentationcenter: ''
 author: alexsuttonms
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -41,7 +41,7 @@ Batch AI provides resource management and job scheduling specialized for AI trai
 * Mounting remote file shares into the VM and optional container 
 * Providing job status and restarting in case of VM failures 
 * Access to output logs, stdout, stderr, and models, including streaming from Azure Storage 
-* Azure [command-line interface](/cli/azure/overview) (CLI), SDKs for [Python](https://github.com/Azure/azure-sdk-for-python), [C#](https://www.nuget.org/packages/Microsoft.Azure.Management.BatchAI/1.0.0-preview), and Java, monitoring in the Azure Portal, and integration with Microsoft AI tools 
+* Azure [command-line interface](/cli/azure) (CLI), SDKs for [Python](https://github.com/Azure/azure-sdk-for-python), [C#](https://www.nuget.org/packages/Microsoft.Azure.Management.BatchAI/1.0.0-preview), and Java, monitoring in the Azure Portal, and integration with Microsoft AI tools 
 
 The Batch AI SDK supports writing scripts or applications to manage training pipelines and integrate with tools. The SDK currently provides Python, C#, Java, and REST APIs.  
  
@@ -70,7 +70,7 @@ To use Batch AI, you define and manage *clusters* and *jobs*. 
 * AI framework-specific configuration or the command line and parameters to start the job 
  
 
-Get started using Batch AI with the [Azure CLI](/cli/azure/overview) and configuration files for clusters and jobs. Use this approach to quickly create your cluster when needed and run jobs to experiment with network design or hyper-parameters.  
+Get started using Batch AI with the [Azure CLI](/cli/azure) and configuration files for clusters and jobs. Use this approach to quickly create your cluster when needed and run jobs to experiment with network design or hyper-parameters.  
  
 
 Batch AI makes it easy to work in parallel with multiple GPUs. When jobs need to scale across multiple GPUs, Batch AI sets up secure network connectivity between the VMs. When InfiniBand is used, Batch AI configures the drivers and starts MPI across the nodes in a job.  

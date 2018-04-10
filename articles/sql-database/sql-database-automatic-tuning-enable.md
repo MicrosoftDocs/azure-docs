@@ -2,20 +2,13 @@
 title: Enable automatic tuning for Azure SQL Database | Microsoft Docs
 description: You can enable automatic tuning on your Azure SQL Database easily.
 services: sql-database
-documentationcenter: ''
 author: veljko-msft 
 manager: drasumic
-editor: vvasic
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "Inactive"
-ms.date: 09/19/2016
-ms.author: veljko-msft 
+ms.date: 04/01/2018
+ms.author: vvasic 
 
 ---
 # Enable automatic tuning
@@ -25,7 +18,7 @@ Azure SQL Database is an automatically managed data service that constantly moni
 ## Enable automatic tuning on server
 On the server level you can choose to inherit automatic tuning configuration from "Azure Defaults" or not to inherit the configuration. Azure Defaults are FORCE_LAST_GOOD_PLAN enabled, CREATE_INDEX enabled, and DROP_INDEX disabled.
 
-## Configure automiatic tuning e-mail notifications
+## Configure automatic tuning e-mail notifications
 
 See [Automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md)
 

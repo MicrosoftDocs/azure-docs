@@ -21,7 +21,7 @@ This scenario explores a relatively [large-scale simulated data set](https://git
 
 ### Cortana Intelligence Gallery GitHub repository
 
-The Cortana Intelligence Gallery for the PM tutorial is a public GitHub repository ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)) where you can report issues and make contributions.
+The Cortana Intelligence Gallery for the PM tutorial is a public GitHub repository ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) where you can report issues and make contributions.
 
 
 ## Use case overview

@@ -87,17 +87,29 @@ While we're working on an improved experience, today, you are responsible for th
 ### Can I encrypt attached data disks in a cluster node type (virtual machine scale set)?
 Yes.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), and [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-## Container Support
+### What are the directories and processes that I need to exclude when running an anti-virus program in my cluster ?
 
-### Why are my containers that are deployed to SF unable to resolve DNS addresses?
+| **Antivirus Excluded directories** |
+| --- |
+| Program Files\Microsoft Service Fabric |
+| FabricDataRoot (from cluster configuration) |
+| FabricLogRoot (from cluster configuration) |
 
-This issue has been reported on clusters that are on 5.6.204.9494 version 
-
-**Mitigation**:  Follow [this document](service-fabric-dnsservice.md) to enable the DNS service fabric service in your cluster.
-
-**Fix**:  Upgrade to a supported cluster version that is higher than 5.6.204.9494, when it is available. If your cluster is set to automatic upgrades, then the cluster will automatically upgrade to the version that has this issue fixed.
-
-  
+| **Antivirus Excluded processes** |
+| --- |
+| Fabric.exe |
+| FabricHost.exe |
+| FabricInstallerService.exe |
+| FabricSetup.exe |
+| FabricDeployer.exe |
+| ImageBuilder.exe |
+| FabricGateway.exe |
+| FabricDCA.exe |
+| FabricFAS.exe |
+| FabricUOS.exe |
+| FabricRM.exe |
+| FileStoreService.exe |
+ 
 ## Application Design
 
 ### What's the best way to query data across partitions of a Reliable Collection?
@@ -144,9 +156,11 @@ Containers offer a simple way to package services and their dependencies such th
 
 ### Are you planning to open-source Service Fabric?
 
-We intend to open-source the reliable services and reliable actors frameworks on GitHub and accept community contributions to those projects. Follow the [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) for more details as they're announced.
+We have open-sourced parts of Service Fabric ([reliable services framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [reliable actors framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core integration libraries](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), and [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)) on GitHub and accept community contributions to those projects. 
 
-The are currently no plans to open-source the Service Fabric runtime.
+We [recently announced](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) that we plan to open-source the Service Fabric runtime. At this point we have the [Service Fabric repo](https://github.com/Microsoft/service-fabric/) up on GitHub with Linux build and test tools, which means you can clone the repo, build Service Fabric for Linux, run basic tests, open issues, and submit pull requests. We’re working hard to get the Windows build environment migrated over as well, along with a complete CI environment.
+
+Follow the [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) for more details as they're announced.
 
 ## Next steps
 

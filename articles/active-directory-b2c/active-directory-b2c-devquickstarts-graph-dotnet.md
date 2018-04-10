@@ -3,18 +3,15 @@ title: 'Use the Graph API - Azure AD B2C | Microsoft Docs'
 description: How to call the Graph API for a B2C tenant by using an application identity to automate the process.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
+editor: ''
 
-ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
-ms.author: parakhj
+ms.author: davidmu
 
 ---
 # Azure AD B2C: Use the Azure AD Graph API
@@ -45,7 +42,7 @@ After you have a B2C tenant, you need to register your application via the [Azur
 3. In the left-hand navigation pane, choose **All Services**, click **App Registrations**, and click **Add**.
 4. Follow the prompts and create a new application. 
     1. Select **Web App / API** as the Application Type.    
-    2. Provide **any redirect URI** (e.g. https://B2CGraphAPI) as it's not relevant for this example.  
+    2. Provide **any Sign-on URL** (e.g. https://B2CGraphAPI) as it's not relevant for this example.  
 5. The application will now show up in the list of applications, click on it to obtain the **Application ID** (also known as Client ID). Copy it as you'll need it in a later section.
 6. In the Settings menu, click on **Keys** and add a new key (also known as client secret). Also copy it for use in a later section.
 

@@ -8,7 +8,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: v-geberr
 ---
 
@@ -56,7 +56,7 @@ The batch file is a JSON array. Each element in the array has 3 properties: `tex
 
 ## <a name="collaborator"></a>Collaborator
 
-A collaborator is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances, and app.
+A collaborator is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances.
 
 ## <a name="currently-editing"></a>Currently editing
 
@@ -80,6 +80,7 @@ An example endpoint looks like:
 |appID | LUIS app ID |
 |subscriptionID | LUIS subscription key created in Azure portal |
 |q | utterance |
+|timezoneOffset| minutes|
 
 ## <a name="entity"></a>Entity
 
@@ -87,15 +88,15 @@ An example endpoint looks like:
 
 ## <a name="f-measure"></a>F-measure
 
-In [batch texting][batch-testing], a measure of the test's accuracy.
+In [batch testing][batch-testing], a measure of the test's accuracy.
 
 ## <a name="false-negative"></a>False negative (TN)
 
-In [batch texting][batch-testing], the data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
+In [batch testing][batch-testing], the data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
 
 ## <a name="false-positive"></a>False positive (TP)
 
-In [batch texting][batch-testing], the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity..
+In [batch testing][batch-testing], the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity..
 
 ## <a name="features"></a>Features
 
@@ -115,7 +116,7 @@ A LUIS app is a trained data model for natural language processing including [in
 
 ## <a name="owner"></a>Owner
 
-Each app has one owner who is the person that created the app. The owner can add [collaborators](#collaborator) that have the same permissions as the owner.
+Each app has one owner who is the person that created the app. The owner can add [collaborators](#collaborator).
 
 ## <a name="phrase-list"></a>Phrase list
 
@@ -130,7 +131,7 @@ A [prebuilt domain](luis-how-to-use-prebuilt-domains.md) is a LUIS app configure
 A [prebuilt entity](pre-builtentities.md) is an entity LUIS provides for common types of information. You can choose to add a prebuilt entity to your application. 
 
 ## <a name="precision"></a>Precision
-In [batch texting][batch-testing], precision (also called positive predictive value) is the fraction of relevant utterances among the retrieved utterances.
+In [batch testing][batch-testing], precision (also called positive predictive value) is the fraction of relevant utterances among the retrieved utterances.
 
 ## <a name="programmatic-key"></a>Programmatic key
 
@@ -145,7 +146,7 @@ Publishing means making a LUIS [active version](#active-version) available on ei
 LUIS quota is the limitation of the [Azure subscription tier](https://aka.ms/luis-price-tier). The LUIS quota is limited by both requests per second (HTTP Status 429) and total requests in a month (HTTP Status 403). 
 
 ## <a name="recall"></a>Recall
-In [batch texting][batch-testing], recall (also known as sensitivity), is the ability for LUIS to generalize. 
+In [batch testing][batch-testing], recall (also known as sensitivity), is the ability for LUIS to generalize. 
 
 ## <a name="starter-key"></a>Starter key
 
@@ -168,17 +169,20 @@ The endpoint includes timezoneOffset. This is the number in minutes you want to 
 |-120|subtract 2 hours|
 |30|add 30 minutes|
 
+## <a name="token"></a>Token
+A token is the smallest unit that can be labeled in an entity. Tokenization is based on the application's [culture](luis-supported-languages.md#tokenization).
+
 ## <a name="train"></a>Train
 
 Training is the process of teaching LUIS about any changes to the [active version](#active-version) since the last training.
 
 ## <a name="true-negative"></a>True negative (TN)
 
-In [batch texting][batch-testing], the data points represent utterances in which your app correctly predicted the absence of the target intent/entity.
+In [batch testing][batch-testing], the data points represent utterances in which your app correctly predicted the absence of the target intent/entity.
 
 ## <a name="true-positive"></a>True positive (TP)
 
-In [batch texting][batch-testing], the data points represent utterances in which your app correctly predicted the existence of the target intent/entity.
+In [batch testing][batch-testing], the data points represent utterances in which your app correctly predicted the existence of the target intent/entity.
 
 ## <a name="utterance"></a>Utterance
 

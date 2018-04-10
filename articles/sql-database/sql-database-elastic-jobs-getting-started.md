@@ -2,19 +2,13 @@
 title: Getting started with elastic database jobs | Microsoft Docs
 description: Use elastic database jobs to execute T-SQL scripts that span multiple databases.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-
-ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
-ms.author: ddove
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Getting started with Elastic Database jobs
@@ -462,7 +456,7 @@ All the rows from **Customers** table, stored in different shards populate the E
 You can now use Excel’s data functions. Use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. Refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
 
 ### Cost
-There is no additional charge for using the Elastic Database query feature. However, at this time this feature is available only on premium databases as an end point, but the shards can be of any service tier.
+There is no additional charge for using the Elastic Database query feature. However, at this time this feature is available only on Premium and Business Critical (preview) databases and elastic pools as an end point, but the shards can be of any service tier.
 
 For pricing information see [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
 

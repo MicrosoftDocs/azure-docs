@@ -20,6 +20,10 @@
 ## [Backup and restore](analysis-services-backup.md)
 ## [Refresh with REST API](analysis-services-async-refresh.md)
 ## [Configure scale-out](analysis-services-scale-out.md)
+## Automate administrative tasks
+### [Create service principle - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Create service principle - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Add a service principle to server administrator role](analysis-services-addservprinc-admins.md)
 ## Server management
 ### [Configure a server name alias](analysis-services-server-alias.md)
 ### [Manage a server](analysis-services-manage.md)

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: bprakash
 
 ---
@@ -44,16 +44,14 @@ The following screenshot shows an OU created in contoso.com. Some of the service
 
 ![Domain Joined HDInsight clusters ou](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### Two ways of bringing your own Active Directory domain controllers
-
-There are two ways you can bring Active Directory domain controllers to create Domain-joined HDInsight clusters. 
+### The way of bringing your own Active Directory domain controllers
 
 - **Azure Active Directory Domain Services**: This service provides a managed Active Directory domain, which is fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the AD domain. You can deploy your cluster without worrying about maintaining domain controllers. Users, groups, and passwords are synchronized from your Azure Active Directory, enabling users to sign in to the cluster using their corporate credentials. For more information, see [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
-- **Active Directory on Azure IaaS VMs**: In this option, you deploy and manage your own Windows Server Active Directory domain on Azure IaaS VMs. For more information, see [Configure domain joined sandbox environment](./apache-domain-joined-configure.md).
+> [!NOTE]
+> Active Directory on Azure IaaS VMs is no longer supported.
 
 ## Next steps
-* To configure a domain-joined HDInsight cluster, see [Configure domain-joined HDInsight clusters](apache-domain-joined-configure.md).
 * To manage domain-joined HDInsight clusters, see [Manage domain-joined HDInsight clusters](apache-domain-joined-manage.md).
 * To configure Hive policies and run Hive queries, see [Configure Hive policies for domain-joined HDInsight clusters](apache-domain-joined-run-hive.md).
 * To run Hive queries by using SSH on domain-joined HDInsight clusters, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).

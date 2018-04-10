@@ -15,13 +15,13 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 07/31/2017
+ms.date: 04/01/2018
 ms.author: jognanay
 ms.reviewer: douglasl
 ---
 # Use PowerShell to sync between multiple SQL Databases
  
-This PowerShell example configures Data Sync to sync between multiple Azure SQL databases.
+This PowerShell example configures Data Sync (Preview) to sync between multiple Azure SQL databases.
 
 This sample requires the Azure PowerShell module version 4.2 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
@@ -258,7 +258,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyncStartTime = Get-Date
+$SyncLogStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"
@@ -365,7 +365,7 @@ For more info about SQL Data Sync, see:
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md)
 -   [Set up Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
 -   [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   [Monitor Azure SQL Data Sync with OMS Log Analytics](../sql-database-sync-monitor-oms.md)
+-   [Monitor Azure SQL Data Sync with Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:

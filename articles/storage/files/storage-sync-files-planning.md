@@ -46,7 +46,7 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume. Multiple server endpoints can exist on the same volume if their namespaces do not overlap (for example, `F:\sync1` and `F:\sync2`). You can configure cloud tiering policies individually for each server endpoint. Currently, it is not possible to create a server endpoint for the root of a volume (for example `F:\` or `C:\myvolume`, if a volume is mounted as a mount point).
 
 > [!Note]  
-> A server endpoint may be located on the Windows system volume. Cloud tiering is not supported on the system volume.
+> Only non-removable volumes are supported.  Drives mapped from a remote share are not supported for a server endpoint path.  In addition, a server endpoint may be located on the Windows system volume though cloud tiering is not supported on the system volume.
 
 If you add a server location that has an existing set of files as a server endpoint to a sync group, those files are merged with any other files that are already on other endpoints in the sync group.
 
@@ -89,10 +89,23 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 | Reparse points | Skipped | |
 | NTFS compression | Fully supported | |
 | Sparse files | Fully supported | Sparse files sync (are not blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
-| Alternate Data Streams (ADS) | Preserved, but not synced | |
+| Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tags created by the File Classification Infrastructure are not synced. Existing classification tags on files on each of the server endpoints are left untouched. |
 
 > [!Note]  
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
+
+### Files Skipped
+| File/Folder | Note |
+|-|-|
+| Desktop.ini | File specific to system |
+| ethumbs.db$ | Temporary file for thumbnails |
+| ~$\*.\* | Office temporary file |
+| \*.tmp | Temporary file |
+| \*.laccdb | Access DB locking file|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\System Volume Information | Folder specific to volume |
+| $RECYCLE.BIN| Folder |
+| \\SyncShareState | Folder for Sync |
 
 ### Failover Clustering
 Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs).
@@ -139,7 +152,7 @@ Like antivirus solutions, backup solutions might cause the recall of tiered file
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:
 
 - BitLocker encryption
-- Azure Rights Management Services (Azure RMS) (and legacy Active Directory RMS)
+- Azure Information Protection, Azure Rights Management Services (Azure RMS), and Active Directory RMS
 
 Azure File Sync is known not to work with:
 
@@ -157,7 +170,12 @@ Azure File Sync is available only in the following regions in preview:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Canada Central | Toronto |
+| Canada East | Quebec City |
+| Central US | Iowa |
+| East Asia | Hong Kong |
 | East US | Virginia |
+| East US2 | Virginia |
+| North Europe | Ireland |
 | Southeast Asia | Singapore |
 | UK South | London |
 | West Europe | Netherlands |
@@ -169,6 +187,7 @@ In preview, we support syncing only with an Azure file share that's in the same 
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Next steps
+* [Consider firewall and proxy settings](storage-sync-files-firewall-and-proxy.md)
 * [Planning for an Azure Files deployment](storage-files-planning.md)
 * [Deploy Azure Files](storage-files-deployment-guide.md)
 * [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
