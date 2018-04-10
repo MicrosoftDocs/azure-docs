@@ -198,7 +198,7 @@ AutoUpdate.Enabled=y
 To enable run:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/\# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### Restart the waagent service
