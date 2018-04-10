@@ -19,20 +19,19 @@ ms.author: sethm
 
 ---
 
-# Process event streams using the Azure portal
+# Process event streams using the Azure portal and .NET Standard
 
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to send and receive events to and from an event hub, after using the [Azure portal](https://portal.azure.com) to create an Event Hubs namespace and an event hub within that namespace.
-
-If you do not have an Azure subscription, create a [free account][] before you begin.
+In this quickstart, we'll show you how to (1) create an event hub using the [Azure portal](https://portal.azure.com) and (2) send to and receive from an event hub using our .NET Standard SDK. 
 
 ## Prerequisites
 
-To complete this tutorial, make sure you have installed:
+To complete this tutorial, make sure you have:
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+1. An Azure subscription. If you don't have one, [create a free subscription][] before you begin.
+2. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+3. [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
-## Log in to Azure
+## Log on to Azure
 
 Log on to the [Azure portal][] using your Azure subscription.
 
