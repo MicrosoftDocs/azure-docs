@@ -426,6 +426,13 @@ A partial cache miss typically occurs after a user aborts a download or for asse
 
 Keep the default configuration for the HTTP Large platform, because it reduces the load on your customer origin server and increases the speed at which your customers download your content.
 
+Value|Result
+--|--
+Enabled|Restores the default behavior. The default behavior is to force the POP to initiate a background fetch of the asset from the origin server. After which, the asset will be in the POP's local cache.
+Disabled|Prevents a POP from performing a background fetch for the asset. The result is that the next request for that asset from that region causes a POP to request it from the customer origin server.
+
+**Default Behavior:** Enabled.
+
 #### Compatibility
 Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
 - AS Number
@@ -445,13 +452,6 @@ Due to the manner in which cache settings are tracked, this feature cannot be as
 - URL Query Regex
 - URL Query Wildcard
 - URL Query Parameter
-
-Value|Result
---|--
-Enabled|Restores the default behavior. The default behavior is to force the POP to initiate a background fetch of the asset from the origin server. After which, the asset will be in the POP's local cache.
-Disabled|Prevents a POP from performing a background fetch for the asset. The result is that the next request for that asset from that region causes a POP to request it from the customer origin server.
-
-**Default Behavior:** Enabled.
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -555,6 +555,8 @@ Key information:
 
 - Setting the time unit to "Off" will assign a default internal max-age interval of 7 days for requests that have not been assigned a max-age indication in their `Cache-Control` or `Expires` header.
 
+**Default Value:** 7 days
+
 #### Compatibility
 Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
 - AS Number
@@ -574,8 +576,6 @@ Due to the manner in which cache settings are tracked, this feature cannot be as
 - URL Query Regex
 - URL Query Wildcard
 - URL Query Parameter
-
-**Default Value:** 7 days
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -672,6 +672,8 @@ Key information:
 
 - Setting the time unit to "Off" disables this feature. An internal max-age interval will not be assigned to requested assets. If the original header does not contain caching instructions, then the asset will be cached according to the active setting in the Default Internal Max-Age feature.
 
+**Default Behavior:** Off
+
 #### Compatibility
 Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
 - AS Number
@@ -691,8 +693,6 @@ Due to the manner in which cache settings are tracked, this feature cannot be as
 - URL Query Regex
 - URL Query Wildcard
 - URL Query Parameter
-
-**Default Behavior:** Off
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -749,6 +749,8 @@ Key information:
 - The set of valid status codes for this feature are: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, and 505.
 - Disable this feature by setting it to a blank value.
 
+**Default Behavior:** The default behavior is to honor the above directives.
+
 #### Compatibility
 Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
 - AS Number
@@ -768,8 +770,6 @@ Due to the manner in which cache settings are tracked, this feature cannot be as
 - URL Query Regex
 - URL Query Wildcard
 - URL Query Parameter
-
-**Default Behavior:** The default behavior is to honor the above directives.
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -812,6 +812,8 @@ Key information:
 
 - Setting the time unit to "Off" will disable this feature. A cached asset will not be served beyond its normal expiration time.
 
+**Default Behavior:** Two minutes
+
 #### Compatibility
 Due to the manner in which cache settings are tracked, this feature cannot be associated with the following match conditions: 
 - AS Number
@@ -831,8 +833,6 @@ Due to the manner in which cache settings are tracked, this feature cannot be as
 - URL Query Regex
 - URL Query Wildcard
 - URL Query Parameter
-
-**Default Behavior:** Two minutes
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -1106,8 +1106,7 @@ If Token-Based Authentication is enabled, then only requests that provide an enc
 
 The encryption key that is used to encrypt and decrypt token values is determined by the Primary Key and the Backup Key options on the Token Auth page. Keep in mind that encryption keys are platform-specific.
 
-#### Compatibility
-Do not use Token Auth with an Always match condition. 
+**Default Behavior:** Disabled.
 
 This feature takes precedence over most features with the exception of the URL Rewrite feature.
 
@@ -1116,7 +1115,8 @@ Value | Result
 Enabled | Protects the requested content with Token-Based Authentication. Only requests from clients that provide a valid token and meet its requirements will be honored. FTP transactions are excluded from Token-Based Authentication.
 Disabled| Restores the default behavior. The default behavior is to allow your Token-Based Authentication configuration to determine whether a request will be secured.
 
-**Default Behavior:** Disabled.
+#### Compatibility
+Do not use Token Auth with an Always match condition. 
 
 [Back to top](#azure-cdn-rules-engine-features)
 
@@ -1125,9 +1125,6 @@ Disabled| Restores the default behavior. The default behavior is to allow your T
 ---
 ### Token Auth Denial Code
 **Purpose:** Determines the type of response that will be returned to a user when a request is denied due to token-based authentication.
-
-#### Compatibility
-Do not use Token Auth Denial Code with an Always match condition. Instead, use the **Custom Denial Handling** section in the **Token Auth** page of the **Manage** portal. For more information, see [Securing Azure CDN assets with token authentication](cdn-token-auth.md).
 
 The available response codes are listed in the following table.
 
@@ -1139,6 +1136,9 @@ Response Code|Response Name|Description
 401|Unauthorized|Combining this status code with the WWW-Authenticate response header allows you to prompt a user for authentication.
 403|Forbidden|This message is the standard 403 Forbidden status message that an unauthorized user will see when trying to access protected content.
 404|File Not Found|This status code indicates that the HTTP client was able to communicate with the server, but the requested content was not found.
+
+#### Compatibility
+Do not use Token Auth Denial Code with an Always match condition. Instead, use the **Custom Denial Handling** section in the **Token Auth** page of the **Manage** portal. For more information, see [Securing Azure CDN assets with token authentication](cdn-token-auth.md).
 
 #### URL Redirection
 
