@@ -9,7 +9,7 @@ When you're ready to run your test, use a Microsoft Azure Active Directory (Azur
 ![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### View application results
-After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that is specified in your application registration information in the Microsoft Application Registration Portal. The home page includes a welcome message "Hello \<User>," a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the **Authorize** controller that you created earlier.
+After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that is specified in your application registration information in the Microsoft Application Registration Portal. The home page includes a welcome message *"Hello \<User>,"* a link to sign out, and a link to view the user’s claims. The link for the user's claims browses to the *Claims* controller that you created earlier.
 
 ### Browse to see the user's claims
 To see the user's claims, select the link to browse to the controller view that is available only to authenticated users.
@@ -28,9 +28,9 @@ In addition, you should see a table of all claims that are in the authentication
 
 
 ### Test access to a method that has an Authorize attribute (optional)
-To test access to the **Authorize** controller for the user's claims as an anonymous user, follow these steps:
+To test access to the `Authorize` controller for the user's claims as an anonymous user, follow these steps:
 1. Select the link to sign out the user and complete the sign-out process.
-2. In your browser, type http://<span></span>localhost:{port}/authenticated to access your controller that is protected with the `Authorize` attribute.
+2. In your browser, type http://<span></span>localhost:{port}/claims to access your controller that is protected with the `Authorize` attribute.
 
 #### Expected results after access to a protected controller
 You're prompted to authenticate to use the protected controller view.
