@@ -19,20 +19,30 @@ ms.reviewer: ppacent
 
 # Validate Azure Stack PKI certificates
 
-The Azure Stack Certificate Checker tool described in this article is provided by the OEM included with the deploymentdata.json file in order to validate that the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. Certificates should be validated with enough time to test and get certificates reissued if necessary.
+The Azure Stack Readiness Checker tool described in this article is available [from the PSGallery](https://aka.ms/AzsReadinessChecker). You can use the tool to validate that  the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. You should validate certificates by leaving  enough time to test and reissue certificates if necessary. 
 
 The Certificate Checker tool (Certchecker) performs the following checks:
 
-- **Read PFX**. Checks for valid PFX file, correct password and warns if public information is not protected by the password. 
-- **Signature Algorithm**. Checks the Signature Algorithm is not SHA1.
-- **Private Key**. Checks the private key is present and is exported with the Local Machine attribute. 
-- **Cert Chain**. Checks certificate chain is intact including a check for self-signed certificates.
-- **DNS Names**. Checks the SAN contains relevant DNS names for each endpoint or if a supporting wildcard is present.
-- **Key Usage**. Checks if the key usage contains digital Signature and key encipherment and enhanced key usage contains server authentication and client authentication.
-- **Key Size**. Checks if the key size is 2048 or larger.
-- **Chain Order**. Checks the order of the other certificates making the chain is correct.
-- **Other Certificates**. Ensure no other certificates have been packaged in PFX other than the relevant leaf certificate and its chain.
-- **No Profile**. Checks that a new user can load the PFX data without a user profile loaded, mimicking the behavior of gMSA accounts during certificate servicing.
+- **Read PFX**  
+    Checks for valid PFX file, correct password, and warns if public information is not protected by the password. 
+- **Signature Algorithm**  
+    Checks that the signature algorithm is not SHA1.
+- **Private Key**  
+    Checks that the private key is present and is exported with the local machine attribute. 
+- **Cert Chain**  
+    Checks certificate chain is intact including a check for self-signed certificates.
+- **DNS Names**  
+    Checks the SAN contains relevant DNS names for each endpoint or if a supporting wildcard is present.
+- **Key Usage**  
+    Checks if the key usage contains digital signature and key encipherment and enhanced key usage contains server authentication and client authentication.
+- **Key Size**  
+    Checks if the key size is 2048 or larger.
+- **Chain Order**  
+    Checks the order of the other certificates making the chain is correct.
+- **Other Certificates**  
+    Ensure no other certificates have been packaged in PFX other than the relevant leaf certificate and its chain.
+- **No Profile**  
+    Checks that a new user can load the PFX data without a user profile loaded, mimicking the behavior of gMSA accounts during certificate servicing.
 
 > [!IMPORTANT]  
 > The PKI certificate is a PFX file and password should be treated as sensitive information.
@@ -50,30 +60,31 @@ Your system should meet the following prerequisites before validating PKI certif
 
 Use these steps to prepare and to validate the Azure Stack PKI certificates:
 
-1. Install AzsReadinessChecker run the following in PowerShell 5.1 or above
+1. Install AzsReadinessChecker from a PowerShell prompt (5.1 or above), by run the following cmdlet: 
 
 ````PowerShell  
     Install-Module Microsoft.AzureStack.ReadinessChecker 
 ````
 
-2. Create certificate directory structure (change c:\certificates for a new directory path of your choice)
+2. Create the certificate directory structure. In the example below, you can change `<c:\certificates>` to a new directory path of your choice.
 
 ````PowerShell  
 New-Item C:\<Certificates> -ItemType Directory
 
 $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal' 
 
-$destination = 'c:\certificates' 
+$destination = '<c:\certificates>' 
 
 $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
 ````
 
- - Place your certificate(s) in the appropriate directories created in the previous step for example: `c:\certificates\ACSBlob\CustomerCertificate.pfx,` 
+ - Place your certificate(s) in the appropriate directories created in the previous step. For example:  
+ - `c:\certificates\ACSBlob\CustomerCertificate.pfx,` 
  - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx` 
  - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx` 
  - and so on… 
 
-3. In the PowerShell windows run the following:
+3. In the PowerShell windows run:
 
 ````PowerShell  
 $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
@@ -81,7 +92,7 @@ $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ````
 
-4. Review the output to verify that all certificates passed the tests. For example:
+4. Review the output to verify that all the certificates passed the tests. For example:
 
 ````PowerShell
 AzsReadinessChecker v1.1803.405.3 started
@@ -123,7 +134,7 @@ AzsReadinessChecker Completed
 
 **Cause**: AzsReadinessChecker skips certain tests if a dependency isn’t met:
 
- - Other certificates are skipped if Certificate Chain fails.
+ - Other certificates are skipped if certificate chain fails.
 
 ````PowerShell  
 Testing: ACSBlob\singlewildcard.pfx
@@ -148,14 +159,14 @@ AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadine
 AzsReadinessChecker Completed
 ````
 
-**Resolution**: Follow the tool's guidance in the details section under each certificate’s set of tests.
+**Resolution**: Follow the tool's guidance in the details section under each set of tests for each certificate.
 
 ## Using validated certificates
 
-Once your certificates have been validated by the AzsReadinessChecker you are ready to use them in your Azure Stack deployment or for Azure Stack Secret Rotation. 
+Once your certificates have been validated by the AzsReadinessChecker, you are ready to use them in your Azure Stack deployment or for Azure Stack secret rotation. 
 
  - For Deployment, securely transfer your certificates to your deployment engineer so that they can copy them onto the deployment host as specified in the [Azure Stack PKI requirements documentation](azure-stack-pki-certs.md).
- - For Secret Rotation, you can use the certificates to update old certificates for your Azure Stack environment’s public infrastructure endpoints by following the [Azure Stack Secret Rotation documentation](azure-stack/azure-stack-rotate-secrets.md).
+ - For Secret Rotation, you can use the certificates to update old certificates for your Azure Stack environment’s public infrastructure endpoints by following the [Azure Stack Secret Rotation documentation](azure-stack-rotate-secrets.md).
 
 ## Next steps
 
