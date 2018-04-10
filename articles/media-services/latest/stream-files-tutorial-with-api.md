@@ -368,7 +368,7 @@ In this example, we are displaying URLs that can be used to play back the video 
 In this tutorial, we are using Azure Media Player to test the streaming URL.
 
 1. Open a web browser and navigate to https://ampdemo.azureedge.net/.
-2. In the **URL:** box, paste one of the streaming URL value you got when you ran the application. 
+2. In the **URL:** box, paste one of the streaming URL values you got when you ran the application. 
 3. Press **Update Player**.
 
 ## Clean up resources
