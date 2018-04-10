@@ -92,7 +92,7 @@ Now the Users tool is filtered to users who used this set of events
 
 The previous two cohorts were defined using dropdowns. But we can also define cohorts with Analytics queries for total flexibility. Let’s see how by creating a cohort of users from the United Kingdom.
 
-![Animated Gif walking through use of Cohorts tool](.\media\app-insights-usage-cohorts\cohorts.gif)
+![Animated Gif walking through use of Cohorts tool](.\media\app-insights-usage-cohorts\cohorts001.gif)
 
 1. Open the **Cohorts** tool
 2. Click **Template Gallery** tab
