@@ -79,7 +79,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
 
 ### Resources included
 
-When the Automation account is successfully created, several resources are automatically created for you. After creation these resources can be safely deleted if you do not wish to keep them. The following table summarizes resources for the Run As account.
+When the Automation account is successfully created, several resources are automatically created for you. After creation these the runbooks can be safely deleted if you do not wish to keep them. The Run As Accounts, can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The following table summarizes resources for the Run As account.
 
 | Resource | Description |
 | --- | --- |
