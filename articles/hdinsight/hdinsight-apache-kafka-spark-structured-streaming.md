@@ -19,11 +19,15 @@ ms.author: larryfr
 ---
 # Tutorial: Use Spark Structured Streaming with Kafka on HDInsight
 
-Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight.
+In this tutorial you will learn how to use Spark Structured Streaming to read and write data with Apache Kafka on Azure HDInsight.
 
-Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
+Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](http://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
 
-This tutorial uses Spark 2.2 on HDInsight 3.6.
+> [!div class="checklist"]
+> * Create Kafka and Spark clusters
+> * Upload the notebook to Spark
+> * Use the notebook
+> * Clean up resources
 
 > [!IMPORTANT]
 > The steps in this document require an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
@@ -31,12 +35,6 @@ This tutorial uses Spark 2.2 on HDInsight 3.6.
 > If you already have a virtual network that contains a Kafka cluster, you can create a Spark cluster in the same virtual network. For your convenience, this document also provides a template that can create all the required Azure resources.
 
 When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
-
-> [!div class="checklist"]
-> * Create Kafka and Spark clusters
-> * Upload the notebook to Spark
-> * Use the notebook
-> * Clean up resources
 
 ## Create the clusters
 

@@ -19,16 +19,9 @@ ms.author: larryfr
 ---
 # Tutorial: Use Apache Storm with Kafka on HDInsight
 
-Learn how to create an Apache Storm topology that reads from and writes to Apache Kafka.
+In this tutorial you will learn how to create an Apache Storm topology to read and write data with Apache Kafka on hdinsight.
 
 This tutorial uses the KafkaBolt and KafkaSpout components of Apache Storm to access Kafka data. This tutorial also demonstrates how to use the HDFSBolt component to persist data to the HDFS-compatible storage on the Storm cluster.
-
-> [!IMPORTANT]
-> The steps in this document require an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
-> 
-> If you already have a virtual network that contains a Kafka cluster, you can create a Storm cluster in the same virtual network. For your convenience, this document also provides a template that can create all the required Azure resources.
-
-When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
 
 > [!div class="checklist"]
 > * Create Kafka and Storm clusters
@@ -39,6 +32,13 @@ When you are done with the steps in this document, remember to delete the cluste
 > * Start the writer topology
 > * Stop the topologies
 > * Clean up resources
+
+> [!IMPORTANT]
+> The steps in this document require an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
+> 
+> If you already have a virtual network that contains a Kafka cluster, you can create a Storm cluster in the same virtual network. For your convenience, this document also provides a template that can create all the required Azure resources.
+
+When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
 
 ## Create the clusters
 
