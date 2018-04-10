@@ -4,7 +4,7 @@ description: Details about row-level security with Power BI Workspace Collection
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

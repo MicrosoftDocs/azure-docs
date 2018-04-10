@@ -4,7 +4,7 @@ description: This article walks through how to create a Power BI Embedded capaci
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

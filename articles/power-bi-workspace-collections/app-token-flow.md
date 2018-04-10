@@ -4,7 +4,7 @@ description: Authenticating and authorizing with Power BI Workspace Collections.
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

@@ -4,7 +4,7 @@ description: Learn how to toggle between view and edit mode for your reports wit
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

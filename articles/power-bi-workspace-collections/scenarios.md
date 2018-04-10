@@ -4,7 +4,7 @@ description: Common Microsoft Power BI Embedded scenarios
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

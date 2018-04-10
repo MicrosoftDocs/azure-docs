@@ -4,7 +4,7 @@ description: Power BI Embedded enables you to integrate Power BI reports into yo
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

@@ -4,7 +4,7 @@ description: Get the latest info on what's new in Power BI Workspace Collections
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

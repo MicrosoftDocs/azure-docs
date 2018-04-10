@@ -4,7 +4,7 @@ description: Learn how to embed a report that is in Power BI Workspace Collectio
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

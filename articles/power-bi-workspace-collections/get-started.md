@@ -4,7 +4,7 @@ description: Power BI Workspace Collections are an Azure service that enables ap
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

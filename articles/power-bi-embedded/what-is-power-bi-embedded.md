@@ -4,7 +4,7 @@ description: Power BI Embedded is intended to simplify how ISVs and developers u
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

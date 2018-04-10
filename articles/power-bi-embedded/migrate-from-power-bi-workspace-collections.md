@@ -4,7 +4,7 @@ description: Learn how to migrate from Power BI Workspace Collections to Power B
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

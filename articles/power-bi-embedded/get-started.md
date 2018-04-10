@@ -4,7 +4,7 @@ description: Power BI Embedded into your business intelligence application
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

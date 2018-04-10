@@ -4,7 +4,7 @@ description: Power BI Workspace Collection reports can now be created from a dat
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

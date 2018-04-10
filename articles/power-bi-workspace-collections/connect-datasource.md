@@ -4,7 +4,7 @@ description: Learn how to connect to a data source within Power BI Workspace Col
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

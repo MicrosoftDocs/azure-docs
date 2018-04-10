@@ -4,7 +4,7 @@ description: The Power BI JavaScript API enables you to easily embed Power BI re
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

@@ -4,7 +4,7 @@ description: The Power BI Embedded migration tool can be used to copy your repor
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

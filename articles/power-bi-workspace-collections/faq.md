@@ -4,7 +4,7 @@ description: Frequently asked questions related to Power BI Workspace Collection
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

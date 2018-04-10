@@ -4,7 +4,7 @@ description: Learn how to save reports within Power BI Workspace Collections. Th
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

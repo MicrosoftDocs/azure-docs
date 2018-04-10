@@ -4,7 +4,7 @@ description: In this article, we'll introduce you to the Power BI Workspace Coll
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

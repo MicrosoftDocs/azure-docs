@@ -4,7 +4,7 @@ description: Here are some code snippets of basic operations needed for content 
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
