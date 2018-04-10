@@ -7542,12 +7542,12 @@
         },
         {
             "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-ps.md",
-            "redirect_url": "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-portal.md",
-            "redirect_url": "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
             "redirect_document_id": false
         },
         {
