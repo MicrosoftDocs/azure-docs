@@ -36,7 +36,7 @@ The sample steps below expect a simple environment already created. If you want 
 ## How to specify a static private IP address when creating a VM
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to https://portal.azure.com and, if necessary, sign in with your Azure account.
 2. Click **NEW** > **Compute** > **Windows Server 2012 R2 Datacenter**, notice that the **Select a deployment model** list already shows **Classic**, and then click **Create**.
    
     ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
@@ -73,6 +73,10 @@ To add a static private IP address to the VM created using the steps above, foll
 
 1. From the **IP addresses** blade shown above, click **Static** to the right of **IP address assignment**.
 2. Type *192.168.1.101* for **IP address**, then click **Save**, and then click **Yes**.
+
+## Set IP addresses within the operating system
+
+It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary. If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings. You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system.
 
 ## Next steps
 * Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
