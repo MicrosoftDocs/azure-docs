@@ -3852,5 +3852,5 @@ This document lists the operations available for each Microsoft Azure Resource M
 
 - Learn how to [create a custom role](role-based-access-control-custom-roles.md).
 - Review the [built in RBAC roles](../role-based-access-control/built-in-roles.md).
-- Learn how to manage access assignments [by user](role-based-access-control-manage-assignments.md) or [by resource](role-based-access-control-configure.md) 
+- Learn how to manage access assignments [by user](role-based-access-control-manage-assignments.md) or [by resource](../role-based-access-control/role-assignments-portal.md) 
 - Learn how to [View activity logs to audit actions on resources](~/articles/azure-resource-manager/resource-group-audit.md)

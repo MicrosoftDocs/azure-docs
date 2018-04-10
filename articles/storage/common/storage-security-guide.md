@@ -82,7 +82,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 * You can create a report of who granted/revoked what kind of access to/from whom and on what scope using PowerShell or the Azure CLI.
 
 #### Resources
-* [Azure Active Directory Role-based Access Control](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory Role-based Access Control](../../role-based-access-control/role-assignments-portal.md)
 
   This article explains the Azure Active Directory Role-based Access Control and how it works.
 * [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md)

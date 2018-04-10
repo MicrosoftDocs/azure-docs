@@ -46,7 +46,7 @@ The article examines the following VM security best practices:
 
 The first step in protecting your VM is to ensure that only authorized users are able to set up new VMs. You can use [Azure policies](../azure-policy/azure-policy-introduction.md) to establish conventions for resources in your organization, create customized policies, and apply these policies to resources, such as [resource groups](../azure-resource-manager/resource-group-overview.md).
 
-VMs that belong to a resource group naturally inherit its policies. Although we recommend this approach to managing VMs, you can also control access to individual VM policies by using [role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
+VMs that belong to a resource group naturally inherit its policies. Although we recommend this approach to managing VMs, you can also control access to individual VM policies by using [role-based access control (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 When you enable Resource Manager policies and RBAC to control VM access, you help improve overall VM security. We recommend that you consolidate VMs with the same life cycle into the same resource group. By using resource groups, you can deploy, monitor, and roll up billing costs for your resources. To enable users to access and set up VMs, use a [least privilege approach](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). And when you assign privileges to users, plan to use the following built-in Azure roles:
 

@@ -1354,7 +1354,7 @@ Lets you manage websites (not web plans), but not access to them.
 | Microsoft.Web/sites/* | Create and manage websites (site creation also requires write permissions to the associated App Service Plan) |
 
 ## See also
-* [Role-Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
+* [Role-Based Access Control](role-assignments-portal.md): Get started with RBAC in the Azure portal.
 * [Custom roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
 * [Create an access change history report](change-history-report.md): Keep track of changing role assignments in RBAC.
 * [Role-Based Access Control troubleshooting](../active-directory/role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.

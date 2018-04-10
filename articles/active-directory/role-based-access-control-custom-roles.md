@@ -113,7 +113,7 @@ The **AssignableScopes** property of the custom role also controls who can view,
     All built-in roles in Azure RBAC allow viewing of roles that are available for assignment. Users who can perform the `Microsoft.Authorization/roleDefinition/read` operation at a scope can view the RBAC roles that are available for assignment at that scope.
 
 ## See also
-* [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
+* [Role Based Access Control](../role-based-access-control/role-assignments-portal.md): Get started with RBAC in the Azure portal.
 * For a list of available operations, see [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
 * Learn how to manage access with:
   * [PowerShell](role-based-access-control-manage-access-powershell.md)

@@ -28,7 +28,7 @@ With Role-Based Access Control (RBAC), you define access for users, groups, and 
 ## List all role assignments
 Lists all the role assignments at the specified scope and subscopes.
 
-To list role assignments, you must have access to `Microsoft.Authorization/roleAssignments/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To list role assignments, you must have access to `Microsoft.Authorization/roleAssignments/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ### Request
 Use the **GET** method with the following URI:
@@ -78,7 +78,7 @@ Status code: 200
 ## Get information about a role assignment
 Gets information about a single role assignment specified by the role assignment identifier.
 
-To get information about a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To get information about a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ### Request
 Use the **GET** method with the following URI:
@@ -119,7 +119,7 @@ Status code: 200
 ## Create a Role Assignment
 Create a role assignment at the specified scope for the specified principal granting the specified role.
 
-To create a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/write` operation. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To create a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/write` operation. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ### Request
 Use the **PUT** method with the following URI:
@@ -177,7 +177,7 @@ Status code: 201
 ## Delete a Role Assignment
 Delete a role assignment at the specified scope.
 
-To delete a role assignment, you must have access to the `Microsoft.Authorization/roleAssignments/delete` operation. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To delete a role assignment, you must have access to the `Microsoft.Authorization/roleAssignments/delete` operation. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ### Request
 Use the **DELETE** method with the following URI:
@@ -218,7 +218,7 @@ Status code: 200
 ## List all Roles
 Lists all the roles that are available for assignment at the specified scope.
 
-To list roles, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To list roles, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation at the scope. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ### Request
 Use the **GET** method with the following URI:
@@ -301,7 +301,7 @@ Status code: 200
 ## Get information about a Role
 Gets information about a single role specified by the role definition identifier. To get information about a single role using its display name, see [List all roles](role-based-access-control-manage-access-rest.md#list-all-roles).
 
-To get information about a role, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To get information about a role, you must have access to `Microsoft.Authorization/roleDefinitions/read` operation. All the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ### Request
 Use the **GET** method with the following URI:
@@ -381,7 +381,7 @@ Status code: 200
 ## Create a Custom Role
 Create a custom role.
 
-To create a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To create a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ### Request
 Use the **PUT** method with the following URI:
@@ -484,7 +484,7 @@ Status code: 201
 ## Update a Custom Role
 Modify a custom role.
 
-To modify a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To modify a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/write` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ### Request
 Use the **PUT** method with the following URI:
@@ -587,7 +587,7 @@ Status code: 201
 ## Delete a Custom Role
 Delete a custom role.
 
-To delete a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/delete` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+To delete a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/delete` operation on all the `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 ### Request
 Use the **DELETE** method with the following URI:

@@ -73,7 +73,7 @@ A user needs the following permissions to complete replication of a new virtual 
 Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Contributor' [built-in roles](../role-based-access-control/built-in-roles.md) for Resource Manager and Classic deployment models respectively.
 
 ## Next steps
-* [Role-Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
+* [Role-Based Access Control](../role-based-access-control/role-assignments-portal.md): Get started with RBAC in the Azure portal.
 * Learn how to manage access with:
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   * [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)

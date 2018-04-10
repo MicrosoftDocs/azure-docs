@@ -32,7 +32,7 @@ The 'DNS Zone Contributor' role is a built-in role provided by Azure for managin
 
 For example, suppose the resource group 'myzones' contains five zones for Contoso Corporation. Granting the DNS administrator 'DNS Zone Contributor' permissions to that resource group, enables full control over those DNS zones. It also avoids granting unnecessary permissions, for example the DNS administrator cannot create or stop Virtual Machines.
 
-The simplest way to assign RBAC permissions is [via the Azure portal](../active-directory/role-based-access-control-configure.md).  Open the 'Access control (IAM)' blade for the resource group, then click 'Add', then select the 'DNS Zone Contributor' role and select the required users or groups to grant permissions.
+The simplest way to assign RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.md).  Open the 'Access control (IAM)' blade for the resource group, then click 'Add', then select the 'DNS Zone Contributor' role and select the required users or groups to grant permissions.
 
 ![Resource group level RBAC via the Azure portal](./media/dns-protect-zones-recordsets/rbac1.png)
 

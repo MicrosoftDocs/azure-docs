@@ -48,7 +48,7 @@ Additionally, if you are creating an HDInsight cluster, someone with at least **
 For more information on working with access management, see the following documents:
 
 * [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md)
-* [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md)
+* [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md)
 
 ## Understanding script actions
 

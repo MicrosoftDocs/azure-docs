@@ -61,6 +61,6 @@ Only the Azure portal and the new Azure Resource Manager APIs support Azure RBAC
 Azure RBAC only supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. It cannot authorize all data level operations for Azure resources. For example, you can authorize someone to manage Storage Accounts, but not to the blobs or tables within a Storage Account. Similarly, a SQL database can be managed, but not the tables within it.
 
 ## Next Steps
-* Get started with [Role-Based Access Control in the Azure portal](role-based-access-control-configure.md).
+* Get started with [Role-Based Access Control in the Azure portal](../role-based-access-control/role-assignments-portal.md).
 * See the [RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 * Define your own [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md)

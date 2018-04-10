@@ -21,7 +21,7 @@ ms.author: rolyon
 # View access assignments for users and groups in the Azure portal
 > [!div class="op_single_selector"]
 > * [Manage access by user or group](role-based-access-control-manage-assignments.md)
-> * [Manage access by resource](role-based-access-control-configure.md)
+> * [Manage access by resource](../role-based-access-control/role-assignments-portal.md)
 
 With role-based access control (RBAC) in the Azure Active Directory (Azure AD), you can manage access to your Azure resources. 
 
@@ -32,7 +32,7 @@ Access assigned with RBAC is fine-grained because there are two ways you can res
 
 Roles can only be assigned from within the subscription, resource group, or resource that is the scope for the assignment. But you can view all the access assignments for a given user or group in a single place. You can have up to 2000 role assignments in each subscription. 
 
-Get more information about how to [Use role assignments to manage access to your Azure subscription resources](role-based-access-control-configure.md).
+Get more information about how to [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
 
 ## View access assignments
 To look up the access assignments for a single user or group, start in Azure Active Directory in the [Azure portal](http://portal.azure.com).
@@ -55,6 +55,6 @@ From this blade, you can delete access assignments that were assigned directly t
 
 ## Next steps
 
-* Get started with Role-Based Access Control to [Use role assignments to manage access to your Azure subscription resources](role-based-access-control-configure.md)
+* Get started with Role-Based Access Control to [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md)
 * See the [RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 
