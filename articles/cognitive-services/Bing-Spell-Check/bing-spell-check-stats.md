@@ -1,5 +1,6 @@
 ---
 title: Bing analytics for Bing Web Search APIs | Microsoft Docs
+titleSuffix: Cognitive Services
 description: Describes how to get analytics for Bing Spell Check API. 
 services: cognitive-services
 author: swhite-msft
