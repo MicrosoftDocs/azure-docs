@@ -31,19 +31,19 @@ In this tutorial, you do the following actions:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create a custom lab
-The following steps illustrate how to use the Azure portal to create a lab in Azure DevTest Labs. 
+The following steps illustrate how to use the Azure portal to create a custom lab by using  Azure Lab Services. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. From the main menu on the left side, select **Create a resource** (at the top of the list), point to **Developer tools**, and click **DevTest Labs**. 
-	![New DevTest Lab menu](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
-3. In the **Create a DevTest Lab** window, do the following actions: 
+2. From the main menu on the left side, select **Create a resource** (at the top of the list), point to **Developer tools**, and click **Lab Services (preview)**. 
+	![New Lab Account menu](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
+3. In the **Create a custom lab** window, do the following actions: 
     1. For **Lab name**, enter a name for the lab. 
     2. For **Subscription**, select the subscription in which you want to create the custom lab. 
     3. For **Resource group**, select **Create new**, and enter a name for the resource group. 
     4. For **Location**, select the location/region in which you want the custom lab to be created. 
     5. Select **Create**. 
     6. Select **Pin to dashboard**. After you create the custom lab, the lab shows up in the dashboard. 
-        ![Create a lab section of DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
+        ![Create a lab section](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
 
 ## Add a VM to the custom lab
 

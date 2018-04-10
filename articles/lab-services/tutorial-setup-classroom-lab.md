@@ -51,7 +51,7 @@ In this tutorial, you do the following actions:
 3. Select **Availability** in the **Template** section. 
 4. In the **Availability** page, select **Public**, and select **Save**.
 
-    ![Availablity](./media/tutorial-setup-classroom-lab/public-access.png)
+    ![Availability](./media/tutorial-setup-classroom-lab/public-access.png)
 5. Select **User view** in the **Template** section.
 6. In the **User view** window, specify a **title for the template**, **description for the template**, and select **Save**.
 
