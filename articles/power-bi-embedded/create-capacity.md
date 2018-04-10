@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you need:
 
 * **Azure subscription:** Visit [Azure Free Trial](https://azure.microsoft.com/free/) to create an account.
-* **Azure Active Directory:** Your subscription must be associated with an Azure Active Directory (AAD) tenant. And, ***you need to be signed in to Azure with an account in that tenant***. Microsoft accounts are not supported. To learn more, see Authentication and user permissions.
+* **Azure Active Directory:** Your subscription must be associated with an Azure Active Directory (AAD) tenant. And, ***you need to be signed in to Azure with an account in that tenant***. Microsoft accounts are not supported. To learn more, see [Authentication and user permissions](../analysis-services/analysis-services-manage-users.md).
 * **Power BI tenant:** At least one account in your AAD tenant must have signed up for Power BI.
 * **Resource group:** Use a resource group you already have or [create a new one](../azure-resource-manager/resource-group-overview.md).
 
