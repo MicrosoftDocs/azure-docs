@@ -4,7 +4,7 @@ description: Learn how to use unique keys in your Azure Cosmos DB database.
 services: cosmos-db
 keywords: unique key constraint, violation of unique key constraint
 author: rafats
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 
