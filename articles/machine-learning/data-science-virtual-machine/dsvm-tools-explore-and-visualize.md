@@ -14,9 +14,9 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: conceptual
+ms.author: gokuma
 
 ---
 
