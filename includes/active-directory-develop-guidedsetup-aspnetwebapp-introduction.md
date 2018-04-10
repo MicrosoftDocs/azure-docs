@@ -10,7 +10,7 @@ At the end of this guide, your application will be able to accept sign ins of pe
 
 ![How this guide works](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.png)
 
-The sample application created by this guideis based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to render the web page occurs on the server side.
+The sample application created by this guide is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to render the web page occurs on the server side.
 
 ## Libraries
 
