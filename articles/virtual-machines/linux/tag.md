@@ -34,11 +34,11 @@ You can view all properties for a given Virtual Machine, including the tags, usi
 
 To add a new VM tag through the Azure CLI, you can use the `azure vm update` command along with the tag parameter **--set**:
 
-        az vm update --resource-group MyResourceGroup --name MyTestVM –-set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
+        az vm update --resource-group MyResourceGroup --name MyTestVM --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 
 To remove tags, you can use the **--remove** parameter in the `azure vm update` command.
 
-        az vm update –-resource-group MyResourceGroup –-name MyTestVM --remove tags.myNewTagName1
+        az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
 
 
 Now that we have applied tags to our resources Azure CLI and the Portal, let’s take a look at the usage details to see the tags in the billing portal.
