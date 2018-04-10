@@ -17889,6 +17889,12 @@
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/performance-tiers.md",
+            "redirect_url": "/azure/sql-data-warehouse/memory-and-concurrency-limits",
+            "redirect_document_id": false
         }
+
     ]
 }
