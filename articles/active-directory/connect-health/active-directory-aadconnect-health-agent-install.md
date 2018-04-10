@@ -301,10 +301,6 @@ The role parameter currently takes the following values:
 * Sync
 * ADDS
 
-You can use the -ShowResults flag in the command to view detailed logs. Use the following example:
-
-    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
-
 > [!NOTE]
 > To use the connectivity tool, you must first complete the agent registration. If you are not able to complete the agent registration, make sure that you have met all the [requirements](active-directory-aadconnect-health-agent-install.md#requirements) for Azure AD Connect Health. This connectivity test is performed by default during agent registration.
 >
