@@ -88,7 +88,7 @@ The following table provides more information regarding the method you can use d
 |Put backup to Azure Storage|Prior SQL 2012 SP1 CU2|Upload .bak file directly to Azure storage|
 ||2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) syntax|
 ||2016 and above|Direct backup using [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Restore from Azure Storage	to Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-create-tutorial-portal.md#restore-the-wide-world-importers-database-from-a-backup-file)|
+|Restore from Azure Storage	to Managed Instance|[RESTORE FROM URL with SAS CREDENTIAL](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
 > PRestore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.

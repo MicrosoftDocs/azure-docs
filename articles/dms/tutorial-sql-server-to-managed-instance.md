@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Database Migration Service to migrate SQL Server to Azure SQL Database Managed Instance | Microsoft Docs
+title: Use DMS to migrate to Azure SQL Database Managed Instance | Microsoft Docs
 description: Learn to migrate from SQL Server on-premises to Azure SQL Database Managed Instance by using the Azure Database Migration Service.
 services: dms
 author: edmacauley
@@ -13,8 +13,8 @@ ms.topic: article
 ms.date: 04/10/2018
 ---
 
-# Migrate SQL Server to Azure SQL Database Managed Instance
-You can use the Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to an [Azure SQL Database Managed Instance](sql-database-managed-instance.md). In this tutorial, you migrate the **Adventureworks2012** database from an on-premises instance of SQL Server to an Azure SQL Database by using the Azure Database Migration Service.
+# Migrate SQL Server to Azure SQL Database Managed Instance using DMS
+You can use the Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to an [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md). In this tutorial, you migrate the **Adventureworks2012** database from an on-premises instance of SQL Server to an Azure SQL Database by using the Azure Database Migration Service.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -143,6 +143,6 @@ After the service is created, locate it within the Azure portal and open it.
 
 ## Next steps
 
-- For a tutorial showing you how to migrate a database to a Managed Instance using the T-SQL RESTORE command, see [Restore a backup to a Managed Instance using the restore command](sql-database-managed-instance-restore-from-backup-tutorial.md).
-- For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md).
-- For information about connecting apps to a Managed Instance, see [Connect applications](sql-database-managed-instance-connect-app.md).
+- For a tutorial showing you how to migrate a database to a Managed Instance using the T-SQL RESTORE command, see [Restore a backup to a Managed Instance using the restore command](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- For information about Managed Instance, see [What is a Managed Instance](../sql-database/sql-database-managed-instance.md).
+- For information about connecting apps to a Managed Instance, see [Connect applications](../sql-database/sql-database-managed-instance-connect-app.md).
