@@ -28,7 +28,7 @@ In addition, you should see a table of all claims that are in the authentication
 
 
 ### Test access to a method that has an Authorize attribute (optional)
-To test access to the `Authorize` controller for the user's claims as an anonymous user, follow these steps:
+To test access as an anonymous user to a controller protected with the `Authorize` attribute, follow these steps:
 1. Select the link to sign out the user and complete the sign-out process.
 2. In your browser, type http://<span></span>localhost:{port}/claims to access your controller that is protected with the `Authorize` attribute.
 
@@ -47,7 +47,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### Restrict who can sign in to your application
-By default when you build the application created by this guide, your application will accept sign ins of personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory.
+By default when you build the application created by this guide, your application will accept sign ins of personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory. This is a recommended option for SaaS applications.
 
 To restrict user sign-in access for your application, multiple options are available:
 

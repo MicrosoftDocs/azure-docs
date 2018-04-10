@@ -1,7 +1,7 @@
 
 
 ## Register your application
-You can register your application in either of two ways, as described in the next two sections.
+To register your application and add your application registration information to your solution, you have two options:
 
 ### Option 1: Express mode
 
@@ -31,6 +31,6 @@ To register your application and add your application registration information t
     <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" /> 
     ```
 
-9. Replace `ClientId` with the Application Id you just registered
+9. Replace `ClientId` with the Application ID you just registered
 10. Replace `redirectUri` with the SSL URL of your project 
 
