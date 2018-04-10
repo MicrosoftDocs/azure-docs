@@ -19,9 +19,7 @@ ms.author: larryfr
 ---
 # Tutorial: Use Apache Storm with Kafka on HDInsight
 
-In this tutorial you will learn how to create an Apache Storm topology to read and write data with Apache Kafka on hdinsight.
-
-This tutorial uses the KafkaBolt and KafkaSpout components of Apache Storm to access Kafka data. This tutorial also demonstrates how to use the HDFSBolt component to persist data to the HDFS-compatible storage on the Storm cluster.
+In this tutorial, you learn how to create an Apache Storm topology to read and write data with Apache Kafka on HDInsight. You also learn how to persist data to the HDFS-compatible storage on the Storm cluster.
 
 > [!div class="checklist"]
 > * Create Kafka and Storm clusters
@@ -37,8 +35,6 @@ This tutorial uses the KafkaBolt and KafkaSpout components of Apache Storm to ac
 > The steps in this document require an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
 > 
 > If you already have a virtual network that contains a Kafka cluster, you can create a Storm cluster in the same virtual network. For your convenience, this document also provides a template that can create all the required Azure resources.
-
-When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
 
 ## Create the clusters
 
@@ -126,7 +122,7 @@ This project contains two topologies:
 
 * **KafkaReader**: Defined by the **reader.yaml** file, this topology reads data from Kafka using the KafkaSpout provided with Apache Storm. It then uses the HDFSBolt component from Storm to write the data to the HDFS compatible storage of the Storm cluster.
 
-* **HDFSBolt**: The HDFSBolt component is provided with Apache Storm. To enable the HDFSBolt component to work with the HDFS compatible storage used by HDInsight, a script action is required. The script installs several jar files to the `extlib` path for Storm. This is handled automatically by the template in this tutorial.
+* **HDFSBolt**: The HDFSBolt component is provided with Apache Storm. To enable the HDFSBolt component to work with the HDFS compatible storage used by HDInsight, a script action is required. The script installs several jar files to the `extlib` path for Storm. The template in this tutorial automatically uses the script during cluster creation.
 
     > [!WARNING]
     > If you did not use the template in this document to create the Storm cluster, then you must manually apply the script action to your cluster.
