@@ -3,8 +3,8 @@ title: SQL API Python examples for Azure Cosmos DB | Microsoft Docs
 description: Find Python examples on github for common tasks in Azure Cosmos DB, including CRUD operations.
 keywords: python examples
 services: cosmos-db
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 documentationcenter: python
 
 ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: mimig
+ms.author: sngun
 
 ---
 # Azure Cosmos DB Python examples
@@ -27,8 +27,6 @@ ms.author: mimig
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) GitHub repository. This article provides:
 

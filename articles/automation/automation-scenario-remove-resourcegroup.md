@@ -1,21 +1,13 @@
 ---
-title: Automate removal of resource groups | Microsoft Docs
+title: Automate removal of resource groups with Azure Automation
 description: PowerShell Workflow version of an Azure Automation scenario including runbooks to remove all resource groups in your subscription.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: ''
-
-ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: magoedte
-
+manager: carmonm
 ---
 # Azure Automation scenario - automate removal of resource groups
 Many customers create more than one resource group. Some might be used for managing production applications, and others might be used as development, testing, and staging environments. Automating the deployment of these resources is one thing, but being able to decommission a resource group with a click of the button is another. You can streamline this common management task by using Azure Automation. This is helpful if you are working with an Azure subscription that has a spending limit through a member offer like MSDN or the Microsoft Partner Network Cloud Essentials program.

@@ -3,7 +3,7 @@ title: Assign a user or group to an enterprise app in Azure Active Directory | M
 description: How to select an enterprise app to assign a user or group to it in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: MarkusVi
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: daveba
+ms.author: markvi
 
 ms.reviewer: luleon
 
@@ -99,6 +99,7 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
     ```powershell
     # Assign the values to the variables
     $app_role_name = "Analyst (Limited access)"
+    $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
     ```
 
 5. Run the following command to assign the user to the app role:

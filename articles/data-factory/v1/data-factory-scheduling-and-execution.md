@@ -4,8 +4,8 @@ description: Learn scheduling and execution aspects of Azure Data Factory applic
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 088a83df-4d1b-4ac1-afb3-0787a9bd1ca5
 ms.service: data-factory

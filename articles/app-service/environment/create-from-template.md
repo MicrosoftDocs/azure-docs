@@ -50,10 +50,12 @@ If you want to make an ILB ASE, use these Resource Manager template [examples][q
 
 After the *azuredeploy.parameters.json* file is filled in, create the ASE by using the PowerShell code snippet. Change the file paths to match the Resource Manager template-file locations on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name:
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 It takes about an hour for the ASE to be created. Then the ASE shows up in the portal in the list of ASEs for the subscription that triggered the deployment.
 
@@ -78,17 +80,19 @@ Use the following PowerShell code snippet to:
 
 This PowerShell code for base64 encoding was adapted from the [PowerShell scripts blog][examplebase64encoding]:
 
-        $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```powershell
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-        $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-        $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-        $fileName = "exportedcert.pfx"
-        Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-        $fileContentBytes = get-content -encoding byte $fileName
-        $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-        $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 After the SSL certificate is successfully generated and converted to a base64-encoded string, use the example Resource Manager template [Configure the default SSL certificate][quickstartconfiguressl] on GitHub. 
 
@@ -103,37 +107,41 @@ The parameters in the *azuredeploy.parameters.json* file are listed here:
 
 An abbreviated example of *azuredeploy.parameters.json* is shown here:
 
-    {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "East US 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceEnvironmentName": {
+      "value": "yourASENameHere"
+    },
+    "existingAseLocation": {
+      "value": "East US 2"
+    },
+    "pfxBlobString": {
+      "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+    },
+    "password": {
+      "value": "PASSWORDGOESHERE"
+    },
+    "certificateThumbprint": {
+      "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+    },
+    "certificateName": {
+      "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
     }
+  }
+}
+```
 
 After the *azuredeploy.parameters.json* file is filled in, configure the default SSL certificate by using the PowerShell code snippet. Change the file paths to match where the Resource Manager template files are located on your machine. Remember to supply your own values for the Resource Manager deployment name and the resource group name:
 
-     $templatePath="PATH\azuredeploy.json"
-     $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 It takes roughly 40 minutes per ASE front end to apply the change. For example, for a default-sized ASE that uses two front ends, the template takes around one hour and 20 minutes to complete. While the template is running, the ASE can't scale.  
 

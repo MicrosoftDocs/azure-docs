@@ -8,8 +8,6 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
 ---
 # Onboarding machines for management by Azure Automation DSC
 

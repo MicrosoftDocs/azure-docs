@@ -301,7 +301,7 @@ You can verify your connections by using the Azure portal or PowerShell. When ve
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-###To verify the connection from your Resource Manager VNet to your classic VNet
+### To verify the connection from your Resource Manager VNet to your classic VNet
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

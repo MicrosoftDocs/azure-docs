@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 02/26/2018
+ms.date: 03/27/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # About Azure Migrate
 
-The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses migration suitability of on-premises machines to Azure, performance-based sizing, and provides cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) and [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview), to migrate the machines to Azure.
+The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses the migration suitability of on-premises machines, performance-based sizing, and provides cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) and [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview), to migrate the machines to Azure.
 
 ## Why use Azure Migrate?
 
@@ -25,14 +25,12 @@ Azure Migrate helps you to:
 
 ## Current limitations
 
-- Currently, you can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5)
-
-> [!NOTE]
-> Support for Hyper-V is on the roadmap and will be enabled soon. In the interim, we recommend you to use [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) to plan migration of Hyper-V workloads. 
-
-- You can discover up to 1000 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 400 VMs in a single assessment. If you need to discover or assess more, you can increase the number of discoveries or assessments. [Learn more](how-to-scale-assessment.md).
+- Currently, you can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
+- Support for Hyper-V is on our roadmap. In the interim, we recommend that you use [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) to plan migration of Hyper-V workloads. 
+- You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
 - You can only create an Azure Migrate project in West Central US or East US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
 - Azure Migrate only supports managed disks for migration assessment.
+
 
 ## What do I need to pay for?
 
@@ -77,7 +75,7 @@ The table summarizes the ports needed for Azure Migrate communications.
 |-------------------|------------------------|---------------|---------|
 |Collector          |Azure Migrate service   |TCP 443        |The collector connects to the service over SSL port 443|
 |Collector          |vCenter Server          |Default 9443   | By default the collector connects to the vCenter Server on port 9443. If the server listens on a different port, it should be configured as an outgoing port on the collector VM. |
-|On-premises VM     | Operations Management Suite (OMS) Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the Microsoft Monitoring Agent (MMA). |
+|On-premises VM     | Log Analytics Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the Microsoft Monitoring Agent (MMA). |
 
 
   

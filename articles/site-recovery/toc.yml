@@ -103,6 +103,8 @@
         href: hyper-v-vmm-architecture.md
   - name: Disaster recovery for apps
     href: site-recovery-workload.md
+  - name: About recovery plans
+    href: recovery-plan-overview.md
   - name: About migration
     href: migrate-overview.md
   - name: About role-based access control with Site Recovery
@@ -273,6 +275,12 @@
       items:
       - name: Run a disaster recovery drill to Azure
         href: site-recovery-test-failover-to-azure.md
+      - name: Set up recovery plans
+        href: site-recovery-create-recovery-plans.md
+      - name: Add VMM scripts to recovery plans
+        href: hyper-v-vmm-recovery-script.md
+      - name: Add Azure runbooks to recovery plans
+        href: site-recovery-runbook-automation.md
       - name: Run a failover to Azure
         href: site-recovery-failover.md
       - name: Fail back from Azure to Hyper-V
@@ -285,8 +293,8 @@
         href: delete-vault.md
     - name: Monitor and troubleshoot
       items: 
-      - name: Troubleshoot failover to Azure
-        href: site-recovery-failover-to-azure-troubleshoot.md
+      - name: Troubleshoot Hyper-V replication
+        href: hyper-v-azure-troubleshoot.md
       - name: Monitor Azure Site Recovery
         href: site-recovery-monitor-and-troubleshoot.md
   - name: Hyper-V to secondary

@@ -4,8 +4,7 @@ description: Learn how you can use Azure Cosmos DB to store and query massive vo
 keywords: json database, document database
 services: cosmos-db
 author: rafats
-manager: jhubbard
-editor: monicar
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
@@ -19,8 +18,6 @@ ms.author: rafats
 
 ---
 # Introduction to Azure Cosmos DB: SQL API
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Azure Cosmos DB](introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models.
 

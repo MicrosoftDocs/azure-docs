@@ -3,18 +3,15 @@ title: 'Application Insights to troubleshoot Custom Policies - Azure AD B2C | Mi
 description: how to setup Application Insights to trace the execution of custom policies
 services: active-directory-b2c
 documentationcenter: ''
-author: saeedakhter-msft
+author: davidmu1
 manager: mtillman
-editor: parakhj
+editor: ''
 
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: saeda  
+ms.author: davidmu
 
 ---
 
@@ -102,7 +99,7 @@ The entries may be long.  Export to CSV for a closer look.
 You can learn more about the Analytics tool [here](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->The community has developed a user journey viewer to help identity developers.  It is not supported by Microsoft and made available strictly as-is.  It reads from your Application Insights instance and provides a well-structure view of the user journey events.  You obtain the source code and deploy it in your own solution.
+>The community has developed a user journey viewer to help identity developers.  It is not supported by Microsoft and made available strictly as-is.  It reads from your Application Insights instance and provides a well-structured view of the user journey events.  You obtain the source code and deploy it in your own solution.
 
 The version of the viewer that reads events from Application Insights is located [here](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 

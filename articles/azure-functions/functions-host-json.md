@@ -135,7 +135,7 @@ Controls the [sampling feature in Application Insights](functions-monitoring.md#
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|isEnabled|false|Enables or disables sampling.| 
+|isEnabled|true|Enables or disables sampling.| 
 |maxTelemetryItemsPerSecond|5|The threshold at which sampling begins.| 
 
 ## eventHub

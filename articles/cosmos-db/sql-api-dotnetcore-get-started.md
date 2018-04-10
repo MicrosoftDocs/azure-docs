@@ -3,8 +3,8 @@ title: 'Azure Cosmos DB: SQL API getting started with .NET Core tutorial | Micro
 description: A tutorial that creates an online database and C# console application using the Azure Cosmos DB SQL API .NET Core SDK. 
 services: cosmos-db
 documentationcenter: .net
-author: arramac
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: arramac
+ms.author: sngun
 ms.custom: devcenter
 
 ---
@@ -28,8 +28,6 @@ ms.custom: devcenter
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welcome to the SQL API for Azure Cosmos DB getting started with .NET Core tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
@@ -48,9 +46,6 @@ This tutorial covers:
 Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Jump to the [Get the complete solution section](#GetSolution) for quick instructions.
 
 Want to build a Xamarin iOS, Android, or Forms application using the SQL API and .NET Core SDK? See [Build mobile applications with Xamarin and Azure Cosmos DB](mobile-apps-with-xamarin.md).
-
-> [!NOTE]
-> The Azure Cosmos DB .NET Core SDK used in this tutorial is not yet compatible with Universal Windows Platform (UWP) apps. For a preview version of the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 Now let's get started!
 

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 ---
 # Azure SQL Database access control
