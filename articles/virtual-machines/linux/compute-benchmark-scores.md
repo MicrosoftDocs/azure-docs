@@ -1,10 +1,10 @@
 ---
-title: Compute benchmark scores for Linux VMs | Microsoft Docs
-description: Compare CoreMark compute benchmark scores for Azure VMs running Linux
+title: Compute benchmark scores for Azure Linux VMs | Microsoft Docs
+description: Compare CoreMark compute benchmark scores for Azure VMs running Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 04/09/2018
 ms.author: cynthn;davberg
 
 ---
@@ -25,7 +25,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:32:49 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 1 | 1 | 1.9 | 6,514 | 56 | 0.86% | 119 |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 6,162 | 195 | 3.17% | 70 |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 1.9 | 6,505 | 425 | 6.53% | 63 |
@@ -52,7 +52,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 9:06:07 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 | AMD Opteron(tm) Processor 4171 HE | 1 | 1 | 0.6 | 3,556 | 14 | 0.39% | 21 |
 | Standard_A0 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 1 | 1 | 0.6 | 3,137 | 16 | 0.51% | 70 |
 | Standard_A0 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 0.6 | 3,146 | 134 | 4.27% | 63 |
@@ -81,7 +81,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:28:44 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 8.0 | 20,259 | 729 | 3.60% | 140 |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 8.0 | 20,364 | 1,007 | 4.94% | 70 |
 | Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 16.0 | 39,662 | 1,757 | 4.43% | 182 |
@@ -104,7 +104,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:32:37 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 8.0 | 20,791 | 1,531 | 7.36% | 175 |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 8.0 | 21,326 | 1,622 | 7.61% | 84 |
 | Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 16.0 | 39,978 | 1,853 | 4.63% | 98 |
@@ -121,7 +121,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:31:01 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 16.0 | 21,015 | 1,112 | 5.29% | 210 |
 | Standard_E4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 32.1 | 40,691 | 1,928 | 4.74% | 287 |
 | Standard_E8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 64.4 | 79,841 | 2,856 | 3.58% | 161 |
@@ -138,7 +138,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:29:35 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 16.0 | 23,318 | 2,734 | 11.72% | 245 |
 | Standard_E4_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 32.1 | 42,612 | 3,834 | 9.00% | 154 |
 | Standard_E8_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 64.4 | 83,488 | 4,888 | 5.85% | 189 |
@@ -151,7 +151,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:30:03 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 3.4 | 14,691 | 626 | 4.26% | 182 |
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 3.4 | 14,577 | 1,120 | 7.68% | 63 |
 | Standard_DS2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 6.9 | 29,156 | 1,095 | 3.76% | 91 |
@@ -185,7 +185,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:27:28 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 3.4 | 15,027 | 963 | 6.41% | 105 |
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 3.4 | 15,296 | 1,696 | 11.09% | 77 |
 | Standard_D2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 6.9 | 29,060 | 1,405 | 4.83% | 133 |
@@ -211,7 +211,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:28:16 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 1 | 1 | 3.4 | 10,331 | 303 | 2.93% | 112 |
 | Standard_D1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 3.4 | 14,547 | 916 | 6.30% | 14 |
 | Standard_D2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 2 | 1 | 6.9 | 21,112 | 383 | 1.81% | 119 |
@@ -233,7 +233,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:34:52 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 1 | 1 | 3.4 | 10,666 | 134 | 1.25% | 126 |
 | Standard_DS11 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 2 | 1 | 14.0 | 21,330 | 268 | 1.26% | 49 |
 | Standard_DS12 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 4 | 1 | 28.1 | 42,225 | 555 | 1.31% | 126 |
@@ -250,7 +250,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:33:11 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 2 | 1 | 3.9 | 25,392 | 157 | 0.62% | 49 |
 | Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 4 | 1 | 8.0 | 48,065 | 656 | 1.36% | 42 |
 | Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 8 | 1 | 16.0 | 95,026 | 1,205 | 1.27% | 49 |
@@ -263,7 +263,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:28:54 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 14,762 | 815 | 5.52% | 175 |
 | Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 1.9 | 15,756 | 1,653 | 10.49% | 91 |
 | Standard_F2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 3.9 | 29,265 | 1,593 | 5.44% | 182 |
@@ -280,7 +280,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:30:14 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 1.9 | 14,630 | 678 | 4.64% | 203 |
 | Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 1.9 | 15,247 | 801 | 5.25% | 91 |
 | Standard_F2s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 3.9 | 28,931 | 1,105 | 3.82% | 133 |
@@ -297,7 +297,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:27:25 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 2 | 1 | 28.1 | 32,071 | 4,239 | 13.22% | 182 |
 | Standard_G2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 56.3 | 60,598 | 6,048 | 9.98% | 175 |
 | Standard_G3 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 8 | 1 | 112.8 | 111,058 | 6,536 | 5.89% | 161 |
@@ -308,7 +308,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:25:12 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 2 | 1 | 28.1 | 28,771 | 2,006 | 6.97% | 231 |
 | Standard_GS2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 56.3 | 54,947 | 3,699 | 6.73% | 203 |
 | Standard_GS3 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 8 | 1 | 112.8 | 105,054 | 4,441 | 4.23% | 182 |
@@ -323,7 +323,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:27:16 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 8 | 1 | 56.3 | 140,445 | 2,840 | 2.02% | 147 |
 | Standard_H8m | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 8 | 1 | 112.8 | 141,086 | 2,209 | 1.57% | 147 |
 | Standard_H16 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 16 | 2 | 112.8 | 270,129 | 6,502 | 2.41% | 56 |
@@ -335,7 +335,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:35:10 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8 | Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz | 8 | 1 | 56.3 | 117,148 | 1,877 | 1.60% | 189 |
 | Standard_A9 | Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz | 16 | 2 | 112.8 | 225,608 | 7,532 | 3.34% | 147 |
 | Standard_A10 | Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz | 8 | 1 | 56.3 | 117,638 | 1,988 | 1.69% | 168 |
@@ -345,7 +345,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 7:58:51 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_L4s | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 32.1 | 55,962 | 3,567 | 6.37% | 154 |
 | Standard_L8s | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 8 | 1 | 64.4 | 106,482 | 3,178 | 2.98% | 168 |
 | Standard_L16s | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 16 | 1 | 128.9 | 197,906 | 12,605 | 6.37% | 168 |
@@ -355,7 +355,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 (3/23/2018 8:57:07 PM pbi 2050259)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_M64-32ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 64 | 2 | 1,806.2 | 339,412 | 4,655 | 1.37% | 21 |
 | Standard_M64ms | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 64 | 2 | 1,806.2 | 662,070 | 16,539 | 2.50% | 70 |
 | Standard_M64s | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 64 | 2 | 1,032.1 | 659,757 | 22,439 | 3.40% | 21 |

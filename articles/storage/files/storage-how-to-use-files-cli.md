@@ -47,7 +47,7 @@ az group create --name myResourceGroup --location eastus
 ## Create a storage account
 A storage account is a shared pool of storage in which you can deploy Azure file shares or other storage resources, such as blobs or queues. A storage account can contain an unlimited number of file shares. A share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-The following example creates a storage account named *mystorageaccount\<random number\>* by using the [az storage account create](/cli/azure/storage/account#create) command. It then puts the name of that storage account in the `$STORAGEACCT` variable. Storage account names must be unique. Using `$RANDOM` appends a number to the storage account name to make it unique. 
+The following example creates a storage account named *mystorageaccount\<random number\>* by using the [az storage account create](/cli/azure/storage/account#create) command, and then puts the name of that storage account in the `$STORAGEACCT` variable. Storage account names must be unique. Using `$RANDOM` appends a number to the storage account name to make it unique. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
