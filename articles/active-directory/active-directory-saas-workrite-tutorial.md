@@ -122,8 +122,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. On the **Workrite Configuration** section, click **Configure Workrite** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Workrite Configuration](./media/active-directory-saas-workrite-tutorial/tutorial_workrite_configure.png) 
+	
+7. On the **WorkRite Configuration** section, in the **Identifier** text box, you need to enter the EntityID URL which is in the following pattern `https://app.workrite.co.uk/<NAME>`. Multiple end points are able to be chosen to sign in to WorkRite, AMS, RMS or courses. Default is the WorkRite application only.
 
-7. To configure single sign-on on **Workrite** side, you need to send the downloaded **Certificate(Base64), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Workrite support team](mailto:support@workrite.co.uk).
+8. To configure single sign-on on **Workrite** side, you need to send the downloaded **Certificate(Base64), Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Workrite support team](mailto:support@workrite.co.uk).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
