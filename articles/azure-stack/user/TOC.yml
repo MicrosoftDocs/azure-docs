@@ -27,6 +27,8 @@
   items:
   - name: Use the Azure Stack Portal
     href: azure-stack-use-portal.md
+  - name: Use the Azure Stack API
+    href: azure-stack-rest-api-use.md
   - name: Security & compliance
     items:
     - name: Manage RBAC
@@ -97,12 +99,19 @@
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell - User
         href: azure-stack-powershell-configure-user.md
-      - name: Install and configure the Azure Stack CLI
-        href: azure-stack-connect-cli.md
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
-      - name: Manage API version profiles
+      - name: Using API version profiles
         href: azure-stack-version-profiles.md
+        items:
+        - name: PowerShell
+          href: azure-stack-version-profiles-powershell.md
+        - name: Azure CLI 2.0
+          href: azure-stack-version-profiles-azurecli2.md
+        - name: GO
+          href: azure-stack-version-profiles-go.md
+        - name: Resource provider APIs supported by profiles
+          href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: Use policy module
       href: azure-stack-policy-module.md
     - name: Use templates
@@ -119,6 +128,8 @@
         href: azure-stack-deploy-template-powershell.md
       - name: Deploy with Visual Studio
         href: azure-stack-deploy-template-visual-studio.md
+  - name: Enable a Cloud Service Provider
+    href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
@@ -129,6 +140,8 @@
   items:
   - name: Azure Stack Operator Documentation
     href: /azure/azure-stack/
+  - name: ASDK Documentation
+    href: /azure/azure-stack/asdk/
 - name: Resources
   items:
   - name: Azure Stack roadmap

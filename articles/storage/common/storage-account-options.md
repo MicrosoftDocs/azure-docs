@@ -215,7 +215,7 @@ To monitor your existing storage accounts and gather this data, you can make use
 For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account. Zone-redundant storage (ZRS) accounts support collecting metrics data, while ZRS Classic storage accounts do not. For more information on ZRS, see [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage). 
+> Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account. 
 
 To monitor the storage consumption for Blob storage, you need to enable the capacity metrics.
 With this enabled, capacity data is recorded daily for a storage account's Blob service and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
@@ -296,8 +296,8 @@ You can create a custom application to migrate your data into a Blob storage acc
 
 For more information, see [Get Started with Azure Blob storage](../blobs/storage-dotnet-how-to-use-blobs.md).
 
-> [!NOTE]
-> Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> [!IMPORTANT]
+> Blobs encrypted using client-side encryption store encryption-related metadata with the blob. If you copy a blob that is encrypted with client-side encryption, ensure that the copy operation preserves the blob metadata, and especially the encryption-related metadata. If you copy a blob without the encryption metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## FAQ
 

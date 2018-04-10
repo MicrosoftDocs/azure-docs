@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -22,16 +22,14 @@ replicate VMware VMs to Azure. In this tutorial you'll learn how to:
 > * Review VMware server requirements
 > * Review VMware VM requirements
 
-In this tutorial series, we show how to back up a single VM using Azure Site Recovery. If you are
-planning to protect multiple VMware VMs, you should download the
-[Deployment Planner tool](https://aka.ms/asr-deployment-planner) for VMware replication. This tool
-you gather information about VM compatibility, disks per VM, and data churn per disk. The tool also
-covers network bandwidth requirements, and the Azure infrastructure needed for successful
-replication and test failover. [Learn more](site-recovery-deployment-planner.md) about running the
-tool.
+In this tutorial series, we show how to replicate a single VM using Azure Site Recovery. 
 
 This is the second tutorial in the series. Make sure that you have
 [set up the Azure components](tutorial-prepare-azure.md) as described in the previous tutorial.
+
+If you are replicating multiple VMs, download the
+[Deployment Planner Tool](https://aka.ms/asr-deployment-planner) for VMware replication. [Learn more](site-recovery-deployment-planner.md).
+
 
 ## Prepare an account for automatic discovery
 
@@ -71,36 +69,16 @@ when you set up disaster recovery in the Azure console.
 3. To install on Linux VMs, prepare a root account on the source Linux server.
 
 
-## Check VMware server requirements
+## Check VMware requirements
 
-Make sure VMware servers meet the following requirements.
+Make sure VMware servers and VMs comply with requirements.
 
-**Component** | **Requirement**
---- | ---
-**vCenter server** | vCenter 6.5, 6.0 or 5.5
-**vSphere host** | vSphere 6.5, 6.0, 5.5
+1. [Verify](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) VMware server requirements.
+2. For Linux, [check](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) file system and storage requirements. 
+3. Check on-premises [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support. 
+4. Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute), after failover.
+5. Your on-premises VMs you replicate to Azure must comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 
-## Check VMware VM requirements
-
-Make sure that the VM complies with the Azure requirements summarized in the following table.
-
-**VM Requirement** | **Details**
---- | ---
-**Operating system disk size** | Up to 2048 GB.
-**Operating system disk count** | 1
-**Data disk count** | 64 or less
-**Data disk VHD size** | Up to 4095 GB
-**Network adapters** | Multiple adapters are supported
-**Shared VHD** | Not supported
-**FC disk** | Not supported
-**Hard disk format** | VHD or VHDX.<br/><br/> Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises VMs continue to use the VHDX format.
-**Bitlocker** | Not supported. Disable before you enable replication for a VM.
-**VM name** | Between 1 and 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens. The VM name must start and end with a letter or number.
-**VM type** | Generation 1 - Linux or Windows<br/><br/>Generation 2 - Windows only
-
-The VM must also be running a supported operating system. See the
-[Site Recovery support matrix](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-for a complete list of supported versions.
 
 ## Prepare to connect to Azure VMs after failover
 

@@ -14,7 +14,7 @@ ms.custom:
 
 # Frequently asked questions for Azure Cost Management
 
-This article addresses some common questions about Azure Cost Management (also known as Cloudyn). If you have questions about Cost Management, you can ask them at [FAQs for Azure Cost Management by Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+This article addresses some common questions about Azure Cost Management (also known as Cloudyn). If you have questions about Cost Management, you can ask them at [FAQs for Azure Cost Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
 ## How can I resolve common indirect enterprise setup problems?
 

@@ -13,21 +13,13 @@ ms.date: 08/30/2017
 ---
 # Azure Machine Learning frequently asked questions
 
+Azure Machine Learning is a fully managed Azure service that allows you to create, test, manage, and deploy machine learning and AI models. Our services and downloadable application offer a code-first approach that leverages the cloud, on-premises, and edge to provide the train, deploy, manage, and monitor models with power, speed, and flexibility. Alternatively, Azure Machine Learning Studio offers a browser-based, visual drag-and-drop authoring environment where no coding is required. 
+
 ## General product questions
-
-**What is Azure Machine Learning?**
-
-Azure Machine Learning is a fully managed Azure service that allows you to create, test, manage, and deploy machine learning and AI models. Our new services and downloadable application offer a code-first approach that leverages the cloud, on-premises, and edge to provide the train, deploy, manage, and monitor models with power, speed, and flexibility. Alternatively, Azure Machine Learning Studio offers a browser-based, visual drag-and-drop authoring environment where no coding is required. 
-
-**In which regions are the new services be available?**
-
-Look for supported Azure regions for experimentation and model management service under Azure Machine Learning on the [Azure Products by region](https://azure.microsoft.com/regions/services/) page.
-
-More regions will be added as we develop the product.  You can help us prioritize which regions to deploy to on our [Azure Machine Learning Feedback](https://feedback.azure.com/forums/257792-machine-learning) site. 
 
 **What other Azure services are required?**
 
-To fully experience all capabilities of Azure Machine Learning, Azure Machine Learnign will use Visual Studio VSTS account, Azure Blob Storage, Azure Container Registry, Data Science VM or HDInsight compute, and Azure Container Service.
+Azure Blob Storage and Azure Container Registry are used by Azure Machine Learning. In addition, you will need to provision compute resources such as a Data Science VM or HDInsight cluster. Compute and hosting are also required when deploying your web services, such as [Azure Container Service](https://docs.microsoft.com/azure/aks).
 
 **How does Azure Machine Learning relate to Microsoft Machine Learning Services in SQL Server 2017?**	
 
@@ -41,7 +33,7 @@ We currently support Python only. We are working on R integration and expect to 
 
 MMLSpark provides deep learning and data science tools for Apache Spark, with emphasis on productivity, ease of experimentation and state-of-the-art algorithms. MMLSpark offers integration of Spark Machine Learning pipelines with the Microsoft Cognitive Toolkit and OpenCV. You can create powerful, highly scalable predictive, and analytical models for image and text data. MMLSpark is available under an open-source license and is included in AML Workbench as a set of consumable models and algorithms. For more information on MMLSpark, visit our product documentation. 
 
-**Which versions of Spark are supported by the new tools and services? Top section**
+**Which versions of Spark are supported by the new tools and services?**
 
 Workbench currently includes and supports MMLSpark version 0.8, which is compatible with Apache Spark 2.1. You also have an option to use GPU-enabled Docker image of MMLSpark 0.8 on Linux virtual machines.
 
@@ -114,7 +106,7 @@ The Azure Machine Learning Workbench is a companion application built for profes
 
 **Is Workbench an IDE?**
 
-No. The Machine Learning Workbench has been designed as a companion to popular IDEs such as Jupyter Notebooks, Visual Studio Code, and PyCharm but it is not a fully functional IDE. The Machine Learning Workbench offers some basic text editing capabilities, but debugging, intellisense and other commonly used IDE capabilities are not supported. We recommend that you use your favorite IDE for code development, editing and debugging. 
+No. The Machine Learning Workbench has been designed as a companion to popular IDEs such as Jupyter Notebooks, Visual Studio Code, and PyCharm but it is not a fully functional IDE. The Machine Learning Workbench offers some basic text editing capabilities, but debugging, intellisense and other commonly used IDE capabilities are not supported. We recommend that you use your favorite IDE for code development, editing and debugging. You may also wish to try [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
 
 **Is there a charge for using the Azure Machine Learning Workbench?**
 

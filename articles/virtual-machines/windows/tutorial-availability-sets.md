@@ -4,7 +4,7 @@ description: Learn about the Availability Sets for Windows VMs in Azure.
 documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

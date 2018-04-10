@@ -74,7 +74,7 @@ This article shows you how to set up Azure service health alerts with OpsGenie u
 5. Select **Save** when done to update the action group.
 
 ## Testing your webhook integration via an HTTP POST request
-1. Create the Service Health payload you want to send. You can find an example Service Health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Create an HTTP POST request as follows:
 
@@ -83,7 +83,7 @@ This article shows you how to set up Azure service health alerts with OpsGenie u
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. You should receive a `200 OK` response with the message of status "successful."
 

@@ -4,7 +4,7 @@ description: Learn how to perform scale and performance testing with Azure Cosmo
 keywords: performance testing
 services: cosmos-db
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: ''
 documentationcenter: ''
 
@@ -19,8 +19,6 @@ ms.author: arramac
 
 ---
 # Performance and scale testing with Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Performance and scale testing is a key step in application development. For many applications, the database tier has a significant impact on overall performance and scalability. Therefore, it's a critical component of performance testing. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is purpose-built for elastic scale and predictable performance. These capabilities make it a great fit for applications that need a high-performance database tier. 
 

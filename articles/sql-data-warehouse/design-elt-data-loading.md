@@ -1,26 +1,20 @@
 ---
-title: Design ELT for Azure SQL Data Warehouse | Microsoft Docs
-description: Combine technologies for moving data to Azure and loading data into SQL Data Warehouse to design an Extract, Load, and Transform (ELT) process for Azure SQL Data Warehouse.  
+title: Instead of ETL, design ELT for Azure SQL Data Warehouse | Microsoft Docs
+description: Instead of ETL, design an Extract, Load, and Transform (ELT) process for loading data or Azure SQL Data Warehouse.  
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: ''
-
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: cakarst
+ms.reviewer: igorstan
 
 ---
 # Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse
 
-Combine the technologies for landing data in Azure storage and loading data into SQL Data Warehouse to design an Extract, Load, and Transform (ELT) process for Azure SQL Data Warehouse. This article introduces the technologies that support loading with Polybase, and then focuses on designing an ELT process that uses PolyBase with T-SQL to load data into SQL Data Warehouse from Azure Storage.
+Instead of Extract, Transform, and Load (ETL), design an Extract, Load, and Transform (ELT) process for loading data into Azure SQL Data Warehouse. This article introduces ways to design an ELT process that moves data into an Azure data warehouse.
 
 ## What is ELT?
 
@@ -49,8 +43,9 @@ PolyBase is a technology that accesses data outside of the database via the T-SQ
 To load data with PolyBase, you can use any of these loading options.
 
 - [PolyBase with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions. 
-- [PolyBase with SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
-- [PolyBase with Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) is another orchestration tool.  It defines a pipeline and schedules jobs. 
+- [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
+- [PolyBase with Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) is another orchestration tool.  It defines a pipeline and schedules jobs. You can use ADF to parse JSON data and load it into SQL Data Warehouse.
+- [PolyBase with Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfers data from Azure Data Lake Store to SQL Data Warehouse. You can use Azure DataBricks to parse JSON data and load the data to SQL Data Warehouse. 
 
 ### PolyBase external file formats
 

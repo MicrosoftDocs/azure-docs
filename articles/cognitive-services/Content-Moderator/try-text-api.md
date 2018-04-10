@@ -63,15 +63,15 @@ In the **Request body** box, enter some text. The following example shows an int
 
 ### Text classification feature (preview)
 
-In the following example, you see Content Moderator’s machine-assisted text classification (preview) response. It helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words. 
+In the following example, you see Content Moderator’s machine-assisted text classification (preview) response. It helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words for review. 
 
 #### Explanation
 
 - `Category1` represents the potential presence of language that may be considered sexually explicit or adult in certain situations.
 - `Category2` represents the potential presence of language that may be considered sexually suggestive or mature in certain situations.
 - `Category3` represents the potential presence of language that may be considered offensive in certain situations.
-- `Score` range is between 0 and 1. The higher the score, higher the likelihood of the category being applicable.
-- `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers are recommended to either use this value or decide on custom thresholds based on their content policies. In the preceding example, `ReviewRecommended` is `true` because of the high score assigned to `Category3`.
+- `Score` is between 0 and 1. The higher the score, the higher the model is predicting that the category may be applicable. This preview relies on a statistical model rather than manually coded outcomes. We recommend testing with your own content to determine how each category aligns to your requirements.
+- `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers should assess whether to use this value or decide on custom thresholds based on their content policies.
 
 ### Analyze the response
 The following response shows the various insights from the API. It contains potential profanity, PII, classification (preview), and the auto-corrected version.

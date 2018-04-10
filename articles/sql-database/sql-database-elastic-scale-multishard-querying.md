@@ -2,20 +2,13 @@
 title: Query sharded Azure SQL databases | Microsoft Docs
 description: Run queries across shards using the elastic database client library.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: torsteng
-editor: ''
-
-ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
-ms.author: torsteng
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Multi-shard querying

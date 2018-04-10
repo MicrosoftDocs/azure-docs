@@ -107,6 +107,8 @@
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
         href: backup-during-vm-creation.md
+      - name: Upgrade to VM backup stack V2
+        href: backup-upgrade-to-vm-backup-stack-v2.md
     - name: Manage and monitor VMs
       items:
       - name: Manage Azure VM backups in Azure portal
@@ -153,14 +155,10 @@
       href: backup-client-automation.md
   - name: Azure SQL Database
     items:
-    - name: Configure long-term backup retention
-      href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-    - name: View backups in a Recovery Services vault
-      href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-    - name: Restore from long-term backup retention
-      href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-    - name: Delete long-term Azure SQL backups
-      href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+    - name: Configure and restore SQL Database backups - SQL storage
+      href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
+    - name: Configure and restore SQL Database backups - Recovery Services vault
+      href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
   - name: Windows Server
     items:
     - name: Back up Windows Server files and folders

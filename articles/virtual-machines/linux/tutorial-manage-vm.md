@@ -3,8 +3,8 @@ title: Create and Manage Linux VMs with the Azure CLI | Microsoft Docs
 description: Tutorial - Create and Manage Linux VMs with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
-ms.author: nepeters
+ms.date: 03/23/2018
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -88,7 +88,7 @@ exit
 
 ## Understand VM images
 
-The Azure marketplace includes many images that can be used to create VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.  
+The Azure marketplace includes many images that can be used to create VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine. 
 
 To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image#az_vm_image_list) command.
 
@@ -133,7 +133,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-To deploy a VM using a specific image, take note of the value in the *Urn* column. When specifying the image, the image version number can be replaced with “latest”, which selects the latest version of the distribution. In this example, the `--image` argument is used to specify the latest version of a CentOS 6.5 image.  
+To deploy a VM using a specific image, take note of the value in the *Urn* column, which consists of the publisher, offer, SKU, and optionally a version number to [identify](cli-ps-findimage.md#terminology) the image. When specifying the image, the image version number can be replaced with “latest”, which selects the latest version of the distribution. In this example, the `--image` argument is used to specify the latest version of a CentOS 6.5 image.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -256,7 +256,7 @@ An Azure VM can have one of many power states. This state represents the current
 
 ### Find power state
 
-To retrieve the state of a particular VM, use the [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view) command. Be sure to specify a valid name for a virtual machine and resource group. 
+To retrieve the state of a particular VM, use the [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) command. Be sure to specify a valid name for a virtual machine and resource group. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

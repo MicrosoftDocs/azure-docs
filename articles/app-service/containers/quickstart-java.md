@@ -46,19 +46,7 @@ To complete this quickstart:
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-
-## Create a resource group
-
-In the Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *West Europe* location. To see all supported locations for App Service, run the [`az appservice list-locations`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-You generally create your resource group and the resources in a region near you. 
-
-When the command finishes, a JSON output shows you the resource group properties.
-
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
@@ -130,7 +118,7 @@ Depending on which method of deployment you use, the relative path to browse to 
 
 ### Deploy with WarDeploy 
 
-To deploy your WAR file with WarDeploy, use the following cURL example commandline to send a POST request to https://<your app name>.scm.azurewebsites.net/api/wardeploy. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. For more information on WarDeploy, see [Deploy your app to Azure App Service with a ZIP or WAR file](../app-service-deploy-zip.md).
+To deploy your WAR file with WarDeploy, use the following cURL example commandline to send a POST request to *https://<your app name>.scm.azurewebsites.net/api/wardeploy*. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. For more information on WarDeploy, see [Deploy your app to Azure App Service with a ZIP or WAR file](../app-service-deploy-zip.md).
 
 ```bash
 curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
@@ -174,7 +162,7 @@ The servlet is running in a web app with built-in image.
 
 Alternatively, you can also use FTP to deploy the WAR file. 
 
-FTP the file to the `/home/site/wwwroot/webapps` directory of your web app. The following example commandline uses cURL:
+FTP the file to the */home/site/wwwroot/webapps* directory of your web app. The following example commandline uses cURL:
 
 ```bash
 curl -T war_file_path -u "app_name\username" ftp://webappFTPURL/site/wwwroot/webapps/

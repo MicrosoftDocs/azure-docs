@@ -335,7 +335,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 Many Azure services provide additional logs and telemetry that can do one or more of the following: 
  - be configured to save data in your Azure Storage account
  - sent to Event Hubs
- - sent to an OMS Log Analytics workspace. 
+ - sent to a Log Analytics workspace. 
 
 The operation can only be performed at a resource level. The storage account or event hub should be present in the same region as the target resource where the diagnostics setting is configured.
 
@@ -374,7 +374,7 @@ Enable diagnostic setting for Event Hubs
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
 ```
 
-Enable diagnostic setting for Log Analytics (OMS)
+Enable diagnostic setting for Log Analytics
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true

@@ -4,7 +4,7 @@ titleSuffix: "Microsoft Cognitive Services"
 description: Create a simple Windows app that uses the Cognitive Services Emotion API to detect faces in an image by framing the faces.
 services: cognitive-services
 author: SteveMSFT
-manager: CorneliaKara
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: face
