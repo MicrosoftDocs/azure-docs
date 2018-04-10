@@ -342,7 +342,7 @@ static IList<string> GetStreamingURLs(
 
 ### Clean up resource in your account
 
-Generally, you should clean up everything except objects that you are planning to reuse (commonly, you will want to reuse a transform and streaming policy). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes assets and jobs.
+Generally, you should clean up everything except objects that you are planning to reuse (commonly, you will want to reuse a transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes jobs.
 
 ```csharp
 static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, string accountName, String transformName)
