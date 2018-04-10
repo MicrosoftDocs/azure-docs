@@ -21,24 +21,23 @@ ms.author: sethm
 
 # Process events using PowerShell and .NET Standard
 
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to use PowerShell to deploy resources, and how to use sample clients to ingest and process events into Event Hubs. 
-
-If you do not have an Azure subscription, start by creating a [free account][].
+In this quickstart, we'll show you how to (1) create an event hub using PowerShell and (2) send to and receive from an event hub using our .NET Standard SDK. 
 
 ## Prerequisites
 
-To complete this tutorial, make sure you have installed:
+To complete this tutorial, make sure you have:
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+1. An Azure subscription. If you don't have one, [create a free subscription][] before you begin.
+2. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+3. [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to intall and use PowerShell locally, this article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
+If you choose to install and use PowerShell locally, this article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
 
 ## Log on to Azure
 
-Once PowerShell is installed, perform the following steps to install the Event Hubs PowerShell module, and to log on to Azure:
+Once PowerShell is installed, perform the following steps to install the Event Hubs PowerShell module and log on to Azure:
 
 1. Issue the following command to install the Event Hubs PowerShell module:
 
