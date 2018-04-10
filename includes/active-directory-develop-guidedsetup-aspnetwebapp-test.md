@@ -51,20 +51,20 @@ By default when you build the application created by this guide, your applicatio
 
 To restrict user sign-in access for your application, multiple options are available:
 
-#### Restrict users from only one organization's Active Directory instance to sign in to your application (single-tenant)
+#### Option 1: Restrict users from only one organization's Active Directory instance to sign in to your application (single-tenant)
 
 This option is a common scenario for *LOB applications*: If you want your application to accept sign-ins only from accounts that belong to a specific Azure Active Directory instance (including *guest accounts* of that instance) do the following:
 
-1. In the **web.config** file, change the value for the `Tenant` parameter. Change the value from `Common` to the tenant name of the organization, such as `contoso.onmicrosoft.com`.
+1. In the **web.config** file, change the value for the `Tenant` parameter from `Common` to the tenant name of the organization, such as `contoso.onmicrosoft.com`.
 2. In your [OWIN Startup class](#configure-the-authentication-pipeline), set the `ValidateIssuer` argument to `true`.
 
-#### Restrict access to your application to users in a specific list of organizations
+#### Option 2: Restrict access to your application to users in a specific list of organizations
 
 You can restrict sign-in access to only user accounts that are in an Azure AD organization that is in the list of allowed organizations:
 1. In your [OWIN Startup class](#configure-the-authentication-pipeline), set the `ValidateIssuer` argument to `true`.
 2. Set the value of the `ValidIssuers` parameter to the list of allowed organizations.
 
-#### Use a custom method to validate issuers
+#### Option 3: Use a custom method to validate issuers
 You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, read about the [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) on MSDN.
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]
