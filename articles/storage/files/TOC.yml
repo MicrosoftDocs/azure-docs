@@ -125,7 +125,9 @@
       - name: Storage Analytics
         href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
       - name: Enable and view metrics
-        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Migrate to new Storage Metrics
+        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
   - name: Transfer Data
     items:
     - name: Move data to and from Storage
