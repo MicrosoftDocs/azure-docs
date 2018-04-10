@@ -18,7 +18,7 @@ ms.author: spelluru
 
 ---
 # Tutorial: Set up a lab account with Azure Lab Services (formerly Azure DevTest Labs)
-In this tutorial, you create a lab account with Azure Lab Services. An admistrator sets up a lab account. A professor can then set up a classroom lab by using the [Azure Lab Services portal](https://labs.azure.com).  
+In this tutorial, you create a lab account with Azure Lab Services. An administrator sets up a lab account. A professor can then set up a classroom lab by using the [Azure Lab Services portal](https://labs.azure.com).  
 
 In this tutorial, you do the following actions:
 
@@ -49,7 +49,7 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
     ![Create a lab account window](./media/tutorial-setup-lab-account/notification-go-to-resource.png)    
 6. You see the following **lab account** page:
 
-    ![Lab accoutn page](./media/tutorial-setup-lab-account/lab-account-page.png)
+    ![Lab account page](./media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## Next steps
 In this tutorial, you created a lab account. To learn about how to create a classroom lab as a profession, advance to the next tutorial:
