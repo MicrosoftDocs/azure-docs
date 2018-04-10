@@ -50,9 +50,9 @@ To complete the quickstart, you must have the following prerequisites:
 
 ## Create the Visual Studio project
 
-Open Visual Studio and click **File**, **New**, **Project**.
+Open Visual Studio and click **File**, **New**, **Project**. 
 
-    Expand the **Visual C#** node in the **Templates** list, select **Cloud**, and click **ASP.NET Web Application**. Ensure that **.NET Framework 4.5.2** or higher is selected.  Type **ContosoTeamStats** into the **Name** textbox and click **OK**.
+Expand the **Visual C#** node in the **Templates** list, select **Cloud**, and click **ASP.NET Web Application**. Ensure that **.NET Framework 4.5.2** or higher is selected.  Type **ContosoTeamStats** into the **Name** textbox and click **OK**.
    
     ![Create project](./media/cache-web-app-howto/cache-create-project.png)
 
