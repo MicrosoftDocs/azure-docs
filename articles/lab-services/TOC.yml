@@ -19,7 +19,7 @@
     - name: 2. Set up a classroom lab
       href: tutorial-setup-classroom-lab.md 
     - name: 3. Connect to a VM in the classroom lab
-      href: tutorial-connect-to-vm-in-classroom-lab.md      
+      href: tutorial-connect-virtual-machine-classroom-lab.md      
 - name: Samples
   items:
   - name: Resource Manager templates

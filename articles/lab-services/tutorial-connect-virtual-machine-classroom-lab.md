@@ -26,9 +26,9 @@ In this tutorial, you do the following actions:
 > * Use registration link 
 > * Connect to the virtual machine
 
-## Use registration link
+## Use the registration link
 
-1. Navigate the registration URL that you received from the profession/educator. Confirm that You see the labs that you have access to.     
+1. Navigate to the registration URL that you received from the professor/educator. Confirm that you see the labs that you have access to.     
 
     ![Create a classroom lab](./media/tutorial-connect-vm-in-classroom-lab/access-labs.png)
 
