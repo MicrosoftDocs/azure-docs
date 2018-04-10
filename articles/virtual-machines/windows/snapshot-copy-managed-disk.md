@@ -52,15 +52,15 @@ Get the VM.
 
  ```azurepowershell-interactive
 $vm = get-azurermvm `
-   -ResourceGroupName myresourcegroup `
-   -Name myVM
+   -ResourceGroupName $resourceGroupName `
+   -Name $vmName
 ```
 
 Create the snapshot configuration. In this example, we are going to snapshot the OS disk.
 
  ```azurepowershell-interactive
 $snapshot =  New-AzureRmSnapshotConfig `
-   -SourceUri $vm.StorageProfile.OsDisk `
+   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
    -Location $location `
    -CreateOption copy
 ```
