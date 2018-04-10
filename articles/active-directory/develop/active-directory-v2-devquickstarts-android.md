@@ -17,6 +17,7 @@ ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
 
+redirect_url: https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-android
 ---
 # Add sign-in to an Android app using a third-party library with Graph API using the v2.0 endpoint
 The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. Developers can use any library they want to integrate with our services. To help developers use our platform with other libraries, we've written a few walkthroughs like this one to demonstrate how to configure third-party libraries to connect to the Microsoft identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) can connect to the Microsoft identity platform.
