@@ -14,11 +14,11 @@ ms.author: v-brapel
 
 # Call Bing Custom Search endpoint (Java)
 
-This example shows how to request search results from your custom search instance using Java. To create a custom search instance see [Create your first Bing Custom Search instance](quick-start.md).
+This example shows how to request search results from your custom search instance using Java. To create a custom search instance, see [Create your first Bing Custom Search instance](quick-start.md).
 
 ## Prerequisites
 
-You will need to install [.Java](https://www.java.com) to run this example.
+You will need to install [Java](https://www.java.com) to run this example.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard. 
 
