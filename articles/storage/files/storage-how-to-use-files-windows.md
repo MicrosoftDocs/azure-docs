@@ -48,6 +48,31 @@ You can mount Azure File shares on a Windows installation that is running either
 
 * **Ensure port 445 is open**: Azure Files uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
+## Persisting connections across reboots
+### CmdKey
+The easiest way to establish a persistent connections is to save your storage account credentials into windows using the “CmdKey” command line utility. The following is an example command line for persisting your storage account credentials into your VM:
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> Domainname here will be "AZURE"
+
+CmdKey will also allow you to list the credentials it stored:
+
+```
+C:\>cmdkey /list
+```
+Output will be as follows:
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+Once the credentials have been persisted, you no longer have to supply them when connecting to your share. Instead you can connect without specifying any credentials.
+
 ## Mount the Azure File share with File Explorer
 > [!Note]  
 > Note that the following instructions are shown on Windows 10 and may differ slightly on older releases. 

@@ -4,8 +4,9 @@ description: Overview of Azure ML Studio, a drag-and-drop tool for quickly build
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
-ms.author: garye
 
 ---
 # What is Azure Machine Learning Studio?

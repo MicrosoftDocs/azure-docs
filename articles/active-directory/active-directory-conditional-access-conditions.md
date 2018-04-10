@@ -49,7 +49,7 @@ When you select:
 
 - **All users**, your policy is applied to all users with in the directory. This includes guest users.
 
-- **Select users and groups**, you can target specific sets of users, for example, all members of the HR department, when they sign into an HR app. 
+- **Select users and groups**, you can target specific sets of users. For example, you can select a group that contains all members of the HR department, when you have an HR app selected as cloud app. 
 
 - A group, it can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
 
@@ -87,8 +87,8 @@ To use this condition, you need to have [Azure Active Directory Identity Protect
  
 Common use cases for this condition are policies that:
 
-- Block a users with a high sign-in risk to prevent potentially non-legitimate users from accessing your cloud apps. 
-- Require multi-factor authentication when for users with a medium sign-in risk. By enforcing multi-factor authentication, you can provide additional confidence that the sign-in is performed by the legitimate owner of an account.
+- Block users with a high sign-in risk to prevent potentially non-legitimate users from accessing your cloud apps. 
+- Require multi-factor authentication for users with a medium sign-in risk. By enforcing multi-factor authentication, you can provide additional confidence that the sign-in is performed by the legitimate owner of an account.
 
 For more information, see [Risky sign-ins](active-directory-identityprotection.md#risky-sign-ins).  
 
@@ -97,7 +97,7 @@ For more information, see [Risky sign-ins](active-directory-identityprotection.m
 The device platform is characterized by the operating system that is running on your device. Azure AD identifies the platform by using information provided by the device, such as user agent. Because this information is unverified, it is recommended that all platforms have a policy applied to them, either by blocking access, requiring compliance with Intune policies or requiring the device be domain joined. The default is to apply policy to all device platforms. 
 
 
-![Conditions](./media/active-directory-conditional-access-conditions/02.png)
+![Conditions](./media/active-directory-conditional-access-conditions/24.png)
 
 For a complete list of the supported device platforms, see [device platform condition](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
@@ -109,7 +109,7 @@ A common use case for this condition is a policy that restricts access to your c
 
 With locations, you have the option to define conditions that are based on where a connection attempt was initiated from. 
      
-![Conditions](./media/active-directory-conditional-access-conditions/03.png)
+![Conditions](./media/active-directory-conditional-access-conditions/25.png)
 
 Common use cases for this condition are policies that:
 

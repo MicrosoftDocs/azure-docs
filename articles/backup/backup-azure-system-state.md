@@ -30,7 +30,7 @@ To back up your Windows Server System State, you need to create a Recovery Servi
 
 ### To create a Recovery Services vault
 1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
-2. On the Hub menu, click **More services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
+2. On the Hub menu, click **All services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
@@ -135,6 +135,8 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 > [!NOTE]
 > The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent. 
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Install and register the agent
 

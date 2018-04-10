@@ -56,7 +56,7 @@ In Azure Active Directory, an app can behave as a **resource**, or a recipient o
 * Resource Identifier, or `AppID URI`: `https://graph.windows.net/`
 * Scopes, or `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  
 
-All of this holds true for the the v2.0 endpoint.  An app can still behave as resource, define scopes, and be identified by a URI.  Client apps can still request access to those scopes.  However, the way in which a client requests those permissions has changed.  In the past, an OAuth 2.0 authorize request to Azure AD might have looked like:
+All of this holds true for the v2.0 endpoint.  An app can still behave as resource, define scopes, and be identified by a URI.  Client apps can still request access to those scopes.  However, the way in which a client requests those permissions has changed.  In the past, an OAuth 2.0 authorize request to Azure AD might have looked like:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?

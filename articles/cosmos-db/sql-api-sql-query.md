@@ -20,8 +20,6 @@ ms.author: laviswa
 ---
 # SQL queries for Azure Cosmos DB
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 Microsoft Azure Cosmos DB supports querying documents using SQL (Structured Query Language) as a JSON query language on SQL API accounts. Azure Cosmos DB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes.
 
 While designing the query language for Cosmos DB, we had two goals in mind:
@@ -979,7 +977,7 @@ The following table shows the list of supported aggregate functions in the SQL A
 Aggregates can also be performed over the results of an array iteration. For more information, see [Array Iteration in Queries](#Iteration).
 
 > [!NOTE]
-> When using the Azure portal's Query Explorer, note that aggregation queries may return the partially aggregated results over a query page. The SDKs produces a single cumulative value across all pages. 
+> When using the Azure portal's Data Explorer, note that aggregation queries may return the partially aggregated results over a query page. The SDKs produces a single cumulative value across all pages. 
 > 
 > In order to perform aggregation queries using code, you need .NET SDK 1.12.0, .NET Core SDK 1.1.0, or Java SDK 1.9.5 or above.    
 >

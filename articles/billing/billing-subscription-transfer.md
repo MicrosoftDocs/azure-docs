@@ -25,7 +25,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
 > [!IMPORTANT]
 > 
-> Currently we don't support subscription transfers for Free Trial or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
+> If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../active-directory/role-based-access-control-what-is.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
 
 ## Transfer ownership of an Azure subscription
 
@@ -45,7 +45,12 @@ Transfer your subscription to another user in the Account Center to change the A
    ![Azure account subscriptions tab](./media/billing-subscription-transfer/image1.png)
 1. Specify the recipient.
 
+   > [!IMPORTANT]
+   > 
+   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../active-directory/role-based-access-control-what-is.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+
    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
+
 1. The recipient automatically gets an email with an acceptance link.
 
    ![Subscription transfer email to recipient](./media/billing-subscription-transfer/image3.png)
@@ -76,7 +81,7 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 ## What's supported:
 
-Self-serve subscription transfer is available for the offers or subscription types listed in the following table. For transferring other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Self-serve subscription transfer is available for the offers or subscription types listed in the following table. Currently you can't transfer a Free Trial or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md). To transfer other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Offer Name                                                                             | Offer Number |
 |----------------------------------------------------------------------------------------|--------------|

@@ -4,8 +4,8 @@ description: Learn how to use lookup activity to look up a value from an externa
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: shlo
+manager: craigg
+editor: 
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 
 ---
 # Lookup activity in Azure Data Factory

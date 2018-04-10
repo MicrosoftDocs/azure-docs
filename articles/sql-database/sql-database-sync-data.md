@@ -2,21 +2,15 @@
 title: Azure SQL Data Sync (Preview) | Microsoft Docs
 description: This overview introduces Azure SQL Data Sync (Preview)
 services: sql-database
-documentationcenter: ''
 author: douglaslms
 manager: craigg
-editor: ''
-
-ms.assetid: 
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
+ms.custom: data-sync
 ---
 # Sync data across multiple cloud and on-premises databases with SQL Data Sync (Preview)
 

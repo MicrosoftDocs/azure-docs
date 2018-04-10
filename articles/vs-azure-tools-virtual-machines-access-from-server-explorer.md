@@ -18,16 +18,13 @@ ms.author: kraigb
 
 ---
 # Accessing Azure Virtual Machines from Server Explorer
-By using Server Explorer in Visual Studio, you can display information about your virtual machines hosted by Azure.
 
-## Accessing virtual machines in Server Explorer
 If you have virtual machines hosted by Azure, you can access them in Server Explorer. You must first sign in to your Azure subscription to view your mobile services. To sign in, open the shortcut menu for the Azure node in Server Explorer, and choose **Connect to Microsoft Azure**.
 
-### To get information about your virtual machines
 1. In Cloud Explorer, choose a virtual machine, and then choose the F4 key to show its properties window.
-   
+
     The following table shows what properties are available, but they are all read-only. To change them, use the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-   
+
    | Property | Description |
    | --- | --- |
    | DNS Name |The URL with the Internet address of the virtual machine. |
@@ -38,14 +35,10 @@ If you have virtual machines hosted by Azure, you can access them in Server Expl
    | SubscriptionID |The subscription ID for your Azure account. You can show this information on the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) by viewing the properties for a subscription. |
 2. Choose an endpoint node, and then view the **Properties** window.
 3. The following table describes the available properties of endpoints, but they are read-only. To add or edit the endpoints for a virtual machine, use the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). 
-   
+
    | Property | Description |
    | --- | --- |
    | Name |An identifier for the endpoint. |
    | Private Port |The port for network access internal to your application. |
    | Protocol |The protocol that the transport layer for this endpoint uses, either TCP or UDP. |
    | Public Port |The port that’s used for public access to your application. |
-
-## Next steps
-To learn more about using Azure roles in Visual Studio, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
-

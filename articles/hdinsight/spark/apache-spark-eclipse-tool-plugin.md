@@ -48,6 +48,8 @@ When you open Eclipse, HDInsight Tool automatically detects whether you installe
 
 ![Automatic installation of the Scala plug-in](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
+User can either [sign in to Azure subscription](#Sign-in-to-your-Azure-subscription), or [link a HDInsight cluster](#Link-a-cluster) using Ambari username/password or domain joined credential to start. 
+
 ## Sign in to your Azure subscription
 1. Start the Eclipse IDE and open Azure Explorer. On the **Window** menu, select **Show View**, and then select **Other**. In the dialog box that opens, expand **Azure**, select **Azure Explorer**, and then select **OK**.
 
@@ -66,6 +68,27 @@ When you open Eclipse, HDInsight Tool automatically detects whether you installe
    
    ![Expanding a cluster name to see resources](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
+## Link a cluster
+You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
+1. Click **Link a cluster** from **Azure Explorer**.
+
+   ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Enter **Cluster Name**, **User Name** and **Password**, then click OK button to link cluster. Optionally, enter Storage Account, Storage Key and then select Storage Container for storage explorer to work in the left tree view
+   
+   ![link cluster dialog](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
+   > ![storage explorer in Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
+
+3. You can see a Linked cluster in **HDInsight** node after clicking OK button, if the input information are right. Now you can submit an application to this linked cluster.
+
+   ![linked cluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. You also can unlink a cluster from **Azure Explorer**.
+   
+   ![unlinked cluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 
 ## Set up a Spark Scala project for an HDInsight Spark cluster
@@ -127,6 +150,7 @@ When you open Eclipse, HDInsight Tool automatically detects whether you installe
 6. The **Spark Submission** tab should start displaying the progress. You can stop the application by selecting the red button in the **Spark Submission** window. You can also view the logs for this specific application run by selecting the globe icon (denoted by the blue box in the image).
       
    ![Spark Submission window](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
+
 
 ## Access and manage HDInsight Spark clusters by using HDInsight Tools in Azure Toolkit for Eclipse
 You can perform various operations by using HDInsight Tools, including accessing the job output.
@@ -222,7 +246,6 @@ If you have any feedback, or if you encounter any other problems when using this
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](../hdinsight-apache-spark-eventhub-streaming.md)
 * [Website log analysis using Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Creating and running applications

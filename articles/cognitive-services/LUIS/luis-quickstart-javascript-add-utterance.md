@@ -18,7 +18,7 @@ For more information, see the technical documentation for the [add utterance](ht
 
 ## Prerequisites
 > [!div class="checklist"]
-> * Your LUIS [**programmatic key**](Manage-Keys.md#programmatic-key). 
+> * Your LUIS [**authoring key**](luis-concept-keys.md#authoring-key). 
 > * Your existing LUIS **application ID** and **version ID**. 
 > * A new file named `add-utterances.html` project in VSCode.
 
@@ -34,7 +34,7 @@ Create `add-utterances.html` and add the following code:
 ## View in browser
 1. Open the file in a browser.
 
-2. Add your LUIS programmatic ID, your LUIS application ID, and change the version if it is not `0.1`
+2. Add your LUIS authoring ID, your LUIS application ID, and change the version if it is not `0.1`
 
 3. Modify the **array of utterances** to add to your application. They are stored in the utteranceJSON variable. Change these values for your own domain and utterance needs. 
 
@@ -72,3 +72,4 @@ Create `add-utterances.html` and add the following code:
 ## Next steps
 > [!div class="nextstepaction"]
 > [Integrate LUIS with a bot](luis-csharp-tutorial-build-bot-framework-sample.md)
+

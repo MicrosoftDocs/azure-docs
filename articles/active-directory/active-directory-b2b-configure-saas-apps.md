@@ -3,7 +3,7 @@ title: Configure SaaS apps for B2B collaboration in Azure Active Directory | Mic
 description: Code and PowerShell samples for Azure Active Directory B2B collaboration
 services: active-directory
 documentationcenter: ''
-author: sasubram
+author: twooley
 manager: mtillman
 editor: ''
 tags: ''
@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 
 ---
 

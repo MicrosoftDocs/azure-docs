@@ -42,7 +42,7 @@ No.
 
 **Are there any scale limitations for customers that use managed disks?**
 
-Managed Disks eliminates the limits associated with storage accounts. However, the number of managed disks per subscription is limited to 2,000 by default. You can call support to increase this number.
+Managed Disks eliminates the limits associated with storage accounts. However, the maximum limit, and also the default limit, is 10,000 managed disks per region and per disk type for a subscription.
 
 **Can I take an incremental snapshot of a managed disk?**
 
@@ -141,7 +141,7 @@ Yes, you can choose to failover to a VM with Managed Disks.
 
 **Is there any impact of migration on Azure VMs protected by Azure Site Recovery (ASR) via Azure to Azure replication?**
 
-Yes. ASR Azure to Azure protection is not supported for VMs with Managed Disks. It is going to be supported by the end of Q1 CY2018. 
+Yes. Currently, ASR Azure to Azure protection for VMs with Managed Disks is only available as a public preview service.
 
 **Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 

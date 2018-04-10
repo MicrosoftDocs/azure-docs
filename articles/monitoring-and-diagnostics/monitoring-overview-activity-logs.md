@@ -69,10 +69,10 @@ Here are some of the things you can do with the Activity Log:
 * Query it via PowerShell Cmdlet, CLI, or REST API.
 
 ## Query the Activity Log in the Azure portal
-Within the Azure portal you can view your Activity Log in several places:
-* The **Activity Log blade**, which you can access by searching for the Activity Log under "More Services" in the left-hand navigation pane.
-* The **Monitor blade**, which appears by default in the left-hand navigation pane. The Activity Log is one section of this Azure Monitor blade.
-* Any resource's **resource blade**, for example, the configuration blade for a Virtual Machine. The Activity Log is be one of the sections on most of these resource blades, and clicking on it automatically filters the events to those related to that specific resource.
+Within the Azure portal, you can view your Activity Log in several places:
+* The **Activity Log** that you can access by searching for the Activity Log under **All services** in the left-hand navigation pane.
+* **Monitor** appears by default in the left-hand navigation pane. The Activity Log is one section of Azure Monitor.
+* Any resource's **resource**, for example, the configuration blade for a Virtual Machine. The Activity Log is be one of the sections on most of these resource blades, and clicking on it automatically filters the events to those related to that specific resource.
 
 In the Azure portal, you can filter your Activity Log by these fields:
 * Timespan - The start and end time for events.
@@ -110,7 +110,7 @@ These settings can be configured via the “Export” option in the Activity Log
 ### Configure log profiles using the Azure portal
 You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
 
-1. Navigate to the **Activity Log** blade using the menu on the left side of the portal.
+1. Navigate to **Activity Log** using the menu on the left side of the portal.
 
     ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Click the **Export** button at the top of the blade.

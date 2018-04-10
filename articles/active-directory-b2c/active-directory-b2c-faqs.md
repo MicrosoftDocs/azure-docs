@@ -2,18 +2,15 @@
 title: Frequently asked questions - Azure Active Directory B2C
 description: Frequently asked questions (FAQ) about Azure Active Directory B2C
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: saeeda
+editor: ''
 
-ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
+ms.author: davidmu
 ---
 
 # Azure AD B2C: Frequently asked questions (FAQ) 

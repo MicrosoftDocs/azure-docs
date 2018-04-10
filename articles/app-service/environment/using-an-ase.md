@@ -44,7 +44,7 @@ If you don't have an ASE, you can create one by following the instructions in [C
 
 To create a web app in an ASE:
 
-1. Select **New** > **Web + Mobile** > **Web App**.
+1. Select **Create a resource** > **Web + Mobile** > **Web App**.
 
 2. Enter a name for the web app. If you already selected an App Service plan in an ASE, the domain name for the app reflects the domain name of the ASE.
 

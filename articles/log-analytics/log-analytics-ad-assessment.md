@@ -3,7 +3,7 @@ title: Optimize your Active Directory environment with Azure Log Analytics | Mic
 description: You can use the Active Directory Health Check solution to assess the risk and health of your environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -37,7 +37,7 @@ After you've added the solution and a check is completed, summary information fo
 
 ## Prerequisites
 
-* The Active Directory Health Check solution requires a supported version of .NET Framework 4.5.2 or above installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and the Log Analytics service. 
+* The Active Directory Health Check solution requires a supported version of .NET Framework 4.5.2 or above installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and the Log Analytics service.
 * The solution supports domain controllers running Windows Server 2008 and 2008 R2, Windows Server 2012 and 2012 R2, and Windows Server 2016.
 * A Log Analytics workspace to add the Active Directory Health Check solution from the Azure marketplace in the Azure portal.  There is no further configuration required.
 
@@ -58,13 +58,13 @@ The agent on your domain controller which reports to an Operations Manager manag
 
 Active Directory Health Check collects data from the following sources using the agent that you have enabled:
 
-- Registry 
-- LDAP 
+- Registry
+- LDAP
 - .NET Framework
-- Event log 
+- Event log
 - Active Directory Service interfaces (ADSI)
 - Windows PowerShell
-- File data 
+- File data
 - Windows Management Instrumentation (WMI)
 - DCDIAG tool API
 - File Replication Service (NTFRS) API
@@ -105,7 +105,7 @@ View the summarized compliance assessments for your infrastructure and then dril
 
 ### To view recommendations for a focus area and take corrective action
 3. Click the **Overview** tile for your Log Analytics workspace in the Azure portal.
-4. On the **Overview** page, click the **Active Directory Health Check** tile. 
+4. On the **Overview** page, click the **Active Directory Health Check** tile.
 5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
 6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of Health Check recommendations](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments records that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
@@ -129,7 +129,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 2. Paste or type each RecommendationId for each recommendation that you want Log Analytics to ignore on a separate line and then save and close the file.
 3. Put the file in the following folder on each computer where you want Log Analytics to ignore recommendations.
    * On computers with the Microsoft Monitoring Agent (connected directly or through Operations Manager) - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
-   * On the Operations Manager 2012 R2 management server - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * On the Operations Manager 2012 R2 management server - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * On the Operations Manager 2016 management server - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### To verify that recommendations are ignored

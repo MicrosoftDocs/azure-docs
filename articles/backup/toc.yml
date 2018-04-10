@@ -79,6 +79,14 @@
         href: backup-mabs-system-state-and-bmr.md
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
+  - name: Azure File shares
+    items:
+    - name: Back up Azure File shares
+      href: backup-azure-files.md
+    - name: Back up Azure File shares FAQ
+      href: backup-azure-files-faq.md
+    - name: Troubleshoot Azure File shares Backup
+      href: troubleshoot-azure-files.md
   - name: Azure VMs
     items:
     - name: Prepare the VM
@@ -99,6 +107,8 @@
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
         href: backup-during-vm-creation.md
+      - name: Upgrade to VM backup stack V2
+        href: backup-upgrade-to-vm-backup-stack-v2.md
     - name: Manage and monitor VMs
       items:
       - name: Manage Azure VM backups in Azure portal

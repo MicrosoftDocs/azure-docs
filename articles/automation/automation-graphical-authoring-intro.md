@@ -1,21 +1,13 @@
 ---
-title: Graphical Authoring in Azure Automation | Microsoft Docs
+title: Graphical Authoring in Azure Automation
 description: Graphical authoring allows you to create runbooks for Azure Automation without working with code. This article provides an introduction to graphical authoring and all the details needed to start creating a graphical runbook.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: tysonn
-
-ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/14/2017
-ms.author: magoedte;bwren
-
+manager: carmonm
 ---
 # Graphical authoring in Azure Automation
 ## Introduction

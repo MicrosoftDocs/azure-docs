@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
 
 ---
@@ -93,7 +93,7 @@ For more reference information, see [SQL Data Warehouse reference overview][SQL 
 <!--Article references-->
 [Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
 [SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [data type]: ./sql-data-warehouse-tables-data-types.md
 [creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md

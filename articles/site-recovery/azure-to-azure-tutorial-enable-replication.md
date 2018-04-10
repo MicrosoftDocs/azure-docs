@@ -4,13 +4,16 @@ description: Learn how to set up disaster recovery for Azure VMs to a different 
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
+
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 02/07/2018
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 03/16/2018
 ms.author: raynew
 ms.custom: mvc
 ---
-
 # Set up disaster recovery for Azure VMs to a secondary Azure region (Preview)
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
@@ -35,7 +38,7 @@ To complete this tutorial:
 Create the vault in any region, except the source region.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **New** > **Monitoring & Management** > **Backup and Site Recovery**.
+2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group or select an existing one. Specify an Azure region. To check supported
@@ -172,8 +175,11 @@ your requirements.
 - **Cache storage accounts**: Site Recovery uses a storage account in the source region. Changes to
   source VMs are sent to this account before replication to the target location.
 
-- **Target storage accounts**: By default, Site Recovery creates a new storage account in the
+- **Target storage accounts (If source VM does not use managed disks)**: By default, Site Recovery creates a new storage account in the
   target region to mirror the source VM storage account.
+
+- **Replica managed disks (If source VM uses managed disks)**: By default, Site Recovery creates replica managed disks in the
+  target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
 
 - **Target availability sets**: By default, Site Recovery creates a new availability set in the
   target region with the "asr" suffix. You can only add availability sets if VMs are part of a set in the source region.

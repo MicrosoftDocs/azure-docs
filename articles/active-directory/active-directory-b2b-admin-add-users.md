@@ -4,7 +4,7 @@ title: How do Azure Active Directory admins add B2B collaboration users? | Micro
 description: An admin can add guest users to your Azure AD from a partner organization using Azure Active Directory B2B collaboration.
 services: active-directory
 documentationcenter: ''
-author: sasubram
+author: twooley
 manager: mtillman
 editor: ''
 tags: ''
@@ -16,7 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 
 ---
 

@@ -41,7 +41,7 @@ If you have previously signed up for an Azure subscription with your individual 
 To do so, follow these steps.  Alternatively, you may wish to create a new tenant and create an administrator in that tenant following a similar process.
 
 1. Log into the [Azure portal](https://portal.azure.com) with your individual account
-2. Navigate to the “Azure Active Directory” section of the portal (found in the left nav bar, under **More Services**)
+2. Navigate to the “Azure Active Directory” section of the portal (found in the left nav bar, under **All services**)
 3. You should automatically be signed in to the "Default Directory", if not you can switch directories by clicking on your account name in the top right corner.
 4. From the **Quick Tasks** section, choose **Add a user**.
 5. In the Add User Form, provide the following details:
@@ -55,7 +55,7 @@ To do so, follow these steps.  Alternatively, you may wish to create a new tenan
 8. To change the temporary password, log into [https://login.microsoftonline.com](https://login.microsoftonline.com) with this new user account and change the password when requested.
 
 ## Use an organizational Azure subscription
-If you have previously signed up for an Azure subscription with your organizational account, you already have a tenant!  In the [Azure portal](https://portal.azure.com), you should find a tenant when you navigate to "More Services" and "Azure Active Directory."  You are free to use this tenant as you see fit.
+If you have previously signed up for an Azure subscription with your organizational account, you already have a tenant!  In the [Azure portal](https://portal.azure.com), you should find a tenant when you navigate to "All services" and "Azure Active Directory."  You are free to use this tenant as you see fit.
 
 ## Start from scratch
 If all of the above is gibberish to you, don't worry. Simply visit [Azure portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) to create a new Azure AD directory. Once you complete the process, you get your own Azure AD tenant with the domain name you chose during sign-up.  In the [Azure portal](https://portal.azure.com), you can find your tenant by navigating to **Azure Active Directory** in the left-hand nav.

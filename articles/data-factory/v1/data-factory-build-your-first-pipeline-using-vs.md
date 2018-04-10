@@ -3,9 +3,9 @@ title: Build your first data factory (Visual Studio) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Visual Studio.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: craigg
+
 
 ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 
 robots: noindex
 ---

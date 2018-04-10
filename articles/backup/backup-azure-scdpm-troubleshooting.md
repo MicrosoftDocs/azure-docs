@@ -21,57 +21,76 @@ ms.author: pullabhk;markgal;adigan
 
 # Troubleshoot System Center Data Protection Manager
 
-You can find the latest Release Notes for SC DPM [here](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016).
-The Protection Support Matrix can be found [here](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+This article describes solutions for issues that you might encounter while using Data Protection Manager.
 
-## Replica is inconsistent
+For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). You can learn more about support for Data Protection Manager in [this matrix](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
-This error could happen for various reasons such as - replica creation job failed, issues with change journal, volume level filter bitmap errors, source machine was shut down unexpectedly, overflow of the synchronization log or the replica is truly inconsistent. Follow these steps to resolve this issue:
-- To remove the inconsistent status, run consistency check manually or schedule daily consistency check.
-- Ensure you are on latest version of MAB Server, or System Center DPM
-- Ensure Automatic Consistency check is enabled
-- Try restarting the services from command Prompt ("net stop dpmra" followed by "net start dpmra")
-- Ensure network connectivity and bandwidth requirements are met
-- Check if the source machine was shut down unexpectedly
-- Ensure disk is healthy and there is enough space for replica
-- Ensure no duplicate backup job are running concurrently
 
-## Online Recovery Point Creation Failed
+## Error: Replica is inconsistent
 
-Follow these steps to resolve this issue:
-- Ensure you are on latest version of Azure Backup Agent
-- Try manually creating a recovery point in the protection task area
-- Ensure that you run consistency check on the data source
-- Ensure network connectivity and bandwidth requirements are met
-- Replica data is in inconsistent state. Create a disk recovery point of this data source
-- Ensure replica is present and not missing
-- Replica is having enough space to create USN journal
+A replica can be inconsistent for the following reasons:
+- The replica creation job fails.
+- There are issues with the change journal.
+- The volume level filter bitmap contains errors.
+- The source machine shuts down unexpectedly.
+- The synchronization log overflows.
+- The replica is truly inconsistent.
 
-## Unable to configure protection
+To resolve this issue, perform the following actions:
+- To remove the inconsistent status, run the consistency check manually, or schedule a daily consistency check.
+- Ensure that you're using the latest version of Microsoft Azure Backup Server and Data Protection Manager.
+- Ensure that the **Automatic Consistency** setting is enabled.
+- Try to restart the services from the command prompt. Use the `net stop dpmra` command followed by `net start dpmra`.
+- Ensure that you're meeting the network connectivity and bandwidth requirements.
+- Check if the source machine was shut down unexpectedly.
+- Ensure that the disk is healthy and that there's enough space for the replica.
+- Ensure that there are no duplicate backup jobs that are running concurrently.
 
-This error appears when the DPM server is unable to contact the protected server. 
-Follow these steps to resolve this issue:
-- Ensure you are on the latest version of Azure Backup Agent
-- Ensure there is connectivity (network/firewall/proxy) between your DPM server and protected server
-- If you are protecting SQL Server, ensure NT AUTHORITY\SYSTEM has sysadmin enabled from Login Properties
+## Error: Online recovery point creation failed
 
-## This server is not registered to the vault specified by the vault credential
+To resolve this issue, perform the following actions:
+- Ensure that you're using the latest version of the Azure Backup agent.
+- Try to manually create a recovery point in the protection task area.
+- Ensure that you run a consistency check on the data source.
+- Ensure that you're meeting the network connectivity and bandwidth requirements.
+- When the replica data is in an inconsistent state, create a disk recovery point of this data source.
+- Ensure that the replica is present and not missing.
+- Ensure that the replica has sufficient space to create the update sequence number (USN) journal.
 
-This error appears when the vault credential file selected does not belong to the Recovery Services vault associated with System Center DPM / Azure Backup Server on which the recovery is attempted. Follow these steps to resolve this issue:
-- Download the vault credential file from the Recovery Services vault to which the System Center DPM / Azure Backup Server is registered.
-- Try registering the server with the vault using the latest downloaded vault credential file.
+## Error: Unable to configure protection
 
-## Either the recoverable data is not available, or the selected server is not a DPM server
-This error appears when there are no other System Center DPM / Azure Backup Servers registered to the Recovery Services vault, or the servers have not yet uploaded the metadata, or the selected server is not a System Center DPM / Azure Backup Server.
-- If there are other System Center DPM / Azure Backup Servers registered to the Recovery Services vault, ensure that the latest Azure Backup agent is installed.
-- If there are other System Center DPM / Azure Backup Servers registered to the Recovery Services vault, wait for a day after installation to start the recovery process. The nightly job uploads the metadata for all the protected backups to cloud. The data is available for recovery.
+This error occurs when the Data Protection Manager server can't contact the protected server. 
 
-## The encryption passphrase provided does not match with passphrase associated with the following server
+To resolve this issue, perform the following actions:
+- Ensure that you're using the latest version of the Azure Backup agent.
+- Ensure that there's connectivity (network/firewall/proxy) between your Data Protection Manager server and the protected server.
+- If you're protecting a SQL server, ensure that the **Login Properties** > **NT AUTHORITY\SYSTEM** property shows the **sysadmin** setting enabled.
 
-> [!NOTE]
->If you forgot/lost the encryption passphrase, then there is no option to recover the data. Your only option is to regenerate the passphrase and use to encrypting future backup data.
+## Error: Server not registered as specified in vault credential file
+
+This error occurs during the recovery process for Data Protection Manager/Azure Backup server data. The vault credential file that's used in the recovery process doesn't belong to the Recovery Services vault for the Data Protection Manager/Azure Backup server.
+
+To resolve this issue, perform these steps:
+1. Download the vault credential file from the Recovery Services vault to which the Data Protection Manager/Azure Backup server is registered.
+2. Try to register the server with the vault by using the most recently downloaded vault credential file.
+
+## Error: No recoverable data or selected server not a Data Protection Manager server
+
+This error occurs for the following reasons:
+- No other Data Protection Manager/Azure Backup servers are registered to the Recovery Services vault.
+- The servers haven't yet uploaded the metadata.
+- The selected server isn't a Data Protection Manager/Azure Backup server.
+
+When other Data Protection Manager/Azure Backup servers are registered to the Recovery Services vault, perform these steps to resolve the issue:
+1. Ensure that the latest Azure Backup agent is installed.
+2. After you ensure that the latest agent is installed, wait one day before you start the recovery process. The nightly backup job uploads the metadata for all of the protected backups to the cloud. The backup data is then available for recovery.
+
+## Error: Provided encryption passphrase doesn't match passphrase for server
+
+This error occurs during the encryption process when recovering Data Protection Manager/Azure Backup server data. The encryption passphrase that's used in the recovery process doesn't match the server's encryption passphrase. As a result, the agent can't decrypt the data and the recovery fails.
+
+> [!IMPORTANT]
+> If you forget or lose the encryption passphrase, there are no other methods for recovering the data. The only option is to regenerate the passphrase. Use the new passphrase to encrypt future backup data.
 >
+> When you're recovering data, always provide the same encryption passphrase that's associated with the Data Protection Manager/Azure Backup server. 
 >
-
-This error appears when the encryption passphrase used in the process of encrypting the data from the System Center DPM / Azure Backup Server’s data that is being recovered does not match the encryption passphrase provided. The agent is unable to decrypt the data. Hence the recovery fails. Follow these steps to resolve this issue:
-- Provide the exact same encryption passphrase associated with the System Center DPM / Azure Backup Server whose data is being recovered. 

@@ -3,7 +3,7 @@ title: Add Azure Log Analytics management solutions | Microsoft Docs
 description: Management solutions in Azure are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -42,8 +42,7 @@ You can install management solutions from Azure marketplace by clicking the **Ge
 
 ## Add a management solution
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
-2. In the **New** blade under **Marketplace**, select **Monitoring + management**.
-3. In the **Monitoring + management** blade, click **See all**.  
+2. Select **Create a resource** > **Monitoring + Management** > **See all**.  
     ![Monitoring + management blade](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. To the right of **Management Solutions**, click **More**.
 5. In the **Management Solutions** blade, select a management solution that you want to add to a workspace.  

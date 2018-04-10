@@ -13,7 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-#Virtual Machine Scale Sets Documentation
+# Virtual Machine Scale Sets Documentation
 
 Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identical, auto-scaling Windows or Linux VMs. Documentation shows you how to use Scale Sets to support services that target big compute, big data, and containerized solutions.
 
