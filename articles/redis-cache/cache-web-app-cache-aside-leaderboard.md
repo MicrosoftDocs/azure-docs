@@ -22,14 +22,15 @@ ms.author: wesmc
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET
 
-## Overview
+## Introduction
 
-In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md), to include a leaderboard that uses the cache-aside pattern with Azure Redis Cache. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Redis Cache to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
+In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md), to include a leaderboard that uses the [cache-aside pattern](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) with Azure Redis Cache. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Redis Cache to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Redis Cache, and hosted in Azure.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Access data from a database using Entity Framework.
 > * Improve data throughput and reduce database load by storing and retrieving data using Azure Redis Cache.
 > * Use a Redis sorted set to retrieve the top five teams.
 > * Provision the Azure resources for the application using a Resource Manager template.
@@ -41,7 +42,9 @@ In this tutorial, you learn how to:
 To complete this tutorial, you must have the following prerequisites:
 
 * This tutorial continues to update the *ContosoTeamStats* ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md). If you have not completed those steps to setup your cache and Azure App service, please complete that first.
-* [Visual Studio 2017 with the Azure SDK for .NET](https://www.visualstudio.com/downloads/)
+* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+    * ASP.NET and web development
+    * Azure Development
 * You need an Azure account to complete the quickstart. You can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
 
 ## Add a leaderboard to the project
@@ -70,8 +73,6 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. Right-click **Models** in **Solution Explorer**, and choose **Add**, **Class**. 
    
-    ![Add model](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class.png)
-
 2. Enter `Team` for the class name and click **Add**.
    
     ![Add model class](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png)
@@ -174,7 +175,6 @@ For more information about this package, see the [EntityFramework](https://www.n
     ```xml
 	<configuration>
 	  <configSections>
-	    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
 	    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
 	  </configSections>
 	  <connectionStrings>
@@ -183,9 +183,6 @@ For more information about this package, see the [EntityFramework](https://www.n
       ...
       ```
 
-    > [!NOTE]
-    > Your connection string may be different depending on the version of Visual Studio and SQL Server Express edition used to complete the tutorial. The web.config template should be configured to match your installation, and may contain `Data Source` entries like `(LocalDB)\v11.0` (from SQL Server Express 2012) or `Data Source=(LocalDB)\MSSQLLocalDB` (from SQL Server Express 2014 and newer). For more information about connection strings and SQL Express versions, see [SQL Server 2016 Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) .
-
 
 ### Add the TeamsController and views
 
@@ -193,8 +190,6 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 2. In **Solution Explorer**, right-click the **Controllers** folder and choose **Add**, **Controller**.
    
-    ![Add controller](./media/cache-web-app-cache-aside-leaderboard/cache-add-controller.png)
-
 3. Choose **MVC 5 Controller with views, using Entity Framework**, and click **Add**. If you get an error after clicking **Add**, ensure that you have built the project first. 
    
     ![Add controller class](./media/cache-web-app-cache-aside-leaderboard/cache-add-controller-class.png)
@@ -443,7 +438,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     }
     ```
 
-    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database and then stored in the cache for next time. In this sample we're using JSON.NET serialization to serialize the .NET objects to and from the cache. For more information, see [How to work with .NET objects in Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
+    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If the statistics are not present in the cache, we refer to this as a cache miss. For a cache miss, the team statistics are read from the database and then stored in the cache for the next request. In this sample we're using JSON.NET serialization to serialize the .NET objects to and from the cache. For more information, see [How to work with .NET objects in Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
     ```csharp
     List<Team> GetFromList()
@@ -727,6 +722,7 @@ In this section you will provision a new SQL Azure database for the app to use w
     | *{your_username}* | Use the **server admin login** for the database server you just created. |
     | *{your_password}* | Use the password for the database server you just created. |
 
+    By adding the username and password as an Application Setting, your username and password are not included in your code. This helps protect those credientials.
 
 
 ### Publish the application updates to Azure
@@ -782,16 +778,8 @@ When you are finished with the sample tutorial application, you can delete the A
 
 ## Next steps
 
-* Explore Azure Redis Cache premium features:
-  
-  * [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
-  * [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
-  * [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
+> [!div class="nextstepaction"]
+> [How to Scale Azure Redis Cache](./cache-how-to-scale.md)
 
-* Learn more about [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site.
-* For more examples of creating an ASP.NET Web App in App Service, see [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
-* Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
-* Learn more about [web apps in Azure App Service](../app-service/app-service-web-overview.md).
-* Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal.
 
 
