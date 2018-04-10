@@ -17,7 +17,7 @@ Bing Custom Search enables you to create tailored search experiences for topics 
 
 To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). The portal lets you create a custom search instance that specifies the domains, websites, and webpages that you want Bing to search, and the websites that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also use the portal to find relevant content that you may want to add.
 
-The portal also lets you pin webpages and customize auto suggest search terms. Pinned webpages will appear at the top of the search results if the user enters the search term you specify. Auto suggest search terms are suggested search terms based on the user's current input. Customizing auto suggest will show your suggestions first in the list of suggested search terms.
+The portal also lets you pin webpages and customize auto suggest search terms. Pinned webpages will appear at the top of the search results if the user enters the search term you specify. Auto suggest search terms are suggested based on the user's current input. Customizing auto suggest will show your suggestions first in the list of suggested search terms.
 
 After defining your instance, you can integrate custom search into your website, desktop app, or mobile app by calling the Custom Search API. If you have a web-based site or application, you can let the hosted UI render the search interface for you.
 
