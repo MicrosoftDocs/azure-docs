@@ -23,6 +23,9 @@ ms.author: parakhj
 
 This article shows you how to enable sign-in for users using the common endpoint for Azure Active Directory (Azure AD) through the use of [custom policies](active-directory-b2c-overview-custom.md).
 
+>[!NOTE]
+> We use "contoso.com" for the organizational Azure AD tenant and "fabrikamb2c.onmicrosoft.com" as the Azure AD B2C tenant in the following instructions.
+
 ## Prerequisites
 
 Complete the steps in the [Getting started with custom policies](active-directory-b2c-get-started-custom.md) article.
@@ -35,22 +38,22 @@ These steps include:
 4. Setting up keys.
 5. Setting up the starter pack.
 
-## Create an Azure AD app
+## Create a multi-tenant Azure AD app
 
-To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have an application registered in any of your tenants, and a service principal within each of the Azure AD tenants that you would like to allow users to sign in from. Learn more about the multi-tenant application pattern [here](../active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have a multi-tenant application registered in any of your tenants
 
-In this article, we will show you how to create an Azure AD application in your Azure AD B2C tenant, and how you can add a service principal in your other Azure AD tenants.
+In this article, we will show you how to create a multi-tenant Azure AD application in your Azure AD B2C tenant.
 
 >[!NOTE]
-> We use "contoso.com" for the organizational Azure AD tenant and "fabrikamb2c.onmicrosoft.com" as the Azure AD B2C tenant in the following instructions.
+> If you would like Azure AD users **and users with Microsoft accounts** to sign in, skip this section and instead register an application in the [Microsoft developer portal](https://apps.dev.microsoft.com).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, select your account. From the **Directory** list, choose the Azure AD B2C tenant where you want to register your application (fabrikamb2c.onmicrosoft.com).
-2. Select **More services** in the left pane, and search for "App registrations."
-3. Select **New application registration**.
-4. Enter a name for your application (for example, `Azure AD B2C App`).
-5. Select **Web app / API** for the application type.
-6. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
+1. Select **More services** in the left pane, and search for "App registrations."
+1. Select **New application registration**.
+1. Enter a name for your application (for example, `Azure AD B2C App`).
+1. Select **Web app / API** for the application type.
+1. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
@@ -75,7 +78,7 @@ You need to register the application key in the Azure AD B2C settings. To do thi
 1. Select **+Add**.
 1. Select or enter these options:
    * Select **Manual**.
-   * For **Name**, choose a name that matches your Azure AD tenant name (for example, `ContosoAppSecret`).  The prefix `B2C_1A_` is added automatically to the name of your key.
+   * For **Name**, choose a name that matches your Azure AD tenant name (for example, `AADAppSecret`).  The prefix `B2C_1A_` is added automatically to the name of your key.
    * Paste your application key in the **Secret** box.
    * Select **Signature**.
 5. Select **Create**.
@@ -118,8 +121,9 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType=“iss” />
-            <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
+            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
             <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
             <OutputClaim ClaimTypeReferenceId="email" />
