@@ -103,7 +103,7 @@ Run the following PowerShell commands:
    Notice that you are setting the value of `Parameters` to the PowerShell object that contains the values from the JSON file. 
 1. Start the runbook
    ```powershell
-   $job = Start-AzureRmAutomationRunbook @RBParams
+   $job = Start-AzureRmAutomationRunbook $RBParams
    ```
 
 The runbook uses the values from the JSON file to start a VM.
