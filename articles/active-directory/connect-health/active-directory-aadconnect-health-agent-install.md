@@ -132,7 +132,7 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 9. Select the **Success audits and Failure audits** check boxes and then click **OK**. This should be enabled by default.
 10. Open a PowerShell window and run the following command: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Note that "basic" audit level is enabled by default. Read more about the [AD FS Audit enhancement in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
+Note that "basic" audit level is enabled by default. Read more about the [AD FS Audit enhancement in Windows Server 2016](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
 
 
 #### To locate the AD FS audit logs
@@ -300,10 +300,6 @@ The role parameter currently takes the following values:
 * ADFS
 * Sync
 * ADDS
-
-You can use the -ShowResults flag in the command to view detailed logs. Use the following example:
-
-    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
 > [!NOTE]
 > To use the connectivity tool, you must first complete the agent registration. If you are not able to complete the agent registration, make sure that you have met all the [requirements](active-directory-aadconnect-health-agent-install.md#requirements) for Azure AD Connect Health. This connectivity test is performed by default during agent registration.
