@@ -14,32 +14,32 @@ ms.author: v-brapel
 
 # Define a custom search instance
 A Custom Search instance lets you tailor the search experience to include content only from websites that your users care about. Instead of performing a web-wide search, Bing searches only the slice of the web that interests you.
-To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). For information about signing in to the portal, see [Create your first Bing Custom Search instance](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). The portal lets you create a search instance that specifies the domains, subsites, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
+To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). For information about signing in to the portal, see [Create your first Bing Custom Search instance](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). The portal lets you create a search instance that specifies the domains, subpages, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
 The following are the ways that you can define a slice of the web: 
 
 1.	Domain. A domain slice includes all content found within. For example, www.microsoft.com. Omitting 'www' causes Bing to also search the domain’s subdomains. For example, if you specify microsoft.com, Bing also returns results from support.microsoft.com or technet.microsoft.com.
-2.	Subsite. A subsite slice includes all content found in the subsite and paths below it. You may specify a maximum of two subsites in the path. For example, www.microsoft.com/en-us/windows/ 
-3.	Webpage. A webpage slice can include only that webpage in a custom search. An option in the Definition Editor  specifies whether to include subsites.
+2.	Subpage. A subpage slice includes all content found in the subpage and paths below it. You may specify a maximum of two subpages in the path. For example, www.microsoft.com/en-us/windows/ 
+3.	Webpage. A webpage slice can include only that webpage in a custom search. An option in the Definition Editor  specifies whether to include subpages.
 
-All domains, subsites, and webpages that you specify must be public and indexed by Bing. If you own a public site that you want to include in the search, and Bing hasn’t indexed it, see the Bing [webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) for details about getting Bing to index it. Also, see the webmaster documentation for details about getting Bing to update your crawled site if the index is out of date.
+All domains, subpages, and webpages that you specify must be public and indexed by Bing. If you own a public site that you want to include in the search, and Bing hasn’t indexed it, see the Bing [webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) for details about getting Bing to index it. Also, see the webmaster documentation for details about getting Bing to update your crawled site if the index is out of date.
 
 
 ## Adding slices to your custom search
-When you define your custom search instance, you specify the active and blocked domains, subsites, and webpages that you want to search or not search.  
+When you define your custom search instance, you specify the active and blocked domains, subpages, and webpages that you want to search or not search.  
 
-- Active: A list of domains, subsites, or webpages to include in the search. 
-- Blocked: A list of domain, subsites, or webpages to exclude from the search. The items that you block should be content found under the domains and subpages listed in your Active list 
+- Active: A list of domains, subpages, or webpages to include in the search. 
+- Blocked: A list of domain, subpages, or webpages to exclude from the search. The items that you block should be content found under the domains and subpages listed in your Active list 
 
  To access each list, click on the Active and Blocked tabs in your custom search instance. 
 
 ## Active and Blocked lists 
-To specify a slice of the web that you want Bing to search, click the **Active** tab and list the domains, subsites, and webpages to search. You can add a slice directly to the list or add more than one slice by uploading a text file using the upload icon.
+To specify a slice of the web that you want Bing to search, click the **Active** tab and list the domains, subpages, and webpages to search. You can add a slice directly to the list or add more than one slice by uploading a text file using the upload icon.
 
 File Upload details: 
 
 - File upload is available only for adding slices to the Active list, you cannot use it to add slices to the Blocked. 
-- Create a text file and specify a single domain, subsite, or webpage per line. The entire upload is rejected if an error occurs. 
-- If the Blocked list contains the domain, subsite, or webpage that you specified in the upload file, the service removes it from the Blocked list and adds it to the Active list. 
+- Create a text file and specify a single domain, subpage, or webpage per line. The entire upload is rejected if an error occurs. 
+- If the Blocked list contains the domain, subpage, or webpage that you specified in the upload file, the service removes it from the Blocked list and adds it to the Active list. 
 - The service ignores duplicates found in the upload file.
 
 To edit or delete slices, use the options under the Controls column. 
@@ -53,7 +53,7 @@ The portal also lets you pin a specific webpage to the top of the search result 
 For information about pinning results, see [Adjust Rank](#adjustrank).
 
 ## Site suggestions
-After adding slices to the Active list, the service generates site and subsite suggestions that you might want to add to your search. The **You might want to add** section contains the suggestions. The instance settings page includes this section only if suggestions are available. 
+After adding slices to the Active list, the service generates site and subpage suggestions that you might want to add to your search. The **You might want to add** section contains the suggestions. The instance settings page includes this section only if suggestions are available. 
 
 To add suggestions to your Active list, click the + icon.  Because the service generates suggestions base on your settings, be sure to click **Refresh** after adding the suggestions. 
 
@@ -67,13 +67,13 @@ At any time, you can test out your search instance by using the preview pane. Th
 ## Adjust rank
 The portal lets you adjust ranking to manipulate the results that Bing returns. In the Preview pane, enter a search term and run the query. The preview pane list the search result for the query. To the right of each result is the list of adjustments you can make. 
 
-- Block. Moves the domain, subsite, or webpage to the Blocked list. You select the level to block. Bing excludes content from the selected site in the search results. 
-- Boost. Boosts content from the domain or subsite higher in the search results. You select whether to boost content from the domain or subsite that the webpage belongs to.
-- Demote. Demotes content from the domain or subsite lower in the search results. You select whether to demote content from the domain or subsite that the webpage belongs to. 
+- Block. Moves the domain, subpage, or webpage to the Blocked list. You select the level to block. Bing excludes content from the selected site in the search results. 
+- Boost. Boosts content from the domain or subpage higher in the search results. You select whether to boost content from the domain or subpage that the webpage belongs to.
+- Demote. Demotes content from the domain or subpage lower in the search results. You select whether to demote content from the domain or subpage that the webpage belongs to. 
 - Pin-to-top. Define the webpage that appears at the top of the results if the user’s query term exactly matches the query term you used. The Active list does not have to contain the webpage for you to pin it. 
 
 ## Boosting and demoting
-You can super boost, boost, or demote any domain or subsite in your Active list. By default, all slices are added with the same weight. Items that are Super boosted or Boosted are ranked higher in the search results (with super boost ranking higher than boost). Items that are demoted are ranked lower in the search results.
+You can super boost, boost, or demote any domain or subpage in your Active list. By default, all slices are added with the same weight. Items that are Super boosted or Boosted are ranked higher in the search results (with super boost ranking higher than boost). Items that are demoted are ranked lower in the search results.
 
 It is important to note that super boost, boost, and demote give respective weight variants to the domains or subpages. This is just one of many signals used by the ranker to determine the order of the results. This means that their effect for a specific query is not guaranteed as many other factors might influence the overall ranking of the web results.  To determine the possible effect that boosting or demoting has on the ranker, test the search experience using the Preview pane.
 
