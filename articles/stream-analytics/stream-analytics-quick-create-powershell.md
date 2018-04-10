@@ -21,9 +21,7 @@ The Azure PowerShell module is used to create and manage Azure resources by usin
 ## Before you begin
 
 * If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)  
-* Download the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub.
-
-This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) article. The scenario in this article describes reading data from the blob storage, transforming the data and writing it back to a different container in the same blob storage.
+* This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) article. The scenario in this article describes reading data from the blob storage, transforming the data and writing it back to a different container in the same blob storage.
 
 ## Sign in to Azure
 
@@ -48,7 +46,45 @@ $location = "WestUS2"
 New-AzureRMResourceGroup `
   -Name $resourceGroup `
   -Location $location 
-````
+```
+
+## Prepare the input data
+
+Before defining the Stream Analytics job, you should prepare the data which is configured as input to the job. Run the following steps to prepare the input data required by the job: 
+
+1. Download the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub.  
+2. Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet  
+3. Retrieve the storage account context that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called mystorageaccount with locally redundant storage(LRS) and blob encryption (enabled by default). 
+4. Next create a container using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), set the permissions to 'blob' to allow public access of the files, and upload the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) that you downloaded earlier. 
+
+These steps are achieved by running the following PowerShell script:
+
+```powershell
+$storageAccountName = "mystorageaccount"
+$storageAccount = New-AzureRmStorageAccount `
+  -ResourceGroupName $resourceGroup `
+  -Name $storageAccountName `
+  -Location $location `
+  -SkuName Standard_LRS `
+  -Kind Storage
+
+$ctx = $storageAccount.Context
+$containerName = "myinputcontainer"
+
+New-AzureStorageContainer `
+  -Name $containerName `
+  -Context $ctx `
+  -Permission blob
+
+Set-AzureStorageBlobContent `
+  -File "C:\HelloWorldASA-InputStream.json" `
+  -Container $containerName `
+  -Context $ctx  
+
+$storageAccountKey = (Get-AzureRmStorageAccountKey `
+  -ResourceGroupName $resourceGroup `
+  -Name $storageAccountName).Value[0]
+```
 
 ## Create a Stream Analytics job
 
@@ -80,41 +116,6 @@ New-AzureRMStreamAnalyticsJob `
 ```
 
 ## Configure input to the job
-
-In this section, you will configure blob storage as an input to the Stream Analytics job. Before configuring, you should create a blob storage account.  
-
-### Create a blob storage account and upload sample data
-
-Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount), then retrieve the storage account context that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called mystorageaccount with locally redundant storage(LRS) and blob encryption (enabled by default). Next create a container using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), set the permissions to 'blob' to allow public access of the files, and upload the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) that you downloaded earlier.
-
-```powershell
-$storageAccountName = "mystorageaccount"
-$storageAccount = New-AzureRmStorageAccount `
-  -ResourceGroupName $resourceGroup `
-  -Name $storageAccountName `
-  -Location $location `
-  -SkuName Standard_LRS `
-  -Kind Storage
-
-$ctx = $storageAccount.Context
-$containerName = "myinputcontainer"
-
-New-AzureStorageContainer `
-  -Name $containerName `
-  -Context $ctx `
-  -Permission blob
-
-Set-AzureStorageBlobContent `
-  -File "C:\HelloWorldASA-InputStream.json" `
-  -Container $containerName `
-  -Context $ctx  
-
-$storageAccountKey = (Get-AzureRmStorageAccountKey `
-  -ResourceGroupName $resourceGroup `
-  -Name $storageAccountName).Value[0]
-```
-
-### Add the input 
 
 Add an input to your job by using the [New-AzureRMStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsinput?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. Job input definition is a JSON file that contains the properties required to configure the job’s input, in this example you will create a blob storage as an input. 
 On your local machine, create a file named “JobInputDefinition.json” and add the following JSON data to it, make sure to replace the value for **accountKey** with your storage account’s access key that is the value stored in $storageAccountKey value. 
@@ -219,7 +220,13 @@ Add a transformation your job by using the [New-AzureRmStreamAnalyticsTransforma
    "properties":{    
       "streamingUnits":1,  
       "script":null,  
-      "query":" SELECT time, dspl as SensorName, temp as Temperature, hmdt as Humidity INTO MyBlobOutput FROM MyBlobInput"  
+      "query":" SELECT System.Timestamp AS OutputTime, dspl AS SensorName, Avg(temp) AS AvgTemperature
+INTO
+  MyBlobOutput
+FROM
+  MyBlobInput TIMESTAMP BY time
+  GROUP BY TumblingWindow(second,30),dspl
+  HAVING Avg(temp)>100"  
    }  
 }
 ```
