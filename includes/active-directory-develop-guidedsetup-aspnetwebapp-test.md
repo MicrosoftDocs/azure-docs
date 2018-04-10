@@ -39,14 +39,14 @@ You're prompted to authenticate to use the protected controller view.
 
 <!--start-collapse-->
 ### Protect your entire website
-To protect your entire website, in the **Global.asax** file, add the **AuthorizeAttribute** attribute to the **GlobalFilters** filter in the **Application_Start** method:
+To protect your entire website, in the **Global.asax** file, add the `AuthorizeAttribute` attribute to the `GlobalFilters` filter in the `Application_Start` method:
 
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
 <!--end-collapse-->
 
-### Restrict sign-in access to your application
+### Restrict who can sign in to your application
 By default when you build the application created by this guide, your application will accept sign ins of personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Azure Active Directory.
 
 To restrict user sign-in access for your application, multiple options are available:
@@ -55,7 +55,7 @@ To restrict user sign-in access for your application, multiple options are avail
 
 This option is a common scenario for *LOB applications*: If you want your application to accept sign-ins only from accounts that belong to a specific Azure Active Directory instance (including *guest accounts* of that instance) do the following:
 
-1. In the *web.config* file, change the value for the `Tenant` parameter. Change the value from `Common` to the tenant name of the organization, such as `contoso.onmicrosoft.com`.
+1. In the **web.config** file, change the value for the `Tenant` parameter. Change the value from `Common` to the tenant name of the organization, such as `contoso.onmicrosoft.com`.
 2. In your [OWIN Startup class](#configure-the-authentication-pipeline), set the `ValidateIssuer` argument to `true`.
 
 #### Restrict access to your application to users in a specific list of organizations
