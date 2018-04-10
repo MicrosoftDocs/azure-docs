@@ -30,6 +30,16 @@ This tutorial uses the KafkaBolt and KafkaSpout components of Apache Storm to ac
 
 When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
 
+> [!div class="checklist"]
+> * Create Kafka and Storm clusters
+> * Configure development environment
+> * Understand the code
+> * Create Kafka topic
+> * Start the reader topology
+> * Start the writer topology
+> * Stop the topologies
+> * Clean up resources
+
 ## Create the clusters
 
 Apache Kafka on HDInsight does not provide access to the Kafka brokers over the public internet. Anything that uses Kafka must be in the same Azure virtual network. In this tutorial, both the Kafka and Storm clusters are located in the same Azure virtual network. 
@@ -83,7 +93,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 > [!NOTE]
 > It can take up to 20 minutes to create the clusters.
 
-## Get the code
+## Configure development environment
 
 The code for the example used in this document is available at [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
 
