@@ -164,7 +164,7 @@ From the output, copy the IP address.
 }
 ```
 
-For example, my service end point IP is 40.121.196.175.  Take that and open it in your favorite browser: http://40.121.196.175.
+In the example above, the service end point IP is 40.121.196.175.  Take your corresponding IP address and open it in your favorite browser.
 
 ## See all the application you have currently deployed to your subscription
 
@@ -188,7 +188,7 @@ When you are ready to delete the application run the following command, you'll b
 az sbz app delete -g $rg -n helloWorldApp
 ```
 
-If you no longer need any of the resources you created in this quickstart, you can execute the [az group delete][az-group-delete] command to remove the resource group and all resources it contains. This command deletes the container registry you created, as well as the running container, and all related resources.
+If you no longer need any of the resources you created in this quickstart, you can execute the [az group delete][az-group-delete] command to remove the resource group and all resources it contains. This command deletes the container deployed to service fabric mesh and all related resources.
 
 ```azurecli-interactive
 az group delete --name $rg
