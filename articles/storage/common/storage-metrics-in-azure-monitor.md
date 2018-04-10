@@ -136,6 +136,150 @@ The following response contains metric values in JSON format:
 
 ```
 
+### Access metrics with the .Net SDK
+
+Azure Monitor provides [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/en-us/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .Net SDK. For more informaiton, please read [Understanding resource ID for services in Storage](#understanding-resource-id-for-services-in-storage).
+
+The following example shows how to use Azure Monitor .Net SDK to read storage metrics.
+
+#### List account level metric definition with the .Net SDK
+
+The following example shows how to list metric definition at account level:
+
+```csharp
+    public static async Task ListStorageMetricDefinition()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
+
+        foreach (var metricDefinition in metricDefinitions)
+        {
+            //Enumrate metric definition:
+            //    Id
+            //    ResourceId
+            //    Name
+            //    Unit
+            //    MetricAvailabilities
+            //    PrimaryAggregationType
+            //    Dimensions
+            //    IsDimensionRequired
+        }
+    }
+
+```
+
+If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
+
+#### Read metric values with the .Net SDK
+
+The following example shows how to read `UsedCapacity` data at account level:
+
+```csharp
+    public static async Task ReadStorageMetricValue()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+
+        Response = await readOnlyClient.Metrics.ListAsync(
+            resourceUri: resourceId,
+            timespan: timeSpan,
+            interval: System.TimeSpan.FromHours(1),
+            metric: "UsedCapacity",
+            aggregation: "Average",
+            resultType: ResultType.Data,
+            cancellationToken: CancellationToken.None);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
+
+In above example, if you want to read metric values for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
+
+#### Read multi-dimensional metric values with the .Net SDK
+
+For multi-dimensional metrics, you need to define meta data filter if you want to read metric data on specific dimension value.
+
+The following example shows how to read metric data on the metric supporting multi-dimension:
+
+```csharp
+    public static async Task ReadStorageMetricValueTest()
+    {
+        // Resource ID for blob storage
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
+        var subscriptionId = "{SubscriptionID}";
+        //How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToString("o");
+        string endDate = DateTime.Now.ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+        // It's applicable to define meta data filter when a metric support dimension
+        // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+        ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
+            string.Format("BlobType eq '{0}'", "BlockBlob"));
+
+        Response = readOnlyClient.Metrics.List(
+                        resourceUri: resourceId,
+                        timespan: timeSpan,
+                        interval: System.TimeSpan.FromHours(1),
+                        metric: "BlobCapacity",
+                        odataQuery: odataFilterMetrics,
+                        aggregation: "Average",
+                        resultType: ResultType.Data);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
+
 ## Billing for metrics
 
 Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
