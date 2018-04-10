@@ -198,7 +198,7 @@ AutoUpdate.Enabled=y
 To enable run:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/\# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### Restart the waagent service
@@ -377,7 +377,7 @@ name=Oracle Linux $releasever Add ons ($basearch)
 baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
-enabled=0
+enabled=1
 ```
 
 Then type:
@@ -399,7 +399,7 @@ Open [the release of Azure Linux Agent in GitHub](https://github.com/Azure/WALin
 #### For version 2.2.x or later, type:
 ```bash
 wget https://github.com/Azure/WALinuxAgent/archive/v2.2.x.zip
-unzip v2.2.x.zip.zip
+unzip v2.2.x.zip
 cd WALinuxAgent-2.2.x
 ```
 
