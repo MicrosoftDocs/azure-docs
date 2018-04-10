@@ -43,6 +43,7 @@ Before Stream Analytics can analyze the fraudulent calls data stream, you should
 
 1. Log in to the Azure portal  
 2. Select **Create a resource** > **Internet of Things** > **Event Hubs**.  
+
    ![Find event hub](media/stream-analytics-manage-job/find-eh.png)
 3. Fill out the **Create namespace** pane with the following values:  
 
@@ -109,7 +110,7 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub. The phone call data contains the following fields:
 
 
-|Record  |Definition  |
+|**Record**  |**Definition**  |
 |---------|---------|
 |CallrecTime    |  The timestamp for the call start time.       |
 |SwitchNum     |  The telephone switch used to connect the call. For this example, the switches are strings that represent the country of origin (US, China, UK, Germany, or Australia).       |
@@ -203,7 +204,7 @@ For this example, we consider fraudulent calls are the ones that originate from 
 
    This query is just like a normal SQL join except for the DATEDIFF function. The DATEDIFF function used in this query is specific to Streaming Analytics, and it must appear within the `ON...BETWEEN` clause.  
 
-4. Save the query. 
+4. **Save** the query. 
    ![define query](media/stream-analytics-manage-job/define-query.png) 
 
 ## Test your query
