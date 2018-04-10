@@ -7,7 +7,7 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
 ---
@@ -70,7 +70,7 @@ The following rules of thumb related to database count and database utilization 
 
 ### Minimum number of databases
 
-If the amount of resources for single databases is more than 1.5x the resources needed for the pool, then an elastic pool is more cost effective.
+If the aggregate amount of resources for single databases is more than 1.5x the resources needed for the pool, then an elastic pool is more cost effective.
 
 ***DTU-based purchasing model example***<br>
 At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using performance levels for single databases.
