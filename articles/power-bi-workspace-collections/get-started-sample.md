@@ -3,7 +3,7 @@ title: Get started with a sample
 description: In this article, we'll introduce you to the Power BI Workspace Collections get started sample.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
+ms.author: maghan
 
 ---
 # Get started with Power BI Workspace Collections sample

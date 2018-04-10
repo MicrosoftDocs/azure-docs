@@ -3,7 +3,7 @@ title: Save reports in Power BI Workspace Collections | Microsoft Docs
 description: Learn how to save reports within Power BI Workspace Collections. This requires proper permissions in order to work successfully.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
+ms.author: maghan
 ---
 # Save reports in Power BI Workspace Collections
 

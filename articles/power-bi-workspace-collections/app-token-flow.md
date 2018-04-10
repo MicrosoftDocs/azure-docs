@@ -3,7 +3,7 @@ title: Authenticating and authorizing with Power BI Workspace Collections | Micr
 description: Authenticating and authorizing with Power BI Workspace Collections.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
+ms.author: maghan
 
 ---
 # Authenticating and authorizing with Power BI Workspace Collections
