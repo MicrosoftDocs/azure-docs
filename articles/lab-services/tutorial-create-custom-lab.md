@@ -1,6 +1,6 @@
 ---
 title: Create a custom lab using Azure Lab Services | Microsoft Docs
-description: In this quickstart, you create self-managed custom lab by using Azure Lab Services (formerly DevTest Labs). 
+description: In this quickstart, you create a self-managed custom lab by using Azure Lab Services (formerly DevTest Labs). 
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
