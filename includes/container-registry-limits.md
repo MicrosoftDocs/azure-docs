@@ -6,7 +6,7 @@ author: mmacy
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 03/23/2018
+ms.date: 04/10/2018
 ms.author: marsma
 ms.custom: include file
 ---
@@ -19,7 +19,7 @@ ms.custom: include file
 | Download bandwidth MBps<sup>1</sup> | 30 | 60 | 100 |
 | Upload bandwidth MBps<sup>1</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 100 |
-| Geo-replication | N/A | N/A | [Supported *(preview)*](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication) |
+| Geo-replication | N/A | N/A | [Supported](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication) |
 
 <sup>1</sup> *ReadOps*, *WriteOps*, and *Bandwidth* are minimum estimates. ACR strives to improve performance as usage requires.
 
