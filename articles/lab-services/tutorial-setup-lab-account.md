@@ -33,9 +33,10 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. From the main menu on the left side, select **Create a resource** (at the top of the list), point to **Developer tools**, and click **Lab Services (preview)**.
+
 	![Create a lab account window](./media/tutorial-setup-lab-account/new-lab-account-page.png)
-3. In the **Create a lab account** window, select **Create**.
-4. In the **Lab account** window, do the following actions: 
+1. In the **Create a lab account** window, select **Create**.
+2. In the **Lab account** window, do the following actions: 
     1. For **Lab account name**, enter a name. 
     2. Select the **Azure subscription** in which you want to create the lab account.
     3. For **Resource group**, select **Create new**, and enter a name for the resource group.
@@ -46,12 +47,13 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 5. If you don't see the page for the lab account, select the notifications button, and then click **Go to resource** button in the notifications. 
 
     ![Create a lab account window](./media/tutorial-setup-lab-account/notification-go-to-resource.png)    
-1. You see the following **lab account** page:
+6. You see the following **lab account** page:
+
     ![Lab accoutn page](./media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## Next steps
 In this tutorial, you created a lab account. To learn about how to create a classroom lab as a profession, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use the custom lab](tutorial-setup-classroom-lab.md)
+> [Set up a classroom lab](tutorial-setup-classroom-lab.md)
 

@@ -38,8 +38,9 @@ In this tutorial, you do the following actions:
     5. Specify the password for the user. 
     6. Confirm the password. 
     7. Select **Save**.
+
         ![Create a classroom lab](./media/tutorial-setup-classroom-lab/new-lab-window.png)
-3. You see the **home page** for the lab. 
+1. You see the **home page** for the lab. 
     
     ![Classroom lab home page](./media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 
@@ -47,9 +48,10 @@ In this tutorial, you do the following actions:
 
 1. Select **Usage policy**. 
 2. In the **Usage policy**, settings, enter the **number of users** allowed to use the lab, and select **Save**. 
+
     ![Usage policy](./media/tutorial-setup-classroom-lab/usage-policy-settings.png)
-3. Select **Availability** in the **Template** section. 
-4. In the **Availability** page, select **Public**, and select **Save**.
+1. Select **Availability** in the **Template** section. 
+2. In the **Availability** page, select **Public**, and select **Save**.
 
     ![Availability](./media/tutorial-setup-classroom-lab/public-access.png)
 5. Select **User view** in the **Template** section.
@@ -68,5 +70,5 @@ In this tutorial, you do the following actions:
 In this tutorial, you created a classroom lab, and configured the lab. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect to a VM in the classroom lab](tutorial-connect-to-vm-in-classroom-lab.md)
+> [Connect to a VM in the classroom lab](tutorial-connect-to-vm-in-classroom-lab.md)
 
