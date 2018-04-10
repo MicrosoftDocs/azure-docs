@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
 
 ---
@@ -78,7 +78,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
 > For information on selecting the pricing tier for your database, see [Service tiers](sql-database-service-tiers.md).
 >
 
-To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md)
+To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
 
 ### Manage an existing SQL server
 
