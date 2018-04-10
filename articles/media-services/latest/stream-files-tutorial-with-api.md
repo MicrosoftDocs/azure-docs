@@ -310,7 +310,7 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
 
 ### Get streaming URLs
 
-Now that we have the streaming policy and the streaming locator, we can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the streaming endpoint's host name and the streaming locator path. In this sample, we are using the *default* streaming endpoint. 
+Now that we have the streaming policy and the streaming locator, we can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the streaming endpoint's host name and the streaming locator path. In this sample, we are using the *default* streaming endpoint. By default, a streaming endpoint is in the stopped state, so you need to call **Start**. 
 
 ```csharp
 static IList<string> GetStreamingURLs(
@@ -328,7 +328,7 @@ static IList<string> GetStreamingURLs(
 
     if (streamingEndpoint != null)
     {
-        client.StreamingEndpoints.Start(ResourceGroup, AccountName, "default");
+        client.StreamingEndpoints.Start(resourceGroupName, accountName, "default");
         streamingUrlPrefx = streamingEndpoint.HostName;
     }
 
