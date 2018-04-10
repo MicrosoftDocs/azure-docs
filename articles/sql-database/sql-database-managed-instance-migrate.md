@@ -47,7 +47,7 @@ You can select compute and storage resources at deployment time and then change 
 
 ![managed instance sizing](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-To learn how to create the VNet infrastructure and Managed Instance - and restore a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+To learn how to create the VNet infrastructure and a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
 
 > [!IMPORTANT]
 > It is important to keep your destination VNet and subnet always in accordance with [Managed Instance VNET requirements](sql-database-managed-instance-vnet-configuration.md#requirements). Any incompatibility can prevent you from creating new instances or using those that you already created.
@@ -93,7 +93,7 @@ The following table provides more information regarding the method you can use d
 > [!IMPORTANT]
 > PRestore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
-For a full tutorial that includes restoring a database backup to a Managed Instance using a SAS credential, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+For a full tutorial that includes restoring a database backup to a Managed Instance using a SAS credential, see [Restore from backup to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial-portal.md).
 
 ### Migrate using BACPAC file
 
@@ -115,6 +115,6 @@ To strengthen security, consider using some of the features that are available:
 
 ## Next steps
 
-- For information about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
+- For information about Managed Instances, see [What is a Managed Instance?](sql-database-managed-instance.md).
 - For a tutorial that includes a restore from backup, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
 - For tutorial showing migration using DMS, see [Migrate your on-premises database to Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
