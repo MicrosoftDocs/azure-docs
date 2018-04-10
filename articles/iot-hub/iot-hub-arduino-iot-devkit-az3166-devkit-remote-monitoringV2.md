@@ -82,9 +82,9 @@ In the portal, go to **Devices** section and there, click in the  **+New Device*
 ![Adding a new device](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-device.png)
 
 The *new device form* should be filled in.
-1. Click **Physical** in the *Devce type* section.
+1. Click **Physical** in the *Device type* section.
 2. Define your own Device ID (for example *MXChip* or *AZ3166*).
-3. Choose **Auto generate keys** in the *Autehtication key* section.
+3. Choose **Auto generate keys** in the *Authentication key* section.
 4. Click *Apply* button.
 
 ![Adding a new device form](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-new-device-form.png)
@@ -115,7 +115,7 @@ Go back to the Visual Studio Code:
 ![choose your Azure Subscription and your IoT Hub](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-task-config-device-conexion.png)
 
 
-2. The terminal asks you whether you want to use connection string of iot device would you like to use. Select *create new*, and now paste it.
+2. The terminal asks you whether you want to use connection string of IoT device would you like to use. Select *create new*, and now paste it.
 
 ![paste connection string](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-task-config-device-conexion-choose-iot-hub-press-button-A.png)
 
@@ -157,11 +157,11 @@ The MX Chip example code publishes three methods that you can see in the Method 
 
 ![Methods  MX Chip](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
-You can change the color of one of the MX Chip led using the method "LedColor". For doing it, select the checkbox of the device and click on the Schedule button. 
+You can change the color of one of the MX Chip leds using the method "LedColor". For doing it, select the checkbox of the device and click on the Schedule button. 
 
 ![Methods  MX Chip](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-schedule.png)
 
-Choose the method called ChangeColor in the dropdown where all the methods appear, write a name and Apply.
+Choose the method called ChangeColor in the dropdown where all the methods appear, write a name, and Apply.
 
 ![Dropdown  MX Chip](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
