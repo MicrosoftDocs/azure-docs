@@ -20,7 +20,7 @@ Service Fabric Mesh makes it easy to create and manage Docker containers in Azur
 
 To read more about applications and Service Fabric Mesh, head over to the [Service Fabric Mesh Overview](./service-fabric-mesh-overview.md)
 
-You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't already have an Azure account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -43,7 +43,7 @@ Create your application using the following deployment command:
 az sbz deployment create --resource-group $rg --template-uri https://whereIsTheJsonFileOrDoWeHaveThemCreateOne?
 ```
 
-In just over a minute, your command should return with "provisioningState": "Succeeded" . Given below is the output from the command when using [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+In just over a minute, your command should return with `"provisioningState": "Succeeded"`. Given below is the output from the command when using [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 
 ```json
 {
@@ -131,7 +131,7 @@ In just over a minute, your command should return with "provisioningState": "Suc
 
 At this point, your application has been deployed. You can check to see its status by using the `app show` command. This command provides useful information that you can follow up on.
 
-The application name for our quickstart application is helloWorldApp, so let's fetch its details.
+The application name for this quickstart application is helloWorldApp, to gather the details on the application execute the following command:
 
 ```azurecli-interactive
 az sbz app show --resource-group $rg --name helloWorldApp
@@ -139,16 +139,17 @@ az sbz app show --resource-group $rg --name helloWorldApp
 
 ## Browse to the application
 
-Once the application status is returned as ""provisioningState": "Succeeded", we need the ingress endpoint of the service, so let us query the network resource, so get IP address to the container where the service is deployed, and open it on a browser.
+Once the application status is returned as ""provisioningState": "Succeeded", you will need the ingress endpoint of the service. To retrieve the IP address query the network resource for the container where the service is deployed, and open it on a browser.
 
-The network resource for our quickstart application is helloWorldApp, so let us fetch its details.
+The network resource for this quickstart application is helloWorldNetwork, here is the command to get the IP address:
 
 ```azurecli-interactive
 az sbz network show --resource-group $rg --name helloWorldNetwork
 ```
 
-The command should now return, with information like the code snippet below when running the command in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
-From the output, copy the IP address .
+The command will return with information like the json snippet below when running the command in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+
+From the output, copy the IP address.
 
 ```json
     "publicIpAddress": "40.121.196.175",
@@ -163,7 +164,7 @@ From the output, copy the IP address .
 }
 ```
 
-For example, my service end point IP is 40.121.196.175 and I just open the URL - http://40.121.196.175 in your favorite browser.
+For example, my service end point IP is 40.121.196.175.  Take that and open it in your favorite browser: http://40.121.196.175.
 
 ## See all the application you have currently deployed to your subscription
 
