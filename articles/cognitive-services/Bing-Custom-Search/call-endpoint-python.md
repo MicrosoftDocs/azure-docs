@@ -14,7 +14,7 @@ ms.author: v-brapel
 
 # Call Bing Custom Search endpoint (Python)
 
-This example shows how to request search results from your custom search instance using Python. To create a custom search instance see [Create your first Bing Custom Search instance](quick-start.md).
+This example shows how to request search results from your custom search instance using Python. To create a custom search instance, see [Create your first Bing Custom Search instance](quick-start.md).
 
 ## Prerequisites
 
