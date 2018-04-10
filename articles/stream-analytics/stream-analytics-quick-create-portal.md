@@ -27,21 +27,26 @@ This quickstart shows you how to get started with creating a Stream Analytics jo
 
 Before defining the Stream Analytics job, you should prepare the data which is configured as input to the job. Run the following steps to prepare the input data required by the job:
 
-1. Download the [sample sensor data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub. The sample data contains sensor information in the following JSON format:
+1. Download the [sample sensor data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub. The sample data contains sensor information in the following JSON format:  
+   ```json
    {
      "time": "2016-01-26T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
-   },
+   }
+   ```
 2. Sign in to the Azure portal  
-3. Select **Create a resource** in the upper left-hand corner of the Azure portal.  
-4. Select **Storage** > **Storage account** from the results list.  
-5. Fill out the Storage account job blade with **Name** as "myasastorageaccount" and the "MyRG" as **Resource group** (host the storage account in the same resource group as the Streaming job for increased performance), remaining settings can be left to their default values.  
-6. Next from **All resources** blade, find the storage account you created in the previous step. 
-7. From the **Overview** blade, open the **Blobs** tile.  
-8. From the **Blob Service** blade, select **Container**, provide a **Name** for your container, such as *container1* and change the **Public access level** to Blob (anonymous read access for blobs only) > select **OK**.  
-9. Go to the container you created in the previous step, select **Upload** and upload the sensor data that you got from step1.  
+3. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job blade with **Name** set to "myasastorageaccount", **Location** set to "West US 2", **Resource group** set to "MyRG" (host the storage account in the same resource group as the Streaming job for increased performance). Remaining settings can be left to their default values.
+
+   ![Create storage account](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
+
+4. From **All resources** blade, find the storage account you created in the previous step. Open the **Overview** blade, and then the **Blobs** tile.  
+5. From the **Blob Service** blade, select **Container**, provide a **Name** for your container, such as *container1* and change the **Public access level** to Blob (anonymous read access for blobs only) > select **OK**.  
+
+   ![Create a container](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
+
+6. Go to the container you created in the previous step, select **Upload** and upload the sensor data that you got from step1.  
 
    ![Upload sample data to blob](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
 
@@ -127,7 +132,6 @@ In this section, you will configure blob storage as an input to the Stream Analy
    ![Configure job transformation](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
 
 ## Start the Stream Analytics job and check the output
-
 1. Return to the job overview blade and select **Start**  
 2. Under **Start job**, select **Custom**, for **Start time** field. Select one day prior to when you uploaded the file to blob storage because the time at which the file was uploaded is earlier that the current time. When you're done, select **Start**.  
 

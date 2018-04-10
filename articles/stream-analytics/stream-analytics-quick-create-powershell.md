@@ -220,13 +220,7 @@ Add a transformation your job by using the [New-AzureRmStreamAnalyticsTransforma
    "properties":{    
       "streamingUnits":1,  
       "script":null,  
-      "query":" SELECT System.Timestamp AS OutputTime, dspl AS SensorName, Avg(temp) AS AvgTemperature
-INTO
-  MyBlobOutput
-FROM
-  MyBlobInput TIMESTAMP BY time
-  GROUP BY TumblingWindow(second,30),dspl
-  HAVING Avg(temp)>100"  
+      "query":" SELECT System.Timestamp AS OutputTime, dspl AS SensorName, Avg(temp) AS AvgTemperature INTO MyBlobOutput FROM MyBlobInput TIMESTAMP BY time GROUP BY TumblingWindow(second,30),dspl HAVING Avg(temp)>100"  
    }  
 }
 ```
