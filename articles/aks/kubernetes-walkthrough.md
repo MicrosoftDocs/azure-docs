@@ -105,9 +105,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## Run the application
 
-A Kubernetes manifest file defines a desired state for the cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application. The provided image is a sample application but you can read about [creating an image](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) and [deploying to the Azure Container Registry](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr) to use your own.
+A Kubernetes manifest file defines a desired state for the cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application. This includes two [Kubernetes deployments][kubernetes-deployment], one for the Azure Vote Python applications, and the other for a Redis instance. Also, two [Kubernetes Services][kubernetes-service] are created, an internal service for the Redis instance, and an external service for accessing the Azure Vote application from the internet.
 
-Create a file named `azure-vote.yaml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system. If you are working locally you can use Visual Studio Code to create this file by running `code azure-vote.yaml`.
+Create a file named `azure-vote.yaml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -208,13 +208,13 @@ Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, us
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-You can now browse to the external IP address to see the Azure Vote App.
+Now browse to the external IP address to see the Azure Vote App.
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## Delete cluster
 
-When the cluster is no longer needed, you can use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -228,7 +228,7 @@ In this quickstart, pre-created container images have been used to create a Kube
 
 ## Next steps
 
-In this quick start, you deployed a Kubernetes cluster and deployed a multi-container application to it.
+In this quickstart, you deployed a Kubernetes cluster and deployed a multi-container application to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
@@ -239,8 +239,9 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->

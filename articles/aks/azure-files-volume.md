@@ -63,7 +63,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## Mount file share as volume
 
-You can mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yaml` with the following contents. Update `aksshare` with the name given to the Azure Files share.
+Mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yaml` with the following contents. Update `aksshare` with the name given to the Azure Files share.
 
 ```yaml
 apiVersion: v1
@@ -91,7 +91,7 @@ Use kubectl to create a pod.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-You now have a running container with your Azure file share mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
+You now have a running container with your Azure file share mounted in the `/mnt/azure` directory.  You can see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
 
 ## Next steps
 
