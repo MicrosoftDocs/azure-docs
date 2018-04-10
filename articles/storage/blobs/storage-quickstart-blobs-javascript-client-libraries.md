@@ -85,7 +85,7 @@ Now that the SAS is generated, copy the value returned in the console into your 
 ## Implement the HTML page
 
 ### Set up the web application
-The Azure Storage JavaScript client libraries will not work directly from the file system and must be served from a web server. Therefore, the following steps detail how to use simple local web server with Node.js.
+The Azure Storage JavaScript client libraries will not work directly from the file system and must be served from a web server. Therefore, the following steps detail how to use a simple local web server with Node.js.
 
 > [!NOTE]
 > This section shows you how to create a local web server which requires Node.js being installed on your machine. If you do not wish to install Node.js then you can use any other means of running a local web server.
