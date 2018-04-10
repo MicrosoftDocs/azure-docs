@@ -215,4 +215,3 @@ Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.Provisioni
 ## Next steps
 
 Learn about managing [IP address settings](virtual-network-network-interface-addresses.md).
-
