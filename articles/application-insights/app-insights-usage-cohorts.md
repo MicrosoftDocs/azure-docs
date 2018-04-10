@@ -94,9 +94,7 @@ The previous two cohorts were defined using dropdowns. But we can also define co
 
 ![Animated Gif walking through use of Cohorts tool](.\media\app-insights-usage-cohorts\cohorts001.gif)
 
-1. Open the **Cohorts** tool
-2. Click **Template Gallery** tab
-3. Choose **Blank Users cohort**
+1. Open the **Cohorts** tool > Click **Template Gallery** tab > Choose **Blank Users cohort**.
 
     ![Blank Users Cohort](.\media\app-insights-usage-cohorts\01.png)
     
@@ -109,16 +107,16 @@ The previous two cohorts were defined using dropdowns. But we can also define co
     > [!NOTE]
     > If you don’t see the query, try resizing the section to make it taller and reveal the query.
 
-4. Copy-paste the following into the query editor:
+2. Copy-paste the following into the query editor:
 
     ```KQL
     union customEvents, pageViews
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-5. Click **Run Query**. You should see user IDs appear in the table. If not, change to a country where your application has users.
+3. Click **Run Query**. You should see user IDs appear in the table. If not, change to a country where your application has users.
 
-6. Save and name this cohort.
+4. Save and name the cohort.
 
 ## Frequently asked questions
 
