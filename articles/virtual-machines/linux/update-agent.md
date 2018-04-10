@@ -399,7 +399,7 @@ Open [the release of Azure Linux Agent in GitHub](https://github.com/Azure/WALin
 #### For version 2.2.x or later, type:
 ```bash
 wget https://github.com/Azure/WALinuxAgent/archive/v2.2.x.zip
-unzip v2.2.x.zip.zip
+unzip v2.2.x.zip
 cd WALinuxAgent-2.2.x
 ```
 
