@@ -32,7 +32,7 @@ The 'DNS Zone Contributor' role is a built-in role provided by Azure for managin
 
 For example, suppose the resource group 'myzones' contains five zones for Contoso Corporation. Granting the DNS administrator 'DNS Zone Contributor' permissions to that resource group, enables full control over those DNS zones. It also avoids granting unnecessary permissions, for example the DNS administrator cannot create or stop Virtual Machines.
 
-The simplest way to assign RBAC permissions is [via the Azure portal](../active-directory/role-based-access-control-configure.md).  Open the 'Access control (IAM)' blade for the resource group, then click 'Add', then select the 'DNS Zone Contributor' role and select the required users or groups to grant permissions.
+The simplest way to assign RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.md).  Open the 'Access control (IAM)' blade for the resource group, then click 'Add', then select the 'DNS Zone Contributor' role and select the required users or groups to grant permissions.
 
 ![Resource group level RBAC via the Azure portal](./media/dns-protect-zones-recordsets/rbac1.png)
 
@@ -133,7 +133,7 @@ The Actions property defines the following DNS-specific permissions:
 * `Microsoft.Network/dnsZones/CNAME/*` grants full control over CNAME records
 * `Microsoft.Network/dnsZones/read` grants permission to read DNS zones, but not to modify them, enabling you to see the zone in which the CNAME is being created.
 
-The remaining Actions are copied from the [DNS Zone Contributor built-in role](../active-directory/role-based-access-built-in-roles.md#dns-zone-contributor).
+The remaining Actions are copied from the [DNS Zone Contributor built-in role](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 
 > [!NOTE]
 > Using a custom RBAC role to prevent deleting record sets while still allowing them to be updated is not an effective control. It prevents record sets from being deleted, but it does not prevent them from being modified.  Permitted modifications include adding and removing records from the record set, including removing all records to leave an 'empty' record set. This has the same effect as deleting the record set from a DNS resolution viewpoint.

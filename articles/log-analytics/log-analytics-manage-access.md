@@ -73,7 +73,7 @@ By default, the Microsoft account or Organizational account that creates the wor
 There are two permission models that control access to a Log Analytics workspace:
 
 1. Legacy Log Analytics user roles
-2. [Azure role-based access](../active-directory/role-based-access-control-configure.md)
+2. [Azure role-based access](../role-based-access-control/role-assignments-portal.md)
 
 The following table summarizes the access that can be set using each permission model:
 
@@ -100,7 +100,7 @@ The following activities also require Azure permissions:
 
 
 ### Managing access to Log Analytics using Azure permissions
-To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
 
 Azure has two built-in user roles for Log Analytics:
 - Log Analytics Reader
