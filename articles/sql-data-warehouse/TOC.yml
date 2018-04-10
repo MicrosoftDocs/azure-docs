@@ -79,8 +79,10 @@
       href: how-to-use-elastic-query-with-sql-data-warehouse.md
   - name: Query performance
     items:
-    - name: Resource classes
+    - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
+    - name: Memory & concurrency limits
+      href: memory-and-concurrency-limits.md
     - name: Columnstore compression
       href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
   - name: Monitor
