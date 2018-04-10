@@ -20,8 +20,6 @@ This quickstart demonstrates how to manage blobs from code running entirely in t
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
-Select the storage account in the portal and find the **Settings** section. Under Settings, select **Access keys** and set aside the **Storage account name** and the **Key** value under the **key1** heading. (You can use the "copy" button just to the right of the input box to copy the value to your clipboard.)
-
 ## Setting up storage account CORS rules 
 Before your web application can access a blob storage from the client, the account must be configured to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS. 
 
