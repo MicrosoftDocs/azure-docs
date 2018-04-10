@@ -53,8 +53,8 @@ There are two common examples when RBAC is used (but not limited to):
 RBAC roles can be granted only by **Owners** of the subscription. Therefore, the administrator must be logged in as a user that has this role pre-assigned or has created the Azure subscription.
 
 From the Azure portal, after you sign in as admin, select “Subscriptions” and chose the desired one.
-![subscription blade in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png)
-By default, if the admin user has purchased the Azure subscription, the user will show up as **Account Admin**, this being the subscription role. For more information about the Azure subscription roles, see [Add or change Azure administrator roles that manage the subscription or services](/billing/billing-add-change-azure-subscription-administrator.md).
+![subscription blade in Azure portal](./media/role-assignments-external-users/0.png)
+By default, if the admin user has purchased the Azure subscription, the user will show up as **Account Admin**, this being the subscription role. For more information about the Azure subscription roles, see [Add or change Azure administrator roles that manage the subscription or services](../billing/billing-add-change-azure-subscription-administrator.md).
 
 In this example, the user "alflanigan@outlook.com" is the **Owner** of the "Free Trial" subscription in the AAD tenant "Default tenant Azure". Since this user is the creator of the Azure subscription with the initial Microsoft Account “Outlook” (Microsoft Account = Outlook, Live etc.) the default domain name for all other users added in this tenant will be **"@alflaniganuoutlook.onmicrosoft.com"**. By design, the syntax of the new domain is formed by putting together the username and domain name of the user who created the tenant and adding the extension **".onmicrosoft.com"**.
 Furthermore, users can sign in with a custom domain name in the tenant after adding and verifying it for the new tenant. For more information on how to verify a custom domain name in an Azure Active Directory tenant, see [Add a custom domain name to your directory](/active-directory/active-directory-add-domain).
@@ -67,15 +67,15 @@ After selecting the subscription, the admin user must click **Access Control (IA
 
 
 
-![access control IAM feature in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/1.png)
+![access control IAM feature in Azure portal](./media/role-assignments-external-users/1.png)
 
 
 
 
 
-![add new user in access control IAM feature in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
+![add new user in access control IAM feature in Azure portal](./media/role-assignments-external-users/2.png)
 
-The next step is to select the role to be assigned and the user whom the RBAC role will be assigned to. In the **Role** dropdown menu, the admin user sees only the built-in RBAC roles that are available in Azure. For more detailed explanations of each role and their assignable scopes, see [Built-in roles for Azure Role-Based Access Control](role-based-access-built-in-roles.md).
+The next step is to select the role to be assigned and the user whom the RBAC role will be assigned to. In the **Role** dropdown menu, the admin user sees only the built-in RBAC roles that are available in Azure. For more detailed explanations of each role and their assignable scopes, see [Built-in roles for Azure Role-Based Access Control](built-in-roles.md).
 
 The admin user then needs to add the email address of the external user. The expected behavior is for the external user to not show up in the existing tenant. After the external user has been invited, he will be visible under **Subscriptions > Access Control (IAM)** with all the current users that are currently assigned an RBAC role at the Subscription scope.
 
@@ -83,16 +83,16 @@ The admin user then needs to add the email address of the external user. The exp
 
 
 
-![add permissions to new RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/3.png)
+![add permissions to new RBAC role](./media/role-assignments-external-users/3.png)
 
 
 
 
 
-![list of RBAC roles at subscription level](./media/role-based-access-control-create-custom-roles-for-internal-external-users/4.png)
+![list of RBAC roles at subscription level](./media/role-assignments-external-users/4.png)
 
 The user "chessercarlton@gmail.com" has been invited to be an **Owner** for the “Free Trial” subscription. After sending the invitation, the external user will receive an email confirmation with an activation link.
-![email invitation for RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
+![email invitation for RBAC role](./media/role-assignments-external-users/5.png)
 
 Being external to the organization, the new user does not have any existing attributes in the "Default tenant Azure" directory. They will be created after the external user has given consent to be recorded in the directory that is associated with the subscription he has been assigned a role to.
 
@@ -100,7 +100,7 @@ Being external to the organization, the new user does not have any existing attr
 
 
 
-![email invitation message for RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
+![email invitation message for RBAC role](./media/role-assignments-external-users/6.png)
 
 The external user shows in the Azure Active Directory tenant from now on as external user and this can be viewed in the Azure portal.
 
@@ -108,13 +108,13 @@ The external user shows in the Azure Active Directory tenant from now on as exte
 
 
 
-![users blade azure active-directory Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/7.png)
+![users blade azure active-directory Azure portal](./media/role-assignments-external-users/7.png)
 
 
 
 In the **Users** view, the external users can be recognized by the different icon type in the Azure portal.
 
-However, granting **Owner** or **Contributor** access to an external user at the **Subscription** scope, does not allow the access to the admin user's directory, unless the **Global Admin** allows it. In the user proprieties,  the **User Type**, which has two common parameters, **Member** and **Guest** can be identified. A member is a user that is registered in the directory while a guest is a user invited to the directory from an external source. For more information, see [How do Azure Active Directory admins add B2B collaboration users](active-directory-b2b-admin-add-users.md).
+However, granting **Owner** or **Contributor** access to an external user at the **Subscription** scope, does not allow the access to the admin user's directory, unless the **Global Admin** allows it. In the user proprieties,  the **User Type**, which has two common parameters, **Member** and **Guest** can be identified. A member is a user that is registered in the directory while a guest is a user invited to the directory from an external source. For more information, see [How do Azure Active Directory admins add B2B collaboration users](../active-directory/active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
 > Make sure that after entering the credentials in the portal, the external user selects the correct directory to sign in to. The same user can have access to multiple directories and can select either one of  them by clicking the username in the top right-hand side in the Azure portal and then choose the appropriate directory from the dropdown list.
@@ -125,7 +125,7 @@ While being a guest in the directory, the external user can manage all resources
 
 
 
-![access restricted to azure active-directory Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
+![access restricted to azure active-directory Azure portal](./media/role-assignments-external-users/9.png)
 
 Azure Active Directory and an Azure subscription don't have a child-parent relation like other Azure resources (for example: virtual machines, virtual networks, web apps, storage etc.) have with an Azure subscription. All the latter is created, managed, and billed under an Azure subscription while an Azure subscription is used to manage the access to an Azure directory. For more information, see [How an Azure subscription is related to Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
 
@@ -144,13 +144,13 @@ For a different scenario in this test, the external user "alflanigan@gmail.com" 
 
 
 
-![virtual machine contributor built-in role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
+![virtual machine contributor built-in role](./media/role-assignments-external-users/11.png)
 
 The normal behavior for this external user with this built-in role is to see and manage only virtual machines and their adjacent Resource Manager only resources necessary while deploying. By design, these limited roles offer access only to their correspondent resources created in the Azure portal.
 
 
 
-![virtual machine contributor role overview in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
+![virtual machine contributor role overview in Azure portal](./media/role-assignments-external-users/12.png)
 
 ## Grant access at a subscription level for a user in the same directory
 The process flow is identical to adding an external user, both from the admin perspective granting the RBAC role as well as the user being granted access to the role. The difference here is that the invited user will not receive any email invitations as all the resource scopes within the subscription will be available in the dashboard after signing in.
@@ -167,7 +167,7 @@ An important aspect for RBAC both at resource group scope or resource scope is f
 
 
 
-![directory login in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
+![directory login in Azure portal](./media/role-assignments-external-users/13.png)
 
 ## Assign RBAC roles for an Azure Active Directory group
 All the scenarios using RBAC at the three different scopes in Azure offer the privilege of managing, deploying, and administering various resources as an assigned user without the need of managing a personal subscription. Regardless the RBAC role is assigned for a subscription, resource group, or resource scope, all the resources created further on by the assigned users are billed under the one Azure subscription where the users have access to. This way, the users who have billing administrator permissions for that entire Azure subscription has a complete overview on the consumption, regardless who is managing the resources.
@@ -178,7 +178,7 @@ For larger organizations, RBAC roles can be applied in the same way for Azure Ac
 
 
 
-![add RBAC role for AAD groups](./media/role-based-access-control-create-custom-roles-for-internal-external-users/14.png)
+![add RBAC role for AAD groups](./media/role-assignments-external-users/14.png)
 
 These groups are security groups, which are provisioned and managed only within Azure Active Directory.
 
@@ -235,7 +235,7 @@ Next, you edit the JSON output to create your custom role.
 
 A typical role is composed of three main sections, **Actions**, **NotActions**, and **AssignableScopes**.
 
-The **Action** section lists all the permitted operations for the role. In this case, to create support tickets, the **Microsoft.Support/&ast;** operation must be added. It's important to understand that each operation is made available from a resource provider. To get a list of the operations for a resource provider, you can use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command or see [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md).
+The **Action** section lists all the permitted operations for the role. In this case, to create support tickets, the **Microsoft.Support/&ast;** operation must be added. It's important to understand that each operation is made available from a resource provider. To get a list of the operations for a resource provider, you can use the [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) command or see [Azure Resource Manager Resource Provider operations](resource-provider-operations.md).
 
 To restrict all the actions for a particular role, resource providers are listed under the **NotActions** section.
 It's mandatory that the role contains the explicit subscription IDs where it is used. The subscription IDs are listed under **AssignableScopes**, otherwise you will not be allowed to import the role into your subscription.
@@ -253,21 +253,21 @@ In this example, the name for this custom role is "Reader support tickets access
 
 The new custom role is now available in the Azure portal and can be assigned to users.
 
-![screenshot of custom role imported in the Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+![screenshot of custom role imported in the Azure portal](./media/role-assignments-external-users/18.png)
 
-![screenshot of assigning custom imported role to user in the same directory](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
+![screenshot of assigning custom imported role to user in the same directory](./media/role-assignments-external-users/19.png)
 
-![screenshot of permissions for custom imported role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
+![screenshot of permissions for custom imported role](./media/role-assignments-external-users/20.png)
 
 Users with this custom role can now create new support requests.
 
-![screenshot of custom role creating support requests](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
+![screenshot of custom role creating support requests](./media/role-assignments-external-users/21.png)
 
 Users with this custom role cannot perform other actions, such as create VMs or create resource groups.
 
-![screenshot of custom role not able to create VMs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
+![screenshot of custom role not able to create VMs](./media/role-assignments-external-users/22.png)
 
-![screenshot of custom role not able to create new RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
+![screenshot of custom role not able to create new RGs](./media/role-assignments-external-users/23.png)
 
 ## Create a custom RBAC role to open support requests using Azure CLI
 
@@ -333,4 +333,4 @@ az role definition create --role-definition ~/roles/rbacrole1.json
 
 The new custom role is now available in the Azure portal and the process to use this role is the same as in the previous PowerShell section.
 
-![Azure portal screenshot of custom role created using CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
+![Azure portal screenshot of custom role created using CLI 1.0](./media/role-assignments-external-users/26.png)

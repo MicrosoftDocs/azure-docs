@@ -190,6 +190,6 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 
 ## Next steps
 
-- Learn more about [managing Role-Based Access Control with REST](../active-directory/role-based-access-control-manage-access-rest.md)
+- Learn more about [managing Role-Based Access Control with REST](role-assignments-rest.md)
 
-- [Manage access assignments](../active-directory/role-based-access-control-manage-assignments.md) in the Azure portal
+- [Manage access assignments](role-assignments-users.md) in the Azure portal

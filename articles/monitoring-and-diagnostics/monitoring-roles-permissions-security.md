@@ -68,7 +68,7 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 > 
 
 ## Monitoring permissions and custom RBAC roles
-If the above built-in roles don’t meet the exact needs of your team, you can [create a custom RBAC role](../active-directory/role-based-access-control-custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
+If the above built-in roles don’t meet the exact needs of your team, you can [create a custom RBAC role](../role-based-access-control/custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
 
 | Operation | Description |
 | --- | --- |

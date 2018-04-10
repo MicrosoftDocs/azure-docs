@@ -144,7 +144,7 @@ The following articles are overviews of Azure AD authentication concepts:
 
 - [Authentication scenarios addressed by Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Add, update, or remove an application in Azure AD](../active-directory/develop/active-directory-integrating-applications.md)
-- [Configure and manage Role-Based Access Control by using PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Configure and manage Role-Based Access Control by using PowerShell](../role-based-access-control/role-assignments-powershell.md)
 
 ## Next steps
 

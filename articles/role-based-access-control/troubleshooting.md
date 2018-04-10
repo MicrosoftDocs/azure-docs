@@ -25,7 +25,7 @@ This article answers common questions about the specific access rights that are 
 * Contributor  
 * Reader  
 
-Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we'll spend some time. See the [Role-Based Access Control get-started article](../active-directory/role-based-access-control-configure.md) for details on how to grant access.
+Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we'll spend some time. See the [Role-Based Access Control get-started article](role-assignments-portal.md) for details on how to grant access.
 
 ## App Service
 ### Write access capabilities
@@ -93,8 +93,8 @@ These require **write** access to both the **Virtual machine**, and the **Resour
 If you can't access any of these tiles, ask your administrator for Contributor access to the Resource group.
 
 ## See more
-* [Role Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
-* [Built-in roles](../active-directory/role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
-* [Custom roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
-* [Create an access change history report](../active-directory/role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
+* [Role Based Access Control](role-assignments-portal.md): Get started with RBAC in the Azure portal.
+* [Built-in roles](built-in-roles.md): Get details about the roles that come standard in RBAC.
+* [Custom roles in Azure RBAC](custom-roles.md): Learn how to create custom roles to fit your access needs.
+* [Create an access change history report](change-history-report.md): Keep track of changing role assignments in RBAC.
 

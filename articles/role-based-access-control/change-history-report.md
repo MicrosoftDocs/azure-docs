@@ -45,7 +45,7 @@ This example command lists all access changes in the subscription for the past s
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
 ```
 
-![PowerShell Get-AzureRMAuthorizationChangeLog - screenshot](./media/role-based-access-control-configure/access-change-history.png)
+![PowerShell Get-AzureRMAuthorizationChangeLog - screenshot](./media/change-history-report/access-change-history.png)
 
 ## Create a report with Azure CLI
 To create an access change history report in the Azure command-line interface (CLI), use the `azure role assignment changelog list` command.
@@ -53,9 +53,9 @@ To create an access change history report in the Azure command-line interface (C
 ## Export to a spreadsheet
 To save the report, or manipulate the data, export the access changes into a .csv file. You can then view the report in a spreadsheet for review.
 
-![Changelog viewed as spreadsheet - screenshot](./media/role-based-access-control-configure/change-history-spreadsheet.png)
+![Changelog viewed as spreadsheet - screenshot](./media/change-history-report/change-history-spreadsheet.png)
 
 ## Next steps
-* Work with [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md)
-* Learn how to manage [Azure RBAC with powershell](role-based-access-control-manage-access-powershell.md)
+* Work with [Custom roles in Azure RBAC](custom-roles.md)
+* Learn how to manage [Azure RBAC with powershell](role-assignments-powershell.md)
 

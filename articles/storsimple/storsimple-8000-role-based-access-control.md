@@ -29,7 +29,7 @@ RBAC can be assigned based on the roles. The roles ensure certain permission lev
 
 * **Built-in roles** - The built-in roles can be owner, contributor, reader, or user access administrator. For more information, see [Built-in roles for Azure Role-based Access Control](../role-based-access-control/overview.md#built-in-roles).
 
-* **Custom roles** - If the built-in roles do not suit your needs, you can create custom RBAC roles for StorSimple. To create a custom RBAC role, start with a built-in role, edit it, and then import it back in the environment. The download and upload of the role are managed using either Azure PowerShell or the Azure CLI. For more information, see [Create custom roles for Role-based Access Control](../active-directory/role-based-access-control-custom-roles.md).
+* **Custom roles** - If the built-in roles do not suit your needs, you can create custom RBAC roles for StorSimple. To create a custom RBAC role, start with a built-in role, edit it, and then import it back in the environment. The download and upload of the role are managed using either Azure PowerShell or the Azure CLI. For more information, see [Create custom roles for Role-based Access Control](../role-based-access-control/custom-roles.md).
 
 To view the different roles available for a StorSimple device user in the Azure portal, go to your StorSimple Device Manager service and then go to **Access control (IAM) > Roles**.
 
@@ -105,7 +105,7 @@ This role should now appear in the list of roles in the **Access control** blade
 
 ![View RBAC roles](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-For more information, go to [Create a custom RBAC role using PowerShell](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
+For more information, go to [Create a custom RBAC role using PowerShell](../role-based-access-control/role-assignments-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
 
 ### Sample output for custom role creation via the PowerShell
 
@@ -183,5 +183,5 @@ Once this role is created, you can view the permissions associated with this rol
 
 ## Next steps
 
-Learn how to [Assign custom roles for internal and external users](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md).
+Learn how to [Assign custom roles for internal and external users](../role-based-access-control/role-assignments-external-users.md).
 

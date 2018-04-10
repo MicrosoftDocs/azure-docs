@@ -20,8 +20,8 @@ ms.author: rolyon
 ---
 # View access assignments for users and groups in the Azure portal
 > [!div class="op_single_selector"]
-> * [Manage access by user or group](role-based-access-control-manage-assignments.md)
-> * [Manage access by resource](role-based-access-control-configure.md)
+> * [Manage access by user or group](role-assignments-users.md)
+> * [Manage access by resource](role-assignments-portal.md)
 
 With role-based access control (RBAC) in the Azure Active Directory (Azure AD), you can manage access to your Azure resources. 
 
@@ -32,14 +32,14 @@ Access assigned with RBAC is fine-grained because there are two ways you can res
 
 Roles can only be assigned from within the subscription, resource group, or resource that is the scope for the assignment. But you can view all the access assignments for a given user or group in a single place. You can have up to 2000 role assignments in each subscription. 
 
-Get more information about how to [Use role assignments to manage access to your Azure subscription resources](role-based-access-control-configure.md).
+Get more information about how to [Use role assignments to manage access to your Azure subscription resources](role-assignments-portal.md).
 
 ## View access assignments
 To look up the access assignments for a single user or group, start in Azure Active Directory in the [Azure portal](http://portal.azure.com).
 
 1. Select **Azure Active Directory**. If this option is not visible on your navigation list, select **All Services** and then scroll down to find **Azure Active Directory**.
 2. Select **Users and Groups**, and then either **All users** or **All groups**. For this example, we focus on individual users.
-    ![Manage users and groups in Azure Active Directory - screenshot](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
+    ![Manage users and groups in Azure Active Directory - screenshot](./media/role-assignments-users/rbac_users_groups.png)
 3. Search for the user by name or username.
 4. Select **Azure resources** on the user blade. All the access assignments for that user appear.
 
@@ -51,10 +51,10 @@ From this blade, you can delete access assignments that were assigned directly t
 
 1. From the list of all the access assignments for a user or group, select the one you want to delete.
 2. Select **Remove** and then **Yes** to confirm.
-    ![Remove access assignment - screenshot](./media/role-based-access-control-manage-assignments/delete_assignment.png)
+    ![Remove access assignment - screenshot](./media/role-assignments-users/delete_assignment.png)
 
 ## Next steps
 
-* Get started with Role-Based Access Control to [Use role assignments to manage access to your Azure subscription resources](role-based-access-control-configure.md)
-* See the [RBAC built-in roles](role-based-access-built-in-roles.md)
+* Get started with Role-Based Access Control to [Use role assignments to manage access to your Azure subscription resources](role-assignments-portal.md)
+* See the [RBAC built-in roles](built-in-roles.md)
 

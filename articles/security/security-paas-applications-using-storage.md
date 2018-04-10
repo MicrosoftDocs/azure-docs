@@ -80,8 +80,8 @@ Organizations that do not enforce data access control by leveraging capabilities
 
 To learn more about RBAC see:
 
-- [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
-- [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md)
+- [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)
+- [Built-in roles for Azure role-based access control](../role-based-access-control/built-in-roles.md)
 - [Azure Storage Security Guide](../storage/common/storage-security-guide.md) for detail on how to secure your storage account with RBAC
 
 ## Storage encryption
