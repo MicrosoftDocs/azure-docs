@@ -102,7 +102,7 @@ In this section, you update the application to support a new view that will disp
 
 ### Update the web.config file with an app setting for the cache
 
-When you run the application locally, the information in *CacheSecrets.config* is used to connect to your Azure Redis Cache instance. Later you'll deploy this application to Azure. At that time, you will configure an app setting in Azure that the application will use to retrieve the cache connection information instead of this file. Since *CacheSecrets.config* is not deployed to Azure with your application, you only use it while testing the application locally. You want to keep this information as secure as possible to prevent malicous access to your cache data.
+When you run the application locally, the information in *CacheSecrets.config* is used to connect to your Azure Redis Cache instance. Later you'll deploy this application to Azure. At that time, you will configure an app setting in Azure that the application will use to retrieve the cache connection information instead of this file. Since *CacheSecrets.config* is not deployed to Azure with your application, you only use it while testing the application locally. You want to keep this information as secure as possible to prevent malicious access to your cache data.
 
 In **Solution Explorer**, double-click the *web.config* file to open it.
    
@@ -188,7 +188,7 @@ Add the following method to the `HomeController` class to support a new `RedisCa
 
 In **Solution Explorer**, expand **Views**>**Shared** folder, and open the *_Layout.cshtml* file.   
 
-Replace :
+Replace:
 ```
 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 ```
@@ -202,9 +202,9 @@ With:
 
 ### Add a new RedisCache view
 
-In **Solution Explorer**, expand the **Views** folder and then right-click the **Home** folder, and choose **Add** > **View...**. 
+In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder. Choose **Add** > **View...**. 
 
-In the Add View dialog, enter **RedisCache** for the View Name and click **Add**.
+In the Add View dialog, enter **RedisCache** for the View Name, and click **Add**.
    
 Replace the code in the *RedisCache.cshtml* file with the following code:
 
@@ -253,7 +253,7 @@ In Visual Studio on the menu, click **Debug** > **Start Debugging** to build and
 
 In the browser, click **Azure Redis Cache Test** on the navigation bar.
 
-In the example below, you can see the `Message` key previously had a cached value which was set using the Redis Console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
 ![Simple test completed local](./media/cache-web-app-howto/cache-simple-test-complete-local.png)
 
