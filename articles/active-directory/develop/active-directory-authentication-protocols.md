@@ -4,7 +4,7 @@ description: An overview of the authentication protocols supported by Azure Acti
 documentationcenter: dev-center-name
 author: priyamohanram
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0

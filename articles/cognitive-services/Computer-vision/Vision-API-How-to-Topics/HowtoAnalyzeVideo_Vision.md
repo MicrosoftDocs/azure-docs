@@ -2,14 +2,14 @@
 title: Real-time video analysis with the Computer Vision API | Microsoft Docs
 description: Learn how to perform near-real-time analysis on frames taken from a live video stream by using the Computer Vision API in Cognitive Services.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
+author: KellyDF
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
 ms.date: 01/20/2017
-ms.author: juliakuz
+ms.author: kefre
 ---
 
 # How to Analyze Videos in Real-time
@@ -177,9 +177,9 @@ In most modes, there will be a visible delay between the live video on the left,
 To get started with this sample, follow these steps:
 
 1. Get API keys for the Vision APIs from [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). For video frame analysis, the applicable APIs are:
-	- [Computer Vision API](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home)
-	- [Emotion API](https://docs.microsoft.com/en-us/azure/cognitive-services/emotion/home)
-	- [Face API](https://docs.microsoft.com/en-us/azure/cognitive-services/face/overview)
+	- [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
+	- [Emotion API](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
+	- [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 2. Clone the [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub repo
 
 3. Open the sample in Visual Studio 2015, build and run the sample applications:

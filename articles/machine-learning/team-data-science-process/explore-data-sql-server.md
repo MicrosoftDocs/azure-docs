@@ -4,7 +4,7 @@ description: How to explore data that is stored in a SQL Server VM on Azure.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: ccbb3085-af9e-4ec2-9df2-15dcab261d05
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/09/2017
 ms.author: bradsev
 
 ---
@@ -66,6 +66,6 @@ The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of
 
 Now you can work with the Pandas DataFrame as covered in the topic [Process Azure Blob data in your data science environment](data-blob.md).
 
-## Cortana Analytics Process in Action Example
+## The Team Data Science Process in action example
 For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Team Data Science Process in action: using SQL Server](sql-walkthrough.md).
 

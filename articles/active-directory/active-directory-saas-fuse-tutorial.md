@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 03/06/2017
 ms.author: jeedes
 
 ---
@@ -106,7 +106,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Fuse Domain and URLs single sign-on information](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_url.png)
 	
-	In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant name>.fusion-universal.com/`
+	In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant name>.fusionuniversal.com/`
 
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Fuse Client support team](mailto:support@fusion-universal.com) to get this value. 

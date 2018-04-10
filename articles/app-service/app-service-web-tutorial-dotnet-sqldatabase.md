@@ -15,10 +15,10 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ---
 
-# Build an ASP.NET app in Azure with SQL Database
+# Tutorial: Build an ASP.NET app in Azure with SQL Database
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure and connect it to [Azure SQL Database](../sql-database/sql-database-technical-overview.md). When you're finished, you have a ASP.NET app running in Azure and connected to SQL Database.
 
@@ -34,6 +34,8 @@ In this tutorial, you learn how to:
 > * Stream logs from Azure to your terminal
 > * Manage the app in the Azure portal
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -44,7 +46,7 @@ To complete this tutorial:
 
   ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
 ## Download the sample
 
@@ -118,8 +120,8 @@ In the **Configure App Service Plan** dialog, configure the new App Service plan
 | Setting  | Suggested value | For more information |
 | ----------------- | ------------ | ----|
 |**App Service Plan**| myAppServicePlan | [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**Location**| West Europe | [Azure regions](https://azure.microsoft.com/regions/) |
-|**Size**| Free | [Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/)|
+|**Location**| West Europe | [Azure regions](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**Size**| Free | [Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### Create a SQL Server instance
 
@@ -375,7 +377,7 @@ In the **Application Logging (File System)** dropdown, select **Verbose**. Click
 
 In your browser navigate to your web app again at *http://&lt;your app name>.azurewebsites.net*, then try clicking around the to-do list application in Azure. The trace messages are now streamed to the **Output** window in Visual Studio.
 
-```
+```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
 Application: 2017-04-06T23:30:43  PID[8132] Verbose     GET /Todos/Create
 Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create

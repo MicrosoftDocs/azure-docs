@@ -1,22 +1,14 @@
 ---
-title: 'Azure Stream Analytics: Understand and adjust Streaming Units | Microsoft Docs'
-description: Understand what factors impact performance in Azure Stream Analytics.
-keywords: streaming unit, query performance
+title: Understand and adjust Streaming Units in Azure Stream Analytics
+description: This article describes the Streaming Units setting and other factors that impact performance in Azure Stream Analytics.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
 ---
 
 # Understand and adjust Streaming Units
@@ -25,7 +17,7 @@ Azure Stream Analytics aggregates the performance "weight" of running a job into
 
 In order to achieve low latency streaming processing, Azure Stream Analytics jobs perform all processing in memory. When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there is enough resource allocated in order to keep the jobs running 24/7.
 
-The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually between 10% to 20%. It’s best to keep the metric below 80% to account for occasional spikes.  You can set an alert on the metric (see [here to set up metric alerts](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+The metric is a percentage number ranging from 0% to 100%. For a streaming job with minimal footprint, the SU % Utilization metric is usually between 10% to 20%. It’s best to keep the metric below 80% to account for occasional spikes.  You can set an alert on the metric (see [here to set up metric alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
 
 
 
@@ -57,7 +49,6 @@ For more information about choosing the right number of SUs, see this page: [Sca
 
 > [!Note]
 > Choosing how many SUs are required for a particular job depends on the partition configuration for the inputs and on the query defined for the job. You can select up to your quota in SUs for a job. By default, each Azure subscription has a quota of up to 200 SUs for all the analytics jobs in a specific region. To increase SUs for your subscriptions beyond this quota, contact [Microsoft Support](http://support.microsoft.com). Valid values for SUs per job are 1, 3, 6, and up in increments of 6.
-> Note that using 1 SU is not recommended for production jobs. We usually advice to only use 1-SU-jobs for prototyping and testing jobs.
 
 
 
@@ -82,24 +73,24 @@ In order to ameliorate issues caused by high cardinality in the previous query, 
 
 Once the query is partitioned out, it is spread out over multiple nodes. As a result, the number of clusterid coming into each node is reduced thereby reducing the cardinality of the group by operator. 
 
-Event Hub partitions should be partitioned by the grouping key to avoid the need for a reduce step. Additional details are covered [here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview). 
+Event Hub partitions should be partitioned by the grouping key to avoid the need for a reduce step. Additional details are covered [here](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
 #### Temporal join
 The state size of a temporal join is proportional to the number of events in the temporal wiggle room of the join, which is event input rate multiply by the wiggle room size. 
 
 The number of unmatched events in the join affect the memory utilization for the query. The following query is looking to find the ad impressions that generate clicks:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 In this example, it is possible that lots of ads are shown and few people click on it and it is required to keep all the events in the time window. Memory consumed is proportional to the window size and event rate. 
 
 To remediate this, send events to Event Hub partitioned by the join keys (id in this case), and scale out the query by allowing the system to process each input partition separately using  **PARTITION BY** as shown:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 Once the query is partitioned out, it is spread out over multiple nodes. As a result the number of events coming into each node is reduced thereby reducing the size of the state kept in the join window. 
@@ -123,7 +114,7 @@ When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)

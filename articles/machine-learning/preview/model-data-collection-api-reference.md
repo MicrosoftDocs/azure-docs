@@ -4,8 +4,8 @@ description: Azure Machine Learning Model Data Collection API reference.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
@@ -43,7 +43,7 @@ In the scoring file that is being used for operationalization, import the data c
 ## Model data collector instantiation
 Instantiate a new instance of a ModelDataCollector:
 
-dc = ModelDataCollector(model_name, identifier='default', feature_names=None, model_management_account_id='unknown', webservice_name='unknown', model_id='unknown', model_version='unknown')
+    dc = ModelDataCollector(model_name, identifier='default', feature_names=None, model_management_account_id='unknown', webservice_name='unknown', model_id='unknown', model_version='unknown')
 
 See Class and Parameter details:
 

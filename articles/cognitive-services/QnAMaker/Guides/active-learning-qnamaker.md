@@ -23,7 +23,7 @@ Active learning uses two new additions to QnAMaker, the new QnAMakerDialog and t
 The new [QnAMakerDialog](https://github.com/Microsoft/BotBuilder-CognitiveServices) now does the following:
 * Get the TopN matches from the QnA service for every query above the threshold set.
 * If the top result confidence score is significantly more than the rest of the results, show only the top answer.
-* If the TopN results have similar confidence scores, then show the [prompt dialog](https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-dialog-prompt) with TopN questions.
+* If the TopN results have similar confidence scores, then show the [prompt dialog](https://docs.microsoft.com/bot-framework/nodejs/bot-builder-nodejs-dialog-prompt) with TopN questions.
 * Once the user selects the right question that matches intent, show the answer for that corresponding question.
 * This selection also triggers a feedback into the QnAMaker service via the  [Train API](https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58edd31c3d9e041ffcef000f), described below.
 ![Active Learning Example](../Images/activeLearningExample.png)

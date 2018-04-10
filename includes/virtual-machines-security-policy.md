@@ -24,7 +24,7 @@ When you connect to VMs, you should use public-key cryptography to provide a mor
 
 ## Policies
 
-[Azure Resource Manager policies](../articles/azure-resource-manager/resource-manager-policy.md) can be used to define the desired behavior for your organization's [Windows VMs](../articles/virtual-machines/windows/policy.md) and [Linux VMs](../articles/virtual-machines/linux/policy.md). By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.
+[Azure policies](../articles/azure-policy/azure-policy-introduction.md) can be used to define the desired behavior for your organization's [Windows VMs](../articles/virtual-machines/windows/policy.md) and [Linux VMs](../articles/virtual-machines/linux/policy.md). By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.
 
 ## Role-based access control
 

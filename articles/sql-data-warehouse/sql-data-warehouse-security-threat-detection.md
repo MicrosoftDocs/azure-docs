@@ -52,7 +52,7 @@ For example, Threat Detection detects certain anomalous database activities indi
    The email will provide information on the suspicious security event including the nature of the anomalous activities, database name, server name and the event time. In addition, it will provide information on possible causes and recommended actions to investigate and mitigate the potential threat to the database.<br/>
    
     ![Navigation pane][4]
-2. In the email, click on the **Azure SQL Auditing Log** link, which will launch the Azure Classic Portal and show the relevant Auditing records around the time of the suspicious event.
+2. In the email, click on the **Azure SQL Auditing Log** link, which will launch the Azure portal and show the relevant Auditing records around the time of the suspicious event.
    
     ![Navigation pane][5]
 3. Click on the audit records to view more details on the suspicious database activities such as SQL statement, failure reason and client IP.

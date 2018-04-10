@@ -3,9 +3,8 @@ title: Connect Storage Explorer to an Azure Stack subscription
 description: Learn how to connect Storage Exporer to an  Azure Stack subscription
 services: azure-stack
 documentationcenter: ''
-author: xiaofmao
-manager:
-editor: ''
+author: mattbriggs
+manager: femila
 
 ms.assetid:
 ms.service: azure-stack
@@ -13,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: xiaofmao
 
 ---
@@ -39,7 +38,7 @@ For the Azure Stack Development Kit, you need to export the Azure Stack authorit
 
 1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
 
-2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
+2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **My user account**.
 
 
 

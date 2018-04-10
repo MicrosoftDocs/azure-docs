@@ -3,7 +3,7 @@ title: Monitor your app's health and usage with Application Insights
 description: Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 40650472-e860-4c1b-a589-9956245df307
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Monitor performance in web applications

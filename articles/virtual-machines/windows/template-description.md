@@ -4,7 +4,7 @@ description: Learn more about how the virtual machine resource is defined in an 
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -279,7 +279,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 - [size](sizes.md)
 - [name](/architecture/best-practices/naming-conventions) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
-- [network interface](../../virtual-network/virtual-networks-multiple-nics.md) 
+- [network interface](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - boot diagnostics
 
 ## Disks and images

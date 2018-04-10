@@ -3,8 +3,8 @@ title: Restore Azure SQL Data Warehouse (Azure portal) | Microsoft Docs
 description: Azure portal tasks for restoring Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: Lakshmi1812
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: ''
 
 ms.assetid: b0aef539-7657-4b0e-9899-74098f5c21bc
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 09/21/2016
-ms.author: lakshmir;barbkess
+ms.date: 12/06/2017
+ms.author: barbkess
 
 ---
 # Restore Azure SQL Data Warehouse (portal)
@@ -101,7 +101,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
 

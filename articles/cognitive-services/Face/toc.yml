@@ -2,16 +2,6 @@
   href: index.md
 - name: Overview
   href: Overview.md
-- name: How to
-  items:
-  - name: Detect faces in image
-    href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Identify faces in image
-    href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-  - name: Add faces
-    href: Face-API-How-to-Topics/face-how-to-add-faces.md
-  - name: Analyze videos in real time
-    href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
 - name: Quickstarts
   expanded: true
   items:
@@ -37,6 +27,18 @@
     href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
   - name: Python
     href: Tutorials/FaceAPIinPythonTutorial.md
+- name: How to
+  items:
+  - name: Detect faces in image
+    href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+  - name: Identify faces in image
+    href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
+  - name: Add faces
+    href: Face-API-How-to-Topics/how-to-add-faces.md
+  - name: Use the large-scale feature
+    href: Face-API-How-to-Topics/how-to-use-large-scale.md
+  - name: Analyze videos in real time
+    href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
 - name: Reference
   items:
   - name: Face API reference
@@ -54,7 +56,7 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=cognitive-services&query=Face
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
   - name: Glossary

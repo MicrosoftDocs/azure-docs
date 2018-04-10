@@ -3,7 +3,7 @@ title: Debug applications with Azure Application Insights in Visual Studio | Mic
 description: Web app performance analysis and diagnostics during debugging and in production.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Debug your applications with Azure Application Insights in Visual Studio

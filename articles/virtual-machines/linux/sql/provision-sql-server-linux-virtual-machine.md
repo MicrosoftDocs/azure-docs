@@ -5,7 +5,7 @@ services: virtual-machines-linux
 author: rothja 
 ms.author: jroth 
 manager: jhubbard
-ms.date: 10/04/2017
+ms.date: 10/25/2017
 ms.topic: article
 tags: azure-service-management
 ms.devlang: na
@@ -22,17 +22,24 @@ ms.technology: database-engine
 
 In this quick start tutorial, you use the Azure portal to create a Linux virtual machine with SQL Server 2017 installed.
 
+In this tutorial, you will:
+
+* [Create a Linux SQL VM from the gallery](#create)
+* [Connect to the new VM with ssh](#connect)
+* [Change the SA password](#password)
+* [Configure for remote connections](#remote)
+
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-## Create a Linux VM with SQL Server installed
+## <a id="create"></a> Create a Linux VM with SQL Server installed
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In the left pane, click **New**.
+1. In the left pane, click **Create a resource**.
 
-1. In the **New** pane, click **Compute**.
+1. In the **Create a resource** pane, click **Compute**.
 
 1. Click **See all** next to the **Featured** heading.
 
@@ -99,7 +106,7 @@ If you are running on Windows and do not have a BASH shell, you can install an S
 
 For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm).
 
-## Change the SA password
+## <a id="password"></a> Change the SA password
 
 The new virtual machine installs SQL Server with a random SA password. You must reset this password before you can connect to SQL Server with the SA login.
 
@@ -160,7 +167,7 @@ This tutorial directed you to create a Red Hat Enterprise Linux (RHEL) VM. If yo
 
    ```bash
    sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
-   sudo firewall-cmd –reload
+   sudo firewall-cmd --reload
    ```
 
 ## Next steps

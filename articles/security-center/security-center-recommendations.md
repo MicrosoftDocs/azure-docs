@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/04/2018
 ms.author: terrylan
 
 ---
@@ -70,7 +70,7 @@ Use the table below as a reference to help you understand the available recommen
 | Recommendation | Description |
 | --- | --- |
 | [Enable data collection for subscriptions](security-center-enable-data-collection.md) |Recommends that you turn on data collection in the security policy for each of your subscriptions and all Azure virtual machines (VMs) and non-Azure computers. |
-| [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended configuration rules, for example, do not allow passwords to be saved. |
+| [Remediate security configurations](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended security configuration rules, for example, do not allow passwords to be saved. |
 | [Apply system updates](security-center-apply-system-updates.md) |Recommends that you deploy missing system security and critical updates to your Windows and Linux VMs and computers. |
 | [Apply a Just-In-Time network access control](security-center-just-in-time.md) | Recommends that you apply just in time VM access. The just in time feature is in preview and available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. |
 | [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommends that you reboot a VM to complete the process of applying system updates. |
@@ -79,7 +79,6 @@ Use the table below as a reference to help you understand the available recommen
 | [Add a Next Generation Firewall](security-center-add-next-generation-firewall.md) |Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner to increase your security protections. |
 | [Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW. |
 | [Install Endpoint Protection](security-center-install-endpoint-protection.md) |Recommends that you provision antimalware programs to VMs (Windows VMs only). |
-| [Resolve Endpoint Protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md) |Recommends that you resolve endpoint protection failures. |
 | [Enable Network Security Groups on subnets or virtual machines](security-center-enable-network-security-groups.md) |Recommends that you enable NSGs on subnets or VMs. |
 | [Restrict access through Internet facing endpoint](security-center-restrict-access-through-internet-facing-endpoints.md) |Recommends that you configure inbound traffic rules for NSGs. |
 | [Enable auditing and threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) |Recommends that you turn on auditing and threat detection for Azure SQL servers. (Azure SQL service only. Doesn't include SQL running on your virtual machines.) |

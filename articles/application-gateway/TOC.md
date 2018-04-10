@@ -1,3 +1,5 @@
+# [Application Gateway Documentation](index.md)
+
 # Overview
 ## [What is Application Gateway?](application-gateway-introduction.md)
 ## [Application Gateway FAQ](application-gateway-faq.md)
@@ -13,18 +15,14 @@
 ## [WebSocket](application-gateway-websocket.md)
 ## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Get started
-## Create an Application Gateway
-### Public facing
-#### [Azure portal](application-gateway-create-gateway-portal.md)
-#### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-#### [Resource Manager template](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
-#### [Azure PowerShell (classic)](application-gateway-create-gateway.md)
-### Internal facing
-#### [Azure PowerShell](application-gateway-ilb-arm.md)
-#### [Azure PowerShell (classic)](application-gateway-ilb.md)
+## [Azure portal](application-gateway-create-gateway-portal.md)
+## [Azure PowerShell](application-gateway-create-gateway-arm.md)
+## [Azure CLI](application-gateway-create-gateway-cli.md)
 # How to
+## Create application gateway with VMSS
+### [Azure PowerShell](tutorial-create-vmss-powershell.md)
+### [Azure CLI](tutorial-create-vmss-cli.md)
+## [Use a template](application-gateway-create-gateway-arm-template.md)
 ## Configure web application firewall
 ### [Azure portal](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
@@ -35,30 +33,40 @@
 ## Configure SSL
 ### [Azure portal](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
-### [Azure PowerShell (Classic)](application-gateway-ssl.md)
-### [Azure CLI](application-gateway-ssl.md)
-### [End to end](application-gateway-end-to-end-ssl-powershell.md)
+### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL policy](application-gateway-configure-ssl-policy-powershell.md)
-## Configure URL path based routing
+## Configure URL path-based routing
 ### [Azure portal](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
 ### [Azure CLI](application-gateway-create-url-route-cli.md)
 ## Configure multiple site hosting
 ### [Azure portal](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Configure redirection
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure CLI](tutorial-multisite-cli.md)
+## Configure external redirection
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Azure CLI](tutorial-external-site-redirect-cli.md)
+## Configure internal redirection
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Azure CLI](tutorial-internal-site-redirect-cli.md)
+## Configure HTTP to HTTPS redirection
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Azure CLI](tutorial-http-redirect-cli.md)
+## Configure URL redirection
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Azure CLI](tutorial-url-redirect-cli.md)
 ## Configure web apps as backend pool members
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configure health probes
 ### [Azure portal](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
-### [Azure PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
 ## [Azure Security Center integration](application-gateway-integration-security-center.md)
 ## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Configure end-to-end SSL](application-gateway-end-to-end-ssl-powershell.md)
 ## Troubleshoot
 ### [Troubleshoot errors in Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Diagnostic logging and metrics](application-gateway-diagnostics.md)
+### [Application Gateway session affinity problems](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/network/application-gateway)
@@ -68,7 +76,6 @@
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
-## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt299393)
 # Related
 ## [ExpressRoute](/azure/expressroute/)
 ## [Virtual network](/azure/virtual-network/)

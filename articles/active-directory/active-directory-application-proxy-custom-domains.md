@@ -3,8 +3,8 @@ title: Custom domains in Azure AD Application Proxy | Microsoft Docs
 description: Manage custom domains in Azure AD Application Proxy so that the URL for the app is the same regardless of where your users access it. 
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: MarkusVi
+manager: mtillman
 
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
@@ -12,10 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: kgremban
+ms.date: 01/31/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
+
 ---
 
 # Working with custom domains in Azure AD Application Proxy
@@ -67,8 +68,6 @@ There is no restriction on the certificate signature methods. Elliptic Curve Cry
 
 You can use a wildcard certificate as long as the wildcard matches the desired external URL. 
 
-You can use self-signed certificates, as well. If you’re using a private certificate authority, the CDP (certificate revocation point distribution point) for the certificate should be public.
-
 ### Changing the domain
 All verified domains appear in the External URL dropdown list for your application. To change the domain, just update that field for the application. If the domain you want isn't in the list, [add it as a verified domain](active-directory-domains-add-azure-portal.md). If you select a domain that doesn't have an associated certificate yet, follow steps 5-7 to add the certificate. Then, make sure you update the DNS record to redirect from the new external URL. 
 
@@ -81,7 +80,7 @@ Currently all certificate management is through individual application pages so 
 
 ## Next steps
 * [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md) to your published apps with Azure AD authentication.
-* [Enable conditional access](active-directory-application-proxy-conditional-access.md) to your published apps.
+* [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md) to your published apps.
 * [Add your custom domain name to Azure AD](active-directory-domains-add-azure-portal.md)
 
 

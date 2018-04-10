@@ -49,7 +49,7 @@ One important step towards securing your identity is to ensure that IT can manag
 To accomplish this [hybrid identity](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md) scenario we recommend two options:
 
 * Synchronize your on-premises directory with your cloud directory using Azure AD Connect
-* Federate your on-premises identity with your cloud directory using [Active Directory Federation Services](https://msdn.microsoft.com/library/bb897402.aspx) (AD FS)
+* Enable single sign-on with [password hash synchronization](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization), [pass-through authentication](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) or federate your on-premises identity with your cloud directory using [Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (AD FS)
 
 Organizations that fail to integrate their on-premises identity with their cloud identity will experience increased administrative overhead in managing accounts, which increases the likelihood of mistakes and security breaches.
 
@@ -112,7 +112,7 @@ Leverage [Azure Resource Manager](../azure-resource-manager/resource-group-overv
 
 Organizations that are not controlling how resources are created are more susceptible to users that may abuse the service by creating more resources than they need. Hardening the resource creation process is an important step to secure a multi-tenant scenario.
 
-You can learn more about creating policies with Azure Resource Manager by reading the article [Use Policy to manage resources and control access](../azure-resource-manager/resource-manager-policy.md).
+You can learn more about creating policies with Azure Resource Manager by reading the article [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).
 
 ## Guide developers to leverage identity capabilities for SaaS apps
 User identity will be leveraged in many scenarios when users access [SaaS apps](https://azure.microsoft.com/marketplace/active-directory/all/) that can be integrated with on-premises or cloud directory. First and foremost, we recommend that developers use a secure methodology to develop these apps, such as [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as [OAuth 2.0](http://oauth.net/2/) and [OpenID Connect](http://openid.net/connect/), as well as open source libraries for different platforms.

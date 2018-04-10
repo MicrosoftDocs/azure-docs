@@ -3,8 +3,8 @@ title: Deploy a VM with securely stored password on Azure Stack | Microsoft Docs
 description: Learn how to deploy a VM using a password stored in Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 # Create a virtual machine by retrieving the password stored in a Key Vault
@@ -25,7 +25,7 @@ In this article, we walk you through the steps required to deploy a Windows virt
 
 ## Prerequisites
  
-* You must must subscribe to an offer that includes the Key Vault service.  
+* You must subscribe to an offer that includes the Key Vault service.  
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
 * [Configure the Azure Stack user's PowerShell environment.](azure-stack-powershell-configure-user.md)
 

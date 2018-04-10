@@ -123,13 +123,13 @@ We have not verified the functionality or quality claimed by the following third
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-explorer/introduction">Cerabrata: Azure Explorer</a></td>
+    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate: Azure Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
     <td></td>
     <td></td>
-    <td>X</td>
+    <td></td>
     <td>Y</td>
     <td></td>
     <td>X</td>

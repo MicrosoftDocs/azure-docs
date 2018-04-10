@@ -1,97 +1,137 @@
 --- 
-title: 'Predictive Maintenance Real World Scenario| Microsoft Docs' 
-description: Predictive Maintenance Real World Scenario using PySpark 
+title: Predictive maintenance for real-world scenarios | Microsoft Docs
+description: Predictive maintenance for real-world scenarios by using PySpark
 services: machine-learning 
-author: jaymathe
-ms.author: jaymathe
+author: ehrlinger
+ms.author: jehrling
 manager: jhubbard 
 ms.reviewer: garyericson, jasonwhowell, mldocs 
 ms.service: machine-learning 
 ms.workload: data-services 
 ms.topic: article 
 ms.custom: mvc 
-ms.date: 09/25/2017 
+ms.date: 10/05/2017 
 --- 
 
-# Predictive Maintenance Real World Scenario
+# Predictive maintenance for real-world scenarios
 
+The impact of unscheduled equipment downtime can be detrimental for any business. It's critical to keep field equipment running to maximize utilization and performance, and to minimize costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
 
-The impact of unscheduled equipment downtime can be detrimental for any business. It is critical to therefore keep field equipment running in order to maximize utilization and performance and by minimizing costly, unscheduled downtime. Early identification of issues can help allocate limited maintenance resources in a cost-effective way and enhance quality and supply chain processes. 
+This scenario explores a relatively [large-scale simulated data set](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) to walk through a predictive maintenance data science project from data ingestion, feature engineering, model building, and model operationalization and deployment. The code for the entire process is written in the Jupyter Notebook by using PySpark in Azure Machine Learning Workbench. The final model is deployed by using Azure Machine Learning Model Management to make real-time equipment failure predictions.   
 
-For this scenario, we use a relatively [large-scale data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) to walk the user through the main steps from data ingestion, feature engineering, model building, and then finally model operationalization and deployment. The code for the entire process is written in PySpark and implemented using Jupyter notebooks within Azure ML Workbench. The best model is finally operationalized using Azure Machine Learning Model Management for use in a production environment for making realtime failure predictions.   
+### Cortana Intelligence Gallery GitHub repository
 
-## Link to the Gallery GitHub repository
-
-Following is the link to the public GitHub repository: 
-[https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+The Cortana Intelligence Gallery for the PM tutorial is a public GitHub repository ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) where you can report issues and make contributions.
 
 
 ## Use case overview
 
-A major problem faced by businesses in asset-heavy industries is the significant costs that are associated with delays to mechanical problems. Most businesses are interested in predicting when these problems arise in order to proactively prevent them before they occur. This reduces the costs by reducing downtime and, in some cases, increasing safety. Refer to the [playbook for predictive maintenance](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) for a detailed explanation of common use cases and the modeling approach for predictive maintenance.
+A major problem that's faced by businesses in asset-heavy industries is the significant costs that are associated with delays due to mechanical problems. Most businesses are interested in predicting when these problems might arise to proactively prevent them before they occur. The goal is to reduce the costs by reducing downtime and possibly increase safety. 
 
-This scenario leverages the ideas from the playbook with the aim of providing the steps to implement a predictive model for a scenario, which is based on a synthesis of multiple real-world business problems. This example brings together common data elements observed among many predictive maintenance use cases.
+This scenario takes ideas from the [Predictive maintenance playbook](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) to demonstrate how to build a predictive model for a simulated data set. The example data is derived from common elements that are observed in many predictive maintenance use cases.
 
-The business problem for this simulated data is to predict issues caused by component failures. The business question therefore is “*What is the probability that a machine goes down due to failure of a component*?” This problem is formatted as a multiclass classification problem (multiple components per machine) and a machine learning algorithm is used to create the predictive model. The model is trained on historical data collected from machines. In this scenario, the user goes through the various steps of implementing such a model within the Azure Machine Learning Workbench environment.
+The business problem for this simulated data is to predict issues that are caused by component failures. The business question is "*What's the probability that a machine goes down due to failure of a component?*" This problem is formatted as a multi-class classification problem (multiple components per machine). A machine learning algorithm is used to create the predictive model. The model is trained on historical data that's collected from machines. In this scenario, the user goes through various steps to implement the model in the Machine Learning Workbench environment.
 
 ## Prerequisites
 
-* An [Azure account](https://azure.microsoft.com/en-us/free/) (free trials are available).
-* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) following the [quick start installation guide](./quickstart-installation.md) to install the program and create a workspace.
-* Intermediate results for use across Jupyter notebooks in this scenario are stored in an Azure Blob Storage container. Instructions for setting up an Azure Storage account are available at this [link](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage). 
-* For [operationalization](https://github.com/Azure/Machine-Learning-Operationalization) of the model, it is best if the user runs a [Docker engine](https://www.docker.com/) installed and running locally. If not, you can use the cluster option but be aware that running an [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/) can often be expensive.
-* This scenario assumes that the user is running Azure ML Workbench on a Windows 10 machine with Docker engine locally installed. 
-* The scenario was built and tested on a Windows 10 machine with the following specification: Intel Core i7-4600U CPU @ 2.10 GHz, 8-GB RAM, 64-bit OS, x64-based processor with Docker Version 17.06.0-ce-win19 (12801). 
-* Model operationalization was done using this version of Azure ML CLI: azure-cli-ml==0.1.0a22
+* An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
+* An installed copy of [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Follow the [Quickstart installation guide](./quickstart-installation.md) to install the program and create a workspace.
+* Azure Machine Learning Operationalization requires a local deployment environment and an [Azure Machine Learning Model Management account](model-management-overview.md).
+
+This example runs on any Machine Learning Workbench compute context. However, it's recommended to run the example with at least 16 GB of memory. This scenario was built and tested on a Windows 10 machine running a remote DS4_V2 standard [Data Science Virtual Machine (DSVM) for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+
+Model operationalization was done by using version 0.1.0a22 of the Azure Machine Learning CLI.
 
 ## Create a new Workbench project
 
-Create a new project using this example as a template:
-1.	Open Azure Machine Learning Workbench
-2.	On the **Projects** page, click the **+** sign and select **New Project**
-3.	In the **Create New Project** pane, fill in the information for your new project
-4.	In the **Search Project Templates** search box, type "Predictive Maintenance" and select the template
-5.	Click **Create**
+Create a new project by using this example as a template:
+1.	Open Machine Learning Workbench.
+2.	On the **Projects** page, select **+**, and then select **New Project**.
+3.	In the **Create New Project** pane, fill in the information for your new project.
+4.	In the **Search Project Templates** search box, type "Predictive Maintenance" and select the **Predictive Maintenance** template.
+5.	Select **Create**.
+
+## Prepare the notebook server computation target
+
+To run on your local machine, from the Machine Learning Workbench **File** menu, select either **Open Command Prompt** or **Open PowerShell CLI**. The CLI interface allows you to access your Azure services by using the `az` commands. First, log in to your Azure account with the command:
+
+```
+az login
+``` 
+
+This command provides an authentication key to use with the https:\\aka.ms\devicelogin URL. The CLI waits until the device login operation returns and provides some connection information. Next, if you have a local [Docker](https://www.docker.com/get-docker) installation, prepare the local compute environment with the command:
+
+```
+az ml experiment prepare --target docker --run-configuration docker
+```
+
+It's preferable to run on a [DSVM for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) for memory and disk requirements. After the DSVM is configured, prepare the remote Docker environment with the following two commands:
+
+```
+az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]
+```
+
+After you're connected to the remote Docker container, prepare the DSVM Docker compute environment with the command: 
+
+```
+az ml experiment prepare --target [Connection_Name] --run-configuration [Connection_Name]
+```
+
+With the Docker compute environment prepared, open the Jupyter notebook server from the Azure Machine Learning Workbench **Notebooks** tab, or start a browser-based server with the command: 
+
+```
+az ml notebook start
+```
+
+The example notebooks are stored in the Code directory. The notebooks are set up to run sequentially, starting on the first (Code\1_data_ingestion.ipynb) notebook. When you open each notebook, you're prompted to select the compute kernel. Choose the [Project_Name]_Template [Connection_Name] kernel to execute on the previously configured DSVM.
 
 ## Data description
 
-The [simulated data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) consists of five comma-separated values (.csv) files. 
+The [simulated data](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) consists of five comma-separated values (.csv) files. Use the following links to get detailed descriptions about the data sets.
 
-* [Machines](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): Features differentiating each machine. For example, age and model.
-* [Error](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): The error log contains non-breaking errors thrown while the machine is still operational. These errors are not considered as failures, though they may be predictive of a future failure event. The error date-time are rounded to the closest hour since the telemetry data is collected at an hourly rate.
-* [Maintenance](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): The maintenance log contains both scheduled and unscheduled maintenance records. Scheduled maintenance corresponds with regular inspection of components, unscheduled maintenance may arise from mechanical failure or other performance degradation. The maintenance date-time are rounded to the closest hour since the telemetry data is collected at an hourly rate.
-* [Telemetry](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): The telemetry time-series data consists of voltage, rotation, pressure, and vibration sensor measurements collected from each machine in real time. The data is averaged over an hour and stored in the telemetry logs
+* [Machines](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): Features that differentiate each machine, such as age and model.
+* [Error](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): The error log contains non-breaking errors that are thrown while the machine is still operational. These errors are not considered failures, though they can be predictive of a future failure event. The date-time values for the errors are rounded to the closest hour since the telemetry data is collected at an hourly rate.
+* [Maintenance](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): The maintenance log contains both scheduled and unscheduled maintenance records. Scheduled maintenance corresponds with the regular inspection of components. Unscheduled maintenance can arise from mechanical failure or other performance degradation. The date-time values for maintenance are rounded to the closest hour since the telemetry data is collected at an hourly rate.
+* [Telemetry](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): The telemetry data consists of time series measurements from multiple sensors within each machine. The data is logged by averaging sensor values over each one hour interval.
 * [Failures](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): Failures correspond to component replacements within the maintenance log. Each record contains the Machine ID, component type, and replacement date and time. These records are used to create the machine learning labels that the model is trying to predict.
 
-See the [Data Ingestion](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) Jupyter Notebook scenario in Code section to download the raw data sets from the GitHub repository and create the PySpark data sets for this analysis.
+To download the raw data sets from the GitHub repository, and create the PySpark data sets for this analysis, see the [Data Ingestion](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) Jupyter Notebook scenario in the Code folder.
 
 ## Scenario structure
 The content for the scenario is available at the [GitHub repository](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance). 
 
-In the repository, there is a [Readme](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/README.md) file, which outlines the processes from preparing the data until building a few models and then finally operationalizing one of the best models. The four Jupyter notebooks are available in the [Code](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) folder within the repository.   
+The [Readme](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/README.md) file outlines the workflow from preparing the data, building a model, and then deploying a solution for production. Each step of the workflow is encapsulated in a Jupyter notebook in the [Code](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) folder within the repository.   
 
-Next we describe the step-by-step scenario workflow. The end to end scenario is written in PySpark and is split into four notebooks as outlined below:
+[Code\1_data_ingestion.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): This notebook downloads the five input .csv files, and does some preliminary data cleanup and visualization. The notebook converts each data set to PySpark format and stores it in an Azure blob container for use in the Feature Engineering Notebook.
 
-* [Data Ingestion](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): This notebook handles the data ingestion of the five input .csv files, does some preliminary cleanup, creates some summary graphics to verify the data download, and finally stores the resulting data sets in an Azure blob container for use in the next notebook.
+[Code\2_feature_engineering.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): 
+The model features are constructed from the raw data set from Azure Blob storage by using a standard time series approach for telemetry, errors, and maintenance data. The failure-related component replacements are used to construct the model labels that describe which component failed. The labeled feature data is saved in an Azure blob for the Model Building Notebook.
 
-* [Feature Engineering](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): Using the cleaned dataset from the previous step, lag features are created for the telemetry sensors, along with additional feature engineering to create variables like days since last replacement. Finally, the failures are tagged to the relevant records to create a final dataset, which is saved in an Azure blob for the next step. 
+[Code\3_model_building.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): The Model Building Notebook uses the labeled feature data set and splits the data into train and dev data sets along the date-time stamp. The notebook is set up as an experiment with pyspark.ml.classification models. The training data is vectorized. The user can experiment with either a **DecisionTreeClassifier** or **RandomForestClassifier** to manipulate hyperparameters to find the best performing model. Performance is determined by evaluating measurement statistics on the dev data set. These statistics are logged back in to the Machine Learning Workbench runtime screen for tracking. At each run, the notebook saves the resulting model to the local disk that's running the Jupyter notebook kernel. 
 
-* [Model Building](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): The final feature engineered dataset is then split into two namely a train and a test dataset based on a date-time stamp. Then two models namely a Random Forest Classifier and Decision Tree Classifier are built on the training dataset and then scored on the test dataset. 
+[Code\4_operationalization.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): This notebook uses the last model that's saved to the local (Jupyter notebook kernel) disk to build the components for deploying the model into an Azure web service. The full operational assets are compacted into the o16n.zip file that's stored in another Azure blob container. The zipped file contains:
 
-* [Model operationalization & Deployment](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): The best model built in the previous step is then saved as a .model file along with the relevant .json scheme file for deployment. The init() and run() functions are first tested locally before operationalizing the model using Azure Machine Learning Model Management environment for use in a production environment for making realtime failure predictions.  
+* **service_schema.json**: The schema definition file for the deployment. 
+* **pdmscore.py**: The **init()** and **run()** functions that are required by the Azure web service.
+* **pdmrfull.model**: The model definition directory.
+    
+The notebook tests the functions with the model definition before packaging the operationalization assets for deployment. Instructions for deployment are included at the end of the notebook.
 
 ## Conclusion
 
-This scenario gives the reader an overview of how to build an end to end predictive maintenance solution using PySpark within the Jupyter notebook environment in Azure ML Workbench. The scenario also guides the reader on how the best model can be easily operationalized and deployed using Azure Machine Learning Model Management environment for use in a production environment for making realtime failure predictions. Then the reader can edit relevant parts of the scenario to taper it to their business needs.  
+This scenario gives an overview of building an end-to-end predictive maintenance solution by using PySpark within the Jupyter Notebook environment in Machine Learning Workbench. This example scenario also details model deployment through the Machine Learning Model Management environment to make real-time equipment failure predictions.
 
 ## References
 
-This use case has been previously developed on multiple platforms as listed below:
+The following references provide examples of other predictive maintenance use cases for various platforms:
 
-* [Predictive Maintenance Solution Template](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
+* [Predictive Maintenance Solution Template](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Predictive Maintenance Modeling Guide using SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [Deep learning for predictive maintenance](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
+## Next steps
 
+Other example scenarios are available in Machine Learning Workbench that demonstrate additional features of the product. 

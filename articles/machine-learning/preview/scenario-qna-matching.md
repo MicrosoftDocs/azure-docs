@@ -5,8 +5,8 @@ services: machine-learning
 documentationcenter: ''
 author: mezmicrosoft
 editor: mezmicrosoft
-
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
+manager: tihazen
 
 ---
 

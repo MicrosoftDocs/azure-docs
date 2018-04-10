@@ -4,7 +4,7 @@ description: Features of Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1

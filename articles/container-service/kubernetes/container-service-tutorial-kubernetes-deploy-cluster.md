@@ -1,26 +1,20 @@
 ---
-title: Azure Container Service tutorial - Deploy Cluster | Microsoft Docs
+title: Azure Container Service tutorial - Deploy Cluster
 description: Azure Container Service tutorial - Deploy Cluster
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Deploy a Kubernetes cluster in Azure Container Service
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Kubernetes provides a distributed platform for containerized applications. With Azure Container Service, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part 3 of 7, an Azure Container Service Kubernetes cluster is deployed. Steps completed include:
 
@@ -29,7 +23,7 @@ Kubernetes provides a distributed platform for containerized applications. With 
 > * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
-In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Operations Management Suite is configured to monitor the Kubernetes cluster.
+In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 
@@ -37,7 +31,7 @@ In previous tutorials, a container image was created and uploaded to an Azure Co
 
 ## Create Kubernetes cluster
 
-Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
+Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az_acs_create) command. 
 
 The following example creates a cluster named `myK8sCluster` in a Resource Group named `myResourceGroup`. This Resource Group was created in the [previous tutorial](./container-service-tutorial-kubernetes-prepare-acr.md).
 
@@ -45,7 +39,7 @@ The following example creates a cluster named `myK8sCluster` in a Resource Group
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#create) command. 
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az_acs_create) command. 
 
 After several minutes, the deployment completes, and returns json formatted information about the ACS deployment.
 

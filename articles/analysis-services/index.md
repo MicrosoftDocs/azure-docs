@@ -10,7 +10,7 @@ ms.service: analysis-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 02/14/2018
 ms.author: carolz
 ---
 # Analysis Services Documentation

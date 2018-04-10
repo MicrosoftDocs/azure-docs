@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/02/2018
 ms.author: yurid
 
 ---
@@ -122,12 +122,12 @@ A security policy defines the desired configuration of your workloads and helps 
 
 Security Center policies contain the following components:
 - [Data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agent provisioning and data collection settings.
-- [Security policy](https://docs.microsoft.com/azure/security-center/security-center-policies): an [Azure Policy](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups.
+- [Security policy](https://docs.microsoft.com/azure/security-center/security-center-policies): an [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups.
 - [Email notifications](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): security contacts and notification settings.
 - [Pricing tier](https://docs.microsoft.com/azure/security-center/security-center-pricing): free or standard pricing selection, which determine which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups and workspaces).
 
 > [!NOTE]
-> Specifying a security contract will ensure that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) for more information on how to enable this recommendation.
+> Specifying a security contact will ensure that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) for more information on how to enable this recommendation.
 
 ### Security policies definitions and recommendations
 Security Center automatically creates a default security policy for each of your Azure subscriptions. You can edit the policy in Security Center or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups (which can represent the entire organization, a business unit in it etc.), and monitor compliance to these policies across these scopes.
@@ -135,7 +135,7 @@ Security Center automatically creates a default security policy for each of your
 Before configuring security policies, review each of the [security recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations), and determine whether these policies are appropriate for your various subscriptions and resource groups. It is also important to understand what action should be taken to address Security Recommendations and who in your organization will be responsible for monitoring for new recommendations and taking the needed steps.
 
 ## Data collection and storage
-Azure Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service – to collect security data from your virtual machines. [Data collected](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) from this agent will be stored in your Log Analytics workspace(s).
+Azure Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Log Analytics service – to collect security data from your virtual machines. [Data collected](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) from this agent will be stored in your Log Analytics workspace(s).
 
 ### Agent
 
@@ -168,14 +168,14 @@ For workspaces created by Azure Security Center, data is retained for 30 days. F
 
 ## Onboarding non-Azure resources
 
-Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboarding to Azure Security Center Standard for enhanced security](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers) for more information on how to onboard non-Azure resources.
+Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboarding to Azure Security Center Standard for enhanced security](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers) for more information on how to onboarding non-Azure resources.
 
 ## Ongoing security monitoring
 After initial configuration and application of Security Center recommendations, the next step is considering Security Center operational processes.
 
 The Security Center Overview provides a unified view of security across all your Azure resources and any non-Azure resources you have connected. The example below shows an environment with many issues to be addressed:
 
-![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig10.png)
+![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Security Center will not interfere with your normal operational procedures, it will passively monitor your deployments and provide recommendations based on the security policies you enabled.

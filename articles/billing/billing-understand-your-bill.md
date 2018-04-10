@@ -1,5 +1,5 @@
 ---
-title: Understand your bill for Azure | Microsoft Docs
+title: Understand your bill for Azure
 description: Learn how to read and understand your usage and bill for your Azure subscription
 services: ''
 documentationcenter: ''
@@ -28,12 +28,11 @@ To obtain a PDF of your invoice and a copy of your detailed daily usage file CSV
 
 For detailed terms and descriptions of your invoice and detailed daily usage file, see [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) and [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md). 
 
-For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+For details on the cost management reports, see [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>How do I make sure that the charges in my invoice are correct?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 If there is a charge on your invoice that you want more details
 on, there are a couple of options.
@@ -43,7 +42,7 @@ on, there are a couple of options.
 The detailed usage CSV file shows your charges by billing
 period and daily usage. To get your detailed usage CSV file, see
 [Get your Azure billing invoice and daily usage
-data](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+data](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
 Your usage charges are displayed at the meter level. The following terms mean the same thing in both the invoice and the detailed usage file. For example, the billing cycle on the invoice is equivalent to the billing period shown in the detailed usage file.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upload a generalized VHD to Azure PowerShell Script Sample | Microsoft Docs
 description: PowerShell sample script to upload a generalized VHD to Azure and create a new VM using the resource manager deployment model and Managed Disks.
 services: virtual-machines-windows
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/18/2017
+ms.date: 01/02/2017
 ms.author: cynthn
 ms.custom: mvc
 ---

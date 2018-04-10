@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
 
 ---
@@ -29,7 +29,7 @@ This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 * Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop clusters for advanced analytics](customize-hadoop-cluster.md).
-* Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md#headnode).
+* Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
 
 ## Upload data to Azure blob storage
 If you created an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](../data-science-virtual-machine/setup-virtual-machine.md), this script file should have been downloaded to the *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you plug in your own data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.
@@ -114,10 +114,10 @@ If you open the default container of the Hadoop cluster using Azure Storage Expl
 ![Create workspace](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Submit Hive queries with the Hive Editor
-You can also use the Query Console (Hive Editor) by entering a URL of the form *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
+You can also use the Query Console (Hive Editor) by entering a URL of the form *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
 
 ### <a name="ps"></a> 3. Submit Hive queries with Azure PowerShell Commands
-You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Create Hive database and tables
 The Hive queries are shared in the [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) and can be downloaded from there.
@@ -139,11 +139,11 @@ Here is the Hive query that creates a Hive table.
 
 Here are the descriptions of the fields that you need to plug in and other configurations:
 
-* **&#60;database name>**: the name of the database that you want to create. If you just want to use the default database, the query *create database...* can be omitted.
-* **&#60;table name>**: the name of the table that you want to create within the specified database. If you want to use the default database, the table can be directly referred by *&#60;table name>* without &#60;database name>.
-* **&#60;field separator>**: the separator that delimits fields in the data file to be uploaded to the Hive table.
-* **&#60;line separator>**: the separator that delimits lines in the data file.
-* **&#60;storage location>**: the Azure storage location to save the data of Hive tables. If you do not specify *LOCATION &#60;storage location>*, the database and the tables are stored in *hive/warehouse/* directory in the default container of the Hive cluster by default. If you want to specify the storage location, the storage location has to be within the default container for the database and tables. This location has to be referred as location relative to the default container of the cluster in the format of *'wasb:///&#60;directory 1>/'* or *'wasb:///&#60;directory 1>/&#60;directory 2>/'*, etc. After the query is executed, the relative directories are created within the default container.
+* **<database name>**: the name of the database that you want to create. If you just want to use the default database, the query *create database...* can be omitted.
+* **<table name>**: the name of the table that you want to create within the specified database. If you want to use the default database, the table can be directly referred by *<table name>* without <database name>.
+* **<field separator>**: the separator that delimits fields in the data file to be uploaded to the Hive table.
+* **<line separator>**: the separator that delimits lines in the data file.
+* **<storage location>**: the Azure storage location to save the data of Hive tables. If you do not specify *LOCATION <storage location>*, the database and the tables are stored in *hive/warehouse/* directory in the default container of the Hive cluster by default. If you want to specify the storage location, the storage location has to be within the default container for the database and tables. This location has to be referred as location relative to the default container of the cluster in the format of *'wasb:///<directory 1>/'* or *'wasb:///<directory 1>/<directory 2>/'*, etc. After the query is executed, the relative directories are created within the default container.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: If the data file has a header line, you have to add this property **at the end** of the *create table* query. Otherwise, the header line is loaded as a record to the table. If the data file does not have a header line, this configuration can be omitted in the query.
 
 ## <a name="load-data"></a>Load data to Hive tables
@@ -151,7 +151,7 @@ Here is the Hive query that loads data into a Hive table.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **&#60;path to blob data>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *&#60;path to blob data>* should be in the format *'wasb:///&#60;directory in this container>/&#60;blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *&#60;path to blob data>* should be in the format *'wasb://&#60;container name>@&#60;storage account name>.blob.core.windows.net/&#60;blob file name>'*.
+* **<path to blob data>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *<path to blob data>* should be in the format *'wasb:///<directory in this container>/<blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *<path to blob data>* should be in the format *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
 
   > [!NOTE]
   > The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster. Otherwise, the *LOAD DATA* query fails complaining that it cannot access the data.
@@ -218,7 +218,7 @@ Select data from the external table in step 1 and insert into the ORC table
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> If the TEXTFILE table *&#60;database name>.&#60;external textfile table name>* has partitions, in STEP 3, the `SELECT * FROM <database name>.<external textfile table name>` command selects the partition variable as a field in the returned data set. Inserting it into the *&#60;database name>.&#60;ORC table name>* fails since *&#60;database name>.&#60;ORC table name>* does not have the partition variable as a field in the table schema. In this case, you need to specifically select the fields to be inserted to *&#60;database name>.&#60;ORC table name>* as follows:
+> If the TEXTFILE table *<database name>.<external textfile table name>* has partitions, in STEP 3, the `SELECT * FROM <database name>.<external textfile table name>` command selects the partition variable as a field in the returned data set. Inserting it into the *<database name>.<ORC table name>* fails since *<database name>.<ORC table name>* does not have the partition variable as a field in the table schema. In this case, you need to specifically select the fields to be inserted to *<database name>.<ORC table name>* as follows:
 >
 >
 
@@ -227,7 +227,7 @@ Select data from the external table in step 1 and insert into the ORC table
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-It is safe to drop the *&#60;external textfile table name>* when using the following query after all data has been inserted into *&#60;database name>.&#60;ORC table name>*:
+It is safe to drop the *<external textfile table name>* when using the following query after all data has been inserted into *<database name>.<ORC table name>*:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

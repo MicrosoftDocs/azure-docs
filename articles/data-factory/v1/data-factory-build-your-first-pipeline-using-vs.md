@@ -3,9 +3,9 @@ title: Build your first data factory (Visual Studio) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Visual Studio.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: craigg
+
 
 ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: spelluru
+ms.date: 01/22/2018
+ms.author: shlo
 
 robots: noindex
 ---
@@ -26,6 +26,10 @@ robots: noindex
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Quickstart: Create a data factory using Azure Data Factory version 2](../quickstart-create-data-factory-dot-net.md).
 
 This tutorial shows you how to create an Azure data factory by using Visual Studio. You create a Visual Studio project using the Data Factory project template, define Data Factory entities (linked services, datasets, and pipeline) in JSON format, and then publish/deploy these entities to the cloud. 
 
@@ -465,7 +469,7 @@ Add a configuration file for each environment by performing the following steps:
 	    "AzureSqlLinkedService1": [
 	        {
 	            "name": "$.properties.typeProperties.connectionString",
-	            "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+	            "value":  "Server=tcp:<Azure sql server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
 	        }
 	    ]
 	}

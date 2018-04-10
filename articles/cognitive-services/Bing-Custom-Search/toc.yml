@@ -1,21 +1,58 @@
 - name: Bing Custom Search Documentation
-  href: ../index.md
+  href: index.md
 - name: Overview
   items:
     - name: Customize your search
       href: overview.md
-    - name: How it works
-      href: how-it-works.md
-- name: Quickstarts
-  expanded: true
+    - name: Custom Search endpoint
+      href: endpoint-custom.md
+    - name: Supported countries and markets
+      href: supported-countries-markets.md
+- name: API Quickstarts
   items:
-    - name: Build a custom search service
-      href: quickstart.md
+    - name: Create first instance
+      href: quick-start.md
+    - name: C#
+      href: call-endpoint-csharp.md
+    - name: Java
+      href: call-endpoint-java.md
+    - name: Node.js
+      href: call-endpoint-nodejs.md 
+    - name: Python
+      href: call-endpoint-python.md
+- name: Tutorials
+  items:
+    - name: Build a Custom Search web page
+      href: ./tutorials/custom-search-web-page.md
+- name: How-to  
+  items:        
+    - name: Define your custom view
+      href: define-your-custom-view.md
+    - name: Search your custom view
+      href: search-your-custom-view.md
+    - name: Configure hosted UI
+      href: hosted-ui.md
+    - name: Handle hit highlighting
+      href: hit-highlighting.md
+    - name: Page webpages
+      href: page-webpages.md 
 - name: References
   items:
-    - name: Bing Web Search API Use and Display Requirements
-      href: https://docs.microsoft.com/azure/cognitive-services/bing-web-search/useanddisplayrequirements
+    - name: Bing Custom Search API Reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
+    - name: Bing Search API use and display requirements
+      href: use-and-display-requirements.md
+    - name: SDK
+      items:
+      - name: SDK samples overview 
+        href: sdk.md
+      - name: Custom Search SDK C# quickstart
+        href: custom-search-sdk-quickstart.md   
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Subscription key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
+  - name: Try it!
+    href: https://aka.ms/bingcustomsearchtryit

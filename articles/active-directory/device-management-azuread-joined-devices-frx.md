@@ -4,7 +4,7 @@ description: A topic that explains how users can set up Azure AD Join during the
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 

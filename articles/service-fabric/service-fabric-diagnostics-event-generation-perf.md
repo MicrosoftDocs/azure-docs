@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
 ---
 
@@ -37,7 +37,7 @@ For the machines in your cluster, consider collecting the following performance 
 | PhysicalDisk(per Disk) | Disk Write Bytes/sec |
 | Memory | Available MBytes |
 | PagingFile | % Usage |
-| Process(Total) | % Processor Time |
+| Processor(Total) | % Processor Time |
 | Process (per service) | % Processor Time |
 | Process (per service) | ID Process |
 | Process (per service) | Private Bytes |
@@ -45,6 +45,11 @@ For the machines in your cluster, consider collecting the following performance 
 | Process (per service) | Virtual Bytes |
 | Process (per service) | Working Set |
 | Process (per service) | Working Set - Private |
+| Network Interface(all-instances) | Output Queue Length |
+| Network Interface(all-instances) | Packets Outbound Discarded |
+| Network Interface(all-instances) | Packets Received Discarded |
+| Network Interface(all-instances) | Packets Outbound Errors |
+| Network Interface(all-instances) | Packets Received Errors |
 
 ## .NET applications and services
 
@@ -67,7 +72,7 @@ Service Fabric generates a substantial amount of custom performance counters. If
 
 In the applications you are deploying to your cluster, if you are using Reliable Actors, add countes from `Service Fabric Actor` and `Service Fabric Actor Method` categories (see [Service Fabric Reliable Actors Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
 
-If you use Reliable Services, we similarly have `Service Fabric Service` and `Service Fabric Service Method` counter categories that you should collect counters from. 
+If you use Service Remoting, we similarly have `Service Fabric Service` and `Service Fabric Service Method` counter categories that you should collect counters from. 
 
 If you use Reliable Collections, we recommend adding the `Avg. Transaction ms/Commit` from the `Service Fabric Transactional Replicator` to collect the average commit latency per transaction metric.
 

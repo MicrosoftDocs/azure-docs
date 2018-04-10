@@ -4,7 +4,7 @@ description: Azure AD Connect user sign-in for custom settings.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
@@ -22,9 +22,13 @@ Azure Active Directory (Azure AD) Connect allows your users to sign in to both c
 
 If you’re already familiar with the Azure AD identity model and want to learn more about a specific method, see the appropriate link:
 
-* [Password hash synchronization](#password-synchronization) with [Seamless Single Sign-on (SSO)](active-directory-aadconnect-sso.md)
+* [Password hash synchronization](#password-hash-synchronization) with [Seamless Single Sign-on (SSO)](active-directory-aadconnect-sso.md)
 * [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md) with [Seamless Single Sign-on (SSO)](active-directory-aadconnect-sso.md)
 * [Federated SSO (with Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> It is important to remember that by configuring federation for Azure AD, you establish trust between your Azure AD tenant and your federated domains. With this trust federated domain users will have access to Azure AD cloud resources within the tenant.  
+>
 
 ## Choosing the user sign-in method for your organization
 For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option. Some organizations, however, have a particular reason that they aren't able to use this option. They can choose either a federated sign-in option, such as AD FS, or pass-through authentication. You can use the following table to help you make the right choice.
@@ -47,7 +51,7 @@ In addition, you can enable [Seamless SSO](active-directory-aadconnect-sso.md) f
 
 ![Password hash synchronization](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-For more information, see the [password hash synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) article.
+For more information, see the [password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) article.
 
 ### Pass-through authentication
 With pass-through authentication, the user’s password is validated against the on-premises Active Directory controller. The password doesn't need to be present in Azure AD in any form. This allows for on-premises policies, such as sign-in hour restrictions, to be evaluated during authentication to cloud services.

@@ -1,6 +1,6 @@
 ---
-title: Solution targeting in OMS | Microsoft Docs
-description: Solution Targeting is a feature in Operations Management Suite (OMS) that allows you to limit management solutions to a specific set of agents.  This article describes how to create a scope configuration and apply it to a solution.
+title: Targeting Management Solutions in Azure | Microsoft Docs
+description: Targeting management solutions allows you to limit management solutions to a specific set of agents.  This article describes how to create a scope configuration and apply it to a solution.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -17,12 +17,11 @@ ms.date: 04/27/2017
 ms.author: bwren
 
 ---
-# Use solution targeting in Operations Management Suite (OMS) to scope management solutions to specific agents (Preview)
-When you add a solution to OMS, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace.  You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents.  This article describes how to use **Solution Targeting** which is an OMS feature that allows you to apply a scope to your solutions.
+# Targeting Management Solutions in Azure (Preview)
+When you add a management solution to your subscription, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace.  You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents.  This article describes how to use **Solution Targeting** which is a feature that allows you to apply a scope to your solutions.
 
 ## How to target a solution
-There are three steps to targeting a solution as described in the following sections.  Note that 
-you will need both the OMS portal and the Azure portal for different steps.
+There are three steps to targeting a solution as described in the following sections. 
 
 
 ### 1. Create a computer group

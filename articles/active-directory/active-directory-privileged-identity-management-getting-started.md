@@ -4,7 +4,7 @@ description: Learn how to manage privileged identities with the Azure Active Dir
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
@@ -29,7 +29,7 @@ Before you use Azure AD Privileged Identity Management, you need to add the appl
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of your directory.
 2. If your organization has more than one directory, select your username in the upper right-hand corner of the Azure portal. Select the directory where you want to use PIM.
-3. Select **More services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
+3. Select **All services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
 4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application opens.
 
 If you're the first person to use Azure AD Privileged Identity Management in your directory, you are automatically assigned the **Security administrator** and **Privileged role administrator** roles in the directory. Only privileged role administrators can manage Azure AD directory role assignments of users. In addition, you may choose to run the [security wizard.](active-directory-privileged-identity-management-security-wizard.md) that walks you through the initial discovery and assignment experience.

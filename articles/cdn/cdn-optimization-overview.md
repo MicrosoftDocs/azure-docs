@@ -3,8 +3,8 @@ title: Optimize Azure content delivery for your scenario
 description: How to optimize delivery of your content for specific scenarios
 services: cdn
 documentationcenter: ''
-author: smcevoy
-manager: erikre
+author: dksimpson
+manager: 
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
-ms.author: v-semcev
+ms.date: 01/24/2018
+ms.author: rli
 ---
 # Optimize Azure content delivery for your scenario
 
@@ -29,37 +29,41 @@ This article provides an overview of various optimization features and when you 
 
 ## Provider options
 
-The Azure Content Delivery Network from Akamai supports:
+**Azure Content Delivery Network from Akamai** supports the following optimizations:
 
-* General web delivery 
+* [General web delivery](#general-web-delivery) 
 
-* General media streaming
+* [General media streaming](#general-media-streaming)
 
-* Video-on-demand media streaming
+* [Video-on-demand media streaming](#video-on-demand-media-streaming)
 
-* Large file download
+* [Large file download](#large-file-download)
 
-* Dynamic site acceleration 
+* [Dynamic site acceleration](#dynamic-site-acceleration) 
 
-The Azure Content Delivery Network from Verizon supports general web delivery only. It can be used for video on demand and large file download. You don't have to select an optimization type.
+**Azure Content Delivery Network from Verizon** supports the following optimizations:
+
+* [General web delivery](#general-web-delivery) (can also be used for media streaming and large file download content)
+
+* [Dynamic site acceleration](#dynamic-site-acceleration) 
 
 We highly recommend that you test performance variations between different providers to select the optimal provider for your delivery.
 
 ## Select and configure optimization types
 
-To create a new endpoint, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. **General web delivery** is the default selection. You can update the optimization option for any existing Akamai endpoint at any time. This change doesn't interrupt delivery from the CDN. 
+To create a new endpoint, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. **General web delivery** is the default selection. For existing **Azure Content Delivery Network from Akamai** endpoints, you can update the optimization option at any time. This change doesn't interrupt delivery from the CDN. 
 
-1. Select an endpoint within a Standard Akamai profile.
+1. Within an **Azure Content Delivery Network from Akamai** profile, select an endpoint.
 
     ![Endpoint selection ](./media/cdn-optimization-overview/01_Akamai.png)
 
-2. Under **SETTINGS**, select **Optimization**. Then select a type from the **Optimized for** drop-down list.
+2. Under **SETTINGS**, select **Optimization**. Then, select a type from the **Optimized for** drop-down list.
 
     ![Optimization and type selection](./media/cdn-optimization-overview/02_Select.png)
 
 ## Optimization for specific scenarios
 
-You can optimize the CDN endpoint for one of the following scenarios. 
+You can optimize the CDN endpoint for one of these scenarios. 
 
 ### General web delivery
 
@@ -68,7 +72,7 @@ General web delivery is the most common optimization option. It's designed for g
 A typical website contains static and dynamic content. Static content includes images, JavaScript libraries, and style sheets that can be cached and delivered to different users. Dynamic content is personalized for an individual user, such as news items that are tailored to a user profile. Dynamic content isn't cached because it's unique to each user, such as shopping cart contents. General web delivery can optimize your entire website. 
 
 > [!NOTE]
-> If you use the Azure Content Delivery Network from Akamai, you might want to use this optimization if your average file size is smaller than 10 MB. If your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list.
+> If you use **Azure Content Delivery Network from Akamai**, you might want to use this optimization if your average file size is smaller than 10 MB. If your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list.
 
 ### General media streaming
 
@@ -78,38 +82,40 @@ Media streaming is time sensitive, because packets that arrive late on the clien
 
 This scenario is common for Azure media service customers. When you use Azure media services, you get one streaming endpoint that can be used for both live and on-demand streaming. With this scenario, customers don't need to switch to another endpoint when they change from live to on-demand streaming. General media streaming optimization supports this type of scenario.
 
-The Azure Content Delivery Network from Verizon uses the general web delivery optimization type to deliver streaming media content.
+**Azure Content Delivery Network from Verizon** uses the general web delivery optimization type to deliver streaming media content.
 
-To learn more about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
+For more information about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
 ### Video-on-demand media streaming
 
 Video-on-demand media streaming optimization improves video-on-demand streaming content. If you use an endpoint for video-on-demand streaming, you might want to use this option.
 
-The Azure Content Delivery Network from Verizon uses the general web delivery optimization type to deliver streaming media content.
+**Azure Content Delivery Network from Verizon** uses the general web delivery optimization type to deliver streaming media content.
 
-To learn more about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
+For more information about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
 > [!NOTE]
 > If the endpoint primarily serves video-on-demand content, use this optimization type. The major difference between this optimization and the general media streaming optimization is the connection retry time-out. The time-out is much shorter to work with live streaming scenarios.
 
 ### Large file download
 
-If you use the Azure Content Delivery Network from Akamai, you must use large file download to deliver files larger than 1.8 GB. The Azure Content Delivery Network from Verizon doesn't have a limitation on file download size in its general web delivery optimization.
+If you use **Azure Content Delivery Network from Akamai**, you must use large file download to deliver files larger than 1.8 GB. **Azure Content Delivery Network from Verizon** doesn't have a limitation on file download size in its general web delivery optimization.
 
-If you use the Azure Content Delivery Network from Akamai, large file downloads are optimized for content larger than 10 MB. If your average file size is smaller than 10 MB, you might want to use general web delivery. If your average files sizes are consistently larger than 10 MB, it might be more efficient to create a separate endpoint for large files. For example, firmware or software updates typically are large files.
+If you use **Azure Content Delivery Network from Akamai**, large file downloads are optimized for content larger than 10 MB. If your average file size is smaller than 10 MB, you might want to use general web delivery. If your average files sizes are consistently larger than 10 MB, it might be more efficient to create a separate endpoint for large files. For example, firmware or software updates typically are large files.
 
-The Azure Content Delivery Network from Verizon uses the general web delivery optimization type to deliver streaming media content.
+**Azure Content Delivery Network from Verizon** uses the general web delivery optimization type to deliver large file download content.
 
-To learn more about large file optimization, see [Large file optimization](cdn-large-file-optimization.md).
+For more information about large file optimization, see [Large file optimization](cdn-large-file-optimization.md).
 
 ### Dynamic site acceleration
 
- Dynamic site acceleration is available from both Akamai and Verizon Content Delivery Network profiles. This optimization involves an additional fee to use. For more information, see the pricing page.
+ Dynamic site acceleration is available in both **Azure Content Delivery Network from Akamai** and **Azure Content Delivery Network from Verizon** profiles. This optimization involves an additional fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 Dynamic site acceleration includes various techniques that benefit the latency and performance of dynamic content. Techniques include route and network optimization, TCP optimization, and more. 
 
 You can use this optimization to accelerate a web app that includes numerous responses that aren't cacheable. Examples are search results, checkout transactions, or real-time data. You can continue to use core CDN caching capabilities for static data. 
+
+For more information about dynamic site acceleration, see [Dynamic site acceleration](cdn-dynamic-site-acceleration.md).
 
 
 

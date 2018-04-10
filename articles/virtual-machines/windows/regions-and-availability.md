@@ -4,7 +4,7 @@ description: Learn about the regions and availability features for running Windo
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: dab44d62-d4b1-43ac-b40f-8fd8818e075b
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 03/27/2018
 ms.author: iainfou
 
 ---

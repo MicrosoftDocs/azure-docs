@@ -4,7 +4,7 @@ description: Supported Azure regions for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 
 ms.assetid: bd35eb77-ac0b-49ce-b7d5-bb21e4f54e0a

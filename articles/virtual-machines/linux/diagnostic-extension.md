@@ -48,7 +48,7 @@ The downloadable configuration is just an example; modify it to suit your own ne
 
 ### Prerequisites
 
-* **Azure Linux Agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version of the guest agent, follow [these instructions](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) to update it.
+* **Azure Linux Agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version of the guest agent, follow [these instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) to update it.
 * **Azure CLI**. [Set up the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) environment on your machine.
 * The wget command, if you don't already have it: Run `sudo apt-get install wget`.
 * An existing Azure subscription and an existing storage account within it to store the data.
@@ -130,6 +130,10 @@ storageAccountEndPoint | (optional) The endpoint identifying the cloud in which 
 storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) for Blob and Table services (`ss='bt'`), applicable to containers and objects (`srt='co'`), which grants add, create, list, update, and write permissions (`sp='acluw'`). Do *not* include the leading question-mark (?).
 mdsdHttpProxy | (optional) HTTP proxy information needed to enable the extension to connect to the specified storage account and endpoint.
 sinksConfig | (optional) Details of alternative destinations to which metrics and events can be delivered. The specific details of each data sink supported by the extension are covered in the sections that follow.
+
+
+> [!NOTE]
+> When deploying the extension with an Azure deployment template, the storage account and SAS token must be created beforehand and then passed to the template. You can't deploy a VM, storage account, and configure the extension in a single template. Creating a SAS token within a template is not currently supported.
 
 You can easily construct the required SAS token through the Azure portal.
 
@@ -315,7 +319,7 @@ displayName | The label (in the language specified by the associated locale sett
 
 The counterSpecifier is an arbitrary identifier. Consumers of metrics, like the Azure portal charting and alerting feature, use counterSpecifier as the "key" that identifies a metric or an instance of a metric. For `builtin` metrics, we recommend you use counterSpecifier values that begin with `/builtin/`. If you are collecting a specific instance of a metric, we recommend you attach the identifier of the instance to the counterSpecifier value. Some examples:
 
-* `/builtin/Processor/PercentIdleTime` - Idle time averaged across all cores
+* `/builtin/Processor/PercentIdleTime` - Idle time averaged across all vCPUs
 * `/builtin/Disk/FreeSpace(/mnt)` - Free space for the /mnt filesystem
 * `/builtin/Disk/FreeSpace` - Free space averaged across all mounted filesystems
 
@@ -420,7 +424,7 @@ The builtin metric provider is a source of metrics most interesting to a broad s
 
 ### builtin metrics for the Processor class
 
-The Processor class of metrics provides information about processor usage in the VM. When aggregating percentages, the result is the average across all CPUs. In a two core VM, if one core was 100% busy and the other was 100% idle, the reported PercentIdleTime would be 50. If each core was 50% busy for the same period, the reported result would also be 50. In a four core VM, with one core 100% busy and the others idle, the reported PercentIdleTime would be 75.
+The Processor class of metrics provides information about processor usage in the VM. When aggregating percentages, the result is the average across all CPUs. In a two-vCPU VM, if one vCPU was 100% busy and the other was 100% idle, the reported PercentIdleTime would be 50. If each vCPU was 50% busy for the same period, the reported result would also be 50. In a four-vCPU VM, with one vCPU 100% busy and the others idle, the reported PercentIdleTime would be 75.
 
 counter | Meaning
 ------- | -------
@@ -434,7 +438,7 @@ PercentPrivilegedTime | Of non-idle time, the percentage spent in privileged (ke
 
 The first four counters should sum to 100%. The last three counters also sum to 100%; they subdivide the sum of PercentProcessorTime, PercentIOWaitTime, and PercentInterruptTime.
 
-To obtain a single metric aggregated across all processors, set `"condition": "IsAggregate=TRUE"`. To obtain a metric for a specific processor, such as the second logical processor of a four core VM, set `"condition": "Name=\\"1\\""`. Logical processor numbers are in the range `[0..n-1]`.
+To obtain a single metric aggregated across all processors, set `"condition": "IsAggregate=TRUE"`. To obtain a metric for a specific processor, such as the second logical processor of a four-vCPU VM, set `"condition": "Name=\\"1\\""`. Logical processor numbers are in the range `[0..n-1]`.
 
 ### builtin metrics for the Memory class
 

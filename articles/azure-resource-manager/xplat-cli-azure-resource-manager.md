@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
 
 ---
 # Use the Azure CLI to manage Azure resources and resource groups
 
-In this article, you learn how to manage your solutions with Azure CLI and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This topic focuses on management tasks. You will:
+In this article, you learn how to manage your solutions with Azure CLI and Azure Resource Manager. If you are not familiar with Resource Manager, see [Resource Manager Overview](resource-group-overview.md). This article focuses on management tasks. You will:
 
 1. Create a resource group
 2. Add a resource to the resource group
@@ -75,6 +75,7 @@ az account show
 ```
 
 ## Create a resource group
+
 Before deploying any resources to your subscription, you must create a resource group that will contain the resources.
 
 To create a resource group, use the **az group create** command. The command uses the **name** parameter to specify a name for the resource group and the **location** parameter to specify its location.
@@ -111,6 +112,7 @@ az group list
 ```
 
 ## Add resources to a resource group
+
 To add a resource to the resource group, you can use the **az resource create** command or a command that is specific to the type of resource you are creating (like **az storage account create**). You might find it easier to use a command that is specific to a resource type because it includes parameters for the properties that are needed for the new resource. To use **az resource create**, you must know all the properties to set without being prompted for them.
 
 However, adding a resource through script might cause future confusion because the new resource does not exist in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution.
@@ -129,7 +131,7 @@ az storage account show --name myuniquestorage --resource-group TestRG1
 
 ## Add a tag
 
-Tags enable you to organize your resources according to different properties. For example, you may have several resources in different resource groups that belong to the same department. You can apply a department tag and value to those resources to mark them as belonging to the same category. Or, you can mark whether a resource is used in a production or test environment. In this topic, you apply tags to only one resource, but in your environment it most likely makes sense to apply tags to all your resources.
+Tags enable you to organize your resources according to different properties. For example, you may have several resources in different resource groups that belong to the same department. You can apply a department tag and value to those resources to mark them as belonging to the same category. Or, you can mark whether a resource is used in a production or test environment. In this article, you apply tags to only one resource, but in your environment it most likely makes sense to apply tags to all your resources.
 
 The following command applies two tags to your storage account:
 
@@ -172,6 +174,14 @@ Use the **az resource list** command to retrieve resources for different search 
   ```azurecli-interactive
   az resource list --resource-type "Microsoft.Storage/storageAccounts"
   ```
+
+## Get resource ID
+
+Many commands take a resource ID as a parameter. To get the ID for a resource and store in a variable, use:
+
+```azurecli-interactive
+webappID=$(az resource show -g exampleGroup -n exampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+```
 
 ## Lock a resource
 

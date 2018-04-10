@@ -3,8 +3,8 @@ title: Allow applications to retrieve Azure Stack Key Vault secrets | Microsoft 
 description: Use a sample app to work with Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 
@@ -130,7 +130,7 @@ Make a note of the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** valu
 
 ## Download and run the sample application
 
-Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder. We use the HellpKeyVault sample in this topic. Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder and open the HelloKeyVault application in Visual Studio. 
+Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file onto your development workstation. There are two samples within the samples folder. We use the HellpKeyVault sample in this article. Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder and open the HelloKeyVault application in Visual Studio. 
 
 Open the HelloKeyVault\App.config file and replace the values of the <appSettings> element with the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** values returned by the previous script. Note that by default the App.config contains a placeholder for *AuthCertThumbprint*, but use *AuthClientSecret* instead. After you replace the settings, rebuild the solution and start the application.
 

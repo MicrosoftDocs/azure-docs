@@ -22,7 +22,7 @@ and [FTP/S deployment](app-service-deploy-ftp.md). These are not the same as you
 
 * **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. These are the default
 credentials set that you configure in **App Services** > **&lt;app_name>** > **Deployment credentials**. This is also the default set that's surfaced in the portal GUI (such as the **Overview** and **Properties**
-of your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources)).
+of your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
     > [!NOTE]
     > When you delegate access to Azure resources via Role Based Access Control (RBAC) or co-admin permissions, each Azure user that receives access to an app can use his/her personal user-level credentials until access is revoked. These deployment credentials should not be shared with other Azure users.
@@ -39,7 +39,7 @@ for each app is generated automatically at app creation, and is found in the app
 
 ## <a name="userscope"></a>Set and reset user-level credentials
 
-You can configure your user-level credentials in any app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources). Regardless in which app you configure
+You can configure your user-level credentials in any app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources). Regardless in which app you configure
 these credentials, it applies to all apps and for all subscriptions in your Azure account. 
 
 To configure your user-level credentials:
@@ -47,8 +47,7 @@ To configure your user-level credentials:
 1. In the [Azure portal](https://portal.azure.com), click App Service > **&lt;any_app>** > **Deployment credentials**.
 
     > [!NOTE]
-    > In the portal, you must have at least one app before you can access the deployment credentials blade. However, with the [Azure CLI](/cli/azure/webapp/deployment/user#set), 
-    > you can configure user-level credentials without an existing app.
+    > In the portal, you must have at least one app before you can access the deployment credentials page. However, with the [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), you can configure user-level credentials without an existing app.
 
 2. Configure the user name and password, and then click **Save**.
 
@@ -58,7 +57,7 @@ Once you have set your deployment credentials, you can find the *Git* deployment
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-and and *FTP* deployment username in your app's **Properties**.
+and *FTP* deployment username in your app's **Properties**.
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 

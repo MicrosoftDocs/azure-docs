@@ -4,7 +4,7 @@ description: An overview of the five most common authentication scenarios for Az
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9

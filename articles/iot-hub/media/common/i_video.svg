@@ -1,0 +1,51 @@
+<svg id="ICONS-64x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #556a8a;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #2bc7f4;
+      }
+
+      .cls-4 {
+        fill: #e5e5e5;
+      }
+
+      .cls-5 {
+        fill: none;
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <title>i_video</title>
+  <rect class="cls-1" y="7" width="64" height="49" rx="2" ry="2"/>
+  <g>
+    <rect class="cls-2" x="2" y="9" width="5" height="5"/>
+    <rect class="cls-2" x="2" y="17" width="5" height="5"/>
+    <rect class="cls-2" x="2" y="25" width="5" height="5"/>
+    <rect class="cls-2" x="2" y="33" width="5" height="5"/>
+    <rect class="cls-2" x="2" y="41" width="5" height="5"/>
+    <rect class="cls-2" x="2" y="49" width="5" height="5"/>
+  </g>
+  <g>
+    <rect class="cls-2" x="57" y="9" width="5" height="5"/>
+    <rect class="cls-2" x="57" y="17" width="5" height="5"/>
+    <rect class="cls-2" x="57" y="25" width="5" height="5"/>
+    <rect class="cls-2" x="57" y="33" width="5" height="5"/>
+    <rect class="cls-2" x="57" y="41" width="5" height="5"/>
+    <rect class="cls-2" x="57" y="49" width="5" height="5"/>
+  </g>
+  <rect class="cls-2" x="9" y="9" width="46" height="45"/>
+  <polygon class="cls-3" points="28 38.5 28 22.5 42 30.5 28 38.5"/>
+  <rect class="cls-4" x="9" y="50" width="46" height="4"/>
+  <rect class="cls-4" x="9" y="9" width="46" height="4"/>
+  <path class="cls-5" d="M48,30.5a15,15,0,0,1-15,15,14.75,14.75,0,0,1-4.62-.73A15,15,0,1,1,48,30.5Z"/>
+</svg>

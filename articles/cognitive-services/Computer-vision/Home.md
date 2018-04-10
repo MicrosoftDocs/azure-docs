@@ -2,17 +2,17 @@
 title: Computer Vision API for Microsoft Cognitive Services | Microsoft Docs 
 description: Use advanced algorithms in the Computer Vision API to help you process images and return information in Microsoft Cognitive Services. 
 services: cognitive-services 
-author: JuliaNik 
-manager: ytkuo 
+author: KellyDF 
+manager: corncar 
  
 ms.service: cognitive-services 
 ms.technology: computer-vision 
 ms.topic: article
 ms.date: 08/10/2017 
-ms.author: juliakuz 
+ms.author: kefre 
 --- 
  
-# Computer Vision API Version 1.0 
+# What is Computer Vision API Version 1.0?
 
 The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. With the Computer Vision API users can analyze images to:
 * [Tag images based on content.](#Tagging)
@@ -84,7 +84,7 @@ Returned Json
 In addition to tagging and descriptions, Computer Vision API returns the taxonomy-based categories defined in previous versions. These categories are organized as a taxonomy with parent/child hereditary hierarchies. All categories are in English. They can be used alone or with our new models.
 
 ### The 86-category concept
-Based on a list of 86 concepts seen in the following diagram, visual features found in an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
+Based on a list of 86 concepts seen in the following diagram, visual features found in an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
 
 ![Analyze Categories](./Images/analyze_categories.jpg)
 

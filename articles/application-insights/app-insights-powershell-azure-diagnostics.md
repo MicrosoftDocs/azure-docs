@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2015
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Using PowerShell to set up Application Insights for an Azure web app

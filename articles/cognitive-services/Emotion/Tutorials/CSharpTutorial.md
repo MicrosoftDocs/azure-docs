@@ -2,8 +2,8 @@
 title: Emotion API C# tutorial | Microsoft Docs
 description: Explore a basic Windows app that uses the Cognitive Services Emotion API to recognize the emotions expressed by faces in an image. 
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: anrothMSFT
+manager: corncar
 
 ms.service: cognitive-services
 ms.technology: emotion
@@ -13,6 +13,10 @@ ms.author: anroth
 ---
 
 # Emotion API in C&#35; Tutorial
+
+> [!IMPORTANT]
+> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
+videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
 Explore a basic Windows application that uses Emotion API to recognize the emotions expressed by the faces in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Emotion API and WPF (Windows Presentation Foundation), a part of .NET Framework.
 

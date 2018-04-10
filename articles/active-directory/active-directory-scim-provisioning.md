@@ -1,10 +1,10 @@
 ---
-title: Using System for Cross-Domain Identity Management automatically provision users and groups from Azure Active Directory to applications | Microsoft Docs
+title: Automate provisioning of apps using SCIM in Azure Active Directory | Microsoft Docs
 description: Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the SCIM protocol specification
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 12/12/2017
 
 ms.author: asmalser
 
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro;oldportal
+ms.custom: aaddev;it-pro;seohack1
 
 
 ---
@@ -26,11 +26,6 @@ ms.custom: aaddev;it-pro;oldportal
 
 ## Overview
 Azure Active Directory (Azure AD) can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the [System for Cross-Domain Identity Management (SCIM) 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory can send requests to create, modify, or delete assigned users and groups to the web service. The web service can then translate those requests into operations on the target identity store. 
-
-> [!IMPORTANT]
-> Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article. 
-
-
 
 ![][0]
 *Figure 1: Provisioning from Azure Active Directory to an identity store via a web service*
@@ -89,7 +84,7 @@ Applications that support the SCIM profile described in this article can be conn
 13. Click **Save** to start the Azure AD provisioning service. 
 14. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users and/or groups you wish to sync.
 
-Once the initial synchronization has started, you can use the **Audit logs** tab to monitor progress, which shows all actions performed by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Once the initial synchronization has started, you can use the **Audit logs** tab to monitor progress, which shows all actions performed by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
 >The initial sync takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. 
@@ -161,7 +156,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 13. Click **Save** to start the Azure AD provisioning service. 
 14. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users and/or groups you wish to sync.
 
-Once the initial synchronization has started, you can use the **Audit logs** tab to monitor progress, which shows all actions performed by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Once the initial synchronization has started, you can use the **Audit logs** tab to monitor progress, which shows all actions performed by the provisioning service on your app. For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 The final step in verifying the sample is to open the TargetFile.csv file in the \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug folder on your Windows machine. Once the provisioning process is run, this file shows the details of all assigned and provisioned users and groups.
 
@@ -692,7 +687,7 @@ The following illustration shows the messages that Azure Active Directory sends 
 ## Group provisioning and de-provisioning
 The following illustration shows the messages that Azure AcD sends to a SCIM service to manage the lifecycle of a group in another identity store.  Those messages differ from the messages pertaining to users in three ways: 
 
-* The schema of a group resource is identified as http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* The schema of a group resource is identified as `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
 * Requests to retrieve groups stipulate that the members attribute is to be excluded from any resource provided in response to the request.  
 * Requests to determine whether a reference attribute has a certain value are requests about the members attribute.  
 

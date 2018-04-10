@@ -1,34 +1,82 @@
 ---
-title: Creating LUIS subscription keys via Azure | Microsoft Docs
-description: In this article, you create a metered key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
+title: Manage Azure endpoint subscription | Microsoft Docs
+description: In this article, you create a metered endpoint key for your LUIS account to provide unlimited traffic to your endpoint following a payment plan.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: Kaiqb
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.date: 03/21/2018
+ms.author: v-geberr
 ---
 
-# Creating Subscription Keys Via Azure
+# Manage Azure endpoint subscription keys
 
-For unlimited traffic to your HTTP endpoint, you must create a metered key for your account on LUIS. Metered keys provide unlimited traffic to your endpoint following a payment plan. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information. 
+For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. 
 
-To create your key, follow these steps: 
+> [!NOTE]
+> Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
 
-1. Sign in to the **[Microsoft Azure Portal](https://ms.portal.azure.com/)** 
-2. Click the green **+** sign in the upper left-hand panel and search for “Cognitive Services” in the marketplace, then click on **Cognitive Services APIs** and follow the **create experience** to create an API account you are interested in. 
+<a name="create-luis-service"></a>
+## Create LUIS endpoint key
 
-    ![Azure Search](./Images/azure_search.png) 
+1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)** 
+2. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
 
-3. Choose the API you are interested in by clicking on the **API Type** to create a subscription. In this case, choose the **Language Understanding Intelligent Service (LUIS)** option. Configure the subscription with settings including account name, pricing tiers, etc. 
+    ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
 
-    ![Azure API Choice](./Images/azure_apiChoice.png) 
+3. Configure the subscription with settings including account name, pricing tiers, etc. 
 
-4. Once you have created the API account, you can view the keys generated in the **Settings->Keys** blade. These can be tested in your existing application or by following the LUIS documentation to create a new application. 
+    ![Azure API Choice](./media/luis-azure-subscription/azure-api-choice.png) 
 
-    ![Azure Keys](./Images/azure_keys.png)
+4. Once you create the LUIS service, you can view the access keys generated in **Resource Management->Keys**.  
 
-When you have created your key, you can add it to your account via the application settings/configuration dialog, found in any application. 
+    ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
+
+    > [!Note] 
+    > * Log into your region's [LUIS](luis-reference-regions.md) website and [add the new LUIS endpoint key](Manage-Keys.md#assign-endpoint-key). 
+    > * You need to remember the name of the Azure service you created in order to select it on the region's [LUIS](luis-reference-regions.md) publish page.  
+
+## Change LUIS pricing tier
+
+1.  In [Azure](https://portal.azure.com), find your LUIS subscription. Click the LUIS subscription.
+    ![Find your LUIS subscription](./media/luis-usage-tiers/find.png)
+2.  Click **Pricing tier** in order to see the available pricing tiers. 
+    ![View pricing tiers](./media/luis-usage-tiers/subscription.png)
+3.  Click the pricing tier and click **Select** to save your change. 
+    ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
+4.  When the pricing change is complete, a pop-up window verifies the new pricing tier. 
+    ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
+5. Remember to [assign this endpoint key](manage-keys.md#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
+
+## Exceed pricing tier usage
+Each tier allows endpoint requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an HTTP error of "429: Too Many Requests."
+
+Each tier allows accumulative requests per month. If the total requests are higher than the allowed rate, requests receive an HTTP error of "403: forbidden".  
+
+## Viewing summary usage
+You can view LUIS usage information in Azure. The **Overview** page shows recent summary information including calls and errors. If you make a LUIS endpoint request, then immediately watch the **Overview page**, allow up to five minutes for the usage to show up.
+
+![Viewing summary usage](./media/luis-usage-tiers/overview.png)
+
+## Customizing usage charts
+Metrics provides a more detailed view into the data.
+
+![Default metrics](./media/luis-usage-tiers/metrics-default.png)
+
+You can configure your metrics charts for time period and metric type. 
+
+![Custom metrics](./media/luis-usage-tiers/metrics-custom.png)
+
+## Total transactions threshold alert
+If you would like to know when you have reached a certain transaction threshold, for example 10,000 transactions, you can create an alert. 
+
+![Default alerts](./media/luis-usage-tiers/alert-default.png)
+
+Add a metric alert for the **total calls** metric for a certain time period. Add email addresses of all people that should receive the alert. Add webhooks for all systems that should receive the alert. You can also run a logic app when the alert is triggered. 
+
+## Next steps
+
+Learn how to use [versions](luis-how-to-manage-versions.md) to manage changes to your LUIS app.

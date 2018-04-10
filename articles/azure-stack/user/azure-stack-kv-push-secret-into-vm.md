@@ -3,8 +3,8 @@ title: Deploy a virtual machine with a securely stored certificate on Azure Stac
 description: Learn how to deploy a virtual machine and push a certificate onto it by using a key vault in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 # Create a virtual machine and include certificate retrieved from a key vault
@@ -23,7 +23,7 @@ This article helps you to create a virtual machine in Azure Stack and push certi
 
 ## Prerequisites
 
-* You must must subscribe to an offer that includes the Key Vault service. 
+* You must subscribe to an offer that includes the Key Vault service. 
 * [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
 * [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
 

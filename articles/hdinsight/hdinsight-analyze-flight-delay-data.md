@@ -383,8 +383,10 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the HiveQL script to.</td></tr>
     <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the HiveQL script to.</td></tr>
     </table>
-2. Open Azure PowerShell ISE.
-3. Copy and paste the following script into the script pane:
+    
+2. Open Azure PowerShell ISE.  
+
+3. Copy and paste the following script into the script pane:  
 
     ```powershell
     [CmdletBinding()]
@@ -574,8 +576,10 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     <tr><td>$sqlDatabaseLocation</td><td>This value is used only when you're creating a new Azure database server.</td></tr>
     <tr><td>$sqlDatabaseName</td><td>The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays. </td></tr>
     </table>
+    
 2. Open Azure PowerShell ISE.
-3. Copy and paste the following script into the script pane:
+
+3. Copy and paste the following script into the script pane:  
 
     ```powershell
     [CmdletBinding()]
@@ -729,14 +733,14 @@ Now you understand how to upload a file to Azure Blob storage, how to populate a
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 [hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html

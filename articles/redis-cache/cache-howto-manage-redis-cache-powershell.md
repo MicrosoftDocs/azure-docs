@@ -3,8 +3,8 @@ title: Manage Azure Redis Cache with Azure PowerShell | Microsoft Docs
 description: Learn how to perform administrative tasks for Azure Redis Cache using Azure PowerShell.
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
+ms.author: wesmc
 
 ---
 # Manage Azure Redis Cache with Azure PowerShell
@@ -28,7 +28,7 @@ This topic shows you how to perform common tasks such as create, update, and sca
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-For more information about the classic deployment model, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics).
+For more information about the classic deployment model, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Prerequisites
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 1.0.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.

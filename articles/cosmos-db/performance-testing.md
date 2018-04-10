@@ -3,8 +3,8 @@ title: Azure Cosmos DB scale and performance testing | Microsoft Docs
 description: Learn how to perform scale and performance testing with Azure Cosmos DB
 keywords: performance testing
 services: cosmos-db
-author: arramac
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 documentationcenter: ''
 
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
-ms.author: arramac
+ms.author: sngun
 
 ---
 # Performance and scale testing with Azure Cosmos DB
+
 Performance and scale testing is a key step in application development. For many applications, the database tier has a significant impact on overall performance and scalability. Therefore, it's a critical component of performance testing. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is purpose-built for elastic scale and predictable performance. These capabilities make it a great fit for applications that need a high-performance database tier. 
 
 This article is a reference for developers implementing performance test suites for their Azure Cosmos DB workloads. It also can be used to evaluate Azure Cosmos DB for high-performance application scenarios. It focuses primarily on isolated performance testing of the database, but also includes best practices for production applications.
@@ -51,7 +52,7 @@ The quickest way to get started is to compile and run the .NET sample, as descri
 
 **Step 3:** Compile and run the console app from the command line. You should see output like the following:
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.com:443/

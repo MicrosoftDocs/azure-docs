@@ -3,12 +3,12 @@ title: Text Analytics API overview (Microsoft Cognitive Services on Azure) | Mic
 description: Text Analytics API in Azure Cognitive Services for sentiment analysis, key phrase extraction, and language detection.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 3/07/2018
 ms.author: heidist
 ---
 
@@ -16,7 +16,7 @@ ms.author: heidist
 
 **Text Analytics API** is a cloud-based service that provides advanced natural language processing over raw text, and includes three main functions: sentiment analysis, key phrase extraction, and language detection.
 
-The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects. 
+The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects. 
 
 ## Capabilities in Text Analytics
 
@@ -24,9 +24,9 @@ Text analysis can mean different things, but in Cognitive Services, APIs provide
 
 | Operations| Description | APIs |
 |-----------|-------------|------|
-|[**Sentiment Analysis**](how-tos/text-analytics-how-to-sentiment-analysis.md) | Find out what customers think of your brand or topic by analyzing raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. <p/>Our models are pretrained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](text-analytics-supported-languages.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet)  |
-|[**Key Phrase Extraction**](how-tos/text-analytics-how-to-keyword-extraction.md) | Automatically extract key phrases to quickly identify the main points. For example, for the input text ‘The food was delicious and there were wonderful staff’, the API returns the main talking points: ‘food’ and ‘wonderful staff’.  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br/> [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) |
-|[**Language Detection**](how-tos/text-analytics-how-to-language-detection.md) | For up to 120 languages, detect which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br/>  [.NET](https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet) | 
+|[**Sentiment Analysis**](how-tos/text-analytics-how-to-sentiment-analysis.md) | Find out what customers think of your brand or topic by analyzing raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. <p/>Our models are pretrained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](text-analytics-supported-languages.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br/> [.NET](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
+|[**Key Phrase Extraction**](how-tos/text-analytics-how-to-keyword-extraction.md) | Automatically extract key phrases to quickly identify the main points. For example, for the input text ‘The food was delicious and there were wonderful staff’, the API returns the main talking points: ‘food’ and ‘wonderful staff’.  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br/> [.NET](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
+|[**Language Detection**](how-tos/text-analytics-how-to-language-detection.md) | For up to 120 languages, detect which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br/>  [.NET](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) | 
 
  ## Typical workflow
 
@@ -68,7 +68,7 @@ The rate limit is 100 calls per minute. Note that you can submit a large quantit
 
 ## Unicode encoding
 
-Text Analytics API uses Unicode encoding for text representation and character count calculations. Requests can be submitted in both UTF-8 and UTF-16 with no measurable differences in the character count. Unicode codepoints are used as the heuristic for character length and are considered equivalent for the purposes of text analytics data limits. If you use `String.Length(strlen`) to get the character count, you are using the same methods we use to measure data size
+Text Analytics API uses Unicode encoding for text representation and character count calculations. Requests can be submitted in both UTF-8 and UTF-16 with no measurable differences in the character count. Unicode codepoints are used as the heuristic for character length and are considered equivalent for the purposes of text analytics data limits. If you use `String.Length(strlen)` to get the character count, you are using the same methods we use to measure data size
 
 ## Next steps
 

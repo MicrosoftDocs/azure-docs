@@ -8,11 +8,11 @@ manager: douge
 editor: mlearned
 
 ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
-ms.service: multiple
+ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 06/05/2016
 ms.author: mlearned
 

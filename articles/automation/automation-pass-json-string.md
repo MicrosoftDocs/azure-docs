@@ -1,19 +1,14 @@
 ---
-title: Pass a JSON object to an Azure Automation runbook | Microsoft Docs
+title: Pass a JSON object to an Azure Automation runbook
 description: How to pass parameters to a runbook as a JSON object
 services: automation
-documentationcenter: dev-center-name
-author: eslesar
+ms.service: automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: article
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-
-ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
-ms.author: eslesar
 ---
 
 # Pass a JSON object to an Azure Automation runbook
@@ -96,7 +91,7 @@ Run the following PowerShell commands:
    ```powershell
    $JsonParams = @{"json"=$json}
    ```
-1. Create a hashtable for the parameters for `Start-AzureRmAutomstionRunbook`:
+1. Create a hashtable for the parameters for `Start-AzureRmAutomationRunbook`:
    ```powershell
    $RBParams = @{
         AutomationAccountName = 'AATest'

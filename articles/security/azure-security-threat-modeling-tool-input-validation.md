@@ -24,7 +24,7 @@ ms.author: rodsan
 | **Web Application** | <ul><li>[Disable XSLT scripting for all transforms using untrusted style sheets](#disable-xslt)</li><li>[Ensure that each page that could contain user controllable content opts out of automatic MIME sniffing](#out-sniffing)</li><li>[Harden or Disable XML Entity Resolution](#xml-resolution)</li><li>[Applications utilizing http.sys perform URL canonicalization verification](#app-verification)</li><li>[Ensure appropriate controls are in place when accepting files from users](#controls-users)</li><li>[Ensure that type-safe parameters are used in Web Application for data access](#typesafe)</li><li>[Use separate model binding classes or binding filter lists to prevent MVC mass assignment vulnerability](#binding-mvc)</li><li>[Encode untrusted web output prior to rendering](#rendering)</li><li>[Perform input validation and filtering on all string type Model properties](#typemodel)</li><li>[Sanitization should be applied on form fields that accept all characters, e.g, rich text editor](#richtext)</li><li>[Do not assign DOM elements to sinks that do not have inbuilt encoding](#inbuilt-encode)</li><li>[Validate all redirects within the application are closed or done safely](#redirect-safe)</li><li>[Implement input validation on all string type parameters accepted by Controller methods](#string-method)</li><li>[Set upper limit timeout for regular expression processing to prevent DoS due to bad regular expressions](#dos-expression)</li><li>[Avoid using Html.Raw in Razor views](#html-razor)</li></ul> | 
 | **Database** | <ul><li>[Do not use dynamic queries in stored procedures](#stored-proc)</li></ul> |
 | **Web API** | <ul><li>[Ensure that model validation is done on Web API methods](#validation-api)</li><li>[Implement input validation on all string type parameters accepted by Web API methods](#string-api)</li><li>[Ensure that type-safe parameters are used in Web API for data access](#typesafe-api)</li></ul> | 
-| **Azure Document DB** | <ul><li>[Use parametrized SQL queries for DocumentDB](#sql-docdb)</li></ul> | 
+| **Azure Document DB** | <ul><li>[Use parametrized SQL queries for Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[WCF Input validation through Schema binding](#schema-binding)</li><li>[WCF- Input validation through Parameter Inspectors](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>Disable XSLT scripting for all transforms using untrusted style sheets
@@ -40,7 +40,7 @@ ms.author: rodsan
 
 ### Example 
 
-```C#
+```csharp
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
@@ -48,14 +48,14 @@ settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ### Example
 If you are using using MSXML 6.0, XSLT scripting is disabled by default; however, you must ensure that it has not been explicitly enabled through the XML DOM object property AllowXsltScript. 
 
-```C#
+```csharp
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### Example
 If you are using MSXML 5 or below, XSLT scripting is enabled by default and you must explicitly disable it. Set the XML DOM object property AllowXsltScript to false. 
 
-```C#
+```csharp
 doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
 
@@ -142,7 +142,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 ### Example
 For .NET Framework code, you can use the following approaches:
 
-```C#
+```csharp
 XmlTextReader reader = new XmlTextReader(stream);
 reader.ProhibitDtd = true;
 
@@ -160,7 +160,7 @@ Note that the default value of `ProhibitDtd` in `XmlReaderSettings` is true, but
 ### Example
 To disable entity resolution for XmlDocuments, use the `XmlDocument.Load(XmlReader)` overload of the Load method and set the appropriate properties in the XmlReader argument to disable resolution, as illustrated in the following code: 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = true;
 XmlReader reader = XmlReader.Create(stream, settings);
@@ -171,7 +171,7 @@ doc.Load(reader);
 ### Example
 If disabling entity resolution is not possible for your application, set the XmlReaderSettings.MaxCharactersFromEntities property to a reasonable value according to your application's needs. This will limit the impact of potential exponential expansion DoS attacks. The following code provides an example of this approach: 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
 settings.MaxCharactersFromEntities = 1000;
@@ -181,7 +181,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ### Example
 If you need to resolve inline entities but do not need to resolve external entities, set the XmlReaderSettings.XmlResolver property to null. For example: 
 
-```C#
+```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
 settings.ProhibitDtd = false;
 settings.MaxCharactersFromEntities = 1000;
@@ -215,7 +215,7 @@ Note that in MSXML6, ProhibitDTD is set to true (disabling DTD processing) by de
 ### Example
 For the last point regarding file format signature validation, refer to the class below for details: 
 
-```C#
+```csharp
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
                     {
                     { ".DOC", new List<byte[]> { new byte[] { 0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1 } } },
@@ -331,7 +331,7 @@ For the last point regarding file format signature validation, refer to the clas
 ### Example 
 The following code shows how to use type safe parameters with the SqlParameterCollection when calling a stored procedure. 
 
-```C#
+```csharp
 using System.Data;
 using System.Data.SqlClient;
 
@@ -371,7 +371,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 
 ### Example
 
-```C#
+```csharp
 * Encoder.HtmlEncode 
 * Encoder.HtmlAttributeEncode 
 * Encoder.JavaScriptEncode 
@@ -463,7 +463,7 @@ Don't use `innerHtml`; instead use `innerText`. Similarly, instead of `$("#elm")
 ### Example
 For example, the following configuration will throw a RegexMatchTimeoutException, if the processing takes more than 5 seconds: 
 
-```C#
+```csharp
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
 ```
 
@@ -481,7 +481,7 @@ For example, the following configuration will throw a RegexMatchTimeoutException
 ### Example
 Following is an insecure example: 
 
-```C#
+```csharp
 <div class="form-group">
             @Html.Raw(Model.AccountConfirmText)
         </div>
@@ -506,7 +506,7 @@ Do not use `Html.Raw()` unless you need to display markup. This method does not 
 ### Example
 Following is an example of insecure dynamic Stored Procedure: 
 
-```C#
+```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
 (
   @productName nvarchar(200) = NULL,
@@ -533,7 +533,7 @@ AS
 
 ### Example
 Following is the same stored procedure implemented securely: 
-```C#
+```csharp
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteriaSecure]
 (
              @productName nvarchar(200) = NULL,
@@ -566,7 +566,7 @@ AS
 ### Example
 The following code demonstrates the same: 
 
-```C#
+```csharp
 using System.ComponentModel.DataAnnotations;
 
 namespace MyApi.Models
@@ -587,7 +587,7 @@ namespace MyApi.Models
 ### Example
 In the action method of the API controllers, validity of the model has to be explicitly checked as shown below: 
 
-```C#
+```csharp
 namespace MyApi.Controllers
 {
     public class ProductsController : ApiController
@@ -634,7 +634,7 @@ namespace MyApi.Controllers
 ### Example
 The following code shows how to use type safe parameters with the SqlParameterCollection when calling a stored procedure. 
 
-```C#
+```csharp
 using System.Data;
 using System.Data.SqlClient;
 
@@ -658,8 +658,8 @@ In the preceding code example, the input value cannot be longer than 11 characte
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Announcing SQL Parameterization in DocumentDB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Steps** | Although DocumentDB only supports read-only queries, SQL injection is still possible if queries are constructed by concatenating with user input. It might be possible for a user to gain access to data they shouldn’t be accessing within the same collection by crafting malicious SQL queries. Use parameterized SQL queries if queries are constructed based on user input. |
+| **References**              | [Announcing SQL Parameterization in Azure Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **Steps** | Although Azure Cosmos DB only supports read-only queries, SQL injection is still possible if queries are constructed by concatenating with user input. It might be possible for a user to gain access to data they shouldn’t be accessing within the same collection by crafting malicious SQL queries. Use parameterized SQL queries if queries are constructed based on user input. |
 
 ## <a id="schema-binding"></a>WCF Input validation through Schema binding
 

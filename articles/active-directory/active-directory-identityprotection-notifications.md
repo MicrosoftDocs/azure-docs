@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
@@ -14,48 +14,67 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
 
 ---
 # Azure Active Directory Identity Protection notifications
+
 Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk events:
 
-* User compromised alert email
-* Weekly digest email
+- Users at risk detected email
+- Weekly digest email
 
-## User compromised alert email
-A user compromised email alert is generated when Azure AD Identity Protection identifies an account as compromised. The email includes a link to the Users flagged for risk report in the Identity Protection dashboard. We recommend that you immediately investigate notifications of compromised accounts.
+This article provides you with an overview of both notification emails.
+
+
+## Users at risk detected email
+
+In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](active-directory-reporting-security-user-at-risk.md)** report. As a best practice, you should immediately investigate the users at risk.
+
+![Users at risk detected email](./media/active-directory-identityprotection-notifications/01.png)
+
+
+### Configuration
+
+As an administrator, you can set:
+
+- **The risk level that triggers the generation of this email** - By default, the risk level is set to “High” risk.
+- **The recipients of this email** - By default, recipients include all Global Admins. Global Admins can also add other Global Admins, Security Admins, Security Readers as recipients.  
+
+
+To open the related dialog, click **Alerts** in the **Settings** section of the **Identity Protection** page.
+
+![Users at risk detected email](./media/active-directory-identityprotection-notifications/05.png)
+
 
 ## Weekly digest email
-The weekly digest email contains a summary of new risk events.<br>
+
+The weekly digest email contains a summary of new risk events.  
 It includes:
 
-* Users at risk
-* Suspicious activities
-* Detected vulnerabilities
-* Links to the related reports in Identity Protection
+- Users at risk
 
-<br>
-![Remediation](./media/active-directory-identityprotection-notifications/400.png "Remediation")
-<br>
+- Suspicious activities
 
-You can switch sending a weekly digest email off.
-<br><br>
+- Detected vulnerabilities
+
+- Links to the related reports in Identity Protection
+
+    ![Remediation](./media/active-directory-identityprotection-notifications/400.png "Remediation")
+
+### Configuration
+
+As an administrator, you can switch sending a weekly digest email off.
+
 ![User risks](./media/active-directory-identityprotection-notifications/62.png "User risks")
-<br>
 
-**To open the related configuration dialog**:
+To open the related dialog, click **Weekly Digest** in the **Settings** section of the **Identity Protection** page.
 
-1. On the **Azure AD Identity Protection** blade, click **Settings**.
-   <br><br>
-   ![User risk policy](./media/active-directory-identityprotection-notifications/401.png "User risk policy")
-   <br>
-2. In the **General** section, click **Notifications**.
-   <br><br>
-   ![User risk policy](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
-   <br>
+![Users at risk detected email](./media/active-directory-identityprotection-notifications/04.png)
+
 
 ## See also
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

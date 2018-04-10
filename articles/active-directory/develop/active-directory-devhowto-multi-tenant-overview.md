@@ -4,7 +4,7 @@ description: Step by step instructions for building an application that can sign
 services: active-directory
 documentationcenter: ''
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3

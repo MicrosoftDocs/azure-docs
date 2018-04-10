@@ -4,7 +4,7 @@ description: How to explore data in various storage environments.
 services: machine-learning,storage
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 6eae8772-f479-4627-bb12-64f6d1440b22
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/09/2017
 ms.author: bradsev
 
 ---

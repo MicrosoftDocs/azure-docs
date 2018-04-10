@@ -3,7 +3,7 @@ title: Create Azure Service Fabric clusters on Windows Server and Linux | Micros
 description: Service Fabric clusters run on Windows Server and Linux, which means you'll be able to deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
 services: service-fabric
 documentationcenter: .net
-author: Chackdan
+author: dkkapur
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/19/2017
-ms.author: chackdan
+ms.date: 02/28/2018
+ms.author: dekapur
 
 ---
 # Create Service Fabric clusters on Windows Server or Linux
@@ -30,7 +30,12 @@ You are able to create clusters on virtual machines running these operating syst
 
 * Windows Server 2012 R2
 * Windows Server 2016 
-* Linux Ubuntu 16.04  
+* Windows Server 1709
+* Linux Ubuntu 16.04
+
+> [!NOTE]
+> If you decide to deploy Service Fabric on Windows Server 1709, please note that (1) it is not a long term servicing branch, so you may have to move versions in the future, and (2) if you deploy containers, containers built on Windows Server 2016 do not work on Windows Server 1709, and vice versa (you will have to rebuild them to deploy them).
+>
 
 ## Create Service Fabric standalone clusters on-premises or with any cloud provider
 Service Fabric provides an install package for you to create standalone Service Fabric clusters on-premises or on any cloud provider.

@@ -3,8 +3,8 @@ title: Monitor health and alerts in Azure Stack | Microsoft Docs
 description: Learn how to monitor health and alerts in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 69901c7b-4673-4bd8-acf2-8c6bdd9d1546
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: twooley
+ms.date: 11/10/2017
+ms.author: mabrigg
 
 ---
 # Monitor health and alerts in Azure Stack
@@ -33,7 +33,7 @@ Azure Stack includes infrastructure monitoring capabilities that enable you to v
  
  As an Azure Stack operator, you can view the health state of components in the administrator portal and through REST API and PowerShell.
  
-To view the health state in the portal, click the region that you want to view in the **Region management** tile. You can view the health state of infrastructure roles and of resource providers. In this release, the Compute resource provider does not report health state.
+To view the health state in the portal, click the region that you want to view in the **Region management** tile. You can view the health state of infrastructure roles and of resource providers.
 
 ![List of infrastructure roles](media/azure-stack-monitor-health/image2.png)
 

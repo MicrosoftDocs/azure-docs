@@ -3,8 +3,8 @@ title: Using the Azure Stack portal | Microsoft Docs
 description: Learn how to access and use the user portal in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 # Using the Azure Stack portal

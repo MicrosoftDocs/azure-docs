@@ -6,7 +6,7 @@
   keywords: Azure AD licensing
   documentationcenter: ''
   author: curtand
-  manager: femila
+  manager: mtillman
   editor: 'piotrci'
 
   ms.assetid:

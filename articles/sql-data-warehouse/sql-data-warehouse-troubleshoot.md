@@ -7,14 +7,13 @@ author: kevinvngo
 manager: jhubbard
 editor: ''
 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
 
 ---
@@ -24,9 +23,9 @@ This topic lists some of the more common troubleshooting questions we hear from 
 ## Connecting
 | Issue | Resolution |
 |:--- |:--- |
-| Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Error: 18456) |This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue either specify the SQL Data Warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][Security overview] article for more details. |
-| The server principal "MyUserName" is not able to access the database "master" under the current security context. Cannot open user default database. Login failed. Login failed for user 'MyUserName'. (Microsoft SQL Server, Error: 916) |This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue either specify the SQL Data Warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][Security overview] article for more details. |
-| CTAIP error |This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security overview][Security overview] article.  This article explains how to create create a login and user on master and then how to create a user in the SQL Data Warehouse database. |
+| Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Error: 18456) |This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue, either specify the SQL Data Warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][Security overview] article for more details. |
+| The server principal "MyUserName" is not able to access the database "master" under the current security context. Cannot open user default database. Login failed. Login failed for user 'MyUserName'. (Microsoft SQL Server, Error: 916) |This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue, either specify the SQL Data Warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][Security overview] article for more details. |
+| CTAIP error |This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security overview][Security overview] article.  This article explains how to create a login and user on master, and then how to create a user in the SQL Data Warehouse database. |
 | Blocked by Firewall |Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [Configure server firewall access for your client IP][Configure server firewall access for your client IP] in the [Provisioning instructions][Provisioning instructions]. |
 | Cannot connect with tool or driver |SQL Data Warehouse recommends using [SSMS][SSMS], [SSDT for Visual Studio][SSDT for Visual Studio], or [sqlcmd][sqlcmd] to query your data. For more details on drivers and connecting to SQL Data Warehouse, see [Drivers for Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] and [Connect to Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse] articles. |
 
@@ -44,7 +43,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | Low concurrency / queries queued |Understanding [Workload management][Workload management] is important in order to understand how to balance memory allocation with concurrency. |
 | How to implement best practices |The best place to start to learn ways to improve query performance is [SQL Data Warehouse best practices][SQL Data Warehouse best practices] article. |
 | How to improve performance with scaling |Sometimes the solution to improving performance is to simply add more compute power to your queries by [Scaling your SQL Data Warehouse][Scaling your SQL Data Warehouse]. |
-| Poor query performance as a result of poor index quality |Some times queries can slowdown because of [Poor columnstore index quality][Poor columnstore index quality].  See this article for more information and how to [Rebuild indexes to improve segment quality][Rebuild indexes to improve segment quality]. |
+| Poor query performance as a result of poor index quality |Some times queries can slow down because of [Poor columnstore index quality][Poor columnstore index quality].  See this article for more information and how to [Rebuild indexes to improve segment quality][Rebuild indexes to improve segment quality]. |
 
 ## System management
 | Issue | Resolution |
@@ -57,7 +56,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 ## Polybase
 | Issue | Resolution |
 |:--- |:--- |
-| Load fails because of large rows |Currently large row support is not available for Polybase.  This means that if your table contains VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX), External tables cannot be used to load your data.  Loads for large rows is currently only supported through Azure Data Factory (with BCP), Azure Stream Analytics, SSIS, BCP or the .NET SQLBulkCopy class. PolyBase support for large rows will be added in a future release. |
+| Load fails because of large rows |Currently large row support is not available for Polybase.  This means that if your table contains VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX), External tables cannot be used to load your data.  Loading large rows is currently only supported through Azure Data Factory (with BCP), Azure Stream Analytics, SSIS, BCP or the .NET SQLBulkCopy class. PolyBase support for large rows will be added in a future release. |
 | bcp load of table with MAX data type is failing |There is a known issue which requires that VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX) be placed at the end of the table in some scenarios.  Try moving your MAX columns to the end of the table. |
 
 ## Differences from SQL Database
@@ -71,7 +70,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | UDFs do not support SELECT statements |This is a current limitation of our UDFs.  See [CREATE FUNCTION][CREATE FUNCTION] for the syntax we support. |
 
 ## Next steps
-If you are were unable to find a solution to your issue above, here are some other resources you can try.
+For more help in finding solution to your issue, here are some other resources you can try.
 
 * [Blogs]
 * [Feature requests]
@@ -93,10 +92,10 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md
-[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal
+[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [Table sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -110,7 +109,7 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements

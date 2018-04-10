@@ -3,8 +3,8 @@ title: Get started with Mobile Apps by using Xamarin.Forms
 description: Follow this tutorial to start using Mobile Apps for Xamarin.Forms development
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Create a Xamarin.Forms app
@@ -56,7 +56,7 @@ On a Mac or Windows computer, do the following:
 
 1. Go to the [Azure portal].
 
-2. On the **Settings** blade for your mobile app, under **Mobile**, select **Get Started** > **Xamarin.Forms**. Under **step 3**, select  **Create a new app**, and then select **Download**.
+2. On the settings blade for your Mobile App, click **Quickstart** (under Deployment) > **Xamarin.Forms**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.
 
    This action downloads a project that contains a client application that's connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
 
