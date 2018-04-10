@@ -23,7 +23,6 @@ The following are the ways that you can define a slice of the web:
 
 All domains, subpages, and webpages that you specify must be public and indexed by Bing. If you own a public site that you want to include in the search, and Bing hasn’t indexed it, see the Bing [webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) for details about getting Bing to index it. Also, see the webmaster documentation for details about getting Bing to update your crawled site if the index is out of date.
 
-
 ## Adding slices to your custom search
 When you define your custom search instance, you specify the active and blocked domains, subpages, and webpages that you want to search or not search.  
 
@@ -32,19 +31,18 @@ When you define your custom search instance, you specify the active and blocked 
 
 To access each list, click on the Active and Blocked tabs in your custom search instance. 
 
+<a name="active-and-blocked-lists"></a>
 ## Active and Blocked lists 
 To specify a slice of the web that you want Bing to search, click the **Active** tab and list the domains, subpages, and webpages to search. You can add a slice directly to the list or add more than one slice by uploading a text file using the upload icon.
 
 File Upload details: 
 
-- File upload is available only for adding slices to the Active list, you cannot use it to add slices to the Blocked. 
+- File upload is available only for adding slices to the Active list, you cannot use it to add slices to the Blocked list. 
 - Create a text file and specify a single domain, subpage, or webpage per line. The entire upload is rejected if an error occurs. 
 - If the Blocked list contains the domain, subpage, or webpage that you specified in the upload file, the service removes it from the Blocked list and adds it to the Active list. 
 - The service ignores duplicates found in the upload file.
 
 To edit or delete slices, use the options under the Controls column. 
-
-All changes to the Active list are automatically saved and reflected instantly against your custom search endpoint.
 
 Similarly, you can add slices to the Blocked list (except you can’t use an upload file to specify the slices).
 
@@ -98,7 +96,7 @@ Please note the following restrictions when working with pins:
 - For a specific query, you can pin a maximum of one webpage to the top of the results.
 
 ## Use Bing to specify slices
-There are a couple of ways to specify the slices of the web that make up your custom search. If you know the slices you want to include in your instance, simply add them to your instance’s Active list. For information about adding items to the Active list yourself, see Define your custom instance.
+There are a couple of ways to specify the slices of the web that make up your custom search. If you know the slices you want to include in your instance, simply add them to your instance’s Active list. For information about adding items to the Active list yourself, see [Active and Blocked lists](#active-and-blocked-lists).
 But if you’re not sure which slices to include, you can run Bing queries in the Preview pane and see what Bing returns. You can then select the slices that you want to include in your custom search. You likely need to run multiple query terms to make sure you identify all the slices that you want for your instance. 
 
 Follow these steps to use Bing to add slices to your Custom Search instance. 
@@ -108,6 +106,11 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 4.	In the search box, enter a query term that’s relevant for your instance.
 5.	Click **Add site** next to the result you want to include.
 6.	Click the **Ok** button.
+
+## Publish or discard
+Changes you make to a Custom Search instance are made in **Staging** so you can validate your changes. When you are done making changes and ready to publish, click on **Publish**. When you publish your changes, all new query results will be served using your new configuration.
+
+If you decide that you don't want to keep the changes you've made, click **Discard**. When you discard your changes the production configuration remains unchanged and the staging environment will revert to match production.
 
 ## Understanding Quota
 - For each custom search instance, the maximum number of ranking adjustments that you may make to **Active** and **Blocked** slices is limited to 400.
