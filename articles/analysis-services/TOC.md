@@ -7,27 +7,9 @@
 
 ## [Create a server - portal](analysis-services-create-server.md)
 ## [Create a server - PowerShell](analysis-services-create-powershell.md)
-## [Create a sample model - portal](analysis-services-create-sample-model.md)
 
 # Tutorials
-## [Data modeling - Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md)
-### [1 - Create a tabular model project](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
-### [2 - Get data](tutorials/aas-lesson-2-get-data.md)
-### [3 - Mark as Date Table](tutorials/aas-lesson-3-mark-as-date-table.md) 
-### [4 - Create relationships](tutorials/aas-lesson-4-create-relationships.md) 
-### [5 - Create calculated columns](tutorials/aas-lesson-5-create-calculated-columns.md)
-### [6 - Create measures](tutorials/aas-lesson-6-create-measures.md)  
-### [7 - Create Key Performance Indicators](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
-### [8 - Create perspectives](tutorials/aas-lesson-8-create-perspectives.md)  
-### [9 - Create hierarchies](tutorials/aas-lesson-9-create-hierarchies.md) 
-### [10 - Create partitions](tutorials/aas-lesson-10-create-partitions.md) 
-### [11 - Create roles](tutorials/aas-lesson-11-create-roles.md)
-### [12 - Analyze in Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
-### [13 - Deploy](tutorials/aas-lesson-13-deploy.md)
-### [14 – Configure data refresh]()  
-### [Supplemental lesson - Detail Rows](tutorials/aas-supplemental-lesson-detail-rows.md)
-### [Supplemental lesson - Dynamic security](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Supplemental lesson - Ragged hierarchies](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+## [1 - Add a sample model - portal](analysis-services-create-sample-model.md) 
 
 # Concepts
 
@@ -92,3 +74,13 @@
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+
+
+
+
+
+
+
+
+
+
