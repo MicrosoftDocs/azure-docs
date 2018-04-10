@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you must have the following prerequisites:
 
-* This tutorial continues to update the *ContosoTeamStats* ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md). If you have not completed those steps to setup your cache and Azure App service, please complete that first.
+* This tutorial continues to update the *ContosoTeamStats* ASP.NET web app created in the [ASP.NET quickstart for Azure Redis Cache](cache-web-app-howto.md). If you have not completed those steps to set up your cache and Azure App service, complete that first.
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
     * ASP.NET and web development
     * Azure Development
@@ -162,7 +162,7 @@ For more information about this package, see the [EntityFramework](https://www.n
    
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 
-6. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class which is `TeamContext`.
+6. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class, which is `TeamContext`.
 
 	```xml
 	<connectionStrings>
@@ -268,7 +268,7 @@ In this section of the tutorial, you configure the sample application to store a
 
 ### Add a cache connection to the Teams Controller
 
-You already installed the *StackExchange.Redis* client library package in the quickstart. You also have already configured the *CacheConnection* app setting to be used locally, and with the published App Service. We will use this same client library and *CacheConnection* information in the *TeamsController*.
+You already installed the *StackExchange.Redis* client library package in the quickstart. You also have already configured the *CacheConnection* app setting to be used locally, and with the published App Service. Use this same client library and *CacheConnection* information in the *TeamsController*.
 
 1. In **Solution Explorer**, expand the **Controllers** folder and double-click **TeamsController.cs** to open it.
    
@@ -302,7 +302,7 @@ You already installed the *StackExchange.Redis* client library package in the qu
 
 ### Update the TeamsController to read from the cache or the database
 
-In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample you'll query the sorted set for the top 5 teams ranked by number of wins.
+In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample, you'll query the sorted set for the top 5 teams ranked by number of wins.
 
 > [!NOTE]
 > It is not required to store the team statistics in multiple formats in the cache in order to use Azure Redis Cache. This tutorial uses multiple formats to demonstrate some of the different ways and different data types you can use to cache data.
@@ -422,7 +422,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     ```
 
 
-1. Add the following four methods to the `TeamsController` class to implement the various ways of retrieving the team statistics from the cache and the database. Each of these methods returns a `List<Team>` which is then displayed by the view.
+1. Add the following four methods to the `TeamsController` class to implement the various ways of retrieving the team statistics from the cache and the database. Each of these methods returns a `List<Team>`, which is then displayed by the view.
    
     The `GetFromDB` method reads the team statistics from the database.
    
@@ -438,7 +438,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     }
     ```
 
-    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If the statistics are not present in the cache, we refer to this as a cache miss. For a cache miss, the team statistics are read from the database and then stored in the cache for the next request. In this sample we're using JSON.NET serialization to serialize the .NET objects to and from the cache. For more information, see [How to work with .NET objects in Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
+    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If the statistics are not present in the cache, a cache miss occurs. For a cache miss, the team statistics are read from the database and then stored in the cache for the next request. In this sample, JSON.NET serialization is used to serialize the .NET objects to and from the cache. For more information, see [How to work with .NET objects in Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
     ```csharp
     List<Team> GetFromList()
@@ -503,7 +503,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     }
     ```
 
-    The `GetFromSortedSetTop5` method reads the top 5 teams from the cached sorted set. It starts by checking the cache for the existence of the `teamsSortedSet` key. If this key is not present, the `GetFromSortedSet` method is called to read the team statistics and store them in the cache. Next, the cached sorted set is queried for the top 5 teams which are returned.
+    The `GetFromSortedSetTop5` method reads the top five teams from the cached sorted set. It starts by checking the cache for the existence of the `teamsSortedSet` key. If this key is not present, the `GetFromSortedSet` method is called to read the team statistics and store them in the cache. Next, the cached sorted set is queried for the top five teams, which are returned.
 
     ```csharp
     List<Team> GetFromSortedSetTop5()
@@ -534,7 +534,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     ```
 
 ### Update the Create, Edit, and Delete methods to work with the cache
-The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section you'll modify these three methods to clear the cached teams so that the cache will be refreshed.
+The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section, you'll modify these three methods to clear the cached teams so that the cache will be refreshed.
 
 1. Browse to the `Create(Team team)` method in the `TeamsController` class. Add a call to the `ClearCachedTeams` method, as shown in the following example:
 
@@ -614,7 +614,7 @@ The scaffolding code that was generated as part of this sample includes methods 
    
     ![Action table](./media/cache-web-app-cache-aside-leaderboard/cache-teams-index-table.png)
    
-    This is the link to create a new team. Replace the paragraph element with the following table. This table has action links for creating a new team, playing a new season of games, clearing the cache, retrieving the teams from the cache in several formats, retrieving the teams from the database, and rebuilding the database with fresh sample data.
+    This link creates a new team. Replace the paragraph element with the following table. This table has action links for creating a new team, playing a new season of games, clearing the cache, retrieving the teams from the cache in several formats, retrieving the teams from the database, and rebuilding the database with fresh sample data.
 
     ```html
     <table class="table">
@@ -673,7 +673,7 @@ To run the app locally:
 
     ![App running local](./media/cache-web-app-cache-aside-leaderboard/cache-local-application.png)
 
-2. Test each of the new methods that were added to the view. Since the cache is remote in these tests, the database should slighyly outperform the cache.
+2. Test each of the new methods that were added to the view. Since the cache is remote in these tests, the database should slightly outperform the cache.
 
 
 ## Publish and run in Azure
@@ -683,7 +683,7 @@ To run the app locally:
 
 ### Provision a SQL Azure database for the app
 
-In this section you will provision a new SQL Azure database for the app to use while hosted in Azure.
+In this section, you will provision a new SQL Azure database for the app to use while hosted in Azure.
 
 1. In the [Azure portal](https://portal.azure.com/), Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -722,7 +722,7 @@ In this section you will provision a new SQL Azure database for the app to use w
     | *{your_username}* | Use the **server admin login** for the database server you just created. |
     | *{your_password}* | Use the password for the database server you just created. |
 
-    By adding the username and password as an Application Setting, your username and password are not included in your code. This helps protect those credientials.
+    By adding the username and password as an Application Setting, your username and password are not included in your code. This approach helps protect those credentials.
 
 
 ### Publish the application updates to Azure
@@ -773,7 +773,7 @@ When you are finished with the sample tutorial application, you can delete the A
 
 4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
 
-    After a few moments the resource group and all of its contained resources are deleted.
+    After a few moments, the resource group and all of its contained resources are deleted.
 
 
 ## Next steps
