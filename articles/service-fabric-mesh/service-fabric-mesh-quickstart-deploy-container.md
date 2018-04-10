@@ -40,7 +40,7 @@ az group create --name $rg --location eastus
 Create your application using the following deployment command:
 
 ```azurecli-interactive
-az sbz deployment create --resource-group $rg --template-uri https://whereIsTheJsonFileOrDoWeHaveThemCreateOne?
+az sbz deployment create --resource-group $rg --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-configuration/master/container-configuration.json
 ```
 
 In just over a minute, your command should return with `"provisioningState": "Succeeded"`. Given below is the output from the command when using [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
