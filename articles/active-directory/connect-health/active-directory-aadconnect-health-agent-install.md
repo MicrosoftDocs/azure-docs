@@ -132,7 +132,7 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 9. Select the **Success audits and Failure audits** check boxes and then click **OK**. This should be enabled by default.
 10. Open a PowerShell window and run the following command: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Note that "basic" audit level is enabled by default. Read more about the [AD FS Audit enhancement in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
+Note that "basic" audit level is enabled by default. Read more about the [AD FS Audit enhancement in Windows Server 2016](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
 
 
 #### To locate the AD FS audit logs
