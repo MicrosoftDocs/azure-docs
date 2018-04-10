@@ -23,11 +23,11 @@ ms.author: owend
 This article describes the **AlwaysUseGateway** server property for use when datasources are on an [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md).
 
 > [!NOTE]
-> This property is effective only when an [On-premises gateway](analysis-services-gateway.md) is installed and configured.
+> This property is effective only when an [On-premises data gateway](analysis-services-gateway.md) is installed and configured. The gateway can be also be on the VNET.
 
 
 ## Description
-If your datasources are on an Azure virtual machine (VM) or on-premises accessed through a VNET, your Azure Analysis Services server must be able to connect to those datasources just like they are an on-premises datasource. 
+If your datasources are on an Azure virtual machine (VM) accessed through a VNET, your Azure Analysis Services server must be able to connect to those datasources just like they are an on-premises datasource. 
 
 You can configure the AlwaysUseGateway server property to specify the server to access all data through an [On-premises gateway](analysis-services-gateway.md). 
 
@@ -41,9 +41,6 @@ With the property set to true, Azure AS will access all source data only through
 2. In the **ASPaaS\AlwaysUseGateway**, select **true**.
 
     ![Always use gateway property](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
-
-
-
 
 
 ## See also
