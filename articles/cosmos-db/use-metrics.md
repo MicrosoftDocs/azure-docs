@@ -4,7 +4,7 @@ description: Use metrics in Azure Cosmos DB to debug common issues and monitor t
 keywords: metrics
 services: cosmos-db
 author: gnot
-manager: jhubbard
+manager: kfile
 editor: ''
 documentationcenter: ''
 
