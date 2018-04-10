@@ -33,8 +33,8 @@ You can determine the number of remaining requests by examining response headers
 
 | Response header | Description |
 | --- | --- |
-| x-ms-ratelimit-remaining-subscription-reads |Subscription scoped reads remaining. This value is returned on write operations. |
-| x-ms-ratelimit-remaining-subscription-writes |Subscription scoped writes remaining. This value is returned on read operations. |
+| x-ms-ratelimit-remaining-subscription-reads |Subscription scoped reads remaining. This value is returned on read operations. |
+| x-ms-ratelimit-remaining-subscription-writes |Subscription scoped writes remaining. This value is returned on write operations. |
 | x-ms-ratelimit-remaining-tenant-reads |Tenant scoped reads remaining |
 | x-ms-ratelimit-remaining-tenant-writes |Tenant scoped writes remaining |
 | x-ms-ratelimit-remaining-subscription-resource-requests |Subscription scoped resource type requests remaining.<br /><br />This header value is only returned if a service has overridden the default limit. Resource Manager adds this value instead of the subscription reads or writes. |
