@@ -21,7 +21,7 @@
     href: ../aks/tutorial-kubernetes-prepare-app.md
   - name: Service Fabric
     href: ../service-fabric/service-fabric-tutorial-create-container-images.md
-  - name: Geo-replication (preview)
+  - name: Geo-replication
     items:
     - name: 1 - Prepare container registry
       href: container-registry-tutorial-prepare-registry.md
@@ -35,7 +35,7 @@
     href: container-registry-skus.md
   - name: Image storage
     href: container-registry-storage.md
-  - name: Geo-replication (preview)
+  - name: Geo-replication
     href: container-registry-geo-replication.md
   - name: Registry best practices
     href: container-registry-best-practices.md
