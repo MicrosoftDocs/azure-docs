@@ -3,7 +3,6 @@ title: Troubleshoot Azure Files Backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
 services: backup
 ms.service: backup
-keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
@@ -18,7 +17,7 @@ You can troubleshoot issues and errors encountered while using Azure Files backu
 
 ## Preview boundaries
 Azure Files backup is in Preview. The following backup scenarios are not supported for Azure file shares:
-- Protecting Azure file shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) or [read-access geo-redundant storage](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) replication.
+- Protecting Azure file shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) or [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication.
 - Protecting Azure file shares in Storage Accounts that have Virtual Networks enabled.
 - Backing up Azure file shares using PowerShell or CLI.
 
@@ -57,6 +56,7 @@ The following table is for configuring the backup:
 | Restore fails because one of the files in the source does not exist. | <ul><li> The selected items are not present in the recovery point data. To recover the files, provide the correct file list. <li> The file share snapshot that corresponds to the recovery point is manually deleted. Select a different recovery point and retry the restore operation. |
 | A Recovery job is in process to the same destination. | <ul><li>File share backup does not support parallel recovery to the same target File share. <li>Wait for the existing recovery to finish and then try again. If you don't find a recovery job in the Recovery Services vault, check other Recovery Services vaults in the same subscription. |
 | Restore operation failed as target file share is full. | Increase the target file share size quota to accommodate the restore data and retry the operation. |
+| Restore operation failed as an error occurred while performing pre restore operations on File Sync Service resources associated with the target file share. | Please retry after sometime, if the issue persists please contact Microsoft support. |
 | One or more files could not be recovered successfully. For more information, check the failed file list in the path given above. | <ul> <li> Recovery failure reasons are listed in the file (path provided in the Job details), address the reasons and retry the restore operation for the failed files only. <li> Common reasons for file restore failures are: <br/> - Make sure the failed files are not currently in use. <br/> - A directory with the same name as the failed files exists in the parent directory. |
 
 ## See Also

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
 ---
@@ -33,6 +33,8 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
     ![List of Azure SQL databases](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  On the **SQL databases** page, select the existing SQL database that you want to use as the hub database for Data Sync. The SQL database page opens.
+
+    The hub database is the central endpoint of the sync topology, in which a sync group has multiple database endpoints. All other database endpoints in the same sync group - that is, all member databases - sync with the hub database.
 
 4.  On the SQL database page for the selected database, select **Sync to other databases**. The Data Sync page opens.
 
@@ -62,6 +64,8 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
         ![Specify sync frequency](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  In the **Conflict Resolution** section, select "Hub wins" or "Member wins."
+
+        "Hub wins" means that, when a conflict occurs, the data in the hub database overwrites the conflicting data in the member database. "Member wins" means that, when a conflict occurs, the data in the member database overwrites the conflicting data in the hub database. 
 
         ![Specify how conflicts are resolved](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
@@ -268,7 +272,7 @@ For more info about SQL Data Sync, see:
 
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
 -   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   [Monitor Azure SQL Data Sync with OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:

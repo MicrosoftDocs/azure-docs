@@ -3,9 +3,8 @@ title: Azure Cosmos DB performance tips for .NET | Microsoft Docs
 description: Learn client configuration options to improve Azure Cosmos DB database performance
 keywords: how to improve database performance
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
@@ -15,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
-ms.author: mimig
+ms.author: sngun
 
 ---
 > [!div class="op_single_selector"]
+> * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 

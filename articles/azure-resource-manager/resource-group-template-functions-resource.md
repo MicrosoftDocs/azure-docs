@@ -21,7 +21,9 @@ ms.author: tomfitz
 
 Resource Manager provides the following functions for getting resource values:
 
-* [listKeys and list{Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [list*](#list)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -33,12 +35,14 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 <a id="listkeys" />
 <a id="list" />
 
-## listKeys and list{Value}
+## listKeys, listSecrets and list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Returns the values for any resource type that supports the list operation. The most common usage is `listKeys`. 
+Returns the values for any resource type that supports the list operation. The most common usages are `listKeys` and `listSecrets`. 
 
 ### Parameters
 

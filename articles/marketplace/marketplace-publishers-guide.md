@@ -121,7 +121,11 @@ Each storefront supports multiple publishing options and offer types. Select an 
 Use Contact Me when trial-level or transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with an in-market solution to immediately begin receiving leads that can be nurtured into the foundational deals to start your business flywheel. However, the drawback is that customer engagement is limited, as compared with other offer types.
 
 >[!IMPORTANT]
+<<<<<<< HEAD
+>Customer engagement is best with Trial and Transact offers. The value of Contact Me is the lead that you receive, so if you choose this type of listing, ensure that your lead destination is configured and you are ready to maximize the lead. 
+=======
 >We don't recommend the Contact Me listing type. You should use it only in situations where there is no way to establish a trial experience. Customer engagement is best with trial and transaction offers. If you have any type of trial experience, our onboarding process will guide you to one of those options, depending on your scenario.
+>>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
 
 When the offer consists primarily of professional services (for example, assessments, implementations, workshops), use the Consulting Services offer type. Offer scope, duration, and price must be fixed, must be for a single customer, and must be conducted on site.
 
