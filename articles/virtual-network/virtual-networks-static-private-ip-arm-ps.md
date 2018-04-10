@@ -224,4 +224,4 @@ It’s recommended that you do not statically assign the private IP assigned to 
 
 ## Next steps
 
-Learn about managing [IP address settings](virtual-network-network-interface-addresses)
+Learn about managing [IP address settings](virtual-network-network-interface-addresses).
