@@ -71,7 +71,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 7. Under the **Add enrollment** panel, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **certificate.cer** created in the previous steps.  
+    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **X509individual.pem** created in the previous steps.  
     - Optionally, you may provide the following information:
       - Select an IoT hub linked with your provisioning service.
       - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 

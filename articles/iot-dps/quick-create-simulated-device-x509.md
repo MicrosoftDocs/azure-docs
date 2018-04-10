@@ -73,11 +73,11 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 6. Under the **Add enrollment** panel, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **certificate.cer** created in the previous steps.
-    - Leave **Device ID** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This will also be the name used for the registration ID for the individual enrollment entry. 
+    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **X509testcert.pem** created in the previous steps.
     - Optionally, you may provide the following information:
-        - Select an IoT hub linked with your provisioning service.
-        - Update the **Initial device twin state** with the desired initial configuration for the device.
+      - Select an IoT hub linked with your provisioning service.
+      - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+      - Update the **Initial device twin state** with the desired initial configuration for the device.
     - Once complete, click the **Save** button. 
 
     [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509/individual-enrollment.png)](./media/quick-create-simulated-device-x509/individual-enrollment.png#lightbox)

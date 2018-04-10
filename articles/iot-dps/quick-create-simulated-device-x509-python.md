@@ -69,11 +69,11 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 6. Under the **Add enrollment** panel, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **certificate.cer** created in the previous steps.
-    - Leave **Device ID** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This will also be the name used for the registration ID for the individual enrollment entry. 
+    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **X509testcertificate.pem** created in the previous steps.
     - Optionally, you may provide the following information:
-        - Select an IoT hub linked with your provisioning service.
-        - Update the **Initial device twin state** with the desired initial configuration for the device.
+      - Select an IoT hub linked with your provisioning service.
+      - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+      - Update the **Initial device twin state** with the desired initial configuration for the device.
     - Once complete, click the **Save** button. 
 
     [![Add individual enrollment for X.509 attestation in the portal](./media/python-quick-create-simulated-device-x509/individual-enrollment.png)](./media/python-quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
@@ -87,7 +87,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
 2. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system](https://pip.pypa.io/en/stable/installing/).
-    - If you are using Windows OS, then [Visual C++ redistributable package](http://www.microsoft.com/download/confirmation.aspx?id=48145) to allow the use of native DLLs from Python.
+    - If you are using Windows OS, also install the [Visual C++ redistributable package](http://www.microsoft.com/download/confirmation.aspx?id=48145) to allow the use of native DLLs from Python.
 
 3. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
 
