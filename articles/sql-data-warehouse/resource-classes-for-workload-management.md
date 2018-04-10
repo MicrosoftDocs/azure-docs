@@ -2,24 +2,17 @@
 title: Resource classes for workload management - Azure SQL Data Warehouse | Microsoft Docs
 description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: ''
-
-
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
+author: kevinvngo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
 ms.date: 04/09/2018
-ms.author: joeyong;barbkess;kavithaj
-
+ms.author: kevin
+ms.reviewer: jrj
 ---
-# Resource classes and workload management in Azure SQL Data Warehouse
-Learn how to use resource classes to manage memory and concurrency for queries in your Azure SQL Data Warehouse workload.  
+
+# Workload management with resource classes in Azure SQL Data Warehouse
+Learn how to use resource classes to manage memory and concurrency for queries in your Azure SQL Data Warehouse.  
  
 ## What is workload management?
 Workload management is the ability to optimize the overall performance of all queries. A well-tuned workload runs queries and load operations efficiently regardless of whether they are compute-intensive or IO-intensive.  SQL Data Warehouse provides workload management capabilities for multi-user environments. A data warehouse is not intended for multi-tenant workloads.
@@ -43,12 +36,10 @@ The performance capacity of a query is determined by the user's resource class.
 - To view the resource utilization for the resource classes, see [Memory and concurrency limits](memory-and-concurrency-limits.md#concurrency-maximums).
 - To adjust the resource class, you can run the query under a different user or [change the current user's resource class](#change-a-user-s-resource-class) membership. 
 
-Concurrency is measured with concurrency slots, which is explained in more detail later in this article.
-
-
+Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article. 
 
 ### Static resource classes
-Static resource classes allocate the same amount of memory regardless of the current service level, which is measured in [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). Since queries get the same memory allocation regardless of the service level, increasing the service level allows more queries to run within a resource class.
+Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](quickstart-scale-compute-portal.md) allows more queries to run within a resource class.
 
 The static resource classes are implemented with these pre-defined database roles:
 
@@ -151,7 +142,7 @@ Resource classes are implemented as pre-defined database roles. There are two ty
 
     ```sql
     SELECT name FROM sys.database_principals
-    WHERE name LIKE '%rc%';
+    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
     ```
 
 ## Change a user's resource class
