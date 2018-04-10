@@ -13,45 +13,45 @@ ms.date: 03/26/2018
 ms.author: v-geberr;
 ---
 
-# Example utterances
+# Add example utterances in LUIS apps
 
-Utterances are examples of user questions or commands. A variety of [example utterances](luis-concept-utterance.md) need to be added to an [intent](luis-concept-intent.md) to teach LUIS.
+Utterances are examples of user questions or commands. To teach Language Understanding (LUIS) apps, you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
-You can create entities and label utterances on the intent page after an utterance is added. If you would rather create entities first, see [Add entities](Add-entities.md).
+Generally, you add an utterance first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](Add-entities.md).
 
-In the following example, use the "BookFlight" intent in the TravelAgent app. 
+The following example uses the "BookFlight" intent in the TravelAgent app. 
 
 ## Add an utterance
 
-1. Open the TravelAgent app by selecting its name on **My Apps** page, and then select **Intents** in the left panel. 
+1. Open the TravelAgent app by selecting its name on the **My Apps** page. Then select **Intents** in the left panel. 
 
-2. On the **Intents** page, select the intent name "BookFlight" to open the details page.
+2. On the **Intents** page, select the intent name **BookFlight** to open the details page.
 
 3. Type `book 2 adult business tickets to Paris tomorrow on Air France` as a new utterance in the text box, and then press Enter. 
  
     >[!NOTE]
-    >LUIS converts all utterances to lower case.
+    >LUIS converts all utterances to lowercase.
 
-    ![Intent Details page](./media/add-example-utterances/add-new-utterance-to-intent.png) 
+    ![Screenshot of Intents details page, with utterance highlighted](./media/add-example-utterances/add-new-utterance-to-intent.png) 
 
 Utterances are added to the utterances list for the current intent. 
 
 ## Edit an utterance
 
-To edit an utterance, select the three dots (...) icon at the right end of the line for that utterance then select **Edit**. 
+To edit an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Edit**. 
 
-![Edit Utterance](./media/add-example-utterances/edit-utterance.png) 
+![Screenshot of Intents details page, with three dots icon highlighted](./media/add-example-utterances/edit-utterance.png) 
 
 ## Delete an utterance
 
-To delete an utterance, select the three dots (...) icon at the right end of the line for that utterance then select **Delete**. 
+To delete an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Delete**. 
 
-![Delete utterance](./media/add-example-utterances/delete-utterance-ddl.png)
+![Screenshot of Intents details page, with Delete option highlighted](./media/add-example-utterances/delete-utterance-ddl.png)
 
 ## Reassign an utterance
-Adding an utterance to an intent means that it is labeled under that intent. You can change the intent label of one or more utterances by moving them to another intent. To change the intent label, select the utterances, select **Reassign predicted intent**, and then select the intent where you want to move them.
+Adding an utterance to an intent means that it is labeled under that intent. You can change the intent label of one or more utterances by moving them to another intent. To change the intent label, select the utterances, and then select **Reassign predicted intent**. Then select the intent where you want to move them.
 
-![Reassign utterance](./media/add-example-utterances/reassign-utterance.png) 
+![Screenshot of Intents details page, with Reassign option highlighted](./media/add-example-utterances/reassign-utterance.png) 
 
 
 ## Add prebuilt entity label
@@ -72,47 +72,44 @@ book me 2 adult business tickets to Paris tomorrow on Air France
     > * For a single word, just select it. 
     > * For a set of two or more words, select at the beginning and then at the end of the set.
 
-2. In the entity drop-down box that appears, you can either select an existing entity to select it, or add a new entity by typing its name in the text box and selecting **Create new entity**. To create the simple entity "Airline," type "Airline" in the text box and then select **Done**.
+2. In the entity drop-down box that appears, you can either select an existing entity, or add a new entity. To add a new entity, type its name in the text box and select **Create new entity**. To create the simple entity "Airline," type "Airline" in the text box and then select **Done**.
  
-    ![Simple Entity Labeling](./media/add-example-utterances/create-airline-simple-entity.png)
+    ![Screenshot of Intents details page, with simple entity labeling option highlighted](./media/add-example-utterances/create-airline-simple-entity.png)
 
 > [!TIP]
 > Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more.
 
 ## Add regular expression entity label
-In the following procedure, you create a custom regular expression entity within the following utterance on the intent page to pull out the flight number `AFR1185`:
+In the following procedure, you create a custom regular expression entity within the following utterance on the intent page:
 
 ```
 book me 2 adult business tickets to Paris tomorrow on Air France (AFR1185)
 ```
 
-1. Select "AFR1185" in the utterance to.
+This pulls out the flight number `AFR1185`.
 
-    > [!NOTE]
-    > When selecting words to label them as entities:
-    > * For a single word, just select it. 
-    > * For a set of two or more words, select at the beginning and then at the end of the set.
+1. Select "AFR1185" in the utterance.
 
-2. In the entity drop-down box that appears, add a new entity by typing its name in the text box, `AirFrance flight number`, and selecting **Create new entity**. Select entity type of **Regular expression**, enter regular expression "AFR[0-9]{3,4}" in the text box and then select **Done**.
+2. In the entity drop-down box that appears, add a new entity by typing its name (`AirFrance flight number`) in the text box. Select **Create new entity**. Then select an entity type of **Regular expression**, and enter the regular expression "AFR[0-9]{3,4}" in the text box. Then select **Done**.
  
-    ![Regular Expression Entity Labeling](./media/add-example-utterances/create-airline-regex-entity.png)
+    ![Screenshot of Intents details page, with regular expression entity labeling option highlighted](./media/add-example-utterances/create-airline-regex-entity.png)
  
 > [!TIP]
 > Try the regular expression [quickstart](luis-quickstart-intents-regex-entity.md) to learn more.
 
 ## Add hierarchical entity and label
 
-The city "Paris" can be either a ToLocation or a FromLocation when booking a plane ticket. In order for LUIS to understand both entity types, this step builds a hierarchical entity. 
+When booking a plane ticket, you can specify the city "Paris" as a location to or a location from. For LUIS to understand both entity types, this step builds a hierarchical entity. 
 
-1. Select "Paris" in the same utterance, then create entity "Location". "Location" is a hierarchical entity containing "ToLocation" and "FromLocation" simple entity types.
+1. Select "Paris" in the same utterance, and then create the entity "Location". "Location" is a hierarchical entity, containing "ToLocation" and "FromLocation" as simple entity types.
 
-    ![Create Hierarchical Entity Labeling](./media/add-example-utterances/create-location-hierarchical-entity.png)
+    ![Screenshot of Create Hierarchical Entity Labeling dialog box](./media/add-example-utterances/create-location-hierarchical-entity.png)
 
     The text "Paris" is now labeled as a top-level hierarchical entity. 
 
-2. Once the hierarchical entity is created, select "Paris" and change the entity from "Location" to "ToLocation" entity.
+2. After the hierarchical entity is created, select "Paris", and change the entity from "Location" to "ToLocation".
 
-    ![Create Hierarchical Entity Labeling](./media/add-example-utterances/label-tolocation.png)
+    ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/add-example-utterances/label-tolocation.png)
 
     To learn more about hierarchical entities and how to add them, see [Add entities](Add-entities.md).
 
