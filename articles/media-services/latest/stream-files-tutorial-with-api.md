@@ -327,7 +327,10 @@ static IList<string> GetStreamingURLs(
     StreamingEndpoint streamingEndpoint = client.StreamingEndpoints.Get(resourceGroupName, accountName, "default");
 
     if (streamingEndpoint != null)
+    {
+        client.StreamingEndpoints.Start(ResourceGroup, AccountName, "default");
         streamingUrlPrefx = streamingEndpoint.HostName;
+    }
 
     foreach (var path in client.StreamingLocators.ListPaths(resourceGroupName, accountName, locator.Name).StreamingPaths)
     {
