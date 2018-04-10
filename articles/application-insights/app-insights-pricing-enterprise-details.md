@@ -42,13 +42,13 @@ For current prices in your currency and region, see [Application Insights pricin
 
 | Scenario                               | Total daily node count |
 |:---------------------------------------|:----------------:|
-| 1 application using 3 Azure App Service instances and 1 virtual server | 4 |
-| 3 applications running on 2 VMs; the Application Insights resources for these applications are in the same subscription and in the Enterprise plan | 2 | 
-| 4 applications whose Applications Insights resources are in the same subscription; each application running 2 instances during 16 off-peak hours, and 4 instances during 8 peak hours | 13.33 | 
-| Cloud services with 1 Worker Role and 1 Web Role, each running 2 instances | 4 | 
-| A 5-node Azure Service Fabric cluster running 50 microservices; each microservice running 3 instances | 5|
+| 1 application uses 3 Azure App Service instances and 1 virtual server | 4 |
+| 3 applications run on 2 VMs, and the Application Insights resources for these applications are in the same subscription and in the Enterprise plan | 2 | 
+| 4 applications have Applications Insights resources in the same subscription; each application runs 2 instances during 16 off-peak hours, and 4 instances during 8 peak hours | 13.33 | 
+| Cloud services have 1 Worker Role and 1 Web Role, each running 2 instances | 4 | 
+| A 5-node Azure Service Fabric cluster runs 50 microservices, and each microservice runs 3 instances | 5|
 
-* The precise node counting depends on which Application Insights SDK your application is using. 
+* The precise node count depends on which Application Insights SDK your application is using. 
   * In SDK versions 2.2 and later, both the Application Insights [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) and the [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) report each application host as a node. Examples are the computer name for physical server and VM hosts or the instance name for cloud services.  The only exception is an application that uses only the [.NET Core](https://dotnet.github.io/) and the Application Insights Core SDK. In that case, only one node is reported for all hosts because the host name isn't available. 
   * For earlier versions of the SDK, the [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) behaves like the newer SDK versions, but the [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) reports only one node, regardless of the number of application hosts. 
   * If your application uses the SDK to set **roleInstance** to a custom value, by default, that same value is used to determine node count. 

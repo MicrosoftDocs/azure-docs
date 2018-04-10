@@ -54,11 +54,11 @@ Because this plan is applicable only to customers with an Operations Management 
 
 For more information about the Enterprise plan, see [Enterprise pricing details](app-insights-pricing-enterprise-details.md).
 
-### Multi-step web tests
+### Multistep web tests
 
-[Multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
+[Multistep web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests) incur an additional charge. Multistep web tests are web tests that perform a sequence of actions.
 
-There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
+There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multistep tests is charged the same as other telemetry from your app.
 
 ## Review pricing plans and estimate costs
 
@@ -66,11 +66,11 @@ Application Insights makes it easy to understand the pricing plans that are avai
 
 ![Choose pricing](./media/app-insights-pricing/pricing-001.png)
 
-A. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](app-insights-sampling.md)) from your server and client apps, and from availability tests.  
-B. A separate charge is made for [multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)  
-C. View data volume trends for the past month.  
-D. Enable data ingestion [sampling](app-insights-sampling.md).   
-E. Set the daily data volume cap.  
+1. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](app-insights-sampling.md)) from your server and client apps, and from availability tests.
+2. A separate charge is made for [multistep web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)
+3. View data volume trends for the past month.
+4. Enable data ingestion [sampling](app-insights-sampling.md). 
+5. Set the daily data volume cap.
 
 Application Insights charges are added to your Azure bill. You can see details of your Azure bill in the **Billing** section of the Azure portal, or in the [Azure billing portal](https://account.windowsazure.com/Subscriptions). 
 
