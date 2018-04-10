@@ -18,7 +18,7 @@ ms.author: mabrigg
 ms.reviewer: ppacent
 ---
 
-# Azure Stack Certificates Signing Request Generation
+# Azure Stack certificates signing request generation
 
 The Azure Stack Readiness Checker tool described in this article is available [from the PSGallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for Azure Stack Deployment. Certificates should be requested, generated, and validated with enough time to test before deployment. 
 
@@ -39,71 +39,55 @@ Your system should meet the following prerequisites before generating the CSR(s)
  - Region Name, External FQDN and Subject for certificate attributes
  - Windows 10 or Windows Server 2016
 
-## Generate Certificate Signing Request(s)
+## Generate certificate signing request(s)
 
 Use these steps to prepare and validate the Azure Stack PKI certificates: 
 
 1.  Install AzsReadinessChecker run the following in Powershell 5.1 or above.
-
-````PowerShell  
-    Install-Module Microsoft.AzureStack.ReadinessChecker
-````
-
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker
+    ````
 2.  Declare the subject as an ordered dictionary like in the following example:
-
-````PowerShell  
-$subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
-````
-
-> [!note]  
-> If a common name (CN) is supplied this will be overwritten by the first DNS name of the certificate request.
-
+    ````PowerShell  
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    ````
+    > [!note]  
+    > If a common name (CN) is supplied this will be overwritten by the first DNS name of the certificate request.
 3.  Declare an output directory that already exists:
-
-````PowerShell  
-$outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
-````
-
+    ````PowerShell  
+    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    ````
 4. Declare Region Name and external FQDN intended for the Azure Stack Deployment.
-
-```Powershell  
-$regionName = 'east'
-$externalFQDN = 'azurestack.contoso.com'
-````
-
-> [!note]  
-> `<regionName>.<externalFQDN>` forms the basis on which all external DNS names in Azure Stack are created, in this example, the portal would be `portal.east.azurestack.contoso.com`.
-
+    ```PowerShell  
+    $regionName = 'east'
+    $externalFQDN = 'azurestack.contoso.com'
+    ````
+    > [!note]  
+    > `<regionName>.<externalFQDN>` forms the basis on which all external DNS names in Azure Stack are created, in this example, the portal would be `portal.east.azurestack.contoso.com`.
 5. To generate a single certificate request with multiple Subject Alternative Names including those needed for PaaS services:
-
-```PowerShell  
-Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
-````
-
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
+    ````
 6. To generate individual certificate signing requests for each DNS Name without PaaS services:
-
-```PowerShell  
-Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
-````
-
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
+    ````
 7. Review the output:
+    ````PowerShell  
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Request Generation
 
-````PowerShell  
-AzsReadinessChecker v1.1803.405.3 started
-Starting Certificate Request Generation
+    CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
+    oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
+    nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
+    Certreq.exe output: CertReq: Request Created
 
-CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
-oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
-nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com
-Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
-Certreq.exe output: CertReq: Request Created
+    Finished Certificate Request Generation
 
-Finished Certificate Request Generation
-
-AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
-AzsReadinessChecker Completed
-````
-
+    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
 8.  Submit the .REQ file generated to your CA (can be internal or public).  The output directory of **Start-AzsReadinessChecker** contains the CSR(s) necessary to submit to a Certificate Authority.  It also contains a child directory containing the INF file(s) used during certificate request generation, as a reference. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
 
 ## Next steps

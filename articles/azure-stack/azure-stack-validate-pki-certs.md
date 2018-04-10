@@ -19,7 +19,7 @@ ms.reviewer: ppacent
 
 # Validate Azure Stack PKI certificates
 
-The Azure Stack Readiness Checker tool described in this article is available [from the PSGallery](https://aka.ms/AzsReadinessChecker). You can use the tool to validate that  the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. You should validate certificates by leaving  enough time to test and reissue certificates if necessary. 
+The Azure Stack Readiness Checker tool described in this article is available [from the PSGallery](https://aka.ms/AzsReadinessChecker). You can use the tool to validate that  the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. You should validate certificates by leaving  enough time to test and reissue certificates if necessary.
 
 The Certificate Checker tool (Certchecker) performs the following checks:
 
@@ -61,37 +61,30 @@ Your system should meet the following prerequisites before validating PKI certif
 Use these steps to prepare and to validate the Azure Stack PKI certificates:
 
 1. Install AzsReadinessChecker from a PowerShell prompt (5.1 or above), by run the following cmdlet: 
-
-````PowerShell  
-    Install-Module Microsoft.AzureStack.ReadinessChecker 
-````
-
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker 
+    ````
 2. Create the certificate directory structure. In the example below, you can change `<c:\certificates>` to a new directory path of your choice.
+    ````PowerShell  
+    New-Item C:\<Certificates> -ItemType Directory
 
-````PowerShell  
-New-Item C:\<Certificates> -ItemType Directory
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal' 
 
-$directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal' 
+    $destination = '<c:\certificates>' 
 
-$destination = '<c:\certificates>' 
-
-$directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
-````
-
+    $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
+    ````
  - Place your certificate(s) in the appropriate directories created in the previous step. For example:  
- - `c:\certificates\ACSBlob\CustomerCertificate.pfx,` 
- - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx` 
- - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx` 
- - and so on… 
-
+    - `c:\certificates\ACSBlob\CustomerCertificate.pfx,` 
+    - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx` 
+    - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx` 
+    - and so on… 
 3. In the PowerShell windows run:
+    ````PowerShell  
+    $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 
-````PowerShell  
-$pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
-
-Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
-````
-
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
+    ````
 4. Review the output to verify that all the certificates passed the tests. For example:
 
 ````PowerShell
