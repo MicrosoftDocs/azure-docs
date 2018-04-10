@@ -5,7 +5,7 @@
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
 # Quickstarts
-## [Create a job - Portal](stream-analytics-quick-create-portal.md)
+## [Create a job - portal](stream-analytics-quick-create-portal.md)
 ## [Create a job - PowerShell](stream-analytics-quick-create-powershell.md)
 
 # Get started
