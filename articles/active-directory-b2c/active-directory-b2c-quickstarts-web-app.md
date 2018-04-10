@@ -1,6 +1,6 @@
 ---
-title: Test drive an Azure AD B2C enabled web app
-description: Quickstart to try a sample ASP.NET web app that uses Azure Active Directory B2C to provide user login.
+title: Quickstart - Set up sign-in for an ASP.NET application using Azure Active Directory B2C | Microsoft Docs
+description: Run a sample ASP.NET web app that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -13,7 +13,7 @@ ms.date: 2/13/2018
 ms.author: davidmu
 
 ---
-# Quickstart: Test drive an Azure AD B2C enabled web app
+# Quickstart: Set up sign-in for an ASP.NET application using Azure Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols.
 

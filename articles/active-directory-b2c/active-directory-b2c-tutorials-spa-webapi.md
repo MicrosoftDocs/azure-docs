@@ -1,18 +1,17 @@
 ---
-title: Use Azure Active Directory B2C to protect a .NET Core web API tutorial
+title: Tutorial - Grant access to an ASP.NET Core web API from a single-page app using Azure Active Directory B2C | Microsoft Docs
 description: Tutorial on how to use Active Directory B2C to protect an .NET Core web api and call it from a single page app.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 
-ms.author: patricka
-ms.reviewer: parja
+ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
 ---
 
-# Tutorial: Use Azure Active Directory B2C to protect an ASP.NET Core Web API
+# Tutorial: Grant access to an ASP.NET Core web API from a single-page app using Azure Active Directory B2C
 
 This tutorial shows you how to call an Azure Active Directory (Azure AD) B2C protected ASP.NET Core web API resource from a single page app.
 

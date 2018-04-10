@@ -1,6 +1,6 @@
 ---
-title: Test drive an Azure AD B2C enabled single-page app
-description: Quickstart to try a sample single-page app that uses Azure Active Directory B2C to authenticate and sign-up users.
+title: Quickstart - Set up sign-in for a single-page app using Azure Active Directory B2C | Microsoft Docs
+description: Run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
 documentationcenter: ''
 author: davidmu1
@@ -14,7 +14,7 @@ ms.date: 2/13/2018
 ms.author: davidmu
 
 ---
-# Quickstart: Test drive an Azure AD B2C enabled single-page app
+# Quickstart: Set up sign-in for a single-page app using Azure Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols.
 
