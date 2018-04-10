@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: sngun
 
 ---

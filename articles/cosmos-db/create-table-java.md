@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/20/2017
+ms.date: 04/10/2018
 ms.author: sngun
 
 ---

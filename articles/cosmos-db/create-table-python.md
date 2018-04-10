@@ -12,7 +12,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
 

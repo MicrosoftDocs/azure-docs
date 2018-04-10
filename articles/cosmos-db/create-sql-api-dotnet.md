@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 04/10/2018
 ms.author: sngun
 
 ---
@@ -99,7 +99,9 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+
+The following snippets are all taken from the DocumentDBRepository.cs file.
 
 * The DocumentClient is initialized on line 76.
 

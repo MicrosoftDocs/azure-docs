@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 04/10/2018
 ms.author: sngun
 
 ---
@@ -64,8 +64,9 @@ Now let's clone a SQL API app from github, set the connection string, and run it
     ```  
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the DocumentDBGetStarted.py file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
+The following snippets are all taken from the DocumentDBGetStarted.py file.
 
 * The DocumentClient is initialized.
 
