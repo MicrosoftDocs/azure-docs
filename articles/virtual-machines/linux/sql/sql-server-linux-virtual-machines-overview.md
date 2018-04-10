@@ -51,7 +51,7 @@ When you configure SQL Server on Linux, you install the database engine package 
 
 ## Related products and services
 
-### Windows Virtual Machines
+### Linux Virtual Machines
 
 * [Virtual Machines overview](../overview.md)
 

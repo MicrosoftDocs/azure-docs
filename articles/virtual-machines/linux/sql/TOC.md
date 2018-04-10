@@ -1,5 +1,5 @@
 # Overview
-## [About Windows SQL Server VMs](sql-server-linux-virtual-machines-overview.md)
+## [About Linux SQL Server VMs](sql-server-linux-virtual-machines-overview.md)
 
 # Quickstarts
 ## [Create SQL VM - Portal](provision-sql-server-linux-virtual-machine.md)
