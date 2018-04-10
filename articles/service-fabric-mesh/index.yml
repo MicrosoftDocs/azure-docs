@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/05/18
+  ms.date: 01/05/2018
   ms.author: dastanfo
 abstract:
   description: Azure Service Fabric Mesh provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Service Fabric Mesh, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials.
@@ -19,12 +19,12 @@ sections:
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph
-    text: Learn how to deploy service fabric applications and containers into service fabric mesh
+    text: Learn how to deploy Service Fabric applications and containers into Service Fabric Mesh
   - type: list
     style: icon48
     items: 
     - image: 
-        src: /media/common/logo_linux.svg
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
       text: Deploy existing containers to Service Fabric Mesh
       href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container
 - title: Step-by-Step Tutorials
@@ -34,9 +34,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/service-fabric-mesh/tutorial-security-policy">Define and assess security policies</a>
-    - html: <a href="/azure/service-fabric-mesh/tutorial-protect-resources">Protect your resources</a>
-    - html: <a href="/azure/service-fabric-mesh/tutorial-security-incident">Respond to security incidents</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial">Define and assess security policies</a>
 - title: Free Video Training
   items:
   - type: list

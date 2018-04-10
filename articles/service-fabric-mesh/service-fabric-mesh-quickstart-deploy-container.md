@@ -1,9 +1,9 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 #Intent: I want to use my existing containers as is and deploy them to Azure. (Windows or Linux) 
-title: Quickstart - deploy an existing container
+title: Quickstart - Deploy an existing container to Azure Service Fabric Mesh
 description: This quickstart shows you how to deploy an existing container on Service Fabric Mesh.
-services: Azure SeaBreeze
+services: Azure Service Fabric Mesh
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: david-stanford
 ms.author: dastanfo
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
 ---
-# Service fabric mesh: deploy a container
+# Service Fabric Mesh: Deploy a container
 
-Service fabric mesh makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines. In this quickstart, you create a container in Azure and expose it to the internet. This operation is completed in a single command. Within just a couple minutes, you'll see this in your browser:
+Service Fabric Mesh makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines. In this quickstart, you create a container in Azure and expose it to the internet. This operation is completed in a single command. Within just a couple minutes, you'll see this in your browser:
 
 ![Hello world app in the browser][sfm-app-browser]
 
-To read more about applications and service fabric mesh, head over to the [service fabric mesh Overview](./service-fabric-mesh-overview.md)
+To read more about applications and Service Fabric Mesh, head over to the [Service Fabric Mesh Overview](./service-fabric-mesh-overview.md)
 
 You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -38,8 +38,6 @@ az group create --name $rg --location eastus
 ## Deploy the container
 
 Create your application using the following deployment command:
-
-## Where is the json file going to be hosted, docs / script folder - that's where I have it now
 
 ```azurecli-interactive
 az sbz deployment create --resource-group $rg --template-uri https://whereIsTheJsonFileOrDoWeHaveThemCreateOne?
@@ -177,8 +175,6 @@ az sbz app list --output table
 
 ## See the application logs
 
-## Logging is currently not enabled, this section needs to be updated when it works
-
 ```azurecli-interactive
 az sbz codepackage logs -g $rg --app-name helloWorldApp --code-package-name <needToFindThis>
 ```
@@ -199,9 +195,7 @@ az group delete --name $rg
 
 ## Next steps
 
-A brief sentence with a link surrounded by the blue box
-
-Advance to the next article to learn more about service fabric mesh
+Advance to the next article to learn more about Service Fabric Mesh
 > [!div class="nextstepaction"]
 > [Next steps button](service-fabric-mesh-overview.md)
 
