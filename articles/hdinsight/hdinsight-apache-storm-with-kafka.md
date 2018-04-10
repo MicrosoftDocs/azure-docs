@@ -354,6 +354,6 @@ To remove the resource group using the Azure portal:
 
 In this tutorial, you learned how to use a Storm topology to write to and read from Kafka on HDInsight. You also learned how to store data to the HDFS compatible storage used by HDInsight.
 
-For more example topologies that can be used with Storm on HDInsight, see [Example Storm topologies and components](storm/apache-storm-example-topology.md).
+To learn more about using Kafka on HDInsight, see the [Use Kafka Producer and Consumer API](kafka/apache-kafka-producer-consumer-api.md) document.
 
-For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+To learn more about Storm on HDInsight, see [Example Storm topologies and components](storm/apache-storm-example-topology.md).
