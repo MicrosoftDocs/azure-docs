@@ -288,6 +288,8 @@ items:
         items:
         - name: Gremlin support
           href: gremlin-support.md
+        - name: Partitioned graph
+          href: graph-partitioning.md
       - name: Table API
         items:
         - name: Table development
@@ -396,7 +398,7 @@ items:
       - name: Leverage the ODBC driver for data visualization
         href: odbc-driver.md
       - name: Use Spring Boot Starter with SQL APIs
-        href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+        href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
   - name: Reference
     items:
     - name: Code samples
@@ -453,3 +455,5 @@ items:
       href: faq.md
     - name: Data consistency explained through baseball
       href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
+    - name: Troubleshoot Azure Cosmos DB
+      href: troubleshoot-azure-cosmosdb.md

@@ -7536,6 +7536,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-ps.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-arm-portal.md",
+            "redirect_url": "/azure/virtual-network/manage-network-security-group",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-create.md",
             "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal",
             "redirect_document_id": false
