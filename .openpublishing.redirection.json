@@ -17886,6 +17886,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
+            "redirect_url": "/azure/role-based-access-control/rbac-and-directory-admin-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/conditional-access-azure-management.md",
+            "redirect_url": "/azure/role-based-access-control/conditional-access-azure-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-access-to-azure-resources.md",
+            "redirect_url": "/azure/role-based-access-control/manage-access-to-azure-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pim-azure-resource.md",
+            "redirect_url": "/azure/role-based-access-control/pim-azure-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-resource-provider-operations.md",
+            "redirect_url": "/azure/role-based-access-control/resource-provider-operations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-tenant-admin-access.md",
+            "redirect_url": "/azure/role-based-access-control/elevate-access-global-admin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-what-is.md",
+            "redirect_url": "/azure/role-based-access-control/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/role-based-access-control-troubleshooting.md",
+            "redirect_url": "/azure/role-based-access-control/troubleshooting",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/role-based-access-control-custom-roles.md",
             "redirect_url": "/azure/role-based-access-control/custom-roles",
             "redirect_document_id": false

@@ -25,7 +25,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
 > [!IMPORTANT]
 > 
-> If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../active-directory/role-based-access-control-what-is.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+> If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
 
 ## Transfer ownership of an Azure subscription
 
@@ -47,7 +47,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
    > [!IMPORTANT]
    > 
-   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../active-directory/role-based-access-control-what-is.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
 
    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
 

@@ -190,7 +190,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
 [premium-storage]:../articles/virtual-machines/windows/premium-storage.md
-[rbac]: ../articles/active-directory/role-based-access-control-what-is.md
+[rbac]: ../articles/role-based-access-control/overview.md
 [rbac-roles]:../articles/role-based-access-control/built-in-roles.md
 [rbac-devtest]:../articles/role-based-access-control/built-in-roles.md#devtest-labs-user
 [rbac-network]:../articles/role-based-access-control/built-in-roles.md#network-contributor

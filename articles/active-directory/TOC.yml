@@ -1,9 +1,9 @@
 - name: Manage access overview
-  href: manage-access-to-azure-resources.md
+  href: ../role-based-access-control/manage-access-to-azure-resources.md
 - name: Resource access in Azure
-  href: active-directory-understanding-resource-access.md
+  href: ../role-based-access-control/rbac-and-directory-admin-roles.md
 - name: Role-Based Access Control (RBAC)
-  href: role-based-access-control-what-is.md
+  href: ../role-based-access-control/overview.md
   items:
   - name: Manage role assignments
     items:
@@ -26,12 +26,12 @@
   - name: Reporting
     href: ../role-based-access-control/change-history-report.md
   - name: Elevate tenant admin access
-    href: role-based-access-control-tenant-admin-access.md
+    href: ../role-based-access-control/elevate-access-global-admin.md
   - name: Troubleshoot
-    href: role-based-access-control-troubleshooting.md
+    href: ../role-based-access-control/troubleshooting.md
   - name: Resource Provider operations
-    href: role-based-access-control-resource-provider-operations.md
+    href: ../role-based-access-control/resource-provider-operations.md
 - name: Privileged Identity Management (PIM) for RBAC
-  href: pim-azure-resource.md
+  href: ../role-based-access-control/pim-azure-resource.md
 - name: Conditional access for Azure management
-  href: conditional-access-azure-management.md
+  href: ../role-based-access-control/conditional-access-azure-management.md

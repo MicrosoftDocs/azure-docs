@@ -42,4 +42,4 @@ Roles do not grant access rights to the service endpoint. Search service operati
 
 + [Manage using PowerShell](search-manage-powershell.md) 
 + [Performance and optimization in Azure Search](search-performance-optimization.md)
-+ [Get started with Role-Based Access Control in the Azure portal](../active-directory/role-based-access-control-what-is.md).
++ [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
