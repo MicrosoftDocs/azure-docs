@@ -26,6 +26,8 @@ ms.author: kumud
 
 This guide shows how to manage your DNS zones by using the cross-platform Azure CLI, which is available for Windows, Mac and Linux. You can also manage your DNS zones using [Azure PowerShell](dns-operations-dnszones.md) or the Azure portal.
 
+This guide specifically deals with Public DNS zones. For information on using Azure CLI to manage Private Zones in Azure DNS, see [Get started with Azure DNS Private Zones using Azure CLI 2.0](private-dns-getstarted-cli.md).
+
 ## Introduction
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
@@ -42,7 +44,7 @@ Verify that you have the following items before beginning your configuration.
 
 ### Sign in to your Azure account
 
-Open a console window and authenticate with your credentials. For more information, see Log in to Azure from the Azure CLI
+Open a console window and authenticate with your credentials. For more information, see [Log in to Azure from the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -61,6 +63,12 @@ Choose which of your Azure subscriptions to use.
 ```azurecli
 az account set --subscription "subscription name"
 ```
+
+### Optional: To install/use Azure DNS Private Zones feature (Public Preview)
+The Azure DNS Private Zone feature is released in Public Preview via an extension to the Azure CLI. Install the “dns” Azure CLI extension 
+```
+az extension add --name dns
+``` 
 
 ### Create a resource group
 

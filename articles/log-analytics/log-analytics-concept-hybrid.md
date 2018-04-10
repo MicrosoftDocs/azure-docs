@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 03/14/2018
 ms.author: magoedte
 
 ---
@@ -38,6 +38,10 @@ The agent for Linux and Windows isn't only for connecting into Log Analytics, it
 
 If your IT security policies do not allow computers on your network to connect to the Internet, the agent can be configured to connect to the OMS Gateway to receive configuration information and send collected data depending on the solution you have enabled. For more information and steps on how to configure your Linux or Windows agent to communicate through an OMS Gateway to the Log Analytics service, see [Connect computers to OMS using the OMS Gateway](log-analytics-oms-gateway.md). 
 
+> [!NOTE]
+> The agent for Windows only supports Transport Layer Security (TLS) 1.0 and 1.1.  
+> 
+
 ## Prerequisites
 Before starting, review the following details to verify you meet the minimum system requirements.
 
@@ -58,25 +62,25 @@ The information below list the proxy and firewall configuration information requ
 |*.azure-automation.net | 443 | Yes | 
 
 ### Linux operating systems
-The following Linux distributions are officially supported.  However, the Linux agent might also run on other distributions not listed.
+The following Linux distributions are officially supported.  However, the Linux agent might also run on other distributions not listed.  Unless otherwise noted, all minor releases are supported for each major version listed.  
 
 * Amazon Linux 2012.09 to 2015.09 (x86/x64)
-* CentOS Linux 5, 6, and 7 (x86/x64)
-* Oracle Linux 5, 6, and 7 (x86/x64)
+* CentOS Linux 5, 6, and 7 (x86/x64)  
+* Oracle Linux 5, 6, and 7 (x86/x64) 
 * Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 and 12 (x86/x64)
 
 #### Network configuration
-The information below list the proxy and firewall configuration information required for the Linux agent to communicate with Log Analytics. Traffic is outbound from your network to the Log Analytics service. 
+The information below list the proxy and firewall configuration information required for the Linux agent to communicate with Log Analytics.  
 
-|Agent Resource| Ports |  
-|------|---------|  
-|*.ods.opinsights.azure.com | Port 443|   
-|*.oms.opinsights.azure.com | Port 443|   
-|*.blob.core.windows.net | Port 443|   
-|*.azure-automation.net | Port 443|  
+|Agent Resource| Ports | Direction |  
+|------|---------|--------|  
+|*.ods.opinsights.azure.com | Port 443 | Inbound and outbound|  
+|*.oms.opinsights.azure.com | Port 443 | Inbound and outbound|  
+|*.blob.core.windows.net | Port 443 | Inbound and outbound|  
+|*.azure-automation.net | Port 443 | Inbound and outbound|  
 
 The Linux agent supports communicating either through a proxy server or OMS Gateway to the Log Analytics service using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  The proxy server can be specified during installation or by modifying the proxy.conf configuration file after installation.  
 

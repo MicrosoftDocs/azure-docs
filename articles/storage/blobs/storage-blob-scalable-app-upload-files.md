@@ -2,18 +2,15 @@
 title: Upload large amounts of random data in parallel to Azure Storage  | Microsoft Docs 
 description: Learn how to use the Azure SDK to upload large amounts of random data in parallel to an Azure Storage account
 services: storage
-documentationcenter: 
-author: georgewallace
+author: roygara
 manager: jeconnoc
-editor: ''
 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: rogarana
 ms.custom: mvc
 ---
 
@@ -73,7 +70,7 @@ In addition to setting the threading and connection limit settings, the [BlobReq
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| The setting breaks the blob into blocks when uploading. For highest performance, this value should be 8 times the number of cores. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| This property disables checking the MD5 hash of the content uploaded. Disabling MD5 validation produces a faster transfer. But does not confirm the validity or integrity of the files being transferred.   |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| This property determines if an MD5 hash is calculated and stored with the file.   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| This property determines if an MD5 hash is calculated and stored with the file.   |
 | [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 2-second backoff with 10 max retry |Determines the retry policy of requests. Connection failures are retried, in this example an [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) policy is configured with a 2-second backoff, and a maximum retry count of 10. This setting is important when your application gets close to hitting the [blob storage scalability targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
 
 The `UploadFilesAsync` task is shown in the following example:
@@ -90,7 +87,7 @@ private static async Task UploadFilesAsync()
     Stopwatch time = Stopwatch.StartNew();
     try
     {
-        Console.WriteLine("Iterating in directiory: {0}", uploadPath);
+        Console.WriteLine("Iterating in directory: {0}", uploadPath);
         int count = 0;
         int max_outstanding = 100;
         int completed_count = 0;
@@ -161,7 +158,7 @@ Created container https://mystorageaccount.blob.core.windows.net/bbe5f0c8-be9e-4
 Created container https://mystorageaccount.blob.core.windows.net/9ac2f71c-6b44-40e7-b7be-8519d3ba4e8f
 Created container https://mystorageaccount.blob.core.windows.net/47646f1a-c498-40cd-9dae-840f46072180
 Created container https://mystorageaccount.blob.core.windows.net/38b2cdab-45fa-4cf9-94e7-d533837365aa
-Iterating in directiory: D:\git\storage-dotnet-perf-scale-app\upload
+Iterating in directory: D:\git\storage-dotnet-perf-scale-app\upload
 Found 50 file(s)
 Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\1d596d16-f6de-4c4c-8058-50ebd8141e4d.txt to container 9efa7ecb-2b24-49ff-8e5b-1d25e5481076.
 Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\242ff392-78be-41fb-b9d4-aee8152a6279.txt to container bbe5f0c8-be9e-4fc3-bcbd-2092433dbf6b.

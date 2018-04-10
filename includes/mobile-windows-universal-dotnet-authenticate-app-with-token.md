@@ -49,7 +49,7 @@
                 {
                     // Login with the identity provider.
                     user = await App.MobileService
-                        .LoginAsync(provider);
+                        .LoginAsync(provider, "{url_scheme_of_your_app}");
    
                     // Create and store the user credentials.
                     credential = new PasswordCredential(provider.ToString(),

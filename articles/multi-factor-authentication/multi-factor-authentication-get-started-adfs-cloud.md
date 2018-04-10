@@ -80,16 +80,13 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 ### Configure Azure Multi-Factor Authentication Trusted IPs with Federated Users
 Now that the claims are in place, we can configure trusted IPs.
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. On the left, click **Active Directory**.
-3. Under Directory, select the directory where you want to set up trusted IPs.
-4. On the Directory you have selected, click **Configure**.
-5. In the multi-factor authentication section, click **Manage service settings**.
-6. On the Service Settings page, under trusted IPs, select **Skip multi-factor-authentication for requests from federated users on my intranet**.  
+1. Sign in to the [Azure portal](https://portal.com).
+2. Select **Azure Active Directory** > **Conditional access** > **Named locations**.
+3. From the **Conditional access - Named locations** blade, select **Configure MFA trusted IPs**
 
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. Click **save**.
-8. Once the updates have been applied, click **close**.
+   ![Azure AD conditional access named locations Configure MFA trusted IPs](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. On the Service Settings page, under **trusted IPs**, select **Skip multi-factor-authentication for requests from federated users on my intranet**.  
+5. Click **save**.
 
 That’s it! At this point, federated Office 365 users should only have to use MFA when a claim originates from outside the corporate intranet.

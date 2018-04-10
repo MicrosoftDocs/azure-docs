@@ -5,7 +5,7 @@ services: hdinsight
 documentationcenter: ''
 tags: azure-portal
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 03/22/2018
 ms.author: larryfr
 
 ---

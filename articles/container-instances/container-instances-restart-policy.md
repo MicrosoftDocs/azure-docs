@@ -17,7 +17,7 @@ The ease and speed of deploying containers in Azure Container Instances provides
 
 With a configurable restart policy, you can specify that your containers are stopped when their processes have completed. Because container instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
 
-The examples presented in this article use the Azure CLI. You must have Azure CLI version 2.0.21 or greater [installed locally](/cli/azure/install-azure-cli), or use the CLI in the [Azure Cloud Shell](../cloud-shell/overview.md).
+The examples presented in this article use the Azure CLI. You must have Azure CLI version 2.0.21 or greater [installed locally][azure-cli-install], or use the CLI in the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## Container restart policy
 
@@ -43,7 +43,7 @@ az container create \
 
 ## Run to completion example
 
-To see the restart policy in action, create a container instance from the [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) image, and specify the `OnFailure` restart policy. This example container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits.
+To see the restart policy in action, create a container instance from the [microsoft/aci-wordcount][aci-wordcount-image] image, and specify the `OnFailure` restart policy. This example container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits.
 
 Run the example container with the following [az container create][az-container-create] command:
 
@@ -165,7 +165,11 @@ Output:
 
 For details on how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

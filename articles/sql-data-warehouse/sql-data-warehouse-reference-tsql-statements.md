@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 03/22/2018
 ms.author: kevin;barbkess
 
 ---
@@ -110,12 +110,12 @@ ms.author: kevin;barbkess
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## Next steps
-For more TSQL examples, see [SQL Data Warehouse reference overview][SQL Data Warehouse reference overview].
+For more TSQL reference, see [SQL Data Warehouse T-SQL language elements](sql-data-warehouse-reference-tsql-language-elements.md).
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 

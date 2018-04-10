@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage guest access with Azure AD access reviews | Microsoft Docs
 description: Manage guest users as members of a group or assigned to an application with Azure Active Directory access reviews
 services: active-directory
@@ -87,7 +87,7 @@ You can use access reviews to ensure that users who were invited for a particula
 
 ### Ask a sponsor to review a guest's access to an application
 
-You can ask a sponsor, such as the owner of an application, to review a guest's need for continued access to the application.
+You can ask a sponsor, such as the owner of an application, to review guest's need for continued access to the application.
 
 1. To start an access review for the application, select the review to include guests only. Then specify one or more users as reviewers. For more information, see [Create an access review](active-directory-azure-ad-controls-create-access-review.md).
 
@@ -102,15 +102,15 @@ In some organizations, guests might not be aware of their group memberships.
 > [!NOTE]
 > Earlier versions of the Azure portal didn't permit administrative access by users with the UserType of Guest. In some cases, an administrator in your directory might have changed a guest's UserType value to Member by using PowerShell. If this change previously occurred in your directory, the previous query might not include all guest users who historically had administrative access rights. In this case, you need to either change the guest's UserType or manually include the guest in the group membership.
 
-1. Create a security group in Azure AD with the guests as members, if a suitable group doesn't already exist. For example, you can create a group with a manually maintained membership of guests. Or, you can create a dynamic group with a name such as "Guests of Contoso" for users in the Contoso tenant who have the UserType attribute value of Guest.
+1. Create a security group in Azure AD with the guests as members, if a suitable group doesn't already exist. For example, you can create a group with a manually maintained membership of guests. Or, you can create a dynamic group with a name such as "Guests of Contoso" for users in the Contoso tenant who have the UserType attribute value of Guest.  For efficiency, ensure the group is predominately guests - don't select a group that has users who don't need to be reviewed.
 
 2. To start an access review for that group, select the reviewers to be the members themselves. For more information, see [Create an access review](active-directory-azure-ad-controls-create-access-review.md).
 
-3. Ask each guest to review their own membership. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [review their access](active-directory-azure-ad-controls-perform-access-review.md).
+3. Ask each guest to review their own membership. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [review their access](active-directory-azure-ad-controls-perform-access-review.md).  Those guests who didn't accept their invite will appear in the review results as "Not Notified".
 
 4. After the reviewers give input, stop the access review. For more information, see [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md).
 
-5. Remove guest access for guests who were denied, didn't complete the review, or didn't previously accept their invitation. If some of the guests are contacts who were selected to participate in the review because they didn't previously accept an invitation, you can disable their accounts by using the Azure portal or PowerShell. If the guest no longer needs access and isn't a contact, you can remove their user object from your directory by using the Azure portal or PowerShell.
+5. Remove guest access for guests who were denied, didn't complete the review, or didn't previously accept their invitation. If some of the guests are contacts who were selected to participate in the review or they didn't previously accept an invitation, you can disable their accounts by using the Azure portal or PowerShell. If the guest no longer needs access and isn't a contact, you can remove their user object from your directory by using the Azure portal or PowerShell to delete the guest user object.
 
 ## Next steps
 

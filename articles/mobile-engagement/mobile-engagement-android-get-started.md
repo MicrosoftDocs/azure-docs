@@ -18,6 +18,11 @@ ms.author: piyushjo;ricksal
 
 ---
 # Get started with Azure Mobile Engagement for Android apps
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and how to send push notifications to segmented users of an Android application.
@@ -88,7 +93,7 @@ Android Studio now creates the demo app into which we integrate Mobile Engagemen
 
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
-3. Go back to the Azure Classic Portal in your app's **Connection Info** page and copy the **Connection String**.
+3. Go back to the Azure portal in your app's **Connection Info** page and copy the **Connection String**.
 
       ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 

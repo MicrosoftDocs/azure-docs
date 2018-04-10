@@ -38,7 +38,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
+        <a href="https://azure.microsoft.com/resources/videos/index/?sort=newest&tag=internet-of-things">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -150,9 +150,8 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                         <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C device SDK</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Devices)</a></p>
-                        <p><a href="/javascript/api/azure-iot-device/">Node.js (Devices)</a></p>
-						<p><a href="/javascript/api/azure-iothub">Node.js (Service)</a></p>
-                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
+                        <p><a href="/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest">Node.js (Devices)</a></p>
+                        <p><a href="/javascript/api/azure-iothub/?view=azure-iot-typescript-latest">Node.js (Service)</a></p>
                     </div>
                 </div>
             </div>

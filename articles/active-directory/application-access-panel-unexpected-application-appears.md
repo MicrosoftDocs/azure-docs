@@ -19,17 +19,17 @@ ms.reviewr: japere
 
 # How applications appear on the access panel
 
-The Access Panel is a web-based portal which enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. These applications are configured on behalf of the user in the Azure AD portal. The admin can provision the application to the user directly or to a group a user is part of resulting in the application appearing on the user’s Access Panel.
+The Access Panel is a web-based portal, which enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. These applications are configured on behalf of the user in the Azure AD portal. The admin can provision the application to the user directly or to a group a user is part of resulting in the application appearing on the user’s Access Panel.
 
 ## General issues to check first
 
--   If an application was just removed from a user or group the user is a member of, try to sign in and out again into the user’s Access Panel after a few minutes to see if the application is removed.
+-   If an application was removed from a user or group the user is a member of, try to sign in and out again into the user’s Access Panel after a few minutes to see if the application is removed.
 
--   If a license was just removed from a user or group the user is a member of this may take a long time, depending on the size and complexity of the group for changes to be made. Allow for extra time before signing into the Access Panel.
+-   If a license was removed from a user or group the user is a member of this may take a long time, depending on the size and complexity of the group for changes to be made. Allow for extra time before signing into the Access Panel.
 
 ## Problems related to assigning applications to users
 
-A user may be seeing an application on their Access Panel because they had been previously assigned to it. Below are some ways to check:
+A user may be seeing an application on their Access Panel because they had been previously assigned to it. Following are some ways to check:
 
 -   [Check if a user is assigned to the application](#check-if-a-user-is-assigned-to-the-application)
 
@@ -38,15 +38,15 @@ A user may be seeing an application on their Access Panel because they had been 
 
 ### Check if a user is assigned to the application
 
-To check if a user is assigned to the application, follow the steps below:
+To check if a user is assigned to the application, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
 5.  click **All Applications** to view a list of all your applications.
 
@@ -60,11 +60,11 @@ To check if a user is assigned to the application, follow the steps below:
 
 ### Check if a user is under a license related to the application
 
-To check a user’s assigned licenses, follow the steps below:
+To check a user’s assigned licenses, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -76,11 +76,11 @@ To check a user’s assigned licenses, follow the steps below:
 
 7.  click **Licenses** to see which licenses the user currently has assigned.
 
-   * If the user is assigned to an Office license this enable First Party Office applications to appear on the user’s Access Panel.
+   * If the user is assigned to an Office license, this enables First Party Office applications to appear on the user’s Access Panel.
 
 ## Problems related to assigning applications to groups
 
-A user may be seeing an application on their Access Panel because they are part of a group that has been assigned the application. Below are some ways to check:
+A user may be seeing an application on their Access Panel because they are part of a group that has been assigned the application. Following are some ways to check:
 
 -   [Check a user’s group memberships](#check-a-users-group-memberships)
 
@@ -88,11 +88,11 @@ A user may be seeing an application on their Access Panel because they are part 
 
 ### Check a user’s group memberships
 
-To check a group’s membership, follow the steps below:
+To check a group’s membership, follow these steps:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -110,9 +110,9 @@ To check a group’s membership, follow the steps below:
 
 ### Check if a user is a member of a group assigned to a license
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **More services** at the bottom of the main left hand navigation menu.
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
 3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
@@ -128,7 +128,7 @@ To check a group’s membership, follow the steps below:
 
 9.  click **Licenses** to see which licenses the group has assigned to it.
 
-  * If the group is assigned to an Office license this may enable certain First Party Office applications to appear on the user’s Access Panel.
+  * If the group is assigned to an Office license, this may enable certain First Party Office applications to appear on the user’s Access Panel.
 
 
 ## If these troubleshooting steps do not the resolve the issue

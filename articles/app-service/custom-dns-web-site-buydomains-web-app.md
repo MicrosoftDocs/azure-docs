@@ -33,6 +33,8 @@ To complete this tutorial:
 
 ## Prepare the app
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 To use custom domains in Azure Web Apps, your web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**). In this step, you make sure that the web app is in the supported pricing tier.
 
 ### Sign in to Azure
@@ -216,7 +218,7 @@ In Azure, DNS records for an App Service Domain are managed using [Azure DNS](ht
 
 ### Open App Service Domain
 
-In the Azure portal, from the left menu, select **More Services** > **App Service Domains**.
+In the Azure portal, from the left menu, select **All services** > **App Service Domains**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -236,7 +238,7 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
 ### Open App Service Domain
 
-In the Azure portal, from the left menu, select **More Services** > **App Service Domains**.
+In the Azure portal, from the left menu, select **All services** > **App Service Domains**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 

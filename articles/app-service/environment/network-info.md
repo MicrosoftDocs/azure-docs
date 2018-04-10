@@ -12,10 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ---
-# Networking considerations for an App Service environment #
+# Networking considerations for an App Service Environment #
 
 ## Overview ##
 
@@ -50,6 +50,13 @@ The normal app access ports are:
 |  Visual Studio remote debugging  |  User configurable |  4016, 4018, 4020, 4022 |
 
 This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an effect on some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
+
+## ASE subnet size ##
+
+The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are 5 addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE then it will use 13 addresses before you create an app in that ASE. As you scale out your App Serivce plans it will require additional addresses for each Front End that is added.  By default, Front End servers are added for every 15 total App Service plan instances. 
+
+   > [!NOTE]
+   > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/25` with 128 addresses.
 
 ## ASE dependencies ##
 
@@ -146,7 +153,7 @@ In an ASE, you don't have access to the VMs used to host the ASE itself. They're
 
 NSGs can be configured through the Azure portal or via PowerShell. The information here shows the Azure portal. You create and manage NSGs in the portal as a top-level resource under **Networking**.
 
-When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. The VNet address range is _192.168.250.0/16_, and the subnet that the ASE is in is _192.168.251.128/25_.
+When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. The VNet address range is _192.168.250.0/23_, and the subnet that the ASE is in is _192.168.251.128/25_.
 
 The first two inbound requirements for the ASE to function are shown at the top of the list in this example. They enable ASE management and allow the ASE to communicate with itself. The other entries are all tenant configurable and can govern network access to the ASE-hosted applications. 
 
@@ -164,31 +171,10 @@ After your NSGs are defined, assign them to the subnet that your ASE is on. If y
 
 ## Routes ##
 
-Routes become problematic most commonly when you configure your VNet with Azure ExpressRoute. There are three types of routes in a VNet:
+Forced tunneling is when you set routes in your VNet so the outbound traffic doesn't go directly to the internet but somewhere else like an ExpressRoute gateway or a virtual appliance.  If you need to configure your ASE in such a manner then read the document on [Configuring your App Service Environment with Forced Tunneling][forcedtunnel].  This document will tell you the options available to work with ExpressRoute and forced tunneling.
 
--   System routes
--   BGP routes
--   User-defined routes (UDRs)
-
-BGP routes override system routes. UDRs override BGP routes. For more information about routes in Azure virtual networks, see [User-defined routes overview][UDRs].
-
-The Azure SQL database that the ASE uses to manage the system has a firewall. It requires communication to originate from the ASE public VIP. Connections to the SQL database from the ASE will be denied if they are sent down the ExpressRoute connection and out another IP address.
-
-If replies to incoming management requests are sent down the ExpressRoute, the reply address is different than the original destination. This mismatch breaks the TCP communication.
-
-For your ASE to work while your VNet is configured with an ExpressRoute, the easiest thing to do is:
-
--   Configure ExpressRoute to advertise _0.0.0.0/0_. By default, it force tunnels all outbound traffic on-premises.
--   Create a UDR. Apply it to the subnet that contains the ASE with an address prefix of _0.0.0.0/0_ and a next hop type of _Internet_.
-
-If you make these two changes, internet-destined traffic that originates from the ASE subnet isn't forced down the ExpressRoute and the ASE works. 
-
-> [!IMPORTANT]
-> The routes defined in a UDR must be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The preceding example uses the broad 0.0.0.0/0 address range. It can potentially be accidentally overridden by route advertisements that use more specific address ranges.
->
-> ASEs aren't supported with ExpressRoute configurations that cross-advertise routes from the public-peering path to the private-peering path. ExpressRoute configurations with public peering configured receive route advertisements from Microsoft. The advertisements contain a large set of Microsoft Azure IP address ranges. If the address ranges are cross-advertised on the private-peering path, all outbound network packets from the ASE's subnet are force tunneled to a customer's on-premises network infrastructure. This network flow is currently not supported with ASEs. One solution to this problem is to stop cross-advertising routes from the public-peering path to the private-peering path.
-
-To create a UDR, follow these steps:
+When you create an ASE in the portal we also create a set of route tables on the subnet that is created with the ASE.  Those routes simply say to send outbound traffic directly to the internet.  
+To create the same routes manually, follow these steps:
 
 1. Go to the Azure portal. Select **Networking** > **Route Tables**.
 
@@ -206,17 +192,15 @@ To create a UDR, follow these steps:
 
     ![NSGs and routes][7]
 
-### Deploy into existing Azure virtual networks that are integrated with ExpressRoute ###
+## Service Endpoints ##
 
-To deploy your ASE into a VNet that's integrated with ExpressRoute, preconfigure the subnet where you want the ASE deployed. Then use a Resource Manager template to deploy it. To create an ASE in a VNet that already has ExpressRoute configured:
+Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 
-- Create a subnet to host the ASE.
+When you enable Service Endpoints on a resource, there are routes created with higher priority than all other routes. If you use Service Endpoints with a forced tunneled ASE, the Azure SQL and Azure Storage management traffic isn't forced tunneled. 
 
-    > [!NOTE]
-    > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/25` with 128 addresses.
+When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another. Azure Storage does not behave the same as Azure SQL. When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
 
-- Create UDRs (for example, route tables) as described earlier, and set that on the subnet.
-- Create the ASE by using a Resource Manager template as described in [Create an ASE by using a Resource Manager template][MakeASEfromTemplate].
+![Service Endpoints][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -226,6 +210,7 @@ To deploy your ASE into a VNet that's integrated with ExpressRoute, preconfigure
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
+[8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -247,3 +232,6 @@ To deploy your ASE into a VNet that's integrated with ExpressRoute, preconfigure
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

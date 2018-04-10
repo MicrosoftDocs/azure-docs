@@ -15,7 +15,7 @@ manager: cfowler
 
 # Create a function on Linux using a custom image (preview)
 
-Azure Functions lets you host your functions on Linux in your own custom container. This functionality is currently in preview. You can also [host on a default Azure App Service container](functions-create-first-azure-function-azure-cli-linux.md).  
+Azure Functions lets you host your functions on Linux in your own custom container. You can also [host on a default Azure App Service container](functions-create-first-azure-function-azure-cli-linux.md). This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md), which is also in preview.
 
 In this tutorial, you learn how to deploy a function app as a custom Docker image. This pattern is useful when you need to customize the built-in App Service container image. You may want to use a custom image when your functions need a specific language version or require a specific dependency or configuration that isn't provided within the built-in image.
 
@@ -108,7 +108,7 @@ With the custom image running in a local Docker container, verify the function a
 
 ![Test the function app locally.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-After you hav verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
+After you have verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
 
 ## Push the custom image to Docker Hub
 
@@ -123,7 +123,7 @@ docker login --username <docker-id>
 A "login succeeded" message confirms that you are logged in. After you have signed in, you push the image to Docker Hub by using the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Verify that the push succeeded by examining the command's output.
@@ -156,7 +156,7 @@ Linux hosting for Functions is currently not supported on consumption plans. You
 
 ## Create and deploy the custom image
 
-The function app hosts the execution of your functions. Create a function app from a Docker Hub image by using the [az functionapp create](/cli/azure/functionapp#create) command. 
+The function app hosts the execution of your functions. Create a function app from a Docker Hub image by using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command. 
 
 In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. As before, `<docker-id>` is your Docker account name.
 
@@ -191,7 +191,7 @@ The _deployment-container-image-name_ parameter indicates the image hosted on Do
 
 The function needs the connection string to connect to the default storage account. When you are publishing your custom image to a private container account, you should instead set these application settings as environment variables in the Dockerfile using the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env), or equivalent. 
 
-In this case, `<storage_account>` is the name of the storage account you created. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) command. Add these application settings in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
+In this case, `<storage_account>` is the name of the storage account you created. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) command. Add these application settings in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) command.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \

@@ -3,11 +3,10 @@ title: Integrating Applications with Azure Active Directory
 description: How to add, update, or remove an application in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
 
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -107,7 +106,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 - Delegated Permissions: Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission requires administrator consent. 
 
   > [!NOTE]
-  > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant, as it did in the Azure classic portal. Users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
+  > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant. Users must still manually consent for the added delegated permissions at runtime, unless the administrator clicks the **Grant Permissions** button from the **Required Permissions** section of the application page in the Azure portal. 
 
 #### To add application credentials, or permissions to access web APIs
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -307,7 +306,7 @@ Applications that your organization has registered show under the "My apps" filt
 ### Removing a multi-tenant application authorized by another organization
 A subset of the applications that show under the "All apps" filter (excluding the "My apps" registrations) on your tenant's main "App registrations" page, are multi-tenant applications. In technical terms, these multi-tenant applications are from another tenant, and were registered into your tenant during the consent process. More specifically, they are represented by only a service principal object in your tenant, with no corresponding application object. For more information on the differences between application and service principal objects, see [Application and service principal objects in Azure AD](active-directory-application-objects.md).
 
-In order to remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have global admin access, and can remove through the Azure portal the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
+In order to remove a multi-tenant application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have global admin access, and can remove through the Azure portal or use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
 
 ## Next steps
 - For more information on how authentication works in Azure AD, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).

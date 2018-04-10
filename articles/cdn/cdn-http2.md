@@ -21,7 +21,7 @@ ms.author: rli
 
 HTTP/2 is a major revision to HTTP/1.1\. It provides faster web performance, reduced response time, and improved user experience, while maintaining the familiar HTTP methods, status codes, and semantics. Though HTTP/2 is designed to work with HTTP and HTTPS, many client web browsers only support HTTP/2 over TLS.
 
-###HTTP/2 Benefits
+### HTTP/2 Benefits
 
 The benefits of HTTP/2 include:
 
@@ -38,7 +38,7 @@ The benefits of HTTP/2 include:
     Stream dependencies allow the client to indicate to the server which of resources have priority.
 
 
-##HTTP/2 Browser Support
+## HTTP/2 Browser Support
 
 All of the major browsers have implemented HTTP/2 support in their current versions. Non-supported browsers will automatically fallback to HTTP/1.1.
 
@@ -50,11 +50,11 @@ All of the major browsers have implemented HTTP/2 support in their current versi
 |Opera| 32|
 |Safari| 9|
 
-##Enabling HTTP/2 Support in Azure CDN
+## Enabling HTTP/2 Support in Azure CDN
 
 Currently HTTP/2 support is active for **Azure CDN from Akamai** and **Azure CDN from Verizon** profiles. No further action is required from customers.
 
-##Next Steps
+## Next Steps
 
 To see the benefits of HTTP/2 in action, see [this demo from Akamai](https://http2.akamai.com/demo).
 

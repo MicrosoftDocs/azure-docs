@@ -3,9 +3,9 @@ title: Use custom activities in an Azure Data Factory pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: craigg
+
 
 ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
-ms.author: spelluru
+ms.date: 01/10/2018
+ms.author: douglasl
 
 robots: noindex
 ---
@@ -109,7 +109,9 @@ The method returns a dictionary that can be used to chain custom activities toge
      <li>Select <b>C:\ADFGetStarted</b> for the <b>Location</b>.</li>
      <li>Click <b>OK</b> to create the project.</li>
    </ol>
+   
 2. Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.
+
 3. In the Package Manager Console, execute the following command to import **Microsoft.Azure.Management.DataFactories**.
 
 	```PowerShell
@@ -416,7 +418,7 @@ Here are the steps you perform in this section:
 
 ### Step 1: Create the data factory
 1. After logging in to the Azure portal, do the following steps:
-   1. Click **NEW** on the left menu.
+   1. Click **Create a resource** on the left menu.
    2. Click **Data + Analytics** in the **New** blade.
    3. Click **Data Factory** on the **Data analytics** blade.
    

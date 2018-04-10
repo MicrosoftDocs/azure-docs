@@ -1,21 +1,17 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: Authentication, sign-up, edit profile .NET Azure Active Directory B2C | Microsoft Docs
 description: How to build a Windows desktop application that includes sign-in, sign-up, and profile management by using Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: .net
-author: dstrockis
+author: davidmu1
 manager: mtillman
 editor: ''
 
-ms.assetid: 9da14362-8216-4485-960e-af17cd5ba3bd
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
-
+ms.author: davidmu
 ---
 # Azure AD B2C: Build a Windows desktop app
 By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your desktop app in a few short steps. This article will show you how to create a .NET Windows Presentation Foundation (WPF) "to-do list" app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email. It will also include support for sign-up and sign-in by using social accounts such as Facebook and Google.
@@ -70,7 +66,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### Enter your B2C details
 Open the file `Globals.cs` and replace each of the property values with your own. This class is used throughout `TaskClient` to reference commonly used values.
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -91,7 +87,7 @@ public static class Globals
 ### Create the PublicClientApplication
 The primary class of MSAL is `PublicClientApplication`. This class represents your application in the Azure AD B2C system. When the app initalizes, create an instance of `PublicClientApplication` in `MainWindow.xaml.cs`. This can be used throughout the window.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -109,7 +105,7 @@ protected async override void OnInitialized(EventArgs e)
 ### Initiate a sign-up flow
 When a user opts to signs up, you want to initiate a sign-up flow that uses the sign-up policy you created. By using MSAL, you just call `pca.AcquireTokenAsync(...)`. The parameters you pass to `AcquireTokenAsync(...)` determine which token you receive, the policy used in the authentication request, and more.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -160,7 +156,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### Initiate a sign-in flow
 You can initiate a sign-in flow in the same way that you initiate a sign-up flow. When a user signs in, make the same call to MSAL, this time by using your sign-in policy:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -175,7 +171,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### Initiate an edit-profile flow
 Again, you can execute an edit-profile policy in the same fashion:
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -191,7 +187,7 @@ In all of these cases, MSAL either returns a token in `AuthenticationResult` or 
 ### Check for tokens on app start
 You can also use MSAL to keep track of the user's sign-in state.  In this app, we want the user to remain signed in even after they close the app & re-open it.  Back inside the `OnInitialized` override, use MSAL's `AcquireTokenSilent` method to check for cached tokens:
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -230,7 +226,7 @@ catch (MsalException ex)
 ## Call the task API
 You have now used MSAL to execute policies and get tokens.  When you want to use one these tokens to call the task API, you can again use MSAL's `AcquireTokenSilent` method to check for cached tokens:
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -275,7 +271,7 @@ private async void GetTodoList()
 
 When the call to `AcquireTokenSilentAsync(...)` succeeds and a token is found in the cache, you can add the token to the `Authorization` header of the HTTP request. The task web API will use this header to authenticate the request to read the user's to-do list:
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -288,7 +284,7 @@ When the call to `AcquireTokenSilentAsync(...)` succeeds and a token is found in
 ## Sign the user out
 Finally, you can use MSAL to end a user's session with the app when the user selects **Sign out**.  When using MSAL, this is accomplished by clearing all of the tokens from the token cache:
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

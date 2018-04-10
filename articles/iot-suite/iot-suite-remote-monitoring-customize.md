@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -20,6 +20,10 @@ This article provides information about how you can access the source code and c
 
 * The GitHub repositories that contain the source code and resources for the microservices that make up the preconfigured solution.
 * Common customization scenarios such as adding a new device type.
+
+The following video presents an overview of the options for customizing the remote monitoring preconfigured solution:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## Project overview
 

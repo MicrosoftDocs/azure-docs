@@ -4,7 +4,7 @@ description: Languages for the Data Science Virtual Machine on Azure
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: gokuma;bradsev
+ms.author: gokuma
 
 ---
 
@@ -23,19 +23,89 @@ ms.author: gokuma;bradsev
 
 The Data Science Virtual Machine (DSVM) comes with several pre-built languages and development tools for building your AI applications. Here are some of the salient ones. 
 
-## Python
+## Python (Windows Server 2016 Edition)
+
+|    |           |
+| ------------- | ------------- |
+| Language versions Supported | 2.7 and 3.6 |
+| Supported DSVM Editions      | Windows Server 2016     |
+| How is it configured / installed on the DSVM?  | Two global `conda` environments are created. <br /> * `root` environment located at `/anaconda/` is Python 3.6 . <br/> * `python2` environment located at `/anaconda/envs/python2`is Python 2.7       |
+| Links to Samples      | Sample Jupyter notebooks for Python are included     |
+| Related Tools on the DSVM      | PySpark, R, Julia      |
+
+> [!NOTE]
+> Windows Server 2016 created before March 2018 contains Python 3.5 and Python 2.7. Also Python 2.7 is the conda **root** environment and **py35** is the Python 3.5 environment. 
+
+### How to use / run it?    
+
+* Running in command prompt
+
+Open command prompt and do the following depending on the version of Python you want to run. 
+
+```
+# To run Python 2.7
+activate python2
+python --version
+
+# To run Python 3.6
+activate 
+python --version
+
+```
+* Using in an IDE
+
+Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment setup automatically in PTVS by default is Python 3.6. 
+
+> [!NOTE]
+> To point the PTVS at Python 2.7, you need to create a  custom environment in PTVS. To set this environment paths in the Visual Studio  Community Edition, navigate to **Tools** -> **Python Tools** -> **Python Environments** and then click **+ Custom**. Then set the location to `c:\anaconda\envs\python2` and then click _Auto Detect_. 
+
+* Using in Jupyter
+
+Open Jupyter and click on the `New` button to create a new notebook. At this point, you can choose the kernel type as _Python [Conda Root]_ for Python 3.6 and _Python [Conda env:python2]_ for Python 2.7 environment. 
+
+* Installing Python packages
+
+The default Python environments on the DSVM are global environment readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, activate to the root or python2 environment using the `activate` command as an Administrator. Then you can use the package manager like `conda` or `pip` to install or update packages. 
+
+## Python (Linux and Windows Server 2012 Edition)
 
 |    |           |
 | ------------- | ------------- |
 | Language versions Supported | 2.7 and 3.5 |
-| Supported DSVM Editions      | Linux, Windows     |
+| Supported DSVM Editions      | Linux, Windows Server 2012    |
 | How is it configured / installed on the DSVM?  | Two global `conda` environments are created. <br /> * `root` environment located at `/anaconda/` is Python 2.7 . <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5       |
 | Links to Samples      | Sample Jupyter notebooks for Python are included     |
 | Related Tools on the DSVM      | PySpark, R, Julia      |
 ### How to use / run it?    
 
-**Windows**:
+**Linux**
+* Running in terminal
 
+Open terminal and do the following depending on the version of Python you want to run. 
+
+```
+# To run Python 2.7
+source activate 
+python --version
+
+# To run Python 3.5
+source activate py35
+python --version
+
+```
+* Using in an IDE
+
+Use PyCharm installed in the Visual Studio Community edition. 
+
+* Using in Jupyter
+
+Open Jupyter and click on the `New` button to create a new notebook. At this point, you can choose the kernel type as _Python [Conda Root]_ for Python 2.7 and _Python [Conda env:py35]_ for Python 3.5 environment. 
+
+* Installing Python packages
+
+The default Python environments on the DSVM are global environments readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, activate to the root or py35 environment using the `source activate` command as an Administrator or a user with sudo permission. Then you can use a package manager like `conda` or `pip` to install or update packages. 
+
+**Windows 2012**
 * Running in command prompt
 
 Open command prompt and do the following depending on the version of Python you want to run. 
@@ -64,42 +134,13 @@ Open Jupyter and click on the `New` button to create a new notebook. At this poi
 
 The default Python environments on the DSVM are global environment readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, activate to the root or py35 environment using the `activate` command as an Administrator. Then you can use the package manager like `conda` or `pip` to install or update packages. 
 
-
-**Linux**:
-
-* Running in terminal
-
-Open terminal and do the following depending on the version of Python you want to run. 
-
-```
-# To run Python 2.7
-source activate 
-python --version
-
-# To run Python 3.5
-source activate py35
-python --version
-
-```
-* Using in an IDE
-
-Use PyCharm installed in the Visual Studio Community edition. 
-
-* Using in Jupyter
-
-Open Jupyter and click on the `New` button to create a new notebook. At this point, you can choose the kernel type as _Python [Conda Root]_ for Python 2.7 and _Python [Conda env:py35]_ for Python 3.5 environment. 
-
-* Installing Python packages
-
-The default Python environments on the DSVM are global environments readable by all users. But only administrators can write / install global packages. In order to install package to the global environment, activate to the root or py35 environment using the `source activate` command as an Administrator or a user with sudo permission. Then you can use a package manager like `conda` or `pip` to install or update packages. 
-
 ## R
 
 |    |           |
 | ------------- | ------------- |
 | Language versions Supported | Microsoft R Open 3.x (100% compatible with CRAN-R<br /> Microsoft R Server 9.x Developer edition (A Scalable Enterprise ready R platform)|
 | Supported DSVM Editions      | Linux, Windows     |
-| How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Links to Samples      | Sample Jupyter notebooks for R are included     |
 | Related Tools on the DSVM      | SparkR, Python, Julia      |
 ### How to use / run it?    
@@ -145,7 +186,7 @@ R is installed on the DSVM in a  global environment readable by all users. But o
 
 |    |           |
 | ------------- | ------------- |
-| Language versions Supported | 0.5 |
+| Language versions Supported | 0.6 |
 | Supported DSVM Editions      | Linux, Windows     |
 | How is it configured / installed on the DSVM?  | Windows: Installed at `C:\JuliaPro-VERSION`<br /> Linux: Installed at `/opt/JuliaPro-VERSION`    |
 | Links to Samples      | Sample Jupyter notebooks for Julia are included     |

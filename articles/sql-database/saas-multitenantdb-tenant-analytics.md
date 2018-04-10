@@ -3,18 +3,12 @@ title: "Run analytics queries against Azure SQL databases | Microsoft Docs"
 description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
 keywords: "sql tutorial"
 services: "sql-database"
-documentationcenter: ""
 author: "stevestein"
 manager: "jhubbard"
-editor: "MightyPen"
-
 ms.service: "sql-database"
 ms.custom: "scale out apps"
-ms.workload: "Inactive"
-ms.tgt_pltfrm: ""
-ms.devlang: ""
 ms.topic: "article"
-ms.date: "11/08/2017"
+ms.date: 04/01/2018
 ms.author: "anjangsh; billgib; genemi"
 ---
 # Cross-tenant analytics using extracted data
@@ -72,7 +66,7 @@ To complete this tutorial, make sure the following prerequisites are met:
 - The Wingtip SaaS scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) are downloaded from GitHub. Be sure to *unblock the zip file* before extracting its contents. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 - Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](saas-multitenantdb-provision-and-catalog.md).
-- A job account and job account database have been created. See the appropriate steps in the [**Schema management tutorial**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- A job agent and job agent database have been created. See the appropriate steps in the [**Schema management tutorial**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### Create data for the demo
 

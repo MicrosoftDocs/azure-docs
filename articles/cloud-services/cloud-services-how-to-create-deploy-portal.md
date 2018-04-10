@@ -56,15 +56,15 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 
 ## Create and deploy
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Click **New > Compute**, and then scroll down to and click **Cloud Service**.
+2. Click **Create a resource > Compute**, and then scroll down to and click **Cloud Service**.
 
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. In the new **Cloud Service** blade, enter a value for the **DNS name**.
+3. In the new **Cloud Service** pane, enter a value for the **DNS name**.
 4. Create a new **Resource Group** or select an existing one.
 5. Select a **Location**.
-6. Click **Package**. This will open the **Upload a package** blade. Fill in the required fields. If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
+6. Click **Package**. This opens the **Upload a package** pane. Fill in the required fields. If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
 7. Make sure that **Start deployment** is selected.
-8. Click **OK** which will close the **Upload a package** blade.
+8. Click **OK** which will close the **Upload a package** pane.
 9. If you do not have any certificates to add, click **Create**.
 
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/select-package.png)
@@ -72,9 +72,9 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 ## Upload a certificate
 If your deployment package was [configured to use certificates](cloud-services-configure-ssl-certificate-portal.md#modify), you can upload the certificate now.
 
-1. Select **Certificates**, and on the **Add certificates** blade, select the SSL certificate .pfx file, and then provide the **Password** for the certificate,
-2. Click **Attach certificate**, and then click **OK** on the **Add certificates** blade.
-3. Click **Create** on the **Cloud Service** blade. When the deployment has reached the **Ready** status, you can proceed to the next steps.
+1. Select **Certificates**, and on the **Add certificates** pane, select the SSL certificate .pfx file, and then provide the **Password** for the certificate,
+2. Click **Attach certificate**, and then click **OK** on the **Add certificates** pane.
+3. Click **Create** on the **Cloud Service** pane. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 

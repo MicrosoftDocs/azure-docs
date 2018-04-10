@@ -124,7 +124,7 @@ Leveraging the Azure Monitor alert configuration, you can select any of the avai
 	Get-AzureRmAlertRule -Name myMetricRuleWithEmail -ResourceGroup myresourcegroup -DetailedOutput 
 	```
 
-You can also learn more about [configuring webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) for creating alerts.
+You can also learn more about [configuring webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md) for creating alerts.
 
 ## Configure logging on DDoS Protection metrics
 

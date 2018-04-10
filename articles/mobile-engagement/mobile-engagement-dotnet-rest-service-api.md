@@ -18,6 +18,10 @@ ms.author: wesmc;ricksal
 
 ---
 # Using REST to access Azure Mobile Engagement Service APIs
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 Azure Mobile Engagement provides the [Azure Mobile Engagement REST API](https://msdn.microsoft.com/library/azure/mt683754.aspx) for you to manage Devices, Reach/Push campaigns etc.
 
 > [!NOTE]

@@ -31,8 +31,8 @@ The application is an advertising bulletin board. Users create an ad by entering
 
 The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process.
 
-## Alternative architecture: Websites and WebJobs
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and virtual machines comparison](../app-service/choose-web-site-cloud-service-vm.md).
+## Alternative architecture: Web Apps and WebJobs
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure Web Apps](/azure/app-service/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and virtual machines comparison](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## What you'll learn
 * How to enable your machine for Azure development by installing the Azure SDK.
@@ -113,7 +113,7 @@ You'll do the following steps to run the application in the cloud:
 An Azure cloud service is the environment the application will run in.
 
 1. In your browser, open the [Azure portal](https://portal.azure.com).
-2. Click **New > Compute > Cloud Service**.
+2. Click **Create a resource > Compute > Cloud Service**.
 
 3. In the DNS name input box, enter a URL prefix for the cloud service.
 
@@ -132,7 +132,7 @@ An Azure cloud service is the environment the application will run in.
 ### Create an Azure SQL database
 When the app runs in the cloud, it will use a cloud-based database.
 
-1. In the [Azure portal](https://portal.azure.com), click **New > Databases > SQL Database**.
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource > Databases > SQL Database**.
 2. In the **Database Name** box, enter *contosoads*.
 3. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
 4. In the following image, click **Server - Configure required settings** and **Create a new server**.
@@ -159,7 +159,7 @@ An Azure storage account provides resources for storing queue and blob data in t
 
 In a real-world application, you would typically create separate accounts for application data versus logging data, and separate accounts for test data versus production data. For this tutorial, you'll use just one account.
 
-1. In the [Azure portal](https://portal.azure.com), click **New > Storage > Storage account - blob, file, table, queue**.
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource > Storage > Storage account - blob, file, table, queue**.
 2. In the **Name** box, enter a URL prefix.
 
     This prefix plus the text you see under the box will be the unique URL to your storage account. If the prefix you enter has already been used by someone else, you'll have to choose a different prefix.

@@ -38,14 +38,14 @@ The Application Insights web SDK automatically collects HTTP requests for ASP.NE
 
 Another example that requires custom tracking is the worker that receives items from the queue. For some queues, the call to add a message to this queue is tracked as a dependency. However, the high-level operation that describes message processing is not automatically collected.
 
-Let's see how we can track such operations.
+Let's see how such operations could be tracked.
 
 On a high level, the task is to create `RequestTelemetry` and set known properties. After the operation is finished, you track the telemetry. The following example demonstrates this task.
 
 ### HTTP request in Owin self-hosted app
-In this example, we follow the [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). You should expect to receive headers that are described there.
+In this example, trace context is propagated according to the [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). You should expect to receive headers that are described there.
 
-``` C#
+```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
     private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
@@ -119,16 +119,19 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 The HTTP Protocol for Correlation also declares the `Correlation-Context` header. However, it's omitted here for simplicity.
 
 ## Queue instrumentation
-For HTTP communication, we've created a protocol to pass correlation details. With some queues' protocols, you can pass additional metadata along with the message, and with others you can't.
+While there is [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) to pass correlation details with HTTP request, every queue protocol has to define how the same details are passed along the queue message. Some queue protocols (such as AMQP) allow passing additional metadata and some others (such Azure Storage Queue) require the context to be encoded into the message payload.
 
-### Service Bus queue
-With the Azure [Service Bus queue](../service-bus-messaging/index.md), you can pass a property bag along with the message. We use it to pass the correlation ID.
+### Service Bus Queue
+Application Insights tracks Service Bus Messaging calls with the new [Microsoft Azure ServiceBus Client for .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) version 3.0.0 and higher.
+If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you are done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. 
+Refer to the [Service Bus client tracing with Microsoft Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md) if you manually process messages.
 
-The Service Bus queue uses TCP-based protocols. Application Insights doesn't automatically track queue operations, so we track them manually. The dequeue operation is a push-style API, and we're unable to track it.
+If you use [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) package, read further - following examples demonstrate how to track (and correlate) calls to the Service Bus as Service Bus queue uses AMQP protocol and Application Insights doesn't automatically track queue operations.
+Correlation identifiers are passed in the message properties.
 
 #### Enqueue
 
-```C#
+```csharp
 public async Task Enqueue(string payload)
 {
     // StartOperation is a helper method that initializes the telemetry item
@@ -166,7 +169,7 @@ public async Task Enqueue(string payload)
 ```
 
 #### Process
-```C#
+```csharp
 public async Task Process(BrokeredMessage message)
 {
     // After the message is taken from the queue, create RequestTelemetry to track its processing.
@@ -206,7 +209,7 @@ Make sure you have `Microsoft.ApplicationInsights.DependencyCollector.HttpDepend
 
 If you configure Application Insights manually, make sure you create and initialize `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` similarly to:
  
-``` C#
+```csharp
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
 
 // You can prevent correlation header injection to some domains by adding it to the excluded list.
@@ -222,14 +225,14 @@ You also might want to correlate the Application Insights operation ID with the 
 #### Enqueue
 Because Storage queues support the HTTP API, all operations with the queue are automatically tracked by Application Insights. In many cases, this instrumentation should be enough. However, to correlate traces on the consumer side with producer traces, you must pass some correlation context similarly to how we do it in the HTTP Protocol for Correlation. 
 
-In this example, we track the optional `Enqueue` operation. You can:
+This example shows how to track the `Enqueue` operation. You can:
 
  - **Correlate retries (if any)**: They all have one common parent that's the `Enqueue` operation. Otherwise, they're tracked as children of the incoming request. If there are multiple logical requests to the queue, it might be difficult to find which call resulted in retries.
  - **Correlate Storage logs (if and when needed)**: They're correlated with Application Insights telemetry.
 
 The `Enqueue` operation is the child of a parent operation (for example, an incoming HTTP request). The HTTP dependency call is the child of the `Enqueue` operation and the grandchild of the incoming request:
 
-```C#
+```csharp
 public async Task Enqueue(CloudQueue queue, string message)
 {
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queue.Name);
@@ -283,7 +286,7 @@ The `Dequeue` operation is tricky. The Application Insights SDK automatically tr
 
 In many cases, it might be useful to correlate the HTTP request to the queue with other traces as well. The following example demonstrates how to do it:
 
-``` C#
+```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
 {
     var telemetry = new DependencyTelemetry
@@ -332,9 +335,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### Process
 
-In the following example, we trace an incoming message in a manner similarly to how we trace an incoming HTTP request:
+In the following example, an incoming message is tracked in a manner similarly to incoming HTTP request:
 
-```C#
+```csharp
 public async Task Process(MessagePayload message)
 {
     // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
@@ -364,7 +367,7 @@ public async Task Process(MessagePayload message)
 
 Similarly, other queue operations can be instrumented. A peek operation should be instrumented in a similar way as a dequeue operation. Instrumenting queue management operations isn't necessary. Application Insights tracks operations such as HTTP, and in most cases, it's enough.
 
-When you instrument message deletion, make sure you set the operation (correlation) identifiers. Alternatively, you can use the `Activity` API. Then you don't need to set operation identifiers on the telemetry items because Application Insights does it for you:
+When you instrument message deletion, make sure you set the operation (correlation) identifiers. Alternatively, you can use the `Activity` API. Then you don't need to set operation identifiers on the telemetry items because Application Insights SDK does it for you:
 
 - Create a new `Activity` after you've got an item from the queue.
 - Use `Activity.SetParentId(message.ParentId)` to correlate consumer and producer logs.
@@ -381,7 +384,7 @@ Each message should be processed in its own asynchronous control flow. For more 
 ## Long-running background tasks
 Some applications start long-running operations that might be caused by user requests. From the tracing/instrumentation perspective, it's not different from request or dependency instrumentation: 
 
-``` C#
+```csharp
 async Task BackgroundTask()
 {
     var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
@@ -409,7 +412,7 @@ async Task BackgroundTask()
 }
 ```
 
-In this example, we use `telemetryClient.StartOperation` to create `RequestTelemetry` and fill the correlation context. Let's say you have a parent operation that was created by incoming requests that scheduled the operation. As long as `BackgroundTask` starts in the same asynchronous control flow as an incoming request, it's correlated with that parent operation. `BackgroundTask` and all nested telemetry items are automatically correlated with the request that caused it, even after the request ends.
+In this example, `telemetryClient.StartOperation` creates `RequestTelemetry` and fills the correlation context. Let's say you have a parent operation that was created by incoming requests that scheduled the operation. As long as `BackgroundTask` starts in the same asynchronous control flow as an incoming request, it's correlated with that parent operation. `BackgroundTask` and all nested telemetry items are automatically correlated with the request that caused it, even after the request ends.
 
 When the task starts from the background thread that doesn't have any operation (`Activity`) associated with it, `BackgroundTask` doesn't have any parent. However, it can have nested operations. All telemetry items reported from the task are correlated to the `RequestTelemetry` created in `BackgroundTask`.
 
@@ -426,9 +429,33 @@ The general approach for custom dependency tracking is to:
 - Stop the operation with `StopOperation` when it's finished.
 - Handle exceptions.
 
+```csharp
+public async Task RunMyTaskAsync()
+{
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1"))
+    {
+        try 
+        {
+            var myTask = await StartMyTaskAsync();
+            // Update status code and success as appropriate.
+        }
+        catch(...) 
+        {
+            // Update status code and success as appropriate.
+        }
+    }
+}
+```
+
+Disposing operation causes operation to be stopped, so you may do it instead of calling `StopOperation`.
+
+*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
+
+### Parallel operations processing and tracking
+
 `StopOperation` only stops the operation that was started. If the current running operation doesn't match the one you want to stop, `StopOperation` does nothing. This situation might happen if you start multiple operations in parallel in the same execution context:
 
-```C#
+```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
@@ -438,31 +465,31 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// This will do nothing and will not report telemetry for the first operation
+// FAILURE!!! This will do nothing and will not report telemetry for the first operation
 // as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
 await secondTask;
 ```
 
-Make sure you always call `StartOperation` and run your task in its own context:
-```C#
-public async Task RunMyTaskAsync()
+Make sure you always call `StartOperation` and process operation in the same **async** method to isolate operations running in parallel. If operation is synchronous (or not async), wrap process and track with `Task.Run`:
+
+```csharp
+public void RunMyTask(string name)
 {
-    var operation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
-    try 
+    using (var operation = telemetryClient.StartOperation<DependencyTelemetry>(name))
     {
-        var myTask = await StartMyTaskAsync();
+        Process();
         // Update status code and success as appropriate.
     }
-    catch(...) 
-    {
-        // Update status code and success as appropriate.
-    }
-    finally 
-    {
-        telemetryClient.StopOperation(operation);
-    }
+}
+
+public async Task RunAllTasks()
+{
+    var task1 = Task.Run(() => RunMyTask("task 1"));
+    var task2 = Task.Run(() => RunMyTask("task 2"));
+    
+    await Task.WhenAll(task1, task2);
 }
 ```
 

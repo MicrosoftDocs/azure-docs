@@ -24,15 +24,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
       text: Azure Portal
       href: /azure/azure-policy/assign-policy-definition
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/azure-policy/assign-policy-definition-ps
     - image: 
-        src: https://docs.microsoft.com/en-us/media/common/cli.svg
+        src: https://docs.microsoft.com/media/common/cli.svg
       text: Azure CLI
       href: /azure/azure-policy/assign-policy-definition-cli
 - title: Step-by-Step Tutorials
@@ -59,6 +59,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="https://docs.microsoft.com/en-us/cli/azure/policy">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/policy">Azure CLI</a></p>
     - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>

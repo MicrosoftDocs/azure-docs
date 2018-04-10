@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 2/15/2018
 ms.author: menchi
 
 ---
@@ -24,6 +24,6 @@ This article lists some of the common terms used in the IoT Edge articles.
 
 ## Next steps
 
-* See [IoT Hub glossary](#iot-hub-devguide-glossary.md)
-* Learn IoT Edge [module development](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-modules)
-* Learn IoT Edge [deployment](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring)
+* See [IoT Hub glossary](../iot-hub/iot-hub-devguide-glossary.md)
+* Learn IoT Edge [module development](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules)
+* Learn IoT Edge [deployment](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)

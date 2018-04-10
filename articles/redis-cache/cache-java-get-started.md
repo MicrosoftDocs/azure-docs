@@ -3,8 +3,8 @@ title: How to use Azure Redis Cache with Java | Microsoft Docs
 description: Get started with Azure Redis Cache using Java
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/31/2017
-ms.author: sdanie
+ms.author: wesmc
 
 ---
 # How to use Azure Redis Cache with Java

@@ -4,7 +4,7 @@ description: The ExpressRoute FAQ contains information about Supported Azure Ser
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 04/09/2018
 ms.author: cherylmc
 
 ---
@@ -65,13 +65,18 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 ### Public peering
 
+>[!NOTE]
+>Microsoft peering is the preferred way to access all services hosted on Azure.
+>
+
 * Power BI
 * Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
-* Most of the Azure services, with the following few exceptions:
-  * CDN
-  * Visual Studio Team Services Load Testing
-  * Multi-factor Authentication
-  * Traffic Manager
+* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
+  The following services are NOT supported:
+    * CDN
+    * Visual Studio Team Services Load Testing
+    * Multi-factor Authentication
+    * Traffic Manager
 
 ### Microsoft peering
 
@@ -84,7 +89,8 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Using [route filters](#route-filters-for-microsoft-peering), you get access to the same public services with the Microsoft peering :
   * Power BI
   * Dynamics 365 for Finance and Operations
-  * Most of the Azure services, with the following few exceptions :
+  * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
+  The following services are NOT supported:
     * CDN
     * Visual Studio Team Services Load Testing
     * Multi-factor Authentication
@@ -118,11 +124,11 @@ Yes. Each ExpressRoute circuit has a redundant pair of cross connections configu
 
 ### Will I lose connectivity if one of my ExpressRoute links fail?
 
-You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.
+You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network and provide high availability of your ExpressRoute circuit. You can additionally create a circuit in a different peering location to achieve circuit-level resilience.
 
-## How do I ensure high availability on a virtual network connected to ExpressRoute?
+### How do I ensure high availability on a virtual network connected to ExpressRoute?
 
-You can achieve high availability by connecting multiple ExpressRoute circuits in different peering locations to your virtual network. For example, if one ExpressRoute site goes down, connectivity will fail over to another ExpressRoute site. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one connection to another. See [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) for additional details on Connection Weight.
+You can achieve high availability by connecting ExpressRoute circuits in different peering locations (e.g. Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. See [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md) for additional details on Connection Weight.
 
 ### <a name="onep2plink"></a>If I'm not co-located at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft?
 
@@ -142,9 +148,12 @@ Yes. You can have more than one ExpressRoute circuit in your subscription. The d
 
 Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit is associated with one service provider only. 
 
-### Can I have multiple ExpressRoute circuits in the same location?
+### I see two ExpressRoute peering locations in the same metro, e.g. Singapore and Singapore2. Which peering location should I choose to create my ExpressRoute circuit?
+If your service provider offers ExpressRoute at both sites, you can work with your provider and pick either site to set up ExpressRoute. 
 
-Yes. You can have multiple ExpressRoute circuits, with the same or different service providers in the same location. However, you can't link more than one ExpressRoute circuit to the same virtual network from the same location.
+### Can I have multiple ExpressRoute circuits in the same metro? Can I link them to the same virtual network?
+
+Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at various peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can’t link them to the same virtual network.
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 
@@ -208,7 +217,7 @@ Yes. You will have to create an ExpressRoute gateway within your virtual network
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 
-The public IP address is used for internal management only. This public IP address is not exposed to the Internet, and does not constitute a security exposure of your virtual network.
+The public IP address is used for internal management only, and does not constitute a security exposure of your virtual network.
 
 ### What do I need to connect to Azure storage over ExpressRoute?
 
@@ -334,7 +343,10 @@ See [ExpressRoute partners and locations](expressroute-locations.md) for informa
 
 ### Can I access Office 365 over the Internet, even if ExpressRoute was configured for my organization?
 
-Yes. Office 365 service endpoints are reachable through the Internet, even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
+Yes. Office 365 service endpoints are reachable through the Internet, even though ExpressRoute has been configured for your network. Please check with your organization's networking team if the network at your location is configured to connect to Office 365 services through ExpressRoute.
+
+### How can I plan for high availability for Office 365 network traffic on Azure ExpressRoute?
+See the recommendation for [High availability and failover with Azure ExpressRoute](https://aka.ms/erhighavailability)
 
 ### Can I access Office 365 US Government Community (GCC) services over an Azure US Government ExpressRoute circuit?
 

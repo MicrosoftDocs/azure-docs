@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 02/15/2018
 ms.author: terrylan
 
 ---
 # Supported platforms in Azure Security Center
-Security state monitoring and recommendations are available for virtual machines (VMs) created using both the classic and Resource Manager deployment models.
+Security state monitoring and recommendations are available for virtual machines (VMs), created using both the classic and Resource Manager deployment models, and computers.
 
 > [!NOTE]
 > Learn more about the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
 >
 >
 
-## Supported platforms for Windows VMs
+## Supported platforms for Windows computers and VMs
 Supported Windows operating systems:
 
 * Windows Server 2008
@@ -35,7 +35,7 @@ Supported Windows operating systems:
 * Windows Server 2016
 
 
-## Supported platforms for Linux VMs
+## Supported platforms for Linux computers and VMs
 Supported Linux operating systems:
 
 * Ubuntu versions 12.04, 14.04, 16.04, 16.10

@@ -4,15 +4,15 @@ description: 'Learn about datasets and linked services in Data Factory. Linked s
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 
-ms.date: 09/05/2017
+ms.topic: article
+ms.date: 01/22/2018
 ms.author: shlo
 
 ---
@@ -123,7 +123,7 @@ The following table describes properties in the above JSON:
 Property | Description | Required |
 -------- | ----------- | -------- |
 name | Name of the dataset. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
-type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-types). | Yes |
+type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-type). | Yes |
 structure | Schema of the dataset. For details, see [Dataset structure](#dataset-structure). | No |
 typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes |
 
@@ -182,31 +182,37 @@ In the example in the previous section, the type of the dataset is set to **Azur
 }
 ```
 ## Dataset structure
-The **structure** section is optional. It defines the schema of the dataset by containing a collection of names and data types of columns. You use the structure section to provide type information that is used to convert types and map columns from the source to the destination. In the following example, the dataset has three columns: timestamp, projectname, and pageviews. They are of type String, String, and Decimal, respectively.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+The **structure** section is optional. It defines the schema of the dataset by containing a collection of names and data types of columns. You use the structure section to provide type information that is used to convert types and map columns from the source to the destination.
 
 Each column in the structure contains the following properties:
 
 Property | Description | Required
 -------- | ----------- | --------
 name | Name of the column. | Yes
-type | Data type of the column. | No
+type | Data type of the column. Data Factory supports the following interim data types as allowed values: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan** | No
 culture | .NET-based culture to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. The default is `en-us`. | No
-format | Format string to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. | No
+format | Format string to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. | No
 
-The following guidelines help you determine when to include structure information, and what to include in the **structure** section.
+### Example
+In the following example, suppose the source Blob data is in CSV format and contains three columns: userid, name, and lastlogindate. They are of type Int64, String, and Datetime with a custom datetime format using abbreviated French names for day of the week.
 
-- **For structured data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure SQL Database.<br/><br/>As type information is already available for structured data sources, you should not include type information when you do include the structure section.
-- **For schema on read data sources (specifically Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink.<br/><br/> Data Factory supports the following values for providing type information in structure: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
+Define the Blob dataset structure as follows along with type definitions for the columns:
 
-Learn more on how data factory maps source data to sink from [Schema and type mapping]( copy-activity-schema-and-type-mapping.md) and when to specify structure information.
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### Guidance
+
+The following guidelines help you understand when to include structure information, and what to include in the **structure** section. Learn more on how data factory maps source data to sink and when to specify structure information from [Schema and type mapping](copy-activity-schema-and-type-mapping.md).
+
+- **For strong schema data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure SQL Database.<br/><br/>As type information is already available for structured data sources, you should not include type information when you do include the structure section.
+- **For no/weak schema data sources e.g. text file in blob storage**, include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink. And include structure when you want to map source columns to sink columns..
 
 ## Create datasets
 You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal

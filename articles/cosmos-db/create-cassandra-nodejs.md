@@ -3,9 +3,8 @@ title: 'Quickstart: Cassandra API with Node.js - Azure Cosmos DB | Microsoft Doc
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with Node.js
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 4732e57d-32ed-40e2-b148-a8df4ff2630d
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.author: govindk
+ms.author: sngun
 
 ---
 # Quickstart: Build a Cassandra app with Node.js and Azure Cosmos DB

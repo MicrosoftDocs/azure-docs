@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
 
 ---
@@ -44,9 +44,11 @@ You need SSH client on your desktop machine to enable you to remotely access the
 
 ### Required Raspberry Pi software
 
+This article assumes you have installed the latest version of the [Raspbian OS on your Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+
 The following steps show you how to prepare your Raspberry Pi for building a C application that connects to the preconfigured solution:
 
-1. Connect to your Raspberry Pi using `ssh`. For more information, see [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) on the [Raspberry Pi website](https://www.raspberrypi.org/).
+1. Connect to your Raspberry Pi using **ssh**. For more information, see [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) on the [Raspberry Pi website](https://www.raspberrypi.org/).
 
 1. Use the following command to update your Raspberry Pi:
 
@@ -57,31 +59,27 @@ The following steps show you how to prepare your Raspberry Pi for building a C a
 1. Use the following command to add the required development tools and libraries to your Raspberry Pi:
 
     ```sh
-    sudo apt-get install g++ make cmake gcc git
+    sudo apt-get purge libssl-dev
+    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. Use the following commands to install the IoT Hub client libraries:
-
-    ```sh
-    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-    sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-    ```
-
-1. Clone the Parson JSON parser to your Raspberry Pi using the following commands:
+1. Use the following commands to download, build, and install the IoT Hub client libraries on your Raspberry Pi:
 
     ```sh
     cd ~
-    git clone https://github.com/kgabis/parson.git
+    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c/build_all/linux
+    ./build.sh --no-make
+    cd ../../cmake/iotsdk_linux
+    make
+    sudo make install
     ```
 
 ## Create a project
 
-Complete the following steps using the `ssh` connection to your Raspberry Pi:
+Complete the following steps using the **ssh** connection to your Raspberry Pi:
 
-1. Create a folder called `remote_monitoring` in your home folder on the Raspberry Pi. Navigate to this folder in your command line:
+1. Create a folder called `remote_monitoring` in your home folder on the Raspberry Pi. Navigate to this folder in your shell:
 
     ```sh
     cd ~
@@ -89,13 +87,9 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
     cd remote_monitoring
     ```
 
-1. Create the four files `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, and `CMakeLists.txt` in the `remote_monitoring` folder.
+1. Create the four files **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, and **CMakeLists.txt** in the `remote_monitoring` folder.
 
-1. Create folder called `parson` in the `remote_monitoring` folder.
-
-1. Copy the files `parson.c` and `parson.h` from your local copy of the Parson repository into the `remote_monitoring/parson` folder.
-
-1. In a text editor, open the `remote_monitoring.c` file. On the Raspberry Pi, you can use either the `nano` OR `vi` text editor. Add the following `#include` statements:
+1. In a text editor, open the **remote_monitoring.c** file. On the Raspberry Pi, you can use either the **nano** or **vi** text editor. Add the following `#include` statements:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -105,20 +99,24 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+Save the **remote_monitoring.c** file and exit the editor.
+
 ## Add code to run the app
 
-In a text editor, open the `remote_monitoring.h` file. Add the following code:
+In a text editor, open the **remote_monitoring.h** file. Add the following code:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-In a text editor, open the `main.c` file. Add the following code:
+Save the **remote_monitoring.h** file and exit the editor.
+
+In a text editor, open the **main.c** file. Add the following code:
 
 ```c
 #include "remote_monitoring.h"
@@ -130,6 +128,8 @@ int main(void)
   return 0;
 }
 ```
+
+Save the **main.c** file and exit the editor.
 
 ## Build and run the application
 
@@ -155,18 +155,16 @@ The following steps describe how to use *CMake* to build your client application
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
     set(sample_application_c_files
-        ./parson/parson.c
         ./remote_monitoring.c
         ./main.c
     )
 
     set(sample_application_h_files
-        ./parson/parson.h
         ./remote_monitoring.h
     )
 
@@ -185,6 +183,8 @@ The following steps describe how to use *CMake* to build your client application
         m
     )
     ```
+
+1. Save the **CMakeLists.txt** file and exit the editor.
 
 1. In the `remote_monitoring` folder, create a folder to store the *make* files that CMake generates. Then run the **cmake** and **make** commands as follows:
 

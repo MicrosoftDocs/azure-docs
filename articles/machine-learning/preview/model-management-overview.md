@@ -3,9 +3,9 @@ title: Conceptual overview of Azure Machine Learning Model Management | Microsof
 description: This document explains Model Management concepts for Azure Machine Learning.
 services: machine-learning
 author: nk773
-ms.author: neerajkh, padou
+ms.author: padou
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
@@ -94,27 +94,27 @@ The complete workflow describing these concepts is captured in the following fig
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## Frequently asked questions (FAQ) 
-- What data types are supported? Can I pass NumPy arrays directly as input to web service?
+- **What data types are supported? Can I pass NumPy arrays directly as input to web service?**
 
    If you are providing schema file that was created using generate_schema SDK, then you can pass NumPy and/or Pandas DF. You can also pass any JSON serializable inputs. You can pass image as binary encoded string as well.
 
-- Does the web service support multiple inputs or parse different inputs? 
+- **Does the web service support multiple inputs or parse different inputs?**
 
    Yes, you can take multiple inputs packaged in the one JSON request as a dictionary. Each input would correspond to a single unique dictionary key.
 
-- Is the call activated by a request to the web service a blocking call or an asynchronous call?
+- **Is the call activated by a request to the web service a blocking call or an asynchronous call?**
 
    If service was created using realtime option as part of the CLI or API, then it is a blocking/synchronous call. It is expected to be realtime fast. Although on the client side you can call it using async HTTP library to avoid blocking the client thread.
 
-- How many requests can the web service simultaneously handle?
+- **How many requests can the web service simultaneously handle?**
 
    It depends on the cluster and web service scale. You can scale out your service to 100x of replicas and then it can handle many requests concurrently. You can also configure the maximum concurrent request per replica to increase service throughput.
 
-- How many requests can the web service queue up?
+- **How many requests can the web service queue up?**
 
    It is configurable. By default, it is set to ~10 per single replica, but you can increase/decrease it to your application requirements. Typically, increasing it the number of queued requests increases the service throughput but makes the latencies worse at higher percentiles. To keep the latencies consistent, you may want to set the queuing to a low value (1-5), and increase the number of replicas to handle the throughput. You can also turn on autoscaling to make the number of replicas adjusting automatically based on load. 
 
-- Can the same machine or cluster be used for multiple web service endpoints?
+- **Can the same machine or cluster be used for multiple web service endpoints?**
 
    Absolutely. You can run 100x of services/endpoints on the same cluster. 
 

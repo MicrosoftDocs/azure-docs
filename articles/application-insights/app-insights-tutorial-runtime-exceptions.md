@@ -45,27 +45,32 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 Application Insights collects any failures in your application and lets you view their frequency across different operations to help you focus your efforts on those with the highest impact.  You can then drill down on details of these failures to identify root cause.   
 
 1. Select **Application Insights** and then your subscription.  
-1. To open the **Failures** panel either select **Failures** under the **Investigate** menu or click the **Failed requests** graph.
+2. To open the **Failures** panel either select **Failures** under the **Investigate** menu or click the **Failed requests** graph.
 
 	![Failed requests](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
-2. The **Failed requests** panel shows the count of failed requests and the number of users affected for each operation for the application.  By sorting this information by user you can identify those failures that most impact users.  In this example, the **GET Employees/Create** and **GET Customers/Details** are likely candidates to investigate because of their large number of failures and impacted users.  Selecting an operation shows further information about this operation in the right panel.
+3. The **Failed requests** panel shows the count of failed requests and the number of users affected for each operation for the application.  By sorting this information by user you can identify those failures that most impact users.  In this example, the **GET Employees/Create** and **GET Customers/Details** are likely candidates to investigate because of their large number of failures and impacted users.  Selecting an operation shows further information about this operation in the right panel.
 
 	![Failed requests panel](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
 
-3. Reduce the time window to zoom in on the period where the failure rate shows a spike.
+4. Reduce the time window to zoom in on the period where the failure rate shows a spike.
 
 	![Failed requests window](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-4. Click **View Details** to see the details for the operation.  This includes a Gantt chart that shows two failed dependencies which collectively took almost half of a second to complete.  You can find out more about analyzing performance issues by completing the tutorial [Find and diagnose performance issues with Azure Application Insights](app-insights-tutorial-performance.md).
+5. Click **View Details** to see the details for the operation.  This includes a Gantt chart that shows two failed dependencies which collectively took almost half of a second to complete.  You can find out more about analyzing performance issues by completing the tutorial [Find and diagnose performance issues with Azure Application Insights](app-insights-tutorial-performance.md).
 
 	![Failed requests details](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
 
-5. The operations detail also shows a FormatException which appears to have caused the failure.  Click the exception or on the **Top 3 exception types** count to view its details.  You can see that it's due to an invalid zip code.
+6. The operations detail also shows a FormatException which appears to have caused the failure.  Click the exception or on the **Top 3 exception types** count to view its details.  You can see that it's due to an invalid zip code.
 
 	![Exception details](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
+> [!NOTE]
+Enable the "Unified details: E2E Transaction Diagnostics" [preview experience](app-insights-previews.md) to see all related server-side telemetry like requests, dependencies, exceptions, traces, events etc. in a single full screen view. 
 
+With the preview enabled, you can see the time spent in dependency calls, along with any failures or exceptions in a unified experience. For cross-component transactions, the Gantt chart along with the details pane can help you quickly diagnose the root-cause component, dependency or exception. You can expand the bottom section to see time-sequence of any traces or events collected for the selected component-operation. [Learn more about the new experience](app-insights-transaction-diagnostics.md)  
+
+![Transaction diagnostics](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## Identify failing code
 The Snapshot Debugger collects snapshots of the most frequent exceptions in your application to assist you in diagnosing its root cause in production.  You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. You can then debug the source code by downloading the snapshot and opening it in Visual Studio 2017.

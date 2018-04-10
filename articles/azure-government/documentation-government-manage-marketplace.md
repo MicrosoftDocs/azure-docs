@@ -39,6 +39,9 @@ If your subscription is under an Enterprise Agreement (EA), the Azure Government
 1. Toggle **Enabled/Disabled** as appropriate
 1. Click **Save**
 
+> [!NOTE]
+> It can take up to 24 hours for the change to take effect.  
+
 ## Deploy a Solution to your Subscription
 1. **Log in** to the [Azure Government portal](https://portal.azure.us).
 
