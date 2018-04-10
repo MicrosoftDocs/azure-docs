@@ -20,7 +20,7 @@ ms.author: sngun
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
-This article shows how to perform common scenarios using Azure Storage Table service or Azure Comsos DB in a Node.js application.
+This article shows how to perform common scenarios using Azure Storage Table service or Azure Cosmos DB in a Node.js application.
 
 ## Create an Azure service account
 
