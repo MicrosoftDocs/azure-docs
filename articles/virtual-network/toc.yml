@@ -164,6 +164,8 @@
         href: virtual-network-scenario-udr-gw-nva.md
       - name: DMZ between Azure and the Internet
         href: ../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+      - name: Create a DMZ with NSGs
+        href: virtual-networks-dmz-nsg.md
   - name: Configure
     items:
     - name: Virtual machines
@@ -171,7 +173,7 @@
       - name: Add or remove network interfaces
         href: virtual-network-network-interface-vm.md
       - name: Name resolution for VMs and cloud services
-      href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+        href: virtual-networks-name-resolution-for-vms-and-role-instances.md
     - name: Use dynamic DNS with your own DNS server
       href: virtual-networks-name-resolution-ddns.md
     - name: Optimize network throughput
@@ -252,10 +254,10 @@
         href: virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md
       - name: Manage
         items:
-      - name: Network configuration file
-        href: virtual-networks-using-network-configuration-file.md
-      - name: Migrate from an affinity group to a region
-        href: virtual-networks-migrate-to-regional-vnet.md
+        - name: Network configuration file
+          href: virtual-networks-using-network-configuration-file.md
+        - name: Migrate from an affinity group to a region
+          href: virtual-networks-migrate-to-regional-vnet.md
     - name: Network security groups
       items:
       - name: Azure PowerShell
@@ -297,8 +299,6 @@
       - name: Cloud service and network security
         href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
         items:
-        - name: Create a DMZ with NSGs
-          href: virtual-networks-dmz-nsg.md
         - name: Create a DMZ with NSGs
           href: virtual-networks-dmz-nsg-asm.md
         - name: Create a DMZ with firewall and NSGs
