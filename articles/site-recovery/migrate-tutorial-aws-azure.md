@@ -16,6 +16,7 @@ ms.custom: MVC
 This tutorial teaches you how to migrate Amazon Web Services (AWS) virtual machines (VMs), to Azure VMs using Site Recovery. When migrating EC2 instances to Azure, the VMs are treated as if they are physical, on-premises computers. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Verify prerequisites
 > * Prepare Azure resources
 > * Prepare the AWS EC2 instances for migration
 > * Deploy a configuration server
@@ -25,6 +26,25 @@ This tutorial teaches you how to migrate Amazon Web Services (AWS) virtual machi
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
+## Prerequisites
+- Ensure that the VMs you want to migrate are running a supported OS version which includes 
+    - 64-bit version of Windows Server 2008 R2 SP1 or later, 
+    - Windows Server 2012,
+    - Windows Server 2012 R2, 
+    - Windows Server 2016
+    - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) and  must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers **aren't** supported.
+
+- The Mobility service must be installed on each VM you want to replicate. 
+
+> [!IMPORTANT]
+> Site Recovery installs this service automatically when you enable replication for the VM. For automatic installation, you need to prepare an account on the EC2 instances that Site Recovery will use to access the VM. 
+You can use a domain or local account. 
+> - For Linux VMs, the account should be root on the source Linux server. 
+> - For Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine: 
+>  In the registry, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**,
+    add the DWORD entry **LocalAccountTokenFilterPolicy** and set the value to 1.
+
+- You need a separate EC2 instance that you can use as the Site Recovery configuration server. This instance must be running Windows Server 2012 R2.
 
 ## Prepare Azure resources
 
@@ -73,22 +93,6 @@ When the Azure VMs are created after the migration (failover), they're joined to
 8. Leave the defaults for **Subnet**, both the **Name** and **IP range**.
 9. Leave **Service Endpoints** disabled.
 10. When you are done, click **Create**.
-
-
-## Prepare the EC2 instances
-
-You need one or more VMs that you want to migrate. These EC2 instance should be running the 64-bit version of Windows Server 2008 R2 SP1 or later, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, or Red Hat Enterprise Linux 6.7 (HVM virtualized instances only). The server must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers aren't supported.
-
-The Mobility service must be installed on each VM you want to replicate. Site Recovery installs this service automatically when you enable replication for the VM. For automatic installation, you need to prepare an account on the EC2 instances that Site Recovery will use to access the VM.
-
-You can use a domain or local account. For Linux VMs, the account should be root on the source Linux
-server. For Windows VMs, if you're not using a domain account, disable Remote User Access control
-on the local machine:
-
-  - In the registry, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**,
-    add the DWORD entry **LocalAccountTokenFilterPolicy** and set the value to 1.
-
-You also need a separate EC2 instance that you can use as the Site Recovery configuration server. This instance must be running Windows Server 2012 R2.
 
 
 ## Prepare the infrastructure
