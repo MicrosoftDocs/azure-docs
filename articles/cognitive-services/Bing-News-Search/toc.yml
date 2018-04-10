@@ -6,6 +6,8 @@
       href: search-the-web.md
     - name: News Search endpoints
       href: endpoint-news.md
+    - name: Analytics for News Search API
+      href: bing-news-stats.md
 - name: API Quickstarts
   expanded: true
   items:
