@@ -57,7 +57,7 @@
   - name: 5 - Create Managed Instance
     href: sql-database-managed-instance-create-tutorial-portal.md
   - name: 6 - Restore a backup to a Managed Instance
-    href: sql-database-managed-instance-restore-from-backup-tutorial-portal.md
+    href: sql-database-managed-instance-restore-from-backup-tutorial.md
   - name: 7 - Migrate to a Managed Instance using DMS
     href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Samples
