@@ -97,7 +97,7 @@ Output:
 }
 ```
 
-You can now confirm the upgrade was successful with the `az aks show` command.
+Confirm that the upgrade was successful with the `az aks show` command.
 
 ```azurecli-interactive
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table
