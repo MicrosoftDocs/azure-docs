@@ -221,7 +221,7 @@ Not necessarily. In a sync group with a hub and three spokes (A, B, and C), the 
 
 ### How do I get schema changes into a sync group?
 
-You have to make all schema changes manually.
+You have to make and propagate all schema changes manually.
 1. Replicate the schema changes manually to all sync members.
 2. Update the sync schema.
 
