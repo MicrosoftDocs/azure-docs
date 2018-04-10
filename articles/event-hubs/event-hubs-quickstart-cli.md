@@ -19,19 +19,23 @@ ms.author: sethm
 
 ---
 
-# Process event streams using Azure CLI
+# Process event streams using Azure CLI and .NET Standard
 
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to send and receive events to and from an event hub, after using Azure CLI to create an Event Hubs namespace and an event hub within that namespace.
+In this quickstart, we'll show you how to (1) create an event hub using Azure CLI and (2) send to and receive from an event hub using our .NET Standard SDK.
 
-If you do not have an Azure subscription, create a [free account][] before you begin.
+## Prerequisites
+
+To complete this tutorial, make sure you have:
+
+1. An Azure subscription. If you don't have one, [create a free subscription][] before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use Azure CLI locally, this tutorial requires that you are running Azure CLI version 2.0.4 or later. Run `az --version` to check your version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Log on to Azure
 
-Once CLI is installed, perform the following steps to install the Event Hubs CLI extension, and to log on to Azure:
+Once Azure CLI is installed, perform the following steps to install the Event Hubs CLI extension and log on to Azure:
 
 1. Run the following command to log on to Azure:
 
