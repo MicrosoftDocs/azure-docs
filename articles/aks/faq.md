@@ -34,7 +34,7 @@ Additional regions are added as demand increases.
 Azure automatically applies security patches to the nodes in your cluster on a nightly schedule. However, you are responsible for ensuring that nodes are rebooted as required. You have several options for performing node reboots:
 
 - Manually, through the Azure portal or the Azure CLI.
-- By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image.  update the OS image on your nodes without changing Kubernetes versions by specifying the current cluster version in `az aks upgrade`.
+- By upgrading your AKS cluster. Cluster upgrades automatically [cordon and drain nodes](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), then bring them back up with the latest Ubuntu image. Update the OS image on your nodes without changing Kubernetes versions by specifying the current cluster version in `az aks upgrade`.
 - Using [Kured](https://github.com/weaveworks/kured), an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) and monitors each node for the presence of a file indicating that a reboot is required. It then orchestrates those reboots across the cluster, following the same cordon and drain process described earlier.
 
 ## Do you recommend customers use ACS or AKS?
@@ -43,7 +43,7 @@ While AKS remains in preview, we recommend creating production clusters using AC
 
 ## When will ACS be deprecated?
 
-ACS will be deprecated around the time AKS becomes GA. You will have 12 months after that date to migrate clusters to AKS. During the 12-month period,  run all ACS operations.
+ACS will be deprecated around the time AKS becomes GA. You will have 12 months after that date to migrate clusters to AKS. During the 12-month period, you can run all ACS operations.
 
 ## Does AKS support node autoscaling?
 
@@ -63,7 +63,7 @@ No, it is not but this integration is planned. In the meantime, try out the foll
 
 ## Can I run Windows Server containers on AKS?
 
-No, AKS does not currently provide Windows Server-based agent nodes, so not run Windows Server containers. If you need to run Windows Server containers on Kubernetes in Azure, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+No, AKS does not currently provide Windows Server-based agent nodes, so you cannot run Windows Server containers. If you need to run Windows Server containers on Kubernetes in Azure, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## Why are two resource groups created with AKS?
 

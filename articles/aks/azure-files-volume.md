@@ -91,7 +91,7 @@ Use kubectl to create a pod.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-You now have a running container with your Azure file share mounted in the `/mnt/azure` directory.  see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
+You now have a running container with your Azure file share mounted in the `/mnt/azure` directory.  You can see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
 
 ## Next steps
 
