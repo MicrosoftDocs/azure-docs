@@ -16,7 +16,7 @@ Dependencies can prevent you from deleting an Azure Site Recovery vault. The act
 
 
 
-## Delete a Site Recovery vault  
+## Delete a Site Recovery vault 
 To delete the vault, follow the recommended steps for your scenario.
 
 ### VMware VMs to Azure
@@ -53,7 +53,7 @@ To delete the vault, follow the recommended steps for your scenario.
 5. Delete the vault.
 
 
-## Use PowerShell to force delete the vault
+## Use PowerShell to force delete the vault 
 
 > [!Important]
 > If you're testing the product and aren't concerned about data loss, use the force delete method to rapidly remove the vault and all its dependencies.
