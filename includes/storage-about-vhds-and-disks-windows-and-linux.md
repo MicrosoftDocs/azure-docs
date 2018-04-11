@@ -1,3 +1,14 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: "include"
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: "include file"
+---
 
 ## About VHDs
 
@@ -14,6 +25,7 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 > [!WARNING]
 > If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
 > 
+> Page blobs in Premium Storage are designed for use as VHDs only. Microsoft does not recommend storing other types of data in page blobs in Premium Storage, as the cost may be significantly greater. Use block blobs for storing data that is not in a VHD.
 
 ## Types of disks 
 
