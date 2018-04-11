@@ -38,7 +38,7 @@ Before upgrading a cluster, use the `az aks get-upgrades` command to check which
 az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Here you can see that the current node version is `1.7.9` and the available upgrade versions under the upgrades column.
+In this example, the current node version is `1.7.9` and the available upgrade versions under the upgrades column.
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
@@ -112,7 +112,7 @@ Output:
 
 ## Validate upgrade
 
-You can now confirm the upgrade was successful with the `az aks show` command.
+Confirm that the upgrade was successful with the `az aks show` command.
 
 ```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table

@@ -354,7 +354,7 @@ Microsoft uses multiple security practices and technologies across its products 
 
 -	[Password policy enforcement](https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/) increases the security of traditional passwords by imposing length and complexity requirements, forced periodic rotation, and account lockout after failed authentication attempts.
 
--	[Token-based authentication](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) enables authentication via Active Directory Federation Services (AD FS) or third-party secure token systems.
+-	[Token-based authentication](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) enables authentication via Azure Active Directory.
 
 -	[Role-based access control (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) enables you to grant access based on the user’s assigned role, making it easy to give users only the amount of access they need to perform their job duties. You can customize RBAC per your organization’s business model and risk tolerance.
 
