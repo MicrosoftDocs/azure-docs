@@ -31,6 +31,7 @@
         - name: Access Azure Cosmos DB
           href: tutorial-windows-vm-access-cosmos-db.md
         - name: Access Azure Resource Manager with a user-assigned MSI
+          href: tutorial-windows-vm-ua-arm.md
       - name: Linux VM/VMSS
         items:
         - name: Access Azure Data Lake Store
