@@ -1,4 +1,4 @@
-﻿---
+---
   title: Security best practices for IaaS workloads in Azure | Microsoft Docs
   description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
   services: security
@@ -82,7 +82,7 @@ You can use [Privileged Identity Management](../active-directory/active-director
 
 Using Azure for labs and development environments enables organizations to gain agility in testing and development by taking away the delays that hardware procurement introduces. Unfortunately, a lack of familiarity with Azure or a desire to help expedite its adoption might lead the administrator to be overly permissive with rights assignment. This risk might unintentionally expose the organization to internal attacks. Some users might be granted a lot more access than they should have.
 
-The [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service uses [Azure Role-Based Access Control](../active-directory/role-based-access-control-what-is.md) (RBAC). By using RBAC, you can segregate duties within your team into roles that grant only the level of access necessary for users to do their jobs. RBAC comes with predefined roles (owner, lab user, and contributor). You can even use these roles to assign rights to external partners and greatly simplify collaboration.
+The [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service uses [Azure Role-Based Access Control](../role-based-access-control/overview.md) (RBAC). By using RBAC, you can segregate duties within your team into roles that grant only the level of access necessary for users to do their jobs. RBAC comes with predefined roles (owner, lab user, and contributor). You can even use these roles to assign rights to external partners and greatly simplify collaboration.
 
 Because DevTest Labs uses RBAC, it's possible to create additional, [custom roles](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs not only simplifies the management of permissions, it simplifies the process of getting environments provisioned. It also helps you deal with other typical challenges of teams that are working on development and test environments. It requires some preparation, but in the long term, it will make things easier for your team.
 
