@@ -6726,6 +6726,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-sql-database-managed-instance-tutorial-portal.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-create-tutorial-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-geo-replication-failover-powershell.md",
             "redirect_url": "/azure/sql-database/scripts/sql-database-setup-geodr-and-failover-database-powershell",
             "redirect_document_id": false
