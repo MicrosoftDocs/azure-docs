@@ -165,7 +165,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 
-In the response, you get back a `subscriptionOperation` object for monitoring. When the subscription creation is finished, the `subscriptionOperation` object would return a `subscriptionLink` object which has the subscription ID.
+In the response, you get back a `subscriptionOperation` object for monitoring. When the subscription creation is finished, the `subscriptionOperation` object would return a `subscriptionLink` object, which has the subscription ID.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -207,7 +207,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/account
 
 ## Delegate access to an enrollment account using RBAC
 
-To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner role at the scope of the enrollment account](../active-directory/role-based-access-control-manage-access-rest.md). The following example gives a user in the tenant with `principalId` of `5ac84765-1c8c-4994-94b2-629461bd191b` (for MobileOnboardingEng@contoso.com) a Owner role on the enrollment account. 
+To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner role at the scope of the enrollment account](../active-directory/role-based-access-control-manage-access-rest.md). The following example gives a user in the tenant with `principalId` of `5ac84765-1c8c-4994-94b2-629461bd191b` (for MobileOnboardingEng@contoso.com) an Owner role on the enrollment account. 
 
 # [REST](#tab/rest)
 
@@ -242,7 +242,7 @@ When the Owner role is successfully assigned at the enrollment account scope, Az
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell#grant-access) to give another user Owner access to your enrollment account.
+Use the [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md#grant-access) to give another user Owner access to your enrollment account.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId 5ac84765-1c8c-4994-94b2-629461bd191b -Scope /providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556
@@ -250,7 +250,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId 5ac84765-1c8c-4994
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli#assign-access) to give another user Owner access to your enrollment account.
+Use the [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md#assign-access) to give another user Owner access to your enrollment account.
 
 ```azurecli-interactive 
 az role assignment create --role Owner --assignee-object-id 5ac84765-1c8c-4994-94b2-629461bd191b --scope /providers/Microsoft.Billing/enrollmentAccounts/e1bf1c8c-5ac6-44a0-bdcd-aa7c1cf60556
