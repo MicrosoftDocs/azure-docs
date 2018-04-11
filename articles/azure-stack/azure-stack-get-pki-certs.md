@@ -20,36 +20,39 @@ ms.reviewer: ppacent
 
 # Azure Stack certificates signing request generation
 
-The Azure Stack Readiness Checker tool described in this article is available [from the PSGallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for Azure Stack Deployment. Certificates should be requested, generated, and validated with enough time to test before deployment. 
+The Azure Stack Readiness Checker tool described in this article is available [from the PSGallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for an Azure Stack deployment. Certificates should be requested, generated, and validated with enough time to test before deployment. 
 
-The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the following CSRs:
+The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the following certificate requests:
 
  - **Standard Certificate Requests**  
-    According to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md). 
+    Request according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md). 
  - **Request Type**  
-    Multiple wildcard SAN multiple domain certificate request. Single wildcard certificate requests.
- - **Platform as a Service**  
-    Optionally adds Platform as a Service names to certificates as specified [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
+    Request multiple wildcard SAN, multiple domain certificates, single wildcard certificate requests.
+ - **Platform-as-a-Service**  
+    Optionally request platform-as-a-service (PaaS) names to certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
 
 ## Prerequisites
 
 Your system should meet the following prerequisites before generating the CSR(s) for PKI certificates for Azure Stack deployment:
 
  - Microsoft Azure Stack Readiness Checker
- - Region Name, External FQDN and Subject for certificate attributes
+ - Certificate attributes:
+    - Region name
+    - External fully qualified domain name (FQDN)
+    - Subject
  - Windows 10 or Windows Server 2016
 
 ## Generate certificate signing request(s)
 
 Use these steps to prepare and validate the Azure Stack PKI certificates: 
 
-1.  Install AzsReadinessChecker run the following in Powershell 5.1 or above.
+1.  Install AzsReadinessChecker from a PowerShell prompt (5.1 or above), by running the following cmdlet:
 
     ````PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ````
 
-2.  Declare the subject as an ordered dictionary like in the following example:
+2.  Declare the **subject** as an ordered dictionary. For example: 
 
     ````PowerShell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
@@ -63,7 +66,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
     ````
 
-4. Declare Region Name and external FQDN intended for the Azure Stack Deployment.
+4. Declare **region name** and an **external FQDN** intended for the Azure Stack deployment.
 
     ```PowerShell  
     $regionName = 'east'
@@ -79,7 +82,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
     ````
 
-6. To generate individual certificate signing requests for each DNS Name without PaaS services:
+6. To generate individual certificate signing requests for each DNS name without PaaS services:
 
     ```PowerShell  
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
@@ -103,7 +106,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     AzsReadinessChecker Completed
     ````
 
-8.  Submit the **.REQ** file generated to your CA (can be internal or public).  The output directory of **Start-AzsReadinessChecker** contains the CSR(s) necessary to submit to a Certificate Authority.  It also contains a child directory containing the INF file(s) used during certificate request generation, as a reference. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
+8.  Submit the **.REQ** file generated to your CA (either internal or public).  The output directory of **Start-AzsReadinessChecker** contains the CSR(s) necessary to submit to a Certificate Authority.  It also contains a child directory containing the INF file(s) used during certificate request generation, as a reference. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
 
 ## Next steps
 [Prepare Azure Stack PKI certificates](azure-stack-prepare-pki-certs.md)

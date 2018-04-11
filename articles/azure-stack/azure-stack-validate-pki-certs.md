@@ -25,21 +25,21 @@ The Readiness Checker tool performs the following certificate validations:
 
 - **Read PFX**  
     Checks for valid PFX file, correct password, and warns if public information is not protected by the password. 
-- **Signature Algorithm**  
+- **Signature algorithm**  
     Checks that the signature algorithm is not SHA1.
 - **Private Key**  
     Checks that the private key is present and is exported with the local machine attribute. 
-- **Cert Chain**  
+- **Cert chain**  
     Checks certificate chain is intact including a check for self-signed certificates.
-- **DNS Names**  
+- **DNS names**  
     Checks the SAN contains relevant DNS names for each endpoint or if a supporting wildcard is present.
-- **Key Usage**  
+- **Key usage**  
     Checks if the key usage contains digital signature and key encipherment and enhanced key usage contains server authentication and client authentication.
-- **Key Size**  
+- **Key size**  
     Checks if the key size is 2048 or larger.
-- **Chain Order**  
-    Checks the order of the other certificates making the chain is correct.
-- **Other Certificates**  
+- **Chain order**  
+    Checks the order of the other certificates validating that the order is correct.
+- **Other certificates**  
     Ensure no other certificates have been packaged in PFX other than the relevant leaf certificate and its chain.
 
 > [!IMPORTANT]  
@@ -58,11 +58,14 @@ Your system should meet the following prerequisites before validating PKI certif
 
 Use these steps to prepare and to validate the Azure Stack PKI certificates:
 
-1. Install AzsReadinessChecker from a PowerShell prompt (5.1 or above), by run the following cmdlet: 
+1. Install AzsReadinessChecker from a PowerShell prompt (5.1 or above), by running the following cmdlet:
+
     ````PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker 
     ````
+
 2. Create the certificate directory structure. In the example below, you can change `<c:\certificates>` to a new directory path of your choice.
+
     ````PowerShell  
     New-Item C:\<Certificates> -ItemType Directory
 
@@ -72,17 +75,21 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates:
 
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
     ````
+
  - Place your certificate(s) in the appropriate directories created in the previous step. For example:  
-    - `c:\certificates\ACSBlob\CustomerCertificate.pfx,` 
+    - `c:\certificates\ACSBlob\CustomerCertificate.pfx` 
     - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx` 
     - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx` 
     - and so on… 
-3. In the PowerShell windows run:
+
+3. In the PowerShell window run:
+
     ````PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ````
+
 4. Review the output to verify that all the certificates passed the tests. For example:
 
 ````PowerShell
@@ -156,8 +163,8 @@ AzsReadinessChecker Completed
 
 Once your certificates have been validated by the AzsReadinessChecker, you are ready to use them in your Azure Stack deployment or for Azure Stack secret rotation. 
 
- - For Deployment, securely transfer your certificates to your deployment engineer so that they can copy them onto the deployment host as specified in the [Azure Stack PKI requirements documentation](azure-stack-pki-certs.md).
- - For Secret Rotation, you can use the certificates to update old certificates for your Azure Stack environment’s public infrastructure endpoints by following the [Azure Stack Secret Rotation documentation](azure-stack-rotate-secrets.md).
+ - For deployment, securely transfer your certificates to your deployment engineer so that they can copy them onto the deployment host as specified in the [Azure Stack PKI requirements documentation](azure-stack-pki-certs.md).
+ - For secret rotation, you can use the certificates to update old certificates for your Azure Stack environment’s public infrastructure endpoints by following the [Azure Stack Secret Rotation documentation](azure-stack-rotate-secrets.md).
 
 ## Next steps
 
