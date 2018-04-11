@@ -87,7 +87,7 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 
 
 
-## Next Steps
+## Next steps
 
 Learn more about using the [Redis Console](cache-configure.md#redis-console) to issue commands.
 

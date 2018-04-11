@@ -74,7 +74,7 @@ The [Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/) pa
 
 
 
-## Next Steps
+## Next steps
 
 * [ASP.NET Web App Quickstart](cache-web-app-howto.md)  
   Create a simple ASP.NET web app that uses an Azure Redis Cache.
