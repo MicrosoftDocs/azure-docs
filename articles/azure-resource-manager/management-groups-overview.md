@@ -31,7 +31,7 @@ The following diagram shows an example hierarchy that consists of management gro
 
 ![tree](media/management-groups/MG_overview.png)
 
-By creating a hierarchy that is grouped by departments, you are able to assign [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) roles that *inherit* to the departments under that management group. By using management groups, you can reduce your workload and reduces the risk of error by only having to assign the role once. 
+By creating a hierarchy that is grouped by departments, you are able to assign [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) roles that *inherit* to the departments under that management group. By using management groups, you can reduce your workload and reduces the risk of error by only having to assign the role once. 
 
 ### Important facts about management groups
 - 10,000 management groups can be supported in a single directory. 
@@ -54,7 +54,7 @@ This item is being worked on and will be resolved before Management Groups are a
 
 ## Root management group for each directory
 
-Each directory is given a single top-level management group called the "Root" management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This Root management group allows for global policies and RBAC assignments to be applied at the directory level. The [Directory Administrator needs to elevate themselves](../active-directory/role-based-access-control-tenant-admin-access.md) to be the owner of this root group initially. Once the administrator is the owner of the group, they can assign any RBAC role to other directory users or groups to manage the hierarchy.  
+Each directory is given a single top-level management group called the "Root" management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This Root management group allows for global policies and RBAC assignments to be applied at the directory level. The [Directory Administrator needs to elevate themselves](../role-based-access-control/elevate-access-global-admin.md) to be the owner of this root group initially. Once the administrator is the owner of the group, they can assign any RBAC role to other directory users or groups to manage the hierarchy.  
 
 ### Important facts about the Root management group
 - The root management group's name and ID are given the Azure Active Directory ID by default. The display name can be updated at any time to show different within the Azure portal. 
@@ -66,9 +66,9 @@ Each directory is given a single top-level management group called the "Root" ma
   
 ## Management Group Access
 
-Azure Management Groups supports [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy.   
+Azure Management Groups supports [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy.   
 
-While any [built-in RBAC role](../active-directory/role-based-access-control-what-is.md#built-in-roles) can be assigned to a management group, there are four roles that are commonly used: 
+While any [built-in RBAC role](../role-based-access-control/overview.md#built-in-roles) can be assigned to a management group, there are four roles that are commonly used: 
 - **Owner** has full access to all resources including the right to delegate access to others. 
 - **Contributor** can create and manage all types of Azure resources but can't grant access to others.
 - **Resource Policy Contributor** can create and manage policies in the directory on the resources.     

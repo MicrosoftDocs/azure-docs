@@ -172,9 +172,7 @@
     - name: BCP
       href: sql-data-warehouse-load-with-bcp.md
     - name: Data Factory
-      href: sql-data-warehouse-load-with-data-factory.md
-    - name: AzCopy
-      href: sql-data-warehouse-load-from-sql-server-with-polybase.md
+      href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
     - name: RedGate
       href: sql-data-warehouse-load-with-redgate.md
     - name: SSIS
