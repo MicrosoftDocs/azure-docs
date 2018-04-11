@@ -8,7 +8,7 @@
       href: endpoint-custom.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
-- name: API Quickstarts
+- name: Quickstarts
   items:
     - name: Create first instance
       href: quick-start.md
@@ -53,6 +53,6 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Subscription key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search
   - name: Try it!
     href: https://aka.ms/bingcustomsearchtryit

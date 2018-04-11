@@ -19,7 +19,7 @@ To use Bing Custom Search, you need to create a custom search instance that defi
 
 To create a Bing Custom Search instance:
 
-1.  Get a key for Custom Search API. See [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
+1.  Get a key for Custom Search API. See [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 2.	Sign in to the portal using a Microsoft account (MSA). Click the **Sign in** button. If it's your first time using the portal follow the additional steps below, otherwise continue to step 3.
     - If you don’t have an MSA, click **Create a Microsoft account**. The portal asks for permissions to access your data. Click **Yes**.
     - Agree to the Cognitive Services Terms. Check **I agree** and click **Agree**.  
