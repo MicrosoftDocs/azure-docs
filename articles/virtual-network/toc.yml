@@ -237,7 +237,7 @@
       href: create-ptr-for-smtp-service.md
   - name: Classic
     items:
-    - name: Virtual network
+    - name: Create and manage a virtual network
       items:
       - name: Create a virtual network
         href: create-virtual-network-classic.md
@@ -258,13 +258,13 @@
           href: virtual-networks-using-network-configuration-file.md
         - name: Migrate from an affinity group to a region
           href: virtual-networks-migrate-to-regional-vnet.md
-    - name: Network security groups
+    - name: Create a network security group
       items:
       - name: Azure PowerShell
         href: virtual-networks-create-nsg-classic-ps.md
       - name: Azure CLI 1.0
         href: virtual-networks-create-nsg-classic-cli.md
-    - name: Route tables
+    - name: Create a route table
       items:
       - name: Azure PowerShell
         href: virtual-network-create-udr-classic-ps.md
