@@ -67,7 +67,6 @@ Get-AzureRmResourceGroup -Debug
 Which returns many values, including the following response value:
 
 ```powershell
-...
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -76,7 +75,6 @@ OK
 Headers:
 Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-reads: 14999
-...
 ```
 
 To get write limits, use a write operation: 
@@ -107,7 +105,6 @@ az group list --verbose --debug
 Which returns many values, including the following values:
 
 ```azurecli
-...
 msrest.http_logger : Response status: 200
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
